@@ -269,7 +269,7 @@ All PTSD-related construction discussions are handled with complete confidential
 [SHIELD] **VETERAN-OWNED CONSTRUCTION EXCELLENCE**
 
 **Service Member Advantages:**
-• **12% Veteran Discount** - Automatic service appreciation
+• **Combat Veteran Discount at the Ready** - Automatic service appreciation
 • **Priority Scheduling** - Fast-track project timeline
 • **Veteran Team Members** - Military precision and understanding
 • **VA Benefit Coordination** - Expert financing assistance

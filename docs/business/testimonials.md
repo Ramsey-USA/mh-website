@@ -1,9 +1,16 @@
-# Client Testimonials
+# Client Testimonials - Service-Earned Trust
+
+**Last Updated:** December 14, 2025  
+**Status:** Under Development  
+**Methodology:** Military/Construction Excellence
 
 ## Featured Testimonials
 
-Our client testimonials showcase the quality, transparency, and relationship-focused approach that defines
-MH Construction. These real experiences validate our core values and commitment to every project.
+Our client testimonials showcase the quality, SITREP-level transparency, and relationship-focused approach
+that defines MH Construction's veteran-owned operations. These real experiences validate our service-earned
+core values and commitment to every construction mission.
+
+**Core Philosophy:** THE ROI IS THE RELATIONSHIP
 
 ---
 
@@ -74,6 +81,10 @@ We value every client relationship and would love to hear about your experience 
 - Email: <info@mhconstruction.com>
 - Phone: (509) 555-0100
 - Website: <www.mhconstruction.com/contact>
+
+---
+
+**Last Updated:** December 14, 2025 | MH Construction, Inc. | Veteran-Owned
 
 ---
 

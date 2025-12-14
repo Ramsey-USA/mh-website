@@ -43,10 +43,11 @@ export function SafetySection() {
             <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
               Safety is never compromised at MH Construction. Our award-winning
               comprehensive safety programs and regulatory compliance ensure
-              every project meets the highest standards. With multiple AGC-WA
-              Top EMR Awards and a .64 EMR (40% better than industry average),
-              we demonstrate unwavering commitment to zero-incident workplace
-              culture.
+              every construction operation meets the highest standards. With
+              multiple AGC-WA Top EMR Awards and a .64 EMR (40% better than
+              industry average), we demonstrate unwavering commitment to
+              zero-incident mission culture with military-grade safety
+              discipline.
             </p>
           </div>
         </FadeInWhenVisible>
@@ -63,7 +64,7 @@ export function SafetySection() {
                   className="text-brand-primary"
                 />
                 <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                  Safety First Culture
+                  Mission-First Safety Culture
                 </CardTitle>
               </div>
             </CardHeader>

@@ -41,13 +41,13 @@ export const faqDatabase: FAQItem[] = [
   {
     keywords: ["cost", "price", "pricing", "expensive", "charge", "rates"],
     question: "How much do projects cost?",
-    answer: `**[PRICING INFORMATION]** 💰\n\n**Project pricing varies based on:**\n• Scope and complexity\n• Materials and specifications\n• Timeline requirements\n• Location and site conditions\n\n**GET YOUR ESTIMATE:**\n\n**Expert Consultation (Free):**\n• Comprehensive on-site assessment\n• Detailed open-book pricing\n• Timeline and budget planning\n• **[Contact Us →](/contact)**\n\n**VETERAN DISCOUNT:** 12% for combat veterans!\n\n**Transparent Pricing Promise:**\n"Building projects for the client, NOT the dollar" - No hidden fees, open-book pricing`,
+    answer: `**[PRICING INFORMATION]** 💰\n\n**Project pricing varies based on:**\n• Scope and complexity\n• Materials and specifications\n• Timeline requirements\n• Location and site conditions\n\n**GET YOUR ESTIMATE:**\n\n**Expert Consultation (Free):**\n• Comprehensive on-site assessment\n• Detailed open-book pricing\n• Timeline and budget planning\n• **[Contact Us →](/contact)**\n\n**VETERAN DISCOUNT:** Combat Veteran Discount at the Ready!\n\n**Transparent Pricing Promise:**\n"Building projects for the client, NOT the dollar" - No hidden fees, open-book pricing`,
     category: "pricing",
   },
   {
     keywords: ["estimate", "quote", "assessment", "evaluation"],
     question: "How do I get an estimate?",
-    answer: `**[ESTIMATE OPTIONS]** 🎯\n\n**Free Expert Consultation:**\n• Comprehensive on-site assessment\n• Detailed open-book pricing\n• Timeline and planning discussion\n• Personalized recommendations\n• **[Contact Us to Schedule →](/contact)**\n\n**What We'll Cover:**\n• Project scope and goals\n• Budget planning and options\n• Timeline expectations\n• Material selections\n• Veteran benefits (12% discount)\n\n**VETERAN PRIORITY:** Expedited processing + 12% discount!`,
+    answer: `**[ESTIMATE OPTIONS]** 🎯\n\n**Free Expert Consultation:**\n• Comprehensive on-site assessment\n• Detailed open-book pricing\n• Timeline and planning discussion\n• Personalized recommendations\n• **[Contact Us to Schedule →](/contact)**\n\n**What We'll Cover:**\n• Project scope and goals\n• Budget planning and options\n• Timeline expectations\n• Material selections\n• Veteran benefits (discount at the ready)\n\n**VETERAN PRIORITY:** Expedited processing + discount at the ready!`,
     category: "pricing",
   },
   {

@@ -1,10 +1,21 @@
 # MH Construction Component Standards
 
-**Version:** 4.0.2  
-**Last Updated:** December 2024  
+**Version:** 4.1.0  
+**Last Updated:** December 14, 2025  
 **Status:** ✅ Active Standard
 
 > **Purpose:** Unified component design system ensuring visual consistency across all website elements using our brand guidelines.
+
+---
+
+## 📋 **Recent Updates**
+
+### **Version 4.1.0 (December 14, 2025)**
+
+- Added enhanced layered icon design standard
+- Documented two-layer icon pattern with blur glow
+- Specified color variations for bronze, green, and tan accents
+- Provided usage guidelines for section headers vs. cards
 
 ---
 
@@ -326,6 +337,232 @@ className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
 ---
 
 ## 🎯 **Section Component Standards**
+
+### **Enhanced Icon Standard (v4.1.0 - December 2024)**
+
+**NEW STANDARD:** All section header icons should use this enhanced layered design for visual consistency and professional appearance.
+
+#### **Header Icon Pattern**
+
+```tsx
+{
+  /* Enhanced Section Icon with Layered Design */
+}
+<div className="relative">
+  {/* Blur glow layer behind icon */}
+  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 dark:from-brand-primary/30 dark:to-brand-secondary/30 blur-2xl rounded-full"></div>
+
+  {/* Icon container with gradient background */}
+  <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary dark:from-brand-primary-dark dark:via-brand-primary dark:to-bronze-700 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50">
+    <MaterialIcon
+      icon="verified"
+      size="2xl"
+      className="text-white drop-shadow-lg"
+    />
+  </div>
+</div>;
+```
+
+#### **Card Icon Pattern (Smaller)**
+
+```tsx
+{
+  /* Enhanced Card Icon with Layered Design */
+}
+<div className="relative">
+  {/* Blur glow layer behind icon */}
+  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary to-brand-primary-dark opacity-30 blur-lg rounded-2xl"></div>
+
+  {/* Icon container */}
+  <div className="relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 transition-all duration-300">
+    <MaterialIcon
+      icon="emoji_events"
+      size="xl"
+      className="text-white drop-shadow-lg"
+    />
+  </div>
+</div>;
+```
+
+#### **Key Features**
+
+- **Two-layer design:** Blur glow behind + solid icon container
+- **Gradient backgrounds:** Uses brand colors (primary, secondary, bronze)
+- **Border definition:** `border-2 border-white/50 dark:border-gray-700/50`
+- **Enhanced shadows:** `shadow-2xl` for depth
+- **Drop shadow on icon:** `drop-shadow-lg` on the icon itself
+- **Rounded corners:** `rounded-2xl` for modern appearance
+- **Responsive sizing:** Header icons larger (`p-5 size="2xl"`), card icons smaller (`w-16 h-16 size="xl"`)
+
+#### **Color Variations**
+
+**Bronze Accent:**
+
+```tsx
+bg-gradient-to-br from-bronze-600 to-bronze-700
+blur layer: from-bronze-600 to-bronze-700 opacity-30
+```
+
+**Green Accent:**
+
+```tsx
+bg-gradient-to-br from-brand-primary to-brand-primary-dark
+blur layer: from-brand-primary to-brand-primary-dark opacity-30
+```
+
+**Tan Accent:**
+
+```tsx
+bg-gradient-to-br from-brand-secondary to-brand-secondary-dark
+blur layer: from-brand-secondary to-brand-secondary-dark opacity-30
+```
+
+#### **Usage Guidelines**
+
+- **Section Headers:** Use larger icon with decorative lines
+- **Cards:** Use smaller icon without decorative lines
+- **Always include:** Both blur layer and icon container
+- **Hover effects:** Add `group-hover:scale-110 transition-all duration-300` for cards
+- **Dark mode:** Adjust blur opacity for visibility
+
+---
+
+### **Enhanced Section Header Standard (v4.1.0 - December 2024)**
+
+**Complete header pattern with enhanced visual hierarchy and brand color integration.**
+
+#### **Full Header Implementation**
+
+```tsx
+<div className="mb-16 sm:mb-20 lg:mb-24 text-center">
+  {/* Icon with decorative lines */}
+  <div className="flex items-center justify-center mb-8 gap-4">
+    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-brand-primary rounded-full"></div>
+    <div className="relative">
+      <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 dark:from-brand-primary/30 dark:to-brand-secondary/30 blur-2xl rounded-full"></div>
+      <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary dark:from-brand-primary-dark dark:via-brand-primary dark:to-bronze-700 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50">
+        <MaterialIcon
+          icon="verified"
+          size="2xl"
+          className="text-white drop-shadow-lg"
+        />
+      </div>
+    </div>
+    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-brand-secondary rounded-full"></div>
+  </div>
+
+  {/* Heading with gradient text */}
+  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+    <span className="block mb-3 sm:mb-4 font-semibold bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+      Section Context
+    </span>
+    <span className="block bg-gradient-to-r from-brand-primary via-bronze-600 to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-lg">
+      Main Title
+    </span>
+  </h2>
+
+  {/* Description with colored inline spans */}
+  <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+    Description text with{" "}
+    <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+      green highlighted terms
+    </span>
+    ,{" "}
+    <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
+      tan highlighted terms
+    </span>
+    , and{" "}
+    <span className="font-bold text-bronze-600 dark:text-bronze-400">
+      bronze highlighted terms
+    </span>{" "}
+    for emphasis.
+  </p>
+
+  {/* Optional: Callout box for taglines/quotes */}
+  <div className="mt-10 sm:mt-12 inline-block">
+    <div className="relative group">
+      <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary via-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-75 group-hover:opacity-100 transition duration-500"></div>
+      <div className="relative bg-white dark:bg-gray-800 px-8 py-6 rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 shadow-xl">
+        <p className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
+          "Your tagline or quote with{" "}
+          <span className="font-black italic text-bronze-700 dark:text-bronze-400 text-xl sm:text-2xl md:text-3xl">
+            EMPHASIS
+          </span>{" "}
+          text"
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+#### **Typography Specifications**
+
+**Main Heading:**
+
+- Font weight: `font-black` (900)
+- Responsive sizes: `text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl`
+- Line height: `leading-tight`
+- Tracking: `tracking-tighter`
+
+**Context Line (Subtitle):**
+
+- Font weight: `font-semibold` (600)
+- Responsive sizes: `text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl`
+- Tracking: `tracking-tight`
+- Gradient text: `bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent`
+
+**Main Title Line:**
+
+- Font weight: `font-black` (900)
+- Gradient: `bg-gradient-to-r from-brand-primary via-bronze-600 to-brand-secondary bg-clip-text text-transparent`
+- Drop shadow: `drop-shadow-lg`
+
+**Description:**
+
+- Font weight: `font-light` (300)
+- Max width: `max-w-5xl`
+- Responsive sizes: `text-base sm:text-lg md:text-xl lg:text-2xl`
+- Line height: `leading-relaxed`
+- Tracking: `tracking-wide`
+
+#### **Color Specifications**
+
+**Gradient Text Colors:**
+
+- Three-color gradient: `from-brand-primary via-brand-secondary to-brand-primary`
+- Alternative: `from-brand-primary via-bronze-600 to-brand-secondary`
+
+**Inline Highlight Colors:**
+
+- Green: `text-brand-primary dark:text-brand-primary-light`
+- Tan: `text-brand-secondary dark:text-brand-secondary-light`
+- Bronze: `text-bronze-600 dark:text-bronze-400`
+
+**Callout Box:**
+
+- Background: `bg-white dark:bg-gray-800`
+- Border: `border-2 border-brand-primary/20 dark:border-brand-primary/30`
+- Glow: `bg-gradient-to-r from-brand-primary via-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-75`
+
+#### **Spacing Standards**
+
+- Header margin bottom: `mb-16 sm:mb-20 lg:mb-24`
+- Icon to heading: `mb-8`
+- Heading to description: `mb-6 sm:mb-8`
+- Description to callout: `mt-10 sm:mt-12`
+- Inline span spacing: Use `{" "}` for proper word spacing around spans
+
+#### **Usage Guidelines**
+
+- **Always include:** Icon with decorative lines, gradient headings, and description
+- **Optional:** Callout box for important taglines or quotes
+- **Gradient text:** Must be used on both context and main title lines
+- **Inline highlights:** Use all three brand colors for visual variety
+- **Responsive:** All text sizes must scale across breakpoints
+- **Dark mode:** Ensure all colors have dark mode variants
+
+---
 
 ### **Hero Section Structure (For Photo/Video Backgrounds)**
 

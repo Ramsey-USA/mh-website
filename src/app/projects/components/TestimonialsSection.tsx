@@ -5,7 +5,8 @@
 
 import { Card, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { Section, SectionHeader } from "@/components/ui/layout";
+import { Section } from "@/components/ui/layout";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { getCardClassName } from "@/lib/styles/card-variants";
 import type { ProjectPortfolio } from "@/lib/types";
 
@@ -26,12 +27,10 @@ export function TestimonialsSection({ projects }: TestimonialsSectionProps) {
     <Section variant="default" padding="large">
       <div className="mx-auto max-w-4xl">
         <SectionHeader
+          icon="forum"
+          iconVariant="secondary"
           subtitle="Partnership"
-          title={
-            <span className="block text-brand-primary dark:text-brand-primary font-black">
-              Testimonials
-            </span>
-          }
+          title="Testimonials"
           description="Hear how we work WITH our Client Partners, not just for them"
         />
 

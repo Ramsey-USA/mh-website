@@ -1,12 +1,14 @@
-# Development Documentation Index
+# Development Documentation Index - Mission Planning
 
 **Category:** Development Processes & Guidelines  
-**Last Updated:** November 13, 2025  
-**Status:** ✅ Active - Enhanced with Breadcrumb Navigation
+**Last Updated:** December 14, 2025  
+**Status:** ✅ Active - Reorganized Structure
+**Strategic Focus:** Building award-winning website to attract professional veterans
 
 ## 🧭 Quick Navigation
 
 - **[📚 Master Index](../master-index.md)** - All documentation
+- **[🎖️ START HERE](../START-HERE.md)** - Quick start by role
 - **[🎨 Branding](../branding/branding-index.md)** - Brand guidelines
 - **[🔧 Technical](../technical/technical-index.md)** - Technical documentation
 - **[📋 Business](../business/business-index.md)** - Business information
@@ -15,19 +17,49 @@
 
 ## 🚀 **START HERE for Developers**
 
-### 📋 Prerequisites: What to Read First
+### 📋 Developer Onboarding Path
 
-**Before diving into development, understand the brand foundation:**
+**Complete onboarding journey:**
 
-#### Phase 1: Brand Foundation (30-45 min)
+1. **[Developer Workflow Pathway](./developer-workflow-pathway.md)** ⭐ **CRITICAL** (60 min) -
+   Complete step-by-step guide through all documentation
 
-1. **[Brand Overview](../branding/strategy/brand-overview.md)** (10 min) -
-   Company identity, values, and partnership philosophy
-2. **[Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md)** ⭐ **CRITICAL** (15 min) -
-   7 page groups with unique voices (MUST READ)
-3. **[Universal Terminology Guide](../branding/strategy/universal-terminology-guide.md)** ⭐ **ESSENTIAL** (10 min) -
-   Company-wide language standards
-4. **[Color System](../branding/standards/color-system.md)** (5 min) - Brand colors
+### 📁 Development Documentation Structure
+
+#### 🚀 **[Getting Started](./getting-started/)** - Environment Setup
+
+- **[VS Code Setup](./getting-started/vscode-setup.md)** - Editor configuration
+- **[VS Code Extensions Guide](./getting-started/vscode-extensions-guide.md)** - Recommended extensions
+- **[Firebase Setup](./getting-started/firebase-setup.md)** - Backend configuration
+
+#### 📖 **[Standards](./standards/)** - Code Quality & Guidelines
+
+- **[Development Standards](./standards/development-standards.md)** ⭐ **MANDATORY** - Coding standards
+- **[AI Development Guidelines](./standards/ai-development-guidelines.md)** - AI assistant guidelines
+- **[Consistency Guide](./standards/consistency-guide.md)** - Implementation patterns
+- **[Cohesion Checklist](./standards/cohesion-checklist.md)** - Page creation checklist
+- **[Guidelines Index](./standards/guidelines-index.md)** - Additional guidelines
+
+#### 📝 **[Documentation](./documentation/)** - Writing Standards
+
+- **[Documentation Style Guide](./documentation/documentation-style-guide.md)** - Writing standards
+- **[Documentation Naming Standards](./documentation/documentation-naming-standards.md)** - File naming
+- **[Documentation Maintenance Guide](./documentation/documentation-maintenance-guide.md)** - Maintenance procedures
+- **[Markdown Template](./documentation/markdown-template.md)** - Standard template
+- **[Templates Index](./documentation/templates-index.md)** - Documentation templates
+
+#### 🤖 **[Chatbot](./chatbot/)** - AI Assistant System
+
+- **[Chatbot Integration](./chatbot/chatbot-integration.md)** - FAQ system integration
+- **[Chatbot Enhancement Guide](./chatbot/chatbot-enhancement-guide.md)** - Optimization strategies
+- **[Chatbot First Strategy](./chatbot/chatbot-first-strategy.md)** - User engagement approach
+
+#### 🧪 **[Testing](./testing/)** - Quality Assurance
+
+- **[Responsive Design Fixes 2025](./testing/responsive-design-fixes-2025.md)** - Mobile optimization
+- **[Responsive Visual Testing Guide](./testing/responsive-visual-testing-guide.md)** - Visual testing
+- **[Troubleshooting](./testing/troubleshooting.md)** - Common issues & fixes
+
 5. **[Typography Standards](../branding/standards/typography.md)** (10 min) - Typography system
 
 #### Phase 2: Implementation (45-60 min)
@@ -78,7 +110,7 @@ Page Development (create pages)
 5. **[Cohesion Checklist](./cohesion-checklist.md)** - Ensure consistency when creating/editing pages
 6. **[Style Utilities Guide](./style-utilities-guide.md)** - ⭐ **MANDATORY** - Centralized
    style utilities
-7. **[Quick Reference](./style-utilities-quick-reference.md)** - Daily cheat sheet for common patterns
+7. **[Style Utilities Guide](./style-utilities-guide.md)** - Daily guide with cheat sheet for common patterns
 8. **[Development Standards](./development-standards.md)** - Core coding standards
 
 ### 🤖 Automated System Architecture (Nov 10, 2025)
@@ -138,30 +170,52 @@ Quick reference guides, troubleshooting documentation, and developer resources.
 - **[vscode-setup.md](./vscode-setup.md)** - ⭐ **NEW (Nov 2025)** - Complete VS Code
   setup with 24+ extensions, custom snippets, and configuration
 - **[vscode-extensions-guide.md](./vscode-extensions-guide.md)** - Detailed extension explanations and usage
-- **[deployment-setup.md](../deployment/cloudflare-pages-setup.md)** - Cloudflare Pages deployment guide
+- **[firebase-setup.md](./firebase-setup.md)** - Firebase setup stub (placeholder for future implementation)
 
-### Development Guidelines
+### Core Development Guidelines
+
+- **[development-standards.md](./development-standards.md)** - **⭐ MANDATORY** - Core coding standards,
+  import conventions, and technical requirements (enforced by ESLint/CI-CD)
+- **[ai-development-guidelines.md](./ai-development-guidelines.md)** - **⭐ MANDATORY** - Guidelines for
+  AI assistants to prevent inconsistencies and common bugs
+- **[consistency-guide.md](./consistency-guide.md)** - **⭐ PRIMARY REFERENCE** - Complete
+  consistency standards for pages, sections, components, typography, colors, and mobile
+- **[cohesion-checklist.md](./cohesion-checklist.md)** - **⭐ NEW (Nov 2025)** - Comprehensive
+  checklist to ensure consistency across all pages when creating or editing content
+- **[terminology-guide.md](./terminology-guide.md)** - Critical terminology distinctions
+  (Client vs Trade Partnerships, Team vs Trade Partners)
+
+### Page Development
 
 - **[new-page-development-guide.md](./new-page-development-guide.md)** - **⭐ NEW (Nov 11, 2025)** -
   Complete standardized workflow for creating new pages with navigation, breadcrumbs, and SEO
-- **[consistency-guide.md](./consistency-guide.md)** - **⭐ PRIMARY REFERENCE** - Complete
-  consistency standards for pages, sections, components, typography, colors, and mobile
+- **[developer-workflow-pathway.md](./developer-workflow-pathway.md)** - **⭐ NEW (Nov 18, 2025)** -
+  Complete guided journey through all documentation for developers
+- **[current-state-2025-11.md](./current-state-2025-11.md)** - **⭐ NEW (Nov 13, 2025)** -
+  Complete baseline for future development with metrics and status
+
+### Visual & Style Standards
+
 - **[section-visual-standards.md](./guidelines/section-visual-standards.md)** - **⭐ NEW (Nov 17, 2025)** -
   Complete section styling guide with icon headers, cards, CTAs (based on homepage/about)
-- **[cohesion-checklist.md](./cohesion-checklist.md)** - **⭐ NEW (Nov 2025)** - Comprehensive
-  checklist to ensure consistency across all pages when creating or editing content
 - **[style-utilities-guide.md](./style-utilities-guide.md)** - **⭐ NEW (Nov 2025)** - Centralized
   style utilities for cards, grids, and sections (mandatory for all new development)
-- **[style-utilities-quick-reference.md](./style-utilities-quick-reference.md)** - **⚡ Daily cheat sheet**
+- **[style-utilities-guide.md](./style-utilities-guide.md)** - **⚡ Daily guide with cheat sheet**
   - Copy-paste ready examples for common patterns
+
+### Chatbot System
+
 - **[chatbot-first-strategy.md](./chatbot-first-strategy.md)** - **🤖 NEW (Nov 2025)** - Chatbot-first
   user engagement strategy and implementation guide
-- **[chatbot-enhancement-guide.md](./chatbot-enhancement-guide.md)** - **🤖 NEW (Nov 12, 2024)** -
+- **[chatbot-enhancement-guide.md](./chatbot-enhancement-guide.md)** - **🤖 NEW (Nov 12, 2025)** -
   Comprehensive chatbot improvement roadmap with 10 enhancement strategies (Phases 1-3 complete)
-- **[chatbot-integration.md](./chatbot-integration.md)** - **🤖 NEW (Nov 12, 2024)** -
+- **[chatbot-integration.md](./chatbot-integration.md)** - **🤖 NEW (Nov 12, 2025)** -
   Complete chatbot system with query handlers, knowledge base, and analytics
-- **[chatbot-enhancement-guide.md](./chatbot-enhancement-guide.md)** - **🤖 NEW (Nov 12, 2024)** -
-  Comprehensive chatbot improvement roadmap with enhancement strategies
+
+### Troubleshooting & Support
+
+- **[troubleshooting.md](./troubleshooting.md)** - **🔧 ESSENTIAL** - Quick fixes for common issues,
+  scroll container problems, icon sizing, and build errors
 
 ### Scripts & Automation
 
@@ -177,6 +231,20 @@ Quick reference guides, troubleshooting documentation, and developer resources.
 
 - **[documentation-style-guide.md](./documentation-style-guide.md)** - Documentation formatting standards
 - **[documentation-maintenance-guide.md](./documentation-maintenance-guide.md)** - Documentation maintenance procedures
+- **[documentation-naming-standards.md](./documentation-naming-standards.md)** - File naming conventions
+- **[file-management.md](./file-management.md)** - Large file management strategies
+
+### Responsive Design & Testing
+
+- **[responsive-design-fixes-2025.md](./responsive-design-fixes-2025.md)** - **⭐ NEW (Nov 2025)** -
+  Comprehensive responsive design fixes and card optimization
+- **[responsive-visual-testing-guide.md](./responsive-visual-testing-guide.md)** - Visual testing checklist
+  for responsive design verification
+
+### Page Management
+
+- **[reactivating-pages-guide.md](./reactivating-pages-guide.md)** - **⭐ NEW (Nov 2025)** -
+  Instructions for removing "under construction" wrappers and restoring full page functionality
 
 ## 🎯 Purpose & Scope
 
@@ -215,37 +283,21 @@ MH Construction platform.
 
 ## 🔄 Last Updated
 
-**Date:** November 8, 2025  
+**Date:** December 14, 2025  
 **Changes:**
 
-- Enhanced Quick Navigation section with Business link
-- Added START HERE for Developers onboarding path
-- Added style-utilities-quick-reference.md to Development Guidelines
-- Updated Related Documentation with essential cross-references
-- Updated date and changelog
+- Added missing documentation files to index (responsive-design-fixes, documentation-naming-standards, file-management, reactivating-pages-guide)
+- Fixed duplicate chatbot-enhancement-guide reference
+- Standardized metadata headers across all development files
+- Updated date references from 2024 to 2025
+- Added Quick Navigation sections to files missing them
+- Enhanced cohesion and consistency across all development documentation
 
-**Updated By:** Documentation cohesion enhancement initiative  
+**Updated By:** Documentation cohesion review  
 **Next Review:** With development process updates
 
 ---
 
 _This directory supports efficient and consistent development practices._
 
-### � Development Resources
-
-This hub contains all development-related documentation including setup guides,
-configuration instructions, and development workflow documentation. All files are
-current and actively maintained.
-
----
-
-## 📋 Quick Start for Developers
-
-1. Start with **[Cloudflare Pages Setup](../deployment/cloudflare-pages-setup.md)** for deployment configuration
-2. Install recommended extensions from **[VS Code Extensions Guide](./vscode-extensions-guide.md)**
-3. Follow **[File Management](./file-management.md)** for project organization
-
----
-
-**Last Updated:** November 6, 2025
 **Maintained by:** MH Construction Development Team

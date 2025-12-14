@@ -1,101 +1,128 @@
-# MH Construction Core Values
+# MH Construction Core Values - Service-Earned Foundation
 
-## 4-Value Professional Foundation System
+**Last Updated:** December 14, 2025  
+**Status:** Official Company Values  
+**Methodology:** Military/Construction Terminology Integration
+
+## 4-Value Service-Earned Foundation System
 
 **Trust-Centered Philosophy**: "Trust as our ultimate goal and measurable company foundation"
 
 **Core Message**: "THE ROI IS THE RELATIONSHIP"
 
+**Veteran-Owned Values**: All-branch military service (Army, Navy, Air Force, Marines, Coast Guard, Space Force)
+taught us these principles. We apply them to every construction mission.
+
 ---
 
-## Our Professional Foundation
+## Our Service-Earned Professional Foundation
 
-MH Construction operates on a comprehensive 4-principle system that defines who we are and how we work.
-Each value builds toward our ultimate goal: **Trust** - the culmination of all other values working together.
+MH Construction operates on a comprehensive 4-principle system rooted in military service values that
+defines who we are and how we work. Each value builds toward our ultimate goal: **Trust** - the
+culmination of all other values working together.
+
+**Strategic Focus:** These service-earned values attract professional veterans and clients who value
+military precision applied to construction excellence.
 
 ---
 
 ## 💬 1. Honesty
 
-### Transparent Communication Always
+### SITREP-Level Transparency Always
+
+**Military Connection:** Like military situation reports (SITREPs), we deliver honest, complete, tactical
+communication on every construction mission.
 
 ### What This Means
 
 - **Truthful Assessments**: Realistic timelines, accurate cost estimates, and candid evaluations
-- **Open Communication**: No hidden costs, surprise changes, or unclear expectations
-- **Transparent Pricing**: Detailed breakdowns showing exactly where your money goes
-- **Honest Recommendations**: Advising what's best for you, not what's most profitable for us
+- **SITREP-Level Communication**: No hidden costs, surprise changes, or unclear expectations - just clear tactical updates
+- **Transparent Pricing**: Detailed mission briefs showing exactly where your investment goes
+- **Honest Recommendations**: Advising what's best for your mission, not what's most profitable for us
+- **Mission-First Honesty**: Service-earned integrity in every communication
 
 ### Honesty in Practice
 
-- Upfront discussion of project challenges and potential issues
-- Immediate notification of any timeline or budget changes
-- Honest assessment when a project isn't the right fit
-- Clear explanation of all costs before work begins
-- Telling you what you need to know, not just what you want to hear
+- Upfront mission brief discussion of project challenges and potential issues
+- Immediate SITREP notification of any timeline or budget changes
+- Honest assessment when a construction mission isn't the right fit
+- Clear explanation of all costs before mission execution begins
+- Telling you what you need to know with military-grade transparency, not just what you want to hear
 
 ---
 
 ## ⚖️ 2. Integrity
 
-### Doing What's Right, Every Time
+### Mission-First Ethics, Every Time
+
+**Military Connection:** Service taught us mission-first decision making. Your construction mission success
+comes before our profit.
 
 ### What This Means
 
-- **Ethical Decisions**: Choosing the right path even when it costs more
-- **Promise Keeping**: When we commit to something, we deliver
-- **Moral Leadership**: Setting the standard for construction industry ethics
-- **Accountability**: Taking responsibility for our work and our words
+- **Ethical Decisions**: Choosing the right path even when it costs more - mission success over shortcuts
+- **Promise Keeping**: When we commit to a construction mission, we deliver - military-grade reliability
+- **Moral Leadership**: Setting the standard for construction industry ethics through service-earned values
+- **Accountability**: Taking responsibility for our work and our words - veteran-owned integrity
+- **Mission Completion**: Following through on commitments even when circumstances change
 
 ### Integrity in Practice
 
 - Using specified materials and methods without unauthorized substitutions
-- Standing behind our work with comprehensive warranties
-- Making decisions that benefit the client, not just our bottom line
-- Following through on commitments even when circumstances change
-- Never cutting corners, even when no one is watching
+- Standing behind our work with comprehensive warranties - battle-tested quality
+- Making decisions that benefit the client mission, not just our bottom line
+- Following through on commitments with deployment-level discipline
+- Never cutting corners, even when no one is watching - service-earned standards
 
 ---
 
 ## 💼 3. Professionalism
 
-### Excellence in Every Interaction
+### Military Bearing in Construction Business
+
+**Military Connection:** All-branch service (Army, Navy, Air Force, Marines, Coast Guard, Space Force)
+taught us discipline, respect, and professional excellence. We bring that same standard to construction.
 
 ### What This Means
 
-- **Expert Knowledge**: Deep understanding of construction methods, codes, and best practices
-- **Professional Conduct**: Respectful communication, timely responses, and courteous behavior
-- **Industry Standards**: Maintaining proper licensing, insurance, and certifications
-- **Business Excellence**: Organized processes, clear documentation, and efficient operations
+- **Expert Knowledge**: Deep understanding of construction methods, codes, and best practices with tactical precision
+- **Professional Conduct**: Respectful communication, timely responses, and courteous behavior - military bearing
+- **Industry Standards**: Maintaining proper licensing, insurance, and certifications with veteran-led expertise
+- **Business Excellence**: Organized processes, clear documentation, and efficient operations - deployment discipline
+- **All-Branch Values**: Professionalism standards from all service branches applied to construction
 
 ### Professionalism in Practice
 
-- Arriving on time, prepared, and ready to work
-- Clear, professional communication in all interactions
-- Proper job site management with organized work areas
-- Treating your property and neighbors with respect
-- Maintaining industry-leading credentials and training
+- Arriving on time, prepared, and ready to work - mission-ready discipline
+- Clear, professional SITREP-level communication in all interactions
+- Proper job site management with organized work areas - military AO (area of operations) standards
+- Treating your property and neighbors with respect - service-earned courtesy
+- Maintaining industry-leading credentials and training with continuous improvement
 
 ---
 
 ## 🔍 4. Thoroughness
 
-### Attention to Detail in Everything We Do
+### Tactical Planning and Execution Detail
+
+**Military Connection:** Military operations require meticulous planning and attention to detail. We apply
+that same tactical thoroughness to every construction mission.
 
 ### What This Means
 
-- **Comprehensive Planning**: Detailed project planning with contingency scenarios
-- **Meticulous Execution**: Careful attention to every measurement, connection, and finish
-- **Complete Documentation**: Thorough records of all decisions, changes, and specifications
-- **Quality Verification**: Multiple checkpoints to ensure nothing is overlooked
+- **Comprehensive Planning**: Detailed tactical mission planning with contingency scenarios - military precision
+- **Meticulous Execution**: Careful attention to every measurement, connection, and finish - no detail overlooked
+- **Complete Documentation**: Thorough mission records of all decisions, changes, and specifications
+- **Quality Verification**: Multiple checkpoints to ensure nothing is overlooked - tactical quality control
+- **Recon-Level Analysis**: Preliminary site reconnaissance and intelligence gathering before execution
 
 ### Thoroughness in Practice
 
-- Detailed pre-construction site analysis and planning
-- Precise measurements and calculations for material estimates
-- Systematic quality control at every project phase
-- Complete project documentation with photo records
-- Comprehensive final walkthrough with detailed punch lists
+- Detailed pre-construction site recon (reconnaissance) and tactical planning
+- Precise measurements and calculations for material estimates - military precision
+- Systematic quality control at every project phase - deployment-level QC
+- Complete mission documentation with photo records and after-action reports
+- Comprehensive final walkthrough with detailed punch lists - mission completion verification
 
 ---
 

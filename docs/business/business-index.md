@@ -1,126 +1,114 @@
-# Business Documentation Hub
+# Business Documentation Index
 
-**Category:** Business Operations & Strategy
-**Last Updated:** November 6, 2025
-**Status:** ✅ Active
+**Date:** December 14, 2025  
+**Status:** ✅ Current  
+**Category:** Business Information & Strategy  
+**Strategic Focus:** Award-winning website attracting professional veterans
 
 ## 🧭 Quick Navigation
 
 - [🗂️ Master Documentation Index](../master-index.md) - Central hub for all documentation
+- [🎖️ START HERE](../START-HERE.md) - Quick start by role
 - [🎨 Branding & Identity](../branding/branding-index.md) - Brand standards and guidelines
 - [💻 Development Guides](../development/development-index.md) - Development processes
-- [🛠️ Technical Documentation](../technical/technical-index.md) - Design system and architecture
+- [🔧 Technical Documentation](../technical/technical-index.md) - Architecture
 
 ---
 
-## Quick Navigation
+## 📋 Overview
 
-### 🏢 Core Business Information
+This hub contains all business-related documentation including services, team information, and strategic documents WITH military-construction terminology integration (December 2025).
 
-- [**Core Values**](./core-values.md) - ⭐ **FOUNDATION** - Four-value professional foundation system
-  (MUST READ for all team members)
-- [**Services Overview**](./services.md) - Complete service offerings and construction capabilities
-- [**Veterans Initiative**](./veterans-initiative.md) - Veteran-owned status and annual fishing benefit event
-- [**Awards & Achievements**](./awards-achievements.md) - Recognition and safety excellence record
-- [**Client Testimonials**](./testimonials.md) - Real client feedback and project success stories
-- [**Government Grant Projects**](./government-grant-projects.md) - Grant-funded construction expertise
-- [**Team Roster**](./team-roster.md) - Meet our experienced construction team
-- [**Team Data Sync**](./team-data-sync.md) - Team information synchronization guidelines
+**Strategic Focus:** Professional veteran recruitment through award-winning website and authentic service-earned messaging.
 
-### 🎨 Brand & Marketing
-
-- [**Brand Documentation Hub**](../branding/branding-index.md) - Complete brand documentation system
-- [**MH Branding Index**](../branding/branding-index.md) - Modular brand documentation hub
-- [**Consistency Guide**](../development/consistency-guide.md) - Complete implementation standards
-
-**Brand Structure:**
-
-- [Brand Strategy](../branding/strategy/) - Brand identity and messaging
-- [Visual Standards](../branding/standards/) - Colors, typography, components
-- [Implementation Reference](../branding/implementation/) - Developer quick reference
-
-### 📋 Business Documentation
-
-This hub contains all business-related documentation including services, team
-information, branding guidelines, and strategic documents. All files are current
-and actively maintained.
+---
 
 ## Directory Structure
 
-````text
+```
 docs/business/
-├── business-index.md           # This navigation hub
-├── services.md                 # Complete service offerings
-├── core-values.md              # Company principles and values
-├── veterans-initiative.md      # Veterans support and annual fishing event
-├── awards-achievements.md      # Recognition and safety excellence
-├── testimonials.md             # Client feedback and success stories
-├── team-roster.md              # Complete team information
-├── team-data-sync.md           # Team information synchronization
+├── business-index.md            # This navigation hub
+├── services.md                  # Complete service offerings
+├── core-values.md               # Company principles and values
+├── veterans-initiative.md       # Veterans support initiative
+├── veterans.md                  # Veteran support programs
+├── awards-achievements.md       # Recognition and safety excellence
+├── testimonials.md              # Client feedback
 ├── government-grant-projects.md # Grant expertise
-├── (removed)                   # See ../branding/ for modular brand docs
-└── team-profiles/              # Individual team member profiles
-
-Brand documentation is now at: docs/branding/
-See: /docs/branding/branding-index.md for the new structure
-    └── [18 team profile files]
-```text
-
-## Related Documentation Categories
-
-### 🔧 Technical Documentation
-
-> [**Technical Hub**](../technical/technical-index.md) - Development guides, APIs, and system architecture
-
-### 📝 Project Documentation
-
-> [**Project Hub**](../project/project-index.md) - Implementation plans, roadmaps, and case studies
-
-### 📚 Development Documentation
-
-> [**Development Hub**](../development/development-index.md) - Setup guides, workflows, and development tools
-
-### 📖 Guidelines & Standards
-
-> [**Guidelines Hub**](../development/guidelines/guidelines-index.md) - Coding standards, policies, and best practices
-
-### 📑 Reference Materials
-
-> [**Reference Hub**](../development/reference/reference-index.md) - Quick references, templates, and checklists
-
-## Quick Access Links
-
-### 🆔 Company Information
-
-- **Name**: MH Construction, Inc.
-- **Tagline**: "Building projects for the client, NOT the dollar"
-- **Phone**: [(509) 308-6489](tel:+15093086489)
-- **Client Contact**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
-- **Vendor Contact**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
-- **Address**: 3111 N. Capitol Ave., Pasco, WA 99301
-- **Licensed**: WA, OR, ID | Veteran-Owned & Operated
-
-### 🌐 Digital Presence
-
-- **Website**: [www.mhc-gc.com](https://www.mhc-gc.com)
-- **General Email**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
-- **Social Media**: Professional business profiles
-  - **Facebook**: [MH Construction](https://www.facebook.com/profile.php?id=61575511773974)
-  - **Instagram**: [MH Construction Reels](https://www.instagram.com/mh_construction_inc/reels/)
-  - **LinkedIn**: [MH Construction Company](https://linkedin.com/company/mhconstruction)
-  - **YouTube**: [MH Construction Channel](https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j)
-  - **X (Twitter)**: [MH Construction](https://x.com/mhc_gc)
-
-### 📈 Current Status (v3.7.2)
-
-- **Build Performance**: 35.5-38.7s compilation, 0 TypeScript errors
-- **Bundle Size**: 535kB optimized
-- **Documentation**: 89+ markdown files, modular brand system
-- **Architecture**: Next.js 15.5.2 foundation ready for expansion
+├── urgent-construction-support.md # Emergency services
+└── team/                        # Team documentation (NEW)
+    ├── team-roster.md           # Complete team information
+    ├── team-data-sync.md        # Team information synchronization
+    ├── team-qr-codes-guide.md   # QR code implementation
+    └── profiles/                # Individual team member profiles
+```
 
 ---
 
-**Navigation Authority**: MH Construction Documentation Team
-**Last Update**: October 9, 2025
-**Next Review**: Monthly directory structure assessment
-````
+## 📂 Core Business Documentation
+
+- **[Core Values](./core-values.md)** ⭐ **UPDATED Dec 14, 2025** - Service-earned values with military connection
+- **[Services](./services.md)** - Complete service offerings
+- **[Awards & Achievements](./awards-achievements.md)** - Company recognition
+- **[Government & Grant Projects](./government-grant-projects.md)** - Public sector work
+- **[Veterans Initiative](./veterans-initiative.md)** ⭐ **UPDATED Dec 14, 2025** - All-branch veteran support programs
+- **[Testimonials](./testimonials.md)** - Client feedback
+- **[Urgent Construction Support](./urgent-construction-support.md)** - Emergency services
+
+---
+
+## 👥 Team Documentation
+
+**NEW: Consolidated team folder structure**
+
+- **[Team Roster](./team/team-roster.md)** ⭐ **UPDATED Dec 14, 2025** - Leadership and team members
+- **[Team Data Sync](./team/team-data-sync.md)** - Data synchronization system
+- **[Team QR Codes Guide](./team/team-qr-codes-guide.md)** - QR code implementation
+- **[Team Profiles Directory](./team/profiles/)** - Individual team member profiles (18 profiles)
+
+---
+
+## 🔗 Related Documentation
+
+### Brand & Identity
+
+- **[Branding Index](../branding/branding-index.md)** - Complete brand documentation
+- **[Brand Strategy](../branding/strategy/)** - Brand identity and messaging
+- **[Visual Standards](../branding/standards/)** - Colors, typography, components
+
+### Technical & Development
+
+- **[Technical Hub](../technical/technical-index.md)** - Development guides and architecture
+- **[Development Hub](../development/development-index.md)** - Setup guides and workflows
+
+### Project Management
+
+- **[Project Hub](../project/project-index.md)** - Implementation plans and roadmaps
+
+---
+
+## 🎖️ Company Information
+
+### Mission & Values
+
+**Mission:** Building projects for the client, NOT the dollar
+
+**Core Values (Service-Earned):**
+
+1. **SITREP-Level Transparency Always** (Honesty)
+2. **Mission-First Ethics, Every Time** (Integrity)
+3. **Military Bearing in Construction Business** (Professionalism)
+4. **Tactical Planning and Execution Detail** (Thoroughness)
+
+### Leadership
+
+- **Owner & President:** Jeremy Thamert (Army Veteran)
+- **Digital Marketing Manager:** Matt Ramsey (Navy Veteran)
+
+### All-Branch Recognition
+
+We honor service from Army, Navy, Air Force, Marines, Coast Guard, and Space Force.
+
+---
+
+**Last Updated:** December 14, 2025 | MH Construction, Inc. | Veteran-Owned

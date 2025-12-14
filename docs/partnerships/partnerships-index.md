@@ -1,6 +1,6 @@
 # Partnership Documentation Index
 
-**Last Updated:** November 10, 2025
+**Last Updated:** December 14, 2025
 
 ## 🧭 Quick Navigation
 

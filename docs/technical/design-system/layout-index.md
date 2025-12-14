@@ -1,7 +1,7 @@
 # Layout Documentation Index
 
 **Category:** Design System - Layout & Spacing  
-**Last Updated:** November 6, 2025  
+**Last Updated:** December 14, 2025  
 **Status:** ✅ Active
 
 ## 🧭 Quick Navigation
@@ -24,7 +24,7 @@ responsive grid systems.
 
 ### Page Layout Standards
 
-**[page-layout-standards.md](./page-layout-standards.md)** - Comprehensive layout reference
+**[layout-guide.md](./layout-guide.md)** - Comprehensive layout reference
 
 Complete guide to page layout standards including spacing, padding, container widths, grid systems, and component
 arrangement patterns.
@@ -51,7 +51,7 @@ arrangement patterns.
 
 ### Page Layout Quick Start
 
-**[page-layout-quick-start.md](./page-layout-quick-start.md)** - Fast implementation guide
+**[layout-quick-start.md](./layout-quick-start.md)** - Fast implementation guide
 
 Quick reference with copy-paste templates for common layout patterns. Perfect for rapid development and consistent implementation.
 
@@ -75,13 +75,13 @@ Quick reference with copy-paste templates for common layout patterns. Perfect fo
 
 ## 🎯 When to Use Each Guide
 
-| Task                            | Use This Guide                                          | Why                                        |
-| ------------------------------- | ------------------------------------------------------- | ------------------------------------------ |
-| **Understanding layout system** | [Page Layout Standards](./page-layout-standards.md)     | Comprehensive reference with all standards |
-| **Building new page quickly**   | [Page Layout Quick Start](./page-layout-quick-start.md) | Copy-paste templates save time             |
-| **Troubleshooting spacing**     | [Page Layout Standards](./page-layout-standards.md)     | Detailed spacing rules and patterns        |
-| **Mobile responsive layout**    | Both + [Mobile Guide](../mobile-optimization-guide.md)  | Complete responsive implementation         |
-| **Component arrangement**       | [Page Layout Standards](./page-layout-standards.md)     | Grid and spacing conventions               |
+| Task                            | Use This Guide                                         | Why                                        |
+| ------------------------------- | ------------------------------------------------------ | ------------------------------------------ |
+| **Understanding layout system** | [Page Layout Standards](./layout-guide.md)             | Comprehensive reference with all standards |
+| **Building new page quickly**   | [Page Layout Quick Start](./layout-quick-start.md)     | Copy-paste templates save time             |
+| **Troubleshooting spacing**     | [Page Layout Standards](./layout-guide.md)             | Detailed spacing rules and patterns        |
+| **Mobile responsive layout**    | Both + [Mobile Guide](../mobile-optimization-guide.md) | Complete responsive implementation         |
+| **Component arrangement**       | [Page Layout Standards](./layout-guide.md)             | Grid and spacing conventions               |
 
 ---
 
@@ -155,7 +155,7 @@ Quick reference with copy-paste templates for common layout patterns. Perfect fo
 
 ### Components
 
-- [Buttons & CTAs](../buttons-ctas-index.md) - Button layouts
+- [Buttons & CTAs](../buttons-ctas-complete-guide.md) - Button layouts
 - [Icons](../icons-index.md) - Icon integration
 
 ### Development
@@ -188,7 +188,7 @@ When implementing a new layout:
 
 ### Inconsistent Spacing
 
-**Solution:** Use standard patterns from [Page Layout Standards](./page-layout-standards.md)
+**Solution:** Use standard patterns from [Page Layout Standards](./layout-guide.md)
 
 ### Grid Not Responsive
 
@@ -209,6 +209,6 @@ For questions about layout standards:
 
 ---
 
-**Last Updated:** November 6, 2025  
+**Last Updated:** December 14, 2025  
 **Status:** ✅ Active  
 **Files:** 2 (Standards + Quick Start)

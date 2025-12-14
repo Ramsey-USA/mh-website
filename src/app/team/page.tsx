@@ -19,6 +19,7 @@ import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import Head from "next/head";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getTeamSEO } from "@/lib/seo/page-seo-utils";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = false;
@@ -166,23 +167,13 @@ export default function TeamPage() {
 
         <div className="bg-gray-50 dark:bg-gray-900 py-8 sm:py-12 md:py-16">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="mb-8 sm:mb-12 md:mb-16 text-center">
-              {/* Section Header - v4.0.2 Clean Standards */}
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                  Meet Our
-                </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
-                  Professional Team
-                </span>
-              </h2>
-              <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
-                Modern professional profiles featuring comprehensive skill
-                assessments, career achievements, and personal stories.
-                Award-winning team bringing military precision to Pacific
-                Northwest construction.
-              </p>
-            </div>
+            <SectionHeader
+              icon="groups"
+              iconVariant="primary"
+              subtitle="Meet Our"
+              title="Professional Team"
+              description="Modern professional profiles featuring comprehensive skill assessments, career achievements, and personal stories. Award-winning team bringing military precision to Pacific Northwest construction."
+            />
 
             {/* Team Members by Department */}
             <div className="space-y-16 sm:space-y-24 md:space-y-32">
@@ -220,26 +211,13 @@ export default function TeamPage() {
             >
               <FadeInWhenVisible>
                 <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl md:rounded-2xl">
-                  <div className="mb-12 text-center">
-                    {/* Section Header - v4.0.2 Clean Standards */}
-                    <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                      <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                        Our Partnership
-                      </span>
-                      <span className="block text-brand-primary dark:text-brand-primary font-black">
-                        Company Culture
-                      </span>
-                    </h2>
-                    <p className="mx-auto max-w-3xl font-light text-gray-700 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
-                      &ldquo;All for one, one for all&rdquo; isn&apos;t just a
-                      motto—it&apos;s how we partner, grow, and succeed
-                      together. Our people-centered culture starts with
-                      leadership committed to serving both Client Partners and
-                      communities, maintaining the highest standards of safety
-                      (.64 EMR award-winning), quality craftsmanship, and
-                      transparent communication that defines every partnership.
-                    </p>
-                  </div>
+                  <SectionHeader
+                    icon="handshake"
+                    iconVariant="secondary"
+                    subtitle="Our Partnership"
+                    title="Company Culture"
+                    description="&ldquo;All for one, one for all&rdquo; isn't just a motto—it's how we partner, grow, and succeed together. Our people-centered culture starts with leadership committed to serving both Client Partners and communities, maintaining the highest standards of safety (.64 EMR award-winning), quality craftsmanship, and transparent communication that defines every partnership."
+                  />
 
                   <div className="gap-4 sm:gap-6 md:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8 sm:mb-10 md:mb-12">
                     {/* Team Unity */}
@@ -486,22 +464,13 @@ export default function TeamPage() {
             >
               <FadeInWhenVisible>
                 <div className="bg-gradient-to-br from-accent-500/5 to-primary-500/5 dark:from-accent-500/10 dark:to-primary-500/10 p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl md:rounded-2xl">
-                  <div className="mb-12 text-center">
-                    <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                      <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                        Professional Development &
-                      </span>
-                      <span className="block text-brand-primary dark:text-brand-primary font-black">
-                        Career Growth
-                      </span>
-                    </h2>
-                    <p className="mx-auto max-w-3xl font-light text-gray-700 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
-                      We invest in your growth from day one. With structured
-                      training programs, mentorship opportunities, and clear
-                      advancement paths, your career trajectory is limited only
-                      by your ambition and dedication.
-                    </p>
-                  </div>
+                  <SectionHeader
+                    icon="trending_up"
+                    iconVariant="bronze"
+                    subtitle="Professional Development &"
+                    title="Career Growth"
+                    description="We invest in your growth from day one. With structured training programs, mentorship opportunities, and clear advancement paths, your career trajectory is limited only by your ambition and dedication."
+                  />
 
                   <div className={gridPresets.cards3Alt("lg", "mb-12")}>
                     {/* Continuous Training */}

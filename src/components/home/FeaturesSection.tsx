@@ -2,7 +2,10 @@
 
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
+import {
+  FadeInWhenVisible,
+  StaggeredFadeIn,
+} from "@/components/animations/FramerMotionComponents";
 import { useChatbot } from "@/contexts/ChatbotContext";
 
 const features = [
@@ -134,41 +137,53 @@ export function FeaturesSection() {
       ></div>
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Section Header */}
-        <div className="mb-12 sm:mb-16 lg:mb-20 text-center scroll-reveal">
-          <div className="flex justify-center items-center mb-6 sm:mb-8">
-            <div className="relative">
-              <div className="absolute inset-0 bg-brand-accent/20 dark:bg-brand-accent/30 blur-xl rounded-full"></div>
-              <div className="relative bg-gradient-to-br from-brand-accent to-bronze-700 p-4 rounded-2xl shadow-lg">
-                <MaterialIcon
-                  icon="engineering"
-                  size="2xl"
-                  className="text-white"
-                />
+        {/* Enhanced Section Header with Side Accents */}
+        <FadeInWhenVisible>
+          <div className="mb-16 sm:mb-20 lg:mb-24 text-center">
+            {/* Top Decorative Line */}
+            <div className="flex items-center justify-center mb-8 gap-4">
+              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-brand-primary rounded-full"></div>
+              <div className="relative">
+                {/* Layered Icon Container - Unique Design */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/20 to-bronze-700/20 dark:from-brand-accent/30 dark:to-bronze-700/30 blur-2xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 dark:from-brand-accent dark:via-bronze-600 dark:to-bronze-900 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50">
+                  <MaterialIcon
+                    icon="engineering"
+                    size="2xl"
+                    className="text-white drop-shadow-lg"
+                  />
+                </div>
               </div>
+              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-brand-accent rounded-full"></div>
             </div>
+
+            {/* Two-line gradient heading */}
+            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+              <span className="inline-block mb-3 sm:mb-4 font-semibold bg-gradient-to-r from-brand-primary via-brand-accent to-brand-primary bg-clip-text text-transparent text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                Core Values Meet
+              </span>
+              <span className="inline-block bg-gradient-to-r from-brand-primary via-bronze-badge-600 to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-lg overflow-visible py-1">
+                Modern Tools
+              </span>
+            </h2>
+
+            {/* Description with colored keyword highlighting */}
+            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <span className="font-bold text-bronze-600 dark:text-bronze-400">
+                Technology serves relationships
+              </span>
+              , never replaces them. Our{" "}
+              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                honest, thorough, and professional
+              </span>{" "}
+              planning tools help prepare for the{" "}
+              <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
+                personal consultations
+              </span>{" "}
+              where trust is built and partnerships begin.
+            </p>
           </div>
-          <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-            <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-              Core Values Meet
-            </span>
-            <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-              Modern Tools
-            </span>
-          </h2>
-          <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-            Technology serves relationships, never replaces them. Our{" "}
-            <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
-              honest, thorough, and professional
-            </span>{" "}
-            planning tools help prepare for the personal consultations where{" "}
-            <span className="font-medium text-gray-800 dark:text-gray-200">
-              trust is built and partnerships begin
-            </span>
-            . Transparent communication with integrity, guided by four core
-            values.
-          </p>
-        </div>
+        </FadeInWhenVisible>
 
         {/* Feature Cards */}
         <StaggeredFadeIn className="gap-4 sm:gap-6 lg:gap-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">

@@ -6,7 +6,8 @@ import {
   FadeInWhenVisible,
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
-import { Section, SectionHeader } from "@/components/ui/layout";
+import { Section } from "@/components/ui/layout";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { getCardClassName } from "@/lib/styles/card-variants";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
@@ -102,16 +103,17 @@ export default function VeteransPage() {
                 Mission-Focused Excellence · Shared Military Values
               </p>
 
-              {/* Description - Respectful, professional, integrity-driven */}
+              {/* Description - Respectful, professional, integrity-driven with military-construction terminology */}
               <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
                 "Building projects for the client,{" "}
                 <span className="font-black italic text-bronze-300">NOT</span>{" "}
                 the dollar" — Veteran-owned and veteran-led, we serve those who
-                served with honest communication, transparent pricing, and
-                proven craftsmanship. Supporting Pacific Northwest veterans
-                through hiring initiatives, community partnerships, and shared
-                commitment to integrity. Your service is honored. Your trust is
-                earned.
+                served with SITREP-level communications, transparent mission
+                briefs, and battle-tested craftsmanship. Supporting Pacific
+                Northwest veterans through priority hiring operations, tactical
+                community partnerships, and shared commitment to service-earned
+                integrity. Your service is honored. Your trust is earned through
+                every construction mission we deploy.
               </p>
             </div>
           </div>
@@ -135,10 +137,11 @@ export default function VeteransPage() {
           className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm"
         >
           <SectionHeader
+            icon="military_tech"
+            iconVariant="bronze"
             subtitle="Leadership"
             title="Veteran-Owned Leadership"
-            description="MH Construction is owned and led by Army veteran Jeremy Thamert. His military service instilled values of integrity, discipline, and keeping your word—principles that define every project and partnership we build. When veterans work with veterans, trust is built on shared experience and mutual respect."
-            maxWidth="4xl"
+            description="MH Construction is owned and led by Army veteran Jeremy Thamert. His military service instilled operational values of integrity, mission-focused discipline, and keeping your word—principles that define every construction operation and partnership we build. When veterans work with veterans, trust is built on shared service experience and mutual operational respect."
           />
 
           <FadeInWhenVisible>
@@ -164,12 +167,14 @@ export default function VeteransPage() {
                 <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                   As an Army veteran and owner of MH Construction, Jeremy
                   understands that your word is your bond. His military service
-                  taught him the value of integrity, commitment, and personal
-                  accountability—values that define every partnership we build.
-                  Since acquiring the company in January 2025, Jeremy has been
-                  building a veteran-focused organization that honors those who
-                  served. Building for fellow veterans isn't just business, it's
-                  brotherhood.
+                  taught him the operational values of integrity,
+                  mission-focused commitment, and personal
+                  accountability—service-earned values that define every
+                  partnership we build. Since acquiring the company in January
+                  2025, Jeremy has been deploying a veteran-focused organization
+                  that honors those who served. Building construction missions
+                  for fellow veterans isn't just business, it's brotherhood
+                  earned through shared service.
                 </p>
               </CardContent>
             </Card>
@@ -193,14 +198,11 @@ export default function VeteransPage() {
           className="bg-gray-50/90 dark:bg-gray-800/90 backdrop-blur-sm"
         >
           <SectionHeader
+            icon="volunteer_activism"
+            iconVariant="secondary"
             subtitle="Beyond the Event"
-            title={
-              <span className="block text-brand-primary dark:text-brand-primary font-black">
-                Year-Round Veterans Support
-              </span>
-            }
-            description="As a newly veteran-owned company, we're building long-term programs to support veterans. Priority hiring is active now, with apprenticeship programs and partnerships in development."
-            maxWidth="4xl"
+            title="Year-Round Veterans Support"
+            description="As a newly veteran-owned company, we're deploying long-term operational programs to support veterans. Priority hiring is active now, with tactical apprenticeship programs and mission partnerships in development."
           />
 
           <StaggeredFadeIn className={gridPresets.cards3("md")}>
@@ -217,9 +219,9 @@ export default function VeteransPage() {
               <CardContent>
                 <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4">
                   Qualified veterans receive priority consideration for all
-                  positions. We're developing apprenticeship programs for
-                  transitioning service members as we build our veteran support
-                  network.
+                  positions. We're deploying tactical apprenticeship programs
+                  for transitioning service members as we build our veteran
+                  support operational network.
                 </p>
                 <Link
                   href="/careers"
@@ -305,14 +307,11 @@ export default function VeteransPage() {
           className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm"
         >
           <SectionHeader
+            icon="verified"
+            iconVariant="primary"
             subtitle="Our Foundation"
-            title={
-              <span className="block text-brand-primary dark:text-brand-primary font-black">
-                Military Standards in Every Project
-              </span>
-            }
+            title="Military Standards in Every Project"
             description="The values we learned in service guide everything we do in construction. Our veteran team brings military discipline and precision to every aspect of our work."
-            maxWidth="4xl"
           />
 
           <StaggeredFadeIn className={gridPresets.twoColumn("md")}>

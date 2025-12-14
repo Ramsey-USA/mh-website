@@ -5,11 +5,9 @@
  */
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import {
-  FadeInWhenVisible,
-  HoverScale,
-} from "@/components/animations/FramerMotionComponents";
+import { HoverScale } from "@/components/animations/FramerMotionComponents";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export interface StatItem {
   iconName: string;
@@ -100,9 +98,9 @@ const gradientVariants = {
 
 export function CompanyStats({
   stats = companyStats,
-  title = "Record",
-  subtitle = "Our Track",
-  description = "Proven results from a veteran-owned team committed to excellence across the Pacific Northwest",
+  title = "Mission Track Record",
+  subtitle = "Battle-Tested",
+  description = "Proven results from a veteran-owned team committed to mission excellence across the Pacific Northwest—from deployment to development, we deliver.",
   headerIcon = "analytics",
   variant = "primary",
   className = "",
@@ -129,68 +127,43 @@ export function CompanyStats({
       ></div>
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <FadeInWhenVisible>
-          <div className="mb-12 sm:mb-16 lg:mb-20 text-center">
-            {headerIcon && (
-              <div className="flex justify-center items-center mb-6 sm:mb-8">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-brand-secondary/30 blur-xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
-                    <MaterialIcon
-                      icon={headerIcon}
-                      size="2xl"
-                      className="text-white"
+        <SectionHeader
+          icon={headerIcon}
+          subtitle={subtitle}
+          title={title}
+          description={description}
+          iconGradient="from-brand-secondary via-brand-secondary-dark to-bronze-700"
+          darkVariant={true}
+        />
+        <div className="gap-4 sm:gap-6 grid grid-cols-2 lg:grid-cols-4 mx-auto max-w-6xl">
+          {stats.map((stat, _index) => (
+            <HoverScale key={_index}>
+              <div className="h-full flex flex-col text-center p-5 sm:p-6 lg:p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 hover:bg-white/20 hover:shadow-2xl hover:border-white/40 transition-all duration-300 group">
+                <MaterialIcon
+                  icon={stat.iconName}
+                  className="mb-4 text-brand-secondary group-hover:animate-spin"
+                  size="xl"
+                />
+                <div className="mb-2 font-black text-3xl sm:text-4xl lg:text-5xl text-white drop-shadow-lg">
+                  {stat.animated ? (
+                    <AnimatedCounter
+                      value={stat.value}
+                      suffix={stat.suffix || ""}
+                      prefix={stat.prefix || ""}
+                      decimals={stat.decimals || 0}
+                      duration={2000}
                     />
-                  </div>
+                  ) : (
+                    stat.value
+                  )}
+                </div>
+                <div className="text-white/90 font-medium text-xs sm:text-sm lg:text-base leading-relaxed mt-auto">
+                  {stat.label}
                 </div>
               </div>
-            )}
-            <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-              {subtitle && (
-                <span className="block mb-3 sm:mb-4 font-semibold text-white/80 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                  {subtitle}
-                </span>
-              )}
-              <span className="block text-brand-secondary font-black drop-shadow-sm">
-                {title}
-              </span>
-            </h2>
-            {description && (
-              <p className="mx-auto max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                {description}
-              </p>
-            )}
-          </div>
-          <div className="gap-4 sm:gap-6 grid grid-cols-2 lg:grid-cols-4 mx-auto max-w-6xl">
-            {stats.map((stat, _index) => (
-              <HoverScale key={_index}>
-                <div className="h-full flex flex-col text-center p-5 sm:p-6 lg:p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 hover:bg-white/20 hover:shadow-2xl hover:border-white/40 transition-all duration-300 group">
-                  <MaterialIcon
-                    icon={stat.iconName}
-                    className="mb-4 text-brand-secondary group-hover:animate-spin"
-                    size="xl"
-                  />
-                  <div className="mb-2 font-black text-3xl sm:text-4xl lg:text-5xl text-white drop-shadow-lg">
-                    {stat.animated ? (
-                      <AnimatedCounter
-                        value={stat.value}
-                        suffix={stat.suffix || ""}
-                        prefix={stat.prefix || ""}
-                        decimals={stat.decimals || 0}
-                        duration={2000}
-                      />
-                    ) : (
-                      stat.value
-                    )}
-                  </div>
-                  <div className="text-white/90 font-medium text-xs sm:text-sm lg:text-base leading-relaxed mt-auto">
-                    {stat.label}
-                  </div>
-                </div>
-              </HoverScale>
-            ))}
-          </div>
-        </FadeInWhenVisible>
+            </HoverScale>
+          ))}
+        </div>
       </div>
     </section>
   );

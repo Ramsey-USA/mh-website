@@ -1,6 +1,6 @@
 # MH Construction Branding Documentation
 
-**Last Updated**: November 10, 2025 | **Version**: 4.0.3 | **Status**: Official
+**Last Updated: December 14, 2025 | **Version**: 4.0.3 | **Status\*\*: Official
 
 ---
 
@@ -58,13 +58,14 @@ Brand identity, company values, messaging guidelines, and strategic positioning.
 - `brand-overview.md` - Core brand identity and mission (built on four core values)
 - `messaging.md` - Voice, tone, and messaging framework (reflects four-value system)
 - `military-themed-rebrand.md` - ⭐ **NEW (Dec 2025)** - Military-inspired page naming strategy
+- `military-construction-terminology.md` - ⭐ **NEW (Dec 2025)** - Professional military-construction terminology integration
 - **Note**: See [core-values.md](../business/core-values.md) for the foundational four-value professional system
-- `page-specific-messaging-guide.md` - ⭐ **NEW (Nov 2025)** - 7-group page messaging strategy
+- `page-specific-messaging-guide.md` - ⭐ **NEW (Nov 2025)** - 5-group page messaging strategy
 - `universal-terminology-guide.md` - ⭐ **NEW (Jan 2025)** - Universal language & terminology standards
 - `estimator-vs-consultation-language.md` - ⭐ **NEW (Nov 2025)** - AI tool vs human consultation language distinctions
 - `homepage-optimization-complete.md` - Homepage trust-first optimization (consolidated guide)
 - `seo-optimization.md` - Complete SEO optimization audit for all 15 pages
-- `content-messaging-standards.md` - Content writing standards
+- `messaging.md` - Complete messaging guidelines
 
 ### 🎨 [standards/](./standards/)
 
@@ -129,7 +130,7 @@ unified access.
 3. Review **[Messaging](./strategy/messaging.md)** - General voice and tone principles built on core values
 4. Review **[Universal Terminology Guide](./strategy/universal-terminology-guide.md)** - ⭐ **NEW** -
    Company-wide language standards (ESSENTIAL for consistency)
-5. Check **[Content Standards](./strategy/content-messaging-standards.md)** - Writing guidelines
+5. Check **[Messaging Guidelines](./strategy/messaging.md)** - Complete voice, tone, and writing standards
 6. Review **[Buttons & CTAs Complete Guide](../technical/design-system/buttons-ctas-complete-guide.md)** -
    Call-to-action patterns
 
@@ -220,7 +221,7 @@ guidelines on terminology, messaging, and implementation across all channels.
 
 - **[Consistency Guide](../development/consistency-guide.md)** - Complete implementation guide
 - **[Design System](../technical/design-system/design-system.md)** - Complete design system
-- **[Mobile Quick Reference](../technical/design-system/mobile-quick-reference.md)** - Mobile patterns
+- **[Mobile Optimization Guide](../technical/design-system/mobile-optimization-guide.md)** - Mobile patterns (includes quick reference cheat sheet)
 - **[Component Library](../components/ui/mh-ui-guide.md)** - UI components
 
 ---

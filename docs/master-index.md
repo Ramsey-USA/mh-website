@@ -1,12 +1,12 @@
 # MH Construction Documentation Master Index
 
-**Welcome to the MH Construction Documentation Hub** | **Last Updated**: December 13, 2025
+**Welcome to the MH Construction Documentation Hub** | **Last Updated**: December 14, 2025
 
 This is your central navigation point for all MH Construction project documentation. Whether you're a developer,
 designer, content writer, or stakeholder, start here to find what you need.
 
-**Recent:** Documentation consolidated (178 → 163 files) with comprehensive guides per topic.
-See [Project History](./project/history/) for archived completion reports.
+**Recent:** Documentation restructured for improved navigation - organized by purpose with clear subdirectories.
+See [Project History](./_archive/migrations/) for archived completion reports.
 
 ---
 
@@ -14,10 +14,14 @@ See [Project History](./project/history/) for archived completion reports.
 
 **New to the project?**
 
+### 🎯 **[START HERE - Mission Brief](./START-HERE.md)** ⭐
+
+Quick navigation by role (Developer, Designer, Content, Operations)
+
 ### 🎯 Complete Developer Journey
 
 - 🗺️ **[Developer Workflow Pathway](./development/developer-workflow-pathway.md)** -
-  ⭐ **NEW** - Step-by-step guide connecting ALL documentation (START HERE)
+  Step-by-step guide connecting ALL documentation
 
 ### 📚 Essential Documents
 
@@ -111,8 +115,8 @@ Build: 31.0s, Homepage bundle 217 kB, zero TS/ESLint errors.
 
 - **[Services](./business/services.md)** - What we offer
 - **[Core Values](./business/core-values.md)** - Our principles
-- **[Team Roster](./business/team-roster.md)** - Meet the team
-- **[Team Profiles](./business/team-profiles/)** - Individual team members
+- **[Team Roster](./business/team/team-roster.md)** - Meet the team
+- **[Team Profiles](./business/team/profiles/)** - Individual team members
 - **[Veterans Initiative](./business/veterans.md)** - Veteran-owned status, community programs, and our annual fishing event
 - **[Government Projects](./business/government-grant-projects.md)** - Grant expertise
 
@@ -146,10 +150,10 @@ Build: 31.0s, Homepage bundle 217 kB, zero TS/ESLint errors.
 **⭐ Essential Reading:**
 
 - **[Consistency Guide](./development/consistency-guide.md)** - ⭐ Complete implementation standards (733 lines)
-- **[Section Visual Standards](./development/guidelines/section-visual-standards.md)** - ⭐ **NEW (Nov 2025)** -
+- **[Section Visual Standards](./development/standards/section-visual-standards.md)** - ⭐ **NEW (Nov 2025)** -
   Complete section styling guide
-- **[Development Standards](./development/development-standards.md)** - Coding conventions
-- **[AI Development Guidelines](./development/ai-development-guidelines.md)** - Rules for AI assistants
+- **[Development Standards](./development/standards/development-standards.md)** - Coding conventions
+- **[AI Development Guidelines](./development/standards/ai-development-guidelines.md)** - Rules for AI assistants
 
 **Categories:**
 
@@ -158,24 +162,28 @@ Build: 31.0s, Homepage bundle 217 kB, zero TS/ESLint errors.
 - **[UI Components Guide](./components/ui/mh-ui-guide.md)** - Reusable UI components library
 - **[Navigation Components Guide](./components/navigation/navigation-components-guide.md)** - Navigation implementation
 - **[Reference Hub](./development/reference/reference-index.md)** - Quick references and checklists (6 references)
-- **[Guidelines](./development/guidelines/)** - Detailed development guidelines
+- **[Getting Started](./development/getting-started/)** - Environment setup guides
+- **[Standards](./development/standards/)** - Code quality and guidelines
+- **[Documentation](./development/documentation/)** - Writing standards
+- **[Chatbot](./development/chatbot/)** - AI assistant system
+- **[Testing](./development/testing/)** - QA and troubleshooting
 
 **Tools & Utilities:**
 
-- [VS Code Complete Setup](./development/vscode-setup.md) - ⭐ **NEW (Nov 2025)** - Full configuration guide
-- [VS Code Extensions Guide](./development/vscode-extensions-guide.md) - Detailed extension documentation
+- [VS Code Complete Setup](./development/getting-started/vscode-setup.md) - ⭐ **NEW (Nov 2025)** - Full configuration guide
+- [VS Code Extensions Guide](./development/getting-started/vscode-extensions-guide.md) - Detailed extension documentation
 - [Reactivating Pages Guide](./development/reactivating-pages-guide.md) - ⭐ **NEW (Nov 18, 2025)** -
   Instructions for removing under construction wrappers and restoring full page content
-- [Chatbot Enhancement Guide](./development/chatbot-enhancement-guide.md) - ⭐ **NEW (Nov 12, 2024)** -
+- [Chatbot Enhancement Guide](./development/chatbot/chatbot-enhancement-guide.md) - ⭐ **NEW (Nov 12, 2024)** -
   Comprehensive chatbot improvement strategies (Phases 1-4 roadmap)
-- [Chatbot Integration Complete](./development/chatbot-integration.md) -
+- [Chatbot Integration Complete](./development/chatbot/chatbot-integration.md) -
   Complete chatbot system with query handlers, knowledge base, and analytics
 - [Scripts Guide](../scripts/mh-scripts-guide.md) - ⭐ **ESSENTIAL** - Automation scripts (SEO, testing, cleanup, optimization)
 - [Testing Guide](../testing/mh-testing-guide.md) - ⭐ **ESSENTIAL** - Comprehensive testing suites (cohesion, security, responsive)
 - [Config Directory Guide](../config/config-directory-guide.md) - Deployment configs (Cloudflare, Docker, monitoring)
-- [Troubleshooting](./development/troubleshooting.md)
+- [Troubleshooting](./development/testing/troubleshooting.md)
 - [Terminology Guide](./development/terminology-guide.md)
-- [Documentation Maintenance](./development/documentation-maintenance-guide.md)
+- [Documentation Maintenance](./development/documentation/documentation-maintenance-guide.md)
 
 ---
 
@@ -200,9 +208,9 @@ Build: 31.0s, Homepage bundle 217 kB, zero TS/ESLint errors.
 - **[Performance Hub](./technical/performance/performance-index.md)** - Performance optimization
 - **[SEO & Accessibility Hub](./technical/seo/seo-index.md)** - Search and accessibility
 
-**GEO & Core Web Vitals (NEW - Nov 20, 2025):**
+**SEO & Core Web Vitals (NEW - Nov 20, 2025):**
 
-- **[Video Hero Core Web Vitals](./optimization/video-hero-core-web-vitals.md)** - ⭐ **NEW** -
+- **[Video Hero Core Web Vitals](./technical/performance/video-hero-core-web-vitals.md)** - ⭐ **NEW** -
   LCP optimization for video backgrounds
 - **[Video Hero Implementation](./components/video-hero-implementation.md)** - ⭐ **NEW** -
   Complete component guide
@@ -231,14 +239,20 @@ Build: 31.0s, Homepage bundle 217 kB, zero TS/ESLint errors.
 
 **Chatbot System:**
 
-- [Chatbot First Strategy](./development/chatbot-first-strategy.md) - Chatbot-first user engagement strategy
-- [Chatbot Enhancement Guide](./development/chatbot-enhancement-guide.md) - ⭐ **NEW (Nov 12, 2024)** -
+- [Chatbot First Strategy](./development/chatbot/chatbot-first-strategy.md) - Chatbot-first user engagement strategy
+- [Chatbot Enhancement Guide](./development/chatbot/chatbot-enhancement-guide.md) - ⭐ **NEW (Nov 12, 2024)** -
   10 enhancement strategies and implementation roadmap (Phases 1-3 complete)
-- [Chatbot Integration Complete](./development/chatbot-integration.md) -
+- [Chatbot Integration Complete](./development/chatbot/chatbot-integration.md) -
   Complete system with FAQ, query handlers, knowledge base, and analytics
 
 **Summary:** Full chatbot system operational with comprehensive coverage (98-99%)
 ~965 lines of intelligent code across all features.
+
+**Operations & Performance:**
+
+- **[Operations Index](./technical/operations/operations-index.md)** - Build processes and optimization
+- **[Performance Index](./technical/performance/performance-index.md)** - Performance optimization hub
+- **[Build Optimization](./technical/performance/build-optimization.md)** - Build performance strategies
 
 ---
 
@@ -265,12 +279,14 @@ Key docs: [Cloudflare Deployment Ready](./deployment/cloudflare-deployment-ready
 
 ---
 
-### 🔄 [Migrations](./migrations/migrations-index.md)
+### 🔄 [Migrations (Archived)](./_archive/migrations/migrations-index.md)
 
-#### Migration guides and transition documentation
+#### Historical migration guides and transition documentation
 
-- **[Documentation Migrations](./migrations/documentation/)** - Doc structure changes
-- **[Domain Migrations](./migrations/domains/)** - Domain and email transitions
+- **[Documentation Migrations](./_archive/migrations/documentation/)** - Doc structure changes
+- **[Domain Migrations](./_archive/migrations/domains/)** - Domain and email transitions
+
+**Note:** Migrations folder has been archived. All completed migration records are preserved for reference.
 
 ---
 
@@ -350,7 +366,7 @@ Document & code templates for rapid creation.
 
 **Quick Actions:**
 
-- Use utilities: See [Quick Reference](./development/style-utilities-quick-reference.md)
+- Use utilities: See [Style Utilities Guide](./development/style-utilities-guide.md) (includes quick reference cheat sheet)
 - Use code snippets: Type `mh-` in any `.tsx` file (see [VS Code Setup](./development/vscode-setup.md))
 - Add new page: Update `src/app/sitemap.ts` + run `npm run seo:audit`
 - Check SEO: `npm run seo:audit`
@@ -372,7 +388,7 @@ Document & code templates for rapid creation.
 2. **[Universal Terminology Guide](./branding/strategy/universal-terminology-guide.md)** -
    ⭐ **NEW (Jan 2025)** - Company-wide language standards (ESSENTIAL)
 3. **[Messaging Guidelines](./branding/strategy/messaging.md)** - Voice and tone
-4. **[Content Standards](./branding/strategy/content-messaging-standards.md)** - Writing rules
+4. **[Messaging Guidelines](./branding/strategy/messaging.md)** - Complete brand voice, tone, and messaging standards
 5. **[Partnership Messaging Complete Guide](./partnerships/messaging/partnership-messaging-complete-guide.md)** -
    Partner content
 6. **[SEO Best Practices](./technical/seo/ultimate-seo-guide.md)** - SEO content optimization
@@ -417,7 +433,7 @@ Document & code templates for rapid creation.
 | **Components**     | Components         | [components-index.md](./components/components-index.md)                                |
 | **UI Library**     | Components         | [mh-ui-guide.md](./components/ui/mh-ui-guide.md)                                       |
 | **Mobile**         | Technical          | [mobile-optimization-guide.md](./technical/design-system/mobile-optimization-guide.md) |
-| **Buttons & CTAs** | Design System      | [buttons-and-ctas/](./technical/design-system/buttons-ctas-index.md)                   |
+| **Buttons & CTAs** | Design System      | [buttons-and-ctas/](./technical/design-system/buttons-ctas-complete-guide.md)          |
 | **Navigation**     | Technical          | [navigation/](./technical/navigation/)                                                 |
 | **SEO**            | Technical          | [seo/](./technical/seo/seo-index.md)                                                   |
 | **SEO Audit**      | Root               | Run `npm run seo:audit`                                                                |
@@ -540,7 +556,7 @@ Maintenance: Weekly (incremental), Monthly (index audit), Quarterly (full review
 
 **Maintained by**: MH Construction Documentation Team  
 **Version**: 4.0.0 (aligned with application package.json)  
-**Last Updated**: November 13, 2025
+\*\*Last Updated: December 14, 2025
 
 > Internal Cohesion Note: Enhanced visibility for root-level guides (scripts, testing).
 > All 29 index files verified current (Nov 13, 2025).

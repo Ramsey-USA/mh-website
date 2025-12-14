@@ -1,7 +1,7 @@
 # Partnership Messaging Framework
 
 **Category:** Client & Vendor Communication Guidelines
-**Last Updated:** November 6, 2025
+**Last Updated:** December 14, 2025
 **Status:** ✅ Active
 
 ## 🧭 Quick Navigation
@@ -90,7 +90,7 @@ Consolidated button & CTA standards
 ## 📚 Related Documentation
 
 - [Brand Messaging](../../branding/strategy/messaging.md) - Core brand voice and tone
-- [Content Standards](../../branding/strategy/content-messaging-standards.md) - Writing guidelines
+- [Messaging Guidelines](../../branding/strategy/messaging.md) - Complete voice, tone, and writing standards
 - [Buttons & CTAs Complete Guide](../../technical/design-system/buttons-ctas-complete-guide.md) - Technical implementation
 - [Services Overview](../../business/services.md) - What we offer
 

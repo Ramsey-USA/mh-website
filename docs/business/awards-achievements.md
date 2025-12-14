@@ -1,22 +1,28 @@
-# Awards & Achievements
+# Awards & Achievements - Battle-Tested Safety Excellence
 
-**Category:** Business Operations & Recognition
-**Last Updated:** November 7, 2025
-**Status:** ✅ Active
+**Category:** Business Operations & Recognition  
+**Last Updated:** December 14, 2025  
+**Status:** ✅ Active  
+**Methodology:** Military/Construction Terminology Integration
 
 ## 🧭 Quick Navigation
 
 - [🗂️ Master Documentation Index](../master-index.md) - Central hub for all documentation
-- [🏢 Business Documentation Hub](./business-index.md) - Business operations and strategy
+- [🏛️ Business Documentation Hub](./business-index.md) - Business operations and strategy ⭐ **UPDATED Dec 14, 2025**
 
 ---
 
 ## Overview
 
 MH Construction has been recognized for excellence in safety, quality, and proven craftsmanship
-throughout our history. This document chronicles our awards and achievements, with a
-particular focus on our industry-leading safety record and Experience Modification Rate
-(EMR) performance.
+throughout our history. Under veteran-owned leadership, we apply military-grade safety standards
+and deployment discipline to every construction mission.
+
+**Military Connection:** Our all-branch veteran leadership (Army, Navy, Air Force, Marines, Coast Guard,
+Space Force) brings service-earned safety culture and zero-incident mission discipline to construction operations.
+
+This document chronicles our awards and achievements, with particular focus on our industry-leading
+safety record and Experience Modification Rate (EMR) performance.
 
 ---
 
@@ -38,9 +44,12 @@ commitment to workplace safety and injury prevention.
 - At least 3 continuous years without a time loss or impairment injury
 - Participation in the L&I Claims Free Discount Program
 
-**Significance:** This award recognizes our dramatic improvement in safety performance
-and our sustained commitment to zero-incident workplace culture under new
-veteran-owned leadership.
+**Military Connection:** This award recognizes our dramatic improvement in safety performance
+and our sustained commitment to zero-incident mission culture under veteran-owned leadership.
+Military-grade safety protocols and deployment discipline applied to construction operations.
+
+**Significance:** Demonstrates service-earned safety values and tactical risk management from
+all-branch military experience.
 
 ---
 
@@ -316,5 +325,5 @@ Our award-winning safety record provides clients with:
 
 ---
 
-**Last Updated:** November 7, 2025 - Added 2019-2021 AGC-WA EMR awards and 2025
+**Last Updated:** December 14, 2025 - Added 2019-2021 AGC-WA EMR awards and 2025
 Most Improved EMR award

@@ -1,10 +1,10 @@
 # MH Construction Color System
 
-**Date:** November 4, 2025
-**Status:** ✅ Current
-**Category:** Business - Brand Guidelines
-**Last Updated:** November 4, 2025
-**Version:** 4.0.2
+**Date:** December 14, 2025  
+**Status:** ✅ Current  
+**Category:** Business - Brand Guidelines  
+**Last Updated:** December 14, 2025  
+**Version:** 5.0.0
 
 ## Quick Navigation
 
@@ -12,6 +12,7 @@
 - [📋 Brand Overview](../strategy/brand-overview.md)
 - [🔧 Icon Policy](../../technical/design-system/icon-policy.md)
 - [📝 Typography](./typography.md)
+- [🎯 Hero Section Standards](./hero-section-standards.md) ⭐ **UPDATED Dec 14, 2025**
 
 ---
 

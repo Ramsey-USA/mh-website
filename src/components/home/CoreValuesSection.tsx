@@ -1,14 +1,15 @@
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const coreValues = [
   {
     value: "Honesty",
     icon: "verified",
-    tagline: "Transparent Communication Always",
+    tagline: "Clear SITREP Every Time",
     description:
-      "Truthful assessments, open communication, transparent pricing, and honest recommendations in every situation.",
+      "Mission briefs with full transparency—truthful assessments, open communication, and honest intel in every situation.",
     details:
-      "Upfront discussion of project challenges and potential issues. Immediate notification of any timeline or budget changes. Honest assessment when a project isn't the right fit. Clear explanation of all costs before work begins. Telling you what you need to know, not just what you want to hear.",
+      "Recon-level honesty: upfront discussion of project challenges and potential obstacles. Immediate SITREP for any timeline or budget changes. Honest assessment when a mission isn't the right fit. Complete intel on all costs before boots hit the ground. No corporate speak—just straight talk like briefing the CO. Your word is your bond, so is ours.",
     color: "from-brand-secondary to-brand-secondary-dark",
     bgColor:
       "bg-gradient-to-br from-brand-secondary/10 to-bronze-200/30 dark:from-brand-secondary/20 dark:to-bronze-900/30",
@@ -18,11 +19,11 @@ const coreValues = [
   {
     value: "Integrity",
     icon: "balance",
-    tagline: "Doing What's Right, Every Time",
+    tagline: "Mission First, People Always",
     description:
-      "Ethical decisions, promise keeping, moral leadership, and accountability in every action we take.",
+      "Military-grade ethics—doing what's right when no one's watching, following ROE even when it costs more.",
     details:
-      "Using specified materials and methods without unauthorized substitutions. Standing behind our work with comprehensive warranties. Making decisions that benefit the client, not just our bottom line. Following through on commitments even when circumstances change. Never cutting corners, even when no one is watching.",
+      "Standing by our mission orders: using specified materials and construction methods without unauthorized substitutions. Comprehensive warranties—we own the after-action results. Making decisions that benefit the client mission, not just our bottom line. Following through on commitments with military discipline even when circumstances change. No shortcuts in the field—integrity learned in service, proven in construction.",
     color: "from-primary-800 to-brand-primary-dark",
     bgColor:
       "bg-gradient-to-br from-primary-100/50 to-brand-primary/10 dark:from-primary-900/20 dark:to-primary-800/30",
@@ -32,11 +33,11 @@ const coreValues = [
   {
     value: "Professionalism",
     icon: "business_center",
-    tagline: "Excellence in Every Interaction",
+    tagline: "Military Bearing in Business",
     description:
-      "Conducting business with expert knowledge, respectful communication, and industry-leading standards in every interaction.",
+      "Professionalism learned in uniform, applied to every construction operation—on time, mission-ready, zero excuses.",
     details:
-      "Arriving on time, prepared, and ready to work. Clear, professional communication in all interactions. Proper job site management with organized work areas. Treating your property and neighbors with respect. Maintaining industry-leading credentials and training.",
+      "Deployment discipline: arriving on time, prepared, and mission-ready. Clear comms in all interactions—no jargon, just direct orders and honest feedback. Proper site management with organized AO (area of operations). Treating your property with the same respect we'd show on base. Maintaining industry credentials with the same rigor as military training—continuous improvement is part of the mission.",
     color: "from-brand-primary to-brand-primary-dark",
     bgColor: "bg-gradient-to-br from-brand-primary/10 to-brand-primary/5",
     iconBg: "bg-brand-primary",
@@ -45,11 +46,11 @@ const coreValues = [
   {
     value: "Thoroughness",
     icon: "task_alt",
-    tagline: "Attention to Detail in Everything We Do",
+    tagline: "No Detail Left Behind",
     description:
-      "Comprehensive planning, meticulous execution, and complete documentation ensuring nothing is overlooked.",
+      "Tactical-level planning and meticulous execution—complete documentation ensuring zero defects, zero surprises.",
     details:
-      "Detailed pre-construction site analysis and planning. Precise measurements and calculations for material estimates. Systematic quality control at every project phase. Complete project documentation with photo records. Comprehensive final walkthrough with detailed punch lists.",
+      "Pre-construction recon: detailed site analysis and tactical planning. Precision measurements and calculations—no room for error in the field. Systematic QC checkpoints at every phase like inspection stations. Complete mission documentation with photo intelligence records. Comprehensive final after-action review with detailed punch lists. Military precision applied to every construction detail.",
     color: "from-primary-700 to-primary-900",
     bgColor:
       "bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/20",
@@ -82,36 +83,14 @@ export function CoreValuesSection() {
       ></div>
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Section Header */}
-        <div className="mb-12 sm:mb-16 lg:mb-20 text-center scroll-reveal">
-          <div className="flex justify-center items-center mb-6 sm:mb-8">
-            <div className="relative">
-              <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
-              <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 rounded-2xl shadow-lg">
-                <MaterialIcon icon="shield" size="2xl" className="text-white" />
-              </div>
-            </div>
-          </div>
-          <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-            <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-              Veteran-Owned Values That
-            </span>
-            <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-              Build Lasting Trust
-            </span>
-          </h2>
-          <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-            <span className="font-semibold text-gray-800 dark:text-gray-200">
-              Four foundational values
-            </span>{" "}
-            guide every honest conversation, transparent decision, and lasting
-            relationship—because{" "}
-            <span className="text-brand-primary dark:text-brand-primary-light font-bold">
-              we build partnerships through integrity, not just projects
-            </span>
-            .
-          </p>
-        </div>
+        {/* Enhanced Section Header with Side Accents */}
+        <SectionHeader
+          icon="shield"
+          iconVariant="primary"
+          subtitle="Mission-Ready Values from All Branches"
+          title="Built on Honesty & Integrity"
+          description="Four foundational values guide every mission brief, construction operation, and lasting partnership—deployed with the same precision whether we're planning a site recon or executing a build mission. Army thoroughness, Navy reliability, Air Force precision, Marine adaptability, Coast Guard flexibility, Space Force innovation—all focused on building projects for the client, NOT the dollar."
+        />
 
         {/* Value Cards - 2x2 Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 xl:gap-12">

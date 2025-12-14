@@ -1,11 +1,19 @@
-# MH Construction Services & Capabilities
+# MH Construction Services & Capabilities - Veteran-Led Excellence
 
-## Expert Construction Management in the Pacific Northwest
+**Last Updated:** December 14, 2025  
+**Status:** Official Service Offerings  
+**Methodology:** Military/Construction Terminology Integration
 
-**Tri-Cities Headquarters**: Pasco, WA | **Service Area**: Washington, Oregon, Idaho
+## Expert Veteran-Led Construction Management in the Pacific Northwest
 
-**Primary Service Area**: Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County
+**Tri-Cities Headquarters**: Pasco, WA | **Service Area**: Washington, Oregon, Idaho  
+**Veteran-Owned**: All-Branch Military Service Leadership
+
+**Primary Service Area**: Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County  
 **Extended Service Areas**: Yakima, Spokane, Walla Walla, Hermiston, Coeur d'Alene, Eastern Washington
+
+**Strategic Focus:** Professional veteran-led construction operations with military precision and
+construction expertise.
 
 ---
 

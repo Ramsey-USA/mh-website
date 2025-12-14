@@ -53,12 +53,13 @@ export function PartnershipPhilosophy() {
                 </span>
               </h2>
               <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                At MH Construction, we believe in old-school business values:
-                where handshakes still matter, your word is your bond, and trust
-                is earned through character. Since our founding in 2010, we've
-                built our reputation on lasting relationships that outlast the
-                buildings themselves. Under veteran-owned leadership since
-                January 2025, we continue the tradition of excellence through
+                At MH Construction, we believe in service-earned business
+                values: where handshakes still matter, your word is your bond,
+                and trust is earned through character and proven in the field.
+                Since our founding in 2010, we've built our reputation on
+                lasting partnerships that outlast the buildings themselves.
+                Under veteran-owned leadership since January 2025, we continue
+                the mission tradition of excellence through operational
                 experience.
               </p>
             </div>
@@ -77,8 +78,8 @@ export function PartnershipPhilosophy() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed font-medium italic">
-                    "We deliver high-quality construction rooted in integrity,
-                    clear communication, and long-term relationships."
+                    "We execute high-quality construction operations rooted in
+                    integrity, clear mission comms, and long-term partnerships."
                   </p>
                 </CardContent>
               </Card>
@@ -96,8 +97,8 @@ export function PartnershipPhilosophy() {
                 <CardContent>
                   <p className="text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed font-medium italic">
                     "To be the Pacific Northwest's most trusted veteran-led
-                    construction partner - renowned for craftsmanship and
-                    character."
+                    construction partner - renowned for battle-tested
+                    craftsmanship and service-earned character."
                   </p>
                 </CardContent>
               </Card>

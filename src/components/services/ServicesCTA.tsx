@@ -22,9 +22,10 @@ export function ServicesCTA() {
             </h2>
 
             <p className="mb-10 text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4 break-words">
-              Experience professionalism, thoroughness, honesty, integrity,
-              reliability, and quality craftsmanship in every project. Let's
-              discuss how our values create lasting partnerships.
+              Experience professionalism, thoroughness, mission-focused honesty,
+              operational integrity, reliability, and battle-tested quality
+              craftsmanship in every construction operation. Let's discuss how
+              our service-earned values create lasting mission partnerships.
             </p>
 
             {/* CTA Buttons - v4.0.2 Brand Standards */}
@@ -36,7 +37,7 @@ export function ServicesCTA() {
                   className="transition-all duration-300 border-2 border-white bg-white text-brand-primary hover:bg-brand-primary hover:text-white hover:border-white min-w-[280px]"
                 >
                   <MaterialIcon icon="handshake" size="lg" className="mr-3" />
-                  <span className="font-medium">Begin Your Project</span>
+                  <span className="font-medium">Begin Your Mission</span>
                 </Button>
               </Link>
               <Link href="/projects">

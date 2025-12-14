@@ -1,7 +1,7 @@
 # Developer Workflow Pathway
 
 **Category**: Development Workflow & Onboarding  
-**Last Updated**: November 18, 2025  
+**Last Updated**: December 14, 2025  
 **Status**: ✅ Active - Complete Developer Journey
 
 ---
@@ -123,7 +123,7 @@ visual patterns for consistency.
    - Reusable card/grid/section components
    - Import patterns
 
-4. **[Style Utilities Quick Reference](./style-utilities-quick-reference.md)** ⚡ (5 min)
+4. **[Style Utilities Guide](./style-utilities-guide.md)** ⚡ (5 min - includes quick reference cheat sheet)
    - Daily cheat sheet
    - Copy-paste ready examples
    - Common patterns
@@ -300,7 +300,7 @@ Master Index (docs/master-index.md)
 │   ├── consistency-guide.md ⭐ PRIMARY REFERENCE (733 lines)
 │   ├── section-visual-standards.md ⭐ NEW
 │   ├── style-utilities-guide.md ⭐ MANDATORY
-│   ├── style-utilities-quick-reference.md ⚡ DAILY USE
+│   ├── style-utilities-guide.md ⚡ DAILY USE (includes cheat sheet)
 │   ├── new-page-development-guide.md
 │   ├── cohesion-checklist.md
 │   ├── development-standards.md
@@ -355,7 +355,7 @@ Master Index (docs/master-index.md)
 2. ✅ Review **[Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md)** -
    Confirm correct voice
 3. ✅ Reference **[Consistency Guide](./consistency-guide.md)** - Apply correct patterns
-4. ✅ Use **[Style Utilities Quick Reference](./style-utilities-quick-reference.md)** - Find code patterns
+4. ✅ Use **[Style Utilities Guide](./style-utilities-guide.md)** - Find code patterns (includes cheat sheet)
 5. ✅ Run validation commands from Homepage Compliance Checklist
 6. ✅ Run `npm run seo:audit`
 
@@ -495,7 +495,7 @@ Master Index (docs/master-index.md)
 
 ### Daily Use (Developers)
 
-1. **[Style Utilities Quick Reference](./style-utilities-quick-reference.md)** ⚡
+1. **[Style Utilities Guide](./style-utilities-guide.md)** ⚡ (includes cheat sheet)
 2. **[Section Visual Standards](./guidelines/section-visual-standards.md)** ⭐
 3. **[New Page Development Guide](./new-page-development-guide.md)**
 4. **[Cohesion Checklist](./cohesion-checklist.md)**
@@ -545,7 +545,7 @@ Master Index (docs/master-index.md)
 
 - Review **[Consistency Guide](./consistency-guide.md)** first
 - Check **[Troubleshooting Guide](./troubleshooting.md)**
-- Reference **[Style Utilities Quick Reference](./style-utilities-quick-reference.md)**
+- Reference **[Style Utilities Guide](./style-utilities-guide.md)** (includes cheat sheet)
 
 ### Design Questions
 

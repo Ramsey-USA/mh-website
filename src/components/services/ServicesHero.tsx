@@ -34,15 +34,16 @@ export function ServicesHero() {
             Building Tomorrow's Success on Today's Values
           </p>
 
-          {/* Description - Future-focused with veteran values */}
+          {/* Description - Future-focused with veteran values and military-construction terminology */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
             "Building projects for the client,{" "}
             <span className="font-black italic text-bronze-300">NOT</span> the
-            dollar" — Veteran-owned precision meets comprehensive service
-            offerings. From honest communication and transparent pricing to
-            proven craftsmanship across residential, commercial, and government
-            projects. Where professional excellence today creates trusted
-            partnerships tomorrow.
+            dollar" — Veteran-owned operational precision meets comprehensive
+            service offerings. From SITREP-level communications and transparent
+            mission briefs to battle-tested craftsmanship across residential,
+            commercial, and government construction operations. Where
+            professional excellence today creates trusted mission partnerships
+            tomorrow.
           </p>
         </div>
       </div>

@@ -1,15 +1,17 @@
 # Page-Specific Messaging & Language Guide
 
-**Last Updated:** December 13, 2025 | **Version:** 2.0.0 | **Status:** Official Brand Standard
+**Last Updated:** December 14, 2025 | **Version:** 3.0.0 | **Status:** Official Brand Standard - Veteran/Honesty Focus
 
-**⚠️ UPDATE (Dec 13, 2025)**: Group 6 (Tech Innovation) has been deprecated. Automated Estimator and 3D Explorer
-features have been removed in favor of direct human consultation. Group 6 is now "Resources & Help" (FAQ, Support).
+**⚠️ MAJOR UPDATE (Dec 14, 2025)**: Restructured from 7 groups to **5 Core Page Groups** reflecting our veteran-owned,
+honesty-first business model. All tech/automation messaging removed in favor of direct human consultation and
+transparent communication.
 
 ---
 
 ## 🧭 Quick Navigation
 
 - [📖 Universal Terminology Guide](./universal-terminology-guide.md) ⭐ **NEW**
+- [🎖️ Military-Construction Terminology](./military-construction-terminology.md) ⭐ **NEW** - Professional military terms
 - [🗂️ Slogan Rotation Guide](./slogan-rotation-guide.md)
 - [📝 Messaging Guidelines](./messaging.md)
 - [🎨 Branding Index](../branding-index.md)
@@ -20,10 +22,12 @@ features have been removed in favor of direct human consultation. Group 6 is now
 ## 🎯 Purpose
 
 This guide defines the **unique voice, tone, and messaging strategy** for each page group on the
-MH Construction website. While our **four-value professional foundation system** (Honesty, Integrity,
-Honesty, Integrity, Professionalism, Thoroughness) and **trust-centered
-philosophy** remain constant across all pages, each page group has its own personality and
-communication style designed to resonate with its specific audience.
+MH Construction website. As a **veteran-owned business built on honesty and integrity**, we speak plainly,
+act transparently, and prioritize substance over style. While our **four-value professional foundation system**
+(Honesty, Integrity, Professionalism, Thoroughness) remains constant, each page group reflects these values
+in ways that resonate with its specific audience.
+
+**Core Identity:** Veteran-owned since January 2025. Your word is your bond — so is ours.
 
 ### Core Foundation
 
@@ -49,63 +53,60 @@ specific terms and phrases.
 
 ---
 
-## 📖 Page Group Classifications
+## 📖 Page Group Classifications (5 Core Groups)
 
-### Group 1: Traditional Business Foundation
+### Group 1: Veteran Foundation
 
-**Pages:** Home, Contact  
-**Core Theme:** Main slogan prominence, old-school business values meeting modern world
+**Pages:** Home, About, Veterans  
+**Core Theme:** Honesty-first, service over self, military precision  
+**Key Message:** Your word is your bond — so is ours. Period.
 
-### Group 2: Company Heritage
+### Group 2: Professional Services
 
-**Pages:** About, Projects  
-**Core Theme:** Company's past, proven track record, history of excellence
+**Pages:** Services, Projects, Government  
+**Core Theme:** Proven expertise, thorough execution, real results  
+**Key Message:** No gimmicks. No shortcuts. Just honest, quality work.
 
-### Group 3: Future Vision
+### Group 3: Partnership & Team
 
-**Pages:** Team, Services  
-**Core Theme:** Company's future, growth trajectory, forward momentum
+**Pages:** Team, Careers, Trade Partners  
+**Core Theme:** Building lasting relationships through trust  
+**Key Message:** THE ROI IS THE RELATIONSHIP (exclusive to this group)
 
-### Group 4: Professional & Patriotic
+### Group 4: Direct Communication
 
-**Pages:** Government, Veterans  
-**Core Theme:** Professional excellence, patriotic service, veteran values
-
-### Group 5: Recruitment & Growth
-
-**Pages:** Careers  
-**Core Theme:** Enthusiastic, welcoming, opportunity-focused
-
-### Group 6: Resources & Help
-
-**Pages:** FAQ, Support, Resources  
-**Core Theme:** Helpful, accessible, service-focused, professional support
-
-### Group 7: Partnership & Urgency
-
-**Pages:** Trade Partners, Urgent Support  
-**Core Theme:** ROI-focused, relationship emphasis, responsive partnership
+**Pages:** Contact, FAQ, Urgent  
+**Core Theme:** Accessible, transparent, human-first  
+**Key Message:** Face-to-face consultation. Honest answers. Real people.
 
 ---
 
-## 🏛️ GROUP 1: Traditional Business Foundation
+## �️ GROUP 1: Veteran Foundation
 
-### Pages: Home, Contact, Booking
+### Pages: Home, About, Veterans
 
 ### Voice & Tone
 
-- **Authentic:** Real people, real handshakes, real relationships
-- **Timeless:** Old-school values that never go out of style
-- **Trust-Centered:** Building trust through four foundational values
-- **Personal:** Face-to-face, human connection emphasized
+- **Straight-Talk:** No corporate speak, no buzzwords, just honest communication (like briefing the CO)
+- **Service-Minded:** Veteran values from all branches—duty, integrity, and follow-through
+- **Trust-Earned:** Your word is your bond — we live that principle daily (honor, courage, commitment)
+- **Transparent:** Open-book pricing, realistic timelines, immediate notification of changes (SITREP-level clarity)
+- **Military Precision:** No detail overlooked, no shortcut taken
+  - **Army:** Ground-level thoroughness in execution
+  - **Navy:** Sustained operational excellence
+  - **Air Force:** Technical precision standards
+  - **Marines:** Improvise, adapt, overcome mentality
+  - **Coast Guard:** Multi-mission flexibility
+  - **Space Force:** Forward-thinking innovation
 
 ### Core Values Emphasis
 
-**Featured Values:** All four values prominently displayed
+**Featured Values:** Honesty, Integrity (Foundation of Everything)
 
-- **Professionalism** - First impressions matter
-- **Honesty** - Transparent communication from day one
-- **Integrity** - Your word is your bond - so is ours
+- **Honesty** - Eliminates doubt through transparent pricing, realistic timelines, open communication
+- **Integrity** - Builds credibility by doing what's right, even when it costs more
+- **Professionalism** - Military precision in every detail
+- **Thoroughness** - No shortcuts, no compromises, no detail overlooked
 
 ### Primary Messaging
 
@@ -113,107 +114,126 @@ specific terms and phrases.
 
 - "Building projects for the client, NOT the dollar"
 
-**Trust-Centered Messaging:**
+**Veteran-Honesty Messaging:**
 
-- "Trust Built Through Four Core Values"
-- "Trust as Our Ultimate Goal"
-- "THE ROI IS THE RELATIONSHIP"
+- "Your word is your bond — so is ours. Period."
+- "Veteran-owned. Veteran-operated. Veteran values in every project."
+- "Service recognizes service — Combat Veteran Discount at the Ready (All Branches)"
+- "From the Army's 'This We'll Defend' to the Navy's 'Honor, Courage, Commitment' — we live these values"
+- "Semper Fi. Always Ready. Aim High. Semper Paratus. Always Above. — One Team, One Mission."
 
 **Supporting Slogans:**
 
-- "Where Handshakes Still Matter"
-- "Your Word Is Your Bond - So Is Ours"
-- "Four Values, One Result: Trust"
+- "Where handshakes still matter, promises are kept, and relationships last"
+- "Old-school business values that never go out of style"
+- "No gimmicks. No shortcuts. Just honest work."
 
 ### Language Characteristics (Group 1)
 
-- Use traditional business terminology
-- Emphasize face-to-face meetings and personal connection
-- Reference timeless values: integrity, handshake deals, keeping your word
-- Contrast modern world with old-school principles
-- Warm, welcoming, approachable
+- Speak plainly - no corporate buzzwords or marketing fluff (like clear radio comms)
+- Emphasize face-to-face meetings where real relationships begin (mission briefs, not emails)
+- Reference military values across all branches: duty, integrity, follow-through, precision, adaptability
+- Use appropriate military operations terminology:
+  - **Recon/Survey** instead of "site visit"
+  - **Mission brief** instead of "project meeting"
+  - **SITREP** (situation report) for project updates
+  - **After-action review** for post-project analysis
+  - **Rally point** for contact/consultation
+  - **ROE** (rules of engagement) for project parameters
+- Contrast honest business practices with industry gimmicks
+- Direct, respectful, and authentic (military bearing in business)
 
 ### Key Phrases (Group 1)
 
-- "Where handshakes matter and your word is your bond"
-- "Trust built through honesty, integrity, professionalism, and thoroughness"
-- "Four core values working together to create one result: Trust"
-- "Face-to-face consultation where trust begins"
-- "Founded on integrity, built on relationships, measured by trust"
-- "The way business should be done - with values you can count on"
-- "98% satisfaction rate, 70% referral rate - trust you can measure"
+- "Your word is your bond — so is ours. Period."
+- "Veteran-owned since January 2025 - **all-branch** military values in every project"
+- "Combat Veteran Discount at the Ready - service recognizes service (Army, Navy, Air Force, Marines, Coast Guard,
+  Space Force)"
+- "Face-to-face consultation where trust begins (mission briefing, not sales pitch)"
+- "No hidden costs. No surprises. No excuses. (Clear SITREP every time)"
+- "Open-book pricing - see everything, question anything (full mission transparency)"
+- "98% satisfaction rate, 70% referral rate - trust you can measure (mission success metrics)"
+- "Military precision from all branches meets honest business practices"
+- "From basic training to contractor — we speak your language"
+- "Whether you served on land, sea, air, or in space — we've got your six"
 
 ### Avoid (Group 1)
 
-- Overly corporate language
-- Tech jargon (save for tech pages)
-- Impersonal automation messaging
-- Sales pressure tactics
-- Vague value claims without specifics
+- Corporate buzzwords ("synergy", "innovative", "cutting-edge", "AI-powered")
+- Tech jargon or automation messaging
+- Sales pressure or manipulation tactics
+- Vague promises without specific commitments
+- **Overly technical military jargon** (DEFCON, OPSEC, FUBAR, MOS codes)
+- **Combat-aggressive terminology** ("assault the project", "engage the enemy")
+- **Exploiting veteran status** for sales pressure or manipulation
+
+**Note:** Use military-construction terminology professionally per the **[Military-Construction Terminology Guide](./military-construction-terminology.md)**. Terms like SITREP, mission brief, recon, rally point, AO, and ROE are ENCOURAGED when used naturally and appropriately.
 
 ---
 
-## 📚 GROUP 2: Company Heritage
+## �️ GROUP 2: Professional Services
 
-### Pages: About, Projects
+### Pages: Services, Projects, Government
 
 ### Voice & Tone
 
-- **Proud:** Celebrating achievements and milestones
-- **Reflective:** Looking back at the journey
-- **Credible:** Evidence-based, proven track record
-- **Trust-Proven:** Trust earned through consistent demonstration of values
-- **Narrative:** Storytelling approach to company history
+- **Evidence-Based:** Real projects, real results, real testimonials
+- **Thorough:** Comprehensive planning, meticulous execution, complete documentation
+- **Compliance-Focused:** Federal standards, regulatory requirements, proven processes
+- **No-Nonsense:** Military discipline applied to project management
+- **Results-Oriented:** Outcomes speak louder than promises
 
 ### Core Values Emphasis
 
-**Featured Values:** Partnership, Innovation, Integrity
+**Featured Values:** Professionalism, Thoroughness
 
-- Track record demonstrating consistent value delivery
-- Projects showcasing craftsmanship that stands test of time
-- Proven reliability through repeat clients and referrals
+- **Professionalism** - Expert construction knowledge, industry best practices, organized processes
+- **Thoroughness** - Comprehensive planning, meticulous execution, complete documentation
+- Proven track record demonstrating consistent delivery
+- Federal compliance for government projects
 
 ### Primary Messaging
 
 **Main Slogan:**
 
-- "Building projects for the client, NOT the dollar" (as foundation)
+- "Building projects for the client, NOT the dollar" (always applies)
 
-**Trust-Heritage Messaging:**
+**Services-Focused Messaging:**
 
-- "Trust Built Through Values, Proven Through Projects"
-- "Every Value Demonstrated, Every Time"
+- "No gimmicks. No shortcuts. Just quality work done right."
+- "Proven expertise. Thorough execution. Real results."
+- "Your project deserves expert oversight and military precision."
 
-**Heritage-Specific Slogans:**
+**Project-Specific Slogans:**
 
-- "Trust Built, Project by Project"
-- "Excellence Through Experience"
-- "Where Precision Meets Partnership"
-- "150+ Years of Combined Excellence"
+- "Real work. Real results. Real testimonials."
+- "Excellence through experience, proven through projects"
+- "Where precision meets partnership"
+- "150+ years of combined construction expertise"
 
 ### Language Characteristics (Group 2)
 
-- Use past-tense achievements as proof points
-- Tell the company's story chronologically
-- Highlight transformative moments and growth
-- Connect past success to present capabilities
-- Reference founding principles and how they endure
+- Lead with proven results and completed projects
+- Emphasize thoroughness and attention to detail
+- Highlight compliance and regulatory expertise (for government)
+- Use specific examples and measurable outcomes
+- Connect services to actual client needs
 
 ### Key Phrases (Group 2)
 
 - "Founded in 2010, veteran-owned since January 2025"
-- "Trust earned through honesty, integrity, professionalism, and thoroughness"
-- "98% client satisfaction rate - trust you can measure"
-- "70% referral rate - trust clients share with others"
-- "Built on a foundation of four core values"
-- "Our history speaks for itself - our values speak through every project"
-- "From humble beginnings to regional leadership, values remained constant"
-- "Every project demonstrates our commitment to trust"
-- "Decades of experience, unwavering values"
+- "Military-trained attention to detail in every project"
+- "98% client satisfaction rate - proven results"
+- "70% referral rate - clients trust us enough to recommend us"
+- "Comprehensive planning with contingency scenarios"\n- "Multiple quality control checkpoints throughout"
+- "Federal compliance assured, regulatory standards exceeded"
+- "No detail overlooked, no shortcut taken"
 
 ### Avoid (Group 2)
 
-- Future promises without past proof
+- Promises without proof or examples
+- Generic industry claims without specifics
+- Downplaying complexity or challenges
 - Generic industry claims without value connection
 - Downplaying company age or evolution
 - Forgetting to connect heritage to current values
@@ -221,9 +241,148 @@ specific terms and phrases.
 
 ---
 
-## 🚀 GROUP 3: Future Vision
+## 🤝 GROUP 3: Partnership & Team
 
-### Pages: Team, Services
+### Pages: Team, Careers, Trade Partners
+
+### Voice & Tone (Group 3)
+
+- **Relationship-Focused:** THE ROI IS THE RELATIONSHIP (exclusive to this group)
+- **Long-Term:** Building partnerships that outlast projects
+- **Mutual Respect:** Two-way commitment, shared success
+- **Values-Aligned:** Seeking partners who share our principles
+- **Growth-Oriented:** Team development and career advancement
+
+### Core Values Emphasis
+
+**Featured Values:** All Four Values Create the ROI
+
+- **Honesty** - Open communication builds strong teams
+- **Integrity** - Doing right by our team and partners
+- **Professionalism** - Excellence in every interaction
+- **Thoroughness** - Complete support and development
+
+**EXCLUSIVE MESSAGING:** This is the ONLY group that uses "THE ROI IS THE RELATIONSHIP" as primary messaging.
+
+### Primary Messaging
+
+**Main Slogan:**
+
+- "Building projects for the client, NOT the dollar" (foundation)
+
+**ROI-Relationship Messaging (EXCLUSIVE TO GROUP 3):**
+
+- "THE ROI IS THE RELATIONSHIP" (primary for this group only)
+- "Where partnerships outlast projects"
+- "Built on mutual respect, sustained through shared success"
+
+**Team/Career Slogans:**
+
+- "Build your career on a foundation of trust"
+- "Join a team where your word matters as much as ours"
+- "Experience you can trust, values you can count on"
+
+**Trade Partner Slogans:**
+
+- "Partners in excellence, united by values"
+- "Your success is our success - that's the relationship"
+- "Long-term partnerships built on short-term promises kept"
+
+### Language Characteristics (Group 3)
+
+- Emphasize mutual benefit and long-term thinking
+- Highlight team values: competence, character, commitment
+- Use partnership language (not vendor/client)
+- Focus on relationship building, not transactions
+- Show career growth paths and development opportunities
+
+### Key Phrases (Group 3)
+
+- "THE ROI IS THE RELATIONSHIP - built on four core values"
+- "Partnerships that outlast projects, relationships that outlast buildings"
+- "Your success is our success - that's what partnership means"
+- "Join a veteran-owned team where integrity matters"
+- "Build your career with a company that keeps its word"
+- "Trade partners who become trusted allies"
+- "Long-term relationships, not one-time transactions"
+
+### Avoid (Group 3)
+
+- Transactional language or short-term thinking
+- Taking partners for granted
+- One-sided benefit messaging
+- Corporate recruitment speak without substance
+- Empty promises about growth or opportunity
+
+---
+
+## 📞 GROUP 4: Direct Communication
+
+### Pages: Contact, FAQ, Urgent
+
+### Voice & Tone (Group 4)
+
+- **Accessible:** Easy to reach, quick to respond
+- **Transparent:** Honest answers to direct questions
+- **Human-First:** Real people, not automated systems
+- **Responsive:** 24/7 for urgent needs
+- **Clear:** No jargon, no runaround, just straight answers
+
+### Core Values Emphasis
+
+**Featured Values:** Honesty, Professionalism
+
+- **Honesty** - Straightforward answers, realistic expectations
+- **Professionalism** - Responsive, respectful, reliable communication
+- Face-to-face consultation prioritized for all major decisions
+- Transparent pricing discussions from day one
+
+### Primary Messaging
+
+**Main Slogan:**
+
+- "Building projects for the client, NOT the dollar" (always applies)
+
+**Communication-Focused Messaging:**
+
+- "Face-to-face consultation where relationships begin"
+- "Honest answers from real people, not automated systems"
+- "Available when you need us, responsive when it matters"
+
+**Contact/FAQ Slogans:**
+
+- "Your questions answered honestly, your time respected"
+- "Direct communication, transparent pricing, real consultation"
+- "No runaround. No corporate speak. Just honest answers."
+
+### Language Characteristics (Group 4)
+
+- Direct, clear answers without corporate speak
+- Anticipate concerns and address proactively
+- Provide context and next steps
+- Emphasize personal consultation availability
+- Show responsiveness and accessibility
+
+### Key Phrases (Group 4)
+
+- "Let's discuss your specific situation face-to-face"
+- "We're here 24/7 for urgent construction needs"
+- "No question is too small - we're here to help"
+- "Honest answers from experienced professionals"
+- "Schedule a consultation - see the difference personal attention makes"
+- "Transparent pricing discussion from the first meeting"
+- "Direct line to decision-makers, not automated systems"
+
+### Avoid (Group 4)
+
+- Automated, impersonal responses
+- Corporate jargon or complex terminology
+- Dismissive or condescending tone
+- Generic FAQ answers that don't help
+- Pushing sales instead of providing genuine help
+- Any reference to automated tools or AI systems
+
+---
 
 ### Voice & Tone
 
@@ -288,18 +447,19 @@ specific terms and phrases.
 
 ---
 
-## 🇺🇸 GROUP 4: Professional & Patriotic
+## 🇺🇸 GROUP 4: Professional & Patriotic (All-Branch Recognition)
 
 ### Pages: Government, Veterans
 
-### Voice & Tone
+### Voice & Tone (Professional & Patriotic - Deprecated)
 
-- **Respectful:** Honoring service and sacrifice
-- **Professional:** Meeting federal standards and expectations
-- **Mission-focused:** Commitment to duty and excellence
-- **Integrity-Driven:** Doing what's right, every time
-- **Reliable:** Veteran-trained dependability
+- **Respectful:** Honoring service and sacrifice from **all branches**
+- **Professional:** Meeting federal standards and expectations (military-grade compliance)
+- **Mission-focused:** Commitment to duty and excellence (operation-level dedication)
+- **Integrity-Driven:** Doing what's right, every time (core values from every service branch)
+- **Reliable:** Veteran-trained dependability (from boot camp to boardroom)
 - **Patriotic:** Proud American values without being over-the-top
+- **Branch-Aware:** Understanding unique cultures—Army's "Hooah", Navy's "Hooyah", Air Force's "Aim High", Marine's "Oorah", Coast Guard's "Semper Paratus", Space Force's "Semper Supra"
 
 ### Core Values Emphasis
 
@@ -337,15 +497,16 @@ specific terms and phrases.
 
 ### Key Phrases (Group 4)
 
-- "Army veteran leadership since January 2025"
-- "Military precision meets construction excellence through four core values"
-- "Serving those who served our nation with integrity and reliability"
-- "Mission-focused project execution guided by unwavering values"
-- "Compliance-driven, quality-assured, integrity-based"
-- "Your word is your bond - we understand that through military service"
-- "Reliability trained in service, proven in construction"
-- "Professionalism learned in uniform, applied to every project"
+- "Veteran leadership since January 2025 — **all branches represented, all values honored**"
+- "Military precision from every service branch meets construction excellence through four core values"
+- "Serving those who served our nation with integrity and reliability — Army, Navy, Air Force, Marines, Coast Guard, Space Force"
+- "Mission-focused project execution guided by unwavering values (from parade ground to construction ground)"
+- "Compliance-driven, quality-assured, integrity-based (federal standards meet military standards)"
+- "Your word is your bond - we understand that through military service across all branches"
+- "Reliability trained in service, proven in construction (deployment discipline in every detail)"
+- "Professionalism learned in uniform, applied to every project (military bearing in business)"
 - "Trust: earned in service, demonstrated in construction"
+- "Whether you wore Army green, Navy blue, Air Force blue, Marine Corps red, Coast Guard blue, or Space Force black — we honor your service"
 
 ### Avoid (Group 4)
 
@@ -355,264 +516,6 @@ specific terms and phrases.
 - Assuming all clients understand military jargon
 - Political messaging or partisanship
 - Values claims without military connection
-
----
-
-## 🌟 GROUP 5: Recruitment & Growth
-
-### Pages: Careers
-
-### Voice & Tone
-
-- **Enthusiastic:** Excited about growth and new team members
-- **Welcoming:** Open arms, inclusive language
-- **Values-Centered:** Join a team built on four core values
-- **Inspirational:** Career growth and opportunity focus
-- **Energetic:** Dynamic, upbeat, forward momentum
-
-### Core Values Emphasis
-
-**Featured Values:** Professionalism, Reliability, Integrity
-
-- Professional development and growth opportunities
-- Reliable leadership and mentorship
-- Work environment built on integrity and trust
-
-### Primary Messaging
-
-**Main Slogan:**
-
-- "Building projects for the client, NOT the dollar" (as foundation)
-
-**Values-Recruitment Messaging:**
-
-- "Build Your Career on a Foundation of Trust"
-- "Join a Team Where Values Matter"
-
-**Recruitment Slogans:**
-
-- "Your Future Starts Here, Built on Values"
-- "Build Your Career With Us, Grow Through Our Values"
-- "Where Your Growth Is Our Mission, Trust Is Our Foundation"
-- "Join a Team That Invests in You and Lives Its Values"
-
-### Language Characteristics (Group 5)
-
-- Use second-person ("you") frequently
-- Emphasize opportunity and growth potential
-- Highlight benefits and culture enthusiastically
-- Paint picture of career trajectory
-- Show investment in employee success
-
-### Key Phrases (Group 5)
-
-- "Build your future with a team that cares and lives its values"
-- "Where talent meets opportunity in a culture of trust"
-- "Your success is our success - that's integrity in action"
-- "Join a family, not just a company - built on four core values"
-- "Careers built on partnership and professional development"
-- "Where veterans and civilians build together with shared values"
-- "Professionalism isn't just expected, it's mentored and celebrated"
-- "Reliable leadership that invests in your growth"
-- "Work with integrity, grow with purpose, build with trust"
-
-### Avoid (Group 5)
-
-- Unrealistic promises about advancement
-- Ignoring work-life balance concerns
-- Corporate jargon that feels cold
-- Downplaying real job demands
-- Over-selling without substance
-- Values talk without cultural proof
-
----
-
-## � GROUP 6: Resources & Help
-
-### Pages: FAQ, Support, Resources
-
-### Voice & Tone
-
-- **Helpful:** Supportive, accessible, service-oriented
-- **Clear:** Straightforward answers, no jargon
-- **Patient:** Understanding client questions and concerns
-- **Professional:** Expert guidance with approachable delivery
-- **Personal:** Human touch, not automated responses
-
-### Core Values Emphasis
-
-**Featured Values:** Honesty, Professionalism, Thoroughness
-
-- Honest answers to common questions
-- Professional support and guidance
-- Thorough information to help clients make informed decisions
-
-### Primary Messaging
-
-**Main Slogan:**
-
-- "Building projects for the client, NOT the dollar" (as foundation)
-
-**Values-Support Messaging:**
-
-- "Honest Answers to Your Questions"
-- "Professional Support When You Need It"
-
-**Support-Focused Slogans:**
-
-- "We're Here to Help"
-- "Your Questions, Our Priority"
-- "Clear Answers, Professional Guidance"
-- "Support Built on Trust"
-
-### Language Characteristics (Group 6)
-
-- Direct, clear answers without corporate speak
-- Anticipate common concerns and address proactively
-- Provide context and explanation, not just facts
-- Offer next steps and clear paths forward
-- Emphasize personal consultation availability
-
-### Key Phrases (Group 6)
-
-- "Let's discuss your specific situation"
-- "We're here to answer any questions"
-- "Contact us for personalized guidance"
-- "Every project is unique - let's talk about yours"
-- "Our team is ready to help you"
-- "Straightforward answers from experienced professionals"
-- "No question is too small - we're here to help"
-
-### Avoid (Group 6)
-
-- Automated, impersonal responses
-- Tech jargon or complex terminology
-- Dismissive or condescending tone
-- Generic answers that don't address real concerns
-- Pushing sales instead of providing help
-- Referring to automated tools or AI systems
-
-- "Building projects for the client, NOT the dollar" (still applies)
-
-**Values-Tech Messaging:**
-
-- "Technology with Transparency"
-- "Innovation Built on Trust and Honesty" (DEPRECATED - Use proven methods messaging)
-
-**Former Tech-Focused Slogans (DEPRECATED):**
-
-- ~~"Smart Planning Starts Here, Trust Continues Throughout"~~
-- ~~"Innovation Meets Construction Excellence and Core Values"~~
-- ~~"Technology Serving Traditional Values and Building Trust"~~
-- ~~"AI-Powered, Human-Centered, Values-Driven"~~
-
-**✅ REPLACEMENT MESSAGING:** Use "Proven craftsmanship over cutting-edge technology" and
-"Traditional business values that last" instead.
-
-### Language Characteristics (DEPRECATED - Group 6 Removed)
-
-**NOTE:** This section is deprecated. Direct human consultation is now prioritized over automated tools.
-
-### Key Phrases (DEPRECATED - Replaced with Direct Consultation)
-
-**Former phrases (no longer use):**
-
-- ~~"AI-powered estimation meets personal consultation"~~
-- ~~"Technology that serves, never replaces, relationships"~~
-- ~~"Smart tools for smarter planning"~~
-- ~~"Cutting-edge tools, old-school values"~~
-
-**✅ REPLACEMENT PHRASES:**
-
-- "Face-to-face consultation builds trust"
-- "Honest communication from the start"
-- "Direct human expertise, no automated shortcuts"
-- "Traditional consultation methods that work"
-- "Proven processes, personal attention"
-
-### Avoid (Updated for Veteran/Honest Messaging)
-
-- ~~Tech jargon without explanation~~ → Avoid all tech-focused language
-- ~~Implying automation replaces people~~ → Never mention automation positively
-- ~~Cold, impersonal technology language~~ → Use warm, personal, veteran-focused language
-- Any reference to "AI-powered", "cutting-edge", "innovative technology"
-- Forgetting veteran values and honest communication emphasis
-
----
-
-## 🤝 GROUP 7: Partnership & Urgency
-
-### Pages: Trade Partners, Urgent Support
-
-### Voice & Tone
-
-- **Responsive:** Quick, available, dependable
-- **ROI-focused:** Business value emphasized clearly
-- **Trust-Demonstrated:** Where values create measurable ROI
-- **Partnership-oriented:** Mutual success language
-- **Professional:** B2B appropriate communication
-
-### Core Values Emphasis
-
-**Featured Values:** ALL FOUR values create the ROI
-
-- **Honesty** in pricing and timelines
-- **Integrity** in all business dealings
-- **Reliability** in emergency response and project delivery
-- **Quality Craftsmanship** that lasts
-- **Professionalism** in every interaction
-- **Thoroughness** that prevents costly mistakes
-
-### Primary Messaging
-
-**UNIQUE FEATURE: This is the ONLY place we prominently use:**
-
-- "THE ROI IS THE RELATIONSHIP" (featured heavily)
-  - _But now emphasize: The relationship works BECAUSE of our four core values_
-
-**Also Use:**
-
-- "Building projects for the client, NOT the dollar"
-- "Four Values Create One ROI: Trust"
-- "When Time Is Critical, Our Values Don't Waver"
-- "Professional Partnerships Built on Four Foundations"
-
-### Language Characteristics (Group 7)
-
-- Emphasize mutual benefit and ROI
-- Use business-to-business language
-- Show responsiveness and availability
-- Highlight partnership value clearly
-- Quantify benefits when possible
-
-### Key Phrases (Trade Partners)
-
-- "THE ROI IS THE RELATIONSHIP - built on four core values"
-- "Partnerships that profit everyone through honesty and integrity"
-- "Fair payment (integrity), clear communication (honesty), mutual success (trust)"
-- "Building your business while building ours - with professionalism and reliability"
-- "Professional partnerships, profitable results, lasting trust"
-- "Four values create measurable ROI: 70% referral rate proves it"
-- "Quality craftsmanship and reliability make partnerships profitable"
-
-### Key Phrases (Urgent Support)
-
-- "When time is critical, we respond - our values don't waver"
-- "24/7 emergency support built on reliability you can count on"
-- "Rapid response without sacrificing quality craftsmanship"
-- "THE ROI IS THE RELATIONSHIP - even in emergencies, trust matters"
-- "Your urgent need is our immediate priority - with professional integrity"
-- "Emergency response driven by reliability, guided by thoroughness"
-- "Critical situations demand honesty - we deliver it every time"
-
-### Avoid (Group 7)
-
-- Transactional language without relationship or values emphasis
-- Vague partnership promises without values foundation
-- Unclear ROI claims not connected to trust
-- Slow/unresponsive tone
-- Ignoring business realities
-- ROI talk without values that create it
 
 ---
 
@@ -647,96 +550,83 @@ specific terms and phrases.
 
 ## 📊 Messaging Matrix
 
-| Page Group             | Primary Audience      | Dominant Emotion         | Core Values Focus                     | Call-to-Action Focus |
-| ---------------------- | --------------------- | ------------------------ | ------------------------------------- | -------------------- |
-| Traditional Business   | All potential clients | Trust & Comfort          | All four values prominently displayed | "Let's talk"         |
-| Heritage               | Curious prospects     | Confidence & Credibility | Quality, Reliability, Integrity       | "See our work"       |
-| Future Vision          | Strategic clients     | Excitement & Possibility | Professionalism, Thoroughness         | "Partner with us"    |
-| Professional/Patriotic | Gov't & Veterans      | Respect & Duty           | Integrity, Reliability, Professional  | "Work with us"       |
-| Recruitment            | Job seekers           | Enthusiasm & Hope        | Professionalism, Integrity            | "Join us"            |
-| Tech Innovation        | Tech-curious clients  | Curiosity & Innovation   | Honesty, Thoroughness                 | "Try it"             |
-| Partnership/Urgency    | Trade/Emergency       | Urgency & ROI            | All four create the ROI               | "Get started now"    |
+| Page Group                            | Primary Audience      | Dominant Emotion       | Core Values Focus                     | Call-to-Action Focus |
+| ------------------------------------- | --------------------- | ---------------------- | ------------------------------------- | -------------------- |
+| Veteran Foundation                    | All potential clients | Trust & Honesty        | All four values prominently displayed | "Let's talk"         |
+| Professional Services                 | Strategic clients     | Confidence & Expertise | Quality, Reliability, Thoroughness    | "Partner with us"    |
+| Partnership & Team (ROI RELATIONSHIP) | Partners/Team/Trade   | Urgency & ROI          | All four create the ROI               | "Get started now"    |
+| Direct Communication                  | Support seekers       | Accessibility & Trust  | Honesty, Professionalism, Integrity   | "Contact us"         |
 
 ---
 
 ## 🔄 Version Control
 
-### Version 2.0.0 - November 20, 2025
+### Version 3.0.0 - December 14, 2025
 
-#### Major Update: Four-Value Professional Foundation Integration
+#### Major Restructuring: Veteran/Honesty Focus
 
-- Integrated four-value professional foundation system across all page groups
-- Added trust-centered philosophy as ultimate goal
-- Updated each group with specific core values emphasis
-- Added measurable trust metrics (98% satisfaction, 70% referrals)
-- Connected Group 7's "ROI IS THE RELATIONSHIP" to four values that create it
-- Enhanced key phrases with values-specific language
-- Updated messaging matrix to include core values focus
-- Maintained unique messaging for each group while adding values foundation
+- **RESTRUCTURED:** 7 page groups → 5 core groups aligned with veteran values
+- **NEW IDENTITY:** Veteran-owned since January 2025 - military values in every project
+- **MESSAGING SHIFT:** Removed all tech/automation language, prioritized human consultation
+- **GROUP 1:** Veteran Foundation (Home, About, Veterans) - honesty-first messaging
+- **GROUP 2:** Professional Services (Services, Projects, Government) - proven expertise
+- **GROUP 3:** Partnership & Team (Team, Careers, Trade Partners) - ROI IS THE RELATIONSHIP
+- **GROUP 4:** Direct Communication (Contact, FAQ, Urgent) - transparent, accessible
+- **REMOVED:** Tech Innovation group, all AI/automation messaging deprecated
+- **EMPHASIS:** "Your word is your bond — so is ours. Period."
 
 **Core Philosophy Update:**
 
-- Trust is our ultimate goal and measurable company foundation
-- Four values (Honesty, Integrity, Professionalism, Thoroughness) build trust
-- Each page group emphasizes different values while maintaining all four as foundation
-- "THE ROI IS THE RELATIONSHIP" works because of the four values that create it
+- Veteran-owned business built on old-school values
+- Honesty eliminates doubt, Integrity builds credibility
+- Military precision in every detail, no shortcuts taken
+- Face-to-face consultation prioritized over automation
+- "THE ROI IS THE RELATIONSHIP" exclusive to Group 3 (Partnership & Team)
+
+### Version 2.0.0 - November 20, 2025
+
+#### Four-Value Professional Foundation Integration
+
+- Integrated four-value professional foundation system across all page groups
+- Added trust-centered philosophy as ultimate goal
+- Connected values to measurable trust metrics (98% satisfaction, 70% referrals)
 
 ### Version 1.1.0 - January 2025
 
-**Updates:**
-
-- Added link to new Universal Terminology Guide
-- Integrated terminology standards reference
-- Clarified relationship between page-specific messaging and universal terminology
-- Updated navigation to include Universal Terminology Guide
+- Added Universal Terminology Guide reference
+- Integrated terminology standards
 
 ### Version 1.0.0 - November 14, 2025
 
-**Initial Creation:**
-
-- Established 7 page groups with distinct messaging
-- Defined voice, tone, and language characteristics for each group
-- Created slogan hierarchy with "Building projects for the client, NOT the dollar" as primary
-- Designated Trade Partners and Urgent pages as exclusive "ROI IS THE RELATIONSHIP" showcase
-
-**Philosophy:**
-
-- Traditional values meet modern needs
-- Each page group serves specific audience
-- Consistency within groups, variety across site
-- Main slogan always present, supplementary slogans vary
+- Initial creation with 7 page groups
+- Established slogan hierarchy
 
 ---
 
 ## 🚀 Next Steps
 
-1. **Review Current Pages** against this guide
-2. **Update Content Systematically** by page group
-3. **Test Messaging** with target audiences
-4. **Gather Feedback** from team and clients
-5. **Refine Guide** based on results
+1. **Review All Pages** against new 5-group structure
+2. **Remove Tech Language** from any remaining content
+3. **Emphasize Veteran Values** across all messaging
+4. **Prioritize Human Consultation** in all CTAs
+5. **Update SEO Keywords** to reflect veteran/honesty focus
 
 ---
 
 ## 📞 Questions or Suggestions?
 
-Contact the Marketing & Brand Team with:
-
-- Messaging questions or clarifications
-- Suggestions for new slogans or phrases
-- Examples of effective group-specific content
-- Requests for messaging review
+Contact the Marketing & Brand Team with messaging questions or suggestions.
 
 ---
 
-**Last Updated:** November 20, 2025 | **Version:** 2.0.0  
+**Last Updated:** December 14, 2025 | **Version:** 3.0.0  
 **Maintained by:** MH Construction Marketing & Brand Team  
-**Status:** ✅ Active - Ready for Implementation
+**Status:** ✅ Active - Veteran/Honesty Focus
 
 ---
 
 **Primary Slogan:** "Building projects for the client, NOT the dollar"  
-**Core Message:** THE ROI IS THE RELATIONSHIP (built on four core values)  
-**Brand Promise:** Trust Built Through Excellence  
-**Trust Foundation:** Four values working together create one result: Trust  
-**Measurable Trust:** 98% satisfaction rate | 70% referral rate
+**Core Message:** Your word is your bond — so is ours. Period.  
+**Special Message:** THE ROI IS THE RELATIONSHIP (exclusive to Group 3 - Partnership & Team)  
+**Brand Identity:** Veteran-owned. Veteran-operated. Veteran values in every project.  
+**Measurable Trust:** 98% satisfaction rate | 70% referral rate | Combat Veteran Discount at the Ready

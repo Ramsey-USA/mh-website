@@ -6,9 +6,9 @@
 
 "use client";
 
-import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { TestimonialsCarousel } from "@/components/testimonials";
 import { getClientTestimonials } from "@/lib/data/testimonials";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 interface TestimonialsSectionProps {
   title?: string;
@@ -23,7 +23,7 @@ interface TestimonialsSectionProps {
 export function TestimonialsSection({
   title = "What Our Client Partners Say",
   subtitle = "What Our",
-  description = "Hear from valued partners who've experienced our four core values in action—honesty, integrity, professionalism, and thoroughness building trust on every project.",
+  description = "Hear from valued partners who've experienced our service-earned values in action—military-grade honesty, integrity, professionalism, and thoroughness building trust on every construction mission.",
   className = "",
   autoPlay = true,
   autoPlayInterval = 5000,
@@ -48,27 +48,13 @@ export function TestimonialsSection({
       ></div>
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="mb-12 sm:mb-16 lg:mb-20 text-center scroll-reveal">
-          <div className="flex justify-center items-center mb-6 sm:mb-8">
-            <div className="relative">
-              <div className="absolute inset-0 bg-brand-secondary/20 dark:bg-brand-secondary/30 blur-xl rounded-full"></div>
-              <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
-                <MaterialIcon icon="forum" size="2xl" className="text-white" />
-              </div>
-            </div>
-          </div>
-          <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-            <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-              {subtitle}
-            </span>
-            <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-              {title}
-            </span>
-          </h2>
-          <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-            {description}
-          </p>
-        </div>
+        <SectionHeader
+          icon="forum"
+          subtitle={subtitle}
+          title={title}
+          description={description}
+          iconGradient="from-brand-secondary via-brand-secondary-dark to-bronze-700 dark:from-brand-secondary-dark dark:via-brand-secondary dark:to-bronze-800"
+        />
 
         <TestimonialsCarousel
           testimonials={getClientTestimonials()}

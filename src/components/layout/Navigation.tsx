@@ -165,7 +165,7 @@ export function Navigation() {
                     },
                     {
                       href: "/government",
-                      label: "Government",
+                      label: "Public Sector",
                       icon: "account_balance",
                     },
                     {

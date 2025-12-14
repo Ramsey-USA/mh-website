@@ -1,5 +1,10 @@
 # MH Construction Mobile Optimization Guide
 
+**Last Updated:** December 14, 2025  
+**Status:** ✅ Active Standard
+
+> 💡 **Quick Reference:** Jump to [Mobile Cheat Sheet](#-mobile-quick-reference-cheat-sheet) for copy-paste classes
+
 This comprehensive guide establishes the mobile optimization standards for the MH Construction website, ensuring
 consistent performance and user experience across all mobile devices.
 
@@ -460,9 +465,91 @@ export function MobileOptimizedSection() {
 
 ---
 
-**Last Updated**: October 20, 2025
+**Last Updated: December 14, 2025
 **Version**: 1.0.0
 **Author**: MH Construction Development Team
 
 This guide ensures all mobile implementations follow consistent, high-quality standards across the MH Construction website.
 ````
+
+---
+
+## 📱 Mobile Quick Reference Cheat Sheet
+
+> **Essential mobile classes for rapid development**
+
+### 🎯 Typography Scaling
+
+```tsx
+// Page Titles
+className = "text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl";
+
+// Section Headings
+className = "text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl";
+
+// Subsection Headings
+className = "text-base xs:text-lg sm:text-xl md:text-2xl";
+
+// Body Text
+className = "text-sm sm:text-base md:text-lg";
+
+// Small Text
+className = "text-xs sm:text-sm md:text-base";
+```
+
+### 📏 Spacing Progression
+
+```tsx
+// Section Padding
+className = "py-8 sm:py-12 md:py-16 lg:py-20";
+
+// Element Gaps
+className = "gap-4 sm:gap-6 md:gap-8 lg:gap-10";
+
+// Grid Gaps
+className = "gap-6 sm:gap-8 md:gap-10 lg:gap-12";
+```
+
+### 📐 Grid Layouts
+
+```tsx
+// 2-Column Responsive
+className = "grid grid-cols-1 sm:grid-cols-2 gap-6";
+
+// 3-Column Responsive
+className = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6";
+
+// 4-Column Responsive
+className =
+  "grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4";
+```
+
+### 🔘 Touch Targets
+
+```tsx
+// Buttons (min 44px height)
+className = "py-3 px-6 sm:py-4 sm:px-8";
+
+// Icon Buttons
+className = "w-12 h-12 sm:w-14 sm:h-14";
+
+// Links
+className = "py-2 px-4 inline-block";
+```
+
+### 🖼️ Container Widths
+
+```tsx
+// Full Width Container
+className = "w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8";
+
+// Content Container
+className = "max-w-4xl mx-auto px-4 sm:px-6";
+
+// Narrow Container
+className = "max-w-2xl mx-auto px-4";
+```
+
+---
+
+**For complete mobile standards, see sections above.**

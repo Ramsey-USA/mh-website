@@ -1,8 +1,10 @@
 # Style Utilities Guide
 
-**Last Updated**: November 8, 2025  
+**Last Updated**: December 14, 2025  
 **Version**: 2.0.0  
 **Status**: ✅ ACTIVE - Mandatory for all new development
+
+> 💡 **Quick Reference:** Jump to [Cheat Sheet](#-quick-reference-cheat-sheet) for copy-paste examples
 
 ---
 
@@ -544,3 +546,70 @@ import { Section, SectionHeader } from "@/components/ui/layout";
 Update this document via pull request or discuss with the development team.
 
 **Mandatory Usage**: All new components must use these utilities instead of writing duplicate className strings.
+
+---
+
+## ⚡ Quick Reference Cheat Sheet
+
+> **Copy-paste examples for rapid development**
+
+### 🎴 Card Variants
+
+```tsx
+import { getCardClassName } from "@/lib/styles/card-variants";
+
+getCardClassName("default"); // Standard card with hover
+getCardClassName("primary"); // Primary brand card
+getCardClassName("secondary"); // Secondary accent card
+getCardClassName("accent"); // Accent color card
+getCardClassName("static"); // No hover effects
+```
+
+### 📐 Grid Layouts
+
+```tsx
+import { gridLayouts } from "@/lib/styles/grid-layouts";
+
+className={gridLayouts.features}      // 3-column responsive grid
+className={gridLayouts.services}      // 2-column with auto-fit
+className={gridLayouts.team}          // Team member grid
+className={gridLayouts.testimonials}  // Testimonial cards
+```
+
+### 🎨 Section Styles
+
+```tsx
+import { sectionStyles } from "@/lib/styles/section-styles";
+
+className={sectionStyles.default}    // Standard section
+className={sectionStyles.alternate}  // Alternate background
+className={sectionStyles.hero}       // Hero section
+className={sectionStyles.compact}    // Reduced padding
+```
+
+### 📝 Typography
+
+```tsx
+import { headingStyles, textStyles } from "@/lib/styles/typography";
+
+className={headingStyles.h1}      // Page title
+className={headingStyles.h2}      // Section heading
+className={headingStyles.h3}      // Subsection heading
+className={textStyles.body}       // Body text
+className={textStyles.lead}       // Lead paragraph
+```
+
+### 🔘 Button Styles
+
+```tsx
+import { buttonStyles } from "@/lib/styles/button-styles";
+
+className={buttonStyles.primary}    // Primary action
+className={buttonStyles.secondary}  // Secondary action
+className={buttonStyles.outline}    // Outline variant
+className={buttonStyles.ghost}      // Ghost/minimal
+```
+
+---
+
+**For full documentation, see sections above.**

@@ -5,6 +5,12 @@ import {
   R2StorageService,
   generateFileKey,
 } from "@/lib/cloudflare/r2";
+import { rateLimit } from "@/lib/security/rateLimiter";
+import {
+  badRequest,
+  createSuccessResponse,
+  internalServerError,
+} from "@/lib/api/responses";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
@@ -13,14 +19,14 @@ export const dynamic = "force-dynamic";
  * Resume Upload API - Handles file uploads to R2
  * Accepts multipart/form-data with resume file
  */
-export async function POST(request: NextRequest) {
+async function handlePOST(request: NextRequest) {
   try {
     const formData = await request.formData();
     const file = formData.get("file") as File | null;
     const applicantEmail = formData.get("email") as string | null;
 
     if (!file) {
-      return NextResponse.json({ error: "No file provided" }, { status: 400 });
+      return badRequest("No file provided");
     }
 
     // Validate file type
@@ -31,22 +37,15 @@ export async function POST(request: NextRequest) {
     ];
 
     if (!allowedTypes.includes(file.type)) {
-      return NextResponse.json(
-        {
-          error:
-            "Invalid file type. Only PDF, DOC, and DOCX files are allowed.",
-        },
-        { status: 400 },
+      return badRequest(
+        "Invalid file type. Only PDF, DOC, and DOCX files are allowed.",
       );
     }
 
     // Validate file size (max 10MB)
     const maxSize = 10 * 1024 * 1024; // 10MB
     if (file.size > maxSize) {
-      return NextResponse.json(
-        { error: "File size exceeds 10MB limit" },
-        { status: 400 },
-      );
+      return badRequest("File size exceeds 10MB limit");
     }
 
     // Get R2 bucket
@@ -71,10 +70,7 @@ export async function POST(request: NextRequest) {
       logger.error("Failed to upload resume to R2", {
         error: uploadResult.error,
       });
-      return NextResponse.json(
-        { error: "Failed to upload file" },
-        { status: 500 },
-      );
+      return internalServerError("Failed to upload file");
     }
 
     logger.info("Resume uploaded successfully", {
@@ -83,21 +79,18 @@ export async function POST(request: NextRequest) {
       email: applicantEmail,
     });
 
-    return NextResponse.json({
-      success: true,
-      data: {
+    return createSuccessResponse(
+      {
         key: uploadResult.key,
         url: uploadResult.url,
         size: uploadResult.size,
         filename: file.name,
       },
-    });
+      "Resume uploaded successfully",
+    );
   } catch (error) {
     logger.error("Error processing resume upload:", error);
-    return NextResponse.json(
-      { error: "Failed to process upload" },
-      { status: 500 },
-    );
+    return internalServerError("Failed to process upload");
   }
 }
 
@@ -133,9 +126,13 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     logger.error("Error retrieving resume:", error);
-    return NextResponse.json(
-      { error: "Failed to retrieve file" },
-      { status: 500 },
-    );
+    return internalServerError("Failed to retrieve file");
   }
 }
+
+// Apply rate limiting to file uploads (3 requests per minute)
+export const POST = rateLimit({
+  maxRequests: 3,
+  windowMs: 60000,
+  skipSuccessfulRequests: false,
+})(handlePOST);

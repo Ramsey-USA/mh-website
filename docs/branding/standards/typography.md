@@ -1,10 +1,10 @@
 # MH Construction Typography System
 
-**Date:** November 4, 2025
-**Status:** ✅ Current
-**Category:** Business - Brand Standards
-**Version:** 4.0.2
-**Last Updated:** November 4, 2025
+**Date:** December 14, 2025  
+**Status:** ✅ Current  
+**Category:** Business - Brand Standards  
+**Version:** 5.0.0  
+**Last Updated:** December 14, 2025
 
 ## Quick Navigation
 
@@ -12,6 +12,7 @@
 - [📋 Brand Overview](./brand-overview.md)
 - [🎨 Color System](./color-system.md)
 - [🔧 Icon Policy](./icon-policy.md)
+- [🎯 Hero Section Standards](./hero-section-standards.md) ⭐ **UPDATED Dec 14, 2025**
 
 ---
 

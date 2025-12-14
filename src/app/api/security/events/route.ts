@@ -6,6 +6,13 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { withSecurity } from "@/middleware/security";
 import { logger } from "@/lib/utils/logger";
+import { requireRole } from "@/lib/auth/middleware";
+import {
+  badRequest,
+  createSuccessResponse,
+  methodNotAllowed,
+  internalServerError,
+} from "@/lib/api/responses";
 import {
   auditLogger,
   AuditEventType,
@@ -78,7 +85,7 @@ async function handler(request: NextRequest) {
       }
 
       // Return JSON
-      return NextResponse.json({
+      return createSuccessResponse({
         events: events.map((event) => ({
           id: event.id,
           timestamp: event.timestamp.toISOString(),
@@ -118,10 +125,7 @@ async function handler(request: NextRequest) {
       const { eventType, details, source, userId, outcome = "success" } = body;
 
       if (!eventType || !Object.values(AuditEventType).includes(eventType)) {
-        return NextResponse.json(
-          { error: "Invalid event type" },
-          { status: 400 },
-        );
+        return badRequest("Invalid event type");
       }
 
       await auditLogger.logEvent(eventType, {
@@ -132,21 +136,18 @@ async function handler(request: NextRequest) {
         tags: ["manual", "api"],
       });
 
-      return NextResponse.json({
-        success: true,
-        message: "Event logged successfully",
-      });
+      return createSuccessResponse({}, "Event logged successfully");
     }
 
-    return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
-  } catch (_error) {
-    logger.error("Security events API _error:", _error);
-    return NextResponse.json(
-      { _error: "Internal server _error" },
-      { status: 500 },
-    );
+    return methodNotAllowed("Method not supported");
+  } catch (error) {
+    logger.error("Security events error:", error);
+    return internalServerError("Failed to process security events");
   }
 }
+
+export const GET = requireRole(["admin"], withSecurity(handler));
+export const POST = requireRole(["admin"], withSecurity(handler));
 
 // Helper function to generate human-readable descriptions
 function getEventDescription(
@@ -188,6 +189,3 @@ function getEventDescription(
       return "Security event occurred";
   }
 }
-
-export const GET = withSecurity(handler);
-export const POST = withSecurity(handler);

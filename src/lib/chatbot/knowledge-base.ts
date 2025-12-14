@@ -117,7 +117,7 @@ export const companyKnowledge: CompanyKnowledge = {
     ],
     specialty: [
       "Government projects and grants",
-      "Veteran services (12% discount for combat veterans)",
+      "Veteran services (Combat Veteran Discount at the Ready)",
       "Historic preservation",
       "Green building and LEED certification",
       "ADA compliance modifications",

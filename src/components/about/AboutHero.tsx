@@ -19,30 +19,32 @@ export function AboutHero() {
             </span>
           </h1>
 
-          {/* Heritage Tagline - Group 2 messaging */}
+          {/* Heritage Tagline - Group 1 messaging with military-construction terminology */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            Excellence Through Experience
+            Battle-Tested Excellence Through Operational Experience
           </p>
 
           {/* Heritage & Veteran-Owned Emphasis */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
-            Veteran-Owned · 150+ Years of Combined Excellence
+            Veteran-Owned · 150+ Years of Combined Mission Excellence
           </p>
 
-          {/* Trust-Heritage Messaging - Group 2 focus */}
+          {/* Trust-Heritage Messaging - Group 1 focus with military precision */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            Trust Built Through Values, Proven Through Projects
+            Trust Built Through Service-Earned Values, Proven Through Every
+            Mission
           </p>
 
-          {/* Description - Heritage storytelling with veteran ownership */}
+          {/* Description - Heritage storytelling with veteran ownership and military-construction terminology */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
             Founded in 2010, veteran-owned since January 2025. "Building
             projects for the client,{" "}
             <span className="font-black italic text-bronze-300">NOT</span> the
-            dollar" — Our story is written in the projects we&apos;ve completed
-            and the relationships we&apos;ve built. From humble beginnings to
-            regional leadership, our history of honest communication,
-            transparent pricing, and proven craftsmanship speaks for itself.
+            dollar" — Our story is written in the construction missions
+            we&apos;ve completed and the partnerships we&apos;ve built. From
+            deployment to development, our history of SITREP-level
+            communication, transparent mission briefs, and battle-tested
+            craftsmanship speaks for itself.
           </p>
         </div>
       </div>

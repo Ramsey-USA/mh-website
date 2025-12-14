@@ -1,7 +1,7 @@
 # Reference Documentation Hub
 
 **Category:** Quick References & Troubleshooting  
-**Last Updated:** November 6, 2025  
+**Last Updated:** December 14, 2025  
 **Status:** ✅ Active
 
 ## 🧭 Quick Navigation
@@ -44,9 +44,9 @@ Fast reference for icon usage, sizes, colors, and implementation patterns.
 
 ---
 
-#### **[Mobile Quick Reference](../../technical/design-system/mobile-quick-reference.md)**
+#### **[Mobile Optimization Guide](../../technical/design-system/mobile-optimization-guide.md)**
 
-Mobile-first design patterns, breakpoints, and responsive implementation.
+Mobile-first design patterns, breakpoints, and responsive implementation (includes quick reference cheat sheet).
 
 **Use When:** Building responsive layouts, mobile optimization, breakpoint decisions
 
@@ -110,15 +110,15 @@ Solutions for common icon sizing and display issues.
 
 ## 📖 Find What You Need
 
-| Need                           | Quick Reference                                                                       | Why                          |
-| ------------------------------ | ------------------------------------------------------------------------------------- | ---------------------------- |
-| **Partnership implementation** | [Partnership Implementation Guide](./partnership-implementation-guide.md)             | Client vs Trade distinctions |
-| **Brand colors & logos**       | [Branding Quick Reference](../../branding/implementation/branding-quick-reference.md) | Official brand assets        |
-| **Icon implementation**        | [Icon System Quick Reference](../../technical/design-system/icon-system-guide.md)     | Icon patterns & codes        |
-| **Mobile patterns**            | [Mobile Quick Reference](../../technical/design-system/mobile-quick-reference.md)     | Responsive design            |
-| **Page layouts**               | [Page Layout Quick Start](../../technical/design-system/layout-quick-start.md)        | Layout structure             |
-| **Code checklist**             | [Developer Checklist](./developer-checklist.md)                                       | Quality standards            |
-| **Icon problems**              | [Icon Size Troubleshooting](../../technical/design-system/icon-troubleshooting.md)    | Fix icon issues              |
+| Need                           | Quick Reference                                                                         | Why                          |
+| ------------------------------ | --------------------------------------------------------------------------------------- | ---------------------------- |
+| **Partnership implementation** | [Partnership Implementation Guide](./partnership-implementation-guide.md)               | Client vs Trade distinctions |
+| **Brand colors & logos**       | [Branding Quick Reference](../../branding/implementation/branding-quick-reference.md)   | Official brand assets        |
+| **Icon implementation**        | [Icon System Quick Reference](../../technical/design-system/icon-system-guide.md)       | Icon patterns & codes        |
+| **Mobile patterns**            | [Mobile Optimization Guide](../../technical/design-system/mobile-optimization-guide.md) | Responsive design            |
+| **Page layouts**               | [Page Layout Quick Start](../../technical/design-system/layout-quick-start.md)          | Layout structure             |
+| **Code checklist**             | [Developer Checklist](./developer-checklist.md)                                         | Quality standards            |
+| **Icon problems**              | [Icon Size Troubleshooting](../../technical/design-system/icon-troubleshooting.md)      | Fix icon issues              |
 
 ---
 
@@ -127,7 +127,7 @@ Solutions for common icon sizing and display issues.
 ### Design System
 
 - [Design System Hub](../../technical/design-system/design-system-index.md) - Complete design system
-- [Buttons & CTAs Hub](../../technical/design-system/buttons-ctas-index.md) - Button system
+- [Buttons & CTAs Hub](../../technical/design-system/buttons-ctas-complete-guide.md) - Button system
 - [Icons Hub](../../technical/design-system/icons-index.md) - Complete icon documentation
 - [Layout Hub](../../technical/design-system/layout-index.md) - Layout documentation
 - [Navigation Hub](../../technical/navigation/navigation-index.md) - Navigation system
@@ -178,7 +178,7 @@ references based on your task.
 A: Check [Branding Quick Reference](../../branding/implementation/branding-quick-reference.md) for all brand colors.
 
 **Q: Where are breakpoint values?**  
-A: See [Mobile Quick Reference](../../technical/design-system/mobile-quick-reference.md) for all breakpoints.
+A: See [Mobile Optimization Guide](../../technical/design-system/mobile-optimization-guide.md) for all breakpoints.
 
 **Q: How do I add an icon?**  
 A: Use [Icon System Quick Reference](../../technical/design-system/icon-system-guide.md) for implementation.
@@ -212,6 +212,6 @@ For questions about references or documentation:
 
 ---
 
-**Last Updated:** November 8, 2025  
+**Last Updated:** December 14, 2025  
 **Status:** ✅ Active  
 **References:** 7 quick references + 1 troubleshooting guide

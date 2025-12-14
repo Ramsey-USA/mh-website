@@ -449,7 +449,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "Do you offer veteran benefits and discounts?",
       answer:
-        "Yes! As a veteran-owned business since January 2025, we proudly offer automatic 12% combat veteran discounts on all projects, plus specialized protocols for veteran recognition and service-specific benefits. Our team provides veteran advisory services for accessibility, energy efficiency, and security guidance. Contact us directly for personalized veteran support.",
+        "Yes! As a veteran-owned business since January 2025, we proudly offer Combat Veteran Discount at the Ready on all projects, plus specialized protocols for veteran recognition and service-specific benefits. Our team provides veteran advisory services for accessibility, energy efficiency, and security guidance. Contact us directly for personalized veteran support.",
     },
     {
       question: "What areas do you serve in the Pacific Northwest?",

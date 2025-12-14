@@ -1,7 +1,7 @@
 # Components Documentation Index
 
 **Category**: Components & UI Reference  
-**Last Updated**: November 8, 2025  
+**Last Updated**: December 14, 2025  
 **Status**: ✅ Active
 
 ## 🧭 Quick Navigation
@@ -83,7 +83,50 @@ LCP-optimized video hero section with poster-first loading strategy for Core Web
 
 **When to Use:** Hero sections with video backgrounds, landing pages, homepage headers
 
-**Related:** [Core Web Vitals Guide](../optimization/video-hero-core-web-vitals.md)
+**Related:** [Core Web Vitals Guide](../technical/performance/video-hero-core-web-vitals.md)
+
+---
+
+**SectionHeader Component** - Universal Section Header ⭐ **NEW (Dec 14, 2025)**
+
+Authoritative section header component with military-inspired design for consistent branding.
+
+**Topics Covered:**
+
+- Universal header component for all sections
+- Military-inspired precision design
+- Authoritative typography and spacing
+- Decorative icon system with horizontal accent lines
+- Layered glow effects and gradient backgrounds
+- Squared corners (rounded-xl) for authority
+- Dark variant for light-on-dark sections
+- Descender-safe text rendering (fixes g, p, y clipping)
+- Responsive icon and decoration system
+- FadeInWhenVisible animation integration
+
+**Icon Styling:**
+
+- Horizontal gradient lines flanking icon (military precision)
+- Layered blur glow effect behind icon container
+- Squared corners with rounded-xl (not circular)
+- Gradient background with double border
+- Material icon at 2xl size with white color
+- Shadow-2xl for depth and authority
+
+**Key Features:**
+
+- Consistent veteran/honesty brand voice
+- Bold uppercase subtitles with underline borders
+- Gradient text with proper descender padding
+- Squared corners and sharp shadows
+- Supports custom icons and gradients
+- Optional children for additional content
+
+**When to Use:** All major page sections requiring headers, replacing old header patterns
+
+**Current Usage:** CoreValues, WhyPartner, ServicesShowcase, Testimonials, CompanyStats sections
+
+**Related:** [UI Components Guide](./ui/mh-ui-guide.md#sectionheader-component)
 
 ---
 
@@ -343,7 +386,7 @@ For component questions:
 
 ---
 
-**Last Updated:** November 10, 2025  
+**Last Updated:** December 14, 2025  
 **Status:** ✅ Active  
 **Files:** 4 component guides + SafetySection + AwardsSection + 3 shared sections  
 **Maintained by:** MH Construction Development Team

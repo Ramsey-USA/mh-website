@@ -42,7 +42,7 @@ officer with advanced business capabilities
 - **Material Database Integration**: 4-tier quality system (Standard, Enhanced, Premium, Elite)
 - **Pacific Northwest Optimization**: 8 specialized location zones with custom multipliers
 - **Enhanced User Experience**: Progress indicators, validation, and real-time feedback
-- **Veteran Benefits Engine**: Automatic 12% combat veteran discount application
+- **Veteran Benefits Engine**: Automatic Combat Veteran Discount at the Ready application
 - **Military Precision**: 95% accuracy guarantee with tactical assessment protocols
 
 **Technical Achievements:**

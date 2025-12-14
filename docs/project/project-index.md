@@ -1,6 +1,6 @@
 # Project Documentation Index
 
-**Last Updated:** November 10, 2025
+**Last Updated:** December 14, 2025
 **Status:** ✅ Current and Complete - Enhanced with Documentation Review
 
 ## 🧭 Quick Navigation
@@ -8,7 +8,8 @@
 - [🗂️ Master Documentation Index](../master-index.md) - Central hub for all documentation
 - [🗺️ Project Roadmaps](./roadmaps/roadmaps-index.md) - Strategic planning and future development
 - [📜 Project History](./history/history-index.md) - Historical documentation and timeline
-- [💻 Development Guides](../development/development-index.md) - Implementation processes
+- [� Archived Migrations](../_archive/migrations/migrations-index.md) - Historical migration records
+- [�💻 Development Guides](../development/development-index.md) - Implementation processes
 
 ---
 

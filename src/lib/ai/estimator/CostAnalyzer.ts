@@ -6,7 +6,7 @@ import type { EstimateInput, LeadIntelligence } from "@/lib/ai/types";
 
 export class CostAnalyzer {
   private pacificNorthwestMultiplier = 1.15; // 15% higher costs due to location
-  private veteranDiscount = 0.12; // 12% veteran discount
+  private veteranDiscount = 0.12; // Combat Veteran Discount at the Ready
 
   processEstimate(input: EstimateInput, isVeteran = false): string {
     const baseEstimate = this.calculateBaseEstimate(input);
@@ -118,7 +118,7 @@ export class CostAnalyzer {
 **PRELIMINARY BUDGET ANALYSIS:**
 • **Estimated Range:** ${estimateRange.low} - ${estimateRange.high}
 • **Target Budget:** ${formattedEstimate}
-${isVeteran ? `• **Veteran Discount Applied:** 12% service appreciation` : ""}
+${isVeteran ? `• **Combat Veteran Discount Applied:** Service appreciation at the ready` : ""}
 
 **COST BREAKDOWN INTELLIGENCE:**
 • **Pacific Northwest Market Adjustment:** 15% regional premium
@@ -139,7 +139,7 @@ ${
 `
     : `
 [INFO] **VETERAN STATUS INQUIRY**
-Are you a veteran or active service member? Qualify for 12% service discount!
+Are you a veteran or active service member? Qualify for Combat Veteran Discount at the Ready!
 `
 }
 

@@ -157,12 +157,12 @@ const faqCategories = [
       {
         question: "What veteran benefits do you offer?",
         answer:
-          "We offer a 12% Combat Veteran Discount on qualifying projects, priority scheduling for all veterans, and service branch recognition throughout our process. As a veteran-owned company, we understand military values and honor those who served through tangible benefits and respectful service.",
+          "We offer a Combat Veteran Discount at the Ready on qualifying projects, priority scheduling for all veterans, and service branch recognition throughout our process. As a veteran-owned company, we understand military values and honor those who served through tangible benefits and respectful service.",
       },
       {
         question: "How do I qualify for veteran discounts?",
         answer:
-          "Simply provide proof of military service (DD-214 or VA card) during our initial consultation. Combat veterans receive our 12% discount, and all veterans receive priority scheduling. We're honored to serve those who served our nation.",
+          "Simply provide proof of military service (DD-214 or VA card) during our initial consultation. Combat veterans receive our discount at the ready, and all veterans receive priority scheduling. We're honored to serve those who served our nation.",
       },
       {
         question: "Do you work on government projects?",

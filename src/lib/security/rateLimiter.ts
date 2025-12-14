@@ -24,6 +24,11 @@ interface RateLimitConfig {
   message?: string;
 
   /**
+   * Whether to skip counting successful requests (only count errors)
+   */
+  skipSuccessfulRequests?: boolean;
+
+  /**
    * Whether to use IP address for rate limiting
    * If false, uses a custom identifier from request headers
    */

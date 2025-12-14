@@ -22,7 +22,7 @@ interface NextStepsSectionProps {
 export function NextStepsSection({
   title: _title = "Let's Build Your Vision Together",
   subtitle:
-    _subtitle = "Four core values create one result: Trust. Partner with veteran-owned excellence where honesty, integrity, professionalism, and thoroughness guide every decision.",
+    _subtitle = "Four mission-ready values create one result: Trust. Partner with veteran-owned excellence where service-earned honesty, military-grade integrity, operational professionalism, and tactical thoroughness guide every decision.",
   className = "",
   onConsultationClick,
   onEstimateClick,
@@ -47,60 +47,73 @@ export function NextStepsSection({
       ></div>
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="mb-12 sm:mb-16 text-center">
-          <div className="flex justify-center items-center mb-6 sm:mb-8">
+        <div className="mb-16 sm:mb-20 text-center">
+          {/* Icon with decorative lines */}
+          <div className="flex items-center justify-center mb-8 gap-4">
+            <div className="h-1 w-16 bg-gradient-to-r from-transparent to-white/50 rounded-full"></div>
             <div className="relative">
-              <div className="absolute inset-0 bg-brand-accent/30 blur-xl rounded-full"></div>
-              <div className="relative bg-gradient-to-br from-brand-accent to-bronze-600 p-4 rounded-2xl shadow-lg">
+              <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+              <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50">
                 <MaterialIcon
                   icon="handshake"
                   size="2xl"
-                  className="text-white"
+                  className="text-white drop-shadow-lg"
                 />
               </div>
             </div>
+            <div className="h-1 w-16 bg-gradient-to-l from-transparent to-white/50 rounded-full"></div>
           </div>
-          <h2 className="mb-6 sm:mb-8 font-black text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-            <span className="block mb-3 sm:mb-4 font-semibold text-white/90 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight drop-shadow-sm">
-              Let's Build Your
+
+          {/* Two-line gradient heading */}
+          <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+            <span className="inline-block mb-3 sm:mb-4 font-semibold bg-gradient-to-r from-white via-brand-accent to-white bg-clip-text text-transparent text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+              Rally Point: Let's Build Your
             </span>
-            <span className="block text-brand-accent font-black drop-shadow-lg">
-              Vision Together
+            <span className="inline-block bg-gradient-to-r from-brand-accent via-white to-brand-accent bg-clip-text text-transparent font-black drop-shadow-lg overflow-visible py-1">
+              Construction Mission Together
             </span>
           </h2>
-          <p className="mx-auto max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-            Where your word is your bond, and{" "}
-            <span className="font-medium text-brand-accent">ours is too</span>.
-            Partner with veteran-owned excellence backed by{" "}
-            <span className="font-medium text-brand-accent">
-              old-school values
+
+          {/* Description with colored keyword highlighting */}
+          <p className="mx-auto max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+            Where{" "}
+            <span className="font-bold text-brand-accent">
+              your word is your bond
+            </span>
+            , and ours is too. Partner with{" "}
+            <span className="font-bold text-white">
+              all-branch veteran-owned excellence
+            </span>{" "}
+            backed by{" "}
+            <span className="font-bold text-brand-accent">
+              service-earned values
             </span>{" "}
             and{" "}
-            <span className="font-medium text-brand-accent">
-              modern precision
+            <span className="font-bold text-brand-accent">
+              military precision
             </span>
             .
           </p>
         </div>
 
         <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
-          {/* Option 1: Download Pitch Deck */}
+          {/* Option 1: Schedule Free Consultation */}
           <div className="group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
             <div className="flex justify-center mb-6">
               <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <MaterialIcon
-                  icon="picture_as_pdf"
+                  icon="event_available"
                   size="xl"
                   className="text-white"
                 />
               </div>
             </div>
             <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
-              Download Pitch Deck
+              Schedule Free Mission Brief
             </h3>
             <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-              Get our comprehensive printable overview. Everything you need to
-              know about partnering with MH Construction.
+              Start with a face-to-face consultation. No pressure, just honest
+              intel about your construction operation.
             </p>
             <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
               <li className="flex items-center gap-2">
@@ -109,7 +122,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-primary flex-shrink-0"
                 />
-                <span>Company overview & values</span>
+                <span>No obligation initial recon</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -117,7 +130,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-primary flex-shrink-0"
                 />
-                <span>Services & capabilities</span>
+                <span>SITREP-level budget transparency</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -125,22 +138,24 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-primary flex-shrink-0"
                 />
-                <span>Project portfolio & stats</span>
+                <span>Veteran-trained project guidance</span>
               </li>
             </ul>
-            <Button
-              variant="primary"
-              size="lg"
-              className="w-full group/btn opacity-60 cursor-not-allowed"
-              onClick={(e) => {
-                e.preventDefault();
-                onConsultationClick?.();
-              }}
-              disabled
-            >
-              <MaterialIcon icon="schedule" size="lg" className="mr-2" />
-              Coming Soon
-            </Button>
+            <Link href="/contact#consultation">
+              <Button
+                variant="primary"
+                size="lg"
+                className="w-full group/btn"
+                onClick={onConsultationClick}
+              >
+                <MaterialIcon
+                  icon="handshake"
+                  size="lg"
+                  className="mr-2 group-hover/btn:scale-110 transition-transform"
+                />
+                Book Consultation
+              </Button>
+            </Link>
           </div>
 
           {/* Option 2: View Our Work */}
@@ -160,10 +175,11 @@ export function NextStepsSection({
               </div>
             </div>
             <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
-              See Our Victories
+              See Our Completed Missions
             </h3>
             <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-              Explore our completed projects and see the quality we deliver.
+              Explore our completed construction operations and see the
+              battle-tested quality we deliver.
             </p>
             <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
               <li className="flex items-center gap-2">
@@ -172,7 +188,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-secondary flex-shrink-0"
                 />
-                <span>650+ completed projects</span>
+                <span>650+ completed construction missions</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -180,7 +196,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-secondary flex-shrink-0"
                 />
-                <span>Industry-leading quality</span>
+                <span>Military-grade quality standards</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -188,7 +204,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-secondary flex-shrink-0"
                 />
-                <span>Diverse project types</span>
+                <span>Diverse operational capabilities</span>
               </li>
             </ul>
             <Link href="/projects">
@@ -220,11 +236,11 @@ export function NextStepsSection({
               </div>
             </div>
             <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
-              Contact Us Directly
+              Direct Communications
             </h3>
             <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-              Reach out via phone, email, or contact form for immediate
-              assistance with your project.
+              Reach out via phone, email, or contact form for immediate response
+              on your construction operation.
             </p>
             <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
               <li className="flex items-center gap-2">
@@ -233,7 +249,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-accent flex-shrink-0"
                 />
-                <span>24-48hr response</span>
+                <span>Rapid 24-48hr response time</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -241,7 +257,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-accent flex-shrink-0"
                 />
-                <span>Multiple contact methods</span>
+                <span>Multiple contact channels</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -249,7 +265,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-accent flex-shrink-0"
                 />
-                <span>Direct team access</span>
+                <span>Direct veteran team access</span>
               </li>
             </ul>
             <Link href="/contact">

@@ -1,8 +1,9 @@
-# Technical Documentation Index
+# Technical Documentation Index - System Architecture
 
 **Category:** Technical Implementation & Architecture
-**Last Updated:** November 6, 2025
+**Last Updated:** December 14, 2025
 **Status:** ✅ Active - Reorganized Structure
+**Strategic Focus:** Award-winning website attracting professional veterans
 
 ## 🧭 Quick Navigation
 
@@ -26,7 +27,7 @@ optimization, and visual elements.
 - `design-system.md` - Core design system standards
 - `typography-examples-clean.md` - Typography implementation examples
 - `mobile-optimization-guide.md` - Mobile design standards
-- `mobile-quick-reference.md` - Quick mobile reference
+- `mobile-optimization-guide.md` - Complete mobile optimization guide (includes quick reference)
 - `footer-enhancements.md` - Interactive footer system
 
 **Subdirectories:**
@@ -34,6 +35,31 @@ optimization, and visual elements.
 - **[/buttons-and-ctas/](./design-system/buttons-and-ctas/)** - Complete button & CTA documentation hub
 - **[/icons/](./design-system/icons/)** - Complete icon system documentation hub
 - `/layout/` - Page layout standards and quick start guides
+
+### `/performance/` - Performance Optimization
+
+**[Performance Index](./performance/performance-index.md)** - Performance documentation hub
+
+Comprehensive performance optimization including build processes, analysis, and optimization techniques.
+
+**Key Files:**
+
+- **[performance-index.md](./performance/performance-index.md)** - Complete performance navigation
+- `build-optimization.md` - Build performance strategies
+- `build-performance-analysis.md` - Performance metrics analysis
+- `phase-5-performance-implementation.md` - Implementation guide
+- `video-hero-core-web-vitals.md` - Video optimization
+
+### `/operations/` - Build Operations
+
+**[Operations Index](./operations/operations-index.md)** - Operations documentation hub
+
+Build processes, optimization strategies, and operational procedures.
+
+**Key Files:**
+
+- **[operations-index.md](./operations/operations-index.md)** - Complete operations navigation
+- `build-optimization/` - Build optimization subdirectory
 
 ### `/navigation/` - Navigation System
 

@@ -22,30 +22,33 @@ export function ProjectsHero() {
             </span>
           </h1>
 
-          {/* Heritage Tagline - Group 2 messaging */}
+          {/* Heritage Tagline - Group 2 messaging with military-construction terminology */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            Proven Results, Trusted Partnerships
+            Battle-Tested Results, Mission Partnerships
           </p>
 
           {/* Veteran-Owned Emphasis */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
-            Trust Built Through Values, Proven Through Projects
+            Trust Built Through Service-Earned Values, Proven Through
+            Construction Missions
           </p>
 
           {/* Group 2: Heritage Focus */}
           <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-            Excellence Through Experience Since 2010
+            Operational Excellence Through Experience Since 2010
           </p>
 
-          {/* Description - Heritage storytelling with veteran values */}
+          {/* Description - Heritage storytelling with veteran values and military-construction terminology */}
           <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
             "Building projects for the client,{" "}
             <span className="font-black italic text-bronze-300">NOT</span> the
-            dollar" — Veteran-owned since 2025, our history of honest
-            communication, transparent pricing, and proven craftsmanship speaks
-            for itself. Every completed project demonstrates our commitment to
+            dollar" — Veteran-owned since 2025, our mission history of
+            SITREP-level communications, transparent mission briefs, and
+            battle-tested craftsmanship speaks for itself. Every completed
+            construction operation demonstrates our commitment to operational
             excellence. From humble beginnings to regional leadership—our track
-            record proves what values-driven construction delivers.
+            record proves what service-earned values-driven construction
+            delivers.
           </p>
 
           {/* CTA Button */}

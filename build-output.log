@@ -1,0 +1,27 @@
+
+> mh-website@4.0.0 build
+> next build
+
+   ▲ Next.js 15.5.2
+   - Environments: .env.local
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+   Creating an optimized production build ...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+ ✓ Compiled successfully in 35.1s
+   Linting and checking validity of types ...
+
+ ⚠ The Next.js plugin was not detected in your ESLint configuration. See https://nextjs.org/docs/app/api-reference/config/eslint#migrating-existing-config
+Failed to compile.
+
+./src/app/api/security/cloudflare/route.ts:49:20
+Type error: Expected 2 arguments, but got 1.
+
+[0m [90m 47 |[39m }
+ [90m 48 |[39m
+[31m[1m>[22m[39m[90m 49 |[39m [36mexport[39m [36mconst[39m [33mGET[39m [33m=[39m requireRole([[32m"admin"[39m])(withSecurity(handler))[33m;[39m
+ [90m    |[39m                    [31m[1m^[22m[39m
+ [90m 50 |[39m [36mexport[39m [36mconst[39m [33mPOST[39m [33m=[39m requireRole([[32m"admin"[39m])(withSecurity(handler))[33m;[39m
+ [90m 51 |[39m[0m
+Next.js build worker exited with code: 1 and signal: null

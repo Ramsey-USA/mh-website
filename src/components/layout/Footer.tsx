@@ -345,7 +345,7 @@ export default function Footer() {
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Government & Grants</span>
+                <span>Public Sector</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"

@@ -1,5 +1,19 @@
 # File Management Guide
 
+**Category:** Development - Project Maintenance  
+**Last Updated:** December 14, 2025  
+**Status:** ✅ Active
+
+## 🧭 Quick Navigation
+
+- [🗂️ Development Index](./development-index.md)
+- [📝 Documentation Maintenance Guide](./documentation-maintenance-guide.md)
+- [🏠 Master Index](../master-index.md)
+
+---
+
+## 🎯 Overview
+
 This guide provides strategies and tools for managing large files in the MH Construction website project.
 
 ## Current File Size Analysis

@@ -6,25 +6,31 @@ import type { MetadataRoute } from "next";
  */
 
 // ============================================================================
-// ACTIVE PAGES REGISTRY - Add new pages here
+// ACTIVE PAGES REGISTRY - Ordered by SEO priority (highest to lowest)
 // ============================================================================
 
 const ACTIVE_PAGES = [
+  // Priority 1.0 - Homepage (highest priority)
   { path: "/", priority: 1.0, changeFreq: "monthly" as const },
+
+  // Priority 0.9 - Core business pages
   { path: "/about", priority: 0.9, changeFreq: "monthly" as const },
   { path: "/services", priority: 0.9, changeFreq: "monthly" as const },
-  { path: "/projects", priority: 0.8, changeFreq: "weekly" as const },
-  { path: "/team", priority: 0.7, changeFreq: "monthly" as const },
-  { path: "/contact", priority: 0.8, changeFreq: "monthly" as const },
-  // Removed: /booking (feature deprecated)
-  { path: "/careers", priority: 0.7, changeFreq: "weekly" as const },
-  { path: "/government", priority: 0.8, changeFreq: "monthly" as const },
-  { path: "/trade-partners", priority: 0.7, changeFreq: "monthly" as const },
+
+  // Priority 0.85 - Veteran focus & urgent needs
   { path: "/veterans", priority: 0.85, changeFreq: "monthly" as const },
-  // Removed: /estimator (feature deprecated)
   { path: "/urgent", priority: 0.85, changeFreq: "monthly" as const },
-  // Removed: /3d-explorer (feature deprecated)
   { path: "/faq", priority: 0.85, changeFreq: "monthly" as const },
+
+  // Priority 0.8 - Important secondary pages
+  { path: "/contact", priority: 0.8, changeFreq: "monthly" as const },
+  { path: "/projects", priority: 0.8, changeFreq: "weekly" as const },
+  { path: "/government", priority: 0.8, changeFreq: "monthly" as const },
+
+  // Priority 0.7 - Supporting pages
+  { path: "/team", priority: 0.7, changeFreq: "monthly" as const },
+  { path: "/careers", priority: 0.7, changeFreq: "weekly" as const },
+  { path: "/trade-partners", priority: 0.7, changeFreq: "monthly" as const },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

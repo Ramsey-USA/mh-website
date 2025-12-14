@@ -8,26 +8,27 @@ import {
   CardTitle,
   CardContent,
   Button,
+  SectionHeader,
 } from "@/components/ui";
 
 const services = [
   {
     icon: "explore",
     title: "Construction Management",
-    subtitle: "Partnership-Focused Excellence",
+    subtitle: "Complete Project Oversight",
     description:
-      "Partnership-focused Construction Management (CM) services throughout the Tri-Cities. Our priority is delivering an exceptional partnership experience from concept through completion.",
+      "Partnership-focused Construction Management with proven expertise throughout the Tri-Cities. Complete oversight from concept through completion—your project objectives executed with veteran-trained discipline and clear communication.",
     features: [
       "Complete project oversight & coordination",
       "Master Planning & Pre-Construction services",
-      "Budget control & cost management",
+      "Budget control & cost management (no surprises)",
       "Quality assurance & safety protocols",
     ],
     benefits: [
-      "Minimize costly on-the-fly decisions",
+      "Eliminate costly last-minute decisions",
       "Veteran-led precision & reliability",
-      "Transparent communication throughout",
-      "150+ years combined team experience",
+      "Complete transparency throughout",
+      "150+ years combined field experience",
     ],
     link: "/services",
     cta: "Explore Services",
@@ -35,20 +36,20 @@ const services = [
   {
     icon: "architecture",
     title: "Master Planning",
-    subtitle: "Strategic Pre-Construction",
+    subtitle: "Comprehensive Pre-Construction Services",
     description:
-      "Comprehensive Pre-Construction & Master Planning services transforming your vision into reality. We strategize and coordinate every component from concept through finishing touches.",
+      "Comprehensive Pre-Construction planning and strategic Master Planning—transforming your vision into actionable construction plans. We strategize and coordinate every component from initial assessment through final execution.",
     features: [
-      "Detailed project scope development",
-      "Budget & timeline forecasting",
-      "Constructability analysis",
-      "Vendor & material coordination",
+      "Detailed project scope & parameters",
+      "Budget & timeline forecasting (data-driven)",
+      "Constructability analysis & risk assessment",
+      "Vendor & material supply chain coordination",
     ],
     benefits: [
       "Prevent last-minute changes & scope creep",
-      "Accurate cost projections upfront",
+      "Accurate cost projections (no surprises)",
       "Optimized construction timeline",
-      "Reduced project risks",
+      "Risk mitigation through thorough planning",
     ],
     link: "/services#master-planning",
     cta: "Learn More",
@@ -58,7 +59,7 @@ const services = [
     title: "Commercial Buildings",
     subtitle: "Built for the Client, NOT the Dollar",
     description:
-      "Complete Commercial Construction Services for offices, retail, industrial, medical facilities, and religious spaces across WA, OR, and ID.",
+      "Comprehensive Commercial Construction services for offices, retail, industrial, medical facilities, and religious spaces. Licensed and experienced across WA, OR, and ID—quality craftsmanship over profit margins, every single build.",
     features: [
       "Professional offices & retail spaces",
       "Medical facilities & clinics",
@@ -66,8 +67,8 @@ const services = [
       "Auto dealerships & showrooms",
     ],
     benefits: [
-      "Licensed in WA, OR, and ID",
-      "Quality over profit mentality",
+      "3-state licensing (WA, OR, ID)",
+      "Quality-first project focus",
       "Proven track record since 2010",
       "Comprehensive project management",
     ],
@@ -77,17 +78,17 @@ const services = [
   {
     icon: "straighten",
     title: "Procurement & Trade Partnerships",
-    subtitle: "Quality Materials, Trusted Vendors",
+    subtitle: "Supply Chain Management & Trusted Vendors",
     description:
-      "Comprehensive Trade Partnership Management specializing in sourcing quality materials and coordinating with our network of approved vendors.",
+      "Expert Trade Partnership Management and supply chain coordination—sourcing quality materials and coordinating with our network of trusted vendors. No vendor coordination headaches, just reliable execution.",
     features: [
-      "Material sourcing & procurement",
+      "Material sourcing & procurement logistics",
       "Vendor coordination & management",
-      "Quality control & verification",
+      "Quality control & verification protocols",
       "Cost-effective purchasing strategies",
     ],
     benefits: [
-      "No vendor coordination headaches",
+      "Zero vendor coordination headaches",
       "Vetted, trusted trade partners",
       "Competitive material pricing",
       "On-time delivery assurance",
@@ -98,9 +99,9 @@ const services = [
   {
     icon: "construction",
     title: "Light Industrial",
-    subtitle: "Safe, Durable, Functional",
+    subtitle: "Durable, High-Performance Infrastructure",
     description:
-      "Safe, durable, and highly functional industrial buildings with 13+ years experience. Warehouses to processing plants built to your precise specifications.",
+      "Safe, durable, highly functional industrial construction with 13+ years proven experience. Warehouses to processing plants built to exacting specifications with industry-leading safety standards and uncompromising quality.",
     features: [
       "Warehouse & distribution centers",
       "Manufacturing & processing plants",
@@ -108,7 +109,7 @@ const services = [
       "Industrial parks & complexes",
     ],
     benefits: [
-      "Industry-leading safety standards",
+      "Industry-leading safety protocols (.64 EMR)",
       "Durable, long-lasting construction",
       "Expert craftsmanship & materials",
       "Built to precise specifications",
@@ -119,9 +120,9 @@ const services = [
   {
     icon: "gps_fixed",
     title: "Tenant Improvements",
-    subtitle: "Transform Commercial Spaces",
+    subtitle: "Efficient Space Transformations",
     description:
-      "Expert Commercial Tenant Improvement (TI) Services with decades of experience. Transform your commercial space quickly and efficiently with expert craftsmanship.",
+      "Expert Commercial Tenant Improvement (TI) services with decades of experience. Transform your commercial space quickly and efficiently with expert craftsmanship—minimal downtime, maximum results. Fast, focused execution.",
     features: [
       "Office space renovations",
       "Retail store buildouts",
@@ -129,9 +130,9 @@ const services = [
       "Medical office improvements",
     ],
     benefits: [
-      "Fast, efficient completion",
+      "Fast, efficient project completion",
       "Minimal business disruption",
-      "Licensed throughout WA, OR, and ID",
+      "3-state licensing (WA, OR, ID)",
       "Quality workmanship guaranteed",
     ],
     link: "/services#tenant-improvements",
@@ -163,40 +164,14 @@ export function ServicesShowcase() {
       ></div>
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Section Header */}
-        <div className="mb-12 sm:mb-16 lg:mb-20 text-center scroll-reveal">
-          <div className="flex justify-center items-center mb-6 sm:mb-8">
-            <div className="relative">
-              <div className="absolute inset-0 bg-brand-secondary/20 dark:bg-brand-secondary/30 blur-xl rounded-full"></div>
-              <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
-                <MaterialIcon
-                  icon="explore"
-                  size="2xl"
-                  className="text-white"
-                />
-              </div>
-            </div>
-          </div>
-          <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-            <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-              Values-Driven
-            </span>
-            <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-              Construction Services
-            </span>
-          </h2>
-          <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-            From{" "}
-            <span className="font-medium text-gray-800 dark:text-gray-200">
-              initial master planning to final walkthrough and delivery
-            </span>
-            , every service reflects our four core values. We deliver{" "}
-            <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
-              honesty, integrity, professionalism, and thoroughness
-            </span>{" "}
-            throughout the Tri-Cities area—building trust, not just structures.
-          </p>
-        </div>
+        {/* Enhanced Section Header with Side Accents */}
+        <SectionHeader
+          icon="explore"
+          iconVariant="multi"
+          subtitle="Full-Spectrum Construction Operations"
+          title="Mission-Ready Services Built on Trust"
+          description="From tactical planning (master planning) to final walkthrough and mission completion, every construction operation reflects our service-earned values—honesty, integrity, professionalism, and thoroughness. Deployed throughout the Tri-Cities and Pacific Northwest with military precision."
+        />
 
         {/* Interactive Flip Cards Grid */}
         <div className={gridPresets.cards3("md")}>

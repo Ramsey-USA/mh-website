@@ -28,6 +28,7 @@ import {
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { getCardClassName } from "@/lib/styles/card-variants";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import Head from "next/head";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getCareersSEO } from "@/lib/seo/page-seo-utils";
@@ -187,44 +188,13 @@ export default function CareersPage() {
 
             <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
               <FadeInWhenVisible>
-                <div className="mb-12 sm:mb-16 text-center">
-                  {/* Icon Header with Glow Effect */}
-                  <div className="flex justify-center items-center mb-6 sm:mb-8">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
-                      <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 rounded-2xl shadow-lg">
-                        <MaterialIcon
-                          icon="star"
-                          size="2xl"
-                          className="text-white"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Two-Line Header */}
-                  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                      Why Choose
-                    </span>
-                    <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                      MH Construction
-                    </span>
-                  </h2>
-
-                  {/* Description */}
-                  <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                    This isn't just another construction job—it's a{" "}
-                    <span className="font-medium text-gray-800 dark:text-gray-200">
-                      career investment
-                    </span>{" "}
-                    in YOU. We're building your skills, your future, and your
-                    financial security through meaningful work, continuous
-                    training, and authentic partnerships. Every team member gets
-                    a mentor, clear advancement paths, and the tools to succeed.
-                    Your growth IS our success story.
-                  </p>
-                </div>
+                <SectionHeader
+                  icon="star"
+                  iconVariant="bronze"
+                  subtitle="Why Choose"
+                  title="MH Construction"
+                  description="This isn't just another construction job—it's a career investment in YOU. We're building your skills, your future, and your financial security through meaningful work, continuous training, and authentic partnerships. Every team member gets a mentor, clear advancement paths, and the tools to succeed. Your growth IS our success story."
+                />
               </FadeInWhenVisible>
 
               <StaggeredFadeIn className={gridPresets.cards4("lg")}>
@@ -273,43 +243,13 @@ export default function CareersPage() {
 
             <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
               <FadeInWhenVisible>
-                <div className="mb-12 sm:mb-16 text-center">
-                  {/* Icon Header with Glow Effect */}
-                  <div className="flex justify-center items-center mb-6 sm:mb-8">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-brand-secondary/20 dark:bg-brand-secondary/30 blur-xl rounded-full"></div>
-                      <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
-                        <MaterialIcon
-                          icon="volunteer_activism"
-                          size="2xl"
-                          className="text-white"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Two-Line Header */}
-                  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                      Employee Benefits
-                    </span>
-                    <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                      & Perks
-                    </span>
-                  </h2>
-
-                  {/* Description */}
-                  <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                    Your well-being and success matter here. We offer{" "}
-                    <span className="font-medium text-gray-800 dark:text-gray-200">
-                      competitive pay plus comprehensive benefits
-                    </span>{" "}
-                    because we know you're building a life, not just a career.
-                    From health coverage to professional development, retirement
-                    planning to performance bonuses—we invest in your total
-                    success, every single day.
-                  </p>
-                </div>
+                <SectionHeader
+                  icon="volunteer_activism"
+                  iconVariant="secondary"
+                  subtitle="Employee Benefits"
+                  title="& Perks"
+                  description="Your well-being and success matter here. We offer competitive pay plus comprehensive benefits because we know you're building a life, not just a career. From health coverage to professional development, retirement planning to performance bonuses—we invest in your total success, every single day."
+                />
               </FadeInWhenVisible>
 
               <StaggeredFadeIn className={gridPresets.cards3("md")}>
@@ -477,44 +417,13 @@ export default function CareersPage() {
 
             <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
               <FadeInWhenVisible>
-                <div className="mb-12 sm:mb-16 text-center">
-                  {/* Icon Header with Glow Effect */}
-                  <div className="flex justify-center items-center mb-6 sm:mb-8">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-brand-accent/20 dark:bg-brand-accent/30 blur-xl rounded-full"></div>
-                      <div className="relative bg-gradient-to-br from-brand-accent to-bronze-600 p-4 rounded-2xl shadow-lg">
-                        <MaterialIcon
-                          icon="work"
-                          size="2xl"
-                          className="text-white"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Two-Line Header */}
-                  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                      Current Career
-                    </span>
-                    <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                      Opportunities
-                    </span>
-                  </h2>
-
-                  {/* Description */}
-                  <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                    Your next career chapter starts here. These aren't just job
-                    openings—they're{" "}
-                    <span className="font-medium text-gray-800 dark:text-gray-200">
-                      gateways to your future
-                    </span>
-                    . Every position offers competitive pay, comprehensive
-                    training, clear advancement paths, and the chance to build
-                    something meaningful. Veterans receive priority
-                    consideration. Find your perfect fit below.
-                  </p>
-                </div>
+                <SectionHeader
+                  icon="work"
+                  iconVariant="multi"
+                  subtitle="Current Career"
+                  title="Opportunities"
+                  description="Your next career chapter starts here. These aren't just job openings—they're gateways to your future. Every position offers competitive pay, comprehensive training, clear advancement paths, and the chance to build something meaningful. Veterans receive priority consideration. Find your perfect fit below."
+                />
               </FadeInWhenVisible>
 
               <StaggeredFadeIn className="space-y-6">
@@ -945,44 +854,13 @@ export default function CareersPage() {
 
             <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
               <FadeInWhenVisible>
-                <div className="mb-12 sm:mb-16 text-center">
-                  {/* Icon Header with Glow Effect */}
-                  <div className="flex justify-center items-center mb-6 sm:mb-8">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-brand-secondary/20 dark:bg-brand-secondary/30 blur-xl rounded-full"></div>
-                      <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
-                        <MaterialIcon
-                          icon="groups"
-                          size="2xl"
-                          className="text-white"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Two-Line Header */}
-                  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                      Hear From Our
-                    </span>
-                    <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                      Team Members
-                    </span>
-                  </h2>
-
-                  {/* Description */}
-                  <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                    Don't just take our word for it—hear directly from{" "}
-                    <span className="font-medium text-gray-800 dark:text-gray-200">
-                      the people who work here
-                    </span>{" "}
-                    every day. Real stories from real team members about career
-                    growth, workplace culture, leadership support, and why they
-                    chose to build their futures with MH Construction. These
-                    aren't scripted testimonials—they're authentic voices
-                    sharing what makes this place special.
-                  </p>
-                </div>
+                <SectionHeader
+                  icon="groups"
+                  iconVariant="primary"
+                  subtitle="Hear From Our"
+                  title="Team Members"
+                  description="Don't just take our word for it—hear directly from the people who work here every day. Real stories from real team members about career growth, workplace culture, leadership support, and why they chose to build their futures with MH Construction. These aren't scripted testimonials—they're authentic voices sharing what makes this place special."
+                />
               </FadeInWhenVisible>
 
               <TestimonialGrid testimonials={getEmployeeTestimonials()} />

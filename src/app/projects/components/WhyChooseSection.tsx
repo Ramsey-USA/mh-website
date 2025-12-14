@@ -5,7 +5,8 @@
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { Section, SectionHeader } from "@/components/ui/layout";
+import { Section } from "@/components/ui/layout";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
 import { whyChooseReasons } from "./projectsData";
 
@@ -13,12 +14,10 @@ export function WhyChooseSection() {
   return (
     <Section variant="gray" padding="large">
       <SectionHeader
+        icon="verified"
+        iconVariant="bronze"
         subtitle="Why Partner With"
-        title={
-          <span className="block text-brand-primary dark:text-brand-primary font-black">
-            MH Construction
-          </span>
-        }
+        title="MH Construction"
         description="Your trusted partner for commercial construction excellence in the Pacific Northwest"
       />
 

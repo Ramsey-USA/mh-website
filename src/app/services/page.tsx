@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Button, Card, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -248,71 +249,41 @@ export default function ServicesPage() {
           ></div>
 
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <SectionHeader
+              icon="handshake"
+              iconVariant="secondary"
+              subtitle="Partnership-Focused"
+              title="Construction Management"
+              description="Planning a new commercial building demands intricate details and expert partnership oversight. Work WITH us through comprehensive Partnership-Focused Construction Management services throughout the Tri-Cities (Pasco, WA) area."
+            />
+
             <FadeInWhenVisible>
-              <div className="mb-12 sm:mb-16 lg:mb-20 text-center">
-                {/* Icon Header with Glow Effect */}
-                <div className="flex justify-center items-center mb-6 sm:mb-8">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 rounded-2xl shadow-lg">
-                      <MaterialIcon
-                        icon="handshake"
-                        size="2xl"
-                        className="text-white"
-                      />
-                    </div>
+              <div className="relative">
+                {/* Decorative corner accent */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 dark:bg-brand-primary/10 rounded-bl-full transform translate-x-16 -translate-y-16 group-hover:scale-110 transition-transform duration-500"></div>
+
+                <div className="relative flex items-start gap-4 mb-12">
+                  <div className="flex-shrink-0 w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <MaterialIcon
+                      icon="handshake"
+                      size="lg"
+                      className="text-brand-primary"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed text-left">
+                      <strong className="text-brand-primary dark:text-brand-primary-light block mb-3 text-xl sm:text-2xl font-black">
+                        Our Partnership Priority:
+                      </strong>
+                      Delivering an exceptional partnership experience from
+                      start to finish. Our commitment to thorough communication
+                      and upfront collaboration is critical to streamlining the
+                      process, preventing costly on-the-fly decisions later on.
+                    </p>
                   </div>
                 </div>
 
-                {/* Two-Line Header */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                    Partnership-Focused
-                  </span>
-                  <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                    Construction Management
-                  </span>
-                </h2>
-              </div>
-            </FadeInWhenVisible>
-
-            <FadeInWhenVisible>
-              <div className="mx-auto max-w-5xl">
-                <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                  Planning a new commercial building demands intricate details
-                  and expert partnership oversight. Work WITH us through
-                  comprehensive Partnership-Focused Construction Management
-                  services throughout the Tri-Cities (Pasco, WA) area.
-                </p>
-
-                <div className="relative bg-gradient-to-br from-brand-primary/5 via-brand-primary/10 to-brand-accent/5 dark:from-gray-800 dark:via-gray-800/90 dark:to-gray-800 p-6 sm:p-8 lg:p-10 border-l-4 border-brand-primary rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
-                  {/* Decorative corner accent */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 dark:bg-brand-primary/10 rounded-bl-full transform translate-x-16 -translate-y-16 group-hover:scale-110 transition-transform duration-500"></div>
-
-                  <div className="relative flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <MaterialIcon
-                        icon="handshake"
-                        size="lg"
-                        className="text-brand-primary"
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed text-left">
-                        <strong className="text-brand-primary dark:text-brand-primary-light block mb-3 text-xl sm:text-2xl font-black">
-                          Our Partnership Priority:
-                        </strong>
-                        Delivering an exceptional partnership experience from
-                        start to finish. Our commitment to thorough
-                        communication and upfront collaboration is critical to
-                        streamlining the process, preventing costly on-the-fly
-                        decisions later on.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mt-12">
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
                   <Link href="/contact" className="w-full sm:w-auto">
                     <Button
                       variant="primary"
@@ -368,40 +339,13 @@ export default function ServicesPage() {
           ></div>
 
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <FadeInWhenVisible>
-              <div className="mb-12 sm:mb-16 lg:mb-20 text-center">
-                {/* Icon Header with Glow Effect */}
-                <div className="flex justify-center items-center mb-6 sm:mb-8">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 rounded-2xl shadow-lg">
-                      <MaterialIcon
-                        icon="engineering"
-                        size="2xl"
-                        className="text-white"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Two-Line Header */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                    Core Partnership
-                  </span>
-                  <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                    Services
-                  </span>
-                </h2>
-
-                {/* Description */}
-                <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                  Comprehensive partnership-focused management services designed
-                  to bring your vision to life through collaboration and
-                  military precision
-                </p>
-              </div>
-            </FadeInWhenVisible>
+            <SectionHeader
+              icon="engineering"
+              iconVariant="multi"
+              subtitle="Core Partnership"
+              title="Services"
+              description="Comprehensive partnership-focused management services designed to bring your vision to life through collaboration and military precision"
+            />
 
             <StaggeredFadeIn
               className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
@@ -431,39 +375,13 @@ export default function ServicesPage() {
           ></div>
 
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <FadeInWhenVisible>
-              <div className="mb-12 sm:mb-16 lg:mb-20 text-center">
-                {/* Icon Header with Glow Effect */}
-                <div className="flex justify-center items-center mb-6 sm:mb-8">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-brand-secondary/20 dark:bg-brand-secondary/30 blur-xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
-                      <MaterialIcon
-                        icon="domain"
-                        size="2xl"
-                        className="text-white"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Two-Line Header */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                    Specialized Partnership
-                  </span>
-                  <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                    Solutions
-                  </span>
-                </h2>
-
-                {/* Description */}
-                <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                  Diverse collaborative construction expertise across the
-                  Tri-Cities and Pacific Northwest region
-                </p>
-              </div>
-            </FadeInWhenVisible>
+            <SectionHeader
+              icon="domain"
+              iconVariant="secondary"
+              subtitle="Specialized Partnership"
+              title="Solutions"
+              description="Diverse collaborative construction expertise across the Tri-Cities and Pacific Northwest region"
+            />
 
             <StaggeredFadeIn
               className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
@@ -503,41 +421,13 @@ export default function ServicesPage() {
           ></div>
 
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <FadeInWhenVisible>
-              <div className="mb-12 sm:mb-16 lg:mb-20 text-center">
-                {/* Icon Header with Glow Effect */}
-                <div className="flex justify-center items-center mb-6 sm:mb-8">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-brand-accent/20 dark:bg-brand-accent/30 blur-xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-accent to-bronze-600 p-4 rounded-2xl shadow-lg">
-                      <MaterialIcon
-                        icon="account_balance"
-                        size="2xl"
-                        className="text-white"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Two-Line Header */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                    Public Sector Expertise
-                  </span>
-                  <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                    Government & Grant-Funded Projects
-                  </span>
-                </h2>
-
-                {/* Description */}
-                <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                  MH Construction brings specialized expertise in government and
-                  grant-funded construction projects. We understand the unique
-                  requirements, documentation standards, and compliance needs of
-                  public sector work throughout the Pacific Northwest.
-                </p>
-              </div>
-            </FadeInWhenVisible>
+            <SectionHeader
+              icon="account_balance"
+              iconVariant="bronze"
+              subtitle="Public Sector Expertise"
+              title="Government & Grant-Funded Projects"
+              description="MH Construction brings specialized expertise in government and grant-funded construction projects. We understand the unique requirements, documentation standards, and compliance needs of public sector work throughout the Pacific Northwest."
+            />
 
             <FadeInWhenVisible>
               <div className="mx-auto max-w-5xl">
@@ -956,40 +846,13 @@ export default function ServicesPage() {
           ></div>
 
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <FadeInWhenVisible>
-              <div className="mb-12 sm:mb-16 lg:mb-20 text-center">
-                {/* Icon Header with Glow Effect */}
-                <div className="flex justify-center items-center mb-6 sm:mb-8">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-brand-secondary/20 dark:bg-brand-secondary/30 blur-xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
-                      <MaterialIcon
-                        icon="timeline"
-                        size="2xl"
-                        className="text-white"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Two-Line Header */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                    Our Partnership
-                  </span>
-                  <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                    Construction Process
-                  </span>
-                </h2>
-
-                {/* Description */}
-                <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                  From initial consultation to project completion, we guide you
-                  through every step with transparency, communication, and
-                  collaborative excellence
-                </p>
-              </div>
-            </FadeInWhenVisible>
+            <SectionHeader
+              icon="timeline"
+              iconVariant="secondary"
+              subtitle="Our Partnership"
+              title="Construction Process"
+              description="From initial consultation to project completion, we guide you through every step with transparency, communication, and collaborative excellence"
+            />
 
             <div className="mx-auto max-w-6xl relative">
               {/* Vertical connecting line */}
@@ -1322,41 +1185,13 @@ export default function ServicesPage() {
           ></div>
 
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <FadeInWhenVisible>
-              <div className="mb-12 sm:mb-16 lg:mb-20 text-center">
-                {/* Icon Header with Glow Effect */}
-                <div className="flex justify-center items-center mb-6 sm:mb-8">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-brand-accent/20 dark:bg-brand-accent/30 blur-xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-accent to-bronze-600 p-4 rounded-2xl shadow-lg">
-                      <MaterialIcon
-                        icon="diversity_3"
-                        size="2xl"
-                        className="text-white"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Two-Line Header */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                    Two Paths to
-                  </span>
-                  <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                    Partnership Excellence
-                  </span>
-                </h2>
-
-                {/* Description */}
-                <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                  Whether you're a Client Partner with a construction project or
-                  a Trade Partner seeking partnership opportunities, MH
-                  Construction offers dedicated pathways to collaboration and
-                  success.
-                </p>
-              </div>
-            </FadeInWhenVisible>
+            <SectionHeader
+              icon="diversity_3"
+              iconVariant="bronze"
+              subtitle="Two Paths to"
+              title="Partnership Excellence"
+              description="Whether you're a Client Partner with a construction project or a Trade Partner seeking partnership opportunities, MH Construction offers dedicated pathways to collaboration and success."
+            />
 
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
               {/* Client Partner Relationships */}

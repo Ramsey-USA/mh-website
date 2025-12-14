@@ -3,10 +3,16 @@
  * POST /api/auth/refresh
  */
 
-import { type NextRequest, NextResponse } from "next/server";
+import { type NextRequest, type NextResponse } from "next/server";
 import { refreshAccessToken, type JWTUser } from "@/lib/auth/jwt";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rateLimiter";
 import { logger } from "@/lib/utils/logger";
+import {
+  badRequest,
+  unauthorized,
+  createSuccessResponse,
+  internalServerError,
+} from "@/lib/api/responses";
 
 export const runtime = "edge";
 
@@ -39,10 +45,7 @@ async function handleRefresh(request: NextRequest): Promise<NextResponse> {
     const { refreshToken } = body as RefreshRequest;
 
     if (!refreshToken) {
-      return NextResponse.json(
-        { error: "Refresh token required" },
-        { status: 400 },
-      );
+      return badRequest("Refresh token required");
     }
 
     // Refresh the access token
@@ -50,26 +53,21 @@ async function handleRefresh(request: NextRequest): Promise<NextResponse> {
 
     if (!newAccessToken) {
       logger.warn("Invalid refresh token attempt");
-
-      return NextResponse.json(
-        { error: "Invalid or expired refresh token" },
-        { status: 401 },
-      );
+      return unauthorized("Invalid or expired refresh token");
     }
 
     logger.info("Token refreshed successfully");
 
-    return NextResponse.json({
-      success: true,
-      accessToken: newAccessToken,
-      expiresIn: 900, // 15 minutes
-    });
-  } catch (_error) {
-    logger.error("Token refresh _error:", _error);
-    return NextResponse.json(
-      { _error: "Internal server _error" },
-      { status: 500 },
+    return createSuccessResponse(
+      {
+        accessToken: newAccessToken,
+        expiresIn: 900, // 15 minutes
+      },
+      "Token refreshed successfully",
     );
+  } catch (error) {
+    logger.error("Token refresh error:", error);
+    return internalServerError("Failed to refresh token");
   }
 }
 

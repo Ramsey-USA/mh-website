@@ -136,8 +136,8 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 // Animation components
 import { FadeInWhenVisible, StaggeredFadeIn } from "@/components/animations";
 
-// Layout components
-import { SectionHeader } from "@/components/sections/SectionHeader";
+// UI components
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { TestimonialGrid } from "@/components/testimonials/TestimonialGrid";
 
 // SEO
@@ -432,6 +432,6 @@ For questions about page development:
 
 ---
 
-**Last Updated:** November 11, 2025  
+**Last Updated:** December 14, 2025  
 **Status:** ✅ Active  
 **Maintained By:** MH Construction Development Team

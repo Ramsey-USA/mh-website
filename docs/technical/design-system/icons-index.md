@@ -1,7 +1,7 @@
 # Icons Documentation Hub
 
 **Category:** UI Components - Icons and Visual Indicators
-**Last Updated:** November 6, 2025
+**Last Updated:** December 14, 2025
 **Status:** ✅ Active - Consolidated Documentation Structure
 
 ## 🧭 Quick Navigation
@@ -352,7 +352,7 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 ### Design System
 
 - [Design System](../design-system.md) - Complete design system overview
-- [Buttons & CTAs](../buttons-ctas-index.md) - Button icon integration
+- [Buttons & CTAs](../buttons-ctas-complete-guide.md) - Button icon integration
 - [Component Standards](../../../branding/standards/component-standards.md) - UI component specs
 
 ### Development
@@ -503,5 +503,5 @@ For questions about icon implementation or this documentation:
 
 **Questions?** Refer to specific guides above or contact the development team
 
-**Last Updated:** November 6, 2025
+**Last Updated:** December 14, 2025
 **Maintained by:** MH Construction Documentation Team

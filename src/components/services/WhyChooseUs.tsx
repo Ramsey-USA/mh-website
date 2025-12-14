@@ -26,10 +26,11 @@ export function WhyChooseUs() {
               </span>
             </h2>
             <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-              Built on trust, integrity, and the belief that relationships
-              matter more than transactions—your trusted partner for
-              construction excellence where handshakes still matter and promises
-              are kept.
+              Built on service-earned trust, operational integrity, and the
+              belief that mission partnerships matter more than
+              transactions—your trusted partner for construction excellence
+              where handshakes still matter and promises are deployed with
+              military precision.
             </p>
           </div>
         </FadeInWhenVisible>

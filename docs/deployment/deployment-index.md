@@ -1,15 +1,15 @@
 # Deployment Documentation Hub
 
 **Category**: Deployment & Infrastructure  
-**Last Updated**: November 6, 2025  
+**Last Updated**: December 14, 2025  
 **Status**: ✅ Active
 
 ## 🧭 Quick Navigation
 
 - [🗂️ Master Documentation Index](../master-index.md) - Central hub for all documentation
-- [⚙️ Operations Index](../operations/operations-index.md) - Build optimization and operations
+- [⚙️ Operations Index](../technical/operations/operations-index.md) - Build optimization and operations
 - [⚡ Performance Hub](../technical/performance/performance-index.md) - Performance optimization
-- [🔄 Migrations Documentation](../migrations/migrations-index.md) - Migration guides
+- [🔄 Migrations Documentation](../_archive/migrations/migrations-index.md) - Migration guides (archived)
 - [🛠️ Technical Documentation](../technical/technical-index.md) - Architecture
 
 ---
@@ -522,7 +522,7 @@ For deployment issues:
 
 ---
 
-**Last Updated:** November 8, 2025  
+**Last Updated:** December 14, 2025  
 **Status:** ✅ Active  
 **Files:** 10 (8 active guides + 1 CI/CD doc + 1 archive)  
 **Maintained by:** MH Construction DevOps Team

@@ -5,7 +5,8 @@
 
 import { Card, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { Section, SectionHeader } from "@/components/ui/layout";
+import { Section } from "@/components/ui/layout";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { getCardClassName } from "@/lib/styles/card-variants";
 import { partnershipProcess } from "./projectsData";
 
@@ -14,16 +15,10 @@ export function PartnershipProcessSection() {
     <Section variant="default" padding="large">
       <div className="mx-auto max-w-4xl">
         <SectionHeader
-          title={
-            <>
-              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                Our Partnership
-              </span>
-              <span className="block text-brand-primary dark:text-brand-primary font-black">
-                Process
-              </span>
-            </>
-          }
+          icon="timeline"
+          iconVariant="secondary"
+          subtitle="Our Partnership"
+          title="Process"
           description="From initial consultation to project completion, we work WITH you every step of the way"
         />
 

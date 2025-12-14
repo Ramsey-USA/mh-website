@@ -26,39 +26,54 @@ export function PartnershipCTA() {
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
         <FadeInWhenVisible>
-          <div className="mb-12 sm:mb-16 lg:mb-20 scroll-reveal">
-            <div className="flex justify-center items-center mb-6 sm:mb-8">
+          <div className="mb-16 sm:mb-20 lg:mb-24 scroll-reveal">
+            {/* Icon with decorative lines */}
+            <div className="flex items-center justify-center mb-8 gap-4">
+              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-white/50 rounded-full"></div>
               <div className="relative">
-                <div className="absolute inset-0 bg-brand-accent/30 blur-xl rounded-full"></div>
-                <div className="relative bg-gradient-to-br from-brand-accent to-bronze-600 p-4 rounded-2xl shadow-lg">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50">
                   <MaterialIcon
                     icon="verified"
                     size="2xl"
-                    className="text-white"
+                    className="text-white drop-shadow-lg"
                   />
                 </div>
               </div>
+              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-white/50 rounded-full"></div>
             </div>
-            <h2 className="mb-6 sm:mb-8 font-black text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-              <span className="block mb-3 sm:mb-4 font-semibold text-white/90 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight drop-shadow-sm">
-                Let's Build Trust Through
+
+            {/* Two-line gradient heading */}
+            <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+              <span className="inline-block mb-3 sm:mb-4 font-semibold bg-gradient-to-r from-white via-brand-accent to-white bg-clip-text text-transparent text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                Rally Point: Let's Build Trust Through
               </span>
-              <span className="block text-brand-accent font-black drop-shadow-lg">
+              <span className="inline-block bg-gradient-to-r from-brand-accent via-white to-brand-accent bg-clip-text text-transparent font-black drop-shadow-lg overflow-visible py-1">
                 Lasting Partnerships
               </span>
             </h2>
-            <p className="mx-auto mb-8 sm:mb-12 max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-              Partner with a veteran-led team where{" "}
+
+            {/* Description with colored keyword highlighting */}
+            <p className="mx-auto mb-8 sm:mb-12 max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              Partner with a{" "}
               <span className="font-bold text-brand-accent">
-                four core values create one result: Trust
-              </span>
-              . We're Building projects for the client,{" "}
-              <span className="font-black italic text-brand-accent">NOT</span>{" "}
-              the dollar. Experience{" "}
-              <span className="font-medium text-brand-accent">
-                honesty, integrity, professionalism, and thoroughness
+                veteran-led team (all branches)
               </span>{" "}
-              in every project across the Pacific Northwest.
+              where four mission-ready values create one result: Trust. We're
+              building{" "}
+              <span className="font-bold text-white">
+                projects for the client
+              </span>
+              ,{" "}
+              <span className="font-black italic text-brand-accent text-xl sm:text-2xl md:text-3xl">
+                NOT
+              </span>{" "}
+              the dollar. Experience{" "}
+              <span className="font-bold text-brand-accent">
+                service-earned honesty, military-grade integrity, operational
+                professionalism, and tactical thoroughness
+              </span>{" "}
+              in every construction mission across the Pacific Northwest.
             </p>
           </div>
 
@@ -80,27 +95,6 @@ export function PartnershipCTA() {
                     Become a Trade
                     <br />
                     Partner
-                  </span>
-                </div>
-              </Button>
-            </Link>
-
-            <Link href="/government">
-              <Button
-                variant="secondary"
-                size="lg"
-                className="group/btn w-full h-auto min-h-[56px] sm:min-h-[64px] transition-all duration-300 p-3 sm:p-4 touch-manipulation"
-              >
-                <div className="flex flex-col justify-center items-center">
-                  <MaterialIcon
-                    icon="flag"
-                    size="lg"
-                    className="flex-shrink-0 mb-1 group-hover/btn:scale-110 transition-transform"
-                  />
-                  <span className="font-medium text-center text-xs sm:text-sm leading-tight">
-                    Government
-                    <br />
-                    Contracts
                   </span>
                 </div>
               </Button>

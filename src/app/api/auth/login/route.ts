@@ -3,11 +3,17 @@
  * POST /api/auth/login
  */
 
-import { type NextRequest, NextResponse } from "next/server";
+import { type NextRequest, type NextResponse } from "next/server";
 import { generateTokenPair, type JWTUser } from "@/lib/auth/jwt";
 import { sanitizeEmail } from "@/lib/security/sanitization";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rateLimiter";
 import { logger } from "@/lib/utils/logger";
+import {
+  badRequest,
+  unauthorized,
+  createSuccessResponse,
+  internalServerError,
+} from "@/lib/api/responses";
 
 export const runtime = "edge";
 
@@ -46,14 +52,11 @@ async function handleLogin(request: NextRequest): Promise<NextResponse> {
     // Validate input
     const sanitizedEmail = sanitizeEmail(email);
     if (!sanitizedEmail) {
-      return NextResponse.json(
-        { error: "Invalid email address" },
-        { status: 400 },
-      );
+      return badRequest("Invalid email address");
     }
 
     if (!password || password.length < 6) {
-      return NextResponse.json({ error: "Invalid password" }, { status: 400 });
+      return badRequest("Invalid password");
     }
 
     // Verify credentials
@@ -61,11 +64,7 @@ async function handleLogin(request: NextRequest): Promise<NextResponse> {
 
     if (!user) {
       logger.warn("Failed login attempt", { email: sanitizedEmail });
-
-      return NextResponse.json(
-        { error: "Invalid credentials" },
-        { status: 401 },
-      );
+      return unauthorized("Invalid credentials");
     }
 
     // Generate tokens
@@ -77,22 +76,21 @@ async function handleLogin(request: NextRequest): Promise<NextResponse> {
     });
 
     // Return tokens and user info
-    return NextResponse.json({
-      success: true,
-      user: {
-        uid: user.uid,
-        email: user.email,
-        role: user.role,
-        name: user.name,
+    return createSuccessResponse(
+      {
+        user: {
+          uid: user.uid,
+          email: user.email,
+          role: user.role,
+          name: user.name,
+        },
+        ...tokens,
       },
-      ...tokens,
-    });
-  } catch (_error) {
-    logger.error("Login _error:", _error);
-    return NextResponse.json(
-      { _error: "Internal server _error" },
-      { status: 500 },
+      "Login successful",
     );
+  } catch (error) {
+    logger.error("Login error:", error);
+    return internalServerError("Failed to process login");
   }
 }
 

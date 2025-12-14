@@ -3,10 +3,16 @@
  * Provides security metrics and status information
  */
 
-import { type NextRequest, NextResponse } from "next/server";
+import { type NextRequest } from "next/server";
 import { withSecurity } from "@/middleware/security";
 import { auditLogger, type AuditStatistics } from "@/lib/security/audit-logger";
 import { logger } from "@/lib/utils/logger";
+import { requireRole } from "@/lib/auth/middleware";
+import {
+  createSuccessResponse,
+  methodNotAllowed,
+  internalServerError,
+} from "@/lib/api/responses";
 import {
   VulnerabilityScanner,
   VulnerabilityType,
@@ -37,7 +43,7 @@ async function handler(request: NextRequest) {
       // Calculate security score
       const securityScore = calculateSecurityScore(auditStats, vulnerabilities);
 
-      return NextResponse.json({
+      return createSuccessResponse({
         timestamp: now.toISOString(),
         status: getSystemStatus(securityScore),
         securityScore,
@@ -95,7 +101,7 @@ async function handler(request: NextRequest) {
         const url = targets?.url || "https://localhost:3000";
         const vulnerabilities = await scanner.quickScan(url);
 
-        return NextResponse.json({
+        return createSuccessResponse({
           scanId: `quick_${Date.now()}`,
           timestamp: new Date().toISOString(),
           type: "quick",
@@ -125,7 +131,7 @@ async function handler(request: NextRequest) {
 
       const scanResult = await scanner.runScan(scanConfig);
 
-      return NextResponse.json({
+      return createSuccessResponse({
         scanId: scanResult.id,
         timestamp: scanResult.startTime.toISOString(),
         duration: scanResult.duration,
@@ -144,15 +150,15 @@ async function handler(request: NextRequest) {
       });
     }
 
-    return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
-  } catch (_error) {
-    logger.error("Security API _error:", _error);
-    return NextResponse.json(
-      { _error: "Internal server _error" },
-      { status: 500 },
-    );
+    return methodNotAllowed("Method not supported");
+  } catch (error) {
+    logger.error("Security status error:", error);
+    return internalServerError("Failed to retrieve security status");
   }
 }
+
+export const GET = requireRole(["admin"], withSecurity(handler));
+export const POST = requireRole(["admin"], withSecurity(handler));
 
 // Helper functions
 function calculateSecurityScore(
@@ -232,6 +238,3 @@ function calculateVulnerabilityTrend(vulnerabilities: Vulnerability[]): number {
   const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
   return vulnerabilities.filter((v) => v.discoveredAt > oneDayAgo).length;
 }
-
-export const GET = withSecurity(handler);
-export const POST = withSecurity(handler);

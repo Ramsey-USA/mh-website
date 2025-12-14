@@ -1,11 +1,15 @@
-import { type NextRequest, NextResponse } from "next/server";
+import { type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
-import {
-  createDbClient,
-  type Consultation,
-  type D1Database,
-} from "@/lib/db/client";
+import { createDbClient, type Consultation } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
+import { requireAuth } from "@/lib/auth/middleware";
+import { type JWTUser } from "@/lib/auth/jwt";
+import {
+  notFound,
+  createSuccessResponse,
+  internalServerError,
+  serviceUnavailable,
+} from "@/lib/api/responses";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
@@ -14,67 +18,57 @@ interface RouteParams {
   params: Promise<{ id: string }>;
 }
 
-export async function GET(_request: NextRequest, context: RouteParams) {
+async function handleGET(
+  _request: NextRequest,
+  _user: JWTUser,
+  context?: unknown,
+) {
   try {
-    const { id } = await context.params;
+    const { id } = await (context as RouteParams).params;
 
     // Retrieve consultation from D1 database
     const DB = getD1Database();
     if (!DB) {
-      return NextResponse.json(
-        { error: "Database not available" },
-        { status: 503 },
-      );
+      return serviceUnavailable("Database not available");
     }
 
-    const db = createDbClient({ DB: DB as D1Database });
+    const db = createDbClient({ DB });
     const consultation = await db.queryOne<Consultation>(
       `SELECT * FROM consultations WHERE id = ?`,
       id,
     );
 
     if (!consultation) {
-      return NextResponse.json(
-        { error: "Consultation not found" },
-        { status: 404 },
-      );
+      return notFound("Consultation not found");
     }
 
-    return NextResponse.json({
-      success: true,
-      data: consultation,
-    });
-  } catch (_error) {
-    logger.error("Error fetching consultation:", _error);
-    return NextResponse.json(
-      { _error: "Failed to fetch consultation" },
-      { status: 500 },
-    );
+    return createSuccessResponse(consultation);
+  } catch (error) {
+    logger.error("Error fetching consultation:", error);
+    return internalServerError("Failed to fetch consultation");
   }
 }
 
-export async function PUT(request: NextRequest, context: RouteParams) {
+async function handlePUT(
+  request: NextRequest,
+  _user: JWTUser,
+  context?: unknown,
+) {
   try {
-    const { id } = await context.params;
+    const { id } = await (context as RouteParams).params;
     const updates = await request.json();
 
     // Update consultation in D1 database
     const DB = getD1Database();
     if (!DB) {
-      return NextResponse.json(
-        { error: "Database not available" },
-        { status: 503 },
-      );
+      return serviceUnavailable("Database not available");
     }
 
-    const db = createDbClient({ DB: DB as D1Database });
+    const db = createDbClient({ DB });
     const updated = await db.update("consultations", id, updates);
 
     if (!updated) {
-      return NextResponse.json(
-        { error: "Consultation not found" },
-        { status: 404 },
-      );
+      return notFound("Consultation not found");
     }
 
     // Fetch updated record
@@ -83,52 +77,42 @@ export async function PUT(request: NextRequest, context: RouteParams) {
       id,
     );
 
-    return NextResponse.json({
-      success: true,
-      message: "Consultation updated",
-      data: consultation,
-    });
-  } catch (_error) {
-    logger.error("Error updating consultation:", _error);
-    return NextResponse.json(
-      { _error: "Failed to update consultation" },
-      { status: 500 },
-    );
+    return createSuccessResponse(consultation, "Consultation updated");
+  } catch (error) {
+    logger.error("Error updating consultation:", error);
+    return internalServerError("Failed to update consultation");
   }
 }
 
-export async function DELETE(_request: NextRequest, context: RouteParams) {
+async function handleDELETE(
+  _request: NextRequest,
+  _user: JWTUser,
+  context?: unknown,
+) {
   try {
-    const { id } = await context.params;
+    const { id } = await (context as RouteParams).params;
 
     // Delete consultation from D1 database
     const DB = getD1Database();
     if (!DB) {
-      return NextResponse.json(
-        { error: "Database not available" },
-        { status: 503 },
-      );
+      return serviceUnavailable("Database not available");
     }
 
-    const db = createDbClient({ DB: DB as D1Database });
+    const db = createDbClient({ DB });
     const deleted = await db.delete("consultations", id);
 
     if (!deleted) {
-      return NextResponse.json(
-        { error: "Consultation not found" },
-        { status: 404 },
-      );
+      return notFound("Consultation not found");
     }
 
-    return NextResponse.json({
-      success: true,
-      message: "Consultation deleted",
-    });
-  } catch (_error) {
-    logger.error("Error deleting consultation:", _error);
-    return NextResponse.json(
-      { _error: "Failed to delete consultation" },
-      { status: 500 },
-    );
+    return createSuccessResponse({ id }, "Consultation deleted");
+  } catch (error) {
+    logger.error("Error deleting consultation:", error);
+    return internalServerError("Failed to delete consultation");
   }
 }
+
+// Apply authentication protection to all routes
+export const GET = requireAuth(handleGET);
+export const PUT = requireAuth(handlePUT);
+export const DELETE = requireAuth(handleDELETE);

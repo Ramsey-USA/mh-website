@@ -787,7 +787,7 @@ export class EnhancedChatbotAI {
       response += `• Sound-dampening construction for peaceful environments\n\n`;
     } else {
       response += `**CURRENT VETERAN BENEFITS:**\n`;
-      response += `• **12% Combat Veteran Discount** on all projects\n`;
+      response += `• **Combat Veteran Discount at the Ready** on all projects\n`;
       response += `• **Priority Scheduling** for consultations\n`;
       response += `• **Expedited Project Timelines** when possible\n`;
       response += `• **VA Loan Coordination** and assistance\n`;
@@ -929,7 +929,7 @@ export class EnhancedChatbotAI {
     response += `• **[Contact Us →](/contact)** - Schedule consultation for detailed on-site assessment\n`;
     response += `• **[Contact Us to Schedule →](/contact)** - Detailed on-site assessment\n`;
     response += `• **[Call (509) 308-6489](tel:5093086489)** - Speak with our team\n\n`;
-    response += `**VETERAN DISCOUNT:** 12% off for combat veterans!\n\n`;
+    response += `**VETERAN DISCOUNT:** Combat Veteran Discount at the Ready!\n\n`;
     response += `**PAYMENT OPTIONS:**\n`;
     response += `• Competitive financing available\n`;
     response += `• Flexible payment schedules\n`;
@@ -1153,7 +1153,7 @@ export class EnhancedChatbotAI {
     response += `**RECOMMENDED:** Start with AI Estimator for instant preliminary pricing, then schedule consultation for detailed analysis.\n\n`;
 
     if (context.conversationMemory?.userProfile?.isVeteran) {
-      response += `**VETERAN PRIORITY:** Your mission receives expedited processing and 12% combat veteran discount on both paths.\n\n`;
+      response += `**VETERAN PRIORITY:** Your mission receives expedited processing and Combat Veteran Discount at the Ready on both paths.\n\n`;
     }
 
     response += `**Which tactical path suits your mission objectives?**`;

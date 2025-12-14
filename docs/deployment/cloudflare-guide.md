@@ -449,7 +449,7 @@ Before deploying to production:
 
 ---
 
-**Last Updated**: November 2, 2025
+**Last Updated: December 14, 2025
 **Platform**: Cloudflare Pages
 **Framework**: Next.js 15.5.2
 **Runtime**: Edge Runtime

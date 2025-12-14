@@ -8,7 +8,7 @@ details. This replaces the previous vintage baseball card theme with a more spac
 
 **Component Location:** `src/components/team/TeamProfileSection.tsx`
 
-**Last Updated:** November 13, 2025
+**Last Updated:** December 14, 2025
 
 ---
 
@@ -62,7 +62,7 @@ details. This replaces the previous vintage baseball card theme with a more spac
    - Years at MH Construction
 
 **Note:** Each team member also has an associated QR code for business card printing (not displayed on website).
-See [Team QR Codes Guide](./team-qr-codes-guide.md) for details.
+See [Team QR Codes Guide](../business/team/team-qr-codes-guide.md) for details.
 
 - Years at MH
 
@@ -465,6 +465,6 @@ Potential improvements:
 
 ---
 
-**Last Updated:** November 13, 2025  
+**Last Updated:** December 14, 2025  
 **Component Version:** 1.0.0  
 **Status:** ✅ Production Ready

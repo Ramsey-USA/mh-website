@@ -1,5 +1,18 @@
 # Developer Checklist - Essential Standards
 
+**Category:** Development - Quality Assurance  
+**Last Updated:** December 14, 2025  
+**Status:** ✅ Active
+
+## 🧭 Quick Navigation
+
+- [📚 Reference Index](./reference-index.md)
+- [🗂️ Development Index](../development-index.md)
+- [📖 Development Standards](../development-standards.md)
+- [🏠 Master Index](../../master-index.md)
+
+---
+
 ## Before Committing Code
 
 ### ✅ Required Checks

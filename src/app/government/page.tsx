@@ -24,7 +24,7 @@ import Head from "next/head";
 import { getGovernmentSEO } from "@/lib/seo/page-seo-utils";
 
 // Feature flag - set to false to show full page content
-const SHOW_UNDER_CONSTRUCTION = false;
+const SHOW_UNDER_CONSTRUCTION = true;
 
 // Get SEO metadata
 const governmentSEOData = getGovernmentSEO();
@@ -289,9 +289,9 @@ export default function GovernmentGrantsPage() {
   if (SHOW_UNDER_CONSTRUCTION) {
     return (
       <UnderConstruction
-        pageName="Government Contracting"
-        description="We're verifying all certifications, capabilities, and government project details to ensure complete accuracy for potential government partners."
-        estimatedCompletion="December 2025"
+        pageName="Public Sector Contracting"
+        description="We're building bonding capacity and establishing partnerships to serve government projects. Currently available for grant application support and subcontracting opportunities."
+        estimatedCompletion="Q2 2026"
       />
     );
   }
@@ -326,13 +326,13 @@ export default function GovernmentGrantsPage() {
             {/* Main Title */}
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
               <span className="block text-gray-300 font-black drop-shadow-lg">
-                Mission-Ready, Compliance-Driven
+                Public Sector Excellence
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              Veteran-Owned Federal Contractor · Army Veteran Leadership
+              Veteran-Owned · Building Toward Government Contracting
             </p>
 
             {/* Description */}

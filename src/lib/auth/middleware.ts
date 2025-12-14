@@ -7,6 +7,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { verifyToken, extractTokenFromHeader, type JWTUser } from "./jwt";
 import { logger } from "@/lib/utils/logger";
+import { unauthorized, forbidden } from "@/lib/api/responses";
 
 export interface AuthenticatedRequest extends NextRequest {
   user?: JWTUser;
@@ -31,25 +32,16 @@ export function requireAuth(
     const token = extractTokenFromHeader(authHeader);
 
     if (!token) {
-      return NextResponse.json(
-        {
-          error: "Authentication required",
-          message: "Missing or invalid authorization header",
-        },
-        { status: 401 },
+      return unauthorized(
+        "Authentication required",
+        "Missing or invalid authorization header",
       );
     }
 
     const user = await verifyToken(token);
 
     if (!user) {
-      return NextResponse.json(
-        {
-          error: "Invalid token",
-          message: "Token is invalid or expired",
-        },
-        { status: 401 },
-      );
+      return unauthorized("Invalid token", "Token is invalid or expired");
     }
 
     // Log authenticated access
@@ -84,12 +76,9 @@ export function requireRole(
         requiredRoles: allowedRoles,
       });
 
-      return NextResponse.json(
-        {
-          error: "Insufficient permissions",
-          message: `Required role: ${allowedRoles.join(" or ")}`,
-        },
-        { status: 403 },
+      return forbidden(
+        "Insufficient permissions",
+        `Required role: ${allowedRoles.join(" or ")}`,
       );
     }
 

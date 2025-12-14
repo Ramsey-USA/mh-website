@@ -1,6 +1,6 @@
 # Careers Page & Job Application Messaging Optimization
 
-**Last Updated:** November 18, 2025 | **Status:** ✅ Complete
+**Last Updated:** December 14, 2025 | **Status:** ✅ Complete | **Methodology:** Military/Construction Terminology Blend
 
 ---
 
@@ -8,7 +8,11 @@
 
 This document outlines the comprehensive optimization of the Careers page and job application reply system to
 achieve perfect cohesion with Group 5 (Recruitment & Growth) messaging guidelines from the
-[Page-Specific Messaging Guide](./page-specific-messaging-guide.md).
+[Page-Specific Messaging Guide](./page-specific-messaging-guide.md), now enhanced with military-construction
+terminology integration.
+
+**December 2025 Update:** All careers messaging now incorporates veteran-friendly language that appeals to
+military transitioning personnel while maintaining enthusiastic, opportunity-focused recruitment tone.
 
 ---
 

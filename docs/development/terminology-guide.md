@@ -2,7 +2,7 @@
 
 ## Critical Navigation & Content Distinctions
 
-**Last Updated:** October 10, 2025
+**Last Updated:** December 14, 2025
 
 This guide establishes the critical terminology distinctions used throughout the MH Construction
 website to ensure consistent messaging and prevent user confusion.

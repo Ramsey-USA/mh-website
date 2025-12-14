@@ -9,12 +9,13 @@
  */
 
 import { logger } from "@/lib/utils/logger";
+import type { D1Database } from "@/lib/db/client";
 
 /**
  * Get Cloudflare D1 database binding
  * Returns null in local development where D1 is not available
  */
-export function getD1Database(): unknown | null {
+export function getD1Database(): D1Database | null {
   try {
     // When deployed to Cloudflare Pages with @cloudflare/next-on-pages
     // the env bindings are available via getRequestContext()
@@ -25,8 +26,8 @@ export function getD1Database(): unknown | null {
       const context = (
         globalThis as unknown as {
           getRequestContext: () => {
-            env?: { DB?: unknown };
-            cloudflare?: { env?: { DB?: unknown } };
+            env?: { DB?: D1Database };
+            cloudflare?: { env?: { DB?: D1Database } };
           };
         }
       ).getRequestContext();
@@ -34,8 +35,8 @@ export function getD1Database(): unknown | null {
       return env?.DB || null;
     }
     return null;
-  } catch (_error) {
-    logger.error("Error getting D1 database:", _error);
+  } catch (error) {
+    logger.error("Error getting D1 database:", error);
     return null;
   }
 }

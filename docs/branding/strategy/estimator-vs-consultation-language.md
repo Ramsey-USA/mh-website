@@ -3,7 +3,7 @@
 **Document Purpose:** Define clear, consistent language that distinguishes our AI Budget Planning Tool from
 Human Expert Consultations across all touchpoints.
 
-**Last Updated:** November 17, 2025
+**Last Updated:** December 14, 2025
 
 ---
 

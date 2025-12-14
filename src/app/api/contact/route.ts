@@ -1,23 +1,22 @@
-import { type NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
+import { type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
-import {
-  createDbClient,
-  type ContactSubmission,
-  type D1Database,
-} from "@/lib/db/client";
+import { createDbClient, type ContactSubmission } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
+import { sendEmail, type EmailAttachment } from "@/lib/email/emailService";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rateLimiter";
+import {
+  badRequest,
+  createSuccessResponse,
+  createPaginatedResponse,
+  internalServerError,
+} from "@/lib/api/responses";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 /**
- * Contact API - Handles all form submissions and sends emails to office@mhc-gc.com, matt@mhc-gc.com, and arnold@mhc-gc.com (for job applications)
- * This endpoint serves as the central hub for all contact forms, job applications,
- * consultations, and other submissions that need to be emailed to the office.
- *
- * Note: office@mhc-gc.com is the displayed/public email, matt@mhc-gc.com and arnold@mhc-gc.com receive copies but are not displayed
- * arnold@mhc-gc.com receives job applications for HR review
+ * Contact API - Handles all form submissions and sends emails
+ * Uses centralized email service to avoid circular dependencies
  *
  * Email Service: Resend (https://resend.com)
  */
@@ -35,48 +34,35 @@ interface ContactRequest {
     | "urgent"
     | "general"
     | "acknowledgment";
-  recipientEmail?: string; // Primary recipient (defaults to office@mhc-gc.com), matt@mhc-gc.com and arnold@mhc-gc.com (for job apps) are auto-CC'd
+  recipientEmail?: string;
   metadata?: Record<string, string | number | boolean | null>;
-  attachments?: Array<{
-    content: string; // base64 encoded
-    filename: string;
-    contentType: string;
-  }>;
+  attachments?: EmailAttachment[];
   customHtml?: string; // For custom email templates (e.g., acknowledgments)
 }
 
-export async function POST(request: NextRequest) {
+export async function handlePOST(request: NextRequest) {
   try {
     const data: ContactRequest = await request.json();
 
     // Validate required fields
     if (!data.name || !data.email || !data.message) {
-      return NextResponse.json(
-        {
-          error:
-            "Missing required fields: name, email, and message are required",
-        },
-        { status: 400 },
+      return badRequest(
+        "Missing required fields: name, email, and message are required",
       );
     }
 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
-      return NextResponse.json(
-        { error: "Invalid email address" },
-        { status: 400 },
-      );
+      return badRequest("Invalid email address");
     }
 
-    // Create email notification
+    // Prepare email recipients
     const recipientEmail = data.recipientEmail || "office@mhc-gc.com";
     const emailSubject =
       data.subject || `New ${data.type || "Contact"} Form Submission`;
 
-    // For acknowledgment emails, only send to the recipient (not office/matt/arnold)
-    // For job applications, send to office@, matt@, and arnold@
-    // For other notifications, send to office@ and matt@
+    // Determine recipients based on type
     const isAcknowledgment =
       data.type === "acknowledgment" || data.metadata?.["isAcknowledgment"];
     const isJobApplication = data.type === "job-application";
@@ -94,81 +80,26 @@ export async function POST(request: NextRequest) {
       emailRecipients = [recipientEmail, "matt@mhc-gc.com"];
     }
 
-    const emailData = {
+    // Generate email content
+    const emailHtml = data.customHtml || generateEmailHTML(data);
+    const emailText = generateEmailText(data);
+
+    // Send email using centralized service
+    const emailResult = await sendEmail({
       to: emailRecipients,
-      from: process.env["EMAIL_FROM"] || "noreply@mhc-gc.com",
       subject: emailSubject,
-      html: data.customHtml || generateEmailHTML(data),
-      text: generateEmailText(data),
-      ...(data.attachments && data.attachments.length > 0
-        ? { attachments: data.attachments }
-        : {}),
-    };
+      html: emailHtml,
+      text: emailText,
+      ...(data.attachments && { attachments: data.attachments }),
+    });
 
-    // Send email using Resend
-    let emailSent = false;
-    let emailError = null;
+    const emailSent = emailResult.success;
 
-    if (process.env["RESEND_API_KEY"]) {
-      try {
-        const resend = new Resend(process.env["RESEND_API_KEY"]);
-
-        const emailPayload: {
-          from: string;
-          to: string[];
-          subject: string;
-          html: string;
-          text: string;
-          attachments?: Array<{
-            content: string;
-            filename: string;
-          }>;
-        } = {
-          from: emailData.from,
-          to: emailData.to,
-          subject: emailData.subject,
-          html: emailData.html,
-          text: emailData.text,
-        };
-
-        if (data.attachments && data.attachments.length > 0) {
-          emailPayload.attachments = data.attachments.map((att) => ({
-            content: att.content,
-            filename: att.filename,
-          }));
-        }
-
-        const { data: emailResult, error } =
-          await resend.emails.send(emailPayload);
-
-        if (error) {
-          logger.error("Resend API error:", error);
-          emailError = error;
-        } else {
-          emailSent = true;
-          logger.info("Email sent successfully:", {
-            id: emailResult?.id,
-            to: recipientEmail, // Log only the primary recipient for clarity
-            subject: emailData.subject,
-            attachments: data.attachments?.length || 0,
-          });
-        }
-      } catch (_error) {
-        logger.error("Error sending email with Resend:", _error);
-        emailError = _error;
-      }
-    } else {
-      // No API key configured - log warning
-      logger.warn("⚠️  RESEND_API_KEY not configured. Email not sent.");
-      logger.info("📧 Email that would be sent:", {
-        to: recipientEmail, // Log only primary recipient
-        subject: emailData.subject,
-        from: emailData.from,
-        sentAt: new Date().toISOString(),
-      });
+    if (!emailSent) {
+      logger.error("Failed to send email:", emailResult.error);
     }
 
-    // Store submission in D1 database
+    // Store submission in D1 database (best-effort pattern)
     const submissionId = crypto.randomUUID();
 
     // For general contact forms, store in contact_submissions table
@@ -182,7 +113,7 @@ export async function POST(request: NextRequest) {
       try {
         const DB = getD1Database();
         if (DB) {
-          const db = createDbClient({ DB: DB as D1Database });
+          const db = createDbClient({ DB });
 
           // Parse name into first and last name (simple split)
           const nameParts = data.name.trim().split(/\s+/);
@@ -219,7 +150,7 @@ export async function POST(request: NextRequest) {
             metadata: JSON.stringify({
               subject: data.subject,
               emailSent,
-              emailError: emailError ? String(emailError) : undefined,
+              emailError: emailSent ? undefined : emailResult.error,
               submittedAt: new Date().toISOString(),
             }),
           };
@@ -231,37 +162,28 @@ export async function POST(request: NextRequest) {
         } else {
           logger.info(
             "D1 database not available, contact submission not persisted",
-            {
-              id: submissionId,
-            },
+            { id: submissionId },
           );
         }
-      } catch (dbError) {
-        logger.error(
-          "Failed to store contact submission in database:",
-          dbError,
-        );
-        // Continue even if DB fails - email was already sent
+      } catch (error) {
+        logger.error("Failed to store contact submission in database:", error);
+        // Continue even if DB fails (best-effort pattern)
       }
     }
 
-    return NextResponse.json({
-      success: true,
-      message: emailSent
-        ? "Message sent successfully"
-        : "Message received (email service not configured)",
-      data: {
+    return createSuccessResponse(
+      {
         id: submissionId,
         recipientEmail,
         emailSent,
       },
-    });
-  } catch (_error) {
-    logger.error("Error processing contact form:", _error);
-    return NextResponse.json(
-      { _error: "Failed to process contact form submission" },
-      { status: 500 },
+      emailSent
+        ? "Message sent successfully"
+        : "Message received (email service not configured)",
     );
+  } catch (error) {
+    logger.error("Error processing contact form:", error);
+    return internalServerError("Failed to process contact form submission");
   }
 }
 
@@ -411,37 +333,34 @@ function formatFieldName(fieldName: string): string {
 export async function GET() {
   try {
     // Retrieve contact submissions from D1 database (when deployed to Cloudflare)
-    // This endpoint should typically require authentication
-    try {
-      const DB = getD1Database();
-      if (DB) {
-        const db = createDbClient({ DB: DB as D1Database });
+    // Note: This endpoint should typically require authentication
+    const DB = getD1Database();
+
+    if (DB) {
+      try {
+        const db = createDbClient({ DB });
         const submissions = await db.query<ContactSubmission>(
           `SELECT * FROM contact_submissions ORDER BY created_at DESC LIMIT 100`,
         );
 
-        return NextResponse.json({
-          success: true,
-          data: submissions,
-          count: submissions.length,
-        });
+        return createPaginatedResponse(submissions, submissions.length);
+      } catch (error) {
+        logger.error("Error fetching from database:", error);
+        // Fall through to fallback response (best-effort pattern)
       }
-    } catch (dbError) {
-      logger.error("Error fetching from database:", dbError);
     }
 
-    // Fallback for local development
-    return NextResponse.json({
-      success: true,
-      data: [],
-      count: 0,
-      message: "D1 database not available in this environment",
-    });
-  } catch (_error) {
-    logger.error("Error fetching contact submissions:", _error);
-    return NextResponse.json(
-      { _error: "Failed to fetch contact submissions" },
-      { status: 500 },
+    // Fallback for local development or if DB query fails
+    return createPaginatedResponse(
+      [],
+      0,
+      "D1 database not available in this environment",
     );
+  } catch (error) {
+    logger.error("Error fetching contact submissions:", error);
+    return internalServerError("Failed to fetch contact submissions");
   }
 }
+
+// Apply rate limiting to POST endpoint (10 requests per minute)
+export const POST = rateLimit(rateLimitPresets.api)(handlePOST);

@@ -1,34 +1,40 @@
-# MH Construction Veterans Initiative
+# MH Construction Veterans Initiative - All-Branch Recognition
 
-**Date:** November 11, 2025  
+**Date:** December 14, 2025  
 **Status:** ✅ Current  
 **Category:** Business - Community Initiatives  
-**Version:** 1.0.0  
-**Last Updated:** November 11, 2025
+**Version:** 2.0.0  
+**Last Updated:** December 14, 2025  
+**Strategic Focus:** Award-winning website attracting professional veterans
 
 ## Quick Navigation
 
-- [🏠 Business Documentation](./business-index.md)
+- [🏛️ Business Documentation](./business-index.md) ⭐ **UPDATED Dec 14, 2025**
 - [📋 Team Roster](./team-roster.md)
-- [💼 Core Values](./core-values.md)
-- [🎖️ Government Projects](./government-grant-projects.md)
+- [💼 Core Values](./core-values.md) ⭐ **UPDATED Dec 14, 2025**
+- [🏛️ Government Projects](./government-grant-projects.md)
 
 ---
 
 ## Overview
 
-MH Construction is proud to be a **veteran-owned business** owned and led by Army veteran Jeremy Thamert,
-with Navy veteran Matt Ramsey serving as Digital Marketing Manager. Our commitment to supporting veterans
-extends beyond our leadership—it's woven into every aspect of our operations, community engagement, and
-long-term vision.
+MH Construction is proud to be a **veteran-owned business** with **all-branch military leadership**.
+We honor service from Army, Navy, Air Force, Marines, Coast Guard, and Space Force.
+
+**Veteran-Owned Leadership:** Army veteran Jeremy Thamert (Owner) and Navy veteran Matt Ramsey
+(Digital Marketing Manager) lead our mission-focused construction operations.
+
+Our commitment to supporting veterans extends beyond our leadership—it's woven into every aspect
+of our operations, community engagement, and long-term vision.
 
 ### Our Veteran Identity
 
-- **Veteran-Owned**: Certified veteran-owned construction company led by Army veteran Jeremy Thamert
-- **Military Leadership**: Owner and Digital Marketing Manager are both veterans
-- **Veteran Hiring**: Priority placement for qualified veteran candidates
-- **Military Standards**: Precision, discipline, and excellence in every project
+- **Veteran-Owned**: Certified veteran-owned construction company with all-branch recognition
+- **Military Leadership**: Owner (Army) and Digital Marketing Manager (Navy) are both veterans
+- **Veteran Hiring**: Priority placement for qualified veteran candidates from all service branches
+- **Military Standards**: Service-earned precision, deployment discipline, and mission excellence in every project
 - **Community Support**: Active participation in veteran benefit programs
+- **Strategic Focus**: Building award-winning website to attract professional veterans to our team
 
 ---
 
@@ -511,7 +517,7 @@ A: Typically 3-4 veterans per boat (based on vessel capacity).
 
 ---
 
-**Last Updated:** November 11, 2025  
+**Last Updated:** December 14, 2025  
 **Document Owner:** MH Construction Leadership Team  
 **Next Review:** January 2026
 

@@ -84,9 +84,9 @@ export class DbClient {
       });
 
       return result.results || [];
-    } catch (_error) {
-      logger.error("Database query _error", _error);
-      throw _error;
+    } catch (error) {
+      logger.error("Database query error", error);
+      throw error;
     }
   }
 
@@ -105,9 +105,9 @@ export class DbClient {
       logger.debug("Query one executed", { sql, found: Boolean(result) });
 
       return result;
-    } catch (_error) {
-      logger.error("Database query one _error", _error);
-      throw _error;
+    } catch (error) {
+      logger.error("Database query one error", error);
+      throw error;
     }
   }
 
@@ -133,9 +133,9 @@ export class DbClient {
         success: result.success,
         rowsAffected: result.meta.rows_written,
       };
-    } catch (_error) {
-      logger.error("Database execute _error", _error);
-      throw _error;
+    } catch (error) {
+      logger.error("Database execute error", error);
+      throw error;
     }
   }
 
@@ -165,9 +165,9 @@ export class DbClient {
           0,
         ),
       });
-    } catch (_error) {
-      logger.error("Database batch _error", _error);
-      throw _error;
+    } catch (error) {
+      logger.error("Database batch error", error);
+      throw error;
     }
   }
 

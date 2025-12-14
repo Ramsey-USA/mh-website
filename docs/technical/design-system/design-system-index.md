@@ -1,7 +1,7 @@
 # Design System Documentation Hub
 
 **Category:** Technical - Design System & UI Standards  
-**Last Updated:** November 6, 2025  
+**Last Updated:** December 14, 2025  
 **Status:** ✅ Active - Complete Navigation Hub
 
 ## 🧭 Quick Navigation
@@ -69,7 +69,7 @@ Complete documentation for all button variants, CTA patterns, link validation, a
 
 **Documentation Structure:**
 
-- **[Buttons & CTAs Index](./buttons-ctas-index.md)** - Navigation hub
+- **[Buttons & CTAs Complete Guide](./buttons-ctas-complete-guide.md)** - Complete button system documentation
 - **[Buttons & CTAs Complete Guide](./buttons-ctas-complete-guide.md)** - All button & CTA specifications
 - **[Buttons & CTAs Complete Guide](./buttons-ctas-complete-guide.md)** - Consolidated CTA patterns and validation
 
@@ -184,7 +184,7 @@ Complete standards for page layout, spacing, containers, and grid systems.
 **Mobile Documentation:**
 
 - **[Mobile Optimization Guide](./mobile-optimization-guide.md)** - Comprehensive mobile guide
-- **[Mobile Quick Reference](./mobile-quick-reference.md)** - Fast mobile implementation reference
+- **[Mobile Optimization Guide](./mobile-optimization-guide.md)** - Complete mobile implementation guide (includes quick reference cheat sheet)
 
 **Topics Covered:**
 
@@ -292,7 +292,7 @@ Standards for footer layout, navigation, contact information, and social media i
 | **Creating a CTA**        | [Buttons & CTAs Complete Guide](./buttons-ctas-complete-guide.md)  | [Partnership Type Definitions](../../partnerships/partnership-type-definitions.md) |
 | **Adding an icon**        | [Icons Index](./icons-index.md)                                    | [Icon Usage Inventory](./icons/icon-usage-inventory.md)                            |
 | **Page layout**           | [Page Layout Standards](./layout-guide.md)                         | [Page Layout Quick Start](./layout-quick-start.md)                                 |
-| **Mobile optimization**   | [Mobile Optimization Guide](./mobile-optimization-guide.md)        | [Mobile Quick Reference](./mobile-quick-reference.md)                              |
+| **Mobile optimization**   | [Mobile Optimization Guide](./mobile-optimization-guide.md)        | Includes quick reference cheat sheet                                               |
 | **Typography**            | [Typography Examples](./typography-examples-clean.md)              | [Design System](./design-system.md)                                                |
 | **Section header**        | [Design System - Typography](./design-system.md#typography-system) | [Typography Examples](./typography-examples-clean.md)                              |
 | **Responsive design**     | [Mobile Optimization Guide](./mobile-optimization-guide.md)        | [Page Layout Standards](./layout-guide.md)                                         |
@@ -317,9 +317,9 @@ Standards for footer layout, navigation, contact information, and social media i
 
 1. Start with [Page Layout Quick Start](./layout-quick-start.md)
 2. Apply [Typography patterns](./typography-examples-clean.md)
-3. Add [Buttons and CTAs](./buttons-ctas-index.md)
+3. Add [Buttons and CTAs](./buttons-ctas-complete-guide.md)
 4. Integrate [Icons](./icons-index.md)
-5. Verify [Mobile responsiveness](./mobile-quick-reference.md)
+5. Verify [Mobile responsiveness](./mobile-optimization-guide.md)
 
 ---
 
@@ -520,7 +520,7 @@ For questions about the design system or implementation:
 
 **Questions?** Use the navigation above to find specific documentation or contact the development team.
 
-**Last Updated:** November 6, 2025  
+**Last Updated:** December 14, 2025  
 **Maintained by:** MH Construction Documentation Team  
 **Status:** ✅ Active - Complete Design System Navigation Hub
 
@@ -893,7 +893,7 @@ When implementing new sections or components:
 ## 📚 Related Documentation
 
 - [Mobile Optimization Guide](./mobile-optimization-guide.md) - Comprehensive mobile standards
-- [Mobile Quick Reference](./mobile-quick-reference.md) - Developer quick reference
+- [Mobile Optimization Guide](./mobile-optimization-guide.md) - Complete guide with quick reference cheat sheet
 - [Typography Examples](./typography-examples-clean.md)
 - [Component Library](../../components/ui/mh-ui-guide.md)
 - [Consistency Guide](../../development/consistency-guide.md) - Complete implementation standards
@@ -909,6 +909,6 @@ This design system should be updated when:
 - Component standards evolve
 - Accessibility requirements update
 
-**Last Updated**: October 20, 2025
+**Last Updated: December 14, 2025
 **Version**: 1.0.0
 ````

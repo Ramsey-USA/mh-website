@@ -5,7 +5,8 @@
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { Section, SectionHeader } from "@/components/ui/layout";
+import { Section } from "@/components/ui/layout";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
 import { capabilities } from "./projectsData";
 
@@ -13,12 +14,10 @@ export function CapabilitiesSection() {
   return (
     <Section variant="default" padding="large">
       <SectionHeader
+        icon="engineering"
+        iconVariant="multi"
         subtitle="Partnership"
-        title={
-          <span className="block text-brand-primary dark:text-brand-primary font-black">
-            Capabilities
-          </span>
-        }
+        title="Capabilities"
         description="Veteran-owned collaborative expertise across multiple construction markets, working WITH you to strengthen Pacific Northwest communities"
       />
 

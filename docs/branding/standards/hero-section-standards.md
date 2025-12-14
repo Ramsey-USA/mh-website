@@ -1,68 +1,82 @@
 # MH Construction Hero Section Standards
 
-**Version:** 5.0.0
-**Date:** December 13, 2025
-**Status:** ✅ Official Standard
-**Category:** Brand Standards - Hero Sections
+**Version:** 6.0.0  
+**Date:** December 14, 2025  
+**Status:** ✅ Official Standard  
+**Category:** Brand Standards - Hero Sections  
+**Methodology:** Military/Construction Terminology Blend
 
 **⭐ UPDATE (Dec 2025)**: Hero sections use **bottom-right text positioning** to allow photos/videos
 to be the primary visual focal point. Text complements imagery rather than competing with it.
+
+**⭐ MAJOR UPDATE (Dec 14, 2025)**: All hero taglines updated with military-construction terminology
+blend to honor veteran leadership while maintaining construction expertise focus.
 
 ---
 
 ## Quick Reference
 
 This document defines the official MH Construction hero section standard implemented
-across all website pages, with veteran-focused messaging and visual-first design philosophy.
+across all website pages, with veteran-focused messaging, military operations terminology,
+and visual-first design philosophy.
 
-## 🎯 Tagline Strategy Update (November 11, 2025)
+## 🎯 Tagline Strategy Update (December 14, 2025)
 
-### NEW: Page-Specific Taglines
+### Military/Construction Terminology Integration
 
-Each hero section now features a **unique, page-specific tagline** instead of repeating
-"THE ROI IS THE RELATIONSHIP" across all pages. This strategy:
+Each hero section now features a **unique, page-specific tagline WITH military-construction
+terminology blend** (December 2025 major update). This strategy:
 
-- **Reduces tagline fatigue** - Avoids overuse of a single phrase
-- **Reinforces page purpose** - Each tagline connects to the specific page context
-- **Improves message retention** - Variety helps visitors remember key messages
-- **Maintains brand consistency** - All taglines align with core values
+- **Honors All Service Branches** - Army, Navy, Air Force, Marines, Coast Guard, Space Force
+- **Blends Military Operations Terminology** - Mission brief, SITREP, recon, deployment, tactical operations
+- **Maintains Construction Expertise** - Technical capability, project delivery, quality craftsmanship
+- **Reduces Generic Repetition** - Avoids overuse of single phrases
+- **Reinforces Mission-First Philosophy** - "Building projects for the client, NOT the dollar"
+- **Improves Message Retention** - Variety helps visitors remember key messages
+- **Appeals to Veteran Clients** - Military-affiliated clients recognize authentic service language
 
-### Implementation Guidelines
+### Implementation Guidelines (Updated December 2025)
 
 **DO:**
 
-- Create taglines that reflect the specific page's purpose
-- Keep taglines concise (3-7 words typically)
-- Align with brand voice (professional, partnership-focused)
-- Test for clarity and impact
+- Blend military operations terminology with construction expertise naturally
+- Honor all service branches (not just Army)
+- Reflect the specific page's purpose with tactical clarity
+- Keep taglines concise (5-12 words typically)
+- Align with service-earned brand values (honesty, integrity, professionalism, thoroughness)
+- Maintain core mission: "Building projects for the client, NOT the dollar"
 
 **DON'T:**
 
-- Reuse "THE ROI IS THE RELATIONSHIP" in hero descriptions
-- Use generic taglines that could apply to any page
-- Create taglines longer than one sentence
-- Deviate from brand tone and values
+- Over-militarize at expense of construction expertise
+- Favor one service branch over others
+- Use military jargon without construction context
+- Create generic taglines that could apply to any page
+- Deviate from mission-first brand tone
 
-### Current Page-Specific Taglines
+### Current Page-Specific Taglines (December 2025)
 
-| Page           | Unique Tagline                                                             | Purpose                    |
-| -------------- | -------------------------------------------------------------------------- | -------------------------- |
-| Homepage       | "Veteran-Owned Excellence \| Honest Communication \| Proven Craftsmanship" | Veteran values emphasis    |
-| About          | "Excellence Through Experience"                                            | Veteran values + quality   |
-| Services       | "Your project deserves expert oversight"                                   | Service quality focus      |
-| Projects       | "Proven Results, Trusted Partnerships"                                     | Track record emphasis      |
-| Team           | "Experience You Can Trust"                                                 | Team expertise focus       |
-| Careers        | "Your Future Starts Here"                                                  | Career growth focus        |
-| Booking        | "Start Your Project With Confidence"                                       | Consultation confidence    |
-| Urgent         | "When Time Is Critical, We Respond"                                        | Rapid response emphasis    |
-| Government     | "Mission-Ready, Compliance-Driven"                                         | Federal expertise focus    |
-| Trade Partners | "Building Success Together"                                                | B2B partnership focus      |
-| Estimator      | "Smart Planning Starts Here"                                               | Automated estimation focus |
-| 3D Explorer    | "Innovation Meets Construction Excellence"                                 | Technology focus           |
-| Veterans       | "Honoring Those Who Served"                                                | Veteran support            |
+**Strategic Focus:** Award-winning website that attracts professional veterans through authentic
+military-construction terminology and service-earned values.
 
-**Note:** "THE ROI IS THE RELATIONSHIP" remains important in body content,
-testimonials, and value propositions—just not repeated in every hero section.
+| Page           | Military/Construction Blend Tagline                                             | Military Terms                   | Construction Terms                      |
+| -------------- | ------------------------------------------------------------------------------- | -------------------------------- | --------------------------------------- |
+| Homepage       | "Mission-Focused Execution \| Building Projects for the Client, NOT the Dollar" | Mission-focused                  | Proven craftsmanship, building projects |
+| About          | "Battle-Tested Excellence Through Service-Earned Experience"                    | Battle-tested, service-earned    | Excellence, experience                  |
+| Services       | "Your Construction Mission Deserves Veteran-Led Expert Oversight"               | Mission, veteran-led             | Construction, expert oversight          |
+| Projects       | "650+ Construction Missions Completed - Proven Results"                         | Missions completed               | Construction, proven results            |
+| Team           | "All-Branch Veteran Leadership You Can Trust"                                   | All-branch veteran leadership    | Trust, reliability                      |
+| Careers        | "Join the Mission - Your Construction Career Starts Here"                       | Join the mission                 | Construction career                     |
+| Booking        | "Schedule Your Free Mission Brief - Start With SITREP-Level Clarity"            | Mission brief, SITREP-level      | Project consultation                    |
+| Urgent         | "Rapid Response When Your Construction Mission Is Critical"                     | Rapid response, mission-critical | Construction support                    |
+| Government     | "Mission-Ready Construction Operations - Federal Compliance-Driven"             | Mission-ready operations         | Construction, federal compliance        |
+| Trade Partners | "Vetted Vendor Partnerships - Building Success Through Trusted Alliances"       | Vetted vendor, trusted alliances | Building success, partnerships          |
+| Veterans       | "Honoring Those Who Served - All Branches, All Values"                          | All branches, service            | Community support                       |
+
+**Note:** "THE ROI IS THE RELATIONSHIP" remains central to body content, testimonials,
+and partnership value propositions—positioned strategically rather than repeated in every hero section.
+
+**Removed Pages:** Estimator and 3D Explorer - No longer part of strategic focus.
 
 ---
 
@@ -256,5 +270,5 @@ If you need clarification on hero section standards:
 
 ---
 
-**Last Updated:** November 4, 2025  
+**Last Updated:** December 14, 2025  
 **Next Review:** As needed based on brand evolution

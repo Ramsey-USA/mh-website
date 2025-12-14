@@ -1,6 +1,6 @@
 # Partnership Type Definitions - Client vs Trade
 
-**Last Updated:** November 8, 2025 | **Version:** 1.0.0 | **Status:** Official Standard
+**Last Updated:** December 14, 2025 | **Version:** 1.0.0 | **Status:** Official Standard
 
 ---
 

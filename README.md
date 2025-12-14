@@ -7,67 +7,68 @@ and proven craftsmanship create lasting partnerships.
 Next.js 15 platform emphasizing personal relationships, transparent communication, and face-to-face consultation
 to serve our clients better.
 
+**All Branches Welcome:** Army | Navy | Air Force | Marines | Coast Guard | Space Force — We speak your language.
+
 ---
 
 ## 🚀 Current Status (December 2025)
 
 ### Production-Ready Platform ✅
 
-- **Build Time:** 31.0s
+- **Build Time:** 34.7s
 - **TypeScript:** Strict mode, zero errors (5.9.2)
-- **ESLint:** 32 minor warnings (accessibility & async patterns)
-- **SEO Score:** 100/100 (13 audited pages)
+- **ESLint:** Zero errors, clean build
+- **SEO Score:** 100/100 (12 audited pages)
 - **Lighthouse:** 94+ across all pages
 - **Homepage Bundle:** 225 kB (optimized)
 - **Test Coverage:** 7 test files, Jest configured
-- **Pages:** 21+ routes including dynamic pages
+- **Pages:** 12 public pages (clean, focused content)
 
 ### Recent Achievements (December 2025)
 
-**Complete Messaging Transformation (Dec 2025):**
+**Veteran-Honesty Transformation (Dec 2025):**
 
-- Shifted entire codebase from AI/tech focus to veteran-owned/honesty focus
-- Removed deprecated features: `/booking`, `/estimator`, `/3d-explorer`
-- All CTAs now unified through `/contact` page for direct human consultation
-- Updated team bios to emphasize veteran values over technology
-- Removed 50+ instances of "AI-powered", "cutting-edge", "innovative" language
-- SEO keywords updated: removed tech-focused, added veteran/honesty emphasis
-- Chatbot updated: 3D Explorer and estimator responses now redirect to contact
-- Core focus: Honest relationships, transparent pricing, face-to-face consultation
+- **Core Identity Shift:** From tech-focused to veteran-owned/honesty-first business model
+- **Removed Gimmicks:** Deprecated `/booking`, `/estimator`, `/3d-explorer` - no shortcuts, just honest work
+- **Unified CTAs:** All paths lead to `/contact` for direct, face-to-face human consultation
+- **Team Authenticity:** Updated bios to reflect real veteran values, not buzzwords
+- **Language Cleanup:** Removed 50+ instances of "AI-powered", "cutting-edge", "innovative" fluff
+- **SEO Reality Check:** Keywords now reflect what we actually are—veteran-owned, honest, thorough
+- **Streamlined Pages:** 7 groups → 5 core groups focused on substance over style
+- **Core Message:** Your word is your bond, so is ours. Period.
 
-**Veteran-First Optimization (Nov-Dec 2025):**
+**Veteran-First Implementation (Nov-Dec 2025):**
 
-- Enhanced focus on veteran-owned values and military precision
-- Honesty-first messaging across all pages
-- Direct human consultation prioritized over automated tools
-- Video Hero Component with LCP optimization (poster-first strategy)
-- Core Web Vitals maintained (LCP < 2.5s with video backgrounds)
-- [Video Hero Implementation Guide](./docs/components/video-hero-implementation.md)
-- [Core Web Vitals Optimization](./docs/optimization/video-hero-core-web-vitals.md)
+- **Military precision from all branches**—Army thoroughness, Navy reliability, Air Force excellence, Marine Corps discipline, Coast Guard adaptability, Space Force innovation
+- **Mission-focused execution:** No shortcuts, no compromises—every project treated like an operation
+- **Chain of command clarity:** Direct communication lines, clear accountability, transparent reporting
+- Honesty-first messaging: transparent pricing, realistic timelines, open communication
+- Face-to-face consultation prioritized—relationships matter more than automation
+- Combat Veteran Discount at the Ready with priority scheduling for **all service branches**
+- Video Hero Component optimized for performance (LCP < 2.5s)
+- [Video Hero Guide](./docs/components/video-hero-implementation.md) |
+  [Core Web Vitals](./docs/optimization/video-hero-core-web-vitals.md)
 
-**Code Optimization:** ~750 lines removed through centralized patterns
-(cards, grids, sections, career data, shared sections).
+**Code Quality & Efficiency:**
 
-- [Style Utilities Guide](./docs/development/style-utilities-guide.md)
-- [Refactoring Roadmap](./docs/technical/refactoring-roadmap.md)
-- [Shared Sections Guide](./docs/components/shared-sections-guide.md)
+- ~750 lines removed through smart centralization (cards, grids, sections)
+- Documentation consolidated: 178 → 163 files (quality over quantity)
+- [Style Utilities](./docs/development/style-utilities-guide.md) |
+  [Refactoring Roadmap](./docs/technical/refactoring-roadmap.md) |
+  [Shared Sections](./docs/components/shared-sections-guide.md)
 
-**General MH Assistant Enhancement (Phases 1-3 - November 2024):**
+**"General MH" Assistant (Support Tool, Not Replacement):**
 
-- **Phase 1:** FAQ database (20+ responses), contact/pricing/timeline handlers, fallback improvements
-- **Phase 2:** Centralized knowledge base, synonym recognition (30+ variations), conversation follow-ups,
-  analytics tracking
-- **Phase 3:** Conversation memory, confidence scoring (0-1 scale), personalization, user feedback collection,
-  smart escalation to human team
-- **Purpose:** 24/7 quick answers while prioritizing human consultation for all project decisions
-- **Coverage Progression:** 60% → 90-95% (Phase 1) → 95-98% (Phase 2) → 98-99% (Phase 3) ✨
-- **Code:** ~965 lines of helpful functionality across all phases
-- [Phase 1 Complete](./docs/development/chatbot-integration-complete.md) |
-  [Phase 2 Complete](./docs/development/chatbot-phase2-complete.md) |
-  [Phase 2 Short-term](./docs/development/chatbot-phase2-short-term-complete.md) |
-  [Phase 3 Complete](./docs/development/chatbot-phase3-complete.md)
+- **Purpose:** Quick answers 24/7, but **always** guides to human consultation for decisions
+- **Coverage:** 98-99% of common questions answered accurately
+- **Veteran Recognition:** Service branch awareness, benefits information
+- **Smart Escalation:** Knows when to hand off to human team members
+- **Honest Limitation:** Makes it clear what it can and cannot do
+- [Phase 1](./docs/development/chatbot-integration-complete.md) |
+  [Phase 2](./docs/development/chatbot-phase2-complete.md) |
+  [Phase 3](./docs/development/chatbot-phase3-complete.md)
 
-**Relationship-Focused Components Delivered:**
+**Relationship-Focused Components:**
 
 - FormProgress with step indicators for clear communication
 - InteractiveTimeline for transparent project milestones
@@ -93,11 +94,18 @@ Full metrics: [Optimization Results](./docs/optimization-results.md).
 
 ## 🎖️ Veteran-Owned Excellence
 
-### Veteran Benefits
+### Veteran Benefits (All Branches)
 
-- 12% Combat Veteran Discount
-- Priority Scheduling & VA coordination
-- Service branch recognition in chatbot
+- **Combat Veteran Discount at the Ready** — All service branches honored
+- **Priority Scheduling & VA coordination** — From boot camp to contractor, we've got your six
+- **Service branch recognition throughout platform:**
+  - **Army:** Ground operations expertise, logistical planning
+  - **Navy:** Precision execution, sustained operations
+  - **Air Force:** Excellence standards, technical precision
+  - **Marines:** Adaptive problem-solving, mission-first mindset
+  - **Coast Guard:** Multi-mission flexibility, safety-first approach
+  - **Space Force:** Innovation integration, future-ready thinking
+- **Military terminology respected:** We understand the difference between TDY, PCS, and deployment
 
 ---
 
@@ -221,14 +229,14 @@ NEXT_PUBLIC_GA_ID=your_google_analytics_id
 
 ### Core Features
 
-#### Relationship-First Approach with Modern Tools
+#### Veteran Values Meet Honest Business
 
-- **21+ Pages** including dynamic routes and case studies
+- **12 Focused Pages** - Quality over quantity, honest content
 - **Personal Consultation Priority** - Face-to-face meetings where relationships begin
-  - Expert on-site assessments with transparent pricing
-  - Open-book methodology - no hidden costs
-  - Veteran priority scheduling
-  - Primary path: `/contact` for all consultation requests
+  - **Recon phase:** Expert on-site assessments with transparent pricing (think: site survey, not sales pitch)
+  - **Intel sharing:** Open-book methodology - no hidden costs, period (full transparency like a mission brief)
+  - **Priority tasking:** Veteran scheduling - service recognizes service across all branches
+  - **Rally point:** Primary path: `/contact` for all consultation requests
 - **"General MH" Assistant** - Helpful 24/7 support tool ⭐ **Phases 1-3 Complete (November 2024)**
   - 98-99% question coverage to help clients find information
   - Context-aware responses guiding to personal consultation
@@ -238,7 +246,7 @@ NEXT_PUBLIC_GA_ID=your_google_analytics_id
     [Phase 2 Report](./docs/development/chatbot-phase2-complete.md) |
     [Phase 3 Report](./docs/development/chatbot-phase3-complete.md)
 - **Veteran Benefits Integration:**
-  - 12% Combat Veteran Discount
+  - Combat Veteran Discount at the Ready
   - Priority scheduling
   - Service branch recognition
 - **Interactive Components:**
@@ -475,21 +483,32 @@ Complete guide:
 
 ### Page-Specific Messaging (Updated December 2025)
 
-Each page group has its own unique voice and messaging strategy:
+Each page group reflects our veteran-owned values and commitment to honest business:
 
-**7 Page Groups:**
+**5 Core Page Groups:**
 
-1. **Traditional Business** (Home, Contact) - Main slogan prominence, old-school values
-2. **Company Heritage** (About, Projects) - History, proven track record
-3. **Future Vision** (Team, Services) - Growth, proven methods, forward momentum
-4. **Professional & Patriotic** (Government, Veterans) - Duty, service, compliance
-5. **Recruitment** (Careers) - Enthusiastic, opportunity-focused
-6. **Resources & Help** (FAQ, Support) - Helpful, accessible, professional
-7. **Partnership & Urgency** (Trade Partners, Urgent) - **ROI-focused**
-   (exclusive use of "THE ROI IS THE RELATIONSHIP")
+1. **Veteran Foundation** (Home, About, Veterans) - Honesty-first, service over self, military precision
+   - Core slogan prominence: "Building projects for the client, NOT the dollar"
+   - Emphasis on integrity, transparency, and keeping your word
+   - Veteran benefits and recognition throughout
 
-**Key Principle:** "Building projects for the client, NOT the dollar" remains the PRIMARY SLOGAN
-across all pages, but each group has supplementary messaging that speaks to its unique audience.
+2. **Professional Services** (Services, Projects, Government) - Proven expertise, thorough execution
+   - Showcase real work, real results, real testimonials
+   - No-nonsense project management with military discipline
+   - Compliance-focused for government work
+
+3. **Partnership & Team** (Team, Careers, Trade Partners) - Building lasting relationships
+   - "THE ROI IS THE RELATIONSHIP" messaging
+   - Emphasis on trust, mutual respect, and long-term commitment
+   - Team values: competence, character, commitment
+
+4. **Direct Communication** (Contact, FAQ, Urgent) - Accessible, responsive, human-first
+   - Face-to-face consultation prioritized
+   - Transparent pricing, honest timelines
+   - 24/7 support for urgent needs
+
+**Core Principle:** Every page emphasizes veteran values—honesty, integrity, professionalism, and thoroughness.
+We don't just talk about these values; we live them in every interaction.
 
 Complete guide:
 [Page-Specific Messaging Guide](./docs/branding/strategy/page-specific-messaging-guide.md)
@@ -532,7 +551,7 @@ Complete reference: [Icons Hub](./docs/technical/design-system/icons/icons-index
 **Prerequisites**: Complete the [Developer Workflow Pathway](./docs/development/developer-workflow-pathway.md) first!
 
 1. **Understand the brand** - Read [Page-Specific Messaging Guide](./docs/branding/strategy/page-specific-messaging-guide.md)
-   to identify which of the 7 page groups your page belongs to
+   to identify which of the 5 core page groups your page belongs to
 2. **Review standards** - Check [Homepage Compliance Checklist](./docs/branding/standards/homepage-compliance-checklist.md)
    for validation requirements
 3. **Create page component** in `src/app/[route]/page.tsx`
@@ -660,7 +679,7 @@ See: [Cloudflare Complete Guide](./docs/deployment/cloudflare-complete-guide.md)
 
 | Metric              | Value   |
 | ------------------- | ------- |
-| Build Time          | 31.0s   |
+| Build Time          | 34.7s   |
 | Shared JS Bundle    | 102 kB  |
 | Homepage Bundle     | 225 kB  |
 | Lighthouse Score    | 94+     |
@@ -672,18 +691,18 @@ See: [Cloudflare Complete Guide](./docs/deployment/cloudflare-complete-guide.md)
 | Metric              | Value |
 | ------------------- | ----- |
 | TypeScript Errors   | 0     |
-| ESLint Warnings     | 32    |
+| ESLint Errors       | 0     |
 | Test Files          | 7     |
-| Documentation Files | 470+  |
+| Documentation Files | 163   |
 | Component Count     | 100+  |
-| Pages               | 21+   |
+| Pages               | 12    |
 
 ### SEO & Accessibility
 
 | Metric              | Value   |
 | ------------------- | ------- |
 | SEO Score           | 100/100 |
-| Pages Audited       | 13      |
+| Pages Audited       | 12      |
 | Accessibility Score | 94+     |
 | Mobile Friendly     | ✅ Yes  |
 | PWA Ready           | ✅ Yes  |
@@ -703,7 +722,7 @@ MH Construction builds lasting relationships with two distinct groups:
 
 | Type      | Audience               | Primary CTA           | Color        | Icon         | Routes             |
 | --------- | ---------------------- | --------------------- | ------------ | ------------ | ------------------ |
-| Client 🏠 | Project owners         | Schedule Consultation | Hunter Green | handshake    | /booking /services |
+| Client 🏠 | Project owners         | Schedule Consultation | Hunter Green | handshake    | /contact /services |
 | Trade 🏗️  | Subcontractors/vendors | Join Our Network      | Leather Tan  | construction | /trade-partners    |
 
 **Our Approach:** Every partnership starts with a conversation, builds through trust,
@@ -751,25 +770,26 @@ See [contributing.md](./contributing.md) for contribution guidelines.
 
 ## 🏆 Recent Achievements
 
-### Recent Optimization Milestones (November 2025)
+### Recent Optimization Milestones (December 2025)
 
-- ✅ Perfect 100/100 SEO across all 13 audited pages
+- ✅ Perfect 100/100 SEO across all 12 audited pages
 - ✅ Interactive component system deployed (6 major components)
 - ✅ Code optimization: ~750 lines removed through refactoring
 - ✅ Shared section components: ~425 additional lines eliminated
-- ✅ Automated estimator system fully integrated
+- ✅ Removed placeholder case studies - honest content only
 - ✅ Documentation system consolidated (178 → 163 files, -8.4%)
 - ✅ Zero TypeScript errors maintained
-- ⚠️ 32 ESLint warnings (minor: accessibility & async patterns)
-- ✅ Build time optimized to 31.0s
+- ✅ Zero ESLint errors - clean build achieved
+- ✅ Build time: 34.7s (production-ready)
 - ✅ Quality score: 97-98/100
 
 ### Performance Improvements
 
 - **Quality Score Evolution:** Progressed from 88 to 97-98 through systematic optimization
-- **+80%** maintenance efficiency
-- **31.0s** build time (optimized)
+- **+80%** maintenance efficiency improvement
+- **34.7s** build time (production-ready)
 - **225 kB** homepage bundle (optimized)
+- **Veteran-focused messaging** across all pages
 
 ### Testing & Quality
 
@@ -926,10 +946,11 @@ Advanced roadmap: [Advanced SEO Optimization](./docs/technical/seo/advanced-seo-
 
 ---
 
-**Last Updated:** November 13, 2025
-**Version:** 4.0.0
-**Status:** Production Ready | Optimization Complete | 100/100 SEO
+**Last Updated:** December 14, 2025
+**Version:** 4.0.1
+**Status:** Production Ready | Veteran-Focused | Honesty-First | 100/100 SEO
 
 ---
 
 _Building partnerships, serving communities, creating lasting value in the Pacific Northwest._
+_Veteran-owned. Veteran-operated. Your word is your bond — so is ours._

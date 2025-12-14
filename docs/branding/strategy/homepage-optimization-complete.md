@@ -576,7 +576,7 @@ with our collaborative approach and lasting relationships."
 ### Technical References
 
 - **[Design System](../../technical/design-system/design-system-index.md)** - Complete design system
-- **[Button & CTA Guide](../../technical/design-system/buttons-ctas-index.md)** - Button system
+- **[Button & CTA Guide](../../technical/design-system/buttons-ctas-complete-guide.md)** - Button system
 - **[Icon System](../../technical/design-system/icons-index.md)** - Icon standards
 
 ---

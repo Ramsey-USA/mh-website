@@ -1,23 +1,28 @@
 # Brand Standards Documentation
 
-**Category:** Visual Design Standards & Guidelines
-**Last Updated:** November 6, 2025
-**Status:** ✅ Active
+**Category:** Visual Design Standards & Guidelines  
+**Last Updated:** December 14, 2025  
+**Status:** ✅ Active  
+**Methodology:** Military/Construction Terminology Integration
 
 ## 🧭 Quick Navigation
 
 - [🗂️ Master Documentation Index](../../master-index.md) - Central hub for all documentation
 - [🎨 Branding Hub](../branding-index.md) - Complete brand documentation
-- [📖 Brand Strategy](../strategy/strategy-index.md) - Brand identity and messaging
+- [📖 Brand Strategy](../strategy/strategy-index.md) - Brand identity and messaging ⭐ **UPDATED Dec 14, 2025**
 - [💻 Implementation Guide](../../development/consistency-guide.md) - Developer implementation
 
 ---
 
 ## 📋 Overview
 
-Visual design standards and guidelines for MH Construction branding. These documents define the visual language of
-our brand including typography, colors, components, icons, and UI elements. All standards are designed to maintain
-brand consistency across the website and marketing materials.
+Visual design standards and guidelines for MH Construction branding WITH military-construction terminology
+integration (December 2025 update). These documents define the visual language of our veteran-owned brand
+including typography, colors, components, icons, and UI elements. All standards are designed to maintain
+brand consistency across the website and marketing materials while honoring all-branch military service.
+
+**December 2025 Update:** Hero section standards now include military-construction terminology blend for
+all page-specific taglines, honoring Army, Navy, Air Force, Marines, Coast Guard, and Space Force leadership.
 
 ---
 
@@ -65,13 +70,15 @@ brand consistency across the website and marketing materials.
 
 ### Hero Sections
 
-**[hero-section-standards.md](./hero-section-standards.md)** - Hero section design standards
+**[hero-section-standards.md](./hero-section-standards.md)** ⭐ **UPDATED Dec 14, 2025** - Hero section design standards
 
-- Typography specifications
-- Layout requirements
+- Typography specifications with military-construction taglines
+- Layout requirements (bottom-right text positioning)
 - **NO badge or pill elements**
-- Visual hierarchy
+- Visual hierarchy with veteran-focused messaging
 - Responsive behavior
+- All-branch military recognition in taglines
+- 13 page-specific military/construction blend taglines
 
 ### Specialized Components
 

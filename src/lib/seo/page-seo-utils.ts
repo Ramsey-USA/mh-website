@@ -165,26 +165,26 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
   });
 }
 
-// Government page SEO
+// Government page SEO (Public Sector)
 export function getGovernmentSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Mission-Ready, Compliance-Driven | Federal Government Contractor | MH Construction",
+      "Public Sector Excellence | Building Toward Government Contracting | MH Construction",
     description:
-      "Mission-critical government construction with Army veteran leadership. Federal contracting expertise, DOE compliance, and military-grade project execution for government facilities in the Pacific Northwest.",
+      "Veteran-owned construction company building bonding capacity for public sector work. Currently offering grant application support and subcontracting services. Tri-Cities based with Pacific Northwest coverage.",
     keywords: [
-      "federal government contractor",
-      "Army veteran construction",
-      "mission-critical construction",
-      "DOE federal contractor",
-      "military precision construction",
-      "VOSB contractor Pacific Northwest",
-      "Tri-Cities government contractor",
-      "Richland federal contractor",
-      "Pasco government construction",
-      "Hanford contractor services",
-      "Benton County government projects",
-      "Franklin County federal contractor",
+      "public sector construction",
+      "government grant support",
+      "construction subcontractor",
+      "veteran-owned contractor",
+      "Tri-Cities construction",
+      "grant application construction support",
+      "Richland public sector",
+      "Pasco government support",
+      "Hanford area contractor",
+      "Benton County construction",
+      "Franklin County contractor",
+      "Pacific Northwest public sector",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/government`,
     schemas: [],

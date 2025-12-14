@@ -1,6 +1,12 @@
-import { type NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
+import { type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
+import { sendEmail } from "@/lib/email/emailService";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rateLimiter";
+import {
+  badRequest,
+  createSuccessResponse,
+  internalServerError,
+} from "@/lib/api/responses";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
@@ -8,7 +14,7 @@ export const dynamic = "force-dynamic";
 /**
  * Phone Call Tracking API
  * Tracks when users click phone numbers and sends email notifications
- * to matt@mhc-gc.com (and optionally office@mhc-gc.com)
+ * to matt@mhc-gc.com and office@mhc-gc.com
  */
 
 interface PhoneCallTrackingRequest {
@@ -21,76 +27,48 @@ interface PhoneCallTrackingRequest {
   [key: string]: unknown;
 }
 
-export async function POST(request: NextRequest) {
+async function handlePOST(request: NextRequest) {
   try {
     const data: PhoneCallTrackingRequest = await request.json();
 
     // Validate required fields
     if (!data.source || !data.phoneNumber) {
-      return NextResponse.json(
-        { error: "Missing required fields: source and phoneNumber" },
-        { status: 400 },
-      );
+      return badRequest("Missing required fields: source and phoneNumber");
     }
 
-    // Send email notification to matt@mhc-gc.com (and office@mhc-gc.com)
-    let emailSent = false;
+    // Send email notification
+    const emailSubject = `Phone Call Activity: ${data.source}`;
+    const emailHtml = generatePhoneTrackingEmailHTML(data);
+    const emailText = generatePhoneTrackingEmailText(data);
 
-    if (process.env["RESEND_API_KEY"]) {
-      try {
-        const resend = new Resend(process.env["RESEND_API_KEY"]);
+    const emailResult = await sendEmail({
+      to: ["matt@mhc-gc.com", "office@mhc-gc.com"],
+      subject: emailSubject,
+      html: emailHtml,
+      text: emailText,
+    });
 
-        const emailSubject = `Phone Call Activity: ${data.source}`;
-        const emailHtml = generatePhoneTrackingEmailHTML(data);
-        const emailText = generatePhoneTrackingEmailText(data);
-
-        const { error } = await resend.emails.send({
-          from: process.env["EMAIL_FROM"] || "noreply@mhc-gc.com",
-          to: ["matt@mhc-gc.com", "office@mhc-gc.com"], // Send to both
-          subject: emailSubject,
-          html: emailHtml,
-          text: emailText,
-        });
-
-        if (error) {
-          logger.error("Resend API error (phone tracking):", error);
-        } else {
-          emailSent = true;
-          logger.info("Phone call tracking email sent successfully:", {
-            source: data.source,
-            phoneNumber: data.phoneNumber,
-          });
-        }
-      } catch (_error) {
-        logger.error("Error sending phone tracking email:", _error);
-      }
-    } else {
-      logger.warn(
-        "⚠️  RESEND_API_KEY not configured. Phone tracking email not sent.",
-      );
-      logger.info("📞 Phone call that would be tracked:", {
+    if (emailResult.success) {
+      logger.info("Phone call tracking email sent successfully:", {
         source: data.source,
         phoneNumber: data.phoneNumber,
-        timestamp: data.timestamp,
       });
+    } else {
+      logger.error("Failed to send phone tracking email:", emailResult.error);
     }
 
-    return NextResponse.json({
-      success: true,
-      message: emailSent
+    return createSuccessResponse(
+      {
+        source: data.source,
+        emailSent: emailResult.success,
+      },
+      emailResult.success
         ? "Phone call tracked successfully"
         : "Phone call logged (email not configured)",
-      data: {
-        source: data.source,
-        emailSent,
-      },
-    });
-  } catch (_error) {
-    logger.error("Error processing phone call tracking:", _error);
-    return NextResponse.json(
-      { error: "Failed to track phone call" },
-      { status: 500 },
     );
+  } catch (error) {
+    logger.error("Error processing phone call tracking:", error);
+    return internalServerError("Failed to track phone call");
   }
 }
 
@@ -224,3 +202,6 @@ MH Construction, Inc.
 Automated Phone Call Tracking System
   `.trim();
 }
+
+// Apply rate limiting (10 requests per minute)
+export const POST = rateLimit(rateLimitPresets.api)(handlePOST);

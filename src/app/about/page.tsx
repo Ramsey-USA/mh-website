@@ -4,6 +4,7 @@ import Link from "next/link";
 import Head from "next/head";
 import { Card, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -148,37 +149,13 @@ export default function AboutPage() {
           ></div>
 
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <FadeInWhenVisible>
-              <div className="mb-12 sm:mb-16 lg:mb-20 text-center">
-                <div className="mb-6 sm:mb-8 flex justify-center">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-brand-accent/20 dark:bg-brand-accent/30 blur-xl rounded-full"></div>
-                    <div className="relative rounded-2xl bg-gradient-to-br from-brand-accent to-bronze-600 p-4 shadow-lg">
-                      <MaterialIcon
-                        icon="verified"
-                        size="2xl"
-                        className="text-white"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                    Why Our Values
-                  </span>
-                  <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                    Matter
-                  </span>
-                </h2>
-                <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                  Our commitment to integrity, transparency, and excellence
-                  drives every project decision and partnership we build. These
-                  aren&apos;t just words on a wall—they&apos;re the foundation
-                  of how we do business and the promise we make to every Client
-                  Partner.
-                </p>
-              </div>
-            </FadeInWhenVisible>
+            <SectionHeader
+              icon="verified"
+              iconVariant="bronze"
+              subtitle="Why Our Values"
+              title="Matter"
+              description="Our commitment to integrity, transparency, and excellence drives every project decision and partnership we build. These aren't just words on a wall—they're the foundation of how we do business and the promise we make to every Client Partner."
+            />
 
             <StaggeredFadeIn className={gridPresets.cards3("md")}>
               <div className="group h-full">

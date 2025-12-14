@@ -5,7 +5,7 @@
 
 import { NextResponse, type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
-import { createDbClient, type D1Database } from "@/lib/db/client";
+import { createDbClient } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
 import {
   getR2Bucket,
@@ -18,6 +18,16 @@ import {
   generateConsultationAcknowledgment,
   generateContactAcknowledgment,
 } from "@/lib/email/templates";
+import {
+  sendToOffice,
+  sendAcknowledgment,
+  type EmailAttachment,
+} from "@/lib/email/emailService";
+import {
+  createFormSubmissionResponse,
+  createPaginatedResponse,
+  internalServerError,
+} from "@/lib/api/responses";
 
 export interface FormSubmissionConfig<T = unknown> {
   tableName: string;
@@ -80,8 +90,8 @@ export async function handleFormSubmission<T = unknown>(
     try {
       const DB = getD1Database();
       if (DB) {
-        // Cast unknown to D1Database - getD1Database returns unknown for flexibility
-        const db = createDbClient({ DB: DB as D1Database });
+        // Database client is now properly typed
+        const db = createDbClient({ DB });
         await db.insert(config.tableName, dbRecord as Record<string, unknown>);
         logger.info(`${config.submissionType} stored in database`, {
           id: submissionId,
@@ -94,236 +104,176 @@ export async function handleFormSubmission<T = unknown>(
           { id: submissionId },
         );
       }
-    } catch (dbErr: unknown) {
-      const error = dbErr instanceof Error ? dbErr : new Error(String(dbErr));
+    } catch (error: unknown) {
+      const normalizedError =
+        error instanceof Error ? error : new Error(String(error));
       logger.error(
         `Failed to store ${config.submissionType} in database:`,
-        error,
+        normalizedError,
       );
-      // Continue to send email even if DB fails
+      // Continue to send email even if DB fails (best-effort pattern)
     }
 
     // Convert data to Record format for email processing
     const formData = data as unknown as Record<string, unknown>;
 
-    // Send email notification
-    let emailSent = false;
-    try {
-      const emailSubject = config.emailSubject(data as T);
-      const emailMessage = config.emailMessage(data as T);
+    // Prepare email content
+    const emailSubject = config.emailSubject(data as T);
+    const emailMessage = config.emailMessage(data as T);
 
-      const name =
-        typeof formData["name"] === "string"
-          ? (formData["name"] as string)
-          : `${typeof formData["firstName"] === "string" ? (formData["firstName"] as string) : ""} ${typeof formData["lastName"] === "string" ? (formData["lastName"] as string) : ""}`.trim();
+    // Check if this is a job application with a resume that's small enough to attach
+    let attachments: EmailAttachment[] | undefined;
+    if (
+      config.submissionType === "Job Application" &&
+      typeof formData["resumeKey"] === "string" &&
+      typeof formData["resumeFileSize"] === "number" &&
+      isSmallEnoughForEmail(formData["resumeFileSize"] as number)
+    ) {
+      try {
+        const r2Bucket = getR2Bucket("RESUMES");
+        const r2Service = new R2StorageService(
+          r2Bucket,
+          "mh-construction-resumes",
+        );
 
-      const emailPayload: Record<string, unknown> = {
-        subject: emailSubject,
-        message: emailMessage,
-        type: config.submissionType.toLowerCase().replace(/\s+/g, "-"),
-        recipientEmail: "office@mhc-gc.com", // This will be expanded to include matt@ and arnold@ (for job apps) in the contact API
-        metadata: {
-          submissionId,
-          submissionType: config.submissionType,
-        },
-        ...(name ? { name } : {}),
-        ...(typeof formData["email"] === "string"
-          ? { email: formData["email"] }
-          : {}),
-        ...(typeof formData["phone"] === "string"
-          ? { phone: formData["phone"] }
-          : {}),
-      };
+        const resumeResult = await r2Service.getFile(
+          formData["resumeKey"] as string,
+        );
 
-      // Check if this is a job application with a resume that's small enough to attach
-      if (
-        config.submissionType === "Job Application" &&
-        typeof formData["resumeKey"] === "string" &&
-        typeof formData["resumeFileSize"] === "number" &&
-        isSmallEnoughForEmail(formData["resumeFileSize"] as number)
-      ) {
-        try {
-          const r2Bucket = getR2Bucket("RESUMES");
-          const r2Service = new R2StorageService(
-            r2Bucket,
-            "mh-construction-resumes",
-          );
-
-          const resumeResult = await r2Service.getFile(
-            formData["resumeKey"] as string,
-          );
-
-          if (resumeResult.success && resumeResult.data) {
-            const base64Content = await fileToBase64(resumeResult.data);
-            emailPayload["attachments"] = [
-              {
-                content: base64Content,
-                filename:
-                  (formData["resumeFileName"] as string) || "resume.pdf",
-                contentType: resumeResult.contentType || "application/pdf",
-              },
-            ];
-            logger.info("Resume attached to email (file size within limit)", {
-              size: formData["resumeFileSize"],
-            });
-          }
-        } catch (attachErr: unknown) {
-          const error =
-            attachErr instanceof Error
-              ? attachErr
-              : new Error(String(attachErr));
-          logger.error("Failed to attach resume to email:", error);
-          // Continue without attachment - download link will still be in email
+        if (resumeResult.success && resumeResult.data) {
+          const base64Content = await fileToBase64(resumeResult.data);
+          attachments = [
+            {
+              content: base64Content,
+              filename: (formData["resumeFileName"] as string) || "resume.pdf",
+              contentType: resumeResult.contentType || "application/pdf",
+            },
+          ];
+          logger.info("Resume attached to email (file size within limit)", {
+            size: formData["resumeFileSize"],
+          });
         }
+      } catch (error: unknown) {
+        const normalizedError =
+          error instanceof Error ? error : new Error(String(error));
+        logger.error("Failed to attach resume to email:", normalizedError);
+        // Continue without attachment - download link will still be in email (best-effort pattern)
       }
+    }
 
-      const emailResponse = await fetch(
-        `${request.nextUrl.origin}/api/contact`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(emailPayload),
-        },
+    // Send email to office team (includes arnold@ for job applications)
+    const includeArnold = config.submissionType === "Job Application";
+    const emailResult = await sendToOffice(
+      emailSubject,
+      { html: emailMessage, text: emailMessage },
+      includeArnold,
+      attachments,
+    );
+
+    const emailSent = emailResult.success;
+
+    if (!emailSent) {
+      logger.error(
+        `Failed to send ${config.submissionType} email:`,
+        emailResult.error,
       );
-
-      if (emailResponse.ok) {
-        emailSent = true;
-        logger.info(`${config.submissionType} email sent successfully`);
-      } else {
-        logger.error(`Failed to send ${config.submissionType} email`);
-      }
-    } catch (emailErr: unknown) {
-      const error =
-        emailErr instanceof Error ? emailErr : new Error(String(emailErr));
-      logger.error(`Error sending ${config.submissionType} email:`, error);
-      // Continue even if email fails
+      // Continue even if email fails (best-effort pattern)
     }
 
     // Send acknowledgment email to the applicant/client
-    try {
-      const applicantEmail =
-        typeof formData["email"] === "string"
-          ? (formData["email"] as string)
-          : null;
+    const applicantEmail =
+      typeof formData["email"] === "string"
+        ? (formData["email"] as string)
+        : null;
 
-      if (applicantEmail) {
-        let acknowledgment: {
-          subject: string;
-          html: string;
-          text: string;
-        } | null = null;
+    if (applicantEmail) {
+      let acknowledgment: {
+        subject: string;
+        html: string;
+        text: string;
+      } | null = null;
 
-        // Generate appropriate acknowledgment based on submission type
-        if (config.submissionType === "Job Application") {
-          acknowledgment = generateJobApplicationAcknowledgment({
-            firstName:
-              (formData["firstName"] as string) ||
-              (formData["name"] as string)?.split(" ")[0] ||
-              "Applicant",
-            lastName:
-              (formData["lastName"] as string) ||
-              (formData["name"] as string)?.split(" ").slice(1).join(" ") ||
-              "",
-            position: (formData["position"] as string) || "Position",
-            email: applicantEmail,
-          });
-        } else if (config.submissionType === "Consultation") {
-          const consultationData: {
-            name: string;
-            projectType: string;
-            email: string;
-            selectedDate?: string;
-            selectedTime?: string;
-          } = {
-            name: (formData["name"] as string) || "Client",
-            projectType: (formData["projectType"] as string) || "your project",
-            email: applicantEmail,
-          };
+      // Generate appropriate acknowledgment based on submission type
+      if (config.submissionType === "Job Application") {
+        acknowledgment = generateJobApplicationAcknowledgment({
+          firstName:
+            (formData["firstName"] as string) ||
+            (formData["name"] as string)?.split(" ")[0] ||
+            "Applicant",
+          lastName:
+            (formData["lastName"] as string) ||
+            (formData["name"] as string)?.split(" ").slice(1).join(" ") ||
+            "",
+          position: (formData["position"] as string) || "Position",
+          email: applicantEmail,
+        });
+      } else if (config.submissionType === "Consultation") {
+        const consultationData: {
+          name: string;
+          projectType: string;
+          email: string;
+          selectedDate?: string;
+          selectedTime?: string;
+        } = {
+          name: (formData["name"] as string) || "Client",
+          projectType: (formData["projectType"] as string) || "your project",
+          email: applicantEmail,
+        };
 
-          // Only add optional properties if they have values
-          if (
-            formData["selectedDate"] &&
-            typeof formData["selectedDate"] === "string"
-          ) {
-            consultationData.selectedDate = formData["selectedDate"] as string;
-          }
-          if (
-            formData["selectedTime"] &&
-            typeof formData["selectedTime"] === "string"
-          ) {
-            consultationData.selectedTime = formData["selectedTime"] as string;
-          }
-
-          acknowledgment = generateConsultationAcknowledgment(consultationData);
-        } else {
-          // General contact form
-          acknowledgment = generateContactAcknowledgment({
-            name: (formData["name"] as string) || "there",
-            email: applicantEmail,
-            type: config.submissionType,
-          });
+        // Only add optional properties if they have values
+        if (
+          formData["selectedDate"] &&
+          typeof formData["selectedDate"] === "string"
+        ) {
+          consultationData.selectedDate = formData["selectedDate"] as string;
+        }
+        if (
+          formData["selectedTime"] &&
+          typeof formData["selectedTime"] === "string"
+        ) {
+          consultationData.selectedTime = formData["selectedTime"] as string;
         }
 
-        if (acknowledgment) {
-          const ackResponse = await fetch(
-            `${request.nextUrl.origin}/api/contact`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                name:
-                  (formData["name"] as string) ||
-                  `${formData["firstName"]} ${formData["lastName"]}`,
-                email: "noreply@mhc-gc.com",
-                subject: acknowledgment.subject,
-                message: acknowledgment.text,
-                type: "acknowledgment",
-                recipientEmail: applicantEmail,
-                metadata: {
-                  isAcknowledgment: true,
-                  submissionType: config.submissionType,
-                },
-                customHtml: acknowledgment.html,
-              }),
-            },
-          );
-
-          if (ackResponse.ok) {
-            logger.info(`Acknowledgment email sent to ${applicantEmail}`);
-          } else {
-            logger.error(
-              `Failed to send acknowledgment email to ${applicantEmail}`,
-            );
-          }
-        }
+        acknowledgment = generateConsultationAcknowledgment(consultationData);
+      } else {
+        // General contact form
+        acknowledgment = generateContactAcknowledgment({
+          name: (formData["name"] as string) || "there",
+          email: applicantEmail,
+          type: config.submissionType,
+        });
       }
-    } catch (ackErr: unknown) {
-      const error =
-        ackErr instanceof Error ? ackErr : new Error(String(ackErr));
-      logger.error("Error sending acknowledgment email:", error);
-      // Don't fail the request if acknowledgment fails
+
+      if (acknowledgment) {
+        const ackResult = await sendAcknowledgment(
+          applicantEmail,
+          acknowledgment.subject,
+          { html: acknowledgment.html, text: acknowledgment.text },
+        );
+
+        if (ackResult.success) {
+          logger.info(`Acknowledgment email sent to ${applicantEmail}`);
+        } else {
+          logger.error(
+            `Failed to send acknowledgment email to ${applicantEmail}:`,
+            ackResult.error,
+          );
+        }
+        // Don't fail the request if acknowledgment fails (best-effort pattern)
+      }
     }
 
-    return NextResponse.json({
-      success: true,
-      message: `${config.submissionType} received successfully`,
-      data: {
-        id: submissionId,
-        emailSent,
-        dbStored,
-      },
-    });
-  } catch (err: unknown) {
-    const error = err instanceof Error ? err : new Error(String(err));
-    logger.error(`Error processing ${config.submissionType}:`, error);
-    return NextResponse.json(
-      { error: `Failed to process ${config.submissionType}` },
-      { status: 500 },
+    return createFormSubmissionResponse(
+      submissionId,
+      emailSent,
+      `${config.submissionType} received successfully`,
+      dbStored,
     );
+  } catch (error: unknown) {
+    const normalizedError =
+      error instanceof Error ? error : new Error(String(error));
+    logger.error(`Error processing ${config.submissionType}:`, normalizedError);
+    return internalServerError(`Failed to process ${config.submissionType}`);
   }
 }
 
@@ -338,33 +288,26 @@ export async function handleFormRetrieval(
   try {
     const DB = getD1Database();
     if (DB) {
-      // Cast unknown to D1Database - getD1Database returns unknown for flexibility
-      const db = createDbClient({ DB: DB as D1Database });
+      // Database client is now properly typed
+      const db = createDbClient({ DB });
       const submissions = await db.query(
         `SELECT * FROM ${tableName} ORDER BY ${orderBy} DESC LIMIT ${limit}`,
       );
 
-      return NextResponse.json({
-        success: true,
-        data: submissions,
-        count: submissions.length,
-      });
+      return createPaginatedResponse(submissions, submissions.length);
     }
 
-    // Fallback for local development
-    return NextResponse.json({
-      success: true,
-      data: [],
-      count: 0,
-      message: "D1 database not available in this environment",
-    });
-  } catch (_error) {
-    const normalizedError =
-      _error instanceof Error ? _error : new Error(String(_error));
-    logger.error(`Error fetching from ${tableName}:`, normalizedError);
-    return NextResponse.json(
-      { error: `Failed to fetch submissions` },
-      { status: 500 },
+    // Fallback for local development (best-effort pattern)
+    return createPaginatedResponse(
+      [],
+      0,
+      "D1 database not available in this environment",
     );
+  } catch (error) {
+    const normalizedError =
+      error instanceof Error ? error : new Error(String(error));
+    logger.error(`Error fetching from ${tableName}:`, normalizedError);
+    // Return error response using helper (best-effort pattern)
+    return internalServerError("Failed to fetch submissions");
   }
 }

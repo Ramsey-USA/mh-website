@@ -17,49 +17,51 @@ export const leadershipTeam = [
     name: "Jeremy Thamert",
     role: "Owner & President",
     experience:
-      "Presidential leadership with strategic operational focus since January 2025",
+      "Veteran-owned operational leadership with mission-focused strategic execution since January 2025",
     status: "Veteran-Owned Leadership",
     specialties: [
-      "Safety Management & Organizational Standards",
-      "Marketing Strategy & Brand Development",
-      "Workforce Development & Team Building",
-      "Human Resources & People-First Leadership",
-      "Strategic Operations & Business Growth",
+      "Zero-Incident Mission Culture & Organizational Standards",
+      "Tactical Marketing Strategy & Brand Deployment",
+      "Workforce Development & Mission-Ready Team Building",
+      "Human Resources & People-First Operational Leadership",
+      "Strategic Operations & Business Mission Growth",
     ],
     philosophy:
-      "Operational excellence through strategic focus on people, safety, and partnership relationships",
+      "Operational excellence through military-grade discipline applied to people, safety, and partnership missions",
     icon: "account_balance",
   },
   {
     name: "Arnold Garcia",
     role: "Vice President",
-    experience: "15+ years with MH Construction leading client partnerships",
+    experience:
+      "15+ years with MH Construction leading client mission partnerships",
     status: "Senior Leadership",
     specialties: [
-      "Client Relationships & Partnership Development",
-      "Strategic Operations & Business Growth",
-      "Service Excellence & Quality Assurance",
-      "Project Oversight & Risk Management",
-      "Commercial & Industrial Project Leadership",
+      "Client Relationships & Strategic Partnership Deployment",
+      "Tactical Operations & Mission-Driven Business Growth",
+      "Service Excellence & Mission-Critical Quality Assurance",
+      "Project Oversight & Tactical Risk Management",
+      "Commercial & Industrial Construction Operation Leadership",
     ],
     philosophy:
-      "Primary client liaison for major commercial and industrial projects—building partnerships that last beyond completion",
+      "Primary client liaison for major commercial and industrial construction missions—building partnerships that last beyond mission completion",
     icon: "business",
   },
   {
     name: "Mike Holstein",
     role: "Founder (Retired)",
-    experience: "Company founder in 2010, construction leadership since 1995",
+    experience:
+      "Company founder in 2010, construction mission leadership since 1995",
     status: "Retired Leadership",
     specialties: [
-      "Company Foundations & Core Values Establishment",
-      "Quality Standards Development",
-      "Client Trust & Reputation Building",
-      "Mentorship & Succession Planning",
-      "Partnership Philosophy: 'We Work With You'",
+      "Mission Foundation & Core Values Establishment",
+      "Battle-Tested Quality Standards Development",
+      "Client Trust & Service-Earned Reputation Building",
+      "Mentorship & Strategic Succession Planning",
+      "Partnership Philosophy: 'We Work With You'—Mission Together",
     ],
     philosophy:
-      'Established the "We Work With You, Not FOR You" partnership philosophy and trust-built excellence that defines MH Construction today',
+      'Established the "We Work With You, Not FOR You" mission partnership philosophy and trust-built operational excellence that defines MH Construction today',
     icon: "foundation",
   },
 ];
@@ -92,9 +94,10 @@ export function LeadershipTeam() {
               </span>
             </h2>
             <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
-              Our leadership, crafted through military structure, alongside a
-              team of skilled professionals, brings unwavering dedication and
-              owner-first focus to every project
+              Our service-earned leadership team, with military-grade structure,
+              alongside a team of battle-tested professionals, brings
+              operational discipline, unwavering mission focus, and owner-first
+              values to every construction operation
             </p>
           </div>
         </FadeInWhenVisible>

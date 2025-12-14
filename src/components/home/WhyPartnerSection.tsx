@@ -2,50 +2,61 @@
 
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import {
+  FadeInWhenVisible,
+  StaggeredFadeIn,
+} from "@/components/animations/FramerMotionComponents";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const partnershipValues = [
   {
     icon: "emoji_events",
-    title: ".64 EMR - Award-Winning Safety",
-    subtitle: "Industry-Leading Safety Excellence",
+    title: ".64 EMR - Zero-Incident Mission Culture",
+    subtitle: "Safety Protocols That Protect Every Team Member",
     description:
-      "Multiple AGC-WA Top EMR Awards with .64 EMR—40% better than industry average. 3+ years without time-loss injury and OSHA VPP Star designation demonstrate our unwavering commitment to zero-incident workplace culture and protecting every team member.",
-    iconColor: "text-brand-secondary",
+      "Multiple AGC-WA Top EMR Awards with .64 EMR—40% better than industry average. Military-grade safety discipline: 3+ years without time-loss injury and OSHA VPP Star designation. Every crew member returns home safe—that's the mission, every single day. No compromises on safety, period.",
+    iconColor: "text-bronze-600",
+    iconBgGradient: "from-bronze-600 to-bronze-700",
+    accentColor: "bronze-500",
     highlights: [
       ".64 EMR (40% better than industry)",
       "3+ years without time-loss injury",
       "OSHA VPP Star designation",
-      "Multiple AGC-WA Top EMR Awards",
+      "Military-grade safety protocols",
     ],
     stat: ".64 EMR",
     statLabel: "Safety Rating",
   },
   {
     icon: "workspace_premium",
-    title: "150+ Years of 'Combined' Experience",
-    subtitle: "Generational Construction Expertise",
+    title: "150+ Years of Combined Field Experience",
+    subtitle: "Battle-Tested Construction Expertise",
     description:
-      "Our team brings over 150 years of combined expertise across all construction disciplines—refined through decades of successful projects. We leverage proven methods refined through generations of construction excellence and deep industry knowledge.",
-    iconColor: "text-brand-secondary",
+      "Our team brings 150+ years of combined construction expertise—Army thoroughness in planning, Navy reliability in execution, Air Force precision in quality control, Marine adaptability under pressure. Veterans and civilians working together, leveraging proven methods refined through generations. From deployment to development—we've got the operational experience.",
+    iconColor: "text-brand-primary",
+    iconBgGradient: "from-brand-primary to-brand-primary-dark",
+    accentColor: "brand-primary",
     highlights: [
-      "150+ years combined team experience",
-      "Expertise across all disciplines",
-      "Proven methods & best practices",
-      "Multi-generational knowledge transfer",
+      "150+ years combined expertise",
+      "Veteran + civilian team excellence",
+      "All-branch military precision",
+      "Multi-generational battle-tested practices",
     ],
     stat: "150+",
     statLabel: "Years Combined Experience",
   },
   {
     icon: "visibility",
-    title: "Transparent Honesty",
-    subtitle: "No Surprises, Ever",
+    title: "SITREP-Level Transparency",
+    subtitle: "Clear Intel, Zero Surprises",
     description:
-      "Open-book pricing, honest timelines, and constant communication. You control it, we manage it—full visibility into every decision. Our commitment to honesty means no hidden costs, complete transparency, and truthful assessments at every project phase.",
+      "Open-book pricing like mission briefs—complete intel on every cost, every timeline, every decision. You control the mission, we execute it with full visibility. Military-trained honesty means real-time SITREPs, no hidden costs, and truthful assessments at every construction phase. Your word is your bond—so is ours.",
     iconColor: "text-brand-secondary",
+    iconBgGradient: "from-brand-secondary to-brand-secondary-dark",
+    accentColor: "brand-secondary",
     highlights: [
-      "Open-book pricing & budgets",
-      "Real-time project updates",
+      "Open-book pricing (mission-level clarity)",
+      "Real-time project SITREPs",
       "Complete cost transparency",
       "Honest timelines & expectations",
     ],
@@ -54,15 +65,17 @@ const partnershipValues = [
   },
   {
     icon: "handshake",
-    title: "Partnership-Driven Trust",
-    subtitle: "Relationships That Last",
+    title: "Long-Term Partnerships (Not One-Time Deployments)",
+    subtitle: "Relationships That Outlast Projects",
     description:
-      "Our partnership doesn't end when construction finishes. 70% of our business comes from referrals and repeat client partners—testament to lasting partnerships that become lifelong community connections built on trust, integrity, and genuine care for your success.",
-    iconColor: "text-brand-secondary",
+      "70% of our business comes from referrals and repeat Client Partners—that's trust earned through action, not words. Our commitment doesn't end when the project completes. From post-deployment support to lifelong community connections—we're in it for the long haul, building relationships that matter. THE ROI IS THE RELATIONSHIP.",
+    iconColor: "text-bronze-600",
+    iconBgGradient: "from-bronze-600 to-bronze-800",
+    accentColor: "bronze-500",
     highlights: [
       "70% referral & repeat business",
       "Lifelong partnership commitment",
-      "Post-project support & service",
+      "Post-deployment support & service",
       "Community-focused relationships",
     ],
     stat: "70%",
@@ -70,35 +83,39 @@ const partnershipValues = [
   },
   {
     icon: "military_tech",
-    title: "650+ Successful Projects - Reliability",
-    subtitle: "Proven Track Record",
+    title: "650+ Successful Missions - Battle-Tested Reliability",
+    subtitle: "Proven Track Record Under Pressure",
     description:
-      "Over 650 successfully completed projects demonstrate our veteran-trained reliability. Army veteran leadership brings military discipline, attention to detail, and calm decision-making under pressure. We deliver reliable results no matter the challenges, backed by service-earned integrity.",
-    iconColor: "text-brand-secondary",
+      "650+ successfully completed construction operations demonstrate service-earned reliability. Veteran leadership brings military discipline, tactical planning under pressure, and mission-first execution. Whether it's a routine build or urgent construction support—we deliver results no matter the challenges. Reliability trained in service, proven in construction.",
+    iconColor: "text-brand-primary",
+    iconBgGradient: "from-brand-primary to-brand-primary-dark",
+    accentColor: "brand-primary",
     highlights: [
-      "650+ completed projects",
+      "650+ completed construction missions",
       "Veteran-owned since Jan 2025",
-      "Military precision & discipline",
+      "All-branch military precision",
       "Service-earned integrity values",
     ],
     stat: "650+",
-    statLabel: "Successful Projects",
+    statLabel: "Successful Missions",
   },
   {
     icon: "verified_user",
-    title: "3 State - Licensed & Insured",
-    subtitle: "Multi-State Professional Coverage",
+    title: "3-State Operational Authority",
+    subtitle: "Licensed for Multi-Jurisdiction Deployment",
     description:
-      "Fully licensed general contractor across Washington, Oregon, and Idaho. Comprehensive insurance coverage and bonding provide peace of mind for every project phase. Our multi-state licensing demonstrates our commitment to professional standards throughout the Pacific Northwest.",
+      "Fully licensed general contractor across Washington, Oregon, and Idaho—cleared for construction operations throughout the Pacific Northwest. Comprehensive insurance coverage and bonding provide mission-ready protection for every project phase. Credentials maintained with military precision—continuous compliance, zero compromises.",
     iconColor: "text-brand-secondary",
+    iconBgGradient: "from-brand-secondary to-brand-secondary-dark",
+    accentColor: "brand-secondary",
     highlights: [
       "Licensed in WA, OR, and ID",
-      "Full insurance & bonding",
-      "Compliant with all regulations",
-      "Regular credential updates",
+      "Full insurance & bonding coverage",
+      "Federal compliance assurance",
+      "Military-grade credential maintenance",
     ],
     stat: "3 States",
-    statLabel: "Licensed Coverage",
+    statLabel: "Operational Authority",
   },
 ];
 
@@ -106,220 +123,231 @@ export function WhyPartnerSection() {
   return (
     <section
       id="why-partner"
-      className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900 dark:from-brand-primary-dark dark:via-gray-900 dark:to-gray-950 py-12 sm:py-16 lg:py-24 xl:py-32 text-white overflow-hidden"
+      className="relative bg-white dark:bg-gray-900 py-16 sm:py-20 lg:py-28 xl:py-36 overflow-hidden"
     >
-      {/* Enhanced Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(189,146,100,0.15)_0%,transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.1)_0%,transparent_50%)]"></div>
-      <div className="top-20 left-10 absolute bg-brand-secondary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
-      <div
-        className="right-10 bottom-20 absolute bg-brand-secondary/15 blur-3xl rounded-full w-40 h-40 animate-pulse"
-        style={{ animationDelay: "1s" }}
-      ></div>
-      <div
-        className="top-1/2 right-1/4 absolute bg-brand-secondary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
-        style={{ animationDelay: "0.5s" }}
-      ></div>
+      {/* Unique Diagonal Stripe Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+              45deg,
+              #386851 0px,
+              #386851 2px,
+              transparent 2px,
+              transparent 60px
+            )`,
+          }}
+        ></div>
+      </div>
 
-      <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Section Header */}
-        <div className="mb-12 sm:mb-16 lg:mb-20 text-center scroll-reveal">
-          <div className="flex justify-center items-center mb-6 sm:mb-8">
-            <div className="relative">
-              <div className="absolute inset-0 bg-brand-secondary/30 blur-xl rounded-full"></div>
-              <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
-                <MaterialIcon
-                  icon="handshake"
-                  size="2xl"
-                  className="text-white"
-                />
+      {/* Large Brand Color Blobs */}
+      <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+      <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        {/* Enhanced Section Header with Side Accents */}
+        <SectionHeader
+          icon="verified"
+          iconVariant="primary"
+          subtitle="Battle-Tested Excellence | All Branches Honored"
+          title="Mission-Ready Performance & Service-Earned Integrity"
+          description="Where military precision meets construction expertise—honest mission briefs, battle-tested craftsmanship, and service-earned integrity create partnerships built on trust. From basic training to contractor, we speak your language."
+        >
+          {/* Core Philosophy Callout */}
+          <div className="inline-block">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary via-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-75 group-hover:opacity-100 transition duration-500"></div>
+              <div className="relative bg-white dark:bg-gray-800 px-8 py-6 rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 shadow-xl">
+                <p className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
+                  "Building projects for the client,{" "}
+                  <span className="font-black italic text-bronze-700 dark:text-bronze-400 text-xl sm:text-2xl md:text-3xl">
+                    NOT
+                  </span>{" "}
+                  the dollar"
+                </p>
               </div>
             </div>
           </div>
-          <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-            <span className="block mb-3 sm:mb-4 font-semibold text-white/80 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-              Why Veteran-Owned
-            </span>
-            <span className="block text-white font-black drop-shadow-lg">
-              Excellence Matters
-            </span>
-          </h2>
+        </SectionHeader>
 
-          <p className="mx-auto max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-            Experience where{" "}
-            <span className="font-semibold text-brand-secondary">
-              honest communication, proven craftsmanship, and veteran integrity
-            </span>{" "}
-            create partnerships built on trust.
-          </p>
+        {/* Modern Grid Cards with Unique Hover Effects */}
+        <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+          {partnershipValues.map((value, index) => (
+            <div key={index} className="group relative flex min-h-[620px]">
+              {/* Colored Border Glow - Visible on hover */}
+              <div
+                className={`absolute -inset-2 bg-gradient-to-br ${value.iconBgGradient} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
+              ></div>
 
-          {/* Core Philosophy Tagline */}
-          <div className="mt-6 sm:mt-8 mb-3 sm:mb-4">
-            <p className="mx-auto max-w-4xl font-bold text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed tracking-wide px-2">
-              "Building projects for the client,{" "}
-              <span className="font-black italic text-bronze-300 text-xl sm:text-2xl md:text-3xl">
-                NOT
-              </span>{" "}
-              the dollar"
-            </p>
-          </div>
-        </div>
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div
+                  className={`h-2 bg-gradient-to-r ${value.iconBgGradient}`}
+                ></div>
 
-        {/* Core Partnership Values - Interactive Flip Cards */}
-        <div className="gap-4 sm:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-12 sm:mb-16">
-          {partnershipValues.map((value, _index) => (
-            <div
-              key={_index}
-              className="group perspective-1000 scroll-reveal h-[400px] sm:h-[420px] md:h-[440px] lg:h-[460px]"
-              style={{ animationDelay: `${_index * 0.1}s` }}
-            >
-              <div className="relative h-full group-hover:rotate-y-180 transition-transform duration-700 preserve-3d [transform-style:preserve-3d]">
-                {/* Front of Card */}
-                <div className="absolute inset-0 backface-hidden [backface-visibility:hidden]">
-                  <div className="flex flex-col h-full bg-white/10 backdrop-blur-md shadow-lg hover:shadow-2xl p-5 sm:p-6 md:p-7 lg:p-8 border border-white/30 rounded-3xl transition-all duration-300 group-hover:scale-[1.02]">
-                    {/* Gradient Background Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-80 rounded-3xl"></div>
-
-                    <div className="relative z-10 flex flex-col h-full">
-                      <div className="flex-1 flex flex-col justify-center min-h-0">
-                        {/* Enhanced Icon Container */}
-                        <div className="relative inline-block mb-4 sm:mb-5 mx-auto flex-shrink-0">
-                          <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/40 to-brand-secondary-dark/40 blur-xl rounded-3xl"></div>
-                          <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-secondary to-brand-secondary-dark rounded-2xl w-16 h-16 sm:w-20 sm:h-20 shadow-xl group-hover:scale-110 transition-transform duration-300">
-                            <MaterialIcon
-                              icon={value.icon}
-                              size="xl"
-                              className="text-white"
-                            />
-                          </div>
-                        </div>
-                        <h3 className="mb-2 sm:mb-3 font-black text-white text-lg sm:text-xl md:text-2xl tracking-tight leading-tight break-words px-2 flex-shrink-0 text-center">
-                          {value.title}
-                        </h3>
-                        <p className="mb-3 sm:mb-4 text-brand-secondary text-sm sm:text-base font-semibold break-words px-2 flex-shrink-0 text-center">
-                          {value.subtitle}
-                        </p>
-                        <p className="text-white/90 text-xs sm:text-sm md:text-base leading-relaxed break-words px-2 flex-shrink-0 text-center">
-                          {value.description.split(".")[0]}.
-                        </p>
+                <div className="p-6 sm:p-8 flex flex-col flex-1">
+                  {/* Icon and Stat Section */}
+                  <div className="flex items-start justify-between mb-5">
+                    {/* Enhanced Icon with Header Style */}
+                    <div className="relative">
+                      {/* Blur glow layer behind icon */}
+                      <div
+                        className={`absolute -inset-2 bg-gradient-to-br ${value.iconBgGradient} opacity-30 blur-lg rounded-2xl`}
+                      ></div>
+                      <div
+                        className={`relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${value.iconBgGradient} rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 transition-all duration-300`}
+                      >
+                        <MaterialIcon
+                          icon={value.icon}
+                          size="xl"
+                          className="text-white drop-shadow-lg"
+                        />
                       </div>
-                      <div className="flex-shrink-0 mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-white/30">
-                        <div className="flex items-center justify-center gap-2 text-brand-secondary">
-                          <MaterialIcon
-                            icon="autorenew"
-                            size="md"
-                            className="animate-spin-slow group-hover:animate-spin"
-                          />
-                          <span className="font-semibold text-xs sm:text-sm uppercase tracking-wider">
-                            <span className="hidden sm:inline">
-                              Hover for details
-                            </span>
-                            <span className="sm:hidden">Tap for details</span>
-                          </span>
-                        </div>
+                    </div>
+                    <div className="text-right">
+                      <div
+                        className={`text-3xl sm:text-4xl font-black group-hover:scale-105 transition-transform duration-300 ${
+                          value.accentColor === "bronze-500"
+                            ? "text-bronze-700 dark:text-bronze-400"
+                            : value.accentColor === "brand-secondary"
+                              ? "text-brand-secondary-dark dark:text-brand-secondary-light"
+                              : "text-brand-primary-dark dark:text-brand-primary-light"
+                        }`}
+                      >
+                        {value.stat}
+                      </div>
+                      <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+                        {value.statLabel}
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Back of Card - Detailed highlights and stats */}
-                <div className="absolute inset-0 rotate-y-180 backface-hidden [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                  <div className="h-full rounded-3xl bg-gradient-to-br from-brand-primary to-brand-primary-dark shadow-2xl p-5 sm:p-6 md:p-7 lg:p-8 overflow-y-auto">
-                    {/* Overlay for better text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/20 rounded-3xl"></div>
+                  {/* Title and Subtitle */}
+                  <h3 className="mb-2 font-black text-gray-900 dark:text-white text-xl sm:text-2xl leading-tight">
+                    {value.title}
+                  </h3>
+                  <p
+                    className={`mb-4 text-sm sm:text-base font-semibold ${
+                      value.accentColor === "bronze-500"
+                        ? "text-bronze-700 dark:text-bronze-300"
+                        : value.accentColor === "brand-secondary"
+                          ? "text-brand-secondary-dark dark:text-brand-secondary"
+                          : "text-brand-primary-dark dark:text-brand-primary"
+                    }`}
+                  >
+                    {value.subtitle}
+                  </p>
 
-                    <div className="relative flex flex-col h-full">
-                      {/* Stat Highlight */}
-                      <div className="flex-shrink-0 mb-4">
-                        <div className="inline-block bg-white/20 backdrop-blur-sm p-3 rounded-2xl mb-3 mx-auto">
+                  {/* Description */}
+                  <p className="mb-6 text-gray-700 dark:text-gray-200 text-sm sm:text-base leading-relaxed flex-1">
+                    {value.description}
+                  </p>
+
+                  {/* Key Highlights with Custom Icons */}
+                  <div className="space-y-2 pt-4 border-t border-gray-200 dark:border-gray-700 mt-auto">
+                    {value.highlights.slice(0, 3).map((highlight, idx) => (
+                      <div key={idx} className="flex items-start gap-3">
+                        <div
+                          className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br ${value.iconBgGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                        >
                           <MaterialIcon
-                            icon={value.icon}
-                            size="lg"
-                            className="text-white"
+                            icon="check"
+                            className="text-white text-xs"
                           />
                         </div>
-                        <div className="text-center">
-                          <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-secondary mb-1">
-                            {value.stat}
-                          </div>
-                          <div className="text-xs sm:text-sm text-brand-secondary/90 font-semibold uppercase tracking-wider">
-                            {value.statLabel}
-                          </div>
-                        </div>
+                        <span className="text-sm text-gray-700 dark:text-gray-200 leading-snug">
+                          {highlight}
+                        </span>
                       </div>
-
-                      {/* Description */}
-                      <div className="flex-1 min-h-0 mb-4">
-                        <p className="text-xs sm:text-sm md:text-base text-white/95 leading-relaxed break-words text-center">
-                          {value.description}
-                        </p>
-                      </div>
-
-                      {/* Highlights List - Top 3 only */}
-                      <div className="flex-shrink-0">
-                        <h4 className="text-xs sm:text-sm font-bold text-brand-secondary uppercase tracking-wider mb-2 text-center">
-                          Key Highlights
-                        </h4>
-                        <div className="space-y-1.5">
-                          {value.highlights
-                            .slice(0, 3)
-                            .map((highlight, idx) => (
-                              <div
-                                key={idx}
-                                className="flex items-start gap-2 text-white/95"
-                              >
-                                <MaterialIcon
-                                  icon="check_circle"
-                                  className="text-brand-secondary flex-shrink-0 mt-0.5 text-xs"
-                                />
-                                <span className="text-xs sm:text-sm leading-snug break-words">
-                                  {highlight}
-                                </span>
-                              </div>
-                            ))}
-                        </div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
           ))}
-        </div>
+        </StaggeredFadeIn>
 
-        {/* Bottom CTA Section */}
-        <div className="text-center mt-8 sm:mt-12">
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 bg-brand-secondary hover:bg-brand-secondary/90 text-brand-primary font-bold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-base sm:text-lg"
-            >
-              <MaterialIcon icon="foundation" size="sm" />
-              Our Oath
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-lg border-2 border-white/30 transition-all duration-300 text-base sm:text-lg"
-            >
-              <MaterialIcon icon="handshake" size="sm" />
-              Begin Your Project
-            </Link>
+        {/* Enhanced CTA Section with Split Design */}
+        <FadeInWhenVisible>
+          <div className="relative">
+            {/* Background Accent */}
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/5 via-transparent to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 rounded-2xl -z-10"></div>
+
+            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-8 sm:p-10 md:p-12 text-center shadow-xl">
+              <div className="mb-8">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4">
+                  Ready to Experience the{" "}
+                  <span className="bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
+                    MH Difference?
+                  </span>
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 text-lg max-w-3xl mx-auto">
+                  Join hundreds of satisfied client partners who've experienced
+                  our four core values in action.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-6">
+                <Link
+                  href="/about"
+                  className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-brand-primary to-brand-primary-dark hover:from-brand-primary-dark hover:to-brand-primary text-white font-bold px-10 py-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 text-base sm:text-lg"
+                >
+                  <MaterialIcon
+                    icon="foundation"
+                    size="md"
+                    className="group-hover:rotate-12 transition-transform"
+                  />
+                  Our Oath
+                  <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
+                </Link>
+                <Link
+                  href="/contact"
+                  className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-brand-secondary to-bronze-badge-600 hover:from-bronze-badge-600 hover:to-brand-secondary text-white font-bold px-10 py-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 text-base sm:text-lg"
+                >
+                  <MaterialIcon
+                    icon="handshake"
+                    size="md"
+                    className="group-hover:scale-110 transition-transform"
+                  />
+                  Begin Your Project
+                  <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
+                </Link>
+              </div>
+
+              {/* Contact Info with Stylized Design */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 pt-6 border-t-2 border-gray-300 dark:border-gray-600">
+                <div className="flex items-center gap-3">
+                  <div className="bg-gradient-to-br from-brand-primary to-brand-primary-dark p-2.5 rounded-lg">
+                    <MaterialIcon
+                      icon="phone"
+                      className="text-white"
+                      size="md"
+                    />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                      Call Us Today
+                    </div>
+                    <a
+                      href="tel:+15093086489"
+                      className="text-brand-primary dark:text-brand-primary-light hover:text-brand-primary-dark font-bold text-lg transition-colors"
+                    >
+                      (509) 308-6489
+                    </a>
+                  </div>
+                </div>
+                <div className="hidden sm:block h-12 w-px bg-gray-300 dark:bg-gray-600"></div>
+                <div className="text-gray-600 dark:text-gray-400 text-sm">
+                  <span className="font-semibold text-gray-900 dark:text-white">
+                    650+ projects
+                  </span>{" "}
+                  built on trust
+                </div>
+              </div>
+            </div>
           </div>
-          <p className="mt-6 text-white/70 text-sm sm:text-base">
-            Experience our four core values in action. Call us at{" "}
-            <a
-              href="tel:+15093086489"
-              className="text-brand-secondary hover:text-brand-secondary/80 font-semibold transition-colors"
-            >
-              (509) 308-6489
-            </a>
-          </p>
-        </div>
-      </div>
-
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-brand-secondary/20 to-transparent"></div>
+        </FadeInWhenVisible>
       </div>
     </section>
   );
