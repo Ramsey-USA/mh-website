@@ -54,8 +54,10 @@ export function AwardsSection() {
                 <div className="absolute inset-0 bg-brand-secondary/20 dark:bg-brand-secondary/30 blur-xl rounded-full"></div>
                 <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
                   <MaterialIcon
-                    icon="emoji_events"
+                    icon="workspace_premium"
                     size="2xl"
+                    theme="veteran"
+                    ariaLabel="Awards and recognition"
                     className="text-white"
                   />
                 </div>

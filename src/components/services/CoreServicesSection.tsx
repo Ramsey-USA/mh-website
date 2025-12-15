@@ -36,7 +36,7 @@ export function CoreServicesSection({ services }: CoreServicesSectionProps) {
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <SectionHeader
-          icon="engineering"
+          icon="flag"
           iconVariant="multi"
           subtitle="Core Partnership"
           title="Services"

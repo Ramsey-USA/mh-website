@@ -22,8 +22,10 @@ export function ProjectsStatsSection() {
           <div className="mb-16 lg:mb-24 text-center scroll-reveal">
             <div className="flex justify-center items-center mb-6">
               <MaterialIcon
-                icon="analytics"
+                icon="bar_chart"
                 size="xl"
+                theme="military"
+                ariaLabel="Proven track record"
                 className="text-brand-primary dark:text-brand-primary"
               />
             </div>

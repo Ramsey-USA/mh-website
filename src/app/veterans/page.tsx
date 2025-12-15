@@ -153,8 +153,11 @@ export default function VeteransPage() {
             >
               <CardHeader>
                 <MaterialIcon
-                  icon="shield"
-                  className="mx-auto mb-4 text-brand-primary text-6xl"
+                  icon="military_tech"
+                  size="5xl"
+                  theme="veteran"
+                  ariaLabel="Army Veteran Leadership"
+                  className="mx-auto mb-4 text-brand-primary"
                 />
                 <CardTitle className="text-gray-900 dark:text-white text-2xl sm:text-3xl">
                   Jeremy Thamert
@@ -209,8 +212,11 @@ export default function VeteransPage() {
             <Card className={getCardClassName("default")}>
               <CardHeader>
                 <MaterialIcon
-                  icon="work"
-                  className="mb-4 text-brand-primary text-5xl"
+                  icon="badge"
+                  size="4xl"
+                  theme="military"
+                  ariaLabel="Veteran Hiring Priority"
+                  className="mb-4 text-brand-primary"
                 />
                 <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
                   Veteran Hiring Priority
@@ -241,7 +247,10 @@ export default function VeteransPage() {
               <CardHeader>
                 <MaterialIcon
                   icon="handshake"
-                  className="mb-4 text-brand-secondary text-5xl"
+                  size="4xl"
+                  theme="veteran"
+                  ariaLabel="Veteran Allies Network"
+                  className="mb-4 text-brand-secondary"
                 />
                 <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
                   Veteran Allies
@@ -271,8 +280,11 @@ export default function VeteransPage() {
             <Card className={getCardClassName("default")}>
               <CardHeader>
                 <MaterialIcon
-                  icon="school"
-                  className="mb-4 text-brand-accent text-5xl"
+                  icon="military_tech"
+                  size="4xl"
+                  theme="veteran"
+                  ariaLabel="Training & Education Programs"
+                  className="mb-4 text-brand-accent"
                 />
                 <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
                   Training & Education
@@ -326,7 +338,10 @@ export default function VeteransPage() {
                   <li className="flex items-start">
                     <MaterialIcon
                       icon="military_tech"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-2xl"
+                      size="xl"
+                      theme="military"
+                      ariaLabel="Military Discipline"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
                     />
                     <div>
                       <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
@@ -340,7 +355,10 @@ export default function VeteransPage() {
                   <li className="flex items-start">
                     <MaterialIcon
                       icon="workspace_premium"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-2xl"
+                      size="xl"
+                      theme="military"
+                      ariaLabel="Excellence Standard"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
                     />
                     <div>
                       <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
@@ -354,7 +372,10 @@ export default function VeteransPage() {
                   <li className="flex items-start">
                     <MaterialIcon
                       icon="verified"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-2xl"
+                      size="xl"
+                      theme="military"
+                      ariaLabel="Integrity Commitment"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
                     />
                     <div>
                       <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
@@ -379,8 +400,11 @@ export default function VeteransPage() {
                 <ul className="space-y-4 text-gray-700 dark:text-gray-300">
                   <li className="flex items-start">
                     <MaterialIcon
-                      icon="emoji_people"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-secondary text-2xl"
+                      icon="volunteer_activism"
+                      size="xl"
+                      theme="veteran"
+                      ariaLabel="Service Above Self"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-secondary"
                     />
                     <div>
                       <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
@@ -393,8 +417,11 @@ export default function VeteransPage() {
                   </li>
                   <li className="flex items-start">
                     <MaterialIcon
-                      icon="groups"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-secondary text-2xl"
+                      icon="diversity_3"
+                      size="xl"
+                      theme="veteran"
+                      ariaLabel="Team Unity"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-secondary"
                     />
                     <div>
                       <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
@@ -407,8 +434,11 @@ export default function VeteransPage() {
                   </li>
                   <li className="flex items-start">
                     <MaterialIcon
-                      icon="psychology"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-secondary text-2xl"
+                      icon="gps_fixed"
+                      size="xl"
+                      theme="veteran"
+                      ariaLabel="Precision Excellence"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-secondary"
                     />
                     <div>
                       <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
@@ -435,7 +465,10 @@ export default function VeteransPage() {
               <CardHeader>
                 <MaterialIcon
                   icon="anchor"
-                  className="mx-auto mb-4 text-brand-secondary text-5xl"
+                  size="4xl"
+                  theme="veteran"
+                  ariaLabel="Navy Veteran"
+                  className="mx-auto mb-4 text-brand-secondary"
                 />
                 <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
                   Matt Ramsey
@@ -483,7 +516,10 @@ export default function VeteransPage() {
                 <CardHeader>
                   <MaterialIcon
                     icon="directions_boat"
-                    className="mx-auto mb-4 text-brand-primary text-5xl"
+                    size="4xl"
+                    theme="military"
+                    ariaLabel="Fishing Fleet"
+                    className="mx-auto mb-4 text-brand-primary"
                   />
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     40+ Boats
@@ -500,8 +536,11 @@ export default function VeteransPage() {
               <Card className={getCardClassName("default", "text-center")}>
                 <CardHeader>
                   <MaterialIcon
-                    icon="groups"
-                    className="mx-auto mb-4 text-brand-secondary text-5xl"
+                    icon="diversity_3"
+                    size="4xl"
+                    theme="veteran"
+                    ariaLabel="Community Unity"
+                    className="mx-auto mb-4 text-brand-secondary"
                   />
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Community Powered
@@ -518,8 +557,11 @@ export default function VeteransPage() {
               <Card className={getCardClassName("default", "text-center")}>
                 <CardHeader>
                   <MaterialIcon
-                    icon="favorite"
-                    className="mx-auto mb-4 text-brand-accent text-5xl"
+                    icon="volunteer_activism"
+                    size="4xl"
+                    theme="veteran"
+                    ariaLabel="Free Veterans Support"
+                    className="mx-auto mb-4 text-brand-accent"
                   />
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Free for Veterans
@@ -549,7 +591,10 @@ export default function VeteransPage() {
                     <div className="flex items-start gap-4">
                       <MaterialIcon
                         icon="wb_twilight"
-                        className="flex-shrink-0 mt-1 text-brand-primary text-3xl"
+                        size="2xl"
+                        theme="military"
+                        ariaLabel="Morning Briefing"
+                        className="flex-shrink-0 mt-1 text-brand-primary"
                       />
                       <div>
                         <h4 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl mb-2">
@@ -565,7 +610,10 @@ export default function VeteransPage() {
                     <div className="flex items-start gap-4">
                       <MaterialIcon
                         icon="phishing"
-                        className="flex-shrink-0 mt-1 text-brand-secondary text-3xl"
+                        size="2xl"
+                        theme="veteran"
+                        ariaLabel="Fishing Operations"
+                        className="flex-shrink-0 mt-1 text-brand-secondary"
                       />
                       <div>
                         <h4 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl mb-2">
@@ -581,7 +629,10 @@ export default function VeteransPage() {
                     <div className="flex items-start gap-4">
                       <MaterialIcon
                         icon="celebration"
-                        className="flex-shrink-0 mt-1 text-brand-accent text-3xl"
+                        size="2xl"
+                        theme="veteran"
+                        ariaLabel="Victory Celebration"
+                        className="flex-shrink-0 mt-1 text-brand-accent"
                       />
                       <div>
                         <h4 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl mb-2">
@@ -604,6 +655,8 @@ export default function VeteransPage() {
                 <MaterialIcon
                   icon="info"
                   size="xl"
+                  theme="military"
+                  ariaLabel="Registration Information"
                   className="text-brand-primary mb-4"
                 />
                 <p className="font-bold text-gray-900 dark:text-white text-xl sm:text-2xl mb-2">
@@ -1036,8 +1089,11 @@ export default function VeteransPage() {
                   <div className="grid md:grid-cols-3 gap-6 text-center">
                     <div>
                       <MaterialIcon
-                        icon="people"
-                        className="mx-auto mb-3 text-brand-primary text-4xl"
+                        icon="diversity_3"
+                        size="3xl"
+                        theme="military"
+                        ariaLabel="Direct Veteran Access"
+                        className="mx-auto mb-3 text-brand-primary"
                       />
                       <h4 className="font-bold text-gray-900 dark:text-white mb-2">
                         Direct Veteran Access
@@ -1049,8 +1105,11 @@ export default function VeteransPage() {
                     </div>
                     <div>
                       <MaterialIcon
-                        icon="settings"
-                        className="mx-auto mb-3 text-brand-secondary text-4xl"
+                        icon="engineering"
+                        size="3xl"
+                        theme="veteran"
+                        ariaLabel="Turnkey Event Management"
+                        className="mx-auto mb-3 text-brand-secondary"
                       />
                       <h4 className="font-bold text-gray-900 dark:text-white mb-2">
                         Turnkey Event Management
@@ -1084,7 +1143,12 @@ export default function VeteransPage() {
                 href="/contact"
                 className="inline-flex items-center gap-2 px-10 py-5 bg-brand-primary hover:bg-brand-primary/90 text-white transition-all duration-300 rounded-lg font-bold text-lg sm:text-xl shadow-lg hover:shadow-xl"
               >
-                <MaterialIcon icon="email" size="lg" />
+                <MaterialIcon
+                  icon="mark_email_read"
+                  size="lg"
+                  theme="military"
+                  ariaLabel="Partnership Contact"
+                />
                 <span>Discuss Partnership Opportunities</span>
               </Link>
               <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">

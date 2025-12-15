@@ -15,7 +15,7 @@ export const categories = [
 // Project statistics - Updated with 6 Differences Key Metrics
 export const projectStats = [
   {
-    icon: "emoji_events",
+    icon: "health_and_safety",
     value: 0.64,
     suffix: " EMR",
     decimals: 2,
@@ -37,7 +37,7 @@ export const projectStats = [
     animated: true,
   },
   {
-    icon: "verified_user",
+    icon: "verified",
     value: 3,
     label: "States Licensed",
     animated: false,
@@ -53,13 +53,13 @@ export const capabilities = [
       "Partnering with congregations to create churches, chapels, and community centers with thoughtful design, careful budgeting, and deep respect for the community they serve. We understand that these sacred spaces require reverence and attention—managing every detail to ensure your facility serves your congregation for generations to come.",
   },
   {
-    icon: "business",
+    icon: "store",
     title: "Commercial Buildings",
     description:
       "Collaborating on office buildings, retail centers, and government facilities that strengthen community infrastructure. From boutique shops to large automotive dealerships, we construct spaces where your business can thrive using top-grade materials and partnering with the best architects in the Pacific Northwest.",
   },
   {
-    icon: "local_hospital",
+    icon: "medical_services",
     title: "Medical Facilities",
     description:
       "Working with healthcare providers to build medical centers, clinics, and healthcare facilities with specialized compliance expertise. We understand the critical nature of healthcare construction, precision planning for healthcare environments, and the importance of creating spaces that support community wellness.",
@@ -71,13 +71,13 @@ export const capabilities = [
       "Partnering with vintners to create specialized processing facilities, tasting rooms, and production spaces that celebrate Pacific Northwest wine heritage. With expert craftsmanship and agricultural facility knowledge, we build structures that honor the winemaking tradition while supporting modern production needs.",
   },
   {
-    icon: "factory",
+    icon: "precision_manufacturing",
     title: "Light Industrial Construction",
     description:
       "Collaborating on warehouses, processing plants, and manufacturing facilities that support regional economic growth. With 13+ years of proven experience, we create safe, functional, and code-compliant buildings built to your precise specifications with durability, accessibility, and reliability as top priorities.",
   },
   {
-    icon: "store",
+    icon: "domain",
     title: "Tenant Improvements",
     description:
       "Working with businesses to transform commercial spaces through professional renovation and build-out services. With decades of experience helping property owners across WA, OR, and ID, we create functional, modern workspaces quickly and efficiently with expert craftsmanship and minimal disruption to your operations.",
@@ -91,7 +91,7 @@ export type Capability = (typeof capabilities)[number];
 // Why Choose MH reasons - Enhanced with award-winning achievements
 export const whyChooseReasons = [
   {
-    iconName: "emoji_events",
+    iconName: "health_and_safety",
     title: ".64 EMR - Award-Winning Safety",
     description:
       "Multiple AGC-WA Top EMR Awards (2019-2021, 2025 Most Improved). Our Experience Modification Rate of .64 is 40% better than industry average, demonstrating our unwavering commitment to worker safety and zero-incident workplace culture. Over 3 consecutive years without time-loss injuries and OSHA VPP Star designation.",
@@ -103,13 +103,13 @@ export const whyChooseReasons = [
       "Our team brings over 150 years of combined expertise across all construction disciplines—from foundation to finish. This experience has been refined through decades of successful projects across commercial, industrial, medical, and specialty facilities throughout the Pacific Northwest. We leverage proven methods refined through generations of construction excellence.",
   },
   {
-    iconName: "visibility",
+    iconName: "fact_check",
     title: "Transparent Honesty",
     description:
       "Open-book pricing where you see everything—detailed cost breakdowns, regular updates, and honest assessments. We believe in doing business the right way: total transparency, clear communication, and keeping our promises. You control it, we manage it—full visibility into every decision. Your trust is earned through action, not just words.",
   },
   {
-    iconName: "handshake",
+    iconName: "diversity_3",
     title: "Partnership-Driven Trust",
     description:
       "We're not just contractors—we're community partners invested in the long-term success of the Pacific Northwest region. Excellence through experience—we build lasting partnerships that extend well beyond project completion. Building projects for the client, NOT the dollar is more than a slogan—it's our proven commitment to you.",
@@ -135,7 +135,7 @@ export const partnershipProcess = [
     title: "Pre-Construction Planning",
     description:
       "Comprehensive planning to understand your vision, site requirements, and project goals. We work WITH you to establish clear objectives and realistic timelines from day one. Master planning prevents last-minute changes and ensures zero gaps in scope coverage.",
-    icon: "chat",
+    icon: "gps_fixed",
   },
   {
     step: 2,
@@ -149,21 +149,21 @@ export const partnershipProcess = [
     title: "Proactive Communication",
     description:
       "Regular updates with photo documentation and immediate notification of any project changes or delays. Transparent communication keeps you informed every step of the way. Multiple communication channels ensure you always know your project status.",
-    icon: "forum",
+    icon: "campaign",
   },
   {
     step: 4,
     title: "Quality Execution",
     description:
       "Military precision combined with experienced craftsmen ensures exceptional workmanship. Quality control checkpoints at every phase deliver structures built to last for generations. We use proven methods refined over decades and select materials based on longevity.",
-    icon: "verified",
+    icon: "task_alt",
   },
   {
     step: 5,
     title: "Seamless Close-Out",
     description:
       "Comprehensive completion with ongoing support and availability for questions long after final payment. We're your partners beyond project completion. Following up to ensure satisfaction and being available creates lasting relationships built on proven excellence and decades of trust.",
-    icon: "handshake",
+    icon: "diversity_3",
   },
 ];
 

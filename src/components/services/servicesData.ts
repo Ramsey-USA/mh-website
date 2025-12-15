@@ -71,7 +71,7 @@ export const coreServices: CoreService[] = [
       "Ready to start your commercial construction project? Call (509) 308-6489 or schedule a free consultation to discuss your vision with our partnership-focused team.",
   },
   {
-    iconName: "architecture",
+    iconName: "gps_fixed",
     title: "Master Planning (Pre-Construction)",
     subtitle: "Unlock Your Building's Potential with Comprehensive Planning",
     description:
@@ -96,7 +96,7 @@ export const coreServices: CoreService[] = [
     ],
   },
   {
-    iconName: "inventory",
+    iconName: "local_shipping",
     title: "Procurement & Trade Partnership Management",
     subtitle: "Reliable Material Sourcing & Professional Vendor Coordination",
     description:
@@ -124,7 +124,7 @@ export const coreServices: CoreService[] = [
     ctaLinkText: "Join Our Trade Partnership Network",
   },
   {
-    iconName: "fact_check",
+    iconName: "assessment",
     title: "Constructability & Budget Control",
     subtitle: "Proactive Feasibility Review & Strategic Cost Optimization",
     description:
@@ -149,7 +149,7 @@ export const coreServices: CoreService[] = [
     ],
   },
   {
-    iconName: "view_module",
+    iconName: "grid_view",
     title: "Modularization & Subproject Management",
     subtitle: "Advanced Project Division for Complex Builds",
     description:
@@ -178,7 +178,7 @@ export const coreServices: CoreService[] = [
 // Specialty Services & Markets
 export const specialtyServices: SpecialtyService[] = [
   {
-    iconName: "business",
+    iconName: "store",
     title: "Markets We Serve",
     subtitle: "Diverse Business Solutions Across WA, OR, ID",
     description:
@@ -194,7 +194,7 @@ export const specialtyServices: SpecialtyService[] = [
     ],
   },
   {
-    iconName: "store",
+    iconName: "domain",
     title: "Tenant Improvements",
     subtitle: "Transform Your Commercial Space in the Tri-Cities",
     description:
@@ -212,7 +212,7 @@ export const specialtyServices: SpecialtyService[] = [
       "Ready for your tenant improvements? Call (509) 308-6489 to schedule a free consultation or book an on-site assessment to discuss your commercial space transformation.",
   },
   {
-    iconName: "apartment",
+    iconName: "location_city",
     title: "Commercial New Build-Outs",
     subtitle: "Build Your Business Right from the Ground Up",
     description:
@@ -229,7 +229,7 @@ export const specialtyServices: SpecialtyService[] = [
     note: "Every project built using top-grade materials and partnering with the best architects in the Pacific Northwest. From concept to completion, we're committed to creating spaces where your business can thrive.",
   },
   {
-    iconName: "factory",
+    iconName: "precision_manufacturing",
     title: "Light Industrial Construction",
     subtitle: "Functional & Safe Industrial Facilities",
     description:
@@ -268,7 +268,7 @@ export const specialtyServices: SpecialtyService[] = [
 // Service Areas
 export const serviceAreas: ServiceArea[] = [
   {
-    iconName: "location_city",
+    iconName: "place",
     title: "Tri-Cities Primary",
     areas: [
       "Pasco, WA",
@@ -279,7 +279,7 @@ export const serviceAreas: ServiceArea[] = [
     ],
   },
   {
-    iconName: "map",
+    iconName: "travel_explore",
     title: "Extended Coverage",
     areas: [
       "Washington State",
@@ -293,7 +293,7 @@ export const serviceAreas: ServiceArea[] = [
 // Why Choose Us
 export const whyChooseUs: WhyChooseUsItem[] = [
   {
-    iconName: "emoji_events",
+    iconName: "health_and_safety",
     title: ".64 EMR - Award-Winning Safety",
     description:
       "Multiple AGC-WA Top EMR Awards (2019-2021, 2025 Most Improved). Our Experience Modification Rate of .64 is 40% better than industry average, demonstrating our unwavering commitment to worker safety and zero-incident workplace culture. Over 3 consecutive years without time-loss injuries and OSHA VPP Star designation.",
@@ -305,13 +305,13 @@ export const whyChooseUs: WhyChooseUsItem[] = [
       "Our team brings over 150 years of combined expertise across all construction disciplines—from foundation to finish. This experience has been refined through decades of successful projects across commercial, industrial, medical, and specialty facilities throughout the Pacific Northwest. We leverage proven methods refined through generations of construction excellence.",
   },
   {
-    iconName: "visibility",
+    iconName: "fact_check",
     title: "Transparent Honesty",
     description:
       "Open-book pricing where you see everything—detailed cost breakdowns, regular updates, and honest assessments. We believe in doing business the right way: total transparency, clear communication, and keeping our promises. You control it, we manage it—full visibility into every decision. Your trust is earned through action, not just words.",
   },
   {
-    iconName: "handshake",
+    iconName: "diversity_3",
     title: "Partnership-Driven Trust",
     description:
       "We believe in old school business values—where your word is your bond and trust is earned face-to-face. We build lasting partnerships through genuine commitment, not just contracts. Building projects for the client, NOT the dollar is our promise to you, because real partnerships are built person-to-person and last well beyond project completion through proven excellence.",

@@ -14,7 +14,7 @@ export function CapabilitiesSection() {
   return (
     <Section variant="default" padding="large">
       <SectionHeader
-        icon="engineering"
+        icon="construction"
         iconVariant="multi"
         subtitle="Partnership"
         title="Capabilities"

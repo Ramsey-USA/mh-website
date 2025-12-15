@@ -35,7 +35,7 @@ export function SpecialtyServicesSection({
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <SectionHeader
-          icon="domain"
+          icon="hub"
           iconVariant="secondary"
           subtitle="Specialized Partnership"
           title="Solutions"

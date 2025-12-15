@@ -32,7 +32,7 @@ const governmentSEOData = getGovernmentSEO();
 // Federal contracting services
 const grantSupportServices = [
   {
-    icon: "calculate",
+    icon: "military_tech",
     title: "Mission-Critical Cost Analysis",
     description:
       "Military-grade accuracy in cost estimation ensuring reliable fiscal projections for federal procurement",
@@ -45,7 +45,7 @@ const grantSupportServices = [
     ],
   },
   {
-    icon: "architecture",
+    icon: "gps_fixed",
     title: "Design & Operational Validation",
     description:
       "Comprehensive technical assessment ensuring mission readiness and operational effectiveness",
@@ -75,7 +75,7 @@ const grantSupportServices = [
 // Federal facility types
 const governmentProjects = [
   {
-    icon: "school",
+    icon: "military_tech",
     title: "Federal Training Facilities",
     examples: [
       "Military Training Centers",
@@ -95,7 +95,7 @@ const governmentProjects = [
     ],
   },
   {
-    icon: "church",
+    icon: "diversity_3",
     title: "Community Mission Facilities",
     examples: [
       "Military Chapels",
@@ -105,7 +105,7 @@ const governmentProjects = [
     ],
   },
   {
-    icon: "groups",
+    icon: "volunteer_activism",
     title: "Public Service Facilities",
     examples: [
       "Veterans Service Centers",
@@ -115,7 +115,7 @@ const governmentProjects = [
     ],
   },
   {
-    icon: "engineering",
+    icon: "construction",
     title: "Critical Infrastructure",
     examples: [
       "Utilities Command Centers",
@@ -180,48 +180,48 @@ const processSteps = [
     title: "Mission Assessment",
     description:
       "Review federal requirements, assess operational feasibility, and establish command timeline",
-    icon: "chat",
+    icon: "campaign",
   },
   {
     step: 2,
     title: "Tactical Cost Analysis",
     description:
       "Develop detailed cost projections and prepare comprehensive fiscal documentation",
-    icon: "calculate",
+    icon: "military_tech",
   },
   {
     step: 3,
     title: "Technical Validation",
     description:
       "Validate specifications and provide operational constructability analysis",
-    icon: "engineering",
+    icon: "gps_fixed",
   },
   {
     step: 4,
     title: "Compliance Verification",
     description:
       "Ensure all federal regulations and operational requirements are met",
-    icon: "fact_check",
+    icon: "verified",
   },
   {
     step: 5,
     title: "Mission Execution",
     description:
       "Final documentation review and operational deployment support",
-    icon: "send",
+    icon: "rocket_launch",
   },
 ];
 
 // Federal contracting capabilities
 const hanfordCapabilities = [
   {
-    icon: "security",
+    icon: "verified_user",
     title: "Security Operations Coordination",
     description:
       "Clearance protocols and federal security compliance expertise",
   },
   {
-    icon: "gavel",
+    icon: "balance",
     title: "Federal Acquisition Compliance",
     description:
       "Department of Energy and federal procurement regulation expertise",
@@ -233,12 +233,12 @@ const hanfordCapabilities = [
       ".64 EMR award-winning safety record (40% better than industry), OSHA VPP Star designation, and mission-specific safety system implementation",
   },
   {
-    icon: "handshake",
+    icon: "diversity_3",
     title: "Strategic Partner Network",
     description: "Vetted Ally relationships for federal project execution",
   },
   {
-    icon: "engineering",
+    icon: "bolt",
     title: "Rapid Response Construction",
     description:
       "Emergency construction capabilities for mission-critical timelines",
@@ -254,7 +254,7 @@ const hanfordCapabilities = [
 // Federal contract success factors
 const successFactors = [
   {
-    icon: "assignment",
+    icon: "description",
     title: "Military-Grade Documentation",
     description:
       "Federal-standard formatting and complete operational specifications",
@@ -272,7 +272,7 @@ const successFactors = [
       "All requirements thoroughly addressed with supporting documentation",
   },
   {
-    icon: "business_center",
+    icon: "military_tech",
     title: "Veteran-Owned Qualified Contractor",
     description:
       "Veteran-owned since January 2025 under Army veteran leadership with proven federal contracting capabilities and 150+ years combined team experience",
@@ -373,8 +373,10 @@ export default function PublicSectorPage() {
           <FadeInWhenVisible>
             <div className="mb-16 lg:mb-24 text-center">
               <MaterialIcon
-                icon="support"
+                icon="account_balance"
                 size="4xl"
+                theme="military"
+                ariaLabel="Federal Contracting Support Services"
                 className="mb-6 text-gray-700 dark:text-gray-300"
               />
               <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
@@ -456,6 +458,8 @@ export default function PublicSectorPage() {
                 <MaterialIcon
                   icon="science"
                   size="4xl"
+                  theme="military"
+                  ariaLabel="Department of Energy Expertise"
                   className="mb-6 text-gray-300"
                 />
                 <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
@@ -504,6 +508,8 @@ export default function PublicSectorPage() {
                     <MaterialIcon
                       icon="construction"
                       size="3xl"
+                      theme="military"
+                      ariaLabel="Federal Project Capabilities"
                       className="flex-shrink-0 mr-6 text-gray-300"
                     />
                     <div>
@@ -546,8 +552,10 @@ export default function PublicSectorPage() {
           <FadeInWhenVisible>
             <div className="mb-16 lg:mb-24 text-center">
               <MaterialIcon
-                icon="folder_special"
+                icon="gavel"
                 size="4xl"
+                theme="military"
+                ariaLabel="Federal Contract Categories"
                 className="mb-6 text-gray-700 dark:text-gray-300"
               />
               <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
@@ -637,6 +645,8 @@ export default function PublicSectorPage() {
                 <MaterialIcon
                   icon="timeline"
                   size="4xl"
+                  theme="military"
+                  ariaLabel="Federal Contract Execution Process"
                   className="mb-6 text-gray-700 dark:text-gray-300"
                 />
                 <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
@@ -700,6 +710,8 @@ export default function PublicSectorPage() {
               <MaterialIcon
                 icon="domain"
                 size="4xl"
+                theme="military"
+                ariaLabel="Federal Facility Classifications"
                 className="mb-6 text-gray-700 dark:text-gray-300"
               />
               <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
@@ -769,6 +781,8 @@ export default function PublicSectorPage() {
                 <MaterialIcon
                   icon="emoji_events"
                   size="4xl"
+                  theme="veteran"
+                  ariaLabel="Mission Success Factors"
                   className="mb-6 text-gray-700 dark:text-gray-300"
                 />
                 <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
@@ -835,6 +849,8 @@ export default function PublicSectorPage() {
               <MaterialIcon
                 icon="flag"
                 size="4xl"
+                theme="veteran"
+                ariaLabel="Ready to Execute Your Federal Mission"
                 className="mb-8 text-gray-300"
               />
               <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
@@ -858,8 +874,10 @@ export default function PublicSectorPage() {
                 <div className="gap-6 grid md:grid-cols-3 text-center">
                   <div>
                     <MaterialIcon
-                      icon="phone"
+                      icon="call"
                       size="2xl"
+                      theme="military"
+                      ariaLabel="Call Us"
                       className="mb-3 text-gray-300"
                     />
                     <p className="mb-1 text-gray-400 text-sm">Call Us</p>
@@ -872,8 +890,10 @@ export default function PublicSectorPage() {
                   </div>
                   <div>
                     <MaterialIcon
-                      icon="email"
+                      icon="mark_email_read"
                       size="2xl"
+                      theme="military"
+                      ariaLabel="Email Us"
                       className="mb-3 text-gray-300"
                     />
                     <p className="mb-1 text-gray-400 text-sm">Email Us</p>
@@ -888,6 +908,8 @@ export default function PublicSectorPage() {
                     <MaterialIcon
                       icon="location_on"
                       size="2xl"
+                      theme="military"
+                      ariaLabel="Visit Us"
                       className="mb-3 text-gray-300"
                     />
                     <p className="mb-1 text-gray-400 text-sm">Visit Us</p>
@@ -907,9 +929,11 @@ export default function PublicSectorPage() {
                     className="bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-800 px-10 py-7 text-white text-xl"
                   >
                     <MaterialIcon
-                      icon="phone_in_talk"
+                      icon="campaign"
                       className="mr-3"
                       size="lg"
+                      theme="military"
+                      ariaLabel="Request Mission Brief"
                     />
                     Request Mission Brief
                   </Button>
@@ -918,7 +942,13 @@ export default function PublicSectorPage() {
                   size="lg"
                   className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-500 dark:hover:bg-gray-600 px-10 py-7 text-white dark:text-white text-xl"
                 >
-                  <MaterialIcon icon="download" className="mr-3" size="lg" />
+                  <MaterialIcon
+                    icon="download"
+                    className="mr-3"
+                    size="lg"
+                    theme="military"
+                    ariaLabel="Federal Capabilities Brief"
+                  />
                   Federal Capabilities Brief
                 </Button>
               </div>
@@ -928,6 +958,8 @@ export default function PublicSectorPage() {
                   icon="schedule"
                   className="inline mr-2"
                   size="sm"
+                  theme="military"
+                  ariaLabel="Business Hours"
                 />
                 Monday - Friday: 0700 - 1600 PST | Emergency Response Available
                 24/7

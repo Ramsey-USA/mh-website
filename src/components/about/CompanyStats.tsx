@@ -57,7 +57,7 @@ export interface CompanyStatsProps {
 // Company Stats Data - Updated with 6 Differences Key Metrics
 export const companyStats: StatItem[] = [
   {
-    iconName: "emoji_events",
+    iconName: "health_and_safety",
     value: 0.64,
     label: "Award-Winning Safety EMR",
     prefix: "",
@@ -80,7 +80,7 @@ export const companyStats: StatItem[] = [
     animated: true,
   },
   {
-    iconName: "verified_user",
+    iconName: "verified",
     value: 3,
     label: "States Licensed & Insured",
     animated: false,

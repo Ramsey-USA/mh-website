@@ -28,7 +28,7 @@ export const leadershipTeam = [
     ],
     philosophy:
       "Operational excellence through military-grade discipline applied to people, safety, and partnership missions",
-    icon: "account_balance",
+    icon: "military_tech",
   },
   {
     name: "Arnold Garcia",
@@ -45,7 +45,7 @@ export const leadershipTeam = [
     ],
     philosophy:
       "Primary client liaison for major commercial and industrial construction missions—building partnerships that last beyond mission completion",
-    icon: "business",
+    icon: "hub",
   },
   {
     name: "Mike Holstein",
@@ -62,7 +62,7 @@ export const leadershipTeam = [
     ],
     philosophy:
       'Established the "We Work With You, Not FOR You" mission partnership philosophy and trust-built operational excellence that defines MH Construction today',
-    icon: "foundation",
+    icon: "history",
   },
 ];
 
@@ -78,8 +78,10 @@ export function LeadershipTeam() {
                 <div className="absolute inset-0 bg-brand-accent/20 dark:bg-brand-accent/30 blur-xl rounded-full"></div>
                 <div className="relative bg-gradient-to-br from-brand-accent to-bronze-600 p-4 rounded-2xl shadow-lg">
                   <MaterialIcon
-                    icon="people"
+                    icon="groups"
                     size="2xl"
+                    theme="military"
+                    ariaLabel="Leadership team"
                     className="text-white"
                   />
                 </div>

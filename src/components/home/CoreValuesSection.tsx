@@ -18,7 +18,7 @@ const coreValues = [
   },
   {
     value: "Integrity",
-    icon: "balance",
+    icon: "shield",
     tagline: "Mission First, People Always",
     description:
       "Military-grade ethics—doing what's right when no one's watching, following ROE even when it costs more.",
@@ -119,8 +119,9 @@ export function CoreValuesSection() {
                         >
                           <MaterialIcon
                             icon={item.icon}
-                            size="xl"
+                            size="2xl"
                             className="text-white"
+                            interactive
                           />
                         </div>
                       </div>

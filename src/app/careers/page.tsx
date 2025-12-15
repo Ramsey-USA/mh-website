@@ -303,6 +303,8 @@ export default function CareersPage() {
                     <MaterialIcon
                       icon="military_tech"
                       size="2xl"
+                      theme="veteran"
+                      ariaLabel="Supporting Veterans"
                       className="text-brand-primary"
                     />
                   </div>
@@ -367,6 +369,8 @@ export default function CareersPage() {
                         <MaterialIcon
                           icon="military_tech"
                           size="lg"
+                          theme="veteran"
+                          ariaLabel="Veteran Application"
                           className="mr-3"
                         />
                         <span className="font-medium">Apply as Veteran</span>
@@ -380,6 +384,8 @@ export default function CareersPage() {
                           <MaterialIcon
                             icon="info"
                             size="lg"
+                            theme="military"
+                            ariaLabel="Veterans Initiative"
                             className="mr-3"
                           />
                           <span className="font-medium">
@@ -394,8 +400,10 @@ export default function CareersPage() {
                           className="transition-all duration-300 min-w-[260px]"
                         >
                           <MaterialIcon
-                            icon="contact_mail"
+                            icon="campaign"
                             size="lg"
+                            theme="military"
+                            ariaLabel="Contact Liaison"
                             className="mr-3"
                           />
                           <span className="font-medium">
@@ -828,7 +836,13 @@ export default function CareersPage() {
                       variant="primary"
                       size="lg"
                     >
-                      <MaterialIcon icon="work" size="md" className="mr-2" />
+                      <MaterialIcon
+                        icon="badge"
+                        size="md"
+                        theme="military"
+                        ariaLabel="Open Positions"
+                        className="mr-2"
+                      />
                       View Open Positions
                     </Button>
                     <Button
@@ -838,7 +852,13 @@ export default function CareersPage() {
                       variant="secondary"
                       size="lg"
                     >
-                      <MaterialIcon icon="email" size="md" className="mr-2" />
+                      <MaterialIcon
+                        icon="mark_email_read"
+                        size="md"
+                        theme="military"
+                        ariaLabel="Email Resume"
+                        className="mr-2"
+                      />
                       Email Your Resume
                     </Button>
                   </div>
@@ -916,7 +936,13 @@ export default function CareersPage() {
                     size="lg"
                     className="transition-all duration-300 min-w-[260px]"
                   >
-                    <MaterialIcon icon="upload" size="lg" className="mr-3" />
+                    <MaterialIcon
+                      icon="description"
+                      size="lg"
+                      theme="military"
+                      ariaLabel="Submit Application"
+                      className="mr-3"
+                    />
                     <span className="font-medium">Submit Application</span>
                   </Button>
                   <Link href="/contact">
@@ -926,8 +952,10 @@ export default function CareersPage() {
                       className="transition-all duration-300 min-w-[260px]"
                     >
                       <MaterialIcon
-                        icon="contact_mail"
+                        icon="campaign"
                         size="lg"
+                        theme="military"
+                        ariaLabel="Contact HR"
                         className="mr-3"
                       />
                       <span className="font-medium">Contact HR</span>
@@ -936,9 +964,11 @@ export default function CareersPage() {
                 </div>
                 <p className="mt-8 text-gray-500 dark:text-gray-400 text-lg">
                   <MaterialIcon
-                    icon="phone"
-                    className="inline mr-2"
+                    icon="call"
                     size="sm"
+                    theme="military"
+                    ariaLabel="HR Phone"
+                    className="inline mr-2"
                   />
                   HR Hotline: (509) 308-6489 |{" "}
                   <a

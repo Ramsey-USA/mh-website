@@ -10,7 +10,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const partnershipValues = [
   {
-    icon: "emoji_events",
+    icon: "health_and_safety",
     title: ".64 EMR - Zero-Incident Mission Culture",
     subtitle: "Safety Protocols That Protect Every Team Member",
     description:
@@ -46,7 +46,7 @@ const partnershipValues = [
     statLabel: "Years Combined Experience",
   },
   {
-    icon: "visibility",
+    icon: "fact_check",
     title: "SITREP-Level Transparency",
     subtitle: "Clear Intel, Zero Surprises",
     description:
@@ -87,7 +87,8 @@ const partnershipValues = [
     subtitle: "Proven Track Record Under Pressure",
     description:
       "650+ successfully completed construction operations demonstrate service-earned reliability. Veteran leadership brings military discipline, tactical planning under pressure, and mission-first execution. Whether it's a routine build or urgent construction support—we deliver results no matter the challenges. Reliability trained in service, proven in construction.",
-    iconColor: "text-brand-primary",
+    iconColor: "text-bronze-300",
+    themePreset: "veteran",
     iconBgGradient: "from-brand-primary to-brand-primary-dark",
     accentColor: "brand-primary",
     highlights: [
@@ -100,7 +101,7 @@ const partnershipValues = [
     statLabel: "Successful Missions",
   },
   {
-    icon: "verified_user",
+    icon: "verified",
     title: "3-State Operational Authority",
     subtitle: "Licensed for Multi-Jurisdiction Deployment",
     description:
@@ -202,6 +203,8 @@ export function WhyPartnerSection() {
                           icon={value.icon}
                           size="xl"
                           className="text-white drop-shadow-lg"
+                          interactive
+                          theme={(value as any).themePreset}
                         />
                       </div>
                     </div>

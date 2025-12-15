@@ -25,8 +25,10 @@ export function SafetySection() {
                 <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
                 <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 rounded-2xl shadow-lg">
                   <MaterialIcon
-                    icon="security"
+                    icon="shield"
                     size="2xl"
+                    theme="military"
+                    ariaLabel="Safety and compliance"
                     className="text-white"
                   />
                 </div>
@@ -59,8 +61,10 @@ export function SafetySection() {
             <CardHeader>
               <div className="flex items-center space-x-3 mb-4">
                 <MaterialIcon
-                  icon="security"
+                  icon="verified_user"
                   size="lg"
+                  theme="military"
+                  ariaLabel="Mission-first safety"
                   className="text-brand-primary"
                 />
                 <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">

@@ -190,21 +190,21 @@ const partnershipValues = [
     color: "from-brand-primary to-brand-primary-dark",
   },
   {
-    icon: "schedule",
+    icon: "campaign",
     title: "Reliable Scheduling & Clear Communication",
     description:
       "Transparent open-book communication and dependable project timelines help our trade partners plan effectively and manage their resources with confidence. You control it, we manage it—together with award-winning execution (.64 EMR safety record).",
     color: "from-brand-secondary to-brand-secondary-dark",
   },
   {
-    icon: "payments",
+    icon: "account_balance",
     title: "Fair & Prompt Payment Terms",
     description:
       "Competitive compensation and reliable payment schedules support the financial health and business growth of our Trade Partners. Building projects for the client, NOT the dollar means treating partners with the same transparency and fairness we give Client Partners.",
     color: "from-brand-accent to-brand-accent-dark",
   },
   {
-    icon: "support",
+    icon: "health_and_safety",
     title: "Collaborative Excellence & Safety First",
     description:
       "Working together to solve challenges, share expertise, and deliver exceptional results with award-winning safety standards (.64 EMR—40% better than industry). Everyone goes home safe, every single day, strengthening our network through mutual success.",
@@ -221,7 +221,7 @@ const partnershipBenefits = [
       "Access to a steady flow of quality construction projects throughout the Pacific Northwest, providing reliable business opportunities year-round backed by 150+ years combined team experience and veteran-owned reliability.",
   },
   {
-    icon: "groups",
+    icon: "diversity_3",
     title: "Professional Network & Veteran Support",
     description:
       "Join a network of trusted trade professionals and industry leaders, opening doors to collaboration and business development opportunities. Veteran-owned businesses receive priority consideration in our partnership network.",
@@ -233,13 +233,13 @@ const partnershipBenefits = [
       "Well-defined quality expectations and project specifications help trade partners deliver their best work with confidence and consistency. Award-winning safety protocols (.64 EMR) ensure everyone goes home safe while maintaining the highest standards.",
   },
   {
-    icon: "school",
+    icon: "military_tech",
     title: "Industry Collaboration & Continuous Improvement",
     description:
       "Share best practices, proven solutions, and industry insights in a professional environment that values continuous improvement. 150+ years combined experience means learning from reliable methods while embracing excellence.",
   },
   {
-    icon: "security",
+    icon: "verified_user",
     title: "Insurance & Compliance Support",
     description:
       "Guidance on insurance requirements, safety protocols, and compliance standards to help meet project specifications and industry regulations.",
@@ -349,6 +349,8 @@ export default function AlliesPage() {
                 <MaterialIcon
                   icon="info"
                   size="xl"
+                  theme="military"
+                  ariaLabel="Important Partnership Information"
                   className="text-brand-primary flex-shrink-0 mt-1"
                 />
                 <div>
@@ -511,7 +513,12 @@ export default function AlliesPage() {
                             href="/contact"
                             className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary hover:bg-brand-accent text-white transition-all duration-300 rounded-lg font-semibold shadow-md hover:shadow-lg"
                           >
-                            <MaterialIcon icon="handshake" size="sm" />
+                            <MaterialIcon
+                              icon="handshake"
+                              size="sm"
+                              theme="veteran"
+                              ariaLabel="Apply"
+                            />
                             <span>Apply Now</span>
                           </Link>
                         </div>
@@ -600,7 +607,13 @@ export default function AlliesPage() {
             <div className="bg-gradient-to-r from-brand-primary/10 via-brand-secondary/10 to-brand-primary/10 dark:from-brand-primary/20 dark:via-brand-secondary/20 dark:to-brand-primary/20 p-8 lg:p-10 border-2 border-brand-primary/30 rounded-xl shadow-lg mb-12">
               <div className="flex flex-col lg:flex-row items-center gap-6 text-center lg:text-left">
                 <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full shadow-lg">
-                  <MaterialIcon icon="shield" className="text-white text-5xl" />
+                  <MaterialIcon
+                    icon="military_tech"
+                    size="4xl"
+                    theme="veteran"
+                    ariaLabel="Veteran-Owned Priority"
+                    className="text-white"
+                  />
                 </div>
                 <div className="flex-1">
                   <h3 className="mb-3 font-black text-gray-900 dark:text-white text-2xl lg:text-3xl">
@@ -617,7 +630,12 @@ export default function AlliesPage() {
                     href="/veterans"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary hover:bg-brand-accent text-white transition-all duration-300 rounded-lg font-bold shadow-md hover:shadow-lg"
                   >
-                    <MaterialIcon icon="military_tech" size="md" />
+                    <MaterialIcon
+                      icon="military_tech"
+                      size="md"
+                      theme="veteran"
+                      ariaLabel="Veterans Initiative"
+                    />
                     <span>Learn About Our Veterans Initiative</span>
                   </Link>
                 </div>
@@ -634,6 +652,8 @@ export default function AlliesPage() {
                       <MaterialIcon
                         icon="verified"
                         size="lg"
+                        theme="military"
+                        ariaLabel="Essential Qualifications"
                         className="text-white"
                       />
                     </div>
@@ -656,6 +676,8 @@ export default function AlliesPage() {
                         <MaterialIcon
                           icon="check_circle"
                           size="sm"
+                          theme="military"
+                          ariaLabel="Required"
                           className="text-brand-primary mr-3 flex-shrink-0 mt-1"
                         />
                         <span className="text-gray-700 dark:text-gray-300">
@@ -676,6 +698,8 @@ export default function AlliesPage() {
                       <MaterialIcon
                         icon="workspace_premium"
                         size="lg"
+                        theme="veteran"
+                        ariaLabel="Preferred Qualifications"
                         className="text-white"
                       />
                     </div>
@@ -698,6 +722,8 @@ export default function AlliesPage() {
                         <MaterialIcon
                           icon="star"
                           size="sm"
+                          theme="veteran"
+                          ariaLabel="Preferred"
                           className="text-brand-secondary mr-3 flex-shrink-0 mt-1"
                         />
                         <span className="text-gray-700 dark:text-gray-300">
@@ -730,28 +756,28 @@ export default function AlliesPage() {
               {[
                 {
                   step: "1",
-                  icon: "assignment",
+                  icon: "description",
                   title: "Submit Application",
                   description:
                     "Complete our vendor application with company information, specializations, and licensing details.",
                 },
                 {
                   step: "2",
-                  icon: "description",
+                  icon: "verified_user",
                   title: "Documentation Review",
                   description:
                     "Provide required documents including licenses, insurance certificates, and safety certifications.",
                 },
                 {
                   step: "3",
-                  icon: "photo_library",
+                  icon: "emoji_events",
                   title: "Portfolio & References",
                   description:
                     "Share recent project examples, quality samples, and professional references for verification.",
                 },
                 {
                   step: "4",
-                  icon: "how_to_reg",
+                  icon: "badge",
                   title: "Approval & Onboarding",
                   description:
                     "Upon approval, receive vendor credentials and access to our trade partnership portal.",
@@ -764,6 +790,8 @@ export default function AlliesPage() {
                         <MaterialIcon
                           icon={step.icon}
                           size="xl"
+                          theme="military"
+                          ariaLabel={`Step ${step.step}`}
                           className="text-white"
                         />
                       </div>
@@ -793,6 +821,8 @@ export default function AlliesPage() {
               <MaterialIcon
                 icon="diversity_3"
                 size="4xl"
+                theme="veteran"
+                ariaLabel="Partnership Network"
                 className="mb-6 text-brand-primary"
               />
               <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
@@ -825,18 +855,35 @@ export default function AlliesPage() {
                     size="lg"
                     className="bg-brand-secondary hover:bg-brand-secondary-dark dark:bg-brand-secondary dark:hover:bg-brand-secondary-dark shadow-xl text-black dark:text-black"
                   >
-                    <MaterialIcon icon="photo_library" className="mr-2" />
+                    <MaterialIcon
+                      icon="emoji_events"
+                      size="sm"
+                      theme="veteran"
+                      ariaLabel="Portfolio"
+                    />
                     View Our Portfolio
                   </Button>
                 </Link>
               </div>
               <p className="mt-6 text-gray-500 dark:text-gray-400">
-                <MaterialIcon icon="phone" className="inline mr-2" size="sm" />
+                <MaterialIcon
+                  icon="call"
+                  size="sm"
+                  theme="military"
+                  ariaLabel="Phone"
+                  className="inline mr-2"
+                />
                 Trade Partnership Inquiries: (509) 308-6489 | 7:00 AM - 4:00 PM
                 PST
               </p>
               <p className="text-gray-500 dark:text-gray-400">
-                <MaterialIcon icon="email" className="inline mr-2" size="sm" />
+                <MaterialIcon
+                  icon="mark_email_read"
+                  size="sm"
+                  theme="military"
+                  ariaLabel="Email"
+                  className="inline mr-2"
+                />
                 office@mhc-gc.com
               </p>
             </div>

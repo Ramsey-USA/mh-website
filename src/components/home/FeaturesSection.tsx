@@ -11,7 +11,7 @@ import { useChatbot } from "@/contexts/ChatbotContext";
 const features = [
   {
     id: "ai-estimator",
-    icon: "smart_toy",
+    icon: "calculate",
     title: "Quick Budget Planner",
     description:
       "Helpful planning tool providing preliminary budget estimates with regional market intelligence to prepare for your consultation.",
@@ -28,7 +28,7 @@ const features = [
   },
   {
     id: "smart-scheduling",
-    icon: "event",
+    icon: "schedule",
     title: "Smart Scheduling",
     description:
       "Visual calendar system with real-time availability and instant confirmations for seamless booking experience.",
@@ -45,7 +45,7 @@ const features = [
   },
   {
     id: "3d-explorer",
-    icon: "visibility",
+    icon: "explore",
     title: "3D Project Explorer",
     description:
       "Immersive HD visualization with real-time builder insights to bring your vision to life before construction begins.",
@@ -62,7 +62,7 @@ const features = [
   },
   {
     id: "ai-assistant",
-    icon: "security",
+    icon: "support_agent",
     title: "24/7 Support Assistant",
     description:
       "Helpful support tool with enhanced chatbot providing context-aware veteran assistance and instant responses.",

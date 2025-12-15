@@ -127,6 +127,16 @@ export default function TeamPage() {
           {/* Content - Bottom Right */}
           <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
             <div className="space-y-2 sm:space-y-3 md:space-y-4 text-right">
+              {/* Team Six Unit Icon */}
+              <div className="flex justify-end mb-4">
+                <MaterialIcon
+                  icon="groups"
+                  size="5xl"
+                  theme="military"
+                  className="drop-shadow-2xl opacity-90 hover:opacity-100 transition-opacity"
+                  ariaLabel="Team Six - Elite construction team"
+                />
+              </div>
               {/* Main Title */}
               <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
                 <span className="block text-brand-secondary">Team Six</span>
@@ -220,7 +230,7 @@ export default function TeamPage() {
               <FadeInWhenVisible>
                 <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl md:rounded-2xl">
                   <SectionHeader
-                    icon="handshake"
+                    icon="diversity_3"
                     iconVariant="secondary"
                     subtitle="Our Partnership"
                     title="Company Culture"
@@ -257,8 +267,10 @@ export default function TeamPage() {
                       <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
                         <div className="flex justify-center items-center bg-gradient-to-r from-brand-secondary to-brand-secondary-dark mx-auto mb-6 rounded-full w-16 h-16">
                           <MaterialIcon
-                            icon="favorite"
+                            icon="volunteer_activism"
                             size="lg"
+                            theme="tactical"
+                            ariaLabel="Mutual support"
                             className="text-white"
                           />
                         </div>
@@ -472,7 +484,7 @@ export default function TeamPage() {
               <FadeInWhenVisible>
                 <div className="bg-gradient-to-br from-accent-500/5 to-primary-500/5 dark:from-accent-500/10 dark:to-primary-500/10 p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl md:rounded-2xl">
                   <SectionHeader
-                    icon="trending_up"
+                    icon="school"
                     iconVariant="bronze"
                     subtitle="Professional Development &"
                     title="Career Growth"
@@ -508,8 +520,9 @@ export default function TeamPage() {
                       <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
                         <div className="flex justify-center items-center bg-gradient-to-r from-primary-600 to-primary-700 mx-auto mb-6 rounded-full w-16 h-16">
                           <MaterialIcon
-                            icon="swap_horiz"
+                            icon="sync_alt"
                             size="lg"
+                            ariaLabel="Cross-training"
                             className="text-white"
                           />
                         </div>
@@ -530,8 +543,9 @@ export default function TeamPage() {
                       <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
                         <div className="flex justify-center items-center bg-gradient-to-r from-secondary-600 to-secondary-700 mx-auto mb-6 rounded-full w-16 h-16">
                           <MaterialIcon
-                            icon="people"
+                            icon="supervisor_account"
                             size="lg"
+                            ariaLabel="Mentorship"
                             className="text-white"
                           />
                         </div>
@@ -574,8 +588,9 @@ export default function TeamPage() {
                       <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
                         <div className="flex justify-center items-center bg-gradient-to-r from-primary-600 to-primary-700 mx-auto mb-6 rounded-full w-16 h-16">
                           <MaterialIcon
-                            icon="stars"
+                            icon="badge"
                             size="lg"
+                            ariaLabel="Leadership development"
                             className="text-white"
                           />
                         </div>
@@ -596,8 +611,9 @@ export default function TeamPage() {
                       <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-shadow duration-300">
                         <div className="flex justify-center items-center bg-gradient-to-r from-secondary-600 to-secondary-700 mx-auto mb-6 rounded-full w-16 h-16">
                           <MaterialIcon
-                            icon="hub"
+                            icon="connect_without_contact"
                             size="lg"
+                            ariaLabel="Industry involvement"
                             className="text-white"
                           />
                         </div>

@@ -1,7 +1,7 @@
 # Icons Documentation Hub
 
 **Category:** UI Components - Icons and Visual Indicators
-**Last Updated:** December 14, 2025
+**Last Updated:** December 15, 2025
 **Status:** ✅ Active - Consolidated Documentation Structure
 
 ## 🧭 Quick Navigation
@@ -10,17 +10,21 @@
 - [🛠️ Technical Index](../../technical-index.md) - Technical documentation hub
 - [🎨 Design System](../design-system.md) - Complete design system
 - [🎨 Branding Standards](../../../branding/standards/standards-index.md) - Brand visual standards
+- [🎖️ Military-Themed Rebrand](../../../branding/strategy/military-themed-rebrand.md) - Military naming strategy
 
 ---
 
 ## 📋 Overview
 
 Complete documentation for MH Construction's icon system using Google Material Icons. This hub provides unified
-access to icon policies, implementation guidelines, usage inventory, and specialized guides.
+access to icon policies, implementation guidelines, usage inventory, and specialized guides with enhanced
+support for our veteran-owned, military-precision brand identity.
 
 **What's Here:**
 
 - Icon policy and standards (emoji-free enforcement)
+- **NEW:** Military-themed icon recommendations
+- **NEW:** Icon selection and usage standards
 - Icon usage inventory across the site
 - Quick reference for developers
 - Specialized guides (hover effects, sizing)
@@ -29,6 +33,58 @@ access to icon policies, implementation guidelines, usage inventory, and special
 ---
 
 ## 📚 Documentation Structure
+
+### 🎖️ NEW: Military Icon Enhancements
+
+**[military-icon-guide.md](./military-icon-guide.md)** - **NEW (Dec 2025)** - Military-Themed Icon Strategy
+
+Comprehensive guide for expanding icons to better align with MH Construction's veteran-owned, military-precision
+brand identity established in January 2025.
+
+**Coverage:**
+
+- 🛡️ Service & recognition icons (military_tech, shield, anchor, etc.)
+- 🎯 Mission & operations icons (flag, map, route, etc.)
+- 👥 Team & leadership icons (groups, supervisor_account, etc.)
+- 🔐 Security & compliance icons (security, verified_user, policy, etc.)
+- 📞 Communication icons optimized for military context
+- 🏗️ Construction services with tactical emphasis
+- 📊 Project showcase ("Victories") icons
+- ⚡ Action & navigation with mission focus
+
+**Use Cases:**
+
+- Selecting military-appropriate icons
+- Enhancing veteran recognition
+- Strengthening brand identity
+- Page-specific icon recommendations
+
+---
+
+**[icon-selection-guide.md](./icon-selection-guide.md)** - **NEW (Dec 2025)** - Icon Selection Standards
+
+Comprehensive standards for selecting, implementing, and maintaining icons with consistent semantic meaning
+and brand alignment.
+
+**Coverage:**
+
+- 🎯 Selection principles (semantic accuracy, consistency, visual weight)
+- 📐 Size standards and hierarchy
+- 🎨 Color standards (military/veteran context, service categories)
+- 🔄 Animation standards and guidelines
+- 📍 Context-specific guidelines (buttons, cards, lists, navigation)
+- 🚫 Common mistakes and how to avoid them
+- 📊 Icon audit checklist
+- 🔍 Decision tree for choosing icons
+
+**Use Cases:**
+
+- Choosing the right icon for any purpose
+- Maintaining consistency across site
+- Ensuring accessibility and brand alignment
+- Auditing existing icon usage
+
+---
 
 ### 📖 Complete Implementation Guide
 
@@ -178,11 +234,12 @@ the application.
 
 **Implementing a Material Icon:**
 
-1. Review [icon-policy-complete.md](./icon-policy-complete.md) for policy requirements
-2. Check [icon-usage-inventory.md](./icon-usage-inventory.md) to avoid duplicates
-3. Use [icon-system-quick-reference.md](./icon-system-quick-reference.md) for syntax
-4. Reference [icon-hover-effects-guide.md](./icon-hover-effects-guide.md) for interactions
-5. Test across light/dark themes
+1. **NEW:** Review [military-icon-guide.md](./military-icon-guide.md) for military-themed recommendations
+2. **NEW:** Check [icon-selection-guide.md](./icon-selection-guide.md) for selection standards
+3. Check [icon-usage-inventory.md](./icon-usage-inventory.md) to avoid duplicates
+4. Use [icon-system-quick-reference.md](./icon-system-quick-reference.md) for syntax
+5. Reference [icon-hover-effects-guide.md](./icon-hover-effects-guide.md) for interactions
+6. Test across light/dark themes
 
 **Basic Implementation:**
 
@@ -191,6 +248,49 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 
 // Simple icon
 <MaterialIcon icon="construction" size="md" />
+
+// Icon with veteran theme (NEW)
+<MaterialIcon icon="military_tech" size="xl" theme="veteran" />
+
+// Icon with aria label for accessibility (NEW)
+<MaterialIcon icon="phone" size="lg" ariaLabel="Call us" />
+
+// Icon with military tactical styling (NEW)
+<MaterialIcon icon="map" size="2xl" theme="tactical" />
+
+// Icon with hover effect
+<MaterialIcon
+  icon="handshake"
+  size="lg"
+  className="text-brand-primary hover:text-brand-accent transition-colors duration-300"
+  interactive
+/>
+
+// Icon in button
+<Button variant="primary">
+  <MaterialIcon icon="event" className="mr-2" size="md" interactive />
+  Schedule Consultation
+</Button>
+```
+
+**NEW: Size Options:**
+
+- `xs` (20px) - Extra small, dense layouts
+- `sm` (24px) - Small buttons/inline
+- `md` (30px) - Standard size
+- `lg` (36px) - Feature emphasis
+- `xl` (48px) - Large cards
+- `2xl` (60px) - Section headers
+- `3xl` (72px) - Large features
+- `4xl` (96px) - Hero sections
+- `5xl` (120px) - Extra large heroes
+
+**NEW: Theme Presets:**
+
+- `theme="veteran"` - Bronze veteran recognition styling
+- `theme="military"` - Brand primary military precision
+- `theme="tactical"` - Blue tactical/strategic styling
+- `theme="default"` - No preset theme
 
 // Icon with hover effect
 <MaterialIcon
@@ -201,10 +301,11 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 
 // Icon in button
 <Button variant="primary">
-  <MaterialIcon icon="event" className="mr-2" size="md" />
-  Schedule Consultation
+<MaterialIcon icon="event" className="mr-2" size="md" />
+Schedule Consultation
 </Button>
-```
+
+````
 
 ---
 
@@ -239,7 +340,7 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 
 - 🏗️ Complete construction phase
 - ✅ Quality assurance
-```
+````
 
 **In Code/Components (❌ PROHIBITED):**
 
@@ -312,32 +413,48 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 
 ## 📊 Icon Decision Matrix
 
-| Scenario             | Use                                | Documentation                                                      |
-| -------------------- | ---------------------------------- | ------------------------------------------------------------------ |
-| Navigation link      | Semantic Material Icon             | [icon-usage-inventory.md](./icon-usage-inventory.md)               |
-| Button action        | Action-specific icon + text        | [icon-system-quick-reference.md](./icon-system-quick-reference.md) |
-| Contact info         | Communication icon (call, mail)    | [icon-usage-inventory.md](./icon-usage-inventory.md)               |
-| Status indicator     | State icon (check, warning, error) | [icon-system-quick-reference.md](./icon-system-quick-reference.md) |
-| Documentation header | Emoji (permitted in .md)           | [icon-policy-complete.md](./icon-policy-complete.md)               |
-| Source code visual   | Material Icon only                 | [icon-policy-complete.md](./icon-policy-complete.md)               |
+| Scenario                 | Use                                | Documentation                                                      |
+| ------------------------ | ---------------------------------- | ------------------------------------------------------------------ |
+| Military/Veteran context | Military-themed icons              | [military-icon-guide.md](./military-icon-guide.md)                 |
+| Choosing new icon        | Selection standards                | [icon-selection-guide.md](./icon-selection-guide.md)               |
+| Navigation link          | Semantic Material Icon             | [icon-usage-inventory.md](./icon-usage-inventory.md)               |
+| Button action            | Action-specific icon + text        | [icon-system-quick-reference.md](./icon-system-quick-reference.md) |
+| Contact info             | Communication icon (call, mail)    | [icon-usage-inventory.md](./icon-usage-inventory.md)               |
+| Status indicator         | State icon (check, warning, error) | [icon-system-quick-reference.md](./icon-system-quick-reference.md) |
+| Documentation header     | Emoji (permitted in .md)           | [icon-policy-complete.md](./icon-policy-complete.md)               |
+| Source code visual       | Material Icon only                 | [icon-policy-complete.md](./icon-policy-complete.md)               |
 
 ---
 
 ## 🎨 Icon Sizes & Standards
 
-### Size Variants
+### Size Variants (UPDATED)
 
-| Size | Pixels | Use Case                      |
-| ---- | ------ | ----------------------------- |
-| `xs` | 16px   | Inline text, tight spaces     |
-| `sm` | 20px   | Small buttons, compact UI     |
-| `md` | 24px   | Default size, most contexts   |
-| `lg` | 32px   | Prominent actions, headers    |
-| `xl` | 40px   | Hero sections, large features |
+| Size  | Pixels | Use Case                               |
+| ----- | ------ | -------------------------------------- |
+| `xs`  | 20px   | **NEW** - Extra small, dense layouts   |
+| `sm`  | 24px   | Small buttons, inline text, compact UI |
+| `md`  | 30px   | Default size, standard contexts        |
+| `lg`  | 36px   | Feature emphasis, standard cards       |
+| `xl`  | 48px   | Large cards, prominent features        |
+| `2xl` | 60px   | Section headers, major features        |
+| `3xl` | 72px   | Large feature icons                    |
+| `4xl` | 96px   | Hero sections, page headers            |
+| `5xl` | 120px  | **NEW** - Extra large hero displays    |
+
+### Theme Presets (NEW)
+
+| Theme      | Color                      | Use Case                                  |
+| ---------- | -------------------------- | ----------------------------------------- |
+| `veteran`  | Bronze (`text-bronze-300`) | Veteran recognition badges, awards        |
+| `military` | Brand Primary              | Military precision, construction services |
+| `tactical` | Blue                       | Strategic planning, federal operations    |
+| `default`  | None                       | Use custom className for color            |
 
 ### Accessibility Requirements
 
 - ✅ Provide text labels or aria-labels for all functional icons
+- ✅ Use `ariaLabel` prop for standalone icons with semantic meaning
 - ✅ Ensure 3:1 contrast ratio for icon colors (WCAG AA)
 - ✅ Icons must be operable via keyboard
 - ✅ Screen reader compatibility (semantic HTML)
@@ -366,6 +483,7 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 - [Brand Standards](../../../branding/standards/standards-index.md) - Visual standards hub
 - [Color System](../../../branding/standards/color-system.md) - Brand colors for icons
 - [Component Standards](../../../branding/standards/component-standards.md) - Component guidelines
+- [Military-Themed Rebrand](../../../branding/strategy/military-themed-rebrand.md) - **NEW** - Brand strategy
 
 ---
 
@@ -381,26 +499,36 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 
 ### Icon Size Issues
 
-1. Check size prop is valid (`xs`, `sm`, `md`, `lg`, `xl`)
+1. Check size prop is valid (`xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`) - **UPDATED**
 2. Verify no conflicting CSS classes
 3. Test in different browsers
 4. Review [icon-size-troubleshooting.md](./icon-size-troubleshooting.md) for detailed fixes
 
 ### Icon Color Not Changing
 
-1. Verify Tailwind color classes are correct
-2. Check theme context (light/dark mode)
-3. Ensure no parent styles overriding color
-4. Test with direct color prop if needed
-5. See [icon-system-quick-reference.md](./icon-system-quick-reference.md) color section
+1. **NEW:** Try using `theme` prop for preset colors (`veteran`, `military`, `tactical`)
+2. Verify Tailwind color classes are correct
+3. Check theme context (light/dark mode)
+4. Ensure no parent styles overriding color
+5. Test with direct color prop if needed
+6. See [icon-system-quick-reference.md](./icon-system-quick-reference.md) color section
+
+### Accessibility Issues (NEW)
+
+1. Use `ariaLabel` prop for standalone icons with semantic meaning
+2. Ensure interactive icons have keyboard accessibility
+3. Verify color contrast meets WCAG AA standards (3:1 minimum)
+4. Test with screen readers
+5. See [icon-selection-guide.md](./icon-selection-guide.md) accessibility section
 
 ### Hover Effects Not Working
 
 1. Verify transition classes are applied
 2. Check parent element has group class if using group-hover
 3. Ensure hover classes have proper syntax
-4. Test browser compatibility
-5. Review [icon-hover-effects-guide.md](./icon-hover-effects-guide.md) for patterns
+4. **NEW:** Set `interactive={true}` prop for performance optimization
+5. Test browser compatibility
+6. Review [icon-hover-effects-guide.md](./icon-hover-effects-guide.md) for patterns
 
 ### Policy Violations
 
@@ -414,7 +542,7 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 
 ## 📦 Available Resources
 
-### MaterialIcon Component
+### MaterialIcon Component (UPDATED)
 
 **Location:** `/src/components/icons/MaterialIcon.tsx`
 
@@ -423,7 +551,14 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 ```typescript
 interface MaterialIconProps {
   icon: string; // Material icon name
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl"; // UPDATED
+  className?: string; // Additional Tailwind classes
+  ariaLabel?: string; // NEW - Accessibility label
+  theme?: "veteran" | "military" | "tactical" | "default"; // NEW - Theme preset
+  interactive?: boolean; // Performance hint for animations
+  primaryColor?: string; // Direct color override
+  style?: CSSProperties; // Inline styles
+}
   className?: string; // Additional Tailwind classes
   ariaLabel?: string; // Accessibility label
 }
@@ -446,44 +581,59 @@ interface MaterialIconProps {
 
 - Use Material Icons exclusively in source code
 - Choose semantically meaningful icons
-- Provide aria-labels for accessibility
+- **NEW:** Use [icon-selection-guide.md](./icon-selection-guide.md) for guidance
+- **NEW:** Consider military-themed alternatives from [military-icon-guide.md](./military-icon-guide.md)
+- Provide aria-labels for accessibility (use `ariaLabel` prop)
 - Check icon inventory before adding new icons
 - Test icons in light and dark modes
 - Use consistent sizing within components
 - Add smooth transitions for hover effects
+- **NEW:** Use `theme` prop for consistent military/veteran styling
 
 ### Don'ts ❌
 
 - Never use emojis in .ts, .tsx, .js, .jsx files
 - Don't use multiple icons for the same action
 - Avoid overly decorative or unclear icons
-- Don't forget accessibility considerations
+- Don't forget accessibility considerations (`ariaLabel` prop)
 - Avoid custom icon libraries (stick to Material)
 - Don't use icons without text labels for critical actions
 - Avoid inconsistent sizing across similar contexts
+- **NEW:** Don't override theme colors without good reason
 
 ---
 
-## 📈 Icon Usage Statistics
+## 📈 Icon Usage Statistics (UPDATED)
 
 **Current Icon Inventory:**
 
-- Navigation Icons: 11 unique assignments
-- Footer Icons: 8 unique assignments
+- Navigation Icons: 11+ unique assignments
+- Footer Icons: 8+ unique assignments
 - Contact Icons: 3 standard icons
 - Social Media Icons: 5 platform icons
-- Total Unique Icons: ~30+ across site
+- **NEW:** Military/Veteran Icons: 8+ theme-specific icons
+- **NEW:** Service Category Icons: 15+ specialized icons
+- Total Unique Icons: 50+ across site
 
 **Policy Compliance:**
 
 - Source Code: 100% Material Icons (emoji-free)
 - Documentation: Emojis permitted for visual enhancement
-- Accessibility: All functional icons have text labels
+- Accessibility: All functional icons have text labels or aria-labels
+- **NEW:** Military Theme: Consistent use of veteran/military iconography
 
 ---
 
 ## 🔄 Version History
 
+- **2.0.0** (Dec 15, 2025): **Major Update** - Military Icon Enhancement
+  - Added [military-icon-guide.md](./military-icon-guide.md) with 60+ military-themed icons
+  - Added [icon-selection-guide.md](./icon-selection-guide.md) for comprehensive standards
+  - Enhanced MaterialIcon component with `xs`, `5xl` sizes
+  - Added `theme` prop for preset military/veteran styling
+  - Added `ariaLabel` prop for improved accessibility
+  - Expanded size options from 5 to 9 variants
+  - Updated all documentation with new features
 - **1.0.0** (Nov 6, 2025): Initial consolidated documentation hub created
   - Established clear navigation structure
   - Integrated policy, inventory, and specialized guides

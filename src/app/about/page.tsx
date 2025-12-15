@@ -174,8 +174,11 @@ export default function AboutPage() {
                   <div className="mb-6 flex justify-center">
                     <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-3 shadow-md group-hover:scale-110 transition-transform duration-300">
                       <MaterialIcon
-                        icon="people"
-                        className="text-4xl text-white"
+                        icon="groups"
+                        size="xl"
+                        theme="military"
+                        ariaLabel="Our partners"
+                        className="text-white"
                       />
                     </div>
                   </div>
@@ -228,8 +231,11 @@ export default function AboutPage() {
                   <div className="mb-6 flex justify-center">
                     <div className="rounded-xl bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-3 shadow-md group-hover:scale-110 transition-transform duration-300">
                       <MaterialIcon
-                        icon="location_city"
-                        className="text-4xl text-white"
+                        icon="domain"
+                        size="xl"
+                        theme="tactical"
+                        ariaLabel="Our community"
+                        className="text-white"
                       />
                     </div>
                   </div>
@@ -364,8 +370,10 @@ export default function AboutPage() {
                     <div className="absolute inset-0 bg-brand-secondary/20 dark:bg-brand-secondary/30 blur-xl rounded-full"></div>
                     <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
                       <MaterialIcon
-                        icon="article"
+                        icon="campaign"
                         size="2xl"
+                        theme="military"
+                        ariaLabel="News and achievements"
                         className="text-white"
                       />
                     </div>

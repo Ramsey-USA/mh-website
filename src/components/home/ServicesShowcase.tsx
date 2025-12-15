@@ -13,7 +13,7 @@ import {
 
 const services = [
   {
-    icon: "explore",
+    icon: "engineering",
     title: "Construction Management",
     subtitle: "Complete Project Oversight",
     description:
@@ -34,7 +34,7 @@ const services = [
     cta: "Explore Services",
   },
   {
-    icon: "architecture",
+    icon: "map",
     title: "Master Planning",
     subtitle: "Comprehensive Pre-Construction Services",
     description:
@@ -76,7 +76,7 @@ const services = [
     cta: "View Projects",
   },
   {
-    icon: "straighten",
+    icon: "inventory_2",
     title: "Procurement & Trade Partnerships",
     subtitle: "Supply Chain Management & Trusted Vendors",
     description:
@@ -118,7 +118,7 @@ const services = [
     cta: "See Capabilities",
   },
   {
-    icon: "gps_fixed",
+    icon: "domain",
     title: "Tenant Improvements",
     subtitle: "Efficient Space Transformations",
     description:

@@ -18,7 +18,7 @@ const SHOW_UNDER_CONSTRUCTION = false;
 // Quick contact info with proper accessibility
 const quickContact = [
   {
-    icon: "phone",
+    icon: "call",
     label: "Call Us",
     value: "(509) 308-6489",
     link: "tel:+15093086489",
@@ -26,7 +26,7 @@ const quickContact = [
     ariaLabel: "Call MH Construction at 509-308-6489",
   },
   {
-    icon: "email",
+    icon: "mark_email_read",
     label: "Email Us",
     value: "office@mhc-gc.com",
     link: "mailto:office@mhc-gc.com",
@@ -34,7 +34,7 @@ const quickContact = [
     ariaLabel: "Send email to MH Construction",
   },
   {
-    icon: "location_on",
+    icon: "place",
     label: "Visit Us",
     value: "3111 N. Capitol Ave., Pasco, WA 99301",
     link: "https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301",
@@ -46,7 +46,7 @@ const quickContact = [
 // Main CTAs - Strategic navigation with consultation prioritized
 const mainCTAs = [
   {
-    icon: "construction",
+    icon: "map",
     label: "The Battle Plan",
     description: "What we build together",
     link: "/services",
@@ -54,7 +54,7 @@ const mainCTAs = [
     ariaLabel: "Explore construction services and solutions",
   },
   {
-    icon: "photo_library",
+    icon: "emoji_events",
     label: "Victories",
     description: "See completed projects",
     link: "/projects",
@@ -62,7 +62,7 @@ const mainCTAs = [
     ariaLabel: "View completed projects and partnerships",
   },
   {
-    icon: "groups",
+    icon: "diversity_3",
     label: "Team Six",
     description: "Your partnership team",
     link: "/team",
@@ -70,7 +70,7 @@ const mainCTAs = [
     ariaLabel: "Meet the MH Construction partnership team",
   },
   {
-    icon: "work",
+    icon: "military_tech",
     label: "Occupation Specialties",
     description: "Career opportunities",
     link: "/careers",
@@ -344,8 +344,10 @@ export default function ContactPageClient() {
                   <div className="flex items-center gap-4 mb-6">
                     <div className="bg-brand-primary/10 dark:bg-brand-primary/20 p-4 rounded-2xl">
                       <MaterialIcon
-                        icon="people"
+                        icon="diversity_3"
                         size="3xl"
+                        theme="military"
+                        ariaLabel="Client Partnership"
                         className="text-brand-primary"
                       />
                     </div>
@@ -365,8 +367,10 @@ export default function ContactPageClient() {
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
                         <MaterialIcon
-                          icon="phone"
+                          icon="call"
                           size="lg"
+                          theme="military"
+                          ariaLabel="Client Services Phone"
                           className="text-brand-primary flex-shrink-0"
                         />
                         <div>
@@ -384,8 +388,10 @@ export default function ContactPageClient() {
                       </div>
                       <div className="flex items-center gap-3">
                         <MaterialIcon
-                          icon="email"
+                          icon="mark_email_read"
                           size="lg"
+                          theme="military"
+                          ariaLabel="Client Services Email"
                           className="text-brand-primary flex-shrink-0"
                         />
                         <div>
@@ -420,7 +426,12 @@ export default function ContactPageClient() {
                       className="flex items-center justify-between bg-brand-primary hover:bg-brand-accent text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
                     >
                       <div className="flex items-center gap-3">
-                        <MaterialIcon icon="phone" size="lg" />
+                        <MaterialIcon
+                          icon="call"
+                          size="lg"
+                          theme="military"
+                          ariaLabel="Contact Us"
+                        />
                         <span>Contact Us Today</span>
                       </div>
                       <MaterialIcon
@@ -434,7 +445,12 @@ export default function ContactPageClient() {
                       className="flex items-center justify-between bg-white dark:bg-gray-700 border-2 border-brand-primary text-brand-primary dark:text-brand-secondary hover:bg-brand-primary hover:text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
                     >
                       <div className="flex items-center gap-3">
-                        <MaterialIcon icon="construction" size="lg" />
+                        <MaterialIcon
+                          icon="map"
+                          size="lg"
+                          theme="military"
+                          ariaLabel="Services"
+                        />
                         <span>Explore Services</span>
                       </div>
                       <MaterialIcon
@@ -451,8 +467,10 @@ export default function ContactPageClient() {
                   <div className="flex items-center gap-4 mb-6">
                     <div className="bg-brand-secondary/10 dark:bg-brand-secondary/20 p-4 rounded-2xl">
                       <MaterialIcon
-                        icon="construction"
+                        icon="handshake"
                         size="3xl"
+                        theme="veteran"
+                        ariaLabel="Ally Partnership"
                         className="text-brand-secondary"
                       />
                     </div>
@@ -472,8 +490,10 @@ export default function ContactPageClient() {
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
                         <MaterialIcon
-                          icon="phone"
+                          icon="call"
                           size="lg"
+                          theme="veteran"
+                          ariaLabel="Ally Inquiries Phone"
                           className="text-brand-secondary flex-shrink-0"
                         />
                         <div>
@@ -491,8 +511,10 @@ export default function ContactPageClient() {
                       </div>
                       <div className="flex items-center gap-3">
                         <MaterialIcon
-                          icon="email"
+                          icon="mark_email_read"
                           size="lg"
+                          theme="veteran"
+                          ariaLabel="Ally Inquiries Email"
                           className="text-brand-secondary flex-shrink-0"
                         />
                         <div>
@@ -527,7 +549,12 @@ export default function ContactPageClient() {
                       className="flex items-center justify-between bg-brand-secondary hover:bg-bronze-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
                     >
                       <div className="flex items-center gap-3">
-                        <MaterialIcon icon="check_circle" size="lg" />
+                        <MaterialIcon
+                          icon="verified_user"
+                          size="lg"
+                          theme="veteran"
+                          ariaLabel="Approved Vendor"
+                        />
                         <span>Apply as Approved Vendor</span>
                       </div>
                       <MaterialIcon
@@ -541,7 +568,12 @@ export default function ContactPageClient() {
                       className="flex items-center justify-between bg-white dark:bg-gray-700 border-2 border-brand-secondary text-brand-secondary hover:bg-brand-secondary hover:text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
                     >
                       <div className="flex items-center gap-3">
-                        <MaterialIcon icon="handshake" size="lg" />
+                        <MaterialIcon
+                          icon="handshake"
+                          size="lg"
+                          theme="veteran"
+                          ariaLabel="Ally Benefits"
+                        />
                         <span>View Ally Benefits</span>
                       </div>
                       <MaterialIcon
@@ -625,7 +657,12 @@ export default function ContactPageClient() {
                   aria-label="Get directions to MH Construction office in Pasco, Washington"
                   className="inline-flex items-center gap-3 bg-white dark:bg-gray-800 border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-brand-primary/50"
                 >
-                  <MaterialIcon icon="directions" size="lg" />
+                  <MaterialIcon
+                    icon="explore"
+                    size="lg"
+                    theme="military"
+                    ariaLabel="Get Directions"
+                  />
                   Get Directions
                 </a>
               </div>
@@ -750,8 +787,9 @@ export default function ContactPageClient() {
                     aria-hidden="true"
                   >
                     <MaterialIcon
-                      icon="report"
+                      icon="emergency"
                       size="4xl"
+                      ariaLabel="Urgent Construction Support"
                       className="text-yellow-300"
                     />
                   </div>
@@ -773,7 +811,11 @@ export default function ContactPageClient() {
                     href="/urgent"
                     className="inline-flex items-center gap-3 bg-white hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-orange-700 transition-all duration-200 hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-white/50"
                   >
-                    <MaterialIcon icon="construction" size="lg" />
+                    <MaterialIcon
+                      icon="engineering"
+                      size="lg"
+                      ariaLabel="Urgent Services"
+                    />
                     View Urgent Services
                   </Link>
                   <a
@@ -781,7 +823,11 @@ export default function ContactPageClient() {
                     aria-label="Call MH Construction urgently at 509-308-6489"
                     className="inline-flex items-center gap-3 bg-orange-800 hover:bg-orange-900 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-200 hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-900/50"
                   >
-                    <MaterialIcon icon="phone" size="lg" />
+                    <MaterialIcon
+                      icon="call"
+                      size="lg"
+                      ariaLabel="Urgent Call"
+                    />
                     Call: (509) 308-6489
                   </a>
                 </div>

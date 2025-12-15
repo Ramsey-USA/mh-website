@@ -50,7 +50,7 @@ export default function UrgentSupportPage() {
   // Original page content preserved below - will be shown when flag is set to false
   const equipmentList = [
     {
-      icon: "precision_manufacturing",
+      icon: "engineering",
       name: "Excavators & Heavy Machinery",
       description:
         "Full-size excavators, loaders, and earth-moving equipment with certified operators",
@@ -62,7 +62,7 @@ export default function UrgentSupportPage() {
         "Commercial-grade power tools, formwork systems, and specialty equipment",
     },
     {
-      icon: "forklift",
+      icon: "precision_manufacturing",
       name: "Material Handling Equipment",
       description:
         "Forklifts, telehandlers, and lifting equipment for large-scale operations",
@@ -76,7 +76,7 @@ export default function UrgentSupportPage() {
 
   const capabilities = [
     {
-      icon: "engineering",
+      icon: "military_tech",
       title: "Expert Structural Consultation",
       description:
         "Immediate professional assessment of critical construction challenges with actionable solutions",
@@ -94,19 +94,19 @@ export default function UrgentSupportPage() {
         "Address structural failures causing leaks, collapses, or safety hazards",
     },
     {
-      icon: "groups",
+      icon: "diversity_3",
       title: "Experienced Crews Available",
       description:
         "Skilled construction professionals ready for immediate deployment to your project site",
     },
     {
-      icon: "build_circle",
+      icon: "bolt",
       title: "Large Equipment & Operators",
       description:
         "Heavy machinery with certified operators available for urgent hire - excavators, loaders, and specialized equipment",
     },
     {
-      icon: "handshake",
+      icon: "diversity_3",
       title: "General Contractor Partnership",
       description:
         "We work WITH you as an Ally, providing the specialized resources you need NOW",
@@ -191,9 +191,11 @@ export default function UrgentSupportPage() {
           <FadeInWhenVisible>
             <div className="text-center mb-8">
               <MaterialIcon
-                icon="report"
+                icon="bolt"
                 size="3xl"
                 className="text-orange-600 dark:text-orange-400 mx-auto mb-4"
+                theme="military"
+                ariaLabel="Emergency Contact"
               />
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
                 Emergency Contact Information
@@ -209,7 +211,12 @@ export default function UrgentSupportPage() {
                 className="inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-700 px-8 py-4 rounded-xl font-bold text-white transition-all duration-200 hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-600/50 w-full sm:w-auto justify-center"
                 aria-label="Call MH Construction urgently at 509-308-6489"
               >
-                <MaterialIcon icon="phone" size="lg" />
+                <MaterialIcon
+                  icon="call"
+                  size="lg"
+                  theme="military"
+                  ariaLabel="Call Now"
+                />
                 Call Now: (509) 308-6489
               </a>
               <a
@@ -217,7 +224,12 @@ export default function UrgentSupportPage() {
                 className="inline-flex items-center gap-3 bg-gray-800 hover:bg-gray-900 px-8 py-4 rounded-xl font-bold text-white transition-all duration-200 hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-gray-800/50 w-full sm:w-auto justify-center"
                 aria-label="Email urgent construction support request"
               >
-                <MaterialIcon icon="email" size="lg" />
+                <MaterialIcon
+                  icon="mark_email_read"
+                  size="lg"
+                  theme="military"
+                  ariaLabel="Email Support"
+                />
                 Email Support Request
               </a>
             </div>
@@ -236,6 +248,8 @@ export default function UrgentSupportPage() {
                     icon="construction"
                     size="3xl"
                     className="text-orange-600 dark:text-orange-400"
+                    theme="military"
+                    ariaLabel="Construction Focus"
                   />
                 </div>
               </div>
@@ -252,7 +266,12 @@ export default function UrgentSupportPage() {
 
             <div className="bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-600 p-6 rounded-r-lg">
               <p className="text-lg font-semibold text-foreground mb-2 flex items-center gap-2">
-                <MaterialIcon icon="info" className="text-orange-600" />
+                <MaterialIcon
+                  icon="info"
+                  className="text-orange-600"
+                  theme="military"
+                  ariaLabel="Professional Contractors Only"
+                />
                 For Professional Contractors Only
               </p>
               <p className="text-muted-foreground">
@@ -310,9 +329,11 @@ export default function UrgentSupportPage() {
               <div className="flex justify-center mb-4">
                 <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl">
                   <MaterialIcon
-                    icon="precision_manufacturing"
+                    icon="engineering"
                     size="4xl"
                     className="text-yellow-300"
+                    theme="military"
+                    ariaLabel="Heavy Equipment & Operators"
                   />
                 </div>
               </div>
@@ -375,6 +396,8 @@ export default function UrgentSupportPage() {
                     icon="check_circle"
                     size="2xl"
                     className="text-green-600 dark:text-green-400"
+                    theme="military"
+                    ariaLabel="What We Provide"
                   />
                   <h2 className="text-2xl font-bold text-foreground">
                     What We Provide
@@ -402,6 +425,8 @@ export default function UrgentSupportPage() {
                     icon="cancel"
                     size="2xl"
                     className="text-red-600 dark:text-red-400"
+                    theme="military"
+                    ariaLabel="What We Don't Provide"
                   />
                   <h2 className="text-2xl font-bold text-foreground">
                     What We Don&apos;t Provide
@@ -432,6 +457,8 @@ export default function UrgentSupportPage() {
               icon="support_agent"
               size="4xl"
               className="mx-auto mb-6 text-yellow-300"
+              theme="military"
+              ariaLabel="Ready to Resolve Your Challenge"
             />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Resolve Your Critical Challenge?
@@ -447,14 +474,24 @@ export default function UrgentSupportPage() {
                 href="tel:+15093086489"
                 className="inline-flex items-center gap-3 bg-white hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-orange-700 transition-all duration-200 hover:scale-105 shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/50"
               >
-                <MaterialIcon icon="phone" size="lg" />
+                <MaterialIcon
+                  icon="call"
+                  size="lg"
+                  theme="military"
+                  ariaLabel="Call Now"
+                />
                 (509) 308-6489
               </a>
               <a
                 href="mailto:office@mhc-gc.com?subject=Urgent%20Construction%20Support%20Request"
                 className="inline-flex items-center gap-3 bg-orange-800 hover:bg-orange-900 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-200 hover:scale-105 shadow-xl focus:outline-none focus:ring-4 focus:ring-orange-900/50"
               >
-                <MaterialIcon icon="email" size="lg" />
+                <MaterialIcon
+                  icon="mark_email_read"
+                  size="lg"
+                  theme="military"
+                  ariaLabel="Email Us"
+                />
                 Email Us
               </a>
             </div>

@@ -37,8 +37,10 @@ export function PartnershipPhilosophy() {
                   <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
                   <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 rounded-2xl shadow-lg">
                     <MaterialIcon
-                      icon="handshake"
+                      icon="diversity_3"
                       size="2xl"
+                      theme="military"
+                      ariaLabel="Partnership philosophy"
                       className="text-white"
                     />
                   </div>
@@ -69,8 +71,11 @@ export function PartnershipPhilosophy() {
               <Card className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 border-2 border-brand-primary dark:border-brand-primary/50 transition-shadow">
                 <CardHeader>
                   <MaterialIcon
-                    icon="flag"
-                    className="mb-3 text-brand-primary text-4xl"
+                    icon="map"
+                    size="xl"
+                    theme="military"
+                    ariaLabel="Our mission"
+                    className="mb-3 text-brand-primary"
                   />
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Our Mission
@@ -87,8 +92,11 @@ export function PartnershipPhilosophy() {
               <Card className="bg-gradient-to-br from-brand-secondary/5 to-brand-accent/5 dark:from-brand-secondary/10 dark:to-brand-accent/10 border-2 border-brand-secondary dark:border-brand-secondary/50 transition-shadow">
                 <CardHeader>
                   <MaterialIcon
-                    icon="visibility"
-                    className="mb-3 text-brand-secondary text-4xl"
+                    icon="explore"
+                    size="xl"
+                    theme="tactical"
+                    ariaLabel="Our vision"
+                    className="mb-3 text-brand-secondary"
                   />
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Our Vision
@@ -108,8 +116,11 @@ export function PartnershipPhilosophy() {
               <Card className={getCardClassName("static")}>
                 <CardHeader>
                   <MaterialIcon
-                    icon="favorite"
-                    className="mb-3 text-brand-secondary text-4xl"
+                    icon="groups"
+                    size="xl"
+                    theme="military"
+                    ariaLabel="Client partnership"
+                    className="mb-3 text-brand-secondary"
                   />
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Client Partnership Approach

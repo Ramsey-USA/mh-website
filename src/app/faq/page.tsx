@@ -76,7 +76,7 @@ const faqCategories = [
   {
     id: "process",
     title: "Process & Partnership",
-    icon: "handshake",
+    icon: "diversity_3",
     questions: [
       {
         question: "How does your consultation process work?",
@@ -135,7 +135,7 @@ const faqCategories = [
   {
     id: "technology",
     title: "Communication & Support",
-    icon: "computer",
+    icon: "campaign",
     questions: [
       {
         question: "Can I speak with a real person?",
@@ -179,7 +179,7 @@ const faqCategories = [
   {
     id: "technical",
     title: "Technical & Project Management",
-    icon: "engineering",
+    icon: "gps_fixed",
     questions: [
       {
         question:
@@ -237,7 +237,7 @@ const faqCategories = [
   {
     id: "partnership",
     title: "Working Together",
-    icon: "groups",
+    icon: "diversity_3",
     questions: [
       {
         question: "What does 'Client Partner' mean?",
@@ -264,7 +264,7 @@ const faqCategories = [
   {
     id: "financial",
     title: "Pricing & Payment",
-    icon: "payments",
+    icon: "description",
     questions: [
       {
         question: "How does your pricing work?",
@@ -303,6 +303,8 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         <MaterialIcon
           icon="expand_more"
           className="text-brand-primary dark:text-brand-primary-light flex-shrink-0 transform group-open:rotate-180 transition-transform duration-300"
+          theme="military"
+          ariaLabel="Expand answer"
         />
       </summary>
       <div className="p-6 pt-2 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-700">
@@ -369,6 +371,8 @@ export default function FAQPage() {
                       icon="help"
                       size="2xl"
                       className="text-white"
+                      theme="veteran"
+                      ariaLabel="Frequently Asked Questions"
                     />
                   </div>
                 </div>
@@ -397,7 +401,12 @@ export default function FAQPage() {
                     size="lg"
                     className="bg-brand-secondary hover:bg-brand-secondary-dark text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    <MaterialIcon icon="calendar_today" className="mr-2" />
+                    <MaterialIcon
+                      icon="campaign"
+                      className="mr-2"
+                      theme="military"
+                      ariaLabel="Schedule Consultation"
+                    />
                     Schedule Consultation
                   </Button>
                 </Link>
@@ -407,7 +416,12 @@ export default function FAQPage() {
                     variant="outline"
                     className="border-2 border-white text-white hover:bg-white/10 font-bold transition-all duration-300"
                   >
-                    <MaterialIcon icon="phone" className="mr-2" />
+                    <MaterialIcon
+                      icon="call"
+                      className="mr-2"
+                      theme="military"
+                      ariaLabel="Call Us"
+                    />
                     Call (509) 308-6489
                   </Button>
                 </Link>
@@ -437,17 +451,26 @@ export default function FAQPage() {
                   <MaterialIcon
                     icon="verified"
                     className="text-brand-primary"
+                    theme="veteran"
+                    ariaLabel="Veteran-Owned"
                   />
                   <span>Veteran-Owned Since Jan 2025</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                  <MaterialIcon icon="shield" className="text-brand-primary" />
+                  <MaterialIcon
+                    icon="health_and_safety"
+                    className="text-brand-primary"
+                    theme="military"
+                    ariaLabel="Safety Record"
+                  />
                   <span>0.64 EMR Safety Record</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
                   <MaterialIcon
                     icon="location_on"
                     className="text-brand-primary"
+                    theme="military"
+                    ariaLabel="Licensed States"
                   />
                   <span>Licensed: WA, OR, ID</span>
                 </div>
@@ -487,6 +510,8 @@ export default function FAQPage() {
                           icon={category.icon}
                           size="xl"
                           className="text-white"
+                          theme="military"
+                          ariaLabel={category.title}
                         />
                       </div>
                     </div>
@@ -534,6 +559,8 @@ export default function FAQPage() {
                       icon="support_agent"
                       size="2xl"
                       className="text-white"
+                      theme="military"
+                      ariaLabel="Customer Support"
                     />
                   </div>
                 </div>
@@ -555,7 +582,12 @@ export default function FAQPage() {
                     size="lg"
                     className="bg-brand-primary hover:bg-brand-primary-dark text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    <MaterialIcon icon="handshake" className="mr-2" />
+                    <MaterialIcon
+                      icon="diversity_3"
+                      className="mr-2"
+                      theme="military"
+                      ariaLabel="Schedule Face-to-Face Consultation"
+                    />
                     Schedule Face-to-Face Consultation
                   </Button>
                 </Link>
@@ -565,7 +597,12 @@ export default function FAQPage() {
                     variant="outline"
                     className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary/10 dark:border-brand-primary-light dark:text-brand-primary-light dark:hover:bg-brand-primary-light/10 font-bold transition-all duration-300"
                   >
-                    <MaterialIcon icon="chat" className="mr-2" />
+                    <MaterialIcon
+                      icon="campaign"
+                      className="mr-2"
+                      theme="military"
+                      ariaLabel="Contact Us"
+                    />
                     Contact Us
                   </Button>
                 </Link>

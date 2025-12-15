@@ -237,19 +237,19 @@ export const companyBenefits: CompanyBenefit[] = [
       "401(k) plan with generous company matching to help secure your financial future. We invest in your long-term success.",
   },
   {
-    icon: "school",
+    icon: "military_tech",
     title: "Professional Development & Continuous Learning",
     description:
       "Continuing education, certifications, and training opportunities to advance your career. Regular training on new techniques, safety standards (OSHA 30, VPP Star standards), and technology plus leadership development, structured mentorship programs, cross-training across multiple specialties, and active industry involvement.",
   },
   {
-    icon: "work_history",
+    icon: "schedule",
     title: "Work-Life Balance",
     description:
       "Flexible scheduling and time off policies that respect your personal life and family commitments. We understand construction demands—and believe in supporting your well-being.",
   },
   {
-    icon: "local_hospital",
+    icon: "verified_user",
     title: "Award-Winning Safety First Culture",
     description:
       "Industry-leading .64 EMR safety record (40% better than industry average), multiple AGC-WA Top EMR Awards (2019-2021, 2025 Most Improved), OSHA VPP Star designation, and 3+ consecutive years without time-loss injuries. Presidential leadership focused on safety management, organizational standards, proactive hazard identification, regular training, and high-quality equipment. Everyone goes home safe, every single day—no timeline or budget overrides safety.",
@@ -265,19 +265,19 @@ export const veteranBenefits: VeteranBenefit[] = [
       "Active veteran hiring initiative with priority consideration for qualified military veterans. We understand the value of military experience and actively recruit those who served.",
   },
   {
-    icon: "handshake",
+    icon: "diversity_3",
     title: "Military Skills Transfer",
     description:
       "Structured transition program helping veterans leverage military skills—equipment operation, team coordination, mission planning—directly into construction careers.",
   },
   {
-    icon: "school",
+    icon: "military_tech",
     title: "GI Bill & Training Support",
     description:
       "Full support for veterans using GI Bill benefits for apprenticeships and continuing education. We'll work with your VA benefits to maximize your training opportunities.",
   },
   {
-    icon: "groups",
+    icon: "diversity_3",
     title: "Veteran Mentorship Program",
     description:
       "Connect with veteran leaders in our organization who understand the military-to-civilian transition. Army veteran leadership provides guidance and support.",
@@ -289,7 +289,7 @@ export const veteranBenefits: VeteranBenefit[] = [
       "We honor your service with recognition, respect, and understanding of military values—discipline, precision, mission focus, and service above self.",
   },
   {
-    icon: "support",
+    icon: "volunteer_activism",
     title: "Transition Assistance",
     description:
       "Comprehensive onboarding specifically designed for veterans, including military-to-construction terminology, civilian workplace culture, and career path planning.",
@@ -306,7 +306,7 @@ export const cultureValues: CultureValue[] = [
     color: "from-brand-primary to-brand-primary-dark",
   },
   {
-    icon: "emoji_people",
+    icon: "diversity_3",
     title: "Team Unity & Military Precision",
     description:
       "Veteran-owned since January 2025 under Army veteran leadership. From veterans to civilians, office to field—we're one team with shared values. Military discipline and structured processes meet proven craftsmanship, combining unwavering attention to detail with reliable execution and mission-focused excellence.",
@@ -320,7 +320,7 @@ export const cultureValues: CultureValue[] = [
     color: "from-brand-accent to-brand-accent-dark",
   },
   {
-    icon: "favorite",
+    icon: "volunteer_activism",
     title: "Community Impact & Safety First",
     description:
       "Building stronger communities, one project and one relationship at a time. Award-winning safety (.64 EMR—40% better than industry, multiple AGC-WA Top EMR Awards, OSHA VPP Star) ensures everyone goes home safe. Understanding that every project serves the broader community through quality craftsmanship and lasting relationships.",
