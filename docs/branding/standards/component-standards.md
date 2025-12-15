@@ -4,7 +4,9 @@
 **Last Updated:** December 15, 2025  
 **Status:** ✅ Active Standard - Home Page Standardization
 
-> **Purpose:** Unified component design system ensuring visual consistency across all website elements using our brand guidelines. **NEW:** Standardized section backgrounds, SectionHeader component requirement, and strict brand color compliance based on home page patterns.
+> **Purpose:** Unified component design system ensuring visual consistency across all website elements using
+> our brand guidelines. **NEW:** Standardized section backgrounds, SectionHeader component requirement, and
+> strict brand color compliance based on home page patterns.
 
 ---
 

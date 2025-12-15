@@ -60,7 +60,9 @@ All major content sections **MUST** follow this pattern established by the home 
 </section>
 ```
 
-````
+```markdown
+Note: This is the required pattern for all sections.
+```
 
 ---
 
@@ -71,8 +73,9 @@ All major content sections **MUST** follow this pattern established by the home 
 **REQUIRED:** Clean base with no gradients
 
 ```tsx
-className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
-````
+className =
+  "relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden";
+```
 
 **Key Points:**
 

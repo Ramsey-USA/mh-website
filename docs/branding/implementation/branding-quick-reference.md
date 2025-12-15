@@ -2,9 +2,12 @@
 
 **For Developers** | **Last Updated**: December 15, 2025 | **Version**: 6.0.0
 
-**⭐ BREAKING CHANGES (Dec 15, 2025)**: Home page standardization complete. All sections MUST use diagonal stripe backgrounds, large color blobs, SectionHeader component, and strict brand color compliance. Custom headers deprecated. Brand-accent color removed.
+**⭐ BREAKING CHANGES (Dec 15, 2025)**: Home page standardization complete. All sections MUST use diagonal
+stripe backgrounds, large color blobs, SectionHeader component, and strict brand color compliance. Custom
+headers deprecated. Brand-accent color removed.
 
-**Previous Update (Dec 13, 2025)**: Complete shift to veteran/honest messaging. All branding emphasizes veteran-owned excellence, honest communication, transparent pricing, and proven craftsmanship.
+**Previous Update (Dec 13, 2025)**: Complete shift to veteran/honest messaging. All branding emphasizes
+veteran-owned excellence, honest communication, transparent pricing, and proven craftsmanship.
 
 ## 🚨 Critical Requirements (Must-Have)
 

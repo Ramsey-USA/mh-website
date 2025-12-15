@@ -8,7 +8,9 @@
 
 ## 📋 Overview
 
-The home page styling has been established as the **official MH Construction branding standard** for all website sections. This standardization ensures visual consistency, simplified maintenance, and professional presentation across the entire site.
+The home page styling has been established as the **official MH Construction branding standard** for all
+website sections. This standardization ensures visual consistency, simplified maintenance, and professional
+presentation across the entire site.
 
 ---
 
