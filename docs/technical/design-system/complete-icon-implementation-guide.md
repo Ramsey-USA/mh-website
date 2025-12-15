@@ -6,7 +6,9 @@
 
 ## Overview
 
-This comprehensive guide documents the complete military-themed icon implementation across the entire MH Construction website. All 12 main pages have been updated with icons that reinforce the veteran-owned brand identity, emphasize military precision, and maintain cross-page consistency.
+This comprehensive guide documents the complete military-themed icon implementation across the entire
+MH Construction website. All 12 main pages have been updated with icons that reinforce the veteran-owned
+brand identity, emphasize military precision, and maintain cross-page consistency.
 
 ## Quick Reference
 
@@ -552,7 +554,8 @@ default: gradient /* Brand colors */
 
 ## Summary
 
-This comprehensive icon implementation establishes MH Construction's veteran-owned brand identity across all 12 main pages. The military-themed approach reinforces:
+This comprehensive icon implementation establishes MH Construction's veteran-owned brand identity across
+all 12 main pages. The military-themed approach reinforces:
 
 - **Veteran Ownership** - Army veteran leadership (January 2025)
 - **Military Precision** - Tactical planning and execution
@@ -560,7 +563,8 @@ This comprehensive icon implementation establishes MH Construction's veteran-own
 - **Safety Excellence** - .64 EMR safety record
 - **Community Service** - Veteran support and giving back
 
-All 247 icons work together to create a cohesive, professional, and distinctly veteran-owned brand experience that honors military service while delivering construction excellence.
+All 247 icons work together to create a cohesive, professional, and distinctly veteran-owned brand
+experience that honors military service while delivering construction excellence.
 
 ---
 

@@ -18,7 +18,8 @@
 
 ## 📋 Overview
 
-Comprehensive standards for selecting, implementing, and maintaining icons across the MH Construction website. This guide ensures consistency, accessibility, and semantic clarity in icon usage.
+Comprehensive standards for selecting, implementing, and maintaining icons across the MH Construction
+website. This guide ensures consistency, accessibility, and semantic clarity in icon usage.
 
 ---
 
@@ -271,7 +272,7 @@ className = "text-gray-400 dark:text-gray-600 opacity-50";
 
 ### Animation Types
 
-**1. Scale (Most Common)**
+#### 1. Scale (Most Common)
 
 ```tsx
 // Standard hover scale
@@ -284,7 +285,7 @@ className = "group-hover:scale-105 transition-transform duration-200";
 className = "group-hover:scale-125 transition-transform duration-300";
 ```
 
-**2. Rotation**
+#### 2. Rotation
 
 ```tsx
 // Subtle rotation (tactical feel)
@@ -297,7 +298,7 @@ className = "group-hover:rotate-90 transition-transform duration-300";
 className = "animate-spin";
 ```
 
-**3. Color Transition**
+#### 3. Color Transition
 
 ```tsx
 // Color change on hover
@@ -305,7 +306,7 @@ className =
   "text-gray-600 group-hover:text-brand-primary transition-colors duration-300";
 ```
 
-**4. Combined Effects**
+#### 4. Combined Effects
 
 ```tsx
 // Scale + color (recommended for CTAs)
@@ -597,7 +598,7 @@ Use this checklist when adding or reviewing icons:
 
 ### Choosing the Right Icon
 
-```
+```text
 START
   ↓
 Does a standard icon exist for this purpose?

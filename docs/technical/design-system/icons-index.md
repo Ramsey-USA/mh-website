@@ -305,7 +305,9 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 Schedule Consultation
 </Button>
 
-````
+```tsx
+// Additional code examples can go here if needed
+```
 
 ---
 
@@ -340,7 +342,7 @@ Schedule Consultation
 
 - 🏗️ Complete construction phase
 - ✅ Quality assurance
-````
+```
 
 **In Code/Components (❌ PROHIBITED):**
 

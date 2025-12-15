@@ -18,7 +18,9 @@
 
 ## 📋 Overview
 
-This guide provides strategic recommendations for expanding and enhancing Material Icons throughout the MH Construction website to better align with our veteran-owned, military-precision brand identity established in January 2025.
+This guide provides strategic recommendations for expanding and enhancing Material Icons throughout the
+MH Construction website to better align with our veteran-owned, military-precision brand identity
+established in January 2025.
 
 **Goals:**
 
