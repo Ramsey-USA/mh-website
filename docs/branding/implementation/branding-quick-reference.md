@@ -1,39 +1,114 @@
 # MH Construction Branding Quick Reference
 
-**For Developers** | **Last Updated**: December 13, 2025 | **Version**: 5.0.0
+**For Developers** | **Last Updated**: December 15, 2025 | **Version**: 6.0.0
 
-**⭐ MAJOR UPDATE (Dec 2025)**: Complete shift to veteran/honest messaging. All branding now emphasizes
-veteran-owned excellence, honest communication, transparent pricing, and proven craftsmanship over
-technology or innovation.
+**⭐ BREAKING CHANGES (Dec 15, 2025)**: Home page standardization complete. All sections MUST use diagonal stripe backgrounds, large color blobs, SectionHeader component, and strict brand color compliance. Custom headers deprecated. Brand-accent color removed.
+
+**Previous Update (Dec 13, 2025)**: Complete shift to veteran/honest messaging. All branding emphasizes veteran-owned excellence, honest communication, transparent pricing, and proven craftsmanship.
 
 ## 🚨 Critical Requirements (Must-Have)
 
+### Section Background Pattern - NEW STANDARD
+
+```tsx
+// ✅ REQUIRED: All sections must use this pattern
+<section
+  id="section-id"
+  className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+>
+  {/* Diagonal Stripe Pattern */}
+  <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+    <div
+      className="absolute inset-0"
+      style={{
+        backgroundImage: `repeating-linear-gradient(
+          45deg,
+          #386851 0px,
+          #386851 2px,
+          transparent 2px,
+          transparent 60px
+        )`,
+      }}
+    ></div>
+  </div>
+
+  {/* Large Color Blobs */}
+  <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+  <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+  <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <SectionHeader
+      icon="icon_name"
+      iconVariant="primary"
+      subtitle="Subtitle"
+      title="Title"
+      description="Description"
+    />
+    {/* Content */}
+  </div>
+</section>
+
+// ❌ DEPRECATED: Old patterns
+<section className="bg-gradient-to-b from-white via-gray-50 to-white"> // Complex gradients
+<div className="w-32 h-32 animate-pulse"> // Small animated blobs
+<div className="mb-12 text-center"> // Custom headers
+```
+
+### SectionHeader Component - REQUIRED
+
+```tsx
+// ✅ CORRECT: Use SectionHeader component
+import { SectionHeader } from "@/components/ui/SectionHeader";
+
+<SectionHeader
+  icon="shield"
+  iconVariant="primary"  // primary | secondary | bronze
+  subtitle="Our Core"
+  title="Values"
+  description="Optional description text"
+/>
+
+// ❌ INCORRECT: Custom header markup
+<div className="text-center mb-12">
+  <div className="flex justify-center">
+    <div className="bg-brand-primary p-4 rounded-2xl">
+      <MaterialIcon icon="shield" />
+    </div>
+  </div>
+  <h2>Title</h2>
+</div>
+```
+
 ### Emoji Policy
 
-````tsx
+```tsx
 // ❌ NEVER use emojis in source code
 <span>🏗️ Construction</span>
 
 // ✅ ALWAYS use MaterialIcon instead
 <MaterialIcon icon="construction" size="md" className="text-brand-primary" />
-```text
+```
 
-### Color Standards
+### Color Standards - UPDATED
 
 ```tsx
 // ✅ CORRECT: Use brand classes
-className="bg-brand-primary text-white"
-className="text-brand-secondary"
-className="border-brand-accent"
+className="text-brand-primary"      // Hunter Green - check marks, primary icons
+className="text-brand-secondary"    // Leather Tan - highlights, partnerships
+className="bg-brand-primary"
+className="bg-brand-secondary"
+className="border-brand-primary"
 
-// ❌ INCORRECT: Hardcoded colors
-style={{backgroundColor: '#386851'}}
-className="bg-[#BD9264]"
-```text
+// ❌ INCORRECT: Deprecated/hardcoded colors
+className="text-brand-accent"       // Removed - use brand-primary or brand-secondary
+className="bg-brand-accent"         // Removed - use brand-secondary
+style={{backgroundColor: '#386851'}} // Use Tailwind classes
+className="bg-[#BD9264]"            // Use bg-brand-secondary
+```
 
 ### Typography Patterns
 
-```tsx
+````tsx
 // ✅ CORRECT: Hero section (for photo/video backgrounds) - NO BADGES
 <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
   <span className="block text-brand-secondary font-black drop-shadow-lg">

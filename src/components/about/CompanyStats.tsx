@@ -87,64 +87,58 @@ export const companyStats: StatItem[] = [
   },
 ];
 
-const gradientVariants = {
-  primary:
-    "bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900 dark:from-brand-primary-dark dark:via-gray-900 dark:to-gray-950",
-  secondary:
-    "bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-brand-primary dark:from-brand-secondary/80 dark:via-gray-800 dark:to-gray-900",
-  accent:
-    "bg-gradient-to-br from-brand-primary-dark via-brand-primary to-brand-secondary dark:from-brand-accent/80 dark:via-gray-800 dark:to-gray-900",
-};
-
 export function CompanyStats({
   stats = companyStats,
   title = "Mission Track Record",
   subtitle = "Battle-Tested",
   description = "Proven results from a veteran-owned team committed to mission excellence across the Pacific Northwest—from deployment to development, we deliver.",
   headerIcon = "analytics",
-  variant = "primary",
   className = "",
   id,
 }: CompanyStatsProps) {
-  const gradientClass = gradientVariants[variant];
-
   return (
     <section
       id={id}
-      className={`relative ${gradientClass} py-12 sm:py-16 lg:py-24 xl:py-32 text-white overflow-hidden ${className}`}
+      className={`relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden ${className}`}
     >
-      {/* Enhanced Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(189,146,100,0.15)_0%,transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.1)_0%,transparent_50%)]"></div>
-      <div className="top-20 right-10 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
-      <div
-        className="left-10 bottom-20 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
-        style={{ animationDelay: "1s" }}
-      ></div>
-      <div
-        className="top-1/2 left-1/4 absolute bg-brand-secondary/5 dark:bg-brand-secondary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
-        style={{ animationDelay: "0.5s" }}
-      ></div>
+      {/* Unique Diagonal Stripe Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+              45deg,
+              #386851 0px,
+              #386851 2px,
+              transparent 2px,
+              transparent 60px
+            )`,
+          }}
+        ></div>
+      </div>
 
-      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      {/* Large Brand Color Blobs */}
+      <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+      <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <SectionHeader
           icon={headerIcon}
           subtitle={subtitle}
           title={title}
           description={description}
           iconGradient="from-brand-secondary via-brand-secondary-dark to-bronze-700"
-          darkVariant={true}
         />
         <div className="gap-4 sm:gap-6 grid grid-cols-2 lg:grid-cols-4 mx-auto max-w-6xl">
           {stats.map((stat, _index) => (
             <HoverScale key={_index}>
-              <div className="h-full flex flex-col text-center p-5 sm:p-6 lg:p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 hover:bg-white/20 hover:shadow-2xl hover:border-white/40 transition-all duration-300 group">
+              <div className="h-full flex flex-col text-center p-5 sm:p-6 lg:p-8 bg-white dark:bg-gray-800 rounded-3xl border-2 border-gray-200 dark:border-gray-700 hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 group shadow-lg">
                 <MaterialIcon
                   icon={stat.iconName}
-                  className="mb-4 text-brand-secondary group-hover:animate-spin"
+                  className="mb-4 text-brand-primary group-hover:scale-110 transition-transform"
                   size="xl"
                 />
-                <div className="mb-2 font-black text-3xl sm:text-4xl lg:text-5xl text-white drop-shadow-lg">
+                <div className="mb-2 font-black text-3xl sm:text-4xl lg:text-5xl text-brand-primary dark:text-brand-primary-light drop-shadow-sm">
                   {stat.animated ? (
                     <AnimatedCounter
                       value={stat.value}
@@ -157,7 +151,7 @@ export function CompanyStats({
                     stat.value
                   )}
                 </div>
-                <div className="text-white/90 font-medium text-xs sm:text-sm lg:text-base leading-relaxed mt-auto">
+                <div className="text-gray-700 dark:text-gray-300 font-medium text-xs sm:text-sm lg:text-base leading-relaxed mt-auto">
                   {stat.label}
                 </div>
               </div>

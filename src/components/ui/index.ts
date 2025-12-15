@@ -33,7 +33,7 @@ export { JobApplicationModal } from "./modals/JobApplicationModal";
 export { OptimizedImage } from "./media/OptimizedImage";
 
 // Specialty Components
-export { BaseballCard } from "./specialty/BaseballCard";
+export { ServiceRecordCard } from "./specialty/ServiceRecordCard";
 
 // Interactive Components
 export { AnimatedCounter } from "./AnimatedCounter";

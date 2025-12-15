@@ -157,7 +157,7 @@ Modern, professional team member profiles with skills radar charts and comprehen
 - Alternating section designs
 - Career statistics and performance metrics
 - Automated skills generation based on role
-- Migration from baseball card theme
+- Migration from service record card theme
 
 **When to Use:** Team page displays, professional profiles, skill visualization
 

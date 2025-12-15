@@ -37,12 +37,9 @@ export function HeroSection() {
           <span className="block text-brand-secondary">
             Veteran-Owned Since January 2025
           </span>
-          <span className="block text-white/95">Mission-Focused Execution</span>
-          <span className="block text-brand-primary">
-            Battle-Tested Craftsmanship
-          </span>
+          <span className="block text-brand-primary">Proven Craftsmanship</span>
           <span className="block text-white/90">
-            Building Projects for the Client,{" "}
+            Building for the Client,{" "}
             <span className="font-black italic text-bronze-300">NOT</span> the
             Dollar
           </span>

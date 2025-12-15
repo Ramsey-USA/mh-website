@@ -6,53 +6,45 @@
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import {
-  FadeInWhenVisible,
-  StaggeredFadeIn,
-} from "@/components/animations/FramerMotionComponents";
+import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
 import { getCardClassName } from "@/lib/styles/card-variants";
 import { gridPresets } from "@/lib/styles/layout-variants";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function SafetySection() {
   return (
-    <section id="safety" className="bg-white dark:bg-gray-900 py-20 lg:py-32">
-      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <FadeInWhenVisible>
-          <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
-            {/* Icon Header with Glow Effect */}
-            <div className="flex justify-center items-center mb-6 sm:mb-8">
-              <div className="relative">
-                <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
-                <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 rounded-2xl shadow-lg">
-                  <MaterialIcon
-                    icon="shield"
-                    size="2xl"
-                    theme="military"
-                    ariaLabel="Safety and compliance"
-                    className="text-white"
-                  />
-                </div>
-              </div>
-            </div>
-            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                Safety &
-              </span>
-              <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                Compliance
-              </span>
-            </h2>
-            <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-              Safety is never compromised at MH Construction. Our award-winning
-              comprehensive safety programs and regulatory compliance ensure
-              every construction operation meets the highest standards. With
-              multiple AGC-WA Top EMR Awards and a .64 EMR (40% better than
-              industry average), we demonstrate unwavering commitment to
-              zero-incident mission culture with military-grade safety
-              discipline.
-            </p>
-          </div>
-        </FadeInWhenVisible>
+    <section
+      id="safety"
+      className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+    >
+      {/* Diagonal Stripe Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+              45deg,
+              #386851 0px,
+              #386851 2px,
+              transparent 2px,
+              transparent 60px
+            )`,
+          }}
+        ></div>
+      </div>
+
+      {/* Large Brand Color Blobs */}
+      <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+      <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <SectionHeader
+          icon="shield"
+          iconVariant="primary"
+          subtitle="Safety &"
+          title="Compliance"
+          description="Safety is never compromised at MH Construction. Our award-winning comprehensive safety programs and regulatory compliance ensure every construction operation meets the highest standards. With multiple AGC-WA Top EMR Awards and a .64 EMR (40% better than industry average), we demonstrate unwavering commitment to zero-incident mission culture with military-grade safety discipline."
+        />
 
         <StaggeredFadeIn
           className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
@@ -77,7 +69,7 @@ export function SafetySection() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
                   />
                   <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                     Daily safety meetings and site-specific hazard protocols
@@ -86,7 +78,7 @@ export function SafetySection() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
                   />
                   <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                     OSHA 30 leadership & OSHA 10 for all team members
@@ -95,7 +87,7 @@ export function SafetySection() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
                   />
                   <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                     Comprehensive safety equipment and continuous monitoring
@@ -104,7 +96,7 @@ export function SafetySection() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
                   />
                   <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                     Zero-tolerance policy for safety violations
@@ -113,7 +105,7 @@ export function SafetySection() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
                   />
                   <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                     3+ years without time-loss injury - industry leading
@@ -143,7 +135,7 @@ export function SafetySection() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
                   />
                   <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                     Licensed and insured in Washington, Oregon, and Idaho
@@ -152,7 +144,7 @@ export function SafetySection() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
                   />
                   <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                     Current with all local and federal building codes
@@ -161,7 +153,7 @@ export function SafetySection() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
                   />
                   <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                     Environmental compliance and sustainability practices
@@ -170,7 +162,7 @@ export function SafetySection() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
                   />
                   <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                     Regular audits and certification maintenance
@@ -186,7 +178,7 @@ export function SafetySection() {
                 <MaterialIcon
                   icon="health_and_safety"
                   size="lg"
-                  className="text-brand-accent"
+                  className="text-brand-primary"
                 />
                 <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                   Quality Assurance
@@ -198,7 +190,7 @@ export function SafetySection() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
                   />
                   <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                     Multi-point quality inspections at every project phase
@@ -207,7 +199,7 @@ export function SafetySection() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
                   />
                   <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                     Documented quality control processes and checklists
@@ -216,7 +208,7 @@ export function SafetySection() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
                   />
                   <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                     Third-party verification for critical installations
@@ -225,7 +217,7 @@ export function SafetySection() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
                   />
                   <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                     Comprehensive warranty and dedicated post-project support
@@ -234,7 +226,7 @@ export function SafetySection() {
                 <li className="flex items-start">
                   <MaterialIcon
                     icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent text-xs sm:text-sm"
+                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
                   />
                   <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                     Materials selected for longevity, not just cost

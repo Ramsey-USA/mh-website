@@ -1,68 +1,58 @@
 # Section Enhancement Patterns
 
-**Version:** 3.0.0  
+**Version:** 4.0.0  
 **Created:** November 2025  
-**Updated:** December 14, 2025  
+**Updated:** December 15, 2025  
 **Status:** ✅ Active Standard  
-**Methodology:** Military/Construction Terminology Integration
+**Methodology:** Home Page Standardization - Diagonal Stripes & Large Color Blobs
 
 > **Purpose:** Standardized visual enhancement patterns for sections across the award-winning website,
 > ensuring consistent and polished presentation that aligns with MH Construction veteran-owned branding.
-> Includes architectural patterns for composition, animations, performance, and comprehensive button
-> guidelines with military-construction messaging integration.
+> **NEW:** Simplified background patterns using diagonal stripes and large positioned color blobs,
+> standardized SectionHeader component usage, and strict brand color compliance.
 
 ---
 
-## 🎨 **Core Enhancement Pattern**
+## 🎨 **Core Enhancement Pattern (NEW STANDARD)**
 
-All major content sections should follow this consistent visual pattern for a cohesive, professional appearance.
+All major content sections **MUST** follow this pattern established by the home page for visual consistency.
 
 ### **Section Structure Template**
 
 ```tsx
-<section className="relative bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden">
-  {/* Enhanced Background Effects */}
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.15)_0%,transparent_50%)]"></div>
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.12)_0%,transparent_50%)]"></div>
-  <div className="top-20 right-10 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
-  <div
-    className="left-10 bottom-20 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
-    style={{ animationDelay: "1s" }}
-  ></div>
-  <div
-    className="top-1/2 left-1/4 absolute bg-brand-secondary/5 dark:bg-brand-secondary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
-    style={{ animationDelay: "0.5s" }}
-  ></div>
+<section
+  id="section-id"
+  className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+>
+  {/* Diagonal Stripe Background Pattern */}
+  <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+    <div
+      className="absolute inset-0"
+      style={{
+        backgroundImage: `repeating-linear-gradient(
+          45deg,
+          #386851 0px,
+          #386851 2px,
+          transparent 2px,
+          transparent 60px
+        )`,
+      }}
+    ></div>
+  </div>
 
-  <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-    {/* Section Header */}
-    <div className="mb-12 sm:mb-16 lg:mb-20 text-center scroll-reveal">
-      {/* Icon Container */}
-      <div className="flex justify-center items-center mb-6 sm:mb-8">
-        <div className="relative">
-          <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
-          <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 rounded-2xl shadow-lg">
-            <MaterialIcon icon="icon_name" size="2xl" className="text-white" />
-          </div>
-        </div>
-      </div>
+  {/* Large Brand Color Blobs */}
+  <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+  <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
-      {/* Section Title */}
-      <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-        <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-          Section Subtitle
-        </span>
-        <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-          Section Title
-        </span>
-      </h2>
-
-      {/* Section Description */}
-      <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-        Section description text that explains the value and purpose of this
-        section.
-      </p>
-    </div>
+  <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    {/* Use SectionHeader Component - DO NOT CREATE CUSTOM HEADERS */}
+    <SectionHeader
+      icon="icon_name"
+      iconVariant="primary" // or "secondary" or "bronze"
+      subtitle="Section Subtitle"
+      title="Section Title"
+      description="Section description text that explains the value and purpose of this section."
+    />
 
     {/* Section Content */}
     {/* Cards, content, or other elements go here */}
@@ -70,34 +60,125 @@ All major content sections should follow this consistent visual pattern for a co
 </section>
 ```
 
+````
+
 ---
 
-## 🎯 **Key Design Elements**
+## 🎯 **Key Design Elements (NEW STANDARD)**
 
-### **1. Background Gradients**
+### **1. Base Background - Simplified White/Dark**
 
-**Light Mode:**
-
-```tsx
-className = "bg-gradient-to-b from-white via-gray-50 to-white";
-```
-
-**Dark Mode:**
+**REQUIRED:** Clean base with no gradients
 
 ```tsx
-className = "dark:from-gray-900 dark:via-gray-800 dark:to-gray-900";
-```
+className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+````
 
-**Radial Gradient Overlays:**
+**Key Points:**
+
+- ✅ Solid `bg-white dark:bg-gray-900` base
+- ✅ Consistent responsive padding: `py-12 sm:py-16 lg:py-20 xl:py-24`
+- ✅ Always include `overflow-hidden` for background effects
+- ✅ Add `relative` for absolute positioned backgrounds
+- ❌ NO complex gradients (from-white via-gray-50 to-white)
+
+### **2. Diagonal Stripe Background Pattern**
+
+**REQUIRED:** Subtle 45-degree diagonal stripes using Hunter Green
 
 ```tsx
 {
-  /* Top right accent - Primary color */
+  /* Diagonal Stripe Background Pattern */
 }
-<div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.15)_0%,transparent_50%)]"></div>;
+<div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+  <div
+    className="absolute inset-0"
+    style={{
+      backgroundImage: `repeating-linear-gradient(
+        45deg,
+        #386851 0px,
+        #386851 2px,
+        transparent 2px,
+        transparent 60px
+      )`,
+    }}
+  ></div>
+</div>;
+```
 
-{
-  /* Bottom left accent - Secondary color */
+**Key Points:**
+
+- ✅ Uses Hunter Green (#386851) - MH brand primary color
+- ✅ 2px stripe width, 60px spacing for subtle texture
+- ✅ Very low opacity: `0.03` light mode, `0.05` dark mode
+- ✅ Consistent 45-degree angle across all sections
+- ❌ DO NOT use other colors or angles
+
+### **3. Large Color Blobs - Positioned Background Accents**
+
+**REQUIRED:** Two large gradient blobs for depth and brand color presence
+
+```tsx
+{/* Large Brand Color Blobs */}
+<div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+<div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+```
+
+**Key Points:**
+
+- ✅ **Top-right blob:** Hunter Green, positioned at `top-20 right-[15%]`
+- ✅ **Bottom-left blob:** Leather Tan, positioned at `bottom-20 left-[15%]`
+- ✅ Fixed size: `w-96 h-96` (384px × 384px)
+- ✅ Heavy blur: `blur-3xl` for soft diffusion
+- ✅ Low opacity: `/10` in light mode, `/20` in dark mode
+- ❌ DO NOT add small animated blobs (w-32, w-40)
+- ❌ DO NOT use radial gradient overlays
+
+### **4. SectionHeader Component - Standardized Headers**
+
+**REQUIRED:** Use SectionHeader component, DO NOT create custom headers
+
+```tsx
+import { SectionHeader } from "@/components/ui/SectionHeader";
+
+<SectionHeader
+  icon="icon_name"
+  iconVariant="primary" // primary | secondary | bronze
+  subtitle="Section Subtitle"
+  title="Section Title"
+  description="Optional section description"
+/>;
+```
+
+**Icon Variant Guidelines:**
+
+- **`primary`**: Green theme - Use for trust, values, integrity, safety
+- **`secondary`**: Tan/Orange theme - Use for partnerships, relationships
+- **`bronze`**: Bronze/Gold theme - Use for awards, excellence, premium features
+
+**Key Points:**
+
+- ✅ Handles all styling, animations, and responsive design
+- ✅ Consistent icon glow effects and typography
+- ✅ Automatically responsive across all screen sizes
+- ❌ DO NOT create custom header markup
+- ❌ DO NOT use custom icon containers with blur effects
+
+### **5. Brand Color Usage - Strict Compliance**
+
+**REQUIRED COLOR STANDARDS:**
+
+```tsx
+// ✅ CORRECT - Official MH Brand Colors
+text-brand-primary        // Hunter Green (#386851) - Primary icons, check marks
+text-brand-secondary      // Leather Tan (#BD9264) - Highlights, partnerships
+bg-brand-primary         // Solid backgrounds
+bg-brand-secondary       // Solid backgrounds
+
+// ❌ INCORRECT - DO NOT USE
+text-brand-accent        // Deprecated - causes inconsistency
+bg-brand-accent         // Use brand-secondary instead
+from-brand-accent       // Use brand-secondary in gradients
 }
 <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.12)_0%,transparent_50%)]"></div>;
 ```

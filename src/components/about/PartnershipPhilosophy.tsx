@@ -7,65 +7,45 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { getCardClassName } from "@/lib/styles/card-variants";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function PartnershipPhilosophy() {
   return (
     <section
       id="partnership-philosophy"
-      className="relative bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden"
+      className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
     >
-      {/* Enhanced Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.15)_0%,transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.12)_0%,transparent_50%)]"></div>
-      <div className="top-20 right-10 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
-      <div
-        className="left-10 bottom-20 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
-        style={{ animationDelay: "1s" }}
-      ></div>
-      <div
-        className="top-1/2 left-1/4 absolute bg-brand-secondary/5 dark:bg-brand-secondary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
-        style={{ animationDelay: "0.5s" }}
-      ></div>
+      {/* Diagonal Stripe Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+              45deg,
+              #386851 0px,
+              #386851 2px,
+              transparent 2px,
+              transparent 60px
+            )`,
+          }}
+        ></div>
+      </div>
 
-      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      {/* Large Brand Color Blobs */}
+      <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+      <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <SectionHeader
+          icon="diversity_3"
+          iconVariant="primary"
+          subtitle="Our Partnership"
+          title="Philosophy"
+          description="At MH Construction, we believe in service-earned business values: where handshakes still matter, your word is your bond, and trust is earned through character and proven in the field. Since our founding in 2010, we've built our reputation on lasting partnerships that outlast the buildings themselves. Under veteran-owned leadership since January 2025, we continue the mission tradition of excellence through operational experience."
+        />
+
         <FadeInWhenVisible>
           <div className="mx-auto max-w-4xl">
-            <div className="mb-12 sm:mb-16 lg:mb-20 text-center">
-              {/* Icon Header with Glow Effect */}
-              <div className="flex justify-center items-center mb-6 sm:mb-8">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 rounded-2xl shadow-lg">
-                    <MaterialIcon
-                      icon="diversity_3"
-                      size="2xl"
-                      theme="military"
-                      ariaLabel="Partnership philosophy"
-                      className="text-white"
-                    />
-                  </div>
-                </div>
-              </div>
-              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                  Our Partnership
-                </span>
-                <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                  Philosophy
-                </span>
-              </h2>
-              <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                At MH Construction, we believe in service-earned business
-                values: where handshakes still matter, your word is your bond,
-                and trust is earned through character and proven in the field.
-                Since our founding in 2010, we've built our reputation on
-                lasting partnerships that outlast the buildings themselves.
-                Under veteran-owned leadership since January 2025, we continue
-                the mission tradition of excellence through operational
-                experience.
-              </p>
-            </div>
-
             {/* Mission & Vision Cards */}
             <div className="gap-8 grid sm:grid-cols-1 md:grid-cols-2 mb-12">
               <Card className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 border-2 border-brand-primary dark:border-brand-primary/50 transition-shadow">
@@ -83,13 +63,13 @@ export function PartnershipPhilosophy() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed font-medium italic">
-                    "We execute high-quality construction operations rooted in
-                    integrity, clear mission comms, and long-term partnerships."
+                    "We deliver high-quality construction rooted in integrity,
+                    transparent communication, and lasting partnerships."
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-brand-secondary/5 to-brand-accent/5 dark:from-brand-secondary/10 dark:to-brand-accent/10 border-2 border-brand-secondary dark:border-brand-secondary/50 transition-shadow">
+              <Card className="bg-gradient-to-br from-brand-secondary/5 to-brand-secondary/5 dark:from-brand-secondary/10 dark:to-brand-secondary/10 border-2 border-brand-secondary dark:border-brand-secondary/50 transition-shadow">
                 <CardHeader>
                   <MaterialIcon
                     icon="explore"
@@ -104,9 +84,9 @@ export function PartnershipPhilosophy() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed font-medium italic">
-                    "To be the Pacific Northwest's most trusted veteran-led
-                    construction partner - renowned for battle-tested
-                    craftsmanship and service-earned character."
+                    "To be the Pacific Northwest's most trusted veteran-owned
+                    construction partner - renowned for proven craftsmanship and
+                    service-earned integrity."
                   </p>
                 </CardContent>
               </Card>
@@ -131,7 +111,7 @@ export function PartnershipPhilosophy() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-2 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
                         <strong className="text-gray-900 dark:text-white">
@@ -143,7 +123,7 @@ export function PartnershipPhilosophy() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-2 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
                         <strong className="text-gray-900 dark:text-white">
@@ -155,7 +135,7 @@ export function PartnershipPhilosophy() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-2 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
                         <strong className="text-gray-900 dark:text-white">
@@ -167,7 +147,7 @@ export function PartnershipPhilosophy() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-2 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
                         <strong className="text-gray-900 dark:text-white">
@@ -179,7 +159,7 @@ export function PartnershipPhilosophy() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-2 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-2 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
                         <strong className="text-gray-900 dark:text-white">

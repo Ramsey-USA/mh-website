@@ -1,20 +1,16 @@
 "use client";
 
-import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import {
-  FadeInWhenVisible,
-  StaggeredFadeIn,
-} from "@/components/animations/FramerMotionComponents";
+import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const partnershipValues = [
   {
     icon: "health_and_safety",
-    title: ".64 EMR - Zero-Incident Mission Culture",
-    subtitle: "Safety Protocols That Protect Every Team Member",
+    title: ".64 EMR - Industry-Leading Safety",
+    subtitle: "Every Team Member Returns Home Safe",
     description:
-      "Multiple AGC-WA Top EMR Awards with .64 EMR—40% better than industry average. Military-grade safety discipline: 3+ years without time-loss injury and OSHA VPP Star designation. Every crew member returns home safe—that's the mission, every single day. No compromises on safety, period.",
+      "Multiple AGC-WA Top EMR Awards with .64 EMR—40% better than industry average. 3+ years without time-loss injury and OSHA VPP Star designation. No compromises on safety, period.",
     iconColor: "text-bronze-600",
     iconBgGradient: "from-bronze-600 to-bronze-700",
     accentColor: "bronze-500",
@@ -22,41 +18,41 @@ const partnershipValues = [
       ".64 EMR (40% better than industry)",
       "3+ years without time-loss injury",
       "OSHA VPP Star designation",
-      "Military-grade safety protocols",
+      "Zero compromises on safety",
     ],
     stat: ".64 EMR",
     statLabel: "Safety Rating",
   },
   {
     icon: "workspace_premium",
-    title: "150+ Years of Combined Field Experience",
-    subtitle: "Battle-Tested Construction Expertise",
+    title: "150+ Years of Combined Experience",
+    subtitle: "Proven Construction Expertise",
     description:
-      "Our team brings 150+ years of combined construction expertise—Army thoroughness in planning, Navy reliability in execution, Air Force precision in quality control, Marine adaptability under pressure. Veterans and civilians working together, leveraging proven methods refined through generations. From deployment to development—we've got the operational experience.",
+      "Our team brings 150+ years of combined construction expertise. Veterans and civilians working together, leveraging proven methods refined through generations. Deep experience you can trust.",
     iconColor: "text-brand-primary",
     iconBgGradient: "from-brand-primary to-brand-primary-dark",
     accentColor: "brand-primary",
     highlights: [
       "150+ years combined expertise",
       "Veteran + civilian team excellence",
-      "All-branch military precision",
-      "Multi-generational battle-tested practices",
+      "Proven methods & practices",
+      "Multi-generational experience",
     ],
     stat: "150+",
     statLabel: "Years Combined Experience",
   },
   {
     icon: "fact_check",
-    title: "SITREP-Level Transparency",
-    subtitle: "Clear Intel, Zero Surprises",
+    title: "Complete Transparency",
+    subtitle: "Zero Surprises",
     description:
-      "Open-book pricing like mission briefs—complete intel on every cost, every timeline, every decision. You control the mission, we execute it with full visibility. Military-trained honesty means real-time SITREPs, no hidden costs, and truthful assessments at every construction phase. Your word is your bond—so is ours.",
+      "Open-book pricing with complete visibility on every cost, timeline, and decision. You control the project, we execute it with full transparency. No hidden costs, honest assessments at every phase. Your word is your bond—so is ours.",
     iconColor: "text-brand-secondary",
     iconBgGradient: "from-brand-secondary to-brand-secondary-dark",
     accentColor: "brand-secondary",
     highlights: [
-      "Open-book pricing (mission-level clarity)",
-      "Real-time project SITREPs",
+      "Open-book pricing",
+      "Real-time project updates",
       "Complete cost transparency",
       "Honest timelines & expectations",
     ],
@@ -65,17 +61,17 @@ const partnershipValues = [
   },
   {
     icon: "handshake",
-    title: "Long-Term Partnerships (Not One-Time Deployments)",
+    title: "Long-Term Partnerships",
     subtitle: "Relationships That Outlast Projects",
     description:
-      "70% of our business comes from referrals and repeat Client Partners—that's trust earned through action, not words. Our commitment doesn't end when the project completes. From post-deployment support to lifelong community connections—we're in it for the long haul, building relationships that matter. THE ROI IS THE RELATIONSHIP.",
+      "70% of our business comes from referrals and repeat partners—trust earned through action, not words. Our commitment doesn't end when the project completes. We're in it for the long haul, building relationships that matter. THE ROI IS THE RELATIONSHIP.",
     iconColor: "text-bronze-600",
     iconBgGradient: "from-bronze-600 to-bronze-800",
     accentColor: "bronze-500",
     highlights: [
       "70% referral & repeat business",
       "Lifelong partnership commitment",
-      "Post-deployment support & service",
+      "Ongoing support & service",
       "Community-focused relationships",
     ],
     stat: "70%",
@@ -83,40 +79,40 @@ const partnershipValues = [
   },
   {
     icon: "military_tech",
-    title: "650+ Successful Missions - Battle-Tested Reliability",
-    subtitle: "Proven Track Record Under Pressure",
+    title: "650+ Successful Projects",
+    subtitle: "Proven Track Record",
     description:
-      "650+ successfully completed construction operations demonstrate service-earned reliability. Veteran leadership brings military discipline, tactical planning under pressure, and mission-first execution. Whether it's a routine build or urgent construction support—we deliver results no matter the challenges. Reliability trained in service, proven in construction.",
+      "650+ successfully completed projects demonstrate proven reliability. Veteran leadership brings discipline, planning under pressure, and consistent execution. Whether routine or urgent—we deliver results no matter the challenges.",
     iconColor: "text-bronze-300",
     themePreset: "veteran",
     iconBgGradient: "from-brand-primary to-brand-primary-dark",
     accentColor: "brand-primary",
     highlights: [
-      "650+ completed construction missions",
+      "650+ completed projects",
       "Veteran-owned since Jan 2025",
-      "All-branch military precision",
-      "Service-earned integrity values",
+      "Disciplined execution",
+      "Service-earned values",
     ],
     stat: "650+",
-    statLabel: "Successful Missions",
+    statLabel: "Successful Projects",
   },
   {
     icon: "verified",
-    title: "3-State Operational Authority",
-    subtitle: "Licensed for Multi-Jurisdiction Deployment",
+    title: "3-State Licensing",
+    subtitle: "Licensed Across the Pacific Northwest",
     description:
-      "Fully licensed general contractor across Washington, Oregon, and Idaho—cleared for construction operations throughout the Pacific Northwest. Comprehensive insurance coverage and bonding provide mission-ready protection for every project phase. Credentials maintained with military precision—continuous compliance, zero compromises.",
+      "Fully licensed general contractor across Washington, Oregon, and Idaho. Comprehensive insurance and bonding provide complete protection for every project. Credentials maintained with precision—continuous compliance, zero compromises.",
     iconColor: "text-brand-secondary",
     iconBgGradient: "from-brand-secondary to-brand-secondary-dark",
     accentColor: "brand-secondary",
     highlights: [
       "Licensed in WA, OR, and ID",
       "Full insurance & bonding coverage",
-      "Federal compliance assurance",
-      "Military-grade credential maintenance",
+      "Complete compliance assurance",
+      "Maintained with precision",
     ],
     stat: "3 States",
-    statLabel: "Operational Authority",
+    statLabel: "Licensed",
   },
 ];
 
@@ -124,7 +120,7 @@ export function WhyPartnerSection() {
   return (
     <section
       id="why-partner"
-      className="relative bg-white dark:bg-gray-900 py-16 sm:py-20 lg:py-28 xl:py-36 overflow-hidden"
+      className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
     >
       {/* Unique Diagonal Stripe Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
@@ -151,9 +147,9 @@ export function WhyPartnerSection() {
         <SectionHeader
           icon="verified"
           iconVariant="primary"
-          subtitle="Battle-Tested Excellence | All Branches Honored"
-          title="Mission-Ready Performance & Service-Earned Integrity"
-          description="Where military precision meets construction expertise—honest mission briefs, battle-tested craftsmanship, and service-earned integrity create partnerships built on trust. From basic training to contractor, we speak your language."
+          subtitle="Veteran-Owned Excellence"
+          title="Proven Performance & Earned Integrity"
+          description="Where discipline meets construction expertise—honest communication, proven craftsmanship, and earned integrity create partnerships built on trust."
         >
           {/* Core Philosophy Callout */}
           <div className="inline-block">
@@ -175,7 +171,7 @@ export function WhyPartnerSection() {
         {/* Modern Grid Cards with Unique Hover Effects */}
         <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
           {partnershipValues.map((value, index) => (
-            <div key={index} className="group relative flex min-h-[620px]">
+            <div key={index} className="group relative flex min-h-[480px]">
               {/* Colored Border Glow - Visible on hover */}
               <div
                 className={`absolute -inset-2 bg-gradient-to-br ${value.iconBgGradient} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
@@ -272,85 +268,6 @@ export function WhyPartnerSection() {
         </StaggeredFadeIn>
 
         {/* Enhanced CTA Section with Split Design */}
-        <FadeInWhenVisible>
-          <div className="relative">
-            {/* Background Accent */}
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/5 via-transparent to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 rounded-2xl -z-10"></div>
-
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-8 sm:p-10 md:p-12 text-center shadow-xl">
-              <div className="mb-8">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4">
-                  Ready to Experience the{" "}
-                  <span className="bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
-                    MH Difference?
-                  </span>
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-lg max-w-3xl mx-auto">
-                  Join hundreds of satisfied client partners who've experienced
-                  our four core values in action.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-6">
-                <Link
-                  href="/about"
-                  className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-brand-primary to-brand-primary-dark hover:from-brand-primary-dark hover:to-brand-primary text-white font-bold px-10 py-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 text-base sm:text-lg"
-                >
-                  <MaterialIcon
-                    icon="foundation"
-                    size="md"
-                    className="group-hover:rotate-12 transition-transform"
-                  />
-                  Our Oath
-                  <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
-                </Link>
-                <Link
-                  href="/contact"
-                  className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-brand-secondary to-bronze-badge-600 hover:from-bronze-badge-600 hover:to-brand-secondary text-white font-bold px-10 py-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 text-base sm:text-lg"
-                >
-                  <MaterialIcon
-                    icon="handshake"
-                    size="md"
-                    className="group-hover:scale-110 transition-transform"
-                  />
-                  Begin Your Project
-                  <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
-                </Link>
-              </div>
-
-              {/* Contact Info with Stylized Design */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 pt-6 border-t-2 border-gray-300 dark:border-gray-600">
-                <div className="flex items-center gap-3">
-                  <div className="bg-gradient-to-br from-brand-primary to-brand-primary-dark p-2.5 rounded-lg">
-                    <MaterialIcon
-                      icon="phone"
-                      className="text-white"
-                      size="md"
-                    />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                      Call Us Today
-                    </div>
-                    <a
-                      href="tel:+15093086489"
-                      className="text-brand-primary dark:text-brand-primary-light hover:text-brand-primary-dark font-bold text-lg transition-colors"
-                    >
-                      (509) 308-6489
-                    </a>
-                  </div>
-                </div>
-                <div className="hidden sm:block h-12 w-px bg-gray-300 dark:bg-gray-600"></div>
-                <div className="text-gray-600 dark:text-gray-400 text-sm">
-                  <span className="font-semibold text-gray-900 dark:text-white">
-                    650+ projects
-                  </span>{" "}
-                  built on trust
-                </div>
-              </div>
-            </div>
-          </div>
-        </FadeInWhenVisible>
       </div>
     </section>
   );

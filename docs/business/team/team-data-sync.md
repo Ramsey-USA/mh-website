@@ -214,7 +214,7 @@ When adding new team members:
 
 - ✅ VintageTeamMember interface with comprehensive fields including skills
 - ✅ Skills radar chart system with automated generation
-- ✅ Modern team profile sections replacing baseball cards
+- ✅ Modern team profile sections replacing service record cards
 - ✅ MD file template structure
 - ✅ Complete MD files for all 16 team members
 - ✅ Team profile integration with skills visualization
@@ -225,7 +225,7 @@ When adding new team members:
 
 **November 2025**: Modern Team Profile Redesign
 
-- Migrated from baseball card theme to professional profile sections
+- Migrated from service record card theme to professional profile sections
 - Implemented skills radar charts with 6 key metrics
 - Added automated skill profile generation script
 - Updated all 16 team members with comprehensive skill data

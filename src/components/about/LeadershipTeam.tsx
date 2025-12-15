@@ -5,11 +5,9 @@
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import {
-  FadeInWhenVisible,
-  StaggeredFadeIn,
-} from "@/components/animations/FramerMotionComponents";
+import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
 import { gridPresets } from "@/lib/styles/layout-variants";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 // Leadership Team Data - Enhanced with comprehensive details
 export const leadershipTeam = [
@@ -68,41 +66,38 @@ export const leadershipTeam = [
 
 export function LeadershipTeam() {
   return (
-    <section id="team" className="bg-gray-50 dark:bg-gray-800 py-16 lg:py-24">
-      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <FadeInWhenVisible>
-          <div className="mb-16 text-center">
-            {/* Icon Header with Glow Effect */}
-            <div className="flex justify-center items-center mb-6 sm:mb-8">
-              <div className="relative">
-                <div className="absolute inset-0 bg-brand-accent/20 dark:bg-brand-accent/30 blur-xl rounded-full"></div>
-                <div className="relative bg-gradient-to-br from-brand-accent to-bronze-600 p-4 rounded-2xl shadow-lg">
-                  <MaterialIcon
-                    icon="groups"
-                    size="2xl"
-                    theme="military"
-                    ariaLabel="Leadership team"
-                    className="text-white"
-                  />
-                </div>
-              </div>
-            </div>
-            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                Meet Our
-              </span>
-              <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                Team
-              </span>
-            </h2>
-            <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide">
-              Our service-earned leadership team, with military-grade structure,
-              alongside a team of battle-tested professionals, brings
-              operational discipline, unwavering mission focus, and owner-first
-              values to every construction operation
-            </p>
-          </div>
-        </FadeInWhenVisible>
+    <section
+      id="team"
+      className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+    >
+      {/* Diagonal Stripe Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+              45deg,
+              #386851 0px,
+              #386851 2px,
+              transparent 2px,
+              transparent 60px
+            )`,
+          }}
+        ></div>
+      </div>
+
+      {/* Large Brand Color Blobs */}
+      <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+      <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <SectionHeader
+          icon="groups"
+          iconVariant="secondary"
+          subtitle="Meet Our"
+          title="Team"
+          description="Our service-earned leadership team, with military-grade structure, alongside a team of battle-tested professionals, brings operational discipline, unwavering mission focus, and owner-first values to every construction operation"
+        />
 
         <StaggeredFadeIn
           className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
@@ -135,7 +130,7 @@ export function LeadershipTeam() {
                         <MaterialIcon
                           icon="schedule"
                           size="sm"
-                          className="mr-2 text-brand-accent"
+                          className="mr-2 text-brand-secondary"
                         />
                         <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
                           {member.experience}
@@ -193,7 +188,7 @@ export function LeadershipTeam() {
                         <MaterialIcon
                           icon="star"
                           size="md"
-                          className="mr-2 text-brand-accent"
+                          className="mr-2 text-brand-secondary"
                         />
                         <p className="font-bold text-white text-base sm:text-lg md:text-xl">
                           Core Specialties
@@ -207,7 +202,7 @@ export function LeadershipTeam() {
                             <MaterialIcon
                               icon="check_circle"
                               size="sm"
-                              className="flex-shrink-0 mt-0.5 mr-2 text-brand-accent"
+                              className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary"
                             />
                             <span className="text-white leading-relaxed text-xs sm:text-sm md:text-base break-words">
                               {specialty}

@@ -1,14 +1,23 @@
 # MH Construction Component Standards
 
-**Version:** 4.1.0  
-**Last Updated:** December 14, 2025  
-**Status:** ✅ Active Standard
+**Version:** 5.0.0  
+**Last Updated:** December 15, 2025  
+**Status:** ✅ Active Standard - Home Page Standardization
 
-> **Purpose:** Unified component design system ensuring visual consistency across all website elements using our brand guidelines.
+> **Purpose:** Unified component design system ensuring visual consistency across all website elements using our brand guidelines. **NEW:** Standardized section backgrounds, SectionHeader component requirement, and strict brand color compliance based on home page patterns.
 
 ---
 
 ## 📋 **Recent Updates**
+
+### **Version 5.0.0 (December 15, 2025)** - BREAKING CHANGES
+
+- **NEW STANDARD:** Diagonal stripe background pattern for all sections
+- **NEW STANDARD:** Large positioned color blobs (w-96 h-96) replace small animated blobs
+- **REQUIRED:** SectionHeader component - custom headers deprecated
+- **BREAKING:** Removed brand-accent color usage - use brand-primary or brand-secondary
+- **BREAKING:** Simplified base backgrounds - no complex gradients
+- **BREAKING:** Consistent padding standard: `py-12 sm:py-16 lg:py-20 xl:py-24`
 
 ### **Version 4.1.0 (December 14, 2025)**
 
@@ -21,12 +30,37 @@
 
 ## 🎨 **Core Component Principles**
 
-### **Brand Color Integration**
+### **Brand Color Integration - UPDATED**
 
-- **Primary Actions:** Hunter Green (#386851)
-- **Secondary Actions:** Leather Tan (#BD9264)
+**Official MH Brand Colors:**
+
+- **Primary (Hunter Green):** `#386851` - Use for trust, integrity, primary actions, check marks
+- **Secondary (Leather Tan):** `#BD9264` - Use for partnerships, highlights, secondary actions
 - **Supporting Colors:** Black, White, Gray scale only
-- **NO Gradients:** Solid colors only (Professional, not decorative)
+
+**Tailwind CSS Classes:**
+
+```tsx
+// ✅ CORRECT - Use these classes
+text - brand - primary; // Hunter Green text
+text - brand - secondary; // Leather Tan text
+bg - brand - primary; // Hunter Green background
+bg - brand - secondary; // Leather Tan background
+border - brand - primary; // Hunter Green border
+border - brand - secondary; // Leather Tan border
+
+// ❌ DEPRECATED - DO NOT USE
+text - brand - accent; // Removed - inconsistent
+bg - brand - accent; // Use bg-brand-secondary instead
+from - brand - accent; // Use from-brand-secondary in gradients
+```
+
+**Key Rules:**
+
+- ✅ NO Gradients in UI elements (buttons, cards) - Solid colors only
+- ✅ Check marks use `text-brand-primary`
+- ✅ Partnership/veteran highlights use `text-brand-secondary`
+- ❌ NEVER use brand-accent - causes visual inconsistency
 
 ### **Material Icons Only**
 
@@ -53,7 +87,102 @@ balance and cleaner layout.
 
 ---
 
-## 🔘 **Button Component Standards**
+## � **Section Background Standards - NEW REQUIREMENT**
+
+**CRITICAL:** All page sections MUST follow this standardized background pattern established by the home page.
+
+### **Required Section Structure**
+
+```tsx
+<section
+  id=\"section-id\"
+  className=\"relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden\"
+>
+  {/* Diagonal Stripe Background Pattern - REQUIRED */}
+  <div className=\"absolute inset-0 opacity-[0.03] dark:opacity-[0.05]\">
+    <div
+      className=\"absolute inset-0\"
+      style={{
+        backgroundImage: `repeating-linear-gradient(
+          45deg,
+          #386851 0px,
+          #386851 2px,
+          transparent 2px,
+          transparent 60px
+        )`,
+      }}
+    ></div>
+  </div>
+
+  {/* Large Brand Color Blobs - REQUIRED */}
+  <div className=\"absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full\"></div>
+  <div className=\"absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full\"></div>
+
+  <div className=\"relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl\">
+    {/* Content goes here */}
+  </div>
+</section>
+```
+
+### **Background Pattern Rules**
+
+**✅ REQUIRED:**
+
+- Base: `bg-white dark:bg-gray-900` (solid, no gradients)
+- Padding: `py-12 sm:py-16 lg:py-20 xl:py-24` (consistent responsive)
+- Diagonal stripes: Hunter Green (#386851), 45deg angle
+- Large blobs: `w-96 h-96` at `top-20 right-[15%]` and `bottom-20 left-[15%]`
+- Overflow hidden: Always include for background effects
+
+**❌ DEPRECATED - DO NOT USE:**
+
+- Complex gradients: `from-white via-gray-50 to-white`
+- Radial gradient overlays
+- Small animated blobs (`w-32`, `w-40` with `animate-pulse`)
+- Inconsistent padding: `py-20 lg:py-32`
+
+---
+
+## 📝 **SectionHeader Component - REQUIRED**
+
+**CRITICAL:** Use the standardized SectionHeader component for ALL section headers. Custom header markup is deprecated.
+
+### **Standard Usage**
+
+```tsx
+import { SectionHeader } from \"@/components/ui/SectionHeader\";
+
+<SectionHeader
+  icon=\"icon_name\"
+  iconVariant=\"primary\" // primary | secondary | bronze
+  subtitle=\"Section Subtitle\"
+  title=\"Section Title\"
+  description=\"Optional description text\"
+/>
+```
+
+### **Icon Variant Guidelines**
+
+- **`primary`** (Green): Trust, values, integrity, safety, compliance
+- **`secondary`** (Tan): Partnerships, relationships, community
+- **`bronze`** (Gold): Awards, excellence, premium features, achievements
+
+### **Benefits**
+
+- ✅ Consistent styling, animations, and responsive design
+- ✅ Standardized icon glow effects and typography
+- ✅ Automatic dark mode support
+- ✅ Proper spacing and alignment
+
+**❌ DO NOT:**
+
+- Create custom header markup with manual icon containers
+- Use custom blur effects or glow styles
+- Duplicate header styling code
+
+---
+
+## �🔘 **Button Component Standards**
 
 ### **Required Pattern**
 

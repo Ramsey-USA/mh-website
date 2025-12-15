@@ -6,7 +6,7 @@
 @import "../styles/variables.css";
 
 /* Import legacy card styles (deprecated - for backward compatibility only) */
-@import "../styles/vintage-baseball-card.css";
+@import "../styles/vintage-service-record.css";
 
 /* Import 3D card flip utilities */
 @import "../styles/card-flip.css";

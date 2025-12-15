@@ -42,7 +42,7 @@ check_file "config/build/postcss.config.js"
 check_file "config/build/next.config.js"
 check_file "src/app/globals.css"
 check_file "src/styles/variables.css"
-check_file "src/styles/vintage-baseball-card.css"
+check_file "src/styles/vintage-service-record.css"
 
 # Check package.json dependencies
 echo -e "\n${BLUE}Checking Dependencies:${NC}"
@@ -126,10 +126,10 @@ if [ -f "src/app/globals.css" ]; then
         echo -e "${YELLOW}⚠${NC} CSS variables not imported"
     fi
     
-    if grep -q "vintage-baseball-card.css" src/app/globals.css; then
-        echo -e "${GREEN}✓${NC} Vintage baseball card styles imported"
+    if grep -q "vintage-service-record.css" src/app/globals.css; then
+        echo -e "${GREEN}✓${NC} Service record card styles imported"
     else
-        echo -e "${YELLOW}⚠${NC} Vintage baseball card styles not imported"
+        echo -e "${YELLOW}⚠${NC} Service record card styles not imported"
     fi
 fi
 

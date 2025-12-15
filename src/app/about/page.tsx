@@ -21,7 +21,6 @@ import {
   AwardsSection,
 } from "@/components/about";
 import { gridPresets } from "@/lib/styles/layout-variants";
-import { PartnershipCTA } from "@/components/home/PartnershipCTA";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { StructuredData } from "@/components/seo/seo-meta";
 
@@ -125,7 +124,13 @@ export default function AboutPage() {
         <PartnershipPhilosophy />
 
         {/* Company Stats */}
-        <CompanyStats />
+        <CompanyStats
+          id="stats"
+          subtitle=""
+          title="Trusted by the Community"
+          description=""
+          variant="primary"
+        />
 
         {/* Core Values Section */}
         <AboutValues coreValues={coreValues} />
@@ -145,27 +150,34 @@ export default function AboutPage() {
         <AwardsSection />
 
         {/* Why Values Matter Section */}
-        <section className="relative bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden">
-          {/* Background Effects */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.15)_0%,transparent_50%)]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.12)_0%,transparent_50%)]"></div>
-          <div className="top-20 right-10 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
-          <div
-            className="left-10 bottom-20 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
-            style={{ animationDelay: "1s" }}
-          ></div>
-          <div
-            className="top-1/2 left-1/4 absolute bg-brand-secondary/5 dark:bg-brand-secondary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
-            style={{ animationDelay: "0.5s" }}
-          ></div>
+        <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                  45deg,
+                  #386851 0px,
+                  #386851 2px,
+                  transparent 2px,
+                  transparent 60px
+                )`,
+              }}
+            ></div>
+          </div>
 
-          <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+          <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <SectionHeader
               icon="verified"
               iconVariant="bronze"
               subtitle="Why Our Values"
               title="Matter"
-              description="Our commitment to integrity, transparency, and excellence drives every project decision and partnership we build. These aren't just words on a wall—they're the foundation of how we do business and the promise we make to every Client Partner."
+              description="Our commitment to integrity, transparency, and excellence drives every project decision and partnership we build. These aren't just words on a wall—they're the foundation of how we do business and the promise we make to every partner."
             />
 
             <StaggeredFadeIn className={gridPresets.cards3("md")}>
@@ -189,7 +201,7 @@ export default function AboutPage() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="leading-relaxed text-sm sm:text-base md:text-lg">
                         Predictable, consistent experience you can count on
@@ -198,7 +210,7 @@ export default function AboutPage() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="leading-relaxed text-sm sm:text-base md:text-lg">
                         Peace of mind knowing your project is in capable hands
@@ -207,7 +219,7 @@ export default function AboutPage() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="leading-relaxed text-sm sm:text-base md:text-lg">
                         Long-term partnership beyond project completion
@@ -216,7 +228,7 @@ export default function AboutPage() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="leading-relaxed text-sm sm:text-base md:text-lg">
                         True ROI—the return is the relationship
@@ -246,7 +258,7 @@ export default function AboutPage() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="leading-relaxed text-sm sm:text-base md:text-lg">
                         Economic development supporting local suppliers
@@ -255,7 +267,7 @@ export default function AboutPage() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="leading-relaxed text-sm sm:text-base md:text-lg">
                         Raising quality standards in construction industry
@@ -264,7 +276,7 @@ export default function AboutPage() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="leading-relaxed text-sm sm:text-base md:text-lg">
                         Veteran support and opportunities for military families
@@ -273,7 +285,7 @@ export default function AboutPage() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="leading-relaxed text-sm sm:text-base md:text-lg">
                         Building structures serving communities for generations
@@ -286,10 +298,11 @@ export default function AboutPage() {
               <div className="group h-full">
                 <div className="h-full flex flex-col p-6 sm:p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                   <div className="mb-6 flex justify-center">
-                    <div className="rounded-xl bg-gradient-to-br from-brand-accent to-bronze-600 p-3 shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <div className="rounded-xl bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-3 shadow-md group-hover:scale-110 transition-transform duration-300">
                       <MaterialIcon
                         icon="engineering"
-                        className="text-4xl text-white"
+                        size="xl"
+                        className="text-white"
                       />
                     </div>
                   </div>
@@ -300,7 +313,7 @@ export default function AboutPage() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="leading-relaxed text-sm sm:text-base md:text-lg">
                         Professional pride in meaningful work
@@ -309,7 +322,7 @@ export default function AboutPage() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="leading-relaxed text-sm sm:text-base md:text-lg">
                         Clear standards and expectations in every interaction
@@ -318,7 +331,7 @@ export default function AboutPage() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="leading-relaxed text-sm sm:text-base md:text-lg">
                         Personal growth in environment valuing excellence
@@ -327,7 +340,7 @@ export default function AboutPage() {
                     <li className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-accent text-sm sm:text-base"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
                       />
                       <span className="leading-relaxed text-sm sm:text-base md:text-lg">
                         Being part of something larger than individual projects
@@ -346,53 +359,36 @@ export default function AboutPage() {
         {/* News & Achievements Section - MERGED from Company Blog + Latest News */}
         <section
           id="news"
-          className="relative bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden"
+          className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
         >
-          {/* Enhanced Background Effects */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,104,81,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(56,104,81,0.15)_0%,transparent_50%)]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(189,146,100,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_right,rgba(189,146,100,0.12)_0%,transparent_50%)]"></div>
-          <div className="top-20 left-10 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
-          <div
-            className="right-10 bottom-20 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
-            style={{ animationDelay: "1s" }}
-          ></div>
-          <div
-            className="top-1/2 right-1/4 absolute bg-brand-primary/5 dark:bg-brand-primary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
-            style={{ animationDelay: "0.5s" }}
-          ></div>
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                  45deg,
+                  #386851 0px,
+                  #386851 2px,
+                  transparent 2px,
+                  transparent 60px
+                )`,
+              }}
+            ></div>
+          </div>
 
-          <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <FadeInWhenVisible>
-              <div className="mx-auto max-w-4xl text-center mb-12 sm:mb-16 lg:mb-20">
-                {/* Icon Header with Glow Effect */}
-                <div className="flex justify-center items-center mb-6 sm:mb-8">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-brand-secondary/20 dark:bg-brand-secondary/30 blur-xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-4 rounded-2xl shadow-lg">
-                      <MaterialIcon
-                        icon="campaign"
-                        size="2xl"
-                        theme="military"
-                        ariaLabel="News and achievements"
-                        className="text-white"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                    News, Insights &
-                  </span>
-                  <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                    Company Achievements
-                  </span>
-                </h2>
-                <p className="mx-auto max-w-5xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                  Stay updated with our latest projects, partnerships, industry
-                  insights, and milestones from our veteran-owned team
-                </p>
-              </div>
-            </FadeInWhenVisible>
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+          <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <SectionHeader
+              icon="campaign"
+              iconVariant="secondary"
+              subtitle="News, Insights &"
+              title="Company Achievements"
+              description="Stay updated with our latest projects, partnerships, industry insights, and milestones from our veteran-owned team"
+            />
 
             {/* Combined grid with best content from both sections - 6 items total */}
             <div className={gridPresets.cards3("md", "mx-auto max-w-7xl")}>
@@ -416,17 +412,17 @@ export default function AboutPage() {
                       </span>
                     </div>
                     <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
-                      50+ Successful Partnerships in Pacific Northwest
+                      50+ Successful Projects in Pacific Northwest
                     </h3>
                     <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
                       We&apos;re proud to announce reaching a major milestone:
-                      over 50 completed construction partnerships across
-                      Washington and Oregon. Thank you to all our Client
-                      Partners and Trade Partners for your continued trust.
+                      over 50 completed construction projects across Washington
+                      and Oregon. Thank you to all our partners for your
+                      continued trust.
                     </p>
                     <Link
                       href="/projects"
-                      className="inline-flex items-center text-brand-primary hover:text-brand-accent transition-colors mt-auto"
+                      className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors mt-auto"
                     >
                       <span className="font-medium text-xs sm:text-sm">
                         View Our Work
@@ -464,9 +460,9 @@ export default function AboutPage() {
                     </h3>
                     <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
                       We&apos;re implementing High-Level CRM to provide seamless
-                      communication, real-time project updates, and enhanced
-                      Client Partner experience throughout your construction
-                      journey. Feedback from every project helps us improve.
+                      communication, real-time project updates, and an enhanced
+                      experience throughout your construction journey. Feedback
+                      from every project helps us improve.
                     </p>
                     <Link
                       href="/contact"
@@ -492,10 +488,10 @@ export default function AboutPage() {
                       <div className="flex items-center gap-2">
                         <MaterialIcon
                           icon="handshake"
-                          className="text-brand-accent"
+                          className="text-brand-secondary"
                           size="md"
                         />
-                        <span className="font-semibold text-brand-accent text-xs sm:text-sm">
+                        <span className="font-semibold text-brand-secondary text-xs sm:text-sm">
                           Partnership
                         </span>
                       </div>
@@ -507,14 +503,13 @@ export default function AboutPage() {
                       Expanding Trade Partner Network
                     </h3>
                     <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
-                      We&apos;re actively growing our network of skilled Trade
-                      Partners to better serve our Client Partners across the
-                      Pacific Northwest. Join our veteran-owned partnership
-                      program.
+                      We&apos;re actively growing our network of skilled trade
+                      professionals to better serve clients across the Pacific
+                      Northwest. Join our veteran-owned partnership program.
                     </p>
                     <Link
                       href="/allies"
-                      className="inline-flex items-center text-brand-accent hover:text-brand-primary transition-colors mt-auto"
+                      className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors mt-auto"
                     >
                       <span className="font-medium text-xs sm:text-sm">
                         Become a Partner
@@ -600,7 +595,7 @@ export default function AboutPage() {
                     </p>
                     <Link
                       href="/services"
-                      className="inline-flex items-center text-brand-primary hover:text-brand-accent transition-colors mt-auto"
+                      className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors mt-auto"
                     >
                       <span className="font-medium text-xs sm:text-sm">
                         Our Services
@@ -622,10 +617,10 @@ export default function AboutPage() {
                       <div className="flex items-center gap-2">
                         <MaterialIcon
                           icon="military_tech"
-                          className="text-brand-accent"
+                          className="text-brand-primary"
                           size="md"
                         />
-                        <span className="font-semibold text-brand-accent text-xs sm:text-sm">
+                        <span className="font-semibold text-brand-primary text-xs sm:text-sm">
                           Veteran Initiative
                         </span>
                       </div>
@@ -643,7 +638,7 @@ export default function AboutPage() {
                     </p>
                     <Link
                       href="/about"
-                      className="inline-flex items-center text-brand-accent hover:text-brand-primary transition-colors mt-auto"
+                      className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors mt-auto"
                     >
                       <span className="font-medium text-xs sm:text-sm">
                         Our Values
@@ -679,9 +674,6 @@ export default function AboutPage() {
 
         {/* Next Steps Section - MOVED TO PROPER CONVERSION POSITION (80-90% page depth) */}
         <NextStepsSection />
-
-        {/* Enhanced Partnership Call to Action Section */}
-        <PartnershipCTA />
       </div>
     </>
   );

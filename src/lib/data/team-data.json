@@ -648,57 +648,6 @@
     "qrCode": "/images/qr-codes/qr-team-jennifer-tene.png"
   },
   {
-    "name": "Trigger",
-    "role": "Chief Morale Officer",
-    "department": "Executive Leadership",
-    "cardNumber": 99,
-    "position": "Chief Morale Officer",
-    "nickname": "The Good Boy",
-    "awards": "Best in Show Recognition, Perfect Attendance Award",
-    "yearsWithCompany": 5,
-    "hometown": "MH Construction HQ",
-    "education": "School of Good Boys",
-    "currentYearStats": {
-      "projectsCompleted": 100,
-      "clientSatisfaction": 100,
-      "safetyRecord": "PERFECT",
-      "teamCollaborations": 100
-    },
-    "careerStats": {
-      "totalProjects": 500,
-      "yearsExperience": 5,
-      "specialtyAreas": 4,
-      "mentorships": 50
-    },
-    "bio": "Trigger is our beloved company mascot who keeps everyone in high spirits and ensures the highest standards of workplace happiness. Always ready with a friendly wag and expert treat quality control.",
-    "careerHighlights": [
-      "Perfect attendance record",
-      "Boosted team morale by 100%",
-      "Expert security patrol services",
-      "Professional treat taste tester"
-    ],
-    "funFact": "Trigger can detect the quality of construction materials by smell and has never been wrong.",
-    "specialties": [
-      "Tail Wagging",
-      "Treat Evaluation",
-      "Security Patrol",
-      "Team Spirit"
-    ],
-    "avatar": "/images/team/trigger.jpg",
-    "veteranStatus": "Good Boy",
-    "active": true,
-    "slug": "trigger-mascot",
-    "skills": {
-      "leadership": 70,
-      "technical": 70,
-      "communication": 70,
-      "safety": 85,
-      "problemSolving": 70,
-      "teamwork": 80
-    },
-    "qrCode": "/images/qr-codes/qr-team-trigger-mascot.png"
-  },
-  {
     "name": "Derek Parks",
     "role": "Superintendent",
     "department": "Site & Field Operations",

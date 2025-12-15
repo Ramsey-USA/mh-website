@@ -4,7 +4,7 @@
 
 The `TeamProfileSection` component provides a modern, professional layout for displaying team member
 profiles with comprehensive information including skills radar charts, career statistics, and personal
-details. This replaces the previous vintage baseball card theme with a more spacious and informative design.
+details. This replaces the previous vintage service record card theme with a more spacious and informative design.
 
 **Component Location:** `src/components/team/TeamProfileSection.tsx`
 
@@ -343,7 +343,7 @@ The component follows strict MH Construction branding standards:
 
 ---
 
-## Migration from Baseball Cards
+## Migration from Service Record Cards
 
 ### What Changed
 
@@ -356,13 +356,13 @@ The component follows strict MH Construction branding standards:
 ### Backward Compatibility
 
 - Original `VintageTeamMember` interface preserved
-- Baseball card component still available if needed
+- Service record card component still available if needed
 - Team data JSON structure extended, not replaced
 - No breaking changes to existing data
 
 ### Future Use Cases
 
-The baseball card component (`VintageBaseballCard.tsx`) remains available for:
+The service record card component (`VintageServiceRecordCard.tsx`) remains available for:
 
 - Print materials
 - Fun team events

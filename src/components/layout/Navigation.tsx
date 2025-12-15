@@ -122,7 +122,7 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 right-0 bottom-0 z-[60] transition-all duration-500 ease-in-out ${
+        className={`fixed top-0 left-0 right-0 bottom-0 z-[65] transition-all duration-500 ease-in-out ${
           isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
@@ -156,7 +156,7 @@ export function Navigation() {
                     {
                       href: "/careers",
                       label: "Occupation Specialties",
-                      icon: "handshake",
+                      icon: "work",
                     },
                     {
                       href: "/contact",
@@ -171,7 +171,7 @@ export function Navigation() {
                     {
                       href: "/allies",
                       label: "Allies in Force",
-                      icon: "handshake",
+                      icon: "group",
                     },
                     {
                       href: "/veterans",

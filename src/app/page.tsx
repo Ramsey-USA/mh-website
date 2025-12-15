@@ -16,7 +16,6 @@ import {
   CoreValuesSection,
   ServicesShowcase,
   WhyPartnerSection,
-  PartnershipCTA,
 } from "@/components/home";
 import { CompanyStats } from "@/components/about/CompanyStats";
 
@@ -125,27 +124,34 @@ export default function Home() {
       />
 
       {/* Website Transparency & Commitment Section */}
-      <section className="relative bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden">
-        {/* Enhanced Background Effects */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.15)_0%,transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.12)_0%,transparent_50%)]"></div>
-        <div className="top-20 left-10 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
-        <div
-          className="right-10 bottom-20 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
-          style={{ animationDelay: "1s" }}
-        ></div>
-        <div
-          className="top-1/2 right-1/4 absolute bg-brand-primary/5 dark:bg-brand-primary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
-          style={{ animationDelay: "0.5s" }}
-        ></div>
+      <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+        {/* Unique Diagonal Stripe Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `repeating-linear-gradient(
+                45deg,
+                #386851 0px,
+                #386851 2px,
+                transparent 2px,
+                transparent 60px
+              )`,
+            }}
+          ></div>
+        </div>
 
-        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        {/* Large Brand Color Blobs */}
+        <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+        <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <SectionHeader
             icon="construction"
             iconVariant="secondary"
-            subtitle="Mission Transparency & Operational Honesty"
-            title="Commitment to Service-Earned Excellence"
-            description="As a veteran-owned company, we apply the same values that guide our construction operations—honesty, integrity, and SITREP-level communication—to everything we do, including our digital presence. Military bearing in business means transparency at every level."
+            subtitle="Transparency & Honesty"
+            title="Commitment to Excellence"
+            description="As a veteran-owned company, we apply the same values that guide our construction—honesty, integrity, and clear communication—to everything we do, including our digital presence."
           />
 
           <div className="mx-auto max-w-4xl space-y-6">
@@ -162,31 +168,28 @@ export default function Home() {
               </div>
 
               <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 text-xl sm:text-2xl">
-                🔧 Website Enhancement Mission In Progress
+                🔧 Website Enhancement In Progress
               </h3>
 
               <p className="mb-4 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                Our veteran-owned values—
+                Our core values—
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  honesty, thoroughness, and integrity
+                  honesty, integrity, and thoroughness
                 </span>
-                —mean we're transparent about everything, including this SITREP:
-                our website is being refined to reflect the same proven
-                craftsmanship and mission excellence we bring to every
-                construction operation.
+                —mean we're transparent about everything. We're refining our
+                website to reflect the same proven craftsmanship we bring to
+                every project.
               </p>
 
               <p className="mb-4 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                <em>"Your Word Is Your Bond - So Is Ours."</em> Trust earned
-                through honest communication isn't just for construction
-                sites—it applies everywhere. Every detail will reflect our
-                commitment to transparent relationships and proven results.
-                Military precision meets construction excellence.
+                <em>"Your Word Is Your Bond - So Is Ours."</em> Every detail
+                will reflect our commitment to transparent relationships and
+                proven results.
               </p>
 
               <div className="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm p-6 border border-brand-secondary/30 rounded-xl mt-6">
                 <p className="font-semibold text-gray-900 dark:text-gray-100 text-base sm:text-lg">
-                  💬 What This Means for You:
+                  💬 What This Means:
                 </p>
                 <ul className="space-y-2 mt-4 text-gray-700 dark:text-gray-300 text-sm sm:text-base text-left">
                   <li className="flex items-start">
@@ -196,8 +199,7 @@ export default function Home() {
                       className="text-brand-primary mr-2 mt-1 flex-shrink-0"
                     />
                     <span>
-                      All core services, contact information, and booking
-                      capabilities are fully operational
+                      All services and contact information are fully operational
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -206,10 +208,7 @@ export default function Home() {
                       size="sm"
                       className="text-brand-primary mr-2 mt-1 flex-shrink-0"
                     />
-                    <span>
-                      We're refining content to ensure 100% accuracy and
-                      authenticity
-                    </span>
+                    <span>Content refinements ensure 100% accuracy</span>
                   </li>
                   <li className="flex items-start">
                     <MaterialIcon
@@ -218,25 +217,14 @@ export default function Home() {
                       className="text-brand-primary mr-2 mt-1 flex-shrink-0"
                     />
                     <span>
-                      Every word, image, and detail will meet our exacting
-                      standards
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      size="sm"
-                      className="text-brand-primary mr-2 mt-1 flex-shrink-0"
-                    />
-                    <span>
-                      You can still reach us at{" "}
+                      Reach us at{" "}
                       <a
                         href="tel:+15093086489"
                         className="font-semibold text-brand-primary hover:text-brand-primary-dark underline"
                       >
                         (509) 308-6489
                       </a>{" "}
-                      for immediate assistance
+                      anytime
                     </span>
                   </li>
                 </ul>
@@ -249,12 +237,9 @@ export default function Home() {
                 <span className="font-black italic text-bronze-300">NOT</span>{" "}
                 the dollar
               </span>{" "}
-              means never compromising our service-earned values—whether it's
-              honest communication on a construction operation or the
-              transparent information we provide online. Military precision
-              applied to every detail. Thank you for your patience as we perfect
-              every component with the same proven craftsmanship that defines
-              our work.
+              means never compromising our values—whether in construction or
+              communication. Thank you for your patience as we perfect every
+              detail.
             </p>
           </div>
         </div>
@@ -269,11 +254,218 @@ export default function Home() {
         variant="primary"
       />
 
+      {/* Our Process Timeline Section */}
+      <section
+        id="our-process"
+        className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+      >
+        {/* Unique Diagonal Stripe Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `repeating-linear-gradient(
+                45deg,
+                #386851 0px,
+                #386851 2px,
+                transparent 2px,
+                transparent 60px
+              )`,
+            }}
+          ></div>
+        </div>
+
+        {/* Large Brand Color Blobs */}
+        <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+        <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <SectionHeader
+            icon="timeline"
+            iconVariant="primary"
+            subtitle="Simple & Transparent"
+            title="Our Process"
+            description="Five clear steps from first contact to project completion. No surprises, just honest communication and proven results."
+          />
+
+          {/* Timeline - Vertical Alternating Layout */}
+          <div className="relative max-w-6xl mx-auto">
+            {/* Vertical Connecting Line */}
+            <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-brand-primary/30 via-brand-secondary to-brand-primary/30"></div>
+
+            {/* Timeline Steps - Desktop Alternating */}
+            <div className="space-y-12 lg:space-y-20">
+              {[
+                {
+                  num: 1,
+                  icon: "engineering",
+                  title: "Pre-Construction Planning",
+                  desc: "Comprehensive site assessment, detailed scope development, and strategic planning to identify challenges before they arise.",
+                  position: "left",
+                },
+                {
+                  num: 2,
+                  icon: "payments",
+                  title: "Budget Transparency",
+                  desc: "Clear, itemized pricing with complete cost breakdown. No hidden fees, no surprises—just honest numbers you can trust.",
+                  position: "right",
+                },
+                {
+                  num: 3,
+                  icon: "verified",
+                  title: "Quality Execution",
+                  desc: "Expert craftsmanship with systematic quality checkpoints at every phase. Precision execution backed by 150+ years combined experience.",
+                  position: "left",
+                },
+                {
+                  num: 4,
+                  icon: "forum",
+                  title: "Proactive Communication",
+                  desc: "Regular updates keep you informed throughout the project. Real-time notifications of any changes—you're never in the dark.",
+                  position: "right",
+                },
+                {
+                  num: 5,
+                  icon: "task_alt",
+                  title: "Seamless Close-Out",
+                  desc: "Comprehensive final walkthrough and complete documentation. Our commitment to your satisfaction extends beyond project completion.",
+                  position: "left",
+                },
+              ].map((step, index) => (
+                <div
+                  key={step.num}
+                  className="relative group scroll-reveal"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  {/* Desktop Layout */}
+                  <div className="hidden lg:flex items-center gap-8">
+                    {step.position === "left" ? (
+                      <>
+                        {/* Content Left */}
+                        <div className="flex-1 text-right">
+                          <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-primary dark:group-hover:border-brand-primary-light">
+                            <div className="flex items-center justify-end gap-4 mb-4">
+                              <div>
+                                <h3 className="font-black text-gray-900 dark:text-white text-2xl mb-1">
+                                  {step.title}
+                                </h3>
+                              </div>
+                              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                                <MaterialIcon
+                                  icon={step.icon}
+                                  size="xl"
+                                  className="text-white"
+                                />
+                              </div>
+                            </div>
+                            <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+                              {step.desc}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Center Circle */}
+                        <div className="flex-shrink-0 relative z-10">
+                          <div className="w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                            {step.num}
+                          </div>
+                        </div>
+
+                        {/* Empty Right */}
+                        <div className="flex-1"></div>
+                      </>
+                    ) : (
+                      <>
+                        {/* Empty Left */}
+                        <div className="flex-1"></div>
+
+                        {/* Center Circle */}
+                        <div className="flex-shrink-0 relative z-10">
+                          <div className="w-20 h-20 bg-gradient-to-br from-brand-secondary to-brand-secondary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                            {step.num}
+                          </div>
+                        </div>
+
+                        {/* Content Right */}
+                        <div className="flex-1 text-left">
+                          <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-secondary dark:group-hover:border-brand-secondary-light">
+                            <div className="flex items-center gap-4 mb-4">
+                              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-brand-secondary to-brand-secondary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
+                                <MaterialIcon
+                                  icon={step.icon}
+                                  size="xl"
+                                  className="text-white"
+                                />
+                              </div>
+                              <div>
+                                <h3 className="font-black text-gray-900 dark:text-white text-2xl mb-1">
+                                  {step.title}
+                                </h3>
+                              </div>
+                            </div>
+                            <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+                              {step.desc}
+                            </p>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Mobile Layout */}
+                  <div className="lg:hidden flex gap-4">
+                    {/* Left Side - Number and Line */}
+                    <div className="flex flex-col items-center flex-shrink-0">
+                      <div
+                        className={`w-16 h-16 ${
+                          step.num === 5
+                            ? "bg-gradient-to-br from-brand-secondary to-brand-secondary-dark"
+                            : "bg-gradient-to-br from-brand-primary to-brand-primary-dark"
+                        } rounded-full flex items-center justify-center text-white font-black text-2xl shadow-xl border-4 border-white dark:border-gray-900 relative z-10`}
+                      >
+                        {step.num}
+                      </div>
+                      {index < 4 && (
+                        <div className="w-1 flex-1 bg-gradient-to-b from-brand-primary to-brand-secondary mt-2 min-h-[60px]"></div>
+                      )}
+                    </div>
+
+                    {/* Right Side - Card */}
+                    <div className="flex-1 pb-8">
+                      <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-brand-primary dark:hover:border-brand-primary-light">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div
+                            className={`flex-shrink-0 w-14 h-14 ${
+                              step.num === 5
+                                ? "bg-gradient-to-br from-brand-secondary to-brand-secondary-dark"
+                                : "bg-gradient-to-br from-brand-primary to-brand-primary-dark"
+                            } rounded-xl flex items-center justify-center shadow-lg`}
+                          >
+                            <MaterialIcon
+                              icon={step.icon}
+                              size="lg"
+                              className="text-white"
+                            />
+                          </div>
+                          <h3 className="font-black text-gray-900 dark:text-white text-xl">
+                            {step.title}
+                          </h3>
+                        </div>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                          {step.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Next Steps Section */}
       <NextStepsSection />
-
-      {/* Enhanced Partnership Call to Action Section */}
-      <PartnershipCTA />
     </>
   );
 }

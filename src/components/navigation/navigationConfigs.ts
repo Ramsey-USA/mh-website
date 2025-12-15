@@ -43,9 +43,15 @@ export const navigationConfigs = {
     },
     {
       href: "#stats",
-      label: "Our Track Record",
+      label: "Track Record",
       mobileLabel: "Stats",
       icon: "analytics",
+    },
+    {
+      href: "#our-process",
+      label: "Our Process",
+      mobileLabel: "Process",
+      icon: "timeline",
     },
     {
       href: "#next-steps",

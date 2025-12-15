@@ -15,11 +15,11 @@ import { type TeamMember } from "@/lib/data/team";
  * @see /src/components/team/TeamProfileSection.tsx
  */
 
-interface BaseballCardProps {
+interface ServiceRecordCardProps {
   member: TeamMember;
 }
 
-export function BaseballCard({ member }: BaseballCardProps) {
+export function ServiceRecordCard({ member }: ServiceRecordCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   // Get role icon based on role
   function getRoleIcon(role: string): string {
@@ -36,12 +36,8 @@ export function BaseballCard({ member }: BaseballCardProps) {
     if (role.includes("Marketing")) return "campaign";
     if (role.includes("Administrative")) return "admin_panel_settings";
     if (role.includes("Expert")) return "handyman";
-    if (role.includes("Chief Morale Officer")) return "pets";
     return "person";
   }
-
-  // Check if this is Trigger the mascot
-  const isMascot = member.name === "Trigger";
 
   // Get veteran status badge
   function getVeteranStatusBadge(status?: string) {
@@ -93,21 +89,9 @@ export function BaseballCard({ member }: BaseballCardProps) {
           }`}
         >
           {/* FRONT OF CARD */}
-          <div
-            className={`absolute inset-0 w-full h-full backface-hidden ${
-              isMascot
-                ? "bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 border-amber-300"
-                : "bg-gradient-to-br from-white via-gray-50 to-gray-100 border-gray-200"
-            } shadow-lg hover:shadow-xl border-2 rounded-2xl overflow-hidden`}
-          >
+          <div className="absolute inset-0 w-full h-full backface-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100 border-gray-200 shadow-lg hover:shadow-xl border-2 rounded-2xl overflow-hidden">
             {/* Card Header with Team Branding */}
-            <div
-              className={`${
-                isMascot
-                  ? "bg-gradient-to-r from-amber-500 to-orange-500"
-                  : "bg-gradient-to-r from-[#386851] to-[#2d5240]"
-              } px-6 py-3`}
-            >
+            <div className="bg-gradient-to-r from-[#386851] to-[#2d5240] px-6 py-3">
               <div className="flex justify-between items-center">
                 <div className="flex items-center">
                   <Image
@@ -126,18 +110,8 @@ export function BaseballCard({ member }: BaseballCardProps) {
             </div>
 
             {/* Photo Section */}
-            <div
-              className={`flex justify-center items-center ${
-                isMascot ? "bg-amber-100" : "bg-gray-100"
-              } py-8`}
-            >
-              <div
-                className={`relative ${
-                  isMascot
-                    ? "bg-gradient-to-br from-amber-300/20 to-orange-300/20"
-                    : "bg-gradient-to-br from-[#386851]/20 to-[#BD9264]/20"
-                } rounded-full w-32 h-32 overflow-hidden shadow-lg`}
-              >
+            <div className="flex justify-center items-center bg-gray-100 py-8">
+              <div className="relative bg-gradient-to-br from-[#386851]/20 to-[#BD9264]/20 rounded-full w-32 h-32 overflow-hidden shadow-lg">
                 {member.avatar ? (
                   <Image
                     src={member.avatar}
@@ -151,7 +125,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
                     <MaterialIcon
                       icon={getRoleIcon(member.role)}
                       size="4xl"
-                      className={isMascot ? "text-amber-600" : "text-[#386851]"}
+                      className="text-[#386851]"
                     />
                   </div>
                 )}
@@ -160,25 +134,13 @@ export function BaseballCard({ member }: BaseballCardProps) {
 
             {/* Name and Role */}
             <div className="px-6 py-4 text-center">
-              <h3
-                className={`mb-2 font-black text-xl tracking-tight ${
-                  isMascot ? "text-amber-900" : "text-gray-900"
-                }`}
-              >
+              <h3 className="mb-2 font-black text-xl tracking-tight text-gray-900">
                 {member.name}
               </h3>
-              <p
-                className={`mb-3 font-bold text-sm uppercase tracking-wide ${
-                  isMascot ? "text-orange-600" : "text-[#BD9264]"
-                }`}
-              >
+              <p className="mb-3 font-bold text-sm uppercase tracking-wide text-[#BD9264]">
                 {member.role}
               </p>
-              <p
-                className={`text-xs font-medium ${
-                  isMascot ? "text-amber-700" : "text-gray-600"
-                }`}
-              >
+              <p className="text-xs font-medium text-gray-600">
                 <MaterialIcon
                   icon="schedule"
                   size="sm"
@@ -187,17 +149,13 @@ export function BaseballCard({ member }: BaseballCardProps) {
                 {typeof member.experienceYears === "number"
                   ? `${member.experienceYears}+`
                   : member.experienceYears}{" "}
-                {isMascot ? "years of service" : "years experience"}
+                years experience
               </p>
             </div>
 
             {/* Click to flip indicator */}
             <div className="bottom-4 left-1/2 absolute -translate-x-1/2 transform">
-              <div
-                className={`flex items-center ${
-                  isMascot ? "text-amber-600" : "text-[#386851]"
-                } text-xs`}
-              >
+              <div className="flex items-center text-[#386851] text-xs">
                 <MaterialIcon icon="flip" size="sm" className="mr-1" />
                 <span>Click to flip</span>
               </div>
@@ -205,21 +163,9 @@ export function BaseballCard({ member }: BaseballCardProps) {
           </div>
 
           {/* BACK OF CARD */}
-          <div
-            className={`absolute inset-0 w-full h-full backface-hidden rotate-y-180 ${
-              isMascot
-                ? "bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 border-amber-300"
-                : "bg-gradient-to-br from-white via-gray-50 to-gray-100 border-gray-200"
-            } shadow-lg border-2 rounded-2xl overflow-hidden`}
-          >
+          <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gradient-to-br from-white via-gray-50 to-gray-100 border-gray-200 shadow-lg border-2 rounded-2xl overflow-hidden">
             {/* Footer */}
-            <div
-              className={`${
-                isMascot
-                  ? "bg-gradient-to-r from-amber-500 to-orange-500"
-                  : "bg-gradient-to-r from-[#386851] to-[#2d5240]"
-              } px-6 py-3`}
-            >
+            <div className="bg-gradient-to-r from-[#386851] to-[#2d5240] px-6 py-3">
               <div className="text-center">
                 <span className="font-bold text-white text-sm uppercase tracking-wide">
                   TEAM PROFILE
@@ -232,19 +178,11 @@ export function BaseballCard({ member }: BaseballCardProps) {
               {member.bio && (
                 <div className="mb-6">
                   <div className="mb-3 text-center">
-                    <span
-                      className={`font-bold text-xs tracking-wide uppercase ${
-                        isMascot ? "text-amber-800" : "text-gray-700"
-                      }`}
-                    >
+                    <span className="font-bold text-xs tracking-wide uppercase text-gray-700">
                       PROFILE
                     </span>
                   </div>
-                  <p
-                    className={`text-sm leading-relaxed text-center ${
-                      isMascot ? "text-amber-800" : "text-gray-600"
-                    }`}
-                  >
+                  <p className="text-sm leading-relaxed text-center text-gray-600">
                     {member.bio}
                   </p>
                 </div>
@@ -253,23 +191,15 @@ export function BaseballCard({ member }: BaseballCardProps) {
               {/* Specialties */}
               <div className="flex-1">
                 <div className="mb-3 text-center">
-                  <span
-                    className={`font-bold text-xs tracking-wide uppercase ${
-                      isMascot ? "text-amber-800" : "text-gray-700"
-                    }`}
-                  >
-                    {isMascot ? "SPECIAL SKILLS" : "SPECIALTIES"}
+                  <span className="font-bold text-xs tracking-wide uppercase text-gray-700">
+                    SPECIALTIES
                   </span>
                 </div>
                 <div className="flex flex-wrap justify-center gap-2">
                   {member.specialties?.map((specialty, _index) => (
                     <span
                       key={_index}
-                      className={`${
-                        isMascot
-                          ? "bg-amber-200 text-amber-800"
-                          : "bg-[#386851]/10 text-[#386851]"
-                      } px-3 py-1 rounded-md text-xs font-medium`}
+                      className="bg-[#386851]/10 text-[#386851] px-3 py-1 rounded-md text-xs font-medium"
                     >
                       {specialty}
                     </span>
@@ -281,37 +211,21 @@ export function BaseballCard({ member }: BaseballCardProps) {
               <div className="mt-6 pt-4 border-gray-200 border-t">
                 <div className="gap-4 grid grid-cols-2 text-center">
                   <div>
-                    <div
-                      className={`text-2xl font-bold ${
-                        isMascot ? "text-amber-600" : "text-[#386851]"
-                      }`}
-                    >
+                    <div className="text-2xl font-bold text-[#386851]">
                       {typeof member.experienceYears === "number"
                         ? member.experienceYears
                         : "5"}
                       +
                     </div>
-                    <div
-                      className={`text-xs uppercase tracking-wide ${
-                        isMascot ? "text-amber-700" : "text-gray-600"
-                      }`}
-                    >
+                    <div className="text-xs uppercase tracking-wide text-gray-600">
                       Years Exp
                     </div>
                   </div>
                   <div>
-                    <div
-                      className={`text-2xl font-bold ${
-                        isMascot ? "text-amber-600" : "text-[#386851]"
-                      }`}
-                    >
+                    <div className="text-2xl font-bold text-[#386851]">
                       {member.specialties?.length || 0}
                     </div>
-                    <div
-                      className={`text-xs uppercase tracking-wide ${
-                        isMascot ? "text-amber-700" : "text-gray-600"
-                      }`}
-                    >
+                    <div className="text-xs uppercase tracking-wide text-gray-600">
                       Specialties
                     </div>
                   </div>
@@ -320,11 +234,7 @@ export function BaseballCard({ member }: BaseballCardProps) {
 
               {/* Click to flip back indicator */}
               <div className="mt-4 text-center">
-                <div
-                  className={`flex items-center justify-center ${
-                    isMascot ? "text-amber-600" : "text-[#386851]"
-                  } text-xs`}
-                >
+                <div className="flex items-center justify-center text-[#386851] text-xs">
                   <MaterialIcon icon="flip" size="sm" className="mr-1" />
                   <span>Click to flip back</span>
                 </div>

@@ -19,7 +19,7 @@ Construction website.
 │ └── globals.css # Global styles with Tailwind layers
 ├── src/styles/
 │ ├── variables.css # CSS custom properties
-│ └── vintage-baseball-card.css # Component-specific styles
+│ └── vintage-service-record.css # Component-specific styles
 └── src/lib/
 └── utils.ts # Enhanced className utilities
 
@@ -71,7 +71,7 @@ Construction website.
 @tailwind utilities;  /* Tailwind's utility classes */
 
 @import '../styles/variables.css';           /* CSS custom properties */
-@import '../styles/vintage-baseball-card.css'; /* Component styles */
+@import '../styles/vintage-service-record.css'; /* Component styles */
 
 @layer utilities { /* Custom utility extensions */ }
 @layer components { /* Custom component patterns */ }

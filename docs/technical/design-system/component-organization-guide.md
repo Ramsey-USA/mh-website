@@ -37,8 +37,8 @@ Organized component library for the MH Construction website with logical categor
 
 ### 📁 `/specialty/` - Themed & Custom Components
 
-- `BaseballCard.tsx` - Team member display component
-- `VintageBaseballCard.tsx` - Legacy team member card (deprecated, use TeamProfileSection)
+- `ServiceRecordCard.tsx` - Team member display component (military-themed)
+- `VintageServiceRecordCard.tsx` - Legacy team member card (deprecated, use TeamProfileSection)
 
 ### 📁 `/shared-sections/` - Reusable Page Sections
 
@@ -116,7 +116,7 @@ Overlay interfaces for focused interactions.
 
 Custom components with specific themes or unique functionality.
 
-- Baseball card themed team displays
+- Service record card themed team displays
 - Brand-specific visual elements
 - Unique interaction patterns
 

@@ -127,7 +127,7 @@ export default function Footer() {
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Begin Your Project</span>
+                <span>Start Your Project Partnership</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -140,7 +140,7 @@ export default function Footer() {
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
-                  icon="build"
+                  icon="construction"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
@@ -174,11 +174,11 @@ export default function Footer() {
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
-                  icon="contact_phone"
+                  icon="handshake"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Connect With Us</span>
+                <span>Partner With Us</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -325,7 +325,7 @@ export default function Footer() {
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
-                  icon="business"
+                  icon="group"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
