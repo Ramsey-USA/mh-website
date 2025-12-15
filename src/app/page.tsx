@@ -40,7 +40,6 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { useAnalytics } from "@/components/analytics/enhanced-analytics";
 import { useImagePreloader } from "@/hooks/usePerformanceOptimization";
 import { useScrollDepthTracking } from "@/hooks/useScrollDepthTracking";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export default function Home() {
   // Initialize analytics
@@ -146,13 +145,48 @@ export default function Home() {
         <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
         <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <SectionHeader
-            icon="construction"
-            iconVariant="secondary"
-            subtitle="Transparency & Honesty"
-            title="Commitment to Excellence"
-            description="As a veteran-owned company, we apply the same values that guide our construction—honesty, integrity, and clear communication—to everything we do, including our digital presence."
-          />
+          {/* Section Header - Military Construction Standard */}
+          <div className="mb-16 sm:mb-20 text-center">
+            {/* Icon with decorative lines */}
+            <div className="flex items-center justify-center mb-8 gap-4">
+              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <MaterialIcon
+                    icon="construction"
+                    size="2xl"
+                    className="text-white drop-shadow-lg"
+                  />
+                </div>
+              </div>
+              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            </div>
+
+            {/* Two-line gradient heading */}
+            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                Transparency & Honesty
+              </span>
+              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                Commitment to Excellence
+              </span>
+            </h2>
+
+            {/* Description with colored keyword highlighting */}
+            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              As a{" "}
+              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                veteran-owned company
+              </span>
+              , we apply the same values that guide our construction—honesty,
+              integrity, and{" "}
+              <span className="font-bold text-gray-900 dark:text-white">
+                clear communication
+              </span>
+              —to everything we do, including our digital presence.
+            </p>
+          </div>
 
           <div className="mx-auto max-w-4xl space-y-6">
             {/* Transparency Notice */}
@@ -280,13 +314,47 @@ export default function Home() {
         <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
         <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <SectionHeader
-            icon="timeline"
-            iconVariant="primary"
-            subtitle="Simple & Transparent"
-            title="Our Process"
-            description="Five clear steps from first contact to project completion. No surprises, just honest communication and proven results."
-          />
+          {/* Section Header - Military Construction Standard */}
+          <div className="mb-16 sm:mb-20 text-center">
+            {/* Icon with decorative lines */}
+            <div className="flex items-center justify-center mb-8 gap-4">
+              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <MaterialIcon
+                    icon="timeline"
+                    size="2xl"
+                    className="text-white drop-shadow-lg"
+                  />
+                </div>
+              </div>
+              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            </div>
+
+            {/* Two-line gradient heading */}
+            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                Simple & Transparent
+              </span>
+              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                Our Process
+              </span>
+            </h2>
+
+            {/* Description with colored keyword highlighting */}
+            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              Five clear steps from{" "}
+              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                first contact to project completion
+              </span>
+              . No surprises, just{" "}
+              <span className="font-bold text-gray-900 dark:text-white">
+                honest communication and proven results
+              </span>
+              .
+            </p>
+          </div>
 
           {/* Timeline - Vertical Alternating Layout */}
           <div className="relative max-w-6xl mx-auto">

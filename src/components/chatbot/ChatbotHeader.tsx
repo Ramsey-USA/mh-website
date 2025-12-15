@@ -24,24 +24,25 @@ export function ChatbotHeader({
   showHistory,
 }: ChatbotHeaderProps) {
   return (
-    <div className="chatbot-header bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white p-4 rounded-t-lg flex items-center justify-between cursor-move">
+    <div className="chatbot-header bg-gradient-to-br from-brand-primary via-brand-primary to-brand-primary-dark text-white p-4 rounded-t-lg flex items-center justify-between cursor-move border-b-2 border-brand-secondary/30 select-none">
+      ",
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-          <MaterialIcon icon="military_tech" size="md" />
+        <div className="w-11 h-11 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/20 shadow-lg">
+          <MaterialIcon icon="construction" size="md" className="text-white" />
         </div>
         <div>
-          <h3 className="font-bold text-lg">General MH</h3>
-          <p className="text-xs opacity-90">
-            {isTyping
-              ? "Tactical Planning..."
-              : "Active Duty • Army General Construction Intelligence"}
+          <h3 className="font-bold text-base tracking-tight">
+            MH Construction
+          </h3>
+          <p className="text-xs opacity-90 font-light">
+            {isTyping ? "Preparing response..." : "Veteran-Owned Excellence"}
           </p>
         </div>
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1">
         <button
           onClick={onHistoryToggle}
-          className="p-2 hover:bg-white/20 rounded-full transition-colors"
+          className="p-2 hover:bg-white/10 rounded-lg transition-all duration-300"
           aria-label={
             showHistory
               ? "Hide conversation history"
@@ -53,14 +54,14 @@ export function ChatbotHeader({
         </button>
         <button
           onClick={onMinimize}
-          className="p-2 hover:bg-white/20 rounded-full transition-colors"
+          className="p-2 hover:bg-white/10 rounded-lg transition-all duration-300"
           aria-label="Minimize chatbot"
         >
           <MaterialIcon icon="minimize" size="sm" />
         </button>
         <button
           onClick={onClose}
-          className="p-2 hover:bg-white/20 rounded-full transition-colors"
+          className="p-2 hover:bg-white/10 rounded-lg transition-all duration-300"
           aria-label="Close chatbot"
         >
           <MaterialIcon icon="close" size="sm" />

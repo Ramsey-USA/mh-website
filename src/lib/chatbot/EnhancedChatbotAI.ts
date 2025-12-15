@@ -1290,12 +1290,21 @@ export class EnhancedChatbotAI {
       `• "What services do you offer?"\n` +
       `• "Do you offer veteran discounts?"\n` +
       `• "Who's the boss?"\n` +
-      `• "What's your phone number?"\n\n` +
-      `**Or contact us directly:**\n` +
+      `• "What's your phone number?"\n\n${this.getHumanContactReminder()}`
+    );
+  }
+
+  /**
+   * Returns a consistent human contact reminder to append to responses
+   */
+  private getHumanContactReminder(): string {
+    return (
+      `\n**💡 BEST OPTION: Contact Our Team Directly**\n` +
+      `For the most current information and personalized assistance:\n` +
       `• **Phone:** (509) 308-6489\n` +
       `• **Email:** office@mhc-gc.com\n` +
-      `• **[Contact Form →](/contact)**\n` +
-      `• **[Contact Us →](/contact)**`
+      `• **[Contact Form →](/contact)**\n\n` +
+      `*Our team can provide up-to-date details specific to your needs!*`
     );
   }
 

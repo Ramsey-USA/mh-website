@@ -20,6 +20,10 @@ import Head from "next/head";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getTeamSEO } from "@/lib/seo/page-seo-utils";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import {
+  generateBreadcrumbSchema,
+  breadcrumbPatterns,
+} from "@/lib/seo/breadcrumb-schema";
 
 // Lazy load heavy below-the-fold component
 const TestimonialGrid = dynamic(
@@ -117,6 +121,16 @@ export default function TeamPage() {
       {teamSEO.schemas && teamSEO.schemas.length > 0 && (
         <StructuredData data={teamSEO.schemas} />
       )}
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema(breadcrumbPatterns.team),
+          ),
+        }}
+      />
 
       <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
         {/* Hero Section - v4.0.2 Standards */}

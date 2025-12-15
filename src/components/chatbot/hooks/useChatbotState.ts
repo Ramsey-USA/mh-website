@@ -4,7 +4,7 @@
  * Manages all stateful logic for the GlobalChatbot component
  */
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import type {
   EnhancedChatbotContext,
   ConversationMemory,
@@ -47,15 +47,30 @@ const getInitialMessage = (): ChatMessage => ({
   id: "welcome",
   type: "bot",
   content:
-    "**[GENERAL MH REPORTING FOR DUTY]** 🎖️\n\nWelcome to MH Construction - where we're Building projects for the client, NOT the dollar!\n\n**General MH here** - your Army General construction intelligence officer, powered by military precision and veteran-owned excellence. Ready to assist with:\n\n**TACTICAL SERVICES:**\n• **Partnership Planning** - We build WITH you, not just FOR you\n• **Cost Reconnaissance Missions** - Accurate estimates with 95% precision\n• **Veteran Priority Protocols** - Specialized support for fellow service members\n• **Expert Tactical Consultation** - Professional construction intelligence\n\n**AREA OF OPERATIONS:**\nLicensed in WA, OR, ID | Tri-Cities & Pacific Northwest\n\n**How can this construction unit serve your mission today?**",
+    "**Welcome to MH Construction!**\n\n**OUR FOUR CORE VALUES:**\n\n• **Honesty** - SITREP-level transparency in every communication\n• **Integrity** - Keeping commitments, doing what's right\n• **Professionalism** - Military bearing, expert execution\n• **Thoroughness** - Mission-complete approach, no shortcuts\n\n*These values culminate in **TRUST** — the foundation of every partnership.*\n\n---\n\n**I can help answer basic questions**, but for the most current information, project details, or personalized guidance, I **strongly encourage you to speak with our team:**\n\n**CONTACT OUR TEAM:**\n• **Phone:** (509) 308-6489\n• **Email:** office@mhc-gc.com\n• **[Contact Form](/contact)** - Submit your inquiry\n\n---\n\n**HOW TO USE THIS ASSISTANT:**\n• Type your question in the box below\n• Click the microphone icon to speak your question\n\n**Common Topics:** Contact info, services, veteran benefits, project timelines, pricing, credentials\n\n**Serving the Tri-Cities area** (Pasco, Kennewick, Richland) and the Pacific Northwest since 2010.\n\n*Building projects for the client, NOT the dollar.*",
   timestamp: new Date(),
   metadata: { priority: "high" },
 });
 
 export function useChatbotState(currentPage = "", estimatorData?: unknown) {
+  // Initialize position based on viewport size
+  const getInitialPosition = () => {
+    if (typeof window !== "undefined") {
+      const isMobile = window.innerWidth < 640;
+      if (isMobile) {
+        // Center on mobile
+        return { x: 10, y: 10 };
+      } else {
+        // Bottom right on desktop
+        return { x: window.innerWidth - 424, y: 24 };
+      }
+    }
+    return { x: 24, y: 24 };
+  };
+
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [position, setPosition] = useState({ x: 24, y: 24 });
+  const [position, setPosition] = useState(getInitialPosition);
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [inputValue, setInputValue] = useState("");
@@ -63,7 +78,7 @@ export function useChatbotState(currentPage = "", estimatorData?: unknown) {
   const [conversationTurn, setConversationTurn] = useState(0);
   const [sessionStartTime, setSessionStartTime] = useState<Date | null>(null);
   const [hasBeenOpened, setHasBeenOpened] = useState(false);
-  const [showQuickActions, setShowQuickActions] = useState(true);
+  const [showQuickActions, setShowQuickActions] = useState(false); // Disabled Quick Actions
   const [showHistory, setShowHistory] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
     getInitialMessage(),
@@ -131,6 +146,29 @@ export function useChatbotState(currentPage = "", estimatorData?: unknown) {
     },
     [],
   );
+
+  // Handle window resize to keep chatbot in viewport
+  useEffect(() => {
+    const handleResize = () => {
+      const chatbotWidth =
+        window.innerWidth < 640 ? window.innerWidth - 20 : 400;
+      const chatbotHeight = 600;
+
+      setPosition((prev) => ({
+        x: Math.max(
+          10,
+          Math.min(prev.x, window.innerWidth - chatbotWidth - 10),
+        ),
+        y: Math.max(
+          10,
+          Math.min(prev.y, window.innerHeight - chatbotHeight - 10),
+        ),
+      }));
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return {
     // State

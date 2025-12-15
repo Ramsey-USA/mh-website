@@ -310,12 +310,27 @@ export function useChatbotHandlers(props: ChatbotHandlersProps) {
   const handleMouseMove = useCallback(
     (e: MouseEvent<HTMLDivElement>) => {
       if (isDragging) {
+        e.preventDefault();
+        const chatbotWidth = 400;
+        const chatbotHeight = 600;
         const newX = e.clientX - props.dragOffset.x;
-        const newY = e.clientY - props.dragOffset.y;
+        const newY =
+          window.innerHeight -
+          (e.clientY + (chatbotHeight - props.dragOffset.y));
+
+        // Keep within viewport bounds with padding
+        const boundedX = Math.max(
+          10,
+          Math.min(newX, window.innerWidth - chatbotWidth - 10),
+        );
+        const boundedY = Math.max(
+          10,
+          Math.min(newY, window.innerHeight - chatbotHeight - 10),
+        );
 
         setPosition({
-          x: Math.max(0, Math.min(newX, window.innerWidth - 400)),
-          y: Math.max(0, Math.min(newY, window.innerHeight - 600)),
+          x: boundedX,
+          y: boundedY,
         });
       }
     },
@@ -324,6 +339,68 @@ export function useChatbotHandlers(props: ChatbotHandlersProps) {
 
   // Mouse up to stop dragging
   const handleMouseUp = useCallback(() => {
+    if (isDragging) {
+      setIsDragging(false);
+    }
+  }, [isDragging, setIsDragging]);
+
+  // Touch handlers for mobile dragging
+  const handleTouchStart = useCallback(
+    (e: React.TouchEvent<HTMLDivElement>) => {
+      const target = e.target as HTMLElement;
+      if (target.closest(".chatbot-header") && !target.closest("button")) {
+        const touch = e.touches[0];
+        if (!touch) return;
+
+        setIsDragging(true);
+        const chatbot = (e.currentTarget as HTMLElement).closest(
+          ".chatbot-window",
+        ) as HTMLElement;
+        const rect = chatbot.getBoundingClientRect();
+        setDragOffset({
+          x: touch.clientX - rect.left,
+          y: touch.clientY - rect.top,
+        });
+      }
+    },
+    [setIsDragging, setDragOffset],
+  );
+
+  const handleTouchMove = useCallback(
+    (e: React.TouchEvent<HTMLDivElement>) => {
+      if (isDragging) {
+        e.preventDefault();
+        const touch = e.touches[0];
+        if (!touch) return;
+
+        const chatbotWidth =
+          window.innerWidth > 640 ? 400 : window.innerWidth - 20;
+        const chatbotHeight = 600;
+        const newX = touch.clientX - props.dragOffset.x;
+        const newY =
+          window.innerHeight -
+          (touch.clientY + (chatbotHeight - props.dragOffset.y));
+
+        // Keep within viewport bounds
+        const boundedX = Math.max(
+          10,
+          Math.min(newX, window.innerWidth - chatbotWidth - 10),
+        );
+        const boundedY = Math.max(
+          10,
+          Math.min(newY, window.innerHeight - chatbotHeight - 10),
+        );
+
+        setPosition({
+          x: boundedX,
+          y: boundedY,
+        });
+      }
+    },
+    [isDragging, props.dragOffset, setPosition],
+  );
+
+  const handleTouchEnd = useCallback(() => {
     if (isDragging) {
       setIsDragging(false);
     }
@@ -365,5 +442,8 @@ export function useChatbotHandlers(props: ChatbotHandlersProps) {
     handleMouseDown,
     handleMouseMove,
     handleMouseUp,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
   };
 }

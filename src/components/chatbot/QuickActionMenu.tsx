@@ -1,6 +1,6 @@
 /**
  * Quick Action Menu for Enhanced Chatbot
- * Provides immediate access to common construction tasks and information
+ * Provides quick access to frequently asked questions
  */
 
 import { MaterialIcon } from "../icons/MaterialIcon";
@@ -16,127 +16,74 @@ interface QuickAction {
   label: string;
   icon: string;
   message: string;
-  description: string;
-  priority?: "high" | "medium" | "low";
-  pages?: string[]; // Show only on specific pages
+  category: string;
 }
 
-const QUICK_ACTIONS: QuickAction[] = [
+// Simplified FAQ-focused quick actions
+const FAQ_QUICK_ACTIONS: QuickAction[] = [
   {
-    id: "ai-estimator",
-    label: "Budget Planner",
-    icon: "smart_toy",
-    message:
-      "I want to use the Budget Planning Tool to prepare for my consultation",
-    description: "Get preliminary budget estimates to prepare for consultation",
-    priority: "high",
+    id: "phone-number",
+    label: "What's your phone number?",
+    icon: "phone",
+    message: "What is your phone number?",
+    category: "contact",
   },
   {
-    id: "get-partnership-estimate",
-    label: "Expert Consultation",
-    icon: "handshake",
-    message:
-      "I'd like to schedule an expert consultation for detailed project analysis",
-    description: "Book in-person consultation with construction experts",
-    priority: "high",
+    id: "business-hours",
+    label: "Business hours?",
+    icon: "schedule",
+    message: "What are your business hours?",
+    category: "contact",
   },
   {
-    id: "veteran-services",
-    label: "Veteran Benefits",
-    icon: "military_tech",
-    message: "What special services and benefits do you offer for veterans?",
-    description: "Learn about veteran-owned excellence and priority services",
-    priority: "high",
-  },
-  {
-    id: "construction-services",
-    label: "Our Services",
+    id: "services",
+    label: "What services do you offer?",
     icon: "construction",
-    message: "What construction services does MH Construction offer?",
-    description: "Explore our comprehensive construction capabilities",
-    priority: "medium",
+    message: "What services do you offer?",
+    category: "services",
   },
   {
-    id: "schedule-consultation",
-    label: "Free Consultation",
-    icon: "event",
-    message: "I'd like to schedule a free consultation with MH Construction",
-    description: "Book your complimentary project consultation",
-    priority: "high",
+    id: "estimate",
+    label: "How to get an estimate?",
+    icon: "request_quote",
+    message: "How do I get an estimate?",
+    category: "pricing",
   },
   {
-    id: "emergency-support",
-    label: "Urgent Support",
-    icon: "emergency",
-    message: "I need urgent construction support for a critical project",
-    description: "Get immediate assistance for urgent construction needs",
-    priority: "high",
+    id: "veteran-discount",
+    label: "Veteran discounts?",
+    icon: "military_tech",
+    message: "Do you offer veteran discounts?",
+    category: "veterans",
   },
   {
-    id: "project-portfolio",
-    label: "View Projects",
-    icon: "business",
-    message: "Show me examples of MH Construction projects",
-    description: "Explore our construction portfolio and success stories",
-    priority: "medium",
-    pages: ["/"],
+    id: "service-areas",
+    label: "What areas do you serve?",
+    icon: "location_on",
+    message: "What areas do you serve?",
+    category: "service-area",
   },
   {
-    id: "contact-team",
-    label: "Contact Team",
-    icon: "people",
-    message: "How can I contact the MH Construction team?",
-    description: "Get direct contact information for our team",
-    priority: "medium",
+    id: "project-timeline",
+    label: "How long do projects take?",
+    icon: "timer",
+    message: "How long do projects take?",
+    category: "process",
   },
   {
-    id: "government-services",
-    label: "Government Projects",
-    icon: "account_balance",
-    message: "Tell me about government and public sector construction services",
-    description: "Learn about federal, state, and municipal project expertise",
-    priority: "medium",
-  },
-  {
-    id: "allies",
-    label: "Trade Partners",
-    icon: "handshake",
-    message: "How can I become a trade partner or subcontractor?",
-    description: "Join our trusted network of construction professionals",
-    priority: "low",
-  },
-  {
-    id: "career-opportunities",
-    label: "Join Our Team",
-    icon: "badge",
-    message: "What career opportunities are available at MH Construction?",
-    description:
-      "Explore employment opportunities with our veteran-owned company",
-    priority: "medium",
+    id: "licensed-insured",
+    label: "Are you licensed & insured?",
+    icon: "verified",
+    message: "Are you licensed and insured?",
+    category: "credentials",
   },
 ];
 
 export function QuickActionMenu({
   onActionSelect,
   isVisible,
-  currentPage = "",
 }: QuickActionMenuProps) {
   if (!isVisible) return null;
-
-  // Filter actions based on current page
-  const filteredActions = QUICK_ACTIONS.filter((action) => {
-    if (!action.pages) return true;
-    return action.pages.some((page) => currentPage.includes(page));
-  });
-
-  // Sort by priority
-  const sortedActions = filteredActions.sort((a, b) => {
-    const priorityOrder = { high: 3, medium: 2, low: 1 };
-    return (
-      (priorityOrder[b.priority || "low"] || 1) -
-      (priorityOrder[a.priority || "low"] || 1)
-    );
-  });
 
   const handleActionClick = (action: QuickAction) => {
     onActionSelect(action.id, action.message);
@@ -144,69 +91,43 @@ export function QuickActionMenu({
 
   return (
     <div className="quick-action-menu mb-3 sm:mb-4 mx-2 sm:mx-3">
-      <div className="bg-white dark:bg-gray-800 border-2 border-brand-primary/20 dark:border-brand-primary/30 rounded-xl p-3 sm:p-4 shadow-lg">
+      <div className="bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-gray-800 dark:to-gray-900 border border-brand-primary/20 dark:border-brand-primary/30 rounded-xl p-3 sm:p-4 shadow-md">
         <div className="flex items-center gap-2 mb-3">
           <MaterialIcon
-            icon="bolt"
-            className="text-brand-primary dark:text-brand-light w-4 h-4 sm:w-5 sm:h-5"
+            icon="quiz"
             size="sm"
+            className="text-brand-primary dark:text-brand-primary-light"
           />
-          <h4 className="text-sm sm:text-base font-bold text-brand-primary dark:text-brand-light">
-            Quick Actions
-          </h4>
+          <h3 className="font-bold text-gray-800 dark:text-gray-100 text-sm">
+            Frequently Asked Questions
+          </h3>
         </div>
 
-        <div className="grid grid-cols-2 gap-2 sm:gap-3">
-          {sortedActions.slice(0, 6).map((action) => (
+        <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">
+          Click a question below or type/speak your own:
+        </p>
+
+        {/* FAQ Grid */}
+        <div className="grid grid-cols-1 gap-2">
+          {FAQ_QUICK_ACTIONS.map((action) => (
             <button
               key={action.id}
               onClick={() => handleActionClick(action)}
-              className="flex flex-col items-center gap-1 sm:gap-2 p-2 sm:p-3 bg-white dark:bg-gray-700 border-2 border-brand-primary/30 dark:border-brand-primary/40 rounded-xl text-xs hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10 hover:border-brand-primary transition-all duration-300 touch-manipulation overflow-hidden"
-              title={action.description}
+              className="flex items-center gap-2 p-2 rounded-lg bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 hover:border-brand-primary dark:hover:border-brand-primary-light hover:shadow-md transition-all duration-200 text-left group"
+              aria-label={action.label}
             >
-              <MaterialIcon
-                icon={action.icon}
-                className={`transition-all duration-300 w-4 h-4 sm:w-5 sm:h-5 ${
-                  action.priority === "high"
-                    ? "text-brand-primary dark:text-brand-light"
-                    : "text-gray-600 dark:text-gray-400"
-                }`}
-                size="sm"
-              />
-              <span className="text-center leading-tight font-medium text-gray-700 dark:text-gray-300 text-xs break-words">
+              <div className="flex-shrink-0">
+                <MaterialIcon
+                  icon={action.icon}
+                  size="sm"
+                  className="text-brand-primary dark:text-brand-primary-light group-hover:scale-110 transition-transform"
+                />
+              </div>
+              <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light font-medium">
                 {action.label}
               </span>
             </button>
           ))}
-        </div>
-
-        {sortedActions.length > 6 && (
-          <div className="mt-3 text-center">
-            <button
-              onClick={() =>
-                onActionSelect("more-options", "Show me more options")
-              }
-              className="text-xs text-brand-primary dark:text-brand-light hover:underline font-medium transition-all duration-300"
-            >
-              +{sortedActions.length - 6} more options
-            </button>
-          </div>
-        )}
-
-        <div className="mt-3 pt-3 border-t border-brand-primary/20 dark:border-brand-primary/30">
-          <p className="text-xs text-gray-600 dark:text-gray-400 text-center flex items-center justify-center gap-1 flex-wrap">
-            <MaterialIcon
-              icon="construction"
-              size="sm"
-              className="w-3 h-3 text-brand-primary dark:text-brand-light"
-            />
-            <span className="font-bold">MH Construction:</span>
-            <span>Use</span>
-            <kbd className="px-1 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-xs border">
-              Ctrl+K
-            </kbd>
-            <span className="hidden sm:inline">for instant search</span>
-          </p>
         </div>
       </div>
     </div>

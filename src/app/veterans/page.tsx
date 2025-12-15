@@ -35,6 +35,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
+  alternates: {
+    canonical: "/veterans",
+  },
 };
 
 /**

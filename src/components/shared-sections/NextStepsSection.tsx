@@ -76,7 +76,7 @@ export function NextStepsSection({
             <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
               Ready to Start Your Project?
             </span>
-            <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1">
+            <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
               Let's Build Together
             </span>
           </h2>
@@ -96,23 +96,23 @@ export function NextStepsSection({
         </div>
 
         <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
-          {/* Option 1: Schedule Free Consultation */}
+          {/* Option 1: Download Pitch Deck */}
           <div className="group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
             <div className="flex justify-center mb-6">
               <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <MaterialIcon
-                  icon="event_available"
+                  icon="picture_as_pdf"
                   size="xl"
                   className="text-white"
                 />
               </div>
             </div>
             <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
-              Schedule Free Consultation
+              MH Construction Pitch Deck
             </h3>
             <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-              Start with a face-to-face consultation. No pressure, just honest
-              intel about your construction operation.
+              Download our comprehensive pitch deck to explore our capabilities,
+              values, and proven track record.
             </p>
             <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
               <li className="flex items-center gap-2">
@@ -121,7 +121,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-primary flex-shrink-0"
                 />
-                <span>No obligation initial recon</span>
+                <span>Complete company overview</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -129,7 +129,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-primary flex-shrink-0"
                 />
-                <span>SITREP-level budget transparency</span>
+                <span>Services & capabilities breakdown</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -137,24 +137,26 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-primary flex-shrink-0"
                 />
-                <span>Veteran-trained project guidance</span>
+                <span>Project portfolio highlights</span>
               </li>
             </ul>
-            <Link href="/contact#consultation">
-              <Button
-                variant="primary"
+            <Button
+              variant="primary"
+              size="lg"
+              className="w-full group/btn opacity-60 cursor-not-allowed"
+              onClick={(e) => {
+                e.preventDefault();
+                onConsultationClick?.();
+              }}
+              disabled
+            >
+              <MaterialIcon
+                icon="download"
                 size="lg"
-                className="w-full group/btn"
-                onClick={onConsultationClick}
-              >
-                <MaterialIcon
-                  icon="handshake"
-                  size="lg"
-                  className="mr-2 group-hover/btn:scale-110 transition-transform"
-                />
-                Book Consultation
-              </Button>
-            </Link>
+                className="mr-2 group-hover/btn:scale-110 transition-transform"
+              />
+              Coming Soon
+            </Button>
           </div>
 
           {/* Option 2: View Our Work */}
@@ -174,11 +176,11 @@ export function NextStepsSection({
               </div>
             </div>
             <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
-              See Our Completed Missions
+              See Our Real Work
             </h3>
             <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-              Explore our completed construction operations and see the
-              battle-tested quality we deliver.
+              Real projects. Real results. Real testimonials from Client
+              Partners who trust us.
             </p>
             <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
               <li className="flex items-center gap-2">
@@ -187,7 +189,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-secondary flex-shrink-0"
                 />
-                <span>650+ completed construction missions</span>
+                <span>650+ completed projects since 2010</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -195,7 +197,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-secondary flex-shrink-0"
                 />
-                <span>Military-grade quality standards</span>
+                <span>98% Client Partner satisfaction rate</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -203,7 +205,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-secondary flex-shrink-0"
                 />
-                <span>Diverse operational capabilities</span>
+                <span>70% referral rate - proven excellence</span>
               </li>
             </ul>
             <Link href="/projects">
@@ -235,11 +237,11 @@ export function NextStepsSection({
               </div>
             </div>
             <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
-              Direct Communications
+              Let's Talk Face-to-Face
             </h3>
             <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-              Reach out via phone, email, or contact form for immediate response
-              on your construction operation.
+              Honest answers from real people. No automated systems. Just
+              transparent communication.
             </p>
             <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
               <li className="flex items-center gap-2">
@@ -248,7 +250,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-accent flex-shrink-0"
                 />
-                <span>Rapid 24-48hr response time</span>
+                <span>Face-to-face consultation preferred</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -256,7 +258,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-accent flex-shrink-0"
                 />
-                <span>Multiple contact channels</span>
+                <span>Transparent pricing from day one</span>
               </li>
               <li className="flex items-center gap-2">
                 <MaterialIcon
@@ -264,7 +266,7 @@ export function NextStepsSection({
                   size="sm"
                   className="text-brand-accent flex-shrink-0"
                 />
-                <span>Direct veteran team access</span>
+                <span>Direct line to decision-makers</span>
               </li>
             </ul>
             <Link href="/contact">

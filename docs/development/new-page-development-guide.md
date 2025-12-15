@@ -99,6 +99,92 @@ If not placed at the bottom of the hero, place after breadcrumb:
 
 Organized sections with consistent spacing and styling.
 
+#### Section Headers - Military-Construction Standard
+
+**⭐ NEW STANDARD (December 2025)**: All sections must use the military-construction header pattern.
+
+**Complete Pattern:**
+
+```tsx
+{
+  /* Section Header - Military Construction Standard */
+}
+<div className="mb-16 sm:mb-20 text-center">
+  {/* Icon with decorative lines */}
+  <div className="flex items-center justify-center mb-8 gap-4">
+    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+    <div className="relative">
+      <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+      <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+        <MaterialIcon
+          icon="shield"
+          size="2xl"
+          className="text-white drop-shadow-lg"
+        />
+      </div>
+    </div>
+    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+  </div>
+
+  {/* Two-line gradient heading */}
+  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+      Subtitle/Context Line
+    </span>
+    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+      Main Title Impact Line
+    </span>
+  </h2>
+
+  {/* Description with colored keyword highlighting */}
+  <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+    Description text with{" "}
+    <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+      primary emphasis keywords
+    </span>{" "}
+    and{" "}
+    <span className="font-bold text-gray-900 dark:text-white">
+      strong emphasis keywords
+    </span>
+    .
+  </p>
+</div>;
+```
+
+**Icon Gradient Variants:**
+
+- **Primary (Green)**: Trust, values, integrity sections
+
+  ```tsx
+  from-brand-primary/30 to-brand-primary-dark/30 (blur)
+  from-brand-primary via-brand-primary-dark to-brand-primary-darker (icon bg)
+  ```
+
+- **Secondary (Tan/Bronze)**: Partnerships, excellence sections
+
+  ```tsx
+  from-brand-secondary/30 to-bronze-600/30 (blur)
+  from-brand-secondary via-bronze-700 to-bronze-800 (icon bg)
+  ```
+
+- **Accent (Bronze/Gold)**: Awards, premium sections
+
+  ```tsx
+  from-brand-accent/30 to-bronze-600/30 (blur)
+  from-brand-accent via-bronze-700 to-bronze-800 (icon bg)
+  ```
+
+**Key Requirements:**
+
+- ✅ Icon size must be `2xl` (60px)
+- ✅ Main title gradient: `from-brand-primary via-brand-secondary to-brand-primary`
+- ✅ Main title padding: `py-2 pb-3 leading-normal` (prevents descender clipping)
+- ✅ Use colored keyword spans strategically in description
+
+**See:** [Component Organization Guide](../technical/design-system/component-organization-guide.md#section-header-standard---military-construction-pattern) for complete documentation.
+
+#### Content Sections
+
 ```tsx
 <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl">
   {/* Section 1 */}

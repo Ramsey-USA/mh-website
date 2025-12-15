@@ -23,6 +23,10 @@ import {
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { StructuredData } from "@/components/seo/seo-meta";
+import {
+  generateBreadcrumbSchema,
+  breadcrumbPatterns,
+} from "@/lib/seo/breadcrumb-schema";
 
 // Enhanced SEO for veteran-owned heritage and proven track record
 import { getAboutSEO } from "@/lib/seo/page-seo-utils";
@@ -110,6 +114,16 @@ export default function AboutPage() {
       {aboutSEO.schemas && aboutSEO.schemas.length > 0 && (
         <StructuredData data={aboutSEO.schemas} />
       )}
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema(breadcrumbPatterns.about),
+          ),
+        }}
+      />
 
       <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
         {/* Hero Section */}

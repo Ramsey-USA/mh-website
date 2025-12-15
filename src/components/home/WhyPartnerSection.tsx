@@ -2,7 +2,6 @@
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const partnershipValues = [
   {
@@ -143,16 +142,49 @@ export function WhyPartnerSection() {
       <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
       <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Enhanced Section Header with Side Accents */}
-        <SectionHeader
-          icon="verified"
-          iconVariant="primary"
-          subtitle="Veteran-Owned Excellence"
-          title="Proven Performance & Earned Integrity"
-          description="Where discipline meets construction expertise—honest communication, proven craftsmanship, and earned integrity create partnerships built on trust."
-        >
+        {/* Section Header - Military Construction Standard */}
+        <div className="mb-16 sm:mb-20 text-center">
+          {/* Icon with decorative lines */}
+          <div className="flex items-center justify-center mb-8 gap-4">
+            <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+              <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                <MaterialIcon
+                  icon="verified"
+                  size="2xl"
+                  className="text-white drop-shadow-lg"
+                />
+              </div>
+            </div>
+            <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+          </div>
+
+          {/* Two-line gradient heading */}
+          <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+            <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+              Veteran-Owned Excellence
+            </span>
+            <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+              Proven Performance & Earned Integrity
+            </span>
+          </h2>
+
+          {/* Description with colored keyword highlighting */}
+          <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+            Where{" "}
+            <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+              discipline meets construction expertise
+            </span>
+            —honest communication, proven craftsmanship, and{" "}
+            <span className="font-bold text-gray-900 dark:text-white">
+              earned integrity
+            </span>{" "}
+            create partnerships built on trust.
+          </p>
+
           {/* Core Philosophy Callout */}
-          <div className="inline-block">
+          <div className="inline-block mt-8">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary via-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-75 group-hover:opacity-100 transition duration-500"></div>
               <div className="relative bg-white dark:bg-gray-800 px-8 py-6 rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 shadow-xl">
@@ -166,7 +198,7 @@ export function WhyPartnerSection() {
               </div>
             </div>
           </div>
-        </SectionHeader>
+        </div>
 
         {/* Modern Grid Cards with Unique Hover Effects */}
         <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
@@ -200,7 +232,13 @@ export function WhyPartnerSection() {
                           size="xl"
                           className="text-white drop-shadow-lg"
                           interactive
-                          theme={(value as any).themePreset}
+                          {...(value.themePreset && {
+                            theme: value.themePreset as
+                              | "veteran"
+                              | "military"
+                              | "tactical"
+                              | "default",
+                          })}
                         />
                       </div>
                     </div>

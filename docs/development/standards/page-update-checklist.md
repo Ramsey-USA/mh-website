@@ -1,102 +1,164 @@
-# Page Update Checklist - SectionHeader Standardization
+# Page Update Checklist - Military-Construction Header Standard
 
-**Date:** December 14, 2025  
-**Purpose:** Track progress of standardizing all pages to use new `SectionHeader` component with `iconVariant` prop  
-**Status:** ✅ **100% COMPLETE** - All 12 pages updated successfully
+**Date:** December 15, 2025  
+**Purpose:** Track progress of standardizing all pages to use new military-construction header pattern  
+**Status:** ✅ **Homepage Complete** - Expanding to all pages
 
----
-
-## ✅ All Pages Fully Updated (12/12)
-
-### 1. Homepage (`/src/app/page.tsx`)
-
-- ✅ Using `SectionHeader` component
-- ✅ Using `iconVariant` prop correctly
-- ✅ Website Transparency section: `iconVariant="secondary"`
-
-### 2. About Page (`/src/app/about/page.tsx`)
-
-- ✅ Using `SectionHeader` component
-- ✅ Using `iconVariant` prop correctly
-- ✅ "Why Values Matter" section: `iconVariant="bronze"`
-
-### 3. Core Components
-
-- ✅ `CoreValuesSection`: `iconVariant="primary"`
-- ✅ `ServicesShowcase`: `iconVariant="multi"`
-- ✅ `WhyPartnerSection`: `iconVariant="primary"`
-
-### 4. Services Page (`/src/app/services/page.tsx`)
-
-- ✅ All 6 sections updated with `SectionHeader`
-- ✅ Partnership-Focused Construction: `iconVariant="secondary"`
-- ✅ Specialty Services: `iconVariant="secondary"`
-- ✅ Government Projects: `iconVariant="bronze"`
-- ✅ Core Services: `iconVariant="multi"`
-- ✅ Partnership Process: `iconVariant="secondary"`
-- ✅ Two Paths: `iconVariant="bronze"`
-
-### 5. Team Page (`/src/app/team/page.tsx`)
-
-- ✅ All 3 sections updated with `SectionHeader`
-- ✅ Professional Team: `iconVariant="primary"`
-- ✅ Company Culture: `iconVariant="secondary"`
-- ✅ Career Growth: `iconVariant="bronze"`
-
-### 6. Veterans Page (`/src/app/veterans/page.tsx`)
-
-- ✅ Switched from layout `SectionHeader` to main component
-- ✅ All 3 sections updated with `iconVariant`
-- ✅ Veteran-Owned Leadership: `iconVariant="bronze"`
-- ✅ Veterans Support: `iconVariant="secondary"`
-- ✅ Military Standards: `iconVariant="primary"`
-
-### 7. Projects Components
-
-- ✅ PartnershipProcessSection: `iconVariant="secondary"`
-- ✅ CapabilitiesSection: `iconVariant="multi"`
-- ✅ WhyChooseSection: `iconVariant="bronze"`
-- ✅ TestimonialsSection: `iconVariant="secondary"`
-
-### 8. Careers Page (`/src/app/careers/page.tsx`)
-
-- ✅ All 4 sections updated with `SectionHeader`
-- ✅ Why Choose MH: `iconVariant="bronze"`
-- ✅ Employee Benefits: `iconVariant="secondary"`
-- ✅ Career Opportunities: `iconVariant="multi"`
-- ✅ Team Members: `iconVariant="primary"`
-
-### 9-12. Remaining Pages
-
-- ✅ Trade Partners: No SectionHeader usage (different layout)
-- ✅ Contact: No SectionHeader usage (different layout)
-- ✅ FAQ: No SectionHeader usage (different layout)
-- ✅ Urgent: No SectionHeader usage (different layout)
-- ✅ Government: No SectionHeader usage (different layout)
+**⚠️ IMPORTANT**: The old `SectionHeader` component pattern has been replaced with the new **military-construction header standard**. See [Component Organization Guide](../../technical/design-system/component-organization-guide.md) for complete pattern documentation.
 
 ---
 
-## 📊 Final Statistics
+## ✅ New Military-Construction Header Standard
 
-- **Total Pages:** 12
-- **Pages Complete:** 12 (100%)
-- **Sections Updated:** 23+ sections
+### Pattern Components
+
+1. **Icon with decorative lines** - Centered icon with horizontal gradient lines
+2. **Two-line heading** - Subtitle (context) + gradient main title (impact)
+3. **Colored keyword description** - Strategic bold colored spans for emphasis
+4. **Consistent spacing** - `mb-16 sm:mb-20` for section spacing
+
+### Complete Pattern
+
+```tsx
+<div className="mb-16 sm:mb-20 text-center">
+  {/* Icon with decorative lines */}
+  <div className="flex items-center justify-center mb-8 gap-4">
+    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+    <div className="relative">
+      <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+      <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+        <MaterialIcon
+          icon="shield"
+          size="2xl"
+          className="text-white drop-shadow-lg"
+        />
+      </div>
+    </div>
+    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+  </div>
+
+  {/* Two-line gradient heading */}
+  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+      {subtitle}
+    </span>
+    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+      {mainTitle}
+    </span>
+  </h2>
+
+  {/* Description with colored keywords */}
+  <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+    Description with{" "}
+    <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+      primary emphasis
+    </span>{" "}
+    and{" "}
+    <span className="font-bold text-gray-900 dark:text-white">
+      strong emphasis
+    </span>
+    .
+  </p>
+</div>
+```
+
+---
+
+## ✅ Homepage Complete (5/5 Sections)
+
+### 1. CoreValuesSection (`/src/components/home/CoreValuesSection.tsx`)
+
+- ✅ Military-construction header pattern implemented
+- ✅ Icon: `shield` with primary gradient
+- ✅ Subtitle: "Veteran-Owned Values"
+- ✅ Title: "Built on Honesty & Integrity"
+- ✅ Colored keywords in description
+
+### 2. WhyPartnerSection (`/src/components/home/WhyPartnerSection.tsx`)
+
+- ✅ Military-construction header pattern implemented
+- ✅ Icon: `verified` with primary gradient
+- ✅ Subtitle: "Veteran-Owned Excellence"
+- ✅ Title: "Proven Performance & Earned Integrity"
+- ✅ Colored keywords in description
+- ✅ Core philosophy callout included
+
+### 3. ServicesShowcase (`/src/components/home/ServicesShowcase.tsx`)
+
+- ✅ Military-construction header pattern implemented
+- ✅ Icon: `explore` with secondary/bronze gradient
+- ✅ Subtitle: "Full-Spectrum Construction"
+- ✅ Title: "Services Built on Trust"
+- ✅ Colored keywords in description
+
+### 4. Website Transparency Section (`/src/app/page.tsx`)
+
+- ✅ Military-construction header pattern implemented
+- ✅ Icon: `construction` with secondary/bronze gradient
+- ✅ Subtitle: "Transparency & Honesty"
+- ✅ Title: "Commitment to Excellence"
+- ✅ Colored keywords in description
+
+### 5. Our Process Section (`/src/app/page.tsx`)
+
+- ✅ Military-construction header pattern implemented
+- ✅ Icon: `timeline` with primary gradient
+- ✅ Subtitle: "Simple & Transparent"
+- ✅ Title: "Our Process"
+- ✅ Colored keywords in description
+
+---
+
+## 🔄 Remaining Pages to Update
+
+### High Priority Pages
+
+- [ ] About Page (`/src/app/about/page.tsx`)
+- [ ] Services Page (`/src/app/services/page.tsx`)
+- [ ] Team Page (`/src/app/team/page.tsx`)
+- [ ] Veterans Page (`/src/app/veterans/page.tsx`)
+- [ ] Projects Page (`/src/app/projects/page.tsx`)
+- [ ] Careers Page (`/src/app/careers/page.tsx`)
+
+### Additional Sections
+
+- [ ] TestimonialsSection (`/src/components/shared-sections/TestimonialsSection.tsx`)
+- [ ] CompanyStats (`/src/components/about/CompanyStats.tsx`)
+- [ ] Other shared section components
+
+---
+
+## 📋 Icon Gradient Reference
+
+**Primary (Green) - Trust, Values, Integrity:**
+
+```tsx
+from-brand-primary/30 to-brand-primary-dark/30 (blur)
+from-brand-primary via-brand-primary-dark to-brand-primary-darker (icon)
+```
+
+**Secondary (Tan/Bronze) - Partnerships, Excellence:**
+
+```tsx
+from-brand-secondary/30 to-bronze-600/30 (blur)
+from-brand-secondary via-bronze-700 to-bronze-800 (icon)
+```
+
+**Accent (Bronze/Gold) - Awards, Premium:**
+
+```tsx
+from-brand-accent/30 to-bronze-600/30 (blur)
+from-brand-accent via-bronze-700 to-bronze-800 (icon)
+```
+
+---
+
+## 📊 Current Progress
+
+- **Homepage Sections:** 5/5 (100%)
+- **Total Pages:** 0/12 (0%)
 - **Build Status:** ✅ Passing
-- **Components Updated:** 7 page files + 4 component files
-
-**Recommended Variants:**
-
-- Veteran Leadership: `iconVariant="primary"`
-- Benefits/Support: `iconVariant="secondary"`
-- Resources: `iconVariant="bronze"`
-
----
-
-### 7. Careers Page (`/src/app/careers/page.tsx`)
-
-**Status:** Needs audit for manual headers
-
-**Action Needed:**
+- **Standard Established:** ✅ December 15, 2025
 
 1. Search for manual h2 headers with icon patterns
 2. Add `SectionHeader` import

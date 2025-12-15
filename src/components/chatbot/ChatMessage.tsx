@@ -42,8 +42,8 @@ const ChatMessage = memo(({ message, formattedContent }: MessageProps) => {
       <div
         className={`max-w-[90%] sm:max-w-[85%] p-3 sm:p-4 rounded-xl transition-all duration-300 overflow-hidden ${
           message.type === "user"
-            ? "bg-brand-primary border-2 border-brand-primary text-white shadow-lg"
-            : "bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl"
+            ? "bg-brand-primary text-white shadow-md border border-brand-primary-dark"
+            : "bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg"
         }`}
       >
         <div className="w-full">

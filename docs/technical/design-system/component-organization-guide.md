@@ -158,95 +158,121 @@ maintainable structure for the UI component library.
 
 ---
 
-## SectionHeader Component
+## Section Header Standard - Military-Construction Pattern
 
-**Location**: `/src/components/ui/SectionHeader.tsx`
+**Status**: ✅ Official Standard (December 2025)
+**Replaces**: Old `SectionHeader` component pattern
 
 ### Overview
 
-Universal section header component with authoritative, military-inspired design matching veteran/honesty values. Provides consistent branding and professional presence across all major page sections.
+All major sections across the website must use this military-construction header pattern with icon, decorative lines, two-line heading, and colored keyword highlighting. This establishes visual consistency and reinforces our veteran-owned, honest communication brand identity.
 
 ### Design Philosophy
 
-- **Military-inspired precision**: Sharp lines, squared corners, bold shadows
-- **Authoritative typography**: Bold uppercase subtitles with underline borders
-- **Professional presence**: Direct, no-nonsense messaging with clear hierarchy
-- **Veteran values**: Reflects honesty, integrity, and straightforward communication
+- **Military-construction precision**: Icon centered between decorative lines
+- **Two-tier hierarchy**: Subtitle (context) + main title (impact)
+- **Gradient emphasis**: Brand gradient on main title for visual authority
+- **Colored keywords**: Strategic bold colored spans in description for emphasis
+- **Professional presence**: Reflects honesty, integrity, and straightforward communication
 
-### Props
-
-```typescript
-interface SectionHeaderProps {
-  icon: string;              // Material icon name
-  subtitle: string;          // Uppercase text above title
-  title: string;             // Main heading text
-  description?: string;      // Optional description text
-  children?: React.ReactNode; // Optional additional content
-  iconGradient?: string;     // Custom icon gradient colors
-  centered?: boolean;        // Center alignment (default: true)
-  darkVariant?: boolean;     // Light-on-dark version (default: false)
-}
-```
-
-### Usage Examples
-
-#### Basic Usage
+### Complete Pattern Structure
 
 ```tsx
-import { SectionHeader } from "@/components/ui/SectionHeader";
-
-<SectionHeader
-  icon="shield"
-  subtitle="Veteran-Owned Values"
-  title="Built on Integrity & Honesty"
-  description="Four foundational values guide every honest conversation."
-/>
-```
-
-#### Dark Variant (for dark backgrounds)
-
-```tsx
-<SectionHeader
-  icon="analytics"
-  subtitle="Our Track"
-  title="Record"
-  description="Proven results from a veteran-owned team."
-  darkVariant={true}
-/>
-```
-
-#### With Custom Content
-
-```tsx
-<SectionHeader
-  icon="verified"
-  subtitle="Veteran-Owned Excellence"
-  title="Proven Performance & Integrity"
->
-  <div className="inline-block">
-    <p className="font-bold text-xl">
-      "Building projects for the client, NOT the dollar"
-    </p>
+{/* Section Header - Military Construction Standard */}
+<div className="mb-16 sm:mb-20 text-center">
+  {/* Icon with decorative lines */}
+  <div className="flex items-center justify-center mb-8 gap-4">
+    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+    <div className="relative">
+      <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+      <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+        <MaterialIcon
+          icon="shield"
+          size="2xl"
+          className="text-white drop-shadow-lg"
+        />
+      </div>
+    </div>
+    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
   </div>
-</SectionHeader>
+
+  {/* Two-line gradient heading */}
+  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+      Veteran-Owned Values
+    </span>
+    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+      Built on Honesty & Integrity
+    </span>
+  </h2>
+
+  {/* Description with colored keyword highlighting */}
+  <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+    Four foundational values guide every{" "}
+    <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+      project and partnership
+    </span>
+    —focused on building for the{" "}
+    <span className="font-bold text-gray-900 dark:text-white">
+      client, NOT the dollar
+    </span>
+    .
+  </p>
+</div>
+```
+
+### Icon Variant Colors
+
+Choose icon gradient based on section theme:
+
+**Primary (Green) - Trust, Values, Integrity:**
+```tsx
+<div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+<div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+```
+
+**Secondary (Tan/Bronze) - Partnerships, Excellence:**
+```tsx
+<div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+<div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+```
+
+**Accent (Bronze/Gold) - Awards, Premium:**
+```tsx
+<div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+<div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
 ```
 
 ### Key Features
 
-✅ **Consistent Brand Voice** - Authoritative tone across all sections
-✅ **Descender-Safe Typography** - Fixed clipping with `paddingBottom: 0.15em`
-✅ **Responsive Design** - Adapts from mobile to desktop
-✅ **Dark Mode Support** - Automatic dark variant
+✅ **Consistent Visual Language** - Every section follows same pattern
+✅ **Descender-Safe Typography** - `py-2 pb-3 leading-normal` prevents clipping
+✅ **Responsive Design** - Full mobile-to-desktop scaling
+✅ **Dark Mode Support** - Automatic theme adaptation
 ✅ **Accessibility** - Semantic HTML with proper hierarchy
-✅ **Performance** - FadeInWhenVisible animation wrapper
+✅ **Performance** - No external component dependencies
+
+### Implementation Checklist
+
+When creating a new section:
+
+- [ ] Center-aligned header wrapper with `mb-16 sm:mb-20 text-center`
+- [ ] Icon with decorative horizontal lines on both sides
+- [ ] Glow effect behind icon (`absolute -inset-4` blur layer)
+- [ ] Two-line heading: subtitle + gradient main title
+- [ ] Gradient must be `from-brand-primary via-brand-secondary to-brand-primary`
+- [ ] Main title must have `py-2 pb-3 leading-normal` to prevent clipping
+- [ ] Description with strategic colored keyword spans
+- [ ] Use `font-bold text-brand-primary` for primary emphasis
+- [ ] Use `font-bold text-gray-900 dark:text-white` for strong emphasis
 
 ### Technical Notes
 
-- Uses `leading-[1.3]` for optimal line height
-- Inline style `paddingBottom: 0.15em` prevents descender clipping (g, p, y, q, j)
-- `py-2` on h2 provides breathing room for large text
-- Gradient text uses `bg-clip-text` with proper fallbacks
-- Icon container features layered shadows for depth
+- **Clipping Prevention**: `py-2 pb-3 leading-normal` on gradient text prevents descender clipping (g, p, y, q, j)
+- **Gradient Text**: Uses `bg-clip-text text-transparent` with proper overflow handling
+- **Icon Size**: Always use `size="2xl"` (60px) for section headers
+- **Spacing**: Consistent `gap-4` between decorative lines and icon
+- **Blur Glow**: `-inset-4` with `blur-2xl` creates professional depth effect
 
 #### Icon Styling Details
 

@@ -16,7 +16,7 @@
       "name": "View Projects",
       "short_name": "Projects",
       "description": "Browse our portfolio of completed projects",
-      "url": "/portfolio",
+      "url": "/projects",
       "icons": [
         {
           "src": "/icons/shortcut-projects.png",

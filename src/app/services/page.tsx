@@ -25,6 +25,10 @@ import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { StructuredData } from "@/components/seo/seo-meta";
 import Head from "next/head";
 import { getServicesSEO } from "@/lib/seo/page-seo-utils";
+import {
+  generateBreadcrumbSchema,
+  breadcrumbPatterns,
+} from "@/lib/seo/breadcrumb-schema";
 
 // Lazy load heavy below-the-fold components
 const ChatbotCTASection = dynamic(
@@ -232,7 +236,15 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
-
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema(breadcrumbPatterns.services),
+          ),
+        }}
+      />
       <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
         {/* Hero Section */}
         <ServicesHero />

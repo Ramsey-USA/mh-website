@@ -574,17 +574,20 @@ export default function Footer() {
 
         {/* Clean Bottom Bar - Streamlined Design */}
         <div className="pt-8 pb-6 border-gray-700 dark:border-gray-600 border-t relative">
-          {/* Back to Top Button */}
+          {/* Back to Top Button - Enhanced */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="absolute -top-6 left-4 bg-brand-primary hover:bg-brand-primary-dark text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group touch-manipulation"
+            className="absolute -top-8 sm:-top-10 right-4 sm:right-8 bg-gradient-to-br from-brand-primary to-brand-primary-dark hover:from-brand-primary-dark hover:to-brand-primary-darker text-white pl-4 pr-5 py-3 sm:py-4 rounded-full shadow-2xl hover:shadow-brand-primary/50 transition-all duration-300 hover:scale-105 group touch-manipulation flex items-center gap-2 border-2 border-white/20 dark:border-gray-700"
             aria-label="Back to top"
           >
             <MaterialIcon
-              icon="keyboard_arrow_up"
-              size="md"
-              className="group-hover:animate-bounce"
+              icon="arrow_upward"
+              size="lg"
+              className="group-hover:-translate-y-1 transition-transform duration-300"
             />
+            <span className="font-bold text-sm sm:text-base hidden xs:inline whitespace-nowrap">
+              Back to Top
+            </span>
           </button>
 
           <div className="flex lg:flex-row flex-col justify-between items-center space-y-4 lg:space-y-0 text-gray-400 dark:text-gray-300">

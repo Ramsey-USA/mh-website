@@ -5,6 +5,11 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { NextStepsSection } from "@/components/shared-sections";
+import {
+  generateBreadcrumbSchema,
+  breadcrumbPatterns,
+} from "@/lib/seo/breadcrumb-schema";
+import { generateHowToSchema } from "@/lib/seo/howto-schema";
 
 export const metadata: Metadata = {
   title:
@@ -40,6 +45,9 @@ export const metadata: Metadata = {
       "Get answers about our veteran-owned construction services, partnership approach, safety excellence, and consultation process. Building projects for the client, NOT the dollar.",
     type: "website",
     locale: "en_US",
+  },
+  alternates: {
+    canonical: "/faq",
   },
 };
 
@@ -338,7 +346,57 @@ export default function FAQPage() {
 
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-      {/* JSON-LD Schema */}
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              ...breadcrumbPatterns.services,
+              { name: "FAQ", url: "https://www.mhc-gc.com/faq" },
+            ]),
+          ),
+        }}
+      />
+
+      {/* HowTo Schema - Construction Process */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateHowToSchema({
+              name: "How to Work with MH Construction",
+              description:
+                "Step-by-step guide to our partnership-driven construction process from consultation to project completion",
+              totalTime: "P30D",
+              steps: [
+                {
+                  name: "Discovery Phase",
+                  text: "Initial free consultation, site assessment, needs analysis, and budget discussion",
+                },
+                {
+                  name: "Planning Phase",
+                  text: "Detailed proposal with open-book pricing, timeline development, and contract signing",
+                },
+                {
+                  name: "Permitting Phase",
+                  text: "Permit applications, code compliance review, and approval coordination",
+                },
+                {
+                  name: "Construction Phase",
+                  text: "Regular progress updates, photo documentation, quality inspections, and client walkthroughs",
+                },
+                {
+                  name: "Completion Phase",
+                  text: "Final inspection, punch list completion, warranty documentation, and ongoing support",
+                },
+              ],
+            }),
+          ),
+        }}
+      />
+
+      {/* FAQ Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

@@ -24,6 +24,10 @@ import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import Head from "next/head";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getProjectsSEO } from "@/lib/seo/page-seo-utils";
+import {
+  generateBreadcrumbSchema,
+  breadcrumbPatterns,
+} from "@/lib/seo/breadcrumb-schema";
 
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = false;
@@ -106,6 +110,16 @@ export default function ProjectsPage() {
       {projectsSEO.schemas && projectsSEO.schemas.length > 0 && (
         <StructuredData data={projectsSEO.schemas} />
       )}
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema(breadcrumbPatterns.projects),
+          ),
+        }}
+      />
 
       <div className="relative bg-white dark:bg-gray-900 w-full min-h-screen overflow-x-hidden">
         {/* Hero Section */}

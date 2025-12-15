@@ -11,7 +11,6 @@ import {
   CardTitle,
   CardContent,
   Button,
-  SectionHeader,
 } from "@/components/ui";
 
 const services = [
@@ -213,14 +212,47 @@ export function ServicesShowcase() {
       <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
       <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Enhanced Section Header with Side Accents */}
-        <SectionHeader
-          icon="explore"
-          iconVariant="multi"
-          subtitle="Full-Spectrum Construction"
-          title="Services Built on Trust"
-          description="From planning to completion, every project reflects our core values—honesty, integrity, professionalism, and thoroughness."
-        />
+        {/* Section Header - Military Construction Standard */}
+        <div className="mb-16 sm:mb-20 text-center">
+          {/* Icon with decorative lines */}
+          <div className="flex items-center justify-center mb-8 gap-4">
+            <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+              <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                <MaterialIcon
+                  icon="explore"
+                  size="2xl"
+                  className="text-white drop-shadow-lg"
+                />
+              </div>
+            </div>
+            <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+          </div>
+
+          {/* Two-line gradient heading */}
+          <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+            <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+              Full-Spectrum Construction
+            </span>
+            <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+              Services Built on Trust
+            </span>
+          </h2>
+
+          {/* Description with colored keyword highlighting */}
+          <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+            From planning to completion, every project reflects our{" "}
+            <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+              core values
+            </span>
+            —honesty, integrity, professionalism, and{" "}
+            <span className="font-bold text-gray-900 dark:text-white">
+              thoroughness
+            </span>
+            .
+          </p>
+        </div>
 
         {/* Service Cards Grid */}
         <div className={gridPresets.cards3("md")}>
@@ -294,6 +326,11 @@ export function ServicesShowcase() {
                 closeModal();
               }
             }}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") {
+                closeModal();
+              }
+            }}
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-title"
@@ -301,6 +338,8 @@ export function ServicesShowcase() {
             <div
               className="relative bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden animate-in zoom-in-95 duration-200"
               onClick={(e) => e.stopPropagation()}
+              onKeyDown={(e) => e.stopPropagation()}
+              role="document"
             >
               {/* Header with gradient background */}
               <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-6 sm:p-8">
