@@ -78,7 +78,7 @@
     "eslint-config-next": "^15.5.3",
     "framer-motion": "^12.23.19",
     "jose": "^5.9.6",
-    "next": "^15.5.2",
+    "next": "15.5.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-is": "^19.2.3",
