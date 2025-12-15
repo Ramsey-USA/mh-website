@@ -14,7 +14,7 @@ export default function GovernmentLayout({
 }) {
   return (
     <>
-      {/* Enhanced Government Structured Data for SEO */}
+      {/* Enhanced Public Sector Structured Data for SEO */}
       <StructuredData data={schemas} />
       {children}
     </>

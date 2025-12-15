@@ -120,7 +120,7 @@ export const coreServices: CoreService[] = [
       "Advanced notice enables streamlined operations",
       "Consistent project opportunities for trade partners",
     ],
-    ctaLink: "/trade-partners",
+    ctaLink: "/allies",
     ctaLinkText: "Join Our Trade Partnership Network",
   },
   {

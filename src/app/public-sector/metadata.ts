@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Government & Federal Construction Services | MH Construction",
+  title: "Public Sector & Government Construction Services | MH Construction",
   description:
-    "Veteran-owned construction services for government and federal projects. Experienced with government contracting, compliance, and military facility construction in the Pacific Northwest.",
+    "Veteran-owned construction services for public sector and government projects. Experienced with government contracting, compliance, and military facility construction in the Pacific Northwest.",
   keywords: [
     "government construction",
     "federal construction services",
@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     "Franklin County federal contractor",
   ],
   openGraph: {
-    title: "Government Construction Services - MH Construction",
+    title: "Public Sector Construction Services - MH Construction",
     description:
-      "Veteran-owned construction services for government and federal projects. Experienced with compliance and military precision.",
+      "Veteran-owned construction services for public sector and government projects. Experienced with compliance and military precision.",
     type: "website",
-    url: "https://www.mhc-gc.com/government",
+    url: "https://www.mhc-gc.com/public-sector",
   },
   alternates: {
-    canonical: "https://www.mhc-gc.com/government",
+    canonical: "https://www.mhc-gc.com/public-sector",
   },
 };

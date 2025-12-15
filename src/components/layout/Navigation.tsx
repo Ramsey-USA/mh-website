@@ -164,12 +164,12 @@ export function Navigation() {
                       icon: "contact_phone",
                     },
                     {
-                      href: "/government",
+                      href: "/public-sector",
                       label: "Public Sector",
                       icon: "account_balance",
                     },
                     {
-                      href: "/trade-partners",
+                      href: "/allies",
                       label: "Allies in Force",
                       icon: "handshake",
                     },

@@ -67,7 +67,7 @@ consistency with the rest of the MH Construction website.
 
 - [ ] **Client Partnerships:** Use handshake icon (🏠), hunter green, "Your Project Partner"
 - [ ] **Trade Partnerships:** Use construction icon (🏗️), leather tan, "Building Professional Partnerships"
-- [ ] **Proper Routes:** Client (`/services`, `/booking`) vs Trade (`/trade-partners`)
+- [ ] **Proper Routes:** Client (`/services`, `/booking`) vs Trade (`/allies`)
 - [ ] **Correct CTAs:** "Schedule Consultation" (clients) vs "Join Our Network" (trades)
 - [ ] **Visual Identity:** Consistent colors, icons, and messaging per partnership type
 

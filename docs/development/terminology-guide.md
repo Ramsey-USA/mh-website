@@ -34,7 +34,7 @@ For comprehensive definitions, implementation guidelines, and examples, see:
 
 - **Who**: Subcontractors, suppliers, vendors working with MH
 - **What**: B2B vendor/subcontractor relationships
-- **Pages**: `/trade-partners`
+- **Pages**: `/allies`
 - **CTAs**: "Apply to be Approved Vendor", "Join Trade Network"
 - **Icon**: `construction`, `business` (professional trades)
 - **Color**: Leather Tan (#BD9264)
@@ -59,7 +59,7 @@ For comprehensive definitions, implementation guidelines, and examples, see:
 - **Icon:** `people` (Material Design)
 - **Context:** When referring to MH Construction's internal workforce
 
-#### **"Trade Partners" (`/trade-partners` page)**
+#### **"Allies" (`/allies` page)**
 
 - **Definition:** External subcontractors, vendors, and business partnerships
 - **Includes:**
@@ -107,7 +107,7 @@ For comprehensive definitions, implementation guidelines, and examples, see:
 ````typescript
 ✅ CORRECT USAGE:
 "Our Team" → /team (Internal employees)
-"Trade Partners" → /trade-partners (External contractors)
+"Trade Partners" → /allies (External contractors)
 "Start Partnership" → /booking (Client engagement)
 
 ❌ INCORRECT USAGE:

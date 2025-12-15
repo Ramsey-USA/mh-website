@@ -130,15 +130,15 @@ Generated: 11/17/2025, 7:01:35 PM
 
 ### Allies (Color)
 
-- **Name:** `trade-partners`
-- **File:** `qr-trade-partners-color.png`
-- **URL:** [https://mhc-gc.com/trade-partners](https://mhc-gc.com/trade-partners)
+- **Name:** `allies`
+- **File:** `qr-allies-color.png`
+- **URL:** [https://mhc-gc.com/allies](https://mhc-gc.com/allies)
 
 ### Allies (Black and White)
 
-- **Name:** `trade-partners`
-- **File:** `qr-trade-partners-bw.png`
-- **URL:** [https://mhc-gc.com/trade-partners](https://mhc-gc.com/trade-partners)
+- **Name:** `allies`
+- **File:** `qr-allies-bw.png`
+- **URL:** [https://mhc-gc.com/allies](https://mhc-gc.com/allies)
 
 ### Veteran Benefits (Color)
 

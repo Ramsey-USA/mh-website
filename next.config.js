@@ -30,6 +30,11 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === "production",
   },
 
+  // ESLint configuration - disable during builds, use npm run lint instead
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   // Build directories
   distDir: ".next",
   cleanDistDir: true,
@@ -76,7 +81,17 @@ const nextConfig = {
     return [
       {
         source: "/partners",
-        destination: "/trade-partners",
+        destination: "/allies",
+        permanent: true, // 301
+      },
+      {
+        source: "/trade-partners",
+        destination: "/allies",
+        permanent: true, // 301
+      },
+      {
+        source: "/government",
+        destination: "/public-sector",
         permanent: true, // 301
       },
       {

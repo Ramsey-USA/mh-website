@@ -79,7 +79,7 @@ export function PartnershipCTA() {
 
           {/* Trade Partnership CTA Buttons - Mobile optimized 4 Button Grid */}
           <div className="gap-3 sm:gap-4 lg:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto mb-4 sm:mb-6 max-w-6xl">
-            <Link href="/trade-partners">
+            <Link href="/allies">
               <Button
                 variant="primary"
                 size="lg"

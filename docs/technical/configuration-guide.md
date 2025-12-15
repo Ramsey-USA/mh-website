@@ -264,7 +264,7 @@ experimental: {
 #### URL Redirects
 
 ```javascript
-/partners → /trade-partners (301)
+/partners → /allies (301)
 /urgent → /contact#urgent-support (301)
 /book → /booking (301)
 ```

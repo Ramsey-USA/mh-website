@@ -111,7 +111,7 @@
 
 ---
 
-### 8. Trade Partners Page (`/src/app/trade-partners/page.tsx`)
+### 8. Allies Page (`/src/app/allies/page.tsx`)
 
 **Status:** Needs audit for manual headers
 
@@ -123,7 +123,7 @@
 
 ---
 
-### 9. Government Page (`/src/app/government/page.tsx`)
+### 9. Public Sector Page (`/src/app/public-sector/page.tsx`)
 
 **Status:** Currently shows `UnderConstruction` (flag is `true`)
 

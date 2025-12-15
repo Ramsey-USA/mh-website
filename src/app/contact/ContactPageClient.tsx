@@ -147,7 +147,7 @@ export default function ContactPageClient() {
 
         {/* Hero Section */}
         <section
-          className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden"
+          className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-end justify-end text-white overflow-hidden"
           aria-labelledby="hero-heading"
         >
           {/* Background Elements */}
@@ -156,27 +156,27 @@ export default function ContactPageClient() {
             aria-hidden="true"
           ></div>
 
-          {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
-            <div className="space-y-2 sm:space-y-3 md:space-y-4">
+          {/* Content - Bottom Right */}
+          <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+            <div className="space-y-2 sm:space-y-3 md:space-y-4 text-right">
               {/* Main Title */}
               <h1
                 id="hero-heading"
-                className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight"
+                className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed"
               >
-                <span className="block text-brand-secondary font-black drop-shadow-lg">
+                <span className="block text-brand-secondary">
                   Let's Talk Face-to-Face
                 </span>
               </h1>
 
               {/* Subtitle */}
-              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
+              <p className="text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug font-medium">
                 Where Handshakes Still Matter • Traditional Values • Modern
                 World
               </p>
 
               {/* Description */}
-              <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
+              <p className="text-right text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed">
                 Real conversations with real people—the way business should be
                 done. We believe in personal connection, honest handshakes, and
                 keeping our word. Building projects for the client,{" "}
@@ -523,7 +523,7 @@ export default function ContactPageClient() {
                       Join Our Network:
                     </h4>
                     <Link
-                      href="/trade-partners"
+                      href="/allies"
                       className="flex items-center justify-between bg-brand-secondary hover:bg-bronze-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
                     >
                       <div className="flex items-center gap-3">
@@ -537,7 +537,7 @@ export default function ContactPageClient() {
                       />
                     </Link>
                     <Link
-                      href="/trade-partners#benefits"
+                      href="/allies#benefits"
                       className="flex items-center justify-between bg-white dark:bg-gray-700 border-2 border-brand-secondary text-brand-secondary hover:bg-brand-secondary hover:text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
                     >
                       <div className="flex items-center gap-3">

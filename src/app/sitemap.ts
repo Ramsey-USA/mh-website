@@ -25,12 +25,12 @@ const ACTIVE_PAGES = [
   // Priority 0.8 - Important secondary pages
   { path: "/contact", priority: 0.8, changeFreq: "monthly" as const },
   { path: "/projects", priority: 0.8, changeFreq: "weekly" as const },
-  { path: "/government", priority: 0.8, changeFreq: "monthly" as const },
+  { path: "/public-sector", priority: 0.8, changeFreq: "monthly" as const },
 
   // Priority 0.7 - Supporting pages
   { path: "/team", priority: 0.7, changeFreq: "monthly" as const },
   { path: "/careers", priority: 0.7, changeFreq: "weekly" as const },
-  { path: "/trade-partners", priority: 0.7, changeFreq: "monthly" as const },
+  { path: "/allies", priority: 0.7, changeFreq: "monthly" as const },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -21,7 +21,7 @@ export function HeroSection() {
       </div>
 
       {/* Header Text - Bottom Right */}
-      <div className="relative z-30 mb-20 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+      <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
         <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
           <span className="block text-brand-secondary">
             Veteran-Owned Since January 2025
@@ -31,7 +31,9 @@ export function HeroSection() {
             Battle-Tested Craftsmanship
           </span>
           <span className="block text-white/90">
-            Building Projects for the Client, NOT the Dollar
+            Building Projects for the Client,{" "}
+            <span className="font-black italic text-bronze-300">NOT</span> the
+            Dollar
           </span>
         </h1>
       </div>

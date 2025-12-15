@@ -196,7 +196,7 @@ if [ -f "$SRC_DIR/government/page.tsx" ]; then
         ((warning_issues++))
     fi
 else
-    echo "   ❌ Government page not found"
+    echo "   ❌ Public Sector page not found"
     ((critical_issues++))
 fi
 
@@ -339,7 +339,7 @@ echo "   📱 Mobile Optimized: ✅ $dvh_usage hero sections"
 echo "   🎨 Brand Gradients: ✅ $proper_gradients implementations"
 echo "   🤝 Partnership Focus: ✅ $partnership_files pages"
 echo "   📍 Regional Messaging: ✅ $regional_files pages"
-echo "   🏛️ Government Design: ✅ Professional B&W maintained"
+echo "   🏛️ Public Sector Design: ✅ Professional B&W maintained"
 echo ""
 
 echo "🚀 MH CONSTRUCTION WEBSITE: COMPREHENSIVE AUDIT COMPLETE"

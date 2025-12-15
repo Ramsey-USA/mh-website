@@ -312,7 +312,7 @@ const jobKeywords = [
 keywords: [...jobKeywords, ...SEOFragments.contractor.triCitiesVariations];
 ```
 
-### Government Page (`/government`)
+### Public Sector Page (`/public-sector`)
 
 **SEO Focus:** Hanford-specific, government contractor terms
 

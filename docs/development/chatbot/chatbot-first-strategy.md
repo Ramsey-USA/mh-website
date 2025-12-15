@@ -223,7 +223,7 @@ When you find a static FAQ section:
 
 3. **Choose 4-6 example questions** relevant to the page context
 
-4. **Set context** to match the page (e.g., "about", "projects", "trade-partners")
+4. **Set context** to match the page (e.g., "about", "projects", "allies")
 
 ### Component Structure
 

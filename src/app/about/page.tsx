@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import { Card, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -27,11 +28,21 @@ import { StructuredData } from "@/components/seo/seo-meta";
 // Enhanced SEO for veteran-owned heritage and proven track record
 import { getAboutSEO } from "@/lib/seo/page-seo-utils";
 
-// Import shared sections
-import {
-  TestimonialsSection,
-  NextStepsSection,
-} from "@/components/shared-sections";
+// Lazy load heavy below-the-fold sections
+const TestimonialsSection = dynamic(
+  () =>
+    import("@/components/shared-sections").then((mod) => ({
+      default: mod.TestimonialsSection,
+    })),
+  { ssr: true },
+);
+const NextStepsSection = dynamic(
+  () =>
+    import("@/components/shared-sections").then((mod) => ({
+      default: mod.NextStepsSection,
+    })),
+  { ssr: true },
+);
 
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 
@@ -494,7 +505,7 @@ export default function AboutPage() {
                       program.
                     </p>
                     <Link
-                      href="/trade-partners"
+                      href="/allies"
                       className="inline-flex items-center text-brand-accent hover:text-brand-primary transition-colors mt-auto"
                     >
                       <span className="font-medium text-xs sm:text-sm">

@@ -37,7 +37,7 @@ Is this about someone HIRING us for a project?
     └─ YES → TRADE PARTNERSHIP
         ├─ Use: construction icon, Leather Tan color
         ├─ CTA: "Apply to be Approved Vendor"
-        ├─ Route: /trade-partners
+        ├─ Route: /allies
         └─ Form: TradePartnerApplicationForm
 ```
 
@@ -149,9 +149,9 @@ const tradeIcons = {
 '/success-stories'       // Client project showcases
 
 // Trade Partnership Routes
-'/trade-partners'        // Trade partner information & application
+'/allies'                // Trade partner information & application
 '/vendor-portal'         // Trade partner dashboard (authenticated)
-'/trade-partners/apply'  // Direct application route
+'/allies/apply'          // Direct application route
 
 // Shared Routes with Audience Distinction
 '/contact'
@@ -330,7 +330,7 @@ interface PartnershipSectionProps {
   title="Join Our Trade Network"
   cta={{
     text: "Apply to be Approved Vendor",
-    href: "/trade-partners#apply",
+    href: "/allies#apply",
     icon: "construction"
   }}
 />

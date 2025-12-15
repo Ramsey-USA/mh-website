@@ -289,8 +289,8 @@ export const navigationConfigs = {
   ],
   estimator: [
     { href: "/team", label: "Meet Team", icon: "people" },
-    { href: "/government", label: "Government", icon: "account_balance" },
-    { href: "/trade-partners", label: "Partners", icon: "group" },
+    { href: "/public-sector", label: "Public Sector", icon: "account_balance" },
+    { href: "/allies", label: "Partners", icon: "group" },
     { href: "/contact", label: "Start Project", icon: "contact_phone" },
   ],
   // ... more page configurations
@@ -520,10 +520,10 @@ Page Structure:
 - `/booking` - Book Consultation
 - `/careers` - Career Opportunities
 - `/estimator` - Automated Estimator
-- `/government` - Government Projects
+- `/public-sector` - Public Sector Projects
 - `/projects` - Portfolio
 - `/team` - Our Team
-- `/trade-partners` - Allies in Force
+- `/allies` - Allies in Force
 - `/urgent` - Urgent Support
 
 ---

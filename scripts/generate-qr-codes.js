@@ -121,10 +121,16 @@ const QR_CODES = [
     label: "mhc-gc.com/case-studies",
   },
   {
+    name: "allies",
+    url: `${BASE_URL}/allies`,
+    description: "Allies",
+    label: "mhc-gc.com/allies",
+  },
+  {
     name: "trade-partners",
-    url: `${BASE_URL}/trade-partners`,
+    url: `${BASE_URL}/allies`,
     description: "Trade Partners",
-    label: "mhc-gc.com/trade-partners",
+    label: "mhc-gc.com/allies",
   },
   {
     name: "veteran-benefits",

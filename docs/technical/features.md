@@ -127,7 +127,7 @@ Production Platform:
 │   ├── booking/page.tsx            # Booking page (Complete)
 │   ├── careers/page.tsx            # Careers page (Complete)
 │   ├── government/page.tsx         # Government page (Complete)
-│   ├── trade-partners/page.tsx     # Allies (Complete)
+│   ├── allies/page.tsx     # Allies (Complete)
 │   ├── layout.tsx                  # Root layout with providers
 │   ├── sitemap.ts                  # SEO sitemap
 │   └── robots.ts                   # SEO robots.txt

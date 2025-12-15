@@ -144,7 +144,7 @@ focused on business growth and quality project delivery.
 
 #### Where They Interact
 
-- **Website Pages:** `/trade-partners` (Allies in Force page), `/contact` (Ally section)
+- **Website Pages:** `/allies` (Allies in Force page), `/contact` (Ally section)
 - **CTAs:** "Apply to be Approved Ally", "Join Ally Network"
 - **Forms:** Ally applications, qualification submissions
 - **Portal:** Vendor dashboard, project opportunities, invoicing
@@ -158,7 +158,7 @@ focused on business growth and quality project delivery.
 
 | Aspect                   | Client Relationships             | Ally Relationships                       |
 | ------------------------ | -------------------------------- | ---------------------------------------- |
-| **Primary Page**         | `/services`, `/booking`          | `/trade-partners`                        |
+| **Primary Page**         | `/services`, `/booking`          | `/allies`                                |
 | **Navigation Label**     | "Services", "Book Consultation"  | "Allies in Force"                        |
 | **Icon (Material)**      | `handshake`, `event`             | `construction`, `business`               |
 | **Primary CTA**          | "Get Free Estimate"              | "Apply to be Approved Ally"              |
@@ -221,7 +221,7 @@ focused on business growth and quality project delivery.
 ```text
 /booking           → Client consultation booking
 /contact           → General contact (both audiences)
-/trade-partners    → Ally information and application ("Allies in Force" page)
+/allies            → Ally information and application ("Allies in Force" page)
 /services          → Client-facing service descriptions
 ```
 
@@ -300,10 +300,10 @@ utm_source=website&utm_campaign=ally-recruitment-2025
 - "Success Stories" → /success-stories
 
 // Column: For Allies
-- "Join Ally Network" → /trade-partners
-- "Apply as Ally" → /trade-partners#application
+- "Join Ally Network" → /allies
+- "Apply as Ally" → /allies#application
 - "Ally Portal Login" → /vendor-portal
-- "Ally Benefits" → /trade-partners#benefits
+- "Ally Benefits" → /allies#benefits
 ```
 
 ### Contact Page
@@ -323,9 +323,9 @@ utm_source=website&utm_campaign=ally-recruitment-2025
 ```tsx
 // Main Nav
 Services → /services          // CLIENT
-Allies in Force → /trade-partners  // ALLIES
-Book Consultation → /booking     // CLIENT
-Our Team → /team                // INFORMATIONAL
+Allies in Force → /allies     // ALLIES
+Book Consultation → /booking  // CLIENT
+Our Team → /team              // INFORMATIONAL
 
 // Mobile Nav (same structure with clear labels)
 ```
@@ -440,7 +440,7 @@ CLIENTS = Project Collaborations
 
 ALLIES = Vendor/Subcontractor Relationships
 ├─ WHO: Subcontractors, suppliers providing services/goods to us
-├─ PAGE: /trade-partners
+├─ PAGE: /allies
 ├─ CTA: "Apply to be Approved Ally", "Join Ally Network"
 ├─ ICON: construction, business (professional trades)
 ├─ COLOR: Leather Tan (#BD9264)

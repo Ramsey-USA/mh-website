@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { TeamProfileSection } from "@/components/team/TeamProfileSection";
@@ -12,7 +13,6 @@ import {
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
-import { TestimonialGrid } from "@/components/testimonials";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
@@ -20,6 +20,15 @@ import Head from "next/head";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getTeamSEO } from "@/lib/seo/page-seo-utils";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+
+// Lazy load heavy below-the-fold component
+const TestimonialGrid = dynamic(
+  () =>
+    import("@/components/testimonials").then((mod) => ({
+      default: mod.TestimonialGrid,
+    })),
+  { ssr: true },
+);
 
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = false;
@@ -111,37 +120,35 @@ export default function TeamPage() {
 
       <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
         {/* Hero Section - v4.0.2 Standards */}
-        <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
+        <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-end justify-end text-white overflow-hidden">
           {/* Background Elements */}
           <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
-          {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
-            <div className="space-y-2 sm:space-y-3 md:space-y-4">
+          {/* Content - Bottom Right */}
+          <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+            <div className="space-y-2 sm:space-y-3 md:space-y-4 text-right">
               {/* Main Title */}
-              <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-                <span className="block text-brand-secondary font-black drop-shadow-lg">
-                  Team Six
-                </span>
+              <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+                <span className="block text-brand-secondary">Team Six</span>
               </h1>
 
               {/* Subtitle - Group 3: Future Vision */}
-              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
+              <p className="text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug font-medium">
                 Experience You Can Trust
               </p>
 
               {/* Veteran-Owned Emphasis */}
-              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
+              <p className="text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug font-bold tracking-wide">
                 Veteran-Led · 150+ Years Combined Expertise
               </p>
 
               {/* Values-Future Messaging - Group 3 */}
-              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
+              <p className="text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug font-medium">
                 Building Tomorrow's Success on Today's Values
               </p>
 
               {/* Leadership Statement - Future-focused with veteran values */}
-              <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
+              <p className="text-right text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed">
                 "Building projects for the client,{" "}
                 <span className="font-black italic text-bronze-300">NOT</span>{" "}
                 the dollar" — Meet the veteran-led professionals driving Pacific

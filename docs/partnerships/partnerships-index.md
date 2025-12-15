@@ -117,7 +117,7 @@ professionals who provide services and materials to MH Construction.
 
 **Implementation:**
 
-- Pages: `/trade-partners`, `/vendor-portal`
+- Pages: `/allies`, `/vendor-portal`
 - CTAs: "Apply to be Approved Vendor", "Join Trade Partnership Network"
 - Colors: Leather Tan (#BD9264)
 - Icons: `construction`, `business`, `work`

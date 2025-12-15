@@ -26,7 +26,7 @@ Ally relationships, and veteran excellence.
 **⚠️ CRITICAL RELATIONSHIP DISTINCTION:** The platform serves two distinct audiences:
 
 - **Clients** 🏠 - Project collaborations with homeowners and businesses (routes: `/services`, `/contact`)
-- **Allies** 🏗️ - Business relationships with subcontractors and vendors (routes: `/trade-partners`)
+- **Allies** 🏗️ - Business relationships with subcontractors and vendors (routes: `/allies`)
 
 See [Partnership Type Definitions](./docs/partnerships/partnership-type-definitions.md) for complete implementation guidelines.
 
@@ -283,7 +283,7 @@ See the [Master Documentation Index](./docs/master-index.md) for the complete do
 - **Group 1:** Home, Contact (Traditional business values)
 - **Group 2:** About, Projects (Company heritage)
 - **Group 3:** Team, Services (Future vision)
-- **Group 4:** Government, Veterans (Professional & patriotic)
+- **Group 4:** Public Sector, Veterans (Professional & patriotic)
 - **Group 5:** Careers (Recruitment & growth)
 - **Group 6:** Resources & Help (FAQ, Contact, Support)
 - **Group 7:** Allies, Urgent (ROI-focused - **ONLY** place for prominent "THE ROI IS THE RELATIONSHIP")

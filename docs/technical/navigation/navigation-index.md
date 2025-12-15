@@ -386,10 +386,10 @@ When implementing navigation:
 - Booking (`/booking`)
 - Careers (`/careers`)
 - Estimator (`/estimator`)
-- Government Projects (`/government`)
+- Public Sector Projects (`/public-sector`)
 - Projects (`/projects`)
 - Team (`/team`)
-- Allies in Force (`/trade-partners`)
+- Allies in Force (`/allies`)
 - Urgent Support (`/urgent`)
 
 ---

@@ -186,7 +186,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
       "Franklin County contractor",
       "Pacific Northwest public sector",
     ],
-    canonicalUrl: `${enhancedSEO.siteUrl}/government`,
+    canonicalUrl: `${enhancedSEO.siteUrl}/public-sector`,
     schemas: [],
   });
 }
@@ -238,7 +238,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "Benton County subcontractors",
       "Franklin County trade partners",
     ],
-    canonicalUrl: `${enhancedSEO.siteUrl}/trade-partners`,
+    canonicalUrl: `${enhancedSEO.siteUrl}/allies`,
     schemas: [],
   });
 }

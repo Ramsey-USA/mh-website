@@ -487,9 +487,9 @@ Created `/src/lib/styles/layout-variants.ts` with centralized grid utility funct
 - `/src/app/careers/page.tsx` - 4 grid instances
 - `/src/app/services/page.tsx` - 3 grid instances
 - `/src/app/team/page.tsx` - 3 grid instances
-- `/src/app/government/page.tsx` - 4 grid instances
+- `/src/app/public-sector/page.tsx` - 4 grid instances
 - `/src/app/estimator/page.tsx` - 1 grid instance
-- `/src/app/trade-partners/page.tsx` - 5 grid instances
+- `/src/app/allies/page.tsx` - 5 grid instances
 - `/src/app/contact/ContactPageClient.tsx` - 2 grid instances
 - `/src/app/urgent/page.tsx` - 1 grid instance
 
@@ -524,9 +524,9 @@ Created `/src/lib/styles/layout-variants.ts` with centralized grid utility funct
 - [x] Update careers page (4 grids)
 - [x] Update services page (3 grids)
 - [x] Update team page (3 grids)
-- [x] Update government page (4 grids)
+- [x] Update public sector page (4 grids)
 - [x] Update estimator page (1 grid)
-- [x] Update trade-partners page (5 grids)
+- [x] Update allies page (5 grids)
 - [x] Update contact page (2 grids)
 - [x] Update urgent page (1 grid)
 - [x] Update home components (2 grids)

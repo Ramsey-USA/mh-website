@@ -378,17 +378,17 @@ with AI-powered solutions. Schedule your free consultation today.
 
 ### Page Type Categories
 
-| Category     | Patterns                         | Priority | Change Freq | Schemas                                   |
-| ------------ | -------------------------------- | -------- | ----------- | ----------------------------------------- |
-| Homepage     | `/`                              | 1.0      | monthly     | Organization, Website, LocalBusiness, FAQ |
-| Services     | `/services`, `/service/`         | 0.9      | monthly     | Service, Offer                            |
-| Projects     | `/projects`, `/portfolio`        | 0.8      | weekly      | CreativeWork                              |
-| Team         | `/team`, `/about`                | 0.7      | monthly     | Person, Organization                      |
-| Contact      | `/contact`, `/booking`           | 0.9      | monthly     | ContactPage, LocalBusiness                |
-| Careers      | `/careers`, `/jobs`              | 0.7      | weekly      | JobPosting                                |
-| Tools        | `/estimator`, `/calculator`      | 0.85     | monthly     | SoftwareApplication                       |
-| Emergency    | `/urgent`, `/emergency`          | 0.85     | monthly     | Service, EmergencyService                 |
-| Partnerships | `/trade-partners`, `/government` | 0.75     | monthly     | Service, Organization                     |
+| Category     | Patterns                    | Priority | Change Freq | Schemas                                   |
+| ------------ | --------------------------- | -------- | ----------- | ----------------------------------------- |
+| Homepage     | `/`                         | 1.0      | monthly     | Organization, Website, LocalBusiness, FAQ |
+| Services     | `/services`, `/service/`    | 0.9      | monthly     | Service, Offer                            |
+| Projects     | `/projects`, `/portfolio`   | 0.8      | weekly      | CreativeWork                              |
+| Team         | `/team`, `/about`           | 0.7      | monthly     | Person, Organization                      |
+| Contact      | `/contact`, `/booking`      | 0.9      | monthly     | ContactPage, LocalBusiness                |
+| Careers      | `/careers`, `/jobs`         | 0.7      | weekly      | JobPosting                                |
+| Tools        | `/estimator`, `/calculator` | 0.85     | monthly     | SoftwareApplication                       |
+| Emergency    | `/urgent`, `/emergency`     | 0.85     | monthly     | Service, EmergencyService                 |
+| Partnerships | `/allies`, `/public-sector` | 0.75     | monthly     | Service, Organization                     |
 
 ### Sitemap Configuration
 
@@ -404,8 +404,8 @@ const ACTIVE_PAGES = [
   { path: "/contact", priority: 0.9, changeFreq: "monthly" as const },
   { path: "/booking", priority: 0.9, changeFreq: "monthly" as const },
   { path: "/careers", priority: 0.7, changeFreq: "weekly" as const },
-  { path: "/government", priority: 0.8, changeFreq: "monthly" as const },
-  { path: "/trade-partners", priority: 0.75, changeFreq: "monthly" as const },
+  { path: "/public-sector", priority: 0.8, changeFreq: "monthly" as const },
+  { path: "/allies", priority: 0.75, changeFreq: "monthly" as const },
   { path: "/estimator", priority: 0.95, changeFreq: "monthly" as const },
   { path: "/urgent", priority: 0.85, changeFreq: "monthly" as const },
   { path: "/3d-explorer", priority: 0.5, changeFreq: "monthly" as const },
@@ -711,7 +711,7 @@ getContactSEO();
 
 // Partnership pages
 getGovernmentSEO();
-getTradePartnersSEO();
+getAlliesSEO();
 
 // Other pages
 getCareersSEO();

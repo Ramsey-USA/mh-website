@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # MH Construction Final Branding & Design Compliance Check
-# Comprehensive validation of all phases including government page special styling
+# Comprehensive validation of all phases including public sector page special styling
 
 echo "🎯 MH Construction Final Compliance Check"
 echo "========================================"
@@ -58,18 +58,18 @@ hero_typography=$(find $SRC_DIR -name "*.tsx" | xargs grep -l "text-3xl.*sm:text
 echo "🎯 Hero Typography: ✅ $hero_typography hero sections with proper scaling"
 
 echo ""
-echo "🏛️  Government Page Special Design Validation..."
+echo "🏛️  Public Sector Page Special Design Validation..."
 echo ""
 
-# Check government page maintains black/white theme
-gov_dark_theme=$(grep -c "bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900" $SRC_DIR/government/page.tsx 2>/dev/null || echo "0")
-gov_white_sections=$(grep -c "bg-white.*dark:bg-gray-900" $SRC_DIR/government/page.tsx 2>/dev/null || echo "0")
-echo "🎨 Government Dark Theme: $([ $gov_dark_theme -gt 0 ] && echo "✅ PRESERVED" || echo "⚠️  Check styling")"
-echo "⚪ Government Light Sections: $([ $gov_white_sections -gt 0 ] && echo "✅ PRESERVED" || echo "⚠️  Check styling")"
+# Check public sector page maintains black/white theme
+gov_dark_theme=$(grep -c "bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900" $SRC_DIR/public-sector/page.tsx 2>/dev/null || echo "0")
+gov_white_sections=$(grep -c "bg-white.*dark:bg-gray-900" $SRC_DIR/public-sector/page.tsx 2>/dev/null || echo "0")
+echo "🎨 Public Sector Dark Theme: $([ $gov_dark_theme -gt 0 ] && echo "✅ PRESERVED" || echo "⚠️  Check styling")"
+echo "⚪ Public Sector Light Sections: $([ $gov_white_sections -gt 0 ] && echo "✅ PRESERVED" || echo "⚠️  Check styling")"
 
-# Verify government page has no brand color violations
-gov_brand_colors=$(grep -c "brand-primary\|brand-secondary" $SRC_DIR/government/page.tsx 2>/dev/null || echo "0")
-echo "🏛️  Government Color Compliance: $([ $gov_brand_colors -eq 0 ] && echo "✅ BLACK/WHITE MAINTAINED" || echo "⚠️  $gov_brand_colors brand color instances found")"
+# Verify public sector page has no brand color violations
+gov_brand_colors=$(grep -c "brand-primary\|brand-secondary" $SRC_DIR/public-sector/page.tsx 2>/dev/null || echo "0")
+echo "🏛️  Public Sector Color Compliance: $([ $gov_brand_colors -eq 0 ] && echo "✅ BLACK/WHITE MAINTAINED" || echo "⚠️  $gov_brand_colors brand color instances found")"
 
 echo ""
 echo "📝 Phase 4: Content & Messaging Validation..."
@@ -131,6 +131,6 @@ echo "   ✅ Phase 1 (Branding): $([ $primary_taglines -gt 7 ] && echo "COMPLETE
 echo "   ✅ Phase 2 (Mobile): $([ $mobile_viewport -gt 7 ] && echo "COMPLETE" || echo "IN PROGRESS")"
 echo "   ✅ Phase 3 (Typography): $([ $standard_h2 -gt 10 ] && echo "COMPLETE" || echo "IN PROGRESS")"
 echo "   ✅ Phase 4 (Content): $([ $partnership_messaging -gt 8 ] && echo "COMPLETE" || echo "IN PROGRESS")"
-echo "   🏛️  Government Page: $([ $gov_brand_colors -eq 0 ] && echo "STYLING PRESERVED" || echo "REVIEW NEEDED")"
+echo "   🏛️  Public Sector Page: $([ $gov_brand_colors -eq 0 ] && echo "STYLING PRESERVED" || echo "REVIEW NEEDED")"
 echo ""
 echo "🚀 MH Construction website is ready for production deployment!"

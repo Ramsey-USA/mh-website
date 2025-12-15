@@ -14,7 +14,7 @@ export default function TradePartnersLayout({
 }) {
   return (
     <>
-      {/* Enhanced Trade Partners Structured Data for SEO */}
+      {/* Enhanced Allies Structured Data for SEO */}
       <StructuredData data={schemas} />
       {children}
     </>

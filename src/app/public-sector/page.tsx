@@ -279,7 +279,7 @@ const successFactors = [
   },
 ];
 
-export default function GovernmentGrantsPage() {
+export default function PublicSectorPage() {
   const [selectedGrantType, setSelectedGrantType] = useState<string | null>(
     null,
   );
@@ -315,27 +315,27 @@ export default function GovernmentGrantsPage() {
         />
       </Head>
       {/* Hero Section - Group 4: Professional & Patriotic */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 h-screen flex items-end justify-end text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-700/30 via-gray-900/80 to-gray-600/20"></div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
-          <div className="space-y-2 sm:space-y-3 md:space-y-4">
+        {/* Content - Bottom Right */}
+        <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+          <div className="space-y-2 sm:space-y-3 md:space-y-4 text-right">
             {/* Main Title */}
-            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-              <span className="block text-gray-300 font-black drop-shadow-lg">
+            <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+              <span className="block text-gray-300">
                 Public Sector Excellence
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
+            <p className="text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug font-medium">
               Veteran-Owned · Building Toward Government Contracting
             </p>
 
             {/* Description */}
-            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
+            <p className="text-right text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed">
               <strong>
                 Mission-critical precision meets federal excellence.
               </strong>{" "}
@@ -356,13 +356,16 @@ export default function GovernmentGrantsPage() {
 
         {/* Page-Specific Navigation Bar */}
         <PageNavigation
-          items={navigationConfigs.government}
+          items={navigationConfigs.publicSector}
           className="absolute bottom-0 left-0 right-0"
         />
       </section>
       {/* Breadcrumb Navigation */}
       <Breadcrumb
-        items={[{ label: "Home", href: "/" }, { label: "Government Projects" }]}
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Public Sector Projects" },
+        ]}
       />
       {/* Grant Support Services */}
       <section className="bg-white dark:bg-gray-900 py-20">

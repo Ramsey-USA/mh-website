@@ -53,11 +53,22 @@ export const breadcrumbPatterns = {
   // Removed: estimator breadcrumb (feature deprecated Dec 2025)
   government: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Government Projects", url: "https://www.mhc-gc.com/government" },
+    {
+      name: "Government Projects",
+      url: "https://www.mhc-gc.com/public-sector",
+    },
+  ],
+  publicSector: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Public Sector", url: "https://www.mhc-gc.com/public-sector" },
+  ],
+  allies: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Allies", url: "https://www.mhc-gc.com/allies" },
   ],
   tradePartners: [
     { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Trade Partners", url: "https://www.mhc-gc.com/trade-partners" },
+    { name: "Trade Partners", url: "https://www.mhc-gc.com/allies" },
   ],
   urgent: [
     { name: "Home", url: "https://www.mhc-gc.com" },

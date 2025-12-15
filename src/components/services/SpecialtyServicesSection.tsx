@@ -1,0 +1,55 @@
+/**
+ * Specialty Services Section
+ * Displays specialized construction services
+ */
+
+import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
+import { gridPresets } from "@/lib/styles/layout-variants";
+import { SectionHeader } from "@/components/ui";
+import { SpecialtyServiceCard } from "./SpecialtyServiceCard";
+import type { SpecialtyService } from "./servicesData";
+
+interface SpecialtyServicesSectionProps {
+  services: SpecialtyService[];
+}
+
+export function SpecialtyServicesSection({
+  services,
+}: SpecialtyServicesSectionProps) {
+  return (
+    <section className="relative bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden">
+      {/* Enhanced Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(189,146,100,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(189,146,100,0.15)_0%,transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(56,104,81,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_right,rgba(56,104,81,0.12)_0%,transparent_50%)]"></div>
+
+      {/* Animated Blur Orbs */}
+      <div className="top-20 left-10 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
+      <div
+        className="right-10 bottom-20 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
+        style={{ animationDelay: "1s" }}
+      ></div>
+      <div
+        className="top-1/2 right-1/4 absolute bg-brand-secondary/5 dark:bg-brand-secondary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
+        style={{ animationDelay: "0.5s" }}
+      ></div>
+
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <SectionHeader
+          icon="domain"
+          iconVariant="secondary"
+          subtitle="Specialized Partnership"
+          title="Solutions"
+          description="Diverse collaborative construction expertise across the Tri-Cities and Pacific Northwest region"
+        />
+
+        <StaggeredFadeIn
+          className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
+        >
+          {services.map((service, _index) => (
+            <SpecialtyServiceCard key={_index} service={service} />
+          ))}
+        </StaggeredFadeIn>
+      </div>
+    </section>
+  );
+}

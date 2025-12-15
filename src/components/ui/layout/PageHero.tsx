@@ -22,8 +22,8 @@ const heroNavItems: HeroNavItem[] = [
   { href: "/services", label: "Partnership Approach", icon: "build" },
   { href: "/projects", label: "Success Stories", icon: "photo_library" },
   { href: "/team", label: "Our Team", icon: "people" },
-  { href: "/government", label: "Government", icon: "account_balance" },
-  { href: "/trade-partners", label: "Trade Partners", icon: "business" },
+  { href: "/public-sector", label: "Public Sector", icon: "account_balance" },
+  { href: "/allies", label: "Allies", icon: "business" },
   { href: "/careers", label: "Join Our Team", icon: "badge" },
   { href: "/contact", label: "Connect With Us", icon: "contact_phone" },
 ];

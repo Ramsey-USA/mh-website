@@ -95,17 +95,17 @@ npm run build && npm run seo:audit
 
 ## 🎯 Page Categories (Auto-Detected)
 
-| Type         | Priority | Examples                   |
-| ------------ | -------- | -------------------------- |
-| Homepage     | 1.0      | `/`                        |
-| Services     | 0.9      | `/services`                |
-| Contact      | 0.9      | `/contact`, `/booking`     |
-| Tools        | 0.85     | `/estimator`               |
-| Emergency    | 0.85     | `/urgent`                  |
-| Projects     | 0.8      | `/projects`                |
-| Partnerships | 0.75     | `/government`, `/partners` |
-| Team/About   | 0.7      | `/team`, `/about`          |
-| Careers      | 0.7      | `/careers`                 |
+| Type         | Priority | Examples                    |
+| ------------ | -------- | --------------------------- |
+| Homepage     | 1.0      | `/`                         |
+| Services     | 0.9      | `/services`                 |
+| Contact      | 0.9      | `/contact`, `/booking`      |
+| Tools        | 0.85     | `/estimator`                |
+| Emergency    | 0.85     | `/urgent`                   |
+| Projects     | 0.8      | `/projects`                 |
+| Partnerships | 0.75     | `/public-sector`, `/allies` |
+| Team/About   | 0.7      | `/team`, `/about`           |
+| Careers      | 0.7      | `/careers`                  |
 
 ---
 

@@ -514,8 +514,21 @@ export class EnhancedChatbotAI {
         "consultation",
         "meeting",
       ],
+      "/public-sector": [
+        "government",
+        "grants",
+        "public",
+        "municipal",
+        "federal",
+      ],
       "/government": ["government", "grants", "public", "municipal", "federal"],
-      "/trade-partners": ["trade", "partners", "subcontractor", "partnership"],
+      "/allies": [
+        "trade",
+        "partners",
+        "subcontractor",
+        "partnership",
+        "allies",
+      ],
       "/urgent": ["urgent", "emergency", "immediate", "rapid", "support"],
       "/careers": ["careers", "jobs", "employment", "hiring", "join team"],
     };
@@ -541,9 +554,10 @@ export class EnhancedChatbotAI {
         return this.generateTeamPageResponse(message, context);
       case "/contact":
         return this.generateContactPageResponse(message, context);
+      case "/public-sector":
       case "/government":
         return this.generateGovernmentPageResponse(message, context);
-      case "/trade-partners":
+      case "/allies":
         return this.generateTradePartnersPageResponse(message, context);
       case "/urgent":
         return this.generateUrgentPageResponse(message, context);

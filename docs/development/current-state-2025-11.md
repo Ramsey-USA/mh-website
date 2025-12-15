@@ -294,8 +294,8 @@ Time to Interactive: < 3.5s
 - Contact: `/contact`
 - Booking: `/booking`
 - Careers: `/careers`
-- Government: `/government`
-- Trade Partners: `/trade-partners`
+- Public Sector: `/public-sector`
+- Trade Partners: `/allies`
 - Estimator: `/estimator`
 - Urgent: `/urgent`
 - 3D Explorer: `/3d-explorer`

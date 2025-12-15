@@ -98,7 +98,7 @@ const QUICK_ACTIONS: QuickAction[] = [
     priority: "medium",
   },
   {
-    id: "trade-partners",
+    id: "allies",
     label: "Trade Partners",
     icon: "handshake",
     message: "How can I become a trade partner or subcontractor?",

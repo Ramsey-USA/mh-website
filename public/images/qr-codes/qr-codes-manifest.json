@@ -216,10 +216,28 @@
       "error": null
     },
     {
+      "name": "allies",
+      "filename": "qr-allies-color.png",
+      "variant": "color",
+      "url": "https://mhc-gc.com/allies",
+      "description": "Allies",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "allies",
+      "filename": "qr-allies-bw.png",
+      "variant": "bw",
+      "url": "https://mhc-gc.com/allies",
+      "description": "Allies",
+      "success": true,
+      "error": null
+    },
+    {
       "name": "trade-partners",
       "filename": "qr-trade-partners-color.png",
       "variant": "color",
-      "url": "https://mhc-gc.com/trade-partners",
+      "url": "https://mhc-gc.com/allies",
       "description": "Trade Partners",
       "success": true,
       "error": null
@@ -228,7 +246,7 @@
       "name": "trade-partners",
       "filename": "qr-trade-partners-bw.png",
       "variant": "bw",
-      "url": "https://mhc-gc.com/trade-partners",
+      "url": "https://mhc-gc.com/allies",
       "description": "Trade Partners",
       "success": true,
       "error": null

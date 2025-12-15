@@ -252,7 +252,7 @@ const partnershipBenefits = [
   },
 ];
 
-export default function TradePartnersPage() {
+export default function AlliesPage() {
   const [_expandedCategory, _setExpandedCategory] = useState<string | null>(
     null,
   );
@@ -261,8 +261,8 @@ export default function TradePartnersPage() {
   if (SHOW_UNDER_CONSTRUCTION) {
     return (
       <UnderConstruction
-        pageName="Trade Partners"
-        description="We're refining our trade partner information to accurately represent partnership opportunities and requirements for subcontractors and suppliers."
+        pageName="Allies"
+        description="We're refining our ally information to accurately represent partnership opportunities and requirements for subcontractors and suppliers."
         estimatedCompletion="December 2025"
       />
     );
@@ -290,27 +290,27 @@ export default function TradePartnersPage() {
       </Head>
 
       {/* Hero Section - Group 7: Partnership & ROI Focus */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-center justify-center text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-end justify-end text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
-          <div className="space-y-2 sm:space-y-3 md:space-y-4">
+        {/* Content - Bottom Right */}
+        <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+          <div className="space-y-2 sm:space-y-3 md:space-y-4 text-right">
             {/* Main Title */}
-            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-              <span className="block text-brand-secondary font-black drop-shadow-lg">
+            <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+              <span className="block text-brand-secondary">
                 THE ROI IS THE RELATIONSHIP
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-              Veteran-Owned Trade Partner Network · Allies in Force
+            <p className="text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug font-medium">
+              Veteran-Owned Ally Network · Allies in Force
             </p>
 
             {/* Description */}
-            <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
+            <p className="text-right text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed">
               <strong>Partnerships built on trust, not transactions.</strong>{" "}
               Veteran-owned integrity driving fair payment, honest
               communication, and mutual success. "Building projects for the
@@ -330,7 +330,7 @@ export default function TradePartnersPage() {
 
         {/* Page-Specific Navigation Bar */}
         <PageNavigation
-          items={navigationConfigs.tradePartners}
+          items={navigationConfigs.allies}
           className="absolute bottom-0 left-0 right-0"
         />
       </section>
@@ -353,7 +353,7 @@ export default function TradePartnersPage() {
                 />
                 <div>
                   <h3 className="font-bold text-gray-900 dark:text-white text-xl mb-3">
-                    Trade Partners vs. Client Partnerships
+                    Allies vs. Client Partnerships
                   </h3>
                   <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-2">
                     <strong>
@@ -451,18 +451,18 @@ export default function TradePartnersPage() {
             <div className="mb-12 lg:mb-16 text-center">
               <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
                 <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                  Join Our Trade Partnership
+                  Join Our Ally Network
                 </span>
                 <span className="block text-brand-primary dark:text-brand-primary font-black">
                   Network
                 </span>
               </h2>
               <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                We're actively building our approved trade partnership network
-                with qualified professionals across all construction trades.
-                Your company could be featured here as a trusted
-                partner—bringing expertise, reliability, and quality workmanship
-                to MH Construction projects.
+                We're actively building our approved ally network with qualified
+                professionals across all construction trades. Your company could
+                be featured here as a trusted partner—bringing expertise,
+                reliability, and quality workmanship to MH Construction
+                projects.
               </p>
             </div>
           </FadeInWhenVisible>

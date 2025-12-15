@@ -25,8 +25,8 @@ export const ACTIVE_PAGES = [
   "/contact",
   // Removed: /booking (feature deprecated)
   "/careers",
-  "/government",
-  "/trade-partners",
+  "/public-sector",
+  "/allies",
   // Removed: /estimator (feature deprecated)
   "/urgent",
   // Removed: /3d-explorer (feature deprecated)

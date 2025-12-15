@@ -32,6 +32,7 @@ interface QRCodeProps {
     | "booking"
     | "estimator"
     | "case-studies"
+    | "allies"
     | "trade-partners"
     | "veteran-benefits"
     | "phone"
@@ -69,6 +70,7 @@ const PRESET_DESCRIPTIONS: Record<string, string> = {
   booking: "Schedule Consultation",
   estimator: "AI Project Estimator",
   "case-studies": "Case Studies",
+  allies: "Allies",
   "trade-partners": "Trade Partners",
   "veteran-benefits": "Veteran Benefits",
   phone: "Call Us",

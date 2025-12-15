@@ -325,6 +325,34 @@ export const navigationConfigs = {
     },
   ],
 
+  publicSector: [
+    { href: "/", label: "Home", icon: "home" },
+    {
+      href: "/services#core-services",
+      label: "Our Services",
+      mobileLabel: "Services",
+      icon: "build",
+    },
+    {
+      href: "/services#inspections",
+      label: "Quality Inspections",
+      mobileLabel: "Inspections",
+      icon: "fact_check",
+    },
+    {
+      href: "/about#team",
+      label: "Veteran Team",
+      mobileLabel: "Veterans",
+      icon: "people",
+    },
+    {
+      href: "/contact",
+      label: "Get Started",
+      mobileLabel: "Start",
+      icon: "contact_phone",
+    },
+  ],
+
   government: [
     { href: "/", label: "Home", icon: "home" },
     {
@@ -344,6 +372,28 @@ export const navigationConfigs = {
       label: "Veteran Team",
       mobileLabel: "Veterans",
       icon: "people",
+    },
+    {
+      href: "/contact",
+      label: "Get Started",
+      mobileLabel: "Start",
+      icon: "contact_phone",
+    },
+  ],
+
+  allies: [
+    { href: "/", label: "Home", icon: "home" },
+    {
+      href: "/services#core-services",
+      label: "Our Services",
+      mobileLabel: "Services",
+      icon: "build",
+    },
+    {
+      href: "/about#testimonials",
+      label: "Trust In Action",
+      mobileLabel: "Trust",
+      icon: "verified",
     },
     {
       href: "/contact",
@@ -442,7 +492,7 @@ export const navigationConfigs = {
       icon: "work",
     },
     {
-      href: "/trade-partners",
+      href: "/allies",
       label: "Veteran Trade Partners",
       mobileLabel: "Partners",
       icon: "business",

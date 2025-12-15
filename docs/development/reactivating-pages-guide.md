@@ -98,11 +98,11 @@ These pages use the standard feature flag pattern with hooks called before the c
    - Description: AI budget estimation tool
    - Dynamic imports preserved
 
-8. **Government** - `/src/app/government/page.tsx`
+8. **Public Sector** - `/src/app/public-sector/page.tsx`
    - Description: Government contracting info
    - Grant support services preserved
 
-9. **Trade Partners** - `/src/app/trade-partners/page.tsx`
+9. **Allies** - `/src/app/allies/page.tsx`
    - Description: Partnership opportunities
    - Partner categories preserved
    - **Note:** Unused state variables prefixed with underscore

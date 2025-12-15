@@ -1,6 +1,7 @@
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
+import nextPlugin from "@next/eslint-plugin-next";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -70,7 +71,20 @@ const eslintConfig = [
 
   // === BASE CONFIGURATION ===
   // Extend Next.js recommended configs (ensure Next plugin detected)
-  ...compat.extends("next", "next/core-web-vitals", "next/typescript"),
+  ...compat.config({
+    extends: ["next", "next/core-web-vitals", "next/typescript"],
+  }),
+
+  // Explicitly register Next.js plugin
+  {
+    plugins: {
+      "@next/next": nextPlugin,
+    },
+    rules: {
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs["core-web-vitals"].rules,
+    },
+  },
 
   // === CUSTOM RULES ===
   {

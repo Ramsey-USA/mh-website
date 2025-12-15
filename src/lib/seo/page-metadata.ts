@@ -211,11 +211,11 @@ export const pageMetadata: Record<string, Metadata> = {
   },
   // Removed: /booking metadata (feature deprecated)
 
-  "/government": {
+  "/public-sector": {
     title:
-      "Government Construction Projects | Veteran-Owned Contractor - MH Construction",
+      "Public Sector & Government Construction Projects | Veteran-Owned Contractor - MH Construction",
     description:
-      "MH Construction serves government agencies across Washington, Oregon, and Idaho with veteran-owned construction excellence. Experienced in government contracts, compliance, and public project management. Military precision meets partnership-driven government construction services in the Pacific Northwest.",
+      "MH Construction serves public sector and government agencies across Washington, Oregon, and Idaho with veteran-owned construction excellence. Experienced in government contracts, compliance, and public project management. Military precision meets partnership-driven government construction services in the Pacific Northwest.",
     keywords: [
       "government construction contractor",
       "veteran-owned government contractor",
@@ -227,28 +227,27 @@ export const pageMetadata: Record<string, Metadata> = {
       "municipal construction services",
     ],
     openGraph: {
-      title: "Government Construction | MH Construction",
+      title: "Public Sector Construction | MH Construction",
       description:
-        "Veteran-owned contractor specializing in government construction projects with compliance expertise.",
+        "Veteran-owned contractor specializing in public sector and government construction projects with compliance expertise.",
       type: "website",
       locale: "en_US",
-      url: `${baseUrl}/government`,
+      url: `${baseUrl}/public-sector`,
     },
     twitter: {
       card: "summary_large_image",
-      title: "Government Construction | MH Construction",
+      title: "Public Sector Construction | MH Construction",
       description:
-        "Veteran-owned government construction contractor in the Pacific Northwest.",
+        "Veteran-owned public sector and government construction contractor in the Pacific Northwest.",
     },
     alternates: {
-      canonical: "/government",
+      canonical: "/public-sector",
     },
   },
-  "/trade-partners": {
-    title:
-      "Trade Partners Program | Subcontractor Partnerships - MH Construction",
+  "/allies": {
+    title: "Allies Program | Subcontractor Partnerships - MH Construction",
     description:
-      "Join MH Construction's trade partners network. We build lasting partnerships with skilled subcontractors, suppliers, and trade professionals across the Pacific Northwest. Partnership-driven approach, fair payment terms, and veteran-owned values. Opportunities for concrete, carpentry, electrical, plumbing, and more.",
+      "Join MH Construction's allies network. We build lasting partnerships with skilled subcontractors, suppliers, and trade professionals across the Pacific Northwest. Partnership-driven approach, fair payment terms, and veteran-owned values. Opportunities for concrete, carpentry, electrical, plumbing, and more.",
     keywords: [
       "trade partners construction",
       "subcontractor opportunities Tri-Cities",
@@ -259,21 +258,21 @@ export const pageMetadata: Record<string, Metadata> = {
       "trade professional opportunities",
     ],
     openGraph: {
-      title: "Trade Partners | MH Construction",
+      title: "Allies | MH Construction",
       description:
-        "Join our trade partners network for lasting subcontractor partnerships with veteran-owned excellence.",
+        "Join our allies network for lasting subcontractor partnerships with veteran-owned excellence.",
       type: "website",
       locale: "en_US",
-      url: `${baseUrl}/trade-partners`,
+      url: `${baseUrl}/allies`,
     },
     twitter: {
       card: "summary_large_image",
-      title: "Trade Partners | MH Construction",
+      title: "Allies | MH Construction",
       description:
         "Partnership opportunities for skilled trade professionals and subcontractors.",
     },
     alternates: {
-      canonical: "/trade-partners",
+      canonical: "/allies",
     },
   },
   "/contact": {

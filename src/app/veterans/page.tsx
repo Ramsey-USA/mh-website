@@ -244,7 +244,7 @@ export default function VeteransPage() {
                   className="mb-4 text-brand-secondary text-5xl"
                 />
                 <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
-                  Veteran Trade Partners
+                  Veteran Allies
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -255,10 +255,10 @@ export default function VeteransPage() {
                   businesses.
                 </p>
                 <Link
-                  href="/trade-partners"
+                  href="/allies"
                   className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors font-semibold"
                 >
-                  <span>Become a Trade Partner</span>
+                  <span>Become an Ally</span>
                   <MaterialIcon
                     icon="arrow_forward"
                     size="sm"

@@ -118,7 +118,7 @@ export const SLOGANS: Record<string, Slogan> = {
     contexts: ["hero", "tagline", "footer"],
     description:
       "Trade Partner-specific slogan redefining ROI as relationship value rather than purely financial returns. ONLY used on Trade Partners and Urgent pages to emphasize partner relationships.",
-    assignedPages: ["trade-partners-page", "urgent-page"],
+    assignedPages: ["allies-page", "trade-partners-page", "urgent-page"],
   },
 
   BUILD_MORE_THAN_STRUCTURES: {
@@ -271,7 +271,11 @@ export const SLOGANS: Record<string, Slogan> = {
     contexts: ["section-heading", "tagline"],
     description:
       "Geographic positioning showing local expertise with regional capability",
-    assignedPages: ["trade-partners-page-network", "regional-content"],
+    assignedPages: [
+      "allies-page-network",
+      "trade-partners-page-network",
+      "regional-content",
+    ],
   },
 
   COMBINED_EXCELLENCE: {
@@ -306,7 +310,7 @@ export const SLOGANS: Record<string, Slogan> = {
     contexts: ["hero", "tagline"],
     description:
       "TRADE PARTNERSHIPS ONLY - Professional B2B relationship focus for vendors/subcontractors",
-    assignedPages: ["trade-partners-page-hero"],
+    assignedPages: ["allies-page-hero", "trade-partners-page-hero"],
   },
 };
 
@@ -409,7 +413,14 @@ export const PAGE_SLOGANS: Record<
     },
   },
 
-  // Trade Partners Page
+  // Allies Page (formerly Trade Partners)
+  allies: {
+    hero: getSlogan("BUILDING_PROFESSIONAL_PARTNERSHIPS"),
+    tagline: getSlogan("ROI_IS_RELATIONSHIP"),
+    sections: {
+      network: getSlogan("PACIFIC_NORTHWEST_ROOTS"),
+    },
+  },
   "trade-partners": {
     hero: getSlogan("BUILDING_PROFESSIONAL_PARTNERSHIPS"),
     tagline: getSlogan("ROI_IS_RELATIONSHIP"),

@@ -127,7 +127,13 @@ export const PAGE_CATEGORIES = {
     schemas: ["Service", "EmergencyService"],
   },
   partnerships: {
-    patterns: ["/partners", "/trade-partners", "/government"],
+    patterns: [
+      "/partners",
+      "/allies",
+      "/trade-partners",
+      "/public-sector",
+      "/government",
+    ],
     priority: 0.75,
     changeFrequency: "monthly" as const,
     schemas: ["Service", "Organization"],

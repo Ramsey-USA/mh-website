@@ -20,6 +20,7 @@ export default function Footer() {
                     alt="MH Construction Logo"
                     width={264}
                     height={132}
+                    loading="lazy"
                     className="mx-auto sm:mx-0 lg:mx-0 w-[240px] xs:w-[270px] sm:w-[300px] h-auto drop-shadow-lg hover:drop-shadow-xl transition-all duration-300 cursor-pointer"
                   />
                 </Link>
@@ -320,7 +321,7 @@ export default function Footer() {
               </Link>
 
               <Link
-                href="/trade-partners"
+                href="/allies"
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
@@ -337,7 +338,7 @@ export default function Footer() {
               </Link>
 
               <Link
-                href="/government"
+                href="/public-sector"
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon

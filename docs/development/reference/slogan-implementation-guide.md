@@ -276,9 +276,9 @@ All `<Slogan>` props plus:
 #### Examples
 
 ```tsx
-// With construction icon (trade partners)
+// With construction icon (allies)
 <SloganWithIcon
-  page="trade-partners"
+  page="allies"
   context="hero"
   variant="section"
   icon="construction"
@@ -480,17 +480,17 @@ export default function TeamPage() {
 
 ---
 
-### Trade Partners Page (`page="trade-partners"`)
+### Allies Page (`page="allies"`)
 
 ```tsx
 import { SloganWithIcon, Slogan } from "@/components/ui/Slogan";
 
-export default function TradePartnersPage() {
+export default function AlliesPage() {
   return (
     <>
       {/* Hero with icon */}
       <SloganWithIcon
-        page="trade-partners"
+        page="allies"
         context="hero" // "Building Professional Partnerships"
         variant="hero"
         icon="construction"
@@ -499,7 +499,7 @@ export default function TradePartnersPage() {
 
       {/* Relationship emphasis */}
       <Slogan
-        page="trade-partners"
+        page="allies"
         context="tagline" // "THE ROI IS THE RELATIONSHIP"
         variant="hero-subtitle"
       />
@@ -507,7 +507,7 @@ export default function TradePartnersPage() {
       {/* Network Section */}
       <section>
         <Slogan
-          page="trade-partners"
+          page="allies"
           context="network" // "Pacific Northwest Roots, Regional Reach"
           variant="section"
           as="h2"

@@ -336,7 +336,7 @@ export interface SloganWithIconProps extends SloganProps {
  * @example
  * ```tsx
  * <SloganWithIcon
- *   page="trade-partners"
+ *   page="allies"
  *   context="hero"
  *   variant="section"
  *   icon="construction"

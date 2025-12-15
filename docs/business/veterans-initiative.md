@@ -286,7 +286,7 @@ track record before committing to organizational partnerships.
 **Ally Partnerships:**
 
 - Veteran-owned businesses encouraged to apply
-- Visit /trade-partners for application process
+- Visit /allies for application process
 
 ### For Partner Organizations
 

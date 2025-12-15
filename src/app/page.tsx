@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
 import {
   generateOrganizationStructuredData,
   StructuredData,
@@ -9,7 +10,7 @@ import {
 // Enhanced SEO for veteran-owned construction with traditional values
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
 
-// Homepage sections
+// Homepage sections - Critical above-the-fold content
 import {
   HeroSection,
   CoreValuesSection,
@@ -19,16 +20,27 @@ import {
 } from "@/components/home";
 import { CompanyStats } from "@/components/about/CompanyStats";
 
-// Shared sections used across multiple pages
-import {
-  TestimonialsSection,
-  NextStepsSection,
-} from "@/components/shared-sections";
+// Shared sections - Lazy load below-the-fold content
+const TestimonialsSection = dynamic(
+  () =>
+    import("@/components/shared-sections").then((mod) => ({
+      default: mod.TestimonialsSection,
+    })),
+  { ssr: true },
+);
+const NextStepsSection = dynamic(
+  () =>
+    import("@/components/shared-sections").then((mod) => ({
+      default: mod.NextStepsSection,
+    })),
+  { ssr: true },
+);
 
 import Head from "next/head";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { useAnalytics } from "@/components/analytics/enhanced-analytics";
 import { useImagePreloader } from "@/hooks/usePerformanceOptimization";
+import { useScrollDepthTracking } from "@/hooks/useScrollDepthTracking";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export default function Home() {
@@ -56,31 +68,8 @@ export default function Home() {
     });
   }, [trackEvent]);
 
-  // Track scroll depth for engagement analytics
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPercent = Math.round(
-        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
-          100,
-      );
-
-      if (scrollPercent >= 25 && !sessionStorage.getItem("scroll_25")) {
-        sessionStorage.setItem("scroll_25", "true");
-        trackEvent("scroll_depth", { percent: 25, page: "homepage" });
-      }
-      if (scrollPercent >= 50 && !sessionStorage.getItem("scroll_50")) {
-        sessionStorage.setItem("scroll_50", "true");
-        trackEvent("scroll_depth", { percent: 50, page: "homepage" });
-      }
-      if (scrollPercent >= 75 && !sessionStorage.getItem("scroll_75")) {
-        sessionStorage.setItem("scroll_75", "true");
-        trackEvent("scroll_depth", { percent: 75, page: "homepage" });
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [trackEvent]);
+  // Track scroll depth for engagement analytics with custom hook
+  useScrollDepthTracking("homepage");
 
   return (
     <>
