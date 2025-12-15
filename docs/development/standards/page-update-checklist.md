@@ -4,7 +4,10 @@
 **Purpose:** Track progress of standardizing all pages to use new military-construction header pattern  
 **Status:** ✅ **Homepage Complete** - Expanding to all pages
 
-**⚠️ IMPORTANT**: The old `SectionHeader` component pattern has been replaced with the new **military-construction header standard**. See [Component Organization Guide](../../technical/design-system/component-organization-guide.md) for complete pattern documentation.
+**⚠️ IMPORTANT**: The old `SectionHeader` component pattern has been replaced with the new
+**military-construction header standard**. See
+[Component Organization Guide](../../technical/design-system/component-organization-guide.md)
+for complete pattern documentation.
 
 ---
 

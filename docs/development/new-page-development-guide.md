@@ -181,7 +181,9 @@ Organized sections with consistent spacing and styling.
 - ✅ Main title padding: `py-2 pb-3 leading-normal` (prevents descender clipping)
 - ✅ Use colored keyword spans strategically in description
 
-**See:** [Component Organization Guide](../technical/design-system/component-organization-guide.md#section-header-standard---military-construction-pattern) for complete documentation.
+**See:**
+[Component Organization Guide](../technical/design-system/component-organization-guide.md#section-header-standard---military-construction-pattern)
+for complete documentation.
 
 #### Content Sections
 
