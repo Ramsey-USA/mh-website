@@ -145,14 +145,18 @@ export function Navigation() {
                 <div className="gap-1.5 sm:gap-2 grid grid-cols-2">
                   {[
                     { href: "/", label: "Home", icon: "home" },
-                    { href: "/about", label: "Our Story", icon: "timeline" },
+                    {
+                      href: "/about",
+                      label: "Our Oath",
+                      icon: "military_tech",
+                    },
                     { href: "/services", label: "Services", icon: "build" },
                     {
                       href: "/projects",
                       label: "Projects",
                       icon: "photo_library",
                     },
-                    { href: "/team", label: "Team Six", icon: "military_tech" },
+                    { href: "/team", label: "Team Six", icon: "groups" },
                     {
                       href: "/careers",
                       label: "Careers",
@@ -170,12 +174,12 @@ export function Navigation() {
                     },
                     {
                       href: "/allies",
-                      label: "Trade Partners",
+                      label: "Allies",
                       icon: "handshake",
                     },
                     {
                       href: "/veterans",
-                      label: "Veteran Owned",
+                      label: "Veterans",
                       icon: "workspace_premium",
                     },
                     {
