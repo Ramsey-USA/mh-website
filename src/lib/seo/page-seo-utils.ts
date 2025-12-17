@@ -50,30 +50,124 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
 
 // About page SEO - GROUP 2: Heritage & Trust Foundation
 export function getAboutSEO(): Metadata & { schemas: object[] } {
+  const companyHistorySchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${enhancedSEO.siteUrl}/about`,
+    mainEntity: {
+      "@type": "Organization",
+      "@id": `${enhancedSEO.siteUrl}/#organization`,
+      name: "MH Construction, Inc.",
+      foundingDate: "2010-01-15",
+      founder: {
+        "@type": "Person",
+        name: "Mike Holstein",
+        jobTitle: "Founder",
+      },
+      owns: {
+        "@type": "Person",
+        name: "Jeremy Thamert",
+        jobTitle: "Owner & President",
+        description: "Veteran-owned operational leadership since January 2025",
+      },
+      employee: [
+        {
+          "@type": "Person",
+          name: "Arnold Garcia",
+          jobTitle: "Vice President",
+          description:
+            "15+ years with MH Construction leading client partnerships",
+        },
+      ],
+      award: [
+        "AGC-WA Top EMR Award 2019",
+        "AGC-WA Top EMR Award 2020",
+        "AGC-WA Top EMR Award 2021",
+        "AGC-WA Most Improved EMR Award 2025",
+        "OSHA VPP Star Designation 2022",
+      ],
+      knowsAbout: [
+        "Commercial Construction",
+        "Industrial Construction",
+        "Government Construction Projects",
+        "Safety Excellence",
+        "Partnership-Driven Construction",
+        "Team Six Approach",
+      ],
+      slogan: "We Work WITH You, Not FOR You",
+      mission: "Building for the client, NOT the dollar",
+    },
+    mentions: [
+      {
+        "@type": "Event",
+        name: "Company Founded",
+        startDate: "2010",
+        description:
+          "Mike Holstein establishes MH Construction on partnership philosophy",
+      },
+      {
+        "@type": "Event",
+        name: "Arnold Garcia Joins as VP",
+        startDate: "2016",
+        description:
+          "Strategic leadership establishing 70% referral rate foundation",
+      },
+      {
+        "@type": "Event",
+        name: "First AGC-WA Top EMR Award",
+        startDate: "2019",
+        description: ".64 EMR achievement - 40% better than industry average",
+      },
+      {
+        "@type": "Event",
+        name: "OSHA VPP Star Designation",
+        startDate: "2022",
+        description: "Highest recognition of workplace safety excellence",
+      },
+      {
+        "@type": "Event",
+        name: "Veteran-Owned Transition",
+        startDate: "2025-01",
+        description:
+          "Jeremy Thamert assumes ownership bringing operational discipline",
+      },
+    ],
+  };
+
   return generateEnhancedMetadata({
     title:
-      "Our Oath | Excellence Through Experience | Veteran-Owned Since 2025 | MH Construction",
+      "Our Story | From Founding Father to Veteran Excellence | Company Evolution 2010-2025 | MH Construction",
     description:
-      "Founded 2010, veteran-owned since January 2025. Our story: honest communication, transparent pricing, proven craftsmanship. 150+ years of combined excellence building trust project by project across the Pacific Northwest. From humble beginnings to regional leadership—our history speaks for itself.",
+      "15 years of proven excellence: Mike Holstein founded MH Construction in 2010 on partnership values. Now veteran-owned since January 2025 with Jeremy Thamert's operational leadership. 650+ completed projects, 70% referral rate, consecutive AGC-WA Top EMR Awards, OSHA VPP Star certification. Team Six approach: individual specialists, unified mission. Learn our complete evolution from family foundation to industry-leading safety culture.",
     keywords: [
-      "veteran-owned construction company",
-      "honest construction communication",
-      "transparent pricing contractor",
+      "veteran-owned construction company 2025",
+      "MH Construction company history",
+      "construction company evolution 2010-2025",
+      "Mike Holstein founder MH Construction",
+      "Jeremy Thamert veteran owner",
+      "Arnold Garcia VP construction",
+      "Team Six construction approach",
+      "650+ completed projects Pacific Northwest",
+      "70 percent referral rate contractor",
+      "AGC Washington Top EMR Award",
+      "OSHA VPP Star certification",
+      ".64 EMR construction safety",
+      "consecutive safety awards AGC-WA",
+      "3-state licensed contractor WA OR ID",
+      "partnership philosophy construction",
+      "honest communication transparent pricing",
       "proven craftsmanship Pacific Northwest",
-      "construction company founded 2010",
-      "heritage construction excellence",
-      "partnership-driven construction",
-      "military veteran leadership",
-      "trust-built construction relationships",
+      "military-grade construction discipline",
+      "zero-incident construction culture",
       "Tri-Cities veteran general contractor",
-      "Richland honest contractor",
+      "Richland construction company history",
       "Pasco veteran-owned construction",
-      "Kennewick transparent contractor",
-      "Benton County construction heritage",
-      "Franklin County veteran-owned",
+      "Kennewick construction awards",
+      "Benton County construction excellence",
+      "Franklin County veteran-owned contractor",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/about`,
-    schemas: [],
+    schemas: [companyHistorySchema],
   });
 }
 

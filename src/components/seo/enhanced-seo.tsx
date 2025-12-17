@@ -292,8 +292,14 @@ export function generateEnhancedOrganizationSchema() {
       },
     ],
     award: [
-      "Award-Winning .64 EMR Safety Record",
-      "Traditional Business Values Excellence 2025",
+      "AGC-WA Top EMR Award 2019 - .64 EMR Rating",
+      "AGC-WA Top EMR Award 2020 - .64 EMR Rating",
+      "AGC-WA Top EMR Award 2021 - .64 EMR Rating",
+      "AGC-WA Most Improved EMR Award 2025",
+      "OSHA VPP Star Designation 2022",
+      "650+ Successfully Completed Projects",
+      "70% Client Referral Rate",
+      "3+ Years Claims-Free Operation",
       "Veteran Business Excellence - Pacific Northwest 2025",
     ],
     sameAs: [
