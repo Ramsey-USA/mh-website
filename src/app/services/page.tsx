@@ -4,7 +4,6 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Button, Card, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import {
   ServicesHero,
@@ -275,23 +274,47 @@ export default function ServicesPage() {
         {/* Interactive Timeline Tool - Visualize Your Project */}
         <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <FadeInWhenVisible>
-              <div className="mx-auto max-w-4xl text-center mb-12">
-                <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl">
-                  <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl">
-                    Visualize Your
-                  </span>
-                  <span className="block text-brand-primary dark:text-brand-primary">
-                    Project Timeline
-                  </span>
-                </h2>
-                <p className="text-gray-600 dark:text-gray-300 text-lg sm:text-xl leading-relaxed">
-                  Get an instant view of your project phases and timeline.
-                  Adjust complexity to see how different factors affect your
-                  construction schedule.
-                </p>
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="timeline"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
-            </FadeInWhenVisible>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Visualize Your
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  Project Timeline
+                </span>
+              </h2>
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                Get an{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  instant view of your project phases and timeline
+                </span>
+                . Adjust complexity to see how different factors affect your{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  construction schedule
+                </span>
+                .
+              </p>
+            </div>
 
             <InteractiveTimeline />
           </div>
@@ -318,13 +341,51 @@ export default function ServicesPage() {
           ></div>
 
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <SectionHeader
-              icon="diversity_3"
-              iconVariant="bronze"
-              subtitle="Two Paths to"
-              title="Partnership Excellence"
-              description="Whether you're a Client Partner with a construction project or a Trade Partner seeking partnership opportunities, MH Construction offers dedicated pathways to collaboration and success."
-            />
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="diversity_3"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Two Paths to
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  Partnership Excellence
+                </span>
+              </h2>
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                Whether you're a{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  Client Partner with a construction project
+                </span>{" "}
+                or a{" "}
+                <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
+                  Trade Partner seeking partnership opportunities
+                </span>
+                , MH Construction offers{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  dedicated pathways to collaboration and success
+                </span>
+                .
+              </p>
+            </div>
 
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
               {/* Client Partner Relationships */}
@@ -820,20 +881,47 @@ export default function ServicesPage() {
         {/* Portfolio Section - Simplified */}
         <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <FadeInWhenVisible className="mb-16 lg:mb-24 text-center scroll-reveal">
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="photo_library"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Our Construction
                 </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Portfolio
                 </span>
               </h2>
-              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4 break-words">
-                Explore our completed projects showcasing quality craftsmanship
-                across commercial, residential, and government sectors
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                Explore our{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  completed projects showcasing quality craftsmanship
+                </span>{" "}
+                across{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  commercial, residential, and government sectors
+                </span>
+                .
               </p>
-            </FadeInWhenVisible>
+            </div>
 
             <FadeInWhenVisible className="text-center">
               <Link href="/projects">

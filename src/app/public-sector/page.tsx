@@ -321,37 +321,19 @@ export default function PublicSectorPage() {
 
         {/* Content - Bottom Right */}
         <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
-          <div className="space-y-2 sm:space-y-3 md:space-y-4 text-right">
-            {/* Main Title */}
-            <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
-              <span className="block text-gray-300">
-                Public Sector Excellence
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug font-medium">
-              Veteran-Owned · Building Toward Government Contracting
-            </p>
-
-            {/* Description */}
-            <p className="text-right text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed">
-              <strong>
-                Mission-critical precision meets federal excellence.
-              </strong>{" "}
-              Army veteran leadership driving honest, transparent federal
-              contracting for DOE, GSA, and government facilities. "Building
-              projects for the client,{" "}
+          <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+            <span className="block text-gray-300">
+              Public Sector Excellence
+            </span>
+            <span className="block text-brand-primary">
+              Mission-Critical Federal Contracting
+            </span>
+            <span className="block text-white/90">
+              Building projects for the client,{" "}
               <span className="font-black italic text-bronze-300">NOT</span> the
-              dollar" means regulatory compliance without compromise,
-              transparent cost analysis, and mission-focused execution. 150+
-              years combined experience, award-winning .64 EMR safety—
-              <strong>
-                serving with honor, integrity, and unwavering commitment to
-                federal standards.
-              </strong>
-            </p>
-          </div>
+              dollar
+            </span>
+          </h1>
         </div>
 
         {/* Page-Specific Navigation Bar */}
@@ -371,31 +353,49 @@ export default function PublicSectorPage() {
       <section className="bg-white dark:bg-gray-900 py-20">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
-            <div className="mb-16 lg:mb-24 text-center">
-              <MaterialIcon
-                icon="account_balance"
-                size="4xl"
-                theme="military"
-                ariaLabel="Federal Contracting Support Services"
-                className="mb-6 text-gray-700 dark:text-gray-300"
-              />
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="account_balance"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Federal Contracting
                 </span>
-                <span className="block text-gray-900 dark:text-white font-black">
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Support Services
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                Veteran-owned Army veteran leadership delivers mission-critical
-                construction services with unwavering commitment to federal
-                specifications, operational success, award-winning safety (.64
-                EMR), and transparent open-book partnership throughout the
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  Veteran-owned Army veteran leadership
+                </span>{" "}
+                delivers mission-critical construction services with unwavering
+                commitment to federal specifications, operational success,{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  award-winning safety (.64 EMR)
+                </span>
+                , and transparent open-book partnership throughout the
                 application and execution process—Building projects for the
                 client,{" "}
-                <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the dollar with 150+ years combined experience
+                <span className="font-black italic text-brand-accent">NOT</span>{" "}
+                the dollar with 150+ years combined experience.
               </p>
             </div>
           </FadeInWhenVisible>
@@ -454,28 +454,48 @@ export default function PublicSectorPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-6xl">
-              <div className="mb-16 text-center">
-                <MaterialIcon
-                  icon="science"
-                  size="4xl"
-                  theme="military"
-                  ariaLabel="Department of Energy Expertise"
-                  className="mb-6 text-gray-300"
-                />
-                <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-4 font-semibold text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-500 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50">
+                      <MaterialIcon
+                        icon="science"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-500 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Hanford & Department of
                   </span>
-                  <span className="block text-white font-black">
+                  <span className="block bg-gradient-to-r from-brand-primary-light via-white to-brand-primary-light bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     Energy Expertise
                   </span>
                 </h2>
-                <p className="mx-auto max-w-4xl font-light text-gray-200 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                  Proven operational excellence in high-security DOE and Hanford
-                  environments with comprehensive understanding of federal
-                  compliance requirements, award-winning safety protocols (.64
-                  EMR—40% better than industry), mission-critical construction
-                  protocols, and veteran-owned reliability since January 2025
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl font-light text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  <span className="font-bold text-brand-primary-light">
+                    Proven operational excellence
+                  </span>{" "}
+                  in high-security DOE and Hanford environments with
+                  comprehensive understanding of federal compliance
+                  requirements,{" "}
+                  <span className="font-bold text-white">
+                    award-winning safety protocols (.64 EMR—40% better than
+                    industry)
+                  </span>
+                  , mission-critical construction protocols, and veteran-owned
+                  reliability since January 2025.
                 </p>
               </div>
 
@@ -550,26 +570,45 @@ export default function PublicSectorPage() {
       <section className="bg-gray-50 dark:bg-gray-800 py-20">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
-            <div className="mb-16 lg:mb-24 text-center">
-              <MaterialIcon
-                icon="gavel"
-                size="4xl"
-                theme="military"
-                ariaLabel="Federal Contract Categories"
-                className="mb-6 text-gray-700 dark:text-gray-300"
-              />
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="gavel"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Federal Contract
                 </span>
-                <span className="block text-gray-900 dark:text-white font-black">
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Categories
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                Proven execution across federal, state, and mission-critical
-                construction contracts with veteran-owned expertise and
-                award-winning safety record
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  Proven execution
+                </span>{" "}
+                across federal, state, and mission-critical construction
+                contracts with{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  veteran-owned expertise and award-winning safety record
+                </span>
+                .
               </p>
             </div>
           </FadeInWhenVisible>
@@ -641,25 +680,44 @@ export default function PublicSectorPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-5xl">
-              <div className="mb-16 text-center">
-                <MaterialIcon
-                  icon="timeline"
-                  size="4xl"
-                  theme="military"
-                  ariaLabel="Federal Contract Execution Process"
-                  className="mb-6 text-gray-700 dark:text-gray-300"
-                />
-                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-accent p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="timeline"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Federal Contract
                   </span>
-                  <span className="block text-gray-900 dark:text-white font-black">
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     Execution Process
                   </span>
                 </h2>
-                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                  Five-phase military approach to federal contract success
-                  backed by Army veteran leadership and award-winning execution
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    Five-phase military approach
+                  </span>{" "}
+                  to federal contract success backed by{" "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    Army veteran leadership and award-winning execution
+                  </span>
+                  .
                 </p>
               </div>
 
@@ -706,26 +764,45 @@ export default function PublicSectorPage() {
       <section className="bg-gray-50 dark:bg-gray-800 py-20">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
-            <div className="mb-16 text-center">
-              <MaterialIcon
-                icon="domain"
-                size="4xl"
-                theme="military"
-                ariaLabel="Federal Facility Classifications"
-                className="mb-6 text-gray-700 dark:text-gray-300"
-              />
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="domain"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Federal Facility
                 </span>
-                <span className="block text-gray-900 dark:text-white font-black">
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Classifications
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                Licensed and mission-ready across diverse federal and government
-                facility projects with veteran-owned precision and 150+ years
-                combined team experience
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  Licensed and mission-ready
+                </span>{" "}
+                across diverse federal and government facility projects with{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  veteran-owned precision and 150+ years combined team
+                  experience
+                </span>
+                .
               </p>
             </div>
           </FadeInWhenVisible>
@@ -777,26 +854,46 @@ export default function PublicSectorPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-6xl">
-              <div className="mb-16 text-center">
-                <MaterialIcon
-                  icon="emoji_events"
-                  size="4xl"
-                  theme="veteran"
-                  ariaLabel="Mission Success Factors"
-                  className="mb-6 text-gray-700 dark:text-gray-300"
-                />
-                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="emoji_events"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Mission Success
                   </span>
-                  <span className="block text-gray-900 dark:text-white font-black">
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     Factors
                   </span>
                 </h2>
-                <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                  What ensures federal contract success and how we deliver with
-                  award-winning safety, veteran-owned leadership, and
-                  transparent open-book partnership
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  What ensures{" "}
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    federal contract success
+                  </span>{" "}
+                  and how we deliver with{" "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    award-winning safety, veteran-owned leadership, and
+                    transparent open-book partnership
+                  </span>
+                  .
                 </p>
               </div>
 
@@ -846,29 +943,49 @@ export default function PublicSectorPage() {
         <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl text-center">
-              <MaterialIcon
-                icon="flag"
-                size="4xl"
-                theme="veteran"
-                ariaLabel="Ready to Execute Your Federal Mission"
-                className="mb-8 text-gray-300"
-              />
-              <h2 className="mb-8 pb-2 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                  Ready to Execute Your
-                </span>
-                <span className="block text-white font-black">
-                  Federal Mission?
-                </span>
-              </h2>
-              <p className="mb-8 text-gray-200 text-xl sm:text-2xl">
-                Deploy with Army veteran leadership that delivers
-                mission-critical results
-              </p>
-              <p className="mx-auto mb-12 max-w-3xl text-gray-100 text-lg sm:text-xl">
-                Contact our command center to discuss your federal construction
-                requirements and begin mission planning for successful execution
-              </p>
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-500 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50">
+                      <MaterialIcon
+                        icon="flag"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-500 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Ready to Execute Your
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary-light via-white to-brand-primary-light bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Federal Mission?
+                  </span>
+                </h2>
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl mb-8 font-light text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  Deploy with{" "}
+                  <span className="font-bold text-brand-primary-light">
+                    Army veteran leadership
+                  </span>{" "}
+                  that delivers{" "}
+                  <span className="font-bold text-white">
+                    mission-critical results
+                  </span>
+                  . Contact our command center to discuss your federal
+                  construction requirements and begin mission planning for
+                  successful execution.
+                </p>
+              </div>
 
               <div className="bg-white/10 backdrop-blur-sm mb-8 p-8 border-2 border-gray-600 rounded-lg">
                 <div className="gap-6 grid md:grid-cols-3 text-center">

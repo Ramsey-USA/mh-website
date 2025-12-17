@@ -191,11 +191,12 @@ for complete documentation.
 <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl">
   {/* Section 1 */}
   <section className="mb-20 lg:mb-32">
-    <SectionHeader
-      subtitle="Section Subtitle"
-      title="Section Title"
-      description="Section description..."
-    />
+    {/* Use military-construction header pattern - see above for complete code */}
+    <div className="mb-16 sm:mb-20 text-center">
+      {/* Icon with decorative lines */}
+      {/* Two-line gradient heading */}
+      {/* Description with colored keywords */}
+    </div>
     {/* Section content */}
   </section>
 
@@ -224,13 +225,14 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 // Animation components
 import { FadeInWhenVisible, StaggeredFadeIn } from "@/components/animations";
 
-// UI components
-import { SectionHeader } from "@/components/ui/SectionHeader";
+// Testimonials
 import { TestimonialGrid } from "@/components/testimonials/TestimonialGrid";
 
 // SEO
 import { StructuredData } from "@/components/seo/StructuredData";
 ```
+
+**Note:** The old `SectionHeader` component has been deprecated. Use the military-construction header pattern shown above instead.
 
 ---
 
@@ -427,7 +429,6 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible, StaggeredFadeIn } from "@/components/animations";
-import { SectionHeader } from "@/components/sections/SectionHeader";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -476,11 +477,28 @@ export default function YourPage() {
         {/* Section 1 */}
         <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
-            <SectionHeader
-              subtitle="Section Subtitle"
-              title="Section Title"
-              description="Section description..."
-            />
+            {/* Military-construction header pattern - see above for complete code */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                {/* See pattern above */}
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Subtitle/Context Line
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  Main Title Impact Line
+                </span>
+              </h2>
+
+              {/* Description with colored keywords */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                Description text...
+              </p>
+            </div>
           </FadeInWhenVisible>
 
           {/* Section content */}
@@ -492,6 +510,8 @@ export default function YourPage() {
   );
 }
 ```
+
+**Note:** The old `SectionHeader` component has been deprecated in favor of the inline military-construction header pattern.
 
 ---
 
@@ -520,6 +540,6 @@ For questions about page development:
 
 ---
 
-**Last Updated:** December 14, 2025  
+**Last Updated:** December 17, 2025  
 **Status:** ✅ Active  
 **Maintained By:** MH Construction Development Team

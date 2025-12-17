@@ -296,36 +296,17 @@ export default function AlliesPage() {
 
         {/* Content - Bottom Right */}
         <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
-          <div className="space-y-2 sm:space-y-3 md:space-y-4 text-right">
-            {/* Main Title */}
-            <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
-              <span className="block text-brand-secondary">
-                THE ROI IS THE RELATIONSHIP
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug font-medium">
-              Veteran-Owned Ally Network · Allies in Force
-            </p>
-
-            {/* Description */}
-            <p className="text-right text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed">
-              <strong>Partnerships built on trust, not transactions.</strong>{" "}
-              Veteran-owned integrity driving fair payment, honest
-              communication, and mutual success. "Building projects for the
-              client,{" "}
+          <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+            <span className="block text-brand-secondary">
+              THE ROI IS THE RELATIONSHIP
+            </span>
+            <span className="block text-brand-primary">Allies in Force</span>
+            <span className="block text-white/90">
+              Building projects for the client,{" "}
               <span className="font-black italic text-bronze-300">NOT</span> the
-              dollar" means transparent expectations, reliable project flow, and
-              relationships that profit everyone. Join elite trade professionals
-              across the Pacific Northwest where your business growth matters as
-              much as ours.{" "}
-              <strong>
-                150+ years combined experience, award-winning
-                safety—partnerships that last.
-              </strong>
-            </p>
-          </div>
+              dollar
+            </span>
+          </h1>
         </div>
 
         {/* Page-Specific Navigation Bar */}
@@ -396,25 +377,51 @@ export default function AlliesPage() {
         {/* Trade Partnership Philosophy */}
         <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
-            <div className="mb-12 lg:mb-16 text-center">
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="handshake"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Where Handshakes Matter
                 </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   In Every Partnership
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                "THE ROI IS THE RELATIONSHIP—and we prove it. Building for the
-                Client, <span className="font-black text-bronze-300">NOT</span>{" "}
-                the Dollar means treating our trade partners with the same
-                integrity we give our Client Partners. Quality construction is
-                built through trusted relationships—where your word is your
-                bond, handshakes matter, and mutual respect defines every
-                partnership. Fair payment, clear communication, mutual success.
-                Backed by veteran-owned leadership, award-winning safety (.64
-                EMR), and 150+ years combined experience."
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  "THE ROI IS THE RELATIONSHIP—and we prove it."
+                </span>{" "}
+                Building for the Client,{" "}
+                <span className="font-black text-brand-accent">NOT</span> the
+                Dollar means treating our trade partners with the same integrity
+                we give our Client Partners.{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  Quality construction is built through trusted relationships
+                </span>
+                —where your word is your bond, handshakes matter, and mutual
+                respect defines every partnership. Fair payment, clear
+                communication, mutual success. Backed by veteran-owned
+                leadership, award-winning safety (.64 EMR), and 150+ years
+                combined experience.
               </p>
               <cite className="block mt-4 font-semibold text-brand-secondary text-lg">
                 — MH Construction Leadership Team
@@ -450,21 +457,47 @@ export default function AlliesPage() {
         {/* Trade Partner Categories - Join Our Network */}
         <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
-            <div className="mb-12 lg:mb-16 text-center">
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                  Join Our Ally Network
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-accent p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="groups"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Join Our Ally
                 </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Network
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                We're actively building our approved ally network with qualified
-                professionals across all construction trades. Your company could
-                be featured here as a trusted partner—bringing expertise,
-                reliability, and quality workmanship to MH Construction
-                projects.
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                We're actively building our{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  approved ally network
+                </span>{" "}
+                with qualified professionals across all construction trades.
+                Your company could be{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  featured here as a trusted partner
+                </span>
+                —bringing expertise, reliability, and quality workmanship to MH
+                Construction projects.
               </p>
             </div>
           </FadeInWhenVisible>
@@ -534,21 +567,47 @@ export default function AlliesPage() {
         {/* Partnership Benefits */}
         <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
-            <div className="mb-12 lg:mb-16 text-center">
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="workspace_premium"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Trade Partnership
                 </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Benefits
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                We're committed to creating mutually beneficial business
-                relationships that support the growth and success of our
-                approved vendors and trade professionals with transparent
-                communication, award-winning safety culture, and veteran-owned
-                integrity in every partnership.
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                We're committed to creating{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  mutually beneficial business relationships
+                </span>{" "}
+                that support the growth and success of our approved vendors and
+                trade professionals with{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  transparent communication, award-winning safety culture, and
+                  veteran-owned integrity
+                </span>{" "}
+                in every partnership.
               </p>
             </div>
           </FadeInWhenVisible>
@@ -584,20 +643,47 @@ export default function AlliesPage() {
         {/* Vendor Requirements & Application Process */}
         <section className="mb-20 lg:mb-32">
           <FadeInWhenVisible>
-            <div className="mb-12 lg:mb-16 text-center">
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="verified"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Approved Vendor
                 </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                   Requirements
                 </span>
               </h2>
-              <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                We seek qualified trade professionals who share our commitment
-                to quality, safety excellence (.64 EMR award-winning record),
-                and professional integrity. Here's what we look for in approved
-                vendors seeking partnership with our veteran-owned company.
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                We seek{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  qualified trade professionals
+                </span>{" "}
+                who share our commitment to{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  quality, safety excellence (.64 EMR award-winning record), and
+                  professional integrity
+                </span>
+                . Here's what we look for in approved vendors seeking
+                partnership with our veteran-owned company.
               </p>
             </div>
           </FadeInWhenVisible>
@@ -818,28 +904,51 @@ export default function AlliesPage() {
         <section className="bg-gradient-to-br from-brand-primary/5 dark:from-brand-primary/10 via-brand-primary/10 dark:via-brand-primary/20 to-brand-secondary/5 dark:to-brand-secondary/10 p-12 lg:p-16 xl:p-20 rounded-2xl">
           <FadeInWhenVisible>
             <div className="text-center">
-              <MaterialIcon
-                icon="diversity_3"
-                size="4xl"
-                theme="veteran"
-                ariaLabel="Partnership Network"
-                className="mb-6 text-brand-primary"
-              />
-              <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                  Join Our Trade
-                </span>
-                <span className="block text-brand-primary dark:text-brand-primary font-black">
-                  Partnership Network
-                </span>
-              </h2>
-              <p className="mx-auto mb-8 max-w-4xl font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-wide px-2">
-                Ready to grow your business with a veteran-owned construction
-                leader? We're actively seeking reliable, skilled trade partners
-                who value quality workmanship, professional collaboration, and
-                sustainable business relationships. Apply to become an approved
-                vendor and access consistent project opportunities.
-              </p>
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="diversity_3"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Join Our Trade
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Partnership Network
+                  </span>
+                </h2>
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto mb-8 max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  Ready to{" "}
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    grow your business
+                  </span>{" "}
+                  with a veteran-owned construction leader? We're actively
+                  seeking{" "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    reliable, skilled trade partners who value quality
+                    workmanship, professional collaboration, and sustainable
+                    business relationships
+                  </span>
+                  . Apply to become an approved vendor and access consistent
+                  project opportunities.
+                </p>
+              </div>
               <div className="flex sm:flex-row flex-col justify-center gap-4">
                 <Link href="/contact">
                   <Button

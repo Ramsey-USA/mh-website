@@ -143,34 +143,19 @@ export default function UrgentSupportPage() {
 
         {/* Content - Bottom Right */}
         <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
-          <div className="space-y-2 sm:space-y-3 md:space-y-4 text-right">
-            {/* Main Title - Group 7: Partnership & Urgency */}
-            <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
-              <span className="block text-brand-secondary">
-                THE ROI IS THE RELATIONSHIP
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug font-medium">
-              Veteran-Owned Rapid Response · PRT - Project Response Team
-            </p>
-
-            {/* Description */}
-            <p className="text-right text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed">
-              <strong>When time is critical, honesty matters most.</strong> Army
-              veteran leadership driving rapid response for General Contractors
-              facing urgent structural challenges. "Building projects for the
-              client,{" "}
+          <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+            <span className="block text-brand-secondary">
+              THE ROI IS THE RELATIONSHIP
+            </span>
+            <span className="block text-orange-300">
+              Project Response Team - Rapid Deployment
+            </span>
+            <span className="block text-white/90">
+              Building projects for the client,{" "}
               <span className="font-black italic text-bronze-300">NOT</span> the
-              dollar" means transparent assessment, no-surprise pricing, and
-              decisive action. Expert consultation, heavy equipment with
-              certified operators, experienced crews—immediate deployment WA,
-              OR, ID. We fix the source: foundations, structural systems,
-              roofing failures.{" "}
-              <strong>Your project success is our mission.</strong>
-            </p>
-          </div>
+              dollar
+            </span>
+          </h1>
         </div>
 
         {/* Page Navigation */}
@@ -193,19 +178,38 @@ export default function UrgentSupportPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
             <div className="text-center mb-8">
-              <MaterialIcon
-                icon="bolt"
-                size="3xl"
-                className="text-orange-600 dark:text-orange-400 mx-auto mb-4"
-                theme="military"
-                ariaLabel="Emergency Contact"
-              />
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                Emergency Contact Information
-              </h2>
-              <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-                Available Monday - Friday: 7:00 AM - 4:00 PM PST
-              </p>
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-12">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-6 gap-4">
+                  <div className="h-1 w-12 bg-gradient-to-r from-transparent to-orange-300 dark:to-orange-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-3 bg-gradient-to-br from-orange-500/30 to-orange-700/30 blur-xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-orange-600 to-orange-700 p-4 rounded-xl shadow-2xl border-2 border-white/50">
+                      <MaterialIcon
+                        icon="bolt"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-12 bg-gradient-to-l from-transparent to-orange-300 dark:to-orange-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-4 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl leading-tight tracking-tighter">
+                  <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-200 text-lg xs:text-xl sm:text-2xl tracking-tight">
+                    Emergency Contact
+                  </span>
+                  <span className="block bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 bg-clip-text text-transparent font-black drop-shadow-sm">
+                    Information
+                  </span>
+                </h2>
+
+                <p className="text-lg text-gray-700 dark:text-gray-300">
+                  Available Monday - Friday: 7:00 AM - 4:00 PM PST
+                </p>
+              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -245,19 +249,23 @@ export default function UrgentSupportPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <FadeInWhenVisible>
             <div className="text-center mb-12">
-              <div className="flex justify-center mb-4">
+              <div className="flex justify-center mb-6">
                 <div className="bg-orange-100 dark:bg-orange-900/30 p-4 rounded-2xl">
                   <MaterialIcon
                     icon="construction"
                     size="3xl"
                     className="text-orange-600 dark:text-orange-400"
-                    theme="military"
-                    ariaLabel="Construction Focus"
                   />
                 </div>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                We Fix the Source, Not the Symptoms
+              {/* Section Header - Military Construction Standard */}
+              <h2 className="mb-4 font-black text-foreground text-2xl xs:text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl tracking-tight">
+                  We Fix the Source,
+                </span>
+                <span className="block bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 bg-clip-text text-transparent font-black drop-shadow-sm">
+                  Not the Symptoms
+                </span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
                 When General Contractors face critical structural challenges, MH
@@ -292,8 +300,13 @@ export default function UrgentSupportPage() {
       <section className="py-16 bg-muted/30">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <FadeInWhenVisible>
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">
-              Our Capabilities
+            <h2 className="mb-12 text-center font-black text-foreground text-2xl xs:text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tighter">
+              <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl tracking-tight">
+                Our
+              </span>
+              <span className="block bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 bg-clip-text text-transparent font-black drop-shadow-sm">
+                Capabilities
+              </span>
             </h2>
           </FadeInWhenVisible>
 
@@ -329,19 +342,23 @@ export default function UrgentSupportPage() {
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <FadeInWhenVisible>
             <div className="text-center mb-12">
-              <div className="flex justify-center mb-4">
+              <div className="flex justify-center mb-6">
                 <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl">
                   <MaterialIcon
                     icon="engineering"
                     size="4xl"
                     className="text-yellow-300"
-                    theme="military"
-                    ariaLabel="Heavy Equipment & Operators"
                   />
                 </div>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Heavy Equipment & Certified Operators
+              {/* Section Header - Military Construction Standard */}
+              <h2 className="mb-4 font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tighter">
+                <span className="block mb-2 font-semibold text-gray-200 text-xl xs:text-2xl sm:text-3xl tracking-tight">
+                  Heavy Equipment &
+                </span>
+                <span className="block bg-gradient-to-r from-yellow-200 via-white to-yellow-200 bg-clip-text text-transparent font-black drop-shadow-sm">
+                  Certified Operators
+                </span>
               </h2>
               <p className="text-lg text-white/90 max-w-3xl mx-auto">
                 Large-scale equipment available for urgent hire with
@@ -399,11 +416,11 @@ export default function UrgentSupportPage() {
                     icon="check_circle"
                     size="2xl"
                     className="text-green-600 dark:text-green-400"
-                    theme="military"
-                    ariaLabel="What We Provide"
                   />
-                  <h2 className="text-2xl font-bold text-foreground">
-                    What We Provide
+                  <h2 className="text-xl sm:text-2xl font-black text-foreground">
+                    <span className="bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
+                      What We Provide
+                    </span>
                   </h2>
                 </div>
                 <ul className="space-y-3">
@@ -428,11 +445,11 @@ export default function UrgentSupportPage() {
                     icon="cancel"
                     size="2xl"
                     className="text-red-600 dark:text-red-400"
-                    theme="military"
-                    ariaLabel="What We Don't Provide"
                   />
-                  <h2 className="text-2xl font-bold text-foreground">
-                    What We Don&apos;t Provide
+                  <h2 className="text-xl sm:text-2xl font-black text-foreground">
+                    <span className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
+                      What We Don&apos;t Provide
+                    </span>
                   </h2>
                 </div>
                 <ul className="space-y-3">
@@ -456,15 +473,23 @@ export default function UrgentSupportPage() {
       <section className="py-16 bg-gradient-to-r from-orange-600 to-orange-700 text-white">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
           <FadeInWhenVisible>
-            <MaterialIcon
-              icon="support_agent"
-              size="4xl"
-              className="mx-auto mb-6 text-yellow-300"
-              theme="military"
-              ariaLabel="Ready to Resolve Your Challenge"
-            />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Resolve Your Critical Challenge?
+            <div className="flex justify-center mb-6">
+              <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl">
+                <MaterialIcon
+                  icon="support_agent"
+                  size="4xl"
+                  className="text-yellow-300"
+                />
+              </div>
+            </div>
+            {/* Section Header - Military Construction Standard */}
+            <h2 className="mb-4 font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tighter">
+              <span className="block mb-2 font-semibold text-gray-200 text-xl xs:text-2xl sm:text-3xl tracking-tight">
+                Ready to Resolve Your
+              </span>
+              <span className="block bg-gradient-to-r from-yellow-200 via-white to-yellow-200 bg-clip-text text-transparent font-black drop-shadow-sm">
+                Critical Challenge?
+              </span>
             </h2>
             <p className="text-lg mb-8 text-white/90 max-w-2xl mx-auto">
               Contact MH Construction today for expert consultation, specialized

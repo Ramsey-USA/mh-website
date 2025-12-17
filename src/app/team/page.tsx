@@ -19,7 +19,6 @@ import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import Head from "next/head";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getTeamSEO } from "@/lib/seo/page-seo-utils";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
@@ -140,49 +139,27 @@ export default function TeamPage() {
 
           {/* Content - Bottom Right */}
           <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
-            <div className="space-y-2 sm:space-y-3 md:space-y-4 text-right">
-              {/* Team Six Unit Icon */}
-              <div className="flex justify-end mb-4">
-                <MaterialIcon
-                  icon="groups"
-                  size="5xl"
-                  theme="military"
-                  className="drop-shadow-2xl opacity-90 hover:opacity-100 transition-opacity"
-                  ariaLabel="Team Six - Elite construction team"
-                />
-              </div>
-              {/* Main Title */}
-              <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
-                <span className="block text-brand-secondary">Team Six</span>
-              </h1>
-
-              {/* Subtitle - Group 3: Future Vision */}
-              <p className="text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug font-medium">
-                Experience You Can Trust
-              </p>
-
-              {/* Veteran-Owned Emphasis */}
-              <p className="text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug font-bold tracking-wide">
-                Veteran-Led · 150+ Years Combined Expertise
-              </p>
-
-              {/* Values-Future Messaging - Group 3 */}
-              <p className="text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug font-medium">
-                Building Tomorrow's Success on Today's Values
-              </p>
-
-              {/* Leadership Statement - Future-focused with veteran values */}
-              <p className="text-right text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed">
-                "Building projects for the client,{" "}
-                <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the dollar" — Meet the veteran-led professionals driving Pacific
-                Northwest construction excellence. Honest communication,
-                transparent pricing, proven craftsmanship—where military
-                precision meets partnership-driven results. Award-winning .64
-                EMR safety record, 150+ years combined expertise, values-driven
-                leadership.
-              </p>
+            {/* Team Six Unit Icon */}
+            <div className="flex justify-end mb-4">
+              <MaterialIcon
+                icon="groups"
+                size="5xl"
+                theme="military"
+                className="drop-shadow-2xl opacity-90 hover:opacity-100 transition-opacity"
+                ariaLabel="Team Six - Elite construction team"
+              />
             </div>
+            <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+              <span className="block text-brand-secondary">Team Six</span>
+              <span className="block text-brand-primary">
+                150+ Years Combined Expertise
+              </span>
+              <span className="block text-white/90">
+                Building projects for the client,{" "}
+                <span className="font-black italic text-bronze-300">NOT</span>{" "}
+                the dollar
+              </span>
+            </h1>
           </div>
 
           {/* Page-Specific Navigation Bar */}
@@ -219,13 +196,48 @@ export default function TeamPage() {
           <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <SectionHeader
-              icon="groups"
-              iconVariant="primary"
-              subtitle="Meet Our"
-              title="Elite Team"
-              description="Modern professional profiles featuring comprehensive skill assessments, career achievements, and personal stories. Award-winning team bringing 150+ years combined experience and military precision to Pacific Northwest construction."
-            />
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="groups"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Meet Our
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  Elite Team
+                </span>
+              </h2>
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                Modern professional profiles featuring{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  comprehensive skill assessments and career achievements
+                </span>
+                .{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  Award-winning team
+                </span>{" "}
+                bringing 150+ years combined experience and military precision
+                to Pacific Northwest construction.
+              </p>
+            </div>
 
             {/* Team Members by Department */}
             <div className="space-y-16 sm:space-y-24 md:space-y-32">
@@ -306,13 +318,51 @@ export default function TeamPage() {
               id="company-culture"
               className="mt-12 sm:mt-16 md:mt-20 lg:mt-24"
             >
-              <SectionHeader
-                icon="diversity_3"
-                iconVariant="secondary"
-                subtitle="Our Partnership"
-                title="Company Culture"
-                description="&ldquo;All for one, one for all&rdquo; isn't just a motto—it's how we partner, grow, and succeed together. Our people-centered culture starts with leadership committed to serving both clients and communities, maintaining the highest standards of safety (.64 EMR award-winning), quality craftsmanship, and transparent communication that defines every partnership."
-              />
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="diversity_3"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Our Partnership
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Company Culture
+                  </span>
+                </h2>
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  &ldquo;
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    All for one, one for all
+                  </span>
+                  &rdquo; isn't just a motto—it's how we partner, grow, and
+                  succeed together. Our{" "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    people-centered culture
+                  </span>{" "}
+                  starts with leadership committed to serving both clients and
+                  communities, maintaining the highest standards of safety (.64
+                  EMR award-winning), quality craftsmanship, and transparent
+                  communication that defines every partnership.
+                </p>
+              </div>
 
               <div className="gap-4 sm:gap-6 md:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8 sm:mb-10 md:mb-12">
                 {/* Team Unity */}
@@ -552,13 +602,49 @@ export default function TeamPage() {
               id="career-growth"
               className="mt-12 sm:mt-16 md:mt-20 lg:mt-24"
             >
-              <SectionHeader
-                icon="school"
-                iconVariant="bronze"
-                subtitle="Professional Development &"
-                title="Career Growth"
-                description="We invest in your growth from day one. With structured training programs, mentorship opportunities, and clear advancement paths, your career trajectory is limited only by your ambition and dedication."
-              />
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="school"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Professional Development &
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Career Growth
+                  </span>
+                </h2>
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  We invest in your growth from day one. With{" "}
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    structured training programs, mentorship opportunities, and
+                    clear advancement paths
+                  </span>
+                  , your{" "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    career trajectory is limited only by your ambition and
+                    dedication
+                  </span>
+                  .
+                </p>
+              </div>
 
               <div className={gridPresets.cards3Alt("lg", "mb-12")}>
                 {/* Continuous Training */}

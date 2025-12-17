@@ -439,18 +439,17 @@ export default function FAQPage() {
               {/* Title */}
               <h1 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
                 <span className="block mb-3 sm:mb-4 font-semibold text-brand-secondary text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                  Frequently Asked
+                  Frequently Asked Questions
                 </span>
-                <span className="block drop-shadow-lg">Questions</span>
+                <span className="block text-brand-primary drop-shadow-lg">
+                  Your Questions, Honest Answers
+                </span>
+                <span className="block text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl font-medium mt-4">
+                  Building projects for the client,{" "}
+                  <span className="font-black italic text-bronze-300">NOT</span>{" "}
+                  the dollar
+                </span>
               </h1>
-
-              {/* Subtitle */}
-              <p className="mb-8 sm:mb-10 md:mb-12 text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto">
-                Your Questions, Honest Answers • Building projects for the
-                client,{" "}
-                <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the dollar
-              </p>
 
               {/* Quick CTA */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -568,13 +567,13 @@ export default function FAQPage() {
                           icon={category.icon}
                           size="xl"
                           className="text-white"
-                          theme="military"
-                          ariaLabel={category.title}
                         />
                       </div>
                     </div>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100">
-                      {category.title}
+                    <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 dark:text-gray-100">
+                      <span className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent">
+                        {category.title}
+                      </span>
                     </h2>
                   </div>
                 </FadeInWhenVisible>
@@ -609,7 +608,7 @@ export default function FAQPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
             <div className="max-w-4xl mx-auto text-center">
-              <div className="mb-6 flex justify-center">
+              <div className="mb-8 flex justify-center">
                 <div className="relative">
                   <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
                   <div className="relative rounded-2xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg">
@@ -617,15 +616,17 @@ export default function FAQPage() {
                       icon="support_agent"
                       size="2xl"
                       className="text-white"
-                      theme="military"
-                      ariaLabel="Customer Support"
                     />
                   </div>
                 </div>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 dark:text-gray-100 mb-6">
-                <span className="block drop-shadow-sm">
-                  Still Have Questions?
+              {/* Section Header - Military Construction Standard */}
+              <h2 className="mb-6 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+                <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-tight">
+                  Still Have
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm">
+                  Questions?
                 </span>
               </h2>
               <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">

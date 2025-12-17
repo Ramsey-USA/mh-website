@@ -7,7 +7,6 @@ import {
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
 import { Section } from "@/components/ui/layout";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { getCardClassName } from "@/lib/styles/card-variants";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
@@ -83,42 +82,19 @@ export default function VeteransPage() {
 
           {/* Content - Clean and Simple */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
-            <div className="space-y-2 sm:space-y-3 md:space-y-4">
-              {/* Main Title - REQUIRED RESPONSIVE SCALING */}
-              <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-                <span className="block text-brand-secondary font-black drop-shadow-lg">
-                  Combat Proven
-                </span>
-              </h1>
-
-              {/* Subtitle - Group 4: Professional & Patriotic */}
-              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
+            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+              <span className="block text-brand-secondary font-black drop-shadow-lg">
+                Combat Proven
+              </span>
+              <span className="block text-brand-primary font-black drop-shadow-lg">
                 Honoring Those Who Served
-              </p>
-
-              {/* Veteran-Owned Leadership Emphasis */}
-              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug px-2 font-bold tracking-wide">
-                Army Veteran Leadership Since January 2025
-              </p>
-
-              {/* Group 4: Service & Values Focus */}
-              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-                Mission-Focused Excellence · Shared Military Values
-              </p>
-
-              {/* Description - Respectful, professional, integrity-driven with military-construction terminology */}
-              <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-                "Building projects for the client,{" "}
+              </span>
+              <span className="block text-white/90 font-medium">
+                Building projects for the client,{" "}
                 <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the dollar" — Veteran-owned and veteran-led, we serve those who
-                served with SITREP-level communications, transparent mission
-                briefs, and battle-tested craftsmanship. Supporting Pacific
-                Northwest veterans through priority hiring operations, tactical
-                community partnerships, and shared commitment to service-earned
-                integrity. Your service is honored. Your trust is earned through
-                every construction mission we deploy.
-              </p>
-            </div>
+                the dollar
+              </span>
+            </h1>
           </div>
 
           {/* Page Navigation - ALWAYS REQUIRED AT BOTTOM */}
@@ -139,13 +115,49 @@ export default function VeteransPage() {
           padding="default"
           className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm"
         >
-          <SectionHeader
-            icon="military_tech"
-            iconVariant="bronze"
-            subtitle="Leadership"
-            title="Veteran-Owned Leadership"
-            description="MH Construction is owned and led by Army veteran Jeremy Thamert. His military service instilled operational values of integrity, mission-focused discipline, and keeping your word—principles that define every construction operation and partnership we build. When veterans work with veterans, trust is built on shared service experience and mutual operational respect."
-          />
+          {/* Section Header - Military Construction Standard */}
+          <div className="mb-16 sm:mb-20 text-center">
+            {/* Icon with decorative lines */}
+            <div className="flex items-center justify-center mb-8 gap-4">
+              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <MaterialIcon
+                    icon="military_tech"
+                    size="2xl"
+                    className="text-white drop-shadow-lg"
+                  />
+                </div>
+              </div>
+              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            </div>
+
+            {/* Two-line gradient heading */}
+            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                Leadership
+              </span>
+              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                Veteran-Owned Leadership
+              </span>
+            </h2>
+
+            {/* Description with colored keyword highlighting */}
+            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              MH Construction is{" "}
+              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                owned and led by Army veteran Jeremy Thamert
+              </span>
+              . His military service instilled operational values of{" "}
+              <span className="font-bold text-gray-900 dark:text-white">
+                integrity, mission-focused discipline, and keeping your word
+              </span>
+              —principles that define every construction operation and
+              partnership we build. When veterans work with veterans, trust is
+              built on shared service experience.
+            </p>
+          </div>
 
           <FadeInWhenVisible>
             <Card
@@ -203,13 +215,49 @@ export default function VeteransPage() {
           padding="default"
           className="bg-gray-50/90 dark:bg-gray-800/90 backdrop-blur-sm"
         >
-          <SectionHeader
-            icon="volunteer_activism"
-            iconVariant="secondary"
-            subtitle="Beyond the Event"
-            title="Year-Round Veterans Support"
-            description="As a newly veteran-owned company, we're deploying long-term operational programs to support veterans. Priority hiring is active now, with tactical apprenticeship programs and mission partnerships in development."
-          />
+          {/* Section Header - Military Construction Standard */}
+          <div className="mb-16 sm:mb-20 text-center">
+            {/* Icon with decorative lines */}
+            <div className="flex items-center justify-center mb-8 gap-4">
+              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <MaterialIcon
+                    icon="volunteer_activism"
+                    size="2xl"
+                    className="text-white drop-shadow-lg"
+                  />
+                </div>
+              </div>
+              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            </div>
+
+            {/* Two-line gradient heading */}
+            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                Beyond the Event
+              </span>
+              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                Year-Round Veterans Support
+              </span>
+            </h2>
+
+            {/* Description with colored keyword highlighting */}
+            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              As a{" "}
+              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                newly veteran-owned company
+              </span>
+              , we're deploying long-term operational programs to support
+              veterans.{" "}
+              <span className="font-bold text-gray-900 dark:text-white">
+                Priority hiring is active now
+              </span>
+              , with tactical apprenticeship programs and mission partnerships
+              in development.
+            </p>
+          </div>
 
           <StaggeredFadeIn className={gridPresets.cards3("md")}>
             <Card className={getCardClassName("default")}>
@@ -321,13 +369,47 @@ export default function VeteransPage() {
           padding="default"
           className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm"
         >
-          <SectionHeader
-            icon="verified"
-            iconVariant="primary"
-            subtitle="Our Foundation"
-            title="Military Standards in Every Project"
-            description="The values we learned in service guide everything we do in construction. Our veteran team brings military discipline and precision to every aspect of our work."
-          />
+          {/* Section Header - Military Construction Standard */}
+          <div className="mb-16 sm:mb-20 text-center">
+            {/* Icon with decorative lines */}
+            <div className="flex items-center justify-center mb-8 gap-4">
+              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <MaterialIcon
+                    icon="verified"
+                    size="2xl"
+                    className="text-white drop-shadow-lg"
+                  />
+                </div>
+              </div>
+              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            </div>
+
+            {/* Two-line gradient heading */}
+            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                Our Foundation
+              </span>
+              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                Military Standards in Every Project
+              </span>
+            </h2>
+
+            {/* Description with colored keyword highlighting */}
+            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              The{" "}
+              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                values we learned in service
+              </span>{" "}
+              guide everything we do in construction. Our veteran team brings{" "}
+              <span className="font-bold text-gray-900 dark:text-white">
+                military discipline and precision
+              </span>{" "}
+              to every aspect of our work.
+            </p>
+          </div>
 
           <StaggeredFadeIn className={gridPresets.twoColumn("md")}>
             <Card
@@ -501,15 +583,46 @@ export default function VeteransPage() {
         >
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
-              <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
-                <h2 className="mb-8 font-black text-brand-primary dark:text-brand-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight">
-                  Annual Veterans Fishing Classic
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="directions_boat"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Annual Veterans
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Fishing Classic
+                  </span>
                 </h2>
-                <p className="mx-auto max-w-3xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed">
-                  Join us for our inaugural fishing benefit event honoring
-                  veterans with 40+ boats from the local community. A day of
-                  fishing, fellowship, and gratitude on Pacific Northwest
-                  waters.
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  Join us for our{" "}
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    inaugural fishing benefit event
+                  </span>{" "}
+                  honoring veterans with{" "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    40+ boats from the local community
+                  </span>
+                  . A day of fishing, fellowship, and gratitude on Pacific
+                  Northwest waters.
                 </p>
               </div>
             </FadeInWhenVisible>
@@ -680,17 +793,47 @@ export default function VeteransPage() {
         >
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
-              <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
-                <h2 className="mb-8 font-black text-brand-primary dark:text-brand-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight">
-                  Organizational Partnership Opportunities
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="handshake"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Organizational Partnership
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Opportunities
+                  </span>
                 </h2>
-                <p className="mx-auto max-w-3xl mb-8 font-light text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed">
-                  MH Construction partners with corporations, non-profits,
-                  veteran service organizations, and community groups to co-host
-                  impactful veteran events. We provide the construction industry
-                  platform and connections—you bring your organization's
-                  resources, expertise, and mission to create meaningful
-                  experiences together.
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  MH Construction partners with{" "}
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    corporations, non-profits, veteran service organizations,
+                    and community groups
+                  </span>{" "}
+                  to co-host impactful veteran events. We provide{" "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    the construction industry platform and connections
+                  </span>
+                  —you bring your organization's resources, expertise, and
+                  mission to create meaningful experiences together.
                 </p>
               </div>
             </FadeInWhenVisible>

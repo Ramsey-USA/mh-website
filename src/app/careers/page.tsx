@@ -27,7 +27,6 @@ import {
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { getCardClassName } from "@/lib/styles/card-variants";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import Head from "next/head";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getCareersSEO } from "@/lib/seo/page-seo-utils";
@@ -144,42 +143,19 @@ export default function CareersPage() {
 
           {/* Content - Bottom Right */}
           <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
-            <div className="space-y-2 sm:space-y-3 md:space-y-4 text-right">
-              {/* Main Title */}
-              <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
-                <span className="block text-brand-secondary">
-                  Occupation Specialties
-                </span>
-              </h1>
-
-              {/* Subtitle - Group 5: Recruitment & Growth */}
-              <p className="text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug font-medium">
+            <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+              <span className="block text-brand-secondary">
+                Occupation Specialties
+              </span>
+              <span className="block text-brand-primary">
                 Your Future Starts Here
-              </p>
-
-              {/* Veteran-Owned Emphasis */}
-              <p className="text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-bronze-300 leading-snug font-bold tracking-wide">
-                Veteran-Owned Culture · Your Growth Is Our Mission
-              </p>
-
-              {/* Group 5: Opportunity Focus */}
-              <p className="text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug font-medium">
-                Where Honest Communication Meets Career Growth
-              </p>
-
-              {/* Description - Enthusiastic, welcoming, opportunity-focused */}
-              <p className="text-right text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed">
-                "Building projects for the client,{" "}
+              </span>
+              <span className="block text-white/90">
+                Building careers for the employee,{" "}
                 <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the dollar" — This isn't just how we treat customers—it's how we
-                treat YOU. Join a veteran-led team where honest communication,
-                transparent expectations, and proven mentorship build tomorrow's
-                leaders. Award-winning safety (.64 EMR), 150+ years combined
-                expertise, and a culture where veterans and civilians thrive
-                together. Your potential matters as much as any project we
-                build. Let's build YOUR future!
-              </p>
-            </div>
+                the dollar
+              </span>
+            </h1>
           </div>
 
           {/* Page-Specific Navigation Bar */}
@@ -216,15 +192,50 @@ export default function CareersPage() {
             ></div>
 
             <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-              <FadeInWhenVisible>
-                <SectionHeader
-                  icon="star"
-                  iconVariant="bronze"
-                  subtitle="Why Choose"
-                  title="MH Construction"
-                  description="This isn't just another construction job—it's a career investment in YOU. We're building your skills, your future, and your financial security through meaningful work, continuous training, and authentic partnerships. Every team member gets a mentor, clear advancement paths, and the tools to succeed. Your growth IS our success story."
-                />
-              </FadeInWhenVisible>
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="star"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Why Choose
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    MH Construction
+                  </span>
+                </h2>
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  This isn't just another construction job—it's a{" "}
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    career investment in YOU
+                  </span>
+                  . We're building your skills, your future, and your financial
+                  security through{" "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    meaningful work, continuous training, and authentic
+                    partnerships
+                  </span>
+                  . Every team member gets a mentor, clear advancement paths,
+                  and the tools to succeed.
+                </p>
+              </div>
 
               <StaggeredFadeIn className={gridPresets.cards4("lg")}>
                 {cultureValues.map((value, index) => (
@@ -271,15 +282,50 @@ export default function CareersPage() {
             ></div>
 
             <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-              <FadeInWhenVisible>
-                <SectionHeader
-                  icon="volunteer_activism"
-                  iconVariant="secondary"
-                  subtitle="Employee Benefits"
-                  title="& Perks"
-                  description="Your well-being and success matter here. We offer competitive pay plus comprehensive benefits because we know you're building a life, not just a career. From health coverage to professional development, retirement planning to performance bonuses—we invest in your total success, every single day."
-                />
-              </FadeInWhenVisible>
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="volunteer_activism"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Employee Benefits
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    & Perks
+                  </span>
+                </h2>
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  Your{" "}
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    well-being and success matter here
+                  </span>
+                  . We offer competitive pay plus comprehensive benefits because
+                  we know you're building a life, not just a career. From health
+                  coverage to{" "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    professional development, retirement planning to performance
+                    bonuses
+                  </span>
+                  —we invest in your total success.
+                </p>
+              </div>
 
               <StaggeredFadeIn className={gridPresets.cards3("md")}>
                 {companyBenefits.map((benefit, index) => (
@@ -312,33 +358,47 @@ export default function CareersPage() {
           <section className="mb-20 lg:mb-32">
             <FadeInWhenVisible>
               <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 p-8 xs:p-10 sm:p-12 rounded-2xl border border-gray-200 dark:border-gray-700">
-                <div className="mb-12 text-center">
-                  <div className="flex justify-center items-center mb-4">
-                    <MaterialIcon
-                      icon="military_tech"
-                      size="2xl"
-                      theme="veteran"
-                      ariaLabel="Supporting Veterans"
-                      className="text-brand-primary"
-                    />
+                {/* Section Header - Military Construction Standard */}
+                <div className="mb-16 sm:mb-20 text-center">
+                  {/* Icon with decorative lines */}
+                  <div className="flex items-center justify-center mb-8 gap-4">
+                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                    <div className="relative">
+                      <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                      <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                        <MaterialIcon
+                          icon="military_tech"
+                          size="2xl"
+                          className="text-white drop-shadow-lg"
+                        />
+                      </div>
+                    </div>
+                    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   </div>
-                  <h2 className="mb-6 pb-2 font-black text-gray-900 dark:text-gray-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                    <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+
+                  {/* Two-line gradient heading */}
+                  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                       Supporting Our
                     </span>
-                    <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
+                    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                       Veterans
                     </span>
                   </h2>
-                  <p className="mx-auto max-w-3xl font-light text-gray-700 dark:text-gray-300 text-base xs:text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
-                    Veteran-owned, veteran-led, veteran-proud. Your military
-                    experience translates directly to construction excellence:
-                    discipline becomes precision, teamwork becomes partnership,
-                    mission focus becomes project completion. We don't just hire
-                    veterans—we celebrate your service, honor your skills, and
-                    build careers that match your dedication. Priority hiring,
-                    specialized transition support, and a command structure you
-                    understand. Welcome home.
+
+                  {/* Description with colored keyword highlighting */}
+                  <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                    <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                      Veteran-owned, veteran-led, veteran-proud
+                    </span>
+                    . Your military experience translates directly to
+                    construction excellence: discipline becomes precision,
+                    teamwork becomes partnership. We don't just hire veterans—we{" "}
+                    <span className="font-bold text-gray-900 dark:text-white">
+                      celebrate your service, honor your skills, and build
+                      careers
+                    </span>{" "}
+                    that match your dedication. Welcome home.
                   </p>
                 </div>
 
@@ -453,15 +513,50 @@ export default function CareersPage() {
             ></div>
 
             <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-              <FadeInWhenVisible>
-                <SectionHeader
-                  icon="work"
-                  iconVariant="multi"
-                  subtitle="Current Career"
-                  title="Opportunities"
-                  description="Your next career chapter starts here. These aren't just job openings—they're gateways to your future. Every position offers competitive pay, comprehensive training, clear advancement paths, and the chance to build something meaningful. Veterans receive priority consideration. Find your perfect fit below."
-                />
-              </FadeInWhenVisible>
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-accent p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="work"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Current Career
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Opportunities
+                  </span>
+                </h2>
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  Your next career chapter starts here. These aren't just job
+                  openings—they're{" "}
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    gateways to your future
+                  </span>
+                  . Every position offers{" "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    competitive pay, comprehensive training, clear advancement
+                    paths
+                  </span>
+                  , and the chance to build something meaningful. Veterans
+                  receive priority consideration.
+                </p>
+              </div>
 
               <StaggeredFadeIn className="space-y-6">
                 {openPositions.map((position, _index) => (
@@ -583,23 +678,47 @@ export default function CareersPage() {
           <section id="application-process" className="mb-20 lg:mb-32">
             <FadeInWhenVisible>
               <div className="bg-gradient-to-br from-primary-50 to-accent-50 dark:from-gray-800 dark:to-gray-900 p-12 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700">
-                <div className="mb-16 text-center">
-                  <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-gray-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                    <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
+                {/* Section Header - Military Construction Standard */}
+                <div className="mb-16 sm:mb-20 text-center">
+                  {/* Icon with decorative lines */}
+                  <div className="flex items-center justify-center mb-8 gap-4">
+                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                    <div className="relative">
+                      <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                      <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                        <MaterialIcon
+                          icon="how_to_reg"
+                          size="2xl"
+                          className="text-white drop-shadow-lg"
+                        />
+                      </div>
+                    </div>
+                    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  </div>
+
+                  {/* Two-line gradient heading */}
+                  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                       Your Journey to
                     </span>
-                    <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
+                    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                       Join Our Team
                     </span>
                   </h2>
 
-                  <p className="mx-auto max-w-3xl font-light text-gray-700 dark:text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed px-2">
-                    No games, no ghosting, no endless waiting. Our hiring
-                    process is transparent, efficient, and respectful of YOUR
-                    time—because we know you're evaluating us just as much as
-                    we're evaluating your fit. Fast-track options available for
-                    exceptional candidates. Most offers extended within 2-3
-                    weeks. Here's exactly what to expect.
+                  {/* Description with colored keyword highlighting */}
+                  <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                    <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                      No games, no ghosting, no endless waiting
+                    </span>
+                    . Our hiring process is transparent, efficient, and
+                    respectful of YOUR time—because we know you're evaluating us
+                    just as much. Fast-track options available for exceptional
+                    candidates.{" "}
+                    <span className="font-bold text-gray-900 dark:text-white">
+                      Most offers extended within 2-3 weeks
+                    </span>
+                    .
                   </p>
                 </div>
 
@@ -902,15 +1021,47 @@ export default function CareersPage() {
             ></div>
 
             <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-              <FadeInWhenVisible>
-                <SectionHeader
-                  icon="groups"
-                  iconVariant="primary"
-                  subtitle="Hear From Our"
-                  title="Team Members"
-                  description="Don't just take our word for it—hear directly from the people who work here every day. Real stories from real team members about career growth, workplace culture, leadership support, and why they chose to build their futures with MH Construction. These aren't scripted testimonials—they're authentic voices sharing what makes this place special."
-                />
-              </FadeInWhenVisible>
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="groups"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Hear From Our
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Team Members
+                  </span>
+                </h2>
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  Don't just take our word for it—hear directly from{" "}
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    the people who work here every day
+                  </span>
+                  . Real stories from real team members about{" "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    career growth, workplace culture, and leadership support
+                  </span>
+                  . These aren't scripted testimonials—they're authentic voices.
+                </p>
+              </div>
 
               <TestimonialGrid testimonials={getEmployeeTestimonials()} />
             </div>
@@ -920,27 +1071,49 @@ export default function CareersPage() {
           <section id="general-application" className="mb-20 lg:mb-32">
             <FadeInWhenVisible>
               <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 p-10 sm:p-12 md:p-16 rounded-2xl text-center border border-gray-200 dark:border-gray-700">
-                <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-gray-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                  <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                    Don't See the
-                  </span>
-                  <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                    Perfect Role?
-                  </span>
-                </h2>
+                {/* Section Header - Military Construction Standard */}
+                <div className="mb-16 sm:mb-20 text-center">
+                  {/* Icon with decorative lines */}
+                  <div className="flex items-center justify-center mb-8 gap-4">
+                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                    <div className="relative">
+                      <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                      <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                        <MaterialIcon
+                          icon="person_search"
+                          size="2xl"
+                          className="text-white drop-shadow-lg"
+                        />
+                      </div>
+                    </div>
+                    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  </div>
 
-                <p className="mx-auto mb-10 max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                  Your perfect role might not exist yet—but your FUTURE does.
-                  We're always seeking exceptional people who share our values:
-                  military precision, partnership mindset, quality obsession,
-                  and safety excellence. Veterans, experienced professionals,
-                  career changers, skilled trades—if you bring dedication and
-                  potential, we'll invest in your growth. Sometimes the best
-                  opportunities aren't posted; they're created when the right
-                  person reaches out. Tell us your story. Share your dreams.
-                  Let's build YOUR career path together. That conversation
-                  starts right now.
-                </p>
+                  {/* Two-line gradient heading */}
+                  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                      Don't See the
+                    </span>
+                    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                      Perfect Role?
+                    </span>
+                  </h2>
+
+                  {/* Description with colored keyword highlighting */}
+                  <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                    Your perfect role might not exist yet—but{" "}
+                    <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                      your FUTURE does
+                    </span>
+                    . We're always seeking exceptional people who share our
+                    values: military precision, partnership mindset, quality
+                    obsession. If you bring{" "}
+                    <span className="font-bold text-gray-900 dark:text-white">
+                      dedication and potential, we'll invest in your growth
+                    </span>
+                    . Tell us your story.
+                  </p>
+                </div>
 
                 {/* CTA Buttons - Brand Standards */}
                 <div className="flex sm:flex-row flex-col justify-center gap-6">

@@ -221,8 +221,11 @@ interface GridConfig {
 #### Import
 
 ```tsx
-import { Section, SectionHeader } from "@/components/ui/layout";
+// Section wrapper still available (optional)
+import { Section } from "@/components/ui/layout";
 ```
+
+**Note:** The old `SectionHeader` component has been deprecated. Use the military-construction header pattern instead. See [Component Organization Guide](../technical/design-system/component-organization-guide.md#section-header-standard---military-construction-pattern) for the complete pattern.
 
 #### Section API
 
@@ -250,31 +253,18 @@ interface SectionProps {
 - **`small`**: py-12 lg:py-16 (reduced spacing)
 - **`none`**: py-0 (no padding)
 
-#### SectionHeader API
-
-```typescript
-interface SectionHeaderProps {
-  title: string | React.ReactNode;
-  subtitle?: string | React.ReactNode;
-  description?: string | React.ReactNode;
-  alignment?: "left" | "center" | "right";
-  icon?: string;
-  maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
-  className?: string;
-}
-```
-
 #### Usage Examples
 
 ```tsx
-// Basic section with header
+// Section with military-construction header pattern
 <Section variant="default" padding="default">
-  <SectionHeader
-    subtitle="Our Services"
-    title="Construction Excellence"
-    description="Professional construction services across the Pacific Northwest"
-    alignment="center"
-  />
+  {/* Military-construction header - see Component Organization Guide */}
+  <div className="mb-16 sm:mb-20 text-center">
+    {/* Icon with decorative lines */}
+    {/* Two-line gradient heading */}
+    {/* Description with colored keywords */}
+  </div>
+
   <div className={gridPresets.cards3("md")}>
     {/* Service cards */}
   </div>

@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import { Card, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -188,13 +187,49 @@ export default function AboutPage() {
           <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <SectionHeader
-              icon="verified"
-              iconVariant="bronze"
-              subtitle="Why Our Values"
-              title="Matter"
-              description="Our commitment to integrity, transparency, and excellence drives every project decision and partnership we build. These aren't just words on a wall—they're the foundation of how we do business and the promise we make to every partner."
-            />
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="verified"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Why Our Values
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  Matter
+                </span>
+              </h2>
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                Our commitment to{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  integrity, transparency, and excellence
+                </span>{" "}
+                drives every project decision and partnership we build. These
+                aren't just{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  words on a wall
+                </span>
+                —they're the foundation of how we do business and the promise we
+                make to every partner.
+              </p>
+            </div>
 
             <StaggeredFadeIn className={gridPresets.cards3("md")}>
               <div className="group h-full">
@@ -402,13 +437,47 @@ export default function AboutPage() {
           <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <SectionHeader
-              icon="campaign"
-              iconVariant="secondary"
-              subtitle="Mission Updates"
-              title="Latest News & Achievements"
-              description="Stay updated with our latest projects, partnerships, industry insights, and milestones from our veteran-owned team—where every achievement reflects our commitment to excellence."
-            />
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="campaign"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Mission Updates
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  Latest News & Achievements
+                </span>
+              </h2>
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                Stay updated with our latest{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  projects, partnerships, and industry insights
+                </span>{" "}
+                —milestones from our{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  veteran-owned team
+                </span>{" "}
+                where every achievement reflects our commitment to excellence.
+              </p>
+            </div>
 
             {/* Combined grid with best content from both sections - 6 items total */}
             <div className={gridPresets.cards3("md", "mx-auto max-w-7xl")}>
