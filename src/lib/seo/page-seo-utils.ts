@@ -95,7 +95,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
         "Team Six Approach",
       ],
       slogan: "We Work WITH You, Not FOR You",
-      mission: "Building for the client, NOT the dollar",
+      mission: "Building projects for the client, NOT the dollar",
     },
     mentions: [
       {

@@ -44,7 +44,7 @@ const teamSpecialties = [
     icon: "groups",
     title: "Team Cohesion",
     description:
-      "Individual specialists united under shared mission: building for the client, not the dollar",
+      "Individual specialists united under shared mission: building projects for the client, not the dollar",
   },
 ];
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { AmericanFlag } from "@/components/icons/AmericanFlag";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
@@ -25,13 +25,9 @@ export function HeroSection() {
       <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
         {/* Mission Icon */}
         <div className="flex justify-end mb-4">
-          <MaterialIcon
-            icon="flag"
-            size="5xl"
-            theme="veteran"
-            className="drop-shadow-2xl opacity-90 hover:opacity-100 transition-opacity"
-            ariaLabel="Mission-focused construction"
-          />
+          <div className="relative p-4 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
+            <AmericanFlag size="4xl" animated={true} />
+          </div>
         </div>
         <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
           <span className="block text-brand-secondary">
@@ -39,7 +35,7 @@ export function HeroSection() {
           </span>
           <span className="block text-brand-primary">Proven Craftsmanship</span>
           <span className="block text-white/90">
-            Building for the Client,{" "}
+            Building projects for the Client,{" "}
             <span className="font-black italic text-bronze-300">NOT</span> the
             Dollar
           </span>

@@ -108,6 +108,8 @@ const config: Config = {
         "scale-up": "scaleUp 0.3s ease-out",
         bounce: "bounce 1s infinite",
         pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        wave: "wave 1.5s ease-in-out infinite",
+        twinkle: "twinkle 2s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: {
@@ -152,6 +154,22 @@ const config: Config = {
           "100%": {
             transform: "scale(1)",
             opacity: "1",
+          },
+        },
+        wave: {
+          "0%, 100%": {
+            transform: "perspective(400px) rotateY(0deg)",
+          },
+          "50%": {
+            transform: "perspective(400px) rotateY(10deg)",
+          },
+        },
+        twinkle: {
+          "0%, 100%": {
+            opacity: "1",
+          },
+          "50%": {
+            opacity: "0.6",
           },
         },
       },

@@ -140,7 +140,7 @@ const milestones = [
     icon: "explore",
     title: "Continued Mission Excellence",
     description:
-      "Building for the client, NOT the dollar—where founding father's partnership philosophy meets veteran operational discipline, creating unmatched construction excellence.",
+      "Building projects for the client, NOT the dollar—where founding father's partnership philosophy meets veteran operational discipline, creating unmatched construction excellence.",
     impact: "Trust, One Project at a Time",
     color: "veteran",
   },

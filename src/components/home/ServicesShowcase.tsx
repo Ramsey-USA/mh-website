@@ -13,6 +13,23 @@ import {
   Button,
 } from "@/components/ui";
 
+// Helper function to render subtitle with styled "NOT"
+function renderSubtitle(subtitle: string) {
+  if (subtitle.includes("NOT")) {
+    const parts = subtitle.split("NOT");
+    return (
+      <>
+        {parts[0]}
+        <span className="font-black italic text-bronze-600 dark:text-bronze-400">
+          NOT
+        </span>
+        {parts[1]}
+      </>
+    );
+  }
+  return subtitle;
+}
+
 const services = [
   {
     icon: "engineering",
@@ -63,7 +80,7 @@ const services = [
   {
     icon: "build",
     title: "Commercial Buildings",
-    subtitle: "Built for the Client, NOT the Dollar",
+    subtitle: "Built projects for the Client, NOT the Dollar",
     description:
       "Commercial construction for offices, retail, medical facilities, and religious spaces. Licensed across WA, OR, and ID—quality craftsmanship over profit margins.",
     features: [
@@ -307,7 +324,7 @@ export function ServicesShowcase() {
                       {service.title}
                     </CardTitle>
                     <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-sm sm:text-base break-words">
-                      {service.subtitle}
+                      {renderSubtitle(service.subtitle)}
                     </p>
                   </CardHeader>
                   <CardContent className="flex flex-col flex-grow pt-0 px-0">
@@ -402,7 +419,7 @@ export function ServicesShowcase() {
                       {currentService.title}
                     </h3>
                     <p className="text-brand-secondary text-base sm:text-lg lg:text-xl font-semibold">
-                      {currentService.subtitle}
+                      {renderSubtitle(currentService.subtitle)}
                     </p>
                   </div>
                 </div>

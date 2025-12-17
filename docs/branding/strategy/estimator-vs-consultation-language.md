@@ -294,7 +294,7 @@ Want to prepare first? Try our Budget Planning Tool for instant preliminary esti
 - ✅ Highlight "free" and "no obligation" for both
 - ✅ Use "under 5 minutes" for tool speed
 - ✅ Use "comprehensive" for consultation scope
-- ✅ Maintain "Building for the Client Partner, NOT the Dollar" philosophy
+- ✅ Maintain "Building projects for the Client Partner, NOT the Dollar" philosophy
 
 ---
 

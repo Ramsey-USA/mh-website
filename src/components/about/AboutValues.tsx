@@ -64,7 +64,7 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
           iconVariant="primary"
           subtitle="Veteran-Owned Values"
           title="Built on Honesty & Integrity"
-          description="Four foundational values guide every project and partnership—focused on building for the client, NOT the dollar."
+          description="Four foundational values guide every project and partnership—focused on building projects for the client, NOT the dollar."
         />
 
         {/* Stacked Value Cards with Alternating Layout */}

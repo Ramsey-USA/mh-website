@@ -57,7 +57,7 @@ The homepage represents the **complete design system** in action:
 - Three-line tagline with color coding:
   - Line 1 (Brand Secondary): "Veteran-Owned Since January 2025"
   - Line 2 (Brand Primary): "Proven Craftsmanship"
-  - Line 3 (White/Bronze): "Building for the Client, NOT the Dollar"
+  - Line 3 (White/Bronze): "Building projects for the Client, NOT the Dollar"
 
 **Key Patterns:**
 
