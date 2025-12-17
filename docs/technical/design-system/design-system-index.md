@@ -1,7 +1,7 @@
 # Design System Documentation Hub
 
 **Category:** Technical - Design System & UI Standards  
-**Last Updated:** December 14, 2025  
+**Last Updated:** December 17, 2025  
 **Status:** ✅ Active - Complete Navigation Hub
 
 ## 🧭 Quick Navigation
@@ -10,6 +10,7 @@
 - [🛠️ Technical Index](../technical-index.md) - Technical documentation hub
 - [🎨 Branding Standards](../../branding/standards/standards-index.md) - Brand visual standards
 - [💼 Development Guidelines](../../development/consistency-guide.md) - Implementation patterns
+- [🏠 Homepage Reference](./homepage-reference-guide.md) - ⭐ **Canonical design reference**
 
 ---
 
@@ -18,6 +19,9 @@
 The MH Construction Design System provides comprehensive standards for creating consistent, accessible, and
 brand-aligned user interfaces. This hub connects all design system documentation including buttons, CTAs, icons,
 layout, typography, and mobile optimization.
+
+**🏠 HOMEPAGE AS CANONICAL REFERENCE:**  
+The [Homepage Reference Guide](./homepage-reference-guide.md) documents the complete look and feel of the website. **When in doubt about design decisions, reference the homepage** - it exemplifies all patterns in this design system.
 
 **What's Here:**
 
@@ -28,6 +32,35 @@ layout, typography, and mobile optimization.
 - Icon and button documentation
 - Mobile and responsive design guides
 - Accessibility requirements
+
+---
+
+## 🏠 Homepage Reference (NEW)
+
+### **Complete Homepage Design Patterns**
+
+**[homepage-reference-guide.md](./homepage-reference-guide.md)** - ⭐ **CANONICAL DESIGN REFERENCE**
+
+Comprehensive breakdown of every homepage section documenting the complete "look and feel" of the MH Construction website. This guide serves as the authoritative reference for visual consistency.
+
+**Complete Coverage:**
+
+- Hero Section with positioning and color strategy
+- Core Values Section with diagonal stripes and brand blobs
+- Why Partner Section with stat cards
+- Services Showcase with interactive modals
+- Our Process Timeline with alternating layout
+- All background patterns, animations, and responsive behaviors
+
+**Use Cases:**
+
+- Understanding the complete design language
+- Starting any new page or section
+- Ensuring visual consistency
+- Resolving design questions
+- Onboarding new developers
+
+**Key Principle:** The homepage exemplifies all design system patterns. When unsure about spacing, colors, typography, or any visual element, check the homepage first.
 
 ---
 

@@ -145,22 +145,22 @@ export function Navigation() {
                 <div className="gap-1.5 sm:gap-2 grid grid-cols-2">
                   {[
                     { href: "/", label: "Home", icon: "home" },
-                    { href: "/about", label: "Our Oath", icon: "foundation" },
-                    { href: "/services", label: "Battle Plan", icon: "build" },
+                    { href: "/about", label: "Our Story", icon: "timeline" },
+                    { href: "/services", label: "Services", icon: "build" },
                     {
                       href: "/projects",
-                      label: "Victories",
+                      label: "Projects",
                       icon: "photo_library",
                     },
-                    { href: "/team", label: "Team Six", icon: "people" },
+                    { href: "/team", label: "Team Six", icon: "military_tech" },
                     {
                       href: "/careers",
-                      label: "Occupation Specialties",
+                      label: "Careers",
                       icon: "work",
                     },
                     {
                       href: "/contact",
-                      label: "Introductions",
+                      label: "Contact",
                       icon: "contact_phone",
                     },
                     {
@@ -170,17 +170,17 @@ export function Navigation() {
                     },
                     {
                       href: "/allies",
-                      label: "Allies in Force",
-                      icon: "group",
+                      label: "Trade Partners",
+                      icon: "handshake",
                     },
                     {
                       href: "/veterans",
-                      label: "Combat Proven",
-                      icon: "military_tech",
+                      label: "Veteran Owned",
+                      icon: "workspace_premium",
                     },
                     {
                       href: "/urgent",
-                      label: "PRT",
+                      label: "Emergency",
                       icon: "engineering",
                     },
                     {

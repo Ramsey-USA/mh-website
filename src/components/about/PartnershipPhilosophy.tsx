@@ -39,7 +39,7 @@ export function PartnershipPhilosophy() {
         <SectionHeader
           icon="diversity_3"
           iconVariant="primary"
-          subtitle="Our Partnership"
+          subtitle="Service-Earned Partnership"
           title="Philosophy"
           description="At MH Construction, we believe in service-earned business values: where handshakes still matter, your word is your bond, and trust is earned through character and proven in the field. Since our founding in 2010, we've built our reputation on lasting partnerships that outlast the buildings themselves. Under veteran-owned leadership since January 2025, we continue the mission tradition of excellence through operational experience."
         />
@@ -50,13 +50,17 @@ export function PartnershipPhilosophy() {
             <div className="gap-8 grid sm:grid-cols-1 md:grid-cols-2 mb-12">
               <Card className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 border-2 border-brand-primary dark:border-brand-primary/50 transition-shadow">
                 <CardHeader>
-                  <MaterialIcon
-                    icon="map"
-                    size="xl"
-                    theme="military"
-                    ariaLabel="Our mission"
-                    className="mb-3 text-brand-primary"
-                  />
+                  <div className="relative inline-block mb-3">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/20 to-brand-primary-dark/20 blur-xl rounded-full"></div>
+                    <div className="relative w-16 h-16 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-xl flex items-center justify-center shadow-lg">
+                      <MaterialIcon
+                        icon="map"
+                        size="xl"
+                        ariaLabel="Our mission"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Our Mission
                   </CardTitle>
@@ -71,13 +75,17 @@ export function PartnershipPhilosophy() {
 
               <Card className="bg-gradient-to-br from-brand-secondary/5 to-brand-secondary/5 dark:from-brand-secondary/10 dark:to-brand-secondary/10 border-2 border-brand-secondary dark:border-brand-secondary/50 transition-shadow">
                 <CardHeader>
-                  <MaterialIcon
-                    icon="explore"
-                    size="xl"
-                    theme="tactical"
-                    ariaLabel="Our vision"
-                    className="mb-3 text-brand-secondary"
-                  />
+                  <div className="relative inline-block mb-3">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/20 to-bronze-600/20 blur-xl rounded-full"></div>
+                    <div className="relative w-16 h-16 bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 rounded-xl flex items-center justify-center shadow-lg">
+                      <MaterialIcon
+                        icon="explore"
+                        size="xl"
+                        ariaLabel="Our vision"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Our Vision
                   </CardTitle>
@@ -95,13 +103,17 @@ export function PartnershipPhilosophy() {
             <div className="gap-8 grid sm:grid-cols-1 md:grid-cols-2 mb-12">
               <Card className={getCardClassName("static")}>
                 <CardHeader>
-                  <MaterialIcon
-                    icon="groups"
-                    size="xl"
-                    theme="military"
-                    ariaLabel="Client partnership"
-                    className="mb-3 text-brand-secondary"
-                  />
+                  <div className="relative inline-block mb-3">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/20 to-brand-secondary-dark/20 blur-xl rounded-full"></div>
+                    <div className="relative w-16 h-16 bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-secondary-700 rounded-xl flex items-center justify-center shadow-lg">
+                      <MaterialIcon
+                        icon="groups"
+                        size="xl"
+                        ariaLabel="Client partnership"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Client Partnership Approach
                   </CardTitle>
@@ -174,10 +186,16 @@ export function PartnershipPhilosophy() {
 
               <Card className={getCardClassName("static")}>
                 <CardHeader>
-                  <MaterialIcon
-                    icon="public"
-                    className="mb-3 text-brand-secondary text-4xl"
-                  />
+                  <div className="relative inline-block mb-3">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/20 to-brand-primary-dark/20 blur-xl rounded-full"></div>
+                    <div className="relative w-16 h-16 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-xl flex items-center justify-center shadow-lg">
+                      <MaterialIcon
+                        icon="public"
+                        size="xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Community-Centered Culture
                   </CardTitle>

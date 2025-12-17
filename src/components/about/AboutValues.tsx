@@ -16,14 +16,6 @@ interface AboutValuesProps {
   coreValues: CoreValue[];
 }
 
-// Map icon names to backgrounds
-const iconBackgrounds: { [key: string]: string } = {
-  verified: "bg-brand-secondary",
-  balance: "bg-primary-700",
-  business_center: "bg-brand-primary",
-  task_alt: "bg-primary-600",
-};
-
 // Map values to images
 const valueImages: { [key: string]: string } = {
   Honesty: "/images/values/honesty.jpg",
@@ -79,7 +71,6 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
         <div className="space-y-12 lg:space-y-16">
           {coreValues.map((item, index) => {
             const isEven = index % 2 === 0;
-            const iconBg = iconBackgrounds[item.iconName] || "bg-brand-primary";
             const image =
               valueImages[item.title] || "/images/values/honesty.jpg";
             const stats = valueStats[item.title] || "Core Value";
@@ -110,15 +101,12 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
                     {/* Icon Badge on Image */}
                     <div className="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">
                       <div className="relative inline-block">
-                        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 blur-xl rounded-2xl"></div>
-                        <div
-                          className={`relative w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 ${iconBg} rounded-2xl flex items-center justify-center shadow-xl`}
-                        >
+                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-2xl"></div>
+                        <div className="relative w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white/50 dark:border-gray-700/50">
                           <MaterialIcon
                             icon={item.iconName}
                             size="xl"
-                            className="text-white"
-                            interactive
+                            className="text-white drop-shadow-lg"
                           />
                         </div>
                       </div>

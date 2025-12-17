@@ -215,6 +215,240 @@
 
 ---
 
+## Gradient Patterns (Homepage Reference)
+
+### Three-Color Brand Gradients
+
+The homepage establishes signature three-color gradients that should be used throughout the site for consistency.
+
+#### Header Text Gradients
+
+**Primary Three-Color (Most Common):**
+
+```tsx
+className =
+  "bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent";
+```
+
+- **Use for:** Subtitle lines, secondary headers
+- **Colors:** Green → Tan → Green
+- **Effect:** Creates warm, balanced brand statement
+
+**Bronze-Accented Three-Color (Premium):**
+
+```tsx
+className =
+  "bg-gradient-to-r from-brand-primary via-bronze-600 to-brand-secondary bg-clip-text text-transparent";
+```
+
+- **Use for:** Main title lines, featured headers
+- **Colors:** Green → Bronze → Tan
+- **Effect:** Adds premium feel with bronze center
+
+#### Icon Container Gradients
+
+**Primary Green Variant:**
+
+```tsx
+// Glow layer
+className =
+  "bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl";
+
+// Container
+className =
+  "bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker";
+```
+
+- **Use for:** Core values, trust, integrity sections
+- **Effect:** Professional, authoritative
+
+**Secondary Tan/Bronze Variant:**
+
+```tsx
+// Glow layer
+className =
+  "bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl";
+
+// Container
+className =
+  "bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800";
+```
+
+- **Use for:** Services, partnerships, community sections
+- **Effect:** Warm, approachable
+
+**Multi-Color Featured Variant:**
+
+```tsx
+// Glow layer
+className =
+  "bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 blur-2xl";
+
+// Container
+className =
+  "bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary";
+```
+
+- **Use for:** Hero sections, featured content
+- **Effect:** Maximum brand impact
+
+#### Background Gradients
+
+**Hero/CTA Dark Gradient:**
+
+```tsx
+className =
+  "bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary dark:from-brand-primary-dark dark:via-gray-900 dark:to-brand-secondary-dark";
+```
+
+- **Use for:** Hero sections, CTA sections
+- **Effect:** Rich, immersive dark background
+
+**Subtle Section Gradient:**
+
+```tsx
+className =
+  "bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800";
+```
+
+- **Use for:** Alternating sections for visual rhythm
+- **Effect:** Subtle depth without overwhelming content
+
+---
+
+## Opacity Values for Overlays
+
+### Background Pattern Overlays
+
+**Diagonal Stripes:**
+
+- Light mode: `opacity-[0.03]` (3%)
+- Dark mode: `opacity-[0.05]` (5%)
+- Purpose: Subtle texture without competing with content
+
+**Radial Gradient Overlays:**
+
+```tsx
+// Top right overlay
+className =
+  "bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.15)_0%,transparent_50%)]";
+
+// Bottom left overlay
+className =
+  "bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.12)_0%,transparent_50%)]";
+```
+
+- Light mode: Primary 8%, Secondary 6%
+- Dark mode: Primary 15%, Secondary 12%
+- Purpose: Subtle brand color hints at edges
+
+### Brand Color Blobs (Homepage)
+
+**Large Blur Orbs:**
+
+```tsx
+// Primary green blob
+className =
+  "bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20";
+
+// Secondary tan blob
+className =
+  "bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20";
+```
+
+- Light mode: 10% opacity
+- Dark mode: 20% opacity
+- Size: w-96 h-96 (384px)
+- Blur: blur-3xl
+
+### Hero Section Overlays
+
+**Readability Overlay:**
+
+```tsx
+className =
+  "bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80";
+```
+
+- Primary: 30% opacity
+- Mid-gray: 60% opacity
+- Dark gray: 80% opacity
+- Purpose: Ensures white text readability over any background
+
+### Card Hover Shadows
+
+**Light Mode:**
+
+```tsx
+className = "shadow-lg hover:shadow-2xl";
+```
+
+- Default: Tailwind shadow-lg
+- Hover: Tailwind shadow-2xl
+
+**Dark Mode (with brand glow):**
+
+```tsx
+className = "dark:hover:shadow-brand-primary/20";
+```
+
+- Hover adds green glow at 20% opacity
+- Creates premium, branded feel
+
+---
+
+## Inline Text Highlighting (Homepage Pattern)
+
+Homepage descriptions use colored text highlights for visual interest and emphasis.
+
+### Keyword Highlighting Pattern
+
+```tsx
+<p className="text-gray-700 dark:text-gray-300">
+  Regular description text with{" "}
+  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+    green keywords
+  </span>
+  ,{" "}
+  <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
+    tan keywords
+  </span>
+  , and{" "}
+  <span className="font-bold text-bronze-600 dark:text-bronze-400">
+    bronze keywords
+  </span>{" "}
+  for emphasis.
+</p>
+```
+
+### Semantic Color Usage
+
+**Green Highlights:** Technical excellence, quality, expertise
+
+- Examples: "project excellence", "proven methods", "quality assurance"
+
+**Tan Highlights:** Partnership, relationships, community
+
+- Examples: "client partners", "lasting relationships", "collaboration"
+
+**Bronze Highlights:** Premium services, achievements, craftsmanship
+
+- Examples: "expert craftsmanship", "award-winning", "premium service"
+
+**White/Gray Highlights:** Universal emphasis
+
+- Examples: "NOT the dollar", "zero compromises", "guaranteed"
+
+### Implementation Guidelines
+
+1. **Frequency:** Highlight 3-6 key terms per paragraph
+2. **Distribution:** Vary colors across a section for visual interest
+3. **Weight:** Always pair with `font-bold` for proper emphasis
+4. **Dark Mode:** Use lighter variants (`-light`, `400`) for contrast
+5. **Avoid:** Don't highlight every other word - be selective
+
+---
+
 ## Button Color Implementation
 
 ### Primary Buttons (Hunter Green)

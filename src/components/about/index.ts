@@ -1,5 +1,6 @@
 export { AboutHero } from "./AboutHero";
 export { AboutValues, type CoreValue } from "./AboutValues";
+export { CompanyEvolution } from "./CompanyEvolution";
 export { PartnershipPhilosophy } from "./PartnershipPhilosophy";
 export {
   CompanyStats,
@@ -7,7 +8,7 @@ export {
   type CompanyStatsProps,
   type StatItem,
 } from "./CompanyStats";
-export { LeadershipTeam, leadershipTeam } from "./LeadershipTeam";
+export { LeadershipTeam } from "./LeadershipTeam";
 export { SafetySection } from "./SafetySection";
 export { AwardsSection } from "./AwardsSection";
 import type { CoreValue } from "./AboutValues";

@@ -48,6 +48,53 @@ Every section should include these visual enhancement elements for consistency:
 - **Pattern A**: `from-gray-50 via-white to-gray-50`
 - **Pattern B**: `from-white via-gray-50 to-white`
 - **Pattern C**: `from-gray-50 via-white to-gray-100` (for variety)
+- **Pattern D**: `bg-white dark:bg-gray-900` (solid, used with diagonal stripes)
+
+#### 1a. Diagonal Stripe Background Pattern (Homepage Standard)
+
+**Use for:** Sections that need subtle texture without competing with content
+
+This unique pattern adds professional texture to white/solid background sections:
+
+```tsx
+{
+  /* Section with solid background */
+}
+<section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+  {/* Diagonal Stripe Pattern Overlay */}
+  <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+    <div
+      className="absolute inset-0"
+      style={{
+        backgroundImage: `repeating-linear-gradient(
+          45deg,
+          #386851 0px,
+          #386851 2px,
+          transparent 2px,
+          transparent 60px
+        )`,
+      }}
+    ></div>
+  </div>
+  {/* Rest of section content */}
+</section>;
+```
+
+**Pattern Details:**
+
+- **Angle:** 45deg diagonal
+- **Color:** Primary brand green (#386851)
+- **Stripe width:** 2px
+- **Spacing:** 60px between stripes
+- **Opacity:** 3% light mode, 5% dark mode (very subtle)
+- **Purpose:** Adds texture without overwhelming content
+
+**When to use:**
+
+- Core Values Section
+- Services Showcase
+- Process Timeline
+- Any section with solid white/gray background needing subtle depth
 
 #### 2. Radial Gradient Overlays
 
@@ -65,9 +112,37 @@ Add depth with subtle radial gradients:
 - Secondary orange: `rgba(189,146,100,0.06)` light / `0.12` dark
 - Accent bronze: `rgba(189,146,100,0.08)` light / `0.12` dark
 
-#### 3. Animated Blur Orbs
+#### 3. Large Brand Color Blobs (Homepage Pattern)
 
-Three animated blur orbs with staggered delays:
+**Primary pattern** used throughout homepage for depth and brand reinforcement:
+
+```tsx
+{/* Large Brand Color Blobs - Fixed positioning pattern */}
+<div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+<div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+```
+
+**Pattern Details:**
+
+- **Size:** Large orbs at w-96 h-96 (384px)
+- **Position:**
+  - Top right at 15% from right edge, 80px from top
+  - Bottom left at 15% from left edge, 80px from bottom
+- **Gradient:** to-transparent for soft fade
+- **Blur:** blur-3xl for maximum softness
+- **Colors:** Alternates between primary (green) and secondary (tan)
+- **No animation:** Static positioning (unlike animated orbs pattern)
+
+**When to use:**
+
+- Homepage sections (Core Values, Services, Why Partner, Process)
+- Major landing page sections
+- Sections with diagonal stripe pattern
+- Use instead of animated orbs for cleaner, more professional look
+
+#### 3a. Animated Blur Orbs (Alternative Pattern)
+
+Three animated blur orbs with staggered delays (used on other pages):
 
 ```tsx
 <div className="top-20 left-10 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
@@ -82,6 +157,12 @@ Three animated blur orbs with staggered delays:
 ```
 
 **Animation Delays:** 0s, 0.5s, 1s (staggered for visual interest)
+
+**When to use:**
+
+- Non-homepage sections
+- Pages where subtle movement enhances engagement
+- Use sparingly - homepage prefers static blobs
 
 ---
 

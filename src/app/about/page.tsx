@@ -12,14 +12,13 @@ import {
 } from "@/components/animations/FramerMotionComponents";
 import {
   AboutHero,
-  AboutValues,
-  coreValues,
   PartnershipPhilosophy,
   CompanyStats,
   LeadershipTeam,
   SafetySection,
   AwardsSection,
 } from "@/components/about";
+import { CompanyEvolution } from "@/components/about/CompanyEvolution";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { StructuredData } from "@/components/seo/seo-meta";
@@ -126,18 +125,15 @@ export default function AboutPage() {
       />
 
       <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-        {/* Hero Section */}
+        {/* Hero Section - Keyword-rich introduction */}
         <AboutHero />
 
-        {/* Breadcrumb Navigation */}
+        {/* Breadcrumb Navigation - Schema markup for SEO */}
         <Breadcrumb
           items={[{ label: "Home", href: "/" }, { label: "Our Oath" }]}
         />
 
-        {/* Partnership Philosophy Section */}
-        <PartnershipPhilosophy />
-
-        {/* Company Stats */}
+        {/* Company Stats - Early trust signals (social proof at 15-20% depth) */}
         <CompanyStats
           id="stats"
           subtitle=""
@@ -146,22 +142,28 @@ export default function AboutPage() {
           variant="primary"
         />
 
-        {/* Core Values Section */}
-        <AboutValues coreValues={coreValues} />
-
-        {/* Client Reviews Section - POSITIONED AT 25-30% PAGE DEPTH FOR SEO OPTIMIZATION */}
+        {/* Client Reviews Section - Social proof at optimal 20-25% page depth for SEO */}
         <TestimonialsSection
           id="testimonials"
-          subtitle="Partnership"
-          title="Reviews"
-          description="Hear directly from our partners about their experience working with MH Construction on their most important projects."
+          subtitle="Client Partner"
+          title="Testimonials"
+          description="Hear directly from our partners about their experience working with MH Construction on their most important projects—where trust is earned, not claimed."
         />
 
-        {/* Leadership Team Section - MOVED EARLIER: Faces build trust and connection */}
-        <LeadershipTeam />
+        {/* Partnership Philosophy Section - Core value proposition with keywords */}
+        <PartnershipPhilosophy />
 
-        {/* Awards & Recognition Section */}
+        {/* Company Evolution Timeline Section - Rich historical content with keywords */}
+        <CompanyEvolution />
+
+        {/* Awards & Recognition Section - Credibility and trust signals */}
         <AwardsSection />
+
+        {/* Safety & Compliance Section - Industry-specific trust and expertise */}
+        <SafetySection />
+
+        {/* Leadership Team Section - Team Six concept drives to full Teams page */}
+        <LeadershipTeam />
 
         {/* Why Values Matter Section */}
         <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
@@ -198,14 +200,16 @@ export default function AboutPage() {
               <div className="group h-full">
                 <div className="h-full flex flex-col p-6 sm:p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                   <div className="mb-6 flex justify-center">
-                    <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-3 shadow-md group-hover:scale-110 transition-transform duration-300">
-                      <MaterialIcon
-                        icon="groups"
-                        size="xl"
-                        theme="military"
-                        ariaLabel="Our partners"
-                        className="text-white"
-                      />
+                    <div className="relative inline-block">
+                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-xl rounded-xl"></div>
+                      <div className="relative rounded-xl bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-3 shadow-lg">
+                        <MaterialIcon
+                          icon="groups"
+                          size="xl"
+                          ariaLabel="Our partners"
+                          className="text-white drop-shadow-lg"
+                        />
+                      </div>
                     </div>
                   </div>
                   <h3 className="mb-4 text-center font-bold text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
@@ -255,14 +259,16 @@ export default function AboutPage() {
               <div className="group h-full">
                 <div className="h-full flex flex-col p-6 sm:p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                   <div className="mb-6 flex justify-center">
-                    <div className="rounded-xl bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-3 shadow-md group-hover:scale-110 transition-transform duration-300">
-                      <MaterialIcon
-                        icon="domain"
-                        size="xl"
-                        theme="tactical"
-                        ariaLabel="Our community"
-                        className="text-white"
-                      />
+                    <div className="relative inline-block">
+                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/30 to-brand-secondary-dark/30 blur-xl rounded-xl"></div>
+                      <div className="relative rounded-xl bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-secondary-700 p-3 shadow-lg">
+                        <MaterialIcon
+                          icon="domain"
+                          size="xl"
+                          ariaLabel="Our community"
+                          className="text-white drop-shadow-lg"
+                        />
+                      </div>
                     </div>
                   </div>
                   <h3 className="mb-4 text-center font-bold text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
@@ -312,12 +318,15 @@ export default function AboutPage() {
               <div className="group h-full">
                 <div className="h-full flex flex-col p-6 sm:p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                   <div className="mb-6 flex justify-center">
-                    <div className="rounded-xl bg-gradient-to-br from-brand-secondary to-brand-secondary-dark p-3 shadow-md group-hover:scale-110 transition-transform duration-300">
-                      <MaterialIcon
-                        icon="engineering"
-                        size="xl"
-                        className="text-white"
-                      />
+                    <div className="relative inline-block">
+                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/30 to-brand-secondary-dark/30 blur-xl rounded-xl"></div>
+                      <div className="relative rounded-xl bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-secondary-700 p-3 shadow-lg">
+                        <MaterialIcon
+                          icon="engineering"
+                          size="xl"
+                          className="text-white drop-shadow-lg"
+                        />
+                      </div>
                     </div>
                   </div>
                   <h3 className="mb-4 text-center font-bold text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
@@ -367,9 +376,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Safety & Compliance Section */}
-        <SafetySection />
-
         {/* News & Achievements Section - MERGED from Company Blog + Latest News */}
         <section
           id="news"
@@ -399,9 +405,9 @@ export default function AboutPage() {
             <SectionHeader
               icon="campaign"
               iconVariant="secondary"
-              subtitle="News, Insights &"
-              title="Company Achievements"
-              description="Stay updated with our latest projects, partnerships, industry insights, and milestones from our veteran-owned team"
+              subtitle="Mission Updates"
+              title="Latest News & Achievements"
+              description="Stay updated with our latest projects, partnerships, industry insights, and milestones from our veteran-owned team—where every achievement reflects our commitment to excellence."
             />
 
             {/* Combined grid with best content from both sections - 6 items total */}

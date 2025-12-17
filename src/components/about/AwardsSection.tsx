@@ -72,9 +72,9 @@ export function AwardsSection() {
         <SectionHeader
           icon="workspace_premium"
           iconVariant="bronze"
-          subtitle="Awards &"
-          title="Recognition"
-          description="Our commitment to excellence has been recognized by industry leaders and the communities we serve throughout the Pacific Northwest."
+          subtitle="Proven Excellence"
+          title="Industry Recognition"
+          description="Our commitment to excellence has been recognized by industry leaders and the communities we serve throughout the Pacific Northwest—where actions speak louder than words."
         />
 
         {/* Industry Recognition Cards - 4 Key Awards */}
@@ -189,185 +189,112 @@ export function AwardsSection() {
           </div>
         </div>
 
-        {/* AGC Safety Awards Timeline */}
+        {/* AGC Safety Awards Trophy Case */}
         <div>
           <h3 className="mb-8 sm:mb-12 lg:mb-16 font-bold text-center text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl">
-            AGC Washington - Safety Awards Timeline
+            AGC Washington - Safety Excellence Trophy Case
           </h3>
 
-          {/* Timeline - Vertical Alternating Layout */}
-          <div className="relative max-w-6xl mx-auto">
-            {/* Vertical Connecting Line */}
-            <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-brand-primary/30 via-brand-secondary to-brand-primary/30"></div>
+          {/* Trophy Case Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+            {emrTimeline.map((item, index) => (
+              <div
+                key={index}
+                className="group scroll-reveal"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="relative bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:border-brand-primary dark:hover:border-brand-primary-light h-full overflow-hidden">
+                  {/* Trophy Icon Background Watermark */}
+                  <div className="absolute top-4 right-4 opacity-5 dark:opacity-10">
+                    <MaterialIcon
+                      icon="emoji_events"
+                      className="text-brand-primary"
+                      style={{ fontSize: "120px" }}
+                    />
+                  </div>
 
-            {/* Timeline Items - Desktop Alternating */}
-            <div className="space-y-12 lg:space-y-20">
-              {emrTimeline.map((item, index) => {
-                const isEven = index % 2 === 0;
-                return (
-                  <div
-                    key={index}
-                    className="relative group scroll-reveal"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    {/* Desktop Layout */}
-                    <div className="hidden lg:flex items-center gap-8">
-                      {isEven ? (
-                        <>
-                          {/* Content Left */}
-                          <div className="flex-1 text-right">
-                            <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-primary dark:group-hover:border-brand-primary-light">
-                              <div className="flex items-center justify-end gap-4 mb-4">
-                                <div>
-                                  <div className="flex items-center justify-end gap-2 mb-2">
-                                    <span className="font-black text-brand-primary text-3xl">
-                                      {item.year}
-                                    </span>
-                                    <span className="bg-brand-primary/10 dark:bg-brand-primary/20 px-3 py-1 rounded-full font-semibold text-brand-primary text-xs">
-                                      AGC Award
-                                    </span>
-                                  </div>
-                                  <h4 className="font-black text-gray-900 dark:text-white text-xl sm:text-2xl mb-1">
-                                    {item.title}
-                                  </h4>
-                                  <p className="font-semibold text-brand-secondary dark:text-brand-secondary-light text-base">
-                                    {item.achievement}
-                                  </p>
-                                </div>
-                                <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
-                                  <MaterialIcon
-                                    icon={item.icon}
-                                    size="xl"
-                                    className="text-white"
-                                  />
-                                </div>
-                              </div>
-                              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                                {item.details}
-                              </p>
-                            </div>
-                          </div>
-
-                          {/* Center Circle */}
-                          <div className="flex-shrink-0 relative z-10">
-                            <div className="w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
-                              {index + 1}
-                            </div>
-                          </div>
-
-                          {/* Empty Right */}
-                          <div className="flex-1"></div>
-                        </>
-                      ) : (
-                        <>
-                          {/* Empty Left */}
-                          <div className="flex-1"></div>
-
-                          {/* Center Circle */}
-                          <div className="flex-shrink-0 relative z-10">
-                            <div className="w-20 h-20 bg-gradient-to-br from-brand-secondary to-brand-secondary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
-                              {index + 1}
-                            </div>
-                          </div>
-
-                          {/* Content Right */}
-                          <div className="flex-1 text-left">
-                            <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-secondary dark:group-hover:border-brand-secondary-light">
-                              <div className="flex items-center gap-4 mb-4">
-                                <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-brand-secondary to-brand-secondary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
-                                  <MaterialIcon
-                                    icon={item.icon}
-                                    size="xl"
-                                    className="text-white"
-                                  />
-                                </div>
-                                <div>
-                                  <div className="flex items-center gap-2 mb-2">
-                                    <span className="font-black text-brand-secondary text-3xl">
-                                      {item.year}
-                                    </span>
-                                    <span className="bg-brand-secondary/10 dark:bg-brand-secondary/20 px-3 py-1 rounded-full font-semibold text-brand-secondary text-xs">
-                                      AGC Award
-                                    </span>
-                                  </div>
-                                  <h4 className="font-black text-gray-900 dark:text-white text-xl sm:text-2xl mb-1">
-                                    {item.title}
-                                  </h4>
-                                  <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-base">
-                                    {item.achievement}
-                                  </p>
-                                </div>
-                              </div>
-                              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                                {item.details}
-                              </p>
-                            </div>
-                          </div>
-                        </>
-                      )}
-                    </div>
-
-                    {/* Mobile Layout */}
-                    <div className="lg:hidden flex gap-4">
-                      {/* Left Side - Number and Line */}
-                      <div className="flex flex-col items-center flex-shrink-0">
-                        <div
-                          className={`w-16 h-16 ${
-                            index % 2 === 0
-                              ? "bg-gradient-to-br from-brand-primary to-brand-primary-dark"
-                              : "bg-gradient-to-br from-brand-secondary to-brand-secondary-dark"
-                          } rounded-full flex items-center justify-center text-white font-black text-2xl shadow-xl border-4 border-white dark:border-gray-900 relative z-10`}
-                        >
-                          {index + 1}
+                  {/* Award Badge */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-3">
+                      <div className="relative">
+                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-xl rounded-full"></div>
+                        <div className="relative w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                          <MaterialIcon
+                            icon={item.icon}
+                            size="xl"
+                            className="text-white drop-shadow-lg"
+                          />
                         </div>
-                        {index < emrTimeline.length - 1 && (
-                          <div className="w-1 flex-1 bg-gradient-to-b from-brand-primary to-brand-secondary mt-2 min-h-[60px]"></div>
-                        )}
                       </div>
-
-                      {/* Right Side - Card */}
-                      <div className="flex-1 pb-8">
-                        <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-brand-primary dark:hover:border-brand-primary-light">
-                          <div className="flex items-center gap-3 mb-4">
-                            <div
-                              className={`flex-shrink-0 w-14 h-14 ${
-                                index % 2 === 0
-                                  ? "bg-gradient-to-br from-brand-primary to-brand-primary-dark"
-                                  : "bg-gradient-to-br from-brand-secondary to-brand-secondary-dark"
-                              } rounded-xl flex items-center justify-center shadow-lg`}
-                            >
-                              <MaterialIcon
-                                icon={item.icon}
-                                size="lg"
-                                className="text-white"
-                              />
-                            </div>
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2 mb-1">
-                                <span className="font-black text-brand-primary text-2xl">
-                                  {item.year}
-                                </span>
-                                <span className="bg-brand-primary/10 dark:bg-brand-primary/20 px-2 py-0.5 rounded-full font-semibold text-brand-primary text-xs">
-                                  AGC Award
-                                </span>
-                              </div>
-                              <h4 className="font-black text-gray-900 dark:text-white text-lg mb-1">
-                                {item.title}
-                              </h4>
-                              <p className="font-semibold text-brand-secondary text-sm">
-                                {item.achievement}
-                              </p>
-                            </div>
-                          </div>
-                          <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                            {item.details}
-                          </p>
-                        </div>
+                      <div>
+                        <span className="block font-black text-brand-primary dark:text-brand-primary-light text-4xl lg:text-5xl">
+                          {item.year}
+                        </span>
+                        <span className="inline-block bg-gradient-to-r from-brand-primary/20 to-brand-secondary/20 dark:from-brand-primary/30 dark:to-brand-secondary/30 px-3 py-1 rounded-full font-semibold text-brand-primary text-xs border border-brand-primary/30">
+                          AGC Award
+                        </span>
                       </div>
                     </div>
                   </div>
-                );
-              })}
+
+                  {/* Award Content */}
+                  <div className="relative z-10">
+                    <h4 className="font-black text-gray-900 dark:text-white text-xl lg:text-2xl mb-3">
+                      {item.title}
+                    </h4>
+                    <div className="flex items-center gap-2 mb-4">
+                      <MaterialIcon
+                        icon="shield"
+                        size="sm"
+                        className="text-brand-secondary"
+                      />
+                      <p className="font-bold text-brand-secondary dark:text-brand-secondary-light text-base lg:text-lg">
+                        {item.achievement}
+                      </p>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm lg:text-base leading-relaxed">
+                      {item.details}
+                    </p>
+                  </div>
+
+                  {/* Bottom Badge Indicator */}
+                  <div className="absolute bottom-4 right-4 opacity-30 group-hover:opacity-60 transition-opacity">
+                    <div className="flex items-center gap-1">
+                      {[...Array(index + 1)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="w-2 h-2 bg-brand-primary rounded-full"
+                        ></div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Summary Banner */}
+          <div className="mt-12 text-center">
+            <div className="inline-block bg-gradient-to-r from-brand-primary/10 via-brand-secondary/10 to-brand-primary/10 dark:from-brand-primary/20 dark:via-brand-secondary/20 dark:to-brand-primary/20 rounded-2xl px-8 py-6 border-2 border-brand-primary/30 dark:border-brand-primary/50">
+              <div className="flex items-center justify-center gap-3 flex-wrap">
+                <MaterialIcon
+                  icon="workspace_premium"
+                  size="xl"
+                  className="text-brand-primary"
+                />
+                <p className="font-bold text-gray-900 dark:text-white text-lg lg:text-xl">
+                  4 Consecutive AGC Washington Safety Awards
+                </p>
+                <MaterialIcon
+                  icon="workspace_premium"
+                  size="xl"
+                  className="text-brand-primary"
+                />
+              </div>
+              <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                Consistently recognized for industry-leading safety performance
+                and zero-incident culture
+              </p>
             </div>
           </div>
         </div>

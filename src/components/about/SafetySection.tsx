@@ -41,8 +41,8 @@ export function SafetySection() {
         <SectionHeader
           icon="shield"
           iconVariant="primary"
-          subtitle="Safety &"
-          title="Compliance"
+          subtitle="Mission-First Safety Culture"
+          title="Zero-Incident Commitment"
           description="Safety is never compromised at MH Construction. Our award-winning comprehensive safety programs and regulatory compliance ensure every construction operation meets the highest standards. With multiple AGC-WA Top EMR Awards and a .64 EMR (40% better than industry average), we demonstrate unwavering commitment to zero-incident mission culture with military-grade safety discipline."
         />
 
@@ -52,13 +52,17 @@ export function SafetySection() {
           <Card className={getCardClassName("primary", "h-full duration-300")}>
             <CardHeader>
               <div className="flex items-center space-x-3 mb-4">
-                <MaterialIcon
-                  icon="verified_user"
-                  size="lg"
-                  theme="military"
-                  ariaLabel="Mission-first safety"
-                  className="text-brand-primary"
-                />
+                <div className="relative inline-block">
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-xl rounded-full"></div>
+                  <div className="relative w-12 h-12 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-xl flex items-center justify-center shadow-lg border-2 border-white/50 dark:border-gray-700/50">
+                    <MaterialIcon
+                      icon="verified_user"
+                      size="lg"
+                      ariaLabel="Mission-first safety"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
                 <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                   Mission-First Safety Culture
                 </CardTitle>
@@ -120,11 +124,16 @@ export function SafetySection() {
           >
             <CardHeader>
               <div className="flex items-center space-x-3 mb-4">
-                <MaterialIcon
-                  icon="gavel"
-                  size="lg"
-                  className="text-brand-secondary"
-                />
+                <div className="relative inline-block">
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/30 to-brand-secondary-dark/30 blur-xl rounded-full"></div>
+                  <div className="relative w-12 h-12 bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-bronze-700 rounded-xl flex items-center justify-center shadow-lg border-2 border-white/50 dark:border-gray-700/50">
+                    <MaterialIcon
+                      icon="gavel"
+                      size="lg"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
                 <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                   Regulatory Compliance
                 </CardTitle>
@@ -175,11 +184,16 @@ export function SafetySection() {
           <Card className={getCardClassName("accent", "h-full duration-300")}>
             <CardHeader>
               <div className="flex items-center space-x-3 mb-4">
-                <MaterialIcon
-                  icon="health_and_safety"
-                  size="lg"
-                  className="text-brand-primary"
-                />
+                <div className="relative inline-block">
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-xl rounded-full"></div>
+                  <div className="relative w-12 h-12 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-xl flex items-center justify-center shadow-lg border-2 border-white/50 dark:border-gray-700/50">
+                    <MaterialIcon
+                      icon="health_and_safety"
+                      size="lg"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
                 <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                   Quality Assurance
                 </CardTitle>

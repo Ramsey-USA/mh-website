@@ -1,66 +1,50 @@
 /**
- * Leadership Team Section for About Page
- * Displays leadership team members with interactive cards
+ * Leadership Team Teaser Section for About Page
+ * Explains Team Six concept and drives users to full Teams page
  */
 
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
+import Link from "next/link";
+import { Card, CardContent, Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
-import { gridPresets } from "@/lib/styles/layout-variants";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
-// Leadership Team Data - Enhanced with comprehensive details
-export const leadershipTeam = [
+// Team specialties that make up our "Team Six" approach
+const teamSpecialties = [
   {
-    name: "Jeremy Thamert",
-    role: "Owner & President",
-    experience:
-      "Veteran-owned operational leadership with mission-focused strategic execution since January 2025",
-    status: "Veteran-Owned Leadership",
-    specialties: [
-      "Zero-Incident Mission Culture & Organizational Standards",
-      "Tactical Marketing Strategy & Brand Deployment",
-      "Workforce Development & Mission-Ready Team Building",
-      "Human Resources & People-First Operational Leadership",
-      "Strategic Operations & Business Mission Growth",
-    ],
-    philosophy:
-      "Operational excellence through military-grade discipline applied to people, safety, and partnership missions",
     icon: "military_tech",
+    title: "Mission Leadership",
+    description:
+      "Veteran-owned operational discipline meets proven construction excellence",
   },
   {
-    name: "Arnold Garcia",
-    role: "Vice President",
-    experience:
-      "15+ years with MH Construction leading client mission partnerships",
-    status: "Senior Leadership",
-    specialties: [
-      "Client Relationships & Strategic Partnership Deployment",
-      "Tactical Operations & Mission-Driven Business Growth",
-      "Service Excellence & Mission-Critical Quality Assurance",
-      "Project Oversight & Tactical Risk Management",
-      "Commercial & Industrial Construction Operation Leadership",
-    ],
-    philosophy:
-      "Primary client liaison for major commercial and industrial construction missions—building partnerships that last beyond mission completion",
-    icon: "hub",
+    icon: "engineering",
+    title: "Technical Precision",
+    description:
+      "Specialized expertise in commercial, industrial, and public sector projects",
   },
   {
-    name: "Mike Holstein",
-    role: "Founder (Retired)",
-    experience:
-      "Company founder in 2010, construction mission leadership since 1995",
-    status: "Retired Leadership",
-    specialties: [
-      "Mission Foundation & Core Values Establishment",
-      "Battle-Tested Quality Standards Development",
-      "Client Trust & Service-Earned Reputation Building",
-      "Mentorship & Strategic Succession Planning",
-      "Partnership Philosophy: 'We Work With You'—Mission Together",
-    ],
-    philosophy:
-      'Established the "We Work With You, Not FOR You" mission partnership philosophy and trust-built operational excellence that defines MH Construction today',
-    icon: "history",
+    icon: "shield",
+    title: "Safety Excellence",
+    description:
+      "OSHA VPP Star certified with consecutive Top EMR awards—zero-incident culture",
+  },
+  {
+    icon: "handshake",
+    title: "Client Partnership",
+    description:
+      "70% referral rate through service-earned trust and transparent communication",
+  },
+  {
+    icon: "verified",
+    title: "Quality Assurance",
+    description:
+      "Battle-tested standards ensuring first-time-right execution on every mission",
+  },
+  {
+    icon: "groups",
+    title: "Team Cohesion",
+    description:
+      "Individual specialists united under shared mission: building for the client, not the dollar",
   },
 ];
 
@@ -92,131 +76,118 @@ export function LeadershipTeam() {
 
       <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <SectionHeader
-          icon="groups"
-          iconVariant="secondary"
-          subtitle="Meet Our"
-          title="Team"
-          description="Our service-earned leadership team, with military-grade structure, alongside a team of battle-tested professionals, brings operational discipline, unwavering mission focus, and owner-first values to every construction operation"
+          icon="military_tech"
+          iconVariant="primary"
+          subtitle="Team Six Excellence"
+          title="Elite Specialists, Unified Mission"
+          description="Like SEAL Team Six brings together elite individual specialists for mission-critical operations, MH Construction's Team Six unites specialized expertise across leadership, safety, quality, and client partnership—each member essential to mission success."
         />
 
-        <StaggeredFadeIn
-          className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
-        >
-          {leadershipTeam.map((member, _index) => (
-            <div
-              key={_index}
-              className="group h-[450px] sm:h-[480px] md:h-[500px] lg:h-[520px]"
-              style={{ perspective: "1000px" }}
-            >
-              <div className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
-                {/* Front of card */}
-                <div className="absolute inset-0 backface-hidden">
-                  <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 border border-gray-200 dark:border-gray-700 w-full h-full flex flex-col overflow-hidden transition-all duration-300">
-                    <CardHeader className="pb-6 text-center flex-shrink-0 px-4 sm:px-6">
-                      <div className="flex justify-center items-center bg-brand-primary mx-auto mb-4 p-4 rounded-full w-20 h-20">
-                        <MaterialIcon
-                          icon={member.icon}
-                          size="xl"
-                          className="text-white"
-                        />
-                      </div>
-                      <CardTitle className="mb-2 text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                        {member.name}
-                      </CardTitle>
-                      <p className="font-semibold text-brand-primary text-base sm:text-lg md:text-xl">
-                        {member.role}
-                      </p>
-                      <div className="flex justify-center items-center mt-2">
-                        <MaterialIcon
-                          icon="schedule"
-                          size="sm"
-                          className="mr-2 text-brand-secondary"
-                        />
-                        <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                          {member.experience}
-                        </span>
-                      </div>
-                      <div className="mt-3">
-                        <span className="pl-3 border-brand-secondary border-l-4 font-medium text-brand-secondary text-xs sm:text-sm md:text-base">
-                          {member.status}
-                        </span>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="pt-0 flex-grow px-4 sm:px-6">
-                      <div className="pt-4 border-gray-100 dark:border-gray-600 border-t">
-                        <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base italic leading-relaxed break-words">
-                          "{member.philosophy}"
-                        </p>
-                      </div>
-                      <div className="flex-shrink-0 mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-gray-300 dark:border-gray-600">
-                        <div className="flex items-center justify-center gap-2 text-brand-primary dark:text-brand-primary-light">
-                          <MaterialIcon
-                            icon="autorenew"
-                            size="md"
-                            className="animate-spin-slow group-hover:animate-spin"
-                          />
-                          <span className="font-semibold text-xs sm:text-sm uppercase tracking-wider">
-                            <span className="hidden sm:inline">
-                              Hover to learn more
-                            </span>
-                            <span className="sm:hidden">Tap to learn more</span>
-                          </span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-
-                {/* Back of card */}
-                <div
-                  className="absolute inset-0 backface-hidden rotate-y-180"
-                  style={{ transform: "rotateY(180deg)" }}
-                >
-                  <Card className="bg-gradient-to-br from-brand-secondary to-brand-primary dark:from-brand-primary-dark dark:to-gray-900 shadow-2xl dark:shadow-brand-primary/30 border border-brand-secondary dark:border-brand-secondary/50 w-full h-full flex flex-col overflow-hidden transition-all duration-300">
-                    <CardHeader className="pb-4 text-center flex-shrink-0 px-4 sm:px-6">
-                      <div className="flex justify-center items-center bg-white/20 mx-auto mb-4 p-4 rounded-full w-20 h-20">
-                        <MaterialIcon
-                          icon={member.icon}
-                          size="xl"
-                          className="text-white"
-                        />
-                      </div>
-                      <CardTitle className="mb-2 text-white text-lg sm:text-xl md:text-2xl">
-                        {member.name}
-                      </CardTitle>
-                      <div className="flex items-center justify-center mb-4">
-                        <MaterialIcon
-                          icon="star"
-                          size="md"
-                          className="mr-2 text-brand-secondary"
-                        />
-                        <p className="font-bold text-white text-base sm:text-lg md:text-xl">
-                          Core Specialties
-                        </p>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="pt-0 flex-grow px-4 sm:px-6">
-                      <ul className="space-y-3">
-                        {member.specialties.map((specialty, sIndex) => (
-                          <li key={sIndex} className="flex items-start">
-                            <MaterialIcon
-                              icon="check_circle"
-                              size="sm"
-                              className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary"
-                            />
-                            <span className="text-white leading-relaxed text-xs sm:text-sm md:text-base break-words">
-                              {specialty}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
+        {/* Team Six Concept Card */}
+        <div className="max-w-4xl mx-auto mb-12 lg:mb-16">
+          <Card className="bg-gradient-to-br from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-gray-900 shadow-2xl border-2 border-brand-primary-light dark:border-brand-primary">
+            <CardContent className="p-8 lg:p-12 text-center">
+              <div className="flex justify-center mb-6">
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-brand-secondary/30 blur-2xl rounded-full"></div>
+                  <div className="relative w-24 h-24 bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-bronze-700 rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white/50 dark:border-gray-700/50">
+                    <MaterialIcon
+                      icon="workspace_premium"
+                      size="2xl"
+                      className="text-white"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
+              <h3 className="text-2xl lg:text-3xl font-black text-white mb-4">
+                Why "Team Six"?
+              </h3>
+              <p className="text-white/90 text-lg lg:text-xl leading-relaxed mb-6">
+                SEAL Team Six succeeds because each operator brings{" "}
+                <span className="font-bold text-brand-secondary">
+                  specialized mastery
+                </span>{" "}
+                to a{" "}
+                <span className="font-bold text-brand-secondary">
+                  unified mission
+                </span>
+                . MH Construction operates the same way—every team member from
+                ownership to field personnel contributes unique expertise toward
+                one goal:{" "}
+                <span className="font-bold text-white">
+                  delivering exceptional results for our clients
+                </span>
+                .
+              </p>
+              <div className="flex items-center justify-center gap-2 text-brand-secondary font-bold text-sm uppercase tracking-wider">
+                <MaterialIcon icon="stars" size="md" />
+                <span>Individual Excellence. Collective Mission.</span>
+                <MaterialIcon icon="stars" size="md" />
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Team Specialties Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
+          {teamSpecialties.map((specialty, index) => (
+            <Card
+              key={index}
+              className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-primary-light shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            >
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="relative flex-shrink-0">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-xl rounded-full"></div>
+                    <div className="relative w-14 h-14 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg">
+                      <MaterialIcon
+                        icon={specialty.icon}
+                        size="lg"
+                        className="text-white"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-black text-gray-900 dark:text-white text-lg mb-2">
+                      {specialty.title}
+                    </h3>
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                  {specialty.description}
+                </p>
+              </CardContent>
+            </Card>
           ))}
-        </StaggeredFadeIn>
+        </div>
+
+        {/* CTA to Team Page */}
+        <div className="text-center">
+          <div className="inline-block bg-gradient-to-r from-brand-primary/10 via-brand-secondary/10 to-bronze-600/10 dark:from-brand-primary/20 dark:via-brand-secondary/20 dark:to-bronze-600/20 rounded-2xl p-8 lg:p-12 border-2 border-brand-primary/30 dark:border-brand-primary/50">
+            <h3 className="text-2xl lg:text-3xl font-black text-gray-900 dark:text-white mb-4">
+              Meet Your Team Six
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+              Discover the leaders, specialists, and field professionals who
+              bring individual mastery to every MH Construction mission—each
+              dedicated to your project's success.
+            </p>
+            <Link href="/team">
+              <Button
+                variant="primary"
+                size="lg"
+                className="group shadow-2xl hover:shadow-brand-primary/50 dark:hover:shadow-brand-primary/30"
+              >
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="md"
+                  className="mr-2 group-hover:translate-x-1 transition-transform"
+                />
+                View Full Team Roster
+              </Button>
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );
