@@ -117,174 +117,17 @@ export default function Home() {
       {/* Enhanced Client Partner Testimonials - Social proof builds credibility */}
       <TestimonialsSection
         id="testimonials"
-        subtitle="What Our"
-        title="Client Partners Say"
+        subtitle="Trusted By Our Partners"
+        title="What Our Client Partners Say"
         description="Read testimonials from valued Client Partners across the Pacific Northwest who have experienced our collaborative excellence firsthand."
       />
-
-      {/* Website Transparency & Commitment Section */}
-      <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
-        {/* Unique Diagonal Stripe Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                45deg,
-                #386851 0px,
-                #386851 2px,
-                transparent 2px,
-                transparent 60px
-              )`,
-            }}
-          ></div>
-        </div>
-
-        {/* Large Brand Color Blobs */}
-        <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-        <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
-
-        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          {/* Section Header - Military Construction Standard */}
-          <div className="mb-16 sm:mb-20 text-center">
-            {/* Icon with decorative lines */}
-            <div className="flex items-center justify-center mb-8 gap-4">
-              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                  <MaterialIcon
-                    icon="construction"
-                    size="2xl"
-                    className="text-white drop-shadow-lg"
-                  />
-                </div>
-              </div>
-              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-            </div>
-
-            {/* Two-line gradient heading */}
-            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                Transparency & Honesty
-              </span>
-              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                Commitment to Excellence
-              </span>
-            </h2>
-
-            {/* Description with colored keyword highlighting */}
-            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-              As a{" "}
-              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                veteran-owned company
-              </span>
-              , we apply the same values that guide our construction—honesty,
-              integrity, and{" "}
-              <span className="font-bold text-gray-900 dark:text-white">
-                clear communication
-              </span>
-              —to everything we do, including our digital presence.
-            </p>
-          </div>
-
-          <div className="mx-auto max-w-4xl space-y-6">
-            {/* Transparency Notice */}
-            <div className="bg-gradient-to-br from-brand-primary/10 via-white to-brand-secondary/10 dark:from-brand-primary/20 dark:via-gray-800 dark:to-brand-secondary/20 p-8 sm:p-10 border-2 border-brand-primary/30 dark:border-brand-primary/40 rounded-2xl shadow-lg mx-4 sm:mx-8">
-              <div className="flex justify-center items-center mb-6">
-                <div className="bg-brand-primary/20 dark:bg-brand-primary/30 p-3 rounded-full">
-                  <MaterialIcon
-                    icon="handshake"
-                    size="xl"
-                    className="text-brand-primary dark:text-brand-primary-light"
-                  />
-                </div>
-              </div>
-
-              <h3 className="mb-4 font-bold text-gray-900 dark:text-gray-100 text-xl sm:text-2xl">
-                🔧 Website Enhancement In Progress
-              </h3>
-
-              <p className="mb-4 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                Our core values—
-                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  honesty, integrity, and thoroughness
-                </span>
-                —mean we're transparent about everything. We're refining our
-                website to reflect the same proven craftsmanship we bring to
-                every project.
-              </p>
-
-              <p className="mb-4 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                <em>"Your Word Is Your Bond - So Is Ours."</em> Every detail
-                will reflect our commitment to transparent relationships and
-                proven results.
-              </p>
-
-              <div className="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm p-6 border border-brand-secondary/30 rounded-xl mt-6">
-                <p className="font-semibold text-gray-900 dark:text-gray-100 text-base sm:text-lg">
-                  💬 What This Means:
-                </p>
-                <ul className="space-y-2 mt-4 text-gray-700 dark:text-gray-300 text-sm sm:text-base text-left">
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      size="sm"
-                      className="text-brand-primary mr-2 mt-1 flex-shrink-0"
-                    />
-                    <span>
-                      All services and contact information are fully operational
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      size="sm"
-                      className="text-brand-primary mr-2 mt-1 flex-shrink-0"
-                    />
-                    <span>Content refinements ensure 100% accuracy</span>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="check_circle"
-                      size="sm"
-                      className="text-brand-primary mr-2 mt-1 flex-shrink-0"
-                    />
-                    <span>
-                      Reach us at{" "}
-                      <a
-                        href="tel:+15093086489"
-                        className="font-semibold text-brand-primary hover:text-brand-primary-dark underline"
-                      >
-                        (509) 308-6489
-                      </a>{" "}
-                      anytime
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <p className="font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed px-4 mt-8">
-              <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
-                Building projects for the client,{" "}
-                <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the dollar
-              </span>{" "}
-              means never compromising our values—whether in construction or
-              communication. Thank you for your patience as we perfect every
-              detail.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* Company Statistics Section - Credibility through numbers */}
       <CompanyStats
         id="stats"
-        subtitle=""
-        title="Trusted by the Community"
-        description=""
+        subtitle="Battle-Tested Excellence"
+        title="Proven Track Record"
+        description="Measurable results from a veteran-owned team committed to mission excellence across the Pacific Northwest—from deployment to development, we deliver."
         variant="primary"
       />
 

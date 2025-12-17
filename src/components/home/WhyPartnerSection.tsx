@@ -203,7 +203,10 @@ export function WhyPartnerSection() {
         {/* Modern Grid Cards with Unique Hover Effects */}
         <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
           {partnershipValues.map((value, index) => (
-            <div key={index} className="group relative flex min-h-[480px]">
+            <div
+              key={index}
+              className="group relative flex h-full min-h-[520px]"
+            >
               {/* Colored Border Glow - Visible on hover */}
               <div
                 className={`absolute -inset-2 bg-gradient-to-br ${value.iconBgGradient} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}

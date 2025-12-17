@@ -34,6 +34,8 @@ const services = [
     ],
     link: "/services",
     cta: "Explore Services",
+    iconGradient: "from-brand-primary via-brand-primary-dark to-primary-800",
+    iconGlow: "from-brand-primary/30 to-brand-primary-dark/30",
   },
   {
     icon: "map",
@@ -55,6 +57,8 @@ const services = [
     ],
     link: "/services#master-planning",
     cta: "Learn More",
+    iconGradient: "from-brand-secondary via-bronze-600 to-bronze-700",
+    iconGlow: "from-brand-secondary/30 to-bronze-600/30",
   },
   {
     icon: "build",
@@ -76,6 +80,8 @@ const services = [
     ],
     link: "/services#commercial-construction",
     cta: "View Projects",
+    iconGradient: "from-bronze-600 via-bronze-700 to-bronze-800",
+    iconGlow: "from-bronze-600/30 to-bronze-800/30",
   },
   {
     icon: "inventory_2",
@@ -97,6 +103,8 @@ const services = [
     ],
     link: "/services#procurement",
     cta: "Learn More",
+    iconGradient: "from-primary-600 via-primary-700 to-primary-800",
+    iconGlow: "from-primary-600/30 to-primary-800/30",
   },
   {
     icon: "construction",
@@ -118,6 +126,9 @@ const services = [
     ],
     link: "/services#industrial",
     cta: "See Capabilities",
+    iconGradient:
+      "from-brand-secondary via-brand-secondary-dark to-secondary-700",
+    iconGlow: "from-brand-secondary/30 to-brand-secondary-dark/30",
   },
   {
     icon: "domain",
@@ -139,6 +150,8 @@ const services = [
     ],
     link: "/services#tenant-improvements",
     cta: "Get Started",
+    iconGradient: "from-brand-primary via-primary-600 to-brand-primary-dark",
+    iconGlow: "from-brand-primary/30 to-primary-600/30",
   },
 ];
 
@@ -277,8 +290,12 @@ export function ServicesShowcase() {
                   <CardHeader className="flex-shrink-0 pb-4 px-0">
                     {/* Enhanced Icon Container */}
                     <div className="relative inline-block mb-4 sm:mb-5 flex-shrink-0">
-                      <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/30 to-brand-primary/30 blur-xl rounded-3xl"></div>
-                      <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-secondary to-brand-secondary-dark rounded-2xl w-16 h-16 sm:w-20 sm:h-20 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${service.iconGlow} blur-xl rounded-3xl`}
+                      ></div>
+                      <div
+                        className={`relative flex justify-center items-center bg-gradient-to-br ${service.iconGradient} rounded-2xl w-16 h-16 sm:w-20 sm:h-20 shadow-xl group-hover:scale-110 transition-transform duration-300`}
+                      >
                         <MaterialIcon
                           icon={service.icon}
                           size="xl"
@@ -297,16 +314,26 @@ export function ServicesShowcase() {
                     <p className="mb-4 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed break-words">
                       {service.description}
                     </p>
-                    <div className="mt-auto pt-3 sm:pt-4 border-t border-gray-300 dark:border-gray-600">
-                      <div className="flex items-center justify-center text-brand-primary dark:text-brand-primary-light">
-                        <MaterialIcon
-                          icon="info"
-                          size="md"
-                          className="mr-2 group-hover:scale-110 transition-transform"
-                        />
-                        <span className="font-semibold text-xs sm:text-sm uppercase tracking-wider">
-                          Click for Full Details
-                        </span>
+                    <div className="mt-auto pt-4 sm:pt-5">
+                      <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700/50 dark:to-gray-700/30 border-2 border-gray-200 dark:border-gray-600 group-hover:border-brand-primary dark:group-hover:border-brand-primary-light transition-all duration-300">
+                        {/* Animated background gradient on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/0 via-brand-primary/5 to-brand-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                        <div className="relative flex items-center justify-center gap-2 py-3 sm:py-3.5 px-4">
+                          <MaterialIcon
+                            icon="info"
+                            size="md"
+                            className="text-brand-primary dark:text-brand-primary-light group-hover:scale-110 group-hover:rotate-12 transition-all duration-300"
+                          />
+                          <span className="font-bold text-xs sm:text-sm uppercase tracking-wider text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
+                            Click for Full Details
+                          </span>
+                          <MaterialIcon
+                            icon="arrow_forward"
+                            size="sm"
+                            className="text-brand-primary dark:text-brand-primary-light group-hover:translate-x-1 transition-transform duration-300"
+                          />
+                        </div>
                       </div>
                     </div>
                   </CardContent>
@@ -341,23 +368,30 @@ export function ServicesShowcase() {
               onKeyDown={(e) => e.stopPropagation()}
               role="document"
             >
-              {/* Header with gradient background */}
-              <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-6 sm:p-8">
+              {/* Header with gradient background - matches card color */}
+              <div
+                className={`relative bg-gradient-to-br ${currentService.iconGradient} p-6 sm:p-8`}
+              >
                 <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/20"></div>
                 <button
                   onClick={closeModal}
-                  className="absolute top-4 right-4 text-white hover:bg-white/20 rounded-full p-2 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-primary"
+                  className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white/20 active:bg-white/30 rounded-full p-2.5 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl hover:scale-110 z-10"
                   aria-label="Close modal"
+                  type="button"
                   autoFocus
                 >
-                  <MaterialIcon icon="close" size="lg" />
+                  <MaterialIcon
+                    icon="close"
+                    size="xl"
+                    className="drop-shadow-md"
+                  />
                 </button>
                 <div className="relative flex items-start gap-4">
-                  <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm p-3 rounded-2xl">
+                  <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-xl border border-white/30">
                     <MaterialIcon
                       icon={currentService.icon}
                       size="2xl"
-                      className="text-white"
+                      className="text-white drop-shadow-lg"
                     />
                   </div>
                   <div className="flex-1">
