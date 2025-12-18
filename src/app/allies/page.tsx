@@ -315,59 +315,102 @@ export default function AlliesPage() {
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl">
         {/* Important Distinction Notice */}
-        <section className="mb-20 lg:mb-32">
-          <FadeInWhenVisible>
-            <div className="bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 border-l-4 border-brand-primary p-6 md:p-8 rounded-r-xl">
-              <div className="flex items-start gap-4">
-                <MaterialIcon
-                  icon="info"
-                  size="xl"
-                  theme="military"
-                  ariaLabel="Important Partnership Information"
-                  className="text-brand-primary flex-shrink-0 mt-1"
-                />
-                <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white text-xl mb-3">
-                    Allies vs. Client Partnerships
-                  </h3>
-                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-2">
-                    <strong>
-                      This page is for subcontractors, suppliers, and vendors
-                    </strong>{" "}
-                    interested in joining our trade partnership network to work
-                    on MH Construction projects.
-                  </p>
-                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                    If you're a{" "}
-                    <strong>
-                      property owner or business seeking construction services
-                    </strong>
-                    , please visit our{" "}
-                    <Link
-                      href="/contact"
-                      className="text-brand-primary hover:text-brand-primary-dark font-semibold underline"
-                    >
-                      Contact Page
-                    </Link>{" "}
-                    to schedule a free consultation or explore our{" "}
-                    <Link
-                      href="/services"
-                      className="text-brand-primary hover:text-brand-primary-dark font-semibold underline"
-                    >
-                      Services
-                    </Link>{" "}
-                    to learn about Client Partner relationships. Visit our
-                    Services page for detailed information about project
-                    collaboration.
-                  </p>
+        <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32">
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                  45deg,
+                  #386851 0px,
+                  #386851 2px,
+                  transparent 2px,
+                  transparent 60px
+                )`,
+              }}
+            ></div>
+          </div>
+
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+          <div className="relative z-10">
+            <FadeInWhenVisible>
+              <div className="bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 border-l-4 border-brand-primary p-6 md:p-8 rounded-r-xl">
+                <div className="flex items-start gap-4">
+                  <MaterialIcon
+                    icon="info"
+                    size="xl"
+                    theme="military"
+                    ariaLabel="Important Partnership Information"
+                    className="text-brand-primary flex-shrink-0 mt-1"
+                  />
+                  <div>
+                    <h3 className="font-bold text-gray-900 dark:text-white text-xl mb-3">
+                      Allies vs. Client Partnerships
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-2">
+                      <strong>
+                        This page is for subcontractors, suppliers, and vendors
+                      </strong>{" "}
+                      interested in joining our trade partnership network to work
+                      on MH Construction projects.
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      If you're a{" "}
+                      <strong>
+                        property owner or business seeking construction services
+                      </strong>
+                      , please visit our{" "}
+                      <Link
+                        href="/contact"
+                        className="text-brand-primary hover:text-brand-primary-dark font-semibold underline"
+                      >
+                        Contact Page
+                      </Link>{" "}
+                      to schedule a free consultation or explore our{" "}
+                      <Link
+                        href="/services"
+                        className="text-brand-primary hover:text-brand-primary-dark font-semibold underline"
+                      >
+                        Services
+                      </Link>{" "}
+                      to learn about Client Partner relationships. Visit our
+                      Services page for detailed information about project
+                      collaboration.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </FadeInWhenVisible>
+            </FadeInWhenVisible>
+          </div>
         </section>
 
         {/* Trade Partnership Philosophy */}
-        <section className="mb-20 lg:mb-32">
+        <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32">
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                  45deg,
+                  #386851 0px,
+                  #386851 2px,
+                  transparent 2px,
+                  transparent 60px
+                )`,
+              }}
+            ></div>
+          </div>
+
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+          <div className="relative z-10">
           <FadeInWhenVisible>
             {/* Section Header - Military Construction Standard */}
             <div className="mb-16 sm:mb-20 text-center">
@@ -446,10 +489,32 @@ export default function AlliesPage() {
               </Card>
             ))}
           </StaggeredFadeIn>
+          </div>
         </section>
 
         {/* Trade Partner Categories - Join Our Network */}
-        <section className="mb-20 lg:mb-32">
+        <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32">
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                  45deg,
+                  #386851 0px,
+                  #386851 2px,
+                  transparent 2px,
+                  transparent 60px
+                )`,
+              }}
+            ></div>
+          </div>
+
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+          <div className="relative z-10">
           <FadeInWhenVisible>
             {/* Section Header - Military Construction Standard */}
             <div className="mb-16 sm:mb-20 text-center">
@@ -556,10 +621,32 @@ export default function AlliesPage() {
               </FadeInWhenVisible>
             ))}
           </div>
+          </div>
         </section>
 
-        {/* Partnership Benefits */}
-        <section className="mb-20 lg:mb-32">
+        {/* Partnership Benefits */
+        <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32">
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                  45deg,
+                  #386851 0px,
+                  #386851 2px,
+                  transparent 2px,
+                  transparent 60px
+                )`,
+              }}
+            ></div>
+          </div>
+
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+          <div className="relative z-10">
           <FadeInWhenVisible>
             {/* Section Header - Military Construction Standard */}
             <div className="mb-16 sm:mb-20 text-center">
@@ -604,38 +691,60 @@ export default function AlliesPage() {
                 in every partnership.
               </p>
             </div>
-          </FadeInWhenVisible>
 
-          <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
-            {partnershipBenefits.map((benefit, _index) => (
-              <Card
-                key={_index}
-                className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 transition-all hover:-translate-y-1 h-full"
-              >
-                <CardContent className="flex flex-col p-6 h-full">
-                  <div className="flex items-center mb-4">
-                    <div className="flex justify-center items-center bg-brand-primary mr-4 rounded-full w-12 h-12">
-                      <MaterialIcon
-                        icon={benefit.icon}
-                        size="lg"
-                        className="text-white"
-                      />
+            <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
+              {partnershipBenefits.map((benefit, _index) => (
+                <Card
+                  key={_index}
+                  className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 transition-all hover:-translate-y-1 h-full"
+                >
+                  <CardContent className="flex flex-col p-6 h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="flex justify-center items-center bg-brand-primary mr-4 rounded-full w-12 h-12">
+                        <MaterialIcon
+                          icon={benefit.icon}
+                          size="lg"
+                          className="text-white"
+                        />
+                      </div>
+                      <h3 className="font-bold text-gray-900 dark:text-white text-lg">
+                        {benefit.title}
+                      </h3>
                     </div>
-                    <h3 className="font-bold text-gray-900 dark:text-white text-lg">
-                      {benefit.title}
-                    </h3>
-                  </div>
-                  <p className="flex-grow text-gray-600 dark:text-gray-300 leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </StaggeredFadeIn>
+                    <p className="flex-grow text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {benefit.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </StaggeredFadeIn>
+          </FadeInWhenVisible>
+          </div>
         </section>
 
-        {/* Vendor Requirements & Application Process */}
-        <section className="mb-20 lg:mb-32">
+        {/* Vendor Requirements & Application Process */
+        <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32">
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                  45deg,
+                  #386851 0px,
+                  #386851 2px,
+                  transparent 2px,
+                  transparent 60px
+                )`,
+              }}
+            ></div>
+          </div>
+
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+          <div className="relative z-10">
           <FadeInWhenVisible>
             {/* Section Header - Military Construction Standard */}
             <div className="mb-16 sm:mb-20 text-center">
@@ -892,10 +1001,32 @@ export default function AlliesPage() {
               ))}
             </div>
           </div>
+          </div>
         </section>
 
         {/* Call to Action - Join Our Trade Network */}
-        <section className="bg-gradient-to-br from-brand-primary/5 dark:from-brand-primary/10 via-brand-primary/10 dark:via-brand-primary/20 to-brand-secondary/5 dark:to-brand-secondary/10 p-12 lg:p-16 xl:p-20 rounded-2xl">
+        <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden rounded-2xl">
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                  45deg,
+                  #386851 0px,
+                  #386851 2px,
+                  transparent 2px,
+                  transparent 60px
+                )`,
+              }}
+            ></div>
+          </div>
+
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+          <div className="relative z-10 p-12 lg:p-16 xl:p-20">
           <FadeInWhenVisible>
             <div className="text-center">
               {/* Section Header - Military Construction Standard */}
@@ -991,6 +1122,7 @@ export default function AlliesPage() {
               </p>
             </div>
           </FadeInWhenVisible>
+          </div>
         </section>
       </div>
     </div>

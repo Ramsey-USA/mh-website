@@ -163,7 +163,7 @@ export default function VeteransPage() {
             <Card
               className={getCardClassName(
                 "default",
-                "border-l-4 border-l-brand-primary text-center max-w-3xl mx-auto",
+                "border-l-4 border-l-brand-primary text-center max-w-3xl mx-auto"
               )}
             >
               <CardHeader>
@@ -415,7 +415,7 @@ export default function VeteransPage() {
             <Card
               className={getCardClassName(
                 "default",
-                "border-l-4 border-l-brand-primary",
+                "border-l-4 border-l-brand-primary"
               )}
             >
               <CardContent className="pt-6">
@@ -478,7 +478,7 @@ export default function VeteransPage() {
             <Card
               className={getCardClassName(
                 "default",
-                "border-l-4 border-l-brand-secondary",
+                "border-l-4 border-l-brand-secondary"
               )}
             >
               <CardContent className="pt-6">
@@ -544,7 +544,7 @@ export default function VeteransPage() {
             <Card
               className={getCardClassName(
                 "default",
-                "border-l-4 border-l-brand-secondary max-w-3xl mx-auto text-center",
+                "border-l-4 border-l-brand-secondary max-w-3xl mx-auto text-center"
               )}
             >
               <CardHeader>
@@ -579,9 +579,29 @@ export default function VeteransPage() {
         {/* Annual Fishing Event Section - MOVED LATER FOR SEO */}
         <section
           id="fishing-event"
-          className="relative bg-gradient-to-br from-gray-50/90 to-gray-100/90 dark:from-gray-800/90 dark:to-gray-900/90 backdrop-blur-sm py-20 lg:py-32"
+          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
         >
-          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                  45deg,
+                  #386851 0px,
+                  #386851 2px,
+                  transparent 2px,
+                  transparent 60px
+                )`,
+              }}
+            ></div>
+          </div>
+
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+          <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
               {/* Section Header - Military Construction Standard */}
               <div className="mb-16 sm:mb-20 text-center">
@@ -789,9 +809,29 @@ export default function VeteransPage() {
         {/* Partnership Opportunities Section */}
         <section
           id="sponsorship"
-          className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm py-20 lg:py-32"
+          className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
         >
-          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                  45deg,
+                  #386851 0px,
+                  #386851 2px,
+                  transparent 2px,
+                  transparent 60px
+                )`,
+              }}
+            ></div>
+          </div>
+
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+          <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
               {/* Section Header - Military Construction Standard */}
               <div className="mb-16 sm:mb-20 text-center">
@@ -843,7 +883,7 @@ export default function VeteransPage() {
               <Card
                 className={getCardClassName(
                   "default",
-                  "border-t-4 border-t-purple-500",
+                  "border-t-4 border-t-purple-500"
                 )}
               >
                 <CardHeader>
@@ -945,7 +985,7 @@ export default function VeteransPage() {
               <Card
                 className={getCardClassName(
                   "default",
-                  "border-t-4 border-t-yellow-500",
+                  "border-t-4 border-t-yellow-500"
                 )}
               >
                 <CardHeader>
@@ -1032,7 +1072,7 @@ export default function VeteransPage() {
               <Card
                 className={getCardClassName(
                   "default",
-                  "border-t-4 border-t-gray-400",
+                  "border-t-4 border-t-gray-400"
                 )}
               >
                 <CardHeader>
@@ -1103,7 +1143,7 @@ export default function VeteransPage() {
               <Card
                 className={getCardClassName(
                   "default",
-                  "border-t-4 border-t-orange-600",
+                  "border-t-4 border-t-orange-600"
                 )}
               >
                 <CardHeader>
@@ -1171,7 +1211,7 @@ export default function VeteransPage() {
               <Card
                 className={getCardClassName(
                   "default",
-                  "max-w-4xl mx-auto bg-brand-light dark:bg-gray-800",
+                  "max-w-4xl mx-auto bg-brand-light dark:bg-gray-800"
                 )}
               >
                 <CardHeader>
@@ -1223,7 +1263,7 @@ export default function VeteransPage() {
               <Card
                 className={getCardClassName(
                   "default",
-                  "max-w-5xl mx-auto bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10",
+                  "max-w-5xl mx-auto bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10"
                 )}
               >
                 <CardHeader>
