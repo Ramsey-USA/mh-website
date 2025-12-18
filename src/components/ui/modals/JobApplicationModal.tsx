@@ -228,7 +228,7 @@ export function JobApplicationModal({
     <div className="z-50 fixed inset-0 flex justify-center items-center bg-black/75 backdrop-blur-sm p-4">
       <div className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden shadow-2xl border-2 border-brand-primary/20">
         {/* Enhanced Header with v4.0.2 branding */}
-        <div className="relative bg-gradient-to-r from-brand-primary via-brand-accent to-brand-primary p-6 sm:p-8 text-white overflow-hidden">
+        <div className="relative bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary p-6 sm:p-8 text-white overflow-hidden">
           {/* Background decoration */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"></div>
           <div className="top-0 right-0 absolute bg-white/5 rounded-full w-32 h-32 -translate-y-16 translate-x-16" />

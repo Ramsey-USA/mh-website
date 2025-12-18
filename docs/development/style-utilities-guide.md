@@ -85,8 +85,8 @@ import { getCardClassName } from "@/lib/styles/card-variants";
   <CardContent>Static content</CardContent>
 </Card>
 
-// Accent variant
-<Card className={getCardClassName('accent', 'border-l-4 border-l-brand-accent')}>
+// Secondary variant
+<Card className={getCardClassName('secondary', 'border-l-4 border-l-brand-secondary')}>
   <CardContent>Special attention</CardContent>
 </Card>
 ```

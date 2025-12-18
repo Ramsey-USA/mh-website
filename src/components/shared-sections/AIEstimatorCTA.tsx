@@ -114,7 +114,7 @@ export function AIEstimatorCTA({
                 </div>
               </div>
               <div className="text-center group">
-                <div className="w-14 h-14 bg-gradient-to-br from-brand-accent to-bronze-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md group-hover:scale-110 transition-transform duration-300">
+                <div className="w-14 h-14 bg-gradient-to-br from-brand-secondary to-bronze-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md group-hover:scale-110 transition-transform duration-300">
                   <MaterialIcon
                     icon="military_tech"
                     size="xl"
@@ -251,7 +251,7 @@ export function AIEstimatorCTA({
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="flex-shrink-0 rounded-xl bg-gradient-to-br from-brand-accent to-bronze-600 p-3 shadow-md mr-4">
+                    <div className="flex-shrink-0 rounded-xl bg-gradient-to-br from-brand-secondary to-bronze-600 p-3 shadow-md mr-4">
                       <MaterialIcon
                         icon="military_tech"
                         className="text-white text-2xl"

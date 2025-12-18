@@ -198,8 +198,8 @@ export default function CareersPage() {
                 <div className="flex items-center justify-center mb-8 gap-4">
                   <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="star"
                         size="2xl"
@@ -497,20 +497,25 @@ export default function CareersPage() {
             id="positions"
             className="relative bg-gradient-to-b from-gray-50 via-white to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden mb-20 lg:mb-32"
           >
-            {/* Enhanced Background Effects */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.15)_0%,transparent_50%)]"></div>
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.12)_0%,transparent_50%)]"></div>
+            {/* Diagonal Stripe Background Pattern */}
+            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: `repeating-linear-gradient(
+                    45deg,
+                    #386851 0px,
+                    #386851 2px,
+                    transparent 2px,
+                    transparent 60px
+                  )`,
+                }}
+              ></div>
+            </div>
 
-            {/* Animated Blur Orbs */}
-            <div className="top-20 left-10 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
-            <div
-              className="right-10 bottom-20 absolute bg-brand-accent/10 dark:bg-brand-accent/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
-              style={{ animationDelay: "1s" }}
-            ></div>
-            <div
-              className="top-1/2 left-1/4 absolute bg-brand-primary/5 dark:bg-brand-primary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
-              style={{ animationDelay: "0.5s" }}
-            ></div>
+            {/* Large Brand Color Blobs */}
+            <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+            <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
             <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
               {/* Section Header - Military Construction Standard */}
@@ -520,7 +525,7 @@ export default function CareersPage() {
                   <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
                     <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-accent p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-bronze-700 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="work"
                         size="2xl"
@@ -562,7 +567,7 @@ export default function CareersPage() {
                 {openPositions.map((position, _index) => (
                   <Card
                     key={_index}
-                    className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-accent transition-all duration-300"
+                    className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-secondary transition-all duration-300"
                   >
                     <CardContent className="p-8">
                       <div className="flex sm:flex-row flex-col justify-between items-start mb-6">

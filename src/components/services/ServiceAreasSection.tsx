@@ -25,10 +25,10 @@ export function ServiceAreasSection({
   serviceAreas,
 }: ServiceAreasSectionProps) {
   return (
-    <section className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-accent dark:from-brand-primary-dark dark:via-gray-900 dark:to-gray-800 py-20 lg:py-32 text-white overflow-hidden">
+    <section className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary dark:from-brand-primary-dark dark:via-gray-900 dark:to-gray-800 py-20 lg:py-32 text-white overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-secondary/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-primary-dark/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
       </div>
 

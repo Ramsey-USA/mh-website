@@ -127,7 +127,7 @@ Follow this exact progression for consistent mobile readability:
 
 ```tsx
 // Primary Action Button
-<button className="px-4 xs:px-5 sm:px-6 py-2.5 xs:py-3 sm:py-3 min-h-[44px] bg-brand-primary hover:bg-brand-accent text-white text-sm xs:text-base font-medium rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation">
+<button className="px-4 xs:px-5 sm:px-6 py-2.5 xs:py-3 sm:py-3 min-h-[44px] bg-brand-primary hover:bg-brand-secondary text-white text-sm xs:text-base font-medium rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation">
   {children}
 </button>
 
@@ -263,7 +263,7 @@ Follow this exact progression for consistent mobile readability:
     </p>
   </div>
 
-  <button className="w-full px-4 py-2.5 xs:py-3 bg-brand-primary text-white text-sm xs:text-base font-medium rounded-lg hover:bg-brand-accent transition-all duration-300 touch-manipulation">
+  <button className="w-full px-4 py-2.5 xs:py-3 bg-brand-primary text-white text-sm xs:text-base font-medium rounded-lg hover:bg-brand-secondary transition-all duration-300 touch-manipulation">
     {actionText}
   </button>
 </div>
@@ -287,7 +287,7 @@ Follow this exact progression for consistent mobile readability:
 
   <button
     type="submit"
-    className="w-full px-6 py-3 xs:py-3.5 bg-brand-primary text-white text-sm xs:text-base font-medium rounded-lg hover:bg-brand-accent transition-all duration-300 touch-manipulation"
+    className="w-full px-6 py-3 xs:py-3.5 bg-brand-primary text-white text-sm xs:text-base font-medium rounded-lg hover:bg-brand-secondary transition-all duration-300 touch-manipulation"
   >
     Submit
   </button>
@@ -446,7 +446,7 @@ export function MobileOptimizedSection() {
                 </p>
               </div>
 
-              <button className="w-full px-4 py-2.5 xs:py-3 bg-brand-primary text-white text-sm xs:text-base font-medium rounded-lg hover:bg-brand-accent transition-all duration-300 touch-manipulation">
+              <button className="w-full px-4 py-2.5 xs:py-3 bg-brand-primary text-white text-sm xs:text-base font-medium rounded-lg hover:bg-brand-secondary transition-all duration-300 touch-manipulation">
                 Learn More
               </button>
             </div>

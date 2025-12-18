@@ -197,7 +197,7 @@ nav[aria-label="Breadcrumb navigation"] {
   }
 
   .btn-primary {
-    @apply btn-base bg-brand-primary text-white hover:bg-brand-accent focus:ring-brand-primary;
+    @apply btn-base bg-brand-primary text-white hover:bg-brand-secondary focus:ring-brand-primary;
     box-shadow: var(--shadow-brand);
   }
 

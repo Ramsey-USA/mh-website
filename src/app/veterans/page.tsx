@@ -121,8 +121,8 @@ export default function VeteransPage() {
             <div className="flex items-center justify-center mb-8 gap-4">
               <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                   <MaterialIcon
                     icon="military_tech"
                     size="2xl"
@@ -201,7 +201,7 @@ export default function VeteransPage() {
           <FadeInWhenVisible className="mt-12 text-center">
             <Link
               href="/team"
-              className="inline-flex items-center gap-2 text-brand-primary hover:text-brand-accent transition-colors font-semibold text-lg"
+              className="inline-flex items-center gap-2 text-brand-primary hover:text-brand-secondary transition-colors font-semibold text-lg"
             >
               <span>Meet Our Full Team</span>
               <MaterialIcon icon="arrow_forward" size="md" />
@@ -282,7 +282,7 @@ export default function VeteransPage() {
                 </p>
                 <Link
                   href="/careers"
-                  className="inline-flex items-center text-brand-primary hover:text-brand-accent transition-colors font-semibold"
+                  className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors font-semibold"
                 >
                   <span>View Career Opportunities</span>
                   <MaterialIcon
@@ -335,7 +335,7 @@ export default function VeteransPage() {
                   size="4xl"
                   theme="veteran"
                   ariaLabel="Training & Education Programs"
-                  className="mb-4 text-brand-accent"
+                  className="mb-4 text-brand-secondary"
                 />
                 <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
                   Training & Education
@@ -349,7 +349,7 @@ export default function VeteransPage() {
                 </p>
                 <Link
                   href="/about"
-                  className="inline-flex items-center text-brand-accent hover:text-brand-primary transition-colors font-semibold"
+                  className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors font-semibold"
                 >
                   <span>Learn About Our Values</span>
                   <MaterialIcon
@@ -677,7 +677,7 @@ export default function VeteransPage() {
                     size="4xl"
                     theme="veteran"
                     ariaLabel="Free Veterans Support"
-                    className="mx-auto mb-4 text-brand-accent"
+                    className="mx-auto mb-4 text-bronze-600"
                   />
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
                     Free for Veterans
@@ -748,7 +748,7 @@ export default function VeteransPage() {
                         size="2xl"
                         theme="veteran"
                         ariaLabel="Victory Celebration"
-                        className="flex-shrink-0 mt-1 text-brand-accent"
+                        className="flex-shrink-0 mt-1 text-bronze-600"
                       />
                       <div>
                         <h4 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl mb-2">
@@ -1177,7 +1177,7 @@ export default function VeteransPage() {
                 <CardHeader>
                   <MaterialIcon
                     icon="handshake"
-                    className="mx-auto mb-4 text-brand-accent text-5xl"
+                    className="mx-auto mb-4 text-bronze-600 text-5xl"
                   />
                   <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center">
                     Example Resource Contributions From Partners
@@ -1268,7 +1268,7 @@ export default function VeteransPage() {
                     <div>
                       <MaterialIcon
                         icon="campaign"
-                        className="mx-auto mb-3 text-brand-accent text-4xl"
+                        className="mx-auto mb-3 text-bronze-600 text-4xl"
                       />
                       <h4 className="font-bold text-gray-900 dark:text-white mb-2">
                         Co-Branded Impact

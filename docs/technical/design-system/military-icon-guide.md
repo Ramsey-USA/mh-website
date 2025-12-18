@@ -211,8 +211,8 @@ Icons for business operations and organizational functions.
 
 ```tsx
 // Veteran badges and military content
-className = "text-bronze-300";
-className = "text-brand-accent";
+className = "text-bronze-600";
+className = "text-brand-secondary";
 
 // Army (primary veteran status)
 className = "text-brand-primary";

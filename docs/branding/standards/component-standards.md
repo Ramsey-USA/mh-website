@@ -5,7 +5,7 @@
 **Status:** ✅ Active Standard - Home Page Standardization
 
 > **Purpose:** Unified component design system ensuring visual consistency across all website elements using
-> our brand guidelines. **NEW:** Standardized section backgrounds, SectionHeader component requirement, and
+> our brand guidelines. **NEW:** Standardized section backgrounds, custom header pattern requirement, and
 > strict brand color compliance based on home page patterns.
 
 ---
@@ -16,7 +16,7 @@
 
 - **NEW STANDARD:** Diagonal stripe background pattern for all sections
 - **NEW STANDARD:** Large positioned color blobs (w-96 h-96) replace small animated blobs
-- **REQUIRED:** SectionHeader component - custom headers deprecated
+- **REQUIRED:** Custom header pattern (icon with decorative lines + two-line gradient heading + description)
 - **BREAKING:** Removed brand-accent color usage - use brand-primary or brand-secondary
 - **BREAKING:** Simplified base backgrounds - no complex gradients
 - **BREAKING:** Consistent padding standard: `py-12 sm:py-16 lg:py-20 xl:py-24`
@@ -145,23 +145,75 @@ balance and cleaner layout.
 
 ---
 
-## 📝 **SectionHeader Component - REQUIRED**
+## 📝 **Section Header Standards - HOME PAGE PATTERN**
 
-**CRITICAL:** Use the standardized SectionHeader component for ALL section headers. Custom header markup is deprecated.
+**OFFICIAL STANDARD:** Home page sections use a consistent custom header pattern with icon, decorative lines, two-line gradient heading, and description.
+
+### **Standard Custom Header Pattern**
+
+```tsx
+{
+  /* Section Header - Military Construction Standard */
+}
+<div className="mb-16 sm:mb-20 text-center">
+  {/* Icon with decorative lines */}
+  <div className="flex items-center justify-center mb-8 gap-4">
+    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+    <div className="relative">
+      <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+      <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+        <MaterialIcon
+          icon="shield"
+          size="2xl"
+          className="text-white drop-shadow-lg"
+        />
+      </div>
+    </div>
+    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+  </div>
+
+  {/* Two-line gradient heading */}
+  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+      Subtitle Text
+    </span>
+    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+      Main Title Text
+    </span>
+  </h2>
+
+  {/* Description */}
+  <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+    Description text
+  </p>
+</div>;
+```
+
+### **Key Elements**
+
+- ✅ Decorative horizontal lines flanking the icon
+- ✅ Icon with glow effect and gradient background
+- ✅ Two-line heading: subtitle (gray) + gradient title
+- ✅ Description with optional keyword highlighting
+- ✅ Fully responsive typography scaling
+
+### **Icon Color Variations**
+
+- **Green theme:** `from-brand-primary via-brand-primary-dark to-brand-primary-darker`
+- **Bronze theme:** `from-brand-secondary via-bronze-700 to-bronze-800`
+- **Tan theme:** `from-brand-secondary via-brand-secondary-dark to-bronze-700`
 
 ### **Standard Usage**
 
-```tsx
-import { SectionHeader } from \"@/components/ui/SectionHeader\";
-
 <SectionHeader
-  icon=\"icon_name\"
-  iconVariant=\"primary\" // primary | secondary | bronze
-  subtitle=\"Section Subtitle\"
-  title=\"Section Title\"
-  description=\"Optional description text\"
+icon=\"icon_name\"
+iconVariant=\"primary\" // primary | secondary | bronze
+subtitle=\"Section Subtitle\"
+title=\"Section Title\"
+description=\"Optional description text\"
 />
-```
+
+````
 
 ### **Icon Variant Guidelines**
 
@@ -176,11 +228,6 @@ import { SectionHeader } from \"@/components/ui/SectionHeader\";
 - ✅ Automatic dark mode support
 - ✅ Proper spacing and alignment
 
-**❌ DO NOT:**
-
-- Create custom header markup with manual icon containers
-- Use custom blur effects or glow styles
-- Duplicate header styling code
 
 ---
 
@@ -197,7 +244,7 @@ import { SectionHeader } from \"@/components/ui/SectionHeader\";
   <MaterialIcon icon="icon_name" className="mr-2 group-hover:scale-110" />
   Button Text
 </Button>
-```
+````
 
 ### **Touch Accessibility**
 

@@ -32,10 +32,7 @@ interface SectionProps {
  * @example
  * ```tsx
  * <Section variant="gray" padding="large" id="features">
- *   <SectionHeader
- *     title="Our Features"
- *     description="Everything you need to succeed"
- *   />
+ *   {/* Use custom header pattern shown in branding documentation *\/}
  *   {/* section content *\/}
  * </Section>
  * ```

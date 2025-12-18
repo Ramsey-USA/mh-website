@@ -56,7 +56,7 @@ export function WhyChooseUs() {
                     {reason.description}
                   </p>
                   {reason.ctaLink && (
-                    <div className="flex items-center text-brand-primary dark:text-brand-primary-light hover:text-brand-accent dark:hover:text-brand-secondary transition-colors mt-auto pt-2">
+                    <div className="flex items-center text-brand-primary dark:text-brand-primary-light hover:text-brand-secondary dark:hover:text-brand-secondary transition-colors mt-auto pt-2">
                       <MaterialIcon
                         icon="arrow_forward"
                         size="sm"

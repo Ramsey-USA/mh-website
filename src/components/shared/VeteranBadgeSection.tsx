@@ -61,18 +61,20 @@ export function VeteranBadgeSection() {
               href="/veterans"
               className="group flex items-center gap-4 bg-white dark:bg-gray-800 px-6 py-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer"
             >
-              <div className="flex items-center justify-center bg-brand-accent/10 p-3 rounded-lg">
+              <div className="flex items-center justify-center bg-brand-secondary/10 p-3 rounded-lg">
                 <MaterialIcon
                   icon="military_tech"
                   size="xl"
-                  className="text-brand-accent group-hover:scale-110 transition-transform"
+                  className="text-brand-secondary group-hover:scale-110 transition-transform"
                 />
               </div>
               <div>
                 <div className="font-bold text-gray-900 dark:text-white text-lg">
                   Military Precision
                 </div>
-                <div className="text-brand-accent text-sm">Every Project</div>
+                <div className="text-brand-secondary text-sm">
+                  Every Project
+                </div>
               </div>
             </Link>
           </div>

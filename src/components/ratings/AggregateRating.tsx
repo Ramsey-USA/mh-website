@@ -167,7 +167,7 @@ export function AggregateRating({
     return (
       <FadeInWhenVisible>
         <div
-          className={`bg-gradient-to-br from-brand-primary/5 to-brand-accent/5 dark:from-gray-800/50 dark:to-gray-700/50 rounded-3xl p-8 lg:p-12 text-center border border-brand-primary/10 dark:border-gray-700 ${className}`}
+          className={`bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-gray-800/50 dark:to-gray-700/50 rounded-3xl p-8 lg:p-12 text-center border border-brand-primary/10 dark:border-gray-700 ${className}`}
         >
           {title && (
             <h3 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-6">

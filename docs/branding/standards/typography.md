@@ -821,9 +821,9 @@ className = "text-brand-primary";
 className = "text-brand-secondary";
 
 {
-  /* Accent color for checkmarks */
+  /* Bronze/secondary for checkmarks */
 }
-className = "text-brand-accent";
+className = "text-bronze-600";
 
 {
   /* Context colors */

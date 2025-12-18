@@ -214,8 +214,8 @@ website. This guide ensures consistency, accessibility, and semantic clarity in 
 
 ```tsx
 // Veteran-owned emphasis
-className = "text-bronze-300";
-className = "text-brand-accent";
+className = "text-bronze-600";
+className = "text-brand-secondary";
 
 // Army (primary veteran)
 className = "text-brand-primary"; // Hunter green
@@ -257,10 +257,10 @@ className = "text-yellow-600 dark:text-yellow-400";
 ```tsx
 // Hover transition
 className =
-  "text-brand-primary hover:text-brand-accent transition-colors duration-300";
+  "text-brand-primary hover:text-brand-secondary transition-colors duration-300";
 
 // Active state
-className = "text-brand-accent";
+className = "text-brand-secondary";
 
 // Disabled state
 className = "text-gray-400 dark:text-gray-600 opacity-50";
@@ -311,7 +311,7 @@ className =
 ```tsx
 // Scale + color (recommended for CTAs)
 className =
-  "text-brand-primary group-hover:scale-110 group-hover:text-brand-accent transition-all duration-300";
+  "text-brand-primary group-hover:scale-110 group-hover:text-brand-secondary transition-all duration-300";
 ```
 
 ---
@@ -429,9 +429,9 @@ className =
   <MaterialIcon
     icon="construction"
     size="md"
-    className="group-hover:text-brand-accent transition-colors"
+    className="group-hover:text-brand-secondary transition-colors"
   />
-  <span className="group-hover:text-brand-accent transition-colors">
+  <span className="group-hover:text-brand-secondary transition-colors">
     The Battle Plan
   </span>
 </Link>
@@ -658,7 +658,7 @@ Does a standard icon exist for this purpose?
 **Common Animations:**
 
 - Hover scale: `group-hover:scale-110`
-- Color transition: `hover:text-brand-accent transition-colors`
+- Color transition: `hover:text-brand-secondary transition-colors`
 - Loading spin: `animate-spin`
 
 ---

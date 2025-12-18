@@ -317,7 +317,7 @@ export const cultureValues: CultureValue[] = [
     title: "Excellence & Continuous Growth",
     description:
       "We pursue continuous improvement in everything we do, personally and professionally. 150+ years combined experience refined through mentorship programs, cross-training across multiple specialties, regular training on new techniques, safety standards, technology, and industry involvement. Your growth is our growth.",
-    color: "from-brand-accent to-brand-accent-dark",
+    color: "from-brand-secondary to-bronze-700",
   },
   {
     icon: "volunteer_activism",

@@ -59,8 +59,8 @@ export function NextStepsSection({
           <div className="flex items-center justify-center mb-8 gap-4">
             <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-              <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+              <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+              <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                 <MaterialIcon
                   icon="handshake"
                   size="2xl"
@@ -228,7 +228,7 @@ export function NextStepsSection({
           {/* Option 3: Contact Us */}
           <div className="group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
             <div className="flex justify-center mb-6">
-              <div className="rounded-xl bg-gradient-to-br from-brand-accent to-bronze-600 p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="rounded-xl bg-gradient-to-br from-brand-secondary to-bronze-600 p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <MaterialIcon
                   icon="contact_phone"
                   size="xl"
@@ -248,7 +248,7 @@ export function NextStepsSection({
                 <MaterialIcon
                   icon="check_circle"
                   size="sm"
-                  className="text-brand-accent flex-shrink-0"
+                  className="text-brand-secondary flex-shrink-0"
                 />
                 <span>Face-to-face consultation preferred</span>
               </li>
@@ -256,7 +256,7 @@ export function NextStepsSection({
                 <MaterialIcon
                   icon="check_circle"
                   size="sm"
-                  className="text-brand-accent flex-shrink-0"
+                  className="text-brand-secondary flex-shrink-0"
                 />
                 <span>Transparent pricing from day one</span>
               </li>
@@ -264,7 +264,7 @@ export function NextStepsSection({
                 <MaterialIcon
                   icon="check_circle"
                   size="sm"
-                  className="text-brand-accent flex-shrink-0"
+                  className="text-brand-secondary flex-shrink-0"
                 />
                 <span>Direct line to decision-makers</span>
               </li>
@@ -273,7 +273,7 @@ export function NextStepsSection({
               <Button
                 variant="primary"
                 size="lg"
-                className="w-full bg-brand-accent hover:bg-brand-accent/90 group/btn"
+                className="w-full bg-brand-secondary hover:bg-brand-secondary/90 group/btn"
                 onClick={onContactClick}
               >
                 <MaterialIcon

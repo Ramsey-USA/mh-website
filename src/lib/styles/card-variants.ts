@@ -12,7 +12,7 @@ export const cardStyles = {
   hover: "hover:shadow-lg dark:hover:shadow-gray-600/50 hover:-translate-y-1",
   primary: "border-2 border-brand-primary dark:border-brand-primary/50",
   secondary: "border-2 border-brand-secondary dark:border-brand-secondary/50",
-  accent: "border-2 border-brand-accent dark:border-brand-accent/50",
+  accent: "border-2 border-brand-secondary dark:border-brand-secondary/50",
 } as const;
 
 /**

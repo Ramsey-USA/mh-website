@@ -4,35 +4,71 @@
  */
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 
 export function ConstructionExpertiseSection() {
   return (
-    <section className="relative bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden">
-      {/* Enhanced Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.15)_0%,transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.12)_0%,transparent_50%)]"></div>
+    <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+      {/* Diagonal Stripe Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+              45deg,
+              #386851 0px,
+              #386851 2px,
+              transparent 2px,
+              transparent 60px
+            )`,
+          }}
+        ></div>
+      </div>
 
-      {/* Animated Blur Orbs */}
-      <div className="top-20 left-10 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
-      <div
-        className="right-10 bottom-20 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
-        style={{ animationDelay: "1s" }}
-      ></div>
-      <div
-        className="top-1/2 left-1/4 absolute bg-brand-primary/5 dark:bg-brand-primary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
-        style={{ animationDelay: "0.5s" }}
-      ></div>
+      {/* Large Brand Color Blobs */}
+      <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
 
-      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <SectionHeader
-          icon="handshake"
-          iconVariant="secondary"
-          subtitle="Partnership-Focused"
-          title="Construction Management"
-          description="Planning a new commercial building demands intricate details and expert partnership oversight. Work WITH us through comprehensive Partnership-Focused Construction Management services throughout the Tri-Cities (Pasco, WA) area."
-        />
+      <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        {/* Section Header - Military Construction Standard */}
+        <div className="mb-16 sm:mb-20 text-center">
+          {/* Icon with decorative lines */}
+          <div className="flex items-center justify-center mb-8 gap-4">
+            <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-brand-secondary-dark/30 blur-2xl rounded-full"></div>
+              <div className="relative bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-bronze-700 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                <MaterialIcon
+                  icon="handshake"
+                  size="2xl"
+                  className="text-white drop-shadow-lg"
+                />
+              </div>
+            </div>
+            <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+          </div>
+
+          {/* Two-line gradient heading */}
+          <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+            <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+              Partnership-Focused
+            </span>
+            <span className="block bg-gradient-to-r from-brand-secondary via-brand-secondary-dark to-bronze-700 bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+              Construction Management
+            </span>
+          </h2>
+
+          {/* Description */}
+          <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+            Planning a new commercial building demands intricate details and{" "}
+            <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
+              expert partnership oversight
+            </span>
+            . Work WITH us through comprehensive Partnership-Focused
+            Construction Management services throughout the Tri-Cities (Pasco,
+            WA) area.
+          </p>
+        </div>
 
         <FadeInWhenVisible>
           <div className="relative">

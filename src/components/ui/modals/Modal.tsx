@@ -47,7 +47,7 @@ export const Modal: FC<ModalProps> = ({
           className={`relative w-full ${sizeClasses[size]} bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border-2 border-brand-primary/20 dark:border-brand-primary/30 overflow-hidden`}
         >
           {/* Enhanced Header with gradient background */}
-          <div className="relative bg-gradient-to-r from-brand-primary via-brand-accent to-brand-primary p-6 text-white overflow-hidden">
+          <div className="relative bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary p-6 text-white overflow-hidden">
             {/* Background decoration */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10" />
             <div className="top-0 right-0 absolute bg-white/5 rounded-full w-32 h-32 -translate-y-16 translate-x-16" />

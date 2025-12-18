@@ -9,7 +9,7 @@
 > **Purpose:** Standardized visual enhancement patterns for sections across the award-winning website,
 > ensuring consistent and polished presentation that aligns with MH Construction veteran-owned branding.
 > **NEW:** Simplified background patterns using diagonal stripes and large positioned color blobs,
-> standardized SectionHeader component usage, and strict brand color compliance.
+> custom header pattern standard, and strict brand color compliance.
 
 ---
 
@@ -45,14 +45,40 @@ All major content sections **MUST** follow this pattern established by the home 
   <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
   <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-    {/* Use SectionHeader Component - DO NOT CREATE CUSTOM HEADERS */}
-    <SectionHeader
-      icon="icon_name"
-      iconVariant="primary" // or "secondary" or "bronze"
-      subtitle="Section Subtitle"
-      title="Section Title"
-      description="Section description text that explains the value and purpose of this section."
-    />
+    {/* Section Header - Military Construction Standard (Custom Pattern) */}
+    <div className="mb-16 sm:mb-20 text-center">
+      {/* Icon with decorative lines */}
+      <div className="flex items-center justify-center mb-8 gap-4">
+        <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+        <div className="relative">
+          <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+          <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+            <MaterialIcon
+              icon="icon_name"
+              size="2xl"
+              className="text-white drop-shadow-lg"
+            />
+          </div>
+        </div>
+        <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+      </div>
+
+      {/* Two-line gradient heading */}
+      <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+        <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+          Section Subtitle
+        </span>
+        <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+          Section Title
+        </span>
+      </h2>
+
+      {/* Description */}
+      <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+        Section description text that explains the value and purpose of this
+        section.
+      </p>
+    </div>
 
     {/* Section Content */}
     {/* Cards, content, or other elements go here */}
@@ -137,35 +163,63 @@ className =
 - ❌ DO NOT add small animated blobs (w-32, w-40)
 - ❌ DO NOT use radial gradient overlays
 
-### **4. SectionHeader Component - Standardized Headers**
+### **4. Section Header Pattern - Custom Markup Standard**
 
-**REQUIRED:** Use SectionHeader component, DO NOT create custom headers
+**REQUIRED:** Use the custom header pattern for home page sections to ensure visual consistency.
+
+**CURRENT STANDARD:** All home page sections use custom header markup with icon, decorative lines, two-line gradient heading, and description.
 
 ```tsx
-import { SectionHeader } from "@/components/ui/SectionHeader";
+{
+  /* Section Header - Military Construction Standard */
+}
+<div className="mb-16 sm:mb-20 text-center">
+  {/* Icon with decorative lines */}
+  <div className="flex items-center justify-center mb-8 gap-4">
+    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+    <div className="relative">
+      <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+      <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+        <MaterialIcon
+          icon="icon_name"
+          size="2xl"
+          className="text-white drop-shadow-lg"
+        />
+      </div>
+    </div>
+    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+  </div>
 
-<SectionHeader
-  icon="icon_name"
-  iconVariant="primary" // primary | secondary | bronze
-  subtitle="Section Subtitle"
-  title="Section Title"
-  description="Optional section description"
-/>;
+  {/* Two-line gradient heading */}
+  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+      Section Subtitle
+    </span>
+    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+      Section Title
+    </span>
+  </h2>
+
+  {/* Description */}
+  <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+    Optional section description
+  </p>
+</div>;
 ```
 
-**Icon Variant Guidelines:**
+**Icon Gradient Variations:**
 
-- **`primary`**: Green theme - Use for trust, values, integrity, safety
-- **`secondary`**: Tan/Orange theme - Use for partnerships, relationships
-- **`bronze`**: Bronze/Gold theme - Use for awards, excellence, premium features
+- **Green theme:** `from-brand-primary via-brand-primary-dark to-brand-primary-darker` - Trust, values, integrity
+- **Bronze theme:** `from-brand-secondary via-bronze-700 to-bronze-800` - Services, excellence
+- **Tan theme:** `from-brand-secondary via-brand-secondary-dark to-bronze-700` - Partnerships, awards
 
 **Key Points:**
 
-- ✅ Handles all styling, animations, and responsive design
-- ✅ Consistent icon glow effects and typography
-- ✅ Automatically responsive across all screen sizes
-- ❌ DO NOT create custom header markup
-- ❌ DO NOT use custom icon containers with blur effects
+- ✅ Consistent visual styling across all sections
+- ✅ Decorative lines and icon glow effects
+- ✅ Two-line gradient heading (subtitle + title)
+- ✅ Fully responsive typography
+- ✅ Custom header pattern used site-wide
 
 ### **5. Brand Color Usage - Strict Compliance**
 
@@ -178,10 +232,10 @@ text-brand-secondary      // Leather Tan (#BD9264) - Highlights, partnerships
 bg-brand-primary         // Solid backgrounds
 bg-brand-secondary       // Solid backgrounds
 
-// ❌ INCORRECT - DO NOT USE
-text-brand-accent        // Deprecated - causes inconsistency
-bg-brand-accent         // Use brand-secondary instead
-from-brand-accent       // Use brand-secondary in gradients
+// ❌ INCORRECT - DEPRECATED - DO NOT USE
+text-brand-accent        // REMOVED - use brand-secondary or bronze-600
+bg-brand-accent         // REMOVED - use brand-secondary
+from-brand-accent       // REMOVED - use brand-secondary in gradients
 }
 <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(189,146,100,0.12)_0%,transparent_50%)]"></div>;
 ```
@@ -269,9 +323,9 @@ className = "bg-gradient-to-br from-brand-primary to-brand-primary-dark";
 className = "bg-gradient-to-br from-brand-secondary to-brand-secondary-dark";
 
 {
-  /* Accent gradient */
+  /* Secondary gradient */
 }
-className = "bg-gradient-to-br from-brand-accent to-bronze-600";
+className = "bg-gradient-to-br from-brand-secondary to-bronze-600";
 ```
 
 **NO Spinning Icons on Headers:**
@@ -507,7 +561,7 @@ All buttons should use the `Button` component from `@/components/ui` with proper
 - `variant="primary"` - Brand primary color (green) - Main CTAs
 - `variant="secondary"` - Brand secondary color (tan) - Alternative CTAs
 - `variant="outline"` - Outlined style - Tertiary actions
-- Custom: `bg-brand-accent` for accent actions
+- Custom: `bg-brand-secondary` for secondary actions
 
 **Button Sizes:**
 

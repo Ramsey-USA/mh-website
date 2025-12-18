@@ -75,7 +75,7 @@ export function VeteranBadgeSection({
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/veterans"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary hover:bg-brand-accent text-white transition-all duration-300 rounded-lg font-bold text-base shadow-lg hover:shadow-xl whitespace-nowrap"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary hover:bg-brand-secondary text-white transition-all duration-300 rounded-lg font-bold text-base shadow-lg hover:shadow-xl whitespace-nowrap"
                 >
                   <MaterialIcon icon="phishing" size="md" />
                   <span>Veterans Initiative</span>

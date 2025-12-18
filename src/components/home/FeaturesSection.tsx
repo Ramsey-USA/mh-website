@@ -23,7 +23,7 @@ const features = [
       "Labor Cost Analysis",
       "PDF Export",
     ],
-    color: "from-brand-primary to-brand-accent",
+    color: "from-brand-primary to-brand-secondary",
     bgColor: "bg-brand-primary/5",
   },
   {
@@ -57,8 +57,8 @@ const features = [
       "Real-time Changes",
       "Material Previews",
     ],
-    color: "from-brand-accent to-forest-800",
-    bgColor: "bg-brand-accent/5",
+    color: "from-brand-secondary to-forest-800",
+    bgColor: "bg-brand-secondary/5",
   },
   {
     id: "ai-assistant",
@@ -132,7 +132,7 @@ export function FeaturesSection() {
         style={{ animationDelay: "1s" }}
       ></div>
       <div
-        className="top-1/2 right-1/4 absolute bg-brand-accent/5 dark:bg-brand-accent/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
+        className="top-1/2 right-1/4 absolute bg-brand-secondary/5 dark:bg-brand-secondary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
         style={{ animationDelay: "0.5s" }}
       ></div>
 
@@ -145,8 +145,8 @@ export function FeaturesSection() {
               <div className="h-1 w-16 bg-gradient-to-r from-transparent to-brand-primary rounded-full"></div>
               <div className="relative">
                 {/* Layered Icon Container - Unique Design */}
-                <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/20 to-bronze-700/20 dark:from-brand-accent/30 dark:to-bronze-700/30 blur-2xl rounded-full"></div>
-                <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 dark:from-brand-accent dark:via-bronze-600 dark:to-bronze-900 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/20 to-bronze-700/20 dark:from-brand-secondary/30 dark:to-bronze-700/30 blur-2xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 dark:from-brand-secondary dark:via-bronze-600 dark:to-bronze-900 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50">
                   <MaterialIcon
                     icon="engineering"
                     size="2xl"
@@ -154,12 +154,12 @@ export function FeaturesSection() {
                   />
                 </div>
               </div>
-              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-brand-accent rounded-full"></div>
+              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-brand-secondary rounded-full"></div>
             </div>
 
             {/* Two-line gradient heading */}
             <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-              <span className="inline-block mb-3 sm:mb-4 font-semibold bg-gradient-to-r from-brand-primary via-brand-accent to-brand-primary bg-clip-text text-transparent text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+              <span className="inline-block mb-3 sm:mb-4 font-semibold bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                 Core Values Meet
               </span>
               <span className="inline-block bg-gradient-to-r from-brand-primary via-bronze-badge-600 to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-lg overflow-visible py-1">

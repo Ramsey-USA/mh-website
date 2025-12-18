@@ -43,7 +43,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <MaterialIcon
               icon="image"
               size="4xl"
-              className="text-brand-accent"
+              className="text-brand-secondary"
             />
           </div>
         )}

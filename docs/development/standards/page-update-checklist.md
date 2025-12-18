@@ -149,11 +149,11 @@ from-brand-secondary/30 to-bronze-600/30 (blur)
 from-brand-secondary via-bronze-700 to-bronze-800 (icon)
 ```
 
-**Accent (Bronze/Gold) - Awards, Premium:**
+**Secondary (Bronze/Gold) - Awards, Premium:**
 
 ```tsx
-from-brand-accent/30 to-bronze-600/30 (blur)
-from-brand-accent via-bronze-700 to-bronze-800 (icon)
+from-brand-secondary/30 to-bronze-600/30 (blur)
+from-brand-secondary via-bronze-700 to-bronze-800 (icon)
 ```
 
 ---

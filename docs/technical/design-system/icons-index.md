@@ -262,7 +262,7 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 <MaterialIcon
   icon="handshake"
   size="lg"
-  className="text-brand-primary hover:text-brand-accent transition-colors duration-300"
+  className="text-brand-primary hover:text-brand-secondary transition-colors duration-300"
   interactive
 />
 
@@ -296,7 +296,7 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 <MaterialIcon
   icon="handshake"
   size="lg"
-  className="text-brand-primary hover:text-brand-accent transition-colors duration-300"
+  className="text-brand-primary hover:text-brand-secondary transition-colors duration-300"
 />
 
 // Icon in button

@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import {
   Button,
@@ -13,7 +10,6 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
-  HoverScale,
 } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
@@ -22,6 +18,7 @@ import { gridPresets } from "@/lib/styles/layout-variants";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import Head from "next/head";
 import { getGovernmentSEO } from "@/lib/seo/page-seo-utils";
+import { InteractiveGrantSelector } from "./InteractiveGrantSelector";
 
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = true;
@@ -280,10 +277,6 @@ const successFactors = [
 ];
 
 export default function PublicSectorPage() {
-  const [selectedGrantType, setSelectedGrantType] = useState<string | null>(
-    null,
-  );
-
   // Show under construction notice while preserving all content below
   if (SHOW_UNDER_CONSTRUCTION) {
     return (
@@ -394,7 +387,9 @@ export default function PublicSectorPage() {
                 , and transparent open-book partnership throughout the
                 application and execution process—Building projects for the
                 client,{" "}
-                <span className="font-black italic text-brand-accent">NOT</span>{" "}
+                <span className="font-black italic text-bronze-600 dark:text-bronze-400">
+                  NOT
+                </span>{" "}
                 the dollar with 150+ years combined experience.
               </p>
             </div>
@@ -613,66 +608,7 @@ export default function PublicSectorPage() {
             </div>
           </FadeInWhenVisible>
 
-          <StaggeredFadeIn
-            className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
-          >
-            {grantTypes.map((type, _index) => (
-              <HoverScale key={_index}>
-                <div
-                  className="h-full cursor-pointer"
-                  onClick={() =>
-                    setSelectedGrantType(
-                      selectedGrantType === type.category
-                        ? null
-                        : type.category,
-                    )
-                  }
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      setSelectedGrantType(
-                        selectedGrantType === type.category
-                          ? null
-                          : type.category,
-                      );
-                    }
-                  }}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`View ${type.category} grant programs`}
-                >
-                  <Card className="dark:bg-gray-700 hover:shadow-xl dark:hover:shadow-gray-600/50 h-full transition-all">
-                    <CardHeader>
-                      <MaterialIcon
-                        icon={type.icon}
-                        size="3xl"
-                        className="mb-4 text-gray-700 dark:text-gray-300"
-                      />
-                      <CardTitle className="mb-4 dark:text-white text-2xl">
-                        {type.category}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-3">
-                        {type.programs.map((program, pIdx) => (
-                          <li key={pIdx} className="flex items-start">
-                            <MaterialIcon
-                              icon="check_circle"
-                              className="flex-shrink-0 mt-0.5 mr-2 text-gray-600 dark:text-gray-400"
-                              size="sm"
-                            />
-                            <span className="text-gray-700 dark:text-gray-300 text-sm">
-                              {program}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </div>
-              </HoverScale>
-            ))}
-          </StaggeredFadeIn>
+          <InteractiveGrantSelector grantTypes={grantTypes} />
         </div>
       </section>{" "}
       {/* Process Steps */}
@@ -687,7 +623,7 @@ export default function PublicSectorPage() {
                   <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
                     <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-accent p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-bronze-700 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="timeline"
                         size="2xl"
@@ -770,8 +706,8 @@ export default function PublicSectorPage() {
               <div className="flex items-center justify-center mb-8 gap-4">
                 <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
                       icon="domain"
                       size="2xl"
@@ -860,8 +796,8 @@ export default function PublicSectorPage() {
                 <div className="flex items-center justify-center mb-8 gap-4">
                   <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="emoji_events"
                         size="2xl"

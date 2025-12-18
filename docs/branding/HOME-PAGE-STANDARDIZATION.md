@@ -12,6 +12,9 @@ The home page styling has been established as the **official MH Construction bra
 website sections. This standardization ensures visual consistency, simplified maintenance, and professional
 presentation across the entire site.
 
+**STANDARD PATTERN:** All home page sections use consistent custom header markup with icon, decorative lines,
+two-line gradient heading (subtitle + title), and description text.
+
 ---
 
 ## 🎨 Core Standards
@@ -61,34 +64,66 @@ All content sections MUST use this exact background pattern:
 
 ---
 
-### 2. SectionHeader Component (REQUIRED)
+### 2. Section Header Pattern (REQUIRED)
 
-All section headers MUST use the standardized SectionHeader component:
+All home page section headers MUST use this exact custom markup pattern:
 
 ```tsx
-import { SectionHeader } from "@/components/ui/SectionHeader";
+{
+  /* Section Header - Military Construction Standard */
+}
+<div className="mb-16 sm:mb-20 text-center">
+  {/* Icon with decorative lines */}
+  <div className="flex items-center justify-center mb-8 gap-4">
+    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+    <div className="relative">
+      <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+      <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+        <MaterialIcon
+          icon="shield"
+          size="2xl"
+          className="text-white drop-shadow-lg"
+        />
+      </div>
+    </div>
+    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+  </div>
 
-<SectionHeader
-  icon="icon_name"
-  iconVariant="primary" // primary | secondary | bronze
-  subtitle="Section Subtitle"
-  title="Section Title"
-  description="Optional description text"
-/>;
+  {/* Two-line gradient heading */}
+  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+      Subtitle Text
+    </span>
+    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+      Main Title Text
+    </span>
+  </h2>
+
+  {/* Description */}
+  <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+    Description text with optional{" "}
+    <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+      highlighted keywords
+    </span>{" "}
+    for emphasis.
+  </p>
+</div>;
 ```
 
-**Icon Variant Usage:**
+**Key Elements:**
 
-- `primary` (Green): Trust, values, integrity, safety, compliance
-- `secondary` (Tan): Partnerships, relationships, community
-- `bronze` (Gold): Awards, excellence, achievements
+- **Decorative Lines:** Horizontal gradient lines on both sides of icon
+- **Icon Container:** Glow effect + gradient background + large icon (2xl)
+- **Two-Line Heading:** Smaller subtitle (gray) + larger gradient title
+- **Description:** Light text with optional bold keyword highlights
+- **Gradient Colors:** Uses `from-brand-primary via-brand-secondary to-brand-primary`
 
-**Benefits:**
+**Icon Color Variations:**
 
-- Consistent styling and animations
-- Proper responsive design
-- Standardized icon glow effects
-- Automatic dark mode support
+- `from-brand-primary via-brand-primary-dark to-brand-primary-darker` - Green theme (values, trust)
+- `from-brand-secondary via-bronze-700 to-bronze-800` - Tan/bronze theme (services, partnerships)
+
+**NOTE:** All home page sections use this custom header pattern for consistent styling across all sections.
 
 ---
 
@@ -110,19 +145,19 @@ className = "bg-brand-primary"; // Primary backgrounds
 className = "bg-brand-secondary"; // Secondary backgrounds
 ```
 
-**❌ DEPRECATED - DO NOT USE:**
+**❌ DEPRECATED - REMOVED - DO NOT USE:**
 
 ```tsx
-className = "text-brand-accent"; // Removed - inconsistent
-className = "bg-brand-accent"; // Use brand-secondary
-className = "from-brand-accent"; // Use brand-secondary in gradients
+className = "text-brand-accent"; // REMOVED - inconsistent, use brand-secondary
+className = "bg-brand-accent"; // REMOVED - use brand-secondary
+className = "from-brand-accent"; // REMOVED - use brand-secondary in gradients
 ```
 
 ---
 
 ## 📐 Component Implementation Examples
 
-### Standard Section with SectionHeader
+### Standard Section with Custom Header
 
 ```tsx
 export function ExampleSection() {
@@ -152,13 +187,43 @@ export function ExampleSection() {
       <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
       <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <SectionHeader
-          icon="shield"
-          iconVariant="primary"
-          subtitle="Our Core"
-          title="Values"
-          description="Four foundational principles that guide every project and partnership."
-        />
+        {/* Section Header - Military Construction Standard */}
+        <div className="mb-16 sm:mb-20 text-center">
+          {/* Icon with decorative lines */}
+          <div className="flex items-center justify-center mb-8 gap-4">
+            <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+              <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                <MaterialIcon
+                  icon="shield"
+                  size="2xl"
+                  className="text-white drop-shadow-lg"
+                />
+              </div>
+            </div>
+            <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+          </div>
+
+          {/* Two-line gradient heading */}
+          <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+            <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+              Subtitle Text
+            </span>
+            <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+              Main Title
+            </span>
+          </h2>
+
+          {/* Description with colored keyword highlighting */}
+          <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+            Description text with optional{" "}
+            <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+              keyword highlighting
+            </span>
+            .
+          </p>
+        </div>
 
         {/* Section Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -195,26 +260,6 @@ export function ExampleSection() {
 <div className="absolute top-20 right-10 w-32 h-32 bg-brand-primary/10 blur-3xl rounded-full animate-pulse"></div>
 ```
 
-### OLD - Custom Headers (DEPRECATED)
-
-```tsx
-// ❌ DO NOT USE - Use SectionHeader component instead
-<div className="text-center mb-12">
-  <div className="flex justify-center items-center mb-6">
-    <div className="relative">
-      <div className="absolute inset-0 bg-brand-primary/20 blur-xl rounded-full"></div>
-      <div className="relative bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 rounded-2xl">
-        <MaterialIcon icon="shield" size="2xl" className="text-white" />
-      </div>
-    </div>
-  </div>
-  <h2 className="font-black text-5xl">
-    <span className="block text-gray-700">Subtitle</span>
-    <span className="block text-brand-primary">Title</span>
-  </h2>
-</div>
-```
-
 ---
 
 ## ✅ Implementation Checklist
@@ -225,8 +270,8 @@ When creating or updating a page section:
 - [ ] Padding is `py-12 sm:py-16 lg:py-20 xl:py-24`
 - [ ] Diagonal stripe pattern included with correct opacity
 - [ ] Two large color blobs (w-96 h-96) positioned correctly
-- [ ] Using SectionHeader component (not custom header)
-- [ ] Icon variant appropriate for content type
+- [ ] Using custom header pattern (icon with decorative lines + two-line gradient heading + description)
+- [ ] Icon uses appropriate gradient (brand-primary or brand-secondary/bronze)
 - [ ] All colors use `brand-primary` or `brand-secondary` (no brand-accent)
 - [ ] Check marks use `text-brand-primary`
 - [ ] Partnership/veteran highlights use `text-brand-secondary`
@@ -247,27 +292,29 @@ When creating or updating a page section:
 
 ## 🔄 Migration Status
 
-### ✅ Completed (December 15, 2025)
+### ✅ Completed (December 18, 2025)
 
-**Home Page:**
+**Home Page - All sections using custom header pattern:**
 
-- CoreValuesSection
-- ServicesShowcase
-- WhyPartnerSection
-- CompanyStats (Our Process section)
+- CoreValuesSection ✅ (custom header with icon, gradient heading, description)
+- ServicesShowcase ✅ (custom header with icon, gradient heading, description)
+- WhyPartnerSection ✅ (custom header with icon, gradient heading, description + callout)
+- Our Process section ✅ (custom header with icon, gradient heading, description)
+- CompanyStats ✅ (used on multiple pages)
 
 **About Page:**
 
-- PartnershipPhilosophy
-- AboutValues
-- SafetySection
-- AwardsSection
-- LeadershipTeam
-- CompanyStats
-- Why Values Matter (inline section)
-- News & Achievements (inline section)
+- PartnershipPhilosophy ✅
+- AboutValues ✅
+- SafetySection ✅
+- AwardsSection ✅
+- LeadershipTeam ✅
+- Why Values Matter (inline) ✅
+- News & Achievements (inline) ✅
 
 ### 🔄 Pending Migration
+
+**Other pages need custom header pattern standardization:**
 
 - Services page sections
 - Projects page sections

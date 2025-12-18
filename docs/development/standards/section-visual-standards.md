@@ -545,12 +545,12 @@ For important sections, add decorative gradient lines:
 {
   /* Blur glow layer */
 }
-<div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/25 to-bronze-500/25 dark:from-brand-accent/35 dark:to-bronze-400/35 blur-2xl rounded-full"></div>;
+<div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/25 to-bronze-500/25 dark:from-brand-secondary/35 dark:to-bronze-400/35 blur-2xl rounded-full"></div>;
 
 {
   /* Icon container */
 }
-<div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 dark:from-bronze-400 dark:via-brand-accent dark:to-bronze-600 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50">
+<div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 dark:from-bronze-400 dark:via-brand-secondary dark:to-bronze-600 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50">
   <MaterialIcon
     icon="emoji_events"
     size="2xl"
@@ -825,25 +825,25 @@ className = "group-hover:scale-110 transition-transform duration-300";
   <span className="block mb-3 sm:mb-4 font-semibold text-white/90 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight drop-shadow-sm">
     Let's Build Your
   </span>
-  <span className="block text-brand-accent font-black drop-shadow-lg">
+  <span className="block text-brand-secondary font-black drop-shadow-lg">
     Vision Together
   </span>
 </h2>
 ```
 
-**Icon**: Bronze/accent gradient
+**Icon**: Bronze/secondary gradient
 
 ```tsx
-<div className="absolute inset-0 bg-brand-accent/30 blur-xl rounded-full"></div>
-<div className="relative bg-gradient-to-br from-brand-accent to-bronze-600 p-4 rounded-2xl shadow-lg">
+<div className="absolute inset-0 bg-brand-secondary/30 blur-xl rounded-full"></div>
+<div className="relative bg-gradient-to-br from-brand-secondary to-bronze-600 p-4 rounded-2xl shadow-lg">
 ```
 
-**Emphasized Text**: Use brand-accent color
+**Emphasized Text**: Use brand-secondary color
 
 ```tsx
 <p>
   Where your word is your bond, and{" "}
-  <span className="font-medium text-brand-accent">ours is too</span>.
+  <span className="font-medium text-brand-secondary">ours is too</span>.
 </p>
 ```
 
@@ -974,9 +974,9 @@ Same styling as NextStepsSection but with different content focus.
 ### CTA Section Checklist
 
 - [ ] Use dark gradient background
-- [ ] Include colorful icon header (bronze/accent recommended)
+- [ ] Include colorful icon header (bronze/secondary recommended)
 - [ ] Split title with colored emphasis word
-- [ ] White text with brand-accent highlights
+- [ ] White text with brand-secondary highlights
 - [ ] Three-column grid layout (stacks on mobile)
 - [ ] Cards use flex flex-col h-full
 - [ ] List items use flex-grow

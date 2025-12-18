@@ -286,7 +286,6 @@ Existing FAQ data in `/src/lib/data/faqs.ts` can be used to:
 /* Primary Colors - Use these via Tailwind classes */
 --brand-primary: #386851; /* Hunter Green - Main CTAs, headers */
 --brand-secondary: #bd9264; /* Leather Tan - Secondary buttons, accents */
---brand-accent: #2f5d45; /* Forest Green - Hover states */
 
 /* Extended Palette */
 --bronze-300: #cd7f32; /* Veteran badge highlights */
@@ -297,7 +296,7 @@ Existing FAQ data in `/src/lib/data/faqs.ts` can be used to:
 
 ```tsx
 // ✅ CORRECT: Use Tailwind classes
-className="bg-brand-primary text-brand-secondary border-brand-accent"
+className="bg-brand-primary text-brand-secondary border-brand-secondary"
 className="text-bronze-300 dark:text-bronze-400"
 
 // ❌ INCORRECT: Never hardcode hex values
@@ -476,7 +475,7 @@ export default function PageName() {
 #### Pattern B: Gradient Background Hero (Clean, Professional)
 
 ```tsx
-<section className="relative bg-gradient-to-br from-brand-primary via-brand-accent to-gray-900 py-20 sm:py-24 lg:py-32 text-white">
+<section className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-gray-900 py-20 sm:py-24 lg:py-32 text-white">
   <div className="relative mx-auto px-4 container">
     {/* NO BADGES - Professional and clean */}
     <h1
@@ -648,7 +647,7 @@ import { Modal } from "@/components/ui";
 **Modal Standards**:
 
 - **Veteran badge**: Always shown by default (`showVeteranBadge={true}`)
-- **Gradient header**: `from-brand-primary via-brand-accent to-brand-primary`
+- **Gradient header**: `from-brand-primary via-brand-secondary to-brand-primary`
 - **Sizes**: `sm`, `md`, `lg`, `xl`
 - **Backdrop**: `bg-black/75 backdrop-blur-sm`
 
@@ -867,7 +866,7 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 // ✅ CORRECT - Dark backgrounds
 <p>
   Building projects for the client,{" "}
-  <span className="font-black italic text-brand-accent">NOT</span> the dollar
+  <span className="font-black italic text-brand-secondary">NOT</span> the dollar
 </p>
 
 // ❌ INCORRECT - No color distinction
@@ -876,8 +875,8 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 
 **Color Choices by Context**:
 
-- **Light backgrounds**: Use `text-bronze-300` or `text-brand-secondary`
-- **Dark backgrounds**: Use `text-bronze-300` or `text-brand-accent`
+- **Light backgrounds**: Use `text-bronze-600` or `text-brand-secondary`
+- **Dark backgrounds**: Use `text-bronze-300` or `text-brand-secondary`
 - **Hero sections**: Use `text-bronze-300` for strong contrast
 - **Always bold**: Use `font-black` or `font-bold` on "NOT"
 

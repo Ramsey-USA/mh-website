@@ -167,11 +167,11 @@ Organized sections with consistent spacing and styling.
   from-brand-secondary via-bronze-700 to-bronze-800 (icon bg)
   ```
 
-- **Accent (Bronze/Gold)**: Awards, premium sections
+- **Secondary (Bronze/Gold)**: Awards, premium sections
 
   ```tsx
-  from-brand-accent/30 to-bronze-600/30 (blur)
-  from-brand-accent via-bronze-700 to-bronze-800 (icon bg)
+  from-brand-secondary/30 to-bronze-600/30 (blur)
+  from-brand-secondary via-bronze-700 to-bronze-800 (icon bg)
   ```
 
 **Key Requirements:**

@@ -183,7 +183,7 @@ For comprehensive definitions, implementation guidelines, and examples, see:
 
 - **Internal Team:** Brand primary colors (`brand-primary`)
 - **Trade Partners:** Brand secondary colors (`brand-secondary`)
-- **Partnership Actions:** Brand accent colors (`brand-accent`)
+- **Partnership Actions:** Brand secondary/bronze colors (`brand-secondary`, `bronze-600`)
 
 ---
 

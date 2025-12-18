@@ -19,7 +19,7 @@ export function CapabilitiesSection() {
           <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 blur-2xl rounded-full"></div>
-            <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-accent p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+            <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-bronze-700 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
               <MaterialIcon
                 icon="construction"
                 size="2xl"

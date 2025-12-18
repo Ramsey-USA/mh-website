@@ -113,6 +113,11 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
           rel="stylesheet"
         />
+        {/* Prefetch common navigation routes for faster page transitions */}
+        <link rel="prefetch" href="/services" />
+        <link rel="prefetch" href="/contact" />
+        <link rel="prefetch" href="/projects" />
+        <link rel="prefetch" href="/about" />
         {/* Enhanced Schema Markup */}
         <StructuredData
           data={[generateEnhancedOrganizationSchema(), generateWebsiteSchema()]}

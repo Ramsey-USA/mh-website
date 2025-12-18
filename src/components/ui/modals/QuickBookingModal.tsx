@@ -104,7 +104,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
       {/* Enhanced Modal with better shadow and animation */}
       <div className="z-10 relative mx-4 w-full max-w-3xl max-h-[95vh] overflow-y-auto animate-modal-slide">
         <Card className="bg-white dark:bg-gray-900 shadow-2xl border-2 border-brand-primary/20 ring-1 ring-black/10 dark:ring-white/10">
-          <CardHeader className="relative bg-gradient-to-r from-brand-primary via-brand-accent to-brand-primary p-8 overflow-hidden text-white">
+          <CardHeader className="relative bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary p-8 overflow-hidden text-white">
             {/* Background decoration */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10" />
             <div className="top-0 right-0 absolute bg-white/5 rounded-full w-32 h-32 -translate-y-16 translate-x-16" />
@@ -521,7 +521,7 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                         <MaterialIcon
                           icon="verified_user"
                           size="lg"
-                          className="mb-2 text-brand-accent"
+                          className="mb-2 text-bronze-600"
                         />
                         <div className="font-semibold text-gray-900 dark:text-white text-sm">
                           Expert Partners

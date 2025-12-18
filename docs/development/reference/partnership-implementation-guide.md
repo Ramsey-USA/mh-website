@@ -52,7 +52,7 @@ Is this about someone HIRING us for a project?
 const clientColors = {
   primary: "bg-brand-primary", // Hunter Green #386851
   text: "text-brand-primary",
-  hover: "hover:bg-brand-accent", // Forest Green #2f5d45
+  hover: "hover:bg-brand-secondary", // Leather Tan #BD9264
   border: "border-brand-primary",
 };
 
@@ -65,7 +65,7 @@ const clientIcons = {
 };
 
 // Button Example
-<Button variant="primary" className="bg-brand-primary hover:bg-brand-accent">
+<Button variant="primary" className="bg-brand-primary hover:bg-brand-secondary">
   <MaterialIcon icon="handshake" size="lg" className="mr-3" />
   <span>Schedule Free Consultation</span>
 </Button>;
@@ -345,7 +345,7 @@ interface PartnershipSectionProps {
 ```css
 /* Client Partnership Styles */
 .client-partnership-primary {
-  @apply bg-brand-primary text-white hover:bg-brand-accent;
+  @apply bg-brand-primary text-white hover:bg-brand-secondary;
 }
 
 .client-partnership-icon {
@@ -379,7 +379,7 @@ const getPartnershipStyles = (type: PartnershipType) => {
     ? {
         bgColor: "bg-brand-primary",
         textColor: "text-brand-primary",
-        hoverColor: "hover:bg-brand-accent",
+        hoverColor: "hover:bg-brand-secondary",
         icon: "handshake",
       }
     : {

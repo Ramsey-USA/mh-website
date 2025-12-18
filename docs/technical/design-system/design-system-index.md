@@ -570,7 +570,7 @@ and components.
 
 - **Primary**: `#386851` (Hunter Green) - `brand-primary`
 - **Secondary**: `#BD9264` (Leather Tan) - `brand-secondary`
-- **Accent**: `#2F5D45` (Forest Green) - `brand-accent`
+- **Bronze Variants**: `bronze-600`, `bronze-700`, `bronze-800` - For accents and details
 
 ### CSS Variables Usage
 
@@ -578,7 +578,6 @@ and components.
 /* Use these CSS variables throughout the codebase */
 var(--brand-primary)
 var(--brand-secondary)
-var(--brand-accent)
 ```text
 
 ## 📝 Typography System

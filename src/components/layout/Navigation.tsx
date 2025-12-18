@@ -96,7 +96,7 @@ export function Navigation() {
         {/* Hamburger Menu */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="relative bg-gradient-to-r from-brand-primary to-forest-600 hover:from-brand-accent hover:to-forest-700 shadow-lg hover:shadow-xl p-2.5 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 touch-manipulation"
+          className="relative bg-gradient-to-r from-brand-primary to-forest-600 hover:from-brand-secondary hover:to-forest-700 shadow-lg hover:shadow-xl p-2.5 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 touch-manipulation"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
           <div className="flex flex-col justify-center space-y-1 w-5 h-5 sm:w-6 sm:h-6">

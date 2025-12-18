@@ -244,7 +244,7 @@ Technology is always positioned as:
 ```tsx
 className = "text-brand-secondary"; // Leather Tan
 className = "text-bronze-300"; // Bronze highlight
-className = "from-brand-primary via-brand-accent to-gray-900"; // Hunter Green gradient
+className = "from-brand-primary via-brand-secondary to-gray-900"; // Hunter Green gradient
 ```
 
 ---

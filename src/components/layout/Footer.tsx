@@ -554,7 +554,7 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
-                  className="top-1/2 right-1 absolute bg-brand-primary hover:bg-brand-accent p-1.5 rounded-lg text-white hover:scale-105 transition-all -translate-y-1/2 duration-300 transform touch-manipulation group"
+                  className="top-1/2 right-1 absolute bg-brand-primary hover:bg-brand-secondary p-1.5 rounded-lg text-white hover:scale-105 transition-all -translate-y-1/2 duration-300 transform touch-manipulation group"
                   aria-label="Search"
                 >
                   <MaterialIcon

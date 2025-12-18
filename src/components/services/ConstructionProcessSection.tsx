@@ -8,47 +8,87 @@ import {
   FadeInWhenVisible,
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
-import { SectionHeader, Card, CardContent, Button } from "@/components/ui";
+import { Card, CardContent, Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 export function ConstructionProcessSection() {
   return (
     <section
       id="process"
-      className="relative bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden"
+      className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
     >
-      {/* Enhanced Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(189,146,100,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_right,rgba(189,146,100,0.15)_0%,transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,104,81,0.06)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(56,104,81,0.12)_0%,transparent_50%)]"></div>
+      {/* Diagonal Stripe Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+              45deg,
+              #386851 0px,
+              #386851 2px,
+              transparent 2px,
+              transparent 60px
+            )`,
+          }}
+        ></div>
+      </div>
 
-      {/* Animated Blur Orbs */}
-      <div className="top-20 left-10 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
-      <div
-        className="right-10 bottom-20 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
-        style={{ animationDelay: "1s" }}
-      ></div>
-      <div
-        className="top-1/2 left-1/4 absolute bg-brand-secondary/5 dark:bg-brand-secondary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
-        style={{ animationDelay: "0.5s" }}
-      ></div>
+      {/* Large Brand Color Blobs */}
+      <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
 
-      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <SectionHeader
-          icon="timeline"
-          iconVariant="secondary"
-          subtitle="Our Partnership"
-          title="Construction Process"
-          description="From initial consultation to project completion, we guide you through every step with transparency, communication, and collaborative excellence"
-        />
+      <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        {/* Section Header - Military Construction Standard */}
+        <div className="mb-16 sm:mb-20 text-center">
+          {/* Icon with decorative lines */}
+          <div className="flex items-center justify-center mb-8 gap-4">
+            <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-brand-secondary-dark/30 blur-2xl rounded-full"></div>
+              <div className="relative bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-bronze-700 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                <MaterialIcon
+                  icon="timeline"
+                  size="2xl"
+                  className="text-white drop-shadow-lg"
+                />
+              </div>
+            </div>
+            <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+          </div>
+
+          {/* Two-line gradient heading */}
+          <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+            <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+              Our Partnership
+            </span>
+            <span className="block bg-gradient-to-r from-brand-secondary via-brand-secondary-dark to-bronze-700 bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+              Construction Process
+            </span>
+          </h2>
+
+          {/* Description */}
+          <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+            From initial consultation to project completion, we guide you
+            through every step with{" "}
+            <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+              transparency
+            </span>
+            ,{" "}
+            <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
+              communication
+            </span>
+            , and collaborative excellence.
+          </p>
+        </div>
 
         <div className="mx-auto max-w-6xl relative">
           {/* Vertical connecting line */}
-          <div className="absolute left-8 top-12 bottom-12 w-0.5 bg-gradient-to-b from-brand-primary via-brand-secondary to-brand-accent dark:from-brand-primary-dark dark:via-brand-secondary-dark dark:to-brand-accent hidden sm:block"></div>
+          <div className="absolute left-8 top-12 bottom-12 w-0.5 bg-gradient-to-b from-brand-primary via-brand-secondary to-bronze-700 dark:from-brand-primary-dark dark:via-brand-secondary-dark dark:to-bronze-700 hidden sm:block"></div>
 
           <StaggeredFadeIn className="space-y-8 lg:space-y-12">
             {/* Step 1 */}
             <div className="flex sm:flex-row flex-col gap-6 items-start relative">
-              <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-accent shadow-xl rounded-full w-16 h-16 flex-shrink-0 z-10 ring-4 ring-white dark:ring-gray-800 hover:scale-110 transition-transform duration-300 group">
+              <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary shadow-xl rounded-full w-16 h-16 flex-shrink-0 z-10 ring-4 ring-white dark:ring-gray-800 hover:scale-110 transition-transform duration-300 group">
                 <span className="font-black text-2xl text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
                   1
                 </span>
@@ -142,20 +182,20 @@ export function ConstructionProcessSection() {
 
             {/* Step 3 */}
             <div className="flex sm:flex-row flex-col gap-6 items-start relative">
-              <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-accent via-forest-600 to-forest-700 shadow-xl rounded-full w-16 h-16 flex-shrink-0 z-10 ring-4 ring-white dark:ring-gray-800 hover:scale-110 transition-transform duration-300 group">
+              <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-secondary via-forest-600 to-forest-700 shadow-xl rounded-full w-16 h-16 flex-shrink-0 z-10 ring-4 ring-white dark:ring-gray-800 hover:scale-110 transition-transform duration-300 group">
                 <span className="font-black text-2xl text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
                   3
                 </span>
-                <div className="absolute inset-0 rounded-full bg-brand-accent/50 animate-ping opacity-20"></div>
+                <div className="absolute inset-0 rounded-full bg-brand-secondary/50 animate-ping opacity-20"></div>
               </div>
-              <Card className="flex-1 bg-gradient-to-br from-white to-brand-accent/5 dark:from-gray-900 dark:to-gray-800 border-l-4 border-brand-accent hover:shadow-2xl dark:hover:shadow-brand-accent/10 hover:-translate-y-1 transition-all duration-300 group">
+              <Card className="flex-1 bg-gradient-to-br from-white to-brand-secondary/5 dark:from-gray-900 dark:to-gray-800 border-l-4 border-brand-secondary hover:shadow-2xl dark:hover:shadow-brand-secondary/10 hover:-translate-y-1 transition-all duration-300 group">
                 <CardContent className="p-6 sm:p-8">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-brand-accent/10 dark:bg-brand-accent/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <MaterialIcon
                         icon="description"
                         size="lg"
-                        className="text-brand-accent"
+                        className="text-brand-secondary"
                       />
                     </div>
                     <h3 className="font-bold text-gray-900 dark:text-white text-xl sm:text-2xl">
@@ -166,20 +206,20 @@ export function ConstructionProcessSection() {
                     We finalize contracts with clear terms, obtain necessary
                     permits, coordinate with subcontractors, and schedule
                     materials. Our Project Manager handles{" "}
-                    <span className="font-semibold text-brand-accent dark:text-brand-accent-light">
+                    <span className="font-semibold text-brand-secondary dark:text-bronze-400">
                       all paperwork
                     </span>
                     , submittals, and RFIs while keeping you informed every step
                     of the way.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="bg-brand-accent/10 px-3 py-1.5 rounded-full text-forest-700 text-sm font-medium hover:bg-brand-accent/20 transition-colors duration-200">
+                    <span className="bg-brand-secondary/10 px-3 py-1.5 rounded-full text-forest-700 text-sm font-medium hover:bg-brand-secondary/20 transition-colors duration-200">
                       Clear Contracts
                     </span>
-                    <span className="bg-brand-accent/10 px-3 py-1.5 rounded-full text-forest-700 text-sm font-medium hover:bg-brand-accent/20 transition-colors duration-200">
+                    <span className="bg-brand-secondary/10 px-3 py-1.5 rounded-full text-forest-700 text-sm font-medium hover:bg-brand-secondary/20 transition-colors duration-200">
                       Permit Handling
                     </span>
-                    <span className="bg-brand-accent/10 px-3 py-1.5 rounded-full text-forest-700 text-sm font-medium hover:bg-brand-accent/20 transition-colors duration-200">
+                    <span className="bg-brand-secondary/10 px-3 py-1.5 rounded-full text-forest-700 text-sm font-medium hover:bg-brand-secondary/20 transition-colors duration-200">
                       Full Coordination
                     </span>
                   </div>
@@ -267,16 +307,16 @@ export function ConstructionProcessSection() {
 
             {/* Step 6 */}
             <div className="flex sm:flex-row flex-col gap-6 items-start">
-              <div className="flex justify-center items-center bg-gradient-to-br from-brand-accent to-forest-700 shadow-lg rounded-full w-16 h-16 flex-shrink-0">
+              <div className="flex justify-center items-center bg-gradient-to-br from-brand-secondary to-forest-700 shadow-lg rounded-full w-16 h-16 flex-shrink-0">
                 <span className="font-black text-2xl text-white">6</span>
               </div>
-              <Card className="flex-1 bg-white dark:bg-gray-900 border-brand-accent border-l-4">
+              <Card className="flex-1 bg-white dark:bg-gray-900 border-brand-secondary border-l-4">
                 <CardContent className="p-6 sm:p-8">
                   <div className="flex items-center gap-3 mb-4">
                     <MaterialIcon
                       icon="check_circle"
                       size="lg"
-                      className="text-brand-accent"
+                      className="text-brand-secondary"
                     />
                     <h3 className="font-bold text-gray-900 dark:text-white text-xl sm:text-2xl">
                       Project Close-Out & Follow-Up
@@ -289,13 +329,13 @@ export function ConstructionProcessSection() {
                     for the long term with ongoing partnership support.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="bg-brand-accent/10 px-3 py-1 rounded-full text-forest-700 text-sm">
+                    <span className="bg-brand-secondary/10 px-3 py-1 rounded-full text-forest-700 text-sm">
                       Final Walkthrough
                     </span>
-                    <span className="bg-brand-accent/10 px-3 py-1 rounded-full text-forest-700 text-sm">
+                    <span className="bg-brand-secondary/10 px-3 py-1 rounded-full text-forest-700 text-sm">
                       Warranty Support
                     </span>
-                    <span className="bg-brand-accent/10 px-3 py-1 rounded-full text-forest-700 text-sm">
+                    <span className="bg-brand-secondary/10 px-3 py-1 rounded-full text-forest-700 text-sm">
                       Ongoing Partnership
                     </span>
                   </div>

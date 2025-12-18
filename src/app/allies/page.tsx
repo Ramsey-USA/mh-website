@@ -1,7 +1,3 @@
-"use client";
-
-import { useState } from "react";
-
 // Note: Metadata export removed due to "use client" directive
 // SEO handled via next-seo or alternative client-side SEO solution
 import Head from "next/head";
@@ -201,7 +197,7 @@ const partnershipValues = [
     title: "Fair & Prompt Payment Terms",
     description:
       "Competitive compensation and reliable payment schedules support the financial health and business growth of our Trade Partners. Building projects for the client, NOT the dollar means treating partners with the same transparency and fairness we give Client Partners.",
-    color: "from-brand-accent to-brand-accent-dark",
+    color: "from-brand-secondary to-bronze-700",
   },
   {
     icon: "health_and_safety",
@@ -253,10 +249,6 @@ const partnershipBenefits = [
 ];
 
 export default function AlliesPage() {
-  const [_expandedCategory, _setExpandedCategory] = useState<string | null>(
-    null,
-  );
-
   // Show under construction notice while preserving all content below
   if (SHOW_UNDER_CONSTRUCTION) {
     return (
@@ -411,9 +403,11 @@ export default function AlliesPage() {
                   "THE ROI IS THE RELATIONSHIP—and we prove it."
                 </span>{" "}
                 Building for the Client,{" "}
-                <span className="font-black text-brand-accent">NOT</span> the
-                Dollar means treating our trade partners with the same integrity
-                we give our Client Partners.{" "}
+                <span className="font-black text-bronze-600 dark:text-bronze-400">
+                  NOT
+                </span>{" "}
+                the Dollar means treating our trade partners with the same
+                integrity we give our Client Partners.{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
                   Quality construction is built through trusted relationships
                 </span>
@@ -464,7 +458,7 @@ export default function AlliesPage() {
                 <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
                   <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-accent p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-bronze-700 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
                       icon="groups"
                       size="2xl"
@@ -544,7 +538,7 @@ export default function AlliesPage() {
                           </p>
                           <Link
                             href="/contact"
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary hover:bg-brand-accent text-white transition-all duration-300 rounded-lg font-semibold shadow-md hover:shadow-lg"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary hover:bg-brand-secondary text-white transition-all duration-300 rounded-lg font-semibold shadow-md hover:shadow-lg"
                           >
                             <MaterialIcon
                               icon="handshake"
@@ -573,8 +567,8 @@ export default function AlliesPage() {
               <div className="flex items-center justify-center mb-8 gap-4">
                 <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
                       icon="workspace_premium"
                       size="2xl"
@@ -714,7 +708,7 @@ export default function AlliesPage() {
                   </p>
                   <Link
                     href="/veterans"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary hover:bg-brand-accent text-white transition-all duration-300 rounded-lg font-bold shadow-md hover:shadow-lg"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary hover:bg-brand-secondary text-white transition-all duration-300 rounded-lg font-bold shadow-md hover:shadow-lg"
                   >
                     <MaterialIcon
                       icon="military_tech"

@@ -338,7 +338,7 @@ export default function UrgentSupportPage() {
       </section>
 
       {/* Large Equipment Section */}
-      <section className="py-16 bg-gradient-to-br from-brand-primary to-brand-accent text-white">
+      <section className="py-16 bg-gradient-to-br from-brand-primary to-brand-secondary text-white">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <FadeInWhenVisible>
             <div className="text-center mb-12">

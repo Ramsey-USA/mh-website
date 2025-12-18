@@ -29,12 +29,12 @@ export function TestimonialCard({
     },
     employee: {
       borderColor: "border-brand-secondary dark:border-brand-secondary/50",
-      iconBg: "from-brand-secondary to-brand-accent",
-      quoteColor: "text-brand-accent",
+      iconBg: "from-brand-secondary to-bronze-700",
+      quoteColor: "text-brand-secondary",
     },
     veteran: {
-      borderColor: "border-brand-accent dark:border-brand-accent/50",
-      iconBg: "from-brand-accent to-brand-primary",
+      borderColor: "border-brand-secondary dark:border-brand-secondary/50",
+      iconBg: "from-brand-secondary to-brand-primary",
       quoteColor: "text-brand-primary",
     },
     default: {
@@ -138,13 +138,13 @@ export function TestimonialCard({
 
           {/* Veteran Badge */}
           {testimonial.veteranStatus && (
-            <div className="flex items-center gap-1 bg-brand-accent/10 dark:bg-brand-accent/20 mt-2 px-2 py-1 rounded w-fit">
+            <div className="flex items-center gap-1 bg-brand-secondary/10 dark:bg-brand-secondary/20 mt-2 px-2 py-1 rounded w-fit">
               <MaterialIcon
                 icon="military_tech"
                 size="sm"
-                className="text-brand-accent"
+                className="text-brand-secondary"
               />
-              <span className="font-semibold text-brand-accent text-xs">
+              <span className="font-semibold text-brand-secondary text-xs">
                 Veteran
               </span>
             </div>

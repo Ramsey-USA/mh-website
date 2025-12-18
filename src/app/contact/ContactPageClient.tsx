@@ -379,7 +379,7 @@ export default function ContactPageClient() {
                           </p>
                           <a
                             href="tel:+15093086489"
-                            className="text-brand-primary hover:text-brand-accent text-lg font-bold transition-colors"
+                            className="text-brand-primary hover:text-brand-secondary text-lg font-bold transition-colors"
                             aria-label="Call Client services at 509-308-6489"
                           >
                             (509) 308-6489
@@ -400,7 +400,7 @@ export default function ContactPageClient() {
                           </p>
                           <a
                             href="mailto:office@mhc-gc.com?subject=Project%20Inquiry"
-                            className="text-brand-primary hover:text-brand-accent text-lg font-bold transition-colors"
+                            className="text-brand-primary hover:text-brand-secondary text-lg font-bold transition-colors"
                             aria-label="Email office@mhc-gc.com for project inquiries"
                           >
                             office@mhc-gc.com
@@ -423,7 +423,7 @@ export default function ContactPageClient() {
                     </h4>
                     <Link
                       href="/contact"
-                      className="flex items-center justify-between bg-brand-primary hover:bg-brand-accent text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
+                      className="flex items-center justify-between bg-brand-primary hover:bg-brand-secondary text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
                     >
                       <div className="flex items-center gap-3">
                         <MaterialIcon
@@ -502,7 +502,7 @@ export default function ContactPageClient() {
                           </p>
                           <a
                             href="tel:+15093086489"
-                            className="text-brand-secondary hover:text-brand-accent text-lg font-bold transition-colors"
+                            className="text-brand-secondary hover:text-bronze-600 text-lg font-bold transition-colors"
                             aria-label="Call Ally inquiries at 509-308-6489"
                           >
                             (509) 308-6489
@@ -523,7 +523,7 @@ export default function ContactPageClient() {
                           </p>
                           <a
                             href="mailto:office@mhc-gc.com?subject=Ally%20Inquiry"
-                            className="text-brand-secondary hover:text-brand-accent text-lg font-bold transition-colors"
+                            className="text-brand-secondary hover:text-bronze-600 text-lg font-bold transition-colors"
                             aria-label="Email office@mhc-gc.com for Ally inquiries"
                           >
                             office@mhc-gc.com

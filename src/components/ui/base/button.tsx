@@ -10,7 +10,7 @@ const buttonVariants = cva(
       variant: {
         // MH Construction Primary - Hunter Green
         primary:
-          "border-brand-primary bg-white dark:bg-gray-900 text-brand-primary dark:text-bronze-400 hover:bg-brand-primary hover:text-white hover:border-brand-accent focus:ring-brand-primary shadow-[0_4px_16px_rgba(56,104,81,0.2)] hover:shadow-[0_8px_25px_rgba(56,104,81,0.35)]",
+          "border-brand-primary bg-white dark:bg-gray-900 text-brand-primary dark:text-bronze-400 hover:bg-brand-primary hover:text-white hover:border-brand-secondary focus:ring-brand-primary shadow-[0_4px_16px_rgba(56,104,81,0.2)] hover:shadow-[0_8px_25px_rgba(56,104,81,0.35)]",
 
         // MH Construction Secondary - Leather Tan
         secondary:
@@ -34,7 +34,7 @@ const buttonVariants = cva(
         ghost:
           "border-transparent bg-transparent text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-200 dark:hover:border-gray-700 focus:ring-gray-500",
 
-        link: "border-transparent bg-transparent text-brand-primary dark:text-bronze-400 underline-offset-4 hover:underline hover:text-brand-accent dark:hover:text-bronze-300 focus:ring-brand-primary/50 hover:translate-y-0",
+        link: "border-transparent bg-transparent text-brand-primary dark:text-bronze-400 underline-offset-4 hover:underline hover:text-brand-secondary dark:hover:text-bronze-300 focus:ring-brand-primary/50 hover:translate-y-0",
       },
       size: {
         sm: "h-8 px-3 text-xs min-w-[72px]",

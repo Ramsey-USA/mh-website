@@ -3,8 +3,7 @@
 **For Developers** | **Last Updated**: December 15, 2025 | **Version**: 6.0.0
 
 **⭐ BREAKING CHANGES (Dec 15, 2025)**: Home page standardization complete. All sections MUST use diagonal
-stripe backgrounds, large color blobs, SectionHeader component, and strict brand color compliance. Custom
-headers deprecated. Brand-accent color removed.
+stripe backgrounds, large color blobs, custom header pattern, and strict brand color compliance. Brand-accent color removed.
 
 **Previous Update (Dec 13, 2025)**: Complete shift to veteran/honest messaging. All branding emphasizes
 veteran-owned excellence, honest communication, transparent pricing, and proven craftsmanship.
@@ -40,13 +39,7 @@ veteran-owned excellence, honest communication, transparent pricing, and proven 
   <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
   <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-    <SectionHeader
-      icon="icon_name"
-      iconVariant="primary"
-      subtitle="Subtitle"
-      title="Title"
-      description="Description"
-    />
+    {/* Use custom header pattern shown below */}
     {/* Content */}
   </div>
 </section>
@@ -54,32 +47,50 @@ veteran-owned excellence, honest communication, transparent pricing, and proven 
 // ❌ DEPRECATED: Old patterns
 <section className="bg-gradient-to-b from-white via-gray-50 to-white"> // Complex gradients
 <div className="w-32 h-32 animate-pulse"> // Small animated blobs
-<div className="mb-12 text-center"> // Custom headers
 ```
 
-### SectionHeader Component - REQUIRED
+### Section Header Pattern - OFFICIAL STANDARD
 
 ```tsx
-// ✅ CORRECT: Use SectionHeader component
-import { SectionHeader } from "@/components/ui/SectionHeader";
-
-<SectionHeader
-  icon="shield"
-  iconVariant="primary"  // primary | secondary | bronze
-  subtitle="Our Core"
-  title="Values"
-  description="Optional description text"
-/>
-
-// ❌ INCORRECT: Custom header markup
-<div className="text-center mb-12">
-  <div className="flex justify-center">
-    <div className="bg-brand-primary p-4 rounded-2xl">
-      <MaterialIcon icon="shield" />
+// ✅ REQUIRED: Use this custom header pattern for all sections
+{
+  /* Section Header - Military Construction Standard */
+}
+<div className="mb-16 sm:mb-20 text-center">
+  {/* Icon with decorative lines */}
+  <div className="flex items-center justify-center mb-8 gap-4">
+    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+    <div className="relative">
+      <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+      <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+        <MaterialIcon
+          icon="shield"
+          size="2xl"
+          className="text-white drop-shadow-lg"
+        />
+      </div>
     </div>
+    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
   </div>
-  <h2>Title</h2>
-</div>
+
+  {/* Two-line gradient heading */}
+  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+      Subtitle Text
+    </span>
+    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+      Main Title
+    </span>
+  </h2>
+
+  {/* Description */}
+  <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+    Description text with optional{" "}
+    <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+      keyword highlights
+    </span>
+  </p>
+</div>;
 ```
 
 ### Emoji Policy
@@ -103,8 +114,8 @@ className="bg-brand-secondary"
 className="border-brand-primary"
 
 // ❌ INCORRECT: Deprecated/hardcoded colors
-className="text-brand-accent"       // Removed - use brand-primary or brand-secondary
-className="bg-brand-accent"         // Removed - use brand-secondary
+className="text-brand-accent"       // REMOVED - use brand-primary or brand-secondary
+className="bg-brand-accent"         // REMOVED - use brand-secondary
 style={{backgroundColor: '#386851'}} // Use Tailwind classes
 className="bg-[#BD9264]"            // Use bg-brand-secondary
 ```

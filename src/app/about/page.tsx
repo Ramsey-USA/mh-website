@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import Head from "next/head";
@@ -193,8 +191,8 @@ export default function AboutPage() {
               <div className="flex items-center justify-center mb-8 gap-4">
                 <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-accent/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-accent via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
                       icon="verified"
                       size="2xl"
@@ -571,7 +569,7 @@ export default function AboutPage() {
               </FadeInWhenVisible>
 
               <FadeInWhenVisible>
-                <Card className="border-l-4 border-l-brand-accent h-full flex flex-col">
+                <Card className="border-l-4 border-l-brand-secondary h-full flex flex-col">
                   <CardContent className="pt-6 flex flex-col flex-grow">
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex items-center gap-2">
@@ -700,7 +698,7 @@ export default function AboutPage() {
               </FadeInWhenVisible>
 
               <FadeInWhenVisible>
-                <Card className="border-l-4 border-l-brand-accent h-full flex flex-col">
+                <Card className="border-l-4 border-l-brand-secondary h-full flex flex-col">
                   <CardContent className="pt-6 flex flex-col flex-grow">
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex items-center gap-2">
