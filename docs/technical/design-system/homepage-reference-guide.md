@@ -7,7 +7,10 @@
 
 ## 📋 Overview
 
-This document serves as the **canonical reference** for the MH Construction website's look and feel. The homepage (`/`) exemplifies all design patterns, visual standards, and component implementations that should be replicated throughout the website.
+This document serves as the **canonical reference** for the MH Construction
+website's look and feel. The homepage (`/`) exemplifies all design patterns, visual
+standards, and component implementations that should be replicated throughout the
+website.
 
 **Purpose:**
 
@@ -133,7 +136,7 @@ className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 x
   </div>
 
   {/* Two-line gradient heading */}
-  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
     <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
       Veteran-Owned Values
     </span>
@@ -149,7 +152,7 @@ className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 x
       project and partnership
     </span>
     —focused on building for the{" "}
-    <span className="font-bold text-gray-900 dark:text-white">
+    <span className="font-bold text-gray-900 dark:text-gray-100">
       client, NOT the dollar
     </span>
     .
@@ -202,7 +205,7 @@ className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 x
   </div>
 
   {/* Title and subtitle */}
-  <h3 className="font-black text-gray-900 dark:text-white text-xl sm:text-2xl mb-2">
+  <h3 className="font-black text-gray-900 dark:text-gray-100 text-xl sm:text-2xl mb-2">
     .64 EMR - Industry-Leading Safety
   </h3>
   <p className="font-semibold text-bronze-600 dark:text-bronze-400 text-sm sm:text-base mb-4">
@@ -325,7 +328,7 @@ className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 x
 <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-primary dark:group-hover:border-brand-primary-light">
   <div className="flex items-center justify-end gap-4 mb-4">
     <div>
-      <h3 className="font-black text-gray-900 dark:text-white text-2xl mb-1">
+      <h3 className="font-black text-gray-900 dark:text-gray-100 text-2xl mb-1">
         Pre-Construction Planning
       </h3>
     </div>
@@ -632,16 +635,19 @@ Spacing increases at each breakpoint:
 ## ❓ FAQs
 
 **Q: Can I modify these patterns?**
-A: Minor adjustments for specific content needs are fine, but major deviations should be discussed. The homepage patterns ensure consistency.
+A: Minor adjustments for specific content needs are fine, but major deviations should
+be discussed. The homepage patterns ensure consistency.
 
 **Q: What if my section doesn't fit any homepage pattern?**
 A: Reference the closest matching section and adapt. Document new patterns for future reference.
 
 **Q: Do I need to use all background effects?**
-A: Diagonal stripes + brand blobs is the homepage standard, but simpler pages can use just gradients. Stay consistent within a page.
+A: Diagonal stripes + brand blobs is the homepage standard, but simpler pages can use
+just gradients. Stay consistent within a page.
 
 **Q: How do I choose between primary, secondary, and bronze?**
-A: Follow semantic meaning: Primary (trust/quality), Secondary (partnership), Bronze (excellence/achievement). See color usage section above.
+A: Follow semantic meaning: Primary (trust/quality), Secondary (partnership), Bronze
+(excellence/achievement). See color usage section above.
 
 ---
 

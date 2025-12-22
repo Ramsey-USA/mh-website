@@ -312,7 +312,7 @@ Repeated section pattern across 10+ pages:
   <div className="mx-auto px-4 container">
     <FadeInWhenVisible>
       <div className="mx-auto mb-16 lg:mb-24 max-w-4xl text-center">
-        <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+        <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-gray-100 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
           Title
         </h2>
         <p className="text-gray-600 dark:text-gray-300">Description</p>
@@ -388,7 +388,7 @@ export function SectionHeader({
           {subtitle}
         </p>
       )}
-      <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
+      <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-gray-100 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
         {title}
       </h2>
       {description && (

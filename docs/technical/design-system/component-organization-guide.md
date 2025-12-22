@@ -197,7 +197,7 @@ All major sections across the website must use this military-construction header
   </div>
 
   {/* Two-line gradient heading */}
-  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
     <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
       Veteran-Owned Values
     </span>
@@ -213,7 +213,7 @@ All major sections across the website must use this military-construction header
       project and partnership
     </span>
     —focused on building for the{" "}
-    <span className="font-bold text-gray-900 dark:text-white">
+    <span className="font-bold text-gray-900 dark:text-gray-100">
       client, NOT the dollar
     </span>
     .
@@ -264,7 +264,7 @@ When creating a new section:
 - [ ] Main title must have `py-2 pb-3 leading-normal` to prevent clipping
 - [ ] Description with strategic colored keyword spans
 - [ ] Use `font-bold text-brand-primary` for primary emphasis
-- [ ] Use `font-bold text-gray-900 dark:text-white` for strong emphasis
+- [ ] Use `font-bold text-gray-900 dark:text-gray-100` for strong emphasis
 
 ### Technical Notes
 

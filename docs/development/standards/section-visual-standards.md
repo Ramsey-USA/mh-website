@@ -211,7 +211,7 @@ brand color integration, and responsive typography for important sections across
   </div>
 
   {/* Two-line gradient heading */}
-  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
     <span className="block mb-3 sm:mb-4 font-semibold bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
       Context or Subtitle
     </span>
@@ -242,7 +242,7 @@ brand color integration, and responsive typography for important sections across
     <div className="relative group">
       <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary via-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-75 group-hover:opacity-100 transition duration-500"></div>
       <div className="relative bg-white dark:bg-gray-800 px-8 py-6 rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 shadow-xl">
-        <p className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
+        <p className="font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
           "Your tagline or quote with{" "}
           <span className="font-black italic text-bronze-700 dark:text-bronze-400 text-xl sm:text-2xl md:text-3xl">
             EMPHASIS

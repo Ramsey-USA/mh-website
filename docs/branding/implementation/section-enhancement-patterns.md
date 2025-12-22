@@ -64,7 +64,7 @@ All major content sections **MUST** follow this pattern established by the home 
       </div>
 
       {/* Two-line gradient heading */}
-      <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+      <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
         <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
           Section Subtitle
         </span>
@@ -167,7 +167,8 @@ className =
 
 **REQUIRED:** Use the custom header pattern for home page sections to ensure visual consistency.
 
-**CURRENT STANDARD:** All home page sections use custom header markup with icon, decorative lines, two-line gradient heading, and description.
+**CURRENT STANDARD:** All home page sections use custom header markup with icon,
+decorative lines, two-line gradient heading, and description.
 
 ```tsx
 {
@@ -423,7 +424,7 @@ className = "mb-6 sm:mb-8";
     </div>
 
     {/* Card Title */}
-    <h3 className="mb-4 text-center font-bold text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
+    <h3 className="mb-4 text-center font-bold text-gray-900 dark:text-gray-100 text-xl sm:text-2xl md:text-3xl">
       Card Title
     </h3>
 
@@ -463,7 +464,7 @@ For sections using flip cards (Core Values, Services, etc.):
     </div>
 
     {/* Title and Tagline */}
-    <h3 className="mb-2 text-center font-black text-gray-900 dark:text-white text-xl sm:text-2xl">
+    <h3 className="mb-2 text-center font-black text-gray-900 dark:text-gray-100 text-xl sm:text-2xl">
       Card Title
     </h3>
     <p className="mb-4 text-center font-medium text-brand-primary text-sm">

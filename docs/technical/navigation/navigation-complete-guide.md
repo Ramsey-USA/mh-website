@@ -39,12 +39,14 @@
 export const navigationConfigs = {
   // ... existing configs
   yourNewPage: [
-    { href: "/section1", label: "Section 1", icon: "home" },
-    { href: "/section2", label: "Section 2", icon: "info" },
-    { href: "/contact", label: "Contact", icon: "contact_phone" },
+    { href: "#section1", label: "Section 1", icon: "home" },
+    { href: "#section2", label: "Section 2", icon: "info" },
+    { href: "#section3", label: "Section 3", icon: "build" },
   ],
 };
 ```
+
+**Important:** Use `#` anchors to link to sections on the SAME page. Cross-page navigation is handled by the hamburger menu.
 
 **Step 2:** Import and use in your page
 
@@ -55,14 +57,21 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 export default function YourPage() {
   return (
     <>
-      {/* Hero Section */}
-      <HeroSection />
+      {/* Hero Section with PageNavigation at bottom */}
+      <section className="relative h-screen ...">
+        {/* Hero content */}
 
-      {/* Add PageNavigation after hero */}
-      <PageNavigation items={navigationConfigs.yourNewPage} />
+        {/* Page-Specific Navigation Bar - ALWAYS at bottom of hero */}
+        <PageNavigation
+          items={navigationConfigs.yourNewPage}
+          className="absolute bottom-0 left-0 right-0"
+        />
+      </section>
 
-      {/* Rest of page content */}
-      <MainContent />
+      {/* Page sections with matching IDs */}
+      <section id="section1">...</section>
+      <section id="section2">...</section>
+      <section id="section3">...</section>
     </>
   );
 }
@@ -92,10 +101,10 @@ MH Construction implements a **dual navigation system** with distinct purposes:
 
 #### 📍 Page Sectional Navigation
 
-**Purpose:** Within-page and contextual navigation  
-**Scope:** Page-specific  
-**Location:** After hero section  
-**Type:** Contextual, customizable per page
+**Purpose:** Within-page section navigation  
+**Scope:** Page-specific section links (using # anchors)  
+**Location:** Bottom of hero section (absolute positioned at bottom-0)  
+**Type:** Contextual, customizable per page, same-page navigation only
 
 ### Key Features
 
@@ -166,14 +175,17 @@ About
 
 **File:** `/src/components/navigation/PageNavigation.tsx`
 
-**Purpose:** Contextual navigation for page sections and related content
+**Purpose:** Within-page section navigation for quick access to content areas
+
+**Location:** Bottom of hero section (absolute positioned)
 
 #### Design Philosophy
 
-- **Contextual Relevance:** Each page has custom navigation tailored to its content
-- **Quick Access:** Direct links to important page sections
-- **Cross-Page Integration:** Strategic links to related pages
-- **User Journey:** Guides users through logical next steps
+- **Same-Page Navigation:** Links to sections on the current page using `#` anchors
+- **Contextual Relevance:** Each page has custom navigation tailored to its specific content sections
+- **Quick Access:** Direct jump links to important page sections
+- **Not for Cross-Page Links:** Use the hamburger menu for navigation to other pages
+- **User Journey:** Guides users through logical content flow on the current page
 
 #### Key Features
 
@@ -308,50 +320,119 @@ export const navigationConfigs = {
 
 ## 📄 Page-Specific Configurations
 
-### Homepage Navigation (Unique)
+### Homepage Navigation
 
-**Note:** The homepage navigation differs from other pages - it links directly to standalone feature pages rather
-than internal page sections.
+**Note:** The homepage navigation uses same-page section anchors to navigate through the content sections on the homepage.
 
 ```typescript
 home: [
-  { href: "/estimator", label: "Automated Estimator", icon: "calculate" },
-  { href: "/3d-explorer", label: "3D Explorer", icon: "visibility" },
-  { href: "/#core-values", label: "Our Values", icon: "shield" },
-  { href: "/#ai-features-cta", label: "Get Started", icon: "handshake" },
-  { href: "/#partnership-cta", label: "Start Partnership", icon: "launch" },
-  { href: "/contact", label: "Contact", icon: "contact_phone" },
+  {
+    href: "#core-values",
+    label: "Core Values",
+    mobileLabel: "Values",
+    icon: "shield",
+  },
+  {
+    href: "#why-partner",
+    label: "Why Partner",
+    mobileLabel: "Why Us",
+    icon: "handshake",
+  },
+  {
+    href: "#services",
+    label: "Services",
+    mobileLabel: "Services",
+    icon: "build",
+  },
+  {
+    href: "#testimonials",
+    label: "Testimonials",
+    mobileLabel: "Reviews",
+    icon: "verified",
+  },
+  {
+    href: "#stats",
+    label: "Track Record",
+    mobileLabel: "Stats",
+    icon: "analytics",
+  },
+  {
+    href: "#our-process",
+    label: "Our Process",
+    mobileLabel: "Process",
+    icon: "timeline",
+  },
+  {
+    href: "#next-steps",
+    label: "Get Started",
+    mobileLabel: "Start",
+    icon: "rocket_launch",
+  },
 ];
 ```
 
 ### Team Page Navigation
 
+**Purpose:** Navigate to sections on the Team page
+
 ```typescript
 team: [
-  { href: "/careers", label: "Join Us", icon: "work" },
-  { href: "/contact", label: "Start Project", icon: "contact_phone" },
+  {
+    href: "#company-culture",
+    label: "Company Culture",
+    mobileLabel: "Culture",
+    icon: "groups",
+  },
+  {
+    href: "#career-growth",
+    label: "Career Growth",
+    mobileLabel: "Growth",
+    icon: "trending_up",
+  },
+  {
+    href: "#employee-testimonials",
+    label: "Team Stories",
+    mobileLabel: "Stories",
+    icon: "star",
+  },
 ];
 ```
 
 ### Careers Page Navigation
 
+**Purpose:** Navigate to sections on the Careers page
+
 ```typescript
 careers: [
-  { href: "/team", label: "Meet Team", icon: "people" },
-  { href: "/contact", label: "Apply Now", icon: "send" },
+  {
+    href: "#positions",
+    label: "Open Positions",
+    mobileLabel: "Positions",
+    icon: "work",
+  },
+  {
+    href: "#application-process",
+    label: "How to Apply",
+    mobileLabel: "Apply",
+    icon: "timeline",
+  },
+  {
+    href: "#testimonials",
+    label: "Employee Stories",
+    mobileLabel: "Stories",
+    icon: "verified",
+  },
+  {
+    href: "#general-application",
+    label: "Apply Now",
+    mobileLabel: "Apply",
+    icon: "handshake",
+  },
 ];
 ```
 
-### Estimator Page Navigation
-
-```typescript
-estimator: [
-  { href: "/team", label: "Meet Team", icon: "people" },
-  { href: "/government", label: "Government", icon: "account_balance" },
-  { href: "/trade-partners", label: "Partners", icon: "group" },
-  { href: "/contact", label: "Start Project", icon: "contact_phone" },
-];
-```
+**Key Pattern:** All navigation items use `#` anchors to link to sections on the same
+page. Cross-page navigation is handled by the hamburger menu.
 
 ---
 
@@ -447,7 +528,7 @@ export function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
                   />
                 )}
                 {isLast || !item.href ? (
-                  <span className="text-gray-900 dark:text-white font-medium"
+                  <span className="text-gray-900 dark:text-gray-100 font-medium"
                     aria-current="page">
                     {item.label}
                   </span>

@@ -127,7 +127,7 @@ Organized sections with consistent spacing and styling.
   </div>
 
   {/* Two-line gradient heading */}
-  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
     <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
       Subtitle/Context Line
     </span>
@@ -143,7 +143,7 @@ Organized sections with consistent spacing and styling.
       primary emphasis keywords
     </span>{" "}
     and{" "}
-    <span className="font-bold text-gray-900 dark:text-white">
+    <span className="font-bold text-gray-900 dark:text-gray-100">
       strong emphasis keywords
     </span>
     .
@@ -232,7 +232,8 @@ import { TestimonialGrid } from "@/components/testimonials/TestimonialGrid";
 import { StructuredData } from "@/components/seo/StructuredData";
 ```
 
-**Note:** The old `SectionHeader` component has been deprecated. Use the military-construction header pattern shown above instead.
+**Note:** The old `SectionHeader` component has been deprecated. Use the
+military-construction header pattern shown above instead.
 
 ---
 
@@ -485,7 +486,7 @@ export default function YourPage() {
               </div>
 
               {/* Two-line gradient heading */}
-              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Subtitle/Context Line
                 </span>

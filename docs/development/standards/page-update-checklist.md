@@ -41,7 +41,7 @@ for complete pattern documentation.
   </div>
 
   {/* Two-line gradient heading */}
-  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
     <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
       {subtitle}
     </span>
@@ -57,7 +57,7 @@ for complete pattern documentation.
       primary emphasis
     </span>{" "}
     and{" "}
-    <span className="font-bold text-gray-900 dark:text-white">
+    <span className="font-bold text-gray-900 dark:text-gray-100">
       strong emphasis
     </span>
     .
@@ -129,7 +129,9 @@ for complete pattern documentation.
 - ✅ Home Page (`/src/app/page.tsx`) - Already compliant
 - ✅ Contact Page (`/src/app/contact/page.tsx`) - Already compliant
 
-**Total: 40 sections across 12 pages - All standardized to military-construction pattern**
+## Summary
+
+Total: 40 sections across 12 pages - All standardized to military-construction pattern
 
 ---
 

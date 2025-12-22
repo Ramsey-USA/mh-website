@@ -413,3 +413,168 @@ Licensed in WA, OR, ID | Veteran-Owned & Operated
 
   return { subject, html, text };
 }
+
+export interface NewsletterEmailData {
+  email: string;
+  name?: string;
+}
+
+/**
+ * Generate HTML email for newsletter signup acknowledgment
+ */
+export function generateNewsletterAcknowledgment(data: NewsletterEmailData): {
+  subject: string;
+  html: string;
+  text: string;
+} {
+  const subject = `Welcome to MH Construction Newsletter!`;
+  const displayName = data.name || "Friend";
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${subject}</title>
+</head>
+<body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #212121; margin: 0; padding: 0; background-color: #f5f5f5;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <!-- Header with Logo -->
+    <tr>
+      <td style="background: linear-gradient(135deg, #386851 0%, #2d5340 100%); padding: 40px 30px; text-align: center;">
+        <img src="https://mhc-gc.com/images/logo/mh-logo.png" alt="MH Construction Logo" style="max-width: 240px; height: auto; margin-bottom: 20px;" />
+        <h1 style="color: #ffffff; margin: 0; font-size: 26px; font-weight: 700;">Welcome to Our Community!</h1>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Building Excellence Together</p>
+      </td>
+    </tr>
+    
+    <!-- Content -->
+    <tr>
+      <td style="padding: 40px 30px;">
+        <h2 style="color: #386851; margin: 0 0 20px 0; font-size: 20px;">🎉 Thank You for Joining Us!</h2>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          Dear ${displayName},
+        </p>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          Thank you for subscribing to the <strong style="color: #386851;">MH Construction Newsletter</strong>! We're excited to have you join our community of partners, clients, and friends.
+        </p>
+        
+        <div style="background-color: #f0f7f4; border-left: 4px solid #386851; padding: 20px; margin: 25px 0; border-radius: 4px;">
+          <h3 style="color: #386851; margin: 0 0 15px 0; font-size: 18px;">📬 What to Expect</h3>
+          <ul style="margin: 0; padding-left: 20px; color: #2d5340;">
+            <li style="margin-bottom: 10px;"><strong>Project Showcases:</strong> See our latest completed projects and construction updates</li>
+            <li style="margin-bottom: 10px;"><strong>Industry Insights:</strong> Expert tips and construction best practices</li>
+            <li style="margin-bottom: 10px;"><strong>Company News:</strong> Updates from our veteran-owned family business</li>
+            <li style="margin-bottom: 10px;"><strong>Exclusive Content:</strong> Special offers and partnership opportunities</li>
+          </ul>
+        </div>
+        
+        <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
+          At MH Construction, we believe in <em>"Building projects for the client, NOT the dollar."</em> This philosophy extends to everything we do, including the content we share with you.
+        </p>
+        
+        <div style="background-color: #fff9f0; border: 1px solid #d4af37; padding: 20px; margin: 25px 0; border-radius: 6px; text-align: center;">
+          <p style="margin: 0 0 15px 0; font-size: 16px; color: #666;">
+            <strong style="color: #BD9264;">🎖️ Veteran-Owned Excellence</strong>
+          </p>
+          <p style="margin: 0; font-size: 14px; color: #666; line-height: 1.6;">
+            As a veteran-owned company, we bring military precision, discipline, and integrity to every project. We're proud to serve the Tri-Cities community and the Pacific Northwest with the same dedication we showed in service to our country.
+          </p>
+        </div>
+        
+        <div style="background-color: #386851; padding: 25px; margin: 25px 0; border-radius: 8px; text-align: center;">
+          <h3 style="color: #ffffff; margin: 0 0 15px 0; font-size: 18px;">Ready to Start Your Project?</h3>
+          <a href="https://mhc-gc.com/contact" style="display: inline-block; background-color: #d4af37; color: #212121; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 16px; margin-top: 10px;">Get Your Free Consultation</a>
+        </div>
+        
+        <p style="margin: 25px 0 0 0; font-size: 16px; line-height: 1.6;">
+          Questions or need assistance? Our team is always here to help. Reply to this email or call us at <strong style="color: #386851;">(509) 308-6489</strong>.
+        </p>
+        
+        <p style="margin: 25px 0 0 0; font-size: 16px; line-height: 1.6;">
+          Thank you for trusting MH Construction!<br>
+          <strong style="color: #386851;">The MH Construction Team</strong>
+        </p>
+      </td>
+    </tr>
+    
+    <!-- Footer -->
+    <tr>
+      <td style="background-color: #212121; padding: 30px; text-align: center; color: #ffffff;">
+        <div style="margin-bottom: 20px;">
+          <a href="https://www.facebook.com/profile.php?id=61575511773974" style="display: inline-block; margin: 0 8px; color: #ffffff; text-decoration: none;">Facebook</a>
+          <span style="color: #666;">•</span>
+          <a href="https://www.instagram.com/mh_construction_inc/reels/" style="display: inline-block; margin: 0 8px; color: #ffffff; text-decoration: none;">Instagram</a>
+          <span style="color: #666;">•</span>
+          <a href="https://www.linkedin.com/company/mh-construction-general-contractor/posts/" style="display: inline-block; margin: 0 8px; color: #ffffff; text-decoration: none;">LinkedIn</a>
+          <span style="color: #666;">•</span>
+          <a href="https://youtube.com/@mhc-gc" style="display: inline-block; margin: 0 8px; color: #ffffff; text-decoration: none;">YouTube</a>
+        </div>
+        
+        <p style="margin: 0 0 10px 0; font-size: 14px; color: #999;">
+          <strong style="color: #d4af37;">MH Construction, Inc.</strong><br>
+          3111 N. Capitol Ave., Pasco, WA 99301<br>
+          Phone: (509) 308-6489 | Email: office@mhc-gc.com
+        </p>
+        
+        <p style="margin: 15px 0 0 0; font-size: 12px; color: #666;">
+          Licensed in WA, OR, ID | Veteran-Owned & Operated<br>
+          <a href="https://mhc-gc.com" style="color: #d4af37; text-decoration: none;">www.mhc-gc.com</a>
+        </p>
+        
+        <p style="margin: 15px 0 0 0; font-size: 11px; color: #666;">
+          You're receiving this email because you subscribed to our newsletter at mhc-gc.com.<br>
+          To unsubscribe, reply to this email with "Unsubscribe" in the subject line.
+        </p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  `.trim();
+
+  const text = `
+MH Construction Newsletter - Welcome!
+
+Dear ${displayName},
+
+Thank you for subscribing to the MH Construction Newsletter! We're excited to have you join our community of partners, clients, and friends.
+
+WHAT TO EXPECT:
+• Project Showcases: See our latest completed projects and construction updates
+• Industry Insights: Expert tips and construction best practices
+• Company News: Updates from our veteran-owned family business
+• Exclusive Content: Special offers and partnership opportunities
+
+At MH Construction, we believe in "Building projects for the client, NOT the dollar." This philosophy extends to everything we do, including the content we share with you.
+
+VETERAN-OWNED EXCELLENCE
+As a veteran-owned company, we bring military precision, discipline, and integrity to every project. We're proud to serve the Tri-Cities community and the Pacific Northwest with the same dedication we showed in service to our country.
+
+READY TO START YOUR PROJECT?
+Get your free consultation: https://mhc-gc.com/contact
+
+Questions or need assistance? Our team is always here to help. Reply to this email or call us at (509) 308-6489.
+
+Thank you for trusting MH Construction!
+The MH Construction Team
+
+---
+
+MH Construction, Inc.
+3111 N. Capitol Ave., Pasco, WA 99301
+Phone: (509) 308-6489
+Email: office@mhc-gc.com
+Website: www.mhc-gc.com
+
+Licensed in WA, OR, ID | Veteran-Owned & Operated
+
+You're receiving this email because you subscribed to our newsletter at mhc-gc.com.
+To unsubscribe, reply to this email with "Unsubscribe" in the subject line.
+  `.trim();
+
+  return { subject, html, text };
+}

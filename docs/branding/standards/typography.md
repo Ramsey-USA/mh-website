@@ -828,7 +828,7 @@ className = "text-bronze-600";
 {
   /* Context colors */
 }
-className = "text-gray-900 dark:text-white";
+className = "text-gray-900 dark:text-gray-100";
 ```
 
 ---

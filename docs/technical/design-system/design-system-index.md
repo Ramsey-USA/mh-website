@@ -21,7 +21,9 @@ brand-aligned user interfaces. This hub connects all design system documentation
 layout, typography, and mobile optimization.
 
 **🏠 HOMEPAGE AS CANONICAL REFERENCE:**  
-The [Homepage Reference Guide](./homepage-reference-guide.md) documents the complete look and feel of the website. **When in doubt about design decisions, reference the homepage** - it exemplifies all patterns in this design system.
+The [Homepage Reference Guide](./homepage-reference-guide.md) documents the complete
+look and feel of the website. **When in doubt about design decisions, reference the
+homepage** - it exemplifies all patterns in this design system.
 
 **What's Here:**
 
@@ -41,7 +43,9 @@ The [Homepage Reference Guide](./homepage-reference-guide.md) documents the comp
 
 **[homepage-reference-guide.md](./homepage-reference-guide.md)** - ⭐ **CANONICAL DESIGN REFERENCE**
 
-Comprehensive breakdown of every homepage section documenting the complete "look and feel" of the MH Construction website. This guide serves as the authoritative reference for visual consistency.
+Comprehensive breakdown of every homepage section documenting the complete "look and
+feel" of the MH Construction website. This guide serves as the authoritative reference
+for visual consistency.
 
 **Complete Coverage:**
 
@@ -60,7 +64,8 @@ Comprehensive breakdown of every homepage section documenting the complete "look
 - Resolving design questions
 - Onboarding new developers
 
-**Key Principle:** The homepage exemplifies all design system patterns. When unsure about spacing, colors, typography, or any visual element, check the homepage first.
+**Key Principle:** The homepage exemplifies all design system patterns. When unsure
+about spacing, colors, typography, or any visual element, check the homepage first.
 
 ---
 
@@ -70,7 +75,8 @@ Comprehensive breakdown of every homepage section documenting the complete "look
 
 **[design-system.md](./design-system.md)** - Complete design system documentation
 
-Comprehensive guide covering brand identity, typography system, component standards, layout patterns, and accessibility requirements.
+Comprehensive guide covering brand identity, typography system, component standards,
+layout patterns, and accessibility requirements.
 
 **Topics Covered:**
 
@@ -606,7 +612,7 @@ All major sections must use the military-construction header pattern with icon, 
   </div>
 
   {/* Two-line gradient heading */}
-  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
     <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
       {subtitle}
     </span>
@@ -652,7 +658,7 @@ All major sections must use the military-construction header pattern with icon, 
     primary emphasis
   </span>
   {" "}and{" "}
-  <span className="font-bold text-gray-900 dark:text-white">
+  <span className="font-bold text-gray-900 dark:text-gray-100">
     strong emphasis
   </span>
   .
