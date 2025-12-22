@@ -65,14 +65,17 @@ export function Navigation() {
       )}
 
       {/* Main Header - Transparent and absolute positioning */}
-      <header className="top-0 left-0 right-0 z-[70] absolute bg-transparent">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex justify-start items-center py-3 sm:py-4 md:py-5 h-auto">
-            {/* Logo - Far Left with mobile optimization (20% smaller) */}
-            <div className="flex-shrink-0">
+      <header className="top-0 left-0 right-0 z-[65] absolute bg-transparent pointer-events-none">
+        <div className="mx-auto px-2 xs:px-3 sm:px-4 lg:px-6 max-w-7xl">
+          <div className="flex justify-center items-center py-2 xs:py-3 sm:py-4 md:py-5 h-auto relative">
+            {/* Left spacer for symmetry */}
+            <div className="absolute left-0 w-[44px] xs:w-[48px] sm:w-[56px] flex-shrink-0"></div>
+
+            {/* Logo - Centered with mobile optimization */}
+            <div className="flex-shrink-0 pointer-events-auto">
               <Link
                 href="/"
-                className="flex items-center hover:scale-105 transition-all duration-300 bg-gradient-to-r from-brand-primary/80 via-brand-primary/60 to-transparent px-4 py-2 rounded-lg backdrop-blur-sm"
+                className="flex items-center hover:scale-105 transition-all duration-300 bg-gradient-to-r from-brand-primary/80 via-brand-primary/60 to-transparent px-3 xs:px-4 py-2 rounded-lg backdrop-blur-sm"
               >
                 <Image
                   src="/images/logo/mh-logo.png"
@@ -80,40 +83,51 @@ export function Navigation() {
                   width={141}
                   height={141}
                   priority
-                  className="drop-shadow-lg w-auto h-[77px] xs:h-[90px] sm:h-[112px] md:h-[141px]"
+                  className="drop-shadow-lg w-auto h-[70px] xs:h-[77px] sm:h-[90px] md:h-[112px] lg:h-[141px]"
                 />
               </Link>
             </div>
+
+            {/* Right spacer for symmetry */}
+            <div className="absolute right-0 w-[44px] xs:w-[48px] sm:w-[56px] flex-shrink-0"></div>
           </div>
         </div>
       </header>
 
-      {/* Theme Toggle and Hamburger Menu - Fixed right edge with mobile optimization */}
-      <div className="top-3 right-3 sm:top-4 sm:right-4 lg:right-6 z-[70] fixed flex items-center gap-2 sm:gap-3">
-        {/* Theme Toggle */}
-        <ThemeToggle compact size="sm" />
+      {/* Theme Toggle - Fixed left edge */}
+      <div className="top-2 xs:top-3 sm:top-4 left-2 xs:left-3 sm:left-4 lg:left-6 z-[70] fixed flex items-center pointer-events-auto">
+        <div className="relative bg-brand-primary hover:bg-brand-primary-dark shadow-lg hover:shadow-xl p-2 xs:p-2.5 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 touch-manipulation border-2 border-brand-secondary hover:border-brand-secondary-light outline outline-2 outline-offset-2 outline-brand-secondary/50 hover:outline-brand-secondary min-w-[40px] min-h-[40px] xs:min-w-[44px] xs:min-h-[44px] sm:min-w-[48px] sm:min-h-[48px] flex items-center justify-center">
+          <ThemeToggle compact size="sm" />
+        </div>
+      </div>
 
+      {/* Hamburger Menu - Fixed right edge */}
+      <div className="top-2 xs:top-3 sm:top-4 right-2 xs:right-3 sm:right-4 lg:right-6 z-[70] fixed flex items-center pointer-events-auto">
         {/* Hamburger Menu */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="relative bg-gradient-to-r from-brand-primary to-forest-600 hover:from-brand-secondary hover:to-forest-700 shadow-lg hover:shadow-xl p-2.5 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 touch-manipulation"
+          className="relative bg-brand-primary hover:bg-brand-primary-dark shadow-lg hover:shadow-xl p-2 xs:p-2.5 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 touch-manipulation border-2 border-brand-secondary hover:border-brand-secondary-light outline outline-2 outline-offset-2 outline-brand-secondary/50 hover:outline-brand-secondary min-w-[40px] min-h-[40px] xs:min-w-[44px] xs:min-h-[44px] sm:min-w-[48px] sm:min-h-[48px] flex items-center justify-center"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
-          <div className="flex flex-col justify-center space-y-1 w-5 h-5 sm:w-6 sm:h-6">
+          <div className="flex flex-col justify-center space-y-0.5 xs:space-y-1 w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6">
             <span
-              className={`w-full h-0.5 bg-white transition-all duration-300 transform ${
-                isMenuOpen ? "rotate-45 translate-y-2" : ""
+              className={`w-full h-0.5 bg-brand-secondary transition-all duration-300 transform ${
+                isMenuOpen
+                  ? "rotate-45 translate-y-[0.4rem] xs:translate-y-2"
+                  : ""
               }`}
             />
             <span
-              className={`w-full h-0.5 bg-white transition-all duration-300 ${
+              className={`w-full h-0.5 bg-brand-secondary transition-all duration-300 ${
                 isMenuOpen ? "opacity-0" : "opacity-100"
               }
               `}
             />
             <span
-              className={`w-full h-0.5 bg-white transition-all duration-300 transform ${
-                isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+              className={`w-full h-0.5 bg-brand-secondary transition-all duration-300 transform ${
+                isMenuOpen
+                  ? "-rotate-45 -translate-y-[0.4rem] xs:-translate-y-2"
+                  : ""
               }`}
             />
           </div>
@@ -217,86 +231,81 @@ export function Navigation() {
             </div>
 
             {/* Social Media Links - Compact footer */}
-            <div className="flex-shrink-0 pt-2 sm:pt-3 border-t border-gray-200 dark:border-gray-700">
-              <div className="mb-1.5 sm:mb-2 text-center">
-                <h4 className="font-medium text-gray-700 dark:text-gray-300 text-[9px] sm:text-[10px]">
-                  Follow Us
+            <div className="flex-shrink-0 pt-3 sm:pt-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="mb-2 sm:mb-3 text-center">
+                <h4 className="font-bold text-brand-secondary text-xs sm:text-sm uppercase tracking-wide">
+                  Connect With Us
                 </h4>
               </div>
-              <div className="flex justify-center gap-1.5 sm:gap-2">
+              <div className="flex justify-center gap-2 sm:gap-2.5">
                 <a
                   href="https://www.facebook.com/profile.php?id=61575511773974"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#1877F2] hover:to-[#1565C0] p-1.5 sm:p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-8 h-8 sm:w-9 sm:h-9"
+                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#1877F2] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#1877F2]/40"
                   aria-label="Facebook"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="thumb_up"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors"
-                    style={{ fontSize: "16px" }}
+                    size="md"
+                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(24,119,242,0.8)]"
                   />
                 </a>
                 <a
                   href="https://www.instagram.com/mh_construction_inc/reels/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#833AB4] hover:to-[#F77737] p-1.5 sm:p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-8 h-8 sm:w-9 sm:h-9"
+                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#E4405F] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#E4405F]/40"
                   aria-label="Instagram"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="photo_camera"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors"
-                    style={{ fontSize: "16px" }}
+                    size="md"
+                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(228,64,95,0.8)]"
                   />
                 </a>
                 <a
                   href="https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#0A66C2] hover:to-[#004182] p-1.5 sm:p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-8 h-8 sm:w-9 sm:h-9"
+                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#0A66C2] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#0A66C2]/40"
                   aria-label="LinkedIn"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="work"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors"
-                    style={{ fontSize: "16px" }}
+                    size="md"
+                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.8)]"
                   />
                 </a>
                 <a
                   href="https://x.com/mhc_gc"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#000000] hover:to-[#1D9BF0] p-1.5 sm:p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-8 h-8 sm:w-9 sm:h-9"
+                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#1D9BF0] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-black/40"
                   aria-label="X (Twitter)"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="close"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors"
-                    style={{ fontSize: "16px" }}
+                    size="md"
+                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(29,155,240,0.8)]"
                   />
                 </a>
                 <a
                   href="https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-[#FF0000] hover:to-[#CC0000] p-1.5 sm:p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation w-8 h-8 sm:w-9 sm:h-9"
+                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#FF0000] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#FF0000]/40"
                   aria-label="YouTube"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
                     icon="play_circle"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors"
-                    style={{ fontSize: "16px" }}
+                    size="md"
+                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(255,0,0,0.8)]"
                   />
                 </a>
               </div>

@@ -16,7 +16,7 @@ export default function Footer() {
               <div className="mb-4">
                 <Link href="/" className="inline-block">
                   <Image
-                    src="/images/logo/mh-logo.png"
+                    src="/images/logo/mh-logo-dark-bg.png"
                     alt="MH Construction Logo"
                     width={264}
                     height={132}
@@ -26,81 +26,73 @@ export default function Footer() {
                 </Link>
               </div>
 
-              {/* Contact Info */}
-              <div className="space-y-2 xs:space-y-3 text-gray-300 dark:text-gray-200 text-xs xs:text-sm">
-                <div className="group hover:bg-gray-800/50 dark:hover:bg-gray-700/50 p-2 rounded-lg transition-all duration-300 touch-manipulation">
-                  <div className="flex items-center">
-                    <div className="flex justify-center items-center bg-brand-primary/20 mr-3 p-1.5 xs:p-2 rounded-lg">
-                      <MaterialIcon
-                        icon="call"
-                        size="sm"
-                        className="text-brand-primary"
-                      />
-                    </div>
-                    <div>
-                      <div className="mb-1 text-gray-400 dark:text-gray-300 text-xs">
-                        MHC Phone
-                      </div>
-                      <a
-                        href="tel:+15093086489"
-                        className="font-medium hover:text-brand-primary transition-colors text-xs xs:text-sm"
-                      >
-                        (509) 308-6489
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="group hover:bg-gray-800/50 dark:hover:bg-gray-700/50 p-2 rounded-lg transition-all duration-300 touch-manipulation">
-                  <div className="flex items-start">
-                    <div className="flex justify-center items-center bg-brand-primary/20 mt-0.5 mr-3 p-1.5 xs:p-2 rounded-lg">
-                      <MaterialIcon
-                        icon="place"
-                        size="sm"
-                        className="text-brand-primary"
-                      />
-                    </div>
-                    <div>
-                      <div className="mb-1 text-gray-400 dark:text-gray-300 text-xs">
-                        MHC Office
-                      </div>
-                      <a
-                        href="https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs leading-tight hover:text-brand-primary transition-colors duration-300 cursor-pointer block"
-                        title="Get directions to our office"
-                      >
-                        3111 N. Capitol Ave.
-                        <br />
-                        Pasco, WA 99301
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="group hover:bg-gray-800/50 dark:hover:bg-gray-700/50 p-2 rounded-lg transition-all duration-300 touch-manipulation">
-                  <div className="flex items-center">
-                    <div className="flex justify-center items-center bg-brand-primary/20 mr-3 p-1.5 xs:p-2 rounded-lg">
-                      <MaterialIcon
-                        icon="mail"
-                        size="sm"
-                        className="text-brand-primary"
-                      />
-                    </div>
-                    <div>
-                      <div className="mb-1 text-gray-400 dark:text-gray-300 text-xs">
-                        MHC Email
-                      </div>
-                      <a
-                        href="mailto:office@mhc-gc.com"
-                        className="font-medium hover:text-brand-primary text-xs transition-colors break-all"
-                      >
-                        office@mhc-gc.com
-                      </a>
-                    </div>
-                  </div>
-                </div>
+              {/* Social Media Links */}
+              <div className="flex items-center justify-center sm:justify-start gap-2 xs:gap-2.5 flex-wrap">
+                <a
+                  href="https://www.facebook.com/profile.php?id=61575511773974"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700 hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0] p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#1877F2] rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#1877F2]/40"
+                  title="Follow our partnership stories on Facebook"
+                >
+                  <MaterialIcon
+                    icon="thumb_up"
+                    size="md"
+                    className="text-gray-400 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(24,119,242,0.8)]"
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com/mh_construction_inc/reels/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700 hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#E4405F] rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#E4405F]/40"
+                  title="See partnership projects on Instagram"
+                >
+                  <MaterialIcon
+                    icon="photo_camera"
+                    size="md"
+                    className="text-gray-400 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(228,64,95,0.8)]"
+                  />
+                </a>
+                <a
+                  href="https://x.com/mhc_gc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700 hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000] p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#1D9BF0] rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation shadow-md hover:shadow-black/40"
+                  title="Follow partnership updates on X (Twitter)"
+                >
+                  <MaterialIcon
+                    icon="close"
+                    size="md"
+                    className="text-gray-400 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(29,155,240,0.8)]"
+                  />
+                </a>
+                <a
+                  href="https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700 hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000] p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#FF0000] rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#FF0000]/40"
+                  title="Watch partnership success stories on YouTube"
+                >
+                  <MaterialIcon
+                    icon="play_circle"
+                    size="md"
+                    className="text-gray-400 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(255,0,0,0.8)]"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700 hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#0A66C2] rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#0A66C2]/40"
+                  title="Connect with our partnership team on LinkedIn"
+                >
+                  <MaterialIcon
+                    icon="work"
+                    size="md"
+                    className="text-gray-400 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.8)]"
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -114,7 +106,7 @@ export default function Footer() {
                 className="text-brand-primary"
               />
               <h4 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
-                Core Services
+                Mission Execution
               </h4>
             </div>
             <nav className="space-y-1.5 xs:space-y-2">
@@ -162,23 +154,6 @@ export default function Footer() {
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
                 <span>Portfolio & Projects</span>
-                <MaterialIcon
-                  icon="arrow_forward"
-                  size="sm"
-                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                />
-              </Link>
-
-              <Link
-                href="/contact"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
-              >
-                <MaterialIcon
-                  icon="handshake"
-                  size="sm"
-                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
-                />
-                <span>Partner With Us</span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -265,7 +240,7 @@ export default function Footer() {
                 className="text-brand-primary"
               />
               <h4 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
-                Company & Partners
+                Our Forces
               </h4>
             </div>
             <nav className="space-y-1.5 xs:space-y-2">
@@ -421,27 +396,10 @@ export default function Footer() {
                   className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
                 />
               </Link>
-
-              <Link
-                href="/about#awards"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
-              >
-                <MaterialIcon
-                  icon="emoji_events"
-                  size="sm"
-                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
-                />
-                <span>Awards & Recognition</span>
-                <MaterialIcon
-                  icon="arrow_forward"
-                  size="sm"
-                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                />
-              </Link>
             </nav>
           </div>
 
-          {/* Column 3: Social Media & Resources */}
+          {/* Column 4: Social Media & Resources */}
           <div className="space-y-3 xs:space-y-4">
             <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
               <MaterialIcon
@@ -450,232 +408,386 @@ export default function Footer() {
                 className="text-brand-primary"
               />
               <h4 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
-                Connect & Resources
+                Command Center
               </h4>
             </div>
 
-            {/* Social Media Links */}
+            {/* Contact Info */}
             <div className="space-y-2 xs:space-y-3">
-              <div className="mb-2 text-gray-400 dark:text-gray-300 text-xs">
-                Our Values in Action
-              </div>
-              <div className="flex items-center justify-start gap-1.5 xs:gap-2 sm:gap-3 overflow-x-auto pb-1">
-                <a
-                  href="https://www.facebook.com/profile.php?id=61575511773974"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0] hover:shadow-lg hover:shadow-[#1877F2]/30 p-1.5 xs:p-2 sm:p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#1877F2] rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation flex-shrink-0 min-w-[36px] min-h-[36px] xs:min-w-[40px] xs:min-h-[40px]"
-                  title="Follow our partnership stories on Facebook"
-                >
-                  <MaterialIcon
-                    icon="thumb_up"
-                    size="sm"
-                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(24,119,242,0.6)]"
-                  />
-                </a>
-                <a
-                  href="https://www.instagram.com/mh_construction_inc/reels/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:shadow-lg hover:shadow-[#E4405F]/30 p-1.5 xs:p-2 sm:p-2.5 border border-gray-600 hover:border-[#E4405F] dark:border-gray-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation flex-shrink-0 min-w-[36px] min-h-[36px] xs:min-w-[40px] xs:min-h-[40px]"
-                  title="See partnership projects on Instagram"
-                >
-                  <MaterialIcon
-                    icon="photo_camera"
-                    size="sm"
-                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(228,64,95,0.6)]"
-                  />
-                </a>
-                <a
-                  href="https://x.com/mhc_gc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000] hover:shadow-lg hover:shadow-black/30 p-1.5 xs:p-2 sm:p-2.5 border border-gray-600 hover:border-[#1D9BF0] dark:border-gray-500 rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation flex-shrink-0 min-w-[36px] min-h-[36px] xs:min-w-[40px] xs:min-h-[40px]"
-                  title="Follow partnership updates on X (Twitter)"
-                >
-                  <MaterialIcon
-                    icon="close"
-                    size="sm"
-                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(29,155,240,0.6)]"
-                  />
-                </a>
-                <a
-                  href="https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000] hover:shadow-lg hover:shadow-[#FF0000]/30 p-1.5 xs:p-2 sm:p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#FF0000] rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation flex-shrink-0 min-w-[36px] min-h-[36px] xs:min-w-[40px] xs:min-h-[40px]"
-                  title="Watch partnership success stories on YouTube"
-                >
-                  <MaterialIcon
-                    icon="play_circle"
-                    size="sm"
-                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(255,0,0,0.6)]"
-                  />
-                </a>
-                <a
-                  href="https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gray-700 dark:bg-gray-600 hover:bg-gradient-to-r hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] hover:shadow-lg hover:shadow-[#0A66C2]/30 p-1.5 xs:p-2 sm:p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#0A66C2] rounded-lg xs:rounded-xl hover:scale-105 transition-all duration-300 touch-manipulation flex-shrink-0 min-w-[36px] min-h-[36px] xs:min-w-[40px] xs:min-h-[40px]"
-                  title="Connect with our partnership team on LinkedIn"
-                >
-                  <MaterialIcon
-                    icon="work"
-                    size="sm"
-                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.6)]"
-                  />
-                </a>
-              </div>
-            </div>
-
-            {/* Enhanced Search Bar */}
-            <div className="space-y-2 xs:space-y-3 pt-2 border-gray-700 dark:border-gray-600 border-t">
-              <div className="mb-2 text-gray-400 dark:text-gray-300 text-xs">
-                Quick Partnership Search
-              </div>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const searchInput = e.currentTarget.querySelector(
-                    "input",
-                  ) as HTMLInputElement;
-                  if (searchInput?.value.trim()) {
-                    window.location.href = `/projects?search=${encodeURIComponent(searchInput.value)}`;
-                  }
-                }}
-                className="relative"
+              <a
+                href="tel:+15093086489"
+                className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation"
               >
-                <input
-                  type="text"
-                  name="search"
-                  placeholder="Search partnership resources..."
-                  className="bg-gray-700/50 hover:bg-gray-700 focus:bg-gray-700 dark:bg-gray-600/50 dark:hover:bg-gray-600 dark:focus:bg-gray-600 px-3 xs:px-4 py-2.5 xs:py-3 pr-12 xs:pr-14 border border-gray-600 dark:border-gray-500 focus:border-brand-primary dark:focus:border-brand-primary rounded-lg xs:rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary/20 w-full text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 placeholder-gray-500 dark:placeholder-gray-400 touch-manipulation"
-                  aria-label="Search partnership resources"
+                <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
+                  <MaterialIcon icon="call" size="md" className="text-white" />
+                </div>
+                <div className="flex-grow">
+                  <div className="text-brand-secondary text-xs font-bold uppercase tracking-wide mb-0.5">
+                    Call Us
+                  </div>
+                  <div className="text-gray-300 font-bold text-sm xs:text-base group-hover:text-brand-primary transition-colors">
+                    (509) 308-6489
+                  </div>
+                </div>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
                 />
-                <button
-                  type="submit"
-                  className="top-1/2 right-1 absolute bg-brand-primary hover:bg-brand-secondary p-1.5 rounded-lg text-white hover:scale-105 transition-all -translate-y-1/2 duration-300 transform touch-manipulation group"
-                  aria-label="Search"
-                >
-                  <MaterialIcon
-                    icon="search"
-                    size="sm"
-                    className="text-white group-hover:scale-110 transition-transform"
-                  />
-                </button>
-              </form>
-              <div className="text-gray-500 dark:text-gray-400 text-xs">
-                Search partnership services, team members, success stories, and
-                more
-              </div>
+              </a>
+
+              <a
+                href="mailto:office@mhc-gc.com"
+                className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation"
+              >
+                <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
+                  <MaterialIcon icon="mail" size="md" className="text-white" />
+                </div>
+                <div className="flex-grow min-w-0">
+                  <div className="text-brand-secondary text-xs font-bold uppercase tracking-wide mb-0.5">
+                    Email Us
+                  </div>
+                  <div className="text-gray-300 font-bold text-xs xs:text-sm group-hover:text-brand-primary transition-colors truncate">
+                    office@mhc-gc.com
+                  </div>
+                </div>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
+                />
+              </a>
+
+              <a
+                href="https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation"
+              >
+                <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
+                  <MaterialIcon icon="place" size="md" className="text-white" />
+                </div>
+                <div className="flex-grow min-w-0">
+                  <div className="text-brand-secondary text-xs font-bold uppercase tracking-wide mb-0.5">
+                    Visit Us
+                  </div>
+                  <div className="text-gray-300 font-bold text-xs xs:text-sm group-hover:text-brand-primary transition-colors">
+                    3111 N. Capitol Ave.
+                    <br />
+                    Pasco, WA 99301
+                  </div>
+                </div>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
+                />
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Clean Bottom Bar - Streamlined Design */}
-        <div className="pt-8 pb-6 border-gray-700 dark:border-gray-600 border-t relative">
-          {/* Back to Top Button - Enhanced */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="absolute -top-8 sm:-top-10 right-4 sm:right-8 bg-gradient-to-br from-brand-primary to-brand-primary-dark hover:from-brand-primary-dark hover:to-brand-primary-darker text-white pl-4 pr-5 py-3 sm:py-4 rounded-full shadow-2xl hover:shadow-brand-primary/50 transition-all duration-300 hover:scale-105 group touch-manipulation flex items-center gap-2 border-2 border-white/20 dark:border-gray-700"
-            aria-label="Back to top"
+        {/* CTA Cards Row */}
+        <div className="gap-3 xs:gap-4 grid grid-cols-1 sm:grid-cols-2 py-4 border-y border-gray-700 dark:border-gray-600">
+          {/* Google Review */}
+          <a
+            href="https://g.page/r/CVdv3YZLzJvdEBM/review"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 hover:from-brand-primary/20 hover:to-brand-secondary/20 dark:hover:from-brand-primary/30 dark:hover:to-brand-secondary/30 p-3 xs:p-4 rounded-lg border border-brand-primary/30 dark:border-brand-primary/40 hover:border-brand-primary dark:hover:border-brand-primary-light transition-all duration-300 hover:scale-105 touch-manipulation"
           >
+            <div className="flex-shrink-0 bg-brand-primary dark:bg-brand-primary-light p-2.5 rounded-lg group-hover:scale-110 transition-transform">
+              <MaterialIcon
+                icon="rate_review"
+                size="lg"
+                className="text-white"
+              />
+            </div>
+            <div className="flex-grow min-w-0">
+              <div className="text-brand-primary dark:text-brand-primary-light font-bold text-sm xs:text-base mb-1">
+                Leave a Google Review
+              </div>
+              <div className="flex items-center gap-1 text-yellow-500">
+                <MaterialIcon icon="star" size="sm" />
+                <MaterialIcon icon="star" size="sm" />
+                <MaterialIcon icon="star" size="sm" />
+                <MaterialIcon icon="star" size="sm" />
+                <MaterialIcon icon="star" size="sm" />
+              </div>
+            </div>
             <MaterialIcon
-              icon="arrow_upward"
-              size="lg"
-              className="group-hover:-translate-y-1 transition-transform duration-300"
+              icon="arrow_forward"
+              size="sm"
+              className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
             />
-            <span className="font-bold text-sm sm:text-base hidden xs:inline whitespace-nowrap">
-              Back to Top
-            </span>
-          </button>
+          </a>
 
-          <div className="flex lg:flex-row flex-col justify-between items-center space-y-4 lg:space-y-0 text-gray-400 dark:text-gray-300">
-            <div className="flex items-center space-x-2 text-sm">
+          {/* Newsletter Signup */}
+          <div className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 hover:from-brand-primary/20 hover:to-brand-secondary/20 dark:hover:from-brand-primary/30 dark:hover:to-brand-secondary/30 p-3 xs:p-4 rounded-lg border border-brand-primary/30 dark:border-brand-primary/40 hover:border-brand-primary dark:hover:border-brand-primary-light transition-all duration-300 touch-manipulation">
+            <div className="flex-shrink-0 bg-brand-primary dark:bg-brand-primary-light p-2.5 rounded-lg group-hover:scale-110 transition-transform">
+              <MaterialIcon
+                icon="notifications_active"
+                size="lg"
+                className="text-white"
+              />
+            </div>
+            <div className="flex-grow min-w-0">
+              <div className="text-brand-primary dark:text-brand-primary-light font-bold text-sm xs:text-base mb-2">
+                Join Our Newsletter
+              </div>
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  const form = e.currentTarget;
+                  const emailInput = form.querySelector(
+                    'input[name="email"]',
+                  ) as HTMLInputElement;
+                  const button = form.querySelector(
+                    'button[type="submit"]',
+                  ) as HTMLButtonElement;
+                  const feedbackEl = form.querySelector(
+                    ".newsletter-feedback",
+                  ) as HTMLElement;
+
+                  if (!emailInput?.value.trim()) return;
+
+                  button.disabled = true;
+                  const originalText = button.textContent;
+                  button.textContent = "...";
+
+                  try {
+                    const response = await fetch("/api/newsletter", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ email: emailInput.value }),
+                    });
+
+                    if (response.ok) {
+                      emailInput.value = "";
+                      if (feedbackEl) {
+                        feedbackEl.textContent = "✅ Subscribed!";
+                        feedbackEl.className =
+                          "newsletter-feedback text-green-400 text-xs";
+                      }
+                    } else {
+                      if (feedbackEl) {
+                        feedbackEl.textContent = "❌ Try again";
+                        feedbackEl.className =
+                          "newsletter-feedback text-red-400 text-xs";
+                      }
+                    }
+                  } catch (_error) {
+                    if (feedbackEl) {
+                      feedbackEl.textContent = "❌ Error";
+                      feedbackEl.className =
+                        "newsletter-feedback text-red-400 text-xs";
+                    }
+                  } finally {
+                    button.disabled = false;
+                    button.textContent = originalText;
+                    setTimeout(() => {
+                      if (feedbackEl) feedbackEl.textContent = "";
+                    }, 5000);
+                  }
+                }}
+                className="flex items-center gap-2"
+              >
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your email"
+                  required
+                  className="flex-grow px-2 py-1.5 bg-gray-900/50 dark:bg-gray-800 border border-gray-700 dark:border-gray-600 rounded text-xs text-white dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-brand-primary dark:focus:border-brand-primary-light transition-colors min-w-0"
+                />
+                <button
+                  type="submit"
+                  className="flex-shrink-0 px-4 py-1.5 bg-brand-primary dark:bg-brand-primary-light hover:bg-brand-primary-dark dark:hover:bg-brand-primary text-brand-secondary dark:text-brand-secondary-light hover:text-white dark:hover:text-white text-xs font-bold rounded-lg transition-all duration-300 hover:scale-105 border-2 border-brand-secondary/50 dark:border-brand-secondary-light/50 hover:border-brand-secondary dark:hover:border-brand-secondary-light shadow-md hover:shadow-lg"
+                >
+                  Subscribe
+                </button>
+                <div className="newsletter-feedback text-xs absolute"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        {/* Service Areas - Full Width Row */}
+        <div className="py-6">
+          <div className="flex items-center justify-center space-x-2 mb-4">
+            <MaterialIcon icon="map" size="md" className="text-brand-primary" />
+            <h3 className="text-brand-primary font-semibold text-sm xs:text-base uppercase tracking-wide">
+              Proudly Serving the Pacific Northwest
+            </h3>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2 xs:gap-3">
+            {[
+              "Pasco",
+              "Kennewick",
+              "Richland",
+              "West Richland",
+              "Spokane",
+              "Yakima",
+              "Walla Walla",
+              "Eastern Washington",
+              "Eastern Oregon",
+              "Southern Idaho",
+            ].map((city) => (
+              <span
+                key={city}
+                className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium"
+              >
+                {city}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Clean Bottom Bar - Streamlined Design */}
+        <div className="pt-6 pb-6 border-gray-700 dark:border-gray-600 border-t">
+          <div className="flex lg:flex-row flex-col justify-between items-center gap-4 lg:gap-6">
+            {/* Copyright */}
+            <div className="flex items-center gap-2 bg-brand-primary/5 dark:bg-brand-primary/10 px-4 py-2 rounded-lg border border-brand-primary/20 dark:border-brand-primary/30">
               <MaterialIcon
                 icon="copyright"
                 size="sm"
-                className="text-gray-500 dark:text-gray-400"
+                className="text-brand-secondary dark:text-brand-secondary-light"
               />
-              <span>
-                &copy; 2025 MH Construction, Inc. All rights reserved.
+              <span className="text-sm text-gray-300 dark:text-gray-200 font-semibold">
+                2025 MH Construction, Inc.
               </span>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center lg:justify-end gap-4 text-xs">
-              <button className="group flex items-center space-x-1 hover:bg-brand-primary/10 px-2 py-1 rounded-lg transition-all duration-300 hover:scale-105 touch-manipulation">
+            {/* Badges & Credentials */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-end gap-2 xs:gap-3">
+              {/* Years in Business Badge */}
+              <div className="group flex items-center gap-1.5 bg-gradient-to-r from-brand-primary/15 to-brand-secondary/15 dark:from-brand-primary/20 dark:to-brand-secondary/20 hover:from-brand-primary/25 hover:to-brand-secondary/25 dark:hover:from-brand-primary/30 dark:hover:to-brand-secondary/30 px-3 py-2 rounded-lg transition-all duration-300 hover:scale-105 touch-manipulation border-2 border-brand-primary/40 dark:border-brand-primary/50 hover:border-brand-secondary/60 dark:hover:border-brand-secondary/70">
+                <MaterialIcon
+                  icon="celebration"
+                  size="sm"
+                  className="text-brand-secondary dark:text-brand-secondary-light group-hover:scale-110 transition-transform duration-300"
+                />
+                <span className="font-bold text-brand-secondary dark:text-brand-secondary-light group-hover:text-brand-secondary-light transition-colors duration-300 whitespace-nowrap text-sm">
+                  {new Date().getFullYear() - 2010}+ Years
+                </span>
+              </div>
+
+              <div className="flex items-center gap-1.5 bg-brand-primary/5 dark:bg-brand-primary/10 hover:bg-brand-primary/15 dark:hover:bg-brand-primary/20 px-3 py-2 rounded-lg transition-all duration-300 hover:scale-105 touch-manipulation border border-brand-primary/20 dark:border-brand-primary/30 hover:border-brand-primary/40 dark:hover:border-brand-primary/50">
                 <MaterialIcon
                   icon="verified"
                   size="sm"
-                  className="text-brand-primary group-hover:scale-110 transition-transform duration-300"
+                  className="text-brand-secondary dark:text-brand-secondary-light"
                 />
-                <span className="group-hover:text-brand-primary transition-colors duration-300">
-                  Licensed & Insured
+                <span className="text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 text-sm font-semibold">
+                  Licensed
                 </span>
-              </button>
-              <div className="flex items-center gap-1">
+              </div>
+
+              <div className="flex items-center gap-1.5 bg-brand-primary/5 dark:bg-brand-primary/10 hover:bg-brand-primary/15 dark:hover:bg-brand-primary/20 px-3 py-2 rounded-lg transition-all duration-300 hover:scale-105 touch-manipulation border border-brand-primary/20 dark:border-brand-primary/30 hover:border-brand-primary/40 dark:hover:border-brand-primary/50">
                 <MaterialIcon
                   icon="location_on"
                   size="sm"
-                  className="text-brand-primary"
+                  className="text-brand-secondary dark:text-brand-secondary-light"
                 />
-                <div className="flex gap-1">
+                <div className="flex items-center gap-1">
                   <span
-                    className="relative group cursor-help hover:text-brand-primary transition-colors duration-300 px-1 py-0.5 rounded hover:bg-brand-primary/10"
+                    className="relative group cursor-help text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 text-sm font-bold"
                     title="Washington License: MHCONCI907R7"
                   >
                     WA
-                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 pointer-events-none">
-                      License: MHCONCI907R7
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gradient-to-r from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-black text-white text-xs font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 pointer-events-none shadow-xl border-2 border-brand-secondary/30 dark:border-brand-secondary/50">
+                      MHCONCI907R7
                     </div>
                   </span>
-                  <span className="text-gray-400">•</span>
+                  <span className="text-brand-primary/40 dark:text-brand-primary/50">
+                    •
+                  </span>
                   <span
-                    className="relative group cursor-help hover:text-brand-primary transition-colors duration-300 px-1 py-0.5 rounded hover:bg-brand-primary/10"
+                    className="relative group cursor-help text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 text-sm font-bold"
                     title="Oregon License: 765043-99"
                   >
                     OR
-                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 pointer-events-none">
-                      License: 765043-99
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gradient-to-r from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-black text-white text-xs font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 pointer-events-none shadow-xl border-2 border-brand-secondary/30 dark:border-brand-secondary/50">
+                      765043-99
                     </div>
                   </span>
-                  <span className="text-gray-400">•</span>
+                  <span className="text-brand-primary/40 dark:text-brand-primary/50">
+                    •
+                  </span>
                   <span
-                    className="relative group cursor-help hover:text-brand-primary transition-colors duration-300 px-1 py-0.5 rounded hover:bg-brand-primary/10"
+                    className="relative group cursor-help text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 text-sm font-bold"
                     title="Idaho License: RCE-49250"
                   >
                     ID
-                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 pointer-events-none">
-                      License: RCE-49250
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gradient-to-r from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-black text-white text-xs font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 pointer-events-none shadow-xl border-2 border-brand-secondary/30 dark:border-brand-secondary/50">
+                      RCE-49250
                     </div>
                   </span>
                 </div>
               </div>
-              <button className="group flex items-center space-x-1 hover:bg-brand-primary/10 px-2 py-1 rounded-lg transition-all duration-300 hover:scale-105 touch-manipulation">
+              <div className="flex items-center gap-1.5 bg-brand-primary/5 dark:bg-brand-primary/10 hover:bg-brand-primary/15 dark:hover:bg-brand-primary/20 px-3 py-2 rounded-lg transition-all duration-300 hover:scale-105 touch-manipulation border border-brand-primary/20 dark:border-brand-primary/30 hover:border-brand-primary/40 dark:hover:border-brand-primary/50">
                 <MaterialIcon
                   icon="military_tech"
                   size="sm"
-                  className="text-brand-primary group-hover:scale-110 transition-transform duration-300"
+                  className="text-brand-secondary dark:text-brand-secondary-light"
                 />
-                <span className="font-medium text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
+                <span className="font-bold text-brand-secondary dark:text-brand-secondary-light hover:text-brand-secondary-light transition-colors duration-300 text-sm">
                   Veteran-Owned
                 </span>
-              </button>
+              </div>
             </div>
+
+            {/* Back to Top Button */}
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="group relative flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-brand-secondary px-5 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 touch-manipulation border-2 border-brand-secondary hover:border-brand-secondary-light outline outline-2 outline-offset-2 outline-brand-secondary/50 hover:outline-brand-secondary"
+              aria-label="Back to top"
+            >
+              <MaterialIcon
+                icon="arrow_upward"
+                size="md"
+                className="text-brand-secondary group-hover:text-brand-secondary-light group-hover:-translate-y-1 transition-all duration-300"
+              />
+              <span className="font-bold text-sm text-brand-secondary group-hover:text-brand-secondary-light transition-colors duration-300 hidden sm:inline">
+                Back to Top
+              </span>
+            </button>
           </div>
 
-          {/* Interactive Brand Tagline */}
-          <div className="text-center mt-6 pt-4 border-t border-gray-700/50 dark:border-gray-600/50">
-            <p className="group cursor-default text-brand-primary dark:text-brand-primary text-sm font-semibold italic hover:text-brand-primary-dark transition-all duration-300 hover:scale-105 select-none">
-              "Building projects for the client,{" "}
-              <span className="font-black italic text-bronze-300">NOT</span> the
-              dollar"
-              <MaterialIcon
-                icon="favorite"
-                size="sm"
-                className="ml-2 opacity-0 group-hover:opacity-100 text-red-500 transition-all duration-300 inline-block group-hover:animate-pulse"
-              />
-            </p>
+          {/* Legal Links Row */}
+          <div className="flex flex-wrap justify-center items-center gap-3 mt-6 pt-6 border-t-2 border-brand-primary/20 dark:border-brand-primary/30">
+            <Link
+              href="/privacy"
+              className="text-xs text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 font-semibold hover:underline decoration-brand-secondary dark:decoration-brand-secondary-light"
+            >
+              Privacy
+            </Link>
+            <span className="text-brand-primary/40 dark:text-brand-primary/50 text-xs">
+              •
+            </span>
+            <Link
+              href="/terms"
+              className="text-xs text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 font-semibold hover:underline decoration-brand-secondary dark:decoration-brand-secondary-light"
+            >
+              Terms
+            </Link>
+            <span className="text-brand-primary/40 dark:text-brand-primary/50 text-xs">
+              •
+            </span>
+            <Link
+              href="/accessibility"
+              className="text-xs text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 font-semibold hover:underline decoration-brand-secondary dark:decoration-brand-secondary-light"
+            >
+              Accessibility
+            </Link>
+            <span className="text-brand-primary/40 dark:text-brand-primary/50 text-xs">
+              •
+            </span>
+            <Link
+              href="/sitemap.xml"
+              className="text-xs text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 font-semibold hover:underline decoration-brand-secondary dark:decoration-brand-secondary-light"
+            >
+              Sitemap
+            </Link>
           </div>
         </div>
       </div>
