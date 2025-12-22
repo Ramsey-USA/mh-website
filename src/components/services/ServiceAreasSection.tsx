@@ -1,8 +1,9 @@
 /**
  * Service Areas Section
- * Shows geographic coverage areas
+ * Shows geographic coverage areas with optional links to location pages
  */
 
+import Link from "next/link";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -15,6 +16,7 @@ interface ServiceArea {
   title: string;
   iconName: string;
   areas: string[];
+  links?: (string | null)[];
 }
 
 interface ServiceAreasSectionProps {
@@ -68,21 +70,46 @@ export function ServiceAreasSection({
                 </h3>
               </div>
               <ul className="relative space-y-3">
-                {area.areas.map((location, lIndex) => (
-                  <li
-                    key={lIndex}
-                    className="flex items-center group/item hover:translate-x-1 transition-transform duration-200"
-                  >
-                    <div className="flex-shrink-0 w-6 h-6 bg-brand-secondary/30 dark:bg-brand-secondary/40 rounded-lg flex items-center justify-center mr-3 group-hover/item:scale-110 transition-transform duration-200">
-                      <MaterialIcon
-                        icon="check_circle"
-                        size="sm"
-                        className="text-brand-secondary"
-                      />
-                    </div>
-                    <span className="text-white/90 text-lg">{location}</span>
-                  </li>
-                ))}
+                {area.areas.map((location, lIndex) => {
+                  const link = area.links?.[lIndex];
+                  const content = (
+                    <>
+                      <div className="flex-shrink-0 w-6 h-6 bg-brand-secondary/30 dark:bg-brand-secondary/40 rounded-lg flex items-center justify-center mr-3 group-hover/item:scale-110 transition-transform duration-200">
+                        <MaterialIcon
+                          icon="check_circle"
+                          size="sm"
+                          className="text-brand-secondary"
+                        />
+                      </div>
+                      <span className="text-white/90 text-lg">{location}</span>
+                      {link && (
+                        <MaterialIcon
+                          icon="arrow_forward"
+                          size="sm"
+                          className="ml-auto text-brand-secondary opacity-0 group-hover/item:opacity-100 transition-opacity"
+                        />
+                      )}
+                    </>
+                  );
+
+                  return (
+                    <li
+                      key={lIndex}
+                      className="flex items-center group/item hover:translate-x-1 transition-transform duration-200"
+                    >
+                      {link ? (
+                        <Link
+                          href={link}
+                          className="flex items-center flex-1 hover:text-brand-secondary transition-colors"
+                        >
+                          {content}
+                        </Link>
+                      ) : (
+                        content
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </Card>
           ))}

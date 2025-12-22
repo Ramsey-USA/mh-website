@@ -865,6 +865,137 @@ export default function ContactPageClient() {
           </div>
         </section>
 
+        {/* Service Areas Section */}
+        <section
+          className="bg-gray-50 dark:bg-gray-800 py-16 sm:py-20"
+          aria-labelledby="service-areas-heading"
+        >
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <FadeInWhenVisible>
+              <div className="text-center mb-12">
+                <div className="flex items-center justify-center mb-6 gap-3">
+                  <div className="h-1 w-12 bg-gradient-to-r from-transparent to-brand-primary rounded-full"></div>
+                  <MaterialIcon
+                    icon="map"
+                    size="xl"
+                    className="text-brand-primary"
+                  />
+                  <div className="h-1 w-12 bg-gradient-to-l from-transparent to-brand-primary rounded-full"></div>
+                </div>
+                <h2
+                  id="service-areas-heading"
+                  className="font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl mb-4"
+                >
+                  Areas We Serve
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 text-lg max-w-3xl mx-auto">
+                  Providing professional construction services throughout the
+                  Pacific Northwest
+                </p>
+              </div>
+
+              {/* Tri-Cities Primary */}
+              <div className="bg-white dark:bg-gray-900 border-2 border-brand-primary p-6 sm:p-8 rounded-2xl shadow-lg mb-6">
+                <h3 className="font-bold text-brand-primary text-xl mb-4 flex items-center gap-2">
+                  <MaterialIcon icon="place" size="md" />
+                  Tri-Cities Area (Primary Service Region)
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <Link
+                    href="/locations/pasco"
+                    className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors group"
+                  >
+                    <MaterialIcon
+                      icon="arrow_forward"
+                      size="sm"
+                      className="text-brand-secondary group-hover:translate-x-1 transition-transform"
+                    />
+                    <span className="font-medium">Pasco, WA</span>
+                  </Link>
+                  <Link
+                    href="/locations/kennewick"
+                    className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors group"
+                  >
+                    <MaterialIcon
+                      icon="arrow_forward"
+                      size="sm"
+                      className="text-brand-secondary group-hover:translate-x-1 transition-transform"
+                    />
+                    <span className="font-medium">Kennewick, WA</span>
+                  </Link>
+                  <Link
+                    href="/locations/richland"
+                    className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors group"
+                  >
+                    <MaterialIcon
+                      icon="arrow_forward"
+                      size="sm"
+                      className="text-brand-secondary group-hover:translate-x-1 transition-transform"
+                    />
+                    <span className="font-medium">Richland, WA</span>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Extended Coverage */}
+              <div className="bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 p-6 sm:p-8 rounded-2xl shadow-lg">
+                <h3 className="font-bold text-gray-900 dark:text-white text-xl mb-4 flex items-center gap-2">
+                  <MaterialIcon icon="travel_explore" size="md" />
+                  Extended Service Coverage
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <Link
+                    href="/locations/spokane"
+                    className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors group"
+                  >
+                    <MaterialIcon
+                      icon="arrow_forward"
+                      size="sm"
+                      className="text-brand-secondary group-hover:translate-x-1 transition-transform"
+                    />
+                    <span className="font-medium">Spokane, WA</span>
+                  </Link>
+                  <Link
+                    href="/locations/yakima"
+                    className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors group"
+                  >
+                    <MaterialIcon
+                      icon="arrow_forward"
+                      size="sm"
+                      className="text-brand-secondary group-hover:translate-x-1 transition-transform"
+                    />
+                    <span className="font-medium">Yakima, WA</span>
+                  </Link>
+                  <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                    <MaterialIcon
+                      icon="check_circle"
+                      size="sm"
+                      className="text-brand-secondary"
+                    />
+                    <span>Washington State</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                    <MaterialIcon
+                      icon="check_circle"
+                      size="sm"
+                      className="text-brand-secondary"
+                    />
+                    <span>Oregon (Licensed)</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                    <MaterialIcon
+                      icon="check_circle"
+                      size="sm"
+                      className="text-brand-secondary"
+                    />
+                    <span>Idaho (Licensed)</span>
+                  </div>
+                </div>
+              </div>
+            </FadeInWhenVisible>
+          </div>
+        </section>
+
         {/* Urgent Support Banner - Redirects to Dedicated Page */}
         <section
           id="urgent-support"

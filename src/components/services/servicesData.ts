@@ -30,6 +30,7 @@ export interface ServiceArea {
   iconName: string;
   title: string;
   areas: string[];
+  links?: (string | null)[];
 }
 
 export interface WhyChooseUsItem {
@@ -277,16 +278,26 @@ export const serviceAreas: ServiceArea[] = [
       "Benton County",
       "Franklin County",
     ],
+    links: [
+      "/locations/pasco",
+      "/locations/kennewick",
+      "/locations/richland",
+      null,
+      null,
+    ],
   },
   {
     iconName: "travel_explore",
     title: "Extended Coverage",
     areas: [
+      "Spokane, WA",
+      "Yakima, WA",
       "Washington State",
       "Oregon (Licensed)",
       "Idaho (Licensed)",
       "Pacific Northwest Region",
     ],
+    links: ["/locations/spokane", "/locations/yakima", null, null, null, null],
   },
 ];
 
