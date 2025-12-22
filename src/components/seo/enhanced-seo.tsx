@@ -83,6 +83,15 @@ export const enhancedSEO = {
       "Building partnerships, serving communities, creating lasting value in the Pacific Northwest",
     partnershipPhilosophy:
       "We Work With You - Collaborative Construction Partners",
+    openingHours: "Mo-Fr 07:00-16:00",
+    paymentAccepted: [
+      "Cash",
+      "Check",
+      "Credit Card",
+      "ACH",
+      "Financing Available",
+    ],
+    priceRange: "$$$$",
     constructionTools: {
       hasTools: true,
       toolName: "General MH - Construction Assistant",
@@ -671,18 +680,18 @@ export function generateLocalBusinessSchema() {
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "08:00",
-        closes: "17:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Saturday",
-        opens: "09:00",
-        closes: "15:00",
+        opens: "07:00",
+        closes: "16:00",
       },
     ],
-    priceRange: "$$",
-    paymentAccepted: ["Cash", "Credit Card", "Check", "Financing"],
+    priceRange: "$$$$",
+    paymentAccepted: [
+      "Cash",
+      "Credit Card",
+      "Check",
+      "ACH",
+      "Financing Available",
+    ],
     currenciesAccepted: "USD",
   };
 }

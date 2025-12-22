@@ -27,6 +27,25 @@ const ACTIVE_PAGES = [
   { path: "/projects", priority: 0.8, changeFreq: "weekly" as const },
   { path: "/public-sector", priority: 0.8, changeFreq: "monthly" as const },
 
+  // Priority 0.8 - Location landing pages (SEO)
+  {
+    path: "/locations/richland",
+    priority: 0.8,
+    changeFreq: "monthly" as const,
+  },
+  {
+    path: "/locations/kennewick",
+    priority: 0.8,
+    changeFreq: "monthly" as const,
+  },
+  { path: "/locations/pasco", priority: 0.8, changeFreq: "monthly" as const },
+  { path: "/locations/yakima", priority: 0.8, changeFreq: "monthly" as const },
+  {
+    path: "/locations/spokane",
+    priority: 0.8,
+    changeFreq: "monthly" as const,
+  },
+
   // Priority 0.7 - Supporting pages
   { path: "/team", priority: 0.7, changeFreq: "monthly" as const },
   { path: "/careers", priority: 0.7, changeFreq: "weekly" as const },
