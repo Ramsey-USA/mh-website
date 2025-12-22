@@ -96,7 +96,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
         "Government Construction Projects",
         "Safety Excellence",
         "Partnership-Driven Construction",
-        "Team Six Approach",
+        "Chain of Command Approach",
       ],
       slogan: "We Work WITH You, Not FOR You",
       mission: "Building projects for the client, NOT the dollar",
@@ -142,7 +142,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
     title:
       "Our Oath → About Us | Service-Earned Values, Construction Excellence | MH Construction",
     description:
-      "Our Oath → About Us: Service-Earned Values, Construction Excellence. 15 years of battle-tested excellence: Mike Holstein founded MH Construction in 2010 on partnership values. Now veteran-owned since January 2025 with Jeremy Thamert's operational leadership. 650+ completed projects, 70% referral rate, consecutive AGC-WA Top EMR Awards, OSHA VPP Star certification. Team Six approach: individual specialists, unified mission.",
+      "Our Oath → About Us: Service-Earned Values, Construction Excellence. 15 years of battle-tested excellence: Mike Holstein founded MH Construction in 2010 on partnership values. Now veteran-owned since January 2025 with Jeremy Thamert's operational leadership. 650+ completed projects, 70% referral rate, consecutive AGC-WA Top EMR Awards, OSHA VPP Star certification. Chain of Command approach: individual specialists, unified mission.",
     keywords: [
       "Our Oath About Us service-earned values",
       "battle-tested construction excellence",
@@ -152,7 +152,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
       "Mike Holstein founder MH Construction",
       "Jeremy Thamert veteran owner",
       "Arnold Garcia VP construction",
-      "Team Six construction approach",
+      "Chain of Command construction approach",
       "650+ completed projects Pacific Northwest",
       "70 percent referral rate contractor",
       "AGC Washington Top EMR Award",
@@ -241,13 +241,101 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
 
 // Team page SEO - GROUP 3: Future Vision & Growth
 export function getTeamSEO(): Metadata & { schemas: object[] } {
+  // Generate Person schema for key team members
+  const teamPersonSchemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Jeremy Thamert",
+      jobTitle: "Owner & President",
+      worksFor: {
+        "@type": "Organization",
+        name: "MH Construction",
+        url: enhancedSEO.siteUrl,
+      },
+      description:
+        "Owner & President of MH Construction, bringing 35+ years of construction expertise and 15 years of Army aviation service. Leads with integrity, discipline, and people-first philosophy.",
+      alumniOf: "Army Aviation",
+      knowsAbout: [
+        "Construction Management",
+        "Safety Management",
+        "Leadership Development",
+        "Business Operations",
+      ],
+      url: `${enhancedSEO.siteUrl}/team#jeremy-thamert`,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Arnold Garcia",
+      jobTitle: "Vice President",
+      worksFor: {
+        "@type": "Organization",
+        name: "MH Construction",
+        url: enhancedSEO.siteUrl,
+      },
+      description:
+        "Vice President with 40+ years of construction experience, overseeing all construction activities and staff mentoring.",
+      knowsAbout: [
+        "Construction Management",
+        "Project Management",
+        "Commercial Construction",
+        "Team Leadership",
+      ],
+      url: `${enhancedSEO.siteUrl}/team#arnold-garcia`,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Mike Holstein",
+      jobTitle: "Founder",
+      worksFor: {
+        "@type": "Organization",
+        name: "MH Construction",
+        url: enhancedSEO.siteUrl,
+      },
+      description:
+        "Founder of MH Construction (established 2010), created company foundation on integrity, quality, and partnership philosophy.",
+      knowsAbout: [
+        "Construction Management",
+        "Business Development",
+        "Quality Standards",
+        "Company Values",
+      ],
+      url: `${enhancedSEO.siteUrl}/team#mike-holstein`,
+    },
+  ];
+
+  // Organization Employee Collection Schema
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "MH Construction",
+    url: enhancedSEO.siteUrl,
+    description:
+      "Veteran-owned construction company with 150+ years combined military-grade expertise across all service branches.",
+    employee: teamPersonSchemas.map((person) => ({
+      "@type": "Person",
+      name: person.name,
+      jobTitle: person.jobTitle,
+    })),
+    knowsAbout: [
+      "Commercial Construction",
+      "Residential Construction",
+      "Industrial Construction",
+      "Project Management",
+      "Construction Safety",
+      "Veteran Leadership",
+    ],
+  };
+
   return generateEnhancedMetadata({
     title:
-      "Team Six → Our Team | 150+ Years Combined Military-Grade Expertise | MH Construction",
+      "Chain of Command → Our Team | 150+ Years Combined Military-Grade Expertise | MH Construction",
     description:
-      "Team Six → Our Team: 150+ Years Combined Military-Grade Expertise at Your Service. All-branch veteran leadership you can trust. Meet the veteran-led team building tomorrow's success today through honest communication, transparent pricing, and proven craftsmanship. Professional excellence with service-earned values driving Pacific Northwest construction leadership.",
+      "Chain of Command → Our Team: 150+ Years Combined Military-Grade Expertise at Your Service. All-branch veteran leadership you can trust. Meet the veteran-led team building tomorrow's success today through honest communication, transparent pricing, and proven craftsmanship. Professional excellence with service-earned values driving Pacific Northwest construction leadership.",
     keywords: [
-      "Team Six Our Team military-grade expertise",
+      "Chain of Command Our Team military-grade expertise",
       "150 years combined veteran experience",
       "all-branch veteran leadership",
       "veteran construction team",
@@ -264,9 +352,15 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
       "Pasco veteran professionals",
       "Kennewick construction experts",
       "Benton County veteran-owned team",
+      "Jeremy Thamert owner president",
+      "Arnold Garcia vice president",
+      "Mike Holstein founder",
+      "construction superintendent team",
+      "construction estimator team",
+      "veteran construction leadership team",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/team`,
-    schemas: [],
+    schemas: [...teamPersonSchemas, organizationSchema],
   });
 }
 

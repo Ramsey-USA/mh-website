@@ -111,7 +111,7 @@ Home                →  Base HQ
 About Us            →  Our Oath
 Services            →  Operations
 Projects            →  Missions
-Our Team            →  Team Six
+Our Team            →  Chain of Command
 Reviews             →  Commendations
 Careers             →  Enlist
 Contact             →  Rally Point
@@ -170,7 +170,7 @@ Help/FAQ            →  Intel Brief
 - **Our Oath** - Military service oath (About)
 - **Operations** - Active military missions (Services)
 - **Missions** - Completed objectives (Projects)
-- **Team Six** - Elite military unit reference (Team)
+- **Chain of Command** - Military leadership structure (Team)
 - **Commendations** - Military medals/awards (Reviews)
 - **Enlist** - Join the military (Careers)
 - **Rally Point** - Designated meeting location (Contact)

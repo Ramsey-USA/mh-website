@@ -99,7 +99,7 @@ Every navigation element displays **two labels**:
 | About Us      | Our Oath          | Company values/mission   |
 | Services      | Operations        | Service offerings        |
 | Projects      | Missions          | Portfolio/completed work |
-| Our Team      | Team Six          | Leadership/personnel     |
+| Our Team      | Chain of Command  | Leadership/personnel     |
 | Reviews       | Commendations     | Client testimonials      |
 | Careers       | Enlist            | Job opportunities        |
 | Contact       | Rally Point       | Get in touch             |

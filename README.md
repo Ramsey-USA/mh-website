@@ -413,7 +413,7 @@ Home              → Base HQ
 About Us          → Our Oath
 Services          → Operations
 Projects          → Missions
-Our Team          → Team Six
+Our Team          → Chain of Command
 Reviews           → Commendations
 Careers           → Enlist
 Contact           → Rally Point
@@ -520,7 +520,40 @@ This approach:
 - About: "Our Oath → About Us" | "Service-Earned Values, Construction Excellence"
 - Services: "Operations → Services" | "The Battle Plan - Strategic Construction Excellence"
 - Projects: "Missions → Projects" | "Mission Success: 650+ Completed Projects"
-- Team: "Team Six → Our Team" | "150+ Years Combined Military-Grade Expertise"
+- Team: "Chain of Command → Our Team" | "150+ Years Combined Military-Grade Expertise"
+
+### Chain of Command Team Structure
+
+Our veteran-owned team operates with clear military-inspired hierarchy and accountability:
+
+**The Upper Brass** (Executive Leadership)
+
+- Owner & President: Jeremy Thamert (35+ years experience, Army veteran)
+- Vice President: Arnold Garcia (40+ years experience)
+- Founder: Mike Holstein (30+ years, company established 2010)
+- **Focus:** Strategic direction, mission-focused excellence
+
+**Mission Commanders** (Project Management)
+
+- Project Managers and Lead Estimators
+- **Focus:** Mission planning, precision estimating, tactical coordination
+
+**Special Operations** (Strategic Initiatives)
+
+- Marketing, Safety, and specialized functions
+- **Focus:** Competitive advantage through specialized expertise
+
+**Logistics Command** (Administration & Support)
+
+- Finance, HR, Administrative operations
+- **Focus:** Critical logistics and mission support
+
+**Field Officers** (Superintendents)
+
+- Senior Superintendents and field leadership
+- **Focus:** Frontline operations, quality craftsmanship, safety excellence
+
+**Total Experience:** 150+ years combined military-grade expertise across all service branches (Army, Navy, Air Force, Marines, Coast Guard, Space Force).
 
 Complete guides:
 
@@ -548,6 +581,12 @@ Each page group reflects our veteran-owned values and commitment to honest busin
    - "THE ROI IS THE RELATIONSHIP" messaging
    - Emphasis on trust, mutual respect, and long-term commitment
    - Team values: competence, character, commitment
+   - **Chain of Command Structure:**
+     - **The Upper Brass** - Executive leadership (Owner, VP, Founder)
+     - **Mission Commanders** - Project management and estimating
+     - **Special Operations** - Marketing, safety, and strategic initiatives
+     - **Logistics Command** - Administration and support operations
+     - **Field Officers** - Superintendents and field operations
 
 4. **Direct Communication** (Contact, FAQ, Urgent) - Accessible, responsive, human-first
    - Face-to-face consultation prioritized

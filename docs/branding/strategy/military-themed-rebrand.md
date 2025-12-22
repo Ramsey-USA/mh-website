@@ -33,7 +33,7 @@ This approach provides:
 | **Our Oath**               | About         | `/about`    | Company foundation, values, and mission |
 | **The Battle Plan**        | Services      | `/services` | Construction services and capabilities  |
 | **Victories**              | Projects      | `/projects` | Completed projects showcase             |
-| **Team Six**               | Team          | `/team`     | Leadership and team members             |
+| **Chain of Command**       | Team          | `/team`     | Leadership and team members             |
 | **Occupation Specialties** | Careers       | `/careers`  | Career opportunities                    |
 | **Introductions**          | Contact       | `/contact`  | Contact information and forms           |
 
@@ -59,7 +59,7 @@ All navigation elements have been updated with military-themed names:
 - Our Oath (/about)
 - The Battle Plan (/services)
 - Victories (/projects)
-- Team Six (/team)
+- Chain of Command (/team)
 - Occupation Specialties (/careers)
 - Introductions (/contact)
 ```
@@ -68,7 +68,7 @@ All navigation elements have been updated with military-themed names:
 
 ```tsx
 - Our Oath (/about)
-- Team Six (/team)
+- Chain of Command (/team)
 - Allies in Force (/trade-partners)
 - Combat Proven (/veterans)
 - Occupation Specialties (/careers)
@@ -93,7 +93,7 @@ Page titles include military-themed names with context:
 "Our Oath - MH Construction Foundation & Values";
 "The Battle Plan - Construction Services | MH Construction";
 "Victories - Completed Projects | MH Construction";
-"Team Six - Leadership Team | MH Construction";
+"Chain of Command - Leadership Team | MH Construction";
 ```
 
 ---
@@ -138,7 +138,7 @@ As part of this rebrand, the following pages were removed to simplify the user j
 - ✅ "Our Oath" - Clear, meaningful, resonates with military and civilian audiences
 - ✅ "The Battle Plan" - Strategic, organized, actionable
 - ✅ "Victories" - Positive, achievement-focused
-- ✅ "Team Six" - Elite, specialized, recognizable reference
+- ✅ "Chain of Command" - Clear hierarchy, military structure reference
 - ✅ "Combat Proven" - Tested, reliable, veteran-specific
 
 **Avoid:**
@@ -171,7 +171,7 @@ When referencing other pages internally, use military-themed names:
 Learn more about [Our Oath](/about)
 Explore [The Battle Plan](/services)
 View our [Victories](/projects)
-Meet [Team Six](/team)
+Meet [Chain of Command](/team)
 ```
 
 ---

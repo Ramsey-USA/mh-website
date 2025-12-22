@@ -63,7 +63,7 @@ const mainCTAs = [
   },
   {
     icon: "diversity_3",
-    label: "Team Six",
+    label: "Chain of Command",
     description: "Your partnership team",
     link: "/team",
     variant: "primary" as const,

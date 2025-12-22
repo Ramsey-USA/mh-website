@@ -149,7 +149,7 @@ Projects for the Client, NOT the Dollar"
 
 #### Team Page Hero Tagline
 
-**Dual Naming:** "Team Six → Our Team"
+**Dual Naming:** "Chain of Command → Our Team"
 
 **Tagline:** "All-Branch Veteran Leadership You Can Trust"
 

@@ -47,7 +47,7 @@ All API routes are running on Cloudflare's Edge Runtime:
 
 Static pages generated at build time:
 
-- Homepage, Our Oath (About), The Battle Plan (Services), Team Six (Team), Victories (Projects), Introductions (Contact)
+- Homepage, Our Oath (About), The Battle Plan (Services), Chain of Command (Team), Victories (Projects), Introductions (Contact)
 - Testimonials and more
 
 ### Static Assets (117)

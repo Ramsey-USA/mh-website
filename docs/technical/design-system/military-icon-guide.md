@@ -78,7 +78,7 @@ Icons representing team structure, leadership, and collaboration.
 
 | Icon                 | Use Case                            | Context                              | Example            |
 | -------------------- | ----------------------------------- | ------------------------------------ | ------------------ |
-| `groups`             | Team formation, collaboration       | Team page, group projects            | Team Six           |
+| `groups`             | Team formation, collaboration       | Team page, group projects            | Chain of Command   |
 | `people`             | General team references             | Team sections (current usage)        | Our team           |
 | `supervisor_account` | Leadership, chain of command        | Leadership bios, management          | Leadership team    |
 | `person`             | Individual profile, single person   | Contact person, individual bios      | Project manager    |
@@ -378,7 +378,7 @@ className = "animate-spin";
 
 ---
 
-### Team Page ("Team Six")
+### Team Page ("Chain of Command")
 
 **Current:** `people` icon  
 **Recommended Enhancement:**

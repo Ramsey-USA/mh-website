@@ -185,7 +185,7 @@ export function Navigation() {
                     {
                       href: "/team",
                       label: "Our Team",
-                      subLabel: "Team Six",
+                      subLabel: "Chain of Command",
                       icon: "groups",
                     },
                     {

@@ -67,12 +67,13 @@ export default function TeamPage() {
   // Original page content preserved below - will be shown when flag is set to false
   const membersByDepartment = groupByDepartment(vintageTeamMembers);
 
-  // Define department order matching the actual data
+  // Define department order matching the Chain of Command structure
   const departmentOrder = [
-    "Executive Leadership",
-    "Project Management & Estimating",
-    "Site & Field Operations",
-    "Administration & Support",
+    "The Upper Brass",
+    "Mission Commanders",
+    "Special Operations",
+    "Logistics Command",
+    "Field Officers",
   ];
 
   return (
@@ -129,6 +130,59 @@ export default function TeamPage() {
         }}
       />
 
+      {/* FAQ Schema for Team Page */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "What makes MH Construction's leadership team unique?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "MH Construction's Chain of Command brings together 150+ years combined military-grade expertise from all service branches (Army, Navy, Air Force, Marines, Coast Guard, Space Force). Our veteran-owned leadership combines military discipline with proven construction excellence.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Who leads MH Construction?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "MH Construction is led by Owner & President Jeremy Thamert (35+ years construction experience, 15 years Army aviation), Vice President Arnold Garcia (40+ years construction experience), and Founder Mike Holstein who established the company in 2010.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "What is MH Construction's Chain of Command structure?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Our Chain of Command includes: The Upper Brass (executive leadership), Mission Commanders (project management and estimating), Special Operations (marketing and safety), Logistics Command (administration and support), and Field Officers (superintendents).",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Is MH Construction veteran-owned?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes, MH Construction has been veteran-owned since January 2025 under Army veteran Jeremy Thamert's leadership. Our team honors all service branches with military precision and service-earned values.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Does MH Construction hire veterans?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes, MH Construction actively recruits veterans across all branches. We value military experience and offer veteran hiring initiatives, mentorship programs, and career development opportunities. Visit our careers page to learn more.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
+
       <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
         {/* Hero Section - v4.0.2 Standards */}
         <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-end justify-end text-white overflow-hidden">
@@ -137,30 +191,25 @@ export default function TeamPage() {
 
           {/* Content - Bottom Right */}
           <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
-            {/* Team Six Unit Icon */}
+            {/* Chain of Command Unit Icon */}
             <div className="flex justify-end mb-4">
               <MaterialIcon
                 icon="groups"
                 size="5xl"
                 theme="military"
                 className="drop-shadow-2xl opacity-90 hover:opacity-100 transition-opacity"
-                ariaLabel="Team Six - Elite construction team"
+                ariaLabel="Chain of Command - Elite construction team"
               />
             </div>
             <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
               <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                Team Six → Our Team
+                Chain of Command → Our Team
               </span>
               <span className="block text-brand-secondary">
-                All-Branch Veteran Leadership
+                All-Branch Veteran Leadership You Can Trust
               </span>
               <span className="block text-brand-primary">
-                150+ Years Combined Military-Grade Expertise You Can Trust
-              </span>
-              <span className="block text-white/90">
-                Building projects for the client,{" "}
-                <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the dollar
+                150+ Years Combined Military-Grade Expertise at Your Service
               </span>
             </h1>
           </div>
@@ -174,7 +223,7 @@ export default function TeamPage() {
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb
-          items={[{ label: "Home", href: "/" }, { label: "Team Six" }]}
+          items={[{ label: "Home", href: "/" }, { label: "Chain of Command" }]}
         />
 
         <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
@@ -239,8 +288,35 @@ export default function TeamPage() {
                   Award-winning professionals
                 </span>{" "}
                 you can trust, bringing 150+ years combined military-grade
-                expertise and precision to every Pacific Northwest construction
-                mission.
+                expertise and precision to every{" "}
+                <Link
+                  href="/projects"
+                  className="text-brand-primary hover:text-brand-primary-dark underline"
+                >
+                  Pacific Northwest construction mission
+                </Link>
+                . From{" "}
+                <Link
+                  href="/services"
+                  className="text-brand-primary hover:text-brand-primary-dark underline"
+                >
+                  commercial and industrial construction
+                </Link>{" "}
+                to{" "}
+                <Link
+                  href="/public-sector"
+                  className="text-brand-primary hover:text-brand-primary-dark underline"
+                >
+                  government projects
+                </Link>
+                , our Chain of Command delivers{" "}
+                <Link
+                  href="/about"
+                  className="text-brand-primary hover:text-brand-primary-dark underline"
+                >
+                  service-earned values
+                </Link>{" "}
+                on every project.
               </p>
             </div>
 
@@ -251,58 +327,89 @@ export default function TeamPage() {
                 if (!members || members.length === 0) return null;
 
                 // Map departments to icons and descriptions
+                // Map departments to icons, descriptions, and IDs
                 const departmentConfig: {
-                  [key: string]: { icon: string; description: string };
+                  [key: string]: {
+                    icon: string;
+                    description: string;
+                    id: string;
+                  };
                 } = {
-                  "Executive Leadership": {
+                  "The Upper Brass": {
                     icon: "workspace_premium",
                     description:
                       "Command leadership setting strategic direction and maintaining mission-focused excellence across all operations.",
+                    id: "upper-brass",
                   },
-                  "Project Management & Estimating": {
+                  "Mission Commanders": {
                     icon: "engineering",
                     description:
                       "Mission planning and execution—precision estimating, strategic scheduling, and tactical project coordination.",
+                    id: "mission-commanders",
                   },
-                  "Site & Field Operations": {
-                    icon: "construction",
+                  "Special Operations": {
+                    icon: "military_tech",
                     description:
-                      "Boots-on-ground operations delivering quality craftsmanship with disciplined execution and safety excellence.",
+                      "Specialized operations in marketing, safety, and strategic initiatives driving competitive advantage.",
+                    id: "special-operations",
                   },
-                  "Administration & Support": {
+                  "Logistics Command": {
                     icon: "support_agent",
                     description:
                       "Base operations providing critical logistics, communications, and administrative support for mission success.",
+                    id: "logistics-command",
+                  },
+                  "Field Officers": {
+                    icon: "construction",
+                    description:
+                      "Frontline operations delivering quality craftsmanship with disciplined execution and safety excellence.",
+                    id: "field-officers",
                   },
                 };
 
                 const config = departmentConfig[department] || {
                   icon: "groups",
                   description: "",
+                  id: "team",
                 };
 
                 return (
-                  <div key={department} className="relative">
-                    {/* Department header with icon */}
+                  <div
+                    key={department}
+                    id={config.id}
+                    className="relative scroll-mt-20"
+                  >
+                    {/* Department header - Military Construction Standard */}
                     <div className="mb-12 sm:mb-14 md:mb-16 text-center">
-                      <div className="flex items-center justify-center mb-6">
-                        <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-2xl shadow-xl">
-                          <MaterialIcon
-                            icon={config.icon}
-                            size="xl"
-                            className="text-white"
-                          />
+                      {/* Icon with decorative lines */}
+                      <div className="flex items-center justify-center mb-8 gap-4">
+                        <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                        <div className="relative">
+                          <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                          <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                            <MaterialIcon
+                              icon={config.icon}
+                              size="2xl"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
                         </div>
+                        <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                       </div>
-                      <h3 className="mb-4 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl tracking-tight">
-                        {department}
+
+                      {/* Single-line gradient heading for departments */}
+                      <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+                        <span className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent drop-shadow-sm">
+                          {department}
+                        </span>
                       </h3>
+
+                      {/* Description with better styling */}
                       {config.description && (
-                        <p className="mb-4 text-gray-600 dark:text-gray-400 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
+                        <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                           {config.description}
                         </p>
                       )}
-                      <div className="bg-gradient-to-r from-transparent via-brand-primary to-transparent mx-auto rounded-full w-24 sm:w-32 h-1"></div>
                     </div>
 
                     {/* Team member profiles */}
@@ -857,7 +964,9 @@ export default function TeamPage() {
                   <span className="block mb-2 text-gray-700 dark:text-gray-300">
                     Interested in Joining
                   </span>
-                  <span className="block text-brand-primary">Team Six?</span>
+                  <span className="block text-brand-primary">
+                    Chain of Command?
+                  </span>
                 </h3>
                 <p className="mb-6 font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                   Explore career opportunities and learn more about what makes

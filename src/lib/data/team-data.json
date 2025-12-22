@@ -2,7 +2,7 @@
   {
     "name": "Jeremy Thamert",
     "role": "Owner & President",
-    "department": "Executive Leadership",
+    "department": "The Upper Brass",
     "cardNumber": 1,
     "position": "Owner & President",
     "nickname": "The Leader",
@@ -56,7 +56,7 @@
   {
     "name": "Mike Holstein",
     "role": "Founder (Retired)",
-    "department": "Executive Leadership",
+    "department": "The Upper Brass",
     "cardNumber": 2,
     "position": "Founder",
     "nickname": "The Foundation",
@@ -110,7 +110,7 @@
   {
     "name": "Arnold Garcia",
     "role": "Vice President",
-    "department": "Executive Leadership",
+    "department": "The Upper Brass",
     "cardNumber": 2,
     "position": "Vice President",
     "nickname": "The Bridge",
@@ -165,7 +165,7 @@
   {
     "name": "Ben Woodall",
     "role": "Project Manager",
-    "department": "Project Management & Estimating",
+    "department": "Mission Commanders",
     "cardNumber": 4,
     "position": "Project Manager",
     "nickname": "The Balancer",
@@ -220,7 +220,7 @@
   {
     "name": "Todd Schoeff",
     "role": "Lead Estimator",
-    "department": "Project Management & Estimating",
+    "department": "Mission Commanders",
     "cardNumber": 7,
     "position": "Lead Estimator",
     "nickname": "The Calculator",
@@ -275,7 +275,7 @@
   {
     "name": "Steve McClary",
     "role": "Senior Superintendent",
-    "department": "Site & Field Operations",
+    "department": "Field Officers",
     "cardNumber": 69,
     "position": "Senior Superintendent",
     "nickname": "The Uncle",
@@ -331,7 +331,7 @@
   {
     "name": "Reagan Massey",
     "role": "Superintendent",
-    "department": "Site & Field Operations",
+    "department": "Field Officers",
     "cardNumber": 80,
     "position": "Superintendent",
     "nickname": "The Preventer",
@@ -385,7 +385,7 @@
   {
     "name": "Porter Cline",
     "role": "Superintendent",
-    "department": "Site & Field Operations",
+    "department": "Field Officers",
     "cardNumber": 23,
     "position": "Industrial Superintendent",
     "nickname": "The Heavy Hitter",
@@ -439,7 +439,7 @@
   {
     "name": "Brooks Morris",
     "role": "Finance and Operations Manager",
-    "department": "Administration & Support",
+    "department": "Logistics Command",
     "cardNumber": 88,
     "position": "Finance and Operations Manager",
     "nickname": "The Tracker",
@@ -494,7 +494,7 @@
   {
     "name": "Brittney Holstein",
     "role": "HR Manager",
-    "department": "Administration & Support",
+    "department": "Logistics Command",
     "cardNumber": 12,
     "position": "HR Manager",
     "nickname": "The Builder",
@@ -545,7 +545,7 @@
   {
     "name": "Matt Ramsey",
     "role": "Project Engineer & Digital Marketing Manager",
-    "department": "Administration & Support",
+    "department": "Special Operations",
     "cardNumber": 21,
     "position": "Project Engineer & Digital Marketing Manager",
     "nickname": "The Tech Trainer",
@@ -599,7 +599,7 @@
   {
     "name": "Jennifer Tene",
     "role": "Administrative Assistant",
-    "department": "Administration & Support",
+    "department": "Logistics Command",
     "cardNumber": 14,
     "position": "Administrative Assistant",
     "nickname": "The Coordinator",
@@ -650,7 +650,7 @@
   {
     "name": "Derek Parks",
     "role": "Superintendent",
-    "department": "Site & Field Operations",
+    "department": "Field Officers",
     "cardNumber": 24,
     "position": "Superintendent",
     "nickname": "The Organizer",
@@ -705,7 +705,7 @@
   {
     "name": "Lisa Kandle",
     "role": "Administrative Assistant",
-    "department": "Administration & Support",
+    "department": "Logistics Command",
     "cardNumber": 15,
     "position": "Administrative Assistant",
     "nickname": "The Organizer",

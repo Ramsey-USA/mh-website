@@ -64,19 +64,19 @@ Generated: 11/17/2025, 7:01:35 PM
 - **URL:** [https://mhc-gc.com/projects](https://mhc-gc.com/projects)
 - **Display Name:** "Victories"
 
-### Team Six (Color)
+### Chain of Command (Color)
 
 - **Name:** `team`
 - **File:** `qr-team-color.png`
 - **URL:** [https://mhc-gc.com/team](https://mhc-gc.com/team)
-- **Display Name:** "Team Six"
+- **Display Name:** "Chain of Command"
 
-### Team Six (Black and White)
+### Chain of Command (Black and White)
 
 - **Name:** `team`
 - **File:** `qr-team-bw.png`
 - **URL:** [https://mhc-gc.com/team](https://mhc-gc.com/team)
-- **Display Name:** "Team Six"
+- **Display Name:** "Chain of Command"
 
 ### Occupation Specialties (Careers - Color)
 

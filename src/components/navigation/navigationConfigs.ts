@@ -101,7 +101,7 @@ export const navigationConfigs = {
     },
     {
       href: "/about#team",
-      label: "Team Six",
+      label: "Chain of Command",
       mobileLabel: "Team",
       icon: "military_tech",
     },
@@ -189,16 +189,40 @@ export const navigationConfigs = {
 
   team: [
     {
+      href: "#upper-brass",
+      label: "The Upper Brass",
+      mobileLabel: "Leadership",
+      icon: "workspace_premium",
+    },
+    {
+      href: "#mission-commanders",
+      label: "Mission Commanders",
+      mobileLabel: "Commanders",
+      icon: "engineering",
+    },
+    {
+      href: "#special-operations",
+      label: "Special Operations",
+      mobileLabel: "Spec Ops",
+      icon: "military_tech",
+    },
+    {
+      href: "#logistics-command",
+      label: "Logistics Command",
+      mobileLabel: "Logistics",
+      icon: "support_agent",
+    },
+    {
+      href: "#field-officers",
+      label: "Field Officers",
+      mobileLabel: "Field Ops",
+      icon: "construction",
+    },
+    {
       href: "#company-culture",
       label: "Company Culture",
       mobileLabel: "Culture",
-      icon: "groups",
-    },
-    {
-      href: "#career-growth",
-      label: "Career Growth",
-      mobileLabel: "Growth",
-      icon: "trending_up",
+      icon: "diversity_3",
     },
     {
       href: "#employee-testimonials",

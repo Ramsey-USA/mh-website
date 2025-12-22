@@ -489,7 +489,7 @@ export default function Footer() {
                 <span className="flex flex-col">
                   <span>Our Team</span>
                   <span className="text-[9px] text-brand-secondary opacity-75">
-                    Team Six
+                    Chain of Command
                   </span>
                 </span>
                 <MaterialIcon

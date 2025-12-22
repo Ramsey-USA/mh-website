@@ -69,21 +69,21 @@ military-construction terminology and service-earned values.
 **Dual Naming Format:** Each page includes "Military Designation → Civilian Label" for veteran
 recognition and accessibility.
 
-| Page           | Dual Naming                | Military/Construction Blend Tagline                                             | Mantra                                                                 |
-| -------------- | -------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| Homepage       | Base HQ → Home             | "Mission-Focused Execution \| Building Projects for the Client, NOT the Dollar" | Your Tri-Cities Construction Command Center                            |
-| About          | Our Oath → About Us        | "Battle-Tested Excellence Through Service-Earned Experience"                    | Service-Earned Values, Construction Excellence                         |
-| Services       | Operations → Services      | "Your Construction Mission Deserves Veteran-Led Expert Oversight"               | The Battle Plan - Strategic Construction Excellence                    |
-| Projects       | Missions → Projects        | "650+ Construction Missions Completed - Proven Results"                         | Mission Success: 650+ Projects, Countless Relationships                |
-| Team           | Team Six → Our Team        | "All-Branch Veteran Leadership You Can Trust"                                   | 150+ Years Combined Military-Grade Expertise at Your Service           |
-| Careers        | Enlist → Careers           | "Join the Mission - Your Construction Career Starts Here"                       | Build More Than Projects - Build Your Future                           |
-| Contact        | Rally Point → Contact      | "Schedule Your Free Mission Brief - Start With SITREP-Level Clarity"            | Your Project. Our Expertise. Let's Connect.                            |
-| Urgent         | Rapid Response → Emergency | "Rapid Response When Your Construction Mission Is Critical"                     | 24/7 Emergency Construction Response - Mission-Ready Support           |
-| Government     | Public Sector → Government | "Mission-Ready Construction Operations - Federal Compliance-Driven"             | Veteran-Owned Excellence for Government Construction Missions          |
-| Trade Partners | Allies → Partners          | "Vetted Vendor Partnerships - Building Success Through Trusted Alliances"       | Strategic Partnerships Built on Trust, Performance, and Mutual Success |
-| Veterans       | Service First → Veterans   | "Honoring Those Who Served - All Branches, All Values"                          | Supporting Those Who Served - One Community, One Mission               |
-| Testimonials   | Commendations → Reviews    | "After-Action Reports from Real Client Missions"                                | Verified Success Stories from Completed Missions                       |
-| FAQ            | Intel Brief → FAQ          | "Mission Intelligence - Your Construction Questions Answered"                   | Direct Answers. Clear Guidance. Mission-Ready Information.             |
+| Page           | Dual Naming                 | Military/Construction Blend Tagline                                             | Mantra                                                                 |
+| -------------- | --------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Homepage       | Base HQ → Home              | "Mission-Focused Execution \| Building Projects for the Client, NOT the Dollar" | Your Tri-Cities Construction Command Center                            |
+| About          | Our Oath → About Us         | "Battle-Tested Excellence Through Service-Earned Experience"                    | Service-Earned Values, Construction Excellence                         |
+| Services       | Operations → Services       | "Your Construction Mission Deserves Veteran-Led Expert Oversight"               | The Battle Plan - Strategic Construction Excellence                    |
+| Projects       | Missions → Projects         | "650+ Construction Missions Completed - Proven Results"                         | Mission Success: 650+ Projects, Countless Relationships                |
+| Team           | Chain of Command → Our Team | "All-Branch Veteran Leadership You Can Trust"                                   | 150+ Years Combined Military-Grade Expertise at Your Service           |
+| Careers        | Enlist → Careers            | "Join the Mission - Your Construction Career Starts Here"                       | Build More Than Projects - Build Your Future                           |
+| Contact        | Rally Point → Contact       | "Schedule Your Free Mission Brief - Start With SITREP-Level Clarity"            | Your Project. Our Expertise. Let's Connect.                            |
+| Urgent         | Rapid Response → Emergency  | "Rapid Response When Your Construction Mission Is Critical"                     | 24/7 Emergency Construction Response - Mission-Ready Support           |
+| Government     | Public Sector → Government  | "Mission-Ready Construction Operations - Federal Compliance-Driven"             | Veteran-Owned Excellence for Government Construction Missions          |
+| Trade Partners | Allies → Partners           | "Vetted Vendor Partnerships - Building Success Through Trusted Alliances"       | Strategic Partnerships Built on Trust, Performance, and Mutual Success |
+| Veterans       | Service First → Veterans    | "Honoring Those Who Served - All Branches, All Values"                          | Supporting Those Who Served - One Community, One Mission               |
+| Testimonials   | Commendations → Reviews     | "After-Action Reports from Real Client Missions"                                | Verified Success Stories from Completed Missions                       |
+| FAQ            | Intel Brief → FAQ           | "Mission Intelligence - Your Construction Questions Answered"                   | Direct Answers. Clear Guidance. Mission-Ready Information.             |
 
 ---
 

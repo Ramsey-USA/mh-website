@@ -1,13 +1,13 @@
 /**
  * Leadership Team Teaser Section for About Page
- * Explains Team Six concept and drives users to full Teams page
+ * Explains Chain of Command concept and drives users to full Teams page
  */
 
 import Link from "next/link";
 import { Card, CardContent, Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
-// Team specialties that make up our "Team Six" approach
+// Team specialties that make up our "Chain of Command" approach
 const teamSpecialties = [
   {
     icon: "military_tech",
@@ -95,7 +95,7 @@ export function LeadershipTeam() {
           {/* Two-line gradient heading */}
           <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
             <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-              Team Six Excellence
+              Chain of Command Excellence
             </span>
             <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
               Elite Specialists, Unified Mission
@@ -104,17 +104,17 @@ export function LeadershipTeam() {
 
           {/* Description with colored keyword highlighting */}
           <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-            Like SEAL Team Six brings together elite individual specialists for
-            mission-critical operations, MH Construction's{" "}
+            Like a military chain of command brings together elite individual
+            specialists for mission-critical operations, MH Construction's{" "}
             <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              Team Six
+              Chain of Command
             </span>{" "}
             unites specialized expertise across leadership, safety, quality, and
             client partnership—each member essential to mission success.
           </p>
         </div>
 
-        {/* Team Six Concept Card */}
+        {/* Chain of Command Concept Card */}
         <div className="max-w-4xl mx-auto mb-12 lg:mb-16">
           <Card className="bg-gradient-to-br from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-gray-900 shadow-2xl border-2 border-brand-primary-light dark:border-brand-primary">
             <CardContent className="p-8 lg:p-12 text-center">
@@ -131,10 +131,10 @@ export function LeadershipTeam() {
                 </div>
               </div>
               <h3 className="text-2xl lg:text-3xl font-black text-white mb-4">
-                Why "Team Six"?
+                Why "Chain of Command"?
               </h3>
               <p className="text-white/90 text-lg lg:text-xl leading-relaxed mb-6">
-                SEAL Team Six succeeds because each operator brings{" "}
+                Military chain of command succeeds because each operator brings{" "}
                 <span className="font-bold text-brand-secondary">
                   specialized mastery
                 </span>{" "}
@@ -196,7 +196,7 @@ export function LeadershipTeam() {
         <div className="text-center">
           <div className="inline-block bg-gradient-to-r from-brand-primary/10 via-brand-secondary/10 to-bronze-600/10 dark:from-brand-primary/20 dark:via-brand-secondary/20 dark:to-bronze-600/20 rounded-2xl p-8 lg:p-12 border-2 border-brand-primary/30 dark:border-brand-primary/50">
             <h3 className="text-2xl lg:text-3xl font-black text-gray-900 dark:text-white mb-4">
-              Meet Your Team Six
+              Meet Your Chain of Command
             </h3>
             <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
               Discover the leaders, specialists, and field professionals who

@@ -89,13 +89,13 @@ brand identity, emphasize military precision, and maintain cross-page consistenc
 
 ---
 
-### 5. Team Page - "Team Six" (8 icons)
+### 5. Team Page - "Chain of Command" (8 icons)
 
 **File:** `/src/app/team/page.tsx`
 
 **Key Icons:**
 
-- Hero: `groups` (5xl, military theme) - "Team Six"
+- Hero: `groups` (5xl, military theme) - "Chain of Command"
 - Culture: `diversity_3`, `volunteer_activism`, `military_tech`
 - Career Benefits: `school`, `sync_alt`, `supervisor_account`, `badge`
 
@@ -113,7 +113,7 @@ brand identity, emphasize military precision, and maintain cross-page consistenc
 - Quick Contact: `call`, `mark_email_read`, `place`
 - Client Pathway: `diversity_3`, `call`, `mark_email_read`, `map`
 - Allies Pathway: `handshake`, `call`, `mark_email_read`, `verified_user`
-- Team Six: `diversity_3`, `military_tech`, `volunteer_activism`
+- Chain of Command: `diversity_3`, `military_tech`, `volunteer_activism`
 
 **Military Focus:** SITREP communication, tactical contact methods, partnership pathways
 
@@ -256,14 +256,14 @@ brand identity, emphasize military precision, and maintain cross-page consistenc
 
 ### Hero Section Icons (5xl size)
 
-| Page     | Icon            | Theme    | Title           |
-| -------- | --------------- | -------- | --------------- |
-| Homepage | `flag`          | veteran  | American Values |
-| About    | `military_tech` | veteran  | Our Oath        |
-| Services | `map`           | military | The Battle Plan |
-| Projects | `emoji_events`  | veteran  | Victories       |
-| Team     | `groups`        | military | Team Six        |
-| Contact  | `campaign`      | military | Introductions   |
+| Page     | Icon            | Theme    | Title            |
+| -------- | --------------- | -------- | ---------------- |
+| Homepage | `flag`          | veteran  | American Values  |
+| About    | `military_tech` | veteran  | Our Oath         |
+| Services | `map`           | military | The Battle Plan  |
+| Projects | `emoji_events`  | veteran  | Victories        |
+| Team     | `groups`        | military | Chain of Command |
+| Contact  | `campaign`      | military | Introductions    |
 
 ## Theme Application Strategy
 

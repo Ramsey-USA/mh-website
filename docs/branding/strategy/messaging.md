@@ -108,7 +108,10 @@ these core values in hierarchical order:
 
 - "About Us" / "Our Oath" - Company foundation and values
 - "Services" / "Operations" - Service offerings and capabilities
-- "Our Team" / "Team Six" - Leadership and personnel
+- "Our Team" / "Chain of Command" - Leadership and personnel
+  - **5-Tier Structure:** The Upper Brass (executives), Mission Commanders (project managers), Special Operations (marketing/safety), Logistics Command (admin), Field Officers (superintendents)
+  - **150+ years combined expertise** across all military branches
+  - **Clear accountability** from executive leadership to field operations
 - "Reviews" / "Commendations" - Client testimonials
 - "Contact" / "Rally Point" - Get in touch
 - "Emergency" / "Rapid Response" - Urgent support
@@ -297,6 +300,38 @@ Our 4 Core Values aren't just words on a wall—they create 6 measurable differe
 ### Trust-Centered Philosophy
 
 > "Trust as our ultimate goal and measurable company foundation"
+
+### Chain of Command Team Messaging
+
+When discussing our team structure, emphasize:
+
+**Military Precision with Construction Excellence:**
+
+- "Clear chain of command from The Upper Brass to Field Officers"
+- "150+ years combined military-grade expertise"
+- "All-branch veteran leadership" (Army, Navy, Air Force, Marines, Coast Guard, Space Force)
+- "Mission-focused accountability at every level"
+
+**Five-Tier Structure:**
+
+1. **The Upper Brass:** "Executive leadership setting strategic direction"
+2. **Mission Commanders:** "Precision estimating and tactical project coordination"
+3. **Special Operations:** "Specialized marketing, safety, and strategic initiatives"
+4. **Logistics Command:** "Critical logistics and administrative mission support"
+5. **Field Officers:** "Frontline operations delivering quality craftsmanship"
+
+**Key Phrases:**
+
+- "Service-earned values guide every decision"
+- "Veteran-owned accountability from top to bottom"
+- "Military discipline meets construction expertise"
+- "Clear communication lines through chain of command"
+
+**Avoid:**
+
+- Overly militaristic language that might alienate civilian clients
+- Implying rigid hierarchy over collaboration
+- Focusing on rank over expertise and results
 
 Trust isn't just another value—it's the result when all our core values are consistently demonstrated.
 Our four-value professional foundation system builds toward trust as the culmination of excellence in

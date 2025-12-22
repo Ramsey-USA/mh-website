@@ -159,7 +159,7 @@ export default function AboutPage() {
         {/* Safety & Compliance Section - Industry-specific trust and expertise */}
         <SafetySection />
 
-        {/* Leadership Team Section - Team Six concept drives to full Teams page */}
+        {/* Leadership Team Section - Chain of Command concept drives to full Teams page */}
         <LeadershipTeam />
 
         {/* Why Values Matter Section */}
