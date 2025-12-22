@@ -63,7 +63,7 @@
 ## 📋 **First Week To-Do List**
 
 1. **Access Your Google Business Profile**
-   - Go to: https://business.google.com/dashboard
+   - Go to: <https://business.google.com/dashboard>
    - Verify you're logged in with correct account
 
 2. **Complete Your Profile (30 minutes, one-time)**
@@ -131,7 +131,7 @@
 
 **Technical Support:**
 
-- Google Business Profile Help: https://support.google.com/business
+- Google Business Profile Help: <https://support.google.com/business>
 - Your development team for website integration questions
 
 ---

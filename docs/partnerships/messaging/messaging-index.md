@@ -1,7 +1,7 @@
 # Partnership Messaging Framework
 
 **Category:** Client & Vendor Communication Guidelines
-**Last Updated:** December 14, 2025
+**Last Updated:** December 22, 2025
 **Status:** ✅ Active
 
 ## 🧭 Quick Navigation
@@ -9,6 +9,7 @@
 - [🗂️ Master Documentation Index](../../master-index.md) - Central hub for all documentation
 - [🤝 Partnerships Hub](../partnerships-index.md) - Complete partnership documentation
 - [🎨 Branding & Messaging](../../branding/strategy/messaging.md) - Core brand messaging
+- [🧭 Navigation Complete Guide](../../technical/navigation/navigation-complete-guide.md) - ⭐ **UPDATED** - Dual-label navigation pattern
 - [📋 Business Documentation](../../business/business-index.md) - Services and operations
 
 ---
@@ -19,17 +20,20 @@ Comprehensive messaging framework for implementing MH Construction's partnership
 communications. These guides ensure consistent, professional language that reflects our commitment to building
 relationships, not just structures.
 
+**Latest Update (Dec 22, 2025):** Dual-Label Navigation Pattern implemented across all navigation elements to balance accessibility with veteran-owned brand identity.
+
 ---
 
 ## 📄 Key Documents
 
 ### Core Messaging Framework
 
-**[partnership-messaging-complete-guide.md](./partnership-messaging-complete-guide.md)** - Complete framework (1,050 lines)
+**[partnership-messaging-complete-guide.md](./partnership-messaging-complete-guide.md)** - Complete framework (1,100+ lines)
 
 Comprehensive consolidated guide covering all aspects of partnership messaging:
 
 - Core messaging framework and philosophy
+- **Dual-label navigation pattern** ⭐ **NEW** - Civilian + military-themed labels
 - Client vs Trade partnership distinctions (warm vs professional language)
 - Service type distinctions (automated AI estimator vs IRL consultation)
 - Website implementation examples and patterns
@@ -38,7 +42,7 @@ Comprehensive consolidated guide covering all aspects of partnership messaging:
 - Anti-patterns to avoid
 - Quality guidelines and best practices
 
-**Status**: Active reference (2.0.0) | Consolidated 3 files (1,459 → 1,050 lines)  
+**Status**: Active reference (2.1.0) | Consolidated 3 files + dual-label pattern  
 **Consolidates**: partnership-messaging-guide.md, client-vs-vendor-distinctions.md, ai-estimator-vs-consultation.md
 
 ### CTA Implementation

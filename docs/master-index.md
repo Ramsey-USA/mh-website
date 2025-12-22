@@ -1,12 +1,14 @@
 # MH Construction Documentation Master Index
 
-**Welcome to the MH Construction Documentation Hub** | **Last Updated**: December 14, 2025
+**Welcome to the MH Construction Documentation Hub** | **Last Updated**: December 22, 2025
 
 This is your central navigation point for all MH Construction project documentation. Whether you're a developer,
 designer, content writer, or stakeholder, start here to find what you need.
 
 **Recent:** Documentation restructured for improved navigation - organized by purpose with clear subdirectories.
 See [Project History](./_archive/migrations/) for archived completion reports.
+
+**Latest Update (Dec 22, 2025):** **Dual-Label Navigation Pattern** - All navigation elements now use civilian + military-themed dual labels to balance accessibility with veteran brand identity. See [Navigation Complete Guide](./technical/navigation/navigation-complete-guide.md#dual-label-navigation-pattern).
 
 ---
 
@@ -232,7 +234,8 @@ Build: 31.0s, Homepage bundle 217 kB, zero TS/ESLint errors.
 - **[Icon System Complete](./technical/design-system/icon-system-complete.md)** -
   ⭐ **CONSOLIDATED** - Complete icon system (950 lines)
 - **[Navigation Complete Guide](./technical/navigation/navigation-complete-guide.md)** -
-  ⭐ **CONSOLIDATED** - Complete navigation system (800 lines)
+  ⭐ **CONSOLIDATED** - Complete navigation system (1,070 lines)
+  - ⭐ **NEW (Dec 22, 2025)**: Dual-Label Navigation Pattern - Civilian + military-themed labels for all navigation
 - [Layout Hub](./technical/design-system/layout-index.md) - Page layout documentation
 - [Page Layout Standards](./technical/design-system/layout-guide.md) - Layout standards
 - [Mobile Optimization Guide](./technical/design-system/mobile-optimization-guide.md) - Mobile design

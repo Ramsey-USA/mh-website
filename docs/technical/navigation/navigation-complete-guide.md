@@ -1,8 +1,10 @@
 # Complete Navigation System Guide
 
-**Version:** 2.0.0  
-**Last Updated:** December 14, 2025  
+**Version:** 3.0.0  
+**Last Updated:** December 22, 2025  
 **Status:** ✅ Production Ready & Comprehensive
+
+> **Update Note (Dec 22, 2025):** Added **Dual-Label Navigation Pattern** - All hamburger menu items now display both civilian and military-themed labels to balance accessibility with veteran brand identity.
 
 > **Consolidation Note:** This document consolidates and supersedes:
 >
@@ -17,14 +19,15 @@
 
 1. [Quick Start](#quick-start)
 2. [System Overview](#system-overview)
-3. [Dual Navigation Architecture](#dual-navigation-architecture)
-4. [Component Implementation](#component-implementation)
-5. [Page-Specific Configurations](#page-specific-configurations)
-6. [Responsive Design](#responsive-design)
-7. [Breadcrumb Navigation](#breadcrumb-navigation)
-8. [Quality Assurance](#quality-assurance)
-9. [Common Tasks](#common-tasks)
-10. [Troubleshooting](#troubleshooting)
+3. [Dual-Label Navigation Pattern](#dual-label-navigation-pattern) ⭐ **NEW**
+4. [Dual Navigation Architecture](#dual-navigation-architecture)
+5. [Component Implementation](#component-implementation)
+6. [Page-Specific Configurations](#page-specific-configurations)
+7. [Responsive Design](#responsive-design)
+8. [Breadcrumb Navigation](#breadcrumb-navigation)
+9. [Quality Assurance](#quality-assurance)
+10. [Common Tasks](#common-tasks)
+11. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -86,7 +89,132 @@ export default function YourPage() {
 
 ---
 
-## 🎯 System Overview
+## �️ Dual-Label Navigation Pattern
+
+**Status:** ✅ Active Standard (December 22, 2025)  
+**Location:** Mobile hamburger menu (`/src/components/layout/Navigation.tsx`)  
+**Purpose:** Balance accessibility with veteran-owned military brand identity
+
+### Pattern Overview
+
+Every mobile navigation item displays **two labels**:
+
+1. **Primary Label** - Clear, civilian terminology (familiar to all users)
+2. **Secondary Label** - Military-themed terminology (reinforces veteran brand)
+
+### Complete Label Mapping
+
+```text
+PRIMARY (Civilian)  →  SECONDARY (Military)
+────────────────────────────────────────────
+Home                →  Base HQ
+About Us            →  Our Oath
+Services            →  Operations
+Projects            →  Missions
+Our Team            →  Team Six
+Reviews             →  Commendations
+Careers             →  Enlist
+Contact             →  Rally Point
+Government          →  Public Sector
+Partners            →  Allies
+Veterans            →  Service First
+Emergency           →  Rapid Response
+Help/FAQ            →  Intel Brief
+```
+
+### Visual Design
+
+**Primary Label:**
+
+- Font size: 10-11px (responsive)
+- Weight: Medium/Bold
+- Color: Standard text (dark mode aware)
+- Position: Top line
+
+**Secondary Label:**
+
+- Font size: 8-9px (responsive)
+- Weight: Regular
+- Color: Brand primary/secondary (Hunter Green → Leather Tan)
+- Opacity: 75%
+- Position: Below primary, with 0.5 spacing
+
+### Implementation Code
+
+```typescript
+// src/components/layout/Navigation.tsx
+{[
+  { href: "/", label: "Home", subLabel: "Base HQ", icon: "home" },
+  { href: "/about", label: "About Us", subLabel: "Our Oath", icon: "military_tech" },
+  // ... more items
+].map((item) => (
+  <Link key={item.href} href={item.href} className="...">
+    <MaterialIcon icon={item.icon} />
+    <span className="font-medium text-[10px] sm:text-[11px]">
+      {item.label}
+    </span>
+    {item.subLabel && (
+      <span className="text-[8px] sm:text-[9px] text-brand-primary dark:text-brand-secondary opacity-75">
+        {item.subLabel}
+      </span>
+    )}
+  </Link>
+))}
+```
+
+### Military Terminology Guide
+
+**Military Terms Used:**
+
+- **Base HQ** - Command center/headquarters (Home)
+- **Our Oath** - Military service oath (About)
+- **Operations** - Active military missions (Services)
+- **Missions** - Completed objectives (Projects)
+- **Team Six** - Elite military unit reference (Team)
+- **Commendations** - Military medals/awards (Reviews)
+- **Enlist** - Join the military (Careers)
+- **Rally Point** - Designated meeting location (Contact)
+- **Public Sector** - Government/military context
+- **Allies** - Military coalition partners
+- **Service First** - Military service ethos (Veterans)
+- **Rapid Response** - Quick reaction force (Emergency)
+- **Intel Brief** - Intelligence briefing (FAQ)
+
+### Benefits
+
+✅ **Accessibility** - Primary labels use familiar civilian terms  
+✅ **Brand Reinforcement** - Secondary labels emphasize veteran-owned identity  
+✅ **User Experience** - Clear navigation for all audiences  
+✅ **SEO-Friendly** - Standard terms in primary position  
+✅ **Military Precision** - Reinforces core brand values  
+✅ **Professional Yet Distinctive** - Balances business and military identity
+
+### Design Rationale
+
+**Why Dual Labels?**
+
+1. **Inclusivity** - Not all clients are veterans or familiar with military terms
+2. **Brand Identity** - Reinforces veteran-owned, military-precision messaging
+3. **Recognition** - Veterans appreciate the terminology, civilians learn it
+4. **Trust Building** - Shows authenticity without excluding non-military audiences
+5. **Differentiation** - Sets MH Construction apart from standard contractors
+
+### Quality Standards
+
+When adding new navigation items:
+
+- [ ] Primary label uses standard civilian terminology
+- [ ] Secondary label uses authentic military terminology
+- [ ] Military term accurately represents the page purpose
+- [ ] Both labels are concise (1-3 words maximum)
+- [ ] Visual hierarchy maintained (primary > secondary)
+- [ ] Brand colors applied to secondary label
+- [ ] Mobile responsiveness tested
+- [ ] Dark mode appearance verified
+
+---
+
+## �🎯 System Overview
 
 ### Dual Navigation Philosophy
 

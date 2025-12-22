@@ -1,8 +1,10 @@
 # Complete Partnership Messaging Guide
 
-**Version:** 2.0.0  
-**Last Updated:** December 14, 2025  
+**Version:** 2.1.0  
+**Last Updated:** December 22, 2025  
 **Status:** ✅ Official Standard & Comprehensive
+
+> **Update Note (Dec 22, 2025):** Added **Dual-Label Navigation Pattern** - All navigation elements now use civilian + military-themed dual labels to balance accessibility with veteran brand identity.
 
 > **Consolidation Note:** This document consolidates and supersedes:
 >
@@ -16,12 +18,13 @@
 
 1. [Quick Start](#quick-start)
 2. [Core Messaging Framework](#core-messaging-framework)
-3. [Partnership Language Distinctions](#partnership-language-distinctions)
-4. [Service Type Distinctions](#service-type-distinctions)
-5. [Website Implementation](#website-implementation)
-6. [UI/UX Elements](#uiux-elements)
-7. [Trade Partnership Messaging](#trade-partnership-messaging)
-8. [Quality Guidelines](#quality-guidelines)
+3. [Dual-Label Navigation Pattern](#dual-label-navigation-pattern) ⭐ **NEW**
+4. [Partnership Language Distinctions](#partnership-language-distinctions)
+5. [Service Type Distinctions](#service-type-distinctions)
+6. [Website Implementation](#website-implementation)
+7. [UI/UX Elements](#uiux-elements)
+8. [Trade Partnership Messaging](#trade-partnership-messaging)
+9. [Quality Guidelines](#quality-guidelines)
 
 ---
 
@@ -64,6 +67,87 @@ This tagline emphasizes our commitment to client success over profit maximizatio
 3. **Technology Support** - Modern tools enhancing human expertise
 4. **Community Impact** - Pacific Northwest regional focus
 5. **Quality Excellence** - Professional-grade results guaranteed
+
+---
+
+## 🧭 Dual-Label Navigation Pattern
+
+**Status:** ✅ Active Standard (December 22, 2025)  
+**Location:** Mobile hamburger menu + Footer navigation  
+**Purpose:** Balance accessibility with veteran-owned military brand identity
+
+### Pattern Overview
+
+Every navigation element displays **two labels**:
+
+1. **Primary Label** (Standard civilian terminology)
+   - Clear, universally understood
+   - Accessible to all users
+   - Standard size and weight
+
+2. **Sublabel** (Military-themed term)
+   - 9px font size
+   - Brand tan color (#BD9264)
+   - 75% opacity
+   - Honors veteran heritage
+
+### Complete Label Mapping
+
+| Primary Label | Military Sublabel | Purpose                  |
+| ------------- | ----------------- | ------------------------ |
+| Home          | Base HQ           | Homepage/main hub        |
+| About Us      | Our Oath          | Company values/mission   |
+| Services      | Operations        | Service offerings        |
+| Projects      | Missions          | Portfolio/completed work |
+| Our Team      | Team Six          | Leadership/personnel     |
+| Reviews       | Commendations     | Client testimonials      |
+| Careers       | Enlist            | Job opportunities        |
+| Contact       | Rally Point       | Get in touch             |
+| Government    | Public Sector     | Government projects      |
+| Partners      | Allies            | Trade partnerships       |
+| Veterans      | Service First     | Veteran programs         |
+| Emergency     | Rapid Response    | Urgent support           |
+| Help/FAQ      | Intel Brief       | Information/support      |
+| Inspections   | Quality Assurance | Quality inspections      |
+| Maintenance   | Field Service     | Repair services          |
+| Safety        | Force Protection  | Safety programs          |
+
+### Implementation
+
+**Mobile Navigation:**
+
+```tsx
+<span className="flex flex-col">
+  <span>Primary Label</span>
+  <span className="text-[9px] text-brand-secondary opacity-75">
+    Military Sublabel
+  </span>
+</span>
+```
+
+**Footer Navigation:**
+
+```tsx
+<span className="flex flex-col">
+  <span>Primary Label</span>
+  <span className="text-[9px] text-brand-secondary opacity-75">
+    Military Sublabel
+  </span>
+</span>
+```
+
+### Messaging Philosophy
+
+This pattern honors MH Construction's veteran-owned identity while maintaining accessibility:
+
+- **Primary labels** ensure all users immediately understand navigation
+- **Military sublabels** reinforce veteran heritage and brand differentiation
+- **Visual hierarchy** keeps primary labels prominent
+- **Consistent application** builds brand recognition
+
+### Documentation
+
+Complete technical implementation: [Navigation Complete Guide](../../technical/navigation/navigation-complete-guide.md#dual-label-navigation-pattern)
 
 ---
 

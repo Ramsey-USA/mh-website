@@ -26,6 +26,7 @@ const ACTIVE_PAGES = [
   { path: "/contact", priority: 0.8, changeFreq: "monthly" as const },
   { path: "/projects", priority: 0.8, changeFreq: "weekly" as const },
   { path: "/public-sector", priority: 0.8, changeFreq: "monthly" as const },
+  { path: "/testimonials", priority: 0.8, changeFreq: "weekly" as const },
 
   // Priority 0.8 - Location landing pages (SEO)
   {

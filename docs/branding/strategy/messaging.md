@@ -48,6 +48,7 @@ groups with unique voices, tones, and keyword priorities.
 - [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Four-value professional system
 - [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
 - [🔍 SEO Messaging Strategy](../../technical/seo/seo-messaging-strategy.md) - ⭐ **NEW** - Local SEO optimization
+- [🧭 Navigation Complete Guide](../../technical/navigation/navigation-complete-guide.md) - ⭐ **UPDATED** - Dual-label navigation pattern
 - [🎨 Color System](../standards/color-system.md)
 - [📝 Typography](../standards/typography.md)
 - [🔧 Icon Policy](../standards/icon-policy-complete.md)
@@ -90,6 +91,29 @@ these core values in hierarchical order:
 - **Trade Partners**: Collaborative partnerships, honest dealings
 - **Veterans**: Military heritage, veteran support, service recognition
 - **Urgent**: Rapid response, reliable support, proven expertise
+
+### Dual-Label Navigation Pattern (NEW - Dec 22, 2025)
+
+**Standard**: All navigation elements use dual-label format to balance accessibility with veteran brand identity
+
+**Pattern**: Primary label (civilian/clear term) + Secondary sublabel (military-themed term)
+
+**Implementation**:
+
+- Primary: Standard terminology for universal understanding
+- Sublabel: Military-themed term (9px, brand tan, 75% opacity)
+- Purpose: Honors veteran heritage while maintaining accessibility
+
+**Examples**:
+
+- "About Us" / "Our Oath" - Company foundation and values
+- "Services" / "Operations" - Service offerings and capabilities
+- "Our Team" / "Team Six" - Leadership and personnel
+- "Reviews" / "Commendations" - Client testimonials
+- "Contact" / "Rally Point" - Get in touch
+- "Emergency" / "Rapid Response" - Urgent support
+
+**Documentation**: See complete implementation in [Navigation Complete Guide](../../technical/navigation/navigation-complete-guide.md#dual-label-navigation-pattern)
 
 ### Core Voice Attributes
 

@@ -397,7 +397,44 @@ This comprehensive guide provides:
 - **[Configuration Guide](./docs/technical/configuration-guide.md)** - System configuration
 - **[Ultimate SEO Guide](./docs/technical/seo/ultimate-seo-guide.md)** - SEO implementation
 - **[Performance Index](./docs/technical/performance/performance-index.md)** - Performance optimization
-- **[Navigation Architecture](./docs/technical/navigation/navigation-architecture.md)** - Nav system
+- **[Navigation Complete Guide](./docs/technical/navigation/navigation-complete-guide.md)** - Dual-label nav system
+
+#### Navigation System Standards
+
+**Dual-Label Navigation Pattern** - Civilian + Military Terminology (December 2025)
+
+All mobile hamburger menu items use **both civilian and military-themed labels** to balance accessibility with veteran brand identity:
+
+```text
+Primary Label (Civilian) → Secondary Label (Military)
+────────────────────────────────────────────────────
+Home              → Base HQ
+About Us          → Our Oath
+Services          → Operations
+Projects          → Missions
+Our Team          → Team Six
+Reviews           → Commendations
+Careers           → Enlist
+Contact           → Rally Point
+Government        → Public Sector
+Partners          → Allies
+Veterans          → Service First
+Emergency         → Rapid Response
+Help/FAQ          → Intel Brief
+```
+
+**Implementation:**
+
+- Primary label: Clear, standard terminology for all users
+- Secondary label: Military-themed, reinforces veteran-owned identity
+- Visual hierarchy: Primary bold, secondary smaller with brand color
+- Location: Mobile hamburger menu (`/src/components/layout/Navigation.tsx`)
+
+**Benefits:**
+✓ Accessible to all audiences
+✓ Reinforces veteran-owned military precision brand
+✓ Professional yet distinctive
+✓ SEO-friendly with standard terms
 
 #### Deployment & Operations
 

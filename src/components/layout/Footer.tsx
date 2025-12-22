@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="bg-gradient-to-br from-gray-800 dark:from-black via-gray-900 dark:via-gray-900 to-black dark:to-black pt-6 xs:pt-8 sm:pt-10 pb-4 border-t border-brand-primary/20 text-gray-300 touch-manipulation">
       <div className="mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Main Footer Content */}
-        <div className="gap-4 xs:gap-5 sm:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 pb-4 xs:pb-5 sm:pb-6">
+        <div className="gap-4 xs:gap-5 sm:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 pb-3">
           {/* Column 1: Company Info */}
           <div className="space-y-3 xs:space-y-4 sm:col-span-2 lg:col-span-1">
             <div className="text-center sm:text-left lg:text-left">
@@ -94,6 +94,42 @@ export default function Footer() {
                   />
                 </a>
               </div>
+
+              {/* Google Review Card */}
+              <a
+                href="https://g.page/r/CVdv3YZLzJvdEBM/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation mt-4"
+              >
+                <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
+                  <MaterialIcon
+                    icon="rate_review"
+                    size="md"
+                    className="text-white"
+                  />
+                </div>
+                <div className="flex-grow min-w-0">
+                  <div className="text-brand-secondary text-xs font-bold uppercase tracking-wide mb-0.5">
+                    Rate Us
+                  </div>
+                  <div className="text-gray-300 font-bold text-sm xs:text-base group-hover:text-brand-primary transition-colors mb-1">
+                    Leave a Google Review
+                  </div>
+                  <div className="flex items-center gap-1 text-yellow-500">
+                    <MaterialIcon icon="star" size="sm" />
+                    <MaterialIcon icon="star" size="sm" />
+                    <MaterialIcon icon="star" size="sm" />
+                    <MaterialIcon icon="star" size="sm" />
+                    <MaterialIcon icon="star" size="sm" />
+                  </div>
+                </div>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
+                />
+              </a>
             </div>
           </div>
 
@@ -111,15 +147,42 @@ export default function Footer() {
             </div>
             <nav className="space-y-1.5 xs:space-y-2">
               <Link
+                href="/"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
+              >
+                <MaterialIcon
+                  icon="home"
+                  size="sm"
+                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                />
+                <span className="flex flex-col">
+                  <span>Home</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Base HQ
+                  </span>
+                </span>
+                <MaterialIcon
+                  icon="arrow_forward"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+                />
+              </Link>
+
+              <Link
                 href="/contact"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
                   icon="handshake"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Start Your Project Partnership</span>
+                <span className="flex flex-col">
+                  <span>Contact</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Rally Point
+                  </span>
+                </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -129,14 +192,19 @@ export default function Footer() {
 
               <Link
                 href="/services"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
                   icon="construction"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Construction Management</span>
+                <span className="flex flex-col">
+                  <span>Services</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Operations
+                  </span>
+                </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -146,14 +214,19 @@ export default function Footer() {
 
               <Link
                 href="/projects"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
                   icon="photo_library"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Portfolio & Projects</span>
+                <span className="flex flex-col">
+                  <span>Projects</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Missions
+                  </span>
+                </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -163,14 +236,19 @@ export default function Footer() {
 
               <Link
                 href="/services#inspections"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
                   icon="fact_check"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Quality Inspections</span>
+                <span className="flex flex-col">
+                  <span>Inspections</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Quality Assurance
+                  </span>
+                </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -180,14 +258,19 @@ export default function Footer() {
 
               <Link
                 href="/urgent"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
                   icon="engineering"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Urgent Construction Support</span>
+                <span className="flex flex-col">
+                  <span>Emergency</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Rapid Response
+                  </span>
+                </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -197,14 +280,19 @@ export default function Footer() {
 
               <Link
                 href="/faq"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
                   icon="help"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>FAQ & Answers</span>
+                <span className="flex flex-col">
+                  <span>Help/FAQ</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Intel Brief
+                  </span>
+                </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -214,14 +302,19 @@ export default function Footer() {
 
               <Link
                 href="/services#maintenance"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
                   icon="home_repair_service"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Maintenance & Repairs</span>
+                <span className="flex flex-col">
+                  <span>Maintenance</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Field Service
+                  </span>
+                </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -245,32 +338,20 @@ export default function Footer() {
             </div>
             <nav className="space-y-1.5 xs:space-y-2">
               <Link
-                href="/"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
-              >
-                <MaterialIcon
-                  icon="home"
-                  size="sm"
-                  className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
-                />
-                <span>Home</span>
-                <MaterialIcon
-                  icon="arrow_forward"
-                  size="sm"
-                  className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                />
-              </Link>
-
-              <Link
                 href="/about"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
                   icon="foundation"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Our Oath</span>
+                <span className="flex flex-col">
+                  <span>About Us</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Our Oath
+                  </span>
+                </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -280,14 +361,19 @@ export default function Footer() {
 
               <Link
                 href="/team"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
                   icon="people"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Team Six</span>
+                <span className="flex flex-col">
+                  <span>Our Team</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Team Six
+                  </span>
+                </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -297,14 +383,19 @@ export default function Footer() {
 
               <Link
                 href="/allies"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
                   icon="group"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Allies in Force</span>
+                <span className="flex flex-col">
+                  <span>Partners</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Allies
+                  </span>
+                </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -314,14 +405,19 @@ export default function Footer() {
 
               <Link
                 href="/public-sector"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
                   icon="account_balance"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Public Sector</span>
+                <span className="flex flex-col">
+                  <span>Government</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Public Sector
+                  </span>
+                </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -331,14 +427,19 @@ export default function Footer() {
 
               <Link
                 href="/veterans"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
                   icon="military_tech"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Combat Proven</span>
+                <span className="flex flex-col">
+                  <span>Veterans</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Service First
+                  </span>
+                </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -348,14 +449,19 @@ export default function Footer() {
 
               <Link
                 href="/careers"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
                   icon="handshake"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Occupation Specialties</span>
+                <span className="flex flex-col">
+                  <span>Careers</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Enlist
+                  </span>
+                </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -364,15 +470,20 @@ export default function Footer() {
               </Link>
 
               <Link
-                href="/about#testimonials"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+                href="/testimonials"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
                   icon="verified"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Trust In Action</span>
+                <span className="flex flex-col">
+                  <span>Reviews</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Commendations
+                  </span>
+                </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -382,14 +493,19 @@ export default function Footer() {
 
               <Link
                 href="/about#safety"
-                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-xs xs:text-sm transition-all hover:translate-x-1 duration-300 touch-manipulation"
+                className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
                   icon="verified_user"
                   size="sm"
                   className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
                 />
-                <span>Safety & Compliance</span>
+                <span className="flex flex-col">
+                  <span>Safety</span>
+                  <span className="text-[9px] text-brand-secondary opacity-75">
+                    Force Protection
+                  </span>
+                </span>
                 <MaterialIcon
                   icon="arrow_forward"
                   size="sm"
@@ -484,56 +600,25 @@ export default function Footer() {
                 />
               </a>
             </div>
-          </div>
-        </div>
 
-        {/* CTA Cards Row */}
-        <div className="gap-3 xs:gap-4 grid grid-cols-1 sm:grid-cols-2 py-4 border-y border-gray-700 dark:border-gray-600">
-          {/* Google Review */}
-          <a
-            href="https://g.page/r/CVdv3YZLzJvdEBM/review"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 hover:from-brand-primary/20 hover:to-brand-secondary/20 dark:hover:from-brand-primary/30 dark:hover:to-brand-secondary/30 p-3 xs:p-4 rounded-lg border border-brand-primary/30 dark:border-brand-primary/40 hover:border-brand-primary dark:hover:border-brand-primary-light transition-all duration-300 hover:scale-105 touch-manipulation"
-          >
-            <div className="flex-shrink-0 bg-brand-primary dark:bg-brand-primary-light p-2.5 rounded-lg group-hover:scale-110 transition-transform">
-              <MaterialIcon
-                icon="rate_review"
-                size="lg"
-                className="text-white"
-              />
-            </div>
-            <div className="flex-grow min-w-0">
-              <div className="text-brand-primary dark:text-brand-primary-light font-bold text-sm xs:text-base mb-1">
-                Leave a Google Review
-              </div>
-              <div className="flex items-center gap-1 text-yellow-500">
-                <MaterialIcon icon="star" size="sm" />
-                <MaterialIcon icon="star" size="sm" />
-                <MaterialIcon icon="star" size="sm" />
-                <MaterialIcon icon="star" size="sm" />
-                <MaterialIcon icon="star" size="sm" />
-              </div>
-            </div>
-            <MaterialIcon
-              icon="arrow_forward"
-              size="sm"
-              className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
-            />
-          </a>
-
-          {/* Newsletter Signup */}
-          <div className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 hover:from-brand-primary/20 hover:to-brand-secondary/20 dark:hover:from-brand-primary/30 dark:hover:to-brand-secondary/30 p-3 xs:p-4 rounded-lg border border-brand-primary/30 dark:border-brand-primary/40 hover:border-brand-primary dark:hover:border-brand-primary-light transition-all duration-300 touch-manipulation">
-            <div className="flex-shrink-0 bg-brand-primary dark:bg-brand-primary-light p-2.5 rounded-lg group-hover:scale-110 transition-transform">
-              <MaterialIcon
-                icon="notifications_active"
-                size="lg"
-                className="text-white"
-              />
-            </div>
-            <div className="flex-grow min-w-0">
-              <div className="text-brand-primary dark:text-brand-primary-light font-bold text-sm xs:text-base mb-2">
-                Join Our Newsletter
+            {/* Newsletter Signup */}
+            <div className="group bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
+                  <MaterialIcon
+                    icon="notifications_active"
+                    size="md"
+                    className="text-white"
+                  />
+                </div>
+                <div className="flex-grow">
+                  <div className="text-brand-secondary text-xs font-bold uppercase tracking-wide mb-0.5">
+                    Stay Updated
+                  </div>
+                  <div className="text-gray-300 font-bold text-sm xs:text-base group-hover:text-brand-primary transition-colors">
+                    Join Our Newsletter
+                  </div>
+                </div>
               </div>
               <form
                 onSubmit={async (e) => {
@@ -567,20 +652,20 @@ export default function Footer() {
                       if (feedbackEl) {
                         feedbackEl.textContent = "✅ Subscribed!";
                         feedbackEl.className =
-                          "newsletter-feedback text-green-400 text-xs";
+                          "newsletter-feedback text-green-400 text-xs mt-2";
                       }
                     } else {
                       if (feedbackEl) {
                         feedbackEl.textContent = "❌ Try again";
                         feedbackEl.className =
-                          "newsletter-feedback text-red-400 text-xs";
+                          "newsletter-feedback text-red-400 text-xs mt-2";
                       }
                     }
                   } catch (_error) {
                     if (feedbackEl) {
                       feedbackEl.textContent = "❌ Error";
                       feedbackEl.className =
-                        "newsletter-feedback text-red-400 text-xs";
+                        "newsletter-feedback text-red-400 text-xs mt-2";
                     }
                   } finally {
                     button.disabled = false;
@@ -590,29 +675,30 @@ export default function Footer() {
                     }, 5000);
                   }
                 }}
-                className="flex items-center gap-2"
+                className="space-y-2"
               >
                 <input
                   type="email"
                   name="email"
-                  placeholder="Your email"
+                  placeholder="Enter your email"
                   required
-                  className="flex-grow px-2 py-1.5 bg-gray-900/50 dark:bg-gray-800 border border-gray-700 dark:border-gray-600 rounded text-xs text-white dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-brand-primary dark:focus:border-brand-primary-light transition-colors min-w-0"
+                  className="w-full px-3 py-2 bg-gray-900/50 border border-gray-700 rounded text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-primary transition-colors"
                 />
                 <button
                   type="submit"
-                  className="flex-shrink-0 px-4 py-1.5 bg-brand-primary dark:bg-brand-primary-light hover:bg-brand-primary-dark dark:hover:bg-brand-primary text-brand-secondary dark:text-brand-secondary-light hover:text-white dark:hover:text-white text-xs font-bold rounded-lg transition-all duration-300 hover:scale-105 border-2 border-brand-secondary/50 dark:border-brand-secondary-light/50 hover:border-brand-secondary dark:hover:border-brand-secondary-light shadow-md hover:shadow-lg"
+                  className="w-full px-4 py-2 bg-brand-primary hover:bg-brand-primary-dark text-brand-secondary hover:text-white text-sm font-bold rounded-lg transition-all duration-300 border-2 border-brand-secondary/50 hover:border-brand-secondary shadow-md hover:shadow-lg flex items-center justify-center gap-2"
                 >
                   Subscribe
+                  <MaterialIcon icon="arrow_forward" size="sm" />
                 </button>
-                <div className="newsletter-feedback text-xs absolute"></div>
+                <div className="newsletter-feedback text-xs"></div>
               </form>
             </div>
           </div>
         </div>
 
         {/* Service Areas - Full Width Row */}
-        <div className="py-6">
+        <div className="py-3">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <MaterialIcon icon="map" size="md" className="text-brand-primary" />
             <h3 className="text-brand-primary font-semibold text-sm xs:text-base uppercase tracking-wide">
@@ -621,39 +707,24 @@ export default function Footer() {
           </div>
           <div className="flex flex-wrap justify-center gap-2 xs:gap-3">
             {/* Cities with location pages - linked */}
-            <Link
-              href="/locations/pasco"
-              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/30 dark:hover:bg-brand-primary/30 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 hover:border-brand-primary font-medium"
-            >
+            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
               Pasco
-            </Link>
-            <Link
-              href="/locations/kennewick"
-              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/30 dark:hover:bg-brand-primary/30 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 hover:border-brand-primary font-medium"
-            >
+            </span>
+            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
               Kennewick
-            </Link>
-            <Link
-              href="/locations/richland"
-              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/30 dark:hover:bg-brand-primary/30 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 hover:border-brand-primary font-medium"
-            >
+            </span>
+            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
               Richland
-            </Link>
+            </span>
             <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
               West Richland
             </span>
-            <Link
-              href="/locations/spokane"
-              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/30 dark:hover:bg-brand-primary/30 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 hover:border-brand-primary font-medium"
-            >
+            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
               Spokane
-            </Link>
-            <Link
-              href="/locations/yakima"
-              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/30 dark:hover:bg-brand-primary/30 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 hover:border-brand-primary font-medium"
-            >
+            </span>
+            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
               Yakima
-            </Link>
+            </span>
             {/* Cities without location pages - remain as badges */}
             <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
               Walla Walla

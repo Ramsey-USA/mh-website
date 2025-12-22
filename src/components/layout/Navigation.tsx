@@ -158,52 +158,82 @@ export function Navigation() {
               <div className="w-full max-w-xs">
                 <div className="gap-1.5 sm:gap-2 grid grid-cols-2">
                   {[
-                    { href: "/", label: "Home", icon: "home" },
+                    {
+                      href: "/",
+                      label: "Home",
+                      subLabel: "Base HQ",
+                      icon: "home",
+                    },
                     {
                       href: "/about",
-                      label: "Our Oath",
+                      label: "About Us",
+                      subLabel: "Our Oath",
                       icon: "military_tech",
                     },
-                    { href: "/services", label: "Services", icon: "build" },
+                    {
+                      href: "/services",
+                      label: "Services",
+                      subLabel: "Operations",
+                      icon: "build",
+                    },
                     {
                       href: "/projects",
                       label: "Projects",
+                      subLabel: "Missions",
                       icon: "photo_library",
                     },
-                    { href: "/team", label: "Team Six", icon: "groups" },
+                    {
+                      href: "/team",
+                      label: "Our Team",
+                      subLabel: "Team Six",
+                      icon: "groups",
+                    },
+                    {
+                      href: "/testimonials",
+                      label: "Reviews",
+                      subLabel: "Commendations",
+                      icon: "star",
+                    },
                     {
                       href: "/careers",
                       label: "Careers",
+                      subLabel: "Enlist",
                       icon: "work",
                     },
                     {
                       href: "/contact",
                       label: "Contact",
+                      subLabel: "Rally Point",
                       icon: "contact_phone",
                     },
                     {
                       href: "/public-sector",
-                      label: "Public Sector",
+                      label: "Government",
+                      subLabel: "Public Sector",
                       icon: "account_balance",
                     },
                     {
                       href: "/allies",
-                      label: "Allies",
+                      label: "Partners",
+                      subLabel: "Allies",
                       icon: "handshake",
                     },
                     {
                       href: "/veterans",
                       label: "Veterans",
+                      subLabel: "Service First",
                       icon: "workspace_premium",
                     },
                     {
                       href: "/urgent",
                       label: "Emergency",
+                      subLabel: "Rapid Response",
                       icon: "engineering",
                     },
                     {
                       href: "/faq",
-                      label: "FAQ",
+                      label: "Help/FAQ",
+                      subLabel: "Intel Brief",
                       icon: "help",
                     },
                   ].map((item) => (
@@ -224,6 +254,11 @@ export function Navigation() {
                       <span className="font-medium text-[10px] sm:text-[11px] leading-tight">
                         {item.label}
                       </span>
+                      {item.subLabel && (
+                        <span className="text-[8px] sm:text-[9px] text-brand-primary dark:text-brand-secondary opacity-75 leading-tight mt-0.5">
+                          {item.subLabel}
+                        </span>
+                      )}
                     </Link>
                   ))}
                 </div>

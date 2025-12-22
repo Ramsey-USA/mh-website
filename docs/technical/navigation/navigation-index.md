@@ -1,8 +1,8 @@
 # Navigation Documentation Index
 
 **Category:** Technical - Navigation System  
-**Last Updated:** December 14, 2025  
-**Status:** ✅ Active
+**Last Updated:** December 22, 2025  
+**Status:** ✅ Active (includes Dual-Label Navigation Pattern)
 
 ## 🧭 Quick Navigation
 
@@ -34,7 +34,9 @@ and component patterns for both main navigation and page-specific navigation.
 
 **[navigation-complete-guide.md](./navigation-complete-guide.md)** - Complete navigation system documentation ⭐ **CONSOLIDATED!**
 
-**Version 2.0.0** - Comprehensive guide consolidating 4 previous navigation documents into a single source of truth.
+**Version 3.0.0** - Comprehensive guide with **Dual-Label Navigation Pattern** (Dec 22, 2025)
+
+**⭐ NEW:** Mobile hamburger menu displays both civilian and military-themed labels (e.g., "About Us → Our Oath", "Services → Operations") to balance accessibility with veteran brand identity.
 
 **This guide replaces:**
 
@@ -45,6 +47,7 @@ and component patterns for both main navigation and page-specific navigation.
 
 **Complete Topics Covered:**
 
+- **Dual-Label Navigation Pattern** ⭐ NEW - Civilian + military terminology system
 - **System Overview** - Dual navigation philosophy and architecture
 - **Global Hamburger Menu** - Page-to-page navigation implementation
 - **Page Sectional Navigation** - Within-page contextual navigation
