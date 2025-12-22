@@ -148,9 +148,14 @@ export default function TeamPage() {
               />
             </div>
             <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
-              <span className="block text-brand-secondary">Team Six</span>
+              <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
+                Team Six → Our Team
+              </span>
+              <span className="block text-brand-secondary">
+                All-Branch Veteran Leadership
+              </span>
               <span className="block text-brand-primary">
-                150+ Years Combined Expertise
+                150+ Years Combined Military-Grade Expertise You Can Trust
               </span>
               <span className="block text-white/90">
                 Building projects for the client,{" "}
@@ -224,16 +229,18 @@ export default function TeamPage() {
 
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                Modern professional profiles featuring{" "}
+                Meet our{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  comprehensive skill assessments and career achievements
-                </span>
-                .{" "}
-                <span className="font-bold text-gray-900 dark:text-white">
-                  Award-winning team
+                  All-Branch veteran leadership team
                 </span>{" "}
-                bringing 150+ years combined experience and military precision
-                to Pacific Northwest construction.
+                honoring Army, Navy, Air Force, Marines, Coast Guard, and Space
+                Force service.{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  Award-winning professionals
+                </span>{" "}
+                you can trust, bringing 150+ years combined military-grade
+                expertise and precision to every Pacific Northwest construction
+                mission.
               </p>
             </div>
 

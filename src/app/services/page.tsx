@@ -302,13 +302,15 @@ export default function ServicesPage() {
 
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                Get an{" "}
+                Our battle plan:{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  instant view of your project phases and timeline
+                  strategic construction excellence from concept to completion
                 </span>
-                . Adjust complexity to see how different factors affect your{" "}
+                . Get an instant view of your project phases with veteran-led
+                expert oversight. Adjust complexity to see how different factors
+                affect your{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  construction schedule
+                  mission-critical construction schedule
                 </span>
                 .
               </p>

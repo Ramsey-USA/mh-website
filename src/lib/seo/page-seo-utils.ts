@@ -12,10 +12,11 @@ import {
 export function getHomepageSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Building projects for the client, NOT the dollar | Veteran-Owned Construction | MH Construction",
+      "Base HQ → Home | Your Tri-Cities Construction Command Center | MH Construction",
     description:
-      "Veteran-owned construction management services since 2010. Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction throughout the Pacific Northwest. Licensed in WA, OR, ID. Four core values (Honesty, Integrity, Professionalism, Thoroughness) building trust through transparent communication and face-to-face consultation. Serving Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County, Yakima, Spokane, Walla Walla, and Eastern Washington.",
+      "Base HQ → Home: Your Tri-Cities Construction Command Center. Veteran-owned construction management services since 2010. Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction throughout the Pacific Northwest. Licensed in WA, OR, ID. Four core values (Honesty, Integrity, Professionalism, Thoroughness) building trust through transparent communication and face-to-face consultation. Building projects for the client, NOT the dollar.",
     keywords: [
+      "Base HQ Home construction command center",
       "veteran-owned contractor Pacific Northwest",
       "general contractor Tri-Cities",
       "Richland general contractor",
@@ -139,10 +140,12 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     title:
-      "Our Story | From Founding Father to Veteran Excellence | Company Evolution 2010-2025 | MH Construction",
+      "Our Oath → About Us | Service-Earned Values, Construction Excellence | MH Construction",
     description:
-      "15 years of proven excellence: Mike Holstein founded MH Construction in 2010 on partnership values. Now veteran-owned since January 2025 with Jeremy Thamert's operational leadership. 650+ completed projects, 70% referral rate, consecutive AGC-WA Top EMR Awards, OSHA VPP Star certification. Team Six approach: individual specialists, unified mission. Learn our complete evolution from family foundation to industry-leading safety culture.",
+      "Our Oath → About Us: Service-Earned Values, Construction Excellence. 15 years of battle-tested excellence: Mike Holstein founded MH Construction in 2010 on partnership values. Now veteran-owned since January 2025 with Jeremy Thamert's operational leadership. 650+ completed projects, 70% referral rate, consecutive AGC-WA Top EMR Awards, OSHA VPP Star certification. Team Six approach: individual specialists, unified mission.",
     keywords: [
+      "Our Oath About Us service-earned values",
+      "battle-tested construction excellence",
       "veteran-owned construction company 2025",
       "MH Construction company history",
       "construction company evolution 2010-2025",
@@ -209,10 +212,12 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     title:
-      "The Battle Plan | Veteran-Owned Comprehensive Services | MH Construction",
+      "Operations → Services | The Battle Plan - Strategic Construction Excellence | MH Construction",
     description:
-      "Veteran-owned construction services: honest communication, transparent pricing, proven craftsmanship. Residential, commercial, and government projects across Pacific Northwest. Where professional excellence today creates trusted partnerships tomorrow.",
+      "Operations → Services: The Battle Plan - Strategic Construction Excellence from Concept to Completion. Veteran-owned construction services with military precision: honest communication, transparent pricing, proven craftsmanship. Residential, commercial, and government projects across Pacific Northwest. Your construction mission deserves veteran-led expert oversight.",
     keywords: [
+      "Operations Services battle plan",
+      "strategic construction excellence concept to completion",
       "veteran-owned construction services",
       "honest construction communication",
       "transparent pricing contractor",
@@ -238,10 +243,13 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
 export function getTeamSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Team Six | Veteran-Owned Professional Excellence | Meet Our Team | MH Construction",
+      "Team Six → Our Team | 150+ Years Combined Military-Grade Expertise | MH Construction",
     description:
-      "Meet the veteran-led team building tomorrow's success today. 150+ years combined expertise in honest communication, transparent pricing, and proven craftsmanship. Professional excellence empowering Pacific Northwest growth through military precision and values-driven construction leadership.",
+      "Team Six → Our Team: 150+ Years Combined Military-Grade Expertise at Your Service. All-branch veteran leadership you can trust. Meet the veteran-led team building tomorrow's success today through honest communication, transparent pricing, and proven craftsmanship. Professional excellence with service-earned values driving Pacific Northwest construction leadership.",
     keywords: [
+      "Team Six Our Team military-grade expertise",
+      "150 years combined veteran experience",
+      "all-branch veteran leadership",
       "veteran construction team",
       "veteran-owned construction leadership",
       "honest construction professionals",
@@ -266,10 +274,13 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
 export function getGovernmentSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Public Sector Excellence | Building Toward Government Contracting | MH Construction",
+      "Public Sector → Government | Veteran-Owned Excellence for Government Construction | MH Construction",
     description:
-      "Veteran-owned construction company building bonding capacity for public sector work. Currently offering grant application support and subcontracting services. Tri-Cities based with Pacific Northwest coverage.",
+      "Public Sector → Government: Veteran-Owned Excellence for Government Construction Missions. Mission-ready construction operations with federal compliance-driven standards. Building bonding capacity for public sector work. Grant application support and subcontracting services. Tri-Cities based with Pacific Northwest coverage. Military precision meets government requirements.",
     keywords: [
+      "Public Sector Government construction missions",
+      "mission-ready construction operations",
+      "federal compliance-driven standards",
       "public sector construction",
       "government grant support",
       "construction subcontractor",
@@ -292,10 +303,12 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
 export function getVeteransSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Combat Proven | Honoring Those Who Served | Veteran-Owned Since 2025 | MH Construction",
+      "Service First → Veterans | Supporting Those Who Served - One Community, One Mission | MH Construction",
     description:
-      "Veteran-owned under Army veteran leadership since January 2025. Serving those who served with honest communication, transparent pricing, and proven craftsmanship. Supporting Pacific Northwest veterans through hiring initiatives, community partnerships, and shared military values. Mission-focused excellence honoring service.",
+      "Service First → Veterans: Supporting Those Who Served - One Community, One Mission. Honoring all branches, all values. Veteran-owned under Army veteran leadership since January 2025. Serving those who served with honest communication, transparent pricing, and proven craftsmanship. Supporting Pacific Northwest veterans through hiring initiatives, community partnerships, and shared military values.",
     keywords: [
+      "Service First Veterans community mission",
+      "honoring all service branches",
       "veteran-owned construction company",
       "Army veteran leadership",
       "veteran support programs",
@@ -318,9 +331,9 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
 export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Trade Partner Network | THE ROI IS THE RELATIONSHIP | MH Construction",
+      "Allies → Partners | Strategic Partnerships Built on Trust, Performance, and Mutual Success | MH Construction",
     description:
-      "Join MH Construction's elite trade partner network where THE ROI IS THE RELATIONSHIP. Professional subcontractor opportunities with veteran-owned business, fair payment practices, consistent Pacific Northwest project flow, and partnerships that deliver mutual success.",
+      "Allies → Partners: Strategic Partnerships Built on Trust, Performance, and Mutual Success. Vetted vendor partnerships building success through trusted alliances. Join MH Construction's elite trade partner network where THE ROI IS THE RELATIONSHIP. Professional subcontractor opportunities with veteran-owned business, fair payment practices, consistent Pacific Northwest project flow, and mission-approved collaboration.",
     keywords: [
       "construction subcontractor opportunities",
       "trade partner network",
@@ -344,10 +357,12 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
 export function getCareersSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Occupation Specialties | Build Your Future with Veteran Values | MH Construction Careers",
+      "Enlist → Careers | Build More Than Projects - Build Your Future | MH Construction",
     description:
-      "Your career growth is our mission. Join a veteran-owned team where honest communication, transparent expectations, and proven mentorship create tomorrow's leaders. Exciting construction career opportunities with competitive benefits, award-winning safety (.64 EMR), and a culture where your potential matters as much as any project we build.",
+      "Enlist → Careers: Build More Than Projects - Build Your Future with a Veteran-Owned Team. Join the mission - your construction career starts here. Your career growth is our mission. Join a veteran-owned team where honest communication, transparent expectations, and proven mentorship create tomorrow's leaders. Exciting construction career opportunities with competitive benefits and award-winning safety (.64 EMR).",
     keywords: [
+      "Enlist Careers build your future",
+      "join the mission construction career",
       "veteran-owned construction careers",
       "honest construction employer",
       "transparent career growth",
@@ -376,10 +391,12 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
 export function getProjectsSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Victories | Proven Results Through Veteran Values | Excellence Since 2010 | MH Construction",
+      "Missions → Projects | Mission Success: 650+ Completed Projects | MH Construction",
     description:
-      "Veteran-owned since 2025, building excellence since 2010. Our completed projects showcase honest communication, transparent pricing, and proven craftsmanship across residential, commercial, and government work. Trust built project by project—our history speaks for itself.",
+      "Missions → Projects: Mission Success - 650+ Completed Projects, Countless Lasting Relationships. Veteran-owned since 2025, building excellence since 2010. Our completed construction missions showcase honest communication, transparent pricing, and proven craftsmanship across residential, commercial, and government work. Trust built project by project through proven results and trusted partnerships.",
     keywords: [
+      "Missions Projects 650 completed",
+      "mission success proven results",
       "veteran-owned construction portfolio",
       "proven construction track record",
       "honest construction results",
@@ -404,10 +421,12 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
 export function getContactSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Introductions | Where Handshakes Still Matter | Contact MH Construction | Pasco, WA",
+      "Rally Point → Contact | Your Project. Our Expertise. Let's Connect. | MH Construction",
     description:
-      "Contact MH Construction for your Pacific Northwest construction needs. Founded 2010, veteran-owned since January 2025 with online estimating tools, military precision, and authentic partnership approach. (509) 308-6489",
+      "Rally Point → Contact: Your Project. Our Expertise. Let's Connect. Schedule your free mission brief - start with SITREP-level clarity. Contact MH Construction for your Pacific Northwest construction needs. Founded 2010, veteran-owned since January 2025 with military precision and authentic partnership approach. Face-to-face consultation. (509) 308-6489",
     keywords: [
+      "Rally Point Contact mission brief",
+      "SITREP-level clarity consultation",
       "contact construction contractor Pasco WA",
       "veteran-owned construction contact",
       "Pacific Northwest construction company",
@@ -429,10 +448,12 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
 export function getUrgentSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "When Time Is Critical, We Respond | Veteran-Owned Urgent Support | MH Construction",
+      "Rapid Response → Emergency | 24/7 Emergency Construction Response | MH Construction",
     description:
-      "THE ROI IS THE RELATIONSHIP. Veteran-owned rapid response for critical construction challenges. Honest assessment, transparent pricing, proven solutions. Expert consultation, specialized equipment, experienced crews—immediate deployment WA, OR, ID. Your project success is our mission. Call (509) 308-6489.",
+      "Rapid Response → Emergency: 24/7 Emergency Construction Response - Mission-Ready Support. Rapid response when your construction mission is critical. Veteran-owned emergency deployment with honest assessment, transparent pricing, proven solutions. Expert consultation, specialized equipment, experienced crews—immediate deployment WA, OR, ID. THE ROI IS THE RELATIONSHIP. Call (509) 308-6489.",
     keywords: [
+      "Rapid Response Emergency 24/7",
+      "mission-ready support construction",
       "veteran-owned urgent construction",
       "honest emergency assessment",
       "transparent urgent pricing",

@@ -104,11 +104,15 @@ export default function VeteransPage() {
           {/* Content - Clean and Simple */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
             <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+              <span className="block text-brand-secondary font-black drop-shadow-lg text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-2">
+                Service First → Veterans
+              </span>
               <span className="block text-brand-secondary font-black drop-shadow-lg">
                 Combat Proven
               </span>
               <span className="block text-brand-primary font-black drop-shadow-lg">
-                Honoring Those Who Served
+                All-Branch Veterans: Honoring Army, Navy, Air Force, Marines,
+                Coast Guard & Space Force
               </span>
               <span className="block text-white/90 font-medium">
                 Building projects for the client,{" "}
@@ -166,17 +170,19 @@ export default function VeteransPage() {
 
             {/* Description with colored keyword highlighting */}
             <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-              MH Construction is{" "}
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                owned and led by Army veteran Jeremy Thamert
-              </span>
-              . His military service instilled operational values of{" "}
+                Service First: All-branch veteran-owned leadership
+              </span>{" "}
+              under Army veteran Jeremy Thamert. His military service instilled
+              operational values of{" "}
               <span className="font-bold text-gray-900 dark:text-white">
                 integrity, mission-focused discipline, and keeping your word
               </span>
-              —principles that define every construction operation and
-              partnership we build. When veterans work with veterans, trust is
-              built on shared service experience.
+              —service-earned principles honoring Army, Navy, Air Force,
+              Marines, Coast Guard, and Space Force that define every
+              construction operation and partnership we build. When
+              combat-proven veterans work with veterans, trust is built on
+              shared service experience.
             </p>
           </div>
 

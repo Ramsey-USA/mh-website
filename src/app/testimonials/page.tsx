@@ -13,10 +13,14 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 
 export const metadata: Metadata = {
-  title: "Client Testimonials & Reviews | MH Construction",
+  title:
+    "Commendations → Reviews | Verified Success Stories from Completed Missions | MH Construction",
   description:
-    "Read authentic testimonials from our valued Client Partners across the Pacific Northwest. See why businesses trust our veteran-owned construction team for commercial, industrial, and government projects.",
+    "Commendations → Reviews: Verified Success Stories from Completed Missions. After-action reports from real client missions. Read authentic testimonials from our valued Client Partners across the Pacific Northwest. See why businesses trust our veteran-owned construction team for commercial, industrial, and government projects. Battle-tested excellence through proven results.",
   keywords: [
+    "Commendations Reviews testimonials",
+    "after-action reports client missions",
+    "verified success stories",
     "MH Construction reviews",
     "construction testimonials",
     "Tri-Cities contractor reviews",
@@ -27,17 +31,19 @@ export const metadata: Metadata = {
     "veteran-owned construction reviews",
   ],
   openGraph: {
-    title: "Client Testimonials & Reviews | MH Construction",
+    title:
+      "Commendations → Reviews | Verified Success Stories | MH Construction",
     description:
-      "Authentic testimonials from our Client Partners. See why businesses across Washington, Oregon, and Idaho choose MH Construction.",
+      "After-action reports from real client missions. Authentic testimonials from our Client Partners. See why businesses across Washington, Oregon, and Idaho choose our veteran-owned construction team.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Client Testimonials & Reviews | MH Construction",
+    title:
+      "Commendations → Reviews | Verified Success Stories | MH Construction",
     description:
-      "Read what our Client Partners say about working with our veteran-owned construction team.",
+      "After-action reports from completed missions. Read what our Client Partners say about working with our veteran-owned construction team.",
   },
   alternates: {
     canonical: "/testimonials",
@@ -126,8 +132,11 @@ export default function TestimonialsPage() {
 
               {/* Page Title */}
               <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
+                <span className="block text-brand-secondary font-black drop-shadow-lg text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-2">
+                  Commendations → Reviews
+                </span>
                 <span className="block text-brand-secondary font-black drop-shadow-lg">
-                  Client Testimonials & Reviews
+                  Service-Earned Commendations from Client Partners
                 </span>
               </h1>
 

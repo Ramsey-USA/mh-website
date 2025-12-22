@@ -69,11 +69,11 @@ export function ProjectsStatsSection() {
 
             {/* Description */}
             <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-              Numbers that reflect our{" "}
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                veteran-owned commitment
-              </span>{" "}
-              to excellence and lasting partnerships
+                650+ construction missions completed
+              </span>
+              —numbers that reflect our veteran-owned commitment to proven
+              results and trusted partnerships across the Tri-Cities
             </p>
           </div>
 

@@ -164,8 +164,14 @@ export default function ContactPageClient() {
                 id="hero-heading"
                 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed"
               >
+                <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
+                  Rally Point → Contact
+                </span>
                 <span className="block text-brand-secondary">
-                  Let's Talk Face-to-Face
+                  Introductions: Where Partnerships Begin
+                </span>
+                <span className="block text-brand-primary">
+                  Let's Talk Face-to-Face, The Old-School Way
                 </span>
               </h1>
 

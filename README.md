@@ -403,7 +403,8 @@ This comprehensive guide provides:
 
 **Dual-Label Navigation Pattern** - Civilian + Military Terminology (December 2025)
 
-All mobile hamburger menu items use **both civilian and military-themed labels** to balance accessibility with veteran brand identity:
+All mobile hamburger menu items use **both civilian and military-themed labels** to balance
+accessibility with veteran brand identity:
 
 ```text
 Primary Label (Civilian) → Secondary Label (Military)
@@ -499,25 +500,33 @@ See [Core Values Guide](./docs/business/core-values.md) for complete details.
 
 _Where handshakes matter, promises are kept, and relationships last longer than buildings._
 
-### Hero Section Tagline Strategy
+### Hero Section Tagline Strategy (Updated December 2025)
 
-Each page features a **unique, page-specific tagline** instead of repeating
-"THE ROI IS THE RELATIONSHIP" across all hero sections. This approach:
+Each page features a **unique, page-specific tagline WITH dual naming system**
+(Military → Civilian format) to honor veteran identity while maintaining accessibility.
+This approach:
 
+- **Dual naming at top**: "Base HQ → Home", "Our Oath → About Us", etc.
+- **Unique page-specific mantra** for enhanced SEO and user engagement
 - Reinforces each page's unique purpose and value proposition
 - Reduces tagline fatigue and improves message retention
-- Provides targeted messaging relevant to the page context
+- Blends military operations terminology with construction expertise
 - Maintains brand consistency while adding variety
+- Honors all service branches (Army, Navy, Air Force, Marines, Coast Guard, Space Force)
 
 **Examples:**
 
-- Homepage: "Where Vision Meets Execution"
-- About: "Excellence Through Experience"
-- Services: "Your project deserves expert oversight"
-- Team: "Experience You Can Trust"
+- Homepage: "Base HQ → Home" | "Your Tri-Cities Construction Command Center"
+- About: "Our Oath → About Us" | "Service-Earned Values, Construction Excellence"
+- Services: "Operations → Services" | "The Battle Plan - Strategic Construction Excellence"
+- Projects: "Missions → Projects" | "Mission Success: 650+ Completed Projects"
+- Team: "Team Six → Our Team" | "150+ Years Combined Military-Grade Expertise"
 
-Complete guide:
-[Slogan & Tagline Guide](./docs/branding/strategy/slogan-rotation-guide.md)
+Complete guides:
+
+- [Hero Tagline Strategy](./docs/branding/strategy/hero-tagline-strategy.md)
+- [Hero Section Standards](./docs/branding/standards/hero-section-standards.md)
+- [Slogan & Tagline Guide](./docs/branding/strategy/slogan-rotation-guide.md)
 
 ### Page-Specific Messaging (Updated December 2025)
 

@@ -215,17 +215,18 @@ export default function AboutPage() {
 
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                Our commitment to{" "}
+                Our{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  integrity, transparency, and excellence
+                  service-earned values—integrity, transparency, and excellence
                 </span>{" "}
-                drives every project decision and partnership we build. These
-                aren't just{" "}
+                drive every project decision and partnership we build. These
+                battle-tested principles aren't just{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
                   words on a wall
                 </span>
-                —they're the foundation of how we do business and the promise we
-                make to every partner.
+                —they're the foundation of how we do business with 150+ years
+                combined military-grade expertise backing every promise we make
+                to every partner.
               </p>
             </div>
 

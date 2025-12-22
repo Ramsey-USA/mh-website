@@ -24,9 +24,12 @@ export function ProjectsHero() {
           />
         </div>
         <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+          <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
+            Missions → Projects
+          </span>
           <span className="block text-brand-secondary">Victories</span>
           <span className="block text-brand-primary">
-            Battle-Tested Results
+            Completed Missions, Proven Excellence in the Tri-Cities
           </span>
           <span className="block text-white/90">
             Building projects for the client,{" "}

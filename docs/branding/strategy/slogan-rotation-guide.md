@@ -87,8 +87,12 @@ Each page's hero section features a **unique, context-specific tagline** that:
 
 #### Homepage Hero Tagline
 
+**Dual Naming:** "Base HQ → Home"
+
 **Tagline:** "Veteran-Owned Excellence | Mission-Focused Execution | Proven Craftsmanship | Building
 Projects for the Client, NOT the Dollar"
+
+**Mantra:** "Your Tri-Cities Construction Command Center"
 
 - **Focus:** All-branch veteran values + mission execution + proven results + core mission
 - **Tone:** Confident, service-earned, mission-driven
@@ -100,7 +104,11 @@ Projects for the Client, NOT the Dollar"
 
 #### About Page Hero Tagline
 
+**Dual Naming:** "Our Oath → About Us"
+
 **Tagline:** "Battle-Tested Excellence Through Service-Earned Experience"
+
+**Mantra:** "Service-Earned Values, Construction Excellence"
 
 - **Focus:** Veteran values + proven quality across all branches
 - **Tone:** Professional, credible, service-honored
@@ -111,7 +119,11 @@ Projects for the Client, NOT the Dollar"
 
 #### Services Page Hero Tagline
 
+**Dual Naming:** "Operations → Services"
+
 **Tagline:** "Your Construction Mission Deserves Veteran-Led Expert Oversight"
+
+**Mantra:** "The Battle Plan - Strategic Construction Excellence from Concept to Completion"
 
 - **Focus:** Service quality + veteran-led expertise + military precision
 - **Tone:** Professional, mission-driven, empowering
@@ -122,7 +134,11 @@ Projects for the Client, NOT the Dollar"
 
 #### Projects Page Hero Tagline
 
+**Dual Naming:** "Missions → Projects"
+
 **Tagline:** "650+ Construction Missions Completed - Proven Results, Trusted Partnerships"
+
+**Mantra:** "Mission Success: 650+ Completed Projects, Countless Lasting Relationships"
 
 - **Focus:** Battle-tested track record + relationship commitment
 - **Tone:** Achievement-oriented, trustworthy, mission-proven
@@ -133,7 +149,11 @@ Projects for the Client, NOT the Dollar"
 
 #### Team Page Hero Tagline
 
+**Dual Naming:** "Team Six → Our Team"
+
 **Tagline:** "All-Branch Veteran Leadership You Can Trust"
+
+**Mantra:** "150+ Years Combined Military-Grade Expertise at Your Service"
 
 - **Focus:** Multi-service veteran expertise + reliability (Army, Navy, Air Force, Marines, Coast Guard, Space Force)
 - **Tone:** Confident, service-honored, reassuring
@@ -144,7 +164,11 @@ Projects for the Client, NOT the Dollar"
 
 #### Careers Page Hero Tagline
 
+**Dual Naming:** "Enlist → Careers"
+
 **Tagline:** "Join the Mission - Your Construction Career Starts Here"
+
+**Mantra:** "Build More Than Projects - Build Your Future with a Veteran-Owned Team"
 
 - **Focus:** Mission-driven team culture + career opportunity
 - **Tone:** Inspirational, forward-looking, tactical
@@ -155,7 +179,11 @@ Projects for the Client, NOT the Dollar"
 
 #### Booking Page Hero Tagline
 
+**Dual Naming:** "Rally Point → Contact"
+
 **Tagline:** "Schedule Your Free Mission Brief - Start With SITREP-Level Clarity"
+
+**Mantra:** "Your Project. Our Expertise. Let's Connect."
 
 - **Focus:** No-obligation consultation + military-grade transparency
 - **Tone:** Encouraging, reassuring, tactical
@@ -166,7 +194,11 @@ Projects for the Client, NOT the Dollar"
 
 #### Urgent Support Page Hero Tagline
 
+**Dual Naming:** "Rapid Response → Emergency"
+
 **Tagline:** "Rapid Response When Your Construction Mission Is Critical"
+
+**Mantra:** "24/7 Emergency Construction Response - Mission-Ready Support"
 
 - **Focus:** Emergency deployment + veteran-led reliability
 - **Tone:** Urgent, capable, mission-ready
@@ -177,7 +209,11 @@ Projects for the Client, NOT the Dollar"
 
 #### Government Page Hero Tagline
 
+**Dual Naming:** "Public Sector → Government"
+
 **Tagline:** "Mission-Ready Construction Operations - Federal Compliance-Driven"
+
+**Mantra:** "Veteran-Owned Excellence for Government Construction Missions"
 
 - **Focus:** Federal expertise + military operations discipline + regulatory compliance
 - **Tone:** Professional, veteran-aligned, mission-capable
@@ -188,7 +224,11 @@ Projects for the Client, NOT the Dollar"
 
 #### Trade Partners Page Hero Tagline
 
+**Dual Naming:** "Allies → Partners"
+
 **Tagline:** "Vetted Vendor Partnerships - Building Success Through Trusted Alliances"
+
+**Mantra:** "Strategic Partnerships Built on Trust, Performance, and Mutual Success"
 
 - **Focus:** B2B partnership + mission-approved collaboration + mutual growth
 - **Tone:** Collaborative, professional, tactical
@@ -199,7 +239,11 @@ Projects for the Client, NOT the Dollar"
 
 #### Veterans/Community Page Hero Tagline
 
+**Dual Naming:** "Service First → Veterans"
+
 **Tagline:** "Honoring Those Who Served - All Branches, All Values"
+
+**Mantra:** "Supporting Those Who Served - One Community, One Mission"
 
 - **Focus:** Community support + all-branch recognition
 - **Tone:** Respectful, inclusive, service-honored
@@ -207,6 +251,36 @@ Projects for the Client, NOT the Dollar"
 - **Emphasizes:** Comprehensive military branch recognition
 - **Military Terms:** All branches, service
 - **Construction Terms:** Community support
+
+#### Testimonials Page Hero Tagline
+
+**Dual Naming:** "Commendations → Reviews"
+
+**Tagline:** "After-Action Reports from Real Client Missions"
+
+**Mantra:** "Verified Success Stories from Completed Missions"
+
+- **Focus:** Authentic client experiences + mission success documentation
+- **Tone:** Credible, achievement-oriented, trust-building
+- **Context:** Frames testimonials as post-mission debriefs from completed construction missions
+- **Emphasizes:** Real results from veteran-led project execution
+- **Military Terms:** After-action reports, missions
+- **Construction Terms:** Client feedback, project outcomes
+
+#### FAQ Page Hero Tagline
+
+**Dual Naming:** "Intel Brief → FAQ"
+
+**Tagline:** "Mission Intelligence - Your Construction Questions Answered"
+
+**Mantra:** "Direct Answers. Clear Guidance. Mission-Ready Information."
+
+- **Focus:** Clear information delivery + tactical project guidance
+- **Tone:** Professional, helpful, mission-focused
+- **Context:** Positions FAQs as strategic intelligence briefing for construction planning
+- **Emphasizes:** Transparent information without sales pressure
+- **Military Terms:** Mission intelligence, intel brief
+- **Construction Terms:** Project guidance, construction FAQs
 
 **Note on Removed Pages:** Estimator and 3D Explorer pages have been removed as they are no longer
 part of our strategic focus. Our priority is building an award-winning website that attracts
@@ -218,7 +292,9 @@ When developing a new page, create a unique hero tagline following these militar
 
 **DO:**
 
-- Keep to 5-12 words maximum
+- **Include dual naming format** - "Military Designation → Civilian Label" at top of hero section
+- **Include page-specific mantra** for enhanced SEO and user engagement
+- Keep tagline to 5-12 words maximum
 - Blend military operations terminology with construction expertise naturally
 - Reflect the specific page's primary purpose with tactical clarity
 - Honor all service branches (Army, Navy, Air Force, Marines, Coast Guard, Space Force)
@@ -236,11 +312,14 @@ When developing a new page, create a unique hero tagline following these militar
 - Favor one service branch over others
 - Exceed two sentences in length
 - Forget the construction delivery promise
+- **Omit dual naming or mantra** - both are now required components
 
 ### Hero Tagline Testing Checklist
 
 Before finalizing a hero tagline:
 
+- [ ] **Does it include dual naming format?** (e.g., "Base HQ → Home")
+- [ ] **Does it include a page-specific mantra?**
 - [ ] Is it 5-12 words?
 - [ ] Does it blend military AND construction terminology naturally?
 - [ ] Does it reflect this specific page's purpose?

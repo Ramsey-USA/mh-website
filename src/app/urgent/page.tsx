@@ -161,11 +161,14 @@ export default function UrgentSupportPage() {
         {/* Content - Bottom Right */}
         <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
           <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+            <span className="block text-orange-300 text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
+              Rapid Response → Emergency
+            </span>
             <span className="block text-brand-secondary">
-              THE ROI IS THE RELATIONSHIP
+              PRT: Project Response Team
             </span>
             <span className="block text-orange-300">
-              Project Response Team - Rapid Deployment
+              Mission-Critical Rapid Deployment When Minutes Matter
             </span>
             <span className="block text-white/90">
               Building projects for the client,{" "}
@@ -278,17 +281,21 @@ export default function UrgentSupportPage() {
               {/* Section Header - Military Construction Standard */}
               <h2 className="mb-4 font-black text-foreground text-2xl xs:text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tighter">
                 <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-300 text-xl xs:text-2xl sm:text-3xl tracking-tight">
-                  We Fix the Source,
+                  Rapid Response Mission:
                 </span>
                 <span className="block bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 bg-clip-text text-transparent font-black drop-shadow-sm">
-                  Not the Symptoms
+                  We Fix the Source, Not the Symptoms
                 </span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                When General Contractors face critical structural challenges, MH
-                Construction provides expert consultation, specialized equipment
-                with operators, and experienced crews to resolve urgent
-                construction issues at their source.
+                <span className="font-bold text-orange-600">
+                  Mission-critical rapid deployment when minutes matter.
+                </span>{" "}
+                When General Contractors face critical structural challenges,
+                our Project Response Team provides veteran-led expert
+                consultation, specialized equipment with operators, and
+                experienced crews to resolve urgent construction issues at their
+                source.
               </p>
             </div>
 

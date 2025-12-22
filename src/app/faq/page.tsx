@@ -13,10 +13,12 @@ import { generateHowToSchema } from "@/lib/seo/howto-schema";
 
 export const metadata: Metadata = {
   title:
-    "Frequently Asked Questions | MH Construction - Veteran-Owned Excellence",
+    "Intel Brief → FAQ | Direct Answers. Clear Guidance. Mission-Ready Information. | MH Construction",
   description:
-    "Find answers to common questions about MH Construction's services, process, safety record, veteran benefits, and partnership approach. Learn about our 0.64 EMR safety record, open-book pricing, Design-Build vs Design-Bid-Build, PEMB buildings, Procore project management, and face-to-face consultation process.",
+    "Intel Brief → FAQ: Direct Answers. Clear Guidance. Mission-Ready Information. Mission intelligence for your construction questions answered. Find answers to common questions about MH Construction's veteran-owned services, process, safety record (.64 EMR), veteran benefits, and partnership approach. Open-book pricing, Design-Build vs Design-Bid-Build, PEMB buildings, Procore project management, and face-to-face consultation process.",
   keywords: [
+    "Intel Brief FAQ mission intelligence",
+    "direct answers construction guidance",
     "construction FAQ",
     "construction management questions",
     "veteran-owned construction",
@@ -40,9 +42,9 @@ export const metadata: Metadata = {
     "government construction projects",
   ],
   openGraph: {
-    title: "FAQ - Your Construction Questions Answered | MH Construction",
+    title: "Intel Brief → FAQ | Mission-Ready Information | MH Construction",
     description:
-      "Get answers about our veteran-owned construction services, partnership approach, safety excellence, and consultation process. Building projects for the client, NOT the dollar.",
+      "Direct answers. Clear guidance. Get answers about our veteran-owned construction services, partnership approach, safety excellence, and consultation process. Building projects for the client, NOT the dollar.",
     type: "website",
     locale: "en_US",
     url: "https://www.mhc-gc.com/faq",
@@ -52,9 +54,9 @@ export const metadata: Metadata = {
     card: "summary",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: "FAQ - Construction Questions Answered | MH Construction",
+    title: "Intel Brief → FAQ | Mission-Ready Information | MH Construction",
     description:
-      "Answers about veteran-owned construction services, safety record (0.64 EMR), and partnership approach. Tri-Cities, WA.",
+      "Direct answers and clear guidance for your construction questions from our veteran-owned team.",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/faq",
@@ -448,11 +450,14 @@ export default function FAQPage() {
 
               {/* Title */}
               <h1 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+                <span className="block mb-3 sm:mb-4 font-semibold text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl tracking-tight">
+                  Intel Brief → FAQ
+                </span>
                 <span className="block mb-3 sm:mb-4 font-semibold text-brand-secondary text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                  Frequently Asked Questions
+                  Intelligence Brief: Mission-Critical Answers
                 </span>
                 <span className="block text-brand-primary drop-shadow-lg">
-                  Your Questions, Honest Answers
+                  Your Questions, Our Honest Answers
                 </span>
                 <span className="block text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl font-medium mt-4">
                   Building projects for the client,{" "}

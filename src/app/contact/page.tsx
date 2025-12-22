@@ -8,10 +8,12 @@ import {
 
 export const metadata: Metadata = {
   title:
-    "Introductions | Contact Us | MH Construction - Concrete, Carpentry & General Contracting",
+    "Rally Point → Contact | Your Project. Our Expertise. Let's Connect. | MH Construction",
   description:
-    "Connect with MH Construction for expert concrete, carpentry, and general contracting services in Pasco, WA. Call (509) 308-6489 or visit us at 3111 N. Capitol Ave. Building projects for the client, NOT the dollar.",
+    "Rally Point → Contact: Your Project. Our Expertise. Let's Connect. Schedule your free mission brief - start with SITREP-level clarity. Connect with MH Construction for expert concrete, carpentry, and general contracting services in Pasco, WA. Call (509) 308-6489 or visit us at 3111 N. Capitol Ave. Building projects for the client, NOT the dollar.",
   keywords: [
+    "Rally Point Contact mission brief",
+    "SITREP-level clarity consultation",
     "contact MH Construction",
     "Pasco construction contact",
     "concrete services Pasco",
@@ -21,17 +23,18 @@ export const metadata: Metadata = {
     "urgent construction support",
   ],
   openGraph: {
-    title: "Contact MH Construction | Your Partnership Team",
+    title:
+      "Rally Point → Contact | Your Project. Our Expertise. | MH Construction",
     description:
-      "Reach out to MH Construction for professional concrete, carpentry, and construction services in the Pacific Northwest.",
+      "Schedule your free mission brief. Reach out to MH Construction for professional construction services with military precision and partnership approach.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact MH Construction",
+    title: "Rally Point → Contact | MH Construction",
     description:
-      "Connect with your partnership team for expert construction services in Pasco, WA.",
+      "Schedule your free mission brief. Connect with your partnership team for expert construction services in Pasco, WA.",
   },
   alternates: {
     canonical: "/contact",

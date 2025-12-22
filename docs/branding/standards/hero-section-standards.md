@@ -12,6 +12,10 @@ to be the primary visual focal point. Text complements imagery rather than compe
 **⭐ MAJOR UPDATE (Dec 14, 2025)**: All hero taglines updated with military-construction terminology
 blend to honor veteran leadership while maintaining construction expertise focus.
 
+**⭐ DUAL NAMING SYSTEM (Dec 2025)**: Each hero section now includes dual naming format with
+**Military Designation → Civilian Label** (e.g., "Base HQ → Home", "Our Oath → About Us") to
+honor veteran identity while maintaining accessibility for all visitors.
+
 ---
 
 ## Quick Reference
@@ -39,12 +43,14 @@ terminology blend** (December 2025 major update). This strategy:
 
 **DO:**
 
+- **Include dual naming format** - "Military Designation → Civilian Label" at top of each hero
 - Blend military operations terminology with construction expertise naturally
 - Honor all service branches (not just Army)
 - Reflect the specific page's purpose with tactical clarity
 - Keep taglines concise (5-12 words typically)
 - Align with service-earned brand values (honesty, integrity, professionalism, thoroughness)
 - Maintain core mission: "Building projects for the client, NOT the dollar"
+- **Include unique page-specific mantra** for enhanced messaging and SEO
 
 **DON'T:**
 
@@ -53,30 +59,31 @@ terminology blend** (December 2025 major update). This strategy:
 - Use military jargon without construction context
 - Create generic taglines that could apply to any page
 - Deviate from mission-first brand tone
+- **Omit dual naming from hero sections** - it's now a required component
 
 ### Current Page-Specific Taglines (December 2025)
 
 **Strategic Focus:** Award-winning website that attracts professional veterans through authentic
 military-construction terminology and service-earned values.
 
-| Page           | Military/Construction Blend Tagline                                             | Military Terms                   | Construction Terms                      |
-| -------------- | ------------------------------------------------------------------------------- | -------------------------------- | --------------------------------------- |
-| Homepage       | "Mission-Focused Execution \| Building Projects for the Client, NOT the Dollar" | Mission-focused                  | Proven craftsmanship, building projects |
-| About          | "Battle-Tested Excellence Through Service-Earned Experience"                    | Battle-tested, service-earned    | Excellence, experience                  |
-| Services       | "Your Construction Mission Deserves Veteran-Led Expert Oversight"               | Mission, veteran-led             | Construction, expert oversight          |
-| Projects       | "650+ Construction Missions Completed - Proven Results"                         | Missions completed               | Construction, proven results            |
-| Team           | "All-Branch Veteran Leadership You Can Trust"                                   | All-branch veteran leadership    | Trust, reliability                      |
-| Careers        | "Join the Mission - Your Construction Career Starts Here"                       | Join the mission                 | Construction career                     |
-| Booking        | "Schedule Your Free Mission Brief - Start With SITREP-Level Clarity"            | Mission brief, SITREP-level      | Project consultation                    |
-| Urgent         | "Rapid Response When Your Construction Mission Is Critical"                     | Rapid response, mission-critical | Construction support                    |
-| Government     | "Mission-Ready Construction Operations - Federal Compliance-Driven"             | Mission-ready operations         | Construction, federal compliance        |
-| Trade Partners | "Vetted Vendor Partnerships - Building Success Through Trusted Alliances"       | Vetted vendor, trusted alliances | Building success, partnerships          |
-| Veterans       | "Honoring Those Who Served - All Branches, All Values"                          | All branches, service            | Community support                       |
+**Dual Naming Format:** Each page includes "Military Designation → Civilian Label" for veteran
+recognition and accessibility.
 
-**Note:** "THE ROI IS THE RELATIONSHIP" remains central to body content, testimonials,
-and partnership value propositions—positioned strategically rather than repeated in every hero section.
-
-**Removed Pages:** Estimator and 3D Explorer - No longer part of strategic focus.
+| Page           | Dual Naming                | Military/Construction Blend Tagline                                             | Mantra                                                                 |
+| -------------- | -------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Homepage       | Base HQ → Home             | "Mission-Focused Execution \| Building Projects for the Client, NOT the Dollar" | Your Tri-Cities Construction Command Center                            |
+| About          | Our Oath → About Us        | "Battle-Tested Excellence Through Service-Earned Experience"                    | Service-Earned Values, Construction Excellence                         |
+| Services       | Operations → Services      | "Your Construction Mission Deserves Veteran-Led Expert Oversight"               | The Battle Plan - Strategic Construction Excellence                    |
+| Projects       | Missions → Projects        | "650+ Construction Missions Completed - Proven Results"                         | Mission Success: 650+ Projects, Countless Relationships                |
+| Team           | Team Six → Our Team        | "All-Branch Veteran Leadership You Can Trust"                                   | 150+ Years Combined Military-Grade Expertise at Your Service           |
+| Careers        | Enlist → Careers           | "Join the Mission - Your Construction Career Starts Here"                       | Build More Than Projects - Build Your Future                           |
+| Contact        | Rally Point → Contact      | "Schedule Your Free Mission Brief - Start With SITREP-Level Clarity"            | Your Project. Our Expertise. Let's Connect.                            |
+| Urgent         | Rapid Response → Emergency | "Rapid Response When Your Construction Mission Is Critical"                     | 24/7 Emergency Construction Response - Mission-Ready Support           |
+| Government     | Public Sector → Government | "Mission-Ready Construction Operations - Federal Compliance-Driven"             | Veteran-Owned Excellence for Government Construction Missions          |
+| Trade Partners | Allies → Partners          | "Vetted Vendor Partnerships - Building Success Through Trusted Alliances"       | Strategic Partnerships Built on Trust, Performance, and Mutual Success |
+| Veterans       | Service First → Veterans   | "Honoring Those Who Served - All Branches, All Values"                          | Supporting Those Who Served - One Community, One Mission               |
+| Testimonials   | Commendations → Reviews    | "After-Action Reports from Real Client Missions"                                | Verified Success Stories from Completed Missions                       |
+| FAQ            | Intel Brief → FAQ          | "Mission Intelligence - Your Construction Questions Answered"                   | Direct Answers. Clear Guidance. Mission-Ready Information.             |
 
 ---
 
@@ -123,16 +130,25 @@ visual element. This creates a more impactful first impression where imagery spe
   {/* Header Text - Bottom Right (Allows visual to dominate) */}
   <div className="relative z-30 mb-20 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
     <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+      {/* DUAL NAMING - Military → Civilian (Required) */}
+      <span className="block text-brand-secondary/80 text-sm sm:text-base md:text-lg lg:text-xl font-normal mb-2">
+        Base HQ → Home
+      </span>
+      {/* PAGE-SPECIFIC MANTRA */}
+      <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
+        Your Tri-Cities Construction Command Center
+      </span>
+      {/* TAGLINE WITH SEPARATORS */}
       <span className="block text-brand-secondary">
         Veteran-Owned Excellence
       </span>
       <span className="block">|</span>
-      <span className="block text-white/95">Honest Communication</span>
+      <span className="block text-white/95">Mission-Focused Execution</span>
       <span className="block">|</span>
       <span className="block text-brand-primary">Proven Craftsmanship</span>
       <span className="block">|</span>
       <span className="block text-white/90">
-        Building Trust, Not Just Structures
+        Building Projects for the Client, NOT the Dollar
       </span>
     </h1>
   </div>
@@ -177,6 +193,8 @@ Use this checklist when creating or reviewing any page's hero section:
 - [ ] Background gradient with overlay
 - [ ] Content wrapper with responsive padding
 - [ ] Spacing container (`space-y-2` to `lg:space-y-6`)
+- [ ] **Dual naming format at top** (e.g., "Base HQ → Home")
+- [ ] **Page-specific mantra** included for SEO and engagement
 - [ ] Title with proper responsive classes
 - [ ] Title uses `text-brand-secondary` color
 - [ ] Subtitle with proper responsive classes

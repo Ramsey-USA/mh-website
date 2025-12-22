@@ -297,10 +297,15 @@ export default function AlliesPage() {
         {/* Content - Bottom Right */}
         <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
           <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+            <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
+              Allies → Partners
+            </span>
             <span className="block text-brand-secondary">
+              Allies in Force: Strategic Partnership Network
+            </span>
+            <span className="block text-brand-primary">
               THE ROI IS THE RELATIONSHIP
             </span>
-            <span className="block text-brand-primary">Allies in Force</span>
             <span className="block text-white/90">
               Building projects for the client,{" "}
               <span className="font-black italic text-bronze-300">NOT</span> the
@@ -357,14 +362,16 @@ export default function AlliesPage() {
                   />
                   <div>
                     <h3 className="font-bold text-gray-900 dark:text-white text-xl mb-3">
-                      Allies vs. Client Partnerships
+                      Strategic Partnership Network: THE ROI IS THE RELATIONSHIP
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-2">
                       <strong>
-                        This page is for subcontractors, suppliers, and vendors
+                        Allies in Force \u2014 This page is for subcontractors,
+                        suppliers, and vendors
                       </strong>{" "}
-                      interested in joining our trade partnership network to
-                      work on MH Construction projects.
+                      interested in joining our strategic partnership network to
+                      work on MH Construction projects where the return on
+                      investment is truly the relationship we build together.
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                       If you're a{" "}

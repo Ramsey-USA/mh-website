@@ -41,14 +41,14 @@ const ChatbotCTASection = dynamic(
     import("@/components/chatbot").then((mod) => ({
       default: mod.ChatbotCTASection,
     })),
-  { ssr: true }
+  { ssr: true },
 );
 const TestimonialGrid = dynamic(
   () =>
     import("@/components/testimonials").then((mod) => ({
       default: mod.TestimonialGrid,
     })),
-  { ssr: true }
+  { ssr: true },
 );
 
 // Feature flag - set to false to show full page content
@@ -130,7 +130,7 @@ export default function CareersPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
-            generateBreadcrumbSchema(breadcrumbPatterns.careers)
+            generateBreadcrumbSchema(breadcrumbPatterns.careers),
           ),
         }}
       />
@@ -144,11 +144,14 @@ export default function CareersPage() {
           {/* Content - Bottom Right */}
           <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
             <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+              <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
+                Enlist → Careers
+              </span>
               <span className="block text-brand-secondary">
                 Occupation Specialties
               </span>
               <span className="block text-brand-primary">
-                Your Future Starts Here
+                Build Your Future with a Veteran-Owned Team That Values Loyalty
               </span>
               <span className="block text-white/90">
                 Building careers for the employee,{" "}
@@ -322,18 +325,18 @@ export default function CareersPage() {
 
                 {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  Your{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    well-being and success matter here
+                    Build your future with a veteran-owned team that values
+                    loyalty
                   </span>
-                  . We offer competitive pay plus comprehensive benefits because
-                  we know you're building a life, not just a career. From health
-                  coverage to{" "}
+                  . Your well-being and success matter here—we offer competitive
+                  pay plus comprehensive benefits because we know you're
+                  building a life, not just a career. From health coverage to{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
                     professional development, retirement planning to performance
                     bonuses
                   </span>
-                  —we invest in your total success.
+                  —we invest in your total success as part of our mission.
                 </p>
               </div>
 
@@ -440,7 +443,7 @@ export default function CareersPage() {
                         key={index}
                         className={getCardClassName(
                           "default",
-                          "bg-white dark:bg-gray-800"
+                          "bg-white dark:bg-gray-800",
                         )}
                       >
                         <CardContent className="p-6">

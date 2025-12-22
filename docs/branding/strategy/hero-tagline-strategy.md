@@ -113,8 +113,12 @@ through authentic service-earned messaging, tactical terminology, and veteran-fr
 
 ### Homepage
 
+**Dual Naming:** "Base HQ → Home"
+
 **Tagline:** "Veteran-Owned Excellence | Mission-Focused Execution | Proven Craftsmanship |
 Building Projects for the Client, NOT the Dollar"
+
+**Mantra:** "Your Tri-Cities Construction Command Center"
 
 **Military Terminology:** Mission-focused execution  
 **Construction Terminology:** Proven craftsmanship, building projects  
@@ -139,7 +143,11 @@ operational discipline while construction expertise demonstrates technical capab
 
 ### About Page
 
+**Dual Naming:** "Our Oath → About Us"
+
 **Tagline:** "Battle-Tested Excellence Through Service-Earned Experience"
+
+**Mantra:** "Service-Earned Values, Construction Excellence"
 
 **Military Terminology:** Battle-tested, service-earned  
 **Construction Terminology:** Excellence, experience  
@@ -162,7 +170,11 @@ excellence demonstrates technical capability.
 
 ### Services Page
 
+**Dual Naming:** "Operations → Services"
+
 **Tagline:** "Your Construction Mission Deserves Veteran-Led Expert Oversight"
+
+**Mantra:** "The Battle Plan - Strategic Construction Excellence from Concept to Completion"
 
 **Military Terminology:** Mission, veteran-led  
 **Construction Terminology:** Construction, expert oversight  
@@ -185,7 +197,11 @@ demonstrates technical capability.
 
 ### Projects Page
 
+**Dual Naming:** "After-Action Reports → Our Work"
+
 **Tagline:** "650+ Construction Missions Completed - Proven Results, Trusted Partnerships"
+
+**Mantra:** "Mission Success: 650+ Completed Projects, Countless Lasting Relationships"
 
 **Military Terminology:** Missions completed  
 **Construction Terminology:** Construction, proven results  
@@ -209,7 +225,11 @@ technical excellence. 650+ missions = substantial track record.
 
 ### Team Page
 
+**Dual Naming:** "Command Roster → Meet The Team"
+
 **Tagline:** "All-Branch Veteran Leadership You Can Trust"
+
+**Mantra:** "150+ Years Combined Military-Grade Expertise at Your Service"
 
 **Military Terminology:** All-branch veteran leadership  
 **Construction Terminology:** Trust, reliability  
@@ -232,7 +252,11 @@ every service member's background.
 
 ### Careers Page
 
+**Dual Naming:** "Enlistment → Join The Team"
+
 **Tagline:** "Join the Mission - Your Construction Career Starts Here"
+
+**Mantra:** "Build More Than Projects - Build Your Future with a Veteran-Owned Team"
 
 **Military Terminology:** Join the mission  
 **Construction Terminology:** Construction career  
@@ -256,7 +280,11 @@ while construction career emphasizes industry expertise development.
 
 ### Veterans/Community Page
 
+**Dual Naming:** "Service First → Veterans"
+
 **Tagline:** "Honoring Those Who Served - All Branches, All Values"
+
+**Mantra:** "Supporting Those Who Served - One Community, One Mission"
 
 **Military Terminology:** All branches, service  
 **Construction Terminology:** Community support, veteran outreach  
@@ -274,6 +302,169 @@ while construction career emphasizes industry expertise development.
 Veteran community pages demonstrate authentic commitment to all-branch service recognition
 and community support. Comprehensive military branch recognition shows genuine respect
 for every service member's background.
+
+---
+
+### Contact/Booking Page
+
+**Dual Naming:** "Rally Point → Contact"
+
+**Tagline:** "Schedule Your Free Mission Brief - Start With SITREP-Level Clarity"
+
+**Mantra:** "Your Project. Our Expertise. Let's Connect."
+
+**Military Terminology:** Mission brief, SITREP-level  
+**Construction Terminology:** Project consultation, free estimate  
+**Communication Focus:** Transparent, no-obligation consultation
+
+**Strategy:**
+
+- **NEW:** Military operations terminology ("Mission Brief") makes consultation familiar to veteran clients
+- **NEW:** "SITREP-Level Clarity" emphasizes tactical transparency from first contact
+- Removes booking hesitation with no-pressure, reconnaissance-focused language
+- Professional tone appropriate for initial contact page
+- Balances military communication style with construction consultation
+
+**Context:**
+Contact page visitors need reassurance about consultation process. Military terminology
+reduces anxiety by framing as reconnaissance mission rather than sales pressure.
+SITREP-level clarity promises transparent communication from day one.
+
+---
+
+### Testimonials/Reviews Page
+
+**Dual Naming:** "Commendations → Reviews"
+
+**Tagline:** "After-Action Reports from Real Client Missions"
+
+**Mantra:** "Verified Success Stories from Completed Missions"
+
+**Military Terminology:** After-action reports, missions  
+**Construction Terminology:** Client feedback, project outcomes  
+**Credibility Focus:** Authentic client experiences
+
+**Strategy:**
+
+- **NEW:** "After-Action Reports" frames testimonials as post-mission debriefs
+- **NEW:** Military terminology honors veteran-led project execution
+- Emphasizes real client experiences from completed construction missions
+- Professional tone establishes credibility and trust
+- Balances service heritage with construction outcomes
+
+**Context:**
+Testimonial page visitors evaluate past client satisfaction and project success.
+Military terminology ("after-action reports") shows disciplined project follow-up
+while construction results demonstrate technical excellence.
+
+---
+
+### Urgent/Emergency Page
+
+**Dual Naming:** "Rapid Response → Emergency"
+
+**Tagline:** "Rapid Response When Your Construction Mission Is Critical"
+
+**Mantra:** "24/7 Emergency Construction Response - Mission-Ready Support"
+
+**Military Terminology:** Rapid response, mission-critical  
+**Construction Terminology:** Emergency services, construction support  
+**Urgency Focus:** Immediate deployment capability
+
+**Strategy:**
+
+- **NEW:** "Rapid Response" communicates tactical speed and emergency readiness
+- **NEW:** "Mission-Critical" elevates urgency without creating panic
+- Emphasizes veteran-led reliability in emergency situations
+- Confident tone appropriate for crisis support page
+- Balances military urgency with construction emergency expertise
+
+**Context:**
+Emergency page visitors need immediate confidence in rapid deployment capability.
+Military terminology shows operational discipline and tactical speed while
+construction expertise demonstrates technical emergency response capability.
+
+---
+
+### Public Sector/Government Page
+
+**Dual Naming:** "Public Sector → Government"
+
+**Tagline:** "Mission-Ready Construction Operations - Federal Compliance-Driven"
+
+**Mantra:** "Veteran-Owned Excellence for Government Construction Missions"
+
+**Military Terminology:** Mission-ready operations  
+**Construction Terminology:** Federal compliance, government contracting  
+**Government Focus:** Regulatory expertise, veteran-owned business advantages
+
+**Strategy:**
+
+- **NEW:** "Mission-Ready Operations" speaks directly to government procurement officers
+- **NEW:** "Federal Compliance-Driven" emphasizes regulatory expertise and certifications
+- Positions veteran-owned business advantages for government contracts
+- Professional tone appropriate for B2G (Business-to-Government) marketing
+- Balances military operations discipline with federal construction compliance
+
+**Context:**
+Government contracting page visitors evaluate federal project readiness and
+veteran-owned business qualifications. Military terminology shows operational
+discipline while compliance focus demonstrates regulatory expertise for
+public sector construction missions.
+
+---
+
+### Allies/Trade Partners Page
+
+**Dual Naming:** "Allies → Partners"
+
+**Tagline:** "Vetted Vendor Partnerships - Building Success Through Trusted Alliances"
+
+**Mantra:** "Strategic Partnerships Built on Trust, Performance, and Mutual Success"
+
+**Military Terminology:** Vetted vendor, trusted alliances, mission-approved  
+**Construction Terminology:** Trade partnerships, building success, vendor collaboration  
+**Partnership Focus:** B2B relationships, mutual growth, THE ROI IS THE RELATIONSHIP
+
+**Strategy:**
+
+- **NEW:** "Vetted Vendor" applies military screening standards to trade partner selection
+- **NEW:** "Trusted Alliances" honors long-term B2B relationship commitment
+- Emphasizes THE ROI IS THE RELATIONSHIP philosophy for vendor partnerships
+- Professional, collaborative tone appropriate for B2B marketing
+- Balances military vetting standards with construction trade collaboration
+
+**Context:**
+Trade partner page visitors evaluate vendor relationship quality and partnership
+benefits. Military terminology ("vetted vendor") shows rigorous partner selection
+while construction collaboration demonstrates mutual success focus.
+
+---
+
+### FAQ/Information Page
+
+**Dual Naming:** "Intel Brief → FAQ"
+
+**Tagline:** "Mission Intelligence - Your Construction Questions Answered"
+
+**Mantra:** "Direct Answers. Clear Guidance. Mission-Ready Information."
+
+**Military Terminology:** Mission intelligence, intel brief  
+**Construction Terminology:** Project guidance, construction FAQs  
+**Information Focus:** Clear, direct answers
+
+**Strategy:**
+
+- **NEW:** "Mission Intelligence" frames FAQs as tactical briefing information
+- **NEW:** Military terminology makes information feel strategic rather than generic
+- Emphasizes clear, mission-focused answers without sales pressure
+- Professional tone appropriate for information-seeking visitors
+- Balances military briefing style with construction project guidance
+
+**Context:**
+FAQ page visitors need straightforward answers to project questions. Military
+terminology ("intel brief") shows organized, tactical information delivery while
+construction expertise demonstrates technical knowledge and guidance.
 
 ---
 
