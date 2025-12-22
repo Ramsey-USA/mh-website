@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import StructuredData from "@/components/seo/StructuredData";
+import { StructuredData } from "@/components/seo/seo-meta";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,

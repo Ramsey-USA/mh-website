@@ -15,7 +15,7 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { NextStepsSection } from "@/components/shared-sections";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { getVeteransSEO } from "@/lib/seo/page-seo-utils";
-import StructuredData from "@/components/seo/StructuredData";
+import { StructuredData } from "@/components/seo/seo-meta";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,

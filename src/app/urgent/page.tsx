@@ -10,7 +10,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { getUrgentSEO } from "@/lib/seo/page-seo-utils";
-import StructuredData from "@/components/seo/StructuredData";
+import { StructuredData } from "@/components/seo/seo-meta";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,

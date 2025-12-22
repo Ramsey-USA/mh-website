@@ -1,6 +1,6 @@
 import { type Metadata } from "next";
 import ContactPageClient from "./ContactPageClient";
-import StructuredData from "@/components/seo/StructuredData";
+import { StructuredData } from "@/components/seo/seo-meta";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,

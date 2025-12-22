@@ -19,7 +19,7 @@ import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import Head from "next/head";
 import { getGovernmentSEO } from "@/lib/seo/page-seo-utils";
 import { InteractiveGrantSelector } from "./InteractiveGrantSelector";
-import StructuredData from "@/components/seo/StructuredData";
+import { StructuredData } from "@/components/seo/seo-meta";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
