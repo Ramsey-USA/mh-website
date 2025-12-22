@@ -620,25 +620,53 @@ export default function Footer() {
             </h3>
           </div>
           <div className="flex flex-wrap justify-center gap-2 xs:gap-3">
-            {[
-              "Pasco",
-              "Kennewick",
-              "Richland",
-              "West Richland",
-              "Spokane",
-              "Yakima",
-              "Walla Walla",
-              "Eastern Washington",
-              "Eastern Oregon",
-              "Southern Idaho",
-            ].map((city) => (
-              <span
-                key={city}
-                className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium"
-              >
-                {city}
-              </span>
-            ))}
+            {/* Cities with location pages - linked */}
+            <Link
+              href="/locations/pasco"
+              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/30 dark:hover:bg-brand-primary/30 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 hover:border-brand-primary font-medium"
+            >
+              Pasco
+            </Link>
+            <Link
+              href="/locations/kennewick"
+              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/30 dark:hover:bg-brand-primary/30 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 hover:border-brand-primary font-medium"
+            >
+              Kennewick
+            </Link>
+            <Link
+              href="/locations/richland"
+              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/30 dark:hover:bg-brand-primary/30 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 hover:border-brand-primary font-medium"
+            >
+              Richland
+            </Link>
+            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
+              West Richland
+            </span>
+            <Link
+              href="/locations/spokane"
+              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/30 dark:hover:bg-brand-primary/30 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 hover:border-brand-primary font-medium"
+            >
+              Spokane
+            </Link>
+            <Link
+              href="/locations/yakima"
+              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/30 dark:hover:bg-brand-primary/30 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 hover:border-brand-primary font-medium"
+            >
+              Yakima
+            </Link>
+            {/* Cities without location pages - remain as badges */}
+            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
+              Walla Walla
+            </span>
+            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
+              Eastern Washington
+            </span>
+            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
+              Eastern Oregon
+            </span>
+            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
+              Southern Idaho
+            </span>
           </div>
         </div>
 
