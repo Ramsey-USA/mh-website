@@ -4,6 +4,10 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { enhancedSEO } from "@/components/seo/enhanced-seo";
 import { type Metadata } from "next";
+import {
+  generateBreadcrumbSchema,
+  breadcrumbPatterns,
+} from "@/lib/seo/breadcrumb-schema";
 
 // SEO Metadata for Richland location page
 export const metadata: Metadata = {
@@ -108,6 +112,9 @@ export default function RichlandLocationPage() {
   return (
     <>
       <StructuredData data={richlandSchema} />
+      <StructuredData
+        data={generateBreadcrumbSchema(breadcrumbPatterns.locationRichland)}
+      />
 
       <main className="min-h-screen">
         {/* Hero Section - Location Specific */}

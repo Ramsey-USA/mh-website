@@ -21,6 +21,11 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { getCardClassName } from "@/lib/styles/card-variants";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
+import StructuredData from "@/components/seo/StructuredData";
+import {
+  generateBreadcrumbSchema,
+  breadcrumbPatterns,
+} from "@/lib/seo/breadcrumb-schema";
 
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = false;
@@ -264,6 +269,9 @@ export default function AlliesPage() {
 
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
+      <StructuredData
+        data={generateBreadcrumbSchema(breadcrumbPatterns.allies)}
+      />
       {/* Enhanced SEO Meta Tags */}
       <Head>
         <title>{tradePartnersSEOData.title as string}</title>

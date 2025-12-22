@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import StructuredData from "@/components/seo/StructuredData";
+import {
+  generateBreadcrumbSchema,
+  breadcrumbPatterns,
+} from "@/lib/seo/breadcrumb-schema";
 
 export const metadata: Metadata = {
   title: "Terms of Service | MH Construction, Inc.",
@@ -27,6 +32,9 @@ export const metadata: Metadata = {
 export default function TermsOfServicePage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-black">
+      <StructuredData
+        data={generateBreadcrumbSchema(breadcrumbPatterns.terms)}
+      />
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl py-12 sm:py-16 lg:py-20">
         {/* Header */}
         <div className="mb-8 sm:mb-12">

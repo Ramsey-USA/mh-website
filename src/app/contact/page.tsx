@@ -1,5 +1,10 @@
 import { type Metadata } from "next";
 import ContactPageClient from "./ContactPageClient";
+import StructuredData from "@/components/seo/StructuredData";
+import {
+  generateBreadcrumbSchema,
+  breadcrumbPatterns,
+} from "@/lib/seo/breadcrumb-schema";
 
 export const metadata: Metadata = {
   title:
@@ -34,5 +39,12 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <ContactPageClient />;
+  return (
+    <>
+      <StructuredData
+        data={generateBreadcrumbSchema(breadcrumbPatterns.contact)}
+      />
+      <ContactPageClient />
+    </>
+  );
 }

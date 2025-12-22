@@ -74,5 +74,60 @@ export const breadcrumbPatterns = {
     { name: "Home", url: "https://www.mhc-gc.com" },
     { name: "Urgent Support", url: "https://www.mhc-gc.com/urgent" },
   ],
+  veterans: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Veterans", url: "https://www.mhc-gc.com/veterans" },
+  ],
+  faq: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "FAQ", url: "https://www.mhc-gc.com/faq" },
+  ],
+  accessibility: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Accessibility", url: "https://www.mhc-gc.com/accessibility" },
+  ],
+  privacy: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Privacy Policy", url: "https://www.mhc-gc.com/privacy" },
+  ],
+  terms: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    {
+      name: "Terms of Service",
+      url: "https://www.mhc-gc.com/terms",
+    },
+  ],
+  // Location pages
+  locationRichland: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    {
+      name: "Richland, WA",
+      url: "https://www.mhc-gc.com/locations/richland",
+    },
+  ],
+  locationKennewick: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    {
+      name: "Kennewick, WA",
+      url: "https://www.mhc-gc.com/locations/kennewick",
+    },
+  ],
+  locationPasco: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    { name: "Pasco, WA", url: "https://www.mhc-gc.com/locations/pasco" },
+  ],
+  locationYakima: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    { name: "Yakima, WA", url: "https://www.mhc-gc.com/locations/yakima" },
+  ],
+  locationSpokane: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    { name: "Spokane, WA", url: "https://www.mhc-gc.com/locations/spokane" },
+  ],
   // Removed: 3dExplorer breadcrumb (feature deprecated)
 };

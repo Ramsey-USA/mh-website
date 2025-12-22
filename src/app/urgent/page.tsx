@@ -10,6 +10,11 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { getUrgentSEO } from "@/lib/seo/page-seo-utils";
+import StructuredData from "@/components/seo/StructuredData";
+import {
+  generateBreadcrumbSchema,
+  breadcrumbPatterns,
+} from "@/lib/seo/breadcrumb-schema";
 
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = false;
@@ -47,10 +52,6 @@ export const metadata: Metadata = {
   },
 };
 
-/**
- * Urgent Construction Support Page
- * Professional support for General Contractors facing critical construction challenges
- */
 export default function UrgentSupportPage() {
   // Show under construction notice while preserving all content below
   if (SHOW_UNDER_CONSTRUCTION) {
@@ -149,6 +150,9 @@ export default function UrgentSupportPage() {
 
   return (
     <>
+      <StructuredData
+        data={generateBreadcrumbSchema(breadcrumbPatterns.urgent)}
+      />
       {/* Hero Section - Brand Standards */}
       <section className="relative bg-gradient-to-br from-gray-900 via-orange-700 to-red-800 h-screen flex items-end justify-end text-white overflow-hidden">
         {/* Background Elements */}
