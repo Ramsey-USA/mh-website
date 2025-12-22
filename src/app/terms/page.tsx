@@ -5,10 +5,22 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 export const metadata: Metadata = {
   title: "Terms of Service | MH Construction, Inc.",
   description:
-    "Read our terms of service and understand the legal agreement between you and MH Construction, Inc.",
+    "Read our terms of service and understand the legal agreement between you and MH Construction, Inc. User rights, responsibilities, and legal compliance.",
+  alternates: {
+    canonical: "https://www.mhc-gc.com/terms",
+  },
   openGraph: {
     title: "Terms of Service | MH Construction, Inc.",
-    description: "Our terms of service and legal agreements.",
+    description:
+      "Our terms of service and legal agreements. Understand your rights and responsibilities when using our website.",
+    url: "https://www.mhc-gc.com/terms",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Terms of Service | MH Construction, Inc.",
+    description:
+      "Our terms of service and legal agreements. User rights and responsibilities.",
   },
 };
 

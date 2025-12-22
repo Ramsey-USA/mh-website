@@ -5,10 +5,22 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 export const metadata: Metadata = {
   title: "Privacy Policy | MH Construction, Inc.",
   description:
-    "Learn how MH Construction protects your privacy and handles your personal information. Our commitment to data security and transparency.",
+    "Learn how MH Construction protects your privacy and handles your personal information. Our commitment to data security, transparency, and GDPR compliance.",
+  alternates: {
+    canonical: "https://www.mhc-gc.com/privacy",
+  },
   openGraph: {
     title: "Privacy Policy | MH Construction, Inc.",
-    description: "Our privacy policy and data protection practices.",
+    description:
+      "Our privacy policy and data protection practices. Learn how we handle your information securely.",
+    url: "https://www.mhc-gc.com/privacy",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Privacy Policy | MH Construction, Inc.",
+    description:
+      "Our commitment to data security, transparency, and protecting your privacy.",
   },
 };
 

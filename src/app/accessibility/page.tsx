@@ -5,10 +5,22 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 export const metadata: Metadata = {
   title: "Accessibility Statement | MH Construction, Inc.",
   description:
-    "Our commitment to web accessibility and ensuring our website is usable by everyone, including people with disabilities.",
+    "Our commitment to web accessibility and ensuring our website is usable by everyone, including people with disabilities. WCAG 2.1 Level AA compliant.",
+  alternates: {
+    canonical: "https://www.mhc-gc.com/accessibility",
+  },
   openGraph: {
     title: "Accessibility Statement | MH Construction, Inc.",
-    description: "Our commitment to digital accessibility for all users.",
+    description:
+      "Our commitment to digital accessibility for all users. Learn about our WCAG compliance and accessibility features.",
+    url: "https://www.mhc-gc.com/accessibility",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Accessibility Statement | MH Construction, Inc.",
+    description:
+      "Our commitment to digital accessibility for all users. WCAG 2.1 Level AA compliant.",
   },
 };
 

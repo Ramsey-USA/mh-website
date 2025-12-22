@@ -31,6 +31,11 @@ const ACTIVE_PAGES = [
   { path: "/team", priority: 0.7, changeFreq: "monthly" as const },
   { path: "/careers", priority: 0.7, changeFreq: "weekly" as const },
   { path: "/allies", priority: 0.7, changeFreq: "monthly" as const },
+
+  // Priority 0.5 - Legal & informational pages
+  { path: "/accessibility", priority: 0.5, changeFreq: "yearly" as const },
+  { path: "/privacy", priority: 0.5, changeFreq: "yearly" as const },
+  { path: "/terms", priority: 0.5, changeFreq: "yearly" as const },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
