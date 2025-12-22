@@ -42,9 +42,23 @@ export const metadata: Metadata = {
     description:
       "Join our veteran-led construction team in the Tri-Cities. Competitive benefits and professional growth opportunities available.",
     type: "website",
+    locale: "en_US",
     url: "https://www.mhc-gc.com/careers",
+    siteName: "MH Construction",
+  },
+  twitter: {
+    card: "summary",
+    site: "@mhc_gc",
+    creator: "@mhc_gc",
+    title: "Careers at MH Construction",
+    description:
+      "Join our veteran-led team. Competitive benefits and professional growth in the Tri-Cities construction industry.",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/careers",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };

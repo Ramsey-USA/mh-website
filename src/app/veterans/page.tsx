@@ -33,9 +33,22 @@ export const metadata: Metadata = {
     description: veteransSEOData.openGraph?.description as string,
     type: "website",
     locale: "en_US",
+    url: "https://www.mhc-gc.com/veterans",
+    siteName: "MH Construction",
+  },
+  twitter: {
+    card: "summary",
+    site: "@mhc_gc",
+    creator: "@mhc_gc",
+    title: veteransSEOData.openGraph?.title as string,
+    description: veteransSEOData.openGraph?.description as string,
   },
   alternates: {
-    canonical: "/veterans",
+    canonical: "https://www.mhc-gc.com/veterans",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -163,7 +176,7 @@ export default function VeteransPage() {
             <Card
               className={getCardClassName(
                 "default",
-                "border-l-4 border-l-brand-primary text-center max-w-3xl mx-auto"
+                "border-l-4 border-l-brand-primary text-center max-w-3xl mx-auto",
               )}
             >
               <CardHeader>
@@ -415,7 +428,7 @@ export default function VeteransPage() {
             <Card
               className={getCardClassName(
                 "default",
-                "border-l-4 border-l-brand-primary"
+                "border-l-4 border-l-brand-primary",
               )}
             >
               <CardContent className="pt-6">
@@ -478,7 +491,7 @@ export default function VeteransPage() {
             <Card
               className={getCardClassName(
                 "default",
-                "border-l-4 border-l-brand-secondary"
+                "border-l-4 border-l-brand-secondary",
               )}
             >
               <CardContent className="pt-6">
@@ -544,7 +557,7 @@ export default function VeteransPage() {
             <Card
               className={getCardClassName(
                 "default",
-                "border-l-4 border-l-brand-secondary max-w-3xl mx-auto text-center"
+                "border-l-4 border-l-brand-secondary max-w-3xl mx-auto text-center",
               )}
             >
               <CardHeader>
@@ -883,7 +896,7 @@ export default function VeteransPage() {
               <Card
                 className={getCardClassName(
                   "default",
-                  "border-t-4 border-t-purple-500"
+                  "border-t-4 border-t-purple-500",
                 )}
               >
                 <CardHeader>
@@ -985,7 +998,7 @@ export default function VeteransPage() {
               <Card
                 className={getCardClassName(
                   "default",
-                  "border-t-4 border-t-yellow-500"
+                  "border-t-4 border-t-yellow-500",
                 )}
               >
                 <CardHeader>
@@ -1072,7 +1085,7 @@ export default function VeteransPage() {
               <Card
                 className={getCardClassName(
                   "default",
-                  "border-t-4 border-t-gray-400"
+                  "border-t-4 border-t-gray-400",
                 )}
               >
                 <CardHeader>
@@ -1143,7 +1156,7 @@ export default function VeteransPage() {
               <Card
                 className={getCardClassName(
                   "default",
-                  "border-t-4 border-t-orange-600"
+                  "border-t-4 border-t-orange-600",
                 )}
               >
                 <CardHeader>
@@ -1211,7 +1224,7 @@ export default function VeteransPage() {
               <Card
                 className={getCardClassName(
                   "default",
-                  "max-w-4xl mx-auto bg-brand-light dark:bg-gray-800"
+                  "max-w-4xl mx-auto bg-brand-light dark:bg-gray-800",
                 )}
               >
                 <CardHeader>
@@ -1263,7 +1276,7 @@ export default function VeteransPage() {
               <Card
                 className={getCardClassName(
                   "default",
-                  "max-w-5xl mx-auto bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10"
+                  "max-w-5xl mx-auto bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10",
                 )}
               >
                 <CardHeader>

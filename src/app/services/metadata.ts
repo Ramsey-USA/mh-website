@@ -45,10 +45,12 @@ export const metadata: Metadata = {
     description:
       "Full-service construction management for commercial, industrial, medical, religious, and government facilities. Veteran-owned excellence. Your Vision, Our Precision. Serving the Pacific Northwest.",
     type: "website",
+    locale: "en_US",
     url: "https://www.mhc-gc.com/services",
+    siteName: "MH Construction",
     images: [
       {
-        url: "https://www.mhc-gc.com/images/og/services-og.jpg",
+        url: "https://www.mhc-gc.com/images/logo/mh-logo.png",
         width: 1200,
         height: 630,
         alt: "MH Construction Services - Commercial, Industrial & Medical Facilities",
@@ -57,12 +59,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@mhc_gc",
+    creator: "@mhc_gc",
     title: "Construction Management Services - MH Construction",
     description:
       "Veteran-owned construction excellence. Commercial, industrial, medical & government projects. Tri-Cities, WA.",
-    images: ["https://www.mhc-gc.com/images/og/services-og.jpg"],
+    images: ["https://www.mhc-gc.com/images/logo/mh-logo.png"],
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/services",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };

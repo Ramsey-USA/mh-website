@@ -28,9 +28,22 @@ export const metadata: Metadata = {
     description: urgentSEOData.openGraph?.description as string,
     type: "website",
     locale: "en_US",
+    url: "https://www.mhc-gc.com/urgent",
+    siteName: "MH Construction",
+  },
+  twitter: {
+    card: "summary",
+    site: "@mhc_gc",
+    creator: "@mhc_gc",
+    title: urgentSEOData.openGraph?.title as string,
+    description: urgentSEOData.openGraph?.description as string,
   },
   alternates: {
-    canonical: "/urgent",
+    canonical: "https://www.mhc-gc.com/urgent",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

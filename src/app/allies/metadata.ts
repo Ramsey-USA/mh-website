@@ -26,9 +26,23 @@ export const metadata: Metadata = {
     description:
       "Join our network of qualified allies and subcontractors. Veteran-owned company seeking collaborative partnerships.",
     type: "website",
+    locale: "en_US",
     url: "https://www.mhc-gc.com/allies",
+    siteName: "MH Construction",
+  },
+  twitter: {
+    card: "summary",
+    site: "@mhc_gc",
+    creator: "@mhc_gc",
+    title: "Allies & Partners - MH Construction",
+    description:
+      "Join our network of subcontractors and trade partners. Collaborative partnerships with veteran-owned excellence.",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/allies",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };

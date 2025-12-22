@@ -25,9 +25,23 @@ export const metadata: Metadata = {
     description:
       "Get in touch for a free consultation. Serving the Tri-Cities with veteran-owned construction excellence. Call (509) 308-6489.",
     type: "website",
+    locale: "en_US",
     url: "https://www.mhc-gc.com/contact",
+    siteName: "MH Construction",
+  },
+  twitter: {
+    card: "summary",
+    site: "@mhc_gc",
+    creator: "@mhc_gc",
+    title: "Contact MH Construction - Free Consultation",
+    description:
+      "Veteran-owned construction excellence. Call (509) 308-6489 for free consultation. Tri-Cities, WA.",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/contact",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };

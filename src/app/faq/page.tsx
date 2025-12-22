@@ -45,9 +45,19 @@ export const metadata: Metadata = {
       "Get answers about our veteran-owned construction services, partnership approach, safety excellence, and consultation process. Building projects for the client, NOT the dollar.",
     type: "website",
     locale: "en_US",
+    url: "https://www.mhc-gc.com/faq",
+    siteName: "MH Construction",
+  },
+  twitter: {
+    card: "summary",
+    site: "@mhc_gc",
+    creator: "@mhc_gc",
+    title: "FAQ - Construction Questions Answered | MH Construction",
+    description:
+      "Answers about veteran-owned construction services, safety record (0.64 EMR), and partnership approach. Tri-Cities, WA.",
   },
   alternates: {
-    canonical: "/faq",
+    canonical: "https://www.mhc-gc.com/faq",
   },
 };
 
@@ -340,7 +350,7 @@ export default function FAQPage() {
           "@type": "Answer",
           text: q.answer,
         },
-      }))
+      })),
     ),
   };
 
@@ -354,7 +364,7 @@ export default function FAQPage() {
             generateBreadcrumbSchema([
               ...breadcrumbPatterns.services,
               { name: "FAQ", url: "https://www.mhc-gc.com/faq" },
-            ])
+            ]),
           ),
         }}
       />
@@ -391,7 +401,7 @@ export default function FAQPage() {
                   text: "Final inspection, punch list completion, warranty documentation, and ongoing support",
                 },
               ],
-            })
+            }),
           ),
         }}
       />

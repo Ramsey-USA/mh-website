@@ -26,9 +26,23 @@ export const metadata: Metadata = {
     description:
       "Veteran-owned construction services for public sector and government projects. Experienced with compliance and military precision.",
     type: "website",
+    locale: "en_US",
     url: "https://www.mhc-gc.com/public-sector",
+    siteName: "MH Construction",
+  },
+  twitter: {
+    card: "summary",
+    site: "@mhc_gc",
+    creator: "@mhc_gc",
+    title: "Public Sector Construction - MH Construction",
+    description:
+      "Veteran-owned federal contractor. Government construction services with compliance expertise and military precision.",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/public-sector",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };

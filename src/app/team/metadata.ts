@@ -27,9 +27,23 @@ export const metadata: Metadata = {
     description:
       "Meet our experienced team of construction professionals led by Army veteran leadership. Military precision in every project.",
     type: "website",
+    locale: "en_US",
     url: "https://www.mhc-gc.com/team",
+    siteName: "MH Construction",
+  },
+  twitter: {
+    card: "summary",
+    site: "@mhc_gc",
+    creator: "@mhc_gc",
+    title: "Our Veteran-Led Team - MH Construction",
+    description:
+      "Experienced construction professionals with Army veteran leadership. Military precision meets collaborative excellence.",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/team",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };

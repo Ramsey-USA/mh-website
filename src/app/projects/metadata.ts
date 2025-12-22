@@ -26,9 +26,23 @@ export const metadata: Metadata = {
     description:
       "View our completed commercial, industrial, and medical facility projects. Veteran-owned excellence in action.",
     type: "website",
+    locale: "en_US",
     url: "https://www.mhc-gc.com/projects",
+    siteName: "MH Construction",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@mhc_gc",
+    creator: "@mhc_gc",
+    title: "Project Portfolio - MH Construction",
+    description:
+      "Completed commercial, industrial, and medical facility projects. Veteran-owned excellence in the Pacific Northwest.",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/projects",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
