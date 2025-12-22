@@ -6,7 +6,102 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-gray-800 dark:from-black via-gray-900 dark:via-gray-900 to-black dark:to-black pt-6 xs:pt-8 sm:pt-10 pb-4 border-t border-brand-primary/20 text-gray-300 touch-manipulation">
+    <footer
+      className="bg-gradient-to-br from-gray-800 dark:from-black via-gray-900 dark:via-gray-900 to-black dark:to-black pt-6 xs:pt-8 sm:pt-10 pb-4 border-t border-brand-primary/20 text-gray-300 touch-manipulation"
+      itemScope
+      itemType="https://schema.org/Organization"
+    >
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "GeneralContractor",
+            name: "MH Construction, Inc.",
+            description:
+              "Veteran-owned general contractor serving the Pacific Northwest with commercial and residential construction services",
+            url: "https://mhc-gc.com",
+            logo: "https://mhc-gc.com/images/logo/mh-logo-dark-bg.png",
+            image: "https://mhc-gc.com/images/logo/mh-logo-dark-bg.png",
+            telephone: "+1-509-308-6489",
+            email: "office@mhc-gc.com",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "3111 N Capitol Ave",
+              addressLocality: "Pasco",
+              addressRegion: "WA",
+              postalCode: "99301",
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: "46.2396",
+              longitude: "-119.1006",
+            },
+            areaServed: [
+              {
+                "@type": "City",
+                name: "Pasco",
+                address: { "@type": "PostalAddress", addressRegion: "WA" },
+              },
+              {
+                "@type": "City",
+                name: "Kennewick",
+                address: { "@type": "PostalAddress", addressRegion: "WA" },
+              },
+              {
+                "@type": "City",
+                name: "Richland",
+                address: { "@type": "PostalAddress", addressRegion: "WA" },
+              },
+              {
+                "@type": "State",
+                name: "Washington",
+              },
+              {
+                "@type": "State",
+                name: "Oregon",
+              },
+              {
+                "@type": "State",
+                name: "Idaho",
+              },
+            ],
+            sameAs: [
+              "https://www.facebook.com/profile.php?id=61575511773974",
+              "https://www.instagram.com/mh_construction_inc/",
+              "https://x.com/mhc_gc",
+              "https://youtube.com/@mhc-gc",
+              "https://www.linkedin.com/company/mh-construction-general-contractor/",
+            ],
+            foundingDate: "2010",
+            slogan: "Built with Precision, Driven by Honor",
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "5",
+              bestRating: "5",
+              worstRating: "1",
+            },
+            priceRange: "$$",
+            paymentAccepted: "Cash, Credit Card, Check, Financing",
+            openingHoursSpecification: [
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                ],
+                opens: "08:00",
+                closes: "17:00",
+              },
+            ],
+          }),
+        }}
+      />
       <div className="mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Main Footer Content */}
         <div className="gap-4 xs:gap-5 sm:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 pb-3">
@@ -14,26 +109,36 @@ export default function Footer() {
           <div className="space-y-3 xs:space-y-4 sm:col-span-2 lg:col-span-1">
             <div className="text-center sm:text-left lg:text-left">
               <div className="mb-4">
-                <Link href="/" className="inline-block">
+                <Link
+                  href="/"
+                  className="inline-block"
+                  aria-label="MH Construction Home"
+                >
                   <Image
                     src="/images/logo/mh-logo-dark-bg.png"
-                    alt="MH Construction Logo"
+                    alt="MH Construction Inc - Veteran-Owned General Contractor serving Pacific Northwest"
                     width={264}
                     height={132}
                     loading="lazy"
+                    itemProp="logo"
                     className="mx-auto sm:mx-0 lg:mx-0 w-[240px] xs:w-[270px] sm:w-[300px] h-auto drop-shadow-lg hover:drop-shadow-xl transition-all duration-300 cursor-pointer"
                   />
                 </Link>
               </div>
 
               {/* Social Media Links */}
-              <div className="flex items-center justify-center sm:justify-start gap-2 xs:gap-2.5 flex-wrap">
+              <nav
+                aria-label="Social media links"
+                className="flex items-center justify-center sm:justify-start gap-2 xs:gap-2.5 flex-wrap"
+              >
                 <a
                   href="https://www.facebook.com/profile.php?id=61575511773974"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700 hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0] p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#1877F2] rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#1877F2]/40"
+                  aria-label="Follow MH Construction on Facebook for project updates and partnership stories"
                   title="Follow our partnership stories on Facebook"
+                  itemProp="sameAs"
                 >
                   <MaterialIcon
                     icon="thumb_up"
@@ -46,7 +151,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700 hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#E4405F] rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#E4405F]/40"
+                  aria-label="View MH Construction project photos and reels on Instagram"
                   title="See partnership projects on Instagram"
+                  itemProp="sameAs"
                 >
                   <MaterialIcon
                     icon="photo_camera"
@@ -59,7 +166,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700 hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000] p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#1D9BF0] rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation shadow-md hover:shadow-black/40"
+                  aria-label="Follow MH Construction on X (formerly Twitter) for construction industry updates"
                   title="Follow partnership updates on X (Twitter)"
+                  itemProp="sameAs"
                 >
                   <MaterialIcon
                     icon="close"
@@ -72,7 +181,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700 hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000] p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#FF0000] rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#FF0000]/40"
+                  aria-label="Watch MH Construction project videos and success stories on YouTube"
                   title="Watch partnership success stories on YouTube"
+                  itemProp="sameAs"
                 >
                   <MaterialIcon
                     icon="play_circle"
@@ -85,7 +196,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700 hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#0A66C2] rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#0A66C2]/40"
+                  aria-label="Connect with MH Construction on LinkedIn for professional networking and industry insights"
                   title="Connect with our partnership team on LinkedIn"
+                  itemProp="sameAs"
                 >
                   <MaterialIcon
                     icon="work"
@@ -93,7 +206,7 @@ export default function Footer() {
                     className="text-gray-400 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.8)]"
                   />
                 </a>
-              </div>
+              </nav>
 
               {/* Google Review Card */}
               <a
@@ -101,6 +214,8 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation mt-4"
+                aria-label="Leave a 5-star Google review for MH Construction"
+                itemProp="review"
               >
                 <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
                   <MaterialIcon
@@ -134,18 +249,18 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Core Navigation */}
-          <div className="space-y-3 xs:space-y-4">
+          <nav className="space-y-3 xs:space-y-4" aria-label="Main navigation">
             <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
               <MaterialIcon
                 icon="explore"
                 size="sm"
                 className="text-brand-primary"
               />
-              <h4 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
+              <h3 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
                 Mission Execution
-              </h4>
+              </h3>
             </div>
-            <nav className="space-y-1.5 xs:space-y-2">
+            <div className="space-y-1.5 xs:space-y-2">
               <Link
                 href="/"
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
@@ -321,22 +436,25 @@ export default function Footer() {
                   className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
                 />
               </Link>
-            </nav>
-          </div>
+            </div>
+          </nav>
 
           {/* Column 3: Company & Partnerships */}
-          <div className="space-y-3 xs:space-y-4">
+          <nav
+            className="space-y-3 xs:space-y-4"
+            aria-label="Company information"
+          >
             <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
               <MaterialIcon
                 icon="people"
                 size="sm"
                 className="text-brand-primary"
               />
-              <h4 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
+              <h3 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
                 Our Forces
-              </h4>
+              </h3>
             </div>
-            <nav className="space-y-1.5 xs:space-y-2">
+            <div className="space-y-1.5 xs:space-y-2">
               <Link
                 href="/about"
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
@@ -512,27 +630,40 @@ export default function Footer() {
                   className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
                 />
               </Link>
-            </nav>
-          </div>
+            </div>
+          </nav>
 
           {/* Column 4: Social Media & Resources */}
-          <div className="space-y-3 xs:space-y-4">
+          <section
+            className="space-y-3 xs:space-y-4"
+            aria-labelledby="contact-heading"
+          >
             <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
               <MaterialIcon
                 icon="share"
                 size="sm"
                 className="text-brand-primary"
               />
-              <h4 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
+              <h3
+                id="contact-heading"
+                className="font-medium text-brand-primary text-xs uppercase tracking-wide"
+              >
                 Command Center
-              </h4>
+              </h3>
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-2 xs:space-y-3">
+            <div
+              className="space-y-2 xs:space-y-3"
+              itemProp="contactPoint"
+              itemScope
+              itemType="https://schema.org/ContactPoint"
+            >
               <a
                 href="tel:+15093086489"
                 className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation"
+                aria-label="Call MH Construction at 509-308-6489"
+                itemProp="telephone"
               >
                 <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
                   <MaterialIcon icon="call" size="md" className="text-white" />
@@ -555,6 +686,8 @@ export default function Footer() {
               <a
                 href="mailto:office@mhc-gc.com"
                 className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation"
+                aria-label="Email MH Construction at office@mhc-gc.com"
+                itemProp="email"
               >
                 <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
                   <MaterialIcon icon="mail" size="md" className="text-white" />
@@ -579,6 +712,10 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation"
+                aria-label="Get directions to MH Construction office at 3111 N Capitol Ave, Pasco, WA 99301"
+                itemProp="address"
+                itemScope
+                itemType="https://schema.org/PostalAddress"
               >
                 <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
                   <MaterialIcon icon="place" size="md" className="text-white" />
@@ -588,9 +725,11 @@ export default function Footer() {
                     Visit Us
                   </div>
                   <div className="text-gray-300 font-bold text-xs xs:text-sm group-hover:text-brand-primary transition-colors">
-                    3111 N. Capitol Ave.
+                    <span itemProp="streetAddress">3111 N. Capitol Ave.</span>
                     <br />
-                    Pasco, WA 99301
+                    <span itemProp="addressLocality">Pasco</span>,{" "}
+                    <span itemProp="addressRegion">WA</span>{" "}
+                    <span itemProp="postalCode">99301</span>
                   </div>
                 </div>
                 <MaterialIcon
@@ -694,52 +833,126 @@ export default function Footer() {
                 <div className="newsletter-feedback text-xs"></div>
               </form>
             </div>
-          </div>
+          </section>
         </div>
 
         {/* Service Areas - Full Width Row */}
-        <div className="py-3">
+        <section className="py-3" aria-labelledby="service-areas-heading">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <MaterialIcon icon="map" size="md" className="text-brand-primary" />
-            <h3 className="text-brand-primary font-semibold text-sm xs:text-base uppercase tracking-wide">
+            <h3
+              id="service-areas-heading"
+              className="text-brand-primary font-semibold text-sm xs:text-base uppercase tracking-wide"
+            >
               Proudly Serving the Pacific Northwest
             </h3>
           </div>
-          <div className="flex flex-wrap justify-center gap-2 xs:gap-3">
+          <div
+            className="flex flex-wrap justify-center gap-2 xs:gap-3"
+            role="list"
+            aria-label="Service area cities"
+          >
             {/* Cities with location pages - linked */}
-            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
-              Pasco
+            <Link
+              href="/locations/pasco"
+              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium"
+              role="listitem"
+              itemProp="areaServed"
+              itemScope
+              itemType="https://schema.org/City"
+            >
+              <span itemProp="name">Pasco</span>
+            </Link>
+            <Link
+              href="/locations/kennewick"
+              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium"
+              role="listitem"
+              itemProp="areaServed"
+              itemScope
+              itemType="https://schema.org/City"
+            >
+              <span itemProp="name">Kennewick</span>
+            </Link>
+            <Link
+              href="/locations/richland"
+              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium"
+              role="listitem"
+              itemProp="areaServed"
+              itemScope
+              itemType="https://schema.org/City"
+            >
+              <span itemProp="name">Richland</span>
+            </Link>
+            <Link
+              href="/locations/west-richland"
+              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium"
+              role="listitem"
+              itemProp="areaServed"
+              itemScope
+              itemType="https://schema.org/City"
+            >
+              <span itemProp="name">West Richland</span>
+            </Link>
+            <Link
+              href="/locations/spokane"
+              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium"
+              role="listitem"
+              itemProp="areaServed"
+              itemScope
+              itemType="https://schema.org/City"
+            >
+              <span itemProp="name">Spokane</span>
+            </Link>
+            <Link
+              href="/locations/yakima"
+              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium"
+              role="listitem"
+              itemProp="areaServed"
+              itemScope
+              itemType="https://schema.org/City"
+            >
+              <span itemProp="name">Yakima</span>
+            </Link>
+            <Link
+              href="/locations/walla-walla"
+              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium"
+              role="listitem"
+              itemProp="areaServed"
+              itemScope
+              itemType="https://schema.org/City"
+            >
+              <span itemProp="name">Walla Walla</span>
+            </Link>
+            {/* Regional areas without dedicated pages - remain as badges */}
+            <span
+              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium"
+              role="listitem"
+              itemProp="areaServed"
+              itemScope
+              itemType="https://schema.org/State"
+            >
+              <span itemProp="name">Eastern Washington</span>
             </span>
-            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
-              Kennewick
+            <span
+              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium"
+              role="listitem"
+              itemProp="areaServed"
+              itemScope
+              itemType="https://schema.org/State"
+            >
+              <span itemProp="name">Eastern Oregon</span>
             </span>
-            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
-              Richland
-            </span>
-            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
-              West Richland
-            </span>
-            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
-              Spokane
-            </span>
-            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
-              Yakima
-            </span>
-            {/* Cities without location pages - remain as badges */}
-            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
-              Walla Walla
-            </span>
-            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
-              Eastern Washington
-            </span>
-            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
-              Eastern Oregon
-            </span>
-            <span className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium">
-              Southern Idaho
+            <span
+              className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium"
+              role="listitem"
+              itemProp="areaServed"
+              itemScope
+              itemType="https://schema.org/State"
+            >
+              <span itemProp="name">Southern Idaho</span>
             </span>
           </div>
-        </div>
+        </section>
 
         {/* Clean Bottom Bar - Streamlined Design */}
         <div className="pt-6 pb-6 border-gray-700 dark:border-gray-600 border-t">
@@ -853,10 +1066,14 @@ export default function Footer() {
           </div>
 
           {/* Legal Links Row */}
-          <div className="flex flex-wrap justify-center items-center gap-3 mt-6 pt-6 border-t-2 border-brand-primary/20 dark:border-brand-primary/30">
+          <nav
+            className="flex flex-wrap justify-center items-center gap-3 mt-6 pt-6 border-t-2 border-brand-primary/20 dark:border-brand-primary/30"
+            aria-label="Legal and utility links"
+          >
             <Link
               href="/privacy"
               className="text-xs text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 font-semibold hover:underline decoration-brand-secondary dark:decoration-brand-secondary-light"
+              aria-label="Privacy Policy"
             >
               Privacy
             </Link>
@@ -866,28 +1083,37 @@ export default function Footer() {
             <Link
               href="/terms"
               className="text-xs text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 font-semibold hover:underline decoration-brand-secondary dark:decoration-brand-secondary-light"
+              aria-label="Terms of Service"
             >
               Terms
             </Link>
-            <span className="text-brand-primary/40 dark:text-brand-primary/50 text-xs">
+            <span
+              className="text-brand-primary/40 dark:text-brand-primary/50 text-xs"
+              aria-hidden="true"
+            >
               •
             </span>
             <Link
               href="/accessibility"
               className="text-xs text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 font-semibold hover:underline decoration-brand-secondary dark:decoration-brand-secondary-light"
+              aria-label="Accessibility Statement"
             >
               Accessibility
             </Link>
-            <span className="text-brand-primary/40 dark:text-brand-primary/50 text-xs">
+            <span
+              className="text-brand-primary/40 dark:text-brand-primary/50 text-xs"
+              aria-hidden="true"
+            >
               •
             </span>
             <Link
               href="/sitemap.xml"
               className="text-xs text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 font-semibold hover:underline decoration-brand-secondary dark:decoration-brand-secondary-light"
+              aria-label="XML Sitemap for search engines"
             >
               Sitemap
             </Link>
-          </div>
+          </nav>
         </div>
       </div>
     </footer>
