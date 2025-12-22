@@ -18,7 +18,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env["NEXT_PUBLIC_BASE_URL"] || "https://www.mhc-gc.com",
   ),
-  title: "Building projects for the client, NOT the dollar | MH Construction",
+  title: {
+    default:
+      "Building projects for the client, NOT the dollar | MH Construction",
+    template: "%s | MH Construction",
+  },
   description:
     "Veteran-owned general contractor serving the Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County, and Pacific Northwest since 2010. Expert concrete, carpentry, and construction management with military precision, authentic partnerships, and transparent communication. Licensed in WA, OR, ID.",
   keywords: [
@@ -57,6 +61,48 @@ export const metadata: Metadata = {
   authors: [
     { name: "MH Construction - Veteran-Owned Partnership-Driven Team" },
   ],
+  creator: "MH Construction, Inc.",
+  publisher: "MH Construction, Inc.",
+  alternates: {
+    canonical: "https://www.mhc-gc.com",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.mhc-gc.com",
+    siteName: "MH Construction",
+    title: "Building projects for the client, NOT the dollar | MH Construction",
+    description:
+      "Veteran-owned general contractor serving the Tri-Cities and Pacific Northwest since 2010. Military precision, authentic partnerships, and transparent communication.",
+    images: [
+      {
+        url: "/images/logo/mh-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "MH Construction - Veteran-Owned General Contractor",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@mhc_gc",
+    creator: "@mhc_gc",
+    title: "Building projects for the client, NOT the dollar | MH Construction",
+    description:
+      "Veteran-owned general contractor serving the Tri-Cities and Pacific Northwest since 2010. Military precision and authentic partnerships.",
+    images: ["/images/logo/mh-logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,

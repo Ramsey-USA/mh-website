@@ -14,7 +14,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     title:
       "Building projects for the client, NOT the dollar | Veteran-Owned Construction | MH Construction",
     description:
-      "Veteran-owned construction management services since 2010. Specializing in commercial construction services, master planning and preconstruction services, tenant improvement services, and light industrial construction throughout the Pacific Northwest. Four core values (Honesty, Integrity, Professionalism, Thoroughness) building trust through transparent communication and face-to-face consultation.",
+      "Veteran-owned construction management services since 2010. Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction throughout the Pacific Northwest. Licensed in WA, OR, ID. Four core values (Honesty, Integrity, Professionalism, Thoroughness) building trust through transparent communication and face-to-face consultation. Serving Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County, Yakima, Spokane, Walla Walla, and Eastern Washington.",
     keywords: [
       "veteran-owned contractor Pacific Northwest",
       "general contractor Tri-Cities",
@@ -39,6 +39,9 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
       "collaborative construction relationships",
       "transparent construction communication",
       "long-term construction partnerships",
+      "WA OR ID licensed contractor",
+      "Eastern Washington contractor",
+      "Pacific Northwest general contractor",
     ],
     canonicalUrl: enhancedSEO.siteUrl,
     schemas: [generateConstructionFAQSchema(), generateLocalBusinessSchema()],
