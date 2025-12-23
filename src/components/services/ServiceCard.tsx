@@ -1,15 +1,15 @@
 "use client";
 
-import Link from "next/link";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import type { CoreService } from "./servicesData";
 
 interface ServiceCardProps {
   service: CoreService;
+  onOpenModal: () => void;
 }
 
-export function ServiceCard({ service }: ServiceCardProps) {
+export function ServiceCard({ service, onOpenModal }: ServiceCardProps) {
   const cardId = service.title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
@@ -18,175 +18,80 @@ export function ServiceCard({ service }: ServiceCardProps) {
   return (
     <div
       id={cardId}
-      className="group perspective h-[500px] cursor-pointer"
-      style={{ perspective: "1000px" }}
+      className="group cursor-pointer"
+      onClick={onOpenModal}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onOpenModal();
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-label={`View details for ${service.title}`}
     >
-      <div
-        className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180"
-        style={{ transformStyle: "preserve-3d" }}
-      >
-        {/* Front Side - Overview */}
-        <div
-          className="absolute inset-0 w-full h-full backface-hidden"
-          style={{ backfaceVisibility: "hidden" }}
-        >
-          <Card className="flex flex-col bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl h-full shadow-lg hover:shadow-2xl transition-all duration-300 p-4 sm:p-6 lg:p-8 overflow-hidden">
-            <CardHeader className="flex-shrink-0 pb-4 px-0">
-              <div className="flex justify-center items-center bg-brand-primary/10 mb-4 sm:mb-6 rounded-2xl w-14 h-14 sm:w-16 sm:h-16 p-2">
+      <Card className="relative bg-gradient-to-br from-white via-white to-brand-primary/5 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 border-2 border-brand-primary/20 dark:border-brand-primary/30 hover:border-brand-primary dark:hover:border-brand-primary-light h-full shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 hover:-translate-y-2 rounded-3xl p-6 sm:p-8 overflow-hidden">
+        {/* Decorative background pattern */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 dark:bg-brand-primary/10 rounded-full blur-3xl transform translate-x-16 -translate-y-16 group-hover:scale-150 transition-transform duration-700"></div>
+
+        <CardHeader className="relative flex-shrink-0 pb-4 px-0 text-center">
+          <div className="flex justify-center items-center bg-gradient-to-br from-brand-primary to-brand-primary-dark mb-6 rounded-2xl w-20 h-20 p-2 mx-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+            <MaterialIcon
+              icon={service.iconName}
+              size="2xl"
+              className="text-white"
+            />
+          </div>
+          <CardTitle className="mb-3 text-gray-900 dark:text-white text-xl sm:text-2xl font-black leading-tight break-words">
+            {service.title}
+          </CardTitle>
+          <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-sm sm:text-base break-words mb-4">
+            {service.subtitle}
+          </p>
+        </CardHeader>
+        <CardContent className="relative flex flex-col flex-grow pt-0 px-0">
+          {/* Key highlights - simplified preview */}
+          <div className="mb-6 space-y-2">
+            {service.features.slice(0, 3).map((feature, idx) => (
+              <div
+                key={idx}
+                className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400"
+              >
                 <MaterialIcon
-                  icon={service.iconName}
-                  size="xl"
-                  className="text-brand-primary"
+                  icon="check_circle"
+                  size="sm"
+                  className="text-brand-primary flex-shrink-0"
                 />
+                <span className="line-clamp-1">{feature}</span>
               </div>
-              <CardTitle className="mb-3 text-gray-900 dark:text-white text-base sm:text-lg md:text-xl lg:text-2xl font-black leading-tight break-words">
-                {service.title}
-              </CardTitle>
-              <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-xs sm:text-sm md:text-base break-words">
-                {service.subtitle}
+            ))}
+            {service.features.length > 3 && (
+              <p className="text-xs text-brand-primary dark:text-brand-primary-light font-semibold italic">
+                +{service.features.length - 3} more features...
               </p>
-            </CardHeader>
-            <CardContent className="flex flex-col flex-grow pt-0 px-0 overflow-y-auto">
-              <p className="mb-4 sm:mb-6 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed break-words">
-                {service.description}
-              </p>
-              <div className="mt-auto pt-3 sm:pt-4 border-t border-gray-200 dark:border-gray-700">
-                <div className="flex items-center justify-center text-brand-secondary dark:text-brand-secondary-light">
-                  <MaterialIcon
-                    icon="autorenew"
-                    size="md"
-                    className="mr-2 animate-pulse"
-                  />
-                  <span className="text-xs sm:text-sm font-medium">
-                    Hover to see details
-                  </span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+            )}
+          </div>
 
-        {/* Back Side - Detailed Information */}
-        <div
-          className="absolute inset-0 w-full h-full backface-hidden"
-          style={{
-            backfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
-          }}
-        >
-          <Card className="flex flex-col bg-gradient-to-br from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-gray-900 border border-brand-primary dark:border-brand-primary/50 rounded-3xl h-full shadow-xl p-4 sm:p-5 lg:p-6 overflow-hidden">
-            <CardHeader className="flex-shrink-0 pb-2 sm:pb-3 px-0">
-              <div className="flex items-center mb-2 sm:mb-3">
-                <MaterialIcon
-                  icon={service.iconName}
-                  className="mr-2 sm:mr-3 text-brand-secondary text-xl sm:text-2xl md:text-3xl flex-shrink-0"
-                />
-                <CardTitle className="text-white text-base sm:text-lg md:text-xl lg:text-2xl font-black leading-tight break-words">
-                  {service.title}
-                </CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent className="flex flex-col flex-grow pt-0 px-0 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-              <div className="mb-3 sm:mb-4">
-                <div className="flex items-center mb-2">
-                  <MaterialIcon
-                    icon="checklist"
-                    className="mr-2 text-brand-secondary text-base sm:text-lg flex-shrink-0"
-                  />
-                  <p className="font-bold text-white text-xs sm:text-sm md:text-base">
-                    What's Included:
-                  </p>
-                </div>
-                <ul className="space-y-1.5 sm:space-y-2">
-                  {service.features.map((feature, fIndex) => (
-                    <li
-                      key={fIndex}
-                      className="flex items-start text-xs sm:text-sm"
-                    >
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-0.5 mr-1.5 sm:mr-2 text-brand-secondary text-sm sm:text-base md:text-lg"
-                      />
-                      <span className="text-white leading-relaxed break-words">
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mb-3 sm:mb-4">
-                <div className="flex items-center mb-2">
-                  <MaterialIcon
-                    icon="stars"
-                    className="mr-2 text-brand-secondary text-base sm:text-lg flex-shrink-0"
-                  />
-                  <p className="font-bold text-white text-xs sm:text-sm md:text-base">
-                    Partnership Benefits:
-                  </p>
-                </div>
-                <ul className="space-y-1.5 sm:space-y-2">
-                  {service.benefits.map((benefit, bIndex) => (
-                    <li
-                      key={bIndex}
-                      className="flex items-start text-xs sm:text-sm"
-                    >
-                      <MaterialIcon
-                        icon="military_tech"
-                        className="flex-shrink-0 mt-0.5 mr-1.5 sm:mr-2 text-brand-secondary text-sm sm:text-base md:text-lg"
-                      />
-                      <span className="text-white leading-relaxed break-words">
-                        {benefit}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* CTA Text */}
-              {service.ctaText && (
-                <div className="flex-shrink-0 bg-white/20 backdrop-blur-sm mt-auto p-2.5 sm:p-3 border-brand-secondary border-l-4 rounded-lg">
-                  <p className="font-medium text-white text-xs sm:text-sm leading-relaxed break-words">
-                    <MaterialIcon
-                      icon="phone"
-                      size="sm"
-                      className="inline mr-1.5 sm:mr-2 text-brand-secondary"
-                    />
-                    {service.ctaText}
-                  </p>
-                </div>
-              )}
-
-              {/* CTA Link Button */}
-              {service.ctaLink && (
-                <Link
-                  href={service.ctaLink}
-                  className="flex-shrink-0 bg-brand-secondary hover:bg-brand-secondary-dark mt-auto p-2.5 sm:p-3 rounded-lg transition-all duration-300 hover:scale-105"
-                >
-                  <div className="flex items-center justify-center text-white">
-                    <MaterialIcon
-                      icon="arrow_forward"
-                      size="sm"
-                      className="mr-1.5 sm:mr-2"
-                    />
-                    <span className="font-bold text-xs sm:text-sm break-words">
-                      {service.ctaLinkText || "Learn More"}
-                    </span>
-                  </div>
-                </Link>
-              )}
-
-              <div className="flex items-center justify-center mt-3 sm:mt-4 text-brand-secondary flex-shrink-0">
-                <MaterialIcon
-                  icon="autorenew"
-                  className="mr-2 text-base sm:text-lg md:text-xl"
-                />
-                <span className="font-medium text-xs">Hover to return</span>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+          {/* Click for details indicator */}
+          <div className="mt-auto pt-4 border-t border-brand-primary/20 dark:border-brand-primary/30 group-hover:border-brand-primary dark:group-hover:border-brand-primary-light transition-colors duration-300">
+            <div className="relative flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-gradient-to-r from-brand-primary/0 via-brand-primary/5 to-brand-primary/0 group-hover:from-brand-primary/5 group-hover:via-brand-primary/10 group-hover:to-brand-primary/5 transition-all duration-300">
+              <MaterialIcon
+                icon="info"
+                size="md"
+                className="text-brand-primary dark:text-brand-primary-light group-hover:scale-110 group-hover:rotate-12 transition-all duration-300"
+              />
+              <span className="font-bold text-sm uppercase tracking-wider text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
+                Click for Full Details
+              </span>
+              <MaterialIcon
+                icon="arrow_forward"
+                size="sm"
+                className="text-brand-primary dark:text-brand-primary-light group-hover:translate-x-1 transition-transform duration-300"
+              />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

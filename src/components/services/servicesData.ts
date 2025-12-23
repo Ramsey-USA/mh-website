@@ -174,6 +174,35 @@ export const coreServices: CoreService[] = [
       "Leverages expertise specifically at each stage",
     ],
   },
+  {
+    iconName: "emergency",
+    title: "Emergency Commercial Response",
+    subtitle: "24/7 Urgent Construction Services for Business Continuity",
+    description:
+      "When commercial facilities face unexpected construction emergencies, business continuity depends on rapid, professional response. MH Construction provides Emergency Commercial Response Services for business owners, facility managers, and property managers throughout the Tri-Cities and Pacific Northwest. Our veteran-trained team applies military crisis management precision to assess, stabilize, and restore your commercial operations quickly. From storm damage and structural failures to urgent tenant improvements and emergency repairs, we understand that downtime costs your business money—our rapid deployment capabilities minimize operational disruption while maintaining the same quality standards and partnership approach you expect from MH Construction.",
+    features: [
+      "24/7 Emergency Response for Commercial Facilities",
+      "Rapid Assessment and Professional Deployment",
+      "Storm Damage and Structural Emergency Repairs",
+      "Fire and Water Damage Commercial Restoration",
+      "Emergency Tenant Improvements and Modifications",
+      "Business Continuity and Downtime Minimization",
+      "Facility Manager and Property Manager Support",
+      "Insurance Claim Documentation Assistance",
+    ],
+    benefits: [
+      "Veteran-trained crisis management and rapid response",
+      "Military precision under pressure situations",
+      "Minimize business operational disruption and downtime",
+      "Same quality standards as planned projects",
+      "Professional coordination with insurance providers",
+      "24/7 availability for urgent commercial needs",
+      "Business-focused solutions, not residential DIY",
+      "Protect your facility investment and operations",
+    ],
+    ctaText:
+      "Facing a commercial construction emergency? Call (509) 308-6489 immediately for 24/7 emergency response. Our rapid deployment team is ready to protect your business operations and facility investment.",
+  },
 ];
 
 // Specialty Services & Markets
@@ -263,6 +292,23 @@ export const specialtyServices: SpecialtyService[] = [
       "Multi-purpose spaces for worship and community events",
     ],
     note: "Trust our experienced team to manage every detail of your project with reverence, ensuring your facility serves your community and congregation for generations to come. We understand the unique needs of religious spaces.",
+  },
+  {
+    iconName: "design_services",
+    title: "Design-Build Services",
+    subtitle: "Integrated Design & Construction Excellence",
+    description:
+      "MH Construction offers comprehensive Design-Build Services, a streamlined approach that unifies design and construction under one partnership throughout the Tri-Cities and Pacific Northwest. By integrating architecture, engineering, and construction expertise from day one, we eliminate communication gaps and reduce costly change orders that plague traditional design-bid-build projects. Our Design-Build approach means faster project delivery, better cost control, and a single point of accountability from concept through completion. Partner with our team to experience the efficiency of having designers and builders collaborating seamlessly, ensuring your vision becomes reality without the friction of coordinating multiple separate firms.",
+    capabilities: [
+      "Unified design and construction under one contract",
+      "Single point of accountability from concept to completion",
+      "Faster project delivery through parallel workflows",
+      "Better cost control and reduced change orders",
+      "Seamless collaboration between designers and builders",
+      "Value engineering integrated throughout process",
+      "Streamlined decision-making and communication",
+    ],
+    note: "Design-Build eliminates the friction of coordinating multiple firms. Experience the efficiency of integrated design and construction expertise working together from day one to deliver your project faster, within budget, and exceeding expectations.",
   },
 ];
 

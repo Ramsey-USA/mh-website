@@ -1,10 +1,8 @@
 /**
  * Specialty Services Section
- * Displays specialized construction services
+ * Displays specialized construction services with accordion cards
  */
 
-import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
-import { gridPresets } from "@/lib/styles/layout-variants";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { SpecialtyServiceCard } from "./SpecialtyServiceCard";
 import type { SpecialtyService } from "./servicesData";
@@ -74,13 +72,12 @@ export function SpecialtyServicesSection({
           </p>
         </div>
 
-        <StaggeredFadeIn
-          className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
-        >
-          {services.map((service, _index) => (
-            <SpecialtyServiceCard key={_index} service={service} />
+        {/* Grid - 2 columns on tablet, 3 on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {services.map((service, index) => (
+            <SpecialtyServiceCard key={index} service={service} />
           ))}
-        </StaggeredFadeIn>
+        </div>
       </div>
     </section>
   );
