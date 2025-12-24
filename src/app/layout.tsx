@@ -19,14 +19,21 @@ export const metadata: Metadata = {
   ),
   title: {
     default:
-      "Building projects for the client, NOT the dollar | MH Construction",
+      "Base HQ → Home | Building projects for the client, NOT the dollar | MH Construction",
     template: "%s | MH Construction",
   },
   description:
-    "Veteran-owned general contractor serving the Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County, and Pacific Northwest since 2010. Expert concrete, carpentry, and construction management with military precision, authentic partnerships, and transparent communication. Licensed in WA, OR, ID.",
+    "Base HQ → Home: Your Tri-Cities Construction Command Center. Veteran-owned general contractor serving the Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County, and Pacific Northwest since 2010. Dual-label approach: Military Operations → Construction Services. Service-earned values meet construction excellence with military precision, authentic partnerships, and transparent communication. Chain of Command structure with 150+ years combined expertise. Licensed in WA, OR, ID.",
   keywords: [
+    "Base HQ Home construction command center",
+    "dual-label military civilian construction",
     "veteran-owned contractor",
     "military precision construction",
+    "service-earned construction values",
+    "Chain of Command construction approach",
+    "Operations Services dual messaging",
+    "Mission Project dual terminology",
+    "Rally Point Contact construction",
     "Pacific Northwest builder",
     "general contractor",
     "general contractor Tri-Cities",
@@ -56,6 +63,10 @@ export const metadata: Metadata = {
     "Hermiston general contractor",
     "Coeur d'Alene general contractor",
     "Eastern Washington contractor",
+    "Army veteran-owned construction",
+    "all-branch military construction",
+    "SITREP-level construction communication",
+    "battle-tested construction excellence",
   ],
   authors: [
     { name: "MH Construction - Veteran-Owned Partnership-Driven Team" },
@@ -70,15 +81,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.mhc-gc.com",
     siteName: "MH Construction",
-    title: "Building projects for the client, NOT the dollar | MH Construction",
+    title:
+      "Base HQ → Home | Building projects for the client, NOT the dollar | MH Construction",
     description:
-      "Veteran-owned general contractor serving the Tri-Cities and Pacific Northwest since 2010. Military precision, authentic partnerships, and transparent communication.",
+      "Your Tri-Cities Construction Command Center. Veteran-owned general contractor since 2010. Dual-label approach: Military Operations → Construction Services. Service-earned values meet construction excellence. Chain of Command structure with 150+ years combined expertise. Military precision, authentic partnerships, transparent communication.",
     images: [
       {
         url: "/images/logo/mh-logo.png",
         width: 1200,
         height: 630,
-        alt: "MH Construction - Veteran-Owned General Contractor",
+        alt: "MH Construction - Veteran-Owned General Contractor - Base HQ → Home",
       },
     ],
   },
@@ -86,9 +98,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: "Building projects for the client, NOT the dollar | MH Construction",
+    title:
+      "Base HQ → Home | Building projects for the client, NOT the dollar | MH Construction",
     description:
-      "Veteran-owned general contractor serving the Tri-Cities and Pacific Northwest since 2010. Military precision and authentic partnerships.",
+      "Your Tri-Cities Construction Command Center. Veteran-owned since 2010. Dual-label: Military Operations → Construction Services. Service-earned values, battle-tested excellence.",
     images: ["/images/logo/mh-logo.png"],
   },
   robots: {

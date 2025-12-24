@@ -11,10 +11,13 @@ import {
 
 // SEO Metadata for Pasco location page
 export const metadata: Metadata = {
-  title: "General Contractor Pasco WA | MH Construction",
+  title: "Base HQ → Pasco | General Contractor Pasco WA | MH Construction",
   description:
-    "MH Construction provides professional general contractor services in Pasco, Washington. Veteran-owned construction management for commercial, industrial, and government projects. Licensed in WA, OR, ID. Call (509) 308-6489.",
+    "Base HQ → Pasco: Your Construction Command Center in Franklin County. MH Construction provides professional veteran-owned general contractor services in Pasco, Washington with service-earned values and military precision. Dual-label approach: Operations → Services. Commercial, industrial, and government projects. Chain of Command excellence. Licensed in WA, OR, ID. Call (509) 308-6489.",
   keywords: [
+    "Base HQ Pasco construction command center",
+    "dual-label military construction Pasco",
+    "service-earned construction values Pasco",
     "general contractor Pasco WA",
     "general contractor Pasco",
     "construction company Pasco",
@@ -24,14 +27,16 @@ export const metadata: Metadata = {
     "Franklin County general contractor",
     "Pasco WA builder",
     "construction management Pasco",
+    "military precision construction Pasco",
+    "Chain of Command construction Pasco",
   ],
   alternates: {
     canonical: "https://www.mhc-gc.com/locations/pasco",
   },
   openGraph: {
-    title: "General Contractor Pasco WA | MH Construction",
+    title: "Base HQ → Pasco | General Contractor Pasco WA | MH Construction",
     description:
-      "Professional construction services in Pasco, WA. Veteran-owned, partnership-driven approach. Commercial, industrial & government projects.",
+      "Base HQ → Pasco: Your Construction Command Center. Professional veteran-owned construction services with service-earned values and military precision. Dual-label approach. Commercial, industrial & government projects.",
     url: "https://www.mhc-gc.com/locations/pasco",
     siteName: "MH Construction",
     locale: "en_US",

@@ -11,10 +11,14 @@ import {
 
 // SEO Metadata for Richland location page
 export const metadata: Metadata = {
-  title: "General Contractor Richland WA | MH Construction",
+  title:
+    "Operations Base → Richland | General Contractor Richland WA | MH Construction",
   description:
-    "MH Construction provides professional general contractor services in Richland, Washington. Veteran-owned construction management for commercial, industrial, and government projects. Licensed in WA, OR, ID. Call (509) 308-6489.",
+    "Operations Base → Richland: Strategic Construction Operations in Benton County. MH Construction provides professional veteran-owned general contractor services in Richland, Washington with service-earned values and military precision. Dual-label approach: Missions → Projects. Commercial, industrial, and government projects. 150+ years combined expertise. Licensed in WA, OR, ID. Call (509) 308-6489.",
   keywords: [
+    "Operations Base Richland strategic construction",
+    "dual-label military construction Richland",
+    "service-earned construction values Richland",
     "general contractor Richland WA",
     "general contractor Richland",
     "construction company Richland",
@@ -24,14 +28,17 @@ export const metadata: Metadata = {
     "Benton County general contractor",
     "Richland WA builder",
     "construction management Richland",
+    "military precision construction Richland",
+    "battle-tested construction excellence Richland",
   ],
   alternates: {
     canonical: "https://www.mhc-gc.com/locations/richland",
   },
   openGraph: {
-    title: "General Contractor Richland WA | MH Construction",
+    title:
+      "Operations Base → Richland | General Contractor Richland WA | MH Construction",
     description:
-      "Professional construction services in Richland, WA. Veteran-owned, partnership-driven approach. Commercial, industrial & government projects.",
+      "Operations Base → Richland: Strategic Construction Operations. Professional veteran-owned construction services with service-earned values and 150+ years combined expertise. Dual-label approach. Commercial, industrial & government projects.",
     url: "https://www.mhc-gc.com/locations/richland",
     siteName: "MH Construction",
     locale: "en_US",

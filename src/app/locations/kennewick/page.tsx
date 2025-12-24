@@ -11,10 +11,14 @@ import {
 
 // SEO Metadata for Kennewick location page
 export const metadata: Metadata = {
-  title: "General Contractor Kennewick WA | MH Construction",
+  title:
+    "Forward Operating Base → Kennewick | General Contractor Kennewick WA | MH Construction",
   description:
-    "MH Construction provides professional general contractor services in Kennewick, Washington. Veteran-owned construction management for commercial, industrial, and government projects. Licensed in WA, OR, ID. Call (509) 308-6489.",
+    "Forward Operating Base → Kennewick: Tactical Construction Excellence in Benton County. MH Construction provides professional veteran-owned general contractor services in Kennewick, Washington with service-earned values and military precision. Dual-label approach: Rally Point → Contact. Commercial, industrial, and government projects. All-branch veteran leadership. Licensed in WA, OR, ID. Call (509) 308-6489.",
   keywords: [
+    "Forward Operating Base Kennewick tactical construction",
+    "dual-label military construction Kennewick",
+    "service-earned construction values Kennewick",
     "general contractor Kennewick WA",
     "general contractor Kennewick",
     "construction company Kennewick",
@@ -24,14 +28,17 @@ export const metadata: Metadata = {
     "Benton County general contractor",
     "Kennewick WA builder",
     "construction management Kennewick",
+    "all-branch veteran leadership Kennewick",
+    "SITREP-level communication Kennewick",
   ],
   alternates: {
     canonical: "https://www.mhc-gc.com/locations/kennewick",
   },
   openGraph: {
-    title: "General Contractor Kennewick WA | MH Construction",
+    title:
+      "Forward Operating Base → Kennewick | General Contractor Kennewick WA | MH Construction",
     description:
-      "Professional construction services in Kennewick, WA. Veteran-owned, partnership-driven approach. Commercial, industrial & government projects.",
+      "Forward Operating Base → Kennewick: Tactical Construction Excellence. Professional veteran-owned construction services with service-earned values and all-branch veteran leadership. Dual-label approach. Commercial, industrial & government projects.",
     url: "https://www.mhc-gc.com/locations/kennewick",
     siteName: "MH Construction",
     locale: "en_US",

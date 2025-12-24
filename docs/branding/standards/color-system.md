@@ -447,6 +447,133 @@ Homepage descriptions use colored text highlights for visual interest and emphas
 4. **Dark Mode:** Use lighter variants (`-light`, `400`) for contrast
 5. **Avoid:** Don't highlight every other word - be selective
 
+### **Special Emphasis Patterns - NEW**
+
+**Version:** 5.1.0 | **Date:** December 24, 2025
+
+#### **"NOT" Emphasis Pattern**
+
+Used to strongly emphasize negation or contrast in key messaging:
+
+```tsx
+<p className="text-gray-700 dark:text-gray-300">
+  Building projects for the{" "}
+  <span className="font-bold text-gray-900 dark:text-white">client</span>,{" "}
+  <span className="font-black italic text-bronze-600 dark:text-bronze-400">
+    NOT
+  </span>{" "}
+  <span className="font-bold text-gray-900 dark:text-white">the dollar</span>.
+</p>
+```
+
+**Styling Rules:**
+
+- Use `font-black italic` (not just bold)
+- Color: `text-bronze-600 dark:text-bronze-400` (bronze for emphasis)
+- Apply to words like: NOT, NEVER, ZERO, NO
+- Creates maximum visual impact for key negations
+
+#### **Dynamic Subtitle Rendering**
+
+For dynamically styling specific words within strings:
+
+```tsx
+// Helper function
+function renderSubtitle(subtitle: string) {
+  if (subtitle.includes("NOT")) {
+    const parts = subtitle.split("NOT");
+    return (
+      <>
+        {parts[0]}
+        <span className="font-black italic text-bronze-600 dark:text-bronze-400">
+          NOT
+        </span>
+        {parts[1]}
+      </>
+    );
+  }
+  return subtitle;
+}
+
+// Usage in component
+<h3 className="text-xl text-gray-700 dark:text-gray-300">
+  {renderSubtitle("Built projects for the Client, NOT the Dollar")}
+</h3>;
+```
+
+**Use Cases:**
+
+- Service descriptions with strong contrasts
+- Taglines with key differentiators
+- Headlines emphasizing what you don't do
+- Core value statements
+
+#### **Semantic Color Mixing in Descriptions**
+
+Combine multiple highlight colors within a single paragraph for visual richness:
+
+```tsx
+<p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed">
+  Four foundational values guide every{" "}
+  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+    project and partnership
+  </span>
+  —focused on building projects for the{" "}
+  <span className="font-bold text-gray-900 dark:text-white">client</span>,{" "}
+  <span className="font-black italic text-bronze-600 dark:text-bronze-400">
+    NOT
+  </span>{" "}
+  <span className="font-bold text-gray-900 dark:text-white">the dollar</span>.
+</p>
+```
+
+**Color Mixing Guidelines:**
+
+- **Green** (`text-brand-primary`): Technical terms, expertise, quality
+- **Tan** (`text-brand-secondary`): Partnerships, relationships, community
+- **Bronze** (`text-bronze-600`): Premium services, awards, emphasis
+- **White/Gray** (`text-gray-900`): Universal emphasis, key nouns
+- **Bronze Italic Black** (`font-black italic text-bronze-600`): Strong negations (NOT, NEVER, ZERO)
+
+**Pattern Distribution:**
+
+1. Start with context (regular text)
+2. Highlight first key concept (green or tan)
+3. Continue narrative (regular text)
+4. Emphasize contrasting concept (white/gray)
+5. Strong negation if needed (bronze italic black)
+6. Close with emphasized outcome (any color)
+
+**Example in Context:**
+
+```tsx
+<p className="text-gray-700 dark:text-gray-300">
+  We deliver {/* regular context */}
+  <span className="font-bold text-brand-primary">
+    expert construction management
+  </span>
+  {/* green: expertise */}
+  with {/* regular connector */}
+  <span className="font-bold text-brand-secondary">lasting partnerships</span>
+  {/* tan: relationships */}
+  at the core. Every project is built for the {/* regular narrative */}
+  <span className="font-bold text-gray-900">client</span>
+  {/* emphasis */},{" "}
+  <span className="font-black italic text-bronze-600">NOT</span>
+  {/* strong negation */} the {/* regular text */}
+  <span className="font-bold text-gray-900">dollar</span>
+  {/* emphasis */}.
+</p>
+```
+
+**Benefits:**
+
+- Creates visual interest through color variety
+- Reinforces semantic meaning through color choice
+- Guides reader's eye to key concepts
+- Maintains readability while adding emphasis
+- Works beautifully in both light and dark modes
+
 ---
 
 ## Button Color Implementation

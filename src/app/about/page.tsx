@@ -153,14 +153,14 @@ export default function AboutPage() {
         {/* Company Evolution Timeline Section - Rich historical content with keywords */}
         <CompanyEvolution />
 
+        {/* Leadership Team Section - Chain of Command (moved earlier for SEO - faces build trust) */}
+        <LeadershipTeam />
+
         {/* Awards & Recognition Section - Credibility and trust signals */}
         <AwardsSection />
 
         {/* Safety & Compliance Section - Industry-specific trust and expertise */}
         <SafetySection />
-
-        {/* Leadership Team Section - Chain of Command concept drives to full Teams page */}
-        <LeadershipTeam />
 
         {/* Why Values Matter Section */}
         <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">

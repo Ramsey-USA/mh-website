@@ -137,6 +137,23 @@ export const veteranFragments = {
   leadership: "Army veteran leadership",
   leadershipLong: "led by Army veteran Jeremy Thamert",
 
+  // Dual-Label Messaging (Military → Civilian)
+  dualLabels: {
+    home: "Base HQ → Home",
+    about: "Our Oath → About Us",
+    services: "Operations → Services",
+    projects: "Missions → Projects",
+    team: "Chain of Command → Our Team",
+    veterans: "Service First → Veterans",
+    allies: "Allies → Partners",
+    careers: "Enlist → Careers",
+    contact: "Rally Point → Contact",
+    urgent: "Rapid Response → Emergency",
+    faq: "Intel Brief → FAQ",
+    testimonials: "Commendations → Reviews",
+    publicSector: "Public Sector → Government",
+  },
+
   // Combined phrases
   veteranOwnedContractor: "veteran-owned general contractor",
   veteranOwnedLocal: "veteran-owned contractor serving the Tri-Cities",
@@ -144,6 +161,22 @@ export const veteranFragments = {
   // Value propositions
   militaryPrecision: "military precision",
   militaryValues: "military values and construction excellence",
+  serviceEarnedValues: "service-earned values",
+  chainOfCommand: "Chain of Command structure",
+  allBranch: "all-branch veteran leadership",
+  combatVeteranDiscount: "Combat Veteran Discount at the Ready",
+
+  // Military terminology
+  militaryTerms: {
+    sitrep: "SITREP-level clarity",
+    missionBrief: "mission brief",
+    battlePlan: "battle plan",
+    afterAction: "after-action reports",
+    rallyPoint: "rally point",
+    rapidResponse: "rapid response",
+    missionReady: "mission-ready",
+    areaOfOperations: "AO (Area of Operations)",
+  },
 
   // Keywords for arrays
   veteranKeywords: [
@@ -151,6 +184,13 @@ export const veteranFragments = {
     "Army veteran construction",
     "military precision construction",
     "veteran-owned business",
+    "service-earned construction values",
+    "dual-label military civilian construction",
+    "Chain of Command construction approach",
+    "all-branch veteran leadership",
+    "combat veteran discount",
+    "SITREP-level communication",
+    "battle-tested construction excellence",
   ],
 } as const;
 
@@ -164,22 +204,23 @@ export const brandValueFragments = {
   relationshipROI: "THE ROI IS THE RELATIONSHIP",
 
   // Four core values
-  coreValues: [
-    "Professionalism",
-    "Thoroughness",
-    "Honesty",
-    "Integrity",
-    "Honesty",
-    "Partnership",
-  ],
+  coreValues: ["Honesty", "Integrity", "Professionalism", "Thoroughness"],
 
   coreValuesPhrase: "Honesty, Integrity, Professionalism, and Thoroughness",
   trustPhrase: "building trust through proven excellence",
+  serviceEarnedFoundation: "service-earned foundation",
 
   // Value proposition snippets
   partnershipApproach: "working WITH you, not FOR you",
   transparentPricing: "transparent pricing and open communication",
   qualityCommitment: "uncompromising quality and attention to detail",
+  honestyFirst:
+    "honest communication, transparent pricing, proven craftsmanship",
+
+  // Dual messaging approach
+  dualMessagingPhilosophy:
+    "balancing military precision with civilian accessibility",
+  veteranAccessibility: "veteran brand identity with universal understanding",
 } as const;
 
 // ============================================================================

@@ -11,10 +11,14 @@ import {
 
 // SEO Metadata for Spokane location page
 export const metadata: Metadata = {
-  title: "General Contractor Spokane WA | MH Construction",
+  title:
+    "Regional Command → Spokane | General Contractor Spokane WA | MH Construction",
   description:
-    "MH Construction provides professional general contractor services in Spokane, Washington. Veteran-owned construction management for commercial, industrial, and government projects. Licensed in WA, OR, ID. Call (509) 308-6489.",
+    "Regional Command → Spokane: Eastern Washington Strategic Operations. MH Construction provides professional veteran-owned general contractor services in Spokane, Washington with service-earned values and military precision. Dual-label approach serving Spokane County. Commercial, industrial, and government projects. All-branch veteran leadership. Licensed in WA, OR, ID. Call (509) 308-6489.",
   keywords: [
+    "Regional Command Spokane strategic operations",
+    "dual-label military construction Spokane",
+    "service-earned construction values Spokane",
     "general contractor Spokane WA",
     "general contractor Spokane",
     "construction company Spokane",
@@ -24,14 +28,17 @@ export const metadata: Metadata = {
     "Spokane County general contractor",
     "Spokane WA builder",
     "construction management Spokane",
+    "Eastern Washington strategic operations",
+    "all-branch veteran leadership Spokane",
   ],
   alternates: {
     canonical: "https://www.mhc-gc.com/locations/spokane",
   },
   openGraph: {
-    title: "General Contractor Spokane WA | MH Construction",
+    title:
+      "Regional Command → Spokane | General Contractor Spokane WA | MH Construction",
     description:
-      "Professional construction services in Spokane, WA. Veteran-owned, partnership-driven approach. Commercial, industrial & government projects.",
+      "Regional Command → Spokane: Eastern Washington Strategic Operations. Professional veteran-owned construction services with service-earned values and all-branch veteran leadership. Dual-label approach. Commercial, industrial & government projects.",
     url: "https://www.mhc-gc.com/locations/spokane",
     siteName: "MH Construction",
     locale: "en_US",

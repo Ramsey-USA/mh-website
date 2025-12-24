@@ -2,10 +2,16 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Construction Projects Portfolio - Commercial & Industrial | MH Construction",
+    "Missions → Projects | Mission Success: 650+ Completed Projects | MH Construction",
   description:
-    "Explore MH Construction's completed projects: commercial buildings, medical facilities, industrial construction, and tenant improvements across the Pacific Northwest. Veteran-owned quality.",
+    "Missions → Projects: Mission Success - 650+ Completed Projects, Countless Lasting Relationships. Explore MH Construction's completed construction missions: commercial buildings, medical facilities, industrial construction, and tenant improvements across the Pacific Northwest. Veteran-owned since 2025, building excellence since 2010 with service-earned values, honest communication, transparent pricing, and proven craftsmanship.",
   keywords: [
+    "Missions Projects 650 completed",
+    "mission success proven results",
+    "650 completed construction projects",
+    "veteran-owned construction portfolio",
+    "dual-label project showcase",
+    "service-earned project excellence",
     "construction projects",
     "construction portfolio",
     "completed projects",
@@ -22,9 +28,9 @@ export const metadata: Metadata = {
     "Pacific Northwest construction",
   ],
   openGraph: {
-    title: "Project Portfolio - MH Construction",
+    title: "Missions → Projects | 650+ Completed Projects - MH Construction",
     description:
-      "View our completed commercial, industrial, and medical facility projects. Veteran-owned excellence in action.",
+      "Missions → Projects: Mission Success - 650+ Completed Projects, Countless Lasting Relationships. View our completed commercial, industrial, and medical facility construction missions. Veteran-owned excellence with service-earned values in action.",
     type: "website",
     locale: "en_US",
     url: "https://www.mhc-gc.com/projects",
@@ -34,9 +40,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: "Project Portfolio - MH Construction",
+    title: "Missions → Projects | 650+ Completed - MH Construction",
     description:
-      "Completed commercial, industrial, and medical facility projects. Veteran-owned excellence in the Pacific Northwest.",
+      "Mission Success: 650+ completed projects, countless lasting relationships. Commercial, industrial, and medical facility missions. Veteran-owned excellence with service-earned values. Pacific Northwest.",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/projects",

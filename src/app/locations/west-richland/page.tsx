@@ -11,10 +11,14 @@ import {
 
 // SEO Metadata for West Richland location page
 export const metadata: Metadata = {
-  title: "General Contractor West Richland WA | MH Construction",
+  title:
+    "Satellite Base → West Richland | General Contractor West Richland WA | MH Construction",
   description:
-    "MH Construction provides professional general contractor services in West Richland, Washington. Veteran-owned construction management for commercial, industrial, and government projects. Licensed in WA, OR, ID. Call (509) 308-6489.",
+    "Satellite Base → West Richland: Tri-Cities Integrated Operations. MH Construction provides professional veteran-owned general contractor services in West Richland, Washington with service-earned values and military precision. Dual-label approach serving Benton County. Commercial, industrial, and government projects. Tri-Cities general contractor coverage. Licensed in WA, OR, ID. Call (509) 308-6489.",
   keywords: [
+    "Satellite Base West Richland integrated operations",
+    "dual-label military construction West Richland",
+    "service-earned construction values West Richland",
     "general contractor West Richland WA",
     "general contractor West Richland",
     "construction company West Richland",
@@ -25,14 +29,16 @@ export const metadata: Metadata = {
     "West Richland WA builder",
     "construction management West Richland",
     "Tri-Cities general contractor",
+    "integrated construction operations",
   ],
   alternates: {
     canonical: "https://www.mhc-gc.com/locations/west-richland",
   },
   openGraph: {
-    title: "General Contractor West Richland WA | MH Construction",
+    title:
+      "Satellite Base → West Richland | General Contractor West Richland WA | MH Construction",
     description:
-      "Professional construction services in West Richland, WA. Veteran-owned, partnership-driven approach. Commercial, industrial & government projects.",
+      "Satellite Base → West Richland: Tri-Cities Integrated Operations. Professional veteran-owned construction services with service-earned values and integrated Tri-Cities coverage. Dual-label approach. Commercial, industrial & government projects.",
     url: "https://www.mhc-gc.com/locations/west-richland",
     siteName: "MH Construction",
     locale: "en_US",

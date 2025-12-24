@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { Button, Card, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
@@ -27,6 +28,15 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+
+// Lazy load testimonials section for better performance
+const TestimonialsSection = dynamic(
+  () =>
+    import("@/components/shared-sections").then((mod) => ({
+      default: mod.TestimonialsSection,
+    })),
+  { ssr: true },
+);
 
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = false;
@@ -244,6 +254,14 @@ export default function ServicesPage() {
 
         {/* Specialty Services Section */}
         <SpecialtyServicesSection services={specialtyServices} />
+
+        {/* Client Testimonials Section - Optimal SEO position (25-30% page depth) */}
+        <TestimonialsSection
+          id="testimonials"
+          subtitle="Client Partner"
+          title="Testimonials"
+          description="Hear directly from our partners about their experience working with MH Construction on their most important projects—where trust is earned, not claimed."
+        />
 
         {/* Government & Grant-Funded Projects Section */}
         <GovernmentProjectsSection />

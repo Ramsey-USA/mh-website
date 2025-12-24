@@ -11,10 +11,14 @@ import {
 
 // SEO Metadata for Walla Walla location page
 export const metadata: Metadata = {
-  title: "General Contractor Walla Walla WA | MH Construction",
+  title:
+    "Outpost → Walla Walla | General Contractor Walla Walla WA | MH Construction",
   description:
-    "MH Construction provides professional general contractor services in Walla Walla, Washington. Veteran-owned construction management for commercial, industrial, and government projects. Licensed in WA, OR, ID. Call (509) 308-6489.",
+    "Outpost → Walla Walla: Extended Reach Construction Services. MH Construction provides professional veteran-owned general contractor services in Walla Walla, Washington with service-earned values and military precision. Dual-label approach serving Walla Walla County. Commercial, industrial, and government projects. Eastern Washington coverage. Licensed in WA, OR, ID. Call (509) 308-6489.",
   keywords: [
+    "Outpost Walla Walla extended reach services",
+    "dual-label military construction Walla Walla",
+    "service-earned construction values Walla Walla",
     "general contractor Walla Walla WA",
     "general contractor Walla Walla",
     "construction company Walla Walla",
@@ -25,14 +29,16 @@ export const metadata: Metadata = {
     "Walla Walla WA builder",
     "construction management Walla Walla",
     "Eastern Washington contractor",
+    "extended reach construction services",
   ],
   alternates: {
     canonical: "https://www.mhc-gc.com/locations/walla-walla",
   },
   openGraph: {
-    title: "General Contractor Walla Walla WA | MH Construction",
+    title:
+      "Outpost → Walla Walla | General Contractor Walla Walla WA | MH Construction",
     description:
-      "Professional construction services in Walla Walla, WA. Veteran-owned, partnership-driven approach. Commercial, industrial & government projects.",
+      "Outpost → Walla Walla: Extended Reach Construction Services. Professional veteran-owned construction services with service-earned values and Eastern Washington coverage. Dual-label approach. Commercial, industrial & government projects.",
     url: "https://www.mhc-gc.com/locations/walla-walla",
     siteName: "MH Construction",
     locale: "en_US",

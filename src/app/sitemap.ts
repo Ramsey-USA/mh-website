@@ -46,6 +46,16 @@ const ACTIVE_PAGES = [
     priority: 0.8,
     changeFreq: "monthly" as const,
   },
+  {
+    path: "/locations/walla-walla",
+    priority: 0.8,
+    changeFreq: "monthly" as const,
+  },
+  {
+    path: "/locations/west-richland",
+    priority: 0.8,
+    changeFreq: "monthly" as const,
+  },
 
   // Priority 0.7 - Supporting pages
   { path: "/team", priority: 0.7, changeFreq: "monthly" as const },

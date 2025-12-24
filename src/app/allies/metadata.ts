@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Allies & Subcontractor Opportunities | MH Construction",
+  title:
+    "Allies → Partners | Strategic Partnerships Built on Trust, Performance, and Mutual Success | MH Construction",
   description:
-    "Partner with MH Construction. We seek qualified subcontractors and allies for commercial, industrial, and medical facility projects. Veteran-owned company values collaboration.",
+    "Allies → Partners: Strategic Partnerships Built on Trust, Performance, and Mutual Success. THE ROI IS THE RELATIONSHIP. Partner with MH Construction's elite trade partner network. We seek qualified subcontractors and allies for commercial, industrial, and medical facility projects. Veteran-owned company with service-earned values, transparent communication, and proven collaboration approach.",
   keywords: [
+    "Allies Partners strategic partnerships",
+    "ROI is the relationship",
+    "elite trade partner network",
+    "trusted construction alliances",
+    "dual-label partnership approach",
+    "service-earned partner values",
     "allies",
     "trade partners",
     "subcontractor opportunities",
@@ -22,9 +29,9 @@ export const metadata: Metadata = {
     "veteran-owned partnerships",
   ],
   openGraph: {
-    title: "Allies - MH Construction",
+    title: "Allies → Partners | Strategic Partnerships - MH Construction",
     description:
-      "Join our network of qualified allies and subcontractors. Veteran-owned company seeking collaborative partnerships.",
+      "Allies → Partners: Strategic Partnerships Built on Trust, Performance, and Mutual Success. THE ROI IS THE RELATIONSHIP. Join our elite network of qualified allies and subcontractors. Veteran-owned with service-earned partnership values.",
     type: "website",
     locale: "en_US",
     url: "https://www.mhc-gc.com/allies",
@@ -34,9 +41,9 @@ export const metadata: Metadata = {
     card: "summary",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: "Allies & Partners - MH Construction",
+    title: "Allies → Partners | Strategic Partnerships - MH Construction",
     description:
-      "Join our network of subcontractors and trade partners. Collaborative partnerships with veteran-owned excellence.",
+      "THE ROI IS THE RELATIONSHIP. Join our elite trade partner network. Strategic partnerships built on trust, performance, and mutual success. Veteran-owned excellence with service-earned values.",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/allies",

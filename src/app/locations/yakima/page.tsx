@@ -11,10 +11,14 @@ import {
 
 // SEO Metadata for Yakima location page
 export const metadata: Metadata = {
-  title: "General Contractor Yakima WA | MH Construction",
+  title:
+    "Regional Operations → Yakima | General Contractor Yakima WA | MH Construction",
   description:
-    "MH Construction provides professional general contractor services in Yakima, Washington. Veteran-owned construction management for commercial, industrial, and government projects. Licensed in WA, OR, ID. Call (509) 308-6489.",
+    "Regional Operations → Yakima: Extended Service Area Construction Excellence. MH Construction provides professional veteran-owned general contractor services in Yakima, Washington with service-earned values and military precision. Dual-label approach serving Eastern Washington. Commercial, industrial, and government projects. Pacific Northwest regional reach. Licensed in WA, OR, ID. Call (509) 308-6489.",
   keywords: [
+    "Regional Operations Yakima extended service area",
+    "dual-label military construction Yakima",
+    "service-earned construction values Yakima",
     "general contractor Yakima WA",
     "general contractor Yakima",
     "construction company Yakima",
@@ -24,14 +28,17 @@ export const metadata: Metadata = {
     "Yakima County general contractor",
     "Yakima WA builder",
     "construction management Yakima",
+    "Eastern Washington contractor",
+    "Pacific Northwest regional reach",
   ],
   alternates: {
     canonical: "https://www.mhc-gc.com/locations/yakima",
   },
   openGraph: {
-    title: "General Contractor Yakima WA | MH Construction",
+    title:
+      "Regional Operations → Yakima | General Contractor Yakima WA | MH Construction",
     description:
-      "Professional construction services in Yakima, WA. Veteran-owned, partnership-driven approach. Commercial, industrial & government projects.",
+      "Regional Operations → Yakima: Extended Service Area Excellence. Professional veteran-owned construction services with service-earned values and Pacific Northwest regional reach. Dual-label approach. Commercial, industrial & government projects.",
     url: "https://www.mhc-gc.com/locations/yakima",
     siteName: "MH Construction",
     locale: "en_US",

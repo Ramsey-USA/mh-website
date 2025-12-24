@@ -9,7 +9,6 @@ import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
-import { getUrgentSEO } from "@/lib/seo/page-seo-utils";
 import { StructuredData } from "@/components/seo/seo-meta";
 import {
   generateBreadcrumbSchema,
@@ -19,18 +18,38 @@ import {
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = false;
 
-// Get SEO metadata
-const urgentSEOData = getUrgentSEO();
-
 export const metadata: Metadata = {
-  title: urgentSEOData.title as string,
-  description: urgentSEOData.description as string,
-  keywords: Array.isArray(urgentSEOData.keywords)
-    ? urgentSEOData.keywords
-    : [urgentSEOData.keywords || ""],
+  title:
+    "Rapid Response → Emergency | 24/7 Emergency Construction Response | MH Construction",
+  description:
+    "Rapid Response → Emergency: 24/7 Emergency Construction Response - Mission-Ready Support. Rapid response when your construction mission is critical. Veteran-owned emergency deployment with honest assessment, transparent pricing, proven solutions. Expert consultation, specialized equipment, experienced crews—immediate deployment WA, OR, ID. THE ROI IS THE RELATIONSHIP. Call (509) 308-6489.",
+  keywords: [
+    "Rapid Response Emergency 24/7",
+    "mission-ready support construction",
+    "veteran-owned urgent construction",
+    "honest emergency assessment",
+    "transparent urgent pricing",
+    "dual-label emergency construction",
+    "service-earned urgent response",
+    "urgent construction support",
+    "emergency structural repairs",
+    "immediate construction response",
+    "construction equipment rental",
+    "heavy machinery operators",
+    "general contractor support",
+    "Pacific Northwest urgent construction",
+    "Tri-Cities emergency construction",
+    "Richland urgent contractor support",
+    "Pasco emergency repairs",
+    "Kennewick urgent construction",
+    "Benton County emergency construction",
+    "Franklin County urgent support",
+  ],
   openGraph: {
-    title: urgentSEOData.openGraph?.title as string,
-    description: urgentSEOData.openGraph?.description as string,
+    title:
+      "Rapid Response → Emergency | 24/7 Construction Response - MH Construction",
+    description:
+      "Mission-Ready Support: 24/7 emergency construction response with veteran-owned deployment. Honest assessment, transparent pricing, proven solutions. Immediate deployment WA, OR, ID.",
     type: "website",
     locale: "en_US",
     url: "https://www.mhc-gc.com/urgent",
@@ -40,8 +59,9 @@ export const metadata: Metadata = {
     card: "summary",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: urgentSEOData.openGraph?.title as string,
-    description: urgentSEOData.openGraph?.description as string,
+    title: "Rapid Response → Emergency | 24/7 Support - MH Construction",
+    description:
+      "Mission-Ready: 24/7 emergency construction response. Veteran-owned with service-earned values. Immediate deployment WA, OR, ID. THE ROI IS THE RELATIONSHIP.",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/urgent",

@@ -129,13 +129,30 @@ export default function CareersPage() {
       />
 
       <div className="bg-white dark:bg-gray-900 min-h-screen">
-        {/* Hero Section - Group 5: Recruitment & Growth */}
-        <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-end justify-end text-white overflow-hidden">
-          {/* Background Elements */}
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
+        {/* Hero Section */}
+        <section className="relative h-screen flex items-end justify-end text-white overflow-hidden">
+          {/* Background - Ready for photo or video */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900">
+            {/* Overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
+          </div>
 
-          {/* Content - Bottom Right */}
+          {/* Header Text - Bottom Right */}
           <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+            {/* Mission Icon */}
+            <div className="flex justify-end mb-4">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                <div className="relative w-24 h-24 bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white/50 dark:border-gray-700/50">
+                  <MaterialIcon
+                    icon="work"
+                    size="2xl"
+                    className="text-white drop-shadow-lg"
+                    ariaLabel="Occupation Specialties - Career opportunities"
+                  />
+                </div>
+              </div>
+            </div>
             <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
               <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
                 Enlist → Careers
@@ -144,12 +161,15 @@ export default function CareersPage() {
                 Occupation Specialties
               </span>
               <span className="block text-brand-primary">
-                Build Your Future with a Veteran-Owned Team That Values Loyalty
+                Build Your Future with a Veteran-Owned Team
               </span>
               <span className="block text-white/90">
-                Building careers for the employee,{" "}
+                Building projects for the client,{" "}
                 <span className="font-black italic text-bronze-300">NOT</span>{" "}
                 the dollar
+              </span>
+              <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
+                THE ROI IS THE RELATIONSHIP
               </span>
             </h1>
           </div>
@@ -234,7 +254,12 @@ export default function CareersPage() {
                     partnerships
                   </span>
                   . Every team member gets a mentor, clear advancement paths,
-                  and the tools to succeed.
+                  and the tools to succeed.{" "}
+                  <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
+                    THE ROI IS THE RELATIONSHIP
+                  </span>{" "}
+                  — where partnerships outlast projects and your growth is our
+                  success.
                 </p>
               </div>
 
@@ -357,6 +382,78 @@ export default function CareersPage() {
                   </Card>
                 ))}
               </StaggeredFadeIn>
+            </div>
+          </section>
+
+          {/* Employee Testimonials - Optimal SEO position (25-30% page depth) */}
+          <section
+            id="testimonials"
+            className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
+          >
+            {/* Diagonal Stripe Background Pattern */}
+            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: `repeating-linear-gradient(
+                    45deg,
+                    #386851 0px,
+                    #386851 2px,
+                    transparent 2px,
+                    transparent 60px
+                  )`,
+                }}
+              ></div>
+            </div>
+
+            {/* Large Brand Color Blobs */}
+            <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+            <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+            <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="groups"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Hear From Our
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Team Members
+                  </span>
+                </h2>
+
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  Don't just take our word for it—hear directly from{" "}
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    the people who work here every day
+                  </span>
+                  . Real stories from real team members about{" "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    career growth, workplace culture, and leadership support
+                  </span>
+                  . These aren't scripted testimonials—they're authentic voices.
+                </p>
+              </div>
+
+              <TestimonialGrid testimonials={getEmployeeTestimonials()} />
             </div>
           </section>
 
@@ -1026,6 +1123,10 @@ export default function CareersPage() {
                     <p className="mb-6 font-medium text-gray-700 text-xl dark:text-gray-300">
                       Ready to start your journey with MH Construction?
                     </p>
+                    <p className="mb-6 font-semibold text-brand-secondary text-lg dark:text-brand-secondary-light">
+                      THE ROI IS THE RELATIONSHIP — Build your career on a
+                      foundation of trust
+                    </p>
                     <div className="flex flex-wrap justify-center gap-4">
                       <Button
                         onClick={() => {
@@ -1067,78 +1168,6 @@ export default function CareersPage() {
                   </div>
                 </div>
               </FadeInWhenVisible>
-            </div>
-          </section>
-
-          {/* Employee Testimonials */}
-          <section
-            id="testimonials"
-            className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
-          >
-            {/* Diagonal Stripe Background Pattern */}
-            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `repeating-linear-gradient(
-                    45deg,
-                    #386851 0px,
-                    #386851 2px,
-                    transparent 2px,
-                    transparent 60px
-                  )`,
-                }}
-              ></div>
-            </div>
-
-            {/* Large Brand Color Blobs */}
-            <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-            <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
-
-            <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-              {/* Section Header - Military Construction Standard */}
-              <div className="mb-16 sm:mb-20 text-center">
-                {/* Icon with decorative lines */}
-                <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                  <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                      <MaterialIcon
-                        icon="groups"
-                        size="2xl"
-                        className="text-white drop-shadow-lg"
-                      />
-                    </div>
-                  </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                </div>
-
-                {/* Two-line gradient heading */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Hear From Our
-                  </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Team Members
-                  </span>
-                </h2>
-
-                {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  Don't just take our word for it—hear directly from{" "}
-                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    the people who work here every day
-                  </span>
-                  . Real stories from real team members about{" "}
-                  <span className="font-bold text-gray-900 dark:text-white">
-                    career growth, workplace culture, and leadership support
-                  </span>
-                  . These aren't scripted testimonials—they're authentic voices.
-                </p>
-              </div>
-
-              <TestimonialGrid testimonials={getEmployeeTestimonials()} />
             </div>
           </section>
 

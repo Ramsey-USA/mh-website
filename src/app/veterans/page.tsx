@@ -14,7 +14,6 @@ import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { NextStepsSection } from "@/components/shared-sections";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
-import { getVeteransSEO } from "@/lib/seo/page-seo-utils";
 import { StructuredData } from "@/components/seo/seo-meta";
 import {
   generateBreadcrumbSchema,
@@ -24,18 +23,43 @@ import {
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = false;
 
-// Get SEO metadata
-const veteransSEOData = getVeteransSEO();
-
 export const metadata: Metadata = {
-  title: veteransSEOData.title as string,
-  description: veteransSEOData.description as string,
-  keywords: Array.isArray(veteransSEOData.keywords)
-    ? veteransSEOData.keywords
-    : [veteransSEOData.keywords || ""],
+  title:
+    "Service First → Veterans | Supporting Those Who Served - One Community, One Mission | MH Construction",
+  description:
+    "Service First → Veterans: Supporting Those Who Served - One Community, One Mission. Honoring all branches, all values. Veteran-owned under Army veteran leadership since January 2025. Serving those who served with honest communication, transparent pricing, and proven craftsmanship. Supporting Pacific Northwest veterans through hiring initiatives, community partnerships, and shared military values.",
+  keywords: [
+    "Service First Veterans community mission",
+    "honoring all service branches",
+    "veteran-owned construction company",
+    "Army veteran leadership",
+    "dual-label veteran support",
+    "service-earned veteran values",
+    "all-branch military support",
+    "veteran support programs",
+    "military veteran hiring",
+    "honest veteran employer",
+    "transparent veteran business",
+    "veteran benefit events",
+    "Pacific Northwest veterans",
+    "military family support",
+    "veteran community partnerships",
+    "service-disabled veteran business",
+    "military values construction",
+    "Combat Veteran Discount",
+    "veteran hiring initiatives",
+    "Tri-Cities veteran support",
+    "Richland veteran-owned",
+    "Pasco veteran business",
+    "Kennewick veteran support",
+    "Benton County veteran services",
+    "Franklin County veteran support",
+  ],
   openGraph: {
-    title: veteransSEOData.openGraph?.title as string,
-    description: veteransSEOData.openGraph?.description as string,
+    title:
+      "Service First → Veterans | Supporting Those Who Served - MH Construction",
+    description:
+      "Service First → Veterans: One Community, One Mission. Honoring all branches, all values. Veteran-owned with Army veteran leadership. Supporting Pacific Northwest veterans through hiring, partnerships, and shared military values.",
     type: "website",
     locale: "en_US",
     url: "https://www.mhc-gc.com/veterans",
@@ -45,8 +69,10 @@ export const metadata: Metadata = {
     card: "summary",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: veteransSEOData.openGraph?.title as string,
-    description: veteransSEOData.openGraph?.description as string,
+    title:
+      "Service First → Veterans | Supporting Those Who Served - MH Construction",
+    description:
+      "One Community, One Mission. Honoring all branches, all values. Veteran-owned with service-earned values. Supporting Pacific Northwest veterans through action, not just words.",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/veterans",

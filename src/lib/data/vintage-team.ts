@@ -27,6 +27,8 @@ export interface VintageTeamMember {
     safety: number;
     problemSolving: number;
     teamwork: number;
+    organization: number;
+    innovation: number;
   };
 
   // Current year performance (2025)

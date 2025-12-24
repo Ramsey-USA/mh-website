@@ -30,6 +30,9 @@
     "lint:markdown": "markdownlint-cli2 --config .markdownlint-cli2.jsonc --ignore-path .markdownlintignore \"**/*.md\"",
     "lint:markdown:fix": "markdownlint-cli2 --fix --config .markdownlint-cli2.jsonc --ignore-path .markdownlintignore \"**/*.md\"",
     "cspell:check": "npx cspell \"**/*.{md,js,ts,tsx,json}\" --no-progress --show-context",
+    "qr:generate": "node scripts/generate-qr-codes.js",
+    "qr:test": "node scripts/test-qr-codes.js",
+    "qr:check": "bash scripts/check-qr-codes.sh",
     "prepare": "husky"
   },
   "keywords": [
@@ -88,8 +91,11 @@
     "husky": "^9.1.7",
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^30.2.0",
+    "jimp": "^1.6.0",
+    "jsqr": "^1.4.0",
     "lint-staged": "^16.2.6",
     "markdownlint-cli2": "^0.18.1",
+    "pngjs": "^7.0.0",
     "postcss": "^8.5.6",
     "prettier": "^3.1.0",
     "qrcode": "^1.5.4",

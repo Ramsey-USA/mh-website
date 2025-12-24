@@ -152,7 +152,7 @@ with icon, decorative lines, two-line gradient heading, and description.
 
 ### **Standard Custom Header Pattern**
 
-```tsx
+````tsx
 {
   /* Section Header - Military Construction Standard */
 }
@@ -188,7 +188,55 @@ with icon, decorative lines, two-line gradient heading, and description.
     Description text
   </p>
 </div>;
-```
+
+### **Two-Line Heading Implementation Details**
+
+**Critical Requirements for Gradient Text:**
+
+```tsx
+{/* Container - MUST include overflow-visible */}
+<h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+
+  {/* First Line - Subtitle - Solid Color */}
+  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+    Subtitle Text
+  </span>
+
+  {/* Second Line - Main Title - Gradient */}
+  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+    Main Title Text
+  </span>
+</h2>
+````
+
+**Why `overflow-visible` is Critical:**
+
+- **Without it:** Gradient text gets clipped at edges, especially on larger screens
+- **Container:** Add to parent `<h2>` element
+- **Both Lines:** Add to both `<span>` elements
+- **Result:** Ensures gradient renders completely without clipping
+
+**Padding Values Explained:**
+
+- **Subtitle:** `py-1` - Minimal padding, keeps tight spacing
+- **Main Title:** `py-2 pb-3` - Top padding `py-2` for breathing room, extra bottom padding `pb-3` for gradient visibility
+- **Purpose:** Creates proper visual separation while preventing gradient clipping
+
+**Line Height Differences:**
+
+- **Container:** `leading-relaxed` - Base comfortable line height
+- **Subtitle:** Uses container's `leading-relaxed` (inherited)
+- **Main Title:** `leading-normal` - Override to tighter spacing for gradient impact
+- **Why Different:** Gradient text needs tighter leading to appear more cohesive
+
+**Typography Scaling:**
+
+- **Container:** `text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl`
+- **Subtitle:** `text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl` (one size smaller)
+- **Ratio:** Subtitle is approximately 70% the size of the main title
+- **Maintains proportion** across all breakpoints
+
+`````
 
 ### **Key Elements**
 
@@ -245,7 +293,7 @@ description=\"Optional description text\"
   <MaterialIcon icon="icon_name" className="mr-2 group-hover:scale-110" />
   Button Text
 </Button>
-````
+`````
 
 ### **Touch Accessibility**
 

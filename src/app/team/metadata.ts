@@ -2,10 +2,15 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Our Team - Veteran Leadership & Construction Experts | MH Construction",
+    "Chain of Command → Our Team | 150+ Years Combined Military-Grade Expertise | MH Construction",
   description:
-    "Meet the MH Construction team: veteran-led leadership, experienced project managers, and skilled construction professionals. Military precision meets collaborative excellence in the Tri-Cities.",
+    "Chain of Command → Our Team: 150+ Years Combined Military-Grade Expertise at Your Service. Meet the MH Construction team with all-branch veteran leadership you can trust: veteran-led leadership, experienced project managers, and skilled construction professionals. Military precision meets collaborative excellence with service-earned values driving every project in the Tri-Cities and Pacific Northwest.",
   keywords: [
+    "Chain of Command Our Team",
+    "150 years combined military-grade expertise",
+    "all-branch veteran leadership",
+    "service-earned construction values",
+    "dual-label team structure",
     "construction team",
     "veteran construction leaders",
     "construction project managers",
@@ -23,9 +28,10 @@ export const metadata: Metadata = {
     "military precision team",
   ],
   openGraph: {
-    title: "Our Veteran-Led Team - MH Construction",
+    title:
+      "Chain of Command → Our Team | 150+ Years Military-Grade Expertise - MH Construction",
     description:
-      "Meet our experienced team of construction professionals led by Army veteran leadership. Military precision in every project.",
+      "Chain of Command → Our Team: 150+ Years Combined Expertise at Your Service. Meet our experienced team of construction professionals led by all-branch veteran leadership. Military precision with service-earned values in every project.",
     type: "website",
     locale: "en_US",
     url: "https://www.mhc-gc.com/team",
@@ -35,9 +41,10 @@ export const metadata: Metadata = {
     card: "summary",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: "Our Veteran-Led Team - MH Construction",
+    title:
+      "Chain of Command → Our Team | 150+ Years Expertise - MH Construction",
     description:
-      "Experienced construction professionals with Army veteran leadership. Military precision meets collaborative excellence.",
+      "Chain of Command: 150+ years combined military-grade expertise. All-branch veteran leadership with service-earned values. Military precision meets collaborative excellence.",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/team",

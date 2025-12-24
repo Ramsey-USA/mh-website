@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Public Sector & Government Construction Services | MH Construction",
+  title:
+    "Public Sector → Government | Veteran-Owned Excellence for Government Construction | MH Construction",
   description:
-    "Veteran-owned construction services for public sector and government projects. Experienced with government contracting, compliance, and military facility construction in the Pacific Northwest.",
+    "Public Sector → Government: Veteran-Owned Excellence for Government Construction Missions. Mission-ready construction operations with federal compliance-driven standards. Veteran-owned construction services for public sector and government projects with service-earned values. Experienced with government contracting, compliance, and military facility construction in the Pacific Northwest. Building bonding capacity for public sector work.",
   keywords: [
+    "Public Sector Government construction missions",
+    "mission-ready construction operations",
+    "federal compliance-driven standards",
+    "veteran-owned government contractor",
+    "dual-label public sector construction",
+    "service-earned government values",
     "government construction",
     "federal construction services",
     "government contractor",
@@ -22,9 +29,10 @@ export const metadata: Metadata = {
     "Franklin County federal contractor",
   ],
   openGraph: {
-    title: "Public Sector Construction Services - MH Construction",
+    title:
+      "Public Sector → Government | Veteran-Owned Excellence - MH Construction",
     description:
-      "Veteran-owned construction services for public sector and government projects. Experienced with compliance and military precision.",
+      "Public Sector → Government: Mission-Ready Construction Operations with Federal Compliance-Driven Standards. Veteran-owned construction services with service-earned values for public sector and government projects. Military precision meets government requirements.",
     type: "website",
     locale: "en_US",
     url: "https://www.mhc-gc.com/public-sector",
@@ -34,9 +42,10 @@ export const metadata: Metadata = {
     card: "summary",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: "Public Sector Construction - MH Construction",
+    title:
+      "Public Sector → Government | Veteran-Owned Excellence - MH Construction",
     description:
-      "Veteran-owned federal contractor. Government construction services with compliance expertise and military precision.",
+      "Mission-ready construction operations. Veteran-owned federal contractor with service-earned values. Government construction with compliance expertise and military precision.",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/public-sector",

@@ -5,13 +5,25 @@ import { type Metadata } from "next";
 export const enhancedSEO = {
   siteName: "MH Construction",
   defaultTitle:
-    "MH Construction - Building projects for the client, NOT the dollar | Veteran-Owned",
+    "Base HQ → Home | Building projects for the client, NOT the dollar | MH Construction",
   defaultDescription:
-    "Veteran-owned construction management services provider since 2010. Specializing in commercial construction services, master planning and preconstruction services, tenant improvement services, and light industrial construction. Four core values—Honesty, Integrity, Professionalism, Thoroughness—building trust through transparent communication and lasting relationships throughout the Pacific Northwest.",
+    "Base HQ → Home: Your Tri-Cities Construction Command Center. Veteran-owned construction management services since 2010 with dual-label approach (Military Operations → Construction Services). Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction. Service-earned values—Honesty, Integrity, Professionalism, Thoroughness—building trust through SITREP-level transparency and Chain of Command excellence throughout the Pacific Northwest.",
   siteUrl: process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com",
   twitterHandle: "@mhc_gc",
   defaultKeywords: [
+    "Base HQ Home construction command center",
+    "dual-label military civilian construction",
     "veteran-owned contractor",
+    "service-earned construction values",
+    "Chain of Command construction approach",
+    "military precision construction",
+    "Operations Services dual messaging",
+    "Mission Project dual terminology",
+    "Rally Point Contact construction",
+    "SITREP-level construction communication",
+    "battle-tested construction excellence",
+    "all-branch veteran leadership",
+    "150 years combined military-grade expertise",
     "general contractor",
     "construction management services",
     "commercial construction services",

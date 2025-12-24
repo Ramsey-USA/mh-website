@@ -61,9 +61,9 @@ export default function TeamPage() {
   const departmentOrder = [
     "The Upper Brass",
     "Mission Commanders",
+    "Field Officers",
     "Special Operations",
     "Logistics Command",
-    "Field Officers",
   ];
 
   return (
@@ -174,22 +174,29 @@ export default function TeamPage() {
       />
 
       <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
-        {/* Hero Section - v4.0.2 Standards */}
-        <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-end justify-end text-white overflow-hidden">
-          {/* Background Elements */}
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
+        {/* Hero Section */}
+        <section className="relative h-screen flex items-end justify-end text-white overflow-hidden">
+          {/* Background - Ready for photo or video */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900">
+            {/* Overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
+          </div>
 
-          {/* Content - Bottom Right */}
+          {/* Header Text - Bottom Right */}
           <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
-            {/* Chain of Command Unit Icon */}
+            {/* Mission Icon */}
             <div className="flex justify-end mb-4">
-              <MaterialIcon
-                icon="groups"
-                size="5xl"
-                theme="military"
-                className="drop-shadow-2xl opacity-90 hover:opacity-100 transition-opacity"
-                ariaLabel="Chain of Command - Elite construction team"
-              />
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                <div className="relative w-24 h-24 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white/50 dark:border-gray-700/50">
+                  <MaterialIcon
+                    icon="groups"
+                    size="2xl"
+                    className="text-white drop-shadow-lg"
+                    ariaLabel="Chain of Command - Elite construction team"
+                  />
+                </div>
+              </div>
             </div>
             <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
               <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
@@ -199,7 +206,12 @@ export default function TeamPage() {
                 All-Branch Veteran Leadership You Can Trust
               </span>
               <span className="block text-brand-primary">
-                150+ Years Combined Military-Grade Expertise at Your Service
+                150+ Years Combined Military-Grade Expertise
+              </span>
+              <span className="block text-white/90">
+                Building projects for the client,{" "}
+                <span className="font-black italic text-bronze-300">NOT</span>{" "}
+                the dollar
               </span>
             </h1>
           </div>

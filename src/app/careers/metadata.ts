@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Careers - Join Our Veteran-Led Construction Team | MH Construction",
+  title:
+    "Enlist → Careers | Build More Than Projects - Build Your Future | MH Construction",
   description:
-    "Explore career opportunities at MH Construction. Join our veteran-led team in the Tri-Cities. We offer competitive benefits, professional development, and a collaborative work environment.",
+    "Enlist → Careers: Build More Than Projects - Build Your Future with a Veteran-Owned Team. Join the mission - your construction career starts here. Explore career opportunities at MH Construction. Join our veteran-led team in the Tri-Cities with service-earned values. We offer competitive benefits, professional development, transparent expectations, proven mentorship, and a collaborative work environment where military precision meets construction excellence.",
   keywords: [
+    "Enlist Careers build your future",
+    "join the mission construction career",
+    "veteran-owned construction careers",
+    "service-earned career values",
+    "dual-label career opportunities",
+    "military precision construction jobs",
     "construction jobs",
     "construction careers",
     "veteran employment",
@@ -38,9 +45,9 @@ export const metadata: Metadata = {
     "construction opportunities",
   ],
   openGraph: {
-    title: "Careers at MH Construction",
+    title: "Enlist → Careers | Build Your Future - MH Construction",
     description:
-      "Join our veteran-led construction team in the Tri-Cities. Competitive benefits and professional growth opportunities available.",
+      "Enlist → Careers: Build More Than Projects - Build Your Future. Join the mission with a veteran-led construction team. Service-earned values, competitive benefits, transparent expectations, and proven mentorship in the Tri-Cities.",
     type: "website",
     locale: "en_US",
     url: "https://www.mhc-gc.com/careers",
@@ -50,9 +57,9 @@ export const metadata: Metadata = {
     card: "summary",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: "Careers at MH Construction",
+    title: "Enlist → Careers | Build Your Future - MH Construction",
     description:
-      "Join our veteran-led team. Competitive benefits and professional growth in the Tri-Cities construction industry.",
+      "Join the mission: Build More Than Projects - Build Your Future. Veteran-led team with service-earned values. Competitive benefits, proven mentorship, military precision meets construction excellence.",
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/careers",

@@ -2,10 +2,17 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Construction Services - Commercial, Industrial & Medical Facilities | MH Construction",
+    "Operations → Services | The Battle Plan - Strategic Construction Excellence | MH Construction",
   description:
-    "Comprehensive construction management services: Commercial buildings, Master Planning, Medical Facilities, Light Industrial, Religious Facilities, Tenant Improvements, Government Projects. Veteran-owned. Serving Tri-Cities WA, OR, ID. Call (509) 308-6489.",
+    "Operations → Services: The Battle Plan - Strategic Construction Excellence from Concept to Completion. Comprehensive construction management services with military precision and honest communication: Commercial buildings, Master Planning, Medical Facilities, Light Industrial, Religious Facilities, Tenant Improvements, Government Projects. Veteran-owned with service-earned values. Serving Tri-Cities WA, OR, ID. Call (509) 308-6489.",
   keywords: [
+    "Operations Services battle plan",
+    "strategic construction excellence",
+    "military precision construction management",
+    "service-earned construction values",
+    "honest construction communication",
+    "transparent construction pricing",
+    "dual-label construction services",
     "construction services",
     "commercial construction",
     "construction management services",
@@ -41,9 +48,10 @@ export const metadata: Metadata = {
     "partnership-focused construction",
   ],
   openGraph: {
-    title: "Construction Management Services - MH Construction",
+    title:
+      "Operations → Services | Strategic Construction Excellence - MH Construction",
     description:
-      "Full-service construction management for commercial, industrial, medical, religious, and government facilities. Veteran-owned excellence. Your Vision, Our Precision. Serving the Pacific Northwest.",
+      "Operations → Services: The Battle Plan for Strategic Construction Excellence. Full-service construction management with military precision for commercial, industrial, medical, religious, and government facilities. Veteran-owned with service-earned values. Your Vision, Our Precision. Pacific Northwest coverage.",
     type: "website",
     locale: "en_US",
     url: "https://www.mhc-gc.com/services",
@@ -61,9 +69,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: "Construction Management Services - MH Construction",
+    title:
+      "Operations → Services | Strategic Construction Excellence - MH Construction",
     description:
-      "Veteran-owned construction excellence. Commercial, industrial, medical & government projects. Tri-Cities, WA.",
+      "The Battle Plan for construction success. Veteran-owned with military precision. Commercial, industrial, medical & government projects. Service-earned values, proven results.",
     images: ["https://www.mhc-gc.com/images/logo/mh-logo.png"],
   },
   alternates: {

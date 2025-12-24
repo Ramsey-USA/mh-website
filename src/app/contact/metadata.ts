@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact MH Construction - Get a Free Quote | (509) 308-6489",
+  title:
+    "Rally Point → Contact | Your Project. Our Expertise. Let's Connect. | MH Construction",
   description:
-    "Contact MH Construction for a free consultation. Serving Tri-Cities (Pasco, Kennewick, Richland) and Pacific Northwest. Call (509) 308-6489 or email office@mhc-gc.com. Veteran-owned excellence.",
+    "Rally Point → Contact: Your Project. Our Expertise. Let's Connect. Schedule your free mission brief with SITREP-level clarity. Contact MH Construction for veteran-owned construction services serving Tri-Cities (Pasco, Kennewick, Richland) and Pacific Northwest. Dual-label approach with service-earned values. Call (509) 308-6489 or email office@mhc-gc.com.",
   keywords: [
+    "Rally Point Contact mission brief",
+    "SITREP-level clarity consultation",
+    "dual-label veteran contact",
+    "service-earned construction contact",
     "contact MH Construction",
     "construction quote",
     "free construction consultation",
@@ -21,9 +26,10 @@ export const metadata: Metadata = {
     "veteran-owned contractor contact",
   ],
   openGraph: {
-    title: "Contact MH Construction - Free Consultation",
+    title:
+      "Rally Point → Contact | Your Project. Our Expertise. | MH Construction",
     description:
-      "Get in touch for a free consultation. Serving the Tri-Cities with veteran-owned construction excellence. Call (509) 308-6489.",
+      "Rally Point → Contact: Schedule your free mission brief with SITREP-level clarity. Serving the Tri-Cities with veteran-owned construction excellence and service-earned values. Call (509) 308-6489.",
     type: "website",
     locale: "en_US",
     url: "https://www.mhc-gc.com/contact",
