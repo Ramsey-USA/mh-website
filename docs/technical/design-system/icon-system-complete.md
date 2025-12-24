@@ -578,7 +578,6 @@ style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
 **User Actions:**
 
 - `event` - Schedule consultation (PRIMARY CTA)
-- `smart_toy` - AI Estimator (SECONDARY CTA)
 - `phone` - Call to action
 - `email` - Email contact
 - `arrow_forward` - Next/Continue actions
@@ -838,7 +837,6 @@ import { MaterialIcon } from '@/components/ui/material-icon';
 | Use Case           | Icon Name      | Size | Color        |
 | ------------------ | -------------- | ---- | ------------ |
 | Schedule CTA       | `event`        | `lg` | Hunter Green |
-| AI Estimator       | `smart_toy`    | `lg` | Leather Tan  |
 | Client CTA         | `handshake`    | `lg` | Hunter Green |
 | Ally Partnership   | `construction` | `lg` | Leather Tan  |
 | Verified/Certified | `verified`     | `md` | Bronze       |
@@ -932,5 +930,5 @@ import { MaterialIcon } from '@/components/ui/material-icon';
 **Questions or Issues?**
 
 - [Icons Navigation Hub](./icons-index.md) - Quick access to all icon documentation
-- [Master Index](../../master-index.md) - Central documentation hub
+- [Documentation Home](../../START-HERE.md) - Central documentation hub
 - [Material Icons Library](https://mui.com/material-ui/material-icons/) - Browse available icons

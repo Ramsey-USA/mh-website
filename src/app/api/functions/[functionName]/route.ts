@@ -128,7 +128,7 @@ function handleGetUserData(data: UserDataRequest, user: JWTUser | null) {
 
   try {
     // User data retrieval from Cloudflare D1/KV
-    // TODO: Connect to actual database when ready
+    // NOTE: Currently using JWT token data. Production will query D1 database.
     // Example D1 query:
     // const db = env.DB;
     // const result = await db.prepare(

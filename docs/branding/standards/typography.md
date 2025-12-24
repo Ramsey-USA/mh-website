@@ -8,7 +8,7 @@
 
 ## Quick Navigation
 
-- [🏠 Brand Documentation](./branding-index.md)
+- [🏠 Brand Documentation](../)
 - [📋 Brand Overview](./brand-overview.md)
 - [🎨 Color System](./color-system.md)
 - [🔧 Icon Policy](./icon-policy.md)
@@ -317,11 +317,11 @@ navigation visibility, and optimal typography scaling across the entire website.
   <span>Veteran-Owned Excellence</span>
 </div>
 
-// 2. CTA Buttons (Schedule, Get Estimate, Contact, etc.)
-<Link href="/booking">
+// 2. CTA Buttons (Contact, Phone, Email, etc.)
+<Link href="/contact">
   <Button variant="secondary" size="xl">
-    <MaterialIcon icon="event" size="lg" />
-    Schedule Free Consultation
+    <MaterialIcon icon="phone" size="lg" />
+    Call Us Today
   </Button>
 </Link>
 
@@ -374,8 +374,8 @@ navigation visibility, and optimal typography scaling across the entire website.
 
       <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
         "Building projects for the client, NOT the dollar" — Veteran-owned
-        excellence serving the Pacific Northwest with authentic partnerships and
-        cutting-edge technology.
+        excellence serving the Pacific Northwest with honest communication and
+        proven craftsmanship.
       </p>
     </div>
   </div>
@@ -945,7 +945,7 @@ className = "text-gray-900 dark:text-gray-100";
 - [**Color System**](./color-system.md) - Color palette and usage
 - [**Icon Policy**](./icon-policy.md) - Material Icons standards
 - [**Implementation Guide**](./implementation-guide.md) - Technical implementation
-- [**Branding Index**](../branding-index.md) - Hub for all brand documentation
+- [**Branding**](../) - Hub for all brand documentation
 
 ---
 

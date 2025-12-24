@@ -32,12 +32,12 @@
 
 ### Button Variant Matrix
 
-| Variant       | Color                  | Use Case                         | Icon Examples                 | Text Examples                 |
-| ------------- | ---------------------- | -------------------------------- | ----------------------------- | ----------------------------- |
-| **Primary**   | Hunter Green (#386851) | Main CTAs, IRL consultations     | `event`, `handshake`          | "Schedule Free Consultation"  |
-| **Secondary** | Leather Tan (#BD9264)  | AI Estimator, supporting actions | `smart_toy`, `calculate`      | "Get Instant AI Estimate"     |
-| **Outline**   | Transparent border     | Subtle actions, navigation       | `arrow_forward`, `visibility` | "Learn More", "View Our Work" |
-| **Neutral**   | Theme-aware            | System actions, UI controls      | `close`, `arrow_back`         | "Back", "Cancel"              |
+| Variant       | Color                  | Use Case                    | Icon Examples             | Text Examples                |
+| ------------- | ---------------------- | --------------------------- | ------------------------- | ---------------------------- |
+| **Primary**   | Hunter Green (#386851) | Main CTAs, consultations    | `phone`, `email`          | "Call Us Today"              |
+| **Secondary** | Leather Tan (#BD9264)  | Supporting actions          | `handshake`, `visibility` | "View Our Work"              |
+| **Outline**   | Transparent border     | Subtle actions, navigation  | `arrow_forward`, `info`   | "Learn More", "View Details" |
+| **Neutral**   | Theme-aware            | System actions, UI controls | `close`, `arrow_back`     | "Back", "Cancel"             |
 
 ### Service Type Distinctions
 
@@ -73,7 +73,7 @@
 
 **When to Use:**
 
-- Schedule/booking actions
+- Direct contact actions (phone/email)
 - Client contact forms
 - Primary conversion goals
 - In-person consultation requests
@@ -113,21 +113,19 @@
 
 **When to Use:**
 
-- Automated Estimator/Calculator
 - Secondary information requests
 - Portfolio viewing
 - Resource downloads
-- Ally applications
+- Partner applications
 
 **Approved Text Patterns:**
 
-- "Budget Planning Tool"
-- "Get Project Estimate"
-- "Try Planning Tool"
 - "Trust In Action" (for portfolio/testimonials)
 - "Our Values-Driven Services"
 - "Our Foundation" (for about/values)
 - "Apply as Vendor"
+- "View Our Work"
+- "Learn More"
 - "Download Resources"
 
 ---
@@ -244,16 +242,14 @@
 **Implementation:**
 
 ```tsx
-<Link href="/booking">
+<Link href="/contact">
   <Button variant="primary" size="lg" className="group/btn min-h-[48px]">
     <MaterialIcon
-      icon="event"
+      icon="phone"
       size="lg"
       className="mr-2 sm:mr-3 group-hover/btn:scale-110 transition-transform"
     />
-    <span className="font-medium text-sm sm:text-base">
-      Schedule Free Consultation
-    </span>
+    <span className="font-medium text-sm sm:text-base">Call Us Today</span>
   </Button>
 </Link>
 ```
@@ -297,7 +293,7 @@
 **Icon:** `handshake`  
 **Color:** Hunter Green (#386851)  
 **Variant:** `primary`  
-**Routes:** `/services`, `/booking`, `/contact`
+**Routes:** `/services`, `/contact`
 
 **Implementation:**
 
@@ -411,7 +407,7 @@ className = "min-h-[48px]";
 1. **Semantic HTML:** Wrap in `<Link>` for navigation
 
 ```tsx
-<Link href="/booking">
+<Link href="/contact">
   <Button>...</Button>
 </Link>
 ```
@@ -480,13 +476,6 @@ color: white;
 - "Request Project Review"
 - "Meet with Expert"
 - "Discuss Your Vision"
-
-#### ✅ APPROVED: AI/Automated Tools
-
-- "Get Instant AI Estimate" (primary for estimator)
-- "Try Automated Estimator"
-- "Calculate Project Cost"
-- "Start AI Estimate"
 
 #### ✅ APPROVED: Portfolio & Projects
 
@@ -648,45 +637,43 @@ export function CTASection() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {/* Primary CTA - Human Consultation */}
-          <Link href="/booking">
+          {/* Primary CTA - Phone Contact */}
+          <Link href="tel:+15093086489">
             <Button
               variant="primary"
               size="lg"
               className="group/btn min-h-[48px]"
             >
               <MaterialIcon
-                icon="event"
+                icon="phone"
                 size="lg"
                 className="mr-2 sm:mr-3 group-hover/btn:scale-110 transition-transform"
               />
               <span className="font-medium text-sm sm:text-base">
-                Schedule Free Consultation
+                Call (509) 308-6489
               </span>
             </Button>
           </Link>
 
-          {/* Secondary CTA - AI Estimator */}
-          <Link href="/estimator">
+          {/* Secondary CTA - Email Contact */}
+          <Link href="mailto:info@mhconstruction.com">
             <Button
               variant="secondary"
               size="lg"
               className="group/btn min-h-[48px]"
             >
               <MaterialIcon
-                icon="smart_toy"
+                icon="email"
                 size="lg"
                 className="mr-2 sm:mr-3 group-hover/btn:scale-110 transition-transform"
               />
-              <span className="font-medium text-sm sm:text-base">
-                Get Instant AI Estimate
-              </span>
+              <span className="font-medium text-sm sm:text-base">Email Us</span>
             </Button>
           </Link>
         </div>
 
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-4">
-          Both paths lead to the same expert team and quality results
+          Talk to a real person - no automation, no bots
         </p>
       </div>
     </section>
@@ -706,28 +693,28 @@ import Link from "next/link";
 export function NextStepsSection() {
   const options = [
     {
-      icon: "event",
-      title: "Schedule Consultation",
-      description: "Meet with our expert team for personalized guidance",
-      href: "/booking",
-      variant: "primary" as const,
-      buttonText: "Book Free Consultation",
-    },
-    {
-      icon: "smart_toy",
-      title: "Try AI Estimator",
-      description: "Get instant preliminary pricing in under 5 minutes",
-      href: "/estimator",
-      variant: "secondary" as const,
-      buttonText: "Get Instant Estimate",
-    },
-    {
       icon: "phone",
-      title: "Call Directly",
-      description: "Speak with our team now",
-      href: "tel:+15099432427",
+      title: "Call Us",
+      description: "Speak with our expert team for personalized guidance",
+      href: "tel:+15093086489",
+      variant: "primary" as const,
+      buttonText: "Call (509) 308-6489",
+    },
+    {
+      icon: "email",
+      title: "Email Us",
+      description: "Send us your project details and questions",
+      href: "mailto:info@mhconstruction.com",
+      variant: "secondary" as const,
+      buttonText: "Email Us",
+    },
+    {
+      icon: "location_on",
+      title: "Visit Us",
+      description: "Come to our office for an in-person consultation",
+      href: "/contact",
       variant: "outline" as const,
-      buttonText: "Call (509) 943-2427",
+      buttonText: "Get Directions",
     },
   ];
 
@@ -791,7 +778,7 @@ export function MobileCTA() {
             <span className="text-xs sm:text-sm">Book Now</span>
           </Button>
         </Link>
-        <Link href="tel:+15099432427">
+        <Link href="tel:+15093086489">
           <Button variant="outline" size="lg" className="aspect-square">
             <MaterialIcon icon="phone" size="md" />
           </Button>
@@ -871,27 +858,27 @@ export function MobileCTA() {
 />
 ```
 
-#### ❌ Mistake #3: Wrong Variant for Service Type
+#### ❌ Mistake #3: Wrong Variant for Action Type
 
 ```tsx
-// WRONG - AI Estimator with primary (should be secondary)
-<Button variant="primary">Get AI Estimate</Button>
+// WRONG - Outline for primary action
+<Button variant="outline">Call Us Today</Button>
 
 // RIGHT
-<Button variant="secondary">Get AI Estimate</Button>
+<Button variant="primary">Call Us Today</Button>
 ```
 
 #### ❌ Mistake #4: Missing Link Wrapper
 
 ```tsx
 // WRONG - Button without Link
-<Button variant="primary" onClick={() => router.push('/booking')}>
-  Schedule Consultation
+<Button variant="primary" onClick={() => router.push('/contact')}>
+  Contact Us
 </Button>
 
 // RIGHT - Wrapped in Link
-<Link href="/booking">
-  <Button variant="primary">Schedule Consultation</Button>
+<Link href="/contact">
+  <Button variant="primary">Contact Us</Button>
 </Link>
 ```
 
@@ -917,7 +904,7 @@ export function MobileCTA() {
 
 - **[Consistency Guide](../../development/consistency-guide.md)** - Implementation standards
 - **[Development Standards](../../development/development-standards.md)** - Coding conventions
-- **[Master Index](../../master-index.md)** - Central documentation hub
+- **[Documentation Home](../../START-HERE.md)** - Central documentation hub
 
 ---
 
@@ -960,5 +947,5 @@ export function MobileCTA() {
 **Questions or Issues?**
 
 - [Button System Documentation](./buttons-ctas-complete-guide.md) - This complete guide
-- [Master Index](../../master-index.md) - Central documentation hub
+- [Documentation Home](../../START-HERE.md) - Central documentation hub
 - [Consistency Guide](../../development/consistency-guide.md) - General implementation standards

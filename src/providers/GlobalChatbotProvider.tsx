@@ -4,73 +4,76 @@ import {
   createContext,
   useContext,
   useState,
+  useCallback,
   type ReactNode,
-  useEffect,
 } from "react";
 import dynamic from "next/dynamic";
-import { usePathname } from "next/navigation";
+import type { ChatbotContext } from "@/lib/chatbot/chatbot-config";
 
-// Dynamically import GlobalChatbot to reduce initial bundle size
+// Dynamically import chatbot components to reduce initial bundle size
 const GlobalChatbot = dynamic(
-  () => import("@/components/chatbot/GlobalChatbot"),
-  {
-    ssr: false,
-    loading: () => null, // No loading UI needed for chatbot
-  },
+  () =>
+    import("@/components/chatbot/GlobalChatbot").then((mod) => ({
+      default: mod.GlobalChatbot,
+    })),
+  { ssr: false },
 );
 
-interface GlobalChatbotContextType {
-  isVisible: boolean;
-  setIsVisible: (visible: boolean) => void;
-  currentPageData?: unknown;
-  setCurrentPageData: (data: unknown) => void;
-  currentPage?: string;
-  setCurrentPage: (page: string) => void;
-  formData?: unknown;
-  setFormData: (data: unknown) => void;
+const FloatingChatbotButton = dynamic(
+  () =>
+    import("@/components/chatbot/FloatingChatbotButton").then((mod) => ({
+      default: mod.FloatingChatbotButton,
+    })),
+  { ssr: false },
+);
+
+interface ChatbotContextValue {
+  isOpen: boolean;
+  context: ChatbotContext;
+  openChatbot: (context?: ChatbotContext) => void;
+  closeChatbot: () => void;
+  toggleChatbot: () => void;
 }
 
-const GlobalChatbotContext = createContext<
-  GlobalChatbotContextType | undefined
->(undefined);
+const ChatbotContextInternal = createContext<ChatbotContextValue | undefined>(
+  undefined,
+);
 
 export function GlobalChatbotProvider({ children }: { children: ReactNode }) {
-  const [isVisible, setIsVisible] = useState(true); // Always visible by default
-  const [currentPageData, setCurrentPageData] = useState<unknown>(null);
-  const [currentPage, setCurrentPage] = useState("");
-  const [formData, setFormData] = useState<unknown>(null);
-  const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+  const [context, setContext] = useState<ChatbotContext>("general");
 
-  useEffect(() => {
-    setCurrentPage(pathname);
-  }, [pathname]);
+  const openChatbot = useCallback((newContext: ChatbotContext = "general") => {
+    setContext(newContext);
+    setIsOpen(true);
+  }, []);
 
-  const value = {
-    isVisible,
-    setIsVisible,
-    currentPageData,
-    setCurrentPageData,
-    currentPage,
-    setCurrentPage,
-    formData,
-    setFormData,
-  };
+  const closeChatbot = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
+  const toggleChatbot = useCallback(() => {
+    setIsOpen((prev) => !prev);
+  }, []);
 
   return (
-    <GlobalChatbotContext.Provider value={value}>
+    <ChatbotContextInternal.Provider
+      value={{ isOpen, context, openChatbot, closeChatbot, toggleChatbot }}
+    >
       {children}
-      {/* Global Chatbot - Always rendered when visible */}
-      {isVisible && <GlobalChatbot estimatorData={currentPageData} />}
-    </GlobalChatbotContext.Provider>
+      <FloatingChatbotButton />
+      <GlobalChatbot isOpen={isOpen} onClose={closeChatbot} context={context} />
+    </ChatbotContextInternal.Provider>
   );
 }
 
-export function useGlobalChatbot() {
-  const context = useContext(GlobalChatbotContext);
-  if (context === undefined) {
-    throw new Error(
-      "useGlobalChatbot must be used within a GlobalChatbotProvider",
-    );
+export function useChatbot() {
+  const context = useContext(ChatbotContextInternal);
+  if (!context) {
+    throw new Error("useChatbot must be used within GlobalChatbotProvider");
   }
   return context;
 }
+
+// Legacy export for compatibility
+export const useGlobalChatbot = useChatbot;

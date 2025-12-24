@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { useGlobalChatbot } from "@/providers/GlobalChatbotProvider";
+import { useChatbot } from "@/providers/GlobalChatbotProvider";
 
 // Activity types for the feed
 type ActivityType = "booking" | "estimate" | "consultation" | "project_start";
@@ -61,7 +61,7 @@ export function ActivityFeed({
 }: ActivityFeedProps) {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [dismissedIds, setDismissedIds] = useState<Set<string>>(new Set());
-  const { setIsVisible, setCurrentPageData } = useGlobalChatbot();
+  const { openChatbot } = useChatbot();
 
   // Mock activity data - in production, this would come from real-time API
   // Using useMemo to prevent dependency issues in useEffect
@@ -197,35 +197,9 @@ export function ActivityFeed({
     }
 
     // Prepare context for chatbot with specific follow-up prompts
-    const getSpecificPrompt = () => {
-      switch (activity.type) {
-        case "booking":
-          return "What should I prepare for my consultation? I'd like to book one too.";
-        case "estimate":
-          return "How accurate are your estimates? Can I get one for my project?";
-        case "consultation":
-          return "What happens during a consultation? Is there any cost involved?";
-        case "project_start":
-          return "What's your typical project timeline? Tell me about similar projects.";
-        default:
-          return `Tell me more about ${activity.projectType || "similar projects"} in the ${activity.location} area`;
-      }
-    };
-
-    const chatbotContext = {
-      source: "activity_feed",
-      activityType: activity.type,
-      projectType: activity.projectType,
-      location: activity.location,
-      estimatedValue: activity.estimatedValue,
-      message: activity.message,
-      timestamp: activity.timestamp.toISOString(),
-      userIntent: getSpecificPrompt(),
-    };
 
     // Pass context to chatbot and open
-    setCurrentPageData(chatbotContext);
-    setIsVisible(true);
+    openChatbot("general");
 
     // Optionally dismiss after clicking
     handleDismiss(activity.id);

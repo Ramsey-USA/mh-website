@@ -14,8 +14,7 @@ transparent communication.
 - [🎖️ Military-Construction Terminology](./military-construction-terminology.md) ⭐ **NEW** - Professional military terms
 - [🗂️ Slogan Rotation Guide](./slogan-rotation-guide.md)
 - [📝 Messaging Guidelines](./messaging.md)
-- [🎨 Branding Index](../branding-index.md)
-- [🏠 Master Documentation Index](../../master-index.md)
+- [🏠 Documentation Home](../../START-HERE.md)
 
 ---
 
@@ -110,9 +109,17 @@ specific terms and phrases.
 
 ### Primary Messaging
 
-**Main Slogan (Featured Prominently):**
+**Foundation Slogan (Always Featured):**
 
 - "Building projects for the client, NOT the dollar"
+
+**Dual-Label Slogans (Military / Construction):**
+
+- "Service Over Self" / "Client Over Commission"
+- "Mission Brief" / "Project Consultation"
+- "Your Bond" / "Our Word" (combined: "Your word is your bond — so is ours")
+- "Rally Point" / "Contact Hub"
+- "Chain of Command" / "Team Leadership"
 
 **Veteran-Honesty Messaging:**
 
@@ -197,9 +204,17 @@ appropriately.
 
 ### Primary Messaging
 
-**Main Slogan:**
+**Foundation Slogan:**
 
 - "Building projects for the client, NOT the dollar" (always applies)
+
+**Dual-Label Slogans (Military / Construction):**
+
+- "Operations" / "Services"
+- "Mission Success" / "Project Completion"
+- "After-Action Review" / "Post-Project Analysis"
+- "Tactical Planning" / "Strategic Scheduling"
+- "AO (Area of Operations)" / "Project Site"
 
 **Services-Focused Messaging:**
 
@@ -269,9 +284,17 @@ appropriately.
 
 ### Primary Messaging
 
-**Main Slogan:**
+**Foundation Slogan:**
 
-- "Building projects for the client, NOT the dollar" (foundation)
+- "Building projects for the client, NOT the dollar" (always applies)
+
+**Dual-Label Slogans (Military / Construction):**
+
+- "Chain of Command" / "Team Structure"
+- "Enlist" / "Join Our Team" (for careers)
+- "Allied Forces" / "Trade Partners"
+- "Tour of Duty" / "Career Path"
+- "Unit Cohesion" / "Team Collaboration"
 
 **ROI-Relationship Messaging (EXCLUSIVE TO GROUP 3):**
 
@@ -342,9 +365,17 @@ appropriately.
 
 ### Primary Messaging
 
-**Main Slogan:**
+**Foundation Slogan:**
 
 - "Building projects for the client, NOT the dollar" (always applies)
+
+**Dual-Label Slogans (Military / Construction):**
+
+- "Rally Point" / "Contact Center"
+- "SITREP Request" / "Project Update"
+- "Rapid Response" / "Emergency Service"
+- "Direct Comms" / "Personal Consultation"
+- "Mission Intel" / "Project Information" (for FAQ)
 
 **Communication-Focused Messaging:**
 

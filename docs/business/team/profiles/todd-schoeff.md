@@ -1,6 +1,10 @@
-# Todd Schoeff - "The Calculator"
+# Todd Schoeff - "The Intelligence Officer"
 
-> **Card #7** | **Project Management & Estimating** | **Civilian Professional**
+**Category:** Business - Team Profiles
+**Last Updated:** December 24, 2025
+**Status:** ✅ Active
+
+> **Card #7** | **Logistics & Support** | **Civilian Professional**
 
 ## Quick Facts
 

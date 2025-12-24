@@ -7,10 +7,8 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Development Index](./development-index.md)
-- [🤖 AI Development Guidelines](./ai-development-guidelines.md)
-- [📖 Consistency Guide](./consistency-guide.md)
-- [🏠 Master Index](../master-index.md)
+- [📚 Consistency Guide](./consistency-guide.md)
+- [🏠 Documentation Home](../START-HERE.md)
 
 ---
 
@@ -25,7 +23,7 @@ These standards ensure consistency, maintainability, and prevent recurring bugs.
 
 **When implementing features, also consult our brand guidelines:**
 
-- **[MH Branding Index](../../branding/branding-index.md)** - Modular brand docs,
+- **[MH Branding](../../branding/)** - Modular brand docs,
   standards and visual identity
 - **[Typography Standards](../../branding/standards/typography.md)** - Responsive
   typography patterns and hero section requirements
@@ -34,19 +32,6 @@ These standards ensure consistency, maintainability, and prevent recurring bugs.
 - **Icon Standards** - See below (Material Icons only, NO emojis in code)
 
 **These branding standards are mandatory and enforced alongside technical standards.**
-
-### 🤖 Chatbot-First User Engagement (November 2025)
-
-**NEW STANDARD**: Replace static FAQ sections with interactive chatbot CTAs.
-
-**Implementation Rules:**
-
-- ✅ **USE**: `ChatbotCTASection` component for FAQ/Q&A sections
-- ✅ **PREFER**: Interactive chatbot prompts over static text
-- ✅ **REPURPOSE**: FAQ data for chatbot training, not static display
-- ❌ **AVOID**: Creating new static FAQ accordion sections
-
-**See**: [Chatbot-First User Engagement Guide](./consistency-guide.md#chatbot-first-user-engagement)
 
 ---
 
@@ -77,18 +62,17 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon'
 
 **Semantic Icon Mapping:**
 
-| Function              | Material Icon   | Usage Context                |
-| --------------------- | --------------- | ---------------------------- |
-| Construction Projects | `construction`  | Building, projects, work     |
-| Veteran Recognition   | `military_tech` | Military service, awards     |
-| Scheduling/Calendar   | `event`         | Appointments, dates          |
-| Contact Information   | `phone`         | Phone numbers, calls         |
-| Email Communication   | `email`         | Email addresses, messages    |
-| Location/Address      | `place`         | Addresses, locations         |
-| AI/Smart Features     | `smart_toy`     | Automated estimator, chatbot |
-| Security Features     | `security`      | Protection, safety           |
-| Success/Completion    | `check_circle`  | Success states               |
-| Warnings/Alerts       | `warning`       | Caution, alerts              |
+| Function              | Material Icon   | Usage Context             |
+| --------------------- | --------------- | ------------------------- |
+| Construction Projects | `construction`  | Building, projects, work  |
+| Veteran Recognition   | `military_tech` | Military service, awards  |
+| Scheduling/Calendar   | `event`         | Appointments, dates       |
+| Contact Information   | `phone`         | Phone numbers, calls      |
+| Email Communication   | `email`         | Email addresses, messages |
+| Location/Address      | `place`         | Addresses, locations      |
+| Security Features     | `security`      | Protection, safety        |
+| Success/Completion    | `check_circle`  | Success states            |
+| Warnings/Alerts       | `warning`       | Caution, alerts           |
 
 ### ❌ PROHIBITED PRACTICES
 
@@ -591,14 +575,17 @@ export function Button({
 ### **Complex Logic Documentation**
 
 ````tsx
-// WHY: Firebase requires initialization before use to prevent race conditions
-// HOW: Lazy initialization on first access
-// WHEN: 2025-10-14 - Fix for intermittent Firebase errors
-function getFirebaseApp(): FirebaseApp {
-  if (!firebaseApp) {
-    firebaseApp = initializeApp(firebaseConfig);
+// WHY: Cache phone tracking to prevent duplicate analytics events
+// HOW: Store timestamp in localStorage, check on subsequent calls
+// WHEN: 2025-12-15 - Fix for duplicate tracking issue
+function trackPhoneClick(source: string): void {
+  const lastTracked = localStorage.getItem('phone_track_' + source);
+  const now = Date.now();
+
+  if (!lastTracked || now - parseInt(lastTracked) > 3600000) {
+    analytics.track('phone_click', { source });
+    localStorage.setItem('phone_track_' + source, now.toString());
   }
-  return firebaseApp;
 }
 ```text
 

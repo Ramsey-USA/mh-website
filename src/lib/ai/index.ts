@@ -4,7 +4,6 @@
  */
 import { logger } from "@/lib/utils/logger";
 export { CoreAIEngine } from "./core/AIEngine";
-export { CostAnalyzer } from "./estimator/CostAnalyzer";
 export { VeteranAI } from "./veteran/VeteranAI";
 export type {
   ConstructionIntel,
@@ -21,7 +20,6 @@ export type {
 } from "./types";
 
 import { CoreAIEngine } from "./core/AIEngine";
-import { CostAnalyzer } from "./estimator/CostAnalyzer";
 import { VeteranAI } from "./veteran/VeteranAI";
 import type { EstimateInput, EnhancedFormResult, FormType } from "./types";
 import {
@@ -36,7 +34,6 @@ import {
 
 export class MilitaryConstructionAI {
   private coreEngine = new CoreAIEngine();
-  private costAnalyzer = new CostAnalyzer();
   private veteranAI = new VeteranAI();
   private veteranSystem = VeteranPersonalizationSystem.getInstance();
 
@@ -62,11 +59,9 @@ export class MilitaryConstructionAI {
         context,
       );
     } else if (this.isEstimateQuery(userInput)) {
-      const estimateInput = this.parseEstimateInput(userInput, context);
-      const isVeteran =
-        Boolean(context?.["veteranProfile"]) ||
-        this.detectVeteranStatus(userInput);
-      response = this.costAnalyzer.processEstimate(estimateInput, isVeteran);
+      // Estimate queries now redirect to contact page
+      response =
+        "For detailed project estimates and consultations, please contact our team at (509) 308-6489 or visit our contact page. We provide personalized assessments based on your specific project needs.";
     } else {
       response = this.coreEngine.generateResponse(userInput, context);
     }
@@ -101,14 +96,14 @@ export class MilitaryConstructionAI {
         ? await this.checkVeteranStatus(sessionId)
         : this.detectVeteranStatus(JSON.stringify(formData));
 
-      const estimate = this.costAnalyzer.processEstimate(
-        estimateInput,
-        isVeteran,
-      );
-      const leadIntelligence = this.costAnalyzer.generateLeadIntelligence(
-        `${projectType} ${(formData["message"] as string) || ""} ${(formData["budget"] as string) || ""}`,
-        formData,
-      );
+      // Direct users to contact for estimates
+      const estimate = `Thank you for your interest in ${projectType}. For accurate project estimates, our team provides personalized consultations. Please contact us at (509) 308-6489 or visit our contact page.`;
+
+      const leadIntelligence = {
+        projectType,
+        priority: "high",
+        estimateRequested: true,
+      };
 
       const recommendations: unknown[] = [];
       let veteranBenefits: unknown | undefined;
@@ -123,12 +118,10 @@ export class MilitaryConstructionAI {
       return { estimate, leadIntelligence, recommendations, veteranBenefits };
     } catch (_error) {
       logger.error("Enhanced estimate processing _error:", _error);
-      const fallbackInput: EstimateInput = {
-        projectType,
-        description: "Basic estimate request",
-      };
+      const fallbackEstimate =
+        "For project estimates, please contact our team at (509) 308-6489.";
       return {
-        estimate: this.costAnalyzer.processEstimate(fallbackInput),
+        estimate: fallbackEstimate,
         leadIntelligence: { projectType, priority: "standard" },
         recommendations: [],
       };
@@ -204,33 +197,6 @@ export class MilitaryConstructionAI {
   private isEstimateQuery(input: string): boolean {
     const estimateKeywords = ["estimate", "cost", "price", "budget", "quote"];
     return estimateKeywords.some((k) => input.toLowerCase().includes(k));
-  }
-
-  private parseEstimateInput(
-    input: string,
-    context?: Record<string, unknown>,
-  ): EstimateInput {
-    const projectTypes = [
-      "kitchen",
-      "bathroom",
-      "deck",
-      "addition",
-      "renovation",
-      "commercial",
-    ];
-    const detectedType =
-      projectTypes.find((t) => input.toLowerCase().includes(t)) || "general";
-    const estimateInput: EstimateInput = {
-      projectType: detectedType,
-      description: input,
-    };
-    const budget = context?.["budget"] as string | undefined;
-    const timeline = context?.["timeline"] as string | undefined;
-    const location = context?.["location"] as string | undefined;
-    if (budget) estimateInput.budget = budget;
-    if (timeline) estimateInput.timeline = timeline;
-    if (location) estimateInput.location = location;
-    return estimateInput;
   }
 
   private detectVeteranStatus(input: string): boolean {

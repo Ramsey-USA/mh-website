@@ -6,7 +6,7 @@ import {
   FadeInWhenVisible,
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
-import { useChatbot } from "@/contexts/ChatbotContext";
+import { useChatbot } from "@/providers/GlobalChatbotProvider";
 
 const features = [
   {

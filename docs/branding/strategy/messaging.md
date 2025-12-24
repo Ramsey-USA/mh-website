@@ -43,7 +43,7 @@ groups with unique voices, tones, and keyword priorities.
 
 ## Quick Navigation
 
-- [🏠 Brand Documentation](../branding-index.md)
+- [🏠 Brand Documentation](../)
 - [📋 Brand Overview](./brand-overview.md)
 - [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Four-value professional system
 - [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
@@ -453,23 +453,23 @@ Our four-value professional foundation system guides all messaging and communica
 - "Our promises are backed by action, every single time"
 - "We stand behind our work with comprehensive warranties"
 
-#### 5. Innovation - Modern Tools Meeting Traditional Values
+#### 5. Proven Craftsmanship - Experience You Can Trust
 
-**Core Message**: "Cutting-edge technology serving timeless values"
+**Core Message**: "150+ years combined expertise meets military precision"
 
 **Supporting Points**:
 
-- Using modern construction technology and AI-powered planning
-- Embracing innovative construction techniques and materials
-- Digital project management and real-time communication
-- Continuous improvement and industry-leading methods
-- Technology that improves transparency and client service
+- Veteran-owned company with service-tested discipline
+- Proven methods refined through decades of successful projects
+- Traditional business values: handshakes matter, promises kept
+- Expert craftsmanship backed by comprehensive licensing
+- Transparent processes and face-to-face consultation
 
 **Example Applications**:
 
-- "Innovation means leveraging modern tools to serve you better"
-- "Cutting-edge technology meets old-school business values"
-- "AI-powered planning with human-centered service"
+- "Proven craftsmanship means methods that work, every time"
+- "Military precision meets construction excellence"
+- "Experience-tested approaches with honest communication"
 
 #### 6. Partnership - Building Relationships That Last
 
@@ -497,7 +497,7 @@ Trust is the ultimate goal—earned through consistent demonstration of all four
 - **Thoroughness**: Attention to detail creates peace of mind
 - **Honesty**: Transparent communication eliminates doubt
 - **Integrity**: Doing what's right builds credibility
-- **Innovation**: Modern tools demonstrate progress
+- **Proven Craftsmanship**: Veteran expertise demonstrates reliability
 - **Partnership**: Collaborative relationships create lasting bonds
 
 **Measuring Our Success**:
@@ -920,7 +920,7 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 - **[Typography](../standards/typography.md)** - Text and font guidelines
 - **[Icon Policy](../standards/icon-policy-complete.md)** - Visual elements policy
 - **[Implementation Guide](../implementation/branding-quick-reference.md)** - Technical standards
-- **[Branding Index](../branding-index.md)** - Hub for all brand documentation
+- **[Branding](../)** - Hub for all brand documentation
 
 ---
 

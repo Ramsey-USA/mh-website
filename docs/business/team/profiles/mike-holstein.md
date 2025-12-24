@@ -1,4 +1,8 @@
-# Mike Holstein - "The Foundation" (Founder & Former Owner)
+# Mike Holstein - "The Founder" (Founder & Former Owner)
+
+**Category:** Business - Team Profiles
+**Last Updated:** December 24, 2025
+**Status:** ✅ Active
 
 > **Card #2** | **Executive Leadership** | **Retired Leadership - Former Owner**
 

@@ -1,175 +1,232 @@
-/**
- * GlobalChatbot - Refactored
- *
- * Main chatbot component with modular structure
- */
-
 "use client";
 
-// React import not required for modern JSX runtime; removed
-import { useEffect } from "react";
-import { Card } from "../ui";
-import { MaterialIcon } from "../icons/MaterialIcon";
-import { useChatbot } from "@/contexts/ChatbotContext";
-import { useChatbotState } from "./hooks/useChatbotState";
-import { useChatbotHandlers } from "./hooks/useChatbotHandlers";
-import { ChatbotHeader } from "./ChatbotHeader";
-import { ChatbotMessages } from "./ChatbotMessages";
-import { ChatbotInput } from "./ChatbotInput";
-import QuickActionMenu from "./QuickActionMenu";
+import { useState, useRef, useEffect } from "react";
+import { Button } from "@/components/ui";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import {
+  CHATBOT_CONFIG,
+  type ChatbotContext,
+  type ChatbotMessage,
+} from "@/lib/chatbot/chatbot-config";
+import {
+  generateResponse,
+  createMessage,
+  getExampleQuestions,
+} from "@/lib/chatbot/chatbot-service";
 
 interface GlobalChatbotProps {
-  estimatorData?: unknown;
-  onEstimateRequest?: (data: unknown) => void;
-  currentPage?: string;
+  isOpen: boolean;
+  onClose: () => void;
+  context?: ChatbotContext;
 }
 
-export default function GlobalChatbot({
-  estimatorData,
-  currentPage = "",
+export function GlobalChatbot({
+  isOpen,
+  onClose,
+  context = "general",
 }: GlobalChatbotProps) {
-  // Use ChatbotContext for shared state
-  const { isOpen: contextIsOpen, toggleChatbot } = useChatbot();
+  const [messages, setMessages] = useState<ChatbotMessage[]>([]);
+  const [input, setInput] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  // Initialize state
-  const state = useChatbotState(currentPage, estimatorData);
-
-  // Initialize handlers
-  const handlers = useChatbotHandlers(state);
-
-  // Sync internal state with context
+  // Initialize with greeting
   useEffect(() => {
-    if (contextIsOpen !== state.isOpen) {
-      handlers.handleChatbotToggle();
+    if (isOpen && messages.length === 0) {
+      const greeting = createMessage(
+        "assistant",
+        CHATBOT_CONFIG.responses.greeting,
+        context,
+      );
+      setMessages([greeting]);
     }
-  }, [contextIsOpen, handlers, state.isOpen]); // Include all dependencies
+  }, [isOpen, context, messages.length]);
 
-  // Override the toggle handler to use context
-  const handleToggle = () => {
-    toggleChatbot();
+  // Scroll to bottom when messages change
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  // Focus input when opened
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => inputRef.current?.focus(), 100);
+    }
+  }, [isOpen]);
+
+  const handleSend = () => {
+    if (!input.trim()) return;
+
+    const userMessage = createMessage("user", input.trim(), context);
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
+    setIsTyping(true);
+
+    // Simulate brief typing delay for natural feel
+    setTimeout(() => {
+      const response = generateResponse(input, context);
+      const assistantMessage = createMessage("assistant", response, context);
+      setMessages((prev) => [...prev, assistantMessage]);
+      setIsTyping(false);
+    }, 800);
   };
 
-  // Quick actions placeholder removed (reserved for future feature)
+  const handleExampleClick = (question: string) => {
+    setInput(question);
+    inputRef.current?.focus();
+  };
 
-  // Render closed state (floating button)
-  if (!state.isOpen) {
-    return (
-      <div className="fixed bottom-6 right-6 z-50">
-        <button
-          onClick={handleToggle}
-          className="bg-gradient-to-br from-brand-primary via-brand-primary to-brand-primary-dark hover:from-brand-primary-dark hover:to-brand-primary text-white p-5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center group border-2 border-white/20"
-          aria-label="Open MH Construction Assistant"
-        >
-          <MaterialIcon
-            icon="chat"
-            size="lg"
-            className="group-hover:scale-110 transition-transform duration-300"
-          />
-          <span className="sr-only">Open MH Construction Assistant</span>
-        </button>
-      </div>
-    );
-  }
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  };
 
-  // Render minimized state
-  if (state.isMinimized) {
-    return (
-      <div
-        className="fixed z-50"
-        style={{
-          left: `${state.position.x}px`,
-          bottom: `${state.position.y}px`,
-        }}
-      >
-        <button
-          onClick={handlers.handleMinimizeToggle}
-          className="bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white px-5 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3 border border-white/20"
-          aria-label="Restore MH Construction assistant"
-        >
-          <MaterialIcon icon="chat" size="sm" />
-          <span className="font-semibold text-sm">MH Construction</span>
-        </button>
-      </div>
-    );
-  }
+  if (!isOpen) return null;
 
-  // Render full chatbot
+  const exampleQuestions = getExampleQuestions(context);
+
   return (
     <>
-      {/* Backdrop for mobile close */}
+      {/* Backdrop */}
       <div
-        className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden"
-        onClick={handleToggle}
+        className="fixed inset-0 bg-black/50 z-[998] md:hidden"
+        onClick={onClose}
         aria-hidden="true"
       />
 
-      <div
-        className={`fixed z-50 touch-none transition-opacity ${state.isDragging ? "opacity-90" : "opacity-100"}`}
-        style={{
-          left: `${state.position.x}px`,
-          bottom: `${state.position.y}px`,
-        }}
-        onMouseDown={handlers.handleMouseDown}
-        onMouseMove={handlers.handleMouseMove}
-        onMouseUp={handlers.handleMouseUp}
-        onTouchStart={handlers.handleTouchStart}
-        onTouchMove={handlers.handleTouchMove}
-        onTouchEnd={handlers.handleTouchEnd}
-        role="region"
-        aria-label="Draggable chatbot window"
-      >
-        <Card className="chatbot-window w-[calc(100vw-20px)] sm:w-[400px] max-h-[calc(100vh-100px)] sm:max-h-[600px] shadow-2xl border-2 border-brand-primary/20 dark:border-brand-primary/30 flex flex-col overflow-hidden">
-          <ChatbotHeader
-            isTyping={state.isTyping}
-            onMinimize={handlers.handleMinimizeToggle}
-            onClose={handleToggle}
-            onHistoryToggle={handlers.handleHistoryToggle}
-            showHistory={state.showHistory}
-          />
-
-          {state.showHistory ? (
-            <div className="p-4">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="font-semibold text-lg">Conversation History</h3>
-                <button
-                  onClick={handlers.handleHistoryToggle}
-                  className="text-gray-500 hover:text-gray-700"
-                  aria-label="Close history"
-                >
-                  <MaterialIcon icon="close" size="sm" />
-                </button>
-              </div>
-              <p className="text-sm text-gray-600">
-                {state.messages.length} messages in this session
-              </p>
+      {/* Chatbot Window */}
+      <div className="fixed bottom-0 right-0 md:bottom-6 md:right-6 w-full md:w-[400px] h-[100dvh] md:h-[600px] bg-white dark:bg-stone-900 md:rounded-2xl shadow-2xl z-[999] flex flex-col">
+        {/* Header */}
+        <div className="bg-gradient-to-r from-brand-primary to-brand-primary/90 text-white p-4 md:rounded-t-2xl flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+              <MaterialIcon icon="chat" size="md" className="text-white" />
             </div>
-          ) : (
-            <>
-              {state.showQuickActions && (
-                <QuickActionMenu
-                  onActionSelect={(actionId, message) =>
-                    handlers.handleQuickActionSelect(actionId, message)
-                  }
-                  isVisible={state.showQuickActions}
-                  currentPage={currentPage}
-                />
-              )}
+            <div>
+              <h3 className="font-semibold">{CHATBOT_CONFIG.name}</h3>
+              <p className="text-xs text-white/80">{CHATBOT_CONFIG.tagline}</p>
+            </div>
+          </div>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onClose}
+            className="text-white hover:bg-white/20 -mr-2"
+            aria-label="Close chatbot"
+          >
+            <MaterialIcon icon="close" size="md" />
+          </Button>
+        </div>
 
-              <ChatbotMessages
-                messages={state.messages}
-                isTyping={state.isTyping}
-              />
+        {/* Messages Area */}
+        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          {messages.map((message) => (
+            <div
+              key={message.id}
+              className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+            >
+              <div
+                className={`max-w-[80%] rounded-2xl px-4 py-3 ${
+                  message.role === "user"
+                    ? "bg-brand-primary text-white rounded-br-sm"
+                    : "bg-stone-100 dark:bg-stone-800 text-stone-900 dark:text-stone-100 rounded-bl-sm"
+                }`}
+              >
+                <p className="text-sm whitespace-pre-line leading-relaxed">
+                  {message.content}
+                </p>
+                <span className="text-xs opacity-70 mt-1 block">
+                  {message.timestamp.toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </span>
+              </div>
+            </div>
+          ))}
 
-              <ChatbotInput
-                value={state.inputValue}
-                onChange={state.setInputValue}
-                onSend={handlers.handleSendMessage}
-                onKeyPress={handlers.handleKeyPress}
-                isTyping={state.isTyping}
-              />
-            </>
+          {isTyping && (
+            <div className="flex justify-start">
+              <div className="bg-stone-100 dark:bg-stone-800 rounded-2xl rounded-bl-sm px-4 py-3">
+                <div className="flex gap-1">
+                  <span
+                    className="w-2 h-2 bg-stone-400 rounded-full animate-bounce"
+                    style={{ animationDelay: "0ms" }}
+                  />
+                  <span
+                    className="w-2 h-2 bg-stone-400 rounded-full animate-bounce"
+                    style={{ animationDelay: "150ms" }}
+                  />
+                  <span
+                    className="w-2 h-2 bg-stone-400 rounded-full animate-bounce"
+                    style={{ animationDelay: "300ms" }}
+                  />
+                </div>
+              </div>
+            </div>
           )}
-        </Card>
+
+          {/* Example Questions (show only if no messages yet besides greeting) */}
+          {messages.length <= 1 && (
+            <div className="space-y-2 pt-2">
+              <p className="text-xs text-stone-500 dark:text-stone-400 font-medium">
+                Quick questions:
+              </p>
+              {exampleQuestions.map((question, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => handleExampleClick(question)}
+                  className="block w-full text-left text-sm p-3 rounded-lg bg-stone-50 dark:bg-stone-800 hover:bg-stone-100 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 transition-colors"
+                >
+                  {question}
+                </button>
+              ))}
+            </div>
+          )}
+
+          <div ref={messagesEndRef} />
+        </div>
+
+        {/* Quick Action - Call */}
+        <div className="px-4 py-2 bg-stone-50 dark:bg-stone-800 border-t border-stone-200 dark:border-stone-700">
+          <a
+            href="tel:+15093086489"
+            className="flex items-center justify-center gap-2 text-sm text-brand-primary hover:text-brand-primary/80 transition-colors font-medium"
+          >
+            <MaterialIcon icon="phone" size="sm" />
+            <span>Prefer to talk? Call (509) 308-6489</span>
+          </a>
+        </div>
+
+        {/* Input Area */}
+        <div className="p-4 border-t border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900">
+          <div className="flex gap-2">
+            <input
+              ref={inputRef}
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder="Ask a question..."
+              className="flex-1 px-4 py-3 rounded-lg border border-stone-300 dark:border-stone-600 bg-white dark:bg-stone-800 text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent"
+              aria-label="Message input"
+            />
+            <Button
+              onClick={handleSend}
+              disabled={!input.trim()}
+              className="bg-brand-primary hover:bg-brand-primary/90 text-white px-4 py-3 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-label="Send message"
+            >
+              <MaterialIcon icon="send" size="md" />
+            </Button>
+          </div>
+          <p className="text-xs text-stone-500 dark:text-stone-400 mt-2 text-center">
+            Helpful info • Real conversations • No automated quotes
+          </p>
+        </div>
       </div>
     </>
   );

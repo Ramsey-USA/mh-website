@@ -517,7 +517,7 @@ className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
 
 ## 🎯 **Section Component Standards**
 
-### **Enhanced Icon Standard (v4.1.0 - December 2024)**
+### **Enhanced Icon Standard (v4.1.0 - December 2025)**
 
 **NEW STANDARD:** All section header icons should use this enhanced layered design for visual
 consistency and professional appearance.
@@ -607,7 +607,7 @@ blur layer: from-brand-secondary to-brand-secondary-dark opacity-30
 
 ---
 
-### **Enhanced Section Header Standard (v4.1.0 - December 2024)**
+### **Enhanced Section Header Standard (v4.1.0 - December 2025)**
 
 **Complete header pattern with enhanced visual hierarchy and brand color integration.**
 
@@ -885,7 +885,7 @@ blur layer: from-brand-secondary to-brand-secondary-dark opacity-30
 
 ## 📚 **Related Documentation**
 
-- **[MH Branding Index](../branding-index.md)** - Hub for all brand documentation
+- **[MH Branding](../)** - Hub for all brand documentation
 - **[Typography Standards](./typography.md)** - Text and heading standards
 - **[Color System](./color-system.md)** - Brand color definitions
 - **[Icon Policy](./icon-policy.md)** - Material Icons standards

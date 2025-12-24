@@ -172,11 +172,10 @@ rankings by **15-25%** without changing any content.
 5. **Testimonials (25-30%)** - Social proof at optimal depth ✅
 6. Why Partner (30-40%) - Differentiation ✅
 7. Before/After Showcase (40-50%) - Visual proof ✅
-8. Automated Estimator CTA (50-60%) - Interactive tool ✅
-9. Smart Recommendations (60-70%) - Personalization ✅
-10. Company Stats (70-80%) - Trust indicators ✅
-11. Next Steps (80-90%) - Conversion guidance ✅
-12. Partnership CTA (90-100%) - Final conversion ✅
+8. Smart Recommendations (50-60%) - Personalization ✅
+9. Company Stats (60-70%) - Trust indicators ✅
+10. Next Steps (80-90%) - Conversion guidance ✅
+11. Partnership CTA (90-100%) - Final conversion ✅
 
 **No changes needed** - testimonials perfectly positioned at 25-30%
 
@@ -215,9 +214,8 @@ rankings by **15-25%** without changing any content.
 10. Process (55-65%) - Detailed walkthrough
 11. Partnership Types (65-75%) - Segmentation
 12. Next Steps (75-85%) - Conversion guidance
-13. Automated Estimator CTA (85-90%) - Tool promotion
-14. Portfolio Preview (90-95%) - Visual proof
-15. Final CTA (95-100%) - Conversion
+13. Portfolio Preview (85-95%) - Visual proof
+14. Final CTA (95-100%) - Conversion
 
 **Action Required:** Move Testimonials from position 8 to position 5
 
@@ -314,8 +312,8 @@ rankings by **15-25%** without changing any content.
 
 **Examples:**
 
-- ✅ "AI Cost Estimator | MH Construction" (40 chars)
 - ✅ "Services | MH Construction" (30 chars)
+- ✅ "About Us | MH Construction" (28 chars)
 - ❌ "Construction Services Including Residential, Commercial, and Government | MH Construction" (91 chars - TOO LONG)
 
 ### Description Optimization
@@ -335,7 +333,7 @@ rankings by **15-25%** without changing any content.
 
 ```text
 Professional construction services from MH Construction. Veteran-owned excellence serving the Pacific Northwest
-with AI-powered solutions. Schedule your free consultation today.
+with transparent pricing. Schedule your free consultation today.
 ```
 
 ### Keywords Strategy
@@ -346,31 +344,28 @@ with AI-powered solutions. Schedule your free consultation today.
 
 **Keyword Priority:**
 
-1. **Primary:** Page-specific term (e.g., "cost estimator")
+1. **Primary:** Page-specific term (e.g., "construction services")
 2. **Brand:** "MH Construction"
 3. **Identity:** "veteran-owned construction"
 4. **Location:** "Pacific Northwest", "Tri-Cities WA"
 5. **Services:** Related service terms
-6. **USP:** "AI-powered", "military precision"
+6. **USP:** "transparent pricing", "military precision"
 7. **Secondary:** Additional relevant terms
 
 **Current Primary Keywords (Root Layout):**
 
-1. AI construction assistant
-2. veteran-owned contractor
+1. veteran-owned contractor
+2. Pacific Northwest construction
 3. military precision construction
 4. Pacific Northwest builder
-5. AI cost estimator
-6. General MH military AI
-7. construction intelligence
-8. veteran benefits construction
-9. Tri-Cities WA contractor
-10. transparent construction partnerships
-11. real-time cost estimation
-12. military-style project management
-13. Washington Oregon Idaho contractor
-14. sustainable construction technology
-15. community-focused building
+5. General MH military construction
+6. veteran benefits construction
+7. Tri-Cities WA contractor
+8. transparent construction partnerships
+9. military-style project management
+10. Washington Oregon Idaho contractor
+11. sustainable construction technology
+12. community-focused building
 
 ---
 
@@ -386,7 +381,6 @@ with AI-powered solutions. Schedule your free consultation today.
 | Team         | `/team`, `/about`           | 0.7      | monthly     | Person, Organization                      |
 | Contact      | `/contact`, `/booking`      | 0.9      | monthly     | ContactPage, LocalBusiness                |
 | Careers      | `/careers`, `/jobs`         | 0.7      | weekly      | JobPosting                                |
-| Tools        | `/estimator`, `/calculator` | 0.85     | monthly     | SoftwareApplication                       |
 | Emergency    | `/urgent`, `/emergency`     | 0.85     | monthly     | Service, EmergencyService                 |
 | Partnerships | `/allies`, `/public-sector` | 0.75     | monthly     | Service, Organization                     |
 
@@ -406,7 +400,6 @@ const ACTIVE_PAGES = [
   { path: "/careers", priority: 0.7, changeFreq: "weekly" as const },
   { path: "/public-sector", priority: 0.8, changeFreq: "monthly" as const },
   { path: "/allies", priority: 0.75, changeFreq: "monthly" as const },
-  { path: "/estimator", priority: 0.95, changeFreq: "monthly" as const },
   { path: "/urgent", priority: 0.85, changeFreq: "monthly" as const },
   { path: "/3d-explorer", priority: 0.5, changeFreq: "monthly" as const },
 ];
@@ -624,20 +617,6 @@ generateServiceSchema({
   provider: "MH Construction",
   areaServed: ["Washington", "Oregon", "Idaho"],
 });
-```
-
-### Automated Estimator Schema
-
-```typescript
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "MH Construction AI Cost Estimator",
-  "applicationCategory": "BusinessApplication",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
   },
   "featureList": [
     "24/7 instant cost estimates",
@@ -696,7 +675,6 @@ generateServiceSchema({
 getHomepageSEO();
 
 // Tool pages
-getAutomatedEstimatorSEO();
 get3DExplorerSEO();
 
 // Service pages
@@ -874,11 +852,10 @@ export default function ServicesPage() {
 1. **Integrate Page-Specific Metadata**
    - Consider server/client split for key pages
    - Integrate existing SEO utils from `page-seo-utils.ts`
-   - Priority pages: `/estimator`, `/booking`, `/services`
+   - Priority pages: `/booking`, `/services`, `/urgent`
 
 2. **Add Missing Schemas**
    - Service schema on `/services` page
-   - Automated Estimator schema on `/estimator`
    - Consultation schema on `/booking`
 
 #### Phase 2: Local SEO Enhancement

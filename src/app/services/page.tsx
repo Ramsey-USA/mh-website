@@ -1,5 +1,6 @@
+"use client";
+
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { Button, Card, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
@@ -26,15 +27,6 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
-
-// Lazy load heavy below-the-fold components
-const ChatbotCTASection = dynamic(
-  () =>
-    import("@/components/chatbot").then((mod) => ({
-      default: mod.ChatbotCTASection,
-    })),
-  { ssr: true },
-);
 
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = false;
@@ -810,20 +802,37 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Chatbot CTA - Ask Questions */}
-        <ChatbotCTASection
-          context="services"
-          title="Questions About Our Services?"
-          subtitle="Chat with General MH for instant answers about our construction services, pricing, timelines, and capabilities"
-          exampleQuestions={[
-            "What types of commercial construction projects do you handle?",
-            "Do you work on government or grant-funded projects?",
-            "What's included in your Master Planning services?",
-            "How do you handle trade partnership management?",
-            "What's your experience with religious facility construction?",
-            "Can you help with tenant improvements in the Tri-Cities?",
-          ]}
-        />
+        {/* Contact CTA - Ask Questions */}
+        <section className="relative bg-gradient-to-r from-brand-primary to-brand-primary-dark py-12 sm:py-16 lg:py-20 overflow-hidden">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Questions About Our Services?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Contact our team for answers about construction services, pricing,
+              timelines, and capabilities
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="secondary" size="lg" asChild>
+                <Link href="/contact">
+                  <MaterialIcon icon="phone" className="mr-2" />
+                  Contact Our Team
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                asChild
+                className="bg-white/10 hover:bg-white/20 text-white border-white/30"
+              >
+                <a href="tel:+15093086489">
+                  <MaterialIcon icon="call" className="mr-2" />
+                  Call (509) 308-6489
+                </a>
+              </Button>
+            </div>
+          </div>
+        </section>
 
         {/* Portfolio Section - Simplified */}
         <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">

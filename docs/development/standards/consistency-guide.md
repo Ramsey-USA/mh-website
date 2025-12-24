@@ -10,10 +10,9 @@ veteran-owned excellence, honest communication, transparent pricing, and proven 
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Development Index](./development-index.md) - Development documentation hub
-- [📋 Cohesion Checklist](./cohesion-checklist.md) - Page creation checklist
-- [🎨 Branding Index](../branding/branding-index.md) - Brand guidelines
-- [🏠 Master Index](../master-index.md) - Central documentation hub
+- [🎯 Development Standards](./development-standards.md) - Core standards
+- [🎨 Branding](../../branding/) - Brand guidelines
+- [🏠 Documentation Home](../../START-HERE.md) - Central documentation hub
 
 ---
 
@@ -26,7 +25,6 @@ veteran-owned excellence, honest communication, transparent pricing, and proven 
 - [Page Layout Standards](#page-layout-standards)
 - [Section Standards](#section-standards)
 - [Component Standards](#component-standards)
-- [Chatbot-First User Engagement](#chatbot-first-user-engagement)
 - [Mobile Consistency](#mobile-consistency)
 - [Implementation Checklist](#implementation-checklist)
 
@@ -180,18 +178,9 @@ When creating a new page hero section:
 **NOTE**: Booking, AI Estimator, and 3D Explorer pages have been removed (Dec 2025).
 All consultation CTAs now direct to `/contact` for face-to-face consultation.
 
----
-
-## 🤖 Chatbot-First User Engagement
-
-### Strategy (December 2025)
-
-**Interactive chatbot provides 24/7 support** while directing all project consultations
-to human team members via `/contact` for face-to-face discussions.
-
 ### 🎯 Direct Consultation Path (Dec 2025)
 
-#### Single User Path: Direct Human Consultation
+**Single User Path: Direct Human Consultation**
 
 - **Purpose**: Face-to-face project consultation and assessment
 - **Approach**: Honest communication, transparent pricing
@@ -201,80 +190,7 @@ to human team members via `/contact` for face-to-face discussions.
 - **Icons**: `handshake`, `person`, `schedule`
 - **CTAs**: "Schedule Consultation", "Discuss Your Project", "Contact Our Team"
 
-- **Purpose**: Detailed in-person project assessment
-- **Technology**: Scheduled appointments with human experts
-- **Availability**: Scheduled consultations
-- **User Flow**: Booking form → Calendar scheduling → Expert consultation
-- **Color**: Hunter Green (`#386851`)
-- **Icons**: `handshake`, `event`
-- **CTAs**: "Schedule Consultation", "Book Expert Analysis", "Get Detailed Quote"
-
-**Chatbot Integration**: "General MH" intelligently routes users based on query:
-
-- Cost/price/estimate queries → Presents BOTH options with distinction
-- Quick/instant queries → Emphasizes Automated Estimator
-- Detailed/custom queries → Emphasizes Expert Consultation
-
-### When to Use ChatbotCTASection
-
-✅ **USE ChatbotCTASection for:**
-
-- FAQ sections on service pages
-- Question prompts on booking/consultation pages
-- Career inquiry sections
-- Any "common questions" section
-- Routing users to appropriate estimation path
-
-❌ **DON'T USE ChatbotCTASection for:**
-
-- Simple informational content
-- Policy/legal text
-- Process steps (use numbered lists)
-- Contact information display
-
-### Implementation
-
-```tsx
-import { ChatbotCTASection } from "@/components/chatbot";
-
-<ChatbotCTASection
-  context="services" // or "booking", "careers", etc.
-  exampleQuestions={[
-    "What are your payment terms?",
-    "Do you offer warranties?",
-    "What's your safety record?",
-    "How long do projects typically take?",
-    "Are you licensed and insured?",
-  ]}
-/>;
-```
-
 ### Component Props
-
-- **context**: `string` - Page context for chatbot (e.g., "services", "booking", "careers")
-- **exampleQuestions**: `string[]` - 4-6 example questions users can click
-- **title** (optional): Custom section title (default: "Have Questions?")
-- **subtitle** (optional): Custom subtitle
-
-### Benefits
-
-- ✅ **Personalized responses** - Context-aware answers vs. generic FAQs
-- ✅ **Lead capture** - Collect user info while answering
-- ✅ **24/7 availability** - Instant responses anytime
-- ✅ **Better analytics** - Track actual user questions
-- ✅ **Easy maintenance** - Update chatbot training once, not multiple FAQ pages
-- ✅ **Higher conversion** - Guide users to book/apply/contact
-
-### FAQ Data Repurposing
-
-Existing FAQ data in `/src/lib/data/faqs.ts` can be used to:
-
-- Train chatbot responses
-- Generate example questions
-- Create knowledge base articles
-- Inform chatbot personality/tone
-
-**Do NOT delete FAQ data** - repurpose it for chatbot training.
 
 ---
 

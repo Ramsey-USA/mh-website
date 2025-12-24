@@ -78,7 +78,6 @@ export function FormProgress({
         setSaveStatus("idle");
       }, 2000);
     } catch (_error) {
-      console.error("Error saving form progress:", _error);
       setSaveStatus("idle");
     } finally {
       setIsSaving(false);

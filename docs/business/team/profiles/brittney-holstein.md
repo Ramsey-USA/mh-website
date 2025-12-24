@@ -1,6 +1,10 @@
-# Brittney Holstein - "The Builder"
+# Brittney Holstein - "The Personnel Officer"
 
-> **Card #12** | **Administration & Support** | **Civilian Professional**
+**Category:** Business - Team Profiles
+**Last Updated:** December 24, 2025
+**Status:** ✅ Active
+
+> **Card #12** | **Logistics & Support** | **Civilian Professional**
 
 ## Quick Facts
 

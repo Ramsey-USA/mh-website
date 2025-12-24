@@ -36,13 +36,6 @@ import {
 } from "@/lib/seo/breadcrumb-schema";
 
 // Lazy load heavy below-the-fold components
-const ChatbotCTASection = dynamic(
-  () =>
-    import("@/components/chatbot").then((mod) => ({
-      default: mod.ChatbotCTASection,
-    })),
-  { ssr: true },
-);
 const TestimonialGrid = dynamic(
   () =>
     import("@/components/testimonials").then((mod) => ({
@@ -1277,19 +1270,37 @@ export default function CareersPage() {
           </section>
         </div>
 
-        {/* Chatbot CTA - Career Questions */}
-        <ChatbotCTASection
-          context="careers"
-          title="Questions About Careers?"
-          subtitle="Chat with General MH for instant answers about jobs, benefits, hiring process, and growth opportunities"
-          exampleQuestions={[
-            "What is your hiring process?",
-            "Do you have veteran benefits?",
-            "What are the pay ranges?",
-            "How do I apply?",
-            "What are career growth opportunities?",
-          ]}
-        />
+        {/* Contact CTA - Career Questions */}
+        <section className="relative bg-gradient-to-r from-brand-primary to-brand-primary-dark py-12 sm:py-16 lg:py-20 overflow-hidden">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Questions About Careers?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Contact our team for information about jobs, benefits, hiring
+              process, and growth opportunities
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="secondary" size="lg" asChild>
+                <Link href="/contact">
+                  <MaterialIcon icon="email" className="mr-2" />
+                  Contact HR
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                asChild
+                className="bg-white/10 hover:bg-white/20 text-white border-white/30"
+              >
+                <a href="tel:+15093086489">
+                  <MaterialIcon icon="call" className="mr-2" />
+                  Call (509) 308-6489
+                </a>
+              </Button>
+            </div>
+          </div>
+        </section>
 
         {/* Job Application Modal */}
         <JobApplicationModal

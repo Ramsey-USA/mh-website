@@ -1,10 +1,14 @@
-# Arnold Garcia - "The Bridge"
+# Arnold Garcia - "The Executive Officer"
+
+**Category:** Business - Team Profiles
+**Last Updated:** December 24, 2025
+**Status:** ✅ Active
 
 > **Card #2** | **Executive Leadership** | **Civilian Leadership**
 
 ## Quick Facts
 
-- **Role**: Vice President
+- **Role**: Vice President (1 year) | Former General Manager (10 years)
 - **Years with Company**: 15
 - **Hometown**: Washington State
 - **Education**: Business Operations
@@ -29,10 +33,12 @@ Excellence in Client Relations Award, Outstanding VP Achievement
 
 ## Biography
 
-As Vice President, Arnold is the key to client relationships and strategic operations. He
-specializes in high-level relationship building and serves as primary client liaison for
-major commercial and industrial projects. Arnold embodies the "We Work With You" philosophy
-that defines MH Construction's approach to partnership-driven construction.
+Arnold was promoted to Vice President in January 2025 when Jeremy Thamert assumed ownership.
+Prior to this, he served as General Manager for 10 years, building the foundation of MH
+Construction's client relationships and operational excellence. He specializes in high-level
+relationship building and serves as primary client liaison for major commercial and industrial
+projects. Arnold embodies the "We Work With You" philosophy that defines MH Construction's
+approach to partnership-driven construction.
 
 ## Career Highlights
 

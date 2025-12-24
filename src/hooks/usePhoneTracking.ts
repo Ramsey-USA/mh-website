@@ -24,8 +24,8 @@ interface UsePhoneTrackingReturn {
 export function usePhoneTracking(): UsePhoneTrackingReturn {
   const trackAndCall = useCallback((source: string) => {
     // Track the call asynchronously
-    trackPhoneCall(source).catch((error) => {
-      console.error("Failed to track phone call:", error);
+    trackPhoneCall(source).catch(() => {
+      // Silent fail - don't block the phone call
     });
 
     // Initiate the phone call

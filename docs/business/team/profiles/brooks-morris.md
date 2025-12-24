@@ -1,8 +1,12 @@
-# Brooks Morris - "The Tracker"
+# Brooks Morris - "The Finance Officer"
 
-> **Card #88** | **Administration & Support** | **Civilian Professional**
+**Category:** Business - Team Profiles
+**Last Updated:** December 24, 2025
+**Status:** ✅ Active
 
-## Quick Facts
+> **Card #88** | **Logistics & Support** | **Civilian Professional**
+
+## 📋 Quick Facts
 
 - **Role**: Senior Accountant
 - **Years with Company**: 10

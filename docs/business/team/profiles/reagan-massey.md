@@ -1,4 +1,8 @@
-# Reagan Massey - "The Preventer"
+# Reagan Massey - "The Tactical Advisor"
+
+**Category:** Business - Team Profiles
+**Last Updated:** December 24, 2025
+**Status:** ✅ Active
 
 > **Card #80** | **Site & Field Operations** | **Civilian Professional**
 

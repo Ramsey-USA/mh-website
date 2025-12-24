@@ -108,8 +108,7 @@ export function QRCode({
       try {
         const QRCodeModule = await import("qrcode");
         setQRCodeLib(QRCodeModule.default);
-      } catch (err) {
-        console.error("Failed to load QRCode library:", err);
+      } catch (_err) {
         setError("Failed to load QR code generator");
         setIsLoading(false);
       }
@@ -138,8 +137,7 @@ export function QRCode({
         });
 
         setIsLoading(false);
-      } catch (err) {
-        console.error("Failed to generate QR code:", err);
+      } catch (_err) {
         setError("Failed to generate QR code");
         setIsLoading(false);
       }

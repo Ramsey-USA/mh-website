@@ -1,10 +1,14 @@
-# Steve McClary - "The Guardian"
+# Steve McClary - "The Field Commander"
+
+**Category:** Business - Team Profiles
+**Last Updated:** December 24, 2025
+**Status:** ✅ Active
 
 > **Card #69** | **Site & Field Operations** | **Civilian Professional**
 
 ## Quick Facts
 
-- **Role**: Senior Superintendent
+- **Role**: Superintendent
 - **Years with Company**: 20
 - **Hometown**: Washington
 - **Education**: Construction Technology

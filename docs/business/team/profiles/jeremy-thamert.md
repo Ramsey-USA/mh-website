@@ -1,4 +1,8 @@
-# Jeremy Thamert - "The Visionary"
+# Jeremy Thamert - "The Commander"
+
+**Category:** Business - Team Profiles
+**Last Updated:** December 24, 2025
+**Status:** ✅ Active
 
 > **Card #1** | **Executive Leadership** | **Army Veteran**
 

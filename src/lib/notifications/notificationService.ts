@@ -107,7 +107,8 @@ async function sendEmail(
 
 /**
  * Send push notification
- * TODO: Integrate with push notification service (e.g., OneSignal, FCM)
+ * NOTE: Push notifications not currently implemented.
+ * Future integration options: OneSignal, FCM
  * Example: POST to https://onesignal.com/api/v1/notifications with API key and user IDs
  */
 function sendPush(options: NotificationOptions): NotificationResult {
@@ -135,7 +136,8 @@ function sendPush(options: NotificationOptions): NotificationResult {
 
 /**
  * Send SMS notification
- * TODO: Integrate with SMS service (e.g., Twilio)
+ * NOTE: SMS notifications not currently implemented.
+ * Future integration: Twilio API
  * Example: POST to https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json
  */
 function sendSMS(options: NotificationOptions): NotificationResult {

@@ -1,10 +1,14 @@
-# Jennifer Tene - "The Coordinator"
+# Jennifer Tene - "The Operations Officer"
 
-> **Card #14** | **Administration & Support** | **Civilian Professional**
+**Category:** Business - Team Profiles
+**Last Updated:** December 24, 2025
+**Status:** ✅ Active
+
+> **Card #14** | **Project Management** | **Civilian Professional**
 
 ## Quick Facts
 
-- **Role**: Administrative Assistant
+- **Role**: Project Engineer / Admin Assistant
 - **Years with Company**: 5
 - **Hometown**: Washington
 - **Education**: Business Administration
@@ -29,10 +33,10 @@ Administrative Excellence Award, Communication Coordination Recognition
 
 ## Biography
 
-Jennifer serves as the central coordination point ensuring smooth communication across all
-departments. Her organized systems support efficient operations and maintain information flow
-throughout the company, embodying MH Construction's commitment to teamwork and seamless project
-coordination.
+Jennifer serves as a Project Engineer and Admin Assistant, providing technical project support
+while ensuring smooth communication across all departments. Her organized systems support
+efficient operations and maintain information flow throughout the company, embodying MH
+Construction's commitment to teamwork and seamless project coordination.
 
 ## Career Highlights
 
@@ -43,10 +47,10 @@ coordination.
 
 ## Professional Specialties
 
+- Project Engineering & Technical Support
 - Office Administration & Coordination
 - Scheduling & Calendar Management
 - Team Support & Communication
-- Information Flow & Documentation
 
 ## Certifications
 

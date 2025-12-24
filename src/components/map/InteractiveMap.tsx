@@ -138,9 +138,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           phoneNumber: "(509) 308-6489",
           timestamp: new Date().toISOString(),
         }),
-      }).catch((error) => {
-        // Log error but don't block the phone call
-        console.error("Failed to track phone call:", error);
+      }).catch(() => {
+        // Silent fail - don't block the phone call
       });
     }
 

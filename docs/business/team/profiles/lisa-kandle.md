@@ -1,10 +1,14 @@
-# Lisa Kandle - "The Organizer"
+# Lisa Kandle - "The Logistics Officer"
 
-> **Card #15** | **Administration & Support** | **Civilian Professional**
+**Category:** Business - Team Profiles
+**Last Updated:** December 24, 2025
+**Status:** ✅ Active
+
+> **Card #15** | **Project Management** | **Civilian Professional**
 
 ## 📋 Quick Facts
 
-- **Role**: Administrative Assistant
+- **Role**: Project Engineer / Marketing Agent
 - **Years with Company**: 3
 - **Hometown**: Tri-Cities, WA
 - **Education**: Business Administration
@@ -29,10 +33,10 @@ Administrative Support Excellence Award, Efficiency Recognition
 
 ## 👤 Biography
 
-Lisa provides essential administrative support that keeps MH Construction operations running
-smoothly. Her attention to detail and proactive communication style supports both internal team
-coordination and client interactions, embodying the company's commitment to professional service
-excellence.
+Lisa serves as a Project Engineer and Marketing Agent, bringing technical expertise to project
+coordination while promoting MH Construction's capabilities. Her attention to detail and proactive
+communication style supports both internal team coordination and client interactions, embodying
+the company's commitment to professional service excellence.
 
 ## ⭐ Career Highlights
 
@@ -43,9 +47,9 @@ excellence.
 
 ## 🔧 Professional Specialties
 
-- Administrative Support & Documentation
+- Project Engineering & Technical Coordination
+- Marketing & Business Development
 - Client Communication & Relations
-- Office Organization & Efficiency
 - Multi-Department Coordination
 
 ## 📜 Certifications

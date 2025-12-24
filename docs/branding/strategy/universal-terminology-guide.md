@@ -4,12 +4,11 @@
 
 ---
 
-## 🧭 Quick Navigation
+## 🧭Quick Navigation
 
 - [📝 Page-Specific Messaging Guide](./page-specific-messaging-guide.md)
 - [🗂️ Slogan Rotation Guide](./slogan-rotation-guide.md)
-- [🎨 Branding Index](../branding-index.md)
-- [🏠 Master Documentation Index](../../master-index.md)
+- [🏠 Documentation Home](../../START-HERE.md)
 
 ---
 
@@ -188,7 +187,6 @@ referring to subcontractors creates confusion.
 
 - "military precision"
 - "military discipline"
-- "military assistant" (for General MH)
 - "tactical briefing/assessment/planning"
 - "mission-focused"
 - "mission-ready"
@@ -199,7 +197,7 @@ referring to subcontractors creates confusion.
 ✅ "Award-winning team bringing military precision to construction"
 ✅ "Mission-focused project execution"
 ✅ "Military discipline meets construction excellence"
-✅ "General MH military assistant provides 24/7 support"
+✅ "Veteran leadership brings proven expertise"
 ```
 
 **Guidelines:**
@@ -207,7 +205,6 @@ referring to subcontractors creates confusion.
 - Use military terminology respectfully and appropriately
 - Don't over-militarize everyday construction terms
 - Balance military precision language with partnership warmth
-- General MH can use more military terminology in his voice
 
 **AVOID:**
 
@@ -408,50 +405,44 @@ Pasco, WA 99301
 
 ---
 
-### 7. TECHNOLOGY & INNOVATION
+### 7. TECHNOLOGY & DIGITAL PRESENCE
 
-#### **AI & Technology References**
+#### **Website & Digital Tools**
 
-**General MH (OFFICIAL NAME):**
+**Online Presence:**
 
-- "General MH" (never "General MH AI" or "Gen. MH")
-- "General MH military assistant"
-- "Chat with General MH"
+- "website"
+- "digital platform"
+- "online resources"
+- "project portal"
+- "digital documentation"
 
-**AI Technology:**
-
-- "AI-powered" (hyphenated when used as adjective before noun)
-- "AI technology"
-- "artificial intelligence" (spell out first use on a page)
-- "3D visualization"
-- "digital innovation"
-- "cutting-edge technology"
-
-**Examples of Correct Usage:**
+**Communication Tools:**
 
 ```text
-✅ "AI-powered estimation meets personal consultation"
-✅ "General MH military assistant provides 24/7 support"
-✅ "Our AI-powered estimator combines data with experience"
-✅ "3D visualization transforms planning"
-✅ "Technology serving traditional values"
+✅ "Contact us by phone or email"
+✅ "Call us at (509) 308-6489"
+✅ "Email info@mhconstruction.com"
+✅ "Online contact form for your convenience"
+✅ "Digital project documentation"
 ```
 
-**Key Balance:**
-Always emphasize technology ENHANCES relationships, never REPLACES them:
+**Key Philosophy:**
+Technology serves human connection, not replaces it:
 
 ```text
-✅ "Technology that serves, never replaces, relationships"
-✅ "Innovation with integrity, technology with trust"
-✅ "AI-powered, human-centered"
-✅ "Smart tools supporting personal partnerships"
+✅ "Technology that supports, never replaces, personal relationships"
+✅ "Digital tools make it easier to reach a real person"
+✅ "Online resources backed by in-person expertise"
+✅ "Modern convenience, traditional values"
 ```
 
 **FORBIDDEN:**
 
+- ❌ "AI-powered" (no AI features on website)
 - ❌ "Automated service" (suggests no human involvement)
-- ❌ "Replace consultations" (conflicts with face-to-face values)
-- ❌ "AI does the work" (diminishes human expertise)
+- ❌ "Cutting-edge" (conflicts with traditional values messaging)
+- ❌ "Revolutionary" (conflicts with proven craftsmanship messaging)
 
 ---
 
@@ -608,11 +599,11 @@ Use these based on page context and messaging group:
 - "Partnership Excellence"
 - "Partnership Unity"
 
-**Innovation:**
+**Traditional Values:**
 
-- "Innovation Meets Construction Excellence"
-- "Technology Serving Traditional Values"
-- "AI-Powered, Human-Centered"
+- "Modern Tools, Traditional Values"
+- "Technology Serving People"
+- "Digital Convenience, Personal Service"
 
 **Quality:**
 
@@ -696,11 +687,11 @@ Use these based on page context and messaging group:
 ### 4. Technology Balance Errors
 
 ```text
-❌ "Our AI automates your project" (suggests no human involvement)
-✅ "Our AI-powered tools enhance your consultation experience"
+❌ "Fully automated project management" (suggests no human involvement)
+✅ "Digital tools support our hands-on project management"
 
-❌ "No need for meetings - our tech handles it"
-✅ "Smart planning tools prepare you for our face-to-face consultation"
+❌ "No need for meetings - we handle it all online"
+✅ "Online resources complement our face-to-face consultation"
 ```
 
 ### 5. Slogan Misuse
@@ -728,7 +719,6 @@ Use these based on page context and messaging group:
 - [ ] "You control it, we manage it" used for client empowerment?
 - [ ] "Work WITH" (not "work FOR") phrasing?
 - [ ] Technology balanced with personal relationship emphasis?
-- [ ] "General MH" (not "General MH AI")?
 - [ ] Phone formatted: (509) 308-6489?
 - [ ] Address formatted correctly (3 lines)?
 
@@ -748,8 +738,7 @@ Based on codebase analysis of 260+ occurrences:
 6. "transparent/transparency" - 40+ occurrences
 7. "0.6 EMR" - 30+ occurrences
 8. "Pacific Northwest" - 25+ occurrences
-9. "General MH" - 20+ occurrences
-10. "You control it, we manage it" - 8+ occurrences
+9. "You control it, we manage it" - 8+ occurrences
 
 These frequencies indicate well-established terminology that should be maintained consistently.
 

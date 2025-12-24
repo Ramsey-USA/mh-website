@@ -1,10 +1,14 @@
-# Matt Ramsey - "The Tech Trainer"
+# Matt Ramsey - "The Communications Officer"
 
-> **Card #21** | **Administration & Support** | **Navy Veteran**
+**Category:** Business - Team Profiles
+**Last Updated:** December 24, 2025
+**Status:** ✅ Active
+
+> **Card #21** | **Project Management** | **Navy Veteran**
 
 ## 📋 Quick Facts
 
-- **Role**: Digital Marketing Manager
+- **Role**: Project Manager's Assistant / Marketing Manager / Safety Officer
 - **Years with Company**: 1
 - **Hometown**: Richland, WA
 - **Education**: BAS Operations Management (PM Minor), AAS Business Administration
@@ -29,10 +33,24 @@ Two Navy Achievement Medals
 
 ## 👤 Biography
 
-Matt developed MH Construction's website and manages the company's digital marketing presence,
-bringing military precision to relationship building and client relationships. His role focuses on promoting
-MH Construction's capabilities and veteran-owned status while developing helpful digital
-solutions that keep the company at the forefront of online presence and client engagement.
+Matthew Ramsey joined the MH Construction team in June 2025, bringing a diverse background in operations,
+project management, and leadership. Originally hired as a Project Engineer, Matthew quickly demonstrated
+his ability to bridge the gap between field operations and client communications, transitioning into the
+role of Digital Marketing Manager in October 2025, and creator of this website.
+
+A United States Navy veteran (2001–2007), Matthew served as an Engineman 2nd Class Petty Officer aboard
+the USS Theodore Roosevelt and with Logistic Support Unit One. His military service, which includes two
+Navy Achievement Medals, instilled a deep sense of discipline and integrity that aligns perfectly with
+MH Construction's philosophy of "Building projects for the client, NOT the dollar."
+
+Matthew holds an Associate of Applied Science in Business Management from Columbia Basin College and is
+currently pursuing his Bachelor of Applied Science in Operations Management at Arizona State University
+(Class of 2026). Prior to joining MH Construction, he gained extensive experience as a Project Manager
+in the restoration industry and as a Superintendent in residential production building.
+
+Outside of the office, Matthew is an avid outdoorsman who enjoys camping, fishing, and big game hunting.
+He is a Lifetime Member of the Rocky Mountain Elk Foundation. He resides in the Tri-Cities with his wife,
+Diane, and enjoys spending time with their children and grandchildren.
 
 ## ⭐ Career Highlights
 

@@ -1,10 +1,14 @@
-# Derek Parks - "The Organizer"
+# Derek Parks - "The Squad Leader"
+
+**Category:** Business - Team Profiles
+**Last Updated:** December 24, 2025
+**Status:** ✅ Active
 
 > **Card #24** | **Site & Field Operations** | **Civilian Professional**
 
 ## 📋 Quick Facts
 
-- **Role**: Superintendent
+- **Role**: Foreman
 - **Years with Company**: 10
 - **Hometown**: Washington State
 - **Education**: Construction Technology

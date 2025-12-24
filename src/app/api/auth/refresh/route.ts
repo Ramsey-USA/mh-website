@@ -22,7 +22,8 @@ interface RefreshRequest {
 
 /**
  * Get user by ID from database
- * TODO: Connect to your user database
+ * NOTE: Currently using demo credentials for development.
+ * Production implementation will connect to Cloudflare D1.
  * Example: const user = await env.DB.prepare("SELECT * FROM users WHERE id = ?").bind(userId).first();
  */
 function getUserById(userId: string): Promise<JWTUser | null> {

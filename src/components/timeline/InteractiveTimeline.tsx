@@ -19,7 +19,7 @@ import { useState, useMemo } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Button } from "@/components/ui";
 import Link from "next/link";
-import { useGlobalChatbot } from "@/providers/GlobalChatbotProvider";
+import { useChatbot } from "@/providers/GlobalChatbotProvider";
 
 export interface InteractiveTimelineProps {
   /** Optional: Custom className */
@@ -164,7 +164,7 @@ export function InteractiveTimeline({
     PROJECT_TYPES[0]?.id ?? "",
   );
   const [complexity, setComplexity] = useState<number>(3); // 1-5 scale
-  const { setIsVisible, setCurrentPageData } = useGlobalChatbot();
+  const { openChatbot } = useChatbot();
 
   // Calculate adjusted timeline based on project type and complexity
   const timelineData = useMemo(() => {
@@ -204,30 +204,7 @@ export function InteractiveTimeline({
   const handleChatbotOpen = () => {
     if (!timelineData) return;
 
-    const selectedProject = PROJECT_TYPES.find((p) => p.id === projectType);
-    const complexityLabels = [
-      "Minimal",
-      "Simple",
-      "Standard",
-      "Complex",
-      "Extensive",
-    ];
-
-    const timelineContext = {
-      source: "interactive_timeline",
-      projectType: selectedProject?.name,
-      complexity: complexityLabels[complexity - 1],
-      estimatedWeeks: timelineData.estimatedWeeks,
-      phases: timelineData.phases.map((p) => ({
-        name: p.name,
-        weeks: p.durationWeeks,
-      })),
-      userIntent: `I'm planning a ${selectedProject?.name} project. Can you help me understand the timeline and what to expect?`,
-      timestamp: new Date().toISOString(),
-    };
-
-    setCurrentPageData(timelineContext);
-    setIsVisible(true);
+    openChatbot("booking");
   };
 
   if (!timelineData) return null;

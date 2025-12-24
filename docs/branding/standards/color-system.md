@@ -8,7 +8,7 @@
 
 ## Quick Navigation
 
-- [🏠 Brand Documentation](../branding-index.md)
+- [🏠 Brand Documentation](../)
 - [📋 Brand Overview](../strategy/brand-overview.md)
 - [🔧 Icon Policy](../../technical/design-system/icon-policy.md)
 - [📝 Typography](./typography.md)
@@ -748,7 +748,7 @@ module.exports = {
 - [**Icon Policy**](./icon-policy.md) - Material Icons standards
 - [**Typography**](./typography.md) - Font system and text guidelines
 - [**Implementation Guide**](./implementation-guide.md) - Technical implementation
-- [**Branding Index**](../branding-index.md) - Hub for all brand documentation
+- [**Branding**](../) - Hub for all brand documentation
 
 ---
 

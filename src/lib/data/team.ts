@@ -1,6 +1,5 @@
 // Centralized team data source
-// TODO: Replace placeholder entries with authoritative team roster.
-// Provide: name, role, experienceYears (number), veteranStatus, specialties (string[]), bio, slug
+// Complete team roster with 15 employee profiles
 
 export interface TeamMember {
   name: string;

@@ -1,4 +1,8 @@
-# Porter Cline - "The Heavy Hitter"
+# Porter Cline - "The Heavy Weapons Specialist"
+
+**Category:** Business - Team Profiles
+**Last Updated:** December 24, 2025
+**Status:** ✅ Active
 
 > **Card #23** | **Site & Field Operations** | **Civilian Professional**
 

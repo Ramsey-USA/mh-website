@@ -22,7 +22,7 @@ groups aligned with SEO optimization strategy.
 
 ## Quick Navigation
 
-- [🏠 Brand Documentation](../branding-index.md)
+- [🏠 Brand Documentation](../)
 - [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Four-value professional system
 - [📝 Messaging Guidelines](./messaging.md) - Built on core values
 - [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
@@ -335,7 +335,7 @@ See [Core Values](../../business/core-values.md) for complete details on our fou
 - [**Icon Policy**](./icon-policy.md) - Material Icons standards
 - [**Typography**](./typography.md) - Font system and text guidelines
 - [**Implementation Guide**](./implementation-guide.md) - Technical implementation
-- [**Branding Index**](../branding-index.md) - Hub for all brand documentation
+- [**Branding**](../) - Hub for all brand documentation
 
 ---
 

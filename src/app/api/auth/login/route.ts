@@ -24,7 +24,8 @@ interface LoginRequest {
 
 /**
  * Verify user credentials
- * TODO: Connect to your user database (D1, KV, or external service)
+ * NOTE: Currently using demo credentials for development.
+ * Production implementation will connect to Cloudflare D1 with bcrypt password hashing.
  *
  * Example implementation:
  * - Query Cloudflare D1: const user = await env.DB.prepare("SELECT * FROM users WHERE email = ?").bind(email).first();

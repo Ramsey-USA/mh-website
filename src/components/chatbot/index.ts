@@ -1,2 +1,3 @@
-export { default as GlobalChatbot } from "./GlobalChatbot";
-export { ChatbotCTASection } from "./ChatbotCTASection";
+export { GlobalChatbot } from "./GlobalChatbot";
+
+export { FloatingChatbotButton } from "./FloatingChatbotButton";

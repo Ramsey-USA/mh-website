@@ -1,5 +1,9 @@
 # MH Construction - Architecture Documentation
 
+**Category:** Project - Architecture
+**Last Updated:** December 23, 2025
+**Status:** ✅ Active
+
 ## 🎯 **CURRENT STATE: Complete Production Platform**
 
 ### **Live Production Pages**
@@ -10,22 +14,17 @@
 - ✅ **Projects Page** (`/src/app/projects/page.tsx`) - Portfolio showcase with filtering
 - ✅ **Team Page** (`/src/app/team/page.tsx`) - Leadership profiles and specializations
 - ✅ **Contact Page** (`/src/app/contact/page.tsx`) - Multiple communication channels
-- ✅ **Booking Page** (`/src/app/booking/page.tsx`) - Appointment scheduling system
 - ✅ **Careers Page** (`/src/app/careers/page.tsx`) - Job listings and company benefits
 - ✅ **Government Page** (`/src/app/government/page.tsx`) - Public sector project focus
 - ✅ **Trade Partners Page** (`/src/app/trade-partners/page.tsx`) - Subcontractor network
 
 ### **Advanced Platform Features**
 
-- ✅ **Authentication System** - Role-based access control with Firebase Auth (ACTIVE)
-- ✅ **Dashboard Platform** - Client and admin portals with project management
-- ✅ **Document Sharing** - Secure file management and project documentation
-- ✅ **Analytics Integration** - Enhanced tracking and performance monitoring
-- ✅ **PWA Features** - Service worker, offline support, and app-like experience
 - ✅ **SEO Optimization** - Complete sitemap, meta tags, and structured data
 - ✅ **Navigation System** - Responsive navigation with adaptive grid layout
 - ✅ **MaterialIcon System** - Universal icon system with Google Material Icons
 - ✅ **Theme System** - Dark/Light mode support with seamless switching
+- ✅ **Analytics Integration** - Enhanced tracking and performance monitoring
 
 ---
 
@@ -38,12 +37,9 @@
 - **Styling**: Tailwind CSS 3.4.18
 - **Icons**: Google Material Icons (font-based)
 - **Animations**: Framer Motion 12.23.24
-- **Database**: Firebase Firestore (✅ Active - Real-time sync)
-- **Authentication**: Firebase Auth (✅ Active - Multi-provider)
-- **File Storage**: Firebase Storage (✅ Active - Secure uploads)
-- **Backend Functions**: Firebase Functions (✅ Active - API endpoints)
+- **Deployment**: Cloudflare Pages
+- **Database**: Cloudflare D1 (SQLite)
 - **Analytics**: Enhanced Analytics System
-- **PWA**: Service Worker with offline support
 - **Theme**: Dark/Light mode support
 - **Performance**: 94+ Lighthouse score
 
@@ -72,17 +68,11 @@ src/
 │   │   ├── Navigation.tsx          # Responsive navigation
 │   │   └── Footer.tsx              # Complete footer
 │   ├── ui/                         # Complete UI library
-│   ├── dashboard/                  # Dashboard components
-│   ├── auth/                       # Authentication
-│   ├── booking/                    # Booking system
 │   ├── analytics/                  # Analytics integration
 │   ├── seo/                        # SEO components
-│   ├── pwa/                        # PWA features
 │   ├── blog/                       # Blog section component
 │   └── testimonials/               # Client testimonials section component
 ├── lib/
-│   ├── auth/                       # Authentication logic
-│   ├── firebase/                   # Firebase integration (✅ Complete)
 │   ├── services/                   # API services
 │   ├── utils/                      # Utility functions
 │   └── types/                      # TypeScript types

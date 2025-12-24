@@ -7,10 +7,9 @@
 
 ## 🧭 Quick Navigation
 
-- [🗂️ Development Index](./development-index.md)
-- [📖 Development Standards](./development-standards.md)
-- [📖 Consistency Guide](./consistency-guide.md)
-- [🏠 Master Index](../master-index.md)
+- [📚 Development Standards](./development-standards.md)
+- [📚 Consistency Guide](./consistency-guide.md)
+- [🏠 Documentation Home](../../START-HERE.md)
 
 ---
 
@@ -32,7 +31,7 @@ introduction of inconsistencies and bugs that have historically plagued this pro
 
 - **[Development Standards](./development-standards.md)** - Mandatory coding standards
   for all code
-- **[MH Branding](../branding/branding-index.md)** - Modular brand standards (colors,
+- **[MH Branding](../../branding/)** - Modular brand standards (colors,
   typography, icons)
 - **[Typography Standards](../branding/standards/typography.md)** - Hero section
   requirements, responsive scaling
@@ -40,66 +39,10 @@ introduction of inconsistencies and bugs that have historically plagued this pro
   (NO emojis in code)
 - **[Consistency Master Plan](../project/consistency-master-plan.md)** - Overall
   project consistency strategy
-- **[Chatbot-First Strategy](./consistency-guide.md#chatbot-first-user-engagement)**
-  \- Replace FAQs with chatbot CTAs (Nov 2025)
 
 **All brand and technical standards are mandatory and must be followed together.**
 
 ---
-
-## 🤖 Chatbot-First User Engagement (NEW - November 2025)
-
-### Mandatory Standard: Replace Static FAQs with Chatbot CTAs
-
-**RULE**: When implementing FAQ sections, use `ChatbotCTASection` instead of static FAQ accordions.
-
-#### ✅ CORRECT
-
-```tsx
-import { ChatbotCTASection } from "@/components/chatbot";
-
-<ChatbotCTASection
-  context="services"
-  exampleQuestions={[
-    "What are your payment terms?",
-    "Do you offer warranties?",
-    "What's your safety record?",
-  ]}
-/>;
-```
-
-#### ❌ INCORRECT
-
-```tsx
-// Don't create new static FAQ sections
-<FAQAccordionSection faqs={serviceFAQs} />
-```
-
-### When to Use Chatbot vs Static Content
-
-**Use ChatbotCTASection when:**
-
-- User has questions about services, booking, careers, or processes
-- Multiple variations of the same question are possible
-- Personalized follow-up questions are likely
-- Lead capture is beneficial
-
-**Use Static Content when:**
-
-- Legal/policy text that must be exact
-- Step-by-step processes (numbered lists work better)
-- Simple informational display
-- No conversational context needed
-
-### Benefits You're Implementing
-
-When you use ChatbotCTASection, you're providing:
-
-- Personalized, context-aware responses
-- 24/7 availability for users
-- Lead capture while answering questions
-- Better analytics on user needs
-- Easier maintenance (update chatbot training once vs. FAQ sections on multiple pages)
 
 ---
 

@@ -1,8 +1,12 @@
-# Ben Woodall - "The Balancer"
+# Ben Woodall - "The Mission Planner"
 
-> **Card #4** | **Project Management & Estimating** | **Civilian Professional**
+**Category:** Business - Team Profiles
+**Last Updated:** December 24, 2025
+**Status:** ✅ Active
 
-## Quick Facts
+> **Card #4** | **Project Management** | **Civilian Professional**
+
+## 📋 Quick Facts
 
 - **Role**: Project Manager
 - **Years with Company**: 10

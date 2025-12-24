@@ -2,12 +2,8 @@
 
 🎯 Production Ready | ✓ Cloudflare Optimized | 🇺🇸 Veteran-Owned (Since Jan 2025)
 
-**Building projects for the client, NOT the dollar** — Where traditional business values, veteran integrity,
-and proven craftsmanship create lasting partnerships.
-Next.js 15 platform emphasizing personal relationships, transparent communication, and face-to-face consultation
-to serve clients and Allies better.
-
-**All Branches Welcome:** Army | Navy | Air Force | Marines | Coast Guard | Space Force — We speak your language.
+**Building projects for the client, NOT the dollar** — Traditional business values, veteran integrity,
+and proven craftsmanship. Call (509) 308-6489 for direct consultation.
 
 ---
 
@@ -15,98 +11,31 @@ to serve clients and Allies better.
 
 ### Production-Ready Platform ✅
 
-- **Build Time:** 34.7s
-- **TypeScript:** Strict mode, zero errors (5.9.2)
+- **Build Time:** ~35s
+- **TypeScript:** Strict mode, zero errors
 - **ESLint:** Zero errors, clean build
-- **SEO Score:** 100/100 (12 audited pages)
-- **Lighthouse:** 94+ across all pages
-- **Homepage Bundle:** 225 kB (optimized)
-- **Test Coverage:** 7 test files, Jest configured
-- **Pages:** 12 public pages (clean, focused content)
+- **SEO Score:** 100/100
+- **Lighthouse:** 94+ all pages
+- **Bundle:** 225 kB optimized
+- **Documentation:** 40 essential files (streamlined from 192)
 
-### Recent Achievements (December 2025)
+### Core Identity (Dec 2025)
 
-**Veteran-Honesty Transformation (Dec 2025):**
+- **Veteran-owned since January 2025** under Army veteran leadership
+- **No gimmicks:** Removed booking/estimator/AI features - direct human contact only
+- **Contact-first:** All paths lead to phone (509) 308-6489 or email
+- **Honest messaging:** Removed 50+ instances of "AI-powered", "cutting-edge", "revolutionary"
+- **Four core values:** Honesty, Integrity, Professionalism, Thoroughness
+- **Face-to-face consultation:** Your word is your bond, so is ours
 
-- **Core Identity Shift:** From tech-focused to veteran-owned/honesty-first business model
-- **Removed Gimmicks:** Deprecated `/booking`, `/estimator`, `/3d-explorer` - no shortcuts, just honest work
-- **Unified CTAs:** All paths lead to `/contact` for direct, face-to-face human consultation
-- **Team Authenticity:** Updated bios to reflect real veteran values, not buzzwords
-- **Language Cleanup:** Removed 50+ instances of "AI-powered", "cutting-edge", "innovative" fluff
-- **SEO Reality Check:** Keywords now reflect what we actually are—veteran-owned, honest, thorough
-- **Streamlined Pages:** 7 groups → 5 core groups focused on substance over style
-- **Core Message:** Your word is your bond, so is ours. Period.
+### Tech Stack
 
-**Veteran-First Implementation (Nov-Dec 2025):**
-
-- **Military precision from all branches**—Army thoroughness, Navy reliability, Air Force excellence,
-  Marine Corps discipline, Coast Guard adaptability, Space Force innovation
-- **Mission-focused execution:** No shortcuts, no compromises—every project treated like an operation
-- **Chain of command clarity:** Direct communication lines, clear accountability, transparent reporting
-- Honesty-first messaging: transparent pricing, realistic timelines, open communication
-- Face-to-face consultation prioritized—relationships matter more than automation
-- Combat Veteran Discount at the Ready with priority scheduling for **all service branches**
-- Video Hero Component optimized for performance (LCP < 2.5s)
-- [Video Hero Guide](./docs/components/video-hero-implementation.md) |
-  [Core Web Vitals](./docs/optimization/video-hero-core-web-vitals.md)
-
-**Code Quality & Efficiency:**
-
-- ~750 lines removed through smart centralization (cards, grids, sections)
-- Documentation consolidated: 178 → 163 files (quality over quantity)
-- [Style Utilities](./docs/development/style-utilities-guide.md) |
-  [Refactoring Roadmap](./docs/technical/refactoring-roadmap.md) |
-  [Shared Sections](./docs/components/shared-sections-guide.md)
-
-**"General MH" Assistant (Support Tool, Not Replacement):**
-
-- **Purpose:** Quick answers 24/7, but **always** guides to human consultation for decisions
-- **Coverage:** 98-99% of common questions answered accurately
-- **Veteran Recognition:** Service branch awareness, benefits information
-- **Smart Escalation:** Knows when to hand off to human team members
-- **Honest Limitation:** Makes it clear what it can and cannot do
-- [Phase 1](./docs/development/chatbot-integration-complete.md) |
-  [Phase 2](./docs/development/chatbot-phase2-complete.md) |
-  [Phase 3](./docs/development/chatbot-phase3-complete.md)
-
-**Relationship-Focused Components:**
-
-- FormProgress with step indicators for clear communication
-- InteractiveTimeline for transparent project milestones
-- ActivityFeed for real-time project updates
-- TeamMemberTag for personal team connection
-- BeforeAfterSlider for proven results showcase
-- Shared section components (Testimonials, NextSteps)
-
-**Core Values:**
-
-- **Honesty:** Transparent pricing and open communication
-- **Integrity:** Your word is your bond - so is ours
-- **Professionalism:** Military precision in every detail
-- **Thoroughness:** No detail overlooked, no shortcut taken
-
-### Quality Score Evolution
-
-Progressed from 88 to 97-98 through systematic optimization.
-Maintenance efficiency improved by +80%.
-Full metrics: [Optimization Results](./docs/optimization-results.md).
-
----
-
-## 🎖️ Veteran-Owned Excellence
-
-### Veteran Benefits (All Branches)
-
-- **Combat Veteran Discount at the Ready** — All service branches honored
-- **Priority Scheduling & VA coordination** — From boot camp to contractor, we've got your six
-- **Service branch recognition throughout platform:**
-  - **Army:** Ground operations expertise, logistical planning
-  - **Navy:** Precision execution, sustained operations
-  - **Air Force:** Excellence standards, technical precision
-  - **Marines:** Adaptive problem-solving, mission-first mindset
-  - **Coast Guard:** Multi-mission flexibility, safety-first approach
-  - **Space Force:** Innovation integration, future-ready thinking
-- **Military terminology respected:** We understand the difference between TDY, PCS, and deployment
+- **Framework:** Next.js 15.5.2 with App Router
+- **Language:** TypeScript 5.9.3 (strict mode)
+- **Styling:** Tailwind CSS 3.4.18
+- **Icons:** Google Material Icons (font-based)
+- **Deployment:** Cloudflare Pages
+- **Email:** Resend API
 
 ---
 
@@ -114,69 +43,27 @@ Full metrics: [Optimization Results](./docs/optimization-results.md).
 
 ### Prerequisites
 
-- **Node.js 18+** (LTS recommended)
-- **npm 9+** or equivalent package manager
-- **Cloudflare account** (for deployment)
-- **Resend API key** (for email functionality)
+- Node.js 18+ (LTS recommended)
+- npm 9+ or equivalent
+- Cloudflare account (for deployment)
+- Resend API key (for email)
 
 ### Local Development
 
 ```bash
-# Install dependencies
 npm install
-
-# Run development server
 npm run dev
-
 # Visit http://localhost:3000
 ```
 
-### 🚧 Page Status & Reactivation
-
-**Current Status (November 2025):** All pages except the homepage are currently showing
-"under construction" notices while we ensure 100% accuracy. All original code is preserved
-and can be reactivated instantly.
-
-**To reactivate pages:** See [Reactivating Pages Guide](./docs/development/reactivating-pages-guide.md)
-for complete instructions on removing under construction wrappers and restoring full page functionality.
-
-### Development Commands
+### Key Commands
 
 ```bash
-# Development
 npm run dev              # Start dev server
-npm run dev:turbo        # Start with Turbo mode
-
-# Building
 npm run build            # Production build
-npm run build:fast       # Skip lint, faster build
-npm run build:analyze    # Analyze bundle size
-npm run build:cloudflare # Cloudflare Pages build
-
-# Code Quality
-npm run type-check       # TypeScript validation
+npm run type-check       # TypeScript check
 npm run lint             # ESLint check
-npm run lint:fix         # Auto-fix lint issues
-npm run format           # Prettier formatting
-npm run format:check     # Check formatting
-
-# Testing
 npm run test             # Run tests
-npm run test:watch       # Watch mode
-npm run test:coverage    # Generate coverage report
-npm run test:ci          # CI environment tests
-
-# SEO & Performance
-npm run seo:audit        # Run SEO audit
-npm run seo:check        # Quick SEO check
-
-# Deployment
-npm run deploy:production # Deploy to Cloudflare Pages
-
-# Maintenance
-npm run clean            # Clean build artifacts
-npm run optimize:images  # Optimize images
-npm run maintenance      # Full maintenance routine
 ```
 
 ### Environment Setup
@@ -184,20 +71,88 @@ npm run maintenance      # Full maintenance routine
 Create `.env.local`:
 
 ```bash
-# Required
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
 RESEND_API_KEY=your_resend_api_key
-
-# Cloudflare (for production)
 CLOUDFLARE_ACCOUNT_ID=your_account_id
 CLOUDFLARE_API_TOKEN=your_api_token
-D1_DATABASE_ID=your_database_id
-
-# Optional
-NEXT_PUBLIC_GA_ID=your_google_analytics_id
 ```
 
 ---
+
+## 📚 Documentation Structure
+
+**37 essential files organized by purpose:**
+
+### 🎨 Branding (11 files)
+
+- **Standards:** color-system, component-standards, hero-section, typography
+- **Strategy:** brand-overview, messaging, page-specific-messaging, universal-terminology
+
+### 💼 Business (18 files)
+
+- **Core:** core-values, services, testimonials
+- **Team:** 15 employee profiles
+
+### 💻 Development (3 files)
+
+- ai-development-guidelines, consistency-guide, development-standards
+
+### 🔧 Technical (4 files)
+
+- buttons-ctas-complete-guide, icon-system-complete
+- seo-complete-guide, cloudflare-guide
+
+### 📱 Marketing (2 files)
+
+- GBP-POST-TEMPLATES, GOOGLE-BUSINESS-PROFILE-GUIDE
+
+**Start here:** `docs/START-HERE.md`
+
+---
+
+## 🏗️ Project Architecture
+
+```
+src/
+├── app/              # Next.js 15 App Router pages
+├── components/       # React components
+│   ├── home/        # Homepage sections
+│   ├── shared-sections/  # Reusable sections
+│   ├── seo/         # SEO components
+│   └── ui/          # Base UI components
+├── lib/             # Utilities and configs
+│   ├── seo/         # SEO utilities
+│   └── utils/       # Helper functions
+├── hooks/           # Custom React hooks
+├── styles/          # Global styles
+└── types/           # TypeScript types
+```
+
+---
+
+## 🎯 Core Values
+
+1. **Honesty** - Transparent pricing, open communication
+2. **Integrity** - Your word is your bond, so is ours
+3. **Professionalism** - Military precision in every detail
+4. **Thoroughness** - No shortcuts, no detail overlooked
+
+---
+
+## 📞 Contact
+
+- **Phone:** (509) 308-6489
+- **Email:** <info@mhconstruction.com>
+- **Website:** <https://www.mhc-gc.com>
+- **Location:** 3111 N. Capitol Ave, Pasco, WA 99301
+
+**Veteran-owned since January 2025** | Licensed in WA, OR, ID
+
+---
+
+## 📄 License
+
+Proprietary - MH Construction © 2025
 
 ## 🏗️ Project Architecture
 

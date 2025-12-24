@@ -294,7 +294,7 @@ export class DataCollector {
       const trimmed = events.slice(-100);
       localStorage.setItem("analytics_events", JSON.stringify(trimmed));
     } catch (_error) {
-      console.error("Failed to store event locally:", _error);
+      // Silent fail - local storage not critical
     }
   }
 }
