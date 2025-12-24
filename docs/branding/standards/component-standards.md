@@ -236,8 +236,6 @@ with icon, decorative lines, two-line gradient heading, and description.
 - **Ratio:** Subtitle is approximately 70% the size of the main title
 - **Maintains proportion** across all breakpoints
 
-`````
-
 ### **Key Elements**
 
 - ✅ Decorative horizontal lines flanking the icon
@@ -293,7 +291,7 @@ description=\"Optional description text\"
   <MaterialIcon icon="icon_name" className="mr-2 group-hover:scale-110" />
   Button Text
 </Button>
-`````
+````
 
 ### **Touch Accessibility**
 

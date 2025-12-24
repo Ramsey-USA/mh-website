@@ -129,5 +129,21 @@ export const breadcrumbPatterns = {
     { name: "Services", url: "https://www.mhc-gc.com/services" },
     { name: "Spokane, WA", url: "https://www.mhc-gc.com/locations/spokane" },
   ],
+  locationWestRichland: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    {
+      name: "West Richland, WA",
+      url: "https://www.mhc-gc.com/locations/west-richland",
+    },
+  ],
+  locationWallaWalla: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    {
+      name: "Walla Walla, WA",
+      url: "https://www.mhc-gc.com/locations/walla-walla",
+    },
+  ],
   // Removed: 3dExplorer breadcrumb (feature deprecated)
 };

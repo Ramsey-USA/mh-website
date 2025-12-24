@@ -31,9 +31,6 @@ export { JobApplicationModal } from "./modals/JobApplicationModal";
 // Media Components
 export { OptimizedImage } from "./media/OptimizedImage";
 
-// Specialty Components
-export { ServiceRecordCard } from "./specialty/ServiceRecordCard";
-
 // Interactive Components
 export { AnimatedCounter } from "./AnimatedCounter";
 

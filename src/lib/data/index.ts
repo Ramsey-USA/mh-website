@@ -28,3 +28,7 @@ export {
   getDepartments,
   hasEntryLevelPositions,
 } from "./careers";
+
+// Location data exports
+export type { LocationData } from "./locations";
+export { locations, getLocationBySlug, getAllLocationSlugs } from "./locations";
