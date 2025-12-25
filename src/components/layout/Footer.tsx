@@ -350,7 +350,7 @@ export default function Footer() {
               </Link>
 
               <Link
-                href="/services#inspections"
+                href="/services"
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
@@ -416,7 +416,7 @@ export default function Footer() {
               </Link>
 
               <Link
-                href="/services#maintenance"
+                href="/services"
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon
@@ -610,7 +610,7 @@ export default function Footer() {
               </Link>
 
               <Link
-                href="/about#safety"
+                href="/about"
                 className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
               >
                 <MaterialIcon

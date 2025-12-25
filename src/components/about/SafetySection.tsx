@@ -4,10 +4,8 @@
  * Reusable across About, Team, and Government pages
  */
 
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
-import { getCardClassName } from "@/lib/styles/card-variants";
 import { gridPresets } from "@/lib/styles/layout-variants";
 
 export function SafetySection() {
@@ -88,206 +86,222 @@ export function SafetySection() {
         <StaggeredFadeIn
           className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
         >
-          <Card className={getCardClassName("primary", "h-full duration-300")}>
-            <CardHeader>
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="relative inline-block">
-                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-xl rounded-full"></div>
-                  <div className="relative w-12 h-12 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-xl flex items-center justify-center shadow-lg border-2 border-white/50 dark:border-gray-700/50">
-                    <MaterialIcon
-                      icon="verified_user"
-                      size="lg"
-                      ariaLabel="Mission-first safety"
-                      className="text-white drop-shadow-lg"
-                    />
-                  </div>
-                </div>
-                <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                  Mission-First Safety Culture
-                </CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2">
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
-                  />
-                  <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                    Daily safety meetings and site-specific hazard protocols
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
-                  />
-                  <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                    OSHA 30 leadership & OSHA 10 for all team members
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
-                  />
-                  <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                    Comprehensive safety equipment and continuous monitoring
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
-                  />
-                  <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                    Zero-tolerance policy for safety violations
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
-                  />
-                  <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                    3+ years without time-loss injury - industry leading
-                  </span>
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
+          <div className="group relative flex h-full">
+            {/* Animated Border Glow */}
+            <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-          <Card
-            className={getCardClassName("secondary", "h-full duration-300")}
-          >
-            <CardHeader>
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="relative inline-block">
-                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/30 to-brand-secondary-dark/30 blur-xl rounded-full"></div>
-                  <div className="relative w-12 h-12 bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-bronze-700 rounded-xl flex items-center justify-center shadow-lg border-2 border-white/50 dark:border-gray-700/50">
-                    <MaterialIcon
-                      icon="gavel"
-                      size="lg"
-                      className="text-white drop-shadow-lg"
-                    />
-                  </div>
-                </div>
-                <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                  Regulatory Compliance
-                </CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2">
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
-                  />
-                  <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                    Licensed and insured in Washington, Oregon, and Idaho
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
-                  />
-                  <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                    Current with all local and federal building codes
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
-                  />
-                  <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                    Environmental compliance and sustainability practices
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
-                  />
-                  <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                    Regular audits and certification maintenance
-                  </span>
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
+            <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+              {/* Top Accent Bar */}
+              <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
-          <Card className={getCardClassName("accent", "h-full duration-300")}>
-            <CardHeader>
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="relative inline-block">
-                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-xl rounded-full"></div>
-                  <div className="relative w-12 h-12 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-xl flex items-center justify-center shadow-lg border-2 border-white/50 dark:border-gray-700/50">
-                    <MaterialIcon
-                      icon="health_and_safety"
-                      size="lg"
-                      className="text-white drop-shadow-lg"
-                    />
+              <div className="p-6 sm:p-8 flex flex-col flex-1">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="relative inline-block">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
+                    <div className="relative rounded-xl bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-2.5 shadow-xl group-hover:scale-110 transition-all duration-300">
+                      <MaterialIcon
+                        icon="verified_user"
+                        size="lg"
+                        ariaLabel="Mission-first safety"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
                   </div>
+                  <h3 className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl font-bold">
+                    Mission-First Safety Culture
+                  </h3>
                 </div>
-                <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                  Quality Assurance
-                </CardTitle>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      Daily safety meetings and site-specific hazard protocols
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      OSHA 30 leadership & OSHA 10 for all team members
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      Comprehensive safety equipment and continuous monitoring
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      Zero-tolerance policy for safety violations
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      3+ years without time-loss injury - industry leading
+                    </span>
+                  </li>
+                </ul>
               </div>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2">
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
-                  />
-                  <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                    Multi-point quality inspections at every project phase
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
-                  />
-                  <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                    Documented quality control processes and checklists
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
-                  />
-                  <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                    Third-party verification for critical installations
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
-                  />
-                  <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                    Comprehensive warranty and dedicated post-project support
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <MaterialIcon
-                    icon="check_circle"
-                    className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
-                  />
-                  <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
-                    Materials selected for longevity, not just cost
-                  </span>
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
+
+          <div className="group relative flex h-full">
+            {/* Animated Border Glow */}
+            <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+            <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+              {/* Top Accent Bar */}
+              <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+              <div className="p-6 sm:p-8 flex flex-col flex-1">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="relative inline-block">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40 opacity-30 blur-lg rounded-xl"></div>
+                    <div className="relative rounded-xl bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-2.5 shadow-xl group-hover:scale-110 transition-all duration-300">
+                      <MaterialIcon
+                        icon="gavel"
+                        size="lg"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl font-bold">
+                    Regulatory Compliance
+                  </h3>
+                </div>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      Licensed and insured in Washington, Oregon, and Idaho
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      Current with all local and federal building codes
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      Environmental compliance and sustainability practices
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      Regular audits and certification maintenance
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="group relative flex h-full">
+            {/* Animated Border Glow */}
+            <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+            <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+              {/* Top Accent Bar */}
+              <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+              <div className="p-6 sm:p-8 flex flex-col flex-1">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="relative inline-block">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
+                    <div className="relative rounded-xl bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-2.5 shadow-xl group-hover:scale-110 transition-all duration-300">
+                      <MaterialIcon
+                        icon="health_and_safety"
+                        size="lg"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl font-bold">
+                    Quality Assurance
+                  </h3>
+                </div>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      Multi-point quality inspections at every project phase
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      Documented quality control processes and checklists
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      Third-party verification for critical installations
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      Comprehensive warranty and dedicated post-project support
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <MaterialIcon
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary text-xs sm:text-sm"
+                    />
+                    <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                      Materials selected for longevity, not just cost
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </StaggeredFadeIn>
       </div>
     </section>

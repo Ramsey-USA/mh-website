@@ -22,7 +22,10 @@ export function TestimonialsSection({ projects }: TestimonialsSectionProps) {
   }
 
   return (
-    <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+    <section
+      id="testimonials"
+      className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+    >
       {/* Diagonal Stripe Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
         <div

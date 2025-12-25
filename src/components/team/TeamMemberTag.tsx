@@ -91,6 +91,8 @@ export function TeamMemberTag({
               alt={name}
               width={48}
               height={48}
+              loading="lazy"
+              priority={false}
               className="w-full h-full rounded-full object-cover border-2 border-brand-primary/20 group-hover:border-brand-primary transition-colors duration-300"
             />
           ) : (

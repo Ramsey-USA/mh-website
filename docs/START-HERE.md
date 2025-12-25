@@ -30,7 +30,26 @@
 
 1. **[Buttons & CTAs](./technical/design-system/buttons-ctas-complete-guide.md)** - Button patterns
 2. **[Icon System](./technical/design-system/icon-system-complete.md)** - Material Icons
-3. **[SEO Guide](./technical/seo/seo-complete-guide.md)** - Keywords, meta tags
+3. **[Dark Mode Guide](./technical/dark-mode-implementation-guide.md)** - Complete dark mode implementation ⭐ **NEW**
+4. **[Dark Mode Quick Reference](./technical/dark-mode-quick-reference.md)** - Quick cheatsheet ⭐ **NEW**
+5. **[SEO Guide](./technical/seo/seo-complete-guide.md)** - Keywords, meta tags
+6. **[Navigation System](#navigation-pattern)** - Section-based navigation (Dec 2025)
+
+### 🧭 Navigation Pattern (Dec 2025)
+
+**Section-Based Navigation:** All pages use in-page anchor navigation
+
+- PageNavigation component links to `#section-id` within same page
+- Hamburger menu handles cross-page navigation
+- Every navigable section requires unique `id` attribute
+- Dual-label format: full label (desktop) + mobile label
+- Material Icons for all navigation items
+
+**Files:**
+
+- Config: `src/components/navigation/navigationConfigs.ts`
+- Component: `src/components/navigation/PageNavigation.tsx`
+- Report: `NAVIGATION-UPDATE-COMPLETE-REPORT.md`
 
 ### 💼 Business Information
 
@@ -72,6 +91,8 @@ docs/
 │   └── development-standards.md
 ├── technical/
 │   ├── index.md
+│   ├── dark-mode-implementation-guide.md ⭐ NEW
+│   ├── dark-mode-quick-reference.md ⭐ NEW
 │   ├── design-system/
 │   │   ├── buttons-ctas-complete-guide.md
 │   │   └── icon-system-complete.md
@@ -104,4 +125,4 @@ docs/
 
 ---
 
-**Last Updated:** December 14, 2025 | MH Construction, Inc. | Veteran-Owned
+**Last Updated:** December 25, 2025 | MH Construction, Inc. | Veteran-Owned

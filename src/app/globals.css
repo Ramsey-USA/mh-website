@@ -62,9 +62,16 @@ nav[aria-label="Breadcrumb navigation"] {
     @apply flex items-center justify-center;
   }
 
-  /* Focus styling for accessibility */
+  /* Focus styling for accessibility - WCAG AAA compliant */
   .focus-brand {
     @apply focus-visible:outline-2 focus-visible:outline-brand-primary focus-visible:outline-offset-2;
+  }
+
+  /* Enhanced focus for all interactive elements */
+  *:focus-visible {
+    outline: 3px solid theme("colors.brand.primary");
+    outline-offset: 2px;
+    transition: outline-offset 0.15s ease;
   }
 
   /* Touch targets for mobile accessibility */
@@ -117,6 +124,36 @@ nav[aria-label="Breadcrumb navigation"] {
     }
   }
 
+  /* Dark mode gradient utilities - Per branding guidelines */
+  .gradient-hero-dark {
+    @apply dark:from-brand-primary-dark dark:via-gray-900 dark:to-brand-secondary-dark;
+  }
+
+  .gradient-section-dark {
+    @apply dark:from-gray-800 dark:via-gray-900 dark:to-gray-800;
+  }
+
+  .gradient-text-three-color {
+    @apply bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent;
+  }
+
+  .gradient-text-bronze {
+    @apply bg-gradient-to-r from-brand-primary via-bronze-600 to-brand-secondary bg-clip-text text-transparent;
+  }
+
+  /* Dark mode opacity adjustments for patterns */
+  .pattern-opacity {
+    @apply opacity-[0.03] dark:opacity-[0.05];
+  }
+
+  .blob-opacity-primary {
+    @apply from-brand-primary/10 dark:from-brand-primary/20;
+  }
+
+  .blob-opacity-secondary {
+    @apply from-brand-secondary/10 dark:from-brand-secondary/20;
+  }
+
   /* Extra small mobile utilities */
   @media (max-width: 374px) {
     .mobile-sm\:text-micro {
@@ -148,6 +185,8 @@ nav[aria-label="Breadcrumb navigation"] {
 
   body {
     @apply transition-colors duration-300;
+    @apply bg-white text-gray-900;
+    @apply dark:bg-gray-900 dark:text-white;
   }
 
   /* Optimize rendering performance */
@@ -158,6 +197,15 @@ nav[aria-label="Breadcrumb navigation"] {
   /* Global focus styling for accessibility */
   *:focus-visible {
     @apply outline-2 outline-brand-primary outline-offset-2;
+  }
+
+  /* Dark mode color scheme for native browser elements */
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
   }
 }
 
@@ -198,36 +246,37 @@ nav[aria-label="Breadcrumb navigation"] {
 
   .btn-primary {
     @apply btn-base bg-brand-primary text-white hover:bg-brand-secondary focus:ring-brand-primary;
+    @apply dark:bg-brand-primary-light dark:hover:bg-brand-secondary-light;
     box-shadow: var(--shadow-brand);
   }
 
   .btn-secondary {
     @apply btn-base border border-brand-primary text-brand-primary bg-transparent hover:bg-brand-primary hover:text-white focus:ring-brand-primary;
+    @apply dark:border-brand-primary-light dark:text-brand-primary-light dark:hover:bg-brand-primary-light;
   }
 
   /* Card components */
   .card-base {
     @apply bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden;
+    @apply dark:bg-gray-800 dark:border-gray-700;
     padding: var(--card-padding);
     border-radius: var(--card-radius);
     box-shadow: var(--card-shadow);
   }
 
-  .card-hover {
-    transition: all var(--duration-300) var(--ease-out);
-  }
-
-  .card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
-  }
-
   /* Input components */
   .input-base {
     @apply block w-full border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-brand-primary focus:border-brand-primary;
+    @apply dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:placeholder-gray-500;
     padding: var(--input-padding-y) var(--input-padding-x);
     border-radius: var(--input-radius);
     border-width: var(--input-border-width);
+  }
+
+  /* Ensure inline-block cards render properly */
+  .inline-block {
+    display: inline-block;
+    vertical-align: top;
   }
 
   /* Group hover effects for card flips */
@@ -246,6 +295,41 @@ nav[aria-label="Breadcrumb navigation"] {
 
   .animate-pulse-glow {
     animation: pulse-glow 2s infinite;
+  }
+
+  /* Dark mode text utilities */
+  .text-primary {
+    @apply text-gray-900 dark:text-white;
+  }
+
+  .text-secondary {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+
+  .text-muted {
+    @apply text-gray-600 dark:text-gray-400;
+  }
+
+  /* Dark mode background utilities */
+  .bg-primary {
+    @apply bg-white dark:bg-gray-900;
+  }
+
+  .bg-secondary {
+    @apply bg-gray-50 dark:bg-gray-800;
+  }
+
+  .bg-surface {
+    @apply bg-gray-100 dark:bg-gray-700;
+  }
+
+  /* Dark mode border utilities */
+  .border-primary {
+    @apply border-gray-300 dark:border-gray-600;
+  }
+
+  .border-secondary {
+    @apply border-gray-200 dark:border-gray-700;
   }
 }
 
@@ -320,6 +404,15 @@ main {
   .team-card {
     max-width: 100%;
     overflow: hidden;
+  }
+
+  /* Fix card flip on mobile - disable 3D transform for better UX */
+  .feature-card .group-hover\:rotate-y-180 {
+    transition: none;
+  }
+
+  .feature-card:active .group-hover\:rotate-y-180 {
+    transform: rotateY(180deg);
   }
 
   /* Improve touch targets for mobile */
@@ -426,9 +519,14 @@ main {
 
 /* Fix for fixed height cards on mobile */
 @media (max-width: 640px) {
+  .feature-card {
+    height: auto !important;
+    min-height: 360px !important;
+  }
+
   .feature-card .relative {
     min-height: 280px !important;
-    height: auto !important;
+    height: 100% !important;
   }
 
   .value-card .relative {
@@ -547,6 +645,270 @@ main {
   }
 }
 
+/* ============================================
+   AWARD-WINNING ENHANCEMENTS
+   Accessibility + Micro-interactions
+   ============================================ */
+
+/* Skip to main content link - WCAG AAA */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: theme("colors.brand.primary");
+  color: white;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 0.25rem 0;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Smooth animations with reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Smooth page transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Scroll-triggered animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-in-delay-1 {
+  animation: slideUp 0.6s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-in-delay-2 {
+  animation: slideUp 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-in-delay-3 {
+  animation: slideUp 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+/* Button hover enhancements - GPU accelerated */
+@layer utilities {
+  .btn-lift {
+    transition:
+      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .btn-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-lift:active {
+    transform: translateY(0);
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    will-change: transform;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.15),
+      0 10px 10px -5px rgba(0, 0, 0, 0.08);
+  }
+
+  .card-hover:hover img {
+    transform: scale(1.05);
+  }
+
+  .card-hover img {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Ensure card 3D transforms work properly */
+  .feature-card .preserve-3d,
+  .value-card .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .feature-card .backface-hidden,
+  .value-card .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* Image zoom on hover */
+  .image-zoom {
+    overflow: hidden;
+  }
+
+  .image-zoom img {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .image-zoom:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Gradient shine effect on hover */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-shine::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .btn-shine:hover::before {
+    transform: translateX(0);
+  }
+
+  /* Scroll progress indicator */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      theme("colors.brand.primary"),
+      theme("colors.brand.secondary")
+    );
+    z-index: 100;
+    transition: width 0.15s ease-out;
+  }
+}
+
+/* Skeleton loading animations */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.dark .skeleton {
+  background: linear-gradient(
+    90deg,
+    theme("colors.gray.800") 25%,
+    theme("colors.gray.700") 50%,
+    theme("colors.gray.800") 75%
+  );
+  background-size: 200% 100%;
+}
+
 .animate-slide-in-left {
   animation: slide-in-left 0.4s ease-out forwards;
+}
+
+/* === SCROLL REVEAL ANIMATIONS === */
+/* Hybrid approach: works with or without JavaScript ScrollReveal component */
+
+/* Default behavior: CSS-only animation (for pages without ScrollReveal component) */
+.scroll-reveal {
+  opacity: 1;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0.25, 0, 1) both;
+}
+
+/* When ScrollReveal JS component is present, use JS-controlled reveal */
+.scroll-reveal.js-controlled {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: none;
+  transition:
+    opacity 0.6s cubic-bezier(0.25, 0.25, 0, 1),
+    transform 0.6s cubic-bezier(0.25, 0.25, 0, 1);
+}
+
+.scroll-reveal.js-controlled.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay for CSS-only animation */
+.scroll-reveal:not(.js-controlled):nth-child(1) {
+  animation-delay: 0s;
+}
+.scroll-reveal:not(.js-controlled):nth-child(2) {
+  animation-delay: 0.1s;
+}
+.scroll-reveal:not(.js-controlled):nth-child(3) {
+  animation-delay: 0.2s;
+}
+.scroll-reveal:not(.js-controlled):nth-child(4) {
+  animation-delay: 0.3s;
+}
+.scroll-reveal:not(.js-controlled):nth-child(5) {
+  animation-delay: 0.4s;
+}
+.scroll-reveal:not(.js-controlled):nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal.js-controlled,
+  .scroll-reveal.js-controlled.revealed {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

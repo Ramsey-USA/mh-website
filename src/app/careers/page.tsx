@@ -3,12 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import {
-  Button,
-  Card,
-  CardContent,
-  JobApplicationModal,
-} from "@/components/ui";
+import { Button, JobApplicationModal } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
@@ -24,8 +19,6 @@ import {
   veteranBenefits,
   cultureValues,
 } from "@/lib/data/careers";
-import { gridPresets } from "@/lib/styles/layout-variants";
-import { getCardClassName } from "@/lib/styles/card-variants";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import Head from "next/head";
 import { StructuredData } from "@/components/seo/seo-meta";
@@ -189,382 +182,589 @@ export default function CareersPage() {
           ]}
         />
 
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl">
-          {/* Why Work With Us */}
-          <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32">
-            {/* Diagonal Stripe Background Pattern */}
-            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `repeating-linear-gradient(
+        {/* Why Work With Us */}
+        <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
                     45deg,
                     #386851 0px,
                     #386851 2px,
                     transparent 2px,
                     transparent 60px
                   )`,
-                }}
-              ></div>
-            </div>
+              }}
+            ></div>
+          </div>
 
-            {/* Large Brand Color Blobs */}
-            <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-            <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
-            <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-              {/* Section Header - Military Construction Standard */}
-              <div className="mb-16 sm:mb-20 text-center">
-                {/* Icon with decorative lines */}
-                <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                  <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                      <MaterialIcon
-                        icon="star"
-                        size="2xl"
-                        className="text-white drop-shadow-lg"
-                      />
-                    </div>
+          <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="star"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
-
-                {/* Two-line gradient heading */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Why Choose
-                  </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    MH Construction
-                  </span>
-                </h2>
-
-                {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  This isn't just another construction job—it's a{" "}
-                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    career investment in YOU
-                  </span>
-                  . We're building your skills, your future, and your financial
-                  security through{" "}
-                  <span className="font-bold text-gray-900 dark:text-white">
-                    meaningful work, continuous training, and authentic
-                    partnerships
-                  </span>
-                  . Every team member gets a mentor, clear advancement paths,
-                  and the tools to succeed.{" "}
-                  <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
-                    THE ROI IS THE RELATIONSHIP
-                  </span>{" "}
-                  — where partnerships outlast projects and your growth is our
-                  success.
-                </p>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
 
-              <StaggeredFadeIn className={gridPresets.cards4("lg")}>
-                {cultureValues.map((value, index) => (
-                  <Card
-                    key={index}
-                    className="h-full flex flex-col bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-primary hover:-translate-y-2 transition-all duration-300"
-                  >
-                    <CardContent className="flex flex-col flex-grow p-6 xs:p-7 sm:p-8 text-center">
-                      <div className="flex justify-center items-center bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 mx-auto mb-4 rounded-full w-16 h-16">
-                        <MaterialIcon
-                          icon={value.icon}
-                          size="lg"
-                          className="text-brand-primary"
-                        />
-                      </div>
-                      <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg">
-                        {value.title}
-                      </h3>
-                      <p className="flex-grow text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        {value.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </StaggeredFadeIn>
-            </div>
-          </section>
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Why Choose
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  MH Construction
+                </span>
+              </h2>
 
-          {/* Benefits & Perks */}
-          <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32">
-            {/* Diagonal Stripe Background Pattern */}
-            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `repeating-linear-gradient(
-                    45deg,
-                    #386851 0px,
-                    #386851 2px,
-                    transparent 2px,
-                    transparent 60px
-                  )`,
-                }}
-              ></div>
-            </div>
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                This isn't just another construction job—it's a{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  career investment in YOU
+                </span>
+                . We're building your skills, your future, and your financial
+                security through{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  meaningful work, continuous training, and authentic
+                  partnerships
+                </span>
+                . Every team member gets a mentor, clear advancement paths, and
+                the tools to succeed.
+              </p>
 
-            {/* Large Brand Color Blobs */}
-            <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-            <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
-
-            <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-              {/* Section Header - Military Construction Standard */}
-              <div className="mb-16 sm:mb-20 text-center">
-                {/* Icon with decorative lines */}
-                <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                  <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                      <MaterialIcon
-                        icon="volunteer_activism"
-                        size="2xl"
-                        className="text-white drop-shadow-lg"
-                      />
-                    </div>
-                  </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                </div>
-
-                {/* Two-line gradient heading */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Employee Benefits
-                  </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    & Perks
-                  </span>
-                </h2>
-
-                {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    Build your future with a veteran-owned team that values
-                    loyalty
-                  </span>
-                  . Your well-being and success matter here—we offer competitive
-                  pay plus comprehensive benefits because we know you're
-                  building a life, not just a career. From health coverage to{" "}
-                  <span className="font-bold text-gray-900 dark:text-white">
-                    professional development, retirement planning to performance
-                    bonuses
-                  </span>
-                  —we invest in your total success as part of our mission.
-                </p>
-              </div>
-
-              <StaggeredFadeIn className={gridPresets.cards3("md")}>
-                {companyBenefits.map((benefit, index) => (
-                  <Card
-                    key={index}
-                    className="h-full flex flex-col bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-secondary transition-all duration-300"
-                  >
-                    <CardContent className="flex flex-col flex-grow p-6 xs:p-7 sm:p-8">
-                      <div className="mb-4">
-                        <MaterialIcon
-                          icon={benefit.icon}
-                          size="xl"
-                          className="text-brand-primary mb-3"
-                        />
-                        <h3 className="mb-2 font-bold text-gray-900 dark:text-gray-100 text-lg">
-                          {benefit.title}
-                        </h3>
-                      </div>
-                      <p className="flex-grow text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        {benefit.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </StaggeredFadeIn>
-            </div>
-          </section>
-
-          {/* Employee Testimonials - Optimal SEO position (25-30% page depth) */}
-          <section
-            id="testimonials"
-            className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
-          >
-            {/* Diagonal Stripe Background Pattern */}
-            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `repeating-linear-gradient(
-                    45deg,
-                    #386851 0px,
-                    #386851 2px,
-                    transparent 2px,
-                    transparent 60px
-                  )`,
-                }}
-              ></div>
-            </div>
-
-            {/* Large Brand Color Blobs */}
-            <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-            <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
-
-            <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-              {/* Section Header - Military Construction Standard */}
-              <div className="mb-16 sm:mb-20 text-center">
-                {/* Icon with decorative lines */}
-                <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                  <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                      <MaterialIcon
-                        icon="groups"
-                        size="2xl"
-                        className="text-white drop-shadow-lg"
-                      />
-                    </div>
-                  </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                </div>
-
-                {/* Two-line gradient heading */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Hear From Our
-                  </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Team Members
-                  </span>
-                </h2>
-
-                {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  Don't just take our word for it—hear directly from{" "}
-                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    the people who work here every day
-                  </span>
-                  . Real stories from real team members about{" "}
-                  <span className="font-bold text-gray-900 dark:text-white">
-                    career growth, workplace culture, and leadership support
-                  </span>
-                  . These aren't scripted testimonials—they're authentic voices.
-                </p>
-              </div>
-
-              <TestimonialGrid testimonials={getEmployeeTestimonials()} />
-            </div>
-          </section>
-
-          {/* Veteran Benefits Section */}
-          <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32">
-            {/* Diagonal Stripe Background Pattern */}
-            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `repeating-linear-gradient(
-                    45deg,
-                    #386851 0px,
-                    #386851 2px,
-                    transparent 2px,
-                    transparent 60px
-                  )`,
-                }}
-              ></div>
-            </div>
-
-            {/* Large Brand Color Blobs */}
-            <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-            <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
-
-            <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-              <FadeInWhenVisible>
-                <div>
-                  {/* Section Header - Military Construction Standard */}
-                  <div className="mb-16 sm:mb-20 text-center">
-                    {/* Icon with decorative lines */}
-                    <div className="flex items-center justify-center mb-8 gap-4">
-                      <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                      <div className="relative">
-                        <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                        <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                          <MaterialIcon
-                            icon="military_tech"
-                            size="2xl"
-                            className="text-white drop-shadow-lg"
-                          />
-                        </div>
-                      </div>
-                      <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                    </div>
-
-                    {/* Two-line gradient heading */}
-                    <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                      <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                        Supporting Our
-                      </span>
-                      <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                        Veterans
-                      </span>
-                    </h2>
-
-                    {/* Description with colored keyword highlighting */}
-                    <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                      <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                        Veteran-owned, veteran-led, veteran-proud
-                      </span>
-                      . Your military experience translates directly to
-                      construction excellence: discipline becomes precision,
-                      teamwork becomes partnership. We don't just hire
-                      veterans—we{" "}
-                      <span className="font-bold text-gray-900 dark:text-white">
-                        celebrate your service, honor your skills, and build
-                        careers
-                      </span>{" "}
-                      that match your dedication. Welcome home.
+              {/* Core Philosophy Callout */}
+              <div className="inline-block mt-8">
+                <div className="relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary via-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                  <div className="relative bg-white dark:bg-gray-800 px-8 py-6 rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 shadow-xl">
+                    <p className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
+                      "THE ROI IS THE RELATIONSHIP"
+                    </p>
+                    <p className="text-brand-secondary dark:text-brand-secondary-light text-sm sm:text-base font-semibold text-center mt-2">
+                      Where partnerships outlast projects and your growth is our
+                      success
                     </p>
                   </div>
+                </div>
+              </div>
+            </div>
 
-                  <StaggeredFadeIn className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                    {veteranBenefits.map((benefit, index) => (
-                      <Card
-                        key={index}
-                        className={getCardClassName(
-                          "default",
-                          "bg-white dark:bg-gray-800",
-                        )}
-                      >
-                        <CardContent className="p-6">
+            {/* Impressive Stats Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12">
+              <div className="group text-center p-6 bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
+                <div className="text-4xl sm:text-5xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
+                  150+
+                </div>
+                <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  Years Combined Experience
+                </div>
+              </div>
+              <div className="group text-center p-6 bg-gradient-to-br from-brand-secondary/5 to-bronze-700/10 dark:from-brand-secondary/10 dark:to-bronze-700/20 rounded-xl border border-brand-secondary/20 hover:border-brand-secondary transition-all duration-300 hover:scale-105">
+                <div className="text-4xl sm:text-5xl font-black text-brand-secondary dark:text-brand-secondary-light mb-2 group-hover:scale-110 transition-transform duration-300">
+                  .64
+                </div>
+                <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  EMR Safety Rating
+                </div>
+              </div>
+              <div className="group text-center p-6 bg-gradient-to-br from-bronze-700/5 to-bronze-800/10 dark:from-bronze-700/10 dark:to-bronze-800/20 rounded-xl border border-bronze-700/20 hover:border-bronze-700 transition-all duration-300 hover:scale-105">
+                <div className="text-4xl sm:text-5xl font-black text-bronze-700 dark:text-bronze-400 mb-2 group-hover:scale-110 transition-transform duration-300">
+                  100%
+                </div>
+                <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  Mentorship Program
+                </div>
+              </div>
+              <div className="group text-center p-6 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/10 dark:from-brand-primary/10 dark:to-brand-secondary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
+                <div className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                  70%
+                </div>
+                <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  Referral Business
+                </div>
+              </div>
+            </div>
+
+            {/* Modern Grid Cards with Unique Hover Effects */}
+            <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
+              {cultureValues.map((value, index) => (
+                <div
+                  key={index}
+                  className="group relative flex h-full min-h-[400px]"
+                >
+                  {/* Colored Border Glow - Visible on hover */}
+                  <div
+                    className={`absolute -inset-2 bg-gradient-to-br ${value.color} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
+                  ></div>
+
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div
+                      className={`h-2 bg-gradient-to-r ${value.color}`}
+                    ></div>
+
+                    <div className="p-6 sm:p-8 flex flex-col flex-1">
+                      {/* Icon Section */}
+                      <div className="mb-5">
+                        {/* Enhanced Icon with Header Style */}
+                        <div className="relative inline-block">
+                          {/* Blur glow layer behind icon */}
+                          <div
+                            className={`absolute -inset-2 bg-gradient-to-br ${value.color} opacity-30 blur-lg rounded-2xl`}
+                          ></div>
+                          <div
+                            className={`relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${value.color} rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 transition-all duration-300`}
+                          >
+                            <MaterialIcon
+                              icon={value.icon}
+                              size="xl"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="mb-4 font-black text-gray-900 dark:text-white text-xl sm:text-2xl leading-tight">
+                        {value.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="flex-grow text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                        {value.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </StaggeredFadeIn>
+          </div>
+        </section>
+
+        {/* Benefits & Perks */}
+        <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                    45deg,
+                    #386851 0px,
+                    #386851 2px,
+                    transparent 2px,
+                    transparent 60px
+                  )`,
+              }}
+            ></div>
+          </div>
+
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+          <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="volunteer_activism"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Employee Benefits
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  & Perks
+                </span>
+              </h2>
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  Build your future with a veteran-owned team that values
+                  loyalty
+                </span>
+                . Your well-being and success matter here—we offer competitive
+                pay plus comprehensive benefits because we know you're building
+                a life, not just a career. From health coverage to{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  professional development, retirement planning to performance
+                  bonuses
+                </span>
+                —we invest in your total success as part of our mission.
+              </p>
+            </div>
+
+            {/* Modern Grid Cards with Unique Hover Effects */}
+            <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {companyBenefits.map((benefit, index) => (
+                <div
+                  key={index}
+                  className="group relative flex h-full min-h-[320px]"
+                >
+                  {/* Colored Border Glow - Visible on hover */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                    <div className="p-6 sm:p-8 flex flex-col flex-1">
+                      {/* Icon Section */}
+                      <div className="mb-5">
+                        {/* Enhanced Icon with Header Style */}
+                        <div className="relative inline-block">
+                          {/* Blur glow layer behind icon */}
+                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg rounded-2xl"></div>
+                          <div className="relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 transition-all duration-300">
+                            <MaterialIcon
+                              icon={benefit.icon}
+                              size="xl"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="mb-3 font-black text-gray-900 dark:text-white text-xl sm:text-2xl leading-tight">
+                        {benefit.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="flex-grow text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                        {benefit.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </StaggeredFadeIn>
+          </div>
+        </section>
+
+        {/* Employee Testimonials - Optimal SEO position (25-30% page depth) */}
+        <section
+          id="testimonials"
+          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+        >
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                    45deg,
+                    #386851 0px,
+                    #386851 2px,
+                    transparent 2px,
+                    transparent 60px
+                  )`,
+              }}
+            ></div>
+          </div>
+
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+          <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="groups"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Hear From Our
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  Team Members
+                </span>
+              </h2>
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                Don't just take our word for it—hear directly from{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  the people who work here every day
+                </span>
+                . Real stories from real team members about{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  career growth, workplace culture, and leadership support
+                </span>
+                . These aren't scripted testimonials—they're authentic voices.
+              </p>
+            </div>
+
+            <TestimonialGrid testimonials={getEmployeeTestimonials()} />
+          </div>
+        </section>
+
+        {/* Veteran Benefits Section */}
+        <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                    45deg,
+                    #386851 0px,
+                    #386851 2px,
+                    transparent 2px,
+                    transparent 60px
+                  )`,
+              }}
+            ></div>
+          </div>
+
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+          <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <FadeInWhenVisible>
+              <div>
+                {/* Section Header - Military Construction Standard */}
+                <div className="mb-16 sm:mb-20 text-center">
+                  {/* Icon with decorative lines */}
+                  <div className="flex items-center justify-center mb-8 gap-4">
+                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                    <div className="relative">
+                      <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                      <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                        <MaterialIcon
+                          icon="military_tech"
+                          size="2xl"
+                          className="text-white drop-shadow-lg"
+                        />
+                      </div>
+                    </div>
+                    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  </div>
+
+                  {/* Two-line gradient heading */}
+                  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                      Supporting Our
+                    </span>
+                    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                      Veterans
+                    </span>
+                  </h2>
+
+                  {/* Description with colored keyword highlighting */}
+                  <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                    <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                      Veteran-owned, veteran-led, veteran-proud
+                    </span>
+                    . Your military experience translates directly to
+                    construction excellence: discipline becomes precision,
+                    teamwork becomes partnership. We don't just hire veterans—we{" "}
+                    <span className="font-bold text-gray-900 dark:text-white">
+                      celebrate your service, honor your skills, and build
+                      careers
+                    </span>{" "}
+                    that match your dedication.
+                  </p>
+
+                  {/* Veteran Pride Callout */}
+                  <div className="inline-block mt-8">
+                    <div className="relative group">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-2xl blur-sm opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                      <div className="relative bg-white dark:bg-gray-800 px-8 py-6 rounded-xl border-2 border-brand-primary/30 dark:border-brand-primary/40 shadow-xl">
+                        <p className="font-black text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed flex items-center justify-center gap-3">
                           <MaterialIcon
-                            icon={benefit.icon}
+                            icon="military_tech"
                             size="lg"
-                            className="text-brand-primary mb-3"
+                            className="text-brand-primary"
                           />
-                          <h3 className="mb-2 font-semibold text-gray-900 dark:text-gray-100 text-base">
+                          WELCOME HOME, BROTHER. WELCOME HOME, SISTER.
+                          <MaterialIcon
+                            icon="military_tech"
+                            size="lg"
+                            className="text-brand-primary"
+                          />
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Veteran Stats Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-12 max-w-4xl mx-auto">
+                  <div className="group text-center p-6 bg-gradient-to-br from-brand-primary/10 to-brand-primary/20 dark:from-brand-primary/20 dark:to-brand-primary/30 rounded-xl border-2 border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105">
+                    <MaterialIcon
+                      icon="stars"
+                      size="2xl"
+                      className="text-brand-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2">
+                      Priority
+                    </div>
+                    <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                      Consideration
+                    </div>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
+                      All Positions
+                    </p>
+                  </div>
+                  <div className="group text-center p-6 bg-gradient-to-br from-brand-secondary/10 to-bronze-700/20 dark:from-brand-secondary/20 dark:to-bronze-700/30 rounded-xl border-2 border-brand-secondary/30 hover:border-brand-secondary transition-all duration-300 hover:scale-105">
+                    <MaterialIcon
+                      icon="shield"
+                      size="2xl"
+                      className="text-brand-secondary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="text-3xl sm:text-4xl font-black text-brand-secondary dark:text-brand-secondary-light mb-2">
+                      100%
+                    </div>
+                    <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                      Military-Friendly
+                    </div>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
+                      Workplace Culture
+                    </p>
+                  </div>
+                  <div className="group text-center p-6 bg-gradient-to-br from-bronze-700/10 to-bronze-800/20 dark:from-bronze-700/20 dark:to-bronze-800/30 rounded-xl border-2 border-bronze-700/30 hover:border-bronze-700 transition-all duration-300 hover:scale-105">
+                    <MaterialIcon
+                      icon="flag"
+                      size="2xl"
+                      className="text-bronze-700 dark:text-bronze-400 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="text-3xl sm:text-4xl font-black text-bronze-700 dark:text-bronze-400 mb-2">
+                      All Branches
+                    </div>
+                    <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                      Welcome Here
+                    </div>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
+                      Army • Navy • Marines • Air Force • Coast Guard • Space
+                      Force
+                    </p>
+                  </div>
+                </div>
+
+                {/* Modern Grid Cards with Unique Hover Effects */}
+                <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+                  {veteranBenefits.map((benefit, index) => (
+                    <div
+                      key={index}
+                      className="group relative flex h-full min-h-[280px]"
+                    >
+                      {/* Colored Border Glow - Visible on hover */}
+                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                      <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                        {/* Top Accent Bar */}
+                        <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                        <div className="p-6 sm:p-8 flex flex-col flex-1">
+                          {/* Icon Section */}
+                          <div className="mb-4">
+                            {/* Enhanced Icon with Header Style */}
+                            <div className="relative inline-block">
+                              {/* Blur glow layer behind icon */}
+                              <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-2xl"></div>
+                              <div className="relative inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 transition-all duration-300">
+                                <MaterialIcon
+                                  icon={benefit.icon}
+                                  size="lg"
+                                  className="text-white drop-shadow-lg"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Title */}
+                          <h3 className="mb-3 font-black text-gray-900 dark:text-white text-lg sm:text-xl leading-tight">
                             {benefit.title}
                           </h3>
-                          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+
+                          {/* Description */}
+                          <p className="flex-grow text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                             {benefit.description}
                           </p>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </StaggeredFadeIn>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </StaggeredFadeIn>
 
-                  <FadeInWhenVisible>
-                    <div className="mt-10 text-center">
-                      <p className="mb-6 font-medium text-gray-700 text-lg dark:text-gray-300">
-                        Veterans receive priority consideration for all
-                        positions
+                {/* Enhanced CTA Section */}
+                <FadeInWhenVisible>
+                  <div className="relative">
+                    {/* Background gradient box */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-primary-dark/10 dark:from-brand-primary/10 dark:to-brand-primary-dark/20 rounded-2xl"></div>
+
+                    <div className="relative p-8 sm:p-10 text-center border-2 border-brand-primary/20 dark:border-brand-primary/30 rounded-2xl">
+                      <MaterialIcon
+                        icon="military_tech"
+                        size="3xl"
+                        className="text-brand-primary mx-auto mb-6"
+                      />
+                      <h3 className="mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl">
+                        Veterans Receive Priority Consideration
+                      </h3>
+                      <p className="mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto">
+                        Your service matters. Your skills translate. Your
+                        experience is valued.
+                        <br />
+                        <span className="text-brand-primary dark:text-brand-primary-light font-bold">
+                          Start your next mission with us.
+                        </span>
                       </p>
-                      <div className="flex sm:flex-row flex-col justify-center gap-6 mt-10">
+                      <div className="flex sm:flex-row flex-col justify-center gap-4 sm:gap-6">
                         <Button
                           onClick={() => handleApplyNow("Veteran Application")}
                           variant="primary"
                           size="lg"
-                          className="transition-all duration-300 min-w-[260px]"
+                          className="transition-all duration-300 min-w-[260px] shadow-xl hover:shadow-2xl"
                         >
                           <MaterialIcon
                             icon="military_tech"
@@ -593,719 +793,776 @@ export default function CareersPage() {
                             </span>
                           </Button>
                         </Link>
-                        <Link href="/contact">
-                          <Button
-                            variant="outline"
-                            size="lg"
-                            className="transition-all duration-300 min-w-[260px]"
-                          >
-                            <MaterialIcon
-                              icon="campaign"
-                              size="lg"
-                              theme="military"
-                              ariaLabel="Contact Liaison"
-                              className="mr-3"
-                            />
-                            <span className="font-medium">
-                              Contact Veteran Liaison
-                            </span>
-                          </Button>
-                        </Link>
                       </div>
                     </div>
-                  </FadeInWhenVisible>
-                </div>
-              </FadeInWhenVisible>
-            </div>
-          </section>
+                  </div>
+                </FadeInWhenVisible>
+              </div>
+            </FadeInWhenVisible>
+          </div>
+        </section>
 
-          {/* Open Positions */}
-          <section
-            id="positions"
-            className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
-          >
-            {/* Diagonal Stripe Background Pattern */}
-            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `repeating-linear-gradient(
+        {/* Open Positions */}
+        <section
+          id="positions"
+          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+        >
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
                     45deg,
                     #386851 0px,
                     #386851 2px,
                     transparent 2px,
                     transparent 60px
                   )`,
-                }}
-              ></div>
-            </div>
+              }}
+            ></div>
+          </div>
 
-            {/* Large Brand Color Blobs */}
-            <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-            <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
-            <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-              {/* Section Header - Military Construction Standard */}
-              <div className="mb-16 sm:mb-20 text-center">
-                {/* Icon with decorative lines */}
-                <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                  <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-bronze-700 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                      <MaterialIcon
-                        icon="work"
-                        size="2xl"
-                        className="text-white drop-shadow-lg"
-                      />
-                    </div>
+          <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-bronze-700 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="work"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
-
-                {/* Two-line gradient heading */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Current Career
-                  </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Opportunities
-                  </span>
-                </h2>
-
-                {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  Your next career chapter starts here. These aren't just job
-                  openings—they're{" "}
-                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    gateways to your future
-                  </span>
-                  . Every position offers{" "}
-                  <span className="font-bold text-gray-900 dark:text-white">
-                    competitive pay, comprehensive training, clear advancement
-                    paths
-                  </span>
-                  , and the chance to build something meaningful. Veterans
-                  receive priority consideration.
-                </p>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
 
-              <StaggeredFadeIn className="space-y-6">
-                {openPositions.map((position, _index) => (
-                  <Card
-                    key={_index}
-                    className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 border border-gray-200 dark:border-gray-700 border-l-4 border-l-brand-secondary transition-all duration-300"
-                  >
-                    <CardContent className="p-8">
-                      <div className="flex sm:flex-row flex-col justify-between items-start mb-6">
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Current Career
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  Opportunities
+                </span>
+              </h2>
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                Your next career chapter starts here. These aren't just job
+                openings—they're{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  gateways to your future
+                </span>
+                . Every position offers{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  competitive pay, comprehensive training, clear advancement
+                  paths
+                </span>
+                , and the chance to build something meaningful. Veterans receive
+                priority consideration.
+              </p>
+            </div>
+
+            <StaggeredFadeIn className="space-y-8">
+              {openPositions.map((position, _index) => (
+                <div key={_index} className="group relative">
+                  {/* Colored Border Glow - Visible on hover */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
+
+                  <div className="relative bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                    <div className="p-6 sm:p-8">
+                      {/* Header Section with Title and Apply Button */}
+                      <div className="flex sm:flex-row flex-col justify-between items-start gap-6 mb-6">
                         <div className="flex-grow">
-                          <h3 className="mb-2 font-bold text-gray-900 dark:text-gray-100 text-2xl">
-                            {position.title}
-                          </h3>
-                          <div className="flex flex-wrap gap-4 mb-4">
-                            <span className="flex items-center text-gray-600 dark:text-gray-300">
-                              <MaterialIcon
-                                icon="business"
-                                className="mr-1"
-                                size="sm"
-                              />
-                              {position.department}
-                            </span>
-                            <span className="flex items-center text-gray-600 dark:text-gray-300">
-                              <MaterialIcon
-                                icon="location_on"
-                                className="mr-1"
-                                size="sm"
-                              />
-                              {position.location}
-                            </span>
-                            <span className="flex items-center text-gray-600 dark:text-gray-300">
-                              <MaterialIcon
-                                icon="schedule"
-                                className="mr-1"
-                                size="sm"
-                              />
-                              {position.type}
-                            </span>
-                            <span className="flex items-center text-gray-600 dark:text-gray-300">
-                              <MaterialIcon
-                                icon="work"
-                                className="mr-1"
-                                size="sm"
-                              />
-                              {position.experience}
-                            </span>
+                          {/* Job Title with Icon */}
+                          <div className="flex items-start gap-4 mb-4">
+                            <div className="relative flex-shrink-0">
+                              <div className="absolute -inset-1 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg rounded-xl"></div>
+                              <div className="relative inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 rounded-xl shadow-lg group-hover:scale-110 transition-all duration-300">
+                                <MaterialIcon
+                                  icon="badge"
+                                  size="lg"
+                                  className="text-white drop-shadow-lg"
+                                />
+                              </div>
+                            </div>
+                            <div className="flex-1">
+                              <h3 className="mb-2 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl leading-tight">
+                                {position.title}
+                              </h3>
+                              {/* Metadata Pills */}
+                              <div className="flex flex-wrap gap-2">
+                                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-brand-primary-light rounded-full text-xs font-semibold">
+                                  <MaterialIcon icon="business" size="xs" />
+                                  {position.department}
+                                </span>
+                                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-secondary/10 dark:bg-brand-secondary/20 text-brand-secondary dark:text-brand-secondary-light rounded-full text-xs font-semibold">
+                                  <MaterialIcon icon="location_on" size="xs" />
+                                  {position.location}
+                                </span>
+                                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-bronze-700/10 dark:bg-bronze-700/20 text-bronze-700 dark:text-bronze-400 rounded-full text-xs font-semibold">
+                                  <MaterialIcon icon="schedule" size="xs" />
+                                  {position.type}
+                                </span>
+                                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs font-semibold">
+                                  <MaterialIcon icon="work" size="xs" />
+                                  {position.experience}
+                                </span>
+                              </div>
+                            </div>
                           </div>
-                          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+
+                          {/* Description */}
+                          <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
                             {position.description}
                           </p>
                         </div>
-                        <div className="mt-4 sm:mt-0 sm:ml-6">
+
+                        {/* Apply Button - Desktop Sticky */}
+                        <div className="flex-shrink-0 w-full sm:w-auto">
                           <Button
                             onClick={() => handleApplyNow(position.title)}
                             variant="primary"
                             size="lg"
-                            className="transition-all duration-300 min-w-[180px]"
+                            className="w-full sm:w-auto transition-all duration-300 min-w-[200px] shadow-lg hover:shadow-xl group/btn"
                           >
                             <MaterialIcon
                               icon="send"
-                              size="lg"
-                              className="mr-3"
+                              size="md"
+                              className="mr-2 group-hover/btn:translate-x-1 transition-transform duration-300"
                             />
                             Apply Now
                           </Button>
                         </div>
                       </div>
 
-                      <div className={gridPresets.twoColumn("lg")}>
+                      {/* Divider */}
+                      <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-6"></div>
+
+                      {/* Requirements and Benefits Grid */}
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        {/* Requirements */}
                         <div>
-                          <h4 className="mb-3 font-semibold text-gray-900 dark:text-gray-100">
-                            Requirements
-                          </h4>
-                          <ul className="space-y-2">
+                          <div className="flex items-center gap-2 mb-4">
+                            <div className="w-8 h-8 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center">
+                              <MaterialIcon
+                                icon="checklist"
+                                size="sm"
+                                className="text-brand-primary"
+                              />
+                            </div>
+                            <h4 className="font-black text-gray-900 dark:text-gray-100 text-lg">
+                              Requirements
+                            </h4>
+                          </div>
+                          <ul className="space-y-3">
                             {position.requirements.map((req, reqIndex) => (
                               <li
                                 key={reqIndex}
-                                className="flex items-start text-gray-600 dark:text-gray-300 text-sm"
+                                className="flex items-start gap-3 group/item"
                               >
-                                <MaterialIcon
-                                  icon="check_circle"
-                                  className="flex-shrink-0 mt-0.5 mr-2 text-brand-primary"
-                                  size="sm"
-                                />
-                                {req}
+                                <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br from-brand-primary to-brand-primary-dark flex items-center justify-center mt-0.5 group-hover/item:scale-110 transition-transform duration-300">
+                                  <MaterialIcon
+                                    icon="check"
+                                    className="text-white text-xs"
+                                  />
+                                </div>
+                                <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                                  {req}
+                                </span>
                               </li>
                             ))}
                           </ul>
                         </div>
+
+                        {/* What We Offer */}
                         <div>
-                          <h4 className="mb-3 font-semibold text-gray-900 dark:text-gray-100">
-                            What We Offer
-                          </h4>
-                          <ul className="space-y-2">
+                          <div className="flex items-center gap-2 mb-4">
+                            <div className="w-8 h-8 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center">
+                              <MaterialIcon
+                                icon="workspace_premium"
+                                size="sm"
+                                className="text-brand-secondary"
+                              />
+                            </div>
+                            <h4 className="font-black text-gray-900 dark:text-gray-100 text-lg">
+                              What We Offer
+                            </h4>
+                          </div>
+                          <ul className="space-y-3">
                             {position.benefits.map((benefit, benefitIndex) => (
                               <li
                                 key={benefitIndex}
-                                className="flex items-start text-gray-600 dark:text-gray-300 text-sm"
+                                className="flex items-start gap-3 group/item"
                               >
-                                <MaterialIcon
-                                  icon="star"
-                                  className="flex-shrink-0 mt-0.5 mr-2 text-brand-secondary"
-                                  size="sm"
-                                />
-                                {benefit}
+                                <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br from-brand-secondary to-bronze-700 flex items-center justify-center mt-0.5 group-hover/item:scale-110 transition-transform duration-300">
+                                  <MaterialIcon
+                                    icon="star"
+                                    className="text-white text-xs"
+                                  />
+                                </div>
+                                <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                                  {benefit}
+                                </span>
                               </li>
                             ))}
                           </ul>
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </StaggeredFadeIn>
-            </div>
-          </section>
-
-          {/* Application Process Guide Section */}
-          <section
-            id="application-process"
-            className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
-          >
-            {/* Diagonal Stripe Background Pattern */}
-            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `repeating-linear-gradient(
-                    45deg,
-                    #386851 0px,
-                    #386851 2px,
-                    transparent 2px,
-                    transparent 60px
-                  )`,
-                }}
-              ></div>
-            </div>
-
-            {/* Large Brand Color Blobs */}
-            <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-            <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
-
-            <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-              <FadeInWhenVisible>
-                <div>
-                  {/* Section Header - Military Construction Standard */}
-                  <div className="mb-16 sm:mb-20 text-center">
-                    {/* Icon with decorative lines */}
-                    <div className="flex items-center justify-center mb-8 gap-4">
-                      <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                      <div className="relative">
-                        <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                        <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                          <MaterialIcon
-                            icon="how_to_reg"
-                            size="2xl"
-                            className="text-white drop-shadow-lg"
-                          />
-                        </div>
-                      </div>
-                      <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                    </div>
-
-                    {/* Two-line gradient heading */}
-                    <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                      <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                        Your Journey to
-                      </span>
-                      <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                        Join Our Team
-                      </span>
-                    </h2>
-
-                    {/* Description with colored keyword highlighting */}
-                    <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                      <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                        No games, no ghosting, no endless waiting
-                      </span>
-                      . Our hiring process is transparent, efficient, and
-                      respectful of YOUR time—because we know you're evaluating
-                      us just as much. Fast-track options available for
-                      exceptional candidates.{" "}
-                      <span className="font-bold text-gray-900 dark:text-white">
-                        Most offers extended within 2-3 weeks
-                      </span>
-                      .
-                    </p>
-                  </div>
-
-                  <div className="gap-8 grid grid-cols-1 lg:grid-cols-5 mb-12">
-                    {/* Step 1: Submit Application */}
-                    <div className="h-full flex flex-col relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl p-6 rounded-xl transition-all duration-300">
-                      <div className="flex justify-center items-center bg-gradient-to-br from-primary-500 to-primary-600 mb-4 rounded-full w-14 h-14">
-                        <span className="font-black text-2xl text-white">
-                          1
-                        </span>
-                      </div>
-                      <div className="flex justify-center items-center bg-primary-100 dark:bg-primary-900/30 mx-auto mb-4 rounded-full w-16 h-16">
-                        <MaterialIcon
-                          icon="description"
-                          size="lg"
-                          className="text-primary-600 dark:text-primary-400"
-                        />
-                      </div>
-                      <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-xl">
-                        Submit Application
-                      </h3>
-                      <p className="flex-grow mb-4 text-gray-600 text-sm dark:text-gray-300 leading-relaxed">
-                        Complete our online application form or email your
-                        resume to careers@mhc-gc.com. Include relevant
-                        certifications and references.
-                      </p>
-                      <div className="space-y-2 text-xs">
-                        <div className="flex items-center gap-2">
-                          <MaterialIcon
-                            icon="schedule"
-                            size="sm"
-                            className="text-accent-600"
-                          />
-                          <span className="text-gray-600 dark:text-gray-400">
-                            Response within 3-5 business days
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Step 2: Phone Screening */}
-                    <div className="h-full flex flex-col relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl p-6 rounded-xl transition-all duration-300">
-                      <div className="flex justify-center items-center bg-gradient-to-br from-secondary-500 to-secondary-600 mb-4 rounded-full w-14 h-14">
-                        <span className="font-black text-2xl text-white">
-                          2
-                        </span>
-                      </div>
-                      <div className="flex justify-center items-center bg-secondary-100 dark:bg-secondary-900/30 mx-auto mb-4 rounded-full w-16 h-16">
-                        <MaterialIcon
-                          icon="phone"
-                          size="lg"
-                          className="text-secondary-600 dark:text-secondary-400"
-                        />
-                      </div>
-                      <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-xl">
-                        Phone Screening
-                      </h3>
-                      <p className="flex-grow mb-4 text-gray-600 text-sm dark:text-gray-300 leading-relaxed">
-                        Brief 15-20 minute phone conversation to discuss your
-                        background, career goals, and answer initial questions.
-                      </p>
-                      <div className="space-y-2 text-xs">
-                        <div className="flex items-center gap-2">
-                          <MaterialIcon
-                            icon="schedule"
-                            size="sm"
-                            className="text-accent-600"
-                          />
-                          <span className="text-gray-600 dark:text-gray-400">
-                            15-20 minutes
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Step 3: In-Person Interview */}
-                    <div className="h-full flex flex-col relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl p-6 rounded-xl transition-all duration-300">
-                      <div className="flex justify-center items-center bg-gradient-to-br from-accent-500 to-accent-600 mb-4 rounded-full w-14 h-14">
-                        <span className="font-black text-2xl text-white">
-                          3
-                        </span>
-                      </div>
-                      <div className="flex justify-center items-center bg-accent-100 dark:bg-accent-900/30 mx-auto mb-4 rounded-full w-16 h-16">
-                        <MaterialIcon
-                          icon="groups"
-                          size="lg"
-                          className="text-accent-600 dark:text-accent-400"
-                        />
-                      </div>
-                      <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-xl">
-                        In-Person Interview
-                      </h3>
-                      <p className="flex-grow mb-4 text-gray-600 text-sm dark:text-gray-300 leading-relaxed">
-                        Meet our team at our office or job site. Discuss your
-                        technical skills, safety mindset, and cultural fit.
-                        Questions encouraged!
-                      </p>
-                      <div className="space-y-2 text-xs">
-                        <div className="flex items-center gap-2">
-                          <MaterialIcon
-                            icon="schedule"
-                            size="sm"
-                            className="text-accent-600"
-                          />
-                          <span className="text-gray-600 dark:text-gray-400">
-                            45-60 minutes
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Step 4: Background Check */}
-                    <div className="h-full flex flex-col relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl p-6 rounded-xl transition-all duration-300">
-                      <div className="flex justify-center items-center bg-gradient-to-br from-primary-500 to-primary-600 mb-4 rounded-full w-14 h-14">
-                        <span className="font-black text-2xl text-white">
-                          4
-                        </span>
-                      </div>
-                      <div className="flex justify-center items-center bg-primary-100 dark:bg-primary-900/30 mx-auto mb-4 rounded-full w-16 h-16">
-                        <MaterialIcon
-                          icon="verified_user"
-                          size="lg"
-                          className="text-primary-600 dark:text-primary-400"
-                        />
-                      </div>
-                      <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-xl">
-                        Background Check
-                      </h3>
-                      <p className="flex-grow mb-4 text-gray-600 text-sm dark:text-gray-300 leading-relaxed">
-                        Standard background and reference checks to verify
-                        employment history and qualifications. Drug screening
-                        may be required.
-                      </p>
-                      <div className="space-y-2 text-xs">
-                        <div className="flex items-center gap-2">
-                          <MaterialIcon
-                            icon="schedule"
-                            size="sm"
-                            className="text-accent-600"
-                          />
-                          <span className="text-gray-600 dark:text-gray-400">
-                            3-7 business days
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Step 5: Offer & Onboarding */}
-                    <div className="h-full flex flex-col relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl p-6 rounded-xl transition-all duration-300">
-                      <div className="flex justify-center items-center bg-gradient-to-br from-secondary-500 to-secondary-600 mb-4 rounded-full w-14 h-14">
-                        <span className="font-black text-2xl text-white">
-                          5
-                        </span>
-                      </div>
-                      <div className="flex justify-center items-center bg-secondary-100 dark:bg-secondary-900/30 mx-auto mb-4 rounded-full w-16 h-16">
-                        <MaterialIcon
-                          icon="celebration"
-                          size="lg"
-                          className="text-secondary-600 dark:text-secondary-400"
-                        />
-                      </div>
-                      <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-xl">
-                        Offer & Onboarding
-                      </h3>
-                      <p className="flex-grow mb-4 text-gray-600 text-sm dark:text-gray-300 leading-relaxed">
-                        Receive formal offer, complete paperwork, and begin
-                        orientation. Meet your mentor, get safety training, and
-                        start building your career.
-                      </p>
-                      <div className="space-y-2 text-xs">
-                        <div className="flex items-center gap-2">
-                          <MaterialIcon
-                            icon="schedule"
-                            size="sm"
-                            className="text-accent-600"
-                          />
-                          <span className="text-gray-600 dark:text-gray-400">
-                            1-2 weeks
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Timeline Details */}
-                  <FadeInWhenVisible>
-                    <div className="bg-white dark:bg-gray-800 shadow-md mt-12 p-8 rounded-xl">
-                      <h3 className="mb-6 font-bold text-center text-gray-900 text-xl dark:text-gray-100">
-                        What to Expect Timeline
-                      </h3>
-                      <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
-                        <div className="text-center">
-                          <div className="flex justify-center items-center bg-primary-100 dark:bg-primary-900/30 mx-auto mb-3 rounded-full w-12 h-12">
-                            <MaterialIcon
-                              icon="flash_on"
-                              size="md"
-                              className="text-primary-600"
-                            />
-                          </div>
-                          <h4 className="mb-2 font-semibold text-gray-900 dark:text-gray-100">
-                            Fast-Track Available
-                          </h4>
-                          <p className="text-gray-600 text-sm dark:text-gray-300">
-                            Exceptional candidates with urgent availability may
-                            complete the process in 1 week
-                          </p>
-                        </div>
-                        <div className="text-center">
-                          <div className="flex justify-center items-center bg-secondary-100 dark:bg-secondary-900/30 mx-auto mb-3 rounded-full w-12 h-12">
-                            <MaterialIcon
-                              icon="verified"
-                              size="md"
-                              className="text-secondary-600"
-                            />
-                          </div>
-                          <h4 className="mb-2 font-semibold text-gray-900 dark:text-gray-100">
-                            Standard Process
-                          </h4>
-                          <p className="text-gray-600 text-sm dark:text-gray-300">
-                            Most candidates complete the full process in 2-3
-                            weeks from application to offer
-                          </p>
-                        </div>
-                        <div className="text-center">
-                          <div className="flex justify-center items-center bg-accent-100 dark:bg-accent-900/30 mx-auto mb-3 rounded-full w-12 h-12">
-                            <MaterialIcon
-                              icon="support_agent"
-                              size="md"
-                              className="text-accent-600"
-                            />
-                          </div>
-                          <h4 className="mb-2 font-semibold text-gray-900 dark:text-gray-100">
-                            Always Transparent
-                          </h4>
-                          <p className="text-gray-600 text-sm dark:text-gray-300">
-                            We keep you informed at every stage and are always
-                            available for your questions
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </FadeInWhenVisible>
-
-                  {/* CTA Section */}
-                  <div className="mt-12 text-center">
-                    <p className="mb-6 font-medium text-gray-700 text-xl dark:text-gray-300">
-                      Ready to start your journey with MH Construction?
-                    </p>
-                    <p className="mb-6 font-semibold text-brand-secondary text-lg dark:text-brand-secondary-light">
-                      THE ROI IS THE RELATIONSHIP — Build your career on a
-                      foundation of trust
-                    </p>
-                    <div className="flex flex-wrap justify-center gap-4">
-                      <Button
-                        onClick={() => {
-                          const positionsSection =
-                            document.getElementById("positions");
-                          positionsSection?.scrollIntoView({
-                            behavior: "smooth",
-                          });
-                        }}
-                        variant="primary"
-                        size="lg"
-                      >
-                        <MaterialIcon
-                          icon="badge"
-                          size="md"
-                          theme="military"
-                          ariaLabel="Open Positions"
-                          className="mr-2"
-                        />
-                        View Open Positions
-                      </Button>
-                      <Button
-                        onClick={() => {
-                          window.location.href = "mailto:careers@mhc-gc.com";
-                        }}
-                        variant="secondary"
-                        size="lg"
-                      >
-                        <MaterialIcon
-                          icon="mark_email_read"
-                          size="md"
-                          theme="military"
-                          ariaLabel="Email Resume"
-                          className="mr-2"
-                        />
-                        Email Your Resume
-                      </Button>
                     </div>
                   </div>
                 </div>
-              </FadeInWhenVisible>
-            </div>
-          </section>
+              ))}
+            </StaggeredFadeIn>
+          </div>
+        </section>
 
-          {/* General Application Section */}
-          <section
-            id="general-application"
-            className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
-          >
-            {/* Diagonal Stripe Background Pattern */}
-            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `repeating-linear-gradient(
+        {/* Application Process Guide Section */}
+        <section
+          id="application-process"
+          className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+        >
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
                     45deg,
                     #386851 0px,
                     #386851 2px,
                     transparent 2px,
                     transparent 60px
                   )`,
-                }}
-              ></div>
-            </div>
+              }}
+            ></div>
+          </div>
 
-            {/* Large Brand Color Blobs */}
-            <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-            <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
-            <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-              <FadeInWhenVisible>
-                <div className="text-center">
-                  {/* Section Header - Military Construction Standard */}
-                  <div className="mb-16 sm:mb-20 text-center">
-                    {/* Icon with decorative lines */}
-                    <div className="flex items-center justify-center mb-8 gap-4">
-                      <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                      <div className="relative">
-                        <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                        <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                          <MaterialIcon
-                            icon="person_search"
-                            size="2xl"
-                            className="text-white drop-shadow-lg"
-                          />
-                        </div>
+          <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <FadeInWhenVisible>
+              <div>
+                {/* Section Header - Military Construction Standard */}
+                <div className="mb-16 sm:mb-20 text-center">
+                  {/* Icon with decorative lines */}
+                  <div className="flex items-center justify-center mb-8 gap-4">
+                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                    <div className="relative">
+                      <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                      <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                        <MaterialIcon
+                          icon="how_to_reg"
+                          size="2xl"
+                          className="text-white drop-shadow-lg"
+                        />
                       </div>
-                      <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                     </div>
-
-                    {/* Two-line gradient heading */}
-                    <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                      <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                        Don't See the
-                      </span>
-                      <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                        Perfect Role?
-                      </span>
-                    </h2>
-
-                    {/* Description with colored keyword highlighting */}
-                    <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                      Your perfect role might not exist yet—but{" "}
-                      <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                        your FUTURE does
-                      </span>
-                      . We're always seeking exceptional people who share our
-                      values: military precision, partnership mindset, quality
-                      obsession. If you bring{" "}
-                      <span className="font-bold text-gray-900 dark:text-white">
-                        dedication and potential, we'll invest in your growth
-                      </span>
-                      . Tell us your story.
-                    </p>
+                    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   </div>
 
-                  {/* CTA Buttons - Brand Standards */}
-                  <div className="flex sm:flex-row flex-col justify-center gap-6">
+                  {/* Two-line gradient heading */}
+                  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                      Your Journey to
+                    </span>
+                    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                      Join Our Team
+                    </span>
+                  </h2>
+
+                  {/* Description with colored keyword highlighting */}
+                  <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                    <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                      No games, no ghosting, no endless waiting
+                    </span>
+                    . Our hiring process is transparent, efficient, and
+                    respectful of YOUR time—because we know you're evaluating us
+                    just as much. Fast-track options available for exceptional
+                    candidates.{" "}
+                    <span className="font-bold text-gray-900 dark:text-white">
+                      Most offers extended within 2-3 weeks
+                    </span>
+                    .
+                  </p>
+                </div>
+
+                {/* Timeline - Vertical Alternating Layout */}
+                <div className="relative max-w-6xl mx-auto">
+                  {/* Vertical Connecting Line */}
+                  <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-brand-primary/30 via-brand-secondary to-brand-primary/30"></div>
+
+                  {/* Timeline Steps - Desktop Alternating */}
+                  <div className="space-y-12 lg:space-y-20">
+                    {[
+                      {
+                        num: 1,
+                        icon: "description",
+                        title: "Submit Application",
+                        desc: "Complete our online application form or email your resume to careers@mhc-gc.com. Include relevant certifications and references. Response within 3-5 business days.",
+                        position: "left",
+                      },
+                      {
+                        num: 2,
+                        icon: "phone",
+                        title: "Phone Screening",
+                        desc: "Brief 15-20 minute phone conversation to discuss your background, career goals, and answer initial questions about the position.",
+                        position: "right",
+                      },
+                      {
+                        num: 3,
+                        icon: "groups",
+                        title: "In-Person Interview",
+                        desc: "Meet our team at our office or job site. Discuss your technical skills, safety mindset, and cultural fit. Questions encouraged! 45-60 minutes.",
+                        position: "left",
+                      },
+                      {
+                        num: 4,
+                        icon: "verified_user",
+                        title: "Background Check",
+                        desc: "Standard background and reference checks to verify employment history and qualifications. Drug screening may be required. 3-7 business days.",
+                        position: "right",
+                      },
+                      {
+                        num: 5,
+                        icon: "celebration",
+                        title: "Offer & Onboarding",
+                        desc: "Receive formal offer, complete paperwork, and begin orientation. Meet your mentor, get safety training, and start building your career. 1-2 weeks.",
+                        position: "left",
+                      },
+                    ].map((step, index) => (
+                      <div
+                        key={step.num}
+                        className="relative group scroll-reveal"
+                        style={{ animationDelay: `${index * 0.1}s` }}
+                      >
+                        {/* Desktop Layout */}
+                        <div className="hidden lg:flex items-center gap-8">
+                          {step.position === "left" ? (
+                            <>
+                              {/* Content Left */}
+                              <div className="flex-1 text-right">
+                                <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-primary dark:group-hover:border-brand-primary-light">
+                                  <div className="flex items-center justify-end gap-4 mb-4">
+                                    <div>
+                                      <h3 className="font-black text-gray-900 dark:text-white text-2xl mb-1">
+                                        {step.title}
+                                      </h3>
+                                    </div>
+                                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                                      <MaterialIcon
+                                        icon={step.icon}
+                                        size="xl"
+                                        className="text-white"
+                                      />
+                                    </div>
+                                  </div>
+                                  <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+                                    {step.desc}
+                                  </p>
+                                </div>
+                              </div>
+
+                              {/* Center Circle */}
+                              <div className="flex-shrink-0 relative z-10">
+                                <div className="w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                                  {step.num}
+                                </div>
+                              </div>
+
+                              {/* Empty Right */}
+                              <div className="flex-1"></div>
+                            </>
+                          ) : (
+                            <>
+                              {/* Empty Left */}
+                              <div className="flex-1"></div>
+
+                              {/* Center Circle */}
+                              <div className="flex-shrink-0 relative z-10">
+                                <div className="w-20 h-20 bg-gradient-to-br from-brand-secondary to-brand-secondary-dark rounded-full flex items-center justify-center text-white font-black text-2xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                                  {step.num}
+                                </div>
+                              </div>
+
+                              {/* Content Right */}
+                              <div className="flex-1 text-left">
+                                <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-secondary dark:group-hover:border-brand-secondary-light">
+                                  <div className="flex items-center gap-4 mb-4">
+                                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-brand-secondary to-brand-secondary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
+                                      <MaterialIcon
+                                        icon={step.icon}
+                                        size="xl"
+                                        className="text-white"
+                                      />
+                                    </div>
+                                    <div>
+                                      <h3 className="font-black text-gray-900 dark:text-white text-2xl mb-1">
+                                        {step.title}
+                                      </h3>
+                                    </div>
+                                  </div>
+                                  <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+                                    {step.desc}
+                                  </p>
+                                </div>
+                              </div>
+                            </>
+                          )}
+                        </div>
+
+                        {/* Mobile Layout */}
+                        <div className="lg:hidden flex gap-4">
+                          {/* Left Side - Number and Line */}
+                          <div className="flex flex-col items-center flex-shrink-0">
+                            <div
+                              className={`w-16 h-16 ${
+                                step.num === 5
+                                  ? "bg-gradient-to-br from-brand-secondary to-brand-secondary-dark"
+                                  : "bg-gradient-to-br from-brand-primary to-brand-primary-dark"
+                              } rounded-full flex items-center justify-center text-white font-black text-2xl shadow-xl border-4 border-white dark:border-gray-900 relative z-10`}
+                            >
+                              {step.num}
+                            </div>
+                            {index < 4 && (
+                              <div className="w-1 flex-1 bg-gradient-to-b from-brand-primary to-brand-secondary mt-2 min-h-[60px]"></div>
+                            )}
+                          </div>
+
+                          {/* Right Side - Card */}
+                          <div className="flex-1 pb-8">
+                            <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-brand-primary dark:hover:border-brand-primary-light">
+                              <div className="flex items-center gap-3 mb-4">
+                                <div
+                                  className={`flex-shrink-0 w-14 h-14 ${
+                                    step.num === 5
+                                      ? "bg-gradient-to-br from-brand-secondary to-brand-secondary-dark"
+                                      : "bg-gradient-to-br from-brand-primary to-brand-primary-dark"
+                                  } rounded-xl flex items-center justify-center shadow-lg`}
+                                >
+                                  <MaterialIcon
+                                    icon={step.icon}
+                                    size="lg"
+                                    className="text-white"
+                                  />
+                                </div>
+                                <h3 className="font-black text-gray-900 dark:text-white text-xl">
+                                  {step.title}
+                                </h3>
+                              </div>
+                              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                {step.desc}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Timeline Details */}
+                <FadeInWhenVisible>
+                  <div className="mt-16">
+                    <h3 className="mb-8 font-black text-center text-gray-900 dark:text-white text-2xl sm:text-3xl">
+                      What to Expect Timeline
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                      {/* Fast-Track Card */}
+                      <div className="group relative">
+                        <div className="absolute -inset-1 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
+                        <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                          <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+                          <div className="p-6 text-center">
+                            <div className="relative inline-block mb-4">
+                              <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-2xl"></div>
+                              <div className="relative flex justify-center items-center w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-2xl shadow-xl mx-auto group-hover:scale-110 transition-transform duration-300">
+                                <MaterialIcon
+                                  icon="flash_on"
+                                  size="xl"
+                                  className="text-white drop-shadow-lg"
+                                />
+                              </div>
+                            </div>
+                            <h4 className="mb-3 font-black text-gray-900 dark:text-white text-xl">
+                              Fast-Track Available
+                            </h4>
+                            <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                              Exceptional candidates with urgent availability
+                              may complete the process in{" "}
+                              <span className="font-bold text-brand-primary">
+                                1 week
+                              </span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Standard Process Card */}
+                      <div className="group relative">
+                        <div className="absolute -inset-1 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
+                        <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                          <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+                          <div className="p-6 text-center">
+                            <div className="relative inline-block mb-4">
+                              <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg rounded-2xl"></div>
+                              <div className="relative flex justify-center items-center w-16 h-16 bg-gradient-to-br from-brand-secondary to-bronze-700 rounded-2xl shadow-xl mx-auto group-hover:scale-110 transition-transform duration-300">
+                                <MaterialIcon
+                                  icon="verified"
+                                  size="xl"
+                                  className="text-white drop-shadow-lg"
+                                />
+                              </div>
+                            </div>
+                            <h4 className="mb-3 font-black text-gray-900 dark:text-white text-xl">
+                              Standard Process
+                            </h4>
+                            <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                              Most candidates complete the full process in{" "}
+                              <span className="font-bold text-brand-secondary">
+                                2-3 weeks
+                              </span>{" "}
+                              from application to offer
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Always Transparent Card */}
+                      <div className="group relative">
+                        <div className="absolute -inset-1 bg-gradient-to-br from-bronze-700/40 to-bronze-800/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
+                        <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                          <div className="h-2 bg-gradient-to-r from-bronze-700 via-bronze-800 to-gray-700"></div>
+                          <div className="p-6 text-center">
+                            <div className="relative inline-block mb-4">
+                              <div className="absolute -inset-2 bg-gradient-to-br from-bronze-700/40 to-bronze-800/40 opacity-30 blur-lg rounded-2xl"></div>
+                              <div className="relative flex justify-center items-center w-16 h-16 bg-gradient-to-br from-bronze-700 to-bronze-800 rounded-2xl shadow-xl mx-auto group-hover:scale-110 transition-transform duration-300">
+                                <MaterialIcon
+                                  icon="support_agent"
+                                  size="xl"
+                                  className="text-white drop-shadow-lg"
+                                />
+                              </div>
+                            </div>
+                            <h4 className="mb-3 font-black text-gray-900 dark:text-white text-xl">
+                              Always Transparent
+                            </h4>
+                            <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                              We keep you informed at every stage and are always
+                              available for your{" "}
+                              <span className="font-bold text-bronze-700 dark:text-bronze-400">
+                                questions
+                              </span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </FadeInWhenVisible>
+
+                {/* CTA Section */}
+                <div className="mt-12 text-center">
+                  <p className="mb-6 font-medium text-gray-700 text-xl dark:text-gray-300">
+                    Ready to start your journey with MH Construction?
+                  </p>
+                  <p className="mb-6 font-semibold text-brand-secondary text-lg dark:text-brand-secondary-light">
+                    THE ROI IS THE RELATIONSHIP — Build your career on a
+                    foundation of trust
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-4">
                     <Button
-                      onClick={() => handleApplyNow("General Application")}
+                      onClick={() => {
+                        const positionsSection =
+                          document.getElementById("positions");
+                        positionsSection?.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                      }}
                       variant="primary"
+                      size="lg"
+                    >
+                      <MaterialIcon
+                        icon="badge"
+                        size="md"
+                        theme="military"
+                        ariaLabel="Open Positions"
+                        className="mr-2"
+                      />
+                      View Open Positions
+                    </Button>
+                    <Button
+                      onClick={() => {
+                        window.location.href = "mailto:careers@mhc-gc.com";
+                      }}
+                      variant="secondary"
+                      size="lg"
+                    >
+                      <MaterialIcon
+                        icon="mark_email_read"
+                        size="md"
+                        theme="military"
+                        ariaLabel="Email Resume"
+                        className="mr-2"
+                      />
+                      Email Your Resume
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </FadeInWhenVisible>
+          </div>
+        </section>
+
+        {/* General Application Section */}
+        <section
+          id="general-application"
+          className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+        >
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                    45deg,
+                    #386851 0px,
+                    #386851 2px,
+                    transparent 2px,
+                    transparent 60px
+                  )`,
+              }}
+            ></div>
+          </div>
+
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+          <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <FadeInWhenVisible>
+              <div className="text-center">
+                {/* Section Header - Military Construction Standard */}
+                <div className="mb-16 sm:mb-20 text-center">
+                  {/* Icon with decorative lines */}
+                  <div className="flex items-center justify-center mb-8 gap-4">
+                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                    <div className="relative">
+                      <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                      <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                        <MaterialIcon
+                          icon="person_search"
+                          size="2xl"
+                          className="text-white drop-shadow-lg"
+                        />
+                      </div>
+                    </div>
+                    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  </div>
+
+                  {/* Two-line gradient heading */}
+                  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                      Don't See the
+                    </span>
+                    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                      Perfect Role?
+                    </span>
+                  </h2>
+
+                  {/* Description with colored keyword highlighting */}
+                  <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                    Your perfect role might not exist yet—but{" "}
+                    <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                      your FUTURE does
+                    </span>
+                    . We're always seeking exceptional people who share our
+                    values: military precision, partnership mindset, quality
+                    obsession. If you bring{" "}
+                    <span className="font-bold text-gray-900 dark:text-white">
+                      dedication and potential, we'll invest in your growth
+                    </span>
+                    . Tell us your story.
+                  </p>
+                </div>
+
+                {/* CTA Buttons - Brand Standards */}
+                <div className="flex sm:flex-row flex-col justify-center gap-6">
+                  <Button
+                    onClick={() => handleApplyNow("General Application")}
+                    variant="primary"
+                    size="lg"
+                    className="transition-all duration-300 min-w-[260px]"
+                  >
+                    <MaterialIcon
+                      icon="description"
+                      size="lg"
+                      theme="military"
+                      ariaLabel="Submit Application"
+                      className="mr-3"
+                    />
+                    <span className="font-medium">Submit Application</span>
+                  </Button>
+                  <Link href="/contact">
+                    <Button
+                      variant="outline"
                       size="lg"
                       className="transition-all duration-300 min-w-[260px]"
                     >
                       <MaterialIcon
-                        icon="description"
+                        icon="campaign"
                         size="lg"
                         theme="military"
-                        ariaLabel="Submit Application"
+                        ariaLabel="Contact HR"
                         className="mr-3"
                       />
-                      <span className="font-medium">Submit Application</span>
+                      <span className="font-medium">Contact HR</span>
                     </Button>
-                    <Link href="/contact">
-                      <Button
-                        variant="outline"
-                        size="lg"
-                        className="transition-all duration-300 min-w-[260px]"
-                      >
-                        <MaterialIcon
-                          icon="campaign"
-                          size="lg"
-                          theme="military"
-                          ariaLabel="Contact HR"
-                          className="mr-3"
-                        />
-                        <span className="font-medium">Contact HR</span>
-                      </Button>
-                    </Link>
-                  </div>
-                  <p className="mt-8 text-gray-500 dark:text-gray-400 text-lg">
-                    <MaterialIcon
-                      icon="call"
-                      size="sm"
-                      theme="military"
-                      ariaLabel="HR Phone"
-                      className="inline mr-2"
-                    />
-                    HR Hotline: (509) 308-6489 |{" "}
-                    <a
-                      href="mailto:office@mhc-gc.com"
-                      className="font-semibold text-brand-primary hover:text-brand-secondary underline"
-                    >
-                      office@mhc-gc.com
-                    </a>
-                  </p>
+                  </Link>
                 </div>
-              </FadeInWhenVisible>
-            </div>
-          </section>
-        </div>
+                <p className="mt-8 text-gray-500 dark:text-gray-400 text-lg">
+                  <MaterialIcon
+                    icon="call"
+                    size="sm"
+                    theme="military"
+                    ariaLabel="HR Phone"
+                    className="inline mr-2"
+                  />
+                  HR Hotline: (509) 308-6489 |{" "}
+                  <a
+                    href="mailto:office@mhc-gc.com"
+                    className="font-semibold text-brand-primary hover:text-brand-secondary underline"
+                  >
+                    office@mhc-gc.com
+                  </a>
+                </p>
+              </div>
+            </FadeInWhenVisible>
+          </div>
+        </section>
 
         {/* Contact CTA - Career Questions */}
-        <section className="relative bg-gradient-to-r from-brand-primary to-brand-primary-dark py-12 sm:py-16 lg:py-20 overflow-hidden">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <section className="relative bg-gradient-to-r from-brand-primary to-brand-primary-dark py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+          <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
+            <h2 className="mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter drop-shadow-lg">
               Questions About Careers?
             </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="mx-auto max-w-3xl font-light text-white/90 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8">
               Contact our team for information about jobs, benefits, hiring
               process, and growth opportunities
             </p>

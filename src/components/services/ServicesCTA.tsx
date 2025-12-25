@@ -7,7 +7,7 @@ import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponent
 
 export function ServicesCTA() {
   return (
-    <section className="bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark to-brand-secondary dark:to-gray-800 py-20 lg:py-32 text-white">
+    <section className="bg-gradient-to-r from-brand-primary dark:from-brand-primary-dark to-brand-secondary dark:to-gray-800 py-20 lg:py-32 xl:py-40 text-white">
       <div className="mx-auto px-4 container">
         <FadeInWhenVisible>
           <div className="mx-auto max-w-3xl text-center">

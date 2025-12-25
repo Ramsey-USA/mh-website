@@ -214,7 +214,10 @@ export default function UrgentSupportPage() {
       />
 
       {/* Quick Contact Section */}
-      <section className="py-12 bg-orange-50 dark:bg-orange-950/30">
+      <section
+        id="contact"
+        className="py-12 bg-orange-50 dark:bg-orange-950/30"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
             <div className="text-center mb-8">
@@ -285,7 +288,7 @@ export default function UrgentSupportPage() {
       </section>
 
       {/* Our Focus Section */}
-      <section className="py-16 bg-background">
+      <section id="focus" className="py-16 bg-background">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <FadeInWhenVisible>
             <div className="text-center mb-12">
@@ -341,7 +344,7 @@ export default function UrgentSupportPage() {
       </section>
 
       {/* What We Provide */}
-      <section className="py-16 bg-muted/30">
+      <section id="capabilities" className="py-16 bg-muted/30">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <FadeInWhenVisible>
             <h2 className="mb-12 text-center font-black text-foreground text-2xl xs:text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tighter">
@@ -356,23 +359,35 @@ export default function UrgentSupportPage() {
 
           <StaggeredFadeIn>
             {capabilities.map((item, _index) => (
-              <div
-                key={_index}
-                className="bg-background p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-border mb-8"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-lg flex-shrink-0">
-                    <MaterialIcon
-                      icon={item.icon}
-                      size="xl"
-                      className="text-orange-600 dark:text-orange-400"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl mb-2 text-foreground">
-                      {item.title}
-                    </h3>
-                    <p className="text-muted-foreground">{item.description}</p>
+              <div key={_index} className="group relative flex mb-8">
+                {/* Animated Border Glow */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-orange-500/40 to-orange-600/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                <div className="relative bg-background rounded-xl border-2 border-border group-hover:border-transparent shadow-md group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                  {/* Top Accent Bar */}
+                  <div className="h-2 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700"></div>
+
+                  <div className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="relative flex-shrink-0">
+                        <div className="absolute -inset-2 bg-gradient-to-br from-orange-500/40 to-orange-600/40 opacity-30 blur-lg rounded-lg"></div>
+                        <div className="relative bg-orange-100 dark:bg-orange-900/30 p-3 rounded-lg group-hover:scale-110 transition-all duration-300">
+                          <MaterialIcon
+                            icon={item.icon}
+                            size="xl"
+                            className="text-orange-600 dark:text-orange-400 drop-shadow-lg"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-xl mb-2 text-foreground">
+                          {item.title}
+                        </h3>
+                        <p className="text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -382,7 +397,10 @@ export default function UrgentSupportPage() {
       </section>
 
       {/* Large Equipment Section */}
-      <section className="py-16 bg-gradient-to-br from-brand-primary to-brand-secondary text-white">
+      <section
+        id="equipment"
+        className="py-16 bg-gradient-to-br from-brand-primary to-brand-secondary text-white"
+      >
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <FadeInWhenVisible>
             <div className="text-center mb-12">
@@ -413,21 +431,35 @@ export default function UrgentSupportPage() {
 
             <StaggeredFadeIn>
               {equipmentList.map((equipment, _index) => (
-                <div
-                  key={_index}
-                  className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:bg-white/20 transition-colors mb-6"
-                >
-                  <div className="flex items-start gap-4">
-                    <MaterialIcon
-                      icon={equipment.icon}
-                      size="2xl"
-                      className="text-yellow-300 flex-shrink-0"
-                    />
-                    <div>
-                      <h3 className="font-bold text-xl mb-2">
-                        {equipment.name}
-                      </h3>
-                      <p className="text-white/80">{equipment.description}</p>
+                <div key={_index} className="group relative flex mb-6">
+                  {/* Animated Border Glow */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-yellow-300/40 to-white/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                  <div className="relative bg-white/10 backdrop-blur-sm rounded-xl border-2 border-white/20 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-yellow-200 via-white to-yellow-200"></div>
+
+                    <div className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="relative flex-shrink-0">
+                          <div className="absolute -inset-2 bg-gradient-to-br from-yellow-300/40 to-white/40 opacity-30 blur-lg rounded-full"></div>
+                          <div className="relative group-hover:scale-110 transition-all duration-300">
+                            <MaterialIcon
+                              icon={equipment.icon}
+                              size="2xl"
+                              className="text-yellow-300 drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-xl mb-2">
+                            {equipment.name}
+                          </h3>
+                          <p className="text-white/80">
+                            {equipment.description}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

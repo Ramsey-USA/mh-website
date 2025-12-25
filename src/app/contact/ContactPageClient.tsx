@@ -298,41 +298,49 @@ export default function ContactPageClient() {
                         : undefined
                     }
                     aria-label={contact.ariaLabel}
-                    className="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-primary p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-brand-primary/50"
+                    className="group relative flex h-full"
                   >
-                    <div className="flex flex-col items-center text-center">
-                      <div
-                        className="bg-brand-primary/10 dark:bg-brand-primary/20 mb-6 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-300"
-                        aria-hidden="true"
-                      >
-                        <MaterialIcon
-                          icon={contact.icon}
-                          size="3xl"
-                          className="text-brand-primary"
-                        />
-                      </div>
-                      <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl">
-                        {contact.label}
-                      </h3>
-                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                        {contact.value}
-                      </p>
-                      <div
-                        className="flex items-center gap-2 mt-4 text-brand-primary group-hover:gap-3 transition-all duration-300"
-                        aria-hidden="true"
-                      >
-                        <span className="font-medium text-sm">
-                          {contact.icon === "phone"
-                            ? "Call Now"
-                            : contact.icon === "email"
-                              ? "Send Email"
-                              : "Get Directions"}
-                        </span>
-                        <MaterialIcon
-                          icon="arrow_forward"
-                          size="sm"
-                          className="group-hover:translate-x-1 transition-transform duration-300"
-                        />
+                    {/* Animated Border Glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 overflow-hidden flex flex-col w-full focus:outline-none focus:ring-4 focus:ring-brand-primary/50">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                      <div className="p-8 flex flex-col flex-1 items-center text-center">
+                        <div className="relative inline-block mb-6">
+                          <div className="absolute -inset-3 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
+                          <div className="relative rounded-xl bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-4 shadow-xl group-hover:scale-110 transition-all duration-300">
+                            <MaterialIcon
+                              icon={contact.icon}
+                              size="3xl"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl">
+                          {contact.label}
+                        </h3>
+                        <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                          {contact.value}
+                        </p>
+                        <div
+                          className="flex items-center gap-2 mt-4 text-brand-primary group-hover:gap-3 transition-all duration-300"
+                          aria-hidden="true"
+                        >
+                          <span className="font-medium text-sm">
+                            {contact.icon === "phone"
+                              ? "Call Now"
+                              : contact.icon === "email"
+                                ? "Send Email"
+                                : "Get Directions"}
+                          </span>
+                          <MaterialIcon
+                            icon="arrow_forward"
+                            size="sm"
+                            className="group-hover:translate-x-1 transition-transform duration-300"
+                          />
+                        </div>
                       </div>
                     </div>
                   </a>
@@ -816,54 +824,80 @@ export default function ContactPageClient() {
                     key={_index}
                     href={cta.link}
                     aria-label={cta.ariaLabel}
-                    className="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-primary p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-brand-primary/50 h-full flex flex-col"
+                    className="group relative flex h-full"
                   >
-                    {/* Icon Container */}
-                    <div className="flex justify-center mb-6">
-                      <div
-                        className={`${
-                          cta.variant === "primary"
-                            ? "bg-brand-primary/10 dark:bg-brand-primary/20"
-                            : "bg-brand-secondary/10 dark:bg-brand-secondary/20"
-                        } p-4 rounded-2xl group-hover:scale-110 transition-transform duration-300`}
-                        aria-hidden="true"
-                      >
-                        <MaterialIcon
-                          icon={cta.icon}
-                          size="3xl"
-                          className={
-                            cta.variant === "primary"
-                              ? "text-brand-primary"
-                              : "text-brand-secondary"
-                          }
-                        />
-                      </div>
-                    </div>
+                    {/* Animated Border Glow */}
+                    <div
+                      className={`absolute -inset-2 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse ${
+                        cta.variant === "primary"
+                          ? "bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40"
+                          : "bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40"
+                      }`}
+                    ></div>
 
-                    {/* Content */}
-                    <div className="text-center flex flex-col flex-grow">
-                      <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl min-h-[3.5rem] flex items-center justify-center">
-                        {cta.label}
-                      </h3>
-                      <p className="mb-6 text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed flex-grow">
-                        {cta.description}
-                      </p>
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 overflow-hidden flex flex-col w-full focus:outline-none focus:ring-4 focus:ring-brand-primary/50">
+                      {/* Top Accent Bar */}
                       <div
-                        className={`flex justify-center items-center gap-2 ${
+                        className={`h-2 ${
                           cta.variant === "primary"
-                            ? "text-brand-primary"
-                            : "text-brand-secondary"
-                        } group-hover:gap-3 transition-all duration-300`}
-                        aria-hidden="true"
-                      >
-                        <span className="font-semibold text-sm">
-                          Learn More
-                        </span>
-                        <MaterialIcon
-                          icon="arrow_forward"
-                          size="sm"
-                          className="group-hover:translate-x-1 transition-transform duration-300"
-                        />
+                            ? "bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"
+                            : "bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"
+                        }`}
+                      ></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        {/* Icon Container */}
+                        <div className="flex justify-center mb-6">
+                          <div className="relative inline-block">
+                            <div
+                              className={`absolute -inset-3 opacity-30 blur-lg rounded-xl ${
+                                cta.variant === "primary"
+                                  ? "bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40"
+                                  : "bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40"
+                              }`}
+                            ></div>
+                            <div
+                              className={`relative rounded-xl p-4 shadow-xl group-hover:scale-110 transition-all duration-300 ${
+                                cta.variant === "primary"
+                                  ? "bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker"
+                                  : "bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800"
+                              }`}
+                            >
+                              <MaterialIcon
+                                icon={cta.icon}
+                                size="3xl"
+                                className="text-white drop-shadow-lg"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Content */}
+                        <div className="text-center flex flex-col flex-grow">
+                          <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl min-h-[3.5rem] flex items-center justify-center">
+                            {cta.label}
+                          </h3>
+                          <p className="mb-6 text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed flex-grow">
+                            {cta.description}
+                          </p>
+                          <div
+                            className={`flex justify-center items-center gap-2 ${
+                              cta.variant === "primary"
+                                ? "text-brand-primary"
+                                : "text-brand-secondary"
+                            } group-hover:gap-3 transition-all duration-300`}
+                            aria-hidden="true"
+                          >
+                            <span className="font-semibold text-sm">
+                              Learn More
+                            </span>
+                            <MaterialIcon
+                              icon="arrow_forward"
+                              size="sm"
+                              className="group-hover:translate-x-1 transition-transform duration-300"
+                            />
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </Link>

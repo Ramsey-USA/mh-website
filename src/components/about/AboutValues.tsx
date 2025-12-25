@@ -17,10 +17,10 @@ interface AboutValuesProps {
 
 // Map values to images
 const valueImages: { [key: string]: string } = {
-  Honesty: "/images/values/honesty.jpg",
-  Integrity: "/images/values/integrity.jpg",
-  Professionalism: "/images/values/professionalism.jpg",
-  Thoroughness: "/images/values/thoroughness.jpg",
+  Honesty: "/images/values/honesty.webp",
+  Integrity: "/images/values/integrity.webp",
+  Professionalism: "/images/values/professionalism.webp",
+  Thoroughness: "/images/values/thoroughness.webp",
 };
 
 // Map values to stats
@@ -112,7 +112,7 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
           {coreValues.map((item, index) => {
             const isEven = index % 2 === 0;
             const image =
-              valueImages[item.title] || "/images/values/honesty.jpg";
+              valueImages[item.title] || "/images/values/honesty.webp";
             const stats = valueStats[item.title] || "Core Value";
 
             return (

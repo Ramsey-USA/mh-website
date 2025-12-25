@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { Button, Card, CardContent } from "@/components/ui";
+import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import {
@@ -347,293 +347,314 @@ export default function ServicesPage() {
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
               {/* Client Partner Relationships */}
               <FadeInWhenVisible>
-                <Card className="relative bg-gradient-to-br from-brand-primary/5 via-brand-primary/8 to-brand-primary/10 dark:from-gray-800 dark:via-gray-850 dark:to-gray-900 border-2 border-brand-primary hover:border-brand-primary-dark dark:hover:border-brand-primary-light h-full hover:shadow-2xl dark:hover:shadow-brand-primary/20 hover:-translate-y-2 transition-all duration-500 group overflow-hidden">
-                  {/* Decorative background elements */}
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/10 dark:bg-brand-primary/5 rounded-full blur-3xl transform translate-x-32 -translate-y-32 group-hover:scale-150 transition-transform duration-1000"></div>
+                <div className="group relative flex h-full">
+                  {/* Animated Border Glow */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                  <CardContent className="relative p-8 lg:p-10 flex flex-col h-full">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="w-16 h-16 lg:w-18 lg:h-18 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                        <MaterialIcon
-                          icon="handshake"
-                          size="xl"
-                          className="text-white"
-                        />
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                    <div className="relative p-8 lg:p-10 flex flex-col flex-1">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="relative flex-shrink-0">
+                          {/* Blur glow layer behind icon */}
+                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-2xl"></div>
+                          <div className="relative w-16 h-16 lg:w-18 lg:h-18 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                            <MaterialIcon
+                              icon="handshake"
+                              size="xl"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl leading-tight">
+                            Client Partner Relationships
+                          </h3>
+                          <p className="text-brand-primary dark:text-brand-primary-light font-semibold text-lg">
+                            Project Collaboration
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl leading-tight">
-                          Client Partner Relationships
-                        </h3>
-                        <p className="text-brand-primary dark:text-brand-primary-light font-semibold text-lg">
-                          Project Collaboration
-                        </p>
+
+                      <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
+                        For Client Partners—businesses and
+                        organizations—planning construction projects across the
+                        Pacific Northwest. We work{" "}
+                        <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
+                          WITH you
+                        </span>{" "}
+                        to bring your vision to life through expert construction
+                        management and partnership-focused collaboration.
+                      </p>
+
+                      <div className="mb-6 flex-grow">
+                        <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-4">
+                          What We Offer Client Partners:
+                        </h4>
+                        <ul className="space-y-3">
+                          <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
+                            <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                              <MaterialIcon
+                                icon="check_circle"
+                                size="sm"
+                                className="text-brand-primary"
+                              />
+                            </div>
+                            <span className="text-gray-700 dark:text-gray-300">
+                              Free consultations and project assessments
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
+                            <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                              <MaterialIcon
+                                icon="check_circle"
+                                size="sm"
+                                className="text-brand-primary"
+                              />
+                            </div>
+                            <span className="text-gray-700 dark:text-gray-300">
+                              Free expert consultation (comprehensive)
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
+                            <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                              <MaterialIcon
+                                icon="check_circle"
+                                size="sm"
+                                className="text-brand-primary"
+                              />
+                            </div>
+                            <span className="text-gray-700 dark:text-gray-300">
+                              Transparent pricing and open-book approach
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
+                            <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                              <MaterialIcon
+                                icon="check_circle"
+                                size="sm"
+                                className="text-brand-primary"
+                              />
+                            </div>
+                            <span className="text-gray-700 dark:text-gray-300">
+                              Full-service construction management
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
+                            <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                              <MaterialIcon
+                                icon="check_circle"
+                                size="sm"
+                                className="text-brand-primary"
+                              />
+                            </div>
+                            <span className="text-gray-700 dark:text-gray-300">
+                              Master planning and pre-construction services
+                            </span>
+                          </li>
+                        </ul>
                       </div>
-                    </div>
 
-                    <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
-                      For Client Partners—businesses and organizations—planning
-                      construction projects across the Pacific Northwest. We
-                      work{" "}
-                      <span className="font-semibold text-brand-primary dark:text-brand-primary-light">
-                        WITH you
-                      </span>{" "}
-                      to bring your vision to life through expert construction
-                      management and partnership-focused collaboration.
-                    </p>
-
-                    <div className="mb-6 flex-grow">
-                      <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-4">
-                        What We Offer Client Partners:
-                      </h4>
-                      <ul className="space-y-3">
-                        <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                      <div className="space-y-3 mt-auto">
+                        <Link href="/projects" className="block">
+                          <Button
+                            variant="secondary"
+                            size="lg"
+                            className="w-full hover:scale-105 transition-transform duration-300 group"
+                          >
                             <MaterialIcon
-                              icon="check_circle"
-                              size="sm"
-                              className="text-brand-primary"
+                              icon="photo_library"
+                              size="md"
+                              className="mr-2 group-hover:scale-110 transition-transform duration-300"
                             />
-                          </div>
-                          <span className="text-gray-700 dark:text-gray-300">
-                            Free consultations and project assessments
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                            View Our Work
+                          </Button>
+                        </Link>
+                        <Link href="/contact" className="block">
+                          <Button
+                            variant="outline"
+                            size="lg"
+                            className="w-full hover:scale-105 transition-transform duration-300 group"
+                          >
                             <MaterialIcon
-                              icon="check_circle"
-                              size="sm"
-                              className="text-brand-primary"
+                              icon="phone"
+                              size="md"
+                              className="mr-2 group-hover:scale-110 transition-transform duration-300"
                             />
-                          </div>
-                          <span className="text-gray-700 dark:text-gray-300">
-                            Free expert consultation (comprehensive)
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
-                            <MaterialIcon
-                              icon="check_circle"
-                              size="sm"
-                              className="text-brand-primary"
-                            />
-                          </div>
-                          <span className="text-gray-700 dark:text-gray-300">
-                            Transparent pricing and open-book approach
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
-                            <MaterialIcon
-                              icon="check_circle"
-                              size="sm"
-                              className="text-brand-primary"
-                            />
-                          </div>
-                          <span className="text-gray-700 dark:text-gray-300">
-                            Full-service construction management
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
-                            <MaterialIcon
-                              icon="check_circle"
-                              size="sm"
-                              className="text-brand-primary"
-                            />
-                          </div>
-                          <span className="text-gray-700 dark:text-gray-300">
-                            Master planning and pre-construction services
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div className="space-y-3 mt-auto">
-                      <Link href="/projects" className="block">
-                        <Button
-                          variant="secondary"
-                          size="lg"
-                          className="w-full hover:scale-105 transition-transform duration-300 group"
-                        >
-                          <MaterialIcon
-                            icon="photo_library"
-                            size="md"
-                            className="mr-2 group-hover:scale-110 transition-transform duration-300"
-                          />
-                          View Our Work
-                        </Button>
-                      </Link>
-                      <Link href="/contact" className="block">
-                        <Button
-                          variant="outline"
-                          size="lg"
-                          className="w-full hover:scale-105 transition-transform duration-300 group"
-                        >
+                            Schedule Free Consultation
+                          </Button>
+                        </Link>
+                        <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
                           <MaterialIcon
                             icon="phone"
-                            size="md"
-                            className="mr-2 group-hover:scale-110 transition-transform duration-300"
+                            size="sm"
+                            className="inline mr-1"
                           />
-                          Schedule Free Consultation
-                        </Button>
-                      </Link>
-                      <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
-                        <MaterialIcon
-                          icon="phone"
-                          size="sm"
-                          className="inline mr-1"
-                        />
-                        Call (509) 308-6489
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </FadeInWhenVisible>
-
-              {/* Trade Partnerships */}
-              <FadeInWhenVisible>
-                <Card className="relative bg-gradient-to-br from-brand-secondary/5 via-brand-secondary/8 to-brand-secondary/10 dark:from-gray-800 dark:via-gray-850 dark:to-gray-900 border-2 border-brand-secondary hover:border-brand-secondary-dark dark:hover:border-brand-secondary-light h-full hover:shadow-2xl dark:hover:shadow-brand-secondary/20 hover:-translate-y-2 transition-all duration-500 group overflow-hidden">
-                  {/* Decorative background elements */}
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-brand-secondary/10 dark:bg-brand-secondary/5 rounded-full blur-3xl transform translate-x-32 -translate-y-32 group-hover:scale-150 transition-transform duration-1000"></div>
-
-                  <CardContent className="relative p-8 lg:p-10 flex flex-col h-full">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="w-16 h-16 lg:w-18 lg:h-18 bg-gradient-to-br from-brand-secondary to-brand-secondary-dark rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                        <MaterialIcon
-                          icon="construction"
-                          size="xl"
-                          className="text-white"
-                        />
-                      </div>
-                      <div>
-                        <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl leading-tight">
-                          Trade Partnerships
-                        </h3>
-                        <p className="text-brand-secondary dark:text-brand-secondary-light font-semibold text-lg">
-                          Vendor Network
+                          Call (509) 308-6489
                         </p>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </FadeInWhenVisible>
 
-                    <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
-                      For subcontractors, suppliers, and trade professionals
-                      seeking{" "}
-                      <span className="font-semibold text-brand-secondary dark:text-brand-secondary-light">
-                        consistent project opportunities
-                      </span>{" "}
-                      with a veteran-owned construction leader in the Pacific
-                      Northwest market.
-                    </p>
+              <FadeInWhenVisible>
+                {/* Trade Partnerships */}
+                <div className="group relative flex h-full">
+                  {/* Animated Border Glow */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                    <div className="mb-6 flex-grow">
-                      <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-4">
-                        What We Offer Trade Partners:
-                      </h4>
-                      <ul className="space-y-3">
-                        <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
-                            <MaterialIcon
-                              icon="check_circle"
-                              size="sm"
-                              className="text-brand-secondary"
-                            />
-                          </div>
-                          <span className="text-gray-700 dark:text-gray-300">
-                            Consistent project opportunities
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
-                            <MaterialIcon
-                              icon="check_circle"
-                              size="sm"
-                              className="text-brand-secondary"
-                            />
-                          </div>
-                          <span className="text-gray-700 dark:text-gray-300">
-                            Professional growth in established network
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
-                            <MaterialIcon
-                              icon="check_circle"
-                              size="sm"
-                              className="text-brand-secondary"
-                            />
-                          </div>
-                          <span className="text-gray-700 dark:text-gray-300">
-                            Early-stage project planning involvement
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
-                            <MaterialIcon
-                              icon="check_circle"
-                              size="sm"
-                              className="text-brand-secondary"
-                            />
-                          </div>
-                          <span className="text-gray-700 dark:text-gray-300">
-                            Advanced notice for procurement planning
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
-                          <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
-                            <MaterialIcon
-                              icon="check_circle"
-                              size="sm"
-                              className="text-brand-secondary"
-                            />
-                          </div>
-                          <span className="text-gray-700 dark:text-gray-300">
-                            Partnership with veteran-owned business
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
-                    <div className="space-y-3 mt-auto">
-                      <Link href="/allies" className="block">
-                        <Button
-                          variant="secondary"
-                          size="lg"
-                          className="w-full hover:scale-105 transition-transform duration-300 group"
-                        >
-                          <MaterialIcon
-                            icon="construction"
-                            size="md"
-                            className="mr-2 group-hover:scale-110 transition-transform duration-300"
-                          />
-                          Join Trade Partner Network
-                        </Button>
-                      </Link>
-                      <Link href="/allies#vendor-application" className="block">
-                        <Button
-                          variant="outline"
-                          size="lg"
-                          className="w-full hover:scale-105 transition-transform duration-300 group"
-                        >
-                          <MaterialIcon
-                            icon="description"
-                            size="md"
-                            className="mr-2 group-hover:scale-110 transition-transform duration-300"
-                          />
-                          Download Vendor Package
-                        </Button>
-                      </Link>
-                      <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
-                        <MaterialIcon
-                          icon="phone"
-                          size="sm"
-                          className="inline mr-1"
-                        />
-                        Call (509) 308-6489
+                    <div className="relative p-8 lg:p-10 flex flex-col flex-1">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="relative flex-shrink-0">
+                          {/* Blur glow layer behind icon */}
+                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg rounded-2xl"></div>
+                          <div className="relative w-16 h-16 lg:w-18 lg:h-18 bg-gradient-to-br from-brand-secondary to-bronze-700 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                            <MaterialIcon
+                              icon="construction"
+                              size="xl"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl leading-tight">
+                            Trade Partnerships
+                          </h3>
+                          <p className="text-brand-secondary dark:text-brand-secondary-light font-semibold text-lg">
+                            Vendor Network
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
+                        For subcontractors, suppliers, and trade professionals
+                        seeking{" "}
+                        <span className="font-semibold text-brand-secondary dark:text-brand-secondary-light">
+                          consistent project opportunities
+                        </span>{" "}
+                        with a veteran-owned construction leader in the Pacific
+                        Northwest market.
                       </p>
+
+                      <div className="mb-6 flex-grow">
+                        <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-4">
+                          What We Offer Trade Partners:
+                        </h4>
+                        <ul className="space-y-3">
+                          <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
+                            <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                              <MaterialIcon
+                                icon="check_circle"
+                                size="sm"
+                                className="text-brand-secondary"
+                              />
+                            </div>
+                            <span className="text-gray-700 dark:text-gray-300">
+                              Consistent project opportunities
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
+                            <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                              <MaterialIcon
+                                icon="check_circle"
+                                size="sm"
+                                className="text-brand-secondary"
+                              />
+                            </div>
+                            <span className="text-gray-700 dark:text-gray-300">
+                              Professional growth in established network
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
+                            <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                              <MaterialIcon
+                                icon="check_circle"
+                                size="sm"
+                                className="text-brand-secondary"
+                              />
+                            </div>
+                            <span className="text-gray-700 dark:text-gray-300">
+                              Early-stage project planning involvement
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
+                            <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                              <MaterialIcon
+                                icon="check_circle"
+                                size="sm"
+                                className="text-brand-secondary"
+                              />
+                            </div>
+                            <span className="text-gray-700 dark:text-gray-300">
+                              Advanced notice for procurement planning
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
+                            <div className="w-6 h-6 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                              <MaterialIcon
+                                icon="check_circle"
+                                size="sm"
+                                className="text-brand-secondary"
+                              />
+                            </div>
+                            <span className="text-gray-700 dark:text-gray-300">
+                              Partnership with veteran-owned business
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div className="space-y-3 mt-auto">
+                        <Link href="/allies" className="block">
+                          <Button
+                            variant="secondary"
+                            size="lg"
+                            className="w-full hover:scale-105 transition-transform duration-300 group"
+                          >
+                            <MaterialIcon
+                              icon="construction"
+                              size="md"
+                              className="mr-2 group-hover:scale-110 transition-transform duration-300"
+                            />
+                            Join Trade Partner Network
+                          </Button>
+                        </Link>
+                        <Link
+                          href="/allies#vendor-application"
+                          className="block"
+                        >
+                          <Button
+                            variant="outline"
+                            size="lg"
+                            className="w-full hover:scale-105 transition-transform duration-300 group"
+                          >
+                            <MaterialIcon
+                              icon="description"
+                              size="md"
+                              className="mr-2 group-hover:scale-110 transition-transform duration-300"
+                            />
+                            Download Vendor Package
+                          </Button>
+                        </Link>
+                        <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
+                          <MaterialIcon
+                            icon="phone"
+                            size="sm"
+                            className="inline mr-1"
+                          />
+                          Call (509) 308-6489
+                        </p>
+                      </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </FadeInWhenVisible>
             </div>
 
@@ -662,18 +683,48 @@ export default function ServicesPage() {
         {/* Next Steps Section */}
         <section
           id="next-steps"
-          className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary py-20 lg:py-32"
+          className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary py-12 sm:py-16 lg:py-20 xl:py-24"
         >
           <div className="absolute inset-0 bg-[url('/images/textures/construction-pattern.png')] opacity-5"></div>
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="mb-16 text-center">
-              <h2 className="mb-6 font-black text-4xl text-white sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter drop-shadow-lg">
-                Let's Build Something Great Together
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-white/30 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-white/20 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-white/90 via-white to-white/90 p-5 rounded-2xl shadow-2xl border-2 border-white/50">
+                    <MaterialIcon
+                      icon="rocket_launch"
+                      size="2xl"
+                      className="text-brand-primary drop-shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-white/30 rounded-full"></div>
+              </div>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-white/80 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Let's Build Something
+                </span>
+                <span className="block text-white font-black drop-shadow-lg overflow-visible py-2 pb-3 leading-normal">
+                  Great Together
+                </span>
               </h2>
-              <p className="mx-auto max-w-3xl font-light text-white/90 text-xl sm:text-2xl md:text-3xl leading-relaxed">
-                Take the next step toward bringing your construction vision to
-                life with transparent pricing, expert guidance, and
-                veteran-owned reliability.
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                Take the next step toward{" "}
+                <span className="font-bold text-white">
+                  bringing your construction vision to life
+                </span>{" "}
+                with transparent pricing, expert guidance, and{" "}
+                <span className="font-bold text-white">
+                  veteran-owned reliability
+                </span>
+                .
               </p>
             </div>
 
@@ -821,12 +872,12 @@ export default function ServicesPage() {
         </section>
 
         {/* Contact CTA - Ask Questions */}
-        <section className="relative bg-gradient-to-r from-brand-primary to-brand-primary-dark py-12 sm:py-16 lg:py-20 overflow-hidden">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <section className="relative bg-gradient-to-r from-brand-primary to-brand-primary-dark py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+          <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
+            <h2 className="mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter drop-shadow-lg">
               Questions About Our Services?
             </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="mx-auto max-w-3xl font-light text-white/90 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8">
               Contact our team for answers about construction services, pricing,
               timelines, and capabilities
             </p>

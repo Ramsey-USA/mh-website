@@ -162,33 +162,38 @@ export function LeadershipTeam() {
         {/* Team Specialties Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
           {teamSpecialties.map((specialty, index) => (
-            <Card
-              key={index}
-              className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-primary-light shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
-            >
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="relative flex-shrink-0">
-                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-xl rounded-full"></div>
-                    <div className="relative w-14 h-14 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg">
-                      <MaterialIcon
-                        icon={specialty.icon}
-                        size="lg"
-                        className="text-white"
-                      />
+            <div key={index} className="group relative flex h-full">
+              {/* Animated Border Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="relative flex-shrink-0">
+                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
+                      <div className="relative rounded-xl bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+                        <MaterialIcon
+                          icon={specialty.icon}
+                          size="lg"
+                          className="text-white drop-shadow-lg"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-black text-gray-900 dark:text-white text-lg mb-2">
+                        {specialty.title}
+                      </h3>
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-black text-gray-900 dark:text-white text-lg mb-2">
-                      {specialty.title}
-                    </h3>
-                  </div>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                    {specialty.description}
+                  </p>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                  {specialty.description}
-                </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
 

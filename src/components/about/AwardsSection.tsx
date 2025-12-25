@@ -4,9 +4,7 @@
  * Reusable across About, Team, and other credibility-building pages
  */
 
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { getCardClassName } from "@/lib/styles/card-variants";
 
 const emrTimeline = [
   {
@@ -117,109 +115,133 @@ export function AwardsSection() {
             Industry Recognition
           </h3>
           <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto max-w-7xl">
-            <Card
-              className={getCardClassName(
-                "primary",
-                "h-full duration-300 hover:scale-105",
-              )}
-            >
-              <CardHeader className="text-center">
-                <MaterialIcon
-                  icon="military_tech"
-                  size="xl"
-                  className="mx-auto mb-3 text-brand-primary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl">
-                  Veteran Business Enterprise
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
-                  Certified VOSB
-                </p>
-                <p className="text-gray-500 dark:text-gray-400 text-xs">
-                  Department of Veterans Affairs certification
-                </p>
-              </CardContent>
-            </Card>
+            <div className="group relative flex h-full">
+              {/* Animated Border Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-            <Card
-              className={getCardClassName(
-                "secondary",
-                "h-full duration-300 hover:scale-105",
-              )}
-            >
-              <CardHeader className="text-center">
-                <MaterialIcon
-                  icon="workspace_premium"
-                  size="xl"
-                  className="mx-auto mb-3 text-brand-secondary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl">
-                  Excellence in Construction
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
-                  AGC Washington
-                </p>
-                <p className="text-gray-500 dark:text-gray-400 text-xs">
-                  Outstanding Commercial Project Award
-                </p>
-              </CardContent>
-            </Card>
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
-            <Card
-              className={getCardClassName(
-                "accent",
-                "h-full duration-300 hover:scale-105",
-              )}
-            >
-              <CardHeader className="text-center">
-                <MaterialIcon
-                  icon="eco"
-                  size="xl"
-                  className="mx-auto mb-3 text-brand-primary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl">
-                  Sustainable Building Leader
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
-                  WA Green Building Council
-                </p>
-                <p className="text-gray-500 dark:text-gray-400 text-xs">
-                  LEED compliance & sustainable practices
-                </p>
-              </CardContent>
-            </Card>
+                <div className="p-6 flex flex-col flex-1 text-center">
+                  <div className="relative inline-block mx-auto mb-4">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
+                    <div className="relative rounded-xl bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+                      <MaterialIcon
+                        icon="military_tech"
+                        size="xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <h4 className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl font-bold mb-4">
+                    Veteran Business Enterprise
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
+                    Certified VOSB
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                    Department of Veterans Affairs certification
+                  </p>
+                </div>
+              </div>
+            </div>
 
-            <Card
-              className={getCardClassName(
-                "primary",
-                "h-full duration-300 hover:scale-105",
-              )}
-            >
-              <CardHeader className="text-center">
-                <MaterialIcon
-                  icon="verified_user"
-                  size="xl"
-                  className="mx-auto mb-3 text-brand-primary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl">
-                  Safety Excellence
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
-                  OSHA VPP Star
-                </p>
-                <p className="text-gray-500 dark:text-gray-400 text-xs">
-                  Exemplary workplace safety programs
-                </p>
-              </CardContent>
-            </Card>
+            <div className="group relative flex h-full">
+              {/* Animated Border Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                <div className="p-6 flex flex-col flex-1 text-center">
+                  <div className="relative inline-block mx-auto mb-4">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40 opacity-30 blur-lg rounded-xl"></div>
+                    <div className="relative rounded-xl bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+                      <MaterialIcon
+                        icon="workspace_premium"
+                        size="xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <h4 className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl font-bold mb-4">
+                    Excellence in Construction
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
+                    AGC Washington
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                    Outstanding Commercial Project Award
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative flex h-full">
+              {/* Animated Border Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                <div className="p-6 flex flex-col flex-1 text-center">
+                  <div className="relative inline-block mx-auto mb-4">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
+                    <div className="relative rounded-xl bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+                      <MaterialIcon
+                        icon="eco"
+                        size="xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <h4 className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl font-bold mb-4">
+                    Sustainable Building Leader
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
+                    WA Green Building Council
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                    LEED compliance & sustainable practices
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative flex h-full">
+              {/* Animated Border Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                <div className="p-6 flex flex-col flex-1 text-center">
+                  <div className="relative inline-block mx-auto mb-4">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
+                    <div className="relative rounded-xl bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+                      <MaterialIcon
+                        icon="verified_user"
+                        size="xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <h4 className="text-gray-900 dark:text-white text-base sm:text-lg md:text-xl font-bold mb-4">
+                    Safety Excellence
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
+                    OSHA VPP Star
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                    Exemplary workplace safety programs
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

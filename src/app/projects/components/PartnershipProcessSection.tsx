@@ -3,9 +3,7 @@
  * Outlines the step-by-step collaboration process
  */
 
-import { Card, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { getCardClassName } from "@/lib/styles/card-variants";
 import { partnershipProcess } from "./projectsData";
 
 export function PartnershipProcessSection() {
@@ -77,34 +75,50 @@ export function PartnershipProcessSection() {
 
           <div className="space-y-6">
             {partnershipProcess.map((process, _index) => (
-              <Card key={_index} className={getCardClassName("static")}>
-                <CardContent className="p-6">
-                  <div className="flex items-start min-h-[5rem]">
-                    <div className="flex-shrink-0 mr-4">
-                      <div className="flex justify-center items-center bg-brand-primary rounded-full w-12 h-12 font-bold text-white text-xl">
-                        {process.step}
-                      </div>
-                    </div>
-                    <div className="flex-grow">
-                      <div className="flex justify-between items-start">
-                        <div className="flex-grow pr-4">
-                          <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl leading-tight">
-                            {process.title}
-                          </h3>
-                          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                            {process.description}
-                          </p>
+              <div key={_index} className="group relative flex h-full">
+                {/* Animated Border Glow */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                  {/* Top Accent Bar */}
+                  <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                  <div className="p-6">
+                    <div className="flex items-start min-h-[5rem]">
+                      <div className="flex-shrink-0 mr-4">
+                        <div className="relative inline-block">
+                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40 opacity-30 blur-lg rounded-full"></div>
+                          <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 rounded-full w-12 h-12 font-bold text-white text-xl shadow-xl group-hover:scale-110 transition-all duration-300">
+                            {process.step}
+                          </div>
                         </div>
-                        <MaterialIcon
-                          icon={process.icon}
-                          size="lg"
-                          className="flex-shrink-0 ml-4 text-brand-primary"
-                        />
+                      </div>
+                      <div className="flex-grow">
+                        <div className="flex justify-between items-start">
+                          <div className="flex-grow pr-4">
+                            <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl leading-tight">
+                              {process.title}
+                            </h3>
+                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                              {process.description}
+                            </p>
+                          </div>
+                          <div className="relative inline-block">
+                            <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40 opacity-20 blur-lg rounded-xl"></div>
+                            <div className="relative rounded-xl bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-2 shadow-lg group-hover:scale-110 transition-all duration-300">
+                              <MaterialIcon
+                                icon={process.icon}
+                                size="lg"
+                                className="text-white drop-shadow-lg"
+                              />
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         </div>

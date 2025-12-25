@@ -4,6 +4,10 @@ import { useEffect } from "react";
 
 export function useScrollReveal() {
   useEffect(() => {
+    // Mark elements as JS-controlled immediately
+    const scrollElements = document.querySelectorAll(".scroll-reveal");
+    scrollElements.forEach((el) => el.classList.add("js-controlled"));
+
     const observerOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -50px 0px",
@@ -17,7 +21,6 @@ export function useScrollReveal() {
       });
     }, observerOptions);
 
-    const scrollElements = document.querySelectorAll(".scroll-reveal");
     scrollElements.forEach((el) => observer.observe(el));
 
     return () => {

@@ -3,7 +3,6 @@
  * Highlights key differentiators and value propositions
  */
 
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
 import { whyChooseReasons } from "./projectsData";
@@ -79,26 +78,34 @@ export function WhyChooseSection() {
 
         <StaggeredFadeIn className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-7xl">
           {whyChooseReasons.map((reason, _index) => (
-            <Card
-              key={_index}
-              className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 border border-gray-200 dark:border-gray-700 h-full transition-all hover:-translate-y-1"
-            >
-              <CardHeader className="flex-shrink-0">
-                <MaterialIcon
-                  icon={reason.iconName}
-                  size="2xl"
-                  className="mb-3 text-brand-primary"
-                />
-                <CardTitle className="flex items-center min-h-[3rem] text-gray-900 dark:text-white text-lg">
-                  {reason.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-grow items-start">
-                <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                  {reason.description}
-                </p>
-              </CardContent>
-            </Card>
+            <div key={_index} className="group relative flex h-full">
+              {/* Animated Border Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="relative inline-block mb-4">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
+                    <div className="relative rounded-xl bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+                      <MaterialIcon
+                        icon={reason.iconName}
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="flex items-center min-h-[3rem] text-gray-900 dark:text-white text-lg font-bold mb-4">
+                    {reason.title}
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                    {reason.description}
+                  </p>
+                </div>
+              </div>
+            </div>
           ))}
         </StaggeredFadeIn>
       </div>

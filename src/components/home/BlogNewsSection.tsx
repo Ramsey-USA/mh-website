@@ -13,7 +13,7 @@ export function BlogNewsSection() {
       <div className="bottom-20 left-20 absolute bg-brand-secondary/5 blur-3xl rounded-full w-40 h-40"></div>
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <FadeInWhenVisible className="mb-12 sm:mb-16 text-center">
+        <FadeInWhenVisible className="mb-16 sm:mb-20 text-center">
           <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
             <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-300 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight">
               Latest News &

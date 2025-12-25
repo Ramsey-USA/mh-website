@@ -18,7 +18,6 @@ import {
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
-import { getCardClassName } from "@/lib/styles/card-variants";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { StructuredData } from "@/components/seo/seo-meta";
@@ -483,25 +482,36 @@ export default function AlliesPage() {
 
             <StaggeredFadeIn className={gridPresets.compactCards("lg")}>
               {partnershipValues.map((value, _index) => (
-                <Card key={_index} className={getCardClassName("default")}>
-                  <CardContent className="flex flex-col p-6 h-full text-center">
-                    <div
-                      className={`flex justify-center items-center bg-gradient-to-r ${value.color} mx-auto mb-4 rounded-full w-16 h-16`}
-                    >
-                      <MaterialIcon
-                        icon={value.icon}
-                        size="lg"
-                        className="text-white"
-                      />
+                <div key={_index} className="group relative flex h-full">
+                  {/* Animated Border Glow */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                    <div className="p-6 flex flex-col flex-1 text-center">
+                      <div className="relative inline-block mx-auto mb-4">
+                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
+                        <div
+                          className={`relative flex justify-center items-center bg-gradient-to-r ${value.color} rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300`}
+                        >
+                          <MaterialIcon
+                            icon={value.icon}
+                            size="lg"
+                            className="text-white drop-shadow-lg"
+                          />
+                        </div>
+                      </div>
+                      <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-lg">
+                        {value.title}
+                      </h3>
+                      <p className="flex-grow text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                        {value.description}
+                      </p>
                     </div>
-                    <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-lg">
-                      {value.title}
-                    </h3>
-                    <p className="flex-grow text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                      {value.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               ))}
             </StaggeredFadeIn>
           </div>
@@ -709,28 +719,36 @@ export default function AlliesPage() {
 
               <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
                 {partnershipBenefits.map((benefit, _index) => (
-                  <Card
-                    key={_index}
-                    className="flex flex-col bg-white dark:bg-gray-900 hover:shadow-lg dark:hover:shadow-gray-600/50 transition-all hover:-translate-y-1 h-full"
-                  >
-                    <CardContent className="flex flex-col p-6 h-full">
-                      <div className="flex items-center mb-4">
-                        <div className="flex justify-center items-center bg-brand-primary mr-4 rounded-full w-12 h-12">
-                          <MaterialIcon
-                            icon={benefit.icon}
-                            size="lg"
-                            className="text-white"
-                          />
+                  <div key={_index} className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                    <div className="relative bg-white dark:bg-gray-900 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                      <div className="p-6 flex flex-col flex-1">
+                        <div className="flex items-center mb-4">
+                          <div className="relative mr-4">
+                            <div className="absolute -inset-1 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-md rounded-full"></div>
+                            <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-12 h-12 shadow-lg group-hover:scale-110 transition-all duration-300">
+                              <MaterialIcon
+                                icon={benefit.icon}
+                                size="lg"
+                                className="text-white drop-shadow-lg"
+                              />
+                            </div>
+                          </div>
+                          <h3 className="font-bold text-gray-900 dark:text-white text-lg">
+                            {benefit.title}
+                          </h3>
                         </div>
-                        <h3 className="font-bold text-gray-900 dark:text-white text-lg">
-                          {benefit.title}
-                        </h3>
+                        <p className="flex-grow text-gray-600 dark:text-gray-300 leading-relaxed">
+                          {benefit.description}
+                        </p>
                       </div>
-                      <p className="flex-grow text-gray-600 dark:text-gray-300 leading-relaxed">
-                        {benefit.description}
-                      </p>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 ))}
               </StaggeredFadeIn>
             </FadeInWhenVisible>
@@ -850,95 +868,113 @@ export default function AlliesPage() {
 
             <div className={gridPresets.twoColumn("lg")}>
               <FadeInWhenVisible>
-                <Card className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 h-full">
-                  <CardHeader>
-                    <div className="flex items-center mb-4">
-                      <div className="flex justify-center items-center bg-brand-primary mr-4 rounded-full w-12 h-12">
-                        <MaterialIcon
-                          icon="verified"
-                          size="lg"
-                          theme="military"
-                          ariaLabel="Essential Qualifications"
-                          className="text-white"
-                        />
+                <div className="group relative flex h-full">
+                  {/* Animated Border Glow */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                    <div className="p-8">
+                      <div className="flex items-center mb-6">
+                        <div className="relative mr-4">
+                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
+                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-12 h-12 shadow-xl group-hover:scale-110 transition-all duration-300">
+                            <MaterialIcon
+                              icon="verified"
+                              size="lg"
+                              theme="military"
+                              ariaLabel="Essential Qualifications"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <h3 className="text-gray-900 dark:text-white text-2xl font-bold">
+                          Essential Qualifications
+                        </h3>
                       </div>
-                      <CardTitle className="text-gray-900 dark:text-white text-2xl">
-                        Essential Qualifications
-                      </CardTitle>
+                      <ul className="space-y-3">
+                        {[
+                          "Valid trade licensing for Washington, Oregon, and/or Idaho",
+                          "Current liability and worker's compensation insurance",
+                          "Proven track record of quality workmanship",
+                          "Professional references from recent projects",
+                          "Commitment to safety standards and protocols",
+                          "Alignment with MH Construction values and standards",
+                        ].map((item, _index) => (
+                          <li key={_index} className="flex items-start">
+                            <MaterialIcon
+                              icon="check_circle"
+                              size="sm"
+                              theme="military"
+                              ariaLabel="Required"
+                              className="text-brand-primary mr-3 flex-shrink-0 mt-1"
+                            />
+                            <span className="text-gray-700 dark:text-gray-300">
+                              {item}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3">
-                      {[
-                        "Valid trade licensing for Washington, Oregon, and/or Idaho",
-                        "Current liability and worker's compensation insurance",
-                        "Proven track record of quality workmanship",
-                        "Professional references from recent projects",
-                        "Commitment to safety standards and protocols",
-                        "Alignment with MH Construction values and standards",
-                      ].map((item, _index) => (
-                        <li key={_index} className="flex items-start">
-                          <MaterialIcon
-                            icon="check_circle"
-                            size="sm"
-                            theme="military"
-                            ariaLabel="Required"
-                            className="text-brand-primary mr-3 flex-shrink-0 mt-1"
-                          />
-                          <span className="text-gray-700 dark:text-gray-300">
-                            {item}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </FadeInWhenVisible>
 
               <FadeInWhenVisible>
-                <Card className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 h-full">
-                  <CardHeader>
-                    <div className="flex items-center mb-4">
-                      <div className="flex justify-center items-center bg-brand-secondary mr-4 rounded-full w-12 h-12">
-                        <MaterialIcon
-                          icon="workspace_premium"
-                          size="lg"
-                          theme="veteran"
-                          ariaLabel="Preferred Qualifications"
-                          className="text-white"
-                        />
+                <div className="group relative flex h-full">
+                  {/* Animated Border Glow */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                    <div className="p-8">
+                      <div className="flex items-center mb-6">
+                        <div className="relative mr-4">
+                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
+                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-secondary to-bronze-700 rounded-full w-12 h-12 shadow-xl group-hover:scale-110 transition-all duration-300">
+                            <MaterialIcon
+                              icon="workspace_premium"
+                              size="lg"
+                              theme="veteran"
+                              ariaLabel="Preferred Qualifications"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <h3 className="text-gray-900 dark:text-white text-2xl font-bold">
+                          Preferred Qualifications
+                        </h3>
                       </div>
-                      <CardTitle className="text-gray-900 dark:text-white text-2xl">
-                        Preferred Qualifications
-                      </CardTitle>
+                      <ul className="space-y-3">
+                        {[
+                          "Veteran-owned or veteran-employed businesses (priority)",
+                          "Local Pacific Northwest presence and familiarity",
+                          "Experience with diverse project types and scales",
+                          "Strong safety record and industry certifications",
+                          "Technology-capable for project communication",
+                          "Sustainable and community-minded business practices",
+                        ].map((item, _index) => (
+                          <li key={_index} className="flex items-start">
+                            <MaterialIcon
+                              icon="star"
+                              size="sm"
+                              theme="veteran"
+                              ariaLabel="Preferred"
+                              className="text-brand-secondary mr-3 flex-shrink-0 mt-1"
+                            />
+                            <span className="text-gray-700 dark:text-gray-300">
+                              {item}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3">
-                      {[
-                        "Veteran-owned or veteran-employed businesses (priority)",
-                        "Local Pacific Northwest presence and familiarity",
-                        "Experience with diverse project types and scales",
-                        "Strong safety record and industry certifications",
-                        "Technology-capable for project communication",
-                        "Sustainable and community-minded business practices",
-                      ].map((item, _index) => (
-                        <li key={_index} className="flex items-start">
-                          <MaterialIcon
-                            icon="star"
-                            size="sm"
-                            theme="veteran"
-                            ariaLabel="Preferred"
-                            className="text-brand-secondary mr-3 flex-shrink-0 mt-1"
-                          />
-                          <span className="text-gray-700 dark:text-gray-300">
-                            {item}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </FadeInWhenVisible>
             </div>
 
@@ -988,30 +1024,41 @@ export default function AlliesPage() {
                     },
                   ].map((step, _index) => (
                     <FadeInWhenVisible key={_index}>
-                      <Card className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 border border-gray-200 dark:border-gray-600 h-full text-center transition-all hover:shadow-lg">
-                        <CardContent className="p-6">
-                          <div className="flex justify-center items-center bg-brand-primary mb-4 mx-auto rounded-full w-16 h-16">
-                            <MaterialIcon
-                              icon={step.icon}
-                              size="xl"
-                              theme="military"
-                              ariaLabel={`Step ${step.step}`}
-                              className="text-white"
-                            />
+                      <div className="group relative flex h-full">
+                        {/* Animated Border Glow */}
+                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                        <div className="relative bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-xl border-2 border-gray-200 dark:border-gray-600 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                          {/* Top Accent Bar */}
+                          <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                          <div className="p-6 text-center">
+                            <div className="relative inline-block mb-4 mx-auto">
+                              <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
+                              <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                                <MaterialIcon
+                                  icon={step.icon}
+                                  size="xl"
+                                  theme="military"
+                                  ariaLabel={`Step ${step.step}`}
+                                  className="text-white drop-shadow-lg"
+                                />
+                              </div>
+                            </div>
+                            <div className="inline-block bg-brand-secondary/20 dark:bg-brand-secondary/30 mb-3 px-3 py-1 rounded-full">
+                              <span className="font-bold text-brand-secondary dark:text-brand-secondary-light text-sm">
+                                Step {step.step}
+                              </span>
+                            </div>
+                            <h4 className="mb-3 font-bold text-gray-900 dark:text-white text-lg">
+                              {step.title}
+                            </h4>
+                            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                              {step.description}
+                            </p>
                           </div>
-                          <div className="inline-block bg-brand-secondary/20 dark:bg-brand-secondary/30 mb-3 px-3 py-1 rounded-full">
-                            <span className="font-bold text-brand-secondary dark:text-brand-secondary-light text-sm">
-                              Step {step.step}
-                            </span>
-                          </div>
-                          <h4 className="mb-3 font-bold text-gray-900 dark:text-white text-lg">
-                            {step.title}
-                          </h4>
-                          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                            {step.description}
-                          </p>
-                        </CardContent>
-                      </Card>
+                        </div>
+                      </div>
                     </FadeInWhenVisible>
                   ))}
                 </div>

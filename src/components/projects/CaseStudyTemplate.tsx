@@ -106,7 +106,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
   return (
     <div className="bg-white dark:bg-gray-900">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-secondary-900 py-20 lg:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-secondary-900 py-20 lg:py-32 xl:py-40 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/images/textures/construction-pattern.png')] opacity-10"></div>
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
@@ -211,7 +211,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
       </section>
 
       {/* Challenge Section */}
-      <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
+      <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="gap-12 grid grid-cols-1 lg:grid-cols-2">
@@ -257,7 +257,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
       </section>
 
       {/* Solution Section */}
-      <section className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32">
+      <section className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32 xl:py-40">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-12">
@@ -326,7 +326,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
       </section>
 
       {/* Results Section */}
-      <section className="bg-gradient-to-br from-primary-600 to-secondary-600 py-20 lg:py-32">
+      <section className="bg-gradient-to-br from-primary-600 to-secondary-600 py-20 lg:py-32 xl:py-40">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mb-12 text-center">
@@ -390,7 +390,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
       </section>
 
       {/* Client Quote Section */}
-      <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
+      <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
           <FadeInWhenVisible>
             <Card className="relative bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 shadow-2xl p-12 border-l-8 border-primary-600">
@@ -426,7 +426,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
 
       {/* Team Section - Who Worked On This Project */}
       {data.team && data.team.length > 0 && (
-        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
+        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
               <TeamMemberTags
@@ -443,7 +443,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
 
       {/* Before/After Section */}
       {data.beforeAfterPhotos && data.beforeAfterPhotos.length > 0 && (
-        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
+        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
               <h2 className="mb-12 font-black text-3xl text-center text-gray-900 sm:text-4xl dark:text-white">
@@ -471,7 +471,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
 
       {/* Gallery Section */}
       {data.galleryPhotos && data.galleryPhotos.length > 0 && (
-        <section className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32">
+        <section className="bg-gray-50 dark:bg-gray-800 py-20 lg:py-32 xl:py-40">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
               <h2 className="mb-12 font-black text-3xl text-center text-gray-900 sm:text-4xl dark:text-white">
@@ -503,7 +503,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
       )}
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-secondary-600 to-primary-600 py-20 lg:py-32">
+      <section className="bg-gradient-to-br from-secondary-600 to-primary-600 py-20 lg:py-32 xl:py-40">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl text-center">
           <FadeInWhenVisible>
             <h2 className="mb-6 font-black text-4xl text-white sm:text-5xl">

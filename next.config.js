@@ -6,13 +6,20 @@
  *
  * @see https://nextjs.org/docs/app/api-reference/next-config-js
  * @see docs/technical/configuration-guide.md
- * @version 2.0.0
- * @lastUpdated 2025-11-08
+ * @version 2.1.0
+ * @lastUpdated 2025-12-25
  */
+
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // === PERFORMANCE OPTIMIZATIONS ===
+  compress: true, // Enable gzip compression
+  productionBrowserSourceMaps: false, // Disable source maps in production
+
   experimental: {
     optimizePackageImports: [
       "framer-motion",
@@ -129,4 +136,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withBundleAnalyzer(nextConfig);

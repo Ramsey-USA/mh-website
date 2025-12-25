@@ -12,6 +12,8 @@ import {
   generateEnhancedOrganizationSchema,
   generateWebsiteSchema,
 } from "@/components/seo/enhanced-seo";
+import { SkipLink } from "@/components/ui/accessibility/SkipLink";
+import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -171,6 +173,13 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
           rel="stylesheet"
         />
+        {/* Preload critical hero image for faster LCP */}
+        <link
+          rel="preload"
+          href="/images/logo/mh-veteran-bg.png"
+          as="image"
+          type="image/png"
+        />
         {/* Prefetch common navigation routes for faster page transitions */}
         <link rel="prefetch" href="/services" />
         <link rel="prefetch" href="/contact" />
@@ -183,13 +192,17 @@ export default function RootLayout({
       </head>
       <body className="font-sans">
         <WebVitalsReporter />
+        <SkipLink />
+        <ScrollProgress />
         <ThemeProvider defaultTheme="light" storageKey="mh-construction-theme">
           <AuthProvider>
             <GlobalChatbotProvider>
               <ErrorBoundary>
                 <Navigation />
                 <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
-                  <main className="flex-grow">{children}</main>
+                  <main id="main-content" className="flex-grow">
+                    {children}
+                  </main>
                   <Footer />
                 </div>
               </ErrorBoundary>

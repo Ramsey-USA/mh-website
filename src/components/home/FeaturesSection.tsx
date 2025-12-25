@@ -121,7 +121,7 @@ export function FeaturesSection() {
   return (
     <section
       id="helpful-features"
-      className="relative bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-24 xl:py-32 features-section overflow-hidden"
+      className="relative bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 features-section overflow-hidden"
     >
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.15)_0%,transparent_50%)]"></div>
@@ -139,7 +139,7 @@ export function FeaturesSection() {
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Enhanced Section Header with Side Accents */}
         <FadeInWhenVisible>
-          <div className="mb-16 sm:mb-20 lg:mb-24 text-center">
+          <div className="mb-16 sm:mb-20 text-center">
             {/* Top Decorative Line */}
             <div className="flex items-center justify-center mb-8 gap-4">
               <div className="h-1 w-16 bg-gradient-to-r from-transparent to-brand-primary rounded-full"></div>

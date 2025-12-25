@@ -4,6 +4,8 @@ import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { NextStepsSection } from "@/components/shared-sections";
 import {
   generateBreadcrumbSchema,
@@ -501,6 +503,12 @@ export default function FAQPage() {
             </div>
           </FadeInWhenVisible>
         </div>
+
+        {/* Page-Specific Navigation Bar */}
+        <PageNavigation
+          items={navigationConfigs.faq}
+          className="absolute bottom-0 left-0 right-0"
+        />
       </section>
 
       {/* Breadcrumb Navigation */}
@@ -576,6 +584,7 @@ export default function FAQPage() {
       {faqCategories.map((category, categoryIndex) => (
         <section
           key={category.id}
+          id={category.id}
           className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
         >
           {/* Diagonal Stripe Background Pattern */}

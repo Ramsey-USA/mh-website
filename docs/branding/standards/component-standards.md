@@ -1,16 +1,27 @@
 # MH Construction Component Standards
 
-**Version:** 5.0.0  
-**Last Updated:** December 15, 2025  
-**Status:** ✅ Active Standard - Home Page Standardization
+**Version:** 6.0.0  
+**Last Updated:** December 25, 2025  
+**Status:** ✅ Active Standard - Modern Card System
 
 > **Purpose:** Unified component design system ensuring visual consistency across all website elements using
-> our brand guidelines. **NEW:** Standardized section backgrounds, custom header pattern requirement, and
-> strict brand color compliance based on home page patterns.
+> our brand guidelines. **NEW:** Modern card components with animated border glows, top accent bars, and
+> enhanced icon system for a premium, cohesive user experience.
 
 ---
 
 ## 📋 **Recent Updates**
+
+### **Version 6.0.0 (December 25, 2025)** - MAJOR CARD REDESIGN
+
+- **BREAKING:** Replaced `<Card>` components with modern animated card structure
+- **NEW:** Animated border glow effect with `blur-xl` and pulse animation on hover
+- **NEW:** Top accent bars (2px gradient) for brand identity on all cards
+- **NEW:** Enhanced icon system with nested blur glow layers and white text
+- **NEW:** Unified hover effects: border transparency, shadow enhancement, card lift
+- **NEW:** Theme-based color variants (primary green, secondary bronze, orange urgent)
+- **MIGRATION:** All 10+ pages updated to modern card pattern
+- **DEPRECATED:** Old `<Card>`, `<CardHeader>`, `<CardContent>` pattern phased out
 
 ### **Version 5.0.0 (December 15, 2025)** - BREAKING CHANGES
 
@@ -309,48 +320,176 @@ description=\"Optional description text\"
 
 ## 🎴 **Card Component Standards**
 
-### **Standard Card Structure**
+### **Modern Card Structure - CURRENT STANDARD (December 2025)**
+
+**BREAKING CHANGE:** Replaced `<Card>` components with custom div structure for enhanced visual control and animated effects.
 
 ```tsx
-<Card
-  className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 
-  rounded-3xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 
-  group p-8"
->
-  {/* Icon Container - Standard Sizes */}
-  <div
-    className="flex justify-center items-center bg-brand-primary/10 mb-6 
-    rounded-2xl w-16 h-16 p-2"
-  >
-    <MaterialIcon icon="icon_name" size="xl" className="text-brand-primary" />
+<div className="group relative flex h-full">
+  {/* Animated Border Glow */}
+  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+    {/* Top Accent Bar */}
+    <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+    <div className="p-6 sm:p-8 flex flex-col flex-1">
+      {/* Enhanced Icon with Nested Blur Layers */}
+      <div className="relative inline-block mb-4 mx-auto">
+        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
+        <div className="relative rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+          <MaterialIcon
+            icon="icon_name"
+            size="xl"
+            className="text-white drop-shadow-lg"
+          />
+        </div>
+      </div>
+
+      {/* Card Title */}
+      <h3 className="mb-3 text-center font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
+        Card Title
+      </h3>
+
+      {/* Card Content */}
+      <p className="mb-4 text-center text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg leading-relaxed">
+        Card description content
+      </p>
+
+      {/* Optional Link/Action */}
+      <Link
+        href="/link"
+        className="inline-flex items-center justify-center text-brand-primary hover:text-brand-secondary transition-colors mt-auto"
+      >
+        <span className="font-medium text-xs sm:text-sm">Action Text</span>
+        <MaterialIcon icon="arrow_forward" size="sm" className="ml-1" />
+      </Link>
+    </div>
   </div>
+</div>
+```
 
-  {/* Card Header */}
-  <CardHeader>
-    <CardTitle className="text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
-      Card Title
-    </CardTitle>
-  </CardHeader>
+### **Card Component Requirements**
 
-  {/* Card Content */}
-  <CardContent>
-    <p
-      className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg 
-      leading-relaxed mb-6"
-    >
-      Card description content
-    </p>
-  </CardContent>
+**Structure:**
 
-  {/* Card Action - Bottom Aligned */}
-  <div className="mt-auto">
-    <Button variant="outline" size="sm" className="w-full">
-      <MaterialIcon icon="arrow_forward" className="mr-2" />
-      Action Text
-    </Button>
-  </div>
+- **Outer wrapper:** `group relative flex h-full` - enables group hover and flexible height
+- **Animated glow:** Absolute positioned `blur-xl` gradient layer that pulses on hover
+- **Inner card:** Relative positioned with rounded corners, borders, and shadow effects
+- **Top accent bar:** 2px height gradient strip for brand identity
+- **Content padding:** `p-6 sm:p-8` responsive padding
+- **Flex layout:** `flex flex-col flex-1` for proper content distribution
+
+**Animation Effects:**
+
+- **Border glow:** `opacity-20` default, `opacity-100` on hover with `animate-pulse`
+- **Card lift:** `group-hover:-translate-y-1` for subtle elevation effect
+- **Border transition:** `border-gray-200` to `border-transparent` on hover
+- **Shadow enhancement:** `shadow-lg` to `shadow-2xl` on hover
+- **Icon scale:** `group-hover:scale-110` for icon emphasis
+
+**Typography Standards:**
+
+- **Titles:** `text-lg sm:text-xl md:text-2xl font-bold`
+- **Body text:** `text-sm sm:text-base md:text-lg` with `leading-relaxed`
+- **Links:** `text-xs sm:text-sm font-medium`
+
+**Color Theming:**
+
+- **Primary theme:** `from-brand-primary/40 to-brand-primary-dark/40` for main features
+- **Secondary theme:** `from-brand-secondary/40 to-bronze-700/40` for partnerships/veteran content
+- **Bronze theme:** `from-bronze-700/40 to-bronze-800/40` for veteran initiatives
+- **Orange theme:** `from-orange-500/40 to-orange-700/40` for urgent/emergency content
+
+### **Card Variants by Theme**
+
+**Primary (Green) Cards:**
+
+```tsx
+{
+  /* Animated Border Glow */
+}
+<div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>;
+
+{
+  /* Top Accent Bar */
+}
+<div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>;
+
+{
+  /* Icon Background */
+}
+<div className="relative rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+  <MaterialIcon
+    icon="icon_name"
+    size="xl"
+    className="text-white drop-shadow-lg"
+  />
+</div>;
+```
+
+**Secondary (Bronze/Tan) Cards:**
+
+```tsx
+{
+  /* Animated Border Glow */
+}
+<div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>;
+
+{
+  /* Top Accent Bar */
+}
+<div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-brand-secondary"></div>;
+
+{
+  /* Icon Background */
+}
+<div className="relative rounded-xl bg-gradient-to-br from-brand-secondary to-bronze-700 p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+  <MaterialIcon
+    icon="icon_name"
+    size="xl"
+    className="text-white drop-shadow-lg"
+  />
+</div>;
+```
+
+**Orange (Urgent) Cards:**
+
+```tsx
+{
+  /* Animated Border Glow */
+}
+<div className="absolute -inset-2 bg-gradient-to-br from-orange-500/40 to-orange-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>;
+
+{
+  /* Top Accent Bar */
+}
+<div className="h-2 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700"></div>;
+
+{
+  /* Icon Background */
+}
+<div className="relative rounded-xl bg-gradient-to-br from-orange-500 to-orange-700 p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+  <MaterialIcon
+    icon="icon_name"
+    size="xl"
+    className="text-white drop-shadow-lg"
+  />
+</div>;
+```
+
+### **DEPRECATED: Old Card Pattern**
+
+**DO NOT USE:** The following pattern is deprecated and being phased out:
+
+```tsx
+// ❌ DEPRECATED - Do not use
+<Card className="border-l-4 border-l-brand-primary">
+  <CardContent className="pt-6">{/* content */}</CardContent>
 </Card>
 ```
+
+**Migration Note:** All pages have been updated to use the modern card structure with animated border glows, top accent bars, and enhanced icons.
 
 ### **Card Flip Implementation (3D Transform)**
 
@@ -801,7 +940,9 @@ blur layer: from-brand-secondary to-brand-secondary-dark opacity-30
 - ✅ **NO stats/cards** (30+ years, 100+ projects displays)
 - ✅ **NO trust indicators** (satisfaction rates, project counts)
 - ✅ **Content ONLY**: Title, subtitle, description text
-- ✅ **Navigation at bottom**: PageNavigation at `absolute bottom-0`
+- ✅ **Navigation at bottom**: PageNavigation at `absolute bottom-0` with section anchors only (Dec 2025)
+- ✅ **Section IDs required**: All navigable sections must have unique `id` attributes
+- ✅ **No cross-page links**: PageNavigation only links to `#section-id` within same page
 - ✅ **Full viewport height**: `h-screen flex items-center justify-center`
 
 ```tsx
@@ -832,9 +973,9 @@ blur layer: from-brand-secondary to-brand-secondary-dark opacity-30
     </div>
   </div>
 
-  {/* Page Navigation - ALWAYS AT BOTTOM */}
+  {/* Page Navigation - ALWAYS AT BOTTOM - Section Anchors Only (Dec 2025) */}
   <PageNavigation
-    items={navigationConfigs.pageName}
+    items={navigationConfigs.pageName}  {/* Config must use #section-id format */}
     className="absolute bottom-0 left-0 right-0"
   />
 </section>

@@ -11,6 +11,8 @@ import { getClientTestimonials } from "@/lib/data/testimonials";
 import { TestimonialsSection } from "@/components/shared-sections/TestimonialsSection";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
 export const metadata: Metadata = {
   title:
@@ -216,6 +218,12 @@ export default function TestimonialsPage() {
             </div>
           </FadeInWhenVisible>
         </div>
+
+        {/* Page-Specific Navigation Bar */}
+        <PageNavigation
+          items={navigationConfigs.testimonials}
+          className="absolute bottom-0 left-0 right-0"
+        />
       </section>
 
       {/* Breadcrumb Navigation */}
@@ -241,7 +249,10 @@ export default function TestimonialsPage() {
           />
 
           {/* Why Choose MH Construction - SEO-Rich Content */}
-          <section className="bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20">
+          <section
+            id="why-choose"
+            className="bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20"
+          >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               {/* Section Header */}
               <div className="mb-16 sm:mb-20 text-center">
@@ -666,7 +677,7 @@ export default function TestimonialsPage() {
         </>
       ) : (
         /* Coming Soon State - No testimonials yet */
-        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32">
+        <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="mb-8">
               <MaterialIcon

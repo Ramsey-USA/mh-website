@@ -449,6 +449,8 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                   src={member.avatar}
                   alt={member.name}
                   fill
+                  loading="lazy"
+                  priority={false}
                   className="rounded-lg md:rounded-xl object-cover border-2 sm:border-3 md:border-4 border-brand-primary dark:border-brand-secondary shadow-lg"
                   sizes="(max-width: 640px) 96px, (max-width: 768px) 112px, 128px"
                 />

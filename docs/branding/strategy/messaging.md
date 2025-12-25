@@ -48,7 +48,7 @@ groups with unique voices, tones, and keyword priorities.
 - [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Four-value professional system
 - [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
 - [🔍 SEO Messaging Strategy](../../technical/seo/seo-messaging-strategy.md) - ⭐ **NEW** - Local SEO optimization
-- [🧭 Navigation Complete Guide](../../technical/navigation/navigation-complete-guide.md) - ⭐ **UPDATED** - Dual-label navigation pattern
+- [🧭 Navigation System](../../../NAVIGATION-UPDATE-COMPLETE-REPORT.md) - ⭐ **UPDATED** - Section-based navigation (Dec 2025)
 - [🎨 Color System](../standards/color-system.md)
 - [📝 Typography](../standards/typography.md)
 - [🔧 Icon Policy](../standards/icon-policy-complete.md)
@@ -116,7 +116,15 @@ these core values in hierarchical order:
 - "Contact" / "Rally Point" - Get in touch
 - "Emergency" / "Rapid Response" - Urgent support
 
-**Documentation**: See complete implementation in [Navigation Complete Guide](../../technical/navigation/navigation-complete-guide.md#dual-label-navigation-pattern)
+**Documentation**: See complete implementation in [Navigation Update Report](../../../NAVIGATION-UPDATE-COMPLETE-REPORT.md)
+
+**Current Implementation (Dec 2025)**:
+
+- **Section-Based Navigation**: All PageNavigation items use `#section-id` anchors within pages
+- **No Cross-Page Links**: PageNavigation only navigates to sections on same page
+- **Hamburger Menu**: Handles cross-page navigation and social media links
+- **Dual Labels**: Full label for desktop, mobile label for mobile devices
+- **Material Icons**: All navigation items include semantic icons
 
 ### Core Voice Attributes
 

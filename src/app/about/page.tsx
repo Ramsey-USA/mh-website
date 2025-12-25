@@ -1,7 +1,6 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import { Card, CardContent } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
@@ -231,179 +230,198 @@ export default function AboutPage() {
             </div>
 
             <StaggeredFadeIn className={gridPresets.cards3("md")}>
-              <div className="group h-full">
-                <div className="h-full flex flex-col p-6 sm:p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                  <div className="mb-6 flex justify-center">
-                    <div className="relative inline-block">
-                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-xl rounded-xl"></div>
-                      <div className="relative rounded-xl bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-3 shadow-lg">
-                        <MaterialIcon
-                          icon="groups"
-                          size="xl"
-                          ariaLabel="Our partners"
-                          className="text-white drop-shadow-lg"
-                        />
+              <div className="group relative flex h-full">
+                {/* Animated Border Glow */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                  {/* Top Accent Bar */}
+                  <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                  <div className="p-6 sm:p-8 flex flex-col flex-1">
+                    <div className="mb-6 flex justify-center">
+                      <div className="relative inline-block">
+                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
+                        <div className="relative rounded-xl bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+                          <MaterialIcon
+                            icon="groups"
+                            size="xl"
+                            ariaLabel="Our partners"
+                            className="text-white drop-shadow-lg"
+                          />
+                        </div>
                       </div>
                     </div>
+                    <h3 className="mb-4 text-center font-bold text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
+                      For Our Partners
+                    </h3>
+                    <ul className="space-y-3 text-gray-700 dark:text-gray-300 flex-grow">
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
+                        />
+                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                          Predictable, consistent experience you can count on
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
+                        />
+                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                          Peace of mind knowing your project is in capable hands
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
+                        />
+                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                          Long-term partnership beyond project completion
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
+                        />
+                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                          True ROI—the return is the relationship
+                        </span>
+                      </li>
+                    </ul>
                   </div>
-                  <h3 className="mb-4 text-center font-bold text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
-                    For Our Partners
-                  </h3>
-                  <ul className="space-y-3 text-gray-700 dark:text-gray-300 flex-grow">
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
-                      />
-                      <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                        Predictable, consistent experience you can count on
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
-                      />
-                      <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                        Peace of mind knowing your project is in capable hands
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
-                      />
-                      <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                        Long-term partnership beyond project completion
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
-                      />
-                      <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                        True ROI—the return is the relationship
-                      </span>
-                    </li>
-                  </ul>
+                </div>
+
+                <div className="group relative flex h-full">
+                  <div className="h-full flex flex-col p-6 sm:p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    <div className="mb-6 flex justify-center">
+                      <div className="relative inline-block">
+                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/30 to-brand-secondary-dark/30 blur-xl rounded-xl"></div>
+                        <div className="relative rounded-xl bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-secondary-700 p-3 shadow-lg">
+                          <MaterialIcon
+                            icon="domain"
+                            size="xl"
+                            ariaLabel="Our community"
+                            className="text-white drop-shadow-lg"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <h3 className="mb-4 text-center font-bold text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
+                      For Our Community
+                    </h3>
+                    <ul className="space-y-3 text-gray-700 dark:text-gray-300 flex-grow">
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
+                        />
+                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                          Economic development supporting local suppliers
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
+                        />
+                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                          Raising quality standards in construction industry
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
+                        />
+                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                          Veteran support and opportunities for military
+                          families
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
+                        />
+                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                          Building structures serving communities for
+                          generations
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
-              <div className="group h-full">
-                <div className="h-full flex flex-col p-6 sm:p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                  <div className="mb-6 flex justify-center">
-                    <div className="relative inline-block">
-                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/30 to-brand-secondary-dark/30 blur-xl rounded-xl"></div>
-                      <div className="relative rounded-xl bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-secondary-700 p-3 shadow-lg">
-                        <MaterialIcon
-                          icon="domain"
-                          size="xl"
-                          ariaLabel="Our community"
-                          className="text-white drop-shadow-lg"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <h3 className="mb-4 text-center font-bold text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
-                    For Our Community
-                  </h3>
-                  <ul className="space-y-3 text-gray-700 dark:text-gray-300 flex-grow">
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
-                      />
-                      <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                        Economic development supporting local suppliers
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
-                      />
-                      <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                        Raising quality standards in construction industry
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
-                      />
-                      <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                        Veteran support and opportunities for military families
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
-                      />
-                      <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                        Building structures serving communities for generations
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <div className="group relative flex h-full">
+                {/* Animated Border Glow */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-              <div className="group h-full">
-                <div className="h-full flex flex-col p-6 sm:p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                  <div className="mb-6 flex justify-center">
-                    <div className="relative inline-block">
-                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/30 to-brand-secondary-dark/30 blur-xl rounded-xl"></div>
-                      <div className="relative rounded-xl bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-secondary-700 p-3 shadow-lg">
-                        <MaterialIcon
-                          icon="engineering"
-                          size="xl"
-                          className="text-white drop-shadow-lg"
-                        />
+                <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                  {/* Top Accent Bar */}
+                  <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                  <div className="p-6 sm:p-8 flex flex-col flex-1">
+                    <div className="mb-6 flex justify-center">
+                      <div className="relative inline-block">
+                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg rounded-xl"></div>
+                        <div className="relative rounded-xl bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+                          <MaterialIcon
+                            icon="engineering"
+                            size="xl"
+                            className="text-white drop-shadow-lg"
+                          />
+                        </div>
                       </div>
                     </div>
+                    <h3 className="mb-4 text-center font-bold text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
+                      For Our Team
+                    </h3>
+                    <ul className="space-y-3 text-gray-700 dark:text-gray-300 flex-grow">
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
+                        />
+                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                          Professional pride in meaningful work
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
+                        />
+                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                          Clear standards and expectations in every interaction
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
+                        />
+                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                          Personal growth in environment valuing excellence
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <MaterialIcon
+                          icon="check_circle"
+                          className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
+                        />
+                        <span className="leading-relaxed text-sm sm:text-base md:text-lg">
+                          Being part of something larger than individual
+                          projects
+                        </span>
+                      </li>
+                    </ul>
                   </div>
-                  <h3 className="mb-4 text-center font-bold text-gray-900 dark:text-white text-xl sm:text-2xl md:text-3xl">
-                    For Our Team
-                  </h3>
-                  <ul className="space-y-3 text-gray-700 dark:text-gray-300 flex-grow">
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
-                      />
-                      <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                        Professional pride in meaningful work
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
-                      />
-                      <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                        Clear standards and expectations in every interaction
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
-                      />
-                      <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                        Personal growth in environment valuing excellence
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary text-sm sm:text-base"
-                      />
-                      <span className="leading-relaxed text-sm sm:text-base md:text-lg">
-                        Being part of something larger than individual projects
-                      </span>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </StaggeredFadeIn>
@@ -482,263 +500,336 @@ export default function AboutPage() {
             <div className={gridPresets.cards3("md", "mx-auto max-w-7xl")}>
               {/* Company Milestone */}
               <FadeInWhenVisible>
-                <Card className="border-l-4 border-l-brand-primary h-full flex flex-col">
-                  <CardContent className="pt-6 flex flex-col flex-grow">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <MaterialIcon
-                          icon="celebration"
-                          className="text-brand-primary"
-                          size="md"
-                        />
-                        <span className="font-semibold text-brand-primary text-xs sm:text-sm">
-                          Company Milestone
+                <div className="group relative flex h-full">
+                  {/* Animated Border Glow */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
+
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                    <div className="pt-6 px-6 pb-6 flex flex-col flex-grow">
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="flex items-center gap-2">
+                          <MaterialIcon
+                            icon="celebration"
+                            className="text-brand-primary"
+                            size="md"
+                          />
+                          <span className="font-semibold text-brand-primary text-xs sm:text-sm">
+                            Company Milestone
+                          </span>
+                        </div>
+                        <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
+                          Nov 2025
                         </span>
                       </div>
-                      <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
-                        Nov 2025
-                      </span>
+                      <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
+                        50+ Successful Projects in Pacific Northwest
+                      </h3>
+                      <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
+                        We&apos;re proud to announce reaching a major milestone:
+                        over 50 completed construction projects across
+                        Washington and Oregon. Thank you to all our partners for
+                        your continued trust.
+                      </p>
+                      <Link
+                        href="/projects"
+                        className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors mt-auto"
+                      >
+                        <span className="font-medium text-xs sm:text-sm">
+                          View Our Work
+                        </span>
+                        <MaterialIcon
+                          icon="arrow_forward"
+                          size="sm"
+                          className="ml-1"
+                        />
+                      </Link>
                     </div>
-                    <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
-                      50+ Successful Projects in Pacific Northwest
-                    </h3>
-                    <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
-                      We&apos;re proud to announce reaching a major milestone:
-                      over 50 completed construction projects across Washington
-                      and Oregon. Thank you to all our partners for your
-                      continued trust.
-                    </p>
-                    <Link
-                      href="/projects"
-                      className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors mt-auto"
-                    >
-                      <span className="font-medium text-xs sm:text-sm">
-                        View Our Work
-                      </span>
-                      <MaterialIcon
-                        icon="arrow_forward"
-                        size="sm"
-                        className="ml-1"
-                      />
-                    </Link>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </FadeInWhenVisible>
 
               <FadeInWhenVisible>
-                <Card className="border-l-4 border-l-brand-secondary h-full flex flex-col">
-                  <CardContent className="pt-6 flex flex-col flex-grow">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <MaterialIcon
-                          icon="rocket_launch"
-                          className="text-brand-secondary"
-                          size="md"
-                        />
-                        <span className="font-semibold text-brand-secondary text-xs sm:text-sm">
-                          New Technology
+                <div className="group relative flex h-full">
+                  {/* Animated Border Glow */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-brand-secondary"></div>
+
+                    <div className="pt-6 px-6 pb-6 flex flex-col flex-grow">
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="flex items-center gap-2">
+                          <div className="relative inline-block">
+                            <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg rounded-xl"></div>
+                            <div className="relative rounded-xl bg-gradient-to-br from-brand-secondary to-bronze-700 p-2 shadow-xl group-hover:scale-110 transition-all duration-300">
+                              <MaterialIcon
+                                icon="rocket_launch"
+                                className="text-white drop-shadow-lg"
+                                size="md"
+                              />
+                            </div>
+                          </div>
+                          <span className="font-semibold text-brand-secondary text-xs sm:text-sm">
+                            New Technology
+                          </span>
+                        </div>
+                        <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
+                          Coming Soon
                         </span>
                       </div>
-                      <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
-                        Coming Soon
-                      </span>
+                      <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
+                        Integrated CRM & Project Management Platform
+                      </h3>
+                      <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
+                        We&apos;re implementing High-Level CRM to provide
+                        seamless communication, real-time project updates, and
+                        an enhanced experience throughout your construction
+                        journey. Feedback from every project helps us improve.
+                      </p>
+                      <Link
+                        href="/contact"
+                        className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors mt-auto"
+                      >
+                        <span className="font-medium text-xs sm:text-sm">
+                          Learn More
+                        </span>
+                        <MaterialIcon
+                          icon="arrow_forward"
+                          size="sm"
+                          className="ml-1"
+                        />
+                      </Link>
                     </div>
-                    <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
-                      Integrated CRM & Project Management Platform
-                    </h3>
-                    <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
-                      We&apos;re implementing High-Level CRM to provide seamless
-                      communication, real-time project updates, and an enhanced
-                      experience throughout your construction journey. Feedback
-                      from every project helps us improve.
-                    </p>
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors mt-auto"
-                    >
-                      <span className="font-medium text-xs sm:text-sm">
-                        Learn More
-                      </span>
-                      <MaterialIcon
-                        icon="arrow_forward"
-                        size="sm"
-                        className="ml-1"
-                      />
-                    </Link>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </FadeInWhenVisible>
 
               <FadeInWhenVisible>
-                <Card className="border-l-4 border-l-brand-secondary h-full flex flex-col">
-                  <CardContent className="pt-6 flex flex-col flex-grow">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <MaterialIcon
-                          icon="handshake"
-                          className="text-brand-secondary"
-                          size="md"
-                        />
-                        <span className="font-semibold text-brand-secondary text-xs sm:text-sm">
-                          Partnership
+                <div className="group relative flex h-full">
+                  {/* Animated Border Glow */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-brand-secondary"></div>
+
+                    <div className="pt-6 px-6 pb-6 flex flex-col flex-grow">
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="flex items-center gap-2">
+                          <div className="relative inline-block">
+                            <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg rounded-xl"></div>
+                            <div className="relative rounded-xl bg-gradient-to-br from-brand-secondary to-bronze-700 p-2 shadow-xl group-hover:scale-110 transition-all duration-300">
+                              <MaterialIcon
+                                icon="handshake"
+                                className="text-white drop-shadow-lg"
+                                size="md"
+                              />
+                            </div>
+                          </div>
+                          <span className="font-semibold text-brand-secondary text-xs sm:text-sm">
+                            Partnership
+                          </span>
+                        </div>
+                        <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
+                          Oct 2025
                         </span>
                       </div>
-                      <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
-                        Oct 2025
-                      </span>
+                      <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
+                        Expanding Trade Partner Network
+                      </h3>
+                      <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
+                        We&apos;re actively growing our network of skilled trade
+                        professionals to better serve clients across the Pacific
+                        Northwest. Join our veteran-owned partnership program.
+                      </p>
+                      <Link
+                        href="/allies"
+                        className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors mt-auto"
+                      >
+                        <span className="font-medium text-xs sm:text-sm">
+                          Become a Partner
+                        </span>
+                        <MaterialIcon
+                          icon="arrow_forward"
+                          size="sm"
+                          className="ml-1"
+                        />
+                      </Link>
                     </div>
-                    <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
-                      Expanding Trade Partner Network
-                    </h3>
-                    <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
-                      We&apos;re actively growing our network of skilled trade
-                      professionals to better serve clients across the Pacific
-                      Northwest. Join our veteran-owned partnership program.
-                    </p>
-                    <Link
-                      href="/allies"
-                      className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors mt-auto"
-                    >
-                      <span className="font-medium text-xs sm:text-sm">
-                        Become a Partner
-                      </span>
-                      <MaterialIcon
-                        icon="arrow_forward"
-                        size="sm"
-                        className="ml-1"
-                      />
-                    </Link>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </FadeInWhenVisible>
 
               <FadeInWhenVisible>
-                <Card className="border-l-4 border-l-brand-secondary h-full flex flex-col">
-                  <CardContent className="pt-6 flex flex-col flex-grow">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <MaterialIcon
-                          icon="workspace_premium"
-                          className="text-brand-secondary"
-                          size="md"
-                        />
-                        <span className="font-semibold text-brand-secondary text-xs sm:text-sm">
-                          Recognition
+                <div className="group relative flex h-full">
+                  {/* Animated Border Glow */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-brand-secondary"></div>
+
+                    <div className="pt-6 px-6 pb-6 flex flex-col flex-grow">
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="flex items-center gap-2">
+                          <div className="relative inline-block">
+                            <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg rounded-xl"></div>
+                            <div className="relative rounded-xl bg-gradient-to-br from-brand-secondary to-bronze-700 p-2 shadow-xl group-hover:scale-110 transition-all duration-300">
+                              <MaterialIcon
+                                icon="workspace_premium"
+                                className="text-white drop-shadow-lg"
+                                size="md"
+                              />
+                            </div>
+                          </div>
+                          <span className="font-semibold text-brand-secondary text-xs sm:text-sm">
+                            Recognition
+                          </span>
+                        </div>
+                        <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
+                          Sep 2025
                         </span>
                       </div>
-                      <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
-                        Sep 2025
-                      </span>
+                      <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
+                        Award-Winning Safety Record
+                      </h3>
+                      <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
+                        Our commitment to safety excellence has been recognized
+                        by industry organizations. Zero accidents, 100%
+                        compliance - that&apos;s the veteran-owned difference.
+                      </p>
+                      <Link
+                        href="/about#safety"
+                        className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors mt-auto"
+                      >
+                        <span className="font-medium text-xs sm:text-sm">
+                          Safety Standards
+                        </span>
+                        <MaterialIcon
+                          icon="arrow_forward"
+                          size="sm"
+                          className="ml-1"
+                        />
+                      </Link>
                     </div>
-                    <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
-                      Award-Winning Safety Record
-                    </h3>
-                    <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
-                      Our commitment to safety excellence has been recognized by
-                      industry organizations. Zero accidents, 100% compliance -
-                      that&apos;s the veteran-owned difference.
-                    </p>
-                    <Link
-                      href="/about#safety"
-                      className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors mt-auto"
-                    >
-                      <span className="font-medium text-xs sm:text-sm">
-                        Safety Standards
-                      </span>
-                      <MaterialIcon
-                        icon="arrow_forward"
-                        size="sm"
-                        className="ml-1"
-                      />
-                    </Link>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </FadeInWhenVisible>
 
               <FadeInWhenVisible>
-                <Card className="border-l-4 border-l-brand-primary h-full flex flex-col">
-                  <CardContent className="pt-6 flex flex-col flex-grow">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <MaterialIcon
-                          icon="lightbulb"
-                          className="text-brand-primary"
-                          size="md"
-                        />
-                        <span className="font-semibold text-brand-primary text-xs sm:text-sm">
-                          Industry Insight
+                <div className="group relative flex h-full">
+                  {/* Animated Border Glow */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                    <div className="pt-6 px-6 pb-6 flex flex-col flex-grow">
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="flex items-center gap-2">
+                          <div className="relative inline-block">
+                            <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
+                            <div className="relative rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-2 shadow-xl group-hover:scale-110 transition-all duration-300">
+                              <MaterialIcon
+                                icon="lightbulb"
+                                className="text-white drop-shadow-lg"
+                                size="md"
+                              />
+                            </div>
+                          </div>
+                          <span className="font-semibold text-brand-primary text-xs sm:text-sm">
+                            Industry Insight
+                          </span>
+                        </div>
+                        <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
+                          Aug 2025
                         </span>
                       </div>
-                      <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
-                        Aug 2025
-                      </span>
+                      <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
+                        Best Practices for Commercial Construction Projects
+                      </h3>
+                      <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
+                        Drawing from our years of experience, we share key
+                        insights for successful commercial builds: planning,
+                        communication, and partnership-focused collaboration.
+                      </p>
+                      <Link
+                        href="/services"
+                        className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors mt-auto"
+                      >
+                        <span className="font-medium text-xs sm:text-sm">
+                          Our Services
+                        </span>
+                        <MaterialIcon
+                          icon="arrow_forward"
+                          size="sm"
+                          className="ml-1"
+                        />
+                      </Link>
                     </div>
-                    <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
-                      Best Practices for Commercial Construction Projects
-                    </h3>
-                    <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
-                      Drawing from our years of experience, we share key
-                      insights for successful commercial builds: planning,
-                      communication, and partnership-focused collaboration.
-                    </p>
-                    <Link
-                      href="/services"
-                      className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors mt-auto"
-                    >
-                      <span className="font-medium text-xs sm:text-sm">
-                        Our Services
-                      </span>
-                      <MaterialIcon
-                        icon="arrow_forward"
-                        size="sm"
-                        className="ml-1"
-                      />
-                    </Link>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </FadeInWhenVisible>
 
               <FadeInWhenVisible>
-                <Card className="border-l-4 border-l-brand-secondary h-full flex flex-col">
-                  <CardContent className="pt-6 flex flex-col flex-grow">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <MaterialIcon
-                          icon="military_tech"
-                          className="text-brand-primary"
-                          size="md"
-                        />
-                        <span className="font-semibold text-brand-primary text-xs sm:text-sm">
-                          Veteran Initiative
+                <div className="group relative flex h-full">
+                  {/* Animated Border Glow */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-bronze-700/40 to-bronze-800/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-bronze-600 via-bronze-700 to-bronze-800"></div>
+
+                    <div className="pt-6 px-6 pb-6 flex flex-col flex-grow">
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="flex items-center gap-2">
+                          <div className="relative inline-block">
+                            <div className="absolute -inset-2 bg-gradient-to-br from-bronze-700/40 to-bronze-800/40 opacity-30 blur-lg rounded-xl"></div>
+                            <div className="relative rounded-xl bg-gradient-to-br from-bronze-600 to-bronze-800 p-2 shadow-xl group-hover:scale-110 transition-all duration-300">
+                              <MaterialIcon
+                                icon="military_tech"
+                                className="text-white drop-shadow-lg"
+                                size="md"
+                              />
+                            </div>
+                          </div>
+                          <span className="font-semibold text-bronze-700 dark:text-bronze-600 text-xs sm:text-sm">
+                            Veteran Initiative
+                          </span>
+                        </div>
+                        <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
+                          Jul 2025
                         </span>
                       </div>
-                      <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
-                        Jul 2025
-                      </span>
+                      <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
+                        Supporting Veteran-Owned Businesses
+                      </h3>
+                      <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
+                        As a veteran-owned company, we prioritize partnerships
+                        with fellow veteran businesses and support programs that
+                        help veterans transition to civilian careers.
+                      </p>
+                      <Link
+                        href="/about"
+                        className="inline-flex items-center text-bronze-700 hover:text-brand-primary transition-colors mt-auto"
+                      >
+                        <span className="font-medium text-xs sm:text-sm">
+                          Our Values
+                        </span>
+                        <MaterialIcon
+                          icon="arrow_forward"
+                          size="sm"
+                          className="ml-1"
+                        />
+                      </Link>
                     </div>
-                    <h3 className="mb-3 font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl md:text-2xl">
-                      Supporting Veteran-Owned Businesses
-                    </h3>
-                    <p className="mb-4 text-gray-600 dark:text-gray-300 flex-grow text-sm sm:text-base md:text-lg">
-                      As a veteran-owned company, we prioritize partnerships
-                      with fellow veteran businesses and support programs that
-                      help veterans transition to civilian careers.
-                    </p>
-                    <Link
-                      href="/about"
-                      className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors mt-auto"
-                    >
-                      <span className="font-medium text-xs sm:text-sm">
-                        Our Values
-                      </span>
-                      <MaterialIcon
-                        icon="arrow_forward"
-                        size="sm"
-                        className="ml-1"
-                      />
-                    </Link>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </FadeInWhenVisible>
             </div>
 

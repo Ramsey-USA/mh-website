@@ -8,7 +8,7 @@ const coreValues = [
     tagline: "Clear Communication Every Time",
     description:
       "Full transparency—truthful assessments, open communication, honest intel. Upfront discussion of challenges and obstacles. Real-time updates on timeline or budget changes. Honest assessment when a project isn't the right fit. Complete cost breakdown before starting. Straight talk, no jargon.",
-    image: "/images/values/honesty.jpg",
+    image: "/images/values/honesty.webp",
     iconBg: "bg-brand-secondary",
     stats: "100% Transparent Pricing",
   },
@@ -18,7 +18,7 @@ const coreValues = [
     tagline: "Doing What's Right",
     description:
       "Strong ethics—doing what's right even when no one's watching. Using specified materials and methods without substitutions. Comprehensive warranties—we stand behind our work. Making decisions that benefit clients, not just our bottom line. Following through on commitments even when circumstances change. No shortcuts, period.",
-    image: "/images/values/integrity.jpg",
+    image: "/images/values/integrity.webp",
     iconBg: "bg-primary-700",
     stats: "Unwavering Ethics",
   },
@@ -28,7 +28,7 @@ const coreValues = [
     tagline: "Excellence in Action",
     description:
       "On time, prepared, and ready—zero excuses. Arriving on time and prepared. Clear communication in all interactions. Proper site management and organization. Treating your property with respect. Maintaining industry credentials and continuous improvement.",
-    image: "/images/values/professionalism.jpg",
+    image: "/images/values/professionalism.webp",
     iconBg: "bg-brand-primary",
     stats: "Expert Service Standards",
   },
@@ -38,7 +38,7 @@ const coreValues = [
     tagline: "No Detail Left Behind",
     description:
       "Meticulous planning and execution—complete documentation, zero surprises. Detailed site analysis and planning. Precision measurements and calculations. Systematic quality checkpoints at every phase. Complete documentation with photo records. Comprehensive final review with detailed punch lists.",
-    image: "/images/values/thoroughness.jpg",
+    image: "/images/values/thoroughness.webp",
     iconBg: "bg-primary-600",
     stats: "Zero Details Missed",
   },

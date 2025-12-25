@@ -49,7 +49,7 @@ export function AIEstimatorCTA({
   if (variant === "compact") {
     return (
       <section
-        className={`relative bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden ${className}`}
+        className={`relative bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden ${className}`}
       >
         {/* Background Effects */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)]"></div>
@@ -57,7 +57,7 @@ export function AIEstimatorCTA({
 
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
           <FadeInWhenVisible>
-            <div className="mb-12 sm:mb-16 text-center">
+            <div className="mb-16 sm:mb-20 text-center">
               <div className="flex justify-center items-center mb-6 sm:mb-8">
                 <div className="relative">
                   <div className="absolute inset-0 bg-brand-secondary/20 dark:bg-brand-secondary/30 blur-xl rounded-full"></div>
@@ -175,7 +175,7 @@ export function AIEstimatorCTA({
   // Full variant (for homepage)
   return (
     <section
-      className={`relative bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden ${className}`}
+      className={`relative bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden ${className}`}
     >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,104,81,0.08)_0%,transparent_50%)]"></div>
@@ -183,7 +183,7 @@ export function AIEstimatorCTA({
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <FadeInWhenVisible>
-          <div className="mb-12 sm:mb-16 text-center">
+          <div className="mb-16 sm:mb-20 text-center">
             <div className="flex justify-center items-center mb-6 sm:mb-8">
               <div className="relative">
                 <div className="absolute inset-0 bg-brand-secondary/20 dark:bg-brand-secondary/30 blur-xl rounded-full"></div>

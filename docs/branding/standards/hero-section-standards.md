@@ -95,7 +95,7 @@ recognition and accessibility.
 2. **Visual-First Design**: Text positioned bottom-right to allow photos/videos to be focal point
 3. **Multi-line Format**: Vertical text arrangement with separators for emphasis
 4. **Veteran Messaging**: Emphasize veteran-owned, honest communication, proven craftsmanship
-5. **Navigation**: PageNavigation at bottom
+5. **PageNavigation at Bottom**: Section-based navigation using `#section-id` anchors (Dec 2025 standard)
 
 ### ❌ MUST NOT INCLUDE
 
@@ -199,7 +199,9 @@ Use this checklist when creating or reviewing any page's hero section:
 - [ ] Title uses `text-brand-secondary` color
 - [ ] Subtitle with proper responsive classes
 - [ ] Description includes company tagline
-- [ ] PageNavigation at `absolute bottom-0 left-0 right-0`
+- [ ] PageNavigation at `absolute bottom-0 left-0 right-0` with section anchors only
+- [ ] Navigation config uses `#section-id` format (no cross-page links)
+- [ ] All navigable sections have unique `id` attributes
 - [ ] **NO** veteran badges or decorative badges
 - [ ] **NO** CTA buttons in hero
 - [ ] **NO** stats cards or displays

@@ -1,0 +1,72 @@
+
+> mh-website@4.0.0 build
+> next build
+
+   ▲ Next.js 15.5.2
+   - Environments: .env.local
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 58s
+   Skipping linting
+   Checking validity of types ...
+   Collecting page data ...
+ ⚠ Using edge runtime on a page currently disables static generation for that page
+   Generating static pages (0/28) ...
+   Generating static pages (7/28) 
+   Generating static pages (14/28) 
+   Generating static pages (21/28) 
+ ✓ Generating static pages (28/28)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                      13 kB         211 kB
+├ ○ /_not-found                            193 B         102 kB
+├ ○ /about                               5.74 kB         213 kB
+├ ○ /accessibility                         172 B         105 kB
+├ ○ /allies                                260 B         193 kB
+├ ƒ /api/auth/login                        193 B         102 kB
+├ ƒ /api/auth/refresh                      193 B         102 kB
+├ ƒ /api/consultations                     193 B         102 kB
+├ ƒ /api/consultations/[id]                193 B         102 kB
+├ ƒ /api/contact                           193 B         102 kB
+├ ƒ /api/functions/[functionName]          193 B         102 kB
+├ ƒ /api/job-applications                  193 B         102 kB
+├ ƒ /api/newsletter                        193 B         102 kB
+├ ƒ /api/security/cloudflare               193 B         102 kB
+├ ƒ /api/security/events                   193 B         102 kB
+├ ƒ /api/security/status                   193 B         102 kB
+├ ƒ /api/track-phone-call                  193 B         102 kB
+├ ƒ /api/upload/resume                     193 B         102 kB
+├ ○ /careers                             12.5 kB         210 kB
+├ ○ /contact                             7.04 kB         200 kB
+├ ○ /faq                                 1.23 kB         206 kB
+├ ○ /locations/kennewick                   257 B         188 kB
+├ ○ /locations/pasco                       257 B         188 kB
+├ ○ /locations/richland                    257 B         188 kB
+├ ○ /locations/spokane                     257 B         188 kB
+├ ○ /locations/walla-walla                 257 B         188 kB
+├ ○ /locations/west-richland               257 B         188 kB
+├ ○ /locations/yakima                      257 B         188 kB
+├ ○ /privacy                               172 B         105 kB
+├ ○ /projects                            10.9 kB         212 kB
+├ ○ /public-sector                         885 B         193 kB
+├ ○ /robots.txt                            193 B         102 kB
+├ ○ /services                            22.5 kB         220 kB
+├ ○ /sitemap.xml                           193 B         102 kB
+├ ○ /team                                 105 kB         302 kB
+├ ○ /terms                                 172 B         105 kB
+├ ○ /testimonials                        2.08 kB         200 kB
+├ ○ /urgent                                198 B         193 kB
+└ ○ /veterans                              721 B         208 kB
++ First Load JS shared by all             102 kB
+  ├ chunks/1255-22c2f72efcb494b4.js      45.3 kB
+  ├ chunks/4bd1b696-182b6b13bdad92e3.js  54.2 kB
+  └ other shared chunks (total)          2.15 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

@@ -213,42 +213,50 @@ export default function VeteransPage() {
           </div>
 
           <FadeInWhenVisible>
-            <Card
-              className={getCardClassName(
-                "default",
-                "border-l-4 border-l-brand-primary text-center max-w-3xl mx-auto",
-              )}
-            >
-              <CardHeader>
-                <MaterialIcon
-                  icon="military_tech"
-                  size="5xl"
-                  theme="veteran"
-                  ariaLabel="Army Veteran Leadership"
-                  className="mx-auto mb-4 text-brand-primary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-2xl sm:text-3xl">
-                  Jeremy Thamert
-                </CardTitle>
-                <p className="text-brand-primary font-semibold text-lg mt-2">
-                  Owner | Army Veteran
-                </p>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                  As an Army veteran and owner of MH Construction, Jeremy
-                  understands that your word is your bond. His military service
-                  taught him the operational values of integrity,
-                  mission-focused commitment, and personal
-                  accountability—service-earned values that define every
-                  partnership we build. Since acquiring the company in January
-                  2025, Jeremy has been deploying a veteran-focused organization
-                  that honors those who served. Building construction missions
-                  for fellow veterans isn't just business, it's brotherhood
-                  earned through shared service.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="group relative flex max-w-3xl mx-auto">
+              {/* Animated Border Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+                {/* Left Accent Bar */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                <div className="p-8 sm:p-10 text-center">
+                  <div className="relative inline-block mb-6 mx-auto">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-2xl rounded-full"></div>
+                    <div className="relative">
+                      <MaterialIcon
+                        icon="military_tech"
+                        size="5xl"
+                        theme="veteran"
+                        ariaLabel="Army Veteran Leadership"
+                        className="text-brand-primary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="text-gray-900 dark:text-white text-2xl sm:text-3xl font-bold mb-2">
+                    Jeremy Thamert
+                  </h3>
+                  <p className="text-brand-primary font-semibold text-lg mb-6">
+                    Owner | Army Veteran
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                    As an Army veteran and owner of MH Construction, Jeremy
+                    understands that your word is your bond. His military
+                    service taught him the operational values of integrity,
+                    mission-focused commitment, and personal
+                    accountability—service-earned values that define every
+                    partnership we build. Since acquiring the company in January
+                    2025, Jeremy has been deploying a veteran-focused
+                    organization that honors those who served. Building
+                    construction missions for fellow veterans isn't just
+                    business, it's brotherhood earned through shared service.
+                  </p>
+                </div>
+              </div>
+            </div>
           </FadeInWhenVisible>
 
           <FadeInWhenVisible className="mt-12 text-center">
@@ -313,106 +321,146 @@ export default function VeteransPage() {
           </div>
 
           <StaggeredFadeIn className={gridPresets.cards3("md")}>
-            <Card className={getCardClassName("default")}>
-              <CardHeader>
-                <MaterialIcon
-                  icon="badge"
-                  size="4xl"
-                  theme="military"
-                  ariaLabel="Veteran Hiring Priority"
-                  className="mb-4 text-brand-primary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
-                  Veteran Hiring Priority
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4">
-                  Qualified veterans receive priority consideration for all
-                  positions. We're deploying tactical apprenticeship programs
-                  for transitioning service members as we build our veteran
-                  support operational network.
-                </p>
-                <Link
-                  href="/careers"
-                  className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors font-semibold"
-                >
-                  <span>View Career Opportunities</span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="ml-1"
-                  />
-                </Link>
-              </CardContent>
-            </Card>
+            <div className="group relative flex h-full">
+              {/* Animated Border Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-            <Card className={getCardClassName("default")}>
-              <CardHeader>
-                <MaterialIcon
-                  icon="handshake"
-                  size="4xl"
-                  theme="veteran"
-                  ariaLabel="Veteran Allies Network"
-                  className="mb-4 text-brand-secondary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
-                  Veteran Allies
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4">
-                  Recruiting veteran-owned subcontractors for our growing
-                  network. As we establish company longevity, we're building
-                  partnerships with preferential opportunities for veteran-owned
-                  businesses.
-                </p>
-                <Link
-                  href="/allies"
-                  className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors font-semibold"
-                >
-                  <span>Become an Ally</span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="ml-1"
-                  />
-                </Link>
-              </CardContent>
-            </Card>
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
-            <Card className={getCardClassName("default")}>
-              <CardHeader>
-                <MaterialIcon
-                  icon="military_tech"
-                  size="4xl"
-                  theme="veteran"
-                  ariaLabel="Training & Education Programs"
-                  className="mb-4 text-brand-secondary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
-                  Training & Education
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4">
-                  Developing programs for veterans pursuing construction trades,
-                  including internship opportunities and GI Bill apprenticeship
-                  participation as we grow our veteran support network.
-                </p>
-                <Link
-                  href="/about"
-                  className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors font-semibold"
-                >
-                  <span>Learn About Our Values</span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="ml-1"
-                  />
-                </Link>
-              </CardContent>
-            </Card>
+                <div className="p-6 sm:p-8 flex flex-col flex-1">
+                  <div className="relative inline-block mb-4 mx-auto">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
+                    <div className="relative">
+                      <MaterialIcon
+                        icon="badge"
+                        size="4xl"
+                        theme="military"
+                        ariaLabel="Veteran Hiring Priority"
+                        className="text-brand-primary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4 text-center">
+                    Veteran Hiring Priority
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed flex-grow">
+                    Qualified veterans receive priority consideration for all
+                    positions. We're deploying tactical apprenticeship programs
+                    for transitioning service members as we build our veteran
+                    support operational network.
+                  </p>
+                  <div className="text-center">
+                    <Link
+                      href="/careers"
+                      className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors font-semibold"
+                    >
+                      <span>View Career Opportunities</span>
+                      <MaterialIcon
+                        icon="arrow_forward"
+                        size="sm"
+                        className="ml-1"
+                      />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative flex h-full">
+              {/* Animated Border Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                <div className="p-6 sm:p-8 flex flex-col flex-1">
+                  <div className="relative inline-block mb-4 mx-auto">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
+                    <div className="relative">
+                      <MaterialIcon
+                        icon="handshake"
+                        size="4xl"
+                        theme="veteran"
+                        ariaLabel="Veteran Allies Network"
+                        className="text-brand-secondary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4 text-center">
+                    Veteran Allies
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed flex-grow">
+                    Recruiting veteran-owned subcontractors for our growing
+                    network. As we establish company longevity, we're building
+                    partnerships with preferential opportunities for
+                    veteran-owned businesses.
+                  </p>
+                  <div className="text-center">
+                    <Link
+                      href="/allies"
+                      className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors font-semibold"
+                    >
+                      <span>Become an Ally</span>
+                      <MaterialIcon
+                        icon="arrow_forward"
+                        size="sm"
+                        className="ml-1"
+                      />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative flex h-full">
+              {/* Animated Border Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                <div className="p-6 sm:p-8 flex flex-col flex-1">
+                  <div className="relative inline-block mb-4 mx-auto">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
+                    <div className="relative">
+                      <MaterialIcon
+                        icon="military_tech"
+                        size="4xl"
+                        theme="veteran"
+                        ariaLabel="Training & Education Programs"
+                        className="text-brand-secondary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4 text-center">
+                    Training & Education
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed flex-grow">
+                    Developing programs for veterans pursuing construction
+                    trades, including internship opportunities and GI Bill
+                    apprenticeship participation as we grow our veteran support
+                    network.
+                  </p>
+                  <div className="text-center">
+                    <Link
+                      href="/about"
+                      className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors font-semibold"
+                    >
+                      <span>Learn About Our Values</span>
+                      <MaterialIcon
+                        icon="arrow_forward"
+                        size="sm"
+                        className="ml-1"
+                      />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </StaggeredFadeIn>
         </Section>
 
@@ -465,167 +513,186 @@ export default function VeteransPage() {
           </div>
 
           <StaggeredFadeIn className={gridPresets.twoColumn("md")}>
-            <Card
-              className={getCardClassName(
-                "default",
-                "border-l-4 border-l-brand-primary",
-              )}
-            >
-              <CardContent className="pt-6">
-                <ul className="space-y-4 text-gray-700 dark:text-gray-300">
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="military_tech"
-                      size="xl"
-                      theme="military"
-                      ariaLabel="Military Discipline"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
-                    />
-                    <div>
-                      <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
-                        Discipline
-                      </h4>
-                      <p className="text-base">
-                        Consistent execution and accountability on every project
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="workspace_premium"
-                      size="xl"
-                      theme="military"
-                      ariaLabel="Excellence Standard"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
-                    />
-                    <div>
-                      <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
-                        Excellence
-                      </h4>
-                      <p className="text-base">
-                        High standards in craftsmanship and service delivery
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="verified"
-                      size="xl"
-                      theme="military"
-                      ariaLabel="Integrity Commitment"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
-                    />
-                    <div>
-                      <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
-                        Integrity
-                      </h4>
-                      <p className="text-base">
-                        Honest communication and transparent pricing always
-                      </p>
-                    </div>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            <div className="group relative flex h-full">
+              {/* Animated Border Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-            <Card
-              className={getCardClassName(
-                "default",
-                "border-l-4 border-l-brand-secondary",
-              )}
-            >
-              <CardContent className="pt-6">
-                <ul className="space-y-4 text-gray-700 dark:text-gray-300">
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="volunteer_activism"
-                      size="xl"
-                      theme="veteran"
-                      ariaLabel="Service Above Self"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-secondary"
-                    />
-                    <div>
-                      <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
-                        Service
-                      </h4>
-                      <p className="text-base">
-                        Putting client partner mission above company profit
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="diversity_3"
-                      size="xl"
-                      theme="veteran"
-                      ariaLabel="Team Unity"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-secondary"
-                    />
-                    <div>
-                      <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
-                        Teamwork
-                      </h4>
-                      <p className="text-base">
-                        Collaborative approach to solving complex challenges
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <MaterialIcon
-                      icon="gps_fixed"
-                      size="xl"
-                      theme="veteran"
-                      ariaLabel="Precision Excellence"
-                      className="flex-shrink-0 mt-1 mr-3 text-brand-secondary"
-                    />
-                    <div>
-                      <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
-                        Precision
-                      </h4>
-                      <p className="text-base">
-                        Attention to detail in planning and execution
-                      </p>
-                    </div>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+                {/* Left Accent Bar */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                <div className="pt-6 px-8 pb-8">
+                  <ul className="space-y-4 text-gray-700 dark:text-gray-300">
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="military_tech"
+                        size="xl"
+                        theme="military"
+                        ariaLabel="Military Discipline"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
+                      />
+                      <div>
+                        <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
+                          Discipline
+                        </h4>
+                        <p className="text-base">
+                          Consistent execution and accountability on every
+                          project
+                        </p>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="workspace_premium"
+                        size="xl"
+                        theme="military"
+                        ariaLabel="Excellence Standard"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
+                      />
+                      <div>
+                        <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
+                          Excellence
+                        </h4>
+                        <p className="text-base">
+                          High standards in craftsmanship and service delivery
+                        </p>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="verified"
+                        size="xl"
+                        theme="military"
+                        ariaLabel="Integrity Commitment"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
+                      />
+                      <div>
+                        <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
+                          Integrity
+                        </h4>
+                        <p className="text-base">
+                          Honest communication and transparent pricing always
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative flex h-full">
+              {/* Animated Border Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+                {/* Left Accent Bar */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                <div className="pt-6 px-8 pb-8">
+                  <ul className="space-y-4 text-gray-700 dark:text-gray-300">
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="volunteer_activism"
+                        size="xl"
+                        theme="veteran"
+                        ariaLabel="Service Above Self"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-secondary"
+                      />
+                      <div>
+                        <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
+                          Service
+                        </h4>
+                        <p className="text-base">
+                          Putting client partner mission above company profit
+                        </p>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="diversity_3"
+                        size="xl"
+                        theme="veteran"
+                        ariaLabel="Team Unity"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-secondary"
+                      />
+                      <div>
+                        <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
+                          Teamwork
+                        </h4>
+                        <p className="text-base">
+                          Collaborative approach to solving complex challenges
+                        </p>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <MaterialIcon
+                        icon="gps_fixed"
+                        size="xl"
+                        theme="veteran"
+                        ariaLabel="Precision Excellence"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-secondary"
+                      />
+                      <div>
+                        <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">
+                          Precision
+                        </h4>
+                        <p className="text-base">
+                          Attention to detail in planning and execution
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </StaggeredFadeIn>
 
           {/* Veteran Team Member */}
           <FadeInWhenVisible className="mt-12">
-            <Card
-              className={getCardClassName(
-                "default",
-                "border-l-4 border-l-brand-secondary max-w-3xl mx-auto text-center",
-              )}
-            >
-              <CardHeader>
-                <MaterialIcon
-                  icon="anchor"
-                  size="4xl"
-                  theme="veteran"
-                  ariaLabel="Navy Veteran"
-                  className="mx-auto mb-4 text-brand-secondary"
-                />
-                <CardTitle className="text-gray-900 dark:text-white text-xl sm:text-2xl">
-                  Matt Ramsey
-                </CardTitle>
-                <p className="text-brand-secondary font-semibold text-lg mt-2">
-                  Digital Marketing Manager | Navy Veteran
-                </p>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                  Navy veteran Matt Ramsey brings military discipline to digital
-                  excellence, ensuring our veteran-owned business stays
-                  connected with those we serve. His service taught him that
-                  trust is earned through consistent action and genuine
-                  commitment—principles that guide our digital presence and
-                  veteran outreach initiatives.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="group relative flex max-w-3xl mx-auto">
+              {/* Animated Border Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+                {/* Left Accent Bar */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                <div className="p-8 sm:p-10 text-center">
+                  <div className="relative inline-block mb-6 mx-auto">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-2xl rounded-full"></div>
+                    <div className="relative">
+                      <MaterialIcon
+                        icon="anchor"
+                        size="4xl"
+                        theme="veteran"
+                        ariaLabel="Navy Veteran"
+                        className="text-brand-secondary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-2">
+                    Matt Ramsey
+                  </h3>
+                  <p className="text-brand-secondary font-semibold text-lg mb-6">
+                    Digital Marketing Manager | Navy Veteran
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                    Navy veteran Matt Ramsey brings military discipline to
+                    digital excellence, ensuring our veteran-owned business
+                    stays connected with those we serve. His service taught him
+                    that trust is earned through consistent action and genuine
+                    commitment—principles that guide our digital presence and
+                    veteran outreach initiatives.
+                  </p>
+                </div>
+              </div>
+            </div>
           </FadeInWhenVisible>
         </Section>
 
@@ -701,68 +768,102 @@ export default function VeteransPage() {
             </FadeInWhenVisible>
 
             <StaggeredFadeIn className={gridPresets.cards3("md")}>
-              <Card className={getCardClassName("default", "text-center")}>
-                <CardHeader>
-                  <MaterialIcon
-                    icon="directions_boat"
-                    size="4xl"
-                    theme="military"
-                    ariaLabel="Fishing Fleet"
-                    className="mx-auto mb-4 text-brand-primary"
-                  />
-                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                    40+ Boats
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
-                    Local boating community coming together to provide fishing
-                    experiences for 100-150 veterans and their families.
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="group relative flex h-full">
+                {/* Animated Border Glow */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-              <Card className={getCardClassName("default", "text-center")}>
-                <CardHeader>
-                  <MaterialIcon
-                    icon="diversity_3"
-                    size="4xl"
-                    theme="veteran"
-                    ariaLabel="Community Unity"
-                    className="mx-auto mb-4 text-brand-secondary"
-                  />
-                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                    Community Powered
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
-                    Made possible by generous sponsors and volunteers committed
-                    to supporting those who've served our country.
-                  </p>
-                </CardContent>
-              </Card>
+                <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                  {/* Top Accent Bar */}
+                  <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
 
-              <Card className={getCardClassName("default", "text-center")}>
-                <CardHeader>
-                  <MaterialIcon
-                    icon="volunteer_activism"
-                    size="4xl"
-                    theme="veteran"
-                    ariaLabel="Free Veterans Support"
-                    className="mx-auto mb-4 text-bronze-600"
-                  />
-                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl">
-                    Free for Veterans
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg">
-                    No cost to participate. Fully sponsored event includes
-                    breakfast, lunch, dinner, fishing gear, and awards ceremony.
-                  </p>
-                </CardContent>
-              </Card>
+                  <div className="p-6 sm:p-8 text-center flex flex-col flex-1">
+                    <div className="relative inline-block mb-4 mx-auto">
+                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
+                      <div className="relative">
+                        <MaterialIcon
+                          icon="directions_boat"
+                          size="4xl"
+                          theme="military"
+                          ariaLabel="Fishing Fleet"
+                          className="text-brand-primary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
+                        />
+                      </div>
+                    </div>
+                    <h3 className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl font-bold mb-4">
+                      40+ Boats
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed flex-grow">
+                      Local boating community coming together to provide fishing
+                      experiences for 100-150 veterans and their families.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group relative flex h-full">
+                {/* Animated Border Glow */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                  {/* Top Accent Bar */}
+                  <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                  <div className="p-6 sm:p-8 text-center flex flex-col flex-1">
+                    <div className="relative inline-block mb-4 mx-auto">
+                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
+                      <div className="relative">
+                        <MaterialIcon
+                          icon="diversity_3"
+                          size="4xl"
+                          theme="veteran"
+                          ariaLabel="Community Unity"
+                          className="text-brand-secondary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
+                        />
+                      </div>
+                    </div>
+                    <h3 className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl font-bold mb-4">
+                      Community Powered
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed flex-grow">
+                      Made possible by generous sponsors and volunteers
+                      committed to supporting those who've served our country.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group relative flex h-full">
+                {/* Animated Border Glow */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                  {/* Top Accent Bar */}
+                  <div className="h-2 bg-gradient-to-r from-bronze-600 via-bronze-700 to-bronze-800"></div>
+
+                  <div className="p-6 sm:p-8 text-center flex flex-col flex-1">
+                    <div className="relative inline-block mb-4 mx-auto">
+                      <div className="absolute -inset-2 bg-gradient-to-br from-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
+                      <div className="relative">
+                        <MaterialIcon
+                          icon="volunteer_activism"
+                          size="4xl"
+                          theme="veteran"
+                          ariaLabel="Free Veterans Support"
+                          className="text-bronze-600 drop-shadow-lg group-hover:scale-110 transition-all duration-300"
+                        />
+                      </div>
+                    </div>
+                    <h3 className="text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl font-bold mb-4">
+                      Free for Veterans
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed flex-grow">
+                      No cost to participate. Fully sponsored event includes
+                      breakfast, lunch, dinner, fishing gear, and awards
+                      ceremony.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </StaggeredFadeIn>
 
             {/* Event Day Schedule */}

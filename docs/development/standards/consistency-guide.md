@@ -335,14 +335,14 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 export default function PageName() {
   return (
     <div className="relative bg-white dark:bg-gray-900 w-full min-h-screen overflow-x-hidden">
-      {/* Optional: Top Navigation */}
-      <PageNavigation items={navigationConfigs.pageName} />
-
-      {/* Hero Section - REQUIRED */}
+      {/* Hero Section - REQUIRED with PageNavigation */}
       <PageHero />
 
-      {/* Content Sections */}
-      <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
+      {/* Content Sections - Each with unique id for navigation */}
+      <section
+        id="section-name"
+        className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40"
+      >
         <div className="mx-auto px-4 container">{/* Section content */}</div>
       </section>
 
@@ -352,6 +352,14 @@ export default function PageName() {
   );
 }
 ```
+
+**Navigation Pattern (Dec 2025):**
+
+- ✅ **Section-Based Navigation**: All PageNavigation items use `#section-id` anchors
+- ✅ **Hero Integration**: PageNavigation placed at bottom of hero section
+- ✅ **Hamburger Menu**: Handles cross-page navigation and social media links
+- ✅ **Section IDs Required**: Each navigable section must have unique `id` attribute
+- ✅ **Mobile Responsive**: Uses dual-label pattern (full/mobile labels)
 
 ### Hero Section Patterns
 
@@ -380,12 +388,27 @@ export default function PageName() {
     </h1>
   </div>
 
-  {/* Page Navigation */}
+  {/* Page Navigation - Section Anchors Only */}
   <PageNavigation
     items={navigationConfigs.page}
     className="absolute bottom-0 left-0 right-0"
   />
 </section>
+```
+
+**Navigation Config Pattern:**
+
+```typescript
+// navigationConfigs.ts
+pageName: [
+  {
+    href: "#section-id", // MUST be section anchor, not cross-page link
+    label: "Full Label", // Desktop label
+    mobileLabel: "Short", // Mobile label
+    icon: "material_icon", // Material icon name
+  },
+  // More sections...
+];
 ```
 
 #### Pattern B: Gradient Background Hero (Clean, Professional)

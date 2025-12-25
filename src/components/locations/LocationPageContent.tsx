@@ -173,7 +173,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               {/* Section Header */}
-              <div className="text-center mb-12 sm:mb-16">
+              <div className="text-center mb-16 sm:mb-20">
                 <h2 className="font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-gray-100 leading-tight tracking-tighter mb-4">
                   <span className="block text-brand-primary">
                     Construction Services
@@ -276,7 +276,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               {/* Section Header */}
-              <div className="text-center mb-12 sm:mb-16">
+              <div className="text-center mb-16 sm:mb-20">
                 <h2 className="font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-gray-100 leading-tight tracking-tighter mb-4">
                   <span className="block text-brand-primary">
                     Why {location.city} Chooses

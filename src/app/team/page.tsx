@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { TeamProfileSection } from "@/components/team/TeamProfileSection";
-import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import {
   vintageTeamMembers,
   type VintageTeamMember,
@@ -172,6 +172,9 @@ export default function TeamPage() {
           }),
         }}
       />
+
+      {/* Initialize scroll reveal animations */}
+      <ScrollReveal />
 
       <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
         {/* Hero Section */}
@@ -398,9 +401,9 @@ export default function TeamPage() {
                     {/* Team member profiles */}
                     <div className="space-y-8 sm:space-y-10 md:space-y-12">
                       {members.map((member, index) => (
-                        <FadeInWhenVisible key={member.slug}>
+                        <div key={member.slug} className="scroll-reveal">
                           <TeamProfileSection member={member} index={index} />
-                        </FadeInWhenVisible>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -594,9 +597,9 @@ export default function TeamPage() {
                     {/* Team member profiles */}
                     <div className="space-y-8 sm:space-y-10 md:space-y-12">
                       {members.map((member, index) => (
-                        <FadeInWhenVisible key={member.slug}>
+                        <div key={member.slug} className="scroll-reveal">
                           <TeamProfileSection member={member} index={index} />
-                        </FadeInWhenVisible>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -657,93 +660,119 @@ export default function TeamPage() {
 
               <div className="gap-6 sm:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-12">
                 {/* Team Unity */}
-                <FadeInWhenVisible>
-                  <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-brand-primary/20 dark:hover:border-brand-primary/30 flex flex-col h-full">
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                    <div className="relative z-10 flex flex-col flex-grow">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark group-hover:scale-110 mx-auto mb-6 rounded-full w-16 h-16 shadow-md group-hover:shadow-lg transition-all duration-300">
-                        <MaterialIcon
-                          icon="groups"
-                          size="lg"
-                          className="text-white"
-                        />
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
+                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                            <MaterialIcon
+                              icon="groups"
+                              size="lg"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Team Unity
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          From veterans to civilians, office to field—we&apos;re
+                          one team with shared values forged through military
+                          discipline and construction excellence. Every client
+                          success belongs to all of us, every safety milestone
+                          reflects our collective commitment, and every project
+                          showcases our unified dedication to quality.
+                        </p>
                       </div>
-                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
-                        Team Unity
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
-                        From veterans to civilians, office to field—we&apos;re
-                        one team with shared values forged through military
-                        discipline and construction excellence. Every client
-                        success belongs to all of us, every safety milestone
-                        reflects our collective commitment, and every project
-                        showcases our unified dedication to quality.
-                      </p>
                     </div>
                   </div>
-                </FadeInWhenVisible>
+                </div>
 
                 {/* Mutual Support */}
-                <FadeInWhenVisible>
-                  <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-brand-secondary/20 dark:hover:border-brand-secondary/30 flex flex-col h-full">
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                    <div className="relative z-10 flex flex-col flex-grow">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-brand-secondary to-brand-secondary-dark group-hover:scale-110 mx-auto mb-6 rounded-full w-16 h-16 shadow-md group-hover:shadow-lg transition-all duration-300">
-                        <MaterialIcon
-                          icon="volunteer_activism"
-                          size="lg"
-                          theme="tactical"
-                          ariaLabel="Mutual support"
-                          className="text-white"
-                        />
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40 opacity-30 blur-lg rounded-full"></div>
+                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-secondary to-brand-secondary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                            <MaterialIcon
+                              icon="volunteer_activism"
+                              size="lg"
+                              theme="tactical"
+                              ariaLabel="Mutual support"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Mutual Support
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          We lift each other up through mentorship programs,
+                          share 150+ years of combined knowledge freely, and
+                          ensure no one faces challenges alone. Your growth is
+                          our growth—from apprentice to master craftsman, from
+                          entry-level to leadership, we invest in continuous
+                          professional development and cross-training
+                          excellence.
+                        </p>
                       </div>
-                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center group-hover:text-brand-secondary dark:group-hover:text-brand-secondary-light transition-colors duration-300">
-                        Mutual Support
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
-                        We lift each other up through mentorship programs, share
-                        150+ years of combined knowledge freely, and ensure no
-                        one faces challenges alone. Your growth is our
-                        growth—from apprentice to master craftsman, from
-                        entry-level to leadership, we invest in continuous
-                        professional development and cross-training excellence.
-                      </p>
                     </div>
                   </div>
-                </FadeInWhenVisible>
+                </div>
 
                 {/* Shared Success */}
-                <FadeInWhenVisible>
-                  <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-brand-primary/20 dark:hover:border-brand-primary/30 flex flex-col h-full">
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                    <div className="relative z-10 flex flex-col flex-grow">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-brand-primary-dark to-brand-primary-dark group-hover:scale-110 mx-auto mb-6 rounded-full w-16 h-16 shadow-md group-hover:shadow-lg transition-all duration-300">
-                        <MaterialIcon
-                          icon="military_tech"
-                          size="lg"
-                          className="text-white"
-                        />
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
+                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary-dark to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                            <MaterialIcon
+                              icon="military_tech"
+                              size="lg"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Shared Success
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          When our clients win, we all win—from AGC-WA Top EMR
+                          Awards to 3+ years without time-loss injuries.
+                          Celebrating achievements together (70% referral
+                          business), learning from setbacks as a unified team,
+                          and building lasting relationships that extend well
+                          beyond project completion. THE ROI IS THE
+                          RELATIONSHIP.
+                        </p>
                       </div>
-                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
-                        Shared Success
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
-                        When our clients win, we all win—from AGC-WA Top EMR
-                        Awards to 3+ years without time-loss injuries.
-                        Celebrating achievements together (70% referral
-                        business), learning from setbacks as a unified team, and
-                        building lasting relationships that extend well beyond
-                        project completion. THE ROI IS THE RELATIONSHIP.
-                      </p>
                     </div>
                   </div>
-                </FadeInWhenVisible>
+                </div>
               </div>
 
               {/* Culture Highlights - Enhanced */}
@@ -973,171 +1002,220 @@ export default function TeamPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
                 {/* Continuous Training */}
-                <FadeInWhenVisible>
-                  <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-brand-primary/20 dark:hover:border-brand-primary/30 flex flex-col h-full">
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                    <div className="relative z-10 flex flex-col flex-grow">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-accent-600 to-accent-700 group-hover:from-brand-primary group-hover:to-brand-primary-dark mx-auto mb-6 rounded-full w-16 h-16 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
-                        <MaterialIcon
-                          icon="school"
-                          size="lg"
-                          className="text-white"
-                        />
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
+                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                            <MaterialIcon
+                              icon="school"
+                              size="lg"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Continuous Training
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          Regular training on new techniques, evolving safety
+                          standards (OSHA 30, VPP Star), and emerging technology
+                          integration. Stay at the forefront of construction
+                          excellence with ongoing certification maintenance and
+                          skills development.
+                        </p>
                       </div>
-                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
-                        Continuous Training
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
-                        Regular training on new techniques, evolving safety
-                        standards (OSHA 30, VPP Star), and emerging technology
-                        integration. Stay at the forefront of construction
-                        excellence with ongoing certification maintenance and
-                        skills development.
-                      </p>
                     </div>
                   </div>
-                </FadeInWhenVisible>
+                </div>
 
                 {/* Cross-Training */}
-                <FadeInWhenVisible>
-                  <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-brand-primary/20 dark:hover:border-brand-primary/30 flex flex-col h-full">
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                    <div className="relative z-10 flex flex-col flex-grow">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-primary-600 to-primary-700 group-hover:from-brand-primary group-hover:to-brand-primary-dark mx-auto mb-6 rounded-full w-16 h-16 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
-                        <MaterialIcon
-                          icon="sync_alt"
-                          size="lg"
-                          ariaLabel="Cross-training"
-                          className="text-white"
-                        />
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
+                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                            <MaterialIcon
+                              icon="sync_alt"
+                              size="lg"
+                              ariaLabel="Cross-training"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Cross-Training Programs
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          Expand your skillset across multiple specialties and
+                          construction disciplines. Learn from experienced
+                          professionals in different trades, increasing your
+                          versatility and value within the organization.
+                        </p>
                       </div>
-                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
-                        Cross-Training Programs
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
-                        Expand your skillset across multiple specialties and
-                        construction disciplines. Learn from experienced
-                        professionals in different trades, increasing your
-                        versatility and value within the organization.
-                      </p>
                     </div>
                   </div>
-                </FadeInWhenVisible>
+                </div>
 
                 {/* Mentorship */}
-                <FadeInWhenVisible>
-                  <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-brand-primary/20 dark:hover:border-brand-primary/30 flex flex-col h-full">
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                    <div className="relative z-10 flex flex-col flex-grow">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-secondary-600 to-secondary-700 group-hover:from-brand-secondary group-hover:to-brand-secondary-dark mx-auto mb-6 rounded-full w-16 h-16 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
-                        <MaterialIcon
-                          icon="supervisor_account"
-                          size="lg"
-                          ariaLabel="Mentorship"
-                          className="text-white"
-                        />
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
+                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-secondary to-bronze-700 rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                            <MaterialIcon
+                              icon="supervisor_account"
+                              size="lg"
+                              ariaLabel="Mentorship"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Structured Mentorship
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          Paired with experienced professionals who share 150+
+                          years of combined knowledge freely. From apprentice to
+                          master craftsman, from entry-level to leadership—your
+                          mentor guides your journey every step of the way.
+                        </p>
                       </div>
-                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
-                        Structured Mentorship
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
-                        Paired with experienced professionals who share 150+
-                        years of combined knowledge freely. From apprentice to
-                        master craftsman, from entry-level to leadership—your
-                        mentor guides your journey every step of the way.
-                      </p>
                     </div>
                   </div>
-                </FadeInWhenVisible>
+                </div>
 
                 {/* Career Paths */}
-                <FadeInWhenVisible>
-                  <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-brand-primary/20 dark:hover:border-brand-primary/30 flex flex-col h-full">
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                    <div className="relative z-10 flex flex-col flex-grow">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-accent-600 to-accent-700 group-hover:from-brand-primary group-hover:to-brand-primary-dark mx-auto mb-6 rounded-full w-16 h-16 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
-                        <MaterialIcon
-                          icon="trending_up"
-                          size="lg"
-                          className="text-white"
-                        />
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
+                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                            <MaterialIcon
+                              icon="trending_up"
+                              size="lg"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Clear Advancement Paths
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          Transparent career progression from apprentice →
+                          journeyman → foreman → superintendent → project
+                          manager. Your advancement is based on merit, skills,
+                          and demonstrated leadership—not politics or tenure.
+                        </p>
                       </div>
-                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
-                        Clear Advancement Paths
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
-                        Transparent career progression from apprentice →
-                        journeyman → foreman → superintendent → project manager.
-                        Your advancement is based on merit, skills, and
-                        demonstrated leadership—not politics or tenure.
-                      </p>
                     </div>
                   </div>
-                </FadeInWhenVisible>
+                </div>
 
                 {/* Leadership Development */}
-                <FadeInWhenVisible>
-                  <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-brand-primary/20 dark:hover:border-brand-primary/30 flex flex-col h-full">
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                    <div className="relative z-10 flex flex-col flex-grow">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-primary-600 to-primary-700 group-hover:from-brand-primary group-hover:to-brand-primary-dark mx-auto mb-6 rounded-full w-16 h-16 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
-                        <MaterialIcon
-                          icon="badge"
-                          size="lg"
-                          ariaLabel="Leadership development"
-                          className="text-white"
-                        />
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
+                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                            <MaterialIcon
+                              icon="badge"
+                              size="lg"
+                              ariaLabel="Leadership development"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Leadership Development
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          Emerging leaders receive specialized training in
+                          project management, team leadership, client relations,
+                          and business development. We build tomorrow&apos;s
+                          construction leaders today.
+                        </p>
                       </div>
-                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
-                        Leadership Development
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
-                        Emerging leaders receive specialized training in project
-                        management, team leadership, client relations, and
-                        business development. We build tomorrow&apos;s
-                        construction leaders today.
-                      </p>
                     </div>
                   </div>
-                </FadeInWhenVisible>
+                </div>
 
                 {/* Industry Involvement */}
-                <FadeInWhenVisible>
-                  <div className="group relative bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-gray-700/50 p-8 rounded-xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-brand-primary/20 dark:hover:border-brand-primary/30 flex flex-col h-full">
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                <div className="scroll-reveal">
+                  <div className="group relative flex h-full">
+                    {/* Animated Border Glow */}
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                    <div className="relative z-10 flex flex-col flex-grow">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-secondary-600 to-secondary-700 group-hover:from-brand-secondary group-hover:to-brand-secondary-dark mx-auto mb-6 rounded-full w-16 h-16 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
-                        <MaterialIcon
-                          icon="connect_without_contact"
-                          size="lg"
-                          ariaLabel="Industry involvement"
-                          className="text-white"
-                        />
+                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                      {/* Top Accent Bar */}
+                      <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="relative inline-block mx-auto mb-6">
+                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
+                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-secondary to-bronze-700 rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                            <MaterialIcon
+                              icon="connect_without_contact"
+                              size="lg"
+                              ariaLabel="Industry involvement"
+                              className="text-white drop-shadow-lg"
+                            />
+                          </div>
+                        </div>
+                        <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
+                          Industry Involvement
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
+                          Active participation in AGC, NAIOP, and other
+                          professional organizations. Network with industry
+                          leaders, stay current on regulations and best
+                          practices, and represent MH Construction in the
+                          broader community.
+                        </p>
                       </div>
-                      <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
-                        Industry Involvement
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
-                        Active participation in AGC, NAIOP, and other
-                        professional organizations. Network with industry
-                        leaders, stay current on regulations and best practices,
-                        and represent MH Construction in the broader community.
-                      </p>
                     </div>
                   </div>
-                </FadeInWhenVisible>
+                </div>
               </div>
 
               {/* Investment in Your Success - Enhanced Stats */}

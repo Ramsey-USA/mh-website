@@ -136,6 +136,32 @@ Git
 - **Interfaces**: Define clear interfaces for props and data structures
 - **Error Handling**: Proper error boundaries and type-safe error handling
 
+### Navigation Standards (Updated Dec 2025)
+
+- **Section-Based Navigation**: All PageNavigation items use `#section-id` format
+- **No Cross-Page Links**: PageNavigation only links to sections within the same page
+- **Hamburger Menu**: Cross-page navigation handled by hamburger menu
+- **Section IDs Required**: Every navigable section must have a unique `id` attribute
+- **Dual Labels**: All navigation items have full label (desktop) and mobile label
+- **Material Icons**: All navigation items include semantic Material Icon
+
+**Navigation Config Example:**
+
+```typescript
+// src/components/navigation/navigationConfigs.ts
+export const navigationConfigs = {
+  pageName: [
+    {
+      href: "#overview",
+      label: "Mission Overview",
+      mobileLabel: "Overview",
+      icon: "info",
+    },
+    // More sections...
+  ],
+};
+```
+
 ````typescript
 // Good
 interface ButtonProps {
