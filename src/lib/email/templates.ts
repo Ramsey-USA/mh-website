@@ -3,6 +3,8 @@
  * Following MH Construction brand messaging guidelines
  */
 
+import { COMPANY_INFO } from "@/lib/constants/company";
+
 export interface ApplicantEmailData {
   firstName: string;
   lastName: string;
@@ -102,9 +104,9 @@ export function generateJobApplicationAcknowledgment(
       <td style="background-color: #f5f5f5; padding: 20px; text-align: center; border-top: 1px solid #e5e5e5;">
         <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">
           <strong>MH Construction, Inc.</strong><br>
-          3111 N. Capitol Ave., Pasco, WA 99301<br>
-          Phone: <a href="tel:+15093086489" style="color: #386851; text-decoration: none;">(509) 308-6489</a><br>
-          Email: <a href="mailto:office@mhc-gc.com" style="color: #386851; text-decoration: none;">office@mhc-gc.com</a>
+          ${COMPANY_INFO.address.full}<br>
+          Phone: <a href="tel:${COMPANY_INFO.phone.tel}" style="color: #386851; text-decoration: none;">${COMPANY_INFO.phone.display}</a><br>
+          Email: <a href="mailto:${COMPANY_INFO.email.main}" style="color: #386851; text-decoration: none;">${COMPANY_INFO.email.main}</a>
         </p>
         <p style="margin: 0; font-size: 12px; color: #999;">
           Licensed in WA, OR, ID | Veteran-Owned & Operated
@@ -141,9 +143,9 @@ Your Future Team at MH Construction
 ---
 
 MH Construction, Inc.
-3111 N. Capitol Ave., Pasco, WA 99301
-Phone: (509) 308-6489
-Email: office@mhc-gc.com
+${COMPANY_INFO.address.full}
+Phone: ${COMPANY_INFO.phone.display}
+Email: ${COMPANY_INFO.email.main}
 
 Licensed in WA, OR, ID | Veteran-Owned & Operated
   `.trim();
@@ -232,7 +234,7 @@ export function generateConsultationAcknowledgment(
         </div>
         
         <p style="margin: 20px 0 0 0; font-size: 16px; line-height: 1.6;">
-          If you have any immediate questions or need to reach us, feel free to call <strong style="color: #386851;">(509) 308-6489</strong> or reply to this email.
+          If you have any immediate questions or need to reach us, feel free to call <strong style="color: #386851;">${COMPANY_INFO.phone.display}</strong> or reply to this email.
         </p>
         
         <p style="margin: 20px 0 0 0; font-size: 16px; line-height: 1.6;">
@@ -247,9 +249,9 @@ export function generateConsultationAcknowledgment(
       <td style="background-color: #f5f5f5; padding: 20px; text-align: center; border-top: 1px solid #e5e5e5;">
         <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">
           <strong>MH Construction, Inc.</strong><br>
-          3111 N. Capitol Ave., Pasco, WA 99301<br>
-          Phone: <a href="tel:+15093086489" style="color: #386851; text-decoration: none;">(509) 308-6489</a><br>
-          Email: <a href="mailto:office@mhc-gc.com" style="color: #386851; text-decoration: none;">office@mhc-gc.com</a>
+          ${COMPANY_INFO.address.full}<br>
+          Phone: <a href="tel:${COMPANY_INFO.phone.tel}" style="color: #386851; text-decoration: none;">${COMPANY_INFO.phone.display}</a><br>
+          Email: <a href="mailto:${COMPANY_INFO.email.main}" style="color: #386851; text-decoration: none;">${COMPANY_INFO.email.main}</a>
         </p>
         <p style="margin: 0; font-size: 12px; color: #999;">
           Licensed in WA, OR, ID | Veteran-Owned & Operated
@@ -289,7 +291,7 @@ At MH Construction, we believe "THE ROI IS THE RELATIONSHIP." We're not just bui
 - Military precision meets partnership warmth
 - Your vision guides every decision we make
 
-If you have any immediate questions or need to reach us, feel free to call (509) 308-6489 or reply to this email.
+If you have any immediate questions or need to reach us, feel free to call ${COMPANY_INFO.phone.display} or reply to this email.
 
 Looking forward to building more than just structures with you,
 The MH Construction Team
@@ -297,9 +299,9 @@ The MH Construction Team
 ---
 
 MH Construction, Inc.
-3111 N. Capitol Ave., Pasco, WA 99301
-Phone: (509) 308-6489
-Email: office@mhc-gc.com
+${COMPANY_INFO.address.full}
+Phone: ${COMPANY_INFO.phone.display}
+Email: ${COMPANY_INFO.email.main}
 
 Licensed in WA, OR, ID | Veteran-Owned & Operated
   `.trim();

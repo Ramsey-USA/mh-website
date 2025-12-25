@@ -5,6 +5,8 @@
  * XSS, SQL injection, and other security vulnerabilities.
  */
 
+import { logger } from "@/lib/utils/logger";
+
 /**
  * Sanitize HTML to prevent XSS attacks
  * Removes dangerous tags and attributes
@@ -206,7 +208,7 @@ export function sanitizeJSON(input: string): unknown | null {
         "constructor" in parsed ||
         "prototype" in parsed
       ) {
-        console.warn("Potential prototype pollution attempt detected");
+        logger.warn("Potential prototype pollution attempt detected");
         return null;
       }
     }

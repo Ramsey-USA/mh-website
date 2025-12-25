@@ -6,6 +6,7 @@ import {
   CardTitle,
   CardContent,
 } from "@/components/ui";
+import { DiagonalStripePattern } from "@/components/ui/backgrounds";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
@@ -18,6 +19,7 @@ import { gridPresets } from "@/lib/styles/layout-variants";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import Head from "next/head";
 import { getGovernmentSEO } from "@/lib/seo/page-seo-utils";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import { InteractiveGrantSelector } from "./InteractiveGrantSelector";
 import { StructuredData } from "@/components/seo/seo-meta";
 import {
@@ -878,15 +880,11 @@ export default function PublicSectorPage() {
       </section>
       {/* CTA Section - Strong Government Theme */}
       <section className="relative bg-gradient-to-r from-gray-900 to-black py-20 overflow-hidden text-white">
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.1) 35px, rgba(255,255,255,0.1) 36px)",
-            }}
-          ></div>
-        </div>
+        <DiagonalStripePattern
+          lightOpacity={0.1}
+          darkOpacity={0.1}
+          color="rgba(255,255,255,0.1)"
+        />
         <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <FadeInWhenVisible>
             <div className="mx-auto max-w-4xl text-center">
@@ -946,10 +944,10 @@ export default function PublicSectorPage() {
                     />
                     <p className="mb-1 text-gray-400 text-sm">Call Us</p>
                     <a
-                      href="tel:+15093086489"
+                      href={`tel:${COMPANY_INFO.phone.tel}`}
                       className="font-bold text-white hover:text-gray-300 text-2xl"
                     >
-                      (509) 308-6489
+                      {COMPANY_INFO.phone.display}
                     </a>
                   </div>
                   <div>
@@ -962,10 +960,10 @@ export default function PublicSectorPage() {
                     />
                     <p className="mb-1 text-gray-400 text-sm">Email Us</p>
                     <a
-                      href="mailto:office@mhc-gc.com"
+                      href={`mailto:${COMPANY_INFO.email.main}`}
                       className="font-bold text-white hover:text-gray-300 text-lg"
                     >
-                      office@mhc-gc.com
+                      {COMPANY_INFO.email.main}
                     </a>
                   </div>
                   <div>
@@ -978,9 +976,10 @@ export default function PublicSectorPage() {
                     />
                     <p className="mb-1 text-gray-400 text-sm">Visit Us</p>
                     <p className="font-bold text-white text-lg">
-                      3111 N. Capitol Ave.
+                      {COMPANY_INFO.address.street}
                       <br />
-                      Pasco, WA 99301
+                      {COMPANY_INFO.address.city}, {COMPANY_INFO.address.state}{" "}
+                      {COMPANY_INFO.address.zip}
                     </p>
                   </div>
                 </div>

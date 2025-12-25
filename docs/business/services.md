@@ -431,4 +431,4 @@ Available 24/7 to prepare for your consultation.
 
 _Building partnerships, serving communities, creating lasting value in the Pacific Northwest._
 
-**Last updated:** October 2025 | MH Construction, Inc.
+**Last Updated:** October 2025 | MH Construction, Inc.

@@ -4,6 +4,7 @@ import { createDbClient, type ContactSubmission } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
 import { sendEmail, type EmailAttachment } from "@/lib/email/emailService";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rateLimiter";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import {
   badRequest,
   createSuccessResponse,
@@ -58,7 +59,7 @@ export async function handlePOST(request: NextRequest) {
     }
 
     // Prepare email recipients
-    const recipientEmail = data.recipientEmail || "office@mhc-gc.com";
+    const recipientEmail = data.recipientEmail || COMPANY_INFO.email.main;
     const emailSubject =
       data.subject || `New ${data.type || "Contact"} Form Submission`;
 

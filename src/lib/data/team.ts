@@ -12,6 +12,7 @@ export interface TeamMember {
   slug: string;
   active?: boolean;
   avatar?: string;
+  email?: string;
 }
 
 export const teamMembers: TeamMember[] = [
@@ -31,6 +32,7 @@ export const teamMembers: TeamMember[] = [
     bio: "Jeremy brings more than 35 years of experience and leadership to the MH Construction team. Beginning his construction career while still in college, he has worked across nearly every aspect of the industry, from drafting plans to performing international commercial inspections. In 2003, Jeremy launched his first business and has since founded, operated, sold, and acquired multiple companies. His entrepreneurial spirit and business acumen have led him to mentor start-ups, incubate emerging ventures, and help others strategically position their companies for growth and success. A 15-year veteran of Army aviation, Jeremy applies the precision, discipline, and attention to detail learned in the service to every project MH Construction undertakes. His leadership blends military focus with real-world construction expertise, ensuring excellence from concept to completion. With a clear vision to elevate MH Construction and a deep commitment to supporting employees, clients, and community partners, Jeremy leads with integrity and determination, guiding the company confidently into the future.",
     slug: "jeremy-thamert",
     active: true,
+    email: "jeremy@mhc-gc.com",
   },
   {
     name: "Mike Holstein",
@@ -47,22 +49,7 @@ export const teamMembers: TeamMember[] = [
     bio: "Mike Holstein founded MH Construction in 2010 and established its reputation for integrity, quality, and precision. Now retired, Mike's leadership and vision continue to inspire the team and guide the company's values.",
     slug: "mike-holstein",
     active: true,
-  },
-  {
-    name: "Mike Holstein",
-    role: "Founder (Retired)",
-    department: "Executive Leadership",
-    experienceYears: 30, // Assumed long tenure founding & growing company
-    veteranStatus: "Retired Leadership",
-    specialties: [
-      "Company Foundations",
-      "Quality Standards",
-      "Leadership",
-      "Client Partner Trust",
-    ],
-    bio: "Mike Holstein founded MH Construction in 2010 and established its reputation for integrity, quality, and precision. Now retired, Mike's leadership and vision continue to inspire the team and guide the company's values.",
-    slug: "mike-holstein",
-    active: true,
+    email: "office@mhc-gc.com",
   },
   {
     name: "Arnold Garcia",
@@ -80,6 +67,7 @@ export const teamMembers: TeamMember[] = [
     bio: "Arnold began his career as a teen working summer vacations as a laborer for his uncle's construction company. Once he finished school, he built a lifelong career in the field. Following his marriage to Elizabeth, he moved to Seattle, advancing from Superintendent to Project Manager in commercial construction. Later, Arnold returned to Eastern Washington, became General Manager for his uncle's firm, and eventually purchased and ran the company successfully. Now Vice President at MH Construction, Arnold oversees all construction activities and staff. He takes an active role in mentoring and training the staff while sharing his wealth of knowledge, exemplifying the company's core values every day.",
     slug: "arnold-garcia",
     active: true,
+    email: "arnold@mhc-gc.com",
   },
 
   // Project Management & Estimating
@@ -99,6 +87,7 @@ export const teamMembers: TeamMember[] = [
     bio: "Ben began his career as an estimator and design-build CAD drafter. Over the last 15 years he has grown into a project management role. Ben has substantial experience with taking projects from concept to completion through every phase in-between. Ben excels in seeing potential issues from all perspectives and finding creative solutions that work for all stakeholders involved. His experience, combined with a proactive approach, allows him to consistently deliver projects on-time and under budget.",
     slug: "ben-woodall",
     active: true,
+    email: "ben@mhc-gc.com",
   },
   {
     name: "Todd Schoeff",
@@ -116,6 +105,7 @@ export const teamMembers: TeamMember[] = [
     bio: "Todd entered the construction industry through high voltage linework inspection, later moving into the low voltage field, where he developed leadership and technical expertise. His career evolved into estimating, where his attention to detail and analytical thinking drive accurate project planning. As Estimator, Todd manages the preconstruction process from reviewing plans/specs to developing cost estimates and coordinating bid packages. He works closely with PMs, Allies, and suppliers to ensure complete, competitive pricing.",
     slug: "todd-schoeff",
     active: true,
+    email: "todd@mhc-gc.com",
   },
 
   // Site & Field Operations
@@ -136,6 +126,7 @@ export const teamMembers: TeamMember[] = [
     bio: "Steven began his career in construction as a teenager, starting on a residential crew clearing debris before moving up into a leadership position when they were short-handed. Over the years, he discovered his passion for construction outweighed his original pursuit of diesel and heavy equipment mechanics. Known for staying busy and constantly learning new trades, Steve has built a career on reliability and skill diversity. As Senior Superintendent, Steve oversees all on-site construction operations, ensuring projects are safe, efficient, and on-plan. He coordinates Ally teams, mentors newcomers, manages resources, and serves as a key liaison between clients and design teams.",
     slug: "steve-mcclary",
     active: true,
+    email: "steve@mhc-gc.com",
   },
   {
     name: "Reagan Massey",
@@ -152,6 +143,7 @@ export const teamMembers: TeamMember[] = [
     bio: "Reagan has grown from a residential framing position into Superintendent, where he oversees daily site operations, scheduling, material coordination, and Ally communication. Influenced early by his general contractor father, he built his career through hard work and hands-on experience. Reagan is known for his ability to read blueprints, broad field knowledge, and clear communication. He takes pride in delivering quality projects and ensuring client satisfaction while mentoring the next generation of builders.",
     slug: "reagan-massey",
     active: true,
+    email: "reagan@mhc-gc.com",
   },
   {
     name: "Porter Cline",
@@ -168,6 +160,7 @@ export const teamMembers: TeamMember[] = [
     bio: "Porter is a Superintendent with experience leading projects from foundation to finish. His career in construction began unexpectedly after a college injury shifted his focus toward building. He started a company with his brother before advancing through several other firms. Known for his adaptability, leadership, and problem-solving, Porter thrives on the ever-changing challenges of the field and enjoys working alongside his crews to get the job done. He takes pride in guiding teams through demanding phases, maintaining strong client relationships, and ensuring every project is completed to a high standard and on schedule.",
     slug: "porter-cline",
     active: true,
+    email: "porter@mhc-gc.com",
   },
 
   // Administration & Support
@@ -187,6 +180,7 @@ export const teamMembers: TeamMember[] = [
     bio: "Brooks is a results-driven Finance and Operations Manager with over a decade of experience enhancing financial performance and efficiency across manufacturing, service, and construction industries. A strategic, hands-on leader, he has led accounting teams through major transitions, streamlined systems, and recovered millions in unclaimed revenue. A Six Sigma Black Belt, Brooks blends financial expertise with operational insight to drive accountability, measurable results, and the highest standards of financial integrity and organizational excellence.",
     slug: "brooks-morris",
     active: true,
+    email: "brooks@mhc-gc.com",
   },
   {
     name: "Brittney Holstein",
@@ -203,6 +197,7 @@ export const teamMembers: TeamMember[] = [
     bio: "Brittney Holstein, daughter of MH Construction founder Mike Holstein, is the backbone of the company's human resources department. She is dedicated to building a strong, supportive, and skilled team by managing recruitment, employee relations, and professional development.",
     slug: "brittney-holstein",
     active: true,
+    email: "brittney@mhc-gc.com",
   },
   {
     name: "Matt Ramsey",
@@ -218,6 +213,7 @@ export const teamMembers: TeamMember[] = [
     bio: "As a veteran, Matt brings a unique perspective to his role. He is the face of MH Construction at trade shows and client partner presentations, specializing in showcasing the company's commitment to relationships and proven construction methods.",
     slug: "matt-ramsey",
     active: true,
+    email: "matt@mhc-gc.com",
   },
   {
     name: "Jennifer Tene",
@@ -234,6 +230,7 @@ export const teamMembers: TeamMember[] = [
     bio: "Jennifer Tene is a highly organized and efficient Admin Assistant who keeps the office running smoothly. She supports the entire team with administrative tasks, scheduling, and communication, ensuring a seamless flow of information.",
     slug: "jennifer-tene",
     active: true,
+    email: "jennifer@mhc-gc.com",
   },
 ];
 

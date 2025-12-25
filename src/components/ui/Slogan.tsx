@@ -13,6 +13,7 @@ import {
   getSloganDetails,
   isSloganReusable,
 } from "@/lib/data/slogans";
+import { logger } from "@/lib/utils/logger";
 
 /**
  * Slogan display variants
@@ -88,7 +89,7 @@ export function Slogan({
   // If no slogan found, return null (fail silently in production)
   if (!sloganText) {
     if (process.env.NODE_ENV === "development") {
-      console.warn(
+      logger.warn(
         `[Slogan] No slogan found for page="${page}" context="${context}". ` +
           `Check /src/lib/data/slogans.ts PAGE_SLOGANS mapping.`,
       );

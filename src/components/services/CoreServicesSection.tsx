@@ -130,7 +130,7 @@ export function CoreServicesSection({ services }: CoreServicesSectionProps) {
         >
           {services.map((service, index) => (
             <ServiceCard
-              key={index}
+              key={service.title}
               service={service}
               onOpenModal={() => openModal(index)}
             />

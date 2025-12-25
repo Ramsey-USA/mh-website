@@ -12,6 +12,10 @@ import {
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import {
+  DiagonalStripePattern,
+  BrandColorBlobs,
+} from "@/components/ui/backgrounds";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
 import {
   openPositions,
@@ -19,6 +23,7 @@ import {
   veteranBenefits,
   cultureValues,
 } from "@/lib/data/careers";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import Head from "next/head";
 import { StructuredData } from "@/components/seo/seo-meta";
@@ -184,25 +189,8 @@ export default function CareersPage() {
 
         {/* Why Work With Us */}
         <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
-          {/* Diagonal Stripe Background Pattern */}
-          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `repeating-linear-gradient(
-                    45deg,
-                    #386851 0px,
-                    #386851 2px,
-                    transparent 2px,
-                    transparent 60px
-                  )`,
-              }}
-            ></div>
-          </div>
-
-          {/* Large Brand Color Blobs */}
-          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+          <DiagonalStripePattern />
+          <BrandColorBlobs />
 
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             {/* Section Header - Military Construction Standard */}
@@ -304,9 +292,9 @@ export default function CareersPage() {
 
             {/* Modern Grid Cards with Unique Hover Effects */}
             <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
-              {cultureValues.map((value, index) => (
+              {cultureValues.map((value) => (
                 <div
-                  key={index}
+                  key={value.title}
                   className="group relative flex h-full min-h-[400px]"
                 >
                   {/* Colored Border Glow - Visible on hover */}
@@ -360,25 +348,8 @@ export default function CareersPage() {
 
         {/* Benefits & Perks */}
         <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
-          {/* Diagonal Stripe Background Pattern */}
-          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `repeating-linear-gradient(
-                    45deg,
-                    #386851 0px,
-                    #386851 2px,
-                    transparent 2px,
-                    transparent 60px
-                  )`,
-              }}
-            ></div>
-          </div>
-
-          {/* Large Brand Color Blobs */}
-          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+          <DiagonalStripePattern />
+          <BrandColorBlobs />
 
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             {/* Section Header - Military Construction Standard */}
@@ -428,9 +399,9 @@ export default function CareersPage() {
 
             {/* Modern Grid Cards with Unique Hover Effects */}
             <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {companyBenefits.map((benefit, index) => (
+              {companyBenefits.map((benefit) => (
                 <div
-                  key={index}
+                  key={benefit.title}
                   className="group relative flex h-full min-h-[320px]"
                 >
                   {/* Colored Border Glow - Visible on hover */}
@@ -479,25 +450,8 @@ export default function CareersPage() {
           id="testimonials"
           className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
         >
-          {/* Diagonal Stripe Background Pattern */}
-          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `repeating-linear-gradient(
-                    45deg,
-                    #386851 0px,
-                    #386851 2px,
-                    transparent 2px,
-                    transparent 60px
-                  )`,
-              }}
-            ></div>
-          </div>
-
-          {/* Large Brand Color Blobs */}
-          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+          <DiagonalStripePattern />
+          <BrandColorBlobs />
 
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             {/* Section Header - Military Construction Standard */}
@@ -548,25 +502,8 @@ export default function CareersPage() {
 
         {/* Veteran Benefits Section */}
         <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
-          {/* Diagonal Stripe Background Pattern */}
-          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `repeating-linear-gradient(
-                    45deg,
-                    #386851 0px,
-                    #386851 2px,
-                    transparent 2px,
-                    transparent 60px
-                  )`,
-              }}
-            ></div>
-          </div>
-
-          {/* Large Brand Color Blobs */}
-          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+          <DiagonalStripePattern />
+          <BrandColorBlobs />
 
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
@@ -692,9 +629,9 @@ export default function CareersPage() {
 
                 {/* Modern Grid Cards with Unique Hover Effects */}
                 <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
-                  {veteranBenefits.map((benefit, index) => (
+                  {veteranBenefits.map((benefit) => (
                     <div
-                      key={index}
+                      key={benefit.title}
                       className="group relative flex h-full min-h-[280px]"
                     >
                       {/* Colored Border Glow - Visible on hover */}
@@ -807,25 +744,8 @@ export default function CareersPage() {
           id="positions"
           className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
         >
-          {/* Diagonal Stripe Background Pattern */}
-          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `repeating-linear-gradient(
-                    45deg,
-                    #386851 0px,
-                    #386851 2px,
-                    transparent 2px,
-                    transparent 60px
-                  )`,
-              }}
-            ></div>
-          </div>
-
-          {/* Large Brand Color Blobs */}
-          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+          <DiagonalStripePattern />
+          <BrandColorBlobs />
 
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             {/* Section Header - Military Construction Standard */}
@@ -1035,25 +955,8 @@ export default function CareersPage() {
           id="application-process"
           className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
         >
-          {/* Diagonal Stripe Background Pattern */}
-          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `repeating-linear-gradient(
-                    45deg,
-                    #386851 0px,
-                    #386851 2px,
-                    transparent 2px,
-                    transparent 60px
-                  )`,
-              }}
-            ></div>
-          </div>
-
-          {/* Large Brand Color Blobs */}
-          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+          <DiagonalStripePattern />
+          <BrandColorBlobs />
 
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
@@ -1434,25 +1337,8 @@ export default function CareersPage() {
           id="general-application"
           className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
         >
-          {/* Diagonal Stripe Background Pattern */}
-          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `repeating-linear-gradient(
-                    45deg,
-                    #386851 0px,
-                    #386851 2px,
-                    transparent 2px,
-                    transparent 60px
-                  )`,
-              }}
-            ></div>
-          </div>
-
-          {/* Large Brand Color Blobs */}
-          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+          <DiagonalStripePattern />
+          <BrandColorBlobs />
 
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <FadeInWhenVisible>
@@ -1543,12 +1429,12 @@ export default function CareersPage() {
                     ariaLabel="HR Phone"
                     className="inline mr-2"
                   />
-                  HR Hotline: (509) 308-6489 |{" "}
+                  HR Hotline: {COMPANY_INFO.phone.display} |{" "}
                   <a
-                    href="mailto:office@mhc-gc.com"
+                    href={`mailto:${COMPANY_INFO.email.main}`}
                     className="font-semibold text-brand-primary hover:text-brand-secondary underline"
                   >
-                    office@mhc-gc.com
+                    {COMPANY_INFO.email.main}
                   </a>
                 </p>
               </div>
@@ -1579,9 +1465,9 @@ export default function CareersPage() {
                 asChild
                 className="bg-white/10 hover:bg-white/20 text-white border-white/30"
               >
-                <a href="tel:+15093086489">
+                <a href={`tel:${COMPANY_INFO.phone.tel}`}>
                   <MaterialIcon icon="call" className="mr-2" />
-                  Call (509) 308-6489
+                  Call {COMPANY_INFO.phone.display}
                 </a>
               </Button>
             </div>

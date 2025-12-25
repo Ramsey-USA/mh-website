@@ -69,7 +69,10 @@ export function ListSkeleton({ count = 3 }: { count?: number }) {
   return (
     <div className="space-y-4">
       {Array.from({ length: count }).map((_, index) => (
-        <div key={index} className="flex items-center gap-4">
+        <div
+          key={`skeleton-list-base-${index}`}
+          className="flex items-center gap-4"
+        >
           <Skeleton variant="circular" width={48} height={48} />
           <div className="flex-1">
             <Skeleton variant="text" width="40%" className="mb-2" />

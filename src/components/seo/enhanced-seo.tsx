@@ -1,15 +1,16 @@
 // Enhanced SEO and Schema Markup System
 import { type Metadata } from "next";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 // Enhanced company information
 export const enhancedSEO = {
-  siteName: "MH Construction",
+  siteName: COMPANY_INFO.name,
   defaultTitle:
     "Base HQ → Home | Building projects for the client, NOT the dollar | MH Construction",
   defaultDescription:
     "Base HQ → Home: Your Tri-Cities Construction Command Center. Veteran-owned construction management services since 2010 with dual-label approach (Military Operations → Construction Services). Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction. Service-earned values—Honesty, Integrity, Professionalism, Thoroughness—building trust through SITREP-level transparency and Chain of Command excellence throughout the Pacific Northwest.",
-  siteUrl: process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com",
-  twitterHandle: "@mhc_gc",
+  siteUrl: COMPANY_INFO.urls.getSiteUrl(),
+  twitterHandle: COMPANY_INFO.social.twitterHandle,
   defaultKeywords: [
     "Base HQ Home construction command center",
     "dual-label military civilian construction",
@@ -69,16 +70,16 @@ export const enhancedSEO = {
     "construction technology innovation",
   ],
   companyInfo: {
-    name: "MH Construction, Inc.",
-    legalName: "MH Construction Incorporated - Veteran-Owned",
-    telephone: "(509) 308-6489",
-    email: "office@mhc-gc.com",
+    name: COMPANY_INFO.name,
+    legalName: COMPANY_INFO.legalName,
+    telephone: COMPANY_INFO.phone.display,
+    email: COMPANY_INFO.email.main,
     address: {
-      streetAddress: "3111 N. Capitol Ave.",
-      addressLocality: "Pasco",
-      addressRegion: "WA",
-      postalCode: "99301",
-      addressCountry: "US",
+      streetAddress: COMPANY_INFO.address.street,
+      addressLocality: COMPANY_INFO.address.city,
+      addressRegion: COMPANY_INFO.address.stateCode,
+      postalCode: COMPANY_INFO.address.zip,
+      addressCountry: COMPANY_INFO.address.country,
     },
     foundingDate: "2010-01-15",
     numberOfEmployees: "15-25",
@@ -116,11 +117,11 @@ export const enhancedSEO = {
     },
   },
   socialMedia: {
-    facebook: "https://www.facebook.com/profile.php?id=61575511773974",
-    instagram: "https://www.instagram.com/mh_construction_inc/reels/",
-    linkedin: "https://linkedin.com/company/mhconstruction",
-    youtube: "https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j",
-    twitter: "https://x.com/mhc_gc",
+    facebook: COMPANY_INFO.social.facebook,
+    instagram: COMPANY_INFO.social.instagram,
+    linkedin: COMPANY_INFO.social.linkedin,
+    youtube: COMPANY_INFO.social.youtube,
+    twitter: COMPANY_INFO.social.twitter,
   },
 };
 

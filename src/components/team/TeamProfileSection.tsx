@@ -1047,7 +1047,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
           {/* Contact Button */}
           <div className="flex justify-center">
             <a
-              href="mailto:office@mhc-gc.com?subject=Connect%20with%20Team%20Member"
+              href={`mailto:${member.email || "office@mhc-gc.com"}?subject=Connect%20with%20${encodeURIComponent(member.name)}`}
               className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary-light dark:hover:bg-brand-primary text-white px-6 py-3 rounded-lg font-bold text-sm shadow-md hover:shadow-lg transition-all duration-300"
             >
               <MaterialIcon icon="mail" size="sm" className="text-white" />

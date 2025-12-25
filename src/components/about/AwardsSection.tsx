@@ -255,7 +255,7 @@ export function AwardsSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {emrTimeline.map((item, index) => (
               <div
-                key={index}
+                key={item.year}
                 className="group scroll-reveal"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >

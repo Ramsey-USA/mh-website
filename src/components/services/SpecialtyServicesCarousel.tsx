@@ -97,7 +97,7 @@ export function SpecialtyServicesCarousel({
         <div className="relative min-h-[500px]">
           {services.map((service, index) => (
             <div
-              key={index}
+              key={service.title}
               className={`absolute inset-0 transition-all duration-500 ${
                 index === currentIndex
                   ? "opacity-100 translate-x-0"
@@ -148,7 +148,7 @@ export function SpecialtyServicesCarousel({
           <div className="flex justify-center items-center gap-2 mt-6">
             {services.map((_, index) => (
               <button
-                key={index}
+                key={`carousel-dot-${index}`}
                 onClick={() => goToSlide(index)}
                 className={`transition-all duration-300 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-primary ${
                   index === currentIndex
@@ -171,8 +171,8 @@ export function SpecialtyServicesCarousel({
 
       {/* Desktop Grid - 3 columns, no carousel */}
       <div className="hidden lg:grid lg:grid-cols-3 lg:gap-8">
-        {services.map((service, index) => (
-          <SpecialtyServiceCard key={index} service={service} />
+        {services.map((service) => (
+          <SpecialtyServiceCard key={service.title} service={service} />
         ))}
       </div>
     </div>

@@ -175,7 +175,7 @@ export function validateOrigin(request: NextRequest): boolean {
 
   // Get allowed origins from environment
   const allowedOrigins = process.env["ALLOWED_ORIGINS"]?.split(",") || [
-    process.env["NEXT_PUBLIC_BASE_URL"] || "https://www.mhc-gc.com",
+    process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com",
   ];
 
   // Check if origin matches allowed origins

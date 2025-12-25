@@ -1,6 +1,7 @@
 import { type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { sendEmail } from "@/lib/email/emailService";
+import { EMAIL_RECIPIENTS } from "@/lib/constants/company";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rateLimiter";
 import {
   badRequest,
@@ -42,7 +43,7 @@ async function handlePOST(request: NextRequest) {
     const emailText = generatePhoneTrackingEmailText(data);
 
     const emailResult = await sendEmail({
-      to: ["matt@mhc-gc.com", "office@mhc-gc.com"],
+      to: EMAIL_RECIPIENTS.general,
       subject: emailSubject,
       html: emailHtml,
       text: emailText,

@@ -165,7 +165,7 @@ export function TestimonialsCarousel({
       <div className="flex justify-center items-center gap-2 mt-8">
         {testimonials.map((_, index) => (
           <button
-            key={index}
+            key={`testimonial-dot-${index}`}
             onClick={() => goToSlide(index)}
             className={`transition-all duration-300 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-primary ${
               index === currentIndex

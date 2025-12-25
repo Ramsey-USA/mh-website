@@ -1,4 +1,8 @@
 import { type Metadata } from "next";
+import {
+  DiagonalStripePattern,
+  BrandColorBlobs,
+} from "@/components/ui/backgrounds";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
@@ -14,6 +18,7 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = false;
@@ -21,8 +26,7 @@ const SHOW_UNDER_CONSTRUCTION = false;
 export const metadata: Metadata = {
   title:
     "Rapid Response → Emergency | 24/7 Emergency Construction Response | MH Construction",
-  description:
-    "Rapid Response → Emergency: 24/7 Emergency Construction Response - Mission-Ready Support. Rapid response when your construction mission is critical. Veteran-owned emergency deployment with honest assessment, transparent pricing, proven solutions. Expert consultation, specialized equipment, experienced crews—immediate deployment WA, OR, ID. THE ROI IS THE RELATIONSHIP. Call (509) 308-6489.",
+  description: `Rapid Response → Emergency: 24/7 Emergency Construction Response - Mission-Ready Support. Rapid response when your construction mission is critical. Veteran-owned emergency deployment with honest assessment, transparent pricing, proven solutions. Expert consultation, specialized equipment, experienced crews—immediate deployment WA, OR, ID. THE ROI IS THE RELATIONSHIP. Call ${COMPANY_INFO.phone.display}.`,
   keywords: [
     "Rapid Response Emergency 24/7",
     "mission-ready support construction",
@@ -78,7 +82,7 @@ export default function UrgentSupportPage() {
     return (
       <UnderConstruction
         pageName="Urgent Support"
-        description="We're updating our emergency response information. For urgent construction needs, please call us immediately at (509) 308-6489."
+        description={`We're updating our emergency response information. For urgent construction needs, please call us immediately at ${COMPANY_INFO.phone.display}.`}
         estimatedCompletion="December 2025"
       />
     );
@@ -217,8 +221,7 @@ export default function UrgentSupportPage() {
       step: "1",
       icon: "call",
       title: "Contact Our Team",
-      description:
-        "Call (509) 308-6489 during business hours. Describe your urgent construction challenge and we'll assess if we can help.",
+      description: `Call ${COMPANY_INFO.phone.display} during business hours. Describe your urgent construction challenge and we'll assess if we can help.`,
       timeframe: "Immediate",
     },
     {
@@ -326,25 +329,8 @@ export default function UrgentSupportPage() {
         id="urgent-contact"
         className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
       >
-        {/* Diagonal Stripe Background Pattern - MH Branding Standard */}
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                45deg,
-                #dc2626 0px,
-                #dc2626 2px,
-                transparent 2px,
-                transparent 60px
-              )`,
-            }}
-          ></div>
-        </div>
-
-        {/* Large Color Blobs - Urgent Theme */}
-        <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-orange-500/10 to-transparent dark:from-orange-500/20 blur-3xl rounded-full"></div>
-        <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+        <DiagonalStripePattern color="#dc2626" />
+        <BrandColorBlobs />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
@@ -389,15 +375,15 @@ export default function UrgentSupportPage() {
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
               <a
-                href="tel:+15093086489"
+                href={`tel:${COMPANY_INFO.phone.tel}`}
                 className="inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-700 px-8 py-4 rounded-xl font-bold text-white transition-all duration-200 hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-600/50 w-full sm:w-auto justify-center"
-                aria-label="Call MH Construction urgently at 509-308-6489"
+                aria-label={`Call MH Construction urgently at ${COMPANY_INFO.phone.display}`}
               >
                 <MaterialIcon icon="call" size="lg" ariaLabel="Call Now" />
-                Call Now: (509) 308-6489
+                Call Now: {COMPANY_INFO.phone.display}
               </a>
               <a
-                href="mailto:office@mhc-gc.com?subject=Urgent%20Construction%20Support%20Request"
+                href={`mailto:${COMPANY_INFO.email.main}?subject=Urgent%20Construction%20Support%20Request`}
                 className="inline-flex items-center gap-3 bg-gray-800 hover:bg-gray-900 px-8 py-4 rounded-xl font-bold text-white transition-all duration-200 hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-gray-800/50 w-full sm:w-auto justify-center"
                 aria-label="Email urgent construction support request"
               >
@@ -418,23 +404,9 @@ export default function UrgentSupportPage() {
         id="urgent-focus"
         className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
       >
-        {/* Diagonal Stripe Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                45deg,
-                #ea580c 0px,
-                #ea580c 2px,
-                transparent 2px,
-                transparent 60px
-              )`,
-            }}
-          ></div>
-        </div>
-
-        {/* Large Color Blobs */}
+        <DiagonalStripePattern color="#ea580c" />
+        <BrandColorBlobs />
+        {/* Placeholder for any additional blobs */}
         <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-orange-500/10 to-transparent dark:from-orange-500/20 blur-3xl rounded-full"></div>
         <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
 
@@ -505,23 +477,9 @@ export default function UrgentSupportPage() {
         id="urgent-capabilities"
         className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
       >
-        {/* Diagonal Stripe Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                45deg,
-                #dc2626 0px,
-                #dc2626 2px,
-                transparent 2px,
-                transparent 60px
-              )`,
-            }}
-          ></div>
-        </div>
-
-        {/* Large Color Blobs */}
+        <DiagonalStripePattern color="#dc2626" />
+        <BrandColorBlobs />
+        {/* Placeholder for any additional blobs */}
         <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-orange-500/10 to-transparent dark:from-orange-500/20 blur-3xl rounded-full"></div>
         <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
 
@@ -702,23 +660,9 @@ export default function UrgentSupportPage() {
         id="urgent-scope"
         className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
       >
-        {/* Diagonal Stripe Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                45deg,
-                #ea580c 0px,
-                #ea580c 2px,
-                transparent 2px,
-                transparent 60px
-              )`,
-            }}
-          ></div>
-        </div>
-
-        {/* Large Color Blobs */}
+        <DiagonalStripePattern color="#ea580c" />
+        <BrandColorBlobs />
+        {/* Placeholder for any additional blobs */}
         <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-green-500/10 to-transparent dark:from-green-500/20 blur-3xl rounded-full"></div>
         <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-orange-500/10 to-transparent dark:from-orange-500/20 blur-3xl rounded-full"></div>
 
@@ -828,23 +772,9 @@ export default function UrgentSupportPage() {
         id="urgent-timeline"
         className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
       >
-        {/* Diagonal Stripe Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                45deg,
-                #dc2626 0px,
-                #dc2626 2px,
-                transparent 2px,
-                transparent 60px
-              )`,
-            }}
-          ></div>
-        </div>
-
-        {/* Large Color Blobs */}
+        <DiagonalStripePattern color="#dc2626" />
+        <BrandColorBlobs />
+        {/* Placeholder for any additional blobs */}
         <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-orange-500/10 to-transparent dark:from-orange-500/20 blur-3xl rounded-full"></div>
         <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
 
@@ -947,23 +877,9 @@ export default function UrgentSupportPage() {
         id="urgent-faq"
         className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
       >
-        {/* Diagonal Stripe Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                45deg,
-                #ea580c 0px,
-                #ea580c 2px,
-                transparent 2px,
-                transparent 60px
-              )`,
-            }}
-          ></div>
-        </div>
-
-        {/* Large Color Blobs */}
+        <DiagonalStripePattern color="#ea580c" />
+        <BrandColorBlobs />
+        {/* Placeholder for any additional blobs */}
         <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-orange-500/10 to-transparent dark:from-orange-500/20 blur-3xl rounded-full"></div>
         <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
 
@@ -1062,23 +978,9 @@ export default function UrgentSupportPage() {
         id="urgent-trust"
         className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
       >
-        {/* Diagonal Stripe Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                45deg,
-                #dc2626 0px,
-                #dc2626 2px,
-                transparent 2px,
-                transparent 60px
-              )`,
-            }}
-          ></div>
-        </div>
-
-        {/* Large Color Blobs */}
+        <DiagonalStripePattern color="#dc2626" />
+        <BrandColorBlobs />
+        {/* Placeholder for any additional blobs */}
         <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
         <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
@@ -1215,15 +1117,15 @@ export default function UrgentSupportPage() {
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
               <a
-                href="tel:+15093086489"
+                href={`tel:${COMPANY_INFO.phone.tel}`}
                 className="inline-flex items-center gap-3 bg-white hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-orange-700 transition-all duration-200 hover:scale-105 shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/50"
-                aria-label="Call MH Construction at 509-308-6489"
+                aria-label={`Call MH Construction at ${COMPANY_INFO.phone.display}`}
               >
                 <MaterialIcon icon="call" size="lg" ariaLabel="Call Now" />
-                (509) 308-6489
+                {COMPANY_INFO.phone.display}
               </a>
               <a
-                href="mailto:office@mhc-gc.com?subject=Urgent%20Construction%20Support%20Request"
+                href={`mailto:${COMPANY_INFO.email.main}?subject=Urgent%20Construction%20Support%20Request`}
                 className="inline-flex items-center gap-3 bg-orange-800 hover:bg-orange-900 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-200 hover:scale-105 shadow-xl focus:outline-none focus:ring-4 focus:ring-orange-900/50"
                 aria-label="Email urgent support request"
               >
@@ -1241,8 +1143,7 @@ export default function UrgentSupportPage() {
                 <strong>Service Area:</strong> Washington, Oregon, and Idaho
               </p>
               <p className="text-white/90">
-                <strong>Headquarters:</strong> 3111 N. Capitol Ave., Pasco, WA
-                99301
+                <strong>Headquarters:</strong> {COMPANY_INFO.address.full}
               </p>
             </div>
           </FadeInWhenVisible>

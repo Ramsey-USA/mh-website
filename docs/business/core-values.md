@@ -326,4 +326,4 @@ Our 4 Core Values aren't abstract concepts—they create 6 measurable difference
 
 ---
 
-**Last updated:** December 13, 2025 | MH Construction, Inc.
+**Last Updated:** December 13, 2025 | MH Construction, Inc.

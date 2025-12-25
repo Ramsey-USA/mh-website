@@ -11,7 +11,7 @@ import { SignJWT, jwtVerify, type JWTPayload } from "jose";
 const JWT_SECRET =
   process.env["JWT_SECRET"] || "your-secret-key-change-in-production";
 const JWT_ISSUER =
-  process.env["NEXT_PUBLIC_BASE_URL"] || "https://www.mhc-gc.com";
+  process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com";
 const JWT_AUDIENCE = "mh-construction-api";
 
 // Token expiration times

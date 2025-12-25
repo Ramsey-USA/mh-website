@@ -24,8 +24,8 @@ export function InteractiveGrantSelector({
 
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {grantTypes.map((type, index) => (
-        <HoverScale key={index}>
+      {grantTypes.map((type) => (
+        <HoverScale key={type.category}>
           <div
             className="h-full cursor-pointer"
             onClick={() =>

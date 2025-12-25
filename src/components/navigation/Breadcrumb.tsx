@@ -53,7 +53,10 @@ export function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
             const isLast = index === items.length - 1;
 
             return (
-              <li key={index} className="flex items-center flex-shrink-0">
+              <li
+                key={item.href || `breadcrumb-${index}`}
+                className="flex items-center flex-shrink-0"
+              >
                 {index > 0 && (
                   <MaterialIcon
                     icon="chevron_right"

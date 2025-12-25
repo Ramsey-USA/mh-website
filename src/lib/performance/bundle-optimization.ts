@@ -28,8 +28,13 @@ export const createLazyComponent = <T extends React.ComponentType<any>>(
 ) => {
   const LazyComponent = lazy(importFn);
   if (displayName) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (LazyComponent as any).displayName = displayName;
+    // React's LazyExoticComponent type doesn't expose displayName, but it exists at runtime
+    Object.defineProperty(LazyComponent, "displayName", {
+      value: displayName,
+      writable: false,
+      enumerable: true,
+      configurable: true,
+    });
   }
   return LazyComponent;
 };

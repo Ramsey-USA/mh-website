@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTradePartnersSEO } from "@/lib/seo/page-seo-utils";
-import { StructuredData } from "@/components/seo/enhanced-seo";
+import { StructuredData } from "@/components/seo/seo-meta";
 
 // Enhanced SEO metadata for Trade Partners page
 const seoData = getTradePartnersSEO();

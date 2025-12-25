@@ -563,10 +563,24 @@ export class AuditLogger {
   }
 
   private async sendToExternalLogger(_event: AuditEvent): Promise<void> {
-    // In a real implementation, this would send to external logging services
-    // like Elasticsearch, Splunk, or cloud logging services
-    // For now, we'll just store locally
-    // TODO: Implement external logging integration
+    // External logging integration point
+    // This method is called for every audit event and can be extended to send events to:
+    // - Elasticsearch for log aggregation and analysis
+    // - Splunk for enterprise security monitoring
+    // - AWS CloudWatch, Azure Monitor, or Google Cloud Logging
+    // - Datadog, New Relic, or other APM solutions
+    // - Custom webhook endpoints for real-time alerting
+    //
+    // Implementation example:
+    // if (process.env.EXTERNAL_LOGGING_ENABLED === 'true') {
+    //   await fetch(process.env.LOGGING_ENDPOINT, {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(_event)
+    //   });
+    // }
+    //
+    // For now, events are stored in-memory with automatic cleanup based on retention policy
   }
 
   private setupCleanup(): void {

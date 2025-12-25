@@ -1,5 +1,9 @@
 import { type Metadata } from "next";
 import Link from "next/link";
+import {
+  DiagonalStripePattern,
+  BrandColorBlobs,
+} from "@/components/ui/backgrounds";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
@@ -135,32 +139,18 @@ export default function TestimonialsPage() {
       {/* Schema.org Structured Data */}
       <StructuredData data={breadcrumbSchema} />
       {aggregateRatingSchema && <StructuredData data={aggregateRatingSchema} />}
-      {reviewSchemas.map((schema, index) => (
-        <StructuredData key={index} data={schema} />
+      {reviewSchemas.map((schema) => (
+        <StructuredData
+          key={`review-${schema.author?.name || schema["@type"]}`}
+          data={schema}
+        />
       ))}
       <StructuredData data={faqSchema} />
 
       {/* Hero Section - Modern MH Standard with Diagonal Stripes */}
       <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white overflow-hidden">
-        {/* Diagonal Stripe Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.08]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                45deg,
-                rgba(255, 255, 255, 0.1) 0px,
-                rgba(255, 255, 255, 0.1) 2px,
-                transparent 2px,
-                transparent 60px
-              )`,
-            }}
-          ></div>
-        </div>
-
-        {/* Large Brand Color Blobs */}
-        <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-secondary/20 to-transparent blur-3xl rounded-full"></div>
-        <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-primary-dark/30 to-transparent blur-3xl rounded-full"></div>
+        <DiagonalStripePattern />
+        <BrandColorBlobs />
 
         {/* Content - Centered for standard pages */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
@@ -879,25 +869,8 @@ export default function TestimonialsPage() {
             id="testimonials-faq"
             className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
           >
-            {/* Diagonal Stripe Background Pattern */}
-            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `repeating-linear-gradient(
-                    45deg,
-                    #386851 0px,
-                    #386851 2px,
-                    transparent 2px,
-                    transparent 60px
-                  )`,
-                }}
-              ></div>
-            </div>
-
-            {/* Large Brand Color Blobs */}
-            <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-            <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+            <DiagonalStripePattern />
+            <BrandColorBlobs />
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               {/* Section Header */}
@@ -1268,23 +1241,9 @@ export default function TestimonialsPage() {
         id="leave-review"
         className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900 py-16 sm:py-20 lg:py-24 text-white overflow-hidden"
       >
-        {/* Diagonal Stripe Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.08]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                45deg,
-                rgba(255, 255, 255, 0.1) 0px,
-                rgba(255, 255, 255, 0.1) 2px,
-                transparent 2px,
-                transparent 60px
-              )`,
-            }}
-          ></div>
-        </div>
-
-        {/* Large Brand Color Blobs */}
+        <DiagonalStripePattern />
+        <BrandColorBlobs />
+        {/* Placeholder for any additional blobs */}
         <div className="absolute top-10 right-[20%] w-96 h-96 bg-gradient-to-br from-brand-secondary/20 to-transparent blur-3xl rounded-full"></div>
         <div className="absolute bottom-10 left-[20%] w-96 h-96 bg-gradient-to-tr from-brand-primary-darker/30 to-transparent blur-3xl rounded-full"></div>
 

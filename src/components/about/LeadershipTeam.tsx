@@ -161,8 +161,8 @@ export function LeadershipTeam() {
 
         {/* Team Specialties Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
-          {teamSpecialties.map((specialty, index) => (
-            <div key={index} className="group relative flex h-full">
+          {teamSpecialties.map((specialty) => (
+            <div key={specialty.title} className="group relative flex h-full">
               {/* Animated Border Glow */}
               <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 

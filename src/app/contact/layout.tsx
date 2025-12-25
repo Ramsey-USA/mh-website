@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getContactSEO } from "@/lib/seo/page-seo-utils";
-import { StructuredData } from "@/components/seo/enhanced-seo";
+import { StructuredData } from "@/components/seo/seo-meta";
 
 // Enhanced SEO metadata for Contact page
 const seoData = getContactSEO();

@@ -5,7 +5,7 @@ import { type Metadata } from "next";
  * Each page's metadata optimized for 100% SEO score
  */
 
-const baseUrl = process.env["NEXT_PUBLIC_BASE_URL"] || "https://www.mhc-gc.com";
+const baseUrl = process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com";
 
 export const pageMetadata: Record<string, Metadata> = {
   "/": {

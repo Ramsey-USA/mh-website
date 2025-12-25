@@ -11,13 +11,13 @@ import {
   StructuredData,
   generateEnhancedOrganizationSchema,
   generateWebsiteSchema,
-} from "@/components/seo/enhanced-seo";
+} from "@/components/seo/seo-meta";
 import { SkipLink } from "@/components/ui/accessibility/SkipLink";
 import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env["NEXT_PUBLIC_BASE_URL"] || "https://www.mhc-gc.com",
+    process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com",
   ),
   title: {
     default:

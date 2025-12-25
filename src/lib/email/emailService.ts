@@ -6,6 +6,7 @@
 
 import { Resend } from "resend";
 import { logger } from "@/lib/utils/logger";
+import { EMAIL_RECIPIENTS } from "@/lib/constants/company";
 
 export interface EmailAttachment {
   content: string; // base64 encoded
@@ -169,7 +170,7 @@ export class EmailService {
     includeArnold = false,
     attachments?: EmailAttachment[],
   ): Promise<EmailResult> {
-    const recipients = ["office@mhc-gc.com", "matt@mhc-gc.com"];
+    const recipients = [...EMAIL_RECIPIENTS.general];
     if (includeArnold) {
       recipients.push("arnold@mhc-gc.com");
     }

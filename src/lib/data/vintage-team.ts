@@ -65,6 +65,7 @@ export interface VintageTeamMember {
   veteranStatus?: string;
   active: boolean;
   slug: string;
+  email?: string; // Individual team member email (firstname@mhc-gc.com)
 }
 
 // Export team members from JSON data
@@ -97,4 +98,5 @@ export const teamMembers: TeamMember[] = vintageTeamMembers.map((member) => ({
   slug: member.slug,
   ...(member.active !== undefined && { active: member.active }),
   ...(member.avatar && { avatar: member.avatar }),
+  ...(member.email && { email: member.email }),
 }));

@@ -37,7 +37,7 @@ export function CardSkeleton({ count = 1 }: { count?: number }) {
     <>
       {Array.from({ length: count }).map((_, index) => (
         <div
-          key={index}
+          key={`skeleton-card-${index}`}
           className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 space-y-4"
         >
           {/* Header with avatar and name */}
@@ -74,7 +74,7 @@ export function TeamMemberSkeleton({ count = 1 }: { count?: number }) {
     <>
       {Array.from({ length: count }).map((_, index) => (
         <div
-          key={index}
+          key={`skeleton-team-${index}`}
           className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden"
         >
           {/* Image placeholder */}
@@ -102,7 +102,7 @@ export function FormFieldSkeleton({ count = 3 }: { count?: number }) {
   return (
     <div className="space-y-4">
       {Array.from({ length: count }).map((_, index) => (
-        <div key={index} className="space-y-2">
+        <div key={`skeleton-form-${index}`} className="space-y-2">
           <Skeleton className="h-4 w-24" />
           <Skeleton className="h-10 w-full" />
         </div>
@@ -146,7 +146,7 @@ export function ListItemSkeleton({ count = 5 }: { count?: number }) {
   return (
     <div className="space-y-3">
       {Array.from({ length: count }).map((_, index) => (
-        <div key={index} className="flex items-center gap-3">
+        <div key={`skeleton-list-${index}`} className="flex items-center gap-3">
           <Skeleton variant="circular" className="w-8 h-8 flex-shrink-0" />
           <Skeleton className="h-4 flex-1" />
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle, Button } from "../ui";
 
 interface MapLocation {
@@ -18,12 +18,12 @@ interface InteractiveMapProps {
   className?: string;
 }
 
-export const InteractiveMap: React.FC<InteractiveMapProps> = ({
+export const InteractiveMap = ({
   showServiceAreas = true,
   showProjects = false,
   height = "400px",
   className = "",
-}) => {
+}: InteractiveMapProps) => {
   const [selectedLocation, setSelectedLocation] = useState<MapLocation | null>(
     null,
   );
@@ -353,7 +353,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 };
 
 // Service Area Overview Component
-export const ServiceAreaOverview: React.FC = () => {
+export const ServiceAreaOverview = () => {
   const serviceAreas = [
     {
       city: "Pasco",

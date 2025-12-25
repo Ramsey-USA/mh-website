@@ -78,8 +78,8 @@ export function SpecialtyServicesSection({
 
         {/* Grid - 2 columns on tablet, 3 on desktop */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {services.map((service, index) => (
-            <SpecialtyServiceCard key={index} service={service} />
+          {services.map((service) => (
+            <SpecialtyServiceCard key={service.title} service={service} />
           ))}
         </div>
       </div>

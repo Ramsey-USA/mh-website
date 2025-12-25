@@ -1,4 +1,6 @@
 import { type Metadata } from "next";
+import { COMPANY_INFO } from "@/lib/constants/company";
+
 // Removed unused interface _SEOProps to satisfy lint rule
 interface GenerateMetadataProps {
   title?: string;
@@ -11,8 +13,8 @@ interface GenerateMetadataProps {
 }
 
 const defaultSEO = {
-  siteName: "MH Construction",
-  siteUrl: process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com",
+  siteName: COMPANY_INFO.name,
+  siteUrl: COMPANY_INFO.urls.getSiteUrl(),
   defaultTitle:
     "MH Construction - Veteran-Owned Construction Excellence in the Pacific Northwest",
   defaultDescription:
@@ -38,18 +40,18 @@ const defaultSEO = {
     "construction estimate",
     "AI construction",
   ],
-  twitterHandle: "@mhc_gc",
+  twitterHandle: COMPANY_INFO.social.twitterHandle,
   companyInfo: {
-    name: "MH Construction",
+    name: COMPANY_INFO.name,
     address: {
-      streetAddress: "3111 N. Capitol Ave.",
-      addressLocality: "Pasco",
-      addressRegion: "WA",
-      postalCode: "99301",
-      addressCountry: "US",
+      streetAddress: COMPANY_INFO.address.street,
+      addressLocality: COMPANY_INFO.address.city,
+      addressRegion: COMPANY_INFO.address.stateCode,
+      postalCode: COMPANY_INFO.address.zip,
+      addressCountry: COMPANY_INFO.address.country,
     },
-    telephone: "(509) 308-6489",
-    email: "office@mhc-gc.com",
+    telephone: COMPANY_INFO.phone.display,
+    email: COMPANY_INFO.email.main,
   },
 };
 
@@ -125,9 +127,11 @@ export function generateSEOMetadata({
 }
 
 // Component for adding structured data
-export function StructuredData({ data }: { data: object }) {
+export function StructuredData({ data }: { data: object | object[] }) {
+  const schemaData = Array.isArray(data) ? data : [data];
+
   // Sanitize JSON data for security
-  const sanitizedData = JSON.stringify(data).replace(
+  const sanitizedData = JSON.stringify(schemaData).replace(
     /<\/script/gi,
     "<\\/script",
   );
@@ -244,5 +248,40 @@ export function generateBreadcrumbStructuredData(
       name: crumb.name,
       item: crumb.url,
     })),
+  };
+}
+
+// Generate website schema (for root layout)
+export function generateWebsiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${defaultSEO.siteUrl}/#website`,
+    url: defaultSEO.siteUrl,
+    name: defaultSEO.siteName,
+    description: defaultSEO.defaultDescription,
+    publisher: {
+      "@id": `${defaultSEO.siteUrl}/#organization`,
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${defaultSEO.siteUrl}/search?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+}
+
+// Generate enhanced organization schema (for root layout)
+export function generateEnhancedOrganizationSchema() {
+  // Returns the same as generateOrganizationStructuredData for compatibility
+  // but with additional properties for enhanced SEO
+  return {
+    ...generateOrganizationStructuredData(),
+    "@id": `${defaultSEO.siteUrl}/#organization`,
+    "@type": ["GeneralContractor", "VeteranOwnedBusiness"],
+    legalName: "MH Construction Incorporated - Veteran-Owned",
   };
 }

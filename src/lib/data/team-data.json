@@ -43,6 +43,7 @@
     "veteranStatus": "Army Veteran",
     "active": true,
     "slug": "jeremy-thamert",
+    "email": "jeremy@mhc-gc.com",
     "skills": {
       "leadership": 98,
       "technical": 85,
@@ -101,6 +102,7 @@
     "veteranStatus": "Retired Leadership",
     "active": true,
     "slug": "mike-holstein",
+    "email": "office@mhc-gc.com",
     "skills": {
       "leadership": 95,
       "technical": 85,
@@ -160,6 +162,7 @@
     "veteranStatus": "Civilian Leadership",
     "active": true,
     "slug": "arnold-garcia",
+    "email": "arnold@mhc-gc.com",
     "skills": {
       "leadership": 92,
       "technical": 90,
@@ -219,6 +222,7 @@
     "veteranStatus": "Civilian Professional",
     "active": true,
     "slug": "ben-woodall",
+    "email": "ben@mhc-gc.com",
     "skills": {
       "leadership": 76,
       "technical": 82,
@@ -278,6 +282,7 @@
     "veteranStatus": "Civilian Professional",
     "active": true,
     "slug": "todd-schoeff",
+    "email": "todd@mhc-gc.com",
     "skills": {
       "leadership": 78,
       "technical": 92,
@@ -338,6 +343,7 @@
     "veteranStatus": "Civilian Professional",
     "active": true,
     "slug": "steve-mcclary",
+    "email": "steve@mhc-gc.com",
     "skills": {
       "leadership": 90,
       "technical": 86,
@@ -396,6 +402,7 @@
     "veteranStatus": "Civilian Professional",
     "active": true,
     "slug": "reagan-massey",
+    "email": "reagan@mhc-gc.com",
     "skills": {
       "leadership": 88,
       "technical": 84,
@@ -454,6 +461,7 @@
     "veteranStatus": "Civilian Professional",
     "active": true,
     "slug": "porter-cline",
+    "email": "porter@mhc-gc.com",
     "skills": {
       "leadership": 82,
       "technical": 87,
@@ -513,6 +521,7 @@
     "veteranStatus": "Civilian Professional",
     "active": true,
     "slug": "brooks-morris",
+    "email": "brooks@mhc-gc.com",
     "skills": {
       "leadership": 82,
       "technical": 94,
@@ -568,6 +577,7 @@
     "veteranStatus": "Civilian Professional",
     "active": true,
     "slug": "brittney-holstein",
+    "email": "brittney@mhc-gc.com",
     "skills": {
       "leadership": 82,
       "technical": 74,
@@ -626,6 +636,7 @@
     "veteranStatus": "Navy Veteran",
     "active": true,
     "slug": "matt-ramsey",
+    "email": "matt@mhc-gc.com",
     "skills": {
       "leadership": 73,
       "technical": 88,
@@ -681,6 +692,7 @@
     "veteranStatus": "Civilian Professional",
     "active": true,
     "slug": "jennifer-tene",
+    "email": "jennifer@mhc-gc.com",
     "skills": {
       "leadership": 72,
       "technical": 74,
@@ -740,6 +752,7 @@
     "veteranStatus": "Civilian Professional",
     "active": true,
     "slug": "derek-parks",
+    "email": "derek@mhc-gc.com",
     "skills": {
       "leadership": 75,
       "technical": 84,
@@ -798,6 +811,7 @@
     "veteranStatus": "Civilian Professional",
     "active": true,
     "slug": "lisa-kandle",
+    "email": "lisa@mhc-gc.com",
     "skills": {
       "leadership": 74,
       "technical": 76,
