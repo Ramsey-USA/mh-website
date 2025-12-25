@@ -5,9 +5,7 @@
 
 "use client";
 
-import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { PortfolioService } from "@/lib/services/portfolioService";
 import { useProjectsSearch } from "./components/useProjectsSearch";
 import { ProjectsHero } from "./components/ProjectsHero";
@@ -124,9 +122,6 @@ export default function ProjectsPage() {
       <div className="relative bg-white dark:bg-gray-900 w-full min-h-screen overflow-x-hidden">
         {/* Hero Section */}
         <ProjectsHero />
-
-        {/* Page Navigation */}
-        <PageNavigation items={navigationConfigs.projects} />
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb

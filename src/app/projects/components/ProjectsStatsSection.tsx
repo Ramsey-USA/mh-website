@@ -15,7 +15,7 @@ export function ProjectsStatsSection() {
   return (
     <section
       id="stats"
-      className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+      className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
     >
       {/* Diagonal Stripe Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
@@ -96,6 +96,7 @@ export function ProjectsStatsSection() {
                             icon={stat.icon}
                             size="3xl"
                             className="text-white drop-shadow-lg"
+                            ariaLabel={stat.label}
                           />
                         </div>
                       </div>

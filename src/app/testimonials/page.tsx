@@ -90,6 +90,46 @@ export default function TestimonialsPage() {
     }),
   );
 
+  // Generate FAQ Schema for testimonials page
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "How do I leave a testimonial for MH Construction?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "You can leave a Google review through our testimonials page link, or contact us directly to share your experience. We appreciate client feedback as it helps us maintain our high standards of Honesty, Integrity, Professionalism, and Thoroughness, and helps other businesses make informed decisions about partnering with our veteran-owned construction team.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Are MH Construction testimonials verified?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes! All testimonials come from real Client Partners on completed projects across Washington, Oregon, and Idaho. We maintain the highest standards of authenticity—no paid reviews, no fabricated stories. Just honest feedback from valued partnerships in commercial, industrial, and government construction projects throughout the Pacific Northwest.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What makes MH Construction different from other contractors?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "As a veteran-owned business certified by the U.S. Small Business Administration, we bring military precision and four core values—Honesty, Integrity, Professionalism, and Thoroughness—to every project. Our 70% referral rate, 650+ completed projects, .64 EMR safety rating, and 150+ years combined team experience demonstrate our commitment to building for the client, not the dollar.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I speak with past MH Construction clients?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We're happy to provide references during your consultation. We can connect you with past Client Partners who've experienced projects similar to yours in commercial, industrial, or government construction. Their firsthand accounts demonstrate our commitment to transparent communication, open-book pricing, and quality craftsmanship across the Pacific Northwest.",
+        },
+      },
+    ],
+  };
+
   return (
     <>
       {/* Schema.org Structured Data */}
@@ -98,52 +138,63 @@ export default function TestimonialsPage() {
       {reviewSchemas.map((schema, index) => (
         <StructuredData key={index} data={schema} />
       ))}
+      <StructuredData data={faqSchema} />
 
-      {/* Hero Section - Following MH Standard Pattern B (Centered) */}
+      {/* Hero Section - Modern MH Standard with Diagonal Stripes */}
       <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 min-h-screen flex items-center justify-center text-white overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
+        {/* Diagonal Stripe Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.08]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `repeating-linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.1) 0px,
+                rgba(255, 255, 255, 0.1) 2px,
+                transparent 2px,
+                transparent 60px
+              )`,
+            }}
+          ></div>
+        </div>
 
-        {/* Decorative Grid Pattern */}
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                             linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)`,
-            backgroundSize: "50px 50px",
-          }}
-        ></div>
+        {/* Large Brand Color Blobs */}
+        <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-secondary/20 to-transparent blur-3xl rounded-full"></div>
+        <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-primary-dark/30 to-transparent blur-3xl rounded-full"></div>
 
         {/* Content - Centered for standard pages */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
           <FadeInWhenVisible>
             <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-              {/* Icon Badge */}
-              <div className="flex justify-center mb-6">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-white/30 rounded-full"></div>
                 <div className="relative">
                   <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/50 to-bronze-600/50 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-4 rounded-2xl shadow-2xl border-2 border-white/50">
+                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50">
                     <MaterialIcon
                       icon="forum"
                       size="2xl"
                       className="text-white drop-shadow-lg"
+                      ariaLabel="Client testimonials"
                     />
                   </div>
                 </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-white/30 rounded-full"></div>
               </div>
 
-              {/* Page Title */}
-              <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-                <span className="block text-brand-secondary font-black drop-shadow-lg text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-2">
-                  Commendations → Reviews
+              {/* Two-line gradient heading */}
+              <h1 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-white/90 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Service-Earned Commendations
                 </span>
-                <span className="block text-brand-secondary font-black drop-shadow-lg">
-                  Service-Earned Commendations from Client Partners
+                <span className="block bg-gradient-to-r from-brand-secondary via-brand-secondary-light to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  From Client Partners
                 </span>
               </h1>
 
               {/* Subtitle */}
-              <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
+              <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed px-2 font-light tracking-wide">
                 Authentic feedback from{" "}
                 <span className="text-brand-secondary font-bold">
                   Client Partners
@@ -157,7 +208,7 @@ export default function TestimonialsPage() {
 
               {/* Stats Display */}
               {aggregateRating && (
-                <div className="flex flex-wrap justify-center gap-6 sm:gap-8 pt-8">
+                <div className="flex flex-wrap justify-center gap-8 sm:gap-12 pt-8">
                   <div className="flex flex-col items-center">
                     <div className="flex items-center gap-2 mb-2">
                       {[...Array(5)].map((_, i) => (
@@ -170,26 +221,31 @@ export default function TestimonialsPage() {
                               ? "text-brand-secondary"
                               : "text-gray-500"
                           }
+                          ariaLabel={
+                            i < Math.round(aggregateRating.ratingValue)
+                              ? "Filled star"
+                              : "Empty star"
+                          }
                         />
                       ))}
                     </div>
-                    <p className="text-sm sm:text-base text-white/80">
+                    <p className="text-base sm:text-lg text-white/90 font-medium">
                       {aggregateRating.ratingValue.toFixed(1)} Average Rating
                     </p>
                   </div>
                   <div className="flex flex-col items-center">
-                    <p className="text-3xl sm:text-4xl font-black text-brand-secondary">
+                    <p className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-secondary drop-shadow-lg">
                       {aggregateRating.reviewCount}+
                     </p>
-                    <p className="text-sm sm:text-base text-white/80">
+                    <p className="text-base sm:text-lg text-white/90 font-medium">
                       Client Reviews
                     </p>
                   </div>
                   <div className="flex flex-col items-center">
-                    <p className="text-3xl sm:text-4xl font-black text-brand-secondary">
+                    <p className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-secondary drop-shadow-lg">
                       20+
                     </p>
-                    <p className="text-sm sm:text-base text-white/80">
+                    <p className="text-base sm:text-lg text-white/90 font-medium">
                       Years Experience
                     </p>
                   </div>
@@ -197,21 +253,33 @@ export default function TestimonialsPage() {
               )}
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-10">
                 <Link
                   href="https://search.google.com/local/writereview?placeid=234677025037995169"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-xl font-bold"
+                  className="group inline-flex items-center justify-center gap-3 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-2xl font-bold text-lg"
+                  aria-label="Leave a Google review for MH Construction"
                 >
-                  <MaterialIcon icon="star" size="sm" />
+                  <MaterialIcon
+                    icon="star"
+                    size="md"
+                    className="group-hover:scale-110 transition-transform"
+                    ariaLabel=""
+                  />
                   <span>Leave a Google Review</span>
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-brand-secondary shadow-xl font-bold"
+                  className="group inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-white/50 hover:border-white shadow-2xl font-bold text-lg"
+                  aria-label="Start your construction project"
                 >
-                  <MaterialIcon icon="contact_page" size="sm" />
+                  <MaterialIcon
+                    icon="contact_page"
+                    size="md"
+                    className="group-hover:scale-110 transition-transform"
+                    ariaLabel=""
+                  />
                   <span>Start Your Project</span>
                 </Link>
               </div>
@@ -265,6 +333,7 @@ export default function TestimonialsPage() {
                         icon="military_tech"
                         size="2xl"
                         className="text-white drop-shadow-lg"
+                        ariaLabel="Military excellence"
                       />
                     </div>
                   </div>
@@ -294,107 +363,161 @@ export default function TestimonialsPage() {
                 </p>
               </div>
 
-              {/* Four Core Values Grid */}
+              {/* Four Core Values Grid - Modern Card Design */}
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg border-2 border-brand-primary/20 hover:border-brand-primary/50 transition-all duration-300 hover:scale-105">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="bg-brand-primary/10 p-3 rounded-lg">
-                      <MaterialIcon
-                        icon="visibility"
-                        size="lg"
-                        className="text-brand-primary"
-                      />
+                {/* Honesty Card */}
+                <div className="group relative">
+                  {/* Animated border glow */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  {/* Card */}
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300">
+                    {/* Top accent bar */}
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="relative">
+                        <div className="absolute -inset-2 bg-brand-primary/20 blur-lg rounded-lg"></div>
+                        <div className="relative bg-brand-primary/10 p-3 rounded-lg">
+                          <MaterialIcon
+                            icon="visibility"
+                            size="lg"
+                            className="text-brand-primary"
+                            ariaLabel="Honesty"
+                          />
+                        </div>
+                      </div>
+                      <h3 className="text-xl font-black text-gray-900 dark:text-white">
+                        Honesty
+                      </h3>
                     </div>
-                    <h3 className="text-xl font-black text-gray-900 dark:text-white">
-                      Honesty
-                    </h3>
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
-                    <span className="font-bold text-brand-primary">
-                      Transparent pricing
-                    </span>{" "}
-                    with no hidden costs. Realistic timelines and honest
-                    assessments every time.
-                  </p>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">
-                    ✓ Open-book pricing
-                    <br />✓ No surprises, just solutions
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
+                      <span className="font-bold text-brand-primary">
+                        Transparent pricing
+                      </span>{" "}
+                      with no hidden costs. Realistic timelines and honest
+                      assessments every time.
+                    </p>
+                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                      ✓ Open-book pricing
+                      <br />✓ No surprises, just solutions
+                    </div>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg border-2 border-brand-primary/20 hover:border-brand-primary/50 transition-all duration-300 hover:scale-105">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="bg-brand-primary/10 p-3 rounded-lg">
-                      <MaterialIcon
-                        icon="verified_user"
-                        size="lg"
-                        className="text-brand-primary"
-                      />
+                {/* Integrity Card */}
+                <div className="group relative">
+                  {/* Animated border glow */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  {/* Card */}
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300">
+                    {/* Top accent bar */}
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="relative">
+                        <div className="absolute -inset-2 bg-brand-primary/20 blur-lg rounded-lg"></div>
+                        <div className="relative bg-brand-primary/10 p-3 rounded-lg">
+                          <MaterialIcon
+                            icon="verified_user"
+                            size="lg"
+                            className="text-brand-primary"
+                            ariaLabel="Integrity"
+                          />
+                        </div>
+                      </div>
+                      <h3 className="text-xl font-black text-gray-900 dark:text-white">
+                        Integrity
+                      </h3>
                     </div>
-                    <h3 className="text-xl font-black text-gray-900 dark:text-white">
-                      Integrity
-                    </h3>
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
-                    <span className="font-bold text-brand-primary">
-                      Promise-keeping culture
-                    </span>{" "}
-                    backed by 70% referral business and 650+ completed projects.
-                  </p>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">
-                    ✓ We finish what we start
-                    <br />✓ Your word is your bond — so is ours
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
+                      <span className="font-bold text-brand-primary">
+                        Promise-keeping culture
+                      </span>{" "}
+                      backed by 70% referral business and 650+ completed
+                      projects.
+                    </p>
+                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                      ✓ We finish what we start
+                      <br />✓ Your word is your bond — so is ours
+                    </div>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg border-2 border-brand-primary/20 hover:border-brand-primary/50 transition-all duration-300 hover:scale-105">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="bg-brand-primary/10 p-3 rounded-lg">
-                      <MaterialIcon
-                        icon="workspace_premium"
-                        size="lg"
-                        className="text-brand-primary"
-                      />
+                {/* Professionalism Card */}
+                <div className="group relative">
+                  {/* Animated border glow */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  {/* Card */}
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300">
+                    {/* Top accent bar */}
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="relative">
+                        <div className="absolute -inset-2 bg-brand-primary/20 blur-lg rounded-lg"></div>
+                        <div className="relative bg-brand-primary/10 p-3 rounded-lg">
+                          <MaterialIcon
+                            icon="workspace_premium"
+                            size="lg"
+                            className="text-brand-primary"
+                            ariaLabel="Professionalism"
+                          />
+                        </div>
+                      </div>
+                      <h3 className="text-xl font-black text-gray-900 dark:text-white">
+                        Professionalism
+                      </h3>
                     </div>
-                    <h3 className="text-xl font-black text-gray-900 dark:text-white">
-                      Professionalism
-                    </h3>
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
-                    <span className="font-bold text-brand-primary">
-                      Award-winning safety
-                    </span>{" "}
-                    with .64 EMR, 150+ years team experience, 3-state licensing.
-                  </p>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">
-                    ✓ Military precision applied
-                    <br />✓ Expert credentials
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
+                      <span className="font-bold text-brand-primary">
+                        Award-winning safety
+                      </span>{" "}
+                      with .64 EMR, 150+ years team experience, 3-state
+                      licensing.
+                    </p>
+                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                      ✓ Military precision applied
+                      <br />✓ Expert credentials
+                    </div>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg border-2 border-brand-primary/20 hover:border-brand-primary/50 transition-all duration-300 hover:scale-105">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="bg-brand-primary/10 p-3 rounded-lg">
-                      <MaterialIcon
-                        icon="search"
-                        size="lg"
-                        className="text-brand-primary"
-                      />
+                {/* Thoroughness Card */}
+                <div className="group relative">
+                  {/* Animated border glow */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  {/* Card */}
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300">
+                    {/* Top accent bar */}
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="relative">
+                        <div className="absolute -inset-2 bg-brand-primary/20 blur-lg rounded-lg"></div>
+                        <div className="relative bg-brand-primary/10 p-3 rounded-lg">
+                          <MaterialIcon
+                            icon="search"
+                            size="lg"
+                            className="text-brand-primary"
+                            ariaLabel="Thoroughness"
+                          />
+                        </div>
+                      </div>
+                      <h3 className="text-xl font-black text-gray-900 dark:text-white">
+                        Thoroughness
+                      </h3>
                     </div>
-                    <h3 className="text-xl font-black text-gray-900 dark:text-white">
-                      Thoroughness
-                    </h3>
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
-                    <span className="font-bold text-brand-primary">
-                      Zero-gap quality
-                    </span>{" "}
-                    with meticulous attention to detail. Zero accidents, zero
-                    shortcuts.
-                  </p>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">
-                    ✓ Every detail matters
-                    <br />✓ Comprehensive quality control
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-3">
+                      <span className="font-bold text-brand-primary">
+                        Zero-gap quality
+                      </span>{" "}
+                      with meticulous attention to detail. Zero accidents, zero
+                      shortcuts.
+                    </p>
+                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                      ✓ Every detail matters
+                      <br />✓ Comprehensive quality control
+                    </div>
                   </div>
                 </div>
               </div>
@@ -402,7 +525,10 @@ export default function TestimonialsPage() {
           </section>
 
           {/* Service Areas & Capabilities - SEO Content */}
-          <section className="bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20">
+          <section
+            id="service-areas"
+            className="bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20"
+          >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid lg:grid-cols-2 gap-12">
                 {/* Service Areas */}
@@ -412,6 +538,7 @@ export default function TestimonialsPage() {
                       icon="map"
                       size="lg"
                       className="text-brand-primary"
+                      ariaLabel="Service coverage map"
                     />
                     <h3 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white">
                       Serving the Pacific Northwest
@@ -426,49 +553,66 @@ export default function TestimonialsPage() {
                     industrial projects throughout the region.
                   </p>
                   <div className="space-y-3">
-                    <div className="flex items-start gap-3 bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-                      <MaterialIcon
-                        icon="location_city"
-                        size="sm"
-                        className="text-brand-primary mt-1"
-                      />
-                      <div>
-                        <h4 className="font-bold text-gray-900 dark:text-white mb-1">
-                          Tri-Cities, WA (Headquarters)
-                        </h4>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                          Pasco, Kennewick, Richland, West Richland
-                        </p>
+                    {/* Tri-Cities Card */}
+                    <div className="group relative">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="relative flex items-start gap-3 bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
+                        <MaterialIcon
+                          icon="location_city"
+                          size="sm"
+                          className="text-brand-primary mt-1"
+                          ariaLabel="City location"
+                        />
+                        <div>
+                          <h4 className="font-bold text-gray-900 dark:text-white mb-1">
+                            Tri-Cities, WA (Headquarters)
+                          </h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">
+                            Pasco, Kennewick, Richland, West Richland
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3 bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-                      <MaterialIcon
-                        icon="terrain"
-                        size="sm"
-                        className="text-brand-primary mt-1"
-                      />
-                      <div>
-                        <h4 className="font-bold text-gray-900 dark:text-white mb-1">
-                          Eastern Washington
-                        </h4>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                          Yakima, Walla Walla, Spokane, and surrounding areas
-                        </p>
+
+                    {/* Eastern Washington Card */}
+                    <div className="group relative">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="relative flex items-start gap-3 bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
+                        <MaterialIcon
+                          icon="terrain"
+                          size="sm"
+                          className="text-brand-primary mt-1"
+                          ariaLabel="Regional area"
+                        />
+                        <div>
+                          <h4 className="font-bold text-gray-900 dark:text-white mb-1">
+                            Eastern Washington
+                          </h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">
+                            Yakima, Walla Walla, Spokane, and surrounding areas
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3 bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-                      <MaterialIcon
-                        icon="landscape"
-                        size="sm"
-                        className="text-brand-primary mt-1"
-                      />
-                      <div>
-                        <h4 className="font-bold text-gray-900 dark:text-white mb-1">
-                          Multi-State Projects
-                        </h4>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                          Eastern Oregon, Southern Idaho, and beyond
-                        </p>
+
+                    {/* Multi-State Card */}
+                    <div className="group relative">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="relative flex items-start gap-3 bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
+                        <MaterialIcon
+                          icon="landscape"
+                          size="sm"
+                          className="text-brand-primary mt-1"
+                          ariaLabel="Multi-state coverage"
+                        />
+                        <div>
+                          <h4 className="font-bold text-gray-900 dark:text-white mb-1">
+                            Multi-State Projects
+                          </h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">
+                            Eastern Oregon, Southern Idaho, and beyond
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -481,6 +625,7 @@ export default function TestimonialsPage() {
                       icon="construction"
                       size="lg"
                       className="text-brand-primary"
+                      ariaLabel="Construction expertise"
                     />
                     <h3 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white">
                       Commercial & Industrial Expertise
@@ -494,83 +639,118 @@ export default function TestimonialsPage() {
                     , we deliver proven results across diverse project types.
                   </p>
                   <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-                      <MaterialIcon
-                        icon="business"
-                        size="sm"
-                        className="text-brand-primary mb-2"
-                      />
-                      <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
-                        Office Buildings
-                      </h4>
-                      <p className="text-xs text-gray-600 dark:text-gray-400">
-                        Corporate spaces & tenant improvements
-                      </p>
+                    {/* Office Buildings Card */}
+                    <div className="group relative">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="relative bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
+                        <MaterialIcon
+                          icon="business"
+                          size="sm"
+                          className="text-brand-primary mb-2"
+                          ariaLabel="Office buildings"
+                        />
+                        <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
+                          Office Buildings
+                        </h4>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                          Corporate spaces & tenant improvements
+                        </p>
+                      </div>
                     </div>
-                    <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-                      <MaterialIcon
-                        icon="local_hospital"
-                        size="sm"
-                        className="text-brand-primary mb-2"
-                      />
-                      <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
-                        Medical Facilities
-                      </h4>
-                      <p className="text-xs text-gray-600 dark:text-gray-400">
-                        Healthcare centers & clinics
-                      </p>
+
+                    {/* Medical Facilities Card */}
+                    <div className="group relative">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="relative bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
+                        <MaterialIcon
+                          icon="local_hospital"
+                          size="sm"
+                          className="text-brand-primary mb-2"
+                          ariaLabel="Medical facilities"
+                        />
+                        <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
+                          Medical Facilities
+                        </h4>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                          Healthcare centers & clinics
+                        </p>
+                      </div>
                     </div>
-                    <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-                      <MaterialIcon
-                        icon="factory"
-                        size="sm"
-                        className="text-brand-primary mb-2"
-                      />
-                      <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
-                        Industrial
-                      </h4>
-                      <p className="text-xs text-gray-600 dark:text-gray-400">
-                        Warehouses & manufacturing
-                      </p>
+
+                    {/* Industrial Card */}
+                    <div className="group relative">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="relative bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
+                        <MaterialIcon
+                          icon="factory"
+                          size="sm"
+                          className="text-brand-primary mb-2"
+                          ariaLabel="Industrial facilities"
+                        />
+                        <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
+                          Industrial
+                        </h4>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                          Warehouses & manufacturing
+                        </p>
+                      </div>
                     </div>
-                    <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-                      <MaterialIcon
-                        icon="account_balance"
-                        size="sm"
-                        className="text-brand-primary mb-2"
-                      />
-                      <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
-                        Government
-                      </h4>
-                      <p className="text-xs text-gray-600 dark:text-gray-400">
-                        Public sector & municipal
-                      </p>
+
+                    {/* Government Card */}
+                    <div className="group relative">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="relative bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
+                        <MaterialIcon
+                          icon="account_balance"
+                          size="sm"
+                          className="text-brand-primary mb-2"
+                          ariaLabel="Government projects"
+                        />
+                        <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
+                          Government
+                        </h4>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                          Public sector & municipal
+                        </p>
+                      </div>
                     </div>
-                    <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-                      <MaterialIcon
-                        icon="store"
-                        size="sm"
-                        className="text-brand-primary mb-2"
-                      />
-                      <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
-                        Retail & Hospitality
-                      </h4>
-                      <p className="text-xs text-gray-600 dark:text-gray-400">
-                        Stores & restaurants
-                      </p>
+
+                    {/* Retail Card */}
+                    <div className="group relative">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="relative bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
+                        <MaterialIcon
+                          icon="store"
+                          size="sm"
+                          className="text-brand-primary mb-2"
+                          ariaLabel="Retail and hospitality"
+                        />
+                        <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
+                          Retail & Hospitality
+                        </h4>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                          Stores & restaurants
+                        </p>
+                      </div>
                     </div>
-                    <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-                      <MaterialIcon
-                        icon="agriculture"
-                        size="sm"
-                        className="text-brand-primary mb-2"
-                      />
-                      <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
-                        Agricultural
-                      </h4>
-                      <p className="text-xs text-gray-600 dark:text-gray-400">
-                        Farm & processing facilities
-                      </p>
+
+                    {/* Agricultural Card */}
+                    <div className="group relative">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                      <div className="relative bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
+                        <MaterialIcon
+                          icon="agriculture"
+                          size="sm"
+                          className="text-brand-primary mb-2"
+                          ariaLabel="Agricultural facilities"
+                        />
+                        <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
+                          Agricultural
+                        </h4>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                          Farm & processing facilities
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -592,6 +772,7 @@ export default function TestimonialsPage() {
                         icon="verified"
                         size="2xl"
                         className="text-white drop-shadow-lg"
+                        ariaLabel="Verified feedback"
                       />
                     </div>
                   </div>
@@ -625,50 +806,403 @@ export default function TestimonialsPage() {
                 </p>
               </div>
 
-              {/* Grid of value propositions */}
+              {/* Grid of value propositions - Modern Card Design */}
               <div className="grid md:grid-cols-3 gap-8">
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-brand-primary/20 hover:border-brand-primary/50 transition-all duration-300">
-                  <MaterialIcon
-                    icon="handshake"
-                    size="lg"
-                    className="text-brand-primary mb-4"
-                  />
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    Honest Communication
-                  </h3>
-                  <p className="text-gray-700 dark:text-gray-300">
-                    Clear, direct updates throughout your project—no surprises,
-                    just straightforward collaboration
-                  </p>
+                {/* Honest Communication Card */}
+                <div className="group relative">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300">
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <MaterialIcon
+                      icon="handshake"
+                      size="lg"
+                      className="text-brand-primary mb-4"
+                      ariaLabel="Partnership and communication"
+                    />
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                      Honest Communication
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-300">
+                      Clear, direct updates throughout your project—no
+                      surprises, just straightforward collaboration
+                    </p>
+                  </div>
                 </div>
 
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-brand-primary/20 hover:border-brand-primary/50 transition-all duration-300">
-                  <MaterialIcon
-                    icon="military_tech"
-                    size="lg"
-                    className="text-brand-primary mb-4"
-                  />
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    Veteran Excellence
-                  </h3>
-                  <p className="text-gray-700 dark:text-gray-300">
-                    Military precision and dedication applied to commercial,
-                    industrial, and government construction
-                  </p>
+                {/* Veteran Excellence Card */}
+                <div className="group relative">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300">
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <MaterialIcon
+                      icon="military_tech"
+                      size="lg"
+                      className="text-brand-primary mb-4"
+                      ariaLabel="Military veteran excellence"
+                    />
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                      Veteran Excellence
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-300">
+                      Military precision and dedication applied to commercial,
+                      industrial, and government construction
+                    </p>
+                  </div>
                 </div>
 
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-brand-primary/20 hover:border-brand-primary/50 transition-all duration-300">
+                {/* Proven Track Record Card */}
+                <div className="group relative">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300">
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <MaterialIcon
+                      icon="workspace_premium"
+                      size="lg"
+                      className="text-brand-primary mb-4"
+                      ariaLabel="Award-winning quality"
+                    />
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                      Proven Track Record
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-300">
+                      20+ years delivering quality projects across Washington,
+                      Oregon, and Idaho
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ Section - Optimal SEO Positioning (60-75% depth) */}
+          <section
+            id="testimonials-faq"
+            className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+          >
+            {/* Diagonal Stripe Background Pattern */}
+            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: `repeating-linear-gradient(
+                    45deg,
+                    #386851 0px,
+                    #386851 2px,
+                    transparent 2px,
+                    transparent 60px
+                  )`,
+                }}
+              ></div>
+            </div>
+
+            {/* Large Brand Color Blobs */}
+            <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+            <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              {/* Section Header */}
+              <div className="mb-16 sm:mb-20 text-center">
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-primary-dark p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="help"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                        ariaLabel="Frequently asked questions"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Common Questions About
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Working With Us
+                  </span>
+                </h2>
+
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  Get answers to the most{" "}
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    frequently asked questions
+                  </span>{" "}
+                  about our{" "}
+                  <span className="font-bold text-gray-900 dark:text-gray-100">
+                    partnership approach
+                  </span>{" "}
+                  and what to expect when working with our veteran-owned team.
+                </p>
+              </div>
+
+              {/* FAQ Grid */}
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                {/* FAQ 1 */}
+                <div className="group relative">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div className="flex items-start gap-4 mb-4">
+                      <MaterialIcon
+                        icon="help_outline"
+                        size="lg"
+                        className="text-brand-primary mt-1"
+                        ariaLabel="Question"
+                      />
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                        How do I leave a testimonial?
+                      </h3>
+                    </div>
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      We appreciate client feedback! You can leave a Google
+                      review through the link above, or contact us directly to
+                      share your experience. Your honest feedback helps us
+                      maintain our high standards and helps other businesses
+                      make informed decisions.
+                    </p>
+                  </div>
+                </div>
+
+                {/* FAQ 2 */}
+                <div className="group relative">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div className="flex items-start gap-4 mb-4">
+                      <MaterialIcon
+                        icon="help_outline"
+                        size="lg"
+                        className="text-brand-primary mt-1"
+                        ariaLabel="Question"
+                      />
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                        Are these testimonials verified?
+                      </h3>
+                    </div>
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      Yes! All testimonials come from real Client Partners on
+                      completed projects. We maintain the highest standards of
+                      authenticity—no paid reviews, no fabricated stories. Just
+                      honest feedback from valued partnerships across the
+                      Pacific Northwest.
+                    </p>
+                  </div>
+                </div>
+
+                {/* FAQ 3 */}
+                <div className="group relative">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div className="flex items-start gap-4 mb-4">
+                      <MaterialIcon
+                        icon="help_outline"
+                        size="lg"
+                        className="text-brand-primary mt-1"
+                        ariaLabel="Question"
+                      />
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                        What makes MH Construction different?
+                      </h3>
+                    </div>
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      As a veteran-owned business, we bring military precision,
+                      Honesty, Integrity, Professionalism, and Thoroughness to
+                      every project. Our 70% referral rate and 650+ completed
+                      projects speak to our partnership-first approach and
+                      commitment to building for the client, not the dollar.
+                    </p>
+                  </div>
+                </div>
+
+                {/* FAQ 4 */}
+                <div className="group relative">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div className="flex items-start gap-4 mb-4">
+                      <MaterialIcon
+                        icon="help_outline"
+                        size="lg"
+                        className="text-brand-primary mt-1"
+                        ariaLabel="Question"
+                      />
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                        Can I speak with past clients?
+                      </h3>
+                    </div>
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      We're happy to provide references! During your
+                      consultation, we can connect you with past Client Partners
+                      who've experienced projects similar to yours. Their
+                      firsthand accounts demonstrate our commitment to
+                      transparent communication and quality craftsmanship.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA to Full FAQ Page */}
+              <div className="text-center">
+                <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
+                  Have more questions? Check out our comprehensive FAQ page.
+                </p>
+                <Link
+                  href="/faq"
+                  className="group inline-flex items-center justify-center gap-3 bg-brand-primary hover:bg-brand-primary-dark text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-xl font-bold text-lg"
+                  aria-label="View all frequently asked questions"
+                >
                   <MaterialIcon
-                    icon="workspace_premium"
-                    size="lg"
-                    className="text-brand-primary mb-4"
+                    icon="quiz"
+                    size="md"
+                    className="group-hover:scale-110 transition-transform"
+                    ariaLabel=""
                   />
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    Proven Track Record
-                  </h3>
-                  <p className="text-gray-700 dark:text-gray-300">
-                    20+ years delivering quality projects across Washington,
-                    Oregon, and Idaho
+                  <span>View All FAQs</span>
+                </Link>
+              </div>
+            </div>
+          </section>
+
+          {/* Trust Signals & Certifications Section */}
+          <section className="bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              {/* Section Header */}
+              <div className="mb-12 sm:mb-16 text-center">
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="verified"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                        ariaLabel="Verified credentials"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl leading-relaxed tracking-tighter">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-tight">
+                    Credentials You Can
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm">
+                    Trust & Verify
+                  </span>
+                </h2>
+              </div>
+
+              {/* Trust Badges Grid */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* Veteran-Owned Badge */}
+                <div className="group relative">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300 text-center">
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <MaterialIcon
+                      icon="military_tech"
+                      size="2xl"
+                      className="text-brand-primary mx-auto mb-4"
+                      ariaLabel="Veteran-owned business"
+                    />
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                      Veteran-Owned
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      SBA Certified Veteran-Owned Small Business
+                    </p>
+                  </div>
+                </div>
+
+                {/* Multi-State Licensed */}
+                <div className="group relative">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300 text-center">
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <MaterialIcon
+                      icon="verified_user"
+                      size="2xl"
+                      className="text-brand-primary mx-auto mb-4"
+                      ariaLabel="Multi-state licensing"
+                    />
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                      Multi-State Licensed
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      Licensed in WA, OR, and ID
+                    </p>
+                  </div>
+                </div>
+
+                {/* Safety Record */}
+                <div className="group relative">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300 text-center">
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <MaterialIcon
+                      icon="health_and_safety"
+                      size="2xl"
+                      className="text-brand-primary mx-auto mb-4"
+                      ariaLabel="Safety excellence"
+                    />
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                      Safety Excellence
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      .64 EMR Safety Rating
+                    </p>
+                  </div>
+                </div>
+
+                {/* 650+ Projects */}
+                <div className="group relative">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300 text-center">
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    <MaterialIcon
+                      icon="engineering"
+                      size="2xl"
+                      className="text-brand-primary mx-auto mb-4"
+                      ariaLabel="Project experience"
+                    />
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                      650+ Projects
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      Completed Since 2010
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Additional Trust Indicators */}
+              <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
+                <div>
+                  <p className="text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2">
+                    70%
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300 font-medium">
+                    Referral Business Rate
+                  </p>
+                </div>
+                <div>
+                  <p className="text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2">
+                    150+
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300 font-medium">
+                    Years Combined Experience
+                  </p>
+                </div>
+                <div>
+                  <p className="text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2">
+                    20+
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300 font-medium">
+                    Years Serving Pacific Northwest
                   </p>
                 </div>
               </div>
@@ -684,6 +1218,7 @@ export default function TestimonialsPage() {
                 icon="rate_review"
                 size="3xl"
                 className="text-brand-primary mx-auto"
+                ariaLabel="Reviews coming soon"
               />
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6">
@@ -699,16 +1234,28 @@ export default function TestimonialsPage() {
                 href="https://search.google.com/local/writereview?placeid=234677025037995169"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-xl font-bold text-lg"
+                className="group inline-flex items-center justify-center gap-3 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-xl font-bold text-lg"
+                aria-label="Leave a Google review for MH Construction"
               >
-                <MaterialIcon icon="star" size="md" />
+                <MaterialIcon
+                  icon="star"
+                  size="md"
+                  className="group-hover:scale-110 transition-transform"
+                  ariaLabel=""
+                />
                 <span>Leave a Google Review</span>
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-brand-secondary shadow-xl font-bold text-lg"
+                className="group inline-flex items-center justify-center gap-3 bg-brand-primary hover:bg-brand-primary-dark text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-brand-secondary shadow-xl font-bold text-lg"
+                aria-label="Start your construction project"
               >
-                <MaterialIcon icon="contact_page" size="md" />
+                <MaterialIcon
+                  icon="contact_page"
+                  size="md"
+                  className="group-hover:scale-110 transition-transform"
+                  ariaLabel=""
+                />
                 <span>Start Your Project</span>
               </Link>
             </div>
@@ -716,32 +1263,67 @@ export default function TestimonialsPage() {
         </section>
       )}
 
-      {/* Final CTA Section */}
-      <section className="bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900 py-16 sm:py-20 lg:py-24 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6">
+      {/* Final CTA Section - Modern MH Standard */}
+      <section
+        id="leave-review"
+        className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900 py-16 sm:py-20 lg:py-24 text-white overflow-hidden"
+      >
+        {/* Diagonal Stripe Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.08]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `repeating-linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.1) 0px,
+                rgba(255, 255, 255, 0.1) 2px,
+                transparent 2px,
+                transparent 60px
+              )`,
+            }}
+          ></div>
+        </div>
+
+        {/* Large Brand Color Blobs */}
+        <div className="absolute top-10 right-[20%] w-96 h-96 bg-gradient-to-br from-brand-secondary/20 to-transparent blur-3xl rounded-full"></div>
+        <div className="absolute bottom-10 left-[20%] w-96 h-96 bg-gradient-to-tr from-brand-primary-darker/30 to-transparent blur-3xl rounded-full"></div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6">
             Ready to Experience{" "}
             <span className="text-brand-secondary">
               Veteran-Owned Excellence?
             </span>
           </h2>
-          <p className="text-lg sm:text-xl mb-8 text-white/90">
+          <p className="text-lg sm:text-xl md:text-2xl mb-10 text-white/90 font-light">
             Join our satisfied Client Partners across the Pacific Northwest.
             Let's build something exceptional together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-xl font-bold text-lg"
+              className="group inline-flex items-center justify-center gap-3 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-2xl font-bold text-lg"
+              aria-label="Contact us to start your project"
             >
-              <MaterialIcon icon="contact_page" size="md" />
+              <MaterialIcon
+                icon="contact_page"
+                size="md"
+                className="group-hover:scale-110 transition-transform"
+                ariaLabel=""
+              />
               <span>Get Started Today</span>
             </Link>
             <Link
               href="/services"
-              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-white/30 shadow-xl font-bold text-lg"
+              className="group inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-white/50 hover:border-white shadow-2xl font-bold text-lg"
+              aria-label="Learn about our construction services"
             >
-              <MaterialIcon icon="construction" size="md" />
+              <MaterialIcon
+                icon="construction"
+                size="md"
+                className="group-hover:scale-110 transition-transform"
+                ariaLabel=""
+              />
               <span>View Our Services</span>
             </Link>
           </div>

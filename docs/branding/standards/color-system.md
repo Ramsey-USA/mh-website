@@ -1,10 +1,10 @@
 # MH Construction Color System
 
-**Date:** December 14, 2025  
+**Date:** December 25, 2025  
 **Status:** ✅ Current  
 **Category:** Business - Brand Guidelines  
-**Last Updated:** December 14, 2025  
-**Version:** 5.0.0
+**Last Updated:** December 25, 2025  
+**Version:** 5.1.0 - Emergency Color Scheme Added
 
 ## Quick Navigation
 
@@ -48,6 +48,101 @@
 **White:** `#FFFFFF` - Light backgrounds, inverted text
 **Gray Palette:** Professional neutral tones for text and backgrounds
 
+### Emergency/Urgent Color Scheme
+
+**Context:** The `/urgent` emergency response page uses a distinct color palette to convey
+urgency and immediate action while maintaining brand trust.
+
+#### Emergency Primary - Orange
+
+**Hex:** `#ea580c` (Tailwind Orange-600)
+**RGB:** `rgb(234, 88, 12)`
+**Use Case:** Emergency CTAs, urgent action buttons, critical alerts
+**Psychology:** Creates sense of urgency without triggering alarm
+
+#### Emergency Accent - Red
+
+**Hex:** `#dc2626` (Tailwind Red-600)
+**RGB:** `rgb(220, 38, 38)`
+**Use Case:** Emergency gradient transitions, critical emphasis
+**Psychology:** Amplifies urgency in gradients and accents
+
+#### Emergency Highlight - Yellow
+
+**Hex:** `#fde047` (Tailwind Yellow-300)
+**RGB:** `rgb(253, 224, 71)`
+**Use Case:** Response time indicators, timeframe badges
+**Psychology:** Attention-grabbing without being alarming
+
+#### Emergency Color Philosophy
+
+**When to Use:**
+
+- Emergency/urgent response pages only
+- 24/7 rapid response messaging
+- Critical timeline indicators
+- Contractor-focused emergency services
+
+**Trust Balance:**
+
+- Use brand green (Hunter Green) for trust elements (certifications, credentials)
+- Emergency colors for action and urgency
+- Maintains professional credibility while emphasizing speed
+
+**DO NOT Use:**
+
+- On standard service pages (use Hunter Green)
+- For non-emergency content
+- Without corresponding trust signals nearby
+
+### Government/Public Sector Grayscale Scheme
+
+**Context:** The `/public-sector` government contracting page uses a professional
+grayscale palette to convey authority, compliance, and institutional reliability.
+
+#### Grayscale Primary - Slate Gray
+
+**Hex:** `#475569` (Tailwind Slate-600)
+**RGB:** `rgb(71, 85, 105)`
+**Use Case:** Primary government CTAs, section headers, institutional authority
+**Psychology:** Professional, trustworthy, government-standard neutrality
+
+#### Grayscale Accent - Cool Gray
+
+**Hex:** `#6b7280` (Tailwind Gray-500)
+**RGB:** `rgb(107, 114, 128)`
+**Use Case:** Gradient transitions, supporting elements
+**Psychology:** Balanced neutrality, regulatory compliance
+
+#### Grayscale Dark - Charcoal
+
+**Hex:** `#1f2937` (Tailwind Gray-800)
+**RGB:** `rgb(31, 41, 55)`
+**Use Case:** Hero backgrounds, dark institutional sections
+**Psychology:** Authority, federal standard, professional gravitas
+
+#### Grayscale Color Philosophy
+
+**When to Use:**
+
+- Government/public sector contracting pages only
+- Federal compliance and regulatory content
+- Institutional authority messaging
+- Military/DOE/Hanford project contexts
+
+**Professional Balance:**
+
+- Use grayscale for institutional authority and compliance
+- Use brand green for trust elements (veteran-owned, safety records)
+- Use bronze for military veteran heritage
+- Maintains credibility while emphasizing federal standards
+
+**DO NOT Use:**
+
+- On commercial construction pages (use brand green/tan)
+- For emergency services (use orange-red scheme)
+- Without veteran-owned trust indicators nearby
+
 ### Badge Colors
 
 #### Bronze - Veteran Designation
@@ -84,6 +179,54 @@
   <span className="text-bronze-badge-900">Military Veteran</span>
 </div>
 ```
+
+### Government/Public Sector Color Palette
+
+**Context:** The `/public-sector` government contracting page uses a professional
+grayscale palette to convey authority, compliance, and institutional reliability.
+
+#### Grayscale Primary - Slate Gray
+
+**Hex:** `#475569` (Tailwind Slate-600)
+**RGB:** `rgb(71, 85, 105)`
+**Use Case:** Primary government CTAs, section headers, institutional authority
+**Psychology:** Professional, trustworthy, government-standard neutrality
+
+#### Grayscale Accent - Cool Gray
+
+**Hex:** `#6b7280` (Tailwind Gray-500)
+**RGB:** `rgb(107, 114, 128)`
+**Use Case:** Gradient transitions, supporting elements
+**Psychology:** Balanced neutrality, regulatory compliance
+
+#### Grayscale Dark - Charcoal
+
+**Hex:** `#1f2937` (Tailwind Gray-800)
+**RGB:** `rgb(31, 41, 55)`
+**Use Case:** Hero backgrounds, dark institutional sections
+**Psychology:** Authority, federal standard, professional gravitas
+
+#### Grayscale Color Philosophy
+
+**When to Use:**
+
+- Government/public sector contracting pages only
+- Federal compliance and regulatory content
+- Institutional authority messaging
+- Military/DOE/Hanford project contexts
+
+**Professional Balance:**
+
+- Use grayscale for institutional authority and compliance
+- Use brand green for trust elements (veteran-owned, safety records)
+- Use bronze for military veteran heritage
+- Maintains credibility while emphasizing federal standards
+
+**DO NOT Use:**
+
+- On commercial construction pages (use brand green/tan)
+- For emergency services (use orange-red scheme)
+- Without veteran-owned trust indicators nearby
 
 ## Light Mode Color Palette
 
@@ -291,6 +434,98 @@ className =
 
 - **Use for:** Hero sections, featured content
 - **Effect:** Maximum brand impact
+
+#### Emergency CTA Gradients (Urgent Page Only)
+
+**Emergency Button Primary:**
+
+```tsx
+className = "bg-gradient-to-r from-orange-600 via-red-600 to-orange-600";
+```
+
+- **Use for:** Primary CTAs on emergency/urgent page
+- **Colors:** Orange → Red → Orange
+- **Effect:** Conveys urgency and immediate action
+- **Context:** Emergency response contact buttons
+
+**Emergency Button Hover:**
+
+```tsx
+className = "hover:from-orange-700 hover:via-red-700 hover:to-orange-800";
+```
+
+- **Intensifies on hover** for clear interactive feedback
+- **Maintains gradient pattern** with darker shades
+
+**Emergency Icon Container:**
+
+```tsx
+// Glow layer
+className = "bg-gradient-to-br from-orange-600/30 to-red-600/30 blur-2xl";
+
+// Container
+className = "bg-gradient-to-br from-orange-600 via-red-600 to-orange-700";
+```
+
+- **Use for:** Icons on emergency page sections
+- **Effect:** Creates urgent, attention-grabbing glow
+- **Trust Balance:** Use standard brand green icons for credentials/trust sections
+
+**Emergency Hero Background:**
+
+```tsx
+className = "bg-gradient-to-br from-gray-900 via-orange-950/40 to-gray-900";
+```
+
+- **Use for:** Emergency page hero sections
+- **Subtle orange tint** maintains urgency without overwhelming
+- **Dark base** ensures text readability
+
+#### Government/Public Sector Grayscale Gradients
+
+**Government Button Primary:**
+
+```tsx
+className = "bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600";
+```
+
+- **Use for:** Primary CTAs on government/public sector page
+- **Colors:** Slate-600 → Gray-700 → Slate-600
+- **Effect:** Professional institutional authority
+- **Context:** Federal contracting, compliance, regulatory actions
+
+**Government Button Hover:**
+
+```tsx
+className = "hover:from-slate-700 hover:via-gray-800 hover:to-slate-700";
+```
+
+- **Darkens on hover** for clear interactive feedback
+- **Maintains grayscale professionalism**
+
+**Government Icon Container:**
+
+```tsx
+// Glow layer
+className = "bg-gradient-to-br from-slate-600/30 to-gray-700/30 blur-2xl";
+
+// Container
+className = "bg-gradient-to-br from-slate-600 via-gray-700 to-gray-800";
+```
+
+- **Use for:** Icons on government/public sector sections
+- **Effect:** Creates professional, authoritative presence
+- **Trust Balance:** Use brand green/bronze icons for veteran credentials
+
+**Government Hero Background:**
+
+```tsx
+className = "bg-gradient-to-br from-gray-900 via-slate-800/60 to-gray-900";
+```
+
+- **Use for:** Government page hero sections
+- **Subtle slate tint** maintains institutional feel
+- **Dark base** ensures text readability
 
 #### Background Gradients
 
@@ -842,6 +1077,15 @@ module.exports = {
 - "Apply to be Approved Vendor" (icon: `check_circle`)
 - "Submit Vendor Application" (icon: `contact_mail`)
 
+**Emergency/Urgent Response Actions (Orange-Red Gradient):**
+
+- "Call Emergency Line Now" (icon: `phone`, `call`)
+- "Email Emergency Response" (icon: `email`, `emergency`)
+- "24/7 Rapid Response" (icon: `bolt`, `schedule`)
+- "Immediate Project Support" (icon: `engineering`, `military_tech`)
+
+**Context:** Used exclusively on `/urgent` emergency response page for contractor-focused rapid deployment services. Creates urgency while maintaining professional credibility through accompanying trust signals.
+
 ### Color Accessibility in Context
 
 **Hunter Green on White:** 7.2:1 contrast ratio (AAA compliant)
@@ -907,6 +1151,8 @@ module.exports = {
 | **Client Partnership** | Hunter Green (Primary) | `handshake` | "Begin Partnership" |
 | **Automated Estimator** | Leather Tan (Secondary) | `smart_toy` | "Get Instant Automated Estimate" |
 | **Trade Partnership** | Leather Tan (Secondary) | `construction` | "Join Trade Network" |
+| **Emergency Response** | Orange-Red Gradient | `bolt` | "Call Emergency Line Now" |
+| **Government/Federal** | Grayscale Gradient | `account_balance` | "Request Grant Support" |
 
 ### Contact Information Color Coding
 
@@ -933,7 +1179,16 @@ module.exports = {
   <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
   <span className="font-medium">Get Instant AI Estimate</span>
 </Button>
-```text
+```
+
+### Government/Federal Button (Grayscale Gradient)
+
+```tsx
+<button className="inline-flex items-center px-6 py-3 rounded-lg font-medium text-white bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600 hover:from-slate-700 hover:via-gray-800 hover:to-slate-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+  <MaterialIcon icon="account_balance" size="lg" className="mr-3" />
+  <span className="font-medium">Request Grant Support</span>
+</button>
+```
 
 ### Using Brand Colors Directly
 

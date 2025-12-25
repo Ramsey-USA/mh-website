@@ -19,7 +19,9 @@
 - **NEW:** Top accent bars (2px gradient) for brand identity on all cards
 - **NEW:** Enhanced icon system with nested blur glow layers and white text
 - **NEW:** Unified hover effects: border transparency, shadow enhancement, card lift
-- **NEW:** Theme-based color variants (primary green, secondary bronze, orange urgent)
+- **NEW:** Theme-based color variants (primary green, secondary bronze, **emergency orange-red**, **government grayscale**)
+- **NEW:** Emergency color scheme for `/urgent` page - orange-red gradients with trust balance
+- **NEW:** Government grayscale scheme for `/public-sector` page - professional institutional authority
 - **MIGRATION:** All 10+ pages updated to modern card pattern
 - **DEPRECATED:** Old `<Card>`, `<CardHeader>`, `<CardContent>` pattern phased out
 
@@ -74,6 +76,202 @@ from - brand - accent; // Use from-brand-secondary in gradients
 - ✅ Check marks use `text-brand-primary`
 - ✅ Partnership/veteran highlights use `text-brand-secondary`
 - ❌ NEVER use brand-accent - causes visual inconsistency
+
+### **Emergency/Urgent Color Scheme - NEW**
+
+**Context:** The `/urgent` emergency response page uses a specialized color palette
+to convey urgency while maintaining brand trust.
+
+**Emergency Colors:**
+
+```tsx
+// Emergency Primary - Orange
+text - orange - 600; // #ea580c
+bg - orange - 600; // Used in gradients and accents
+border - orange - 600; // Card accents, borders
+
+// Emergency Accent - Red
+text - red - 600; // #dc2626
+bg - red - 600; // Gradient transitions
+border - red - 600; // Critical emphasis
+
+// Emergency Highlight - Yellow
+text - yellow - 300; // #fde047
+bg - yellow - 300; // Timeframe indicators
+```
+
+**Emergency CTA Buttons:**
+
+```tsx
+// Primary emergency action
+className="bg-gradient-to-r from-orange-600 via-red-600 to-orange-600
+  hover:from-orange-700 hover:via-red-700 hover:to-orange-800
+  text-white font-medium px-6 py-3 rounded-lg shadow-lg hover:shadow-xl
+  transition-all duration-300"
+```
+
+**Emergency Card Accent Bars:**
+
+```tsx
+// Top accent bar for emergency-themed cards
+className="absolute top-0 left-0 right-0 h-0.5
+  bg-gradient-to-r from-orange-600 via-red-600 to-orange-600"
+```
+
+**Emergency Icon Containers:**
+
+```tsx
+// Glow layer
+className="absolute -inset-4
+  bg-gradient-to-br from-orange-600/30 to-red-600/30 blur-2xl"
+
+// Container
+className="relative bg-gradient-to-br from-orange-600 via-red-600 to-orange-700
+  p-4 rounded-2xl"
+```
+
+**Trust Balance Philosophy:**
+
+- ✅ **Use emergency colors** for: CTAs, response timeline badges, urgent actions, section headers on emergency content
+- ✅ **Use brand green** for: Trust signals, certifications, safety records, credentials, licensing info
+- ❌ **Never use** emergency colors on: Standard service pages, general contact forms, non-emergency content
+
+**Required Trust Signal Integration:**
+
+When using emergency colors, MUST include nearby brand green trust elements:
+
+```tsx
+{
+  /* Emergency CTA */
+}
+<button className="bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 ...">
+  Call Emergency Line Now
+</button>;
+
+{
+  /* Trust Signal - Brand Green */
+}
+<div className="mt-6 flex items-center gap-4">
+  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker">
+    <MaterialIcon icon="verified_user" className="text-white" />
+  </div>
+  <span>Licensed WA, OR, ID</span>
+</div>;
+```
+
+**Usage Rules:**
+
+- ✅ ONLY on `/urgent` emergency response page
+- ✅ Contractor-focused rapid deployment context
+- ✅ Always pair with response timeframes
+- ✅ Include trust signals using brand green
+- ❌ NOT for general emergencies or consumer panic
+- ❌ NOT on standard service/contact pages
+
+### **Government/Public Sector Grayscale Scheme - NEW**
+
+**Context:** The `/public-sector` government contracting page uses a professional grayscale
+palette to convey authority, compliance, and institutional reliability.
+
+**Grayscale Colors:**
+
+```tsx
+// Grayscale Primary - Slate Gray
+text - slate - 600; // #475569
+bg - slate - 600; // Used in gradients
+border - slate - 600; // Card accents
+
+// Grayscale Accent - Cool Gray
+text - gray - 700; // #374151
+bg - gray - 700; // Gradient transitions
+
+// Grayscale Dark - Charcoal
+text - gray - 800; // #1f2937
+bg - gray - 800; // Dark sections
+```
+
+**Government CTA Buttons:**
+
+```tsx
+// Primary government action
+className="bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600
+  hover:from-slate-700 hover:via-gray-800 hover:to-slate-700
+  text-white font-medium px-6 py-3 rounded-lg shadow-lg hover:shadow-xl
+  transition-all duration-300"
+```
+
+**Government Card Accent Bars:**
+
+```tsx
+// Top accent bar for government-themed cards
+className="absolute top-0 left-0 right-0 h-0.5
+  bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600"
+```
+
+**Government Icon Containers:**
+
+```tsx
+// Glow layer
+className="absolute -inset-4
+  bg-gradient-to-br from-slate-600/30 to-gray-700/30 blur-2xl"
+
+// Container
+className="relative bg-gradient-to-br from-slate-600 via-gray-700 to-gray-800
+  p-4 rounded-2xl"
+```
+
+**Professional Balance Philosophy:**
+
+- ✅ **Use grayscale** for: CTAs, institutional headers, compliance sections, federal authority
+- ✅ **Use brand green** for: Veteran credentials, safety records, trust signals
+- ✅ **Use bronze** for: Military heritage, veteran designation, service recognition
+- ❌ **Never use** grayscale on: Commercial pages, residential services, general contact forms
+
+**Required Veteran Signal Integration:**
+
+When using grayscale, MUST include nearby brand green/bronze veteran elements:
+
+```tsx
+{
+  /* Government CTA */
+}
+<button className="bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600 ...">
+  Request Grant Support
+</button>;
+
+{
+  /* Veteran Trust Signals - Brand Green & Bronze */
+}
+<div className="mt-6 grid grid-cols-2 gap-6">
+  <div className="flex items-center gap-3">
+    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker flex items-center justify-center">
+      <MaterialIcon icon="military_tech" className="text-white" />
+    </div>
+    <div>
+      <p className="text-sm font-bold">Veteran-Owned</p>
+      <p className="text-xs text-gray-600">Army Leadership</p>
+    </div>
+  </div>
+  <div className="flex items-center gap-3">
+    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker flex items-center justify-center">
+      <MaterialIcon icon="health_and_safety" className="text-white" />
+    </div>
+    <div>
+      <p className="text-sm font-bold">.64 EMR Safety</p>
+      <p className="text-xs text-gray-600">40% Better</p>
+    </div>
+  </div>
+</div>;
+```
+
+**Usage Rules:**
+
+- ✅ ONLY on `/public-sector` government contracting page
+- ✅ Federal compliance and DOE/Hanford contexts
+- ✅ Always pair with veteran credentials (green/bronze)
+- ✅ Include safety and licensing trust signals
+- ❌ NOT for commercial construction or emergency services
+- ❌ NOT on residential or general service pages
 
 ### **Material Icons Only**
 
@@ -453,28 +651,125 @@ description=\"Optional description text\"
 </div>;
 ```
 
-**Orange (Urgent) Cards:**
+**Emergency/Urgent Theme Cards (Orange Accents) - URGENT PAGE ONLY:**
 
 ```tsx
 {
-  /* Animated Border Glow */
+  /* Animated Border Glow - Orange Accent Colors */
 }
-<div className="absolute -inset-2 bg-gradient-to-br from-orange-500/40 to-orange-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>;
+<div className="absolute -inset-2 bg-gradient-to-r from-orange-500/40 to-orange-600/40 rounded-2xl opacity-20 group-hover:opacity-60 blur-xl transition-all duration-300"></div>;
 
 {
-  /* Top Accent Bar */
+  /* Top Accent Bar - Orange Gradient */
 }
-<div className="h-2 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700"></div>;
+<div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 rounded-t-2xl"></div>;
 
 {
-  /* Icon Background */
+  /* Icon Container - Orange Gradient */
 }
-<div className="relative rounded-xl bg-gradient-to-br from-orange-500 to-orange-700 p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
-  <MaterialIcon
-    icon="icon_name"
-    size="xl"
-    className="text-white drop-shadow-lg"
-  />
+<div className="mb-4 relative inline-block">
+  <div className="absolute -inset-4 bg-gradient-to-br from-orange-500/30 to-orange-600/30 blur-2xl rounded-full"></div>
+  <div className="relative bg-gradient-to-br from-orange-600 via-orange-700 to-brand-primary w-16 h-16 rounded-2xl flex items-center justify-center">
+    <MaterialIcon
+      icon="bolt"
+      size="2xl"
+      className="text-white drop-shadow-lg"
+      aria-label="Emergency response"
+    />
+  </div>
+</div>;
+```
+
+**Context:** Emergency/urgent page uses standard MH backgrounds (white/gray) with orange accent colors and alternating orange/red diagonal stripe patterns to convey urgency while maintaining brand consistency.
+
+**Usage Rules:**
+
+- ✅ ONLY use on `/urgent` emergency response page
+- ✅ For rapid deployment, 24/7 response, emergency capabilities cards
+- ✅ Standard white/gray MH backgrounds with orange/red stripe patterns
+- ✅ Orange gradients for icons and positive capability indicators
+- ✅ Red accents ONLY for "What We Don't Provide" exclusion indicators
+- ✅ Pair with response timeframe indicators (orange-600 badges)
+- ✅ Include nearby trust signal cards using standard brand theme
+- ❌ NOT for standard service pages
+- ❌ NOT for general contact or about pages
+- ❌ NO red backgrounds (use standard MH backgrounds)
+
+**Trust Balance Example:**
+
+```tsx
+{
+  /* Emergency capability cards - Orange accent theme on standard backgrounds */
+}
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+  {urgentCapabilities.map((capability) => (
+    <div className="group relative bg-white dark:bg-gray-800 rounded-2xl p-6">
+      {/* Orange border glow */}
+      <div
+        className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-orange-600 
+        rounded-2xl opacity-20 group-hover:opacity-60 blur-xl transition-all duration-300"
+      ></div>
+      {/* Orange top accent */}
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700"></div>
+      {/* Content with orange icon */}
+      <div className="relative">
+        <div className="mb-4 relative inline-block">
+          <div className="absolute -inset-4 bg-gradient-to-br from-orange-500/30 to-orange-600/30 blur-2xl rounded-full"></div>
+          <div className="relative bg-gradient-to-br from-orange-600 via-orange-700 to-brand-primary w-16 h-16 rounded-2xl flex items-center justify-center">
+            <MaterialIcon
+              icon={capability.icon}
+              size="2xl"
+              className="text-white"
+              aria-label={capability.ariaLabel}
+            />
+          </div>
+        </div>
+        <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+          {capability.title}
+        </h3>
+        <p className="text-gray-600 dark:text-gray-400">
+          {capability.description}
+        </p>
+      </div>
+    </div>
+  ))}
+</div>;
+
+{
+  /* Trust signal cards - Brand Green theme */
+}
+<div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+  {trustSignals.map((signal) => (
+    <div className="group relative bg-white dark:bg-gray-800 rounded-2xl p-6">
+      {/* Brand green border glow */}
+      <div
+        className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary 
+        rounded-2xl opacity-20 group-hover:opacity-60 blur-xl transition-all duration-300"
+      ></div>
+      {/* Brand green top accent */}
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary"></div>
+      {/* Content with brand green icon */}
+      <div className="relative text-center">
+        <div className="mb-3 mx-auto relative inline-block">
+          <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+          <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker w-16 h-16 rounded-2xl flex items-center justify-center">
+            <MaterialIcon
+              icon={signal.icon}
+              size="2xl"
+              className="text-white"
+              aria-label={signal.ariaLabel}
+            />
+          </div>
+        </div>
+        <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-1">
+          {signal.title}
+        </h4>
+        <p className="text-xs text-gray-600 dark:text-gray-400">
+          {signal.description}
+        </p>
+      </div>
+    </div>
+  ))}
 </div>;
 ```
 

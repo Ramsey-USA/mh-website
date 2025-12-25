@@ -94,6 +94,7 @@ export function WhyChooseSection() {
                         icon={reason.iconName}
                         size="2xl"
                         className="text-white drop-shadow-lg"
+                        ariaLabel={reason.title}
                       />
                     </div>
                   </div>

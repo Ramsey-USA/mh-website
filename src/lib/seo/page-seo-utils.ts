@@ -568,4 +568,41 @@ export function getUrgentSEO(): Metadata & { schemas: object[] } {
   });
 }
 
+// FAQ page SEO - GROUP 6: Information & Support
+export function getFAQSEO(): Metadata & { schemas: object[] } {
+  return generateEnhancedMetadata({
+    title:
+      "Intel Brief → FAQ | Direct Answers. Clear Guidance. Mission-Ready Information. | MH Construction",
+    description:
+      "Intel Brief → FAQ: Direct Answers. Clear Guidance. Mission-Ready Information. Mission intelligence for your construction questions answered. Find answers to common questions about MH Construction's veteran-owned services, process, safety record (.64 EMR), veteran benefits, and partnership approach. Open-book pricing, Design-Build vs Design-Bid-Build, PEMB buildings, Procore project management, and face-to-face consultation process.",
+    keywords: [
+      "Intel Brief FAQ mission intelligence",
+      "direct answers construction guidance",
+      "construction FAQ",
+      "construction management questions",
+      "veteran-owned construction",
+      "MH Construction questions",
+      "construction process explained",
+      "open-book pricing",
+      "construction safety record",
+      "0.64 EMR safety",
+      "Pacific Northwest construction",
+      "construction consultation",
+      "licensed WA OR ID",
+      "commercial construction FAQ",
+      "construction project timeline",
+      "Design-Build vs Design-Bid-Build",
+      "Pre-Engineered Metal Buildings PEMB",
+      "Pasco WA building permits",
+      "Tri-Cities construction",
+      "Procore construction management",
+      "change orders construction",
+      "site feasibility studies",
+      "government construction projects",
+    ],
+    canonicalUrl: `${enhancedSEO.siteUrl}/faq`,
+    schemas: [generateConstructionFAQSchema()],
+  });
+}
+
 // Removed: get3DExplorerSEO function (feature deprecated Dec 2025)

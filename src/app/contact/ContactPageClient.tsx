@@ -210,7 +210,7 @@ export default function ContactPageClient() {
 
         {/* Quick Contact Section */}
         <section
-          id="main-content"
+          id="quick-contact"
           className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
           aria-labelledby="quick-contact-heading"
         >
@@ -909,128 +909,240 @@ export default function ContactPageClient() {
 
         {/* Service Areas Section */}
         <section
-          className="bg-gray-50 dark:bg-gray-800 py-16 sm:py-20"
+          className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+          id="service-areas"
           aria-labelledby="service-areas-heading"
         >
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Diagonal Stripe Background Pattern - MH Branding Standard */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                  45deg,
+                  #386851 0px,
+                  #386851 2px,
+                  transparent 2px,
+                  transparent 60px
+                )`,
+              }}
+            ></div>
+          </div>
+
+          {/* Large Brand Color Blobs - MH Branding Standard */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <FadeInWhenVisible>
-              <div className="text-center mb-12">
-                <div className="flex items-center justify-center mb-6 gap-3">
-                  <div className="h-1 w-12 bg-gradient-to-r from-transparent to-brand-primary rounded-full"></div>
-                  <MaterialIcon
-                    icon="map"
-                    size="xl"
-                    className="text-brand-primary"
-                  />
-                  <div className="h-1 w-12 bg-gradient-to-l from-transparent to-brand-primary rounded-full"></div>
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="map"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                        ariaLabel="Service coverage areas"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
+
+                {/* Two-line gradient heading */}
                 <h2
                   id="service-areas-heading"
-                  className="font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl mb-4"
+                  className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"
                 >
-                  Areas We Serve
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Our Tri-State
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Service Coverage
+                  </span>
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 text-lg max-w-3xl mx-auto">
-                  Providing professional construction services throughout the
-                  Pacific Northwest
+
+                {/* Description */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  Professional construction services throughout the{" "}
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    Pacific Northwest
+                  </span>
                 </p>
               </div>
 
-              {/* Tri-Cities Primary */}
-              <div className="bg-white dark:bg-gray-900 border-2 border-brand-primary p-6 sm:p-8 rounded-2xl shadow-lg mb-6">
-                <h3 className="font-bold text-brand-primary text-xl mb-4 flex items-center gap-2">
-                  <MaterialIcon icon="place" size="md" />
-                  Tri-Cities Area (Primary Service Region)
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <Link
-                    href="/locations/pasco"
-                    className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors group"
-                  >
-                    <MaterialIcon
-                      icon="arrow_forward"
-                      size="sm"
-                      className="text-brand-secondary group-hover:translate-x-1 transition-transform"
-                    />
-                    <span className="font-medium">Pasco, WA</span>
-                  </Link>
-                  <Link
-                    href="/locations/kennewick"
-                    className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors group"
-                  >
-                    <MaterialIcon
-                      icon="arrow_forward"
-                      size="sm"
-                      className="text-brand-secondary group-hover:translate-x-1 transition-transform"
-                    />
-                    <span className="font-medium">Kennewick, WA</span>
-                  </Link>
-                  <Link
-                    href="/locations/richland"
-                    className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors group"
-                  >
-                    <MaterialIcon
-                      icon="arrow_forward"
-                      size="sm"
-                      className="text-brand-secondary group-hover:translate-x-1 transition-transform"
-                    />
-                    <span className="font-medium">Richland, WA</span>
-                  </Link>
-                </div>
-              </div>
+              {/* Service Area Cards */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                {/* Tri-Cities Primary Card */}
+                <div className="group relative flex h-full">
+                  {/* Animated Border Glow */}
+                  <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-20 group-hover:opacity-60 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-              {/* Extended Coverage */}
-              <div className="bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 p-6 sm:p-8 rounded-2xl shadow-lg">
-                <h3 className="font-bold text-gray-900 dark:text-white text-xl mb-4 flex items-center gap-2">
-                  <MaterialIcon icon="travel_explore" size="md" />
-                  Extended Service Coverage
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <Link
-                    href="/locations/spokane"
-                    className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors group"
-                  >
-                    <MaterialIcon
-                      icon="arrow_forward"
-                      size="sm"
-                      className="text-brand-secondary group-hover:translate-x-1 transition-transform"
-                    />
-                    <span className="font-medium">Spokane, WA</span>
-                  </Link>
-                  <Link
-                    href="/locations/yakima"
-                    className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors group"
-                  >
-                    <MaterialIcon
-                      icon="arrow_forward"
-                      size="sm"
-                      className="text-brand-secondary group-hover:translate-x-1 transition-transform"
-                    />
-                    <span className="font-medium">Yakima, WA</span>
-                  </Link>
-                  <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-                    <MaterialIcon
-                      icon="check_circle"
-                      size="sm"
-                      className="text-brand-secondary"
-                    />
-                    <span>Washington State</span>
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                    <div className="p-8 flex flex-col flex-1">
+                      {/* Icon */}
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="relative inline-block">
+                          <div className="absolute -inset-3 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
+                          <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-xl p-3 shadow-xl">
+                            <MaterialIcon
+                              icon="place"
+                              size="xl"
+                              className="text-white drop-shadow-lg"
+                              ariaLabel="Primary service region"
+                            />
+                          </div>
+                        </div>
+                        <h3 className="font-bold text-brand-primary text-xl sm:text-2xl">
+                          Tri-Cities Area
+                        </h3>
+                      </div>
+
+                      <p className="mb-6 text-gray-600 dark:text-gray-400 text-sm">
+                        Primary Service Region - Immediate Response Available
+                      </p>
+
+                      {/* Location Links */}
+                      <div className="grid grid-cols-1 gap-3">
+                        <Link
+                          href="/locations/pasco"
+                          className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 group/link"
+                        >
+                          <MaterialIcon
+                            icon="arrow_forward"
+                            size="sm"
+                            className="text-brand-secondary group-hover/link:translate-x-1 transition-transform"
+                            ariaLabel="Navigate to Pasco page"
+                          />
+                          <span className="font-medium">Pasco, WA</span>
+                          <span className="ml-auto text-xs text-gray-500">
+                            Headquarters
+                          </span>
+                        </Link>
+                        <Link
+                          href="/locations/kennewick"
+                          className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 group/link"
+                        >
+                          <MaterialIcon
+                            icon="arrow_forward"
+                            size="sm"
+                            className="text-brand-secondary group-hover/link:translate-x-1 transition-transform"
+                            ariaLabel="Navigate to Kennewick page"
+                          />
+                          <span className="font-medium">Kennewick, WA</span>
+                        </Link>
+                        <Link
+                          href="/locations/richland"
+                          className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 group/link"
+                        >
+                          <MaterialIcon
+                            icon="arrow_forward"
+                            size="sm"
+                            className="text-brand-secondary group-hover/link:translate-x-1 transition-transform"
+                            ariaLabel="Navigate to Richland page"
+                          />
+                          <span className="font-medium">Richland, WA</span>
+                        </Link>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-                    <MaterialIcon
-                      icon="check_circle"
-                      size="sm"
-                      className="text-brand-secondary"
-                    />
-                    <span>Oregon (Licensed)</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-                    <MaterialIcon
-                      icon="check_circle"
-                      size="sm"
-                      className="text-brand-secondary"
-                    />
-                    <span>Idaho (Licensed)</span>
+                </div>
+
+                {/* Extended Coverage Card */}
+                <div className="group relative flex h-full">
+                  {/* Animated Border Glow */}
+                  <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40 opacity-20 group-hover:opacity-60 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                    <div className="p-8 flex flex-col flex-1">
+                      {/* Icon */}
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="relative inline-block">
+                          <div className="absolute -inset-3 bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40 opacity-30 blur-lg rounded-xl"></div>
+                          <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 rounded-xl p-3 shadow-xl">
+                            <MaterialIcon
+                              icon="travel_explore"
+                              size="xl"
+                              className="text-white drop-shadow-lg"
+                              ariaLabel="Extended service coverage"
+                            />
+                          </div>
+                        </div>
+                        <h3 className="font-bold text-brand-secondary text-xl sm:text-2xl">
+                          Extended Coverage
+                        </h3>
+                      </div>
+
+                      <p className="mb-6 text-gray-600 dark:text-gray-400 text-sm">
+                        Multi-State Licensed - WA, OR, ID
+                      </p>
+
+                      {/* Location Links and Coverage */}
+                      <div className="grid grid-cols-1 gap-3">
+                        <Link
+                          href="/locations/spokane"
+                          className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-brand-secondary dark:hover:text-brand-secondary transition-colors p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 group/link"
+                        >
+                          <MaterialIcon
+                            icon="arrow_forward"
+                            size="sm"
+                            className="text-brand-primary group-hover/link:translate-x-1 transition-transform"
+                            ariaLabel="Navigate to Spokane page"
+                          />
+                          <span className="font-medium">Spokane, WA</span>
+                        </Link>
+                        <Link
+                          href="/locations/yakima"
+                          className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-brand-secondary dark:hover:text-brand-secondary transition-colors p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 group/link"
+                        >
+                          <MaterialIcon
+                            icon="arrow_forward"
+                            size="sm"
+                            className="text-brand-primary group-hover/link:translate-x-1 transition-transform"
+                            ariaLabel="Navigate to Yakima page"
+                          />
+                          <span className="font-medium">Yakima, WA</span>
+                        </Link>
+                        <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300 p-3">
+                          <MaterialIcon
+                            icon="check_circle"
+                            size="sm"
+                            className="text-brand-primary"
+                            ariaLabel="Licensed in Washington"
+                          />
+                          <span className="font-medium">Washington State</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300 p-3">
+                          <MaterialIcon
+                            icon="check_circle"
+                            size="sm"
+                            className="text-brand-primary"
+                            ariaLabel="Licensed in Oregon"
+                          />
+                          <span className="font-medium">Oregon</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300 p-3">
+                          <MaterialIcon
+                            icon="check_circle"
+                            size="sm"
+                            className="text-brand-primary"
+                            ariaLabel="Licensed in Idaho"
+                          />
+                          <span className="font-medium">Idaho</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

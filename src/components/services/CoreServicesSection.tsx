@@ -94,6 +94,7 @@ export function CoreServicesSection({ services }: CoreServicesSectionProps) {
                   icon="flag"
                   size="2xl"
                   className="text-white drop-shadow-lg"
+                  ariaLabel="Core services"
                 />
               </div>
             </div>

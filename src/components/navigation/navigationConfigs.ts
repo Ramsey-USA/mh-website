@@ -177,6 +177,18 @@ export const navigationConfigs = {
       icon: "star",
     },
     {
+      href: "#service-areas",
+      label: "Service Areas",
+      mobileLabel: "Areas",
+      icon: "map",
+    },
+    {
+      href: "#testimonials-faq",
+      label: "Common Questions",
+      mobileLabel: "FAQ",
+      icon: "help",
+    },
+    {
       href: "#leave-review",
       label: "Leave a Review",
       mobileLabel: "Review",
@@ -342,22 +354,34 @@ export const navigationConfigs = {
 
   contact: [
     {
-      href: "#contact-form",
-      label: "Contact Form",
-      mobileLabel: "Form",
-      icon: "contact_mail",
+      href: "#quick-contact",
+      label: "Quick Contact",
+      mobileLabel: "Contact",
+      icon: "forum",
     },
     {
-      href: "#location",
-      label: "Location & Hours",
+      href: "#office-location-heading",
+      label: "Office Location",
       mobileLabel: "Location",
       icon: "location_on",
     },
     {
-      href: "#urgent",
+      href: "#partnership-options-heading",
+      label: "Partnership Options",
+      mobileLabel: "Options",
+      icon: "handshake",
+    },
+    {
+      href: "#service-areas",
+      label: "Service Areas",
+      mobileLabel: "Areas",
+      icon: "map",
+    },
+    {
+      href: "#urgent-support",
       label: "Urgent Support",
       mobileLabel: "Urgent",
-      icon: "bolt",
+      icon: "emergency",
     },
   ],
 
@@ -417,28 +441,34 @@ export const navigationConfigs = {
 
   allies: [
     {
-      href: "#overview",
-      label: "Overview",
-      mobileLabel: "Overview",
-      icon: "info",
-    },
-    {
-      href: "#benefits",
-      label: "Benefits",
-      mobileLabel: "Benefits",
-      icon: "verified",
-    },
-    {
-      href: "#partnership",
-      label: "Partnership",
-      mobileLabel: "Partner",
+      href: "#partnership-philosophy",
+      label: "Partnership Values",
+      mobileLabel: "Values",
       icon: "handshake",
     },
     {
-      href: "#contact",
-      label: "Get Started",
-      mobileLabel: "Start",
-      icon: "contact_phone",
+      href: "#trade-categories",
+      label: "Trade Categories",
+      mobileLabel: "Trades",
+      icon: "groups",
+    },
+    {
+      href: "#benefits",
+      label: "Partnership Benefits",
+      mobileLabel: "Benefits",
+      icon: "workspace_premium",
+    },
+    {
+      href: "#requirements",
+      label: "Requirements",
+      mobileLabel: "Requirements",
+      icon: "verified",
+    },
+    {
+      href: "#apply",
+      label: "Apply Now",
+      mobileLabel: "Apply",
+      icon: "diversity_3",
     },
   ],
 
@@ -471,28 +501,40 @@ export const navigationConfigs = {
 
   urgent: [
     {
-      href: "#contact",
+      href: "#urgent-contact",
       label: "Emergency Contact",
       mobileLabel: "Contact",
-      icon: "phone",
+      icon: "bolt",
     },
     {
-      href: "#focus",
+      href: "#urgent-focus",
       label: "Our Focus",
       mobileLabel: "Focus",
-      icon: "target",
+      icon: "construction",
     },
     {
-      href: "#capabilities",
-      label: "Our Capabilities",
+      href: "#urgent-capabilities",
+      label: "Capabilities",
       mobileLabel: "Capabilities",
+      icon: "military_tech",
+    },
+    {
+      href: "#urgent-equipment",
+      label: "Equipment",
+      mobileLabel: "Equipment",
       icon: "engineering",
     },
     {
-      href: "#equipment",
-      label: "Equipment & Operators",
-      mobileLabel: "Equipment",
-      icon: "precision_manufacturing",
+      href: "#urgent-timeline",
+      label: "Response Timeline",
+      mobileLabel: "Timeline",
+      icon: "schedule",
+    },
+    {
+      href: "#urgent-faq",
+      label: "Common Questions",
+      mobileLabel: "FAQ",
+      icon: "help",
     },
   ],
 

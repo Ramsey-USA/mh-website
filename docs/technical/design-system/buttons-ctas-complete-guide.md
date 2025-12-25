@@ -1,9 +1,9 @@
 # Buttons & CTAs - Complete Implementation Guide
 
 **Category:** UI Components - Buttons & Call-to-Actions  
-**Last Updated:** December 14, 2025  
-**Status:** ✅ Active - Four-Value Foundation Aligned  
-**Version:** 3.0.0 (Trust-Centered Messaging)
+**Last Updated:** December 25, 2025  
+**Status:** ✅ Active - Emergency & Government Color Schemes Added  
+**Version:** 3.2.0 - Emergency/Urgent + Government/Federal Button Variants
 
 **⚠️ CONSOLIDATED DOCUMENT:** This guide consolidates and supersedes:
 
@@ -189,6 +189,209 @@
 
 ---
 
+### 5. Emergency/Urgent Buttons (Orange Accent)
+
+**Purpose:** Emergency response CTAs, 24/7 rapid deployment actions, critical contractor support
+
+**Colors:** Orange-600 hover to Orange-700 on standard button, used on urgent page with standard MH backgrounds
+
+**Technical Implementation:**
+
+```tsx
+<button className="inline-flex items-center px-6 py-3 rounded-lg font-medium text-white bg-orange-600 hover:bg-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl group">
+  <MaterialIcon
+    icon="phone"
+    size="lg"
+    className="mr-2 group-hover:scale-110 transition-transform"
+  />
+  Call Emergency Line Now
+</button>
+```
+
+**When to Use:**
+
+- Emergency/urgent page (`/urgent`) ONLY
+- 24/7 rapid response services
+- Critical contractor deployment
+- Time-sensitive project support
+- Emergency contact CTAs
+
+**Design Context:**
+
+- Used on standard gray/white MH backgrounds
+- Page features orange and red diagonal stripe patterns
+- Icon backgrounds use orange gradients
+- Red accents reserved for "What We Don't Provide" indicators
+
+**DO NOT Use On:**
+
+- Standard service pages (use Hunter Green primary)
+- General contact forms (use Hunter Green primary)
+- Non-emergency content
+- Homepage or about pages
+
+**Approved Text Patterns:**
+
+- "Call Emergency Line Now"
+- "Email Emergency Response"
+- "24/7 Rapid Deployment"
+- "Immediate Project Support"
+- "Contact Emergency Team"
+
+**Design Philosophy:**
+
+- **Urgency:** Orange-red gradient creates immediate action impulse
+- **Trust Balance:** Pair with brand green trust signals (certifications, safety records)
+- **Professional:** Maintains credibility through context and supporting content
+- **Contractor Focus:** Designed for B2B emergency situations, not consumer panic
+
+**Trust Signal Integration:**
+
+Always include nearby trust elements when using emergency buttons:
+
+```tsx
+{
+  /* Emergency CTA */
+}
+<button className="bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 ...">
+  Call Emergency Line Now
+</button>;
+
+{
+  /* Trust Signal - Use brand green */
+}
+<div className="mt-6 flex items-center gap-4">
+  <div className="flex items-center gap-2">
+    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker flex items-center justify-center">
+      <MaterialIcon icon="verified_user" className="text-white" />
+    </div>
+    <span className="text-sm text-gray-600">Licensed WA, OR, ID</span>
+  </div>
+  <div className="flex items-center gap-2">
+    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker flex items-center justify-center">
+      <MaterialIcon icon="health_and_safety" className="text-white" />
+    </div>
+    <span className="text-sm text-gray-600">.64 EMR Safety Record</span>
+  </div>
+</div>;
+```
+
+---
+
+### 6. Government/Public Sector Buttons (Grayscale Gradient)
+
+**Purpose:** Federal contracting CTAs, government compliance actions, institutional authority
+
+**Colors:** Slate-600 via Gray-700 grayscale gradient, professional darkening on hover
+
+**Technical Implementation:**
+
+```tsx
+<button className="inline-flex items-center px-6 py-3 rounded-lg font-medium text-white bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600 hover:from-slate-700 hover:via-gray-800 hover:to-slate-700 transition-all duration-300 shadow-lg hover:shadow-xl group">
+  <MaterialIcon
+    icon="account_balance"
+    size="lg"
+    className="mr-2 group-hover:scale-110 transition-transform"
+  />
+  Request Grant Support
+</button>
+```
+
+**When to Use:**
+
+- Government/public sector page (`/public-sector`) ONLY
+- Federal contracting and compliance services
+- Grant application support
+- DOE/Hanford project contexts
+- Institutional authority messaging
+
+**DO NOT Use On:**
+
+- Commercial construction pages (use Hunter Green primary)
+- Emergency services (use orange-red gradient)
+- General contact forms (use Hunter Green primary)
+- Consumer-facing pages
+
+**Approved Text Patterns:**
+
+- "Request Grant Support"
+- "Federal Compliance Consultation"
+- "Discuss Government Project"
+- "Subcontracting Inquiry"
+- "DOE Project Support"
+
+**Design Philosophy:**
+
+- **Authority:** Grayscale conveys institutional credibility and federal standards
+- **Professional:** Maintains neutrality appropriate for government work
+- **Trust Balance:** Pair with brand green veteran credentials and bronze military heritage
+- **Compliance:** Reflects regulatory and federal procurement standards
+
+**Veteran/Trust Signal Integration:**
+
+Always include veteran-owned and safety credentials when using government buttons:
+
+```tsx
+{
+  /* Government CTA */
+}
+<button className="bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600 ...">
+  Request Grant Support
+</button>;
+
+{
+  /* Veteran Trust Signals - Use brand green and bronze */
+}
+<div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+  <div className="text-center">
+    <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker flex items-center justify-center">
+      <MaterialIcon
+        icon="military_tech"
+        className="text-white text-2xl"
+        aria-label="Veteran owned"
+      />
+    </div>
+    <p className="text-sm font-medium">Veteran-Owned</p>
+    <p className="text-xs text-gray-600">Army Veteran Leadership</p>
+  </div>
+  <div className="text-center">
+    <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker flex items-center justify-center">
+      <MaterialIcon
+        icon="health_and_safety"
+        className="text-white text-2xl"
+        aria-label="Safety record"
+      />
+    </div>
+    <p className="text-sm font-medium">.64 EMR Safety</p>
+    <p className="text-xs text-gray-600">40% Better Than Industry</p>
+  </div>
+  <div className="text-center">
+    <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker flex items-center justify-center">
+      <MaterialIcon
+        icon="verified_user"
+        className="text-white text-2xl"
+        aria-label="Licensed"
+      />
+    </div>
+    <p className="text-sm font-medium">Multi-State Licensed</p>
+    <p className="text-xs text-gray-600">WA, OR, ID</p>
+  </div>
+  <div className="text-center">
+    <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-bronze-600 via-bronze-700 to-bronze-800 flex items-center justify-center">
+      <MaterialIcon
+        icon="handshake"
+        className="text-white text-2xl"
+        aria-label="Experience"
+      />
+    </div>
+    <p className="text-sm font-medium">150+ Years</p>
+    <p className="text-xs text-gray-600">Combined Experience</p>
+  </div>
+</div>;
+```
+
+---
+
 ## 🎯 Service Type CTAs
 
 ### 📞 Direct Contact CTAs
@@ -231,7 +434,189 @@
 
 ---
 
-### 🤝 In-Person Consultation CTAs
+### 🚨 Emergency Response CTAs
+
+**Service:** 24/7 emergency contractor deployment, rapid response for professional contractors  
+**Icon:** `bolt`, `phone`, `emergency`, or `military_tech`  
+**Color:** Orange-600 with hover to Orange-700  
+**Variant:** `emergency` (orange accent on standard backgrounds)  
+**Style:** Urgent, action-focused, professional
+
+**Design Context:**
+
+- Standard MH gray/white backgrounds
+- Orange and red diagonal stripe patterns throughout page
+- Orange gradient icon backgrounds
+- Red accents for negative/exclusion indicators only
+
+**Implementation:**
+
+```tsx
+<Link href="tel:5093086489">
+  <button className="inline-flex items-center px-6 py-3 rounded-lg font-medium text-white bg-orange-600 hover:bg-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl group min-h-[48px]">
+    <MaterialIcon
+      icon="phone"
+      size="lg"
+      className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform"
+      aria-label="Emergency phone"
+    />
+    <span className="font-medium text-sm sm:text-base">
+      Call Emergency Line Now
+    </span>
+  </button>
+</Link>
+```
+
+**Approved Button Text:**
+
+- "Call Emergency Line Now" (primary)
+- "Email Emergency Response"
+- "24/7 Rapid Deployment"
+- "Immediate Project Support"
+- "Contact Emergency Team"
+
+**Page Context:**
+
+- **ONLY on `/urgent` page**
+- Contractor-focused emergency services
+- NOT for general emergencies (life safety)
+- Professional project support context
+
+**Messaging Guidelines:**
+
+- Emphasize 24/7 availability
+- Highlight rapid response capabilities
+- Note contractor-only focus
+- Include response timeframes ("2-4 hours")
+- Pair with trust signals (licensing, safety record, experience)
+
+**Trust Signal Requirements:**
+
+Emergency CTAs MUST be accompanied by credibility indicators:
+
+```tsx
+{
+  /* Emergency CTA */
+}
+<button className="bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 ...">
+  Call Emergency Line Now
+</button>;
+
+{
+  /* Required: Response timeframe */
+}
+<p className="text-sm text-gray-600 mt-2">
+  <MaterialIcon
+    icon="schedule"
+    className="text-yellow-300"
+    aria-label="Response time"
+  />
+  Typical response: 2-4 hours
+</p>;
+
+{
+  /* Required: Trust signals nearby */
+}
+<div className="mt-6 grid grid-cols-2 gap-4">
+  <div className="flex items-center gap-2">
+    <MaterialIcon
+      icon="verified_user"
+      className="text-brand-primary"
+      aria-label="Licensed and insured"
+    />
+    <span>Licensed WA, OR, ID</span>
+  </div>
+  <div className="flex items-center gap-2">
+    <MaterialIcon
+      icon="health_and_safety"
+      className="text-brand-primary"
+      aria-label="Safety record"
+    />
+    <span>.64 EMR Safety Record</span>
+  </div>
+</div>;
+```
+
+**Example Full Context:**
+
+```tsx
+<section className="bg-white dark:bg-gray-900 py-16">
+  <div className="max-w-4xl mx-auto text-center">
+    <h2 className="text-4xl font-bold mb-4">
+      <span className="block text-gray-700 dark:text-gray-300 text-2xl mb-2">
+        When Contractors Need
+      </span>
+      <span className="block bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 bg-clip-text text-transparent">
+        Immediate Professional Support
+      </span>
+    </h2>
+    <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
+      24/7 rapid deployment for licensed contractors. Not for general
+      emergencies.
+    </p>
+
+    {/* Emergency CTAs */}
+    <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+      <button className="bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 hover:from-orange-700 hover:via-red-700 hover:to-orange-800 ...">
+        <MaterialIcon icon="phone" aria-label="Call" />
+        Call Emergency Line Now
+      </button>
+      <button className="bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 hover:from-orange-700 hover:via-red-700 hover:to-orange-800 ...">
+        <MaterialIcon icon="email" aria-label="Email" />
+        Email Emergency Response
+      </button>
+    </div>
+
+    {/* Trust Signals - USE BRAND GREEN */}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+      <div className="text-center">
+        <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker flex items-center justify-center">
+          <MaterialIcon
+            icon="military_tech"
+            className="text-white text-2xl"
+            aria-label="Veteran owned"
+          />
+        </div>
+        <p className="text-sm font-medium">Veteran-Owned</p>
+      </div>
+      <div className="text-center">
+        <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker flex items-center justify-center">
+          <MaterialIcon
+            icon="health_and_safety"
+            className="text-white text-2xl"
+            aria-label="Safety record"
+          />
+        </div>
+        <p className="text-sm font-medium">.64 EMR Safety</p>
+      </div>
+      <div className="text-center">
+        <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker flex items-center justify-center">
+          <MaterialIcon
+            icon="verified_user"
+            className="text-white text-2xl"
+            aria-label="Licensed"
+          />
+        </div>
+        <p className="text-sm font-medium">Multi-State Licensed</p>
+      </div>
+      <div className="text-center">
+        <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker flex items-center justify-center">
+          <MaterialIcon
+            icon="handshake"
+            className="text-white text-2xl"
+            aria-label="Experience"
+          />
+        </div>
+        <p className="text-sm font-medium">150+ Years</p>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+---
+
+### 📞 Direct Contact CTAs (Standard)
 
 **Service:** In-person professional sales consultation  
 **Icon:** `event` or `handshake`  

@@ -45,6 +45,7 @@ export function ConstructionExpertiseSection() {
                   icon="handshake"
                   size="2xl"
                   className="text-white drop-shadow-lg"
+                  ariaLabel="Partnership-focused construction"
                 />
               </div>
             </div>
@@ -56,7 +57,7 @@ export function ConstructionExpertiseSection() {
             <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
               Partnership-Focused
             </span>
-            <span className="block bg-gradient-to-r from-brand-secondary via-brand-secondary-dark to-bronze-700 bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+            <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
               Construction Management
             </span>
           </h2>

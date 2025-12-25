@@ -4,6 +4,8 @@
  */
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { PageNavigation } from "@/components/navigation/PageNavigation";
+import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
 export function ProjectsHero() {
   return (
@@ -45,6 +47,12 @@ export function ProjectsHero() {
           </span>
         </h1>
       </div>
+
+      {/* Page-Specific Navigation Bar */}
+      <PageNavigation
+        items={navigationConfigs.projects}
+        className="absolute bottom-0 left-0 right-0"
+      />
     </section>
   );
 }

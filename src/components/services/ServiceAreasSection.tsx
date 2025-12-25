@@ -64,6 +64,7 @@ export function ServiceAreasSection({
                     icon="location_on"
                     size="2xl"
                     className="text-white drop-shadow-lg"
+                    ariaLabel="Service areas"
                   />
                 </div>
               </div>

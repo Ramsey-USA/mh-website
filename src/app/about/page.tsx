@@ -295,13 +295,21 @@ export default function AboutPage() {
                     </ul>
                   </div>
                 </div>
+              </div>
 
-                <div className="group relative flex h-full">
-                  <div className="h-full flex flex-col p-6 sm:p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+              <div className="group relative flex h-full">
+                {/* Animated Border Glow */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-brand-secondary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                  {/* Top Accent Bar */}
+                  <div className="h-2 bg-gradient-to-r from-brand-secondary via-brand-secondary-dark to-secondary-700"></div>
+
+                  <div className="p-6 sm:p-8 flex flex-col flex-1">
                     <div className="mb-6 flex justify-center">
                       <div className="relative inline-block">
-                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/30 to-brand-secondary-dark/30 blur-xl rounded-xl"></div>
-                        <div className="relative rounded-xl bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-secondary-700 p-3 shadow-lg">
+                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/30 to-brand-secondary-dark/30 opacity-30 blur-lg rounded-xl"></div>
+                        <div className="relative rounded-xl bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-secondary-700 p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
                           <MaterialIcon
                             icon="domain"
                             size="xl"

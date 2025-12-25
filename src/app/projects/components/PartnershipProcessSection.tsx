@@ -110,6 +110,7 @@ export function PartnershipProcessSection() {
                                 icon={process.icon}
                                 size="lg"
                                 className="text-white drop-shadow-lg"
+                                ariaLabel={process.title}
                               />
                             </div>
                           </div>

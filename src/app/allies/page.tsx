@@ -403,7 +403,10 @@ export default function AlliesPage() {
         </section>
 
         {/* Trade Partnership Philosophy */}
-        <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32">
+        <section
+          id="partnership-philosophy"
+          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
+        >
           {/* Diagonal Stripe Background Pattern */}
           <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
             <div
@@ -438,6 +441,7 @@ export default function AlliesPage() {
                         icon="handshake"
                         size="2xl"
                         className="text-white drop-shadow-lg"
+                        ariaLabel="Partnership values"
                       />
                     </div>
                   </div>
@@ -500,6 +504,7 @@ export default function AlliesPage() {
                             icon={value.icon}
                             size="lg"
                             className="text-white drop-shadow-lg"
+                            ariaLabel={value.title}
                           />
                         </div>
                       </div>
@@ -518,7 +523,10 @@ export default function AlliesPage() {
         </section>
 
         {/* Trade Partner Categories - Join Our Network */}
-        <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32">
+        <section
+          id="trade-categories"
+          className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
+        >
           {/* Diagonal Stripe Background Pattern */}
           <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
             <div
@@ -553,6 +561,7 @@ export default function AlliesPage() {
                         icon="groups"
                         size="2xl"
                         className="text-white drop-shadow-lg"
+                        ariaLabel="Trade partner network"
                       />
                     </div>
                   </div>
@@ -597,6 +606,7 @@ export default function AlliesPage() {
                             icon={category.icon}
                             size="lg"
                             className="text-white"
+                            ariaLabel={category.category}
                           />
                         </div>
                         <div>
@@ -619,6 +629,7 @@ export default function AlliesPage() {
                             <MaterialIcon
                               icon="add_business"
                               className="mx-auto mb-4 text-brand-primary text-5xl"
+                              ariaLabel="Become a partner"
                             />
                             <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-3">
                               Your Company Here
@@ -650,7 +661,10 @@ export default function AlliesPage() {
         </section>
 
         {/* Partnership Benefits */}
-        <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32">
+        <section
+          id="benefits"
+          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
+        >
           {/* Diagonal Stripe Background Pattern */}
           <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
             <div
@@ -685,6 +699,7 @@ export default function AlliesPage() {
                         icon="workspace_premium"
                         size="2xl"
                         className="text-white drop-shadow-lg"
+                        ariaLabel="Partnership benefits"
                       />
                     </div>
                   </div>
@@ -736,6 +751,7 @@ export default function AlliesPage() {
                                 icon={benefit.icon}
                                 size="lg"
                                 className="text-white drop-shadow-lg"
+                                ariaLabel={benefit.title}
                               />
                             </div>
                           </div>
@@ -756,7 +772,10 @@ export default function AlliesPage() {
         </section>
 
         {/* Vendor Requirements & Application Process */}
-        <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32">
+        <section
+          id="requirements"
+          className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
+        >
           {/* Diagonal Stripe Background Pattern */}
           <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
             <div
@@ -791,6 +810,7 @@ export default function AlliesPage() {
                         icon="verified"
                         size="2xl"
                         className="text-white drop-shadow-lg"
+                        ariaLabel="Vendor requirements"
                       />
                     </div>
                   </div>
@@ -1068,7 +1088,10 @@ export default function AlliesPage() {
         </section>
 
         {/* Call to Action - Join Our Trade Network */}
-        <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden rounded-2xl">
+        <section
+          id="apply"
+          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden rounded-2xl"
+        >
           {/* Diagonal Stripe Background Pattern */}
           <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
             <div
@@ -1104,6 +1127,7 @@ export default function AlliesPage() {
                           icon="diversity_3"
                           size="2xl"
                           className="text-white drop-shadow-lg"
+                          ariaLabel="Join partnership network"
                         />
                       </div>
                     </div>
@@ -1143,7 +1167,11 @@ export default function AlliesPage() {
                       size="lg"
                       className="bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark shadow-xl text-white"
                     >
-                      <MaterialIcon icon="handshake" className="mr-2" />
+                      <MaterialIcon
+                        icon="handshake"
+                        className="mr-2"
+                        ariaLabel="Apply"
+                      />
                       Begin Partnership Application
                     </Button>
                   </Link>

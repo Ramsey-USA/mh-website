@@ -10,39 +10,95 @@ export function VeteranBenefitsBanner() {
   return (
     <section
       id="veteran-owned"
-      className="bg-gradient-to-r from-brand-primary/10 dark:from-brand-primary/20 to-brand-primary/5 dark:to-brand-primary/10 py-12"
+      className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 overflow-hidden"
     >
-      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      {/* Diagonal Stripe Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+              45deg,
+              #386851 0px,
+              #386851 2px,
+              transparent 2px,
+              transparent 60px
+            )`,
+          }}
+        ></div>
+      </div>
+
+      {/* Large Brand Color Blobs */}
+      <div className="absolute top-10 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-10 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+
+      <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <FadeInWhenVisible>
-          <div className="flex md:flex-row flex-col justify-center items-center gap-8 mx-auto max-w-4xl">
-            <div className="flex items-center">
-              <MaterialIcon
-                icon="military_tech"
-                size="3xl"
-                className="mr-4 text-brand-primary"
-              />
-              <div>
-                <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl">
-                  Veteran-Owned Excellence
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Veteran-owned since January 2025 with military precision
-                </p>
+          <div className="flex md:flex-row flex-col justify-center items-stretch gap-6 mx-auto max-w-5xl">
+            {/* Veteran-Owned Card */}
+            <div className="group relative flex flex-1">
+              {/* Animated Border Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
+
+                <div className="p-6 flex items-center">
+                  <div className="relative inline-block mr-4 flex-shrink-0">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-xl"></div>
+                    <div className="relative rounded-xl bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+                      <MaterialIcon
+                        icon="military_tech"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                        ariaLabel="Veteran-owned"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-lg sm:text-xl">
+                      Veteran-Owned Excellence
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                      Service-earned values with military precision since
+                      January 2025
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="flex items-center">
-              <MaterialIcon
-                icon="verified"
-                size="3xl"
-                className="mr-4 text-brand-secondary"
-              />
-              <div>
-                <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl">
-                  Certified & Trusted
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Licensed, bonded, and committed to quality
-                </p>
+
+            {/* Certified & Trusted Card */}
+            <div className="group relative flex flex-1">
+              {/* Animated Border Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                {/* Top Accent Bar */}
+                <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                <div className="p-6 flex items-center">
+                  <div className="relative inline-block mr-4 flex-shrink-0">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg rounded-xl"></div>
+                    <div className="relative rounded-xl bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+                      <MaterialIcon
+                        icon="verified"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                        ariaLabel="Certified"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-lg sm:text-xl">
+                      Certified & Trusted
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                      Licensed, bonded, and committed to quality construction
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

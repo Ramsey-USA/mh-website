@@ -1,8 +1,13 @@
-import { type Metadata } from "next";
+"use client";
+
 import Link from "next/link";
+import Head from "next/head";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
+import {
+  FadeInWhenVisible,
+  StaggeredFadeIn,
+} from "@/components/animations/FramerMotionComponents";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
@@ -12,58 +17,10 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { generateHowToSchema } from "@/lib/seo/howto-schema";
+import { StructuredData } from "@/components/seo/seo-meta";
+import { getFAQSEO } from "@/lib/seo/page-seo-utils";
 
-export const metadata: Metadata = {
-  title:
-    "Intel Brief → FAQ | Direct Answers. Clear Guidance. Mission-Ready Information. | MH Construction",
-  description:
-    "Intel Brief → FAQ: Direct Answers. Clear Guidance. Mission-Ready Information. Mission intelligence for your construction questions answered. Find answers to common questions about MH Construction's veteran-owned services, process, safety record (.64 EMR), veteran benefits, and partnership approach. Open-book pricing, Design-Build vs Design-Bid-Build, PEMB buildings, Procore project management, and face-to-face consultation process.",
-  keywords: [
-    "Intel Brief FAQ mission intelligence",
-    "direct answers construction guidance",
-    "construction FAQ",
-    "construction management questions",
-    "veteran-owned construction",
-    "MH Construction questions",
-    "construction process explained",
-    "open-book pricing",
-    "construction safety record",
-    "0.64 EMR safety",
-    "Pacific Northwest construction",
-    "construction consultation",
-    "licensed WA OR ID",
-    "commercial construction FAQ",
-    "construction project timeline",
-    "Design-Build vs Design-Bid-Build",
-    "Pre-Engineered Metal Buildings PEMB",
-    "Pasco WA building permits",
-    "Tri-Cities construction",
-    "Procore construction management",
-    "change orders construction",
-    "site feasibility studies",
-    "government construction projects",
-  ],
-  openGraph: {
-    title: "Intel Brief → FAQ | Mission-Ready Information | MH Construction",
-    description:
-      "Direct answers. Clear guidance. Get answers about our veteran-owned construction services, partnership approach, safety excellence, and consultation process. Building projects for the client, NOT the dollar.",
-    type: "website",
-    locale: "en_US",
-    url: "https://www.mhc-gc.com/faq",
-    siteName: "MH Construction",
-  },
-  twitter: {
-    card: "summary",
-    site: "@mhc_gc",
-    creator: "@mhc_gc",
-    title: "Intel Brief → FAQ | Mission-Ready Information | MH Construction",
-    description:
-      "Direct answers and clear guidance for your construction questions from our veteran-owned team.",
-  },
-  alternates: {
-    canonical: "https://www.mhc-gc.com/faq",
-  },
-};
+// SEO data moved to component for client-side rendering
 
 // FAQ categories and data
 const faqCategories = [
@@ -313,26 +270,39 @@ const faqCategories = [
 ];
 
 /**
- * FAQ Accordion Component
+ * FAQ Accordion Component - Modern Card Design
  */
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   return (
-    <details className="group border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:border-brand-primary/50 dark:hover:border-brand-primary-light/50 transition-colors duration-300">
-      <summary className="flex items-center justify-between p-6 cursor-pointer bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors duration-200">
-        <h3 className="text-lg font-bold text-gray-900 dark:text-white pr-4">
-          {question}
-        </h3>
-        <MaterialIcon
-          icon="expand_more"
-          className="text-brand-primary dark:text-brand-primary-light flex-shrink-0 transform group-open:rotate-180 transition-transform duration-300"
-          theme="military"
-          ariaLabel="Expand answer"
-        />
-      </summary>
-      <div className="p-6 pt-2 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-700">
-        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-          {answer}
-        </p>
+    <details className="group relative">
+      {/* Animated Border Glow */}
+      <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
+
+      <div className="relative border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent rounded-xl overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300">
+        {/* Top Accent Bar */}
+        <div className="h-1 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker group-open:h-2 transition-all duration-300"></div>
+
+        <summary className="flex items-center justify-between p-6 cursor-pointer bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors duration-200">
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white pr-4">
+            {question}
+          </h3>
+          <div className="relative inline-block flex-shrink-0">
+            <div className="absolute -inset-1 bg-brand-primary/20 dark:bg-brand-primary/30 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="relative rounded-lg bg-gradient-to-br from-brand-primary to-brand-primary-dark p-2 group-hover:scale-110 transition-transform duration-300">
+              <MaterialIcon
+                icon="expand_more"
+                className="text-white transform group-open:rotate-180 transition-transform duration-300"
+                size="md"
+                ariaLabel="Expand answer"
+              />
+            </div>
+          </div>
+        </summary>
+        <div className="p-6 pt-2 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-700">
+          <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base">
+            {answer}
+          </p>
+        </div>
       </div>
     </details>
   );
@@ -342,6 +312,9 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
  * FAQ Page Component
  */
 export default function FAQPage() {
+  // Get enhanced SEO data for FAQ page
+  const faqSEO = getFAQSEO();
+
   // Structured data for SEO (FAQ Schema)
   const faqSchema = {
     "@context": "https://schema.org",
@@ -359,246 +332,174 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-      {/* Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            generateBreadcrumbSchema([
-              ...breadcrumbPatterns.services,
-              { name: "FAQ", url: "https://www.mhc-gc.com/faq" },
-            ]),
-          ),
-        }}
-      />
+    <>
+      {/* SEO Meta Tags */}
+      <Head>
+        <title>{faqSEO.title as string}</title>
+        <meta name="description" content={faqSEO.description as string} />
+        {faqSEO.keywords && (
+          <meta
+            name="keywords"
+            content={
+              Array.isArray(faqSEO.keywords)
+                ? faqSEO.keywords.join(", ")
+                : faqSEO.keywords
+            }
+          />
+        )}
+        <link rel="canonical" href={faqSEO.openGraph?.url as string} />
 
-      {/* HowTo Schema - Construction Process */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            generateHowToSchema({
-              name: "How to Work with MH Construction",
-              description:
-                "Step-by-step guide to our partnership-driven construction process from consultation to project completion",
-              totalTime: "P30D",
-              steps: [
-                {
-                  name: "Discovery Phase",
-                  text: "Initial free consultation, site assessment, needs analysis, and budget discussion",
-                },
-                {
-                  name: "Planning Phase",
-                  text: "Detailed proposal with open-book pricing, timeline development, and contract signing",
-                },
-                {
-                  name: "Permitting Phase",
-                  text: "Permit applications, code compliance review, and approval coordination",
-                },
-                {
-                  name: "Construction Phase",
-                  text: "Regular progress updates, photo documentation, quality inspections, and client walkthroughs",
-                },
-                {
-                  name: "Completion Phase",
-                  text: "Final inspection, punch list completion, warranty documentation, and ongoing support",
-                },
-              ],
-            }),
-          ),
-        }}
-      />
+        {/* Open Graph */}
+        <meta property="og:title" content={faqSEO.openGraph?.title as string} />
+        <meta
+          property="og:description"
+          content={faqSEO.openGraph?.description as string}
+        />
+        <meta property="og:url" content={faqSEO.openGraph?.url as string} />
+        <meta property="og:type" content="website" />
 
-      {/* FAQ Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={faqSEO.twitter?.title as string} />
+        <meta
+          name="twitter:description"
+          content={faqSEO.twitter?.description as string}
+        />
+      </Head>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-20 sm:pb-24 md:pb-28 lg:pb-32 text-white overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(189,146,100,0.2)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(189,146,100,0.3)_0%,transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(205,127,50,0.15)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_bottom_left,rgba(205,127,50,0.25)_0%,transparent_50%)]"></div>
-        <div className="top-20 right-10 absolute bg-brand-secondary/10 dark:bg-brand-secondary/20 blur-3xl rounded-full w-32 h-32 animate-pulse"></div>
-        <div
-          className="left-10 bottom-20 absolute bg-brand-primary/10 dark:bg-brand-primary/20 blur-3xl rounded-full w-40 h-40 animate-pulse"
-          style={{ animationDelay: "1s" }}
-        ></div>
-        <div
-          className="top-1/2 left-1/4 absolute bg-brand-secondary/5 dark:bg-brand-secondary/10 blur-3xl rounded-full w-24 h-24 animate-pulse"
-          style={{ animationDelay: "0.5s" }}
-        ></div>
+      {/* Structured Data */}
+      {faqSEO.schemas && faqSEO.schemas.length > 0 && (
+        <StructuredData data={faqSEO.schemas} />
+      )}
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeInWhenVisible>
-            <div className="text-center max-w-4xl mx-auto">
-              {/* Icon */}
-              <div className="mb-6 sm:mb-8 flex justify-center">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-brand-secondary/30 dark:bg-brand-secondary/40 blur-xl rounded-full"></div>
-                  <div className="relative rounded-2xl bg-gradient-to-br from-brand-secondary to-bronze-600 p-4 shadow-lg">
-                    <MaterialIcon
-                      icon="help"
-                      size="2xl"
-                      className="text-white"
-                      theme="veteran"
-                      ariaLabel="Frequently Asked Questions"
-                    />
-                  </div>
+      <div className="bg-white dark:bg-gray-900 min-h-screen">
+        {/* Breadcrumb Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              generateBreadcrumbSchema([
+                ...breadcrumbPatterns.services,
+                { name: "FAQ", url: "https://www.mhc-gc.com/faq" },
+              ]),
+            ),
+          }}
+        />
+
+        {/* HowTo Schema - Construction Process */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              generateHowToSchema({
+                name: "How to Work with MH Construction",
+                description:
+                  "Step-by-step guide to our partnership-driven construction process from consultation to project completion",
+                totalTime: "P30D",
+                steps: [
+                  {
+                    name: "Discovery Phase",
+                    text: "Initial free consultation, site assessment, needs analysis, and budget discussion",
+                  },
+                  {
+                    name: "Planning Phase",
+                    text: "Detailed proposal with open-book pricing, timeline development, and contract signing",
+                  },
+                  {
+                    name: "Permitting Phase",
+                    text: "Permit applications, code compliance review, and approval coordination",
+                  },
+                  {
+                    name: "Construction Phase",
+                    text: "Regular progress updates, photo documentation, quality inspections, and client walkthroughs",
+                  },
+                  {
+                    name: "Completion Phase",
+                    text: "Final inspection, punch list completion, warranty documentation, and ongoing support",
+                  },
+                ],
+              }),
+            ),
+          }}
+        />
+
+        {/* FAQ Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+
+        {/* Hero Section */}
+        <section className="relative h-screen flex items-end justify-end text-white overflow-hidden">
+          {/* Background - Dark gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900">
+            {/* Overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
+          </div>
+
+          {/* Header Text - Bottom Right */}
+          <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+            {/* Mission Icon */}
+            <div className="flex justify-end mb-4">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                <div className="relative w-24 h-24 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white/50 dark:border-gray-700/50">
+                  <MaterialIcon
+                    icon="help"
+                    size="2xl"
+                    className="text-white drop-shadow-lg"
+                    ariaLabel="Frequently Asked Questions"
+                  />
                 </div>
-              </div>
-
-              {/* Title */}
-              <h1 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                <span className="block mb-3 sm:mb-4 font-semibold text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl tracking-tight">
-                  Intel Brief → FAQ
-                </span>
-                <span className="block mb-3 sm:mb-4 font-semibold text-brand-secondary text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight">
-                  Intelligence Brief: Mission-Critical Answers
-                </span>
-                <span className="block text-brand-primary drop-shadow-lg">
-                  Your Questions, Our Honest Answers
-                </span>
-                <span className="block text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl font-medium mt-4">
-                  Building projects for the client,{" "}
-                  <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                  the dollar
-                </span>
-              </h1>
-
-              {/* Quick CTA */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="/contact">
-                  <Button
-                    size="lg"
-                    className="bg-brand-secondary hover:bg-brand-secondary-dark text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    <MaterialIcon
-                      icon="campaign"
-                      className="mr-2"
-                      theme="military"
-                      ariaLabel="Schedule Consultation"
-                    />
-                    Schedule Consultation
-                  </Button>
-                </Link>
-                <Link href="/contact">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-2 border-white text-white hover:bg-white/10 font-bold transition-all duration-300"
-                  >
-                    <MaterialIcon
-                      icon="call"
-                      className="mr-2"
-                      theme="military"
-                      ariaLabel="Call Us"
-                    />
-                    Call (509) 308-6489
-                  </Button>
-                </Link>
               </div>
             </div>
-          </FadeInWhenVisible>
-        </div>
-
-        {/* Page-Specific Navigation Bar */}
-        <PageNavigation
-          items={navigationConfigs.faq}
-          className="absolute bottom-0 left-0 right-0"
-        />
-      </section>
-
-      {/* Breadcrumb Navigation */}
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "FAQ" }]} />
-
-      {/* Introduction Section */}
-      <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
-        {/* Diagonal Stripe Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                45deg,
-                #386851 0px,
-                #386851 2px,
-                transparent 2px,
-                transparent 60px
-              )`,
-            }}
-          ></div>
-        </div>
-
-        {/* Large Brand Color Blobs */}
-        <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-        <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <FadeInWhenVisible>
-              <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-                Welcome to our FAQ page. We believe in transparency, honesty,
-                and clear communication—core values that guide everything we do.
-                Below you'll find answers to common questions about our
-                services, process, and partnership approach. Can't find what
-                you're looking for? We're always available for a conversation.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                  <MaterialIcon
-                    icon="verified"
-                    className="text-brand-primary"
-                    theme="veteran"
-                    ariaLabel="Veteran-Owned"
-                  />
-                  <span>Veteran-Owned Since Jan 2025</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                  <MaterialIcon
-                    icon="health_and_safety"
-                    className="text-brand-primary"
-                    theme="military"
-                    ariaLabel="Safety Record"
-                  />
-                  <span>0.64 EMR Safety Record</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                  <MaterialIcon
-                    icon="location_on"
-                    className="text-brand-primary"
-                    theme="military"
-                    ariaLabel="Licensed States"
-                  />
-                  <span>Licensed: WA, OR, ID</span>
-                </div>
-              </div>
-            </FadeInWhenVisible>
+            <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+              <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
+                Intel Brief
+              </span>
+              <span className="block text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-2">
+                FAQ
+              </span>
+              <span className="block text-white/90 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl mb-3">
+                Your Questions,
+              </span>
+              <span className="block text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-3">
+                Our Honest Answers
+              </span>
+              <span className="block text-white/80 text-xs xs:text-sm sm:text-base md:text-lg">
+                Building projects for the client,{" "}
+                <span className="font-black italic text-brand-secondary">
+                  NOT
+                </span>{" "}
+                the dollar
+              </span>
+            </h1>
           </div>
-        </div>
-      </section>
 
-      {/* FAQ Categories */}
-      {faqCategories.map((category, categoryIndex) => (
-        <section
-          key={category.id}
-          id={category.id}
-          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
-        >
+          {/* Page-Specific Navigation Bar */}
+          <PageNavigation
+            items={navigationConfigs.faq}
+            className="absolute bottom-0 left-0 right-0"
+          />
+        </section>
+
+        {/* Breadcrumb Navigation */}
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "FAQ" }]} />
+
+        {/* Introduction Section */}
+        <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
           {/* Diagonal Stripe Background Pattern */}
           <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
             <div
               className="absolute inset-0"
               style={{
                 backgroundImage: `repeating-linear-gradient(
-                  45deg,
-                  #386851 0px,
-                  #386851 2px,
-                  transparent 2px,
-                  transparent 60px
-                )`,
+                45deg,
+                #386851 0px,
+                #386851 2px,
+                transparent 2px,
+                transparent 60px
+              )`,
               }}
             ></div>
           </div>
@@ -606,135 +507,219 @@ export default function FAQPage() {
           {/* Large Brand Color Blobs */}
           <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
           <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <div className="mb-8 sm:mb-12">
-                <FadeInWhenVisible delay={categoryIndex * 0.1}>
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
-                      <div className="relative rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-3 shadow-md">
-                        <MaterialIcon
-                          icon={category.icon}
-                          size="xl"
-                          className="text-white"
-                        />
-                      </div>
-                    </div>
-                    <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 dark:text-gray-100">
-                      <span className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent">
-                        {category.title}
-                      </span>
-                    </h2>
-                  </div>
-                </FadeInWhenVisible>
 
-                <div className="space-y-4">
-                  {category.questions.map((q, qIndex) => (
-                    <FadeInWhenVisible key={qIndex} delay={qIndex * 0.05}>
-                      <FAQItem question={q.question} answer={q.answer} />
-                    </FadeInWhenVisible>
-                  ))}
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto text-center mb-16">
+              <FadeInWhenVisible>
+                <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                  Welcome to our FAQ page. We believe in transparency, honesty,
+                  and clear communication—core values that guide everything we
+                  do. Below you'll find answers to common questions about our
+                  services, process, and partnership approach. Can't find what
+                  you're looking for? We're always available for a conversation.
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                    <MaterialIcon
+                      icon="verified"
+                      className="text-brand-primary"
+                      theme="veteran"
+                      ariaLabel="Veteran-Owned"
+                    />
+                    <span>Veteran-Owned Since Jan 2025</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                    <MaterialIcon
+                      icon="health_and_safety"
+                      className="text-brand-primary"
+                      theme="military"
+                      ariaLabel="Safety Record"
+                    />
+                    <span>0.64 EMR Safety Record</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                    <MaterialIcon
+                      icon="location_on"
+                      className="text-brand-primary"
+                      theme="military"
+                      ariaLabel="Licensed States"
+                    />
+                    <span>Licensed: WA, OR, ID</span>
+                  </div>
                 </div>
-              </div>
+              </FadeInWhenVisible>
             </div>
           </div>
         </section>
-      ))}
 
-      {/* Still Have Questions CTA */}
-      <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
-        {/* Diagonal Stripe Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
+        {/* FAQ Categories */}
+        {faqCategories.map((category, categoryIndex) => (
+          <section
+            key={category.id}
+            id={category.id}
+            className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+          >
+            {/* Diagonal Stripe Background Pattern */}
+            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: `repeating-linear-gradient(
+                  45deg,
+                  #386851 0px,
+                  #386851 2px,
+                  transparent 2px,
+                  transparent 60px
+                )`,
+                }}
+              ></div>
+            </div>
+
+            {/* Large Brand Color Blobs */}
+            <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+            <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-5xl mx-auto">
+                {/* Section Header - Military Construction Standard */}
+                <div className="mb-12 sm:mb-16 text-center">
+                  <FadeInWhenVisible delay={categoryIndex * 0.1}>
+                    {/* Icon with decorative lines */}
+                    <div className="flex items-center justify-center mb-6 gap-4">
+                      <div className="h-1 w-12 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                      <div className="relative">
+                        <div className="absolute -inset-3 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                        <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-4 rounded-xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                          <MaterialIcon
+                            icon={category.icon}
+                            size="xl"
+                            className="text-white drop-shadow-lg"
+                          />
+                        </div>
+                      </div>
+                      <div className="h-1 w-12 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                    </div>
+
+                    {/* Two-line gradient heading */}
+                    <h2 className="mb-4 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl leading-relaxed tracking-tighter overflow-visible">
+                      <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 leading-normal">
+                        {category.title}
+                      </span>
+                    </h2>
+                  </FadeInWhenVisible>
+
+                  <StaggeredFadeIn className="space-y-4">
+                    {category.questions.map((q, qIndex) => (
+                      <FAQItem
+                        key={qIndex}
+                        question={q.question}
+                        answer={q.answer}
+                      />
+                    ))}
+                  </StaggeredFadeIn>
+                </div>
+              </div>
+            </div>
+          </section>
+        ))}
+
+        {/* Still Have Questions CTA */}
+        <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+          {/* Diagonal Stripe Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
                 45deg,
                 #386851 0px,
                 #386851 2px,
                 transparent 2px,
                 transparent 60px
               )`,
-            }}
-          ></div>
-        </div>
+              }}
+            ></div>
+          </div>
 
-        {/* Large Brand Color Blobs */}
-        <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-        <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+          {/* Large Brand Color Blobs */}
+          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeInWhenVisible>
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="mb-8 flex justify-center">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 blur-xl rounded-full"></div>
-                  <div className="relative rounded-2xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg">
-                    <MaterialIcon
-                      icon="support_agent"
-                      size="2xl"
-                      className="text-white"
-                    />
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <FadeInWhenVisible>
+              <div className="max-w-4xl mx-auto text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-6 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="support_agent"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
                   </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Still Have
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Questions?
+                  </span>
+                </h2>
+                <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                  We're here to help. Our team is available for face-to-face
+                  consultation where we can discuss your specific needs, answer
+                  any questions, and start building a partnership based on trust
+                  and transparency.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <Link href="/contact">
+                    <Button
+                      size="lg"
+                      className="bg-brand-primary hover:bg-brand-primary-dark text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      <MaterialIcon
+                        icon="diversity_3"
+                        className="mr-2"
+                        theme="military"
+                        ariaLabel="Schedule Face-to-Face Consultation"
+                      />
+                      Schedule Face-to-Face Consultation
+                    </Button>
+                  </Link>
+                  <Link href="/contact">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary/10 dark:border-brand-primary-light dark:text-brand-primary-light dark:hover:bg-brand-primary-light/10 font-bold transition-all duration-300"
+                    >
+                      <MaterialIcon
+                        icon="campaign"
+                        className="mr-2"
+                        theme="military"
+                        ariaLabel="Contact Us"
+                      />
+                      Contact Us
+                    </Button>
+                  </Link>
                 </div>
               </div>
-              {/* Section Header - Military Construction Standard */}
-              <h2 className="mb-6 font-black text-gray-900 dark:text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-tight">
-                  Still Have
-                </span>
-                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm">
-                  Questions?
-                </span>
-              </h2>
-              <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-                We're here to help. Our team is available for face-to-face
-                consultation where we can discuss your specific needs, answer
-                any questions, and start building a partnership based on trust
-                and transparency.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="/contact">
-                  <Button
-                    size="lg"
-                    className="bg-brand-primary hover:bg-brand-primary-dark text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    <MaterialIcon
-                      icon="diversity_3"
-                      className="mr-2"
-                      theme="military"
-                      ariaLabel="Schedule Face-to-Face Consultation"
-                    />
-                    Schedule Face-to-Face Consultation
-                  </Button>
-                </Link>
-                <Link href="/contact">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary/10 dark:border-brand-primary-light dark:text-brand-primary-light dark:hover:bg-brand-primary-light/10 font-bold transition-all duration-300"
-                  >
-                    <MaterialIcon
-                      icon="campaign"
-                      className="mr-2"
-                      theme="military"
-                      ariaLabel="Contact Us"
-                    />
-                    Contact Us
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
+            </FadeInWhenVisible>
+          </div>
+        </section>
 
-      {/* Next Steps Section */}
-      <NextStepsSection
-        title="Ready to Start Your Project?"
-        subtitle="Let's build something exceptional together"
-      />
-    </div>
+        {/* Next Steps Section */}
+        <NextStepsSection
+          title="Ready to Start Your Project?"
+          subtitle="Let's build something exceptional together"
+        />
+      </div>
+    </>
   );
 }
