@@ -180,7 +180,7 @@ All consultation CTAs now direct to `/contact` for face-to-face consultation.
 
 ### 🎯 Direct Consultation Path (Dec 2025)
 
-**Single User Path: Direct Human Consultation**
+#### Single User Path: Direct Human Consultation
 
 - **Purpose**: Face-to-face project consultation and assessment
 - **Approach**: Honest communication, transparent pricing

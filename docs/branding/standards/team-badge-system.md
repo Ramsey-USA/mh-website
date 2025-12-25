@@ -16,7 +16,9 @@
 
 ## Overview
 
-The Team Achievement Badge System provides a standardized way to recognize and display team member accomplishments, certifications, and milestones on the MH Construction website. Badges follow strict branding guidelines and are awarded based on objective, verifiable criteria.
+The Team Achievement Badge System provides a standardized way to recognize and display team member
+accomplishments, certifications, and milestones on the MH Construction website. Badges follow strict
+branding guidelines and are awarded based on objective, verifiable criteria.
 
 ## Core Principles
 
@@ -294,14 +296,14 @@ The Team Achievement Badge System provides a standardized way to recognize and d
 
 #### OSHA Certification Badges
 
-**OSHA 30 Certified**
+##### OSHA 30 Certified
 
 - **Criteria**: OSHA 30-hour safety certification
 - **Icon**: `security`
 - **Color**: Success Green
 - **Detection**: `member.certifications` contains "OSHA 30"
 
-**OSHA 10 Certified**
+##### OSHA 10 Certified
 
 - **Criteria**: OSHA 10-hour safety certification
 - **Icon**: `verified`
@@ -310,7 +312,7 @@ The Team Achievement Badge System provides a standardized way to recognize and d
 
 #### Medical & Emergency Response
 
-**First Aid/CPR Certified**
+##### First Aid/CPR Certified
 
 - **Criteria**: Current First Aid and CPR certification
 - **Icon**: `local_hospital`
@@ -319,21 +321,21 @@ The Team Achievement Badge System provides a standardized way to recognize and d
 
 #### Equipment & Operations
 
-**CDL License Holder**
+##### CDL License Holder
 
 - **Criteria**: Commercial Driver's License
 - **Icon**: `local_shipping`
 - **Color**: Gray professional
 - **Detection**: `member.certifications` contains "CDL"
 
-**Forklift Certified**
+##### Forklift Certified
 
 - **Criteria**: Forklift operation certification
 - **Icon**: `forklift`
 - **Color**: Yellow warning
 - **Detection**: `member.certifications` contains "Forklift"
 
-**Aerial Lift Certified**
+##### Aerial Lift Certified
 
 - **Criteria**: Scissor lift, snake lift, aerial platform certification
 - **Icon**: `elevator`
@@ -342,7 +344,7 @@ The Team Achievement Badge System provides a standardized way to recognize and d
 
 #### Sustainability & Green Building
 
-**LEED Certified Professional**
+##### LEED Certified Professional
 
 - **Criteria**: LEED accreditation (any level)
 - **Icon**: `eco`
@@ -351,7 +353,7 @@ The Team Achievement Badge System provides a standardized way to recognize and d
 
 #### Language & Communication
 
-**Bilingual Professional**
+##### Bilingual Professional
 
 - **Criteria**: Certified interpreter or fluent in multiple languages
 - **Icon**: `translate`
@@ -361,7 +363,7 @@ The Team Achievement Badge System provides a standardized way to recognize and d
 
 #### Mentorship & Leadership
 
-**Mentor Achievement**
+##### Mentor Achievement
 
 - **Criteria**: 10+ documented mentorships
 - **Icon**: `supervisor_account`
@@ -372,7 +374,7 @@ The Team Achievement Badge System provides a standardized way to recognize and d
 
 #### Company Tenure
 
-**Decade of Service**
+##### Decade of Service
 
 - **Criteria**: 10+ years with MH Construction
 - **Icon**: `military_tech`
@@ -383,21 +385,21 @@ The Team Achievement Badge System provides a standardized way to recognize and d
 
 #### Project Performance
 
-**On-Time Delivery Expert**
+##### On-Time Delivery Expert
 
 - **Criteria**: Consistent on-time project completion (tracked metric)
 - **Icon**: `schedule`
 - **Color**: Success green
 - **Display Text**: "On-Time Delivery"
 
-**Budget Master**
+##### Budget Master
 
 - **Criteria**: Consistent under-budget project completion
 - **Icon**: "savings"
 - **Color**: Success green
 - **Display Text**: "Budget Master"
 
-**Quality Assurance Champion**
+##### Quality Assurance Champion
 
 - **Criteria**: Zero defect/rework rate over extended period
 - **Icon**: `verified`
@@ -406,14 +408,14 @@ The Team Achievement Badge System provides a standardized way to recognize and d
 
 #### Client Relations
 
-**Client Retention Specialist**
+##### Client Retention Specialist
 
 - **Criteria**: High repeat client rate (75%+ of projects from repeat clients)
 - **Icon**: `handshake`
 - **Color**: Brand primary
 - **Display Text**: "Client Retention Expert"
 
-**Referral Champion**
+##### Referral Champion
 
 - **Criteria**: High percentage of projects from referrals
 - **Icon**: `share`
@@ -422,7 +424,7 @@ The Team Achievement Badge System provides a standardized way to recognize and d
 
 #### Expertise & Specialization
 
-**Cross-Functional Expert**
+##### Cross-Functional Expert
 
 - **Criteria**: 6+ documented specialty areas
 - **Icon**: `category`
@@ -430,7 +432,7 @@ The Team Achievement Badge System provides a standardized way to recognize and d
 - **Display Text**: "Multi-Specialty Expert"
 - **Data**: `member.careerStats.specialtyAreas >= 6`
 
-**Technical Mastery**
+##### Technical Mastery
 
 - **Criteria**: Technical Excellence skill score of 95+
 - **Icon**: `engineering`
@@ -440,7 +442,7 @@ The Team Achievement Badge System provides a standardized way to recognize and d
 
 #### Industry Recognition
 
-**Award Winner**
+##### Award Winner
 
 - **Criteria**: Industry or company awards
 - **Icon**: `emoji_events`
@@ -450,14 +452,14 @@ The Team Achievement Badge System provides a standardized way to recognize and d
 
 #### Community & Culture
 
-**Community Leader**
+##### Community Leader
 
 - **Criteria**: Documented community service or volunteer leadership
 - **Icon**: `volunteer_activism`
 - **Color**: Brand secondary
 - **Display Text**: "Community Leader"
 
-**Culture Champion**
+##### Culture Champion
 
 - **Criteria**: Team building initiatives, positive culture impact
 - **Icon**: `groups_2`
@@ -549,7 +551,8 @@ interface Badge {
 | Error                       | Red          | `bg-red-600`         | Critical importance (safety)       |
 | Neutral                     | Gray         | `bg-gray-700`        | Professional certifications        |
 
-**Note**: All badge colors now follow MH branding and military color compliance. Purple and generic blues have been replaced with brand palette colors.
+**Note**: All badge colors now follow MH branding and military color compliance. Purple and generic blues
+have been replaced with brand palette colors.
 
 ---
 

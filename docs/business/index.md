@@ -5,7 +5,8 @@
 
 ## Overview
 
-This directory contains business-related documentation for MH Construction, including core values, service offerings, team profiles, and client testimonials.
+This directory contains business-related documentation for MH Construction, including core values, service
+offerings, team profiles, and client testimonials.
 
 ## Available Resources
 
@@ -27,7 +28,8 @@ The Upper Brass (Executive Leadership):
 
 Mission Commanders (Project Management):
 
-- Ben Woodall (PM), Jennifer Tenehuerta (Project Engineer/Admin), Lisa Kandle (Project Engineer/Marketing), Matt Ramsey (PM Assistant/Marketing Mgr), Todd Schoeff (Lead Estimator)
+- Ben Woodall (PM), Jennifer Tenehuerta (Project Engineer/Admin), Lisa Kandle (Project Engineer/Marketing),
+  Matt Ramsey (PM Assistant/Marketing Mgr), Todd Schoeff (Lead Estimator)
 
 Special Operations (Marketing, Safety & Strategic Initiatives):
 

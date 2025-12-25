@@ -48,7 +48,8 @@ groups with unique voices, tones, and keyword priorities.
 - [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Four-value professional system
 - [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
 - [🔍 SEO Messaging Strategy](../../technical/seo/seo-messaging-strategy.md) - ⭐ **NEW** - Local SEO optimization
-- [🧭 Navigation System](../../../NAVIGATION-UPDATE-COMPLETE-REPORT.md) - ⭐ **UPDATED** - Section-based navigation (Dec 2025)
+- [🧭 Navigation System](../../../NAVIGATION-UPDATE-COMPLETE-REPORT.md) - ⭐ **UPDATED** - Section-based
+  navigation (Dec 2025)
 - [🎨 Color System](../standards/color-system.md)
 - [📝 Typography](../standards/typography.md)
 - [🔧 Icon Policy](../standards/icon-policy-complete.md)
@@ -109,7 +110,8 @@ these core values in hierarchical order:
 - "About Us" / "Our Oath" - Company foundation and values
 - "Services" / "Operations" - Service offerings and capabilities
 - "Our Team" / "Chain of Command" - Leadership and personnel
-  - **5-Tier Structure:** The Upper Brass (executives), Mission Commanders (project managers), Special Operations (marketing/safety), Logistics Command (admin), Field Officers (superintendents)
+  - **5-Tier Structure:** The Upper Brass (executives), Mission Commanders (project managers),
+    Special Operations (marketing/safety), Logistics Command (admin), Field Officers (superintendents)
   - **150+ years combined expertise** across all military branches
   - **Clear accountability** from executive leadership to field operations
 - "Reviews" / "Commendations" - Client testimonials

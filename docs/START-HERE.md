@@ -62,7 +62,7 @@
 
 ## 📁 Documentation Structure (40 Files)
 
-```
+```text
 docs/
 ├── START-HERE.md (you are here)
 ├── branding/
@@ -111,7 +111,9 @@ docs/
 
 ## 🎖️ Core Values
 
-**Building projects for the client, NOT the dollar**
+### Our Foundation
+
+Building projects for the client, NOT the dollar
 
 1. **Honesty** - Transparent pricing, open communication
 2. **Integrity** - Your word is your bond, so is ours
@@ -124,5 +126,7 @@ docs/
 - 📊 **Tactical Planning** with deployment precision
 
 ---
+
+## Last Updated
 
 **Last Updated:** December 25, 2025 | MH Construction, Inc. | Veteran-Owned

@@ -19,7 +19,8 @@
 
 ## 🎯 Overview
 
-MH Construction team profiles, organized by role and function. Built on veteran leadership, proven experience, and personal commitment to every Client Partner.
+MH Construction team profiles, organized by role and function. Built on veteran leadership, proven experience,
+and personal commitment to every Client Partner.
 
 **Our Values:** Honesty, Integrity, Professionalism, Thoroughness → **Trust**
 
@@ -29,7 +30,7 @@ MH Construction team profiles, organized by role and function. Built on veteran 
 
 ### The Upper Brass (3)
 
-_Executive Leadership_
+#### Executive Leadership
 
 - **[Jeremy Thamert](./profiles/jeremy-thamert.md)** - Owner & General Manager | Army Veteran
 - **[Arnold Garcia](./profiles/arnold-garcia.md)** - Vice President (1 year) | Former GM (10 years)
@@ -37,7 +38,7 @@ _Executive Leadership_
 
 ### Mission Commanders (5)
 
-_Project Management & Estimating_
+#### Project Management & Estimating
 
 - **[Ben Woodall](./profiles/ben-woodall.md)** - Project Manager
 - **[Jennifer Tenehuerta](./profiles/jennifer-tenehuerta.md)** - Project Engineer / Admin Assistant
@@ -47,13 +48,13 @@ _Project Management & Estimating_
 
 ### Special Operations (1)
 
-_Marketing, Safety & Strategic Initiatives_
+#### Marketing, Safety & Strategic Initiatives
 
 - Currently being restructured - functions distributed across Mission Commanders
 
 ### Field Officers (4)
 
-_Site & Field Operations_
+#### Site & Field Operations
 
 - **[Steve McClary](./profiles/steve-mcclary.md)** - Senior Superintendent
 - **[Porter Cline](./profiles/porter-cline.md)** - Superintendent
@@ -62,7 +63,7 @@ _Site & Field Operations_
 
 ### Logistics Command (2)
 
-_Administration & Support_
+#### Administration & Support
 
 - **[Brooks Morris](./profiles/brooks-morris.md)** - Senior Accountant
 - **[Brittney Holstein](./profiles/brittney-holstein.md)** - HR Manager
@@ -71,7 +72,8 @@ _Administration & Support_
 
 ## 🤝 Building Partnerships That Last
 
-Where your word matters as much as ours. Join Client Partners who value veteran leadership, proven experience, and relationships that outlast projects.
+Where your word matters as much as ours. Join Client Partners who value veteran leadership, proven experience,
+and relationships that outlast projects.
 
 ---
 
@@ -80,7 +82,8 @@ Where your word matters as much as ours. Join Client Partners who value veteran 
 - **Total Team Members:** 14
 - **Veteran Leadership:** 3 (Army, Navy)
 - **Combined Experience:** 150+ years
-- **Command Structure:** 5 specialized divisions (The Upper Brass, Mission Commanders, Special Operations, Field Officers, Logistics Command)
+- **Command Structure:** 5 specialized divisions (The Upper Brass, Mission Commanders, Special Operations,
+  Field Officers, Logistics Command)
 
 ---
 

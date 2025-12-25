@@ -30,7 +30,7 @@ Create a Google Post about this week's focus:
 
 **Example Posts:**
 
-```
+```text
 🏗️ Project Update: Breaking ground on a new 10,000 sq ft commercial facility in Kennewick this week! Our veteran-owned team is proud to serve the Tri-Cities business community.
 
 📞 Need construction services? Call (509) 308-6489
@@ -103,7 +103,7 @@ Add 5-10 common questions with answers:
 
 ### **5-Star Review Response**
 
-```
+```text
 Thank you so much for the kind words, [Name]! We're thrilled that you're happy with [specific project detail]. Our veteran-owned team takes pride in building projects for the client, not the dollar. We appreciate your trust and look forward to serving you again in the future!
 
 - MH Construction Team
@@ -111,7 +111,7 @@ Thank you so much for the kind words, [Name]! We're thrilled that you're happy w
 
 ### **4-Star Review Response**
 
-```
+```text
 Thank you for your feedback, [Name]! We're glad we could help with [project]. We noticed you gave us 4 stars - is there anything we could have done better? We're always looking to improve our service. Feel free to reach out at (509) 308-6489.
 
 - MH Construction Team
@@ -119,7 +119,7 @@ Thank you for your feedback, [Name]! We're glad we could help with [project]. We
 
 ### **3-Star or Below Response**
 
-```
+```text
 Thank you for taking the time to share your experience, [Name]. We take all feedback seriously and would like to make this right. Please contact us directly at (509) 308-6489 so we can discuss your concerns and find a solution.
 
 - MH Construction Team
@@ -262,11 +262,11 @@ Thank you for taking the time to share your experience, [Name]. We take all feed
 
 **Direct Review Link Format:**
 
-```
+```text
 https://g.page/r/[YOUR_PLACE_ID]/review
 ```
 
-_(Get your Place ID from your Google Business Profile dashboard)_
+**Note:** Get your Place ID from your Google Business Profile dashboard
 
 ---
 

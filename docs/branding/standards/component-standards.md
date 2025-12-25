@@ -489,7 +489,8 @@ description=\"Optional description text\"
 </Card>
 ```
 
-**Migration Note:** All pages have been updated to use the modern card structure with animated border glows, top accent bars, and enhanced icons.
+**Migration Note:** All pages have been updated to use the modern card structure with animated border
+glows, top accent bars, and enhanced icons.
 
 ### **Card Flip Implementation (3D Transform)**
 

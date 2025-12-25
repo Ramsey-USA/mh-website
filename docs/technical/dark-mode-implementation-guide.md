@@ -16,7 +16,9 @@
 
 ## Overview
 
-This guide provides comprehensive instructions for implementing and maintaining dark mode across the MH Construction website. All implementation follows the branding guidelines specified in [color-system.md](../branding/standards/color-system.md).
+This guide provides comprehensive instructions for implementing and maintaining dark mode across the
+MH Construction website. All implementation follows the branding guidelines specified in
+[color-system.md](../branding/standards/color-system.md).
 
 ## Table of Contents
 
@@ -195,7 +197,7 @@ CSS custom properties automatically update based on theme:
 
 ### Pattern 1: Standard Tailwind Dark Mode
 
-**Most Common - Recommended Approach**
+#### Most Common - Recommended Approach
 
 ```tsx
 <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
@@ -206,7 +208,7 @@ CSS custom properties automatically update based on theme:
 
 ### Pattern 2: Utility Classes
 
-**For Reusable Components**
+#### For Reusable Components
 
 ```tsx
 <div className="bg-primary text-primary border-primary">
@@ -227,7 +229,7 @@ Available utility classes in `globals.css`:
 
 ### Pattern 3: Gradient Utilities
 
-**Pre-configured gradient patterns**
+#### Pre-configured gradient patterns
 
 ```tsx
 <div className="gradient-hero-dark">{/* Auto-adjusts for dark mode */}</div>
@@ -245,7 +247,7 @@ Available gradient utilities:
 
 ### Pattern 4: Component-Based (CVA)
 
-**For Design System Components**
+#### For Design System Components
 
 Using class-variance-authority (CVA):
 

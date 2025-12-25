@@ -9,7 +9,7 @@
 
 ### Template 1: Breaking Ground
 
-```
+```text
 🏗️ Breaking Ground Alert!
 
 We're excited to start work on a new [PROJECT TYPE] in [CITY], WA this week! Our veteran-owned team is ready to deliver quality construction that puts the client first.
@@ -29,7 +29,7 @@ Building projects for the client, NOT the dollar.
 
 ### Template 2: Progress Update
 
-```
+```text
 🚧 Project Progress Update
 
 Great progress on our [PROJECT TYPE] project in [CITY]! Our team has completed [MILESTONE] ahead of schedule.
@@ -51,7 +51,7 @@ Thank you to our amazing team and our client for their trust!
 
 ### Template 3: Project Completion
 
-```
+```text
 ✅ Project Complete!
 
 Proud to announce the successful completion of [PROJECT NAME] in [CITY]!
@@ -77,7 +77,7 @@ Ready to bring your vision to life?
 
 ### Template 1: Veteran Team Spotlight
 
-```
+```text
 🎖️ Meet Our Team: Veteran Spotlight
 
 Today we're highlighting [TEAM MEMBER NAME], [POSITION] and [Military Branch] veteran.
@@ -96,7 +96,7 @@ Proud to be a veteran-owned business serving the Tri-Cities!
 
 ### Template 2: Military Appreciation
 
-```
+```text
 🇺🇸 Thank You for Your Service
 
 At MH Construction, we honor those who served. As a veteran-owned business, we understand the values of:
@@ -122,7 +122,7 @@ Veterans receive special consideration for employment opportunities. Contact us 
 
 ### Template 1: Commercial Construction
 
-```
+```text
 🏢 Commercial Construction Services
 
 From concept to completion, MH Construction delivers exceptional commercial building projects throughout the Tri-Cities.
@@ -146,7 +146,7 @@ Get your free consultation today!
 
 ### Template 2: Design-Build Services
 
-```
+```text
 🎨 Design-Build: Simplified Construction
 
 Why choose design-build with MH Construction?
@@ -168,7 +168,7 @@ Serving Pasco, Kennewick, Richland, and beyond.
 
 ### Template 3: Government Contracting
 
-```
+```text
 🏛️ Government & Public Sector Projects
 
 MH Construction is proud to support government and public sector construction needs.
@@ -196,7 +196,7 @@ Contact us about your public project:
 
 ### Template 1: Construction Tip
 
-```
+```text
 💡 Construction Tip Tuesday
 
 Planning a commercial construction project? Here's what you need to know about [TOPIC]:
@@ -227,7 +227,7 @@ Questions about your upcoming project?
 
 ### Template 2: FAQ Friday
 
-```
+```text
 ❓ FAQ Friday
 
 This week's question: "[COMMON QUESTION]?"
@@ -252,7 +252,7 @@ Have more questions? We're here to help!
 
 ### Template 1: Service Area Spotlight
 
-```
+```text
 📍 Serving [CITY NAME], Washington
 
 MH Construction is proud to serve [CITY] with quality commercial construction services.
@@ -284,7 +284,7 @@ Ready to build in [CITY]?
 
 ### Template 2: Community Involvement
 
-```
+```text
 🤝 Community First
 
 At MH Construction, we believe in giving back to the Tri-Cities community that supports us.
@@ -306,7 +306,7 @@ Building strong communities, one project at a time.
 
 ### Template 1: New Equipment
 
-```
+```text
 🚜 Expanding Our Capabilities
 
 Excited to announce the addition of [EQUIPMENT] to our fleet!
@@ -327,7 +327,7 @@ Learn more about our capabilities:
 
 ### Template 2: Team Growth
 
-```
+```text
 👷 We're Growing!
 
 Please welcome [NAME] to the MH Construction team!
@@ -345,7 +345,7 @@ Interested in joining our team?
 
 ### Template 3: Certification/Award
 
-```
+```text
 🏆 Achievement Unlocked
 
 Proud to announce that MH Construction has [ACHIEVEMENT]!
@@ -370,7 +370,7 @@ Thank you to our clients and team who make this possible!
 
 ### Template 1: Free Consultation
 
-```
+```text
 📞 Free Project Consultation
 
 Thinking about a construction project? Let's talk!
@@ -392,7 +392,7 @@ Schedule your consultation:
 
 ### Template 2: Urgent Support
 
-```
+```text
 🚨 Need Urgent Construction Support?
 
 Construction emergencies don't wait for business hours.
@@ -417,7 +417,7 @@ Available when you need us most.
 
 ### Template 1: Spring
 
-```
+```text
 🌸 Spring Construction Season
 
 Spring is the perfect time to start your commercial construction project!
@@ -437,7 +437,7 @@ Ready to break ground?
 
 ### Template 2: Winter
 
-```
+```text
 ❄️ Winter Construction: Yes, We Can!
 
 Winter doesn't stop us! MH Construction has the expertise and equipment for year-round construction.
@@ -461,7 +461,7 @@ Don't wait for spring - start planning now!
 
 ### Template 1: General Holiday
 
-```
+```text
 🎊 Happy [HOLIDAY] from MH Construction!
 
 Wishing you and yours a wonderful [HOLIDAY]!

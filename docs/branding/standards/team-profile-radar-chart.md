@@ -17,7 +17,9 @@
 
 ## Overview
 
-The Team Profile Radar Chart provides a visual representation of team member competencies across 10 core skill dimensions. Each dimension is scored 0-100 and reflects objective performance metrics, certifications, and role responsibilities.
+The Team Profile Radar Chart provides a visual representation of team member competencies across 10 core
+skill dimensions. Each dimension is scored 0-100 and reflects objective performance metrics, certifications,
+and role responsibilities.
 
 ## Core Principles
 

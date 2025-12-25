@@ -114,7 +114,7 @@ CLOUDFLARE_API_TOKEN=your_api_token
 
 ## 🏗️ Project Architecture
 
-```
+```text
 src/
 ├── app/              # Next.js 15 App Router pages
 ├── components/       # React components
@@ -156,7 +156,7 @@ src/
 
 Proprietary - MH Construction © 2025
 
-## 🏗️ Project Architecture
+## 🏗️ Technology Stack & Architecture
 
 ### Technology Stack
 
@@ -518,7 +518,8 @@ Our veteran-owned team operates with clear military-inspired hierarchy and accou
 - Senior Superintendents and field leadership
 - **Focus:** Frontline operations, quality craftsmanship, safety excellence
 
-**Total Experience:** 150+ years combined military-grade expertise across all service branches (Army, Navy, Air Force, Marines, Coast Guard, Space Force).
+**Total Experience:** 150+ years combined military-grade expertise across all service branches
+(Army, Navy, Air Force, Marines, Coast Guard, Space Force).
 
 Complete guides:
 

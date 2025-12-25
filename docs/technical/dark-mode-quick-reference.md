@@ -1,6 +1,6 @@
 # Dark Mode Quick Reference
 
-**Quick guide for implementing dark mode in MH Construction website**
+## Quick guide for implementing dark mode in MH Construction website
 
 ## 🎨 Color Classes
 
