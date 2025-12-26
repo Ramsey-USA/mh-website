@@ -9,6 +9,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { PWAInstallCTA } from "@/components/pwa";
 
 interface NextStepsSectionProps {
   title?: string;
@@ -95,7 +96,10 @@ export function NextStepsSection({
           </p>
         </div>
 
-        <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
+        <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          {/* PWA Install Card - Only shows if installable */}
+          <PWAInstallCTA variant="card" />
+
           {/* Option 1: Download Pitch Deck */}
           <div className="group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
             <div className="flex justify-center mb-6">

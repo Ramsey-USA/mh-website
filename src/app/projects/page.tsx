@@ -19,7 +19,6 @@ import { TestimonialsSection } from "./components/TestimonialsSection";
 import { PartnershipProcessSection } from "./components/PartnershipProcessSection";
 import { ProjectsCTASection } from "./components/ProjectsCTASection";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
-import Head from "next/head";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getProjectsSEO } from "@/lib/seo/page-seo-utils";
 import {
@@ -62,47 +61,6 @@ export default function ProjectsPage() {
   return (
     <>
       {/* SEO Meta Tags */}
-      <Head>
-        <title>{projectsSEO.title as string}</title>
-        <meta name="description" content={projectsSEO.description as string} />
-        {projectsSEO.keywords && (
-          <meta
-            name="keywords"
-            content={
-              Array.isArray(projectsSEO.keywords)
-                ? projectsSEO.keywords.join(", ")
-                : projectsSEO.keywords
-            }
-          />
-        )}
-        <link rel="canonical" href={projectsSEO.openGraph?.url as string} />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content={projectsSEO.openGraph?.title as string}
-        />
-        <meta
-          property="og:description"
-          content={projectsSEO.openGraph?.description as string}
-        />
-        <meta
-          property="og:url"
-          content={projectsSEO.openGraph?.url as string}
-        />
-        <meta property="og:type" content="website" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content={projectsSEO.twitter?.title as string}
-        />
-        <meta
-          name="twitter:description"
-          content={projectsSEO.twitter?.description as string}
-        />
-      </Head>
 
       {/* Structured Data */}
       {projectsSEO.schemas && projectsSEO.schemas.length > 0 && (

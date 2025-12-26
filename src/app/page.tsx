@@ -35,7 +35,9 @@ const NextStepsSection = dynamic(
   { ssr: true },
 );
 
-import Head from "next/head";
+// PWA Components
+import { PWAInstallCTA } from "@/components/pwa";
+
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { useAnalytics } from "@/components/analytics/enhanced-analytics";
 import { useImagePreloader } from "@/hooks/usePerformanceOptimization";
@@ -78,36 +80,14 @@ export default function Home() {
       {/* Enhanced SEO structured data for veteran-owned construction excellence */}
       <StructuredData data={homepageSEO.schemas} />
 
-      <Head>
-        <title>
-          MH Construction - Veteran-Owned Integrity & Honest Communication |
-          Tri-Cities WA
-        </title>
-        <meta
-          name="description"
-          content="Veteran-owned construction management since January 2025. Honest communication, transparent pricing, proven craftsmanship. Specializing in commercial construction, master planning, tenant improvements, and light industrial projects. Four core values—Honesty, Integrity, Professionalism, Thoroughness—building trust through face-to-face consultation and lasting relationships. Serving Pacific Northwest communities."
-        />
-        <meta
-          name="keywords"
-          content="veteran-owned construction, honest communication construction, transparent pricing construction, proven craftsmanship, construction management services, commercial construction services, master planning preconstruction, tenant improvement services, light industrial construction, face-to-face consultation, service-earned values, Tri-Cities construction, Pasco construction, Kennewick construction, Honesty Integrity Professionalism Thoroughness, trust-based partnerships"
-        />
-        <meta
-          property="og:title"
-          content="MH Construction - Veteran-Owned Integrity & Honest Communication | Tri-Cities WA"
-        />
-        <meta
-          property="og:description"
-          content="Veteran-owned since January 2025. Built on honest communication, transparent pricing, and proven craftsmanship. Four core values: Honesty, Integrity, Professionalism, Thoroughness. Serving Tri-Cities with face-to-face consultation. Call (509) 308-6489."
-        />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.mhc-gc.com" />
-      </Head>
-
       {/* Add structured data for SEO */}
       <StructuredData data={generateOrganizationStructuredData()} />
 
       {/* Home Page Hero Section */}
       <HeroSection />
+
+      {/* PWA Install Banner - Only shows when installable */}
+      <PWAInstallCTA variant="banner" />
 
       {/* Core Values Section - Establish trust and heritage first */}
       <CoreValuesSection />

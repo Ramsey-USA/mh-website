@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { PWAInstallCTA } from "@/components/pwa";
 
 export default function Footer() {
   return (
@@ -131,6 +132,9 @@ export default function Footer() {
                 aria-label="Social media links"
                 className="flex items-center justify-center sm:justify-start gap-2 xs:gap-2.5 flex-wrap"
               >
+                {/* PWA Install Button */}
+                <PWAInstallCTA variant="button" className="mr-2" />
+
                 <a
                   href="https://www.facebook.com/profile.php?id=61575511773974"
                   target="_blank"

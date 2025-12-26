@@ -25,7 +25,6 @@ import {
 } from "@/lib/data/careers";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
-import Head from "next/head";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getCareersSEO } from "@/lib/seo/page-seo-utils";
 import {
@@ -72,44 +71,6 @@ export default function CareersPage() {
   return (
     <>
       {/* SEO Meta Tags */}
-      <Head>
-        <title>{careersSEO.title as string}</title>
-        <meta name="description" content={careersSEO.description as string} />
-        {careersSEO.keywords && (
-          <meta
-            name="keywords"
-            content={
-              Array.isArray(careersSEO.keywords)
-                ? careersSEO.keywords.join(", ")
-                : careersSEO.keywords
-            }
-          />
-        )}
-        <link rel="canonical" href={careersSEO.openGraph?.url as string} />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content={careersSEO.openGraph?.title as string}
-        />
-        <meta
-          property="og:description"
-          content={careersSEO.openGraph?.description as string}
-        />
-        <meta property="og:url" content={careersSEO.openGraph?.url as string} />
-        <meta property="og:type" content="website" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content={careersSEO.twitter?.title as string}
-        />
-        <meta
-          name="twitter:description"
-          content={careersSEO.twitter?.description as string}
-        />
-      </Head>
 
       {/* Structured Data */}
       {careersSEO.schemas && careersSEO.schemas.length > 0 && (

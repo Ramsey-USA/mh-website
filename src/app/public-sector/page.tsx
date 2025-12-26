@@ -17,8 +17,6 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
-import Head from "next/head";
-import { getGovernmentSEO } from "@/lib/seo/page-seo-utils";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { InteractiveGrantSelector } from "./InteractiveGrantSelector";
 import { StructuredData } from "@/components/seo/seo-meta";
@@ -29,9 +27,6 @@ import {
 
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = true;
-
-// Get SEO metadata
-const governmentSEOData = getGovernmentSEO();
 
 // Federal contracting services
 const grantSupportServices = [
@@ -302,21 +297,6 @@ export default function PublicSectorPage() {
         data={generateBreadcrumbSchema(breadcrumbPatterns.publicSector)}
       />
       {/* Enhanced SEO Meta Tags */}
-      <Head>
-        <title>{governmentSEOData.title as string}</title>
-        <meta
-          name="description"
-          content={(governmentSEOData.description as string) || ""}
-        />
-        <meta
-          name="keywords"
-          content={
-            Array.isArray(governmentSEOData.keywords)
-              ? governmentSEOData.keywords.join(", ")
-              : (governmentSEOData.keywords as string) || ""
-          }
-        />
-      </Head>
       {/* Hero Section - Group 4: Professional & Patriotic */}
       <section className="relative bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 h-screen flex items-end justify-end text-white overflow-hidden">
         {/* Background Elements */}

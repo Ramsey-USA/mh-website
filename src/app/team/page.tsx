@@ -17,7 +17,6 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
 import { TestimonialGrid } from "@/components/testimonials";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
-import Head from "next/head";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getTeamSEO } from "@/lib/seo/page-seo-utils";
 import {
@@ -73,41 +72,6 @@ export default function TeamPage() {
   return (
     <>
       {/* SEO Meta Tags */}
-      <Head>
-        <title>{teamSEO.title as string}</title>
-        <meta name="description" content={teamSEO.description as string} />
-        {teamSEO.keywords && (
-          <meta
-            name="keywords"
-            content={
-              Array.isArray(teamSEO.keywords)
-                ? teamSEO.keywords.join(", ")
-                : teamSEO.keywords
-            }
-          />
-        )}
-        <link rel="canonical" href={teamSEO.openGraph?.url as string} />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content={teamSEO.openGraph?.title as string}
-        />
-        <meta
-          property="og:description"
-          content={teamSEO.openGraph?.description as string}
-        />
-        <meta property="og:url" content={teamSEO.openGraph?.url as string} />
-        <meta property="og:type" content="website" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={teamSEO.twitter?.title as string} />
-        <meta
-          name="twitter:description"
-          content={teamSEO.twitter?.description as string}
-        />
-      </Head>
 
       {/* Structured Data */}
       {teamSEO.schemas && teamSEO.schemas.length > 0 && (

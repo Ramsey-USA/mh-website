@@ -14,6 +14,7 @@ import {
 } from "@/components/seo/seo-meta";
 import { SkipLink } from "@/components/ui/accessibility/SkipLink";
 import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
+import { PWAManager } from "@/components/pwa";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -194,6 +195,7 @@ export default function RootLayout({
         <WebVitalsReporter />
         <SkipLink />
         <ScrollProgress />
+        <PWAManager />
         <ThemeProvider defaultTheme="light" storageKey="mh-construction-theme">
           <AuthProvider>
             <GlobalChatbotProvider>

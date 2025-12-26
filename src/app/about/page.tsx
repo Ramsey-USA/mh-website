@@ -1,6 +1,5 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import Head from "next/head";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   DiagonalStripePattern,
@@ -70,44 +69,6 @@ export default function AboutPage() {
   return (
     <>
       {/* SEO Meta Tags */}
-      <Head>
-        <title>{aboutSEO.title as string}</title>
-        <meta name="description" content={aboutSEO.description as string} />
-        {aboutSEO.keywords && (
-          <meta
-            name="keywords"
-            content={
-              Array.isArray(aboutSEO.keywords)
-                ? aboutSEO.keywords.join(", ")
-                : aboutSEO.keywords
-            }
-          />
-        )}
-        <link rel="canonical" href={aboutSEO.openGraph?.url as string} />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content={aboutSEO.openGraph?.title as string}
-        />
-        <meta
-          property="og:description"
-          content={aboutSEO.openGraph?.description as string}
-        />
-        <meta property="og:url" content={aboutSEO.openGraph?.url as string} />
-        <meta property="og:type" content="website" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content={aboutSEO.twitter?.title as string}
-        />
-        <meta
-          name="twitter:description"
-          content={aboutSEO.twitter?.description as string}
-        />
-      </Head>
 
       {/* Structured Data */}
       {aboutSEO.schemas && aboutSEO.schemas.length > 0 && (

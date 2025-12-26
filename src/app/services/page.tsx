@@ -26,7 +26,6 @@ import {
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { StructuredData } from "@/components/seo/seo-meta";
-import Head from "next/head";
 import { getServicesSEO } from "@/lib/seo/page-seo-utils";
 import {
   generateBreadcrumbSchema,
@@ -180,47 +179,6 @@ export default function ServicesPage() {
   return (
     <>
       {/* SEO Meta Tags */}
-      <Head>
-        <title>{servicesSEO.title as string}</title>
-        <meta name="description" content={servicesSEO.description as string} />
-        {servicesSEO.keywords && (
-          <meta
-            name="keywords"
-            content={
-              Array.isArray(servicesSEO.keywords)
-                ? servicesSEO.keywords.join(", ")
-                : servicesSEO.keywords
-            }
-          />
-        )}
-        <link rel="canonical" href={servicesSEO.openGraph?.url as string} />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content={servicesSEO.openGraph?.title as string}
-        />
-        <meta
-          property="og:description"
-          content={servicesSEO.openGraph?.description as string}
-        />
-        <meta
-          property="og:url"
-          content={servicesSEO.openGraph?.url as string}
-        />
-        <meta property="og:type" content="website" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content={servicesSEO.twitter?.title as string}
-        />
-        <meta
-          name="twitter:description"
-          content={servicesSEO.twitter?.description as string}
-        />
-      </Head>
 
       {/* Structured Data from servicesSEO */}
       {servicesSEO.schemas && servicesSEO.schemas.length > 0 && (

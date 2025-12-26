@@ -37,6 +37,32 @@
           "type": "image/png"
         }
       ]
+    },
+    {
+      "name": "Book Consultation",
+      "short_name": "Book",
+      "description": "Schedule a consultation with our team",
+      "url": "/contact?type=consultation",
+      "icons": [
+        {
+          "src": "/icons/shortcut-booking.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Get Estimate",
+      "short_name": "Estimate",
+      "description": "Request a project estimate",
+      "url": "/contact?type=estimate",
+      "icons": [
+        {
+          "src": "/icons/shortcut-estimate.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
     }
   ],
   "icons": [

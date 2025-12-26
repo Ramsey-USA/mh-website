@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Head from "next/head";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
@@ -338,38 +337,6 @@ export default function FAQPage() {
   return (
     <>
       {/* SEO Meta Tags */}
-      <Head>
-        <title>{faqSEO.title as string}</title>
-        <meta name="description" content={faqSEO.description as string} />
-        {faqSEO.keywords && (
-          <meta
-            name="keywords"
-            content={
-              Array.isArray(faqSEO.keywords)
-                ? faqSEO.keywords.join(", ")
-                : faqSEO.keywords
-            }
-          />
-        )}
-        <link rel="canonical" href={faqSEO.openGraph?.url as string} />
-
-        {/* Open Graph */}
-        <meta property="og:title" content={faqSEO.openGraph?.title as string} />
-        <meta
-          property="og:description"
-          content={faqSEO.openGraph?.description as string}
-        />
-        <meta property="og:url" content={faqSEO.openGraph?.url as string} />
-        <meta property="og:type" content="website" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={faqSEO.twitter?.title as string} />
-        <meta
-          name="twitter:description"
-          content={faqSEO.twitter?.description as string}
-        />
-      </Head>
 
       {/* Structured Data */}
       {faqSEO.schemas && faqSEO.schemas.length > 0 && (

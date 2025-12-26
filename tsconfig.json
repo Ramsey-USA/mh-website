@@ -69,6 +69,7 @@
     "build",
     "dist",
     "coverage",
-    ".config-backup"
+    ".config-backup",
+    "docs/**/*"
   ]
 }

@@ -1,7 +1,5 @@
 // Note: Metadata export removed due to "use client" directive
 // SEO handled via next-seo or alternative client-side SEO solution
-import Head from "next/head";
-import { getTradePartnersSEO } from "@/lib/seo/page-seo-utils";
 import Link from "next/link";
 import {
   Button,
@@ -32,9 +30,6 @@ import {
 
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = false;
-
-// Get SEO metadata
-const tradePartnersSEOData = getTradePartnersSEO();
 
 // Trade Partner Categories
 const partnerCategories = [
@@ -276,21 +271,6 @@ export default function AlliesPage() {
         data={generateBreadcrumbSchema(breadcrumbPatterns.allies)}
       />
       {/* Enhanced SEO Meta Tags */}
-      <Head>
-        <title>{tradePartnersSEOData.title as string}</title>
-        <meta
-          name="description"
-          content={(tradePartnersSEOData.description as string) || ""}
-        />
-        <meta
-          name="keywords"
-          content={
-            Array.isArray(tradePartnersSEOData.keywords)
-              ? tradePartnersSEOData.keywords.join(", ")
-              : (tradePartnersSEOData.keywords as string) || ""
-          }
-        />
-      </Head>
 
       {/* Hero Section - Group 7: Partnership & ROI Focus */}
       <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-end justify-end text-white overflow-hidden">

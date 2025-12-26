@@ -1,9 +1,15 @@
 /**
  * Analytics Types
- * Shared TypeScript interfaces for the analytics system
+ * Core type definitions for analytics system
  */
 
-// Analytics Event Types
+export type AnalyticsPropertyValue =
+  | string
+  | number
+  | boolean
+  | null
+  | undefined;
+
 export type AnalyticsEventType =
   | "page_view"
   | "user_interaction"
@@ -18,34 +24,6 @@ export type AnalyticsEventType =
   | "error_event"
   | "conversion_event";
 
-// Property value types for analytics events
-export type AnalyticsPropertyValue =
-  | string
-  | number
-  | boolean
-  | null
-  | undefined;
-
-// Core Analytics Interfaces
-export interface AnalyticsEvent {
-  id: string;
-  type: AnalyticsEventType;
-  timestamp: Date;
-  sessionId: string;
-  userId?: string;
-  properties: Record<string, AnalyticsPropertyValue>;
-  metadata: EventMetadata;
-}
-
-export interface EventMetadata {
-  page: string;
-  referrer: string;
-  userAgent: string;
-  device: DeviceInfo;
-  location: LocationInfo;
-  performance?: PerformanceMetrics;
-}
-
 export interface DeviceInfo {
   type: "desktop" | "tablet" | "mobile";
   os: string;
@@ -55,20 +33,29 @@ export interface DeviceInfo {
 }
 
 export interface LocationInfo {
+  timezone: string;
+  language: string;
   country?: string;
   region?: string;
   city?: string;
-  timezone: string;
-  language: string;
 }
 
-export interface PerformanceMetrics {
-  loadTime: number;
-  firstContentfulPaint: number;
-  largestContentfulPaint: number;
-  firstInputDelay: number;
-  cumulativeLayoutShift: number;
-  timeToInteractive: number;
+export interface EventMetadata {
+  page: string;
+  referrer: string;
+  userAgent: string;
+  device: DeviceInfo;
+  location: LocationInfo;
+}
+
+export interface AnalyticsEvent {
+  id: string;
+  type: AnalyticsEventType;
+  timestamp: Date;
+  sessionId: string;
+  userId?: string;
+  properties: Record<string, AnalyticsPropertyValue>;
+  metadata: EventMetadata;
 }
 
 export interface UserJourney {
@@ -94,15 +81,6 @@ export interface ConversionEvent {
   properties: Record<string, AnalyticsPropertyValue>;
 }
 
-export interface AnalyticsDashboardData {
-  overview: OverviewMetrics;
-  userBehavior: UserBehaviorMetrics;
-  performance: PerformanceAnalytics;
-  conversions: ConversionAnalytics;
-  veteranInsights: VeteranAnalytics;
-  realTime: RealTimeMetrics;
-}
-
 export interface OverviewMetrics {
   totalUsers: number;
   totalSessions: number;
@@ -115,48 +93,6 @@ export interface OverviewMetrics {
   trafficSources: TrafficSource[];
 }
 
-export interface UserBehaviorMetrics {
-  userFlows: UserFlow[];
-  popularFeatures: FeatureUsage[];
-  estimatorUsage: EstimatorAnalytics;
-  recommendationEngagement: RecommendationAnalytics;
-  deviceBreakdown: DeviceAnalytics;
-  geographicDistribution: GeographicData[];
-}
-
-export interface PerformanceAnalytics {
-  coreWebVitals: CoreWebVitals;
-  pageLoadTimes: PagePerformance[];
-  errorRates: ErrorAnalytics;
-  uptimeMetrics: UptimeData;
-  resourceMetrics: ResourceUsage;
-}
-
-export interface ConversionAnalytics {
-  funnelAnalysis: FunnelStep[];
-  conversionsBySource: ConversionSource[];
-  veteranConversions: VeteranConversionData;
-  estimatorToContact: number;
-  recommendationToInquiry: number;
-}
-
-export interface VeteranAnalytics {
-  veteranUsers: number;
-  branchDistribution: BranchMetric[];
-  benefitUtilization: BenefitUsage[];
-  specialistEngagement: SpecialistMetrics;
-  conversionRates: VeteranConversionRates;
-}
-
-export interface RealTimeMetrics {
-  activeUsers: number;
-  currentSessions: ActiveSession[];
-  recentEvents: AnalyticsEvent[];
-  liveConversions: ConversionEvent[];
-  systemHealth: SystemHealth;
-}
-
-// Supporting Interfaces
 export interface PageMetric {
   page: string;
   views: number;
@@ -172,73 +108,29 @@ export interface TrafficSource {
   conversionRate: number;
 }
 
-export interface UserFlow {
-  path: string[];
-  users: number;
-  completionRate: number;
-  averageDuration: number;
+export interface UserBehaviorMetrics {
+  userFlows: unknown[];
+  popularFeatures: unknown[];
+  estimatorUsage: unknown;
+  recommendationEngagement: unknown;
+  deviceBreakdown: unknown;
+  geographicDistribution: unknown[];
 }
 
-export interface FeatureUsage {
-  feature: string;
-  uses: number;
-  uniqueUsers: number;
-  successRate: number;
-}
-
-export interface EstimatorAnalytics {
-  totalUsage: number;
-  completionRate: number;
-  averageProjectValue: number;
-  popularProjectTypes: ProjectTypeMetric[];
-  dropOffPoints: DropOffPoint[];
-}
-
-export interface RecommendationAnalytics {
-  impressions: number;
-  clicks: number;
-  clickThroughRate: number;
-  conversionRate: number;
-  topRecommendations: RecommendationMetric[];
-}
-
-export interface DeviceAnalytics {
-  desktop: number;
-  tablet: number;
-  mobile: number;
-}
-
-export interface GeographicData {
-  region: string;
-  users: number;
-  sessions: number;
-  conversionRate: number;
+export interface PerformanceAnalytics {
+  coreWebVitals: CoreWebVitals;
+  pageLoadTimes: unknown[];
+  errorRates: unknown;
+  uptimeMetrics: unknown;
+  resourceMetrics: ResourceUsage;
 }
 
 export interface CoreWebVitals {
-  lcp: number; // Largest Contentful Paint
-  fid: number; // First Input Delay
-  cls: number; // Cumulative Layout Shift
-  fcp: number; // First Contentful Paint
-  ttfb: number; // Time to First Byte
-}
-
-export interface PagePerformance {
-  page: string;
-  averageLoadTime: number;
-  p75LoadTime: number;
-  p95LoadTime: number;
-}
-
-export interface ErrorAnalytics {
-  totalErrors: number;
-  errorRate: number;
-  topErrors: ErrorMetric[];
-}
-
-export interface UptimeData {
-  uptime: number;
-  downtimeEvents: DowntimeEvent[];
+  lcp: number;
+  fid: number;
+  cls: number;
+  fcp: number;
+  ttfb: number;
 }
 
 export interface ResourceUsage {
@@ -247,46 +139,34 @@ export interface ResourceUsage {
   averageResponseTime: number;
 }
 
-export interface FunnelStep {
-  step: string;
-  users: number;
-  dropOffRate: number;
+export interface ConversionAnalytics {
+  funnelAnalysis: unknown[];
+  conversionsBySource: unknown[];
+  veteranConversions: unknown;
+  estimatorToContact: number;
+  recommendationToInquiry: number;
 }
 
-export interface ConversionSource {
-  source: string;
-  conversions: number;
-  value: number;
-}
-
-export interface VeteranConversionData {
-  veteranConversions: number;
-  veteranConversionRate: number;
-  averageVeteranValue: number;
-}
-
-export interface BranchMetric {
-  branch: string;
-  users: number;
-  percentage: number;
-}
-
-export interface BenefitUsage {
-  benefit: string;
-  uses: number;
-  users: number;
-}
-
-export interface SpecialistMetrics {
-  contacts: number;
-  averageResponseTime: number;
-  satisfactionRate: number;
+export interface VeteranAnalytics {
+  veteranUsers: number;
+  branchDistribution: unknown[];
+  benefitUtilization: unknown[];
+  specialistEngagement: unknown;
+  conversionRates: VeteranConversionRates;
 }
 
 export interface VeteranConversionRates {
   estimateRequests: number;
   contactForms: number;
   projectInquiries: number;
+}
+
+export interface RealTimeMetrics {
+  activeUsers: number;
+  currentSessions: ActiveSession[];
+  recentEvents: AnalyticsEvent[];
+  liveConversions: ConversionEvent[];
+  systemHealth: SystemHealth;
 }
 
 export interface ActiveSession {
@@ -304,35 +184,20 @@ export interface SystemHealth {
   activeConnections: number;
 }
 
-export interface ProjectTypeMetric {
-  type: string;
-  count: number;
-  averageValue: number;
+export interface AnalyticsDashboardData {
+  overview: OverviewMetrics;
+  userBehavior: UserBehaviorMetrics;
+  performance: PerformanceAnalytics;
+  conversions: ConversionAnalytics;
+  veteranInsights: VeteranAnalytics;
+  realTime: RealTimeMetrics;
 }
 
-export interface DropOffPoint {
-  step: string;
-  dropOffRate: number;
-  affectedUsers: number;
-}
-
-export interface RecommendationMetric {
-  recommendation: string;
-  impressions: number;
-  clicks: number;
-  conversions: number;
-}
-
-export interface ErrorMetric {
-  error: string;
-  count: number;
-  affectedUsers: number;
-  lastOccurrence: Date;
-}
-
-export interface DowntimeEvent {
-  startTime: Date;
-  endTime: Date;
-  duration: number;
-  cause?: string;
+export interface PerformanceMetrics {
+  loadTime: number;
+  firstContentfulPaint: number;
+  largestContentfulPaint: number;
+  firstInputDelay: number;
+  cumulativeLayoutShift: number;
+  timeToInteractive: number;
 }

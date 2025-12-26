@@ -37,11 +37,32 @@ const CRITICAL_ASSETS = [
 
 const STATIC_ASSETS = [
   ...CRITICAL_ASSETS,
+  // Main pages
   "/about",
   "/services",
-  "/portfolio",
   "/projects",
   "/contact",
+  "/team",
+  "/careers",
+  "/faq",
+  "/testimonials",
+  "/accessibility",
+  "/privacy",
+  "/terms",
+  // Service areas
+  "/pasco",
+  "/kennewick",
+  "/richland",
+  "/west-richland",
+  "/walla-walla",
+  "/yakima",
+  "/spokane",
+  // Specialized pages
+  "/public-sector",
+  "/veterans",
+  "/urgent",
+  "/allies",
+  // Next.js static assets (if they exist)
   "/_next/static/css/app/layout.css",
   "/_next/static/css/app/page.css",
 ];
@@ -105,7 +126,7 @@ self.addEventListener("activate", (event) => {
             .filter((cacheName) => {
               return (
                 cacheName.startsWith("mh-construction-") &&
-                !cacheName.includes("v2.2.0")
+                !cacheName.includes("v4.0.0")
               );
             })
             .map((cacheName) => {
@@ -146,6 +167,15 @@ self.addEventListener("sync", (event) => {
 
   if (event.tag === "background-sync") {
     event.waitUntil(handleBackgroundSync());
+  }
+});
+
+// Handle messages from clients (like skip waiting)
+self.addEventListener("message", (event) => {
+  console.info("[SW] Message received:", event.data);
+
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
   }
 });
 
