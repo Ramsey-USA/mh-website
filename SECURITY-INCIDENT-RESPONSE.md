@@ -4,7 +4,8 @@
 
 **Date:** December 26, 2025  
 **Severity:** CRITICAL  
-**Status:** RESOLVED
+**Status:** ⚠️ PENDING CREDENTIAL ROTATION  
+**Last Updated:** December 26, 2025
 
 ---
 
@@ -12,7 +13,7 @@
 
 GitGuardian detected exposed company email credentials in the repository. The `.env.local` file contained sensitive API keys and was present in the working directory but **NOT committed to Git history**.
 
-### Exposed Credentials Found:
+### Exposed Credentials Found
 
 - ✅ Resend API Key: `re_ceykSWsM_MjSbcQA8euVunmYzgoKUYCgn`
 - ✅ Firebase API Key (public - OK): `AIzaSyCrsSA768hB31f042L10ah4EoLOU3UjMJI`
@@ -26,12 +27,14 @@ GitGuardian detected exposed company email credentials in the repository. The `.
 
 ```bash
 rm .env.local
+
 ```
 
 ### 2. Verified Not in Git History
 
 ```bash
 git log --all --full-history -- "*env.local*"
+
 # Result: NO COMMITS FOUND - File was never tracked
 ```
 
@@ -52,17 +55,18 @@ Already present in `.gitignore` - working as intended.
 
 #### A. Resend API Key
 
-1. Go to: https://resend.com/api-keys
+1. Go to: <https://resend.com/api-keys>
 2. Revoke the exposed key: `re_ceykSWsM_MjSbcQA8euVunmYzgoKUYCgn`
 3. Create a new API key
 4. Store in Cloudflare Workers secrets:
+
    ```bash
    wrangler secret put RESEND_API_KEY
    ```
 
 #### B. Cloudflare D1 Database Access
 
-1. Go to: https://dash.cloudflare.com/
+1. Go to: <https://dash.cloudflare.com/>
 2. Navigate to Workers & Pages → D1
 3. Review access logs for databases:
    - Production: `98ad144a-cfe2-4f19-a55c-c43140279840`
@@ -73,9 +77,10 @@ Already present in `.gitignore` - working as intended.
 
 Firebase API keys are designed to be public and are restricted by security rules. However, verify:
 
-1. Go to: https://console.firebase.google.com/project/mhc-gc-website
+1. Go to: <https://console.firebase.google.com/project/mhc-gc-website>
 2. Check Authentication → Settings
 3. Verify Security Rules are properly configured
+
 4. Review recent authentication attempts
 
 ---
@@ -112,16 +117,33 @@ wrangler secret put DATABASE_URL
 
 ## Security Checklist
 
-- [x] Remove exposed `.env.local` file
-- [x] Verify file not in Git history
-- [x] Confirm `.gitignore` properly configured
+### Completed ✅
+
+- [x] Remove exposed `.env.local` file from working directory
+- [x] Verify file not in Git history (CONFIRMED: never committed)
+- [x] Confirm `.gitignore` properly configured (working correctly)
+- [x] Create security incident documentation
+- [x] Create secrets management guide
+- [x] Update `.env.local.example` with security warnings
+- [x] Push security fixes to repository
+
+### In Progress 🟡
+
 - [ ] **Rotate Resend API key** (CRITICAL - DO THIS NOW)
-- [ ] Check Cloudflare D1 access logs
-- [ ] Review Firebase security rules
-- [ ] Update Cloudflare Workers secrets
+  - Current key: `re_ceykSWsM_MjSbcQA8euVunmYzgoKUYCgn`
+  - Must be revoked at: <https://resend.com/api-keys>
+  - Create new key and update Cloudflare Workers
+
+### Pending ⏳
+
+- [ ] Check Cloudflare D1 access logs (review past 7 days)
+- [ ] Review Firebase security rules and recent auth attempts
+- [ ] Update Cloudflare Workers secrets with new credentials
+- [ ] Rotate admin passwords from default `admin123`
 - [ ] Test application with new credentials
 - [ ] Monitor for suspicious activity for 30 days
 - [ ] Document incident in security log
+- [ ] Schedule follow-up security audit in 30 days
 
 ---
 
@@ -133,6 +155,7 @@ wrangler secret put DATABASE_URL
 
    ```bash
    cp .env.local.example .env.local
+
    ```
 
 2. Fill in your **local development** values:
@@ -144,6 +167,7 @@ wrangler secret put DATABASE_URL
    ```
 
 3. Verify it's gitignored:
+
    ```bash
    git status  # Should NOT show .env.local
    ```
@@ -156,6 +180,7 @@ Use Cloudflare Workers secrets (environment variables):
 # Set secrets in Cloudflare
 wrangler secret put RESEND_API_KEY
 wrangler secret put D1_DATABASE_ID
+
 wrangler secret put EMAIL_FROM
 ```
 
@@ -199,15 +224,15 @@ const apiKey = process.env.RESEND_API_KEY;
 
 ### Security Team
 
-- **Email**: office@mhc-gc.com
+- **Email**: <office@mhc-gc.com>
 - **Phone**: (509) 308-6489
-- **Emergency**: matt@mhc-gc.com
+- **Emergency**: <matt@mhc-gc.com>
 
 ### External Resources
 
-- **GitGuardian**: https://dashboard.gitguardian.com/
-- **Cloudflare Security**: https://dash.cloudflare.com/
-- **Resend Security**: https://resend.com/docs/security
+- **GitGuardian**: <https://dashboard.gitguardian.com/>
+- **Cloudflare Security**: <https://dash.cloudflare.com/>
+- **Resend Security**: <https://resend.com/docs/security>
 
 ---
 
@@ -231,12 +256,54 @@ const apiKey = process.env.RESEND_API_KEY;
 
 ## Status Updates
 
-| Date       | Status         | Action                               |
-| ---------- | -------------- | ------------------------------------ |
-| 2025-12-26 | 🔴 DETECTED    | GitGuardian alert received           |
-| 2025-12-26 | 🟡 IN PROGRESS | File removed from working directory  |
-| 2025-12-26 | 🟡 PENDING     | Awaiting credential rotation         |
-| TBD        | 🟢 RESOLVED    | All credentials rotated and verified |
+| Date             | Status         | Action                                            |
+| ---------------- | -------------- | ------------------------------------------------- |
+| 2025-12-26 09:00 | 🔴 DETECTED    | GitGuardian alert received for exposed .env.local |
+| 2025-12-26 09:15 | 🟡 IN PROGRESS | File removed from working directory               |
+| 2025-12-26 09:30 | 🟡 IN PROGRESS | Security documentation created                    |
+| 2025-12-26 10:00 | 🟡 PENDING     | Awaiting credential rotation                      |
+| TBD              | 🟡 PENDING     | Rotate Resend API key                             |
+| TBD              | 🟡 PENDING     | Change admin passwords                            |
+| TBD              | 🟢 RESOLVED    | All credentials rotated and verified              |
+
+---
+
+## Additional Security Enhancements
+
+As part of this incident response, the following security measures were implemented:
+
+### New Security Tools Created
+
+1. **Environment Variable Validator** ([`scripts/validation/check-env-vars.js`](../scripts/validation/check-env-vars.js))
+   - Validates all required environment variables are set
+   - Checks for placeholder values
+   - Warns about default admin passwords
+   - Runs before deployment
+
+2. **Pre-commit Secret Scanner** ([`scripts/validation/check-secrets.sh`](../scripts/validation/check-secrets.sh))
+   - Scans staged files for potential secrets
+   - Detects API keys, passwords, tokens
+   - Prevents accidental commits of credentials
+   - Integrates with Git hooks
+
+3. **Admin Password Security Guide** ([`docs/technical/admin-password-security.md`](../docs/technical/admin-password-security.md))
+   - Step-by-step password rotation instructions
+   - Strong password requirements
+   - Cloudflare Workers configuration
+   - Ongoing security best practices
+
+### Usage
+
+```bash
+# Check environment variables
+node scripts/validation/check-env-vars.js
+
+# Manually run secret scanner
+./scripts/validation/check-secrets.sh
+
+# Runs automatically on git commit
+git commit -m "your message"
+```
 
 ---
 

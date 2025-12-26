@@ -18,17 +18,21 @@ A secure, hidden analytics dashboard accessible only to Matt and Jeremy through 
 
 ### Default Credentials
 
-**Matt's Account:**
+⚠️ **SECURITY WARNING: Default passwords must be changed before production!**
+
+**Development Only:**
 
 - Email: `matt@mhc-gc.com`
-- Password: `admin123` (change in production via environment variables)
+- Password: `admin123` (default - change immediately for production)
 
 **Jeremy's Account:**
 
 - Email: `jeremy@mhc-gc.com`
-- Password: `admin123` (change in production via environment variables)
+- Password: `admin123` (default - change immediately for production)
 
-> ⚠️ **Security Note**: These credentials should be changed immediately in production by setting environment variables `ADMIN_MATT_PASSWORD` and `ADMIN_JEREMY_PASSWORD` in Cloudflare.
+> 🔴 **CRITICAL**: These default passwords are ONLY for development. Before deploying to production, you **MUST** change them by setting environment variables `ADMIN_MATT_PASSWORD` and `ADMIN_JEREMY_PASSWORD` in Cloudflare Workers.
+>
+> **See: [Admin Password Security Guide](./admin-password-security.md) for complete instructions.**
 
 ## Dashboard Features
 
@@ -128,22 +132,48 @@ Key LocalStorage items:
 - `admin_token`: Admin authentication token
 - `admin_user`: Admin user info
 
-## Production Deployment
-
-### Environment Variables to Set
-
-Add these to Cloudflare Pages environment variables:
+⚠️ **REQUIRED for production deployment:**
 
 ```bash
-# Admin Credentials (set strong passwords!)
+# Strong passwords (16+ characters recommended)
 ADMIN_MATT_PASSWORD=your_secure_password_here
 ADMIN_JEREMY_PASSWORD=your_secure_password_here
+
+# JWT secret for token signing (32+ characters)
+JWT_SECRET=your_jwt_secret_here
 ```
+
+**How to set in Cloudflare:**
+
+```bash
+wrangler secret put ADMIN_MATT_PASSWORD
+wrangler secret put ADMIN_JEREMY_PASSWORD
+wrangler secret put JWT_SECRET
+```
+
+**See detailed guide:** [Admin Password Security](./admin-password-security.md)
 
 ### Security Checklist
 
-- [ ] Change default admin passwords
-- [ ] Set environment variables in Cloudflare
+Before production deployment:
+
+- [ ] Generate strong passwords (16+ characters)
+- [ ] Set `ADMIN_MATT_PASSWORD` in Cloudflare Workers
+- [ ] Set `ADMIN_JEREMY_PASSWORD` in Cloudflare Workers
+- [ ] Set `JWT_SECRET` in Cloudflare Workers
+- [ ] Store passwords in team password manager (1Password)
+- [ ] Test authentication with new passwords
+- [ ] Verify default passwords no longer work
+- [ ] Enable Cloudflare Access for additional security (optional)
+- [ ] Review access logs for suspicious activity
+- [ ] Schedule password rotation (90 days)
+- [ ] Document emergency access procedures
+
+**Related Documentation:**
+
+- [Admin Password Security Guide](./admin-password-security.md)
+- [Secrets Management Guide](./secrets-management.md)
+- [Security Incident Response](../../SECURITY-INCIDENT-RESPONSE.md)loudflare
 - [ ] Enable Cloudflare Access for additional security
 - [ ] Review access logs regularly
 - [ ] Test authentication flow

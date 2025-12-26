@@ -49,6 +49,7 @@ These can be in public code:
 // OK in public code
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+
   projectId: "mhc-gc-website",
 };
 ```
@@ -82,6 +83,7 @@ cp .env.local.example .env.local
 # 2. Edit with your development credentials
 nano .env.local
 
+
 # 3. Verify it's gitignored
 git status  # Should NOT appear
 
@@ -99,6 +101,7 @@ wrangler secret put RESEND_API_KEY
 wrangler secret put D1_DATABASE_ID
 # Enter your database ID
 
+
 # List all secrets (without values)
 wrangler secret list
 ```
@@ -111,14 +114,15 @@ wrangler secret list
 
 ```bash
 RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
+
 EMAIL_FROM=noreply@mhc-gc.com
 ```
 
 **Where to get:**
 
-- Sign up at: https://resend.com
-- Create API key at: https://resend.com/api-keys
-- Verify domain: https://resend.com/domains
+- Sign up at: <https://resend.com>
+- Create API key at: <https://resend.com/api-keys>
+- Verify domain: <https://resend.com/domains>
 
 ### Cloudflare D1 Database
 
@@ -137,13 +141,14 @@ D1_PREVIEW_DATABASE_ID=your-preview-database-id
 
 ```bash
 NEXT_PUBLIC_FIREBASE_API_KEY=AIzaSy...
+
 NEXT_PUBLIC_FIREBASE_PROJECT_ID=mhc-gc-website
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-...
 ```
 
 **Where to get:**
 
-- Firebase Console: https://console.firebase.google.com
+- Firebase Console: <https://console.firebase.google.com>
 - Project Settings → General → Your apps
 
 ---
@@ -204,6 +209,7 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-...
    - Complete security audit
    - Update documentation
    - Train team on proper handling
+
    - Implement monitoring
 
 See [SECURITY-INCIDENT-RESPONSE.md](../../SECURITY-INCIDENT-RESPONSE.md) for detailed procedures.
@@ -237,6 +243,7 @@ See [SECURITY-INCIDENT-RESPONSE.md](../../SECURITY-INCIDENT-RESPONSE.md) for det
 # Install wrangler CLI
 npm install -g wrangler
 
+
 # Login to Cloudflare
 wrangler login
 
@@ -251,6 +258,7 @@ wrangler secret put EMAIL_FROM
 ```bash
 # List secret names (not values)
 wrangler secret list
+
 
 # Delete a secret
 wrangler secret delete OLD_SECRET_NAME
@@ -278,6 +286,7 @@ export default {
 # Verify environment variables are loaded
 npm run dev
 
+
 # Check console for any missing variables
 # Should see: "✅ Email service configured"
 ```
@@ -290,6 +299,8 @@ wrangler dev
 
 # Deploy to preview
 wrangler deploy --env preview
+
+
 
 # Verify secrets are accessible
 # Check logs for any errors
@@ -367,9 +378,9 @@ All secret access is logged:
 
 Contact the security team:
 
-- **Email**: office@mhc-gc.com
+- **Email**: <office@mhc-gc.com>
 - **Slack**: #security-team
-- **Emergency**: matt@mhc-gc.com
+- **Emergency**: <matt@mhc-gc.com>
 
 ---
 
