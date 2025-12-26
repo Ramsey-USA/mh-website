@@ -169,11 +169,20 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* Google Material Icons - Optimized loading with font-display */}
+        {/* Google Material Icons - Non-blocking async load */}
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
           rel="stylesheet"
+          media="print"
+          // @ts-expect-error - onLoad with string is valid HTML but TypeScript doesn't recognize it
+          onLoad="this.media='all'"
         />
+        <noscript>
+          <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
+            rel="stylesheet"
+          />
+        </noscript>
         {/* Preload critical hero image for faster LCP */}
         <link
           rel="preload"

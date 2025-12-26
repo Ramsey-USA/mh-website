@@ -83,6 +83,7 @@ export function Navigation() {
                   width={141}
                   height={141}
                   priority
+                  sizes="(max-width: 475px) 70px, (max-width: 640px) 77px, (max-width: 768px) 90px, (max-width: 1024px) 112px, 141px"
                   className="drop-shadow-lg w-auto h-[70px] xs:h-[77px] sm:h-[90px] md:h-[112px] lg:h-[141px]"
                 />
               </Link>
@@ -147,6 +148,8 @@ export function Navigation() {
               src="/images/logo/mh-logo.png"
               alt=""
               fill
+              sizes="100vw"
+              quality={30}
               className="opacity-5 dark:opacity-10 grayscale object-contain filter"
             />
           </div>

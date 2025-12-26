@@ -884,7 +884,7 @@ export default function Footer() {
                   />
                   <button
                     type="submit"
-                    className="w-full px-4 py-2 bg-brand-primary hover:bg-brand-primary-dark text-brand-secondary hover:text-white text-sm font-bold rounded-lg transition-all duration-300 border-2 border-brand-secondary/50 hover:border-brand-secondary shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                    className="w-full px-4 py-2 bg-brand-primary hover:bg-brand-primary-dark text-brand-secondary-light hover:text-white text-sm font-bold rounded-lg transition-all duration-300 border-2 border-brand-secondary/50 hover:border-brand-secondary shadow-md hover:shadow-lg flex items-center justify-center gap-2"
                   >
                     Subscribe
                     <MaterialIcon icon="arrow_forward" size="sm" />
@@ -1125,7 +1125,7 @@ export default function Footer() {
               {/* Back to Top Button */}
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="group relative flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-brand-secondary px-5 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 touch-manipulation border-2 border-brand-secondary hover:border-brand-secondary-light outline outline-2 outline-offset-2 outline-brand-secondary/50 hover:outline-brand-secondary"
+                className="group relative flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-brand-secondary-light px-5 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 touch-manipulation border-2 border-brand-secondary hover:border-brand-secondary-light outline outline-2 outline-offset-2 outline-brand-secondary/50 hover:outline-brand-secondary"
                 aria-label="Back to top"
               >
                 <MaterialIcon

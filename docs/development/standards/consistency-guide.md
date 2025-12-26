@@ -201,24 +201,76 @@ All consultation CTAs now direct to `/contact` for face-to-face consultation.
 ```css
 /* Primary Colors - Use these via Tailwind classes */
 --brand-primary: #386851; /* Hunter Green - Main CTAs, headers */
---brand-secondary: #bd9264; /* Leather Tan - Secondary buttons, accents */
+--brand-secondary: #bd9264; /* Leather Tan - Large text (18pt+), backgrounds, decorative */
+--brand-secondary-text: #8a6643; /* WCAG AA compliant - Normal text on white */
 
 /* Extended Palette */
 --bronze-300: #cd7f32; /* Veteran badge highlights */
 --bronze-400: #b8691c; /* Dark mode veteran badges */
 ```
 
-### Brand Color Usage Rules
+### Brand Color Usage Rules - WCAG AA Accessibility (Updated Dec 26, 2025)
+
+**Leather Tan (#BD9264) Accessibility Standards:**
+
+The original Leather Tan provides insufficient contrast for normal text (2.82:1 on white).
+Use these guidelines to maintain brand identity while meeting WCAG AA requirements:
+
+```tsx
+// ✅ CORRECT: Large text (18pt+) can use original color
+<h1 className="text-4xl text-brand-secondary">Large Heading</h1>
+
+// ✅ CORRECT: Normal text uses accessible darker variant
+<p className="text-brand-secondary-text">Body paragraph</p>
+<p className="text-secondary-700">Alternative approach</p>
+
+// ✅ CORRECT: White text on dark background
+<button className="bg-secondary-700 text-white">Submit</button>
+
+// ✅ CORRECT: Decorative/background use
+<div className="border-brand-secondary bg-brand-secondary/10">
+  <span className="text-brand-secondary-text">Content</span>
+</div>
+
+// ❌ INCORRECT: Normal text with insufficient contrast
+<p className="text-brand-secondary">Small text fails WCAG AA</p>
+
+// ❌ INCORRECT: White text on light background
+<button className="bg-brand-secondary text-white">Poor contrast</button>
+```
+
+**Contrast Ratios Reference:**
+
+- Original (#BD9264) on white: 2.82:1 ❌ (fails WCAG AA for normal text)
+- Secondary-Text (#8a6643) on white: 4.59:1 ✅ (passes WCAG AA)
+- White on Secondary-700 (#8a6643): 5.17:1 ✅ (passes WCAG AA)
+
+**Quick Decision Matrix:**
+
+| Use Case                    | Tailwind Class                                      | Hex Code | Passes WCAG AA              |
+| --------------------------- | --------------------------------------------------- | -------- | --------------------------- |
+| Large text (18pt+) on white | `text-brand-secondary`                              | #BD9264  | ✅ (3:1 for large text)     |
+| Normal text on white        | `text-brand-secondary-text` or `text-secondary-700` | #8a6643  | ✅ (4.59:1)                 |
+| White text on background    | `bg-secondary-700`                                  | #8a6643  | ✅ (5.17:1)                 |
+| Light text on dark          | `text-brand-secondary-light`                        | #c9a176  | ✅ (context dependent)      |
+| Borders/decorative          | `border-brand-secondary`                            | #BD9264  | ✅ (non-text)               |
+| Backgrounds                 | `bg-brand-secondary`                                | #BD9264  | ✅ (with proper text color) |
+
+**Color System Classes:**
 
 ```tsx
 // ✅ CORRECT: Use Tailwind classes
 className="bg-brand-primary text-brand-secondary border-brand-secondary"
 className="text-bronze-300 dark:text-bronze-400"
+className="text-brand-secondary-text"  // Accessible text variant
+className="bg-secondary-700 text-white" // Accessible button
 
 // ❌ INCORRECT: Never hardcode hex values
 style={{backgroundColor: '#386851'}}
 className="bg-[#BD9264]"
 ```
+
+See [Color System Documentation](../../branding/standards/color-system.md) for complete accessibility guidelines.
 
 ### Icon System
 

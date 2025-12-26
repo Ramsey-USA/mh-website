@@ -584,7 +584,7 @@ export default function ContactPageClient() {
                     </h4>
                     <Link
                       href="/allies"
-                      className="flex items-center justify-between bg-brand-secondary hover:bg-bronze-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
+                      className="flex items-center justify-between bg-secondary-700 hover:bg-bronze-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg group"
                     >
                       <div className="flex items-center gap-3">
                         <MaterialIcon

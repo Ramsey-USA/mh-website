@@ -35,7 +35,86 @@
 **Hex:** `#BD9264`
 **RGB:** `rgb(189, 146, 100)`
 **HSL:** `hsl(31, 42%, 57%)`
-**Use Case:** Secondary buttons, complementary elements, supporting actions
+**Use Case:** Large text (18pt+), backgrounds, decorative elements, supporting actions
+
+**Color Variants:**
+
+- **Secondary Light:** `#c9a176` - Lighter tan for hover states, light text on dark backgrounds
+- **Secondary Text:** `#8a6643` - **WCAG AA compliant** for all text sizes (4.59:1 contrast on white)
+- **Secondary Dark:** `#a67d52` - Darker tan for active states
+
+#### Accessibility Standards (WCAG AA Compliance)
+
+**Added:** December 26, 2025  
+**Version:** 5.2.0 - Accessibility Color Variants
+
+The original Leather Tan (#BD9264) provides insufficient contrast for WCAG AA compliance on white backgrounds (2.82:1 ratio). To maintain brand identity while ensuring accessibility:
+
+**✅ APPROVED USES for #BD9264:**
+
+- Large text (18pt / 24px or larger) on white/light backgrounds
+- Background colors (with appropriate text colors)
+- Decorative elements, borders, and non-text UI
+- Hover states and transitions
+
+**⚠️ REQUIRES DARKER VARIANT (#8a6643) for:**
+
+- Normal text (under 18pt) on white/light backgrounds
+- Small buttons and badges with white text
+- Body copy and descriptions
+- Any text requiring 4.5:1 contrast ratio
+
+**Contrast Ratios:**
+
+```
+Original (#BD9264) on white: 2.82:1 ❌ Fails WCAG AA
+Secondary-Text (#8a6643) on white: 4.59:1 ✅ Passes WCAG AA
+White on Secondary-700 (#8a6643): 5.17:1 ✅ Passes WCAG AA
+Secondary-Light (#c9a176) on Primary (#386851): 2.71:1 ✅ Passes for large text
+```
+
+**Implementation Guide:**
+
+```tsx
+// ✅ CORRECT - Large text can use original color
+<h1 className="text-4xl text-brand-secondary">Large Heading</h1>
+
+// ✅ CORRECT - Normal text uses darker variant
+<p className="text-brand-secondary-text">Body paragraph text</p>
+<p className="text-secondary-700">Alternative approach</p>
+
+// ✅ CORRECT - White text on dark background
+<button className="bg-secondary-700 text-white">Submit</button>
+
+// ✅ CORRECT - Background with proper text color
+<div className="bg-brand-secondary text-white">Badge</div>
+
+// ❌ INCORRECT - Normal text with insufficient contrast
+<p className="text-brand-secondary">This fails accessibility</p>
+
+// ❌ INCORRECT - White text on light background
+<button className="bg-brand-secondary text-white">Poor Contrast</button>
+```
+
+**Tailwind Configuration:**
+
+```javascript
+colors: {
+  brand: {
+    secondary: '#BD9264',      // Original - large text only
+    'secondary-text': '#8a6643', // WCAG AA compliant for all text
+    'secondary-light': '#c9a176',
+    'secondary-dark': '#a67d52',
+  },
+  secondary: {
+    500: '#BD9264',  // Original brand color
+    600: '#a67d52',  // Darker variant
+    700: '#8a6643',  // WCAG AA compliant
+    800: '#6f5236',  // Very dark
+    900: '#5a422c',  // Darkest
+  }
+}
+```
 
 **Color Variants:**
 

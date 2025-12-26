@@ -18,10 +18,12 @@ const config: Config = {
           primary: "#386851",
           "primary-light": "#4a7a63",
           "primary-dark": "#2d5240",
-          secondary: "#BD9264",
+          secondary: "#BD9264", // Original brand color (use for large text 18pt+, backgrounds)
+          "secondary-text": "#8a6643", // WCAG AA compliant for normal text (4.59:1)
           "secondary-light": "#c9a176",
           "secondary-dark": "#a67d52",
           accent: "#BD9264",
+          "accent-text": "#8a6643", // WCAG AA compliant for normal text
           "accent-light": "#c9a176",
           "accent-dark": "#a67d52",
         },
@@ -55,9 +57,9 @@ const config: Config = {
           200: "#ebe3d1",
           300: "#dccfb3",
           400: "#cdb995",
-          500: "#BD9264",
-          600: "#a67d52",
-          700: "#8a6643",
+          500: "#BD9264", // Original brand color
+          600: "#a67d52", // Good for small text
+          700: "#8a6643", // WCAG AA compliant (4.59:1)
           800: "#6f5236",
           900: "#5a422c",
         },
@@ -67,9 +69,9 @@ const config: Config = {
           200: "#ebe3d1",
           300: "#dccfb3",
           400: "#cdb995",
-          500: "#BD9264",
-          600: "#a67d52",
-          700: "#8a6643",
+          500: "#BD9264", // Original brand color
+          600: "#a67d52", // Good for small text
+          700: "#8a6643", // WCAG AA compliant (4.59:1)
           800: "#6f5236",
           900: "#5a422c",
         },

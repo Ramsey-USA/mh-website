@@ -122,9 +122,19 @@ const nextConfig = {
           },
         ],
       },
-      // Cache Next.js static files
+      // Cache Next.js static files (CSS, JS bundles)
       {
         source: "/_next/static/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      // Cache Next.js build chunks (main.js, etc.)
+      {
+        source: "/_next/:path*",
         headers: [
           {
             key: "Cache-Control",

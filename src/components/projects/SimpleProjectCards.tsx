@@ -185,7 +185,7 @@ export function SimpleProjectCards({
       {/* Bottom CTA */}
       <FadeInWhenVisible className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 text-center">
         <Link href="/projects">
-          <button className="flex items-center gap-2 bg-brand-secondary hover:bg-brand-secondary/90 px-6 py-3 rounded-lg font-semibold text-white transition-colors duration-200 min-w-[200px]">
+          <button className="flex items-center gap-2 bg-secondary-700 hover:bg-secondary-800 px-6 py-3 rounded-lg font-semibold text-white transition-colors duration-200 min-w-[200px]">
             <MaterialIcon icon="photo_library" size="sm" />
             <span>View All Projects</span>
           </button>

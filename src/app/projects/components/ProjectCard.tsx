@@ -51,7 +51,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {/* Featured Badge */}
         {project.isFeatured && (
           <div className="top-4 right-4 absolute">
-            <span className="inline-flex items-center bg-brand-secondary shadow-lg backdrop-blur-sm px-2 py-1 border-yellow-300 border-l-4 font-semibold text-white text-xs">
+            <span className="inline-flex items-center bg-secondary-700 shadow-lg backdrop-blur-sm px-2 py-1 border-yellow-300 border-l-4 font-semibold text-white text-xs">
               <MaterialIcon icon="star" size="sm" className="mr-1" />
               Featured
             </span>

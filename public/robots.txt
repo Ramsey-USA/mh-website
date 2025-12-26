@@ -54,5 +54,3 @@ Crawl-delay: 1
 Sitemap: https://mhc-gc.com/sitemap-index.xml
 Sitemap: https://mhc-gc.com/sitemap.xml
 
-# Host
-Host: https://mhc-gc.com

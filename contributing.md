@@ -279,9 +279,23 @@ See the [Master Documentation Index](./docs/master-index.md) for the complete do
 
 ### Brand Colors
 
+**Primary Colors:**
 - **Primary**: `#386851` (Hunter Green)
 - **Secondary**: `#BD9264` (Leather Tan)
 - Use CSS variables: `var(--brand-primary)`, `var(--brand-secondary)`
+
+**Accessibility Variants (WCAG AA Compliant):**
+- **Secondary Text**: `#8a6643` - Use for normal text on white/light backgrounds (4.59:1 contrast)
+- **Secondary-700**: `#8a6643` - Use for backgrounds with white text (5.17:1 contrast)
+- **Secondary Light**: `#c9a176` - Use for text on dark backgrounds
+
+**Color Usage Rules:**
+- ✅ Use `#BD9264` for large text (18pt+), backgrounds, decorative elements
+- ✅ Use `#8a6643` (brand-secondary-text or secondary-700) for normal text
+- ✅ Use `bg-secondary-700` for buttons/badges with white text
+- ❌ Do NOT use `#BD9264` for small text on white backgrounds (fails WCAG AA)
+
+See [Color System Documentation](./docs/branding/standards/color-system.md) for complete accessibility guidelines.
 
 ### Component Standards
 

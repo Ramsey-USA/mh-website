@@ -50,32 +50,69 @@
 **Official MH Brand Colors:**
 
 - **Primary (Hunter Green):** `#386851` - Use for trust, integrity, primary actions, check marks
-- **Secondary (Leather Tan):** `#BD9264` - Use for partnerships, highlights, secondary actions
+- **Secondary (Leather Tan):** `#BD9264` - Use for large text (18pt+), backgrounds, partnerships, highlights
+- **Secondary Text (Accessible Tan):** `#8a6643` - WCAG AA compliant for normal text on white backgrounds
 - **Supporting Colors:** Black, White, Gray scale only
+
+**Accessibility Standards (Updated Dec 26, 2025):**
+
+The original Leather Tan (#BD9264) has 2.82:1 contrast on white, which fails WCAG AA for normal text.
+Use these guidelines to maintain brand identity while ensuring accessibility:
 
 **Tailwind CSS Classes:**
 
 ```tsx
-// ✅ CORRECT - Use these classes
-text - brand - primary; // Hunter Green text
-text - brand - secondary; // Leather Tan text
-bg - brand - primary; // Hunter Green background
-bg - brand - secondary; // Leather Tan background
-border - brand - primary; // Hunter Green border
-border - brand - secondary; // Leather Tan border
+// ✅ CORRECT - Large text (18pt+) uses original color
+<h1 className="text-4xl text-brand-secondary">Large Heading</h1>
+
+// ✅ CORRECT - Normal text uses accessible variant
+<p className="text-brand-secondary-text">Body text</p>
+<p className="text-secondary-700">Alternative approach</p>
+
+// ✅ CORRECT - White text on dark background
+<button className="bg-secondary-700 text-white">Submit</button>
+
+// ✅ CORRECT - Hunter Green (always accessible)
+<p className="text-brand-primary">Green text (6.43:1 contrast)</p>
+
+// ✅ CORRECT - Backgrounds and decorative elements
+<div className="bg-brand-secondary border-brand-secondary">
+  <span className="text-white">Content</span>
+</div>
+
+// ❌ INCORRECT - Normal text with poor contrast
+<p className="text-brand-secondary">Small text fails WCAG AA</p>
+
+// ❌ INCORRECT - White text on light background
+<button className="bg-brand-secondary text-white">Poor contrast</button>
 
 // ❌ DEPRECATED - DO NOT USE
-text - brand - accent; // Removed - inconsistent
-bg - brand - accent; // Use bg-brand-secondary instead
-from - brand - accent; // Use from-brand-secondary in gradients
+text-brand-accent      // Removed - inconsistent
+bg-brand-accent        // Use bg-brand-secondary instead
+from-brand-accent      // Use from-brand-secondary in gradients
 ```
+
+**Contrast Requirements:**
+
+| Color Combination | Ratio  | WCAG AA                                 | Use Case              |
+| ----------------- | ------ | --------------------------------------- | --------------------- |
+| #BD9264 on white  | 2.82:1 | ❌ Normal text<br>✅ Large text (18pt+) | Headlines, decorative |
+| #8a6643 on white  | 4.59:1 | ✅ All text sizes                       | Body copy, buttons    |
+| White on #8a6643  | 5.17:1 | ✅ All text sizes                       | Buttons, badges       |
+| #386851 on white  | 6.43:1 | ✅ All text sizes                       | Primary elements      |
 
 **Key Rules:**
 
 - ✅ NO Gradients in UI elements (buttons, cards) - Solid colors only
 - ✅ Check marks use `text-brand-primary`
-- ✅ Partnership/veteran highlights use `text-brand-secondary`
+- ✅ Large headings (18pt+) can use `text-brand-secondary`
+- ✅ Body text and normal size use `text-brand-secondary-text` or `text-secondary-700`
+- ✅ Buttons with white text use `bg-secondary-700` or darker
+- ✅ Partnership/veteran highlights use accessible variants
 - ❌ NEVER use brand-accent - causes visual inconsistency
+- ❌ NEVER use `text-brand-secondary` for normal-sized text on white
+
+See [Color System](./color-system.md) for complete accessibility guidelines.
 
 ### **Emergency/Urgent Color Scheme - NEW**
 
