@@ -143,6 +143,289 @@ src/
 └── types/           # TypeScript types
 ```
 
+### Homepage Structure
+
+The Home Page ([src/app/page.tsx](src/app/page.tsx)) serves as the primary landing page and follows this section order:
+
+**Above-the-Fold (Critical Content):**
+
+1. **HeroSection** - Full-screen hero with background support, bottom-right text positioning
+2. **PWAInstallCTA** - Progressive Web App install banner (shows when installable)
+
+**Core Content Sections:** 3. **CoreValuesSection** - Four foundational values (Honesty, Integrity, Professionalism, Thoroughness) 4. **WhyPartnerSection** - Partnership philosophy and MH Construction difference 5. **ServicesShowcase** - Overview of core services and capabilities 6. **StrategicCTABanner** - Combo CTA (App + Pitch Deck + Contact)
+
+**Social Proof & Credibility:** 7. **TestimonialsSection** - Client partner testimonials (optimal 25-30% page depth for SEO) 8. **CompanyStats** - Battle-tested metrics and proven track record
+
+**Process & Next Steps:** 9. **Our Process Timeline** - 5-step construction process (Pre-Construction → Budget → Quality → Communication → Close-Out) 10. **NextStepsSection** - Conversion guidance and next actions
+
+**Key Features:**
+
+- Dynamic imports for below-the-fold sections (performance optimization)
+- Enhanced SEO with structured data (Organization schema)
+- Analytics tracking (page views, scroll depth)
+- Image preloading for critical assets
+- Dark mode support throughout
+- Responsive design (mobile-first)
+
+**Components Used:**
+
+- From `@/components/home`: HeroSection, CoreValuesSection, ServicesShowcase, WhyPartnerSection
+- From `@/components/about`: CompanyStats
+- From `@/components/shared-sections`: TestimonialsSection, NextStepsSection
+- From `@/components/pwa`: PWAInstallCTA
+- From `@/components/ui/cta`: StrategicCTABanner
+
+### About Page Structure
+
+The About Page ([src/app/about/page.tsx](src/app/about/page.tsx)) showcases company heritage, values, and team with this SEO-optimized section order:
+
+**Hero & Navigation:**
+
+1. **AboutHero** - "Our Oath → About Us" with page-specific tagline
+2. **Breadcrumb** - Schema markup for SEO navigation
+
+**Early Trust Signals (15-25%):** 3. **CompanyStats** - Early trust indicators and community credibility 4. **TestimonialsSection** - Client partner testimonials at optimal 20-25% depth for SEO ✅
+
+**Core Company Information:** 5. **PartnershipPhilosophy** - Core value proposition and partnership approach 6. **CompanyEvolution** - Historical timeline and company milestones 7. **LeadershipTeam** - Chain of Command structure (moved earlier for SEO - faces build trust)
+
+**Credibility & Compliance:** 8. **AwardsSection** - Recognition, certifications, and achievements 9. **SafetySection** - Industry standards and compliance
+
+**Deep Engagement Content:** 10. **Why Values Matter** - Extended section with three pillars (For Partners, For Team, For Community) 11. **News & Achievements** - Recent developments and community involvement (with blog note) 12. **NextStepsSection** - Conversion guidance at proper 80-90% depth
+
+**Key Features:**
+
+- ✅ Dynamic imports for TestimonialsSection and NextStepsSection (lazy loading)
+- ✅ Enhanced SEO with structured data (breadcrumb schema + about page schema)
+- ✅ Testimonials positioned at optimal 20-25% page depth (SEO best practice)
+- ✅ Leadership Team moved earlier (faces build trust faster)
+- ✅ Proper conversion flow with NextStepsSection at 80-90% depth
+- ✅ Dark mode support throughout all sections
+- ✅ Responsive design with mobile-first approach
+- ✅ Under construction feature flag (currently disabled)
+
+**Components Used:**
+
+- From `@/components/about`: AboutHero, PartnershipPhilosophy, CompanyStats, LeadershipTeam, SafetySection, AwardsSection, CompanyEvolution
+- From `@/components/shared-sections`: TestimonialsSection, NextStepsSection
+- From `@/components/navigation`: Breadcrumb
+- From `@/components/seo`: StructuredData
+- From `@/components/ui/backgrounds`: DiagonalStripePattern, BrandColorBlobs
+- From `@/components/animations`: FadeInWhenVisible, StaggeredFadeIn
+
+**Congruency with Home Page:**
+
+- ✅ Same lazy loading pattern for shared sections
+- ✅ Same SEO structured data implementation
+- ✅ Same dark mode and responsive design standards
+- ✅ Same testimonials component usage
+- ✅ Same NextStepsSection for conversion
+- ✅ Follows SEO best practices (testimonials at 20-30% depth)
+
+### Services Page Structure
+
+The Services Page ([src/app/services/page.tsx](src/app/services/page.tsx)) showcases construction capabilities and service offerings with this SEO-optimized structure:
+
+**Hero & Navigation:**
+
+1. **ServicesHero** - "Operations → Services" with page-specific tagline
+2. **Breadcrumb** - Schema markup for SEO navigation ("The Battle Plan")
+
+**Service Offerings (Primary Content 10-30%):** 3. **ConstructionExpertiseSection** - Context setting and industry expertise (5-10%) 4. **CoreServicesSection** - Primary construction services showcase (10-20%) 5. **SpecialtyServicesSection** - Extended specialty offerings (20-25%) 6. **TestimonialsSection** - Client partner testimonials at optimal 25-30% depth ✅
+
+**Detailed Service Information (30-65%):** 7. **GovernmentProjectsSection** - Public sector and grant-funded projects (30-35%) 8. **ServiceAreasSection** - Geographic coverage across Pacific Northwest (35-40%) 9. **WhyChooseUs** - Competitive differentiation (40-50%) 10. **ConstructionProcessSection** - Detailed 5-step process walkthrough (55-65%)
+
+**Partnership & Conversion (65-100%):** 11. **Partnership Types Section** - Client Partner vs Trade Partner segmentation (65-75%) 12. **Portfolio Section** - Completed projects showcase with CTA to full portfolio (85-95%) 13. **StrategicCTABanner** - Combo conversion CTA (App + Pitch Deck + Contact) 14. **ServicesCTA** - Final conversion section (95-100%)
+
+**Key Features:**
+
+- ✅ Dynamic import for TestimonialsSection (lazy loading, SSR enabled)
+- ✅ Enhanced SEO with multiple structured data schemas (Service schema + breadcrumb)
+- ✅ Testimonials positioned at optimal 25-30% page depth (SEO best practice)
+- ✅ Client-side rendering ("use client") for interactive components
+- ✅ Comprehensive service schema with 8 service offerings
+- ✅ Dark mode support throughout all sections
+- ✅ Responsive design with mobile-first approach
+- ✅ Under construction feature flag (currently disabled)
+
+**Components Used:**
+
+- From `@/components/services`: ServicesHero, ConstructionExpertiseSection, CoreServicesSection, SpecialtyServicesSection, GovernmentProjectsSection, ServiceAreasSection, ConstructionProcessSection, WhyChooseUs, ServicesCTA
+- From `@/components/shared-sections`: TestimonialsSection (lazy loaded)
+- From `@/components/ui/cta`: StrategicCTABanner
+- From `@/components/navigation`: Breadcrumb
+- From `@/components/seo`: StructuredData
+- From `@/components/ui/backgrounds`: DiagonalStripePattern, BrandColorBlobs
+- From `@/components/animations`: FadeInWhenVisible
+
+**Congruency with Home/About Pages:**
+
+- ✅ Same lazy loading pattern for TestimonialsSection
+- ✅ Same SEO structured data implementation
+- ✅ Same dark mode and responsive design standards
+- ✅ Same testimonials component at optimal SEO position
+- ✅ Same background patterns (DiagonalStripePattern, BrandColorBlobs)
+- ✅ Same StrategicCTABanner for conversion
+- ✅ Follows SEO best practices (testimonials at 25-30% depth)
+
+### Projects Page Structure
+
+The Projects Page ([src/app/projects/page.tsx](src/app/projects/page.tsx)) showcases completed work with filtering and search:
+
+**Hero & Navigation:**
+
+1. **ProjectsHero** - "Victories → Projects" with battle-themed messaging
+2. **Breadcrumb** - Schema markup for SEO navigation
+
+**Stats & Benefits:** 3. **ProjectsStatsSection** - Early credibility indicators 4. **VeteranBenefitsBanner** - Veteran ownership and benefits
+
+**Interactive Portfolio (Core Content):** 5. **ProjectsFilterSection** - Category filtering and search functionality 6. **ProjectsGridSection** - Dynamic project grid with search/filter results
+
+**Capabilities & Social Proof:** 7. **CapabilitiesSection** - Construction capabilities showcase 8. **WhyChooseSection** - Competitive differentiation 9. **TestimonialsSection** - Project-specific testimonials
+
+**Process & Conversion:** 10. **PartnershipProcessSection** - Project partnership workflow 11. **StrategicCTABanner** - Combo conversion CTA 12. **ProjectsCTASection** - Final call to action
+
+**Key Features:**
+
+- ✅ Client-side rendering for interactive filtering/search
+- ✅ Custom hooks (useProjectsSearch) for state management
+- ✅ PortfolioService integration for project data
+- ✅ Enhanced SEO with projects-specific structured data
+- ✅ Dark mode support throughout
+- ✅ Under construction feature flag (currently disabled)
+
+**Components:** Custom project components + StrategicCTABanner + StructuredData + Breadcrumb
+
+**Congruency:** ✅ Same StrategicCTABanner, SEO patterns, dark mode, and responsive design
+
+### Team Page Structure
+
+The Team Page ([src/app/team/page.tsx](src/app/team/page.tsx)) presents the Chain of Command with military structure:
+
+**Hero & Navigation:**
+
+1. **Hero Section** - Full-screen with Chain of Command messaging and PageNavigation
+2. **Breadcrumb** - Schema markup for SEO
+
+**Team Organization (By Department):** 3. **The Upper Brass** - Executive leadership (Owner, VP, Founder) 4. **Mission Commanders** - Project management and estimating 5. **Field Officers** - Superintendents and field operations 6. **Special Operations** - Marketing, safety, strategic initiatives 7. **Logistics Command** - Administration and support
+
+**Culture & Testimonials:** 8. **Employee Testimonials Section** - Team member testimonials with TestimonialGrid 9. **Company Culture Section** - Values and work environment
+
+**Conversion:** 10. **StrategicCTABanner** - Combo CTA for partnership 11. **Join Our Team CTA** - Career opportunities call to action
+
+**Key Features:**
+
+- ✅ Department-based team grouping (groupByDepartment function)
+- ✅ TeamProfileSection for each member with QR codes
+- ✅ FAQ schema for common team questions
+- ✅ Enhanced SEO with team-specific structured data
+- ✅ PageNavigation for section linking
+- ✅ Dark mode support throughout
+- ✅ Under construction feature flag (currently disabled)
+
+**Components:** TeamProfileSection + TestimonialGrid + StrategicCTABanner + PageNavigation + ScrollReveal
+
+**Congruency:** ✅ Same StrategicCTABanner, SEO patterns, dark mode, navigation system
+
+### Contact Page Structure
+
+The Contact Page ([src/app/contact/page.tsx](src/app/contact/page.tsx)) is a server component with metadata export:
+
+**Structure:**
+
+1. Server-side metadata export with comprehensive SEO
+2. ContactPageClient component for interactive functionality
+3. Breadcrumb structured data for SEO
+
+**Key Features:**
+
+- ✅ Server component pattern (Metadata export)
+- ✅ Comprehensive OpenGraph and Twitter card metadata
+- ✅ "Rally Point → Contact" dual naming
+- ✅ Canonical URL configuration
+- ✅ Enhanced SEO keywords for local search
+
+**Pattern:** Server component wrapper → Client component for interactions
+
+**Congruency:** ✅ Same SEO structured data, breadcrumb schema patterns
+
+### Careers Page Structure
+
+The Careers Page ([src/app/careers/page.tsx](src/app/careers/page.tsx)) recruits talent with comprehensive benefits:
+
+**Hero & Navigation:**
+
+1. **Hero Section** - Full-screen with PageNavigation and career messaging
+2. **Breadcrumb** - Schema markup for SEO
+
+**Why Work Here:** 3. **Why Work With Us** - Company culture and mission 4. **Benefits & Perks Section** - Comprehensive benefits showcase 5. **Employee Testimonials** - TestimonialGrid at optimal 25-30% depth ✅ 6. **Veteran Benefits Section** - Specialized veteran support
+
+**Opportunities:** 7. **Open Positions Section** - Job listings with apply functionality 8. **Application Process Section** - Step-by-step application guide 9. **Company Values Section** - Culture and values deep dive
+
+**Conversion:** 10. **CTA Section** - Final application encouragement
+
+**Key Features:**
+
+- ✅ Dynamic import for TestimonialGrid (lazy loading, SSR)
+- ✅ JobApplicationModal for interactive applications
+- ✅ Client-side state management for modal
+- ✅ Employee testimonials at optimal SEO position
+- ✅ Dark mode support throughout
+- ✅ Under construction feature flag (currently disabled)
+
+**Components:** TestimonialGrid (lazy loaded) + JobApplicationModal + PageNavigation + DiagonalStripePattern + BrandColorBlobs
+
+**Congruency:** ✅ Same lazy loading, SEO patterns, dark mode, navigation system
+
+### Veterans Page Structure
+
+The Veterans Page ([src/app/veterans/page.tsx](src/app/veterans/page.tsx)) honors service with specialized programs:
+
+**Hero & Navigation:**
+
+1. **Hero Section** - Full-screen with veteran-focused messaging and PageNavigation
+2. **Breadcrumb** - Schema markup for SEO
+
+**Veteran Programs:** 3. **Combat Veteran Discount** - 10% discount program details 4. **Priority Scheduling** - Veteran scheduling benefits 5. **Service Recognition** - All-branch honor (Army, Navy, Air Force, Marines, Coast Guard, Space Force) 6. **Veteran Hiring Initiative** - Employment opportunities 7. **Community Support** - Veteran organization partnerships
+
+**Conversion:** 8. **NextStepsSection** - Conversion guidance for veteran clients
+
+**Key Features:**
+
+- ✅ Fixed parallax background with veteran imagery
+- ✅ NextStepsSection for conversion
+- ✅ PageNavigation for section linking
+- ✅ Enhanced SEO with veteran-specific content
+- ✅ Dark mode support throughout
+- ✅ Under construction feature flag (currently disabled)
+
+**Components:** NextStepsSection + PageNavigation + Card components + Section layout + DiagonalStripePattern + BrandColorBlobs
+
+**Congruency:** ✅ Same NextStepsSection, SEO patterns, dark mode, navigation system
+
+### Additional Pages Summary
+
+**Public Sector Page:** Uses StrategicCTABanner ✅  
+**Testimonials Page:** Uses TestimonialsSection + StrategicCTABanner ✅  
+**FAQ Page:** Uses NextStepsSection ✅  
+**Allies/Trade Partners:** Similar structure with conversion CTAs ✅
+
+### Cross-Page Congruency Summary
+
+**All pages consistently implement:**
+
+- ✅ Breadcrumb navigation with schema markup
+- ✅ Structured data for SEO (page-specific schemas)
+- ✅ Dark mode support throughout
+- ✅ Responsive design (mobile-first)
+- ✅ Under construction feature flags
+- ✅ Same background patterns (DiagonalStripePattern, BrandColorBlobs)
+- ✅ Same animation patterns (FadeInWhenVisible, StaggeredFadeIn)
+- ✅ PageNavigation for section-based navigation
+- ✅ Shared conversion components (StrategicCTABanner, NextStepsSection, TestimonialsSection)
+- ✅ SEO best practices (testimonials at 20-30% depth where applicable)
+
+**Total Documented Pages: 9 major pages** (Home, About, Services, Projects, Team, Contact, Careers, Veterans + summaries of others)
+
 ---
 
 ## 🎯 Core Values
@@ -1042,7 +1325,7 @@ Advanced roadmap: [Advanced SEO Optimization](./docs/technical/seo/advanced-seo-
 
 ---
 
-**Last Updated:** December 14, 2025
+**Last Updated:** December 26, 2025
 **Version:** 4.0.1
 **Status:** Production Ready | Veteran-Focused | Honesty-First | 100/100 SEO
 

@@ -1,125 +1,125 @@
 name: Optimize Images & Videos
 
 on:
-    push:
-        paths:
-            - "public/images/**"
-            - "public/videos/**"
-        branches:
-            - main
-            - develop
-    pull_request:
-        paths:
-            - "public/images/**"
-            - "public/videos/**"
+  push:
+    paths:
+      - "public/images/**"
+      - "public/videos/**"
+    branches:
+      - main
+      - develop
+  pull_request:
+    paths:
+      - "public/images/**"
+      - "public/videos/**"
 
 jobs:
-    optimize:
-        name: Optimize Media Assets
-        runs-on: ubuntu-latest
-        permissions:
-            contents: write
+  optimize:
+    name: Optimize Media Assets
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
-                  token: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: "22"
-                  cache: "npm"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
 
-            - name: Install dependencies
-              run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-            - name: Setup FFmpeg
-              uses: FedericoCarboni/setup-ffmpeg@v3
-              with:
-                  ffmpeg-version: release
-                  architecture: x64
+      - name: Setup FFmpeg
+        uses: FedericoCarboni/setup-ffmpeg@v3
+        with:
+          ffmpeg-version: release
+          architecture: x64
 
-            - name: Get changed files
-              id: changed-files
-              uses: tj-actions/changed-files@v44
-              with:
-                  files: |
-                      public/images/**/*.{png,jpg,jpeg}
-                      public/videos/**/*.{mp4,mov,avi,webm}
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+        with:
+          files: |
+            public/images/**/*.{png,jpg,jpeg}
+            public/videos/**/*.{mp4,mov,avi,webm}
 
-            - name: Optimize Images
-              if: steps.changed-files.outputs.any_changed == 'true'
-              run: |
-                  echo "🖼️ Optimizing images..."
-                  npm run optimize:images -- --ci
-                  echo "✅ Image optimization complete"
+      - name: Optimize Images
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          echo "🖼️ Optimizing images..."
+          npm run optimize:images -- --ci
+          echo "✅ Image optimization complete"
 
-            - name: Optimize Videos
-              if: steps.changed-files.outputs.any_changed == 'true'
-              run: |
-                  echo "🎥 Optimizing videos..."
-                  npm run optimize:videos -- --ci
-                  echo "✅ Video optimization complete"
+      - name: Optimize Videos
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          echo "🎥 Optimizing videos..."
+          npm run optimize:videos -- --ci
+          echo "✅ Video optimization complete"
 
-            - name: Check for changes
-              id: verify-changes
-              run: |
-                  if [[ -n $(git status --porcelain) ]]; then
-                    echo "changes=true" >> $GITHUB_OUTPUT
-                    echo "📊 Optimization resulted in changes"
-                  else
-                    echo "changes=false" >> $GITHUB_OUTPUT
-                    echo "ℹ️ No optimization changes needed"
-                  fi
+      - name: Check for changes
+        id: verify-changes
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "📊 Optimization resulted in changes"
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No optimization changes needed"
+          fi
 
-            - name: Commit optimized media
-              if: steps.verify-changes.outputs.changes == 'true'
-              run: |
-                  git config --local user.email "github-actions[bot]@users.noreply.github.com"
-                  git config --local user.name "github-actions[bot]"
+      - name: Commit optimized media
+        if: steps.verify-changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
 
-                  # Add all optimized files
-                  git add public/images-optimized/ || true
-                  git add public/videos-optimized/ || true
-                  git add public/images/**/*.webp || true
-                  git add public/videos/**/*.webm || true
-                  git add public/videos/**/*.mp4 || true
-                  git add public/videos/**/poster-*.jpg || true
+          # Add all optimized files
+          git add public/images-optimized/ || true
+          git add public/videos-optimized/ || true
+          git add public/images/**/*.webp || true
+          git add public/videos/**/*.webm || true
+          git add public/videos/**/*.mp4 || true
+          git add public/videos/**/poster-*.jpg || true
 
-                  # Create detailed commit message
-                  OPTIMIZED_COUNT=$(git diff --cached --numstat | wc -l)
-                  SAVED_BYTES=$(git diff --cached --stat | tail -1 | grep -oP '\d+ insertion' | grep -oP '\d+' || echo "0")
+          # Create detailed commit message
+          OPTIMIZED_COUNT=$(git diff --cached --numstat | wc -l)
+          SAVED_BYTES=$(git diff --cached --stat | tail -1 | grep -oP '\d+ insertion' | grep -oP '\d+' || echo "0")
 
-                  git commit -m "🤖 Auto-optimize media assets
+          git commit -m "🤖 Auto-optimize media assets
 
-                  Optimized $OPTIMIZED_COUNT files
-                  - Images converted to WebP/AVIF
-                  - Videos converted to WebM/MP4
-                  - Poster images generated
-                  - Sizes optimized for web delivery
+          Optimized $OPTIMIZED_COUNT files
+          - Images converted to WebP/AVIF
+          - Videos converted to WebM/MP4
+          - Poster images generated
+          - Sizes optimized for web delivery
 
-                  Automated by GitHub Actions
-                  [skip ci]"
+          Automated by GitHub Actions
+          [skip ci]"
 
-            - name: Push changes
-              if: steps.verify-changes.outputs.changes == 'true'
-              uses: ad-m/github-push-action@master
-              with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  branch: ${{ github.ref }}
+      - name: Push changes
+        if: steps.verify-changes.outputs.changes == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
 
-            - name: Generate optimization report
-              if: steps.verify-changes.outputs.changes == 'true'
-              run: |
-                  echo "## 📊 Media Optimization Report" >> $GITHUB_STEP_SUMMARY
-                  echo "" >> $GITHUB_STEP_SUMMARY
-                  echo "### Images Optimized" >> $GITHUB_STEP_SUMMARY
-                  find public/images-optimized -type f -name "*.webp" 2>/dev/null | wc -l >> $GITHUB_STEP_SUMMARY || echo "0" >> $GITHUB_STEP_SUMMARY
-                  echo "" >> $GITHUB_STEP_SUMMARY
-                  echo "### Videos Optimized" >> $GITHUB_STEP_SUMMARY
-                  find public/videos-optimized -type f -name "*.webm" 2>/dev/null | wc -l >> $GITHUB_STEP_SUMMARY || echo "0" >> $GITHUB_STEP_SUMMARY
-                  echo "" >> $GITHUB_STEP_SUMMARY
-                  echo "✅ All media assets optimized for web delivery" >> $GITHUB_STEP_SUMMARY
+      - name: Generate optimization report
+        if: steps.verify-changes.outputs.changes == 'true'
+        run: |
+          echo "## 📊 Media Optimization Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Images Optimized" >> $GITHUB_STEP_SUMMARY
+          find public/images-optimized -type f -name "*.webp" 2>/dev/null | wc -l >> $GITHUB_STEP_SUMMARY || echo "0" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Videos Optimized" >> $GITHUB_STEP_SUMMARY
+          find public/videos-optimized -type f -name "*.webm" 2>/dev/null | wc -l >> $GITHUB_STEP_SUMMARY || echo "0" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ All media assets optimized for web delivery" >> $GITHUB_STEP_SUMMARY
