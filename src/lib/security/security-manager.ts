@@ -112,6 +112,7 @@ export const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
           "https://www.google-analytics.com",
         ],
         "frame-src": ["'self'", "https://www.google.com"],
+        "frame-ancestors": ["'none'"],
         "worker-src": ["'self'", "blob:"],
       },
     },
@@ -564,8 +565,12 @@ export class SecurityHeaders {
     const csp = this.buildCSP();
     response.headers.set("Content-Security-Policy", csp);
 
-    // HSTS
-    if (this.config.hsts) {
+    // HSTS - Only apply in production with HTTPS
+    if (
+      this.config.hsts &&
+      process.env.NODE_ENV === "production" &&
+      process.env["NEXT_PUBLIC_SITE_URL"]?.startsWith("https")
+    ) {
       const hstsValue = `max-age=${this.config.hsts.maxAge}${this.config.hsts.includeSubDomains ? "; includeSubDomains" : ""}${this.config.hsts.preload ? "; preload" : ""}`;
       response.headers.set("Strict-Transport-Security", hstsValue);
     }
@@ -595,9 +600,17 @@ export class SecurityHeaders {
 
     // Additional security headers
     response.headers.set("X-Permitted-Cross-Domain-Policies", "none");
-    response.headers.set("Cross-Origin-Embedder-Policy", "require-corp");
+    // Note: require-corp is very strict and can break third-party resources
+    // Using credentialless for better compatibility while maintaining security
+    response.headers.set("Cross-Origin-Embedder-Policy", "credentialless");
     response.headers.set("Cross-Origin-Opener-Policy", "same-origin");
-    response.headers.set("Cross-Origin-Resource-Policy", "same-origin");
+    response.headers.set("Cross-Origin-Resource-Policy", "cross-origin");
+
+    // Permissions Policy (formerly Feature-Policy)
+    response.headers.set(
+      "Permissions-Policy",
+      "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()",
+    );
 
     return response;
   }
