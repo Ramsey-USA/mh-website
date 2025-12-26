@@ -1,11 +1,16 @@
 /**
  * Admin Login API Route
  * Restricted authentication endpoint for Matt and Jeremy
+ *
+ * 🔴 SECURITY WARNING:
+ * - Passwords are stored in plain text (env vars)
+ * - Password comparison is not using bcrypt
+ * - For production, implement proper password hashing
  */
 
 import { type NextRequest, NextResponse } from "next/server";
 import { generateTokenPair } from "@/lib/auth/jwt";
-import { withSecurity } from "@/middleware/security";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rateLimiter";
 import { logger } from "@/lib/utils/logger";
 
 export const runtime = "edge";
@@ -85,4 +90,5 @@ async function handler(request: NextRequest) {
   }
 }
 
-export const POST = withSecurity(handler);
+// Apply STRICT rate limiting for admin login (3 attempts per 5 minutes)
+export const POST = rateLimit(rateLimitPresets.strict)(handler);

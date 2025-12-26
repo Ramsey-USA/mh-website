@@ -54,13 +54,14 @@ Exposed Key: re_ceykSWsM_MjSbcQA8euVunmYzgoKUYCgn
 
 **Steps:**
 
-1. Go to: https://resend.com/api-keys
+1. Go to: <https://resend.com/api-keys>
 2. Sign in to your account
 3. Find and **REVOKE** the exposed key: `re_ceykSWsM_MjSbcQA8euVunmYzgoKUYCgn`
 4. Click **"Create API Key"**
 5. Name it: `MH-Website-Production-2025`
 6. Copy the new key (you'll only see it once!)
 7. Store in Cloudflare Workers:
+
    ```bash
    wrangler secret put RESEND_API_KEY
    # Paste the new key when prompted
@@ -76,7 +77,7 @@ Review logs to ensure no unauthorized access occurred:
 
 **Cloudflare D1:**
 
-1. Go to: https://dash.cloudflare.com/
+1. Go to: <https://dash.cloudflare.com/>
 2. Navigate to: Workers & Pages → D1
 3. Check both databases:
    - Production: `98ad144a-cfe2-4f19-a55c-c43140279840`
@@ -86,7 +87,7 @@ Review logs to ensure no unauthorized access occurred:
 
 **Resend Email:**
 
-1. Go to: https://resend.com/emails
+1. Go to: <https://resend.com/emails>
 2. Review sent emails for past 7 days
 3. Look for unauthorized sends
 
@@ -129,7 +130,7 @@ The default passwords (`admin123`) must be changed before production:
 3. Store in 1Password or team password manager
 
 4. Test the new passwords:
-   - Go to https://mhc-gc.com
+   - Go to <https://mhc-gc.com>
    - Triple-click footer copyright
    - Sign in with new credentials
    - Verify dashboard access works
@@ -142,7 +143,7 @@ Verify everything works with new credentials:
 
 1. **Test Email Sending:**
    - Submit a contact form
-   - Check if email arrives at office@mhc-gc.com
+   - Check if email arrives at <office@mhc-gc.com>
    - Verify no errors in logs
 
 2. **Test Admin Access:**
@@ -163,7 +164,7 @@ Verify everything works with new credentials:
 
 #### 5. Review Firebase Security (30 minutes)
 
-1. Go to: https://console.firebase.google.com/project/mhc-gc-website
+1. Go to: <https://console.firebase.google.com/project/mhc-gc-website>
 2. Check **Authentication** → **Sign-in methods**
 3. Review recent sign-in attempts
 4. Verify security rules are active
@@ -182,7 +183,7 @@ Update [`SECURITY-INCIDENT-RESPONSE.md`](./SECURITY-INCIDENT-RESPONSE.md):
 
 Configure alerts in Cloudflare:
 
-1. Go to: https://dash.cloudflare.com/
+1. Go to: <https://dash.cloudflare.com/>
 2. Navigate to: Workers & Pages → [your app]
 3. Set up alerts for:
    - Failed authentication attempts (>5/hour)
@@ -282,15 +283,15 @@ Copy this to your task manager:
 
 ### Primary Contacts
 
-- **Email:** office@mhc-gc.com
+- **Email:** <office@mhc-gc.com>
 - **Phone:** (509) 308-6489
-- **Emergency:** matt@mhc-gc.com
+- **Emergency:** <matt@mhc-gc.com>
 
 ### External Resources
 
-- **Resend:** https://resend.com/docs
-- **Cloudflare:** https://developers.cloudflare.com/workers/
-- **Wrangler CLI:** https://developers.cloudflare.com/workers/wrangler/
+- **Resend:** <https://resend.com/docs>
+- **Cloudflare:** <https://developers.cloudflare.com/workers/>
+- **Wrangler CLI:** <https://developers.cloudflare.com/workers/wrangler/>
 
 ### Common Issues
 

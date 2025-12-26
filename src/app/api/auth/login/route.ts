@@ -27,12 +27,16 @@ interface LoginRequest {
  * NOTE: Currently using demo credentials for development.
  * Production implementation will connect to Cloudflare D1 with bcrypt password hashing.
  *
+ * 🔴 SECURITY WARNING: Demo account with hardcoded credentials
+ * - Should be disabled or removed in production
+ * - Consider adding IP whitelist or removing entirely
+ *
  * Example implementation:
  * - Query Cloudflare D1: const user = await env.DB.prepare("SELECT * FROM users WHERE email = ?").bind(email).first();
  * - Verify password: await bcrypt.compare(password, user.password_hash)
  */
 function verifyCredentials(email: string, password: string): JWTUser | null {
-  // Demo credentials for development only
+  // Demo credentials for development only - REMOVE IN PRODUCTION
   if (email === "demo@mhc-gc.com" && password === "demo123") {
     return {
       uid: "demo-user-id",

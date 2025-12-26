@@ -16,6 +16,30 @@ The MH Construction admin analytics system uses default passwords (`admin123`) f
 - **Matt**: `matt@mhc-gc.com` / `admin123` (default)
 - **Jeremy**: `jeremy@mhc-gc.com` / `admin123` (default)
 
+### 🔴 Known Security Issues (Fixed Dec 26, 2025)
+
+**Issue 1: No Password Hashing**
+
+- **Status:** ⚠️ DOCUMENTED (fix requires bcrypt implementation)
+- **Current:** Passwords stored in plain text environment variables
+- **Risk:** If env vars are compromised, passwords are exposed
+- **Mitigation:** Passwords stored as Cloudflare Workers secrets (encrypted at rest)
+- **Future:** Implement bcrypt hashing when moving to database authentication
+
+**Issue 2: Brute Force Vulnerability**
+
+- **Status:** ✅ FIXED (Dec 26, 2025)
+- **Solution:** Added strict rate limiting (3 attempts per 5 minutes)
+- **Implementation:** Using `rateLimitPresets.strict` on admin login endpoint
+- **Protection:** Prevents automated password guessing attacks
+
+**Issue 3: Demo Account Exposure**
+
+- **Status:** ⚠️ DOCUMENTED (must remove before production)
+- **Current:** `demo@mhc-gc.com` / `demo123` hardcoded in code
+- **Risk:** Anyone can access demo features
+- **Action Required:** Remove demo account or add IP whitelist before production
+
 ---
 
 ## 🚨 Why This Matters
@@ -381,6 +405,113 @@ const ADMIN_USERS = [
 3. Check Cloudflare Workers logs
 4. Ensure secrets aren't using default values
 5. Contact development team if persists
+
+---
+
+## Security Implementation Details
+
+### Password Hashing Roadmap
+
+**Current State (Phase 1 - Development):**
+
+```typescript
+// Plain text comparison (NOT production-ready)
+if (adminUser.passwordHash !== password) {
+  return unauthorized();
+}
+```
+
+**Future Implementation (Phase 2 - Production):**
+
+```typescript
+// Install bcryptjs for Edge Runtime compatibility
+npm install bcryptjs
+npm install --save-dev @types/bcryptjs
+
+// Password hashing on user creation
+import bcrypt from 'bcryptjs';
+const hashedPassword = await bcrypt.hash(password, 10);
+
+// Password verification on login
+const isValid = await bcrypt.compare(password, user.passwordHash);
+if (!isValid) {
+  return unauthorized();
+}
+```
+
+**Why Not Implemented Yet:**
+
+- Current system uses environment variables, not database
+- Bcrypt requires storing hashes, which needs database
+- Cloudflare D1 migration will enable proper password hashing
+- For now, Cloudflare Workers secrets provide encryption at rest
+
+**When to Implement:**
+
+- ✅ Before production deployment
+- ✅ When migrating to database authentication
+- ✅ When adding more admin users
+
+### Rate Limiting Protection
+
+**Implemented Dec 26, 2025:**
+
+```typescript
+// Admin login route now protected
+export const POST = rateLimit(rateLimitPresets.strict)(handler);
+
+// Strict preset: 3 attempts per 5 minutes
+rateLimitPresets.strict = {
+  maxRequests: 3,
+  windowMs: 300000, // 5 minutes
+  message: "Too many login attempts. Please try again in 5 minutes.",
+};
+```
+
+**How It Works:**
+
+- Tracks IP addresses of login attempts
+- Blocks after 3 failed attempts
+- 5-minute cooldown period
+- Returns HTTP 429 (Too Many Requests)
+- Prevents brute force attacks
+
+### Demo Account Management
+
+**Current Configuration:**
+
+```typescript
+// src/app/api/auth/login/route.ts
+if (email === "demo@mhc-gc.com" && password === "demo123") {
+  return demoUser; // ⚠️ REMOVE IN PRODUCTION
+}
+```
+
+**Production Options:**
+
+**Option 1: Complete Removal (Recommended)**
+
+```typescript
+function verifyCredentials(email: string, password: string): JWTUser | null {
+  // Remove demo credentials entirely
+  // Query actual user database instead
+  return await getUserFromDatabase(email, password);
+}
+```
+
+**Option 2: IP Whitelist (If Demo Needed)**
+
+```typescript
+const DEMO_ALLOWED_IPS = ["YOUR_OFFICE_IP", "YOUR_HOME_IP"];
+
+if (email === "demo@mhc-gc.com" && password === "demo123") {
+  const clientIP = getClientIP(request);
+  if (!DEMO_ALLOWED_IPS.includes(clientIP)) {
+    return unauthorized("Demo access restricted");
+  }
+  return demoUser;
+}
+```
 
 ---
 

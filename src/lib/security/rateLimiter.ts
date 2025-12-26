@@ -216,6 +216,16 @@ export const rateLimitPresets = {
     message:
       "This operation is rate limited. Please try again in a few minutes.",
   },
+
+  /**
+   * Strict rate limit for admin authentication
+   * 3 attempts per 5 minutes
+   */
+  strict: {
+    maxRequests: 3,
+    windowMs: 300000, // 5 minutes
+    message: "Too many login attempts. Please try again in 5 minutes.",
+  },
 };
 
 /**
