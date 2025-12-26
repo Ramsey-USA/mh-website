@@ -1,265 +1,450 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dark Mode Test - MH Construction</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            primary: "#386851",
-                            "primary-light": "#4a7a63",
-                            "primary-dark": "#2d5240",
-                            secondary: "#BD9264",
-                            "secondary-light": "#c9a176",
-                            "secondary-dark": "#a67d52",
-                        },
-                        bronze: {
-                            600: "#a67d52",
-                            400: "#cdb995",
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                primary: "#386851",
+                "primary-light": "#4a7a63",
+                "primary-dark": "#2d5240",
+                secondary: "#BD9264",
+                "secondary-light": "#c9a176",
+                "secondary-dark": "#a67d52",
+              },
+              bronze: {
+                600: "#a67d52",
+                400: "#cdb995",
+              },
+            },
+          },
+        },
+      };
     </script>
     <style>
-        .material-icons { font-family: 'Material Icons'; }
+      .material-icons {
+        font-family: "Material Icons";
+      }
     </style>
-</head>
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+  </head>
+  <body
+    class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300"
+  >
     <div class="min-h-screen p-8">
-        <!-- Theme Toggle -->
-        <div class="fixed top-4 right-4 flex gap-4">
-            <button onclick="setTheme('light')" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
-                <span class="material-icons">light_mode</span>
-            </button>
-            <button onclick="setTheme('dark')" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
-                <span class="material-icons">dark_mode</span>
-            </button>
+      <!-- Theme Toggle -->
+      <div class="fixed top-4 right-4 flex gap-4">
+        <button
+          onclick="setTheme('light')"
+          class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+        >
+          <span class="material-icons">light_mode</span>
+        </button>
+        <button
+          onclick="setTheme('dark')"
+          class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+        >
+          <span class="material-icons">dark_mode</span>
+        </button>
+      </div>
+
+      <!-- Header -->
+      <header class="text-center mb-12">
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent"
+        >
+          Dark Mode Test
+        </h1>
+        <p class="text-xl text-gray-700 dark:text-gray-300">
+          MH Construction Dark Mode Optimization
+        </p>
+      </header>
+
+      <!-- Color System Section -->
+      <section class="max-w-7xl mx-auto mb-12">
+        <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+          Color System
+        </h2>
+
+        <!-- Text Colors -->
+        <div class="mb-8">
+          <h3
+            class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200"
+          >
+            Text Colors
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div
+              class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700"
+            >
+              <p class="text-gray-900 dark:text-white font-semibold mb-2">
+                Primary Text
+              </p>
+              <p class="text-gray-900 dark:text-white">
+                This is primary text used for headings and main content.
+              </p>
+            </div>
+            <div
+              class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700"
+            >
+              <p class="text-gray-900 dark:text-white font-semibold mb-2">
+                Secondary Text
+              </p>
+              <p class="text-gray-700 dark:text-gray-300">
+                This is secondary text used for descriptions and supporting
+                content.
+              </p>
+            </div>
+            <div
+              class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700"
+            >
+              <p class="text-gray-900 dark:text-white font-semibold mb-2">
+                Muted Text
+              </p>
+              <p class="text-gray-600 dark:text-gray-400">
+                This is muted text used for captions and metadata.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <!-- Header -->
-        <header class="text-center mb-12">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent">
-                Dark Mode Test
-            </h1>
-            <p class="text-xl text-gray-700 dark:text-gray-300">
-                MH Construction Dark Mode Optimization
+        <!-- Background Colors -->
+        <div class="mb-8">
+          <h3
+            class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200"
+          >
+            Background Colors
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div
+              class="bg-white dark:bg-gray-900 p-6 rounded-xl border-2 border-gray-300 dark:border-gray-600"
+            >
+              <p class="font-semibold mb-2">Primary Background</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                bg-white / dark:bg-gray-900
+              </p>
+            </div>
+            <div
+              class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border-2 border-gray-300 dark:border-gray-600"
+            >
+              <p class="font-semibold mb-2">Secondary Background</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                bg-gray-50 / dark:bg-gray-800
+              </p>
+            </div>
+            <div
+              class="bg-gray-100 dark:bg-gray-700 p-6 rounded-xl border-2 border-gray-300 dark:border-gray-600"
+            >
+              <p class="font-semibold mb-2">Surface Background</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                bg-gray-100 / dark:bg-gray-700
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Components Section -->
+      <section class="max-w-7xl mx-auto mb-12">
+        <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+          Components
+        </h2>
+
+        <!-- Buttons -->
+        <div class="mb-8">
+          <h3
+            class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200"
+          >
+            Buttons
+          </h3>
+          <div class="flex flex-wrap gap-4">
+            <button
+              class="border-2 border-brand-primary bg-white dark:bg-gray-900 text-brand-primary dark:text-bronze-400 hover:bg-brand-primary hover:text-white px-6 py-3 rounded-xl font-medium transition-all hover:-translate-y-0.5"
+            >
+              Primary Button
+            </button>
+            <button
+              class="border-2 border-brand-secondary bg-white dark:bg-gray-900 text-brand-secondary dark:text-bronze-300 hover:bg-brand-secondary hover:text-white px-6 py-3 rounded-xl font-medium transition-all hover:-translate-y-0.5"
+            >
+              Secondary Button
+            </button>
+            <button
+              class="border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 px-6 py-3 rounded-xl font-medium transition-all hover:-translate-y-0.5"
+            >
+              Default Button
+            </button>
+          </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="mb-8">
+          <h3
+            class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200"
+          >
+            Cards
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div
+              class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-gray-600/50 transition-all hover:-translate-y-1"
+            >
+              <div
+                class="flex justify-center items-center bg-gray-200 dark:bg-gray-700 mx-auto mb-4 rounded-full w-16 h-16"
+              >
+                <span class="material-icons text-gray-700 dark:text-gray-300"
+                  >build</span
+                >
+              </div>
+              <h4
+                class="text-xl font-bold mb-2 text-gray-900 dark:text-white text-center"
+              >
+                Card Title
+              </h4>
+              <p class="text-gray-600 dark:text-gray-300 text-center">
+                This is a card component with dark mode support.
+              </p>
+            </div>
+            <div
+              class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-gray-600/50 transition-all hover:-translate-y-1"
+            >
+              <div
+                class="flex justify-center items-center bg-gray-200 dark:bg-gray-700 mx-auto mb-4 rounded-full w-16 h-16"
+              >
+                <span class="material-icons text-gray-700 dark:text-gray-300"
+                  >settings</span
+                >
+              </div>
+              <h4
+                class="text-xl font-bold mb-2 text-gray-900 dark:text-white text-center"
+              >
+                Card Title
+              </h4>
+              <p class="text-gray-600 dark:text-gray-300 text-center">
+                Another card demonstrating consistent styling.
+              </p>
+            </div>
+            <div
+              class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-gray-600/50 transition-all hover:-translate-y-1"
+            >
+              <div
+                class="flex justify-center items-center bg-gray-200 dark:bg-gray-700 mx-auto mb-4 rounded-full w-16 h-16"
+              >
+                <span class="material-icons text-gray-700 dark:text-gray-300"
+                  >check_circle</span
+                >
+              </div>
+              <h4
+                class="text-xl font-bold mb-2 text-gray-900 dark:text-white text-center"
+              >
+                Card Title
+              </h4>
+              <p class="text-gray-600 dark:text-gray-300 text-center">
+                Third card showing hover effects in dark mode.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Inputs -->
+        <div class="mb-8">
+          <h3
+            class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200"
+          >
+            Form Inputs
+          </h3>
+          <div class="max-w-2xl space-y-4">
+            <div>
+              <label
+                class="block font-medium text-gray-700 dark:text-gray-300 text-sm mb-1"
+                >Name</label
+              >
+              <input
+                type="text"
+                placeholder="Enter your name"
+                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary"
+              />
+            </div>
+            <div>
+              <label
+                class="block font-medium text-gray-700 dark:text-gray-300 text-sm mb-1"
+                >Email</label
+              >
+              <input
+                type="email"
+                placeholder="your@email.com"
+                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary"
+              />
+            </div>
+            <div>
+              <label
+                class="block font-medium text-gray-700 dark:text-gray-300 text-sm mb-1"
+                >Message</label
+              >
+              <textarea
+                rows="4"
+                placeholder="Your message here..."
+                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary resize-y"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gradients Section -->
+      <section class="max-w-7xl mx-auto mb-12">
+        <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+          Gradients
+        </h2>
+
+        <div class="space-y-6">
+          <!-- Text Gradient 1 -->
+          <div
+            class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-4xl font-black mb-2 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent"
+            >
+              Three-Color Brand Gradient
+            </h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              from-brand-primary via-brand-secondary to-brand-primary
             </p>
-        </header>
+          </div>
 
-        <!-- Color System Section -->
-        <section class="max-w-7xl mx-auto mb-12">
-            <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Color System</h2>
-            
-            <!-- Text Colors -->
-            <div class="mb-8">
-                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Text Colors</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
-                        <p class="text-gray-900 dark:text-white font-semibold mb-2">Primary Text</p>
-                        <p class="text-gray-900 dark:text-white">This is primary text used for headings and main content.</p>
-                    </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
-                        <p class="text-gray-900 dark:text-white font-semibold mb-2">Secondary Text</p>
-                        <p class="text-gray-700 dark:text-gray-300">This is secondary text used for descriptions and supporting content.</p>
-                    </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
-                        <p class="text-gray-900 dark:text-white font-semibold mb-2">Muted Text</p>
-                        <p class="text-gray-600 dark:text-gray-400">This is muted text used for captions and metadata.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Background Colors -->
-            <div class="mb-8">
-                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Background Colors</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-white dark:bg-gray-900 p-6 rounded-xl border-2 border-gray-300 dark:border-gray-600">
-                        <p class="font-semibold mb-2">Primary Background</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">bg-white / dark:bg-gray-900</p>
-                    </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border-2 border-gray-300 dark:border-gray-600">
-                        <p class="font-semibold mb-2">Secondary Background</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">bg-gray-50 / dark:bg-gray-800</p>
-                    </div>
-                    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-xl border-2 border-gray-300 dark:border-gray-600">
-                        <p class="font-semibold mb-2">Surface Background</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">bg-gray-100 / dark:bg-gray-700</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Components Section -->
-        <section class="max-w-7xl mx-auto mb-12">
-            <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Components</h2>
-            
-            <!-- Buttons -->
-            <div class="mb-8">
-                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Buttons</h3>
-                <div class="flex flex-wrap gap-4">
-                    <button class="border-2 border-brand-primary bg-white dark:bg-gray-900 text-brand-primary dark:text-bronze-400 hover:bg-brand-primary hover:text-white px-6 py-3 rounded-xl font-medium transition-all hover:-translate-y-0.5">
-                        Primary Button
-                    </button>
-                    <button class="border-2 border-brand-secondary bg-white dark:bg-gray-900 text-brand-secondary dark:text-bronze-300 hover:bg-brand-secondary hover:text-white px-6 py-3 rounded-xl font-medium transition-all hover:-translate-y-0.5">
-                        Secondary Button
-                    </button>
-                    <button class="border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 px-6 py-3 rounded-xl font-medium transition-all hover:-translate-y-0.5">
-                        Default Button
-                    </button>
-                </div>
-            </div>
-
-            <!-- Cards -->
-            <div class="mb-8">
-                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Cards</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-gray-600/50 transition-all hover:-translate-y-1">
-                        <div class="flex justify-center items-center bg-gray-200 dark:bg-gray-700 mx-auto mb-4 rounded-full w-16 h-16">
-                            <span class="material-icons text-gray-700 dark:text-gray-300">build</span>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gray-900 dark:text-white text-center">Card Title</h4>
-                        <p class="text-gray-600 dark:text-gray-300 text-center">This is a card component with dark mode support.</p>
-                    </div>
-                    <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-gray-600/50 transition-all hover:-translate-y-1">
-                        <div class="flex justify-center items-center bg-gray-200 dark:bg-gray-700 mx-auto mb-4 rounded-full w-16 h-16">
-                            <span class="material-icons text-gray-700 dark:text-gray-300">settings</span>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gray-900 dark:text-white text-center">Card Title</h4>
-                        <p class="text-gray-600 dark:text-gray-300 text-center">Another card demonstrating consistent styling.</p>
-                    </div>
-                    <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-gray-600/50 transition-all hover:-translate-y-1">
-                        <div class="flex justify-center items-center bg-gray-200 dark:bg-gray-700 mx-auto mb-4 rounded-full w-16 h-16">
-                            <span class="material-icons text-gray-700 dark:text-gray-300">check_circle</span>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gray-900 dark:text-white text-center">Card Title</h4>
-                        <p class="text-gray-600 dark:text-gray-300 text-center">Third card showing hover effects in dark mode.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Form Inputs -->
-            <div class="mb-8">
-                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Form Inputs</h3>
-                <div class="max-w-2xl space-y-4">
-                    <div>
-                        <label class="block font-medium text-gray-700 dark:text-gray-300 text-sm mb-1">Name</label>
-                        <input type="text" placeholder="Enter your name" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary">
-                    </div>
-                    <div>
-                        <label class="block font-medium text-gray-700 dark:text-gray-300 text-sm mb-1">Email</label>
-                        <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary">
-                    </div>
-                    <div>
-                        <label class="block font-medium text-gray-700 dark:text-gray-300 text-sm mb-1">Message</label>
-                        <textarea rows="4" placeholder="Your message here..." class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary resize-y"></textarea>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gradients Section -->
-        <section class="max-w-7xl mx-auto mb-12">
-            <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Gradients</h2>
-            
-            <div class="space-y-6">
-                <!-- Text Gradient 1 -->
-                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700">
-                    <h3 class="text-4xl font-black mb-2 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent">
-                        Three-Color Brand Gradient
-                    </h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">from-brand-primary via-brand-secondary to-brand-primary</p>
-                </div>
-
-                <!-- Text Gradient 2 -->
-                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700">
-                    <h3 class="text-4xl font-black mb-2 bg-gradient-to-r from-brand-primary via-bronze-600 to-brand-secondary bg-clip-text text-transparent">
-                        Bronze Accent Gradient
-                    </h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">from-brand-primary via-bronze-600 to-brand-secondary</p>
-                </div>
-
-                <!-- Background Gradient -->
-                <div class="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary dark:from-brand-primary-dark dark:via-gray-900 dark:to-brand-secondary-dark p-12 rounded-xl overflow-hidden">
-                    <div class="relative z-10 text-center">
-                        <h3 class="text-4xl font-black text-white mb-4">Hero Gradient Background</h3>
-                        <p class="text-white/90 text-lg">Automatically adjusts for dark mode</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Semantic Colors -->
-        <section class="max-w-7xl mx-auto mb-12">
-            <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Semantic Colors</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="bg-green-50 dark:bg-green-950 border-2 border-green-500 dark:border-green-400 p-6 rounded-xl">
-                    <div class="flex items-center gap-3 mb-2">
-                        <span class="material-icons text-green-500 dark:text-green-400">check_circle</span>
-                        <h4 class="font-bold text-green-800 dark:text-green-200">Success</h4>
-                    </div>
-                    <p class="text-green-700 dark:text-green-300 text-sm">Operation completed successfully!</p>
-                </div>
-
-                <div class="bg-amber-50 dark:bg-amber-950 border-2 border-amber-500 dark:border-amber-400 p-6 rounded-xl">
-                    <div class="flex items-center gap-3 mb-2">
-                        <span class="material-icons text-amber-500 dark:text-amber-400">warning</span>
-                        <h4 class="font-bold text-amber-800 dark:text-amber-200">Warning</h4>
-                    </div>
-                    <p class="text-amber-700 dark:text-amber-300 text-sm">Please review before proceeding.</p>
-                </div>
-
-                <div class="bg-red-50 dark:bg-red-950 border-2 border-red-500 dark:border-red-400 p-6 rounded-xl">
-                    <div class="flex items-center gap-3 mb-2">
-                        <span class="material-icons text-red-500 dark:text-red-400">error</span>
-                        <h4 class="font-bold text-red-800 dark:text-red-200">Error</h4>
-                    </div>
-                    <p class="text-red-700 dark:text-red-300 text-sm">Something went wrong.</p>
-                </div>
-
-                <div class="bg-blue-50 dark:bg-blue-950 border-2 border-blue-500 dark:border-blue-400 p-6 rounded-xl">
-                    <div class="flex items-center gap-3 mb-2">
-                        <span class="material-icons text-blue-500 dark:text-blue-400">info</span>
-                        <h4 class="font-bold text-blue-800 dark:text-blue-200">Info</h4>
-                    </div>
-                    <p class="text-blue-700 dark:text-blue-300 text-sm">Here's some helpful information.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="text-center py-8 border-t border-gray-200 dark:border-gray-700">
-            <p class="text-gray-600 dark:text-gray-400">
-                MH Construction - Dark Mode Optimization Test
+          <!-- Text Gradient 2 -->
+          <div
+            class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-4xl font-black mb-2 bg-gradient-to-r from-brand-primary via-bronze-600 to-brand-secondary bg-clip-text text-transparent"
+            >
+              Bronze Accent Gradient
+            </h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              from-brand-primary via-bronze-600 to-brand-secondary
             </p>
-            <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">
-                December 25, 2025
+          </div>
+
+          <!-- Background Gradient -->
+          <div
+            class="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary dark:from-brand-primary-dark dark:via-gray-900 dark:to-brand-secondary-dark p-12 rounded-xl overflow-hidden"
+          >
+            <div class="relative z-10 text-center">
+              <h3 class="text-4xl font-black text-white mb-4">
+                Hero Gradient Background
+              </h3>
+              <p class="text-white/90 text-lg">
+                Automatically adjusts for dark mode
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Semantic Colors -->
+      <section class="max-w-7xl mx-auto mb-12">
+        <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+          Semantic Colors
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div
+            class="bg-green-50 dark:bg-green-950 border-2 border-green-500 dark:border-green-400 p-6 rounded-xl"
+          >
+            <div class="flex items-center gap-3 mb-2">
+              <span class="material-icons text-green-500 dark:text-green-400"
+                >check_circle</span
+              >
+              <h4 class="font-bold text-green-800 dark:text-green-200">
+                Success
+              </h4>
+            </div>
+            <p class="text-green-700 dark:text-green-300 text-sm">
+              Operation completed successfully!
             </p>
-        </footer>
+          </div>
+
+          <div
+            class="bg-amber-50 dark:bg-amber-950 border-2 border-amber-500 dark:border-amber-400 p-6 rounded-xl"
+          >
+            <div class="flex items-center gap-3 mb-2">
+              <span class="material-icons text-amber-500 dark:text-amber-400"
+                >warning</span
+              >
+              <h4 class="font-bold text-amber-800 dark:text-amber-200">
+                Warning
+              </h4>
+            </div>
+            <p class="text-amber-700 dark:text-amber-300 text-sm">
+              Please review before proceeding.
+            </p>
+          </div>
+
+          <div
+            class="bg-red-50 dark:bg-red-950 border-2 border-red-500 dark:border-red-400 p-6 rounded-xl"
+          >
+            <div class="flex items-center gap-3 mb-2">
+              <span class="material-icons text-red-500 dark:text-red-400"
+                >error</span
+              >
+              <h4 class="font-bold text-red-800 dark:text-red-200">Error</h4>
+            </div>
+            <p class="text-red-700 dark:text-red-300 text-sm">
+              Something went wrong.
+            </p>
+          </div>
+
+          <div
+            class="bg-blue-50 dark:bg-blue-950 border-2 border-blue-500 dark:border-blue-400 p-6 rounded-xl"
+          >
+            <div class="flex items-center gap-3 mb-2">
+              <span class="material-icons text-blue-500 dark:text-blue-400"
+                >info</span
+              >
+              <h4 class="font-bold text-blue-800 dark:text-blue-200">Info</h4>
+            </div>
+            <p class="text-blue-700 dark:text-blue-300 text-sm">
+              Here's some helpful information.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer
+        class="text-center py-8 border-t border-gray-200 dark:border-gray-700"
+      >
+        <p class="text-gray-600 dark:text-gray-400">
+          MH Construction - Dark Mode Optimization Test
+        </p>
+        <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">
+          December 25, 2025
+        </p>
+      </footer>
     </div>
 
     <script>
-        function setTheme(theme) {
-            if (theme === 'dark') {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-            localStorage.setItem('theme', theme);
+      function setTheme(theme) {
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
         }
+        localStorage.setItem("theme", theme);
+      }
 
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        setTheme(savedTheme);
+      // Load saved theme
+      const savedTheme = localStorage.getItem("theme") || "light";
+      setTheme(savedTheme);
     </script>
-</body>
+  </body>
 </html>

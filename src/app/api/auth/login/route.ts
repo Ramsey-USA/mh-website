@@ -36,10 +36,7 @@ interface LoginRequest {
  *
  * Use /api/auth/admin-login for admin authentication (Matt & Jeremy)
  */
-async function verifyCredentials(
-  _email: string,
-  _password: string,
-): Promise<JWTUser | null> {
+function verifyCredentials(_email: string, _password: string): JWTUser | null {
   // No user authentication system implemented yet
   // This endpoint is reserved for future client portal features
   return null;
@@ -61,7 +58,7 @@ async function handleLogin(request: NextRequest): Promise<NextResponse> {
     }
 
     // Verify credentials
-    const user = await verifyCredentials(sanitizedEmail, password);
+    const user = verifyCredentials(sanitizedEmail, password);
 
     if (!user) {
       logger.warn("Login attempt - no user authentication system", {
