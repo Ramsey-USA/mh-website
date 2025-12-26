@@ -177,7 +177,7 @@ export default function RootLayout({
         {/* Preload critical hero image for faster LCP */}
         <link
           rel="preload"
-          href="/images/logo/mh-veteran-bg.png"
+          href="/images/logo/mh-veteran-bg.webp"
           as="image"
           type="image/png"
         />

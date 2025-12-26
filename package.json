@@ -19,6 +19,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:ci": "jest --ci --coverage --maxWorkers=2",
+    "test:pwa": "node scripts/test-pwa.js",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "pages:deploy": "npm run build:cloudflare && npx wrangler pages deploy .vercel/output/static --project-name=mh-construction",
@@ -33,6 +34,9 @@
     "qr:generate": "node scripts/generate-qr-codes.js",
     "qr:test": "node scripts/test-qr-codes.js",
     "qr:check": "bash scripts/check-qr-codes.sh",
+    "optimize:images": "node scripts/optimization/optimize-images.js",
+    "optimize:videos": "node scripts/optimization/optimize-videos.js",
+    "audit:images": "node scripts/optimization/audit-images.js",
     "prepare": "husky"
   },
   "keywords": [

@@ -84,7 +84,7 @@ export function OptimizedImage({
     (typeof window !== "undefined" ? generateBlurDataURL(width, height) : "");
 
   const imageProps = {
-    src: hasError ? "/images/placeholder.jpg" : src,
+    src: hasError ? "/images/placeholder.webp" : src,
     alt: alt || "Image", // Provide fallback alt text
     onLoad: handleLoad,
     onError: handleError,

@@ -52,7 +52,7 @@ export default function VeteransPage() {
       <div
         className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-15 dark:opacity-10"
         style={{
-          backgroundImage: "url('/images/logo/mh-veteran-bg.png')",
+          backgroundImage: "url('/images/logo/mh-veteran-bg.webp')",
           backgroundAttachment: "fixed",
         }}
       ></div>
@@ -64,7 +64,9 @@ export default function VeteransPage() {
           {/* Background Image */}
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-            style={{ backgroundImage: "url('/images/logo/mh-veteran-bg.png')" }}
+            style={{
+              backgroundImage: "url('/images/logo/mh-veteran-bg.webp')",
+            }}
           ></div>
 
           {/* Background Overlay */}

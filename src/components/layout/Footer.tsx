@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { PWAInstallCTA } from "@/components/pwa";
+import { PWAInstallCTA, PWAInstallButton } from "@/components/pwa";
 import { AdminSignInModal } from "@/components/ui/modals/AdminSignInModal";
 
 export default function Footer() {
@@ -60,8 +60,8 @@ export default function Footer() {
               description:
                 "Veteran-owned general contractor serving the Pacific Northwest with commercial and residential construction services",
               url: "https://mhc-gc.com",
-              logo: "https://mhc-gc.com/images/logo/mh-logo-dark-bg.png",
-              image: "https://mhc-gc.com/images/logo/mh-logo-dark-bg.png",
+              logo: "https://mhc-gc.com/images/logo/mh-logo-dark-bg.webp",
+              image: "https://mhc-gc.com/images/logo/mh-logo-dark-bg.webp",
               telephone: "+1-509-308-6489",
               email: "office@mhc-gc.com",
               address: {
@@ -153,7 +153,7 @@ export default function Footer() {
                     aria-label="MH Construction Home"
                   >
                     <Image
-                      src="/images/logo/mh-logo-dark-bg.png"
+                      src="/images/logo/mh-logo-dark-bg.webp"
                       alt="MH Construction Inc - Veteran-Owned General Contractor serving Pacific Northwest"
                       width={264}
                       height={132}
@@ -286,6 +286,9 @@ export default function Footer() {
                     className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
                   />
                 </a>
+
+                {/* PWA Install Card */}
+                <PWAInstallButton />
               </div>
             </div>
 

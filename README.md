@@ -18,7 +18,9 @@ and proven craftsmanship. Call (509) 308-6489 for direct consultation.
 - **Lighthouse:** 94+ all pages
 - **Bundle:** 225 kB optimized
 - **Documentation:** 40 essential files (streamlined from 192)
-- **Dark Mode:** Fully optimized (Dec 25, 2025) ⭐ NEW
+- **Dark Mode:** Fully optimized (Dec 25, 2025)
+- **PWA:** 100% test score (50/50), offline-ready ⭐ NEW (Dec 26, 2025)
+- **Media Optimization:** Auto-optimized images (42% smaller), video support ⭐ NEW (Dec 26, 2025)
 
 ### Core Identity (Dec 2025)
 
@@ -38,7 +40,9 @@ and proven craftsmanship. Call (509) 308-6489 for direct consultation.
 - **Icons:** Google Material Icons (font-based)
 - **Deployment:** Cloudflare Pages
 - **Email:** Resend API
-- **Analytics:** Custom tracking system with admin dashboard ⭐ NEW
+- **Analytics:** Custom tracking system with admin dashboard
+- **PWA:** Service Worker v4.0.0, offline support, installable ⭐ NEW
+- **Media:** Automatic WebP/MP4 optimization via GitHub Actions ⭐ NEW
 
 ---
 
@@ -67,6 +71,10 @@ npm run build            # Production build
 npm run type-check       # TypeScript check
 npm run lint             # ESLint check
 npm run test             # Run tests
+npm run test:pwa         # PWA functionality tests (50 tests)
+npm run optimize:images  # Optimize images to WebP
+npm run optimize:videos  # Optimize videos to WebM/MP4
+npm run audit:images     # Analyze image optimization opportunities
 ```
 
 ### Environment Setup
@@ -100,12 +108,14 @@ CLOUDFLARE_API_TOKEN=your_api_token
 
 - ai-development-guidelines, consistency-guide, development-standards
 
-### 🔧 Technical (7 files)
+### 🔧 Technical (10 files)
 
 - buttons-ctas-complete-guide, icon-system-complete
 - dark-mode-implementation-guide, dark-mode-quick-reference
 - seo-complete-guide, cloudflare-guide
-- **Analytics:** admin-analytics-system, analytics-tracking-guide, analytics-quick-reference ⭐ NEW
+- **Analytics:** admin-analytics-system, analytics-tracking-guide, analytics-quick-reference
+- **PWA:** pwa-documentation, pwa-quick-reference, pwa-audit-report ⭐ NEW
+- **Media:** automatic-media-optimization, image-optimization-guide, image-optimization-results ⭐ NEW
 
 ### 📱 Marketing (2 files)
 
@@ -233,6 +243,22 @@ Proprietary - MH Construction © 2025
   - See [Dark Mode Guide](./docs/technical/dark-mode-implementation-guide.md) |
     [Quick Reference](./docs/technical/dark-mode-quick-reference.md) |
     [Summary](./DARK-MODE-OPTIMIZATION-SUMMARY.md)
+- **Progressive Web App (PWA)** - Installable, offline-ready (Dec 2025) ⭐ NEW
+  - Service Worker v4.0.0 with 5-layer caching
+  - 100% test score (50/50 tests passing)
+  - Offline page and asset caching
+  - Install button in footer
+  - See [PWA Documentation](./docs/technical/pwa-documentation.md) |
+    [Quick Reference](./docs/technical/pwa-quick-reference.md) |
+    [Audit Report](./docs/technical/pwa-audit-report.md)
+- **Automatic Media Optimization** - GitHub Actions workflow (Dec 2025) ⭐ NEW
+  - Images: PNG/JPG → WebP (42% size reduction)
+  - Videos: Any format → WebM + MP4 (30-60% smaller)
+  - Automatic poster generation
+  - 1.2 MB savings on current assets
+  - See [Media Optimization Guide](./docs/technical/automatic-media-optimization.md) |
+    [Quick Reference](./docs/technical/MEDIA-OPTIMIZATION-QUICKREF.md) |
+    [Results](./docs/technical/image-optimization-results.md)
 - **Full Accessibility** - WCAG 2.1 AA compliant
 
 ### Our Approach: People First, Tools Second

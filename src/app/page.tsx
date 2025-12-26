@@ -56,7 +56,7 @@ export default function Home() {
 
   // Preload critical images for better performance
   const criticalImages = [
-    "/images/placeholder.jpg",
+    "/images/placeholder.webp",
     "/images/logo/mh-logo.png",
   ];
 

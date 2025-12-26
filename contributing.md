@@ -81,6 +81,8 @@ Git
    npm run build
    npm run lint
    npm run type-check
+   npm run test:pwa        # Verify PWA functionality (50 tests)
+   npm run audit:images    # Check image optimization opportunities
    ```
 
 ## 📋 Development Workflow
@@ -109,9 +111,11 @@ Git
 1. **Quality checks**
 
    ```bash
-   npm run lint
-   npm run type-check
-   npm run build
+   npm run lint              # ESLint check
+   npm run type-check        # TypeScript check
+   npm run build             # Production build test
+   npm run test:pwa          # PWA functionality tests
+   npm run optimize:images   # Optimize any new images
    ```
 
 1. **Commit and push**
@@ -594,16 +598,26 @@ If applicable
 
 ### Optimization Techniques
 
-- Image optimization with Next.js Image component
-- Code splitting and lazy loading
-- Minimize bundle size
-- Efficient CSS and JavaScript
+- **Images**: Automatic WebP conversion via GitHub Actions (42% size reduction)
+- **Videos**: Automatic WebM/MP4 optimization with poster generation
+- **PWA**: Service Worker caching for offline access
+- **Code splitting**: Dynamic imports and lazy loading
+- **Bundle optimization**: Tree shaking and minimize bundle size
+- **Efficient CSS**: Tailwind JIT mode and PurgeCSS
 
 ### Monitoring
 
 ```bash
 # Bundle analysis
 npm run build:analyze
+
+# PWA functionality
+npm run test:pwa              # 50 automated tests
+
+# Media optimization
+npm run audit:images          # Image analysis
+npm run optimize:images       # Convert to WebP
+npm run optimize:videos       # Convert to WebM/MP4
 
 # Performance audits
 npm run performance:check

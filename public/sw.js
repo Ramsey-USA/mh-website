@@ -107,6 +107,11 @@ self.addEventListener("install", (event) => {
               STATIC_ASSETS.filter((asset) => !CRITICAL_ASSETS.includes(asset)),
             );
           });
+        })
+        .catch((error) => {
+          console.error("[SW] Cache installation failed:", error);
+          // Continue installation even if caching fails
+          return Promise.resolve();
         }),
       // Skip waiting to activate immediately
       self.skipWaiting(),
@@ -119,6 +124,10 @@ self.addEventListener("activate", (event) => {
 
   event.waitUntil(
     Promise.all([
+      // Enable navigation preload for faster page loads
+      self.registration.navigationPreload
+        ? self.registration.navigationPreload.enable()
+        : Promise.resolve(),
       // Clean up old caches
       caches.keys().then((cacheNames) => {
         return Promise.all(
@@ -345,12 +354,13 @@ function getCacheStrategy(request) {
 
 self.addEventListener("fetch", (event) => {
   const { request } = event;
-  const url = new URL(request.url);
 
-  // Only handle GET requests
+  // Only handle GET requests - explicit early return
   if (request.method !== "GET") {
     return;
   }
+
+  const url = new URL(request.url);
 
   // Skip Chrome extension requests
   if (url.protocol === "chrome-extension:") {

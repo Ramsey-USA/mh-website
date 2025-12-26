@@ -30,13 +30,17 @@
 
 1. **[Buttons & CTAs](./technical/design-system/buttons-ctas-complete-guide.md)** - Button patterns
 2. **[Icon System](./technical/design-system/icon-system-complete.md)** - Material Icons
-3. **[Dark Mode Guide](./technical/dark-mode-implementation-guide.md)** - Complete dark mode implementation ⭐ **NEW**
-4. **[Dark Mode Quick Reference](./technical/dark-mode-quick-reference.md)** - Quick cheatsheet ⭐ **NEW**
-5. **[Analytics System](./technical/admin-analytics-system.md)** - Admin dashboard & tracking ⭐ **NEW**
-6. **[Analytics Tracking Guide](./technical/analytics-tracking-guide.md)** - Implementation guide ⭐ **NEW**
-7. **[Analytics Quick Reference](./technical/analytics-quick-reference.md)** - Quick tracking reference ⭐ **NEW**
-8. **[SEO Guide](./technical/seo/seo-complete-guide.md)** - Keywords, meta tags
-9. **[Navigation System](#navigation-pattern)** - Section-based navigation (Dec 2025)
+3. **[Dark Mode Guide](./technical/dark-mode-implementation-guide.md)** - Complete dark mode implementation
+4. **[Dark Mode Quick Reference](./technical/dark-mode-quick-reference.md)** - Quick cheatsheet
+5. **[Analytics System](./technical/admin-analytics-system.md)** - Admin dashboard & tracking
+6. **[Analytics Tracking Guide](./technical/analytics-tracking-guide.md)** - Implementation guide
+7. **[Analytics Quick Reference](./technical/analytics-quick-reference.md)** - Quick tracking reference
+8. **[PWA Documentation](./technical/pwa-documentation.md)** - Progressive Web App implementation ⭐ **NEW**
+9. **[PWA Quick Reference](./technical/pwa-quick-reference.md)** - PWA cheatsheet ⭐ **NEW**
+10. **[Media Optimization](./technical/automatic-media-optimization.md)** - Automatic image/video optimization ⭐ **NEW**
+11. **[Image Optimization Guide](./technical/image-optimization-guide.md)** - Implementation details ⭐ **NEW**
+12. **[SEO Guide](./technical/seo/seo-complete-guide.md)** - Keywords, meta tags
+13. **[Navigation System](#navigation-pattern)** - Section-based navigation (Dec 2025)
 
 ### 🧭 Navigation Pattern (Dec 2025)
 
