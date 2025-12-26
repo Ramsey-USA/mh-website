@@ -19,6 +19,7 @@ import { gridPresets } from "@/lib/styles/layout-variants";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { InteractiveGrantSelector } from "./InteractiveGrantSelector";
+import { StrategicCTABanner } from "@/components/ui/cta";
 import { StructuredData } from "@/components/seo/seo-meta";
 import {
   generateBreadcrumbSchema,
@@ -963,6 +964,11 @@ export default function PublicSectorPage() {
                     </p>
                   </div>
                 </div>
+              </div>
+
+              {/* Strategic CTA Banner - Conversion Optimization */}
+              <div className="mb-12">
+                <StrategicCTABanner variant="combo" className="my-0" />
               </div>
 
               <div className="flex sm:flex-row flex-col justify-center gap-4">

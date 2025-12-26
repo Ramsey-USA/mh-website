@@ -38,6 +38,9 @@ const NextStepsSection = dynamic(
 // PWA Components
 import { PWAInstallCTA } from "@/components/pwa";
 
+// Strategic CTA Components
+import { StrategicCTABanner } from "@/components/ui/cta";
+
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { useAnalytics } from "@/components/analytics/enhanced-analytics";
 import { useImagePreloader } from "@/hooks/usePerformanceOptimization";
@@ -97,6 +100,9 @@ export default function Home() {
 
       {/* Showcase of Services Section - What we actually do */}
       <ServicesShowcase />
+
+      {/* Strategic CTA after Services - Combo (App + Pitch Deck + Contact) */}
+      <StrategicCTABanner variant="combo" className="my-0" />
 
       {/* Enhanced Client Partner Testimonials - Social proof builds credibility */}
       <TestimonialsSection

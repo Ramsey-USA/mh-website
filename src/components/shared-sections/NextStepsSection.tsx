@@ -10,14 +10,12 @@ import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PWAInstallCTA } from "@/components/pwa";
+import { PitchDeckCTA } from "@/components/ui/cta";
 
 interface NextStepsSectionProps {
   title?: string;
   subtitle?: string;
   className?: string;
-  onConsultationClick?: () => void;
-  onEstimateClick?: () => void;
-  onContactClick?: () => void;
 }
 
 export function NextStepsSection({
@@ -25,9 +23,6 @@ export function NextStepsSection({
   subtitle:
     _subtitle = "Partner with veteran-owned excellence where honesty, integrity, professionalism, and thoroughness guide every decision.",
   className = "",
-  onConsultationClick,
-  onEstimateClick,
-  onContactClick,
 }: NextStepsSectionProps) {
   return (
     <section
@@ -97,71 +92,8 @@ export function NextStepsSection({
         </div>
 
         <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          {/* PWA Install Card - Only shows if installable */}
-          <PWAInstallCTA variant="card" />
-
-          {/* Option 1: Download Pitch Deck */}
-          <div className="group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
-            <div className="flex justify-center mb-6">
-              <div className="rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <MaterialIcon
-                  icon="picture_as_pdf"
-                  size="xl"
-                  className="text-white"
-                />
-              </div>
-            </div>
-            <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
-              MH Construction Pitch Deck
-            </h3>
-            <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-              Download our comprehensive pitch deck to explore our capabilities,
-              values, and proven track record.
-            </p>
-            <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
-              <li className="flex items-center gap-2">
-                <MaterialIcon
-                  icon="check_circle"
-                  size="sm"
-                  className="text-brand-primary flex-shrink-0"
-                />
-                <span>Complete company overview</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <MaterialIcon
-                  icon="check_circle"
-                  size="sm"
-                  className="text-brand-primary flex-shrink-0"
-                />
-                <span>Services & capabilities breakdown</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <MaterialIcon
-                  icon="check_circle"
-                  size="sm"
-                  className="text-brand-primary flex-shrink-0"
-                />
-                <span>Project portfolio highlights</span>
-              </li>
-            </ul>
-            <Button
-              variant="primary"
-              size="lg"
-              className="w-full group/btn opacity-60 cursor-not-allowed"
-              onClick={(e) => {
-                e.preventDefault();
-                onConsultationClick?.();
-              }}
-              disabled
-            >
-              <MaterialIcon
-                icon="download"
-                size="lg"
-                className="mr-2 group-hover/btn:scale-110 transition-transform"
-              />
-              Coming Soon
-            </Button>
-          </div>
+          {/* Pitch Deck Card - Always visible */}
+          <PitchDeckCTA variant="card" />
 
           {/* Option 2: View Our Work */}
           <div className="group relative bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 border-2 border-brand-secondary flex flex-col h-full">
@@ -217,7 +149,6 @@ export function NextStepsSection({
                 variant="secondary"
                 size="lg"
                 className="w-full group/btn"
-                onClick={onEstimateClick}
               >
                 <MaterialIcon
                   icon="photo_library"
@@ -278,7 +209,6 @@ export function NextStepsSection({
                 variant="primary"
                 size="lg"
                 className="w-full bg-brand-secondary hover:bg-brand-secondary/90 group/btn"
-                onClick={onContactClick}
               >
                 <MaterialIcon
                   icon="mail"
@@ -289,6 +219,9 @@ export function NextStepsSection({
               </Button>
             </Link>
           </div>
+
+          {/* PWA Install Card - Only shows if installable, appears as 4th card */}
+          <PWAInstallCTA variant="card" />
         </div>
       </div>
     </section>

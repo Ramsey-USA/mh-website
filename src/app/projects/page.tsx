@@ -18,6 +18,7 @@ import { WhyChooseSection } from "./components/WhyChooseSection";
 import { TestimonialsSection } from "./components/TestimonialsSection";
 import { PartnershipProcessSection } from "./components/PartnershipProcessSection";
 import { ProjectsCTASection } from "./components/ProjectsCTASection";
+import { StrategicCTABanner } from "@/components/ui/cta";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getProjectsSEO } from "@/lib/seo/page-seo-utils";
@@ -118,6 +119,9 @@ export default function ProjectsPage() {
 
         {/* Partnership Process Section */}
         <PartnershipProcessSection />
+
+        {/* Strategic CTA Banner - Conversion Optimization */}
+        <StrategicCTABanner variant="combo" className="my-0" />
 
         {/* CTA Section */}
         <ProjectsCTASection />

@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import {
   Card,
@@ -518,38 +517,6 @@ export function ServicesShowcase() {
             </div>
           </div>
         )}
-
-        {/* Bottom CTA */}
-        <FadeInWhenVisible className="mt-12 sm:mt-16 text-center">
-          <div className="inline-flex flex-col sm:flex-row gap-4 sm:gap-6">
-            <Link href="/services">
-              <Button
-                variant="primary"
-                className="group/btn min-w-[240px] min-h-[48px] text-base sm:text-lg"
-              >
-                <MaterialIcon
-                  icon="explore"
-                  size="lg"
-                  className="mr-2 group-hover/btn:scale-110 transition-transform"
-                />
-                Our Values-Driven Services
-              </Button>
-            </Link>
-            <Link href="/contact">
-              <Button
-                variant="secondary"
-                className="group/btn min-w-[240px] min-h-[48px] text-base sm:text-lg"
-              >
-                <MaterialIcon
-                  icon="handshake"
-                  size="lg"
-                  className="mr-2 group-hover/btn:scale-110 transition-transform"
-                />
-                Begin Your Project
-              </Button>
-            </Link>
-          </div>
-        </FadeInWhenVisible>
       </div>
     </section>
   );

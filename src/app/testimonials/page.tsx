@@ -13,6 +13,7 @@ import {
 } from "@/lib/seo/review-schema";
 import { getClientTestimonials } from "@/lib/data/testimonials";
 import { TestimonialsSection } from "@/components/shared-sections/TestimonialsSection";
+import { StrategicCTABanner } from "@/components/ui/cta";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
@@ -1235,6 +1236,9 @@ export default function TestimonialsPage() {
           </div>
         </section>
       )}
+
+      {/* Strategic CTA Banner - Conversion Optimization */}
+      <StrategicCTABanner variant="combo" className="my-0" />
 
       {/* Final CTA Section - Modern MH Standard */}
       <section

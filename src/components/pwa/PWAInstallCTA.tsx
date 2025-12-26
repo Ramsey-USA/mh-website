@@ -84,13 +84,73 @@ export function PWAInstallCTA({
     setIsInstallable(false);
   };
 
-  // Don't render if not installable
-  if (!isInstallable) {
-    return null;
-  }
-
   // Card variant for NextSteps section
   if (variant === "card") {
+    // Always show card, but with different content when not installable
+    if (!isInstallable) {
+      return (
+        <div
+          className={`group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full border-2 border-gray-300/20 ${className}`}
+        >
+          <div className="flex justify-center mb-6">
+            <div className="rounded-xl bg-gradient-to-br from-gray-400 to-gray-500 p-4 shadow-lg">
+              <MaterialIcon
+                icon="install_mobile"
+                size="xl"
+                className="text-white"
+              />
+            </div>
+          </div>
+
+          <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
+            Install Our App
+          </h3>
+
+          <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
+            Add MH Construction to your home screen for faster access and
+            offline support.
+          </p>
+
+          <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
+            <li className="flex items-center gap-2">
+              <MaterialIcon
+                icon="check_circle"
+                size="sm"
+                className="text-gray-400 flex-shrink-0"
+              />
+              <span>Works offline with cached content</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <MaterialIcon
+                icon="check_circle"
+                size="sm"
+                className="text-gray-400 flex-shrink-0"
+              />
+              <span>3-5x faster page loads</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <MaterialIcon
+                icon="check_circle"
+                size="sm"
+                className="text-gray-400 flex-shrink-0"
+              />
+              <span>Quick shortcuts to key pages</span>
+            </li>
+          </ul>
+
+          <Button
+            variant="outline"
+            size="lg"
+            className="w-full opacity-60 cursor-not-allowed"
+            disabled
+          >
+            <MaterialIcon icon="info" size="lg" className="mr-2" />
+            Already Installed
+          </Button>
+        </div>
+      );
+    }
+
     return (
       <div
         className={`group bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full border-2 border-brand-primary/20 ${className}`}
@@ -163,6 +223,11 @@ export function PWAInstallCTA({
         </Button>
       </div>
     );
+  }
+
+  // Banner and button variants only show when installable
+  if (!isInstallable) {
+    return null;
   }
 
   // Banner variant for after hero

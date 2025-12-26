@@ -16,6 +16,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
 import { TestimonialGrid } from "@/components/testimonials";
+import { StrategicCTABanner } from "@/components/ui/cta";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getTeamSEO } from "@/lib/seo/page-seo-utils";
@@ -1250,6 +1251,11 @@ export default function TeamPage() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Strategic CTA Banner - Conversion Optimization */}
+            <div className="-mx-4 sm:-mx-6 lg:-mx-8">
+              <StrategicCTABanner variant="combo" className="my-0" />
             </div>
 
             {/* Call to Action - Careers Link */}

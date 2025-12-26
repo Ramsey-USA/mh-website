@@ -23,6 +23,7 @@ import {
   ConstructionProcessSection,
   WhyChooseUs,
 } from "@/components/services";
+import { StrategicCTABanner } from "@/components/ui/cta";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { StructuredData } from "@/components/seo/seo-meta";
@@ -914,6 +915,9 @@ export default function ServicesPage() {
             </FadeInWhenVisible>
           </div>
         </section>
+
+        {/* Strategic CTA Banner - Conversion Optimization */}
+        <StrategicCTABanner variant="combo" className="my-0" />
 
         {/* CTA Section */}
         <ServicesCTA />

@@ -14,7 +14,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     title:
       "Base HQ → Home | Your Tri-Cities Construction Command Center | MH Construction",
     description:
-      "Base HQ → Home: Your Tri-Cities Construction Command Center. Veteran-owned construction management services since 2010. Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction throughout the Pacific Northwest. Licensed in WA, OR, ID. Four core values (Honesty, Integrity, Professionalism, Thoroughness) building trust through transparent communication and face-to-face consultation. Building projects for the client, NOT the dollar.",
+      "Base HQ → Home: Your Tri-Cities Construction Command Center. Veteran-owned construction management since 2010. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial services throughout the Pacific Northwest. Four core values (Honesty, Integrity, Professionalism, Thoroughness) building trust through transparent communication. Licensed in WA, OR, ID. PWA-enabled for offline access. Building projects for the client, NOT the dollar.",
     keywords: [
       "Base HQ Home construction command center",
       "veteran-owned contractor Pacific Northwest",
@@ -43,6 +43,11 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
       "WA OR ID licensed contractor",
       "Eastern Washington contractor",
       "Pacific Northwest general contractor",
+      "PWA construction app",
+      "offline construction access",
+      "proven construction process",
+      "construction testimonials Pacific Northwest",
+      "veteran construction values",
     ],
     canonicalUrl: enhancedSEO.siteUrl,
     schemas: [generateConstructionFAQSchema(), generateLocalBusinessSchema()],
@@ -214,7 +219,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     title:
       "Operations → Services | The Battle Plan - Strategic Construction Excellence | MH Construction",
     description:
-      "Operations → Services: The Battle Plan - Strategic Construction Excellence from Concept to Completion. Veteran-owned construction services with military precision: honest communication, transparent pricing, proven craftsmanship. Residential, commercial, and government projects across Pacific Northwest. Your construction mission deserves veteran-led expert oversight.",
+      "Operations → Services: The Battle Plan - Strategic Construction Excellence from Concept to Completion. Veteran-owned construction services with military precision: honest communication, transparent pricing, proven craftsmanship. Residential, commercial, and government projects across Pacific Northwest. Your construction mission deserves veteran-led expert oversight. Get started with consultation booking, PWA app, or pitch deck download.",
     keywords: [
       "Operations Services battle plan",
       "strategic construction excellence concept to completion",
@@ -233,6 +238,8 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
       "Kennewick transparent contractor",
       "Benton County construction services",
       "Franklin County veteran contractor",
+      "construction consultation booking",
+      "PWA construction services app",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/services`,
     schemas: serviceSchemas,
@@ -333,7 +340,7 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
     title:
       "Chain of Command → Our Team | 150+ Years Combined Military-Grade Expertise | MH Construction",
     description:
-      "Chain of Command → Our Team: 150+ Years Combined Military-Grade Expertise at Your Service. All-branch veteran leadership you can trust. Meet the veteran-led team building tomorrow's success today through honest communication, transparent pricing, and proven craftsmanship. Professional excellence with service-earned values driving Pacific Northwest construction leadership.",
+      "Chain of Command → Our Team: 150+ Years Combined Military-Grade Expertise at Your Service. All-branch veteran leadership you can trust. Meet the veteran-led team building tomorrow's success today through honest communication, transparent pricing, and proven craftsmanship. Professional excellence with service-earned values driving Pacific Northwest construction leadership. Connect through consultation booking, PWA app, or pitch deck.",
     keywords: [
       "Chain of Command Our Team military-grade expertise",
       "150 years combined veteran experience",
@@ -343,21 +350,16 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
       "honest construction professionals",
       "transparent pricing experts",
       "proven craftsmanship team",
-      "construction project managers",
-      "Pacific Northwest construction professionals",
-      "military veteran expertise",
-      "construction team excellence",
-      "Tri-Cities veteran construction team",
-      "Richland honest contractor team",
-      "Pasco veteran professionals",
-      "Kennewick construction experts",
-      "Benton County veteran-owned team",
-      "Jeremy Thamert owner president",
-      "Arnold Garcia vice president",
-      "Mike Holstein founder",
-      "construction superintendent team",
-      "construction estimator team",
-      "veteran construction leadership team",
+      "Pacific Northwest construction leaders",
+      "military-grade construction discipline",
+      "Tri-Cities construction team",
+      "Richland veteran contractors",
+      "Pasco construction professionals",
+      "Kennewick veteran team",
+      "Benton County construction experts",
+      "Franklin County veteran leadership",
+      "construction team consultation",
+      "PWA construction team app",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/team`,
     schemas: [...teamPersonSchemas, organizationSchema],
@@ -487,7 +489,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
     title:
       "Missions → Projects | Mission Success: 650+ Completed Projects | MH Construction",
     description:
-      "Missions → Projects: Mission Success - 650+ Completed Projects, Countless Lasting Relationships. Veteran-owned since 2025, building excellence since 2010. Our completed construction missions showcase honest communication, transparent pricing, and proven craftsmanship across residential, commercial, and government work. Trust built project by project through proven results and trusted partnerships.",
+      "Missions → Projects: Mission Success - 650+ Completed Projects, Countless Lasting Relationships. Veteran-owned since 2025, building excellence since 2010. Our completed construction missions showcase honest communication, transparent pricing, and proven craftsmanship across residential, commercial, and government work. Trust built project by project through proven results and trusted partnerships. Start your next mission with consultation booking, PWA app, or pitch deck.",
     keywords: [
       "Missions Projects 650 completed",
       "mission success proven results",
@@ -505,6 +507,8 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
       "Kennewick proven results",
       "Benton County construction work",
       "Franklin County veteran-owned portfolio",
+      "construction project consultation",
+      "PWA construction portfolio app",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/projects`,
     schemas: [],
