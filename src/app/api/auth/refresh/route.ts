@@ -22,21 +22,14 @@ interface RefreshRequest {
 
 /**
  * Get user by ID from database
- * NOTE: Currently using demo credentials for development.
- * Production implementation will connect to Cloudflare D1.
- * Example: const user = await env.DB.prepare("SELECT * FROM users WHERE id = ?").bind(userId).first();
+ *
+ * ⚠️ NOT IMPLEMENTED: Requires Cloudflare D1 database integration
+ *
+ * Production implementation:
+ * const user = await env.DB.prepare("SELECT * FROM users WHERE id = ?").bind(userId).first();
  */
-function getUserById(userId: string): Promise<JWTUser | null> {
-  // Demo credentials for development only
-  if (userId === "demo-user-id") {
-    return Promise.resolve({
-      uid: userId,
-      email: "demo@mhc-gc.com",
-      role: "user",
-      name: "Demo User",
-    });
-  }
-
+function getUserById(_userId: string): Promise<JWTUser | null> {
+  // No user database implemented yet
   return Promise.resolve(null);
 }
 

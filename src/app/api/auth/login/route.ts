@@ -24,28 +24,24 @@ interface LoginRequest {
 
 /**
  * Verify user credentials
- * NOTE: Currently using demo credentials for development.
- * Production implementation will connect to Cloudflare D1 with bcrypt password hashing.
  *
- * 🔴 SECURITY WARNING: Demo account with hardcoded credentials
- * - Should be disabled or removed in production
- * - Consider adding IP whitelist or removing entirely
+ * ⚠️ NOT IMPLEMENTED: This endpoint requires database integration
  *
- * Example implementation:
- * - Query Cloudflare D1: const user = await env.DB.prepare("SELECT * FROM users WHERE email = ?").bind(email).first();
- * - Verify password: await bcrypt.compare(password, user.password_hash)
+ * Production implementation:
+ * 1. Query Cloudflare D1 for user:
+ *    const user = await env.DB.prepare("SELECT * FROM users WHERE email = ?").bind(email).first();
+ * 2. Verify password with bcrypt:
+ *    const isValid = await bcrypt.compare(password, user.password_hash);
+ * 3. Return user data if valid
+ *
+ * Use /api/auth/admin-login for admin authentication (Matt & Jeremy)
  */
-function verifyCredentials(email: string, password: string): JWTUser | null {
-  // Demo credentials for development only - REMOVE IN PRODUCTION
-  if (email === "demo@mhc-gc.com" && password === "demo123") {
-    return {
-      uid: "demo-user-id",
-      email: email,
-      role: "user",
-      name: "Demo User",
-    };
-  }
-
+async function verifyCredentials(
+  _email: string,
+  _password: string,
+): Promise<JWTUser | null> {
+  // No user authentication system implemented yet
+  // This endpoint is reserved for future client portal features
   return null;
 }
 
@@ -65,11 +61,15 @@ async function handleLogin(request: NextRequest): Promise<NextResponse> {
     }
 
     // Verify credentials
-    const user = verifyCredentials(sanitizedEmail, password);
+    const user = await verifyCredentials(sanitizedEmail, password);
 
     if (!user) {
-      logger.warn("Failed login attempt", { email: sanitizedEmail });
-      return unauthorized("Invalid credentials");
+      logger.warn("Login attempt - no user authentication system", {
+        email: sanitizedEmail,
+      });
+      return unauthorized(
+        "User authentication not implemented. Use /api/auth/admin-login for admin access.",
+      );
     }
 
     // Generate tokens
