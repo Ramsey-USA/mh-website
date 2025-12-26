@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export async function GET() {
+export function GET() {
   // Handle GET requests by redirecting to contact
   return NextResponse.redirect("/contact", { status: 302 });
 }

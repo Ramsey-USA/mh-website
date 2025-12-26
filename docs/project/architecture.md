@@ -39,13 +39,13 @@
 - **Animations**: Framer Motion 12.23.24
 - **Deployment**: Cloudflare Pages
 - **Database**: Cloudflare D1 (SQLite)
-- **Analytics**: Enhanced Analytics System
+- **Analytics**: Custom tracking system with admin dashboard (Matt & Jeremy only)
 - **Theme**: Dark/Light mode support
 - **Performance**: 94+ Lighthouse score
 
 ### **Complete Component Architecture**
 
-````text
+```text
 src/
 ├── app/
 │   ├── page.tsx                    # Homepage (Complete)
@@ -54,10 +54,12 @@ src/
 │   ├── projects/page.tsx           # Projects page (Complete)
 │   ├── team/page.tsx               # Team page (Complete)
 │   ├── contact/page.tsx            # Contact page (Complete)
-│   ├── booking/page.tsx            # Booking page (Complete)
 │   ├── careers/page.tsx            # Careers page (Complete)
-│   ├── government/page.tsx         # Government page (Complete)
-│   ├── trade-partners/page.tsx     # Trade partners (Complete)
+│   ├── dashboard/page.tsx          # Admin analytics dashboard (Matt & Jeremy only)
+│   ├── tracking-example/page.tsx   # Analytics demo page
+│   ├── api/
+│   │   ├── auth/admin-login/       # Admin authentication endpoint
+│   │   └── analytics/dashboard/    # Analytics data API
 │   ├── layout.tsx                  # Root layout with providers
 │   ├── sitemap.ts                  # SEO sitemap
 │   └── robots.ts                   # SEO robots.txt
@@ -66,18 +68,30 @@ src/
 │   │   └── MaterialIcon.tsx        # Universal icon system
 │   ├── layout/
 │   │   ├── Navigation.tsx          # Responsive navigation
-│   │   └── Footer.tsx              # Complete footer
-│   ├── ui/                         # Complete UI library
-│   ├── analytics/                  # Analytics integration
+│   │   └── Footer.tsx              # Footer with hidden admin trigger
+│   ├── ui/
+│   │   └── modals/
+│   │       └── AdminSignInModal.tsx # Admin authentication modal
+│   ├── analytics/
+│   │   └── TrackedComponents.tsx   # Tracked button/link/form components
 │   ├── seo/                        # SEO components
-│   ├── blog/                       # Blog section component
-│   └── testimonials/               # Client testimonials section component
+│   └── shared-sections/            # Reusable sections
 ├── lib/
+│   ├── analytics/
+│   │   ├── index.ts                # Analytics module exports
+│   │   ├── analytics-engine.ts     # Core analytics engine
+│   │   ├── tracking.ts             # Tracking utility functions
+│   │   ├── hooks.ts                # React hooks (usePageTracking, etc.)
+│   │   ├── metadata.ts             # Enhanced metadata collection
+│   │   └── types.ts                # Analytics type definitions
+│   ├── auth/
+│   │   ├── jwt.ts                  # JWT token generation
+│   │   └── middleware.ts           # Role-based access control
 │   ├── services/                   # API services
 │   ├── utils/                      # Utility functions
 │   └── types/                      # TypeScript types
 └── hooks/                          # Custom React hooks
-```text
+```
 
 ---
 
@@ -92,10 +106,24 @@ src/
 
 ### 📊 **Analytics & SEO** - ✅ COMPLETE
 
-- **Enhanced Analytics**: Comprehensive tracking with construction-specific events
-- **Custom Event Tracking**: Form submissions, phone calls, scroll depth, time-on-page
+**Custom Analytics System:**
+
+- **Admin Dashboard**: Hidden access via triple-click footer (Matt & Jeremy only)
+- **Comprehensive Tracking**: Page views, clicks, forms, scrolls, time-on-page
+- **Enhanced Metadata**: Device, browser, OS, screen resolution, viewport
+- **Geographic Data**: Timezone, language, country/region inference
+- **Network Metrics**: Connection type, speed, latency, data saver mode
+- **Traffic Analysis**: Source, medium, campaign, referrer tracking
+- **Session Intelligence**: New/returning visitors, session count
+- **Privacy-First**: localStorage only, no PII, user-deletable
+- **Easy Integration**: `usePageTracking('Page Name')` - one line setup
+- **Tracked Components**: Drop-in replacements for buttons, links, forms
+
+**SEO:**
+
 - **Enhanced SEO Schema**: Organization, LocalBusiness, Service, Project markup
-- **Conversion Tracking**: Lead generation and user engagement analytics
+- **Dynamic Sitemap**: Auto-generated from active pages
+- **Robots.txt**: Optimized for AI crawlers, excludes admin pages
 
 ### 🎛️ **Content Management System** - ✅ COMPLETE
 
@@ -144,4 +172,7 @@ src/
 - **Design System**: Comprehensive style guide with Figma integration
 - **Testing Strategy**: Lighthouse performance monitoring and code quality checks
 - **CI/CD Pipeline**: Automated testing, building, and deployment workflows
-````
+
+```
+
+```

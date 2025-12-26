@@ -32,8 +32,11 @@
 2. **[Icon System](./technical/design-system/icon-system-complete.md)** - Material Icons
 3. **[Dark Mode Guide](./technical/dark-mode-implementation-guide.md)** - Complete dark mode implementation ⭐ **NEW**
 4. **[Dark Mode Quick Reference](./technical/dark-mode-quick-reference.md)** - Quick cheatsheet ⭐ **NEW**
-5. **[SEO Guide](./technical/seo/seo-complete-guide.md)** - Keywords, meta tags
-6. **[Navigation System](#navigation-pattern)** - Section-based navigation (Dec 2025)
+5. **[Analytics System](./technical/admin-analytics-system.md)** - Admin dashboard & tracking ⭐ **NEW**
+6. **[Analytics Tracking Guide](./technical/analytics-tracking-guide.md)** - Implementation guide ⭐ **NEW**
+7. **[Analytics Quick Reference](./technical/analytics-quick-reference.md)** - Quick tracking reference ⭐ **NEW**
+8. **[SEO Guide](./technical/seo/seo-complete-guide.md)** - Keywords, meta tags
+9. **[Navigation System](#navigation-pattern)** - Section-based navigation (Dec 2025)
 
 ### 🧭 Navigation Pattern (Dec 2025)
 

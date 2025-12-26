@@ -38,6 +38,7 @@ and proven craftsmanship. Call (509) 308-6489 for direct consultation.
 - **Icons:** Google Material Icons (font-based)
 - **Deployment:** Cloudflare Pages
 - **Email:** Resend API
+- **Analytics:** Custom tracking system with admin dashboard ⭐ NEW
 
 ---
 
@@ -83,7 +84,7 @@ CLOUDFLARE_API_TOKEN=your_api_token
 
 ## 📚 Documentation Structure
 
-**37 essential files organized by purpose:**
+**40 essential files organized by purpose:**
 
 ### 🎨 Branding (11 files)
 
@@ -99,10 +100,12 @@ CLOUDFLARE_API_TOKEN=your_api_token
 
 - ai-development-guidelines, consistency-guide, development-standards
 
-### 🔧 Technical (4 files)
+### 🔧 Technical (7 files)
 
 - buttons-ctas-complete-guide, icon-system-complete
+- dark-mode-implementation-guide, dark-mode-quick-reference
 - seo-complete-guide, cloudflare-guide
+- **Analytics:** admin-analytics-system, analytics-tracking-guide, analytics-quick-reference ⭐ NEW
 
 ### 📱 Marketing (2 files)
 

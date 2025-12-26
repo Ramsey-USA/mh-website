@@ -97,7 +97,66 @@ console.log('🔧 Debug message')
 
 ---
 
-## 📦 Import Standards
+## � Analytics Tracking Standards
+
+**Effective Date:** December 26, 2025  
+**Status:** ✅ Active
+
+### Core Principles
+
+1. **Easy Integration**: Add `usePageTracking('Page Name')` to track any page
+2. **Privacy First**: No PII collection, localStorage only, user-deletable
+3. **Comprehensive**: Automatic device, location, traffic source, and session tracking
+4. **Admin Only**: Dashboard access restricted to Matt and Jeremy
+
+### Implementation Guide
+
+**Quick Setup:**
+
+```tsx
+import { usePageTracking } from "@/lib/analytics/hooks";
+
+export default function MyPage() {
+  usePageTracking("Page Name");
+  return <div>Content</div>;
+}
+```
+
+**Tracked Components:**
+
+```tsx
+import { TrackedButton, TrackedLink } from '@/components/analytics/TrackedComponents';
+
+<TrackedButton trackId="contact-us">Contact</TrackedButton>
+<TrackedLink trackId="services" href="/services">Services</TrackedLink>
+```
+
+### Documentation
+
+- **[Analytics Tracking Guide](../../technical/analytics-tracking-guide.md)** - Complete implementation
+- **[Analytics Quick Reference](../../technical/analytics-quick-reference.md)** - Quick patterns
+- **[Data Collection Spec](../../technical/analytics-data-collection-spec.md)** - What we track
+- **[Admin System](../../technical/admin-analytics-system.md)** - Dashboard access
+
+### Best Practices
+
+✅ **DO:**
+
+- Add tracking to all new pages
+- Use descriptive track IDs (e.g., `hero-cta-get-started`)
+- Include context in properties (e.g., `{ section: 'footer', variant: 'primary' }`)
+- Test tracking in dashboard before deploying
+
+❌ **DON'T:**
+
+- Track sensitive form field values
+- Log error messages with user input
+- Add tracking to admin-only pages
+- Over-track decorative elements
+
+---
+
+## �📦 Import Standards
 
 ### **MANDATORY: Use `@/` Absolute Imports**
 

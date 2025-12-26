@@ -14,6 +14,8 @@ export type AnalyticsEventType =
   | "page_view"
   | "user_interaction"
   | "form_submission"
+  | "form_abandonment"
+  | "element_viewed"
   | "estimator_usage"
   | "recommendation_view"
   | "recommendation_click"
