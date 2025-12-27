@@ -10,6 +10,18 @@ import {
 } from "framer-motion";
 import { useRef, type ReactNode, useState, useEffect } from "react";
 import { TIMING } from "@/lib/constants/timing";
+import { getAnimationConfig } from "@/lib/performance/mobile-optimizations";
+
+// Get performance-aware animation config
+const animConfig =
+  typeof window !== "undefined"
+    ? getAnimationConfig()
+    : {
+        duration: 0.6,
+        staggerDelay: 0.1,
+        enableAnimations: true,
+        threshold: 0.2,
+      };
 
 // Fade in animation variants
 export const fadeInVariants = {
@@ -119,11 +131,15 @@ export function FadeInWhenVisible({
   children,
   className = "",
   delay = 0,
-  duration = 0.6,
+  duration = animConfig.duration,
 }: FadeInWhenVisibleProps) {
   const ref = useRef(null);
   // Use more generous margin for mobile compatibility
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "0px 0px -10% 0px",
+    amount: animConfig.threshold,
+  });
 
   // Always show content for elements that are initially visible
   const [shouldForceShow, setShouldForceShow] = useState(false);
@@ -147,6 +163,11 @@ export function FadeInWhenVisible({
 
     return () => clearTimeout(timer);
   }, []);
+
+  // Skip animations if user prefers reduced motion or on slow connections
+  if (!animConfig.enableAnimations || shouldForceShow) {
+    return <div className={className}>{children}</div>;
+  }
 
   const shouldShow = isInView || shouldForceShow;
 

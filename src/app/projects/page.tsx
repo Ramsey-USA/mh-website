@@ -5,20 +5,109 @@
 
 "use client";
 
+import dynamic from "next/dynamic";
 import { usePageTracking } from "@/lib/analytics/hooks";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PortfolioService } from "@/lib/services/portfolioService";
 import { useProjectsSearch } from "./components/useProjectsSearch";
+
+// Critical above-the-fold components - load with SSR
 import { ProjectsHero } from "./components/ProjectsHero";
-import { ProjectsStatsSection } from "./components/ProjectsStatsSection";
-import { VeteranBenefitsBanner } from "./components/VeteranBenefitsBanner";
 import { ProjectsFilterSection } from "./components/ProjectsFilterSection";
 import { ProjectsGridSection } from "./components/ProjectsGridSection";
-import { CapabilitiesSection } from "./components/CapabilitiesSection";
-import { WhyChooseSection } from "./components/WhyChooseSection";
-import { TestimonialsSection } from "./components/TestimonialsSection";
-import { PartnershipProcessSection } from "./components/PartnershipProcessSection";
-import { ProjectsCTASection } from "./components/ProjectsCTASection";
+
+// Lazy load below-the-fold sections for better mobile performance
+const ProjectsStatsSection = dynamic(
+  () =>
+    import("./components/ProjectsStatsSection").then((mod) => ({
+      default: mod.ProjectsStatsSection,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-64 animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  },
+);
+
+const VeteranBenefitsBanner = dynamic(
+  () =>
+    import("./components/VeteranBenefitsBanner").then((mod) => ({
+      default: mod.VeteranBenefitsBanner,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-48 animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  },
+);
+
+const CapabilitiesSection = dynamic(
+  () =>
+    import("./components/CapabilitiesSection").then((mod) => ({
+      default: mod.CapabilitiesSection,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  },
+);
+
+const WhyChooseSection = dynamic(
+  () =>
+    import("./components/WhyChooseSection").then((mod) => ({
+      default: mod.WhyChooseSection,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  },
+);
+
+const TestimonialsSection = dynamic(
+  () =>
+    import("./components/TestimonialsSection").then((mod) => ({
+      default: mod.TestimonialsSection,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  },
+);
+
+const PartnershipProcessSection = dynamic(
+  () =>
+    import("./components/PartnershipProcessSection").then((mod) => ({
+      default: mod.PartnershipProcessSection,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  },
+);
+
+const ProjectsCTASection = dynamic(
+  () =>
+    import("./components/ProjectsCTASection").then((mod) => ({
+      default: mod.ProjectsCTASection,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-64 animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  },
+);
+
 import { StrategicCTABanner } from "@/components/ui/cta";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { StructuredData } from "@/components/seo/seo-meta";

@@ -69,6 +69,65 @@ const nextConfig = {
       "@": require("path").resolve(__dirname, "src"),
     };
 
+    // Production optimizations
+    if (!dev && !isServer) {
+      // Enable persistent caching for faster rebuilds
+      config.cache = {
+        type: "filesystem",
+        compression: "gzip",
+      };
+
+      // Better code splitting
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          chunks: "all",
+          cacheGroups: {
+            default: false,
+            vendors: false,
+            // Framework chunk (React, Next.js)
+            framework: {
+              name: "framework",
+              test: /[\\/]node_modules[\\/](react|react-dom|scheduler|prop-types|use-subscription)[\\/]/,
+              priority: 40,
+              enforce: true,
+            },
+            // Lib chunk (large dependencies)
+            lib: {
+              test: /[\\/]node_modules[\\/]/,
+              name(module) {
+                const packageName = module.context.match(
+                  /[\\/]node_modules[\\/](.*?)(?:[\\/]|$)/,
+                )?.[1];
+                return `npm.${packageName?.replace("@", "")}`;
+              },
+              priority: 30,
+              minChunks: 1,
+              reuseExistingChunk: true,
+            },
+            // Commons chunk (shared code)
+            commons: {
+              name: "commons",
+              minChunks: 2,
+              priority: 20,
+            },
+            // Separate framer-motion into its own chunk
+            motion: {
+              test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
+              name: "framer-motion",
+              priority: 35,
+              reuseExistingChunk: true,
+            },
+          },
+          maxInitialRequests: 25,
+          minSize: 20000,
+        },
+        runtimeChunk: {
+          name: "runtime",
+        },
+      };
+    }
+
     return config;
   },
 
@@ -81,6 +140,9 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Optimize for mobile
+    unoptimized: false,
+    remotePatterns: [],
   },
 
   // === REDIRECTS ===

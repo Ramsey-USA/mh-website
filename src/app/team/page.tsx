@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { usePageTracking } from "@/lib/analytics/hooks";
 import { Button, IconContainer, GlowEffect } from "@/components/ui";
 import {
@@ -18,8 +19,6 @@ import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
-import { TestimonialGrid } from "@/components/testimonials";
-import { StrategicCTABanner } from "@/components/ui/cta";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getTeamSEO } from "@/lib/seo/page-seo-utils";
@@ -27,6 +26,22 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+
+// Lazy load below-the-fold heavy components for better mobile performance
+const TestimonialGrid = dynamic(
+  () =>
+    import("@/components/testimonials").then((mod) => ({
+      default: mod.TestimonialGrid,
+    })),
+  { ssr: false },
+);
+const StrategicCTABanner = dynamic(
+  () =>
+    import("@/components/ui/cta").then((mod) => ({
+      default: mod.StrategicCTABanner,
+    })),
+  { ssr: false },
+);
 
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = false;

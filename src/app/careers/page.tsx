@@ -33,13 +33,18 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 
-// Lazy load heavy below-the-fold components
+// Lazy load heavy below-the-fold components for mobile performance
 const TestimonialGrid = dynamic(
   () =>
     import("@/components/testimonials").then((mod) => ({
       default: mod.TestimonialGrid,
     })),
-  { ssr: true },
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  },
 );
 
 // Feature flag - set to false to show full page content

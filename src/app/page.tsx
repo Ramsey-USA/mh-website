@@ -16,7 +16,6 @@ import {
   ServicesShowcase,
   WhyPartnerSection,
 } from "@/components/home";
-import { CompanyStats } from "@/components/about/CompanyStats";
 
 // Shared sections - Lazy load below-the-fold content
 const TestimonialsSection = dynamic(
@@ -24,14 +23,30 @@ const TestimonialsSection = dynamic(
     import("@/components/shared-sections").then((mod) => ({
       default: mod.TestimonialsSection,
     })),
-  { ssr: true },
+  {
+    ssr: false,
+    loading: () => <div className="h-96 animate-pulse bg-gray-100" />,
+  },
 );
 const NextStepsSection = dynamic(
   () =>
     import("@/components/shared-sections").then((mod) => ({
       default: mod.NextStepsSection,
     })),
-  { ssr: true },
+  {
+    ssr: false,
+    loading: () => <div className="h-64 animate-pulse bg-gray-100" />,
+  },
+);
+const CompanyStats = dynamic(
+  () =>
+    import("@/components/about/CompanyStats").then((mod) => ({
+      default: mod.CompanyStats,
+    })),
+  {
+    ssr: false,
+    loading: () => <div className="h-96 animate-pulse bg-gray-100" />,
+  },
 );
 
 // PWA Components

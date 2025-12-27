@@ -4,8 +4,8 @@ import { Navigation, Footer } from "@/components/layout";
 import FaviconLinks from "@/components/layout/FaviconLinks";
 import { AuthProvider } from "@/lib/auth/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import { GlobalChatbotProvider } from "@/providers/GlobalChatbotProvider";
 import { WebVitalsReporter } from "@/components/performance/optimized-components";
+import { MobilePerformanceMonitor } from "@/components/performance/MobilePerformanceMonitor";
 import { ErrorBoundary } from "@/components/error";
 import {
   StructuredData,
@@ -14,8 +14,9 @@ import {
 } from "@/components/seo/seo-meta";
 import { SkipLink } from "@/components/ui/accessibility/SkipLink";
 import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
-import { PWAManager } from "@/components/pwa";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
+import { GlobalChatbotProvider } from "@/providers/GlobalChatbotProvider";
+import { PWAManager } from "@/components/pwa";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -176,23 +177,22 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* Google Material Icons - Direct load for immediate rendering */}
+        {/* Google Material Icons - Deferred for better mobile performance */}
         <link
-          href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
           rel="stylesheet"
+          media="print"
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          onLoad="this.media='all'"
         />
         {/* Preload critical hero image for faster LCP */}
         <link
           rel="preload"
           href="/images/logo/mh-veteran-bg.webp"
           as="image"
-          type="image/png"
+          type="image/webp"
         />
-        {/* Prefetch common navigation routes for faster page transitions */}
-        <link rel="prefetch" href="/services" />
-        <link rel="prefetch" href="/contact" />
-        <link rel="prefetch" href="/projects" />
-        <link rel="prefetch" href="/about" />
         {/* Enhanced Schema Markup */}
         <StructuredData
           data={[generateEnhancedOrganizationSchema(), generateWebsiteSchema()]}
@@ -200,6 +200,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans">
         <WebVitalsReporter />
+        <MobilePerformanceMonitor />
         <SkipLink />
         <ScrollProgress />
         <PWAManager />

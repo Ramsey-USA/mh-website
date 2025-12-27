@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { usePageTracking } from "@/lib/analytics/hooks";
 import {
   Button,
@@ -21,13 +22,27 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { InteractiveGrantSelector } from "./InteractiveGrantSelector";
-import { StrategicCTABanner } from "@/components/ui/cta";
 import { StructuredData } from "@/components/seo/seo-meta";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+
+// Lazy load heavy interactive components for better mobile performance
+const InteractiveGrantSelector = dynamic(
+  () =>
+    import("./InteractiveGrantSelector").then((mod) => ({
+      default: mod.InteractiveGrantSelector,
+    })),
+  { ssr: false },
+);
+const StrategicCTABanner = dynamic(
+  () =>
+    import("@/components/ui/cta").then((mod) => ({
+      default: mod.StrategicCTABanner,
+    })),
+  { ssr: false },
+);
 
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = true;

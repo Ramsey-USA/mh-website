@@ -8,13 +8,50 @@ interface GoogleAnalyticsProps {
 }
 
 export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
+  // Defer analytics initialization until after page is interactive
+  useEffect(() => {
+    // Only load on production and after user interaction or 3 seconds
+    if (process.env.NODE_ENV !== "production") return;
+
+    const loadAnalytics = () => {
+      console.info("[Analytics] Loading Google Analytics");
+    };
+
+    // Load after user interaction or timeout
+    const events = ["scroll", "click", "touchstart", "mousemove"];
+    const handleInteraction = () => {
+      loadAnalytics();
+      events.forEach((event) =>
+        window.removeEventListener(event, handleInteraction),
+      );
+    };
+
+    // Add interaction listeners
+    events.forEach((event) =>
+      window.addEventListener(event, handleInteraction, {
+        once: true,
+        passive: true,
+      }),
+    );
+
+    // Fallback timeout
+    const timeout = setTimeout(loadAnalytics, 3000);
+
+    return () => {
+      clearTimeout(timeout);
+      events.forEach((event) =>
+        window.removeEventListener(event, handleInteraction),
+      );
+    };
+  }, []);
+
   return (
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

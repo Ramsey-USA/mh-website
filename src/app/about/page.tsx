@@ -16,11 +16,7 @@ import {
   AboutHero,
   PartnershipPhilosophy,
   CompanyStats,
-  LeadershipTeam,
-  SafetySection,
-  AwardsSection,
 } from "@/components/about";
-import { CompanyEvolution } from "@/components/about/CompanyEvolution";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { StructuredData } from "@/components/seo/seo-meta";
@@ -32,7 +28,35 @@ import {
 // Enhanced SEO for veteran-owned heritage and proven track record
 import { getAboutSEO } from "@/lib/seo/page-seo-utils";
 
-// Lazy load heavy below-the-fold sections
+// Lazy load heavy below-the-fold sections for better mobile performance
+const LeadershipTeam = dynamic(
+  () =>
+    import("@/components/about").then((mod) => ({
+      default: mod.LeadershipTeam,
+    })),
+  { ssr: false },
+);
+const SafetySection = dynamic(
+  () =>
+    import("@/components/about").then((mod) => ({
+      default: mod.SafetySection,
+    })),
+  { ssr: false },
+);
+const AwardsSection = dynamic(
+  () =>
+    import("@/components/about").then((mod) => ({
+      default: mod.AwardsSection,
+    })),
+  { ssr: false },
+);
+const CompanyEvolution = dynamic(
+  () =>
+    import("@/components/about/CompanyEvolution").then((mod) => ({
+      default: mod.CompanyEvolution,
+    })),
+  { ssr: false },
+);
 const TestimonialsSection = dynamic(
   () =>
     import("@/components/shared-sections").then((mod) => ({

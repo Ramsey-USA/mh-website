@@ -11,20 +11,6 @@ import {
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
-import {
-  ServicesHero,
-  ServicesCTA,
-  coreServices,
-  specialtyServices,
-  serviceAreas,
-  ConstructionExpertiseSection,
-  CoreServicesSection,
-  SpecialtyServicesSection,
-  GovernmentProjectsSection,
-  ServiceAreasSection,
-  ConstructionProcessSection,
-  WhyChooseUs,
-} from "@/components/services";
 import { StrategicCTABanner } from "@/components/ui/cta";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
@@ -35,13 +21,129 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 
+// Lazy load above-the-fold critical sections - load with SSR
+const ServicesHero = dynamic(
+  () =>
+    import("@/components/services").then((mod) => ({
+      default: mod.ServicesHero,
+    })),
+  { ssr: true },
+);
+
+const CoreServicesSection = dynamic(
+  () =>
+    import("@/components/services").then((mod) => ({
+      default: mod.CoreServicesSection,
+    })),
+  { ssr: true },
+);
+
+// Lazy load below-the-fold sections for better mobile performance
+const SpecialtyServicesSection = dynamic(
+  () =>
+    import("@/components/services").then((mod) => ({
+      default: mod.SpecialtyServicesSection,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  },
+);
+
+const GovernmentProjectsSection = dynamic(
+  () =>
+    import("@/components/services").then((mod) => ({
+      default: mod.GovernmentProjectsSection,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  },
+);
+
+const ServiceAreasSection = dynamic(
+  () =>
+    import("@/components/services").then((mod) => ({
+      default: mod.ServiceAreasSection,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  },
+);
+
+const WhyChooseUs = dynamic(
+  () =>
+    import("@/components/services").then((mod) => ({
+      default: mod.WhyChooseUs,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  },
+);
+
+const ConstructionProcessSection = dynamic(
+  () =>
+    import("@/components/services").then((mod) => ({
+      default: mod.ConstructionProcessSection,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  },
+);
+
+const ConstructionExpertiseSection = dynamic(
+  () =>
+    import("@/components/services").then((mod) => ({
+      default: mod.ConstructionExpertiseSection,
+    })),
+  { ssr: true },
+);
+
+const ServicesCTA = dynamic(
+  () =>
+    import("@/components/services").then((mod) => ({
+      default: mod.ServicesCTA,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-64 animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  },
+);
+
+// Import data separately (not lazy loaded)
+import {
+  coreServices,
+  specialtyServices,
+  serviceAreas,
+} from "@/components/services";
+
 // Lazy load testimonials section for better performance
 const TestimonialsSection = dynamic(
   () =>
     import("@/components/shared-sections").then((mod) => ({
       default: mod.TestimonialsSection,
     })),
-  { ssr: true },
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  },
 );
 
 // Feature flag - set to false to show full page content
