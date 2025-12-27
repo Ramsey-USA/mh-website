@@ -1,5 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 
+export const runtime = "edge";
+
 export function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const url = searchParams.get("url");
