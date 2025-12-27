@@ -103,8 +103,13 @@ export function NextStepsSection({
 
           {/* Option 2: View Our Work */}
           <div className="group relative bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-2xl hover:shadow-3xl p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 border-2 border-brand-secondary flex flex-col h-full">
-            <div className="bg-secondary-700 -top-4 left-1/2 absolute px-4 py-1 rounded-full -translate-x-1/2 shadow-md">
-              <span className="font-bold text-sm text-white uppercase tracking-wide">
+            <div className="bg-gradient-to-r from-brand-secondary to-brand-secondary-dark -top-4 left-1/2 absolute px-5 py-1.5 rounded-full -translate-x-1/2 shadow-lg border-2 border-brand-secondary/30">
+              <span className="font-bold text-xs text-white uppercase tracking-wider flex items-center gap-1.5">
+                <MaterialIcon
+                  icon="star"
+                  size="sm"
+                  className="text-yellow-300"
+                />
                 Most Popular
               </span>
             </div>

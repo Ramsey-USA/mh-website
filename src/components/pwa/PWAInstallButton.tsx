@@ -105,10 +105,10 @@ export function PWAInstallButton() {
     <button
       onClick={handleInstallClick}
       disabled={isInstalling}
-      className="group flex items-center gap-3 bg-gradient-to-r from-blue-600/10 to-blue-500/10 hover:from-blue-600/20 hover:to-blue-500/20 p-3 rounded-lg border border-blue-600/30 hover:border-blue-500 transition-all duration-300 hover:scale-105 touch-manipulation mt-4 w-full disabled:opacity-50 disabled:cursor-not-allowed"
+      className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation mt-4 w-full disabled:opacity-50 disabled:cursor-not-allowed"
       aria-label="Install MH Construction app to your device"
     >
-      <div className="flex-shrink-0 flex justify-center items-center bg-blue-600 p-2 rounded-lg group-hover:scale-110 transition-transform">
+      <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
         <MaterialIcon
           icon={isInstalling ? "hourglass_empty" : "get_app"}
           size="md"
@@ -116,13 +116,13 @@ export function PWAInstallButton() {
         />
       </div>
       <div className="flex-grow min-w-0 text-left">
-        <div className="text-blue-400 text-xs font-bold uppercase tracking-wide mb-0.5">
+        <div className="text-brand-secondary text-xs font-bold uppercase tracking-wide mb-0.5">
           Install App
         </div>
-        <div className="text-gray-300 font-bold text-sm xs:text-base group-hover:text-blue-400 transition-colors mb-1">
+        <div className="text-gray-300 font-bold text-sm xs:text-base group-hover:text-brand-primary transition-colors mb-1">
           {isInstalling ? "Installing..." : "Get Our Mobile App"}
         </div>
-        <div className="flex items-center gap-1 text-blue-500 text-xs">
+        <div className="flex items-center gap-1 text-brand-primary text-xs">
           <MaterialIcon icon="offline_bolt" size="sm" />
           <span>Works Offline</span>
         </div>
@@ -130,7 +130,7 @@ export function PWAInstallButton() {
       <MaterialIcon
         icon="arrow_forward"
         size="sm"
-        className="text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
+        className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
       />
     </button>
   );

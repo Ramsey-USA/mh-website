@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { PWAInstallCTA, PWAInstallButton } from "@/components/pwa";
+import { PWAInstallButton } from "@/components/pwa";
 import { AdminSignInModal } from "@/components/ui/modals/AdminSignInModal";
 
 export default function Footer() {
@@ -169,9 +169,6 @@ export default function Footer() {
                   aria-label="Social media links"
                   className="flex items-center justify-center sm:justify-start gap-2 xs:gap-2.5 flex-wrap"
                 >
-                  {/* PWA Install Button */}
-                  <PWAInstallCTA variant="button" className="mr-2" />
-
                   <a
                     href="https://www.facebook.com/profile.php?id=61575511773974"
                     target="_blank"

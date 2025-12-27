@@ -10,6 +10,24 @@ const _log = DEBUG
       // Empty function for production - no logging
     };
 
+// Request persistent storage using modern Storage API (replaces deprecated StorageType.persistent)
+// This helps prevent cache eviction and ensures offline functionality
+async function requestPersistentStorage() {
+  if ("storage" in navigator && "persist" in navigator.storage) {
+    try {
+      const isPersisted = await navigator.storage.persist();
+      console.info(
+        `[SW] Persistent storage ${isPersisted ? "granted" : "denied"}`,
+      );
+      return isPersisted;
+    } catch (error) {
+      console.warn("[SW] Failed to request persistent storage:", error);
+      return false;
+    }
+  }
+  return false;
+}
+
 const _CACHE_NAME = "mh-construction-v4.0.0";
 const STATIC_CACHE_NAME = "mh-construction-static-v4.0.0";
 const DYNAMIC_CACHE_NAME = "mh-construction-dynamic-v4.0.0";
@@ -92,6 +110,8 @@ self.addEventListener("install", (event) => {
 
   event.waitUntil(
     Promise.all([
+      // Request persistent storage to prevent cache eviction (modern Storage API)
+      requestPersistentStorage(),
       // Cache critical assets first for faster offline experience
       caches
         .open(STATIC_CACHE_NAME)
