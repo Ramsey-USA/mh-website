@@ -2,16 +2,7 @@
 
 import { useState, useCallback } from "react";
 import Image from "next/image";
-import dynamic from "next/dynamic";
-
-// Dynamically import motion components to reduce bundle size
-const MotionDiv = dynamic(
-  () => import("framer-motion").then((mod) => mod.motion.div),
-  {
-    ssr: false,
-    loading: () => <div className="relative" />, // Fallback component
-  },
-);
+import { motion } from "framer-motion";
 
 interface OptimizedImageProps {
   src: string;
@@ -101,7 +92,7 @@ export function OptimizedImage({
 
   if (enableAnimation) {
     return (
-      <MotionDiv
+      <motion.div
         initial={{ opacity: 0, scale: 1.1 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -111,7 +102,7 @@ export function OptimizedImage({
         {!isLoaded && !hasError && (
           <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
         )}
-      </MotionDiv>
+      </motion.div>
     );
   }
 
@@ -162,7 +153,7 @@ export function GalleryImage({
   ...props
 }: GalleryImageProps) {
   return (
-    <MotionDiv
+    <motion.div
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
       className="group relative rounded-lg overflow-hidden cursor-pointer"
@@ -185,7 +176,7 @@ export function GalleryImage({
           {caption && <p className="font-medium text-sm">{caption}</p>}
         </div>
       </div>
-    </MotionDiv>
+    </motion.div>
   );
 }
 
