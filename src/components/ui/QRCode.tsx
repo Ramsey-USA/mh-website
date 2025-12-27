@@ -17,6 +17,23 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
+// Type for the qrcode library
+type QRCodeLibType = {
+  toCanvas: (
+    canvas: HTMLCanvasElement,
+    text: string,
+    options?: {
+      errorCorrectionLevel?: string;
+      width?: number;
+      margin?: number;
+      color?: {
+        dark?: string;
+        light?: string;
+      };
+    },
+  ) => Promise<void>;
+};
+
 interface QRCodeProps {
   /** URL to encode in the QR code */
   url?: string;
@@ -97,9 +114,7 @@ export function QRCode({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [QRCodeLib, setQRCodeLib] = useState<typeof import("qrcode") | null>(
-    null,
-  );
+  const [QRCodeLib, setQRCodeLib] = useState<QRCodeLibType | null>(null);
 
   // Dynamic generation - load QRCode library on client side
   useEffect(() => {
@@ -108,7 +123,7 @@ export function QRCode({
     const loadQRCode = async () => {
       try {
         const QRCodeModule = await import("qrcode");
-        setQRCodeLib(QRCodeModule.default);
+        setQRCodeLib(QRCodeModule.default as QRCodeLibType);
       } catch (_err) {
         setError("Failed to load QR code generator");
         setIsLoading(false);
@@ -123,6 +138,8 @@ export function QRCode({
     if (!url || !QRCodeLib || !canvasRef.current) return;
 
     const generateQR = async () => {
+      if (!canvasRef.current) return;
+
       try {
         setIsLoading(true);
         setError(null);

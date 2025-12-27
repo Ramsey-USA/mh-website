@@ -20,7 +20,7 @@ QR_CODES=(
   "phone" "email" "linkedin" "facebook" "instagram" "youtube" "twitter" "location"
   "team-jeremy-thamert" "team-mike-holstein" "team-todd-schoeff" "team-brooks-morris"
   "team-matt-ramsey" "team-porter-cline" "team-derek-parks" "team-ben-woodall"
-  "team-steve-mcclary" "team-arnold-garcia" "team-trigger" "team-lisa-kandle"
+  "team-steve-mcclary" "team-arnold-garcia" "team-lisa-kandle"
   "team-reagan-massey" "team-brittney-holstein" "team-jennifer-tene"
 )
 

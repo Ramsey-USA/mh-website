@@ -594,24 +594,6 @@
       "error": null
     },
     {
-      "name": "team-trigger",
-      "filename": "qr-team-trigger-color.png",
-      "variant": "color",
-      "url": "https://mhc-gc.com/team#trigger",
-      "description": "Trigger - Chief Morale Officer",
-      "success": true,
-      "error": null
-    },
-    {
-      "name": "team-trigger",
-      "filename": "qr-team-trigger-bw.png",
-      "variant": "bw",
-      "url": "https://mhc-gc.com/team#trigger",
-      "description": "Trigger - Chief Morale Officer",
-      "success": true,
-      "error": null
-    },
-    {
       "name": "team-lisa-kandle",
       "filename": "qr-team-lisa-kandle-color.png",
       "variant": "color",

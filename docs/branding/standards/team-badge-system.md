@@ -629,7 +629,6 @@ Process for deprecating badges:
 ## Related Documentation
 
 - [Color System](./color-system.md) - Brand color palette
-- [Team Data Structure](../../technical/design-system/team-data-structure.md) - Data schema
 - [Component Standards](./component-standards.md) - UI guidelines
 - [Brand Overview](../strategy/brand-overview.md) - Core values
 

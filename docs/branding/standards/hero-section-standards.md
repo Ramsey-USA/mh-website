@@ -274,7 +274,6 @@ Use this checklist when creating or reviewing any page's hero section:
 
 - [Typography Standards](./typography.md) - Full typography system
 - [Component Standards](./component-standards.md) - All component guidelines
-- [Branding Implementation Guide](../../development/branding/branding-implementation-guide.md) - Implementation details
 - [MH Branding](../) - Hub for all brand documentation
 
 ---

@@ -1,6 +1,6 @@
 # Admin Analytics System
 
-> **📊 Latest Enhancement (December 2025):** Analytics system now collects 100+ comprehensive data points including device info, user preferences, performance metrics, and security context. See [Analytics Enhancement Documentation](../../ANALYTICS-ENHANCEMENT-DEC-2025.md) for complete details.
+> **📊 Latest Enhancement (December 2025):** Analytics system now collects 100+ comprehensive data points including device info, user preferences, performance metrics, and security context. See archived documentation for complete details.
 
 ## Overview
 
@@ -79,10 +79,8 @@ A secure, hidden analytics dashboard accessible only to Matt and Jeremy through 
 
 ### Related Documentation
 
-- [Analytics Enhancement (Dec 2025)](../../ANALYTICS-ENHANCEMENT-DEC-2025.md) - Comprehensive data collection improvements
-- [Analytics Data Collection Checklist](../../ANALYTICS-DATA-COLLECTION-CHECKLIST.md) - Complete inventory of 100+ data points
-- [Browser Tab Titles Inventory](../../BROWSER-TAB-TITLES-INVENTORY.md) - SEO-optimized dual-label title system
-- [Analytics Quick Reference](../../analytics-quick-reference.md) - Quick start guide
+- [Analytics Tracking Guide](./analytics-tracking-guide.md) - Implementation details
+- [Analytics Quick Reference](./analytics-quick-reference.md) - Quick start guide
 
 ### Components Created
 
@@ -182,7 +180,6 @@ Before production deployment:
 
 - [Admin Password Security Guide](./admin-password-security.md)
 - [Secrets Management Guide](./secrets-management.md)
-- [Security Incident Response](../../SECURITY-INCIDENT-RESPONSE.md)loudflare
 - [ ] Enable Cloudflare Access for additional security
 - [ ] Review access logs regularly
 - [ ] Test authentication flow

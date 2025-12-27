@@ -7,8 +7,7 @@
 ## 🧭Quick Navigation
 
 - [📝 Page-Specific Messaging Guide](./page-specific-messaging-guide.md)
-- [🗂️ Slogan Rotation Guide](./slogan-rotation-guide.md)
-- [🏠 Documentation Home](../../START-HERE.md)
+- [🏠 Documentation Home](../../start-here.md)
 
 ---
 

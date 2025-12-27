@@ -57,15 +57,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   // Stub implementations - Authentication system not yet configured
   // These return Promises to match AuthContextType interface for future async implementation
-  const signIn = async () => {
+  const signIn = () => {
     return Promise.reject(new Error("Authentication not configured"));
   };
 
-  const signUp = async () => {
+  const signUp = () => {
     return Promise.reject(new Error("Authentication not configured"));
   };
 
-  const signInWithGoogle = async () => {
+  const signInWithGoogle = () => {
     return Promise.reject(new Error("Authentication not configured"));
   };
 
@@ -74,7 +74,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUserProfile(null);
   };
 
-  const resetPassword = async () => {
+  const resetPassword = () => {
     return Promise.reject(new Error("Authentication not configured"));
   };
 
@@ -85,7 +85,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUserProfile({ ...userProfile, ...updates });
   };
 
-  const updateUserProfileById = async () => {
+  const updateUserProfileById = () => {
     return Promise.reject(new Error("Authentication not configured"));
   };
 

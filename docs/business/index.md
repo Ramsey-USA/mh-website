@@ -45,7 +45,7 @@ Logistics Command (Administration & Support):
 
 ## Quick Links
 
-- [← Back to Documentation Home](../START-HERE.md)
+- [← Back to Documentation Home](../start-here.md)
 - [Branding Documentation](../branding/)
 - [Marketing Resources](../marketing/)
 

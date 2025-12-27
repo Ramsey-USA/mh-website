@@ -9,7 +9,7 @@
 
 - [📚 Development Standards](./development-standards.md)
 - [📚 Consistency Guide](./consistency-guide.md)
-- [🏠 Documentation Home](../../START-HERE.md)
+- [🏠 Documentation Home](../../start-here.md)
 
 ---
 
@@ -33,11 +33,9 @@ introduction of inconsistencies and bugs that have historically plagued this pro
   for all code
 - **[MH Branding](../../branding/)** - Modular brand standards (colors,
   typography, icons)
-- **[Typography Standards](../branding/standards/typography.md)** - Hero section
+- **[Typography Standards](../../branding/standards/typography.md)** - Hero section
   requirements, responsive scaling
-- **[Icon Policy](../technical/design-system/icon-policy.md)** - Material Icons only
-  (NO emojis in code)
-- **[Consistency Master Plan](../project/consistency-master-plan.md)** - Overall
+- **[Consistency Guide](./consistency-guide.md)** - Overall
   project consistency strategy
 
 **All brand and technical standards are mandatory and must be followed together.**
@@ -204,7 +202,7 @@ import { motion } from "framer-motion";
 ### Step 1: Read These Documents
 
 1. **This file** (ai-development-guidelines.md)
-2. [consistency-master-plan.md](../project/consistency-master-plan.md)
+2. consistency-guide.md
 3. [development-standards.md](./development-standards.md)
 
 ### Step 2: Understand the Problem
@@ -530,7 +528,7 @@ export function ComponentName({
 If you encounter situations not covered by these guidelines:
 
 1. Check [development-standards.md](./development-standards.md)
-2. Check [consistency-master-plan.md](../project/consistency-master-plan.md)
+2. Check consistency-guide.md
 3. Search existing code for similar patterns
 4. When creating something new, document the pattern for future reference
 

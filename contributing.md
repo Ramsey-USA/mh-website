@@ -29,7 +29,7 @@ emphasizes collaborative client relationships, professional Ally relationships, 
 - **Clients** 🏠 - Project collaborations with homeowners and businesses (routes: `/services`, `/contact`)
 - **Allies** 🏗️ - Business relationships with subcontractors and vendors (routes: `/allies`)
 
-See [Partnership Type Definitions](./docs/partnerships/partnership-type-definitions.md) for complete implementation guidelines.
+See [Brand Overview](./docs/branding/strategy/brand-overview.md) for complete brand guidelines.
 
 ### Current Status
 
@@ -210,7 +210,7 @@ export default Component;
 
 - **Tailwind Classes**: Use Tailwind utility classes
 - **Custom CSS**: Only when Tailwind is insufficient
-- **Responsive Design**: Mobile-first approach following [Mobile Optimization Guide](./docs/technical/design-system/mobile-optimization-guide.md)
+- **Responsive Design**: Mobile-first approach with Tailwind breakpoints
 - **CSS Variables**: Use design system tokens
 - **Touch Optimization**: Include `touch-manipulation` class for all interactive elements
 - **⚠️ CRITICAL**: Never use `.container` class in section wrappers - causes scroll capture issues
@@ -274,7 +274,7 @@ All markdown documentation files MUST follow kebab-case naming convention:
 - ❌ `MasterIndex.md`, `ARCHIVE_README.md`, `PHASE_CONSOLIDATION_PLAN.md`
 
 This ensures consistency across the project and improves maintainability for future developers.
-See the [Master Documentation Index](./docs/master-index.md) for the complete documentation structure.
+See the [Documentation Index](./docs/index.md) for the complete documentation structure.
 
 ## 🎨 Design System Compliance
 
@@ -777,7 +777,7 @@ All submissions are logged even if email service is unavailable (graceful fallba
 - **General Inquiries**: [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 - **General Email**: <office@mhc-gc.com>
 
-**Relationship Distinction:** See [Partnership Type Definitions](./docs/partnerships/partnership-type-definitions.md)
+**Relationship Distinction:** See [Brand Overview](./docs/branding/strategy/brand-overview.md)
 for guidance on client vs Ally communications.
 
 ---
@@ -797,7 +797,7 @@ partnerships through exceptional construction services.
 
 **Relationship Implementation:** Always maintain clear distinction between Clients
 (homeowners/businesses hiring us) and Allies (vendors/subcontractors working with us).
-See [Partnership Implementation Guide](./docs/development/reference/partnership-implementation-guide.md).
+See [Development Standards](./docs/development/standards/development-standards.md).
 
 ---
 

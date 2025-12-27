@@ -30,7 +30,7 @@ Messaging, voice, and brand positioning guidelines.
 
 ## Quick Links
 
-- [← Back to Documentation Home](../START-HERE.md)
+- [← Back to Documentation Home](../start-here.md)
 - [Technical Documentation](../technical/)
 - [Development Standards](../development/standards/)
 

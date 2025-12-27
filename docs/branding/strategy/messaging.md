@@ -28,7 +28,7 @@ AI/tech-focused messaging to veteran values and honest relationships:
 as part of our shift to veteran-owned values and direct human consultation. All CTAs now direct to
 `/contact` for personal communication focused on honest relationships and transparent pricing.
 
-**⭐ IMPORTANT UPDATE (Dec 2, 2025)**: New **[SEO Messaging Strategy](../../technical/seo/seo-messaging-strategy.md)**
+**⭐ IMPORTANT UPDATE (Dec 2, 2025)**: SEO-optimized messaging integrated throughout.
 provides systematic implementation of local SEO keywords across all website content using centralized content
 fragments and reusable patterns.
 
@@ -47,12 +47,9 @@ groups with unique voices, tones, and keyword priorities.
 - [📋 Brand Overview](./brand-overview.md)
 - [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Four-value professional system
 - [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
-- [🔍 SEO Messaging Strategy](../../technical/seo/seo-messaging-strategy.md) - ⭐ **NEW** - Local SEO optimization
-- [🧭 Navigation System](../../../NAVIGATION-UPDATE-COMPLETE-REPORT.md) - ⭐ **UPDATED** - Section-based
-  navigation (Dec 2025)
 - [🎨 Color System](../standards/color-system.md)
 - [📝 Typography](../standards/typography.md)
-- [🔧 Icon Policy](../standards/icon-policy-complete.md)
+- [🔧 Component Standards](../standards/component-standards.md)
 
 ---
 
@@ -118,7 +115,7 @@ these core values in hierarchical order:
 - "Contact" / "Rally Point" - Get in touch
 - "Emergency" / "Rapid Response" - Urgent support
 
-**Documentation**: See complete implementation in [Navigation Update Report](../../../NAVIGATION-UPDATE-COMPLETE-REPORT.md)
+**Documentation**: Section-based navigation implemented site-wide.
 
 **Current Implementation (Dec 2025)**:
 
@@ -586,7 +583,7 @@ Trust is the ultimate goal—earned through consistent demonstration of all four
 - "Your neighbors in quality construction across Eastern Washington"
 
 **⭐ SEO Integration**: For systematic application of location keywords across all web content, see the
-**[SEO Messaging Strategy](../../technical/seo/seo-messaging-strategy.md)** which provides:
+**SEO Messaging Strategy** provides:
 
 - Centralized SEO content fragments library
 - Reusable location and keyword patterns
@@ -924,12 +921,9 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 - **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** - ⭐ **CRITICAL** -
   7-group messaging strategy (MUST READ for content creators)
 - **[Brand Overview](./brand-overview.md)** - Complete brand identity guide
-- **[Homepage Optimization Guide](./homepage-optimization-complete.md)** - Trust-first optimization approach
-- **[SEO Optimization Complete](./seo-optimization.md)** - Complete SEO audit
 - **[Color System](../standards/color-system.md)** - Visual brand standards
 - **[Typography](../standards/typography.md)** - Text and font guidelines
-- **[Icon Policy](../standards/icon-policy-complete.md)** - Visual elements policy
-- **[Implementation Guide](../implementation/branding-quick-reference.md)** - Technical standards
+- **[Component Standards](../standards/component-standards.md)** - Visual elements
 - **[Branding](../)** - Hub for all brand documentation
 
 ---

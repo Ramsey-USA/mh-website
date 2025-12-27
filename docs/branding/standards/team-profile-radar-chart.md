@@ -367,7 +367,6 @@ interface TeamMemberSkills {
 
 - [Badge System](./team-badge-system.md) - Achievement recognition
 - [Color System](./color-system.md) - Brand color palette
-- [Team Data Schema](../../technical/design-system/team-data-structure.md) - Data structure
 - [Brand Overview](../strategy/brand-overview.md) - Core values
 
 ---

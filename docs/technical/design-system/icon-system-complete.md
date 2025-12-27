@@ -13,7 +13,7 @@
 - `icon-troubleshooting.md` (common issues & solutions)
 - `icon-usage-inventory.md` (site-wide inventory)
 
-**Navigation Hub:** [icons-index.md](./icons-index.md) - Quick links to all icon documentation
+**Complete Icon System:** Material Icons implementation guide and standards
 
 ---
 
@@ -877,10 +877,8 @@ import { MaterialIcon } from '@/components/ui/material-icon';
 
 ### Essential References
 
-- **[Icons Navigation Hub](./icons-index.md)** - Quick links and overview
 - **[Buttons & CTAs Complete Guide](./buttons-ctas-complete-guide.md)** - Icon usage in buttons
-- **[Design System Index](./design-system-index.md)** - Complete design system
-- **[Consistency Guide](../../development/consistency-guide.md)** - Implementation standards
+- **[Consistency Guide](../../development/standards/consistency-guide.md)** - Implementation standards
 
 ### Brand Guidelines
 
@@ -929,6 +927,5 @@ import { MaterialIcon } from '@/components/ui/material-icon';
 
 **Questions or Issues?**
 
-- [Icons Navigation Hub](./icons-index.md) - Quick access to all icon documentation
-- [Documentation Home](../../START-HERE.md) - Central documentation hub
+- [Documentation Home](../../start-here.md) - Central documentation hub
 - [Material Icons Library](https://mui.com/material-ui/material-icons/) - Browse available icons

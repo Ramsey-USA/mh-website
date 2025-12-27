@@ -8,7 +8,7 @@
 ## 🧭 Quick Navigation
 
 - [📚 Consistency Guide](./consistency-guide.md)
-- [🏠 Documentation Home](../START-HERE.md)
+- [🏠 Documentation Home](../../start-here.md)
 
 ---
 
@@ -135,7 +135,6 @@ import { TrackedButton, TrackedLink } from '@/components/analytics/TrackedCompon
 
 - **[Analytics Tracking Guide](../../technical/analytics-tracking-guide.md)** - Complete implementation
 - **[Analytics Quick Reference](../../technical/analytics-quick-reference.md)** - Quick patterns
-- **[Data Collection Spec](../../technical/analytics-data-collection-spec.md)** - What we track
 - **[Admin System](../../technical/admin-analytics-system.md)** - Dashboard access
 
 ### Best Practices
@@ -350,7 +349,7 @@ be gradually migrated during refactoring.
 
 **Rule**: Use style utilities from `/src/lib/styles/` instead of repeating className strings.
 
-**See**: [Style Utilities Guide](./style-utilities-guide.md) for complete documentation.
+**See**: Centralized style utilities for complete documentation.
 
 #### ✅ CORRECT - Use Style Utilities
 
@@ -436,7 +435,7 @@ causing sections to capture scroll events. Use `max-w-7xl` for proper page-level
    - SectionHeader with flexible options
    - 58% less code per section
 
-**Full Documentation**: [Style Utilities Guide](./style-utilities-guide.md)
+**Full Documentation**: See consistency guide for style standards
 
 ### **Primary: Tailwind Utility Classes**
 
@@ -671,11 +670,8 @@ Before committing code, ensure:
 
 ## 🔗 Related Documentation
 
-- [Style Utilities Guide](./style-utilities-guide.md) - **NEW** - Centralized style utilities
-- [Consistency Master Plan](../project/consistency-master-plan.md) - Overall consistency strategy
+- [Consistency Guide](./consistency-guide.md) - Component and layout standards
 - [AI Development Guidelines](./ai-development-guidelines.md) - Guidelines for AI assistants
-- [Troubleshooting Guide](./TROUBLESHOOTING.md) - Common issues and solutions
-- [Refactoring Roadmap](../technical/refactoring-roadmap.md) - Refactoring history and standards
 
 ---
 

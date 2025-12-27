@@ -382,18 +382,6 @@ Generated: 12/24/2025, 10:02:38 PM
 - **File:** `qr-team-arnold-garcia-bw.png`
 - **URL:** <https://mhc-gc.com/team#arnold-garcia>
 
-### ✅ Trigger - Chief Morale Officer (Color)
-
-- **Name:** `team-trigger`
-- **File:** `qr-team-trigger-color.png`
-- **URL:** <https://mhc-gc.com/team#trigger>
-
-### ✅ Trigger - Chief Morale Officer (B&W)
-
-- **Name:** `team-trigger`
-- **File:** `qr-team-trigger-bw.png`
-- **URL:** <https://mhc-gc.com/team#trigger>
-
 ### ✅ Lisa Kandle - Office Manager (Color)
 
 - **Name:** `team-lisa-kandle`

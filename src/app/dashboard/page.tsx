@@ -7,14 +7,20 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import type { AnalyticsDashboardData } from "@/lib/analytics/types";
 import { dataCollector } from "@/lib/analytics/data-collector";
 
-/**
- * Mission Control - Analytics Dashboard
- * Command Center for Matt and Jeremy
- * OPERATIONAL INTELLIGENCE: Real-time tactical analytics
- *
- * SEO: This page is excluded from search engines via robots.txt
- * Access: Hidden authentication via triple-click footer
- */
+interface LocalAnalyticsData {
+  pageviews: {
+    pages: Record<string, number>;
+    total: number;
+    lastView?: string;
+  };
+  events: unknown[];
+  sessions: unknown[];
+  interactions: unknown[];
+  forms: unknown[];
+  conversions: { contacts?: number; consultations?: number; total?: number };
+  clicks: Array<{ element?: string; state?: string; city?: string }>;
+}
+
 export default function AnalyticsDashboardPage() {
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -25,7 +31,7 @@ export default function AnalyticsDashboardPage() {
   } | null>(null);
   const [analyticsData, setAnalyticsData] =
     useState<AnalyticsDashboardData | null>(null);
-  const [localData, setLocalData] = useState<any>(null);
+  const [localData, setLocalData] = useState<LocalAnalyticsData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -485,7 +491,11 @@ function MilitaryMetricCard({
   );
 }
 
-function GeographicHeatMap({ clicks }: { clicks: any[] }) {
+function GeographicHeatMap({
+  clicks,
+}: {
+  clicks: Array<{ state?: string; city?: string }>;
+}) {
   // Aggregate clicks by city/state
   const locationCounts: Record<
     string,
@@ -570,7 +580,7 @@ function GeographicHeatMap({ clicks }: { clicks: any[] }) {
   );
 }
 
-function TopLocations({ clicks }: { clicks: any[] }) {
+function TopLocations({ clicks }: { clicks: Array<{ state?: string }> }) {
   // Count by state for target market analysis
   const stateCounts: Record<string, number> = {};
   clicks.forEach((click) => {
@@ -638,7 +648,11 @@ function TopLocations({ clicks }: { clicks: any[] }) {
   );
 }
 
-function CTAPerformanceGrid({ clicks }: { clicks: any[] }) {
+function CTAPerformanceGrid({
+  clicks,
+}: {
+  clicks: Array<{ element?: string }>;
+}) {
   // Aggregate clicks by element ID
   const ctaCounts: Record<string, number> = {};
   clicks.forEach((click) => {

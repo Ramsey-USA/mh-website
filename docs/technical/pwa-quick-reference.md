@@ -5,7 +5,7 @@
 **Related Documentation:**
 
 - [PWA Full Documentation](./pwa-documentation.md) - Complete guide
-- [Browser Titles](./BROWSER-TAB-TITLES-INVENTORY.md) - Title system used in PWA
+- [Browser Titles](./browser-tab-titles-inventory.md) - Title system used in PWA
 
 ---
 

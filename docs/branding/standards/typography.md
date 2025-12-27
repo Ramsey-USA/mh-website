@@ -9,9 +9,9 @@
 ## Quick Navigation
 
 - [🏠 Brand Documentation](../)
-- [📋 Brand Overview](./brand-overview.md)
+- [📋 Brand Overview](../strategy/brand-overview.md)
 - [🎨 Color System](./color-system.md)
-- [🔧 Icon Policy](./icon-policy.md)
+- [🔧 Component Standards](./component-standards.md)
 - [🎯 Hero Section Standards](./hero-section-standards.md) ⭐ **UPDATED Dec 14, 2025**
 
 ---
@@ -941,10 +941,9 @@ className = "text-gray-900 dark:text-gray-100";
 
 ## Related Documentation
 
-- [**Brand Overview**](./brand-overview.md) - Complete brand identity guide
+- [**Brand Overview**](../strategy/brand-overview.md) - Complete brand identity guide
 - [**Color System**](./color-system.md) - Color palette and usage
-- [**Icon Policy**](./icon-policy.md) - Material Icons standards
-- [**Implementation Guide**](./implementation-guide.md) - Technical implementation
+- [**Component Standards**](./component-standards.md) - Component design patterns
 - [**Branding**](../) - Hub for all brand documentation
 
 ---

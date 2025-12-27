@@ -12,7 +12,7 @@ veteran-owned excellence, honest communication, transparent pricing, and proven 
 
 - [🎯 Development Standards](./development-standards.md) - Core standards
 - [🎨 Branding](../../branding/) - Brand guidelines
-- [🏠 Documentation Home](../../START-HERE.md) - Central documentation hub
+- [🏠 Documentation Home](../../start-here.md) - Central documentation hub
 
 ---
 
@@ -35,7 +35,7 @@ veteran-owned excellence, honest communication, transparent pricing, and proven 
 ### November 15, 2025 Update
 
 **⭐ CRITICAL FOR ALL CONTENT DEVELOPMENT:** All pages must follow the 7-group messaging strategy
-documented in **[Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md)**.
+documented in **[Page-Specific Messaging Guide](../../branding/strategy/page-specific-messaging-guide.md)**.
 
 ### Why This Matters
 
@@ -89,10 +89,8 @@ prioritization:
 
 **SEO Impact:**
 
-- Homepage follows trust-first approach (see
-  [Homepage Optimization](../branding/strategy/homepage-optimization-complete.md))
-- All 15 pages optimized (see
-  [SEO Optimization Complete](../branding/strategy/seo-optimization.md))
+- Homepage follows trust-first approach (see [Page-Specific Messaging Guide](../../branding/strategy/page-specific-messaging-guide.md))
+- All pages optimized with strategic keyword ordering
 - Keyword ordering varies by messaging group
 - Technology mentions positioned strategically by group
 
@@ -956,7 +954,7 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 #### Messaging Compliance
 
 - [ ] Aligned with appropriate messaging group from
-      [Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md)
+      [Page-Specific Messaging Guide](../../branding/strategy/page-specific-messaging-guide.md)
 - [ ] Voice and tone match page group requirements
 - [ ] Keyword prioritization follows group strategy
 - [ ] Partnership language emphasized appropriately for group
@@ -1009,21 +1007,15 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 
 ## 📚 Related Documentation
 
-- **[Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md)** - ⭐
+- **[Page-Specific Messaging Guide](../../branding/strategy/page-specific-messaging-guide.md)** - ⭐
   **CRITICAL** - 7-group messaging strategy
-- **[Section Visual Standards](./guidelines/section-visual-standards.md)** - ⭐ **NEW** -
-  Complete section styling guide
-- **[Homepage Optimization Guide](../branding/strategy/homepage-optimization-complete.md)** - Trust-first
-  optimization approach
-- **[SEO Optimization Complete](../branding/strategy/seo-optimization.md)** - Complete
-  SEO audit
-- **[Design System](../technical/design-system/design-system.md)** - Complete design system
-- **[Mobile Optimization Guide](../../technical/design-system/mobile-optimization-guide.md)** - Mobile
-  patterns (includes quick reference cheat sheet)
-- **[Brand Strategy](../branding/strategy/)** - Brand identity and messaging
-- **[Brand Standards](../branding/standards/)** - Visual and typography standards
-- **[Component Library](../components/ui/mh-ui-guide.md)** - UI components
-- **[Developer Checklist](./reference/developer-checklist.md)** - Pre-commit checks
+- **[Brand Overview](../../branding/strategy/brand-overview.md)** - Complete brand standards
+- **[Brand Overview](../../branding/strategy/brand-overview.md)** - Complete brand standards
+- **[Design System Components](../../technical/design-system/buttons-ctas-complete-guide.md)** - Complete design system
+- **[Icon System](../../technical/design-system/icon-system-complete.md)** - Icon standards
+- **[Brand Strategy](../../branding/strategy/)** - Brand identity and messaging
+- **[Brand Standards](../../branding/standards/)** - Visual and typography standards
+- **[Component Standards](../../branding/standards/component-standards.md)** - UI components
 
 ---
 

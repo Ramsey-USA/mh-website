@@ -10,7 +10,7 @@
 This directory contains **only deployment and environment-specific configurations** for Cloudflare, Docker, and CI/CD.
 
 **For complete configuration documentation, see:**
-📖 **[Configuration Guide](../docs/technical/configuration-guide.md)** - Comprehensive guide to all config files
+**For full documentation:** See [Documentation Index](../docs/index.md)
 
 ---
 
@@ -47,8 +47,6 @@ All framework and build tool configurations are in the **project root** for bett
 | `postcss.config.js`  | PostCSS CSS processing     | Root     |
 | `cspell.json`        | CSpell spell checking      | Root     |
 | `package.json`       | Dependencies & scripts     | Root     |
-
-**Full Documentation:** [Configuration Guide](../docs/technical/configuration-guide.md)
 
 ---
 
@@ -141,14 +139,11 @@ config/
 
 ## 📚 Related Documentation
 
-- **[Configuration Guide](./../docs/technical/configuration-guide.md)** - Complete configuration system documentation
-- **[Development Standards](./../docs/development/development-standards.md)** - Coding standards and practices
-- **[Cloudflare Deployment](./../docs/deployment/cloudflare-complete-guide.md)** - Deployment setup guide
-- **[Development Index](./../docs/development/development-index.md)** - Developer resources
+- **[Development Standards](./../docs/development/standards/development-standards.md)** - Coding standards and practices
+- **[Cloudflare Deployment](./../docs/deployment/cloudflare-guide.md)** - Deployment setup guide
 
 ---
 
-**For Questions:** See [Configuration Guide](../docs/technical/configuration-guide.md) or
-[Development Documentation](../docs/development/development-index.md)
+**For Questions:** See [Documentation Index](../docs/index.md)
 
 **Last Updated:** November 8, 2025

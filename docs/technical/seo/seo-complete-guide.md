@@ -1016,8 +1016,7 @@ node scripts/seo-audit.js /your-page
 
 ### Internal Documentation
 
-- [SEO Index](./seo-index.md) - Navigation hub
-- [SEO Compliance Status](./seo-compliance-status.md) - Current status tracking
+- [Analytics Tracking Guide](../analytics-tracking-guide.md) - Implementation details
 
 ### External Resources
 

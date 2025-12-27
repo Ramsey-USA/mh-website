@@ -67,7 +67,7 @@ export function requireRole(
     context?: unknown,
   ) => Promise<NextResponse>,
 ) {
-  return requireAuth(async (request, user, context) => {
+  return requireAuth((request, user, context) => {
     if (!user.role || !allowedRoles.includes(user.role)) {
       logger.warn("Insufficient permissions", {
         userId: user.uid,

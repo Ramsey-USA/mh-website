@@ -11,10 +11,9 @@ transparent communication.
 ## 🧭 Quick Navigation
 
 - [📖 Universal Terminology Guide](./universal-terminology-guide.md) ⭐ **NEW**
-- [🎖️ Military-Construction Terminology](./military-construction-terminology.md) ⭐ **NEW** - Professional military terms
-- [🗂️ Slogan Rotation Guide](./slogan-rotation-guide.md)
+
 - [📝 Messaging Guidelines](./messaging.md)
-- [🏠 Documentation Home](../../START-HERE.md)
+- [🏠 Documentation Home](../../start-here.md)
 
 ---
 
@@ -175,7 +174,7 @@ specific terms and phrases.
 - **Exploiting veteran status** for sales pressure or manipulation
 
 **Note:** Use military-construction terminology professionally per the
-**[Military-Construction Terminology Guide](./military-construction-terminology.md)**. Terms like
+Professional military terms like
 SITREP, mission brief, recon, rally point, AO, and ROE are ENCOURAGED when used naturally and
 appropriately.
 

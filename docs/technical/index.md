@@ -15,15 +15,10 @@ Technical implementation guides, design system documentation, analytics tracking
 
 Complete analytics tracking system with geographic tracking, CTA effectiveness, journey stages, lead scoring, and military-themed dashboard.
 
-- **[Complete System Reference](./ANALYTICS-COMPLETE-SYSTEM-REFERENCE.md)** - Everything in one place ⭐ **NEW**
-- **[Owner's Guide](../ANALYTICS-GUIDE-FOR-MATT-AND-JEREMY.md)** - Complete guide for Matt & Jeremy ⭐ **NEW**
+- **[Owner's Guide](../../analytics-guide-for-matt-and-jeremy.md)** - Complete guide for Matt & Jeremy ⭐ **NEW**
 - **[Admin Analytics System](./admin-analytics-system.md)** - Admin dashboard, authentication, features
 - **[Analytics Tracking Guide](./analytics-tracking-guide.md)** - Complete implementation guide
 - **[Analytics Quick Reference](./analytics-quick-reference.md)** - Quick setup reference
-- **[Analytics Enhancement Dec 2025](./ANALYTICS-ENHANCEMENT-DEC-2025.md)** - Latest enhancements
-- **[Analytics Data Collection Checklist](./ANALYTICS-DATA-COLLECTION-CHECKLIST.md)** - 100+ data points
-- **[Analytics Data Collection Spec](./analytics-data-collection-spec.md)** - What we track and why
-- **[Implementation Complete](./ANALYTICS-IMPLEMENTATION-COMPLETE.md)** - System overview
 
 **Key Features:**
 
@@ -53,7 +48,7 @@ Component implementation and technical design documentation.
 Search engine optimization guidelines, dual-label military/construction messaging.
 
 - **[SEO Complete Guide](./seo/seo-complete-guide.md)** - Keywords, meta tags, structured data
-- **[Browser Titles Inventory](./BROWSER-TAB-TITLES-INVENTORY.md)** - Complete dual-label title system ⭐ **NEW**
+- **[Browser Titles Inventory](./browser-tab-titles-inventory.md)** - Complete dual-label title system ⭐ **NEW**
 
 ## Tech Stack
 
@@ -67,10 +62,9 @@ Search engine optimization guidelines, dual-label military/construction messagin
 
 ## Quick Links
 
-- [← Back to Documentation Home](../START-HERE.md)
+- [← Back to Documentation Home](../start-here.md)
 - [Development Standards](../development/standards/)
 - [Branding Documentation](../branding/)
-- [Project Architecture](../project/architecture.md)
 
 ---
 

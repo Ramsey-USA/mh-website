@@ -27,8 +27,8 @@ groups aligned with SEO optimization strategy.
 - [📝 Messaging Guidelines](./messaging.md) - Built on core values
 - [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
 - [🎨 Color System](../standards/color-system.md)
-- [🔧 Icon Policy](../standards/icon-policy-complete.md)
-- [📝 Typography](../standards/typography.md)
+- [� Typography](../standards/typography.md)
+- [🔧 Component Standards](../standards/component-standards.md)
 
 ---
 
@@ -329,12 +329,8 @@ See [Core Values](../../business/core-values.md) for complete details on our fou
 - **[Messaging Guidelines](./messaging.md)** - Voice and tone built on core values
 - **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** - ⭐ **CRITICAL** -
   7-group messaging strategy for all pages
-- **[Homepage Optimization Guide](./homepage-optimization-complete.md)** - Trust-first optimization approach
-- **[SEO Optimization Complete](./seo-optimization.md)** - Complete SEO audit
-- [**Color System**](./color-system.md) - Complete brand color palette
-- [**Icon Policy**](./icon-policy.md) - Material Icons standards
-- [**Typography**](./typography.md) - Font system and text guidelines
-- [**Implementation Guide**](./implementation-guide.md) - Technical implementation
+- [**Color System**](../standards/color-system.md) - Complete brand color palette
+- [**Typography**](../standards/typography.md) - Font system and standards
 - [**Branding**](../) - Hub for all brand documentation
 
 ---

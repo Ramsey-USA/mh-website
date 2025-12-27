@@ -6,8 +6,7 @@
 
 **Related Documentation:**
 
-- [Browser Titles Inventory](./docs/technical/BROWSER-TAB-TITLES-INVENTORY.md) - Complete title system
-- [Analytics Enhancement](./docs/technical/ANALYTICS-ENHANCEMENT-DEC-2025.md) - Latest tracking improvements
+- [Browser Titles Inventory](./docs/technical/browser-tab-titles-inventory.md) - Complete title system
 
 ---
 
@@ -164,13 +163,11 @@ npm run type-check         # TypeScript check
 
 ## 📚 Documentation
 
-**Main Guide:** [`docs/technical/seo/ultimate-seo-guide.md`](./docs/technical/seo/ultimate-seo-guide.md)
+**Main Guide:** [`docs/technical/seo/seo-complete-guide.md`](./docs/technical/seo/seo-complete-guide.md)
 
 **Quick Links:**
 
-- [SEO Index](./docs/technical/seo/seo-index.md)
-- [Compliance Status](./docs/technical/seo/seo-compliance-status.md)
-- [Enhancement Guide](./docs/technical/seo/seo-enhancement-guide.md)
+- [SEO Complete Guide](./docs/technical/seo/seo-complete-guide.md)
 
 ---
 

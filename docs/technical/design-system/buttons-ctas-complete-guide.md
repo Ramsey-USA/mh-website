@@ -1274,22 +1274,19 @@ export function MobileCTA() {
 ### Essential References
 
 - **[Button System Documentation](./buttons-ctas-complete-guide.md)** - This complete guide (you are here)
-- **[Section Enhancement Patterns](../../branding/implementation/section-enhancement-patterns.md)** - Technical patterns
-- **[Partnership Type Definitions](../../partnerships/partnership-type-definitions.md)** - Client vs Trade
 - **[Messaging Guidelines](../../branding/strategy/messaging.md)** - Voice & tone
 - **[Color System](../../branding/standards/color-system.md)** - Brand colors
 
 ### Design System
 
-- **[Design System Index](./design-system-index.md)** - Complete design system
-- **[Icon System](./icons-index.md)** - Material Icon standards
+- **[Icon System Complete](./icon-system-complete.md)** - Material Icon standards
 - **[Typography](../../branding/standards/typography.md)** - Text styling
 
 ### Development
 
-- **[Consistency Guide](../../development/consistency-guide.md)** - Implementation standards
-- **[Development Standards](../../development/development-standards.md)** - Coding conventions
-- **[Documentation Home](../../START-HERE.md)** - Central documentation hub
+- **[Consistency Guide](../../development/standards/consistency-guide.md)** - Implementation standards
+- **[Development Standards](../../development/standards/development-standards.md)** - Coding conventions
+- **[Documentation Home](../../start-here.md)** - Central documentation hub
 
 ---
 
@@ -1332,5 +1329,5 @@ export function MobileCTA() {
 **Questions or Issues?**
 
 - [Button System Documentation](./buttons-ctas-complete-guide.md) - This complete guide
-- [Documentation Home](../../START-HERE.md) - Central documentation hub
-- [Consistency Guide](../../development/consistency-guide.md) - General implementation standards
+- [Documentation Home](../../start-here.md) - Central documentation hub
+- [Consistency Guide](../../development/standards/consistency-guide.md) - General implementation standards

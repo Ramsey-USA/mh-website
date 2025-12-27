@@ -1408,8 +1408,6 @@ blur layer: from-brand-secondary to-brand-secondary-dark opacity-30
 - **[MH Branding](../)** - Hub for all brand documentation
 - **[Typography Standards](./typography.md)** - Text and heading standards
 - **[Color System](./color-system.md)** - Brand color definitions
-- **[Icon Policy](./icon-policy.md)** - Material Icons standards
-- **[Page Layout Standards](../../technical/design-system/layout-guide.md)** - Layout specifications
 
 ---
 

@@ -37,16 +37,14 @@
 5. **[Analytics System](./technical/admin-analytics-system.md)** - Admin dashboard & tracking
 6. **[Analytics Tracking Guide](./technical/analytics-tracking-guide.md)** - Implementation guide
 7. **[Analytics Quick Reference](./technical/analytics-quick-reference.md)** - Quick tracking reference
-8. **[Analytics Enhancement](./technical/ANALYTICS-ENHANCEMENT-DEC-2025.md)** - Dec 2025 enhancements (100+ data points) ⭐ **NEW**
-9. **[Analytics Data Collection](./technical/ANALYTICS-DATA-COLLECTION-CHECKLIST.md)** - Complete data inventory ⭐ **NEW**
-10. **[Marketing Analytics Guide](../ANALYTICS-GUIDE-FOR-MATT-AND-JEREMY.md)** - Complete guide for Matt & Jeremy with geographic tracking, CTA effectiveness, journey stages, lead scoring ⭐ **NEW (Dec 27)**
-11. **[Browser Titles Inventory](./technical/BROWSER-TAB-TITLES-INVENTORY.md)** - Dual-label SEO titles ⭐ **NEW**
-12. **[PWA Documentation](./technical/pwa-documentation.md)** - Progressive Web App implementation
-13. **[PWA Quick Reference](./technical/pwa-quick-reference.md)** - PWA cheatsheet ⭐ **NEW**
-14. **[Media Optimization](./technical/automatic-media-optimization.md)** - Automatic image/video optimization ⭐ **NEW**
-15. **[Image Optimization Guide](./technical/image-optimization-guide.md)** - Implementation details ⭐ **NEW**
-16. **[SEO Guide](./technical/seo/seo-complete-guide.md)** - Keywords, meta tags
-17. **[Navigation System](#-navigation-pattern-dec-2025)** - Section-based navigation (Dec 2025)
+8. **[Marketing Analytics Guide](../analytics-guide-for-matt-and-jeremy.md)** - Complete guide for Matt & Jeremy with geographic tracking, CTA effectiveness, journey stages, lead scoring ⭐ **NEW (Dec 27)**
+9. **[Browser Titles Inventory](./technical/browser-tab-titles-inventory.md)** - Dual-label SEO titles ⭐ **NEW**
+10. **[PWA Documentation](./technical/pwa-documentation.md)** - Progressive Web App implementation
+11. **[PWA Quick Reference](./technical/pwa-quick-reference.md)** - PWA cheatsheet ⭐ **NEW**
+12. **[Media Optimization](./technical/automatic-media-optimization.md)** - Automatic image/video optimization ⭐ **NEW**
+13. **[Image Optimization Guide](./technical/image-optimization-guide.md)** - Implementation details ⭐ **NEW**
+14. **[SEO Guide](./technical/seo/seo-complete-guide.md)** - Keywords, meta tags
+15. **[Navigation System](#-navigation-pattern-dec-2025)** - Section-based navigation (Dec 2025)
 
 ### 🧭 Navigation Pattern (Dec 2025)
 
@@ -90,7 +88,7 @@
 
 - Test suite: `test-analytics.html` (comprehensive system verification)
 - Dashboard: `/dashboard` (live data visualization)
-- Guide: `ANALYTICS-GUIDE-FOR-MATT-AND-JEREMY.md`
+- Guide: `analytics-guide-for-matt-and-jeremy.md`
 
 **Key Files:**
 
@@ -112,7 +110,7 @@
 
 ```text
 docs/
-├── START-HERE.md (you are here)
+├── start-here.md (you are here)
 ├── branding/
 │   ├── index.md
 │   ├── standards/ (4 files)
@@ -149,8 +147,8 @@ docs/
 ├── deployment/
 │   └── cloudflare-guide.md
 ├── marketing/
-│   ├── GBP-POST-TEMPLATES.md
-│   └── GOOGLE-BUSINESS-PROFILE-GUIDE.md
+│   ├── gbp-post-templates.md
+│   └── google-business-profile-guide.md
 └── project/
     └── architecture.md
 ```

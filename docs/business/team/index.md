@@ -10,7 +10,7 @@
 ## 🧭 Quick Navigation
 
 - [← Back to Business Documentation](../)
-- [← Back to Documentation Home](../../START-HERE.md)
+- [← Back to Documentation Home](../../start-here.md)
 - [Core Values](../core-values.md)
 - [Services](../services.md)
 - [Careers](/careers) - Build your career on a foundation of trust

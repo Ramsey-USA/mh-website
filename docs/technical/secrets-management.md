@@ -212,7 +212,7 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-...
 
    - Implement monitoring
 
-See [SECURITY-INCIDENT-RESPONSE.md](../../SECURITY-INCIDENT-RESPONSE.md) for detailed procedures.
+See security documentation for detailed incident response procedures.
 
 ---
 

@@ -10,8 +10,7 @@
 
 - [🏠 Brand Documentation](../)
 - [📋 Brand Overview](../strategy/brand-overview.md)
-- [🔧 Icon Policy](../../technical/design-system/icon-policy.md)
-- [📝 Typography](./typography.md)
+- [Typography](./typography.md)
 - [🎯 Hero Section Standards](./hero-section-standards.md) ⭐ **UPDATED Dec 14, 2025**
 
 ---
@@ -1194,10 +1193,9 @@ module.exports = {
 
 ## Related Documentation
 
-- [**Brand Overview**](./brand-overview.md) - Complete brand identity guide
-- [**Icon Policy**](./icon-policy.md) - Material Icons standards
+- [**Brand Overview**](../strategy/brand-overview.md) - Complete brand identity guide
 - [**Typography**](./typography.md) - Font system and text guidelines
-- [**Implementation Guide**](./implementation-guide.md) - Technical implementation
+- [**Component Standards**](./component-standards.md) - Component design patterns
 - [**Branding**](../) - Hub for all brand documentation
 
 ---

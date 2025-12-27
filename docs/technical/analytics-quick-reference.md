@@ -4,9 +4,8 @@
 
 **Related Documentation:**
 
-- [Analytics Enhancement Guide](./ANALYTICS-ENHANCEMENT-DEC-2025.md) - Latest improvements
-- [Data Collection Checklist](./ANALYTICS-DATA-COLLECTION-CHECKLIST.md) - Complete data inventory
-- [Full Implementation Guide](./ANALYTICS-IMPLEMENTATION-COMPLETE.md) - Complete overview
+- [Analytics Tracking Guide](./analytics-tracking-guide.md) - Complete implementation guide
+- [Admin Analytics System](./admin-analytics-system.md) - Dashboard access
 
 ---
 

@@ -8,7 +8,7 @@ import { logger } from "@/lib/utils/logger";
 
 export const runtime = "edge";
 
-export async function GET(request: NextRequest) {
+export function GET(request: NextRequest) {
   try {
     // Extract Cloudflare geolocation headers
     // These are automatically added by Cloudflare in production

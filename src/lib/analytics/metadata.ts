@@ -269,7 +269,17 @@ export function getMemoryInfo(): Record<string, unknown> {
   if (typeof window === "undefined") return {};
 
   // Performance memory API (Chrome/Edge only)
-  const performance = (window as any).performance;
+  const performance = (
+    window as Window & {
+      performance?: {
+        memory?: {
+          jsHeapSizeLimit: number;
+          totalJSHeapSize: number;
+          usedJSHeapSize: number;
+        };
+      };
+    }
+  ).performance;
   if (performance?.memory) {
     return {
       jsHeapSizeLimit: performance.memory.jsHeapSizeLimit,
@@ -364,7 +374,7 @@ export async function getEnhancedTrackingProperties(): Promise<
   let geographicLocation: GeographicLocation | undefined;
   try {
     geographicLocation = await getGeographicLocation();
-  } catch (error) {
+  } catch (_error) {
     // Silently fail if geolocation unavailable
     geographicLocation = undefined;
   }

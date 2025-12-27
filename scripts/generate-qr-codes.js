@@ -255,12 +255,6 @@ const QR_CODES = [
     label: "ARNOLD GARCIA",
   },
   {
-    name: "team-trigger",
-    url: `${BASE_URL}/team#trigger`,
-    description: "Trigger - Chief Morale Officer",
-    label: "TRIGGER 🐕",
-  },
-  {
     name: "team-lisa-kandle",
     url: `${BASE_URL}/team#lisa-kandle`,
     description: "Lisa Kandle - Office Manager",
