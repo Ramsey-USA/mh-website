@@ -97,8 +97,9 @@ export function QRCode({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [QRCodeLib, setQRCodeLib] = useState<any>(null);
+  const [QRCodeLib, setQRCodeLib] = useState<typeof import("qrcode") | null>(
+    null,
+  );
 
   // Dynamic generation - load QRCode library on client side
   useEffect(() => {

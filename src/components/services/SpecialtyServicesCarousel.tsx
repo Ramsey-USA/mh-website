@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { TIMING } from "@/lib/constants/timing";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { SpecialtyServiceCard } from "./SpecialtyServiceCard";
 import type { SpecialtyService } from "./servicesData";
@@ -38,20 +39,29 @@ export function SpecialtyServicesCarousel({
     setCurrentIndex((prev) => (prev + 1) % services.length);
     setIsAutoPlaying(false);
     // Resume auto-play after 10 seconds
-    setTimeout(() => setIsAutoPlaying(autoPlay), 10000);
+    setTimeout(
+      () => setIsAutoPlaying(autoPlay),
+      TIMING.CAROUSEL.SERVICES_INTERVAL,
+    );
   }, [services.length, autoPlay]);
 
   const goToPrevious = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? services.length - 1 : prev - 1));
     setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(autoPlay), 10000);
+    setTimeout(
+      () => setIsAutoPlaying(autoPlay),
+      TIMING.CAROUSEL.SERVICES_INTERVAL,
+    );
   }, [services.length, autoPlay]);
 
   const goToSlide = useCallback(
     (index: number) => {
       setCurrentIndex(index);
       setIsAutoPlaying(false);
-      setTimeout(() => setIsAutoPlaying(autoPlay), 10000);
+      setTimeout(
+        () => setIsAutoPlaying(autoPlay),
+        TIMING.CAROUSEL.SERVICES_INTERVAL,
+      );
     },
     [autoPlay],
   );
@@ -69,7 +79,7 @@ export function SpecialtyServicesCarousel({
     if (!touchStart || !touchEnd) return;
 
     const distance = touchStart - touchEnd;
-    const minSwipeDistance = 50;
+    const minSwipeDistance = TIMING.INTERACTION.MIN_SWIPE_DISTANCE;
 
     if (distance > minSwipeDistance) {
       goToNext();

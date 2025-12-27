@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { COMPANY_INFO } from "@/lib/constants/company";
+import { TIMING } from "@/lib/constants/timing";
 import {
   CHATBOT_CONFIG,
   type ChatbotContext,
@@ -51,7 +53,10 @@ export function GlobalChatbot({
   // Focus input when opened
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 100);
+      setTimeout(
+        () => inputRef.current?.focus(),
+        TIMING.PERFORMANCE.FOCUS_DELAY,
+      );
     }
   }, [isOpen]);
 
@@ -193,7 +198,7 @@ export function GlobalChatbot({
         {/* Quick Action - Call */}
         <div className="px-4 py-2 bg-stone-50 dark:bg-stone-800 border-t border-stone-200 dark:border-stone-700">
           <a
-            href="tel:+15093086489"
+            href={`tel:${COMPANY_INFO.phone.tel}`}
             className="flex items-center justify-center gap-2 text-sm text-brand-primary hover:text-brand-primary/80 transition-colors font-medium"
           >
             <MaterialIcon icon="phone" size="sm" />

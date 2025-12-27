@@ -1,4 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server";
+import { logger } from "@/lib/utils/logger";
 
 export const runtime = "edge";
 
@@ -55,7 +56,7 @@ export async function POST(request: NextRequest) {
       status: 303,
     });
   } catch (error) {
-    console.error("[File Handler] Error processing files:", error);
+    logger.error("[File Handler] Error processing files:", error);
     return NextResponse.json(
       { error: "Failed to process files" },
       { status: 500 },

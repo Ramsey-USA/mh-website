@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { Card, CardContent } from "@/components/ui";
+import { Card, CardContent, Button } from "@/components/ui";
 import {
   FadeInWhenVisible,
   StaggeredFadeIn,
@@ -185,16 +185,16 @@ export function SimpleProjectCards({
       {/* Bottom CTA */}
       <FadeInWhenVisible className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 text-center">
         <Link href="/projects">
-          <button className="flex items-center gap-2 bg-secondary-700 hover:bg-secondary-800 px-6 py-3 rounded-lg font-semibold text-white transition-colors duration-200 min-w-[200px]">
-            <MaterialIcon icon="photo_library" size="sm" />
+          <Button variant="secondary" size="lg" className="min-w-[200px]">
+            <MaterialIcon icon="photo_library" size="sm" className="mr-2" />
             <span>View All Projects</span>
-          </button>
+          </Button>
         </Link>
         <Link href="/contact">
-          <button className="flex items-center gap-2 bg-brand-primary hover:bg-brand-primary/90 px-6 py-3 rounded-lg font-semibold text-white transition-colors duration-200 min-w-[200px]">
-            <MaterialIcon icon="phone" size="sm" />
+          <Button variant="primary" size="lg" className="min-w-[200px]">
+            <MaterialIcon icon="phone" size="sm" className="mr-2" />
             <span>Schedule Consultation</span>
-          </button>
+          </Button>
         </Link>
       </FadeInWhenVisible>
     </div>

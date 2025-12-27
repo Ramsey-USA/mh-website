@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import { StructuredData } from "@/components/seo/seo-meta";
 import {
   generateBreadcrumbSchema,
@@ -115,7 +116,7 @@ export default function AccessibilityPage() {
                 <br />
                 Phone:{" "}
                 <a
-                  href="tel:+15093086489"
+                  href={`tel:${COMPANY_INFO.phone.tel}`}
                   className="text-brand-primary hover:underline"
                 >
                   (509) 308-6489

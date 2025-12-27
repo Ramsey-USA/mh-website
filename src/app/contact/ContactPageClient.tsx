@@ -101,24 +101,24 @@ export default function ContactPageClient() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "GeneralContractor",
-    name: "MH Construction",
+    name: COMPANY_INFO.name,
     description:
       "Expert concrete, carpentry, and general contracting services in Pasco, WA and the Pacific Northwest",
-    url: "https://www.mhc-gc.com",
-    telephone: "+1-509-308-6489",
-    email: "office@mhc-gc.com",
+    url: COMPANY_INFO.urls.site,
+    telephone: COMPANY_INFO.phone.tel,
+    email: COMPANY_INFO.email.main,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "3111 N. Capitol Ave.",
-      addressLocality: "Pasco",
-      addressRegion: "WA",
-      postalCode: "99301",
-      addressCountry: "US",
+      streetAddress: COMPANY_INFO.address.street,
+      addressLocality: COMPANY_INFO.address.city,
+      addressRegion: COMPANY_INFO.address.stateCode,
+      postalCode: COMPANY_INFO.address.zip,
+      addressCountry: COMPANY_INFO.address.country,
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: "46.2589",
-      longitude: "-119.1297",
+      latitude: COMPANY_INFO.coordinates.latitude.toString(),
+      longitude: COMPANY_INFO.coordinates.longitude.toString(),
     },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -413,11 +413,11 @@ export default function ContactPageClient() {
                             Client Services
                           </p>
                           <a
-                            href="tel:+15093086489"
+                            href={`tel:${COMPANY_INFO.phone.tel}`}
                             className="text-brand-primary hover:text-brand-secondary text-lg font-bold transition-colors"
-                            aria-label="Call Client services at 509-308-6489"
+                            aria-label={`Call Client services at ${COMPANY_INFO.phone.display}`}
                           >
-                            (509) 308-6489
+                            {COMPANY_INFO.phone.display}
                           </a>
                         </div>
                       </div>
@@ -536,11 +536,11 @@ export default function ContactPageClient() {
                             Ally Inquiries
                           </p>
                           <a
-                            href="tel:+15093086489"
+                            href={`tel:${COMPANY_INFO.phone.tel}`}
                             className="text-brand-secondary hover:text-bronze-600 text-lg font-bold transition-colors"
-                            aria-label="Call Ally inquiries at 509-308-6489"
+                            aria-label={`Call Ally inquiries at ${COMPANY_INFO.phone.display}`}
                           >
-                            (509) 308-6489
+                            {COMPANY_INFO.phone.display}
                           </a>
                         </div>
                       </div>
@@ -1131,8 +1131,8 @@ export default function ContactPageClient() {
                     View Urgent Services
                   </Link>
                   <a
-                    href="tel:+15093086489"
-                    aria-label="Call MH Construction urgently at 509-308-6489"
+                    href={`tel:${COMPANY_INFO.phone.tel}`}
+                    aria-label={`Call MH Construction urgently at ${COMPANY_INFO.phone.display}`}
                     className="inline-flex items-center gap-3 bg-orange-800 hover:bg-orange-900 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-200 hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-900/50"
                   >
                     <MaterialIcon
@@ -1140,7 +1140,7 @@ export default function ContactPageClient() {
                       size="lg"
                       ariaLabel="Urgent Call"
                     />
-                    Call: (509) 308-6489
+                    Call: {COMPANY_INFO.phone.display}
                   </a>
                 </div>
                 <p className="mt-6 text-white/70 text-sm">

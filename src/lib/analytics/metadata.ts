@@ -124,6 +124,8 @@ export function getConnectionInfo(): Record<string, unknown> {
     return {};
   }
 
+  // Network Information API not in standard TypeScript definitions
+  // Using any is necessary for vendor-prefixed experimental APIs
   /* eslint-disable @typescript-eslint/no-explicit-any */
   const connection =
     (navigator as any).connection ||

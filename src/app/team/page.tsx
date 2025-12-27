@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button } from "@/components/ui";
+import { Button, IconContainer, GlowEffect } from "@/components/ui";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -586,14 +586,18 @@ export default function TeamPage() {
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
-                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
-                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                          <GlowEffect
+                            gradient="primary-dark"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="primary">
                             <MaterialIcon
                               icon="groups"
                               size="lg"
                               className="text-white drop-shadow-lg"
                             />
-                          </div>
+                          </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Team Unity
@@ -615,7 +619,7 @@ export default function TeamPage() {
                 <div className="scroll-reveal">
                   <div className="group relative flex h-full">
                     {/* Animated Border Glow */}
-                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <GlowEffect gradient="bronze" />
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
@@ -623,8 +627,12 @@ export default function TeamPage() {
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
-                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40 opacity-30 blur-lg rounded-full"></div>
-                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-secondary to-brand-secondary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                          <GlowEffect
+                            gradient="bronze"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="secondary">
                             <MaterialIcon
                               icon="volunteer_activism"
                               size="lg"
@@ -632,7 +640,7 @@ export default function TeamPage() {
                               ariaLabel="Mutual support"
                               className="text-white drop-shadow-lg"
                             />
-                          </div>
+                          </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Mutual Support
@@ -655,7 +663,7 @@ export default function TeamPage() {
                 <div className="scroll-reveal">
                   <div className="group relative flex h-full">
                     {/* Animated Border Glow */}
-                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <GlowEffect gradient="primary-dark" />
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
@@ -663,14 +671,18 @@ export default function TeamPage() {
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
-                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
-                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary-dark to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                          <GlowEffect
+                            gradient="primary-dark"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="primary">
                             <MaterialIcon
                               icon="military_tech"
                               size="lg"
                               className="text-white drop-shadow-lg"
                             />
-                          </div>
+                          </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Shared Success
@@ -920,7 +932,7 @@ export default function TeamPage() {
                 <div className="scroll-reveal">
                   <div className="group relative flex h-full">
                     {/* Animated Border Glow */}
-                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <GlowEffect gradient="primary-dark" />
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
@@ -928,14 +940,18 @@ export default function TeamPage() {
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
-                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
-                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                          <GlowEffect
+                            gradient="primary-dark"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="primary">
                             <MaterialIcon
                               icon="school"
                               size="lg"
                               className="text-white drop-shadow-lg"
                             />
-                          </div>
+                          </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Continuous Training
@@ -956,7 +972,7 @@ export default function TeamPage() {
                 <div className="scroll-reveal">
                   <div className="group relative flex h-full">
                     {/* Animated Border Glow */}
-                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <GlowEffect gradient="primary-dark" />
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
@@ -964,15 +980,19 @@ export default function TeamPage() {
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
-                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
-                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                          <GlowEffect
+                            gradient="primary-dark"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="primary">
                             <MaterialIcon
                               icon="sync_alt"
                               size="lg"
                               ariaLabel="Cross-training"
                               className="text-white drop-shadow-lg"
                             />
-                          </div>
+                          </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Cross-Training Programs
@@ -992,7 +1012,7 @@ export default function TeamPage() {
                 <div className="scroll-reveal">
                   <div className="group relative flex h-full">
                     {/* Animated Border Glow */}
-                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <GlowEffect gradient="bronze" />
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
@@ -1000,15 +1020,19 @@ export default function TeamPage() {
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
-                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
-                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-secondary to-bronze-700 rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                          <GlowEffect
+                            gradient="bronze"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="bronze">
                             <MaterialIcon
                               icon="supervisor_account"
                               size="lg"
                               ariaLabel="Mentorship"
                               className="text-white drop-shadow-lg"
                             />
-                          </div>
+                          </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Structured Mentorship
@@ -1028,7 +1052,7 @@ export default function TeamPage() {
                 <div className="scroll-reveal">
                   <div className="group relative flex h-full">
                     {/* Animated Border Glow */}
-                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <GlowEffect gradient="primary-dark" />
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
@@ -1036,14 +1060,18 @@ export default function TeamPage() {
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
-                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
-                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                          <GlowEffect
+                            gradient="primary-dark"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="primary">
                             <MaterialIcon
                               icon="trending_up"
                               size="lg"
                               className="text-white drop-shadow-lg"
                             />
-                          </div>
+                          </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Clear Advancement Paths
@@ -1063,7 +1091,7 @@ export default function TeamPage() {
                 <div className="scroll-reveal">
                   <div className="group relative flex h-full">
                     {/* Animated Border Glow */}
-                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <GlowEffect gradient="primary-dark" />
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
@@ -1071,15 +1099,19 @@ export default function TeamPage() {
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
-                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
-                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                          <GlowEffect
+                            gradient="primary-dark"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="primary">
                             <MaterialIcon
                               icon="badge"
                               size="lg"
                               ariaLabel="Leadership development"
                               className="text-white drop-shadow-lg"
                             />
-                          </div>
+                          </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Leadership Development
@@ -1099,7 +1131,7 @@ export default function TeamPage() {
                 <div className="scroll-reveal">
                   <div className="group relative flex h-full">
                     {/* Animated Border Glow */}
-                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                    <GlowEffect gradient="bronze" />
 
                     <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                       {/* Top Accent Bar */}
@@ -1107,15 +1139,19 @@ export default function TeamPage() {
 
                       <div className="p-8 flex flex-col flex-1">
                         <div className="relative inline-block mx-auto mb-6">
-                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
-                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-secondary to-bronze-700 rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                          <GlowEffect
+                            gradient="bronze"
+                            opacity={30}
+                            animate={false}
+                          />
+                          <IconContainer size="md" gradient="bronze">
                             <MaterialIcon
                               icon="connect_without_contact"
                               size="lg"
                               ariaLabel="Industry involvement"
                               className="text-white drop-shadow-lg"
                             />
-                          </div>
+                          </IconContainer>
                         </div>
                         <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl text-center">
                           Industry Involvement

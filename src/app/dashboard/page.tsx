@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import type { AnalyticsDashboardData } from "@/lib/analytics/types";
 
@@ -43,7 +44,7 @@ export default function AnalyticsDashboardPage() {
       // Fetch analytics data
       fetchAnalyticsData(token);
     } catch (err) {
-      console.error("Auth error:", err);
+      logger.error("Auth error:", err);
       router.push("/");
     }
   }, [router]);
@@ -63,7 +64,7 @@ export default function AnalyticsDashboardPage() {
       const data = await response.json();
       setAnalyticsData(data);
     } catch (err) {
-      console.error("Analytics fetch error:", err);
+      logger.error("Analytics fetch error:", err);
       setError("Failed to load analytics data");
     } finally {
       setIsLoading(false);

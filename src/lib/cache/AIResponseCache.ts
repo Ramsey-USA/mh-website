@@ -4,6 +4,7 @@
  */
 
 import { logger } from "@/lib/utils/logger";
+import { TIMING } from "@/lib/constants/timing";
 
 export interface CacheEntry {
   key: string;
@@ -29,7 +30,7 @@ class AIResponseCache {
     if (typeof window !== "undefined") {
       this.loadFromStorage();
       // Clean up expired entries every minute
-      setInterval(() => this.cleanup(), 60000);
+      setInterval(() => this.cleanup(), TIMING.CACHE.AI_RESPONSE_CLEANUP);
     }
   }
 

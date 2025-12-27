@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
@@ -123,7 +124,7 @@ export function ServicesCTA() {
                   ariaLabel="Phone"
                 />
                 <a
-                  href="tel:+15093086489"
+                  href={`tel:${COMPANY_INFO.phone.tel}`}
                   className="hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors"
                   aria-label="Call MH Construction at (509) 308-6489"
                 >

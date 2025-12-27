@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import { TIMING } from "@/lib/constants/timing";
 
 // Intersection Observer hook with performance optimization
 export function useIntersectionObserver(
@@ -90,7 +91,10 @@ export function useImagePreloader(sources: string[]) {
 }
 
 // Debounced scroll handler
-export function useDebounceScroll(callback: () => void, delay = 100) {
+export function useDebounceScroll(
+  callback: () => void,
+  delay = TIMING.PERFORMANCE.DEBOUNCE_SCROLL,
+) {
   const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   const debouncedCallback = useCallback(() => {
@@ -108,7 +112,10 @@ export function useDebounceScroll(callback: () => void, delay = 100) {
 }
 
 // Throttled resize handler
-export function useThrottleResize(callback: () => void, delay = 250) {
+export function useThrottleResize(
+  callback: () => void,
+  delay = TIMING.PERFORMANCE.THROTTLE_RESIZE,
+) {
   const lastRan = useRef(Date.now());
 
   const throttledCallback = useCallback(() => {
@@ -184,7 +191,10 @@ export function useMemoryMonitoring() {
     updateMemoryInfo();
 
     // Update every 5 seconds
-    const interval = setInterval(updateMemoryInfo, 5000);
+    const interval = setInterval(
+      updateMemoryInfo,
+      TIMING.MONITORING.MEMORY_UPDATE_INTERVAL,
+    );
 
     return () => clearInterval(interval);
   }, []);

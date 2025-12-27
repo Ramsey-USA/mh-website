@@ -131,6 +131,7 @@ export function ActivityFeed({
       }));
 
     setActivities(shuffled);
+    // Intentionally omitting SAMPLE_ACTIVITIES from deps - we only want to regenerate when maxActivities changes
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [maxActivities]);
 

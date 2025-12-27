@@ -1,4 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server";
+import { logger } from "@/lib/utils/logger";
 
 export const runtime = "edge";
 
@@ -60,7 +61,7 @@ export function GET(request: NextRequest) {
         });
     }
   } catch (error) {
-    console.error("[Protocol Handler] Error parsing URL:", error);
+    logger.error("[Protocol Handler] Error parsing URL:", error);
     return NextResponse.redirect(new URL("/", request.url), { status: 302 });
   }
 }

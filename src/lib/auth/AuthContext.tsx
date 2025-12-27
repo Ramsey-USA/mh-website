@@ -55,42 +55,36 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [loading] = useState(false);
 
-  // These functions return Promises to match the AuthContextType interface
-  // eslint-disable-next-line require-await
+  // Stub implementations - Authentication system not yet configured
+  // These return Promises to match AuthContextType interface for future async implementation
   const signIn = async () => {
     return Promise.reject(new Error("Authentication not configured"));
   };
 
-  // eslint-disable-next-line require-await
   const signUp = async () => {
     return Promise.reject(new Error("Authentication not configured"));
   };
 
-  // eslint-disable-next-line require-await
   const signInWithGoogle = async () => {
     return Promise.reject(new Error("Authentication not configured"));
   };
 
-  // eslint-disable-next-line require-await
   const logout = async () => {
     setUser(null);
     setUserProfile(null);
-    return Promise.resolve();
   };
 
-  // eslint-disable-next-line require-await
   const resetPassword = async () => {
     return Promise.reject(new Error("Authentication not configured"));
   };
 
-  // eslint-disable-next-line require-await
   const updateUserProfile = async (updates: Partial<UserProfile>) => {
-    if (!userProfile) return Promise.reject(new Error("No user profile"));
+    if (!userProfile) {
+      throw new Error("No user profile");
+    }
     setUserProfile({ ...userProfile, ...updates });
-    return Promise.resolve();
   };
 
-  // eslint-disable-next-line require-await
   const updateUserProfileById = async () => {
     return Promise.reject(new Error("Authentication not configured"));
   };

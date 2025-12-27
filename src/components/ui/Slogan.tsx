@@ -8,6 +8,7 @@
  */
 
 import React from "react";
+import { SectionContainer } from "@/components/layout";
 import {
   getSloganForPage,
   getSloganDetails,
@@ -291,7 +292,7 @@ export function HeroWithSlogan({
           : undefined
       }
     >
-      <div className="container mx-auto px-4 text-center">
+      <SectionContainer padding="compact" className="text-center">
         <h1 className="mb-6 text-5xl font-bold leading-tight md:text-6xl lg:text-7xl">
           {heading}
         </h1>
@@ -311,7 +312,7 @@ export function HeroWithSlogan({
         />
 
         {cta && <div className="flex justify-center">{cta}</div>}
-      </div>
+      </SectionContainer>
     </section>
   );
 }

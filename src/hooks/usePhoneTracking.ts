@@ -5,6 +5,7 @@
 
 import { useCallback } from "react";
 import { trackPhoneCall } from "@/lib/utils/phoneTracking";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 interface UsePhoneTrackingReturn {
   trackAndCall: (source: string) => void;
@@ -30,7 +31,7 @@ export function usePhoneTracking(): UsePhoneTrackingReturn {
 
     // Initiate the phone call
     if (typeof window !== "undefined") {
-      window.location.href = "tel:+15093086489";
+      window.location.href = `tel:${COMPANY_INFO.phone.tel}`;
     }
   }, []);
 

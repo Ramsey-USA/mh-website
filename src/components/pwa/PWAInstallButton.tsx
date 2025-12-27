@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 interface BeforeInstallPromptEvent extends Event {
@@ -90,7 +91,7 @@ export function PWAInstallButton() {
       setDeferredPrompt(null);
       setIsInstallable(false);
     } catch (error) {
-      console.error("[PWA] Install prompt error:", error);
+      logger.error("[PWA] Install prompt error:", error);
     } finally {
       setIsInstalling(false);
     }

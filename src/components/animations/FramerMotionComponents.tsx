@@ -9,6 +9,7 @@ import {
   useInView,
 } from "framer-motion";
 import { useRef, type ReactNode, useState, useEffect } from "react";
+import { TIMING } from "@/lib/constants/timing";
 
 // Fade in animation variants
 export const fadeInVariants = {
@@ -139,7 +140,10 @@ export function FadeInWhenVisible({
 
     // Check immediately and after a short delay
     checkInitialVisibility();
-    const timer = setTimeout(checkInitialVisibility, 100);
+    const timer = setTimeout(
+      checkInitialVisibility,
+      TIMING.PERFORMANCE.VISIBILITY_CHECK,
+    );
 
     return () => clearTimeout(timer);
   }, []);

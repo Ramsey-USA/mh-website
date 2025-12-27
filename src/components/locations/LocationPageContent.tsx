@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui";
+import { SectionContainer } from "@/components/layout";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { enhancedSEO } from "@/components/seo/enhanced-seo";
@@ -85,7 +86,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
       <main className="min-h-screen">
         {/* Hero Section - Location Specific */}
         <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20 sm:py-28 md:py-36 lg:py-44">
-          <div className="container mx-auto px-4">
+          <SectionContainer padding="compact">
             <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
               {/* Location Badge */}
               <div className="flex items-center justify-center gap-2 text-brand-secondary">
@@ -165,12 +166,12 @@ export function LocationPageContent({ location }: LocationPageProps) {
                 </div>
               </div>
             </div>
-          </div>
+          </SectionContainer>
         </section>
 
         {/* Services Section */}
         <section className="py-16 sm:py-20 md:py-24 bg-white dark:bg-gray-900">
-          <div className="container mx-auto px-4">
+          <SectionContainer padding="compact">
             <div className="max-w-5xl mx-auto">
               {/* Section Header */}
               <div className="text-center mb-16 sm:mb-20">
@@ -268,12 +269,12 @@ export function LocationPageContent({ location }: LocationPageProps) {
                 </div>
               </div>
             </div>
-          </div>
+          </SectionContainer>
         </section>
 
         {/* Why Choose MH Construction */}
         <section className="py-16 sm:py-20 md:py-24 bg-gray-50 dark:bg-gray-800">
-          <div className="container mx-auto px-4">
+          <SectionContainer padding="compact">
             <div className="max-w-5xl mx-auto">
               {/* Section Header */}
               <div className="text-center mb-16 sm:mb-20">
@@ -378,12 +379,12 @@ export function LocationPageContent({ location }: LocationPageProps) {
                 </div>
               </div>
             </div>
-          </div>
+          </SectionContainer>
         </section>
 
         {/* Contact CTA Section */}
         <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-brand-primary via-brand-primary to-brand-primary-dark text-white">
-          <div className="container mx-auto px-4">
+          <SectionContainer padding="compact">
             <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
               <h2 className="font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
                 Ready to Start Your
@@ -452,7 +453,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
                 </div>
               </div>
             </div>
-          </div>
+          </SectionContainer>
         </section>
       </main>
     </>

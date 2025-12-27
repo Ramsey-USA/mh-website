@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { Button } from "@/components/ui";
+import { COMPANY_INFO } from "@/lib/constants/company";
+import { Button, IconContainer } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   DiagonalStripePattern,
@@ -685,13 +686,17 @@ export default function ServicesPage() {
                     Start Here
                   </span>
                 </div>
-                <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-primary to-brand-primary-dark mx-auto mb-6 rounded-full w-20 h-20 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <IconContainer
+                  size="lg"
+                  gradient="primary"
+                  className="mx-auto mb-6"
+                >
                   <MaterialIcon
                     icon="calculate"
                     size="xl"
                     className="text-white group-hover:rotate-12 transition-transform duration-300"
                   />
-                </div>
+                </IconContainer>
                 <h3 className="relative mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
                   Get Expert Estimate
                 </h3>
@@ -720,13 +725,17 @@ export default function ServicesPage() {
                 {/* Decorative background blur */}
                 <div className="absolute -top-10 -left-10 w-32 h-32 bg-brand-secondary/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
 
-                <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-secondary to-brand-secondary-dark mx-auto mb-6 rounded-full w-20 h-20 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <IconContainer
+                  size="lg"
+                  gradient="secondary"
+                  className="mx-auto mb-6"
+                >
                   <MaterialIcon
                     icon="photo_library"
                     size="xl"
                     className="text-white group-hover:rotate-12 transition-transform duration-300"
                   />
-                </div>
+                </IconContainer>
                 <h3 className="relative mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
                   See Our Victories
                 </h3>
@@ -754,13 +763,17 @@ export default function ServicesPage() {
                 {/* Decorative background blur */}
                 <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-brand-primary/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
 
-                <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-primary to-brand-primary-dark mx-auto mb-6 rounded-full w-20 h-20 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <IconContainer
+                  size="lg"
+                  gradient="primary"
+                  className="mx-auto mb-6"
+                >
                   <MaterialIcon
-                    icon="contact_phone"
+                    icon="calculate"
                     size="xl"
                     className="text-white group-hover:rotate-12 transition-transform duration-300"
                   />
-                </div>
+                </IconContainer>
                 <h3 className="relative mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
                   Contact Us
                 </h3>
@@ -840,7 +853,7 @@ export default function ServicesPage() {
                 asChild
                 className="bg-white/10 hover:bg-white/20 text-white border-white/30"
               >
-                <a href="tel:+15093086489">
+                <a href={`tel:${COMPANY_INFO.phone.tel}`}>
                   <MaterialIcon icon="call" className="mr-2" />
                   Call (509) 308-6489
                 </a>

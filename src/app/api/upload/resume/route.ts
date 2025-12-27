@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
+import { LIMITS } from "@/lib/constants/limits";
 import {
   getR2Bucket,
   R2StorageService,
@@ -43,7 +44,7 @@ async function handlePOST(request: NextRequest) {
     }
 
     // Validate file size (max 10MB)
-    const maxSize = 10 * 1024 * 1024; // 10MB
+    const maxSize = LIMITS.FILE.MAX_RESUME_SIZE;
     if (file.size > maxSize) {
       return badRequest("File size exceeds 10MB limit");
     }

@@ -10,6 +10,7 @@ import type {
   ContactInfo,
   AvailabilityWindow,
 } from "./types";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 export class SpecialistManager {
   // Veteran specialists database
@@ -238,14 +239,14 @@ export class SpecialistManager {
    * Generate phone number
    */
   private generatePhoneNumber(): string {
-    return "(509) 308-6489";
+    return COMPANY_INFO.phone.display;
   }
 
   /**
    * Generate email
    */
   private generateEmail(_name: string): string {
-    return "office@mhc-gc.com";
+    return COMPANY_INFO.email.main;
   }
 
   /**

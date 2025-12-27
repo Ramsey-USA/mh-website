@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StructuredData } from "@/components/seo/seo-meta";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
@@ -175,18 +176,18 @@ export default function PrivacyPolicyPage() {
                 <br />
                 Phone:{" "}
                 <a
-                  href="tel:+15093086489"
+                  href={`tel:${COMPANY_INFO.phone.tel}`}
                   className="text-brand-primary hover:underline"
                 >
-                  (509) 308-6489
+                  {COMPANY_INFO.phone.display}
                 </a>
                 <br />
                 Email:{" "}
                 <a
-                  href="mailto:office@mhc-gc.com"
+                  href={`mailto:${COMPANY_INFO.email.main}`}
                   className="text-brand-primary hover:underline"
                 >
-                  office@mhc-gc.com
+                  {COMPANY_INFO.email.main}
                 </a>
               </p>
             </div>

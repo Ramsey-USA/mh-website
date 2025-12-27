@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle, Button } from "../ui";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 interface MapLocation {
   lat: number;
@@ -143,7 +144,7 @@ export const InteractiveMap = ({
       });
     }
 
-    window.location.href = "tel:+15093086489";
+    window.location.href = `tel:${COMPANY_INFO.phone.tel}`;
   };
 
   if (mapError) {

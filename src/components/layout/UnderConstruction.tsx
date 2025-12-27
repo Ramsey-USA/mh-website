@@ -3,6 +3,7 @@
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { Button } from "@/components/ui";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import Link from "next/link";
 
 interface UnderConstructionProps {
@@ -118,7 +119,7 @@ export function UnderConstruction({
                       <span>
                         <strong>Call us directly:</strong>{" "}
                         <a
-                          href="tel:+15093086489"
+                          href={`tel:${COMPANY_INFO.phone.tel}`}
                           className="font-semibold text-brand-primary hover:text-brand-primary-dark underline"
                         >
                           (509) 308-6489
@@ -205,7 +206,7 @@ export function UnderConstruction({
                     Return Home
                   </Button>
                 </Link>
-                <a href="tel:+15093086489">
+                <a href={`tel:${COMPANY_INFO.phone.tel}`}>
                   <Button
                     variant="outline"
                     size="lg"

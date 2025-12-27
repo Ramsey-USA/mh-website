@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PWAInstallButton } from "@/components/pwa";
 import { AdminSignInModal } from "@/components/ui/modals/AdminSignInModal";
@@ -704,7 +705,7 @@ export default function Footer() {
                 itemType="https://schema.org/ContactPoint"
               >
                 <a
-                  href="tel:+15093086489"
+                  href={`tel:${COMPANY_INFO.phone.tel}`}
                   className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation"
                   aria-label="Call MH Construction at 509-308-6489"
                   itemProp="telephone"

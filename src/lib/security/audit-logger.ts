@@ -5,6 +5,7 @@
 
 import { logger } from "@/lib/utils/logger";
 import { type SecurityConfig } from "./security-manager";
+import { LIMITS } from "@/lib/constants/limits";
 
 // Audit Event Types
 export enum AuditEventType {
@@ -139,7 +140,7 @@ export interface AuditStatistics {
 export class AuditLogger {
   private events: AuditEvent[] = [];
   private config: SecurityConfig["audit"];
-  private maxEvents = 10000; // In-memory limit
+  private maxEvents = LIMITS.ANALYTICS.MAX_EVENTS_IN_MEMORY;
 
   constructor(config: SecurityConfig["audit"]) {
     this.config = config;

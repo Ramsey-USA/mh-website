@@ -5,6 +5,7 @@
  */
 
 import Image from "next/image";
+import { SectionContainer } from "@/components/layout";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { mockTestimonials } from "@/lib/types/testimonials";
 import { formatDate } from "@/lib/utils/dateUtils";
@@ -57,7 +58,7 @@ export default function TestimonialsSection({
         id={id}
         className={`relative bg-gray-50 dark:bg-gray-900 py-20 lg:py-32 xl:py-40 ${className}`}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionContainer>
           <div className="text-center mb-16">
             <h2 className="mb-6 font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
               <span className="block bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent drop-shadow-sm">
@@ -84,7 +85,7 @@ export default function TestimonialsSection({
               partners.
             </p>
           </div>
-        </div>
+        </SectionContainer>
       </section>
     );
   }
@@ -94,7 +95,7 @@ export default function TestimonialsSection({
       id={id}
       className={`relative bg-gray-50 dark:bg-gray-900 py-20 lg:py-32 xl:py-40 ${className}`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionContainer>
         {/* Header */}
         <div className="text-center mb-24 lg:mb-32">
           <h2 className="mb-6 font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
@@ -283,7 +284,7 @@ export default function TestimonialsSection({
             </div>
           </div>
         )}
-      </div>
+      </SectionContainer>
     </section>
   );
 }

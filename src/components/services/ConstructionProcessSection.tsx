@@ -8,7 +8,7 @@ import {
   FadeInWhenVisible,
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
-import { Card, CardContent, Button } from "@/components/ui";
+import { Card, CardContent, Button, IconContainer } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 export function ConstructionProcessSection() {
@@ -88,13 +88,17 @@ export function ConstructionProcessSection() {
           <StaggeredFadeIn className="space-y-8 lg:space-y-12">
             {/* Step 1 */}
             <div className="flex sm:flex-row flex-col gap-6 items-start relative">
-              <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary shadow-xl rounded-full w-16 h-16 flex-shrink-0 z-10 ring-4 ring-white dark:ring-gray-800 hover:scale-110 transition-transform duration-300 group">
+              <IconContainer
+                size="md"
+                gradient="mixed"
+                className="flex-shrink-0 z-10 ring-4 ring-white dark:ring-gray-800"
+              >
                 <span className="font-black text-2xl text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
                   1
                 </span>
                 {/* Pulse animation */}
                 <div className="absolute inset-0 rounded-full bg-brand-primary/50 animate-ping opacity-20"></div>
-              </div>
+              </IconContainer>
               <Card className="flex-1 bg-gradient-to-br from-white to-brand-primary/5 dark:from-gray-900 dark:to-gray-800 border-l-4 border-brand-primary hover:shadow-2xl dark:hover:shadow-brand-primary/10 hover:-translate-y-1 transition-all duration-300 group">
                 <CardContent className="p-6 sm:p-8">
                   <div className="flex items-center gap-3 mb-4">
@@ -135,12 +139,16 @@ export function ConstructionProcessSection() {
 
             {/* Step 2 */}
             <div className="flex sm:flex-row flex-col gap-6 items-start relative">
-              <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-secondary via-brand-secondary-dark to-amber-700 shadow-xl rounded-full w-16 h-16 flex-shrink-0 z-10 ring-4 ring-white dark:ring-gray-800 hover:scale-110 transition-transform duration-300 group">
+              <IconContainer
+                size="md"
+                gradient="secondary"
+                className="flex-shrink-0 z-10 ring-4 ring-white dark:ring-gray-800"
+              >
                 <span className="font-black text-2xl text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
                   2
                 </span>
                 <div className="absolute inset-0 rounded-full bg-brand-secondary/50 animate-ping opacity-20"></div>
-              </div>
+              </IconContainer>
               <Card className="flex-1 bg-gradient-to-br from-white to-brand-secondary/5 dark:from-gray-900 dark:to-gray-800 border-l-4 border-brand-secondary hover:shadow-2xl dark:hover:shadow-brand-secondary/10 hover:-translate-y-1 transition-all duration-300 group">
                 <CardContent className="p-6 sm:p-8">
                   <div className="flex items-center gap-3 mb-4">
@@ -182,12 +190,16 @@ export function ConstructionProcessSection() {
 
             {/* Step 3 */}
             <div className="flex sm:flex-row flex-col gap-6 items-start relative">
-              <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-secondary via-forest-600 to-forest-700 shadow-xl rounded-full w-16 h-16 flex-shrink-0 z-10 ring-4 ring-white dark:ring-gray-800 hover:scale-110 transition-transform duration-300 group">
+              <IconContainer
+                size="md"
+                gradient="forest"
+                className="flex-shrink-0 z-10 ring-4 ring-white dark:ring-gray-800"
+              >
                 <span className="font-black text-2xl text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
                   3
                 </span>
                 <div className="absolute inset-0 rounded-full bg-brand-secondary/50 animate-ping opacity-20"></div>
-              </div>
+              </IconContainer>
               <Card className="flex-1 bg-gradient-to-br from-white to-brand-secondary/5 dark:from-gray-900 dark:to-gray-800 border-l-4 border-brand-secondary hover:shadow-2xl dark:hover:shadow-brand-secondary/10 hover:-translate-y-1 transition-all duration-300 group">
                 <CardContent className="p-6 sm:p-8">
                   <div className="flex items-center gap-3 mb-4">

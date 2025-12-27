@@ -1,8 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button, Card, CardHeader, CardTitle, CardContent } from "../";
-import { MaterialIcon } from "../../icons/MaterialIcon";
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "@/components/ui";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { Input } from "@/components/ui/forms/Input";
 
 interface QuickBookingModalProps {
   isOpen: boolean;
@@ -400,17 +407,16 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                           />
                           Full Name *
                         </label>
-                        <input
+                        <Input
                           type="text"
                           name="name"
                           value={formData.name}
                           onChange={handleInputChange}
                           required
-                          className="bg-gray-50 dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white transition-all duration-200"
+                          className="rounded-xl"
                           placeholder="John Smith"
                         />
                       </div>
-
                       <div className="space-y-2">
                         <label className="flex items-center font-semibold text-gray-700 dark:text-gray-200 text-sm">
                           <MaterialIcon
@@ -420,13 +426,13 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                           />
                           Email Address *
                         </label>
-                        <input
+                        <Input
                           type="email"
                           name="email"
                           value={formData.email}
                           onChange={handleInputChange}
                           required
-                          className="bg-gray-50 dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white transition-all duration-200"
+                          className="rounded-xl"
                           placeholder="john@example.com"
                         />
                       </div>
@@ -442,13 +448,13 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                           />
                           Phone Number *
                         </label>
-                        <input
+                        <Input
                           type="tel"
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
                           required
-                          className="bg-gray-50 dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-brand-primary rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary w-full text-gray-900 dark:text-white transition-all duration-200"
+                          className="rounded-xl"
                           placeholder="(509) 555-0123"
                         />
                       </div>

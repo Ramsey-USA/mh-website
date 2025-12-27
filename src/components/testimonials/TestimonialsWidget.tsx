@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { TIMING } from "@/lib/constants/timing";
 import { MaterialIcon } from "../icons/MaterialIcon";
 import {
   mockTestimonials,
@@ -57,7 +58,10 @@ export default function TestimonialsWidget({
   const goToSlide = (_index: number) => {
     setCurrentIndex(_index);
     setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(autoSlide), 3000); // Resume auto-play after 3 seconds
+    setTimeout(
+      () => setIsAutoPlaying(autoSlide),
+      TIMING.CAROUSEL.AUTO_RESUME_DELAY,
+    );
   };
 
   const goToPrevious = () => {
@@ -66,13 +70,19 @@ export default function TestimonialsWidget({
         (prev - 1 + featuredTestimonials.length) % featuredTestimonials.length,
     );
     setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(autoSlide), 3000);
+    setTimeout(
+      () => setIsAutoPlaying(autoSlide),
+      TIMING.CAROUSEL.AUTO_RESUME_DELAY,
+    );
   };
 
   const goToNext = () => {
     setCurrentIndex((prev) => (prev + 1) % featuredTestimonials.length);
     setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(autoSlide), 3000);
+    setTimeout(
+      () => setIsAutoPlaying(autoSlide),
+      TIMING.CAROUSEL.AUTO_RESUME_DELAY,
+    );
   };
 
   // Show nothing if no testimonials available

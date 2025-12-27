@@ -2,7 +2,7 @@
 
 import { type MouseEvent } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
-import { MaterialIcon } from "../../icons/MaterialIcon";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 interface ThemeToggleProps {
   size?: "sm" | "md" | "lg";

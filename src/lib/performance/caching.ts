@@ -5,6 +5,8 @@
 
 import { logger } from "@/lib/utils/logger";
 import { queryOptimizer } from "./performance-manager";
+import { TIMING } from "@/lib/constants/timing";
+import { LIMITS } from "@/lib/constants/limits";
 
 export interface CacheConfig {
   ttl: number;
@@ -45,8 +47,8 @@ class CacheManager {
     itemCount: 0,
     hitRate: 0,
   };
-  private maxMemorySize = 50 * 1024 * 1024; // 50MB
-  private maxItems = 10000;
+  private maxMemorySize = LIMITS.CACHE.MAX_MEMORY_SIZE;
+  private maxItems = LIMITS.CACHE.MAX_ITEMS;
 
   static getInstance(): CacheManager {
     if (!CacheManager.instance) {
@@ -57,7 +59,7 @@ class CacheManager {
 
   private constructor() {
     // Cleanup expired entries every 5 minutes
-    setInterval(() => this.cleanup(), 5 * 60 * 1000);
+    setInterval(() => this.cleanup(), TIMING.CACHE.CLEANUP_INTERVAL);
   }
 
   async get<T>(key: string, version = "1.0"): Promise<T | null> {

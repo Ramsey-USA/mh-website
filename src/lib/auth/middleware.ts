@@ -67,7 +67,6 @@ export function requireRole(
     context?: unknown,
   ) => Promise<NextResponse>,
 ) {
-  // eslint-disable-next-line require-await
   return requireAuth(async (request, user, context) => {
     if (!user.role || !allowedRoles.includes(user.role)) {
       logger.warn("Insufficient permissions", {
@@ -76,9 +75,11 @@ export function requireRole(
         requiredRoles: allowedRoles,
       });
 
-      return forbidden(
-        "Insufficient permissions",
-        `Required role: ${allowedRoles.join(" or ")}`,
+      return Promise.resolve(
+        forbidden(
+          "Insufficient permissions",
+          `Required role: ${allowedRoles.join(" or ")}`,
+        ),
       );
     }
 

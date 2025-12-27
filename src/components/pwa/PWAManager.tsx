@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { logger } from "@/lib/utils/logger";
 import { ServiceWorkerRegistration } from "./ServiceWorkerRegistration";
 import { PWAInstallPrompt } from "./PWAInstallPrompt";
 import { UpdateNotification } from "./UpdateNotification";
@@ -33,7 +34,7 @@ export function PWAManager() {
   };
 
   const handleError = (error: Error) => {
-    console.error("[PWA Manager] Service worker error:", error);
+    logger.error("[PWA Manager] Service worker error:", error);
   };
 
   return (

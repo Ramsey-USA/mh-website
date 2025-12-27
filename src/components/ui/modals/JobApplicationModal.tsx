@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { Input, Textarea } from "@/components/ui/forms/Input";
 
 interface JobApplicationModalProps {
   isOpen: boolean;
@@ -289,32 +290,22 @@ export function JobApplicationModal({
                 Personal Information
               </h3>
               <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
-                <div>
-                  <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
-                    First Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    required
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-[#386851] focus:ring-2 w-full text-gray-900 dark:text-white"
-                  />
-                </div>
-                <div>
-                  <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
-                    Last Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    required
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-[#386851] focus:ring-2 w-full text-gray-900 dark:text-white"
-                  />
-                </div>
+                <Input
+                  type="text"
+                  name="firstName"
+                  label="First Name *"
+                  required
+                  value={formData.firstName}
+                  onChange={handleInputChange}
+                />
+                <Input
+                  type="text"
+                  name="lastName"
+                  label="Last Name *"
+                  required
+                  value={formData.lastName}
+                  onChange={handleInputChange}
+                />
               </div>
             </div>
 
@@ -329,32 +320,22 @@ export function JobApplicationModal({
                 Contact Information
               </h3>
               <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
-                <div>
-                  <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-[#386851] focus:ring-2 w-full text-gray-900 dark:text-white"
-                  />
-                </div>
-                <div>
-                  <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-[#386851] focus:ring-2 w-full text-gray-900 dark:text-white"
-                  />
-                </div>
+                <Input
+                  type="email"
+                  name="email"
+                  label="Email Address *"
+                  required
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
+                <Input
+                  type="tel"
+                  name="phone"
+                  label="Phone Number *"
+                  required
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                />
               </div>
             </div>
 
@@ -369,55 +350,35 @@ export function JobApplicationModal({
                 Address
               </h3>
               <div className="space-y-4">
-                <div>
-                  <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
-                    Street Address
-                  </label>
-                  <input
-                    type="text"
-                    name="address"
-                    value={formData.address}
-                    onChange={handleInputChange}
-                    className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-[#386851] focus:ring-2 w-full text-gray-900 dark:text-white"
-                  />
-                </div>
+                <Input
+                  type="text"
+                  name="address"
+                  label="Street Address"
+                  value={formData.address}
+                  onChange={handleInputChange}
+                />
                 <div className="gap-4 grid grid-cols-1 md:grid-cols-3">
-                  <div>
-                    <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
-                      City
-                    </label>
-                    <input
-                      type="text"
-                      name="city"
-                      value={formData.city}
-                      onChange={handleInputChange}
-                      className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-[#386851] focus:ring-2 w-full text-gray-900 dark:text-white"
-                    />
-                  </div>
-                  <div>
-                    <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
-                      State
-                    </label>
-                    <input
-                      type="text"
-                      name="state"
-                      value={formData.state}
-                      onChange={handleInputChange}
-                      className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-[#386851] focus:ring-2 w-full text-gray-900 dark:text-white"
-                    />
-                  </div>
-                  <div>
-                    <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
-                      ZIP Code
-                    </label>
-                    <input
-                      type="text"
-                      name="zipCode"
-                      value={formData.zipCode}
-                      onChange={handleInputChange}
-                      className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-[#386851] focus:ring-2 w-full text-gray-900 dark:text-white"
-                    />
-                  </div>
+                  <Input
+                    type="text"
+                    name="city"
+                    label="City"
+                    value={formData.city}
+                    onChange={handleInputChange}
+                  />
+                  <Input
+                    type="text"
+                    name="state"
+                    label="State"
+                    value={formData.state}
+                    onChange={handleInputChange}
+                  />
+                  <Input
+                    type="text"
+                    name="zipCode"
+                    label="ZIP Code"
+                    value={formData.zipCode}
+                    onChange={handleInputChange}
+                  />
                 </div>
               </div>
             </div>
@@ -514,19 +475,14 @@ export function JobApplicationModal({
             </div>
 
             {/* Cover Letter */}
-            <div>
-              <label className="block mb-2 font-medium text-gray-700 dark:text-gray-200 text-sm">
-                Tell us about yourself and why you'd like to join our team
-              </label>
-              <textarea
-                name="coverLetter"
-                rows={5}
-                value={formData.coverLetter}
-                onChange={handleInputChange}
-                className="bg-white dark:bg-gray-700 px-4 py-3 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-lg focus:outline-none focus:ring-brand-primary focus:ring-2 w-full text-gray-900 dark:text-white"
-                placeholder="Share your experience, skills, and career goals. What excites you about joining our veteran-owned company?"
-              />
-            </div>
+            <Textarea
+              name="coverLetter"
+              label="Tell us about yourself and why you'd like to join our team"
+              rows={5}
+              value={formData.coverLetter}
+              onChange={handleInputChange}
+              placeholder="Share your experience, skills, and career goals. What excites you about joining our veteran-owned company?"
+            />
 
             {/* Resume Upload */}
             <div>
@@ -573,19 +529,14 @@ export function JobApplicationModal({
             </div>
 
             {/* How did you hear about us */}
-            <div>
-              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
-                How did you hear about this opportunity?
-              </label>
-              <input
-                type="text"
-                name="referralSource"
-                value={formData.referralSource}
-                onChange={handleInputChange}
-                className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-[#386851] focus:ring-2 w-full text-gray-900 dark:text-white"
-                placeholder="Job board, referral, website, etc."
-              />
-            </div>
+            <Input
+              type="text"
+              name="referralSource"
+              label="How did you hear about this opportunity?"
+              value={formData.referralSource}
+              onChange={handleInputChange}
+              placeholder="Job board, referral, website, etc."
+            />
 
             {/* Error Message */}
             {submitError && (

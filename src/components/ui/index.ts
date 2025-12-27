@@ -25,7 +25,6 @@ export { LoadingPlaceholder } from "./layout/loading-placeholder";
 
 // Modal Components
 export { Modal } from "./modals/Modal";
-export { QuickBookingModal } from "./modals/QuickBookingModal";
 export { JobApplicationModal } from "./modals/JobApplicationModal";
 
 // Media Components
@@ -33,6 +32,8 @@ export { OptimizedImage } from "./media/OptimizedImage";
 
 // Interactive Components
 export { AnimatedCounter } from "./AnimatedCounter";
+export { IconContainer } from "./IconContainer";
+export { GlowEffect } from "./GlowEffect";
 
 // Loading Components
 export {

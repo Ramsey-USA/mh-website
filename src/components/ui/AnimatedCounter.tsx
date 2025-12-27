@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { TIMING } from "@/lib/constants/timing";
 
 interface AnimatedCounterProps {
   /**
@@ -49,7 +50,7 @@ interface AnimatedCounterProps {
  */
 export function AnimatedCounter({
   value,
-  duration = 2000,
+  duration = TIMING.ANIMATION.COUNTER,
   decimals = 0,
   prefix = "",
   suffix = "",

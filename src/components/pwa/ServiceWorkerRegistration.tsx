@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { logger } from "@/lib/utils/logger";
 
 interface ServiceWorkerRegistrationProps {
   onUpdateAvailable?: (registration: ServiceWorkerRegistration) => void;
@@ -79,7 +80,7 @@ export function ServiceWorkerRegistration({
         });
       })
       .catch((error) => {
-        console.error("[PWA] Service worker registration failed:", error);
+        logger.error("[PWA] Service worker registration failed:", error);
         onError?.(error);
       });
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { IconContainer, GlowEffect } from "@/components/ui";
 import type { CoreService } from "./servicesData";
 
 interface ServiceCardProps {
@@ -30,7 +31,7 @@ export function ServiceCard({ service, onOpenModal }: ServiceCardProps) {
       aria-label={`View details for ${service.title}`}
     >
       {/* Animated Border Glow */}
-      <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+      <GlowEffect gradient="primary-dark" />
 
       <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
         {/* Top Accent Bar */}
@@ -40,14 +41,24 @@ export function ServiceCard({ service, onOpenModal }: ServiceCardProps) {
           <div className="flex-shrink-0 pb-4 text-center">
             <div className="relative inline-block mb-6">
               {/* Blur glow layer behind icon */}
-              <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-2xl"></div>
-              <div className="relative flex justify-center items-center bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-2xl w-20 h-20 p-2 mx-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-xl">
+              <GlowEffect
+                gradient="primary-dark"
+                opacity={30}
+                animate={false}
+                className="rounded-2xl"
+              />
+              <IconContainer
+                size="lg"
+                gradient="primary"
+                shape="rounded"
+                className="group-hover:rotate-3"
+              >
                 <MaterialIcon
                   icon={service.iconName}
                   size="2xl"
                   className="text-white drop-shadow-lg"
                 />
-              </div>
+              </IconContainer>
             </div>
             <h3 className="mb-3 text-gray-900 dark:text-white text-xl sm:text-2xl font-black leading-tight break-words">
               {service.title}

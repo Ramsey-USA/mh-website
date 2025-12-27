@@ -4,6 +4,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Card, CardHeader, CardContent } from "@/components/ui";
+import { Input } from "@/components/ui/forms/Input";
+import { Button } from "@/components/ui/base/button";
+import { logger } from "@/lib/utils/logger";
 
 interface AdminSignInModalProps {
   isOpen: boolean;
@@ -49,7 +52,7 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
       }
     } catch (err) {
       setError("Authentication failed. Please try again.");
-      console.error("Admin login error:", err);
+      logger.error("Admin login error:", err);
     } finally {
       setIsSubmitting(false);
     }
@@ -125,56 +128,42 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
                 </div>
               )}
 
-              <div>
-                <label
-                  htmlFor="admin-email"
-                  className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
-                >
-                  Email Address
-                </label>
-                <input
-                  id="admin-email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition-all bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                  placeholder="admin@mhc-gc.com"
-                  autoComplete="email"
-                />
-              </div>
+              <Input
+                id="admin-email"
+                type="email"
+                label="Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                placeholder="admin@mhc-gc.com"
+                autoComplete="email"
+              />
 
-              <div>
-                <label
-                  htmlFor="admin-password"
-                  className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
-                >
-                  Password
-                </label>
-                <input
-                  id="admin-password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition-all bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                  placeholder="••••••••"
-                  autoComplete="current-password"
-                />
-              </div>
+              <Input
+                id="admin-password"
+                type="password"
+                label="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                placeholder="••••••••"
+                autoComplete="current-password"
+              />
 
               <div className="flex gap-3 pt-2">
-                <button
+                <Button
                   type="button"
                   onClick={handleClose}
-                  className="flex-1 px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-200 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-all"
+                  variant="outline"
+                  className="flex-1"
                 >
                   Cancel
-                </button>
-                <button
+                </Button>
+                <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 px-4 py-3 bg-gradient-to-r from-brand-primary to-brand-primary-dark hover:from-brand-secondary hover:to-brand-primary rounded-lg text-white font-bold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                  variant="primary"
+                  className="flex-1"
                 >
                   {isSubmitting ? (
                     <>
@@ -191,7 +180,7 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
                       Sign In
                     </>
                   )}
-                </button>
+                </Button>
               </div>
             </form>
 

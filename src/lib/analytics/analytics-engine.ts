@@ -65,13 +65,15 @@ export class AdvancedAnalyticsEngine {
 
   /**
    * Track analytics event
+   *
+   * FUTURE: Refactor to eliminate circular dependency with dataCollector
+   * Current implementation creates events inline to avoid circular imports
    */
   track(
     type: AnalyticsEventType,
     properties: Record<string, unknown> = {},
   ): void {
-    // TODO: Fix circular dependency - using dataCollector directly for now
-    // const event = this.collector.createEvent(type, properties);
+    // Using inline event creation to avoid circular dependency
     const event: AnalyticsEvent = {
       id: `event-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
       type,
@@ -416,39 +418,41 @@ export class AdvancedAnalyticsEngine {
   }
 
   /**
-   * Get user journey
-   * TODO: Implement proper journey tracking
+   * Get user journey by session ID
+   *
+   * FUTURE: Implement journey tracking once data collector refactoring is complete
+   * @returns undefined until journey tracking is implemented
    */
   getUserJourney(_sessionId: string): UserJourney | undefined {
-    // Temporary stub
+    // Not yet implemented - requires data collector refactoring
     return undefined;
-    // return this.collector.getUserJourney(sessionId);
   }
 
   /**
-   * Get events with filters
-   * TODO: Implement proper event filtering
+   * Get filtered analytics events
+   *
+   * FUTURE: Implement event filtering with proper type-safe filter interface
+   * @returns empty array until filtering is implemented
    */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getEvents(_filters?: any): AnalyticsEvent[] {
-    // Temporary stub
+  getEvents(_filters?: Record<string, unknown>): AnalyticsEvent[] {
+    // Not yet implemented - requires data collector refactoring
     return [];
-    // return this.collector.getEvents(filters);
   }
 
   /**
-   * Export data
-   * TODO: Implement proper data export
+   * Export analytics data in specified format
+   *
+   * FUTURE: Implement data export with CSV and JSON formatting
+   * @returns empty JSON array until export is implemented
    */
   exportData(_format: "json" | "csv" = "json"): string {
-    // Temporary stub
+    // Not yet implemented - requires data collector refactoring
     return JSON.stringify([]);
-    // return this.collector.exportData(format);
   }
 
   // Private methods for dashboard data generation
-  // TODO: These methods need to be refactored to work with the new data collector
-  // They are preserved here for reference but currently unused
+  // FUTURE: Refactor these methods to work with the new data collector architecture
+  // Preserved for reference during future refactoring
 
   // @ts-expect-error - Preserved for future refactoring
   private _getOverviewMetrics(

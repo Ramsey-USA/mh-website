@@ -4,6 +4,7 @@
  */
 
 import { logger } from "./logger";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 interface PhoneTrackingData {
   source: string; // Where the click originated (e.g., "header", "footer", "urgent-page")
@@ -24,7 +25,7 @@ export async function trackPhoneCall(
   try {
     const trackingData: PhoneTrackingData = {
       source,
-      phoneNumber: "(509) 308-6489",
+      phoneNumber: COMPANY_INFO.phone.display,
       timestamp: new Date().toISOString(),
       userAgent:
         typeof navigator !== "undefined" ? navigator.userAgent : undefined,

@@ -1,7 +1,7 @@
 "use client";
 
-import { MaterialIcon } from "../../icons/MaterialIcon";
-import { FadeInWhenVisible } from "../../animations/FramerMotionComponents";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 
 interface PageHeroProps {
   title: string;
