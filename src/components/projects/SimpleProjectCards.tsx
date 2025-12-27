@@ -8,6 +8,7 @@ import {
   StaggeredFadeIn,
 } from "@/components/animations/FramerMotionComponents";
 import { gridPresets } from "@/lib/styles/layout-variants";
+import { trackProjectInterest } from "@/lib/analytics/marketing-tracking";
 
 /**
  * Simplified Project Type Cards
@@ -112,7 +113,24 @@ export function SimpleProjectCards({
       {/* Cards Grid */}
       <StaggeredFadeIn className={gridPresets.cards3Alt("md")}>
         {displayCards.map((project, cardIndex) => (
-          <Link key={cardIndex} href={project.href}>
+          <Link
+            key={cardIndex}
+            href={project.href}
+            onClick={() => {
+              trackProjectInterest(
+                project.title,
+                project.title.split(" ")[0] || "Project", // First word as type
+                "click",
+                {
+                  location: "simple-cards-section",
+                  position: cardIndex + 1,
+                  featured: project.featured,
+                  priceRange: project.priceRange,
+                  timeline: project.timeline,
+                },
+              );
+            }}
+          >
             <Card
               className={`h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer group ${
                 project.featured

@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { usePageTracking } from "@/lib/analytics/hooks";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   DiagonalStripePattern,
@@ -51,6 +54,9 @@ import { UnderConstruction } from "@/components/layout/UnderConstruction";
 const SHOW_UNDER_CONSTRUCTION = false;
 
 export default function AboutPage() {
+  // Analytics tracking
+  usePageTracking("About");
+
   // Get enhanced SEO data for About page
   const aboutSEO = getAboutSEO();
 

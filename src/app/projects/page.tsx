@@ -5,6 +5,7 @@
 
 "use client";
 
+import { usePageTracking } from "@/lib/analytics/hooks";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PortfolioService } from "@/lib/services/portfolioService";
 import { useProjectsSearch } from "./components/useProjectsSearch";
@@ -31,6 +32,9 @@ import {
 const SHOW_UNDER_CONSTRUCTION = false;
 
 export default function ProjectsPage() {
+  // Analytics tracking
+  usePageTracking("Projects");
+
   // Get enhanced SEO data for Projects page
   const projectsSEO = getProjectsSEO();
 

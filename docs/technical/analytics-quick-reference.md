@@ -1,5 +1,15 @@
 # Analytics Quick Reference
 
+**⭐ ENHANCED (Dec 27, 2025):** Now collects 100+ data points with privacy-first approach!
+
+**Related Documentation:**
+
+- [Analytics Enhancement Guide](./ANALYTICS-ENHANCEMENT-DEC-2025.md) - Latest improvements
+- [Data Collection Checklist](./ANALYTICS-DATA-COLLECTION-CHECKLIST.md) - Complete data inventory
+- [Full Implementation Guide](./ANALYTICS-IMPLEMENTATION-COMPLETE.md) - Complete overview
+
+---
+
 ## ⚡ 30-Second Setup for New Pages
 
 ```tsx

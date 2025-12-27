@@ -45,7 +45,7 @@ export const pageMetadata: Record<string, Metadata> = {
     title:
       "About MH Construction | Veteran-Owned Partnership-Driven Excellence - Pasco, WA",
     description:
-      "Founded in 2010, veteran-owned since January 2025 under Army veteran leadership. MH Construction brings military precision, authentic partnerships, and transparent communication to commercial construction in the Tri-Cities area. Meet our leadership team committed to Building projects for the client, NOT the dollar.",
+      "Founded in 2010 by Mike Holstein, purchased by Army veteran Jeremy Thamert in January 2025. MH Construction brings military precision, authentic partnerships, and transparent communication to commercial construction in the Tri-Cities area. Meet our leadership team committed to Building projects for the client, NOT the dollar.",
     keywords: [
       "veteran-owned construction company",
       "military precision construction",

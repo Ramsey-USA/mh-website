@@ -159,10 +159,10 @@ referring to subcontractors creates confusion.
 **Examples of Correct Usage:**
 
 ```text
-✅ "Veteran-Owned Excellence since January 2025"
+✅ "Founded 2010, Veteran-Owned since 2025"
 ✅ "Army veteran leadership brings military precision"
 ✅ "Our veteran-owned team understands discipline"
-✅ "Veteran-owned under Army veteran leadership"
+✅ "Purchased by Army veteran Jeremy Thamert in January 2025"
 ```
 
 **Consistency Rules:**

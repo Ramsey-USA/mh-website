@@ -36,4 +36,4 @@ Messaging, voice, and brand positioning guidelines.
 
 ---
 
-**MH Construction** - Veteran-Owned Excellence Since 2010
+**MH Construction** - Founded 2010, Veteran-Owned Since 2025

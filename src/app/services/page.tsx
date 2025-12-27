@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { usePageTracking } from "@/lib/analytics/hooks";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { Button, IconContainer } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -47,6 +48,9 @@ const TestimonialsSection = dynamic(
 const SHOW_UNDER_CONSTRUCTION = false;
 
 export default function ServicesPage() {
+  // Analytics tracking
+  usePageTracking("Services");
+
   // Get enhanced SEO data for Services page
   const servicesSEO = getServicesSEO();
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePageTracking } from "@/lib/analytics/hooks";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Button, JobApplicationModal } from "@/components/ui";
@@ -45,6 +46,9 @@ const TestimonialGrid = dynamic(
 const SHOW_UNDER_CONSTRUCTION = false;
 
 export default function CareersPage() {
+  // Analytics tracking
+  usePageTracking("Careers");
+
   // Get enhanced SEO data for Careers page
   const careersSEO = getCareersSEO();
 

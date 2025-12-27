@@ -1,6 +1,9 @@
 // Note: Metadata export removed due to "use client" directive
 // SEO handled via next-seo or alternative client-side SEO solution
+"use client";
+
 import Link from "next/link";
+import { usePageTracking } from "@/lib/analytics/hooks";
 import {
   Button,
   Card,
@@ -252,6 +255,9 @@ const partnershipBenefits = [
 ];
 
 export default function AlliesPage() {
+  // Analytics tracking
+  usePageTracking("Allies");
+
   // Show under construction notice while preserving all content below
   if (SHOW_UNDER_CONSTRUCTION) {
     return (

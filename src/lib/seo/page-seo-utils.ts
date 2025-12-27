@@ -12,9 +12,9 @@ import {
 export function getHomepageSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Base HQ → Home | Your Tri-Cities Construction Command Center | MH Construction",
+      "Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction",
     description:
-      "Base HQ → Home: Your Tri-Cities Construction Command Center. Veteran-owned construction management since 2010. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial services throughout the Pacific Northwest. Four core values (Honesty, Integrity, Professionalism, Thoroughness) building trust through transparent communication. Licensed in WA, OR, ID. PWA-enabled for offline access. Building projects for the client, NOT the dollar.",
+      "Base HQ → Home: Your Tri-Cities Construction Command Center. Veteran-owned construction management since 2010. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest. Four core values (Honesty, Integrity, Professionalism, Thoroughness) building trust through transparent communication. Dual-label approach: Military Operations → Construction Services. Licensed in WA, OR, ID.",
     keywords: [
       "Base HQ Home construction command center",
       "veteran-owned contractor Pacific Northwest",
@@ -71,13 +71,16 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
       founder: {
         "@type": "Person",
         name: "Mike Holstein",
-        jobTitle: "Founder",
+        jobTitle: "Founder (Non-veteran)",
+        description:
+          "Founded MH Construction in 2010, sold to Jeremy Thamert in 2025",
       },
       owns: {
         "@type": "Person",
         name: "Jeremy Thamert",
         jobTitle: "Owner & President",
-        description: "Veteran-owned operational leadership since January 2025",
+        description:
+          "Army veteran, purchased MH Construction January 2025, bringing company to veteran-owned status",
       },
       employee: [
         {
@@ -112,7 +115,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
         name: "Company Founded",
         startDate: "2010",
         description:
-          "Mike Holstein establishes MH Construction on partnership philosophy",
+          "Mike Holstein founds MH Construction on partnership philosophy",
       },
       {
         "@type": "Event",
@@ -138,16 +141,16 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
         name: "Veteran-Owned Transition",
         startDate: "2025-01",
         description:
-          "Jeremy Thamert assumes ownership bringing operational discipline",
+          "Army veteran Jeremy Thamert purchases MH Construction, bringing company to veteran-owned status with operational discipline",
       },
     ],
   };
 
   return generateEnhancedMetadata({
     title:
-      "Our Oath → About Us | Service-Earned Values, Construction Excellence | MH Construction",
+      "Our Oath → About Us | Service-Earned Values, Battle-Tested Excellence | MH Construction",
     description:
-      "Our Oath → About Us: Service-Earned Values, Construction Excellence. 15 years of battle-tested excellence: Mike Holstein founded MH Construction in 2010 on partnership values. Now veteran-owned since January 2025 with Jeremy Thamert's operational leadership. 650+ completed projects, 70% referral rate, consecutive AGC-WA Top EMR Awards, OSHA VPP Star certification. Chain of Command approach: individual specialists, unified mission.",
+      "Our Oath → About Us: Service-Earned Values, Battle-Tested Excellence. 15 years of proven operations: Mike Holstein founded MH Construction in 2010 on partnership values. Army veteran Jeremy Thamert purchased the company in January 2025, bringing it to veteran-owned status with operational leadership. 650+ completed missions, 70% referral rate, consecutive AGC-WA Top EMR Awards, OSHA VPP Star certification. Chain of Command approach: individual specialists, unified mission.",
     keywords: [
       "Our Oath About Us service-earned values",
       "battle-tested construction excellence",
@@ -302,7 +305,7 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
         url: enhancedSEO.siteUrl,
       },
       description:
-        "Founder of MH Construction (established 2010), created company foundation on integrity, quality, and partnership philosophy.",
+        "Founder of MH Construction (founded 2010), created company foundation on integrity, quality, and partnership philosophy. Sold company to Jeremy Thamert in 2025.",
       knowsAbout: [
         "Construction Management",
         "Business Development",
@@ -399,9 +402,9 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
 export function getVeteransSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Veteran-Owned Construction | Combat Veteran Discount | Year-Round Support | MH Construction",
+      "Allied Forces → Veterans | Combat Veteran Discount, Year-Round Support | MH Construction",
     description:
-      "Veteran-owned since January 2025 with Army & Navy veteran leadership. 150+ years combined experience. Combat Veteran Discount through respectful screening, 100% veteran hiring priority, active apprenticeship programs, strategic partnerships with selective veteran organizations. Group 1 Veteran Foundation values: Honesty, Integrity, Professionalism, Thoroughness guide every project and partnership.",
+      "Allied Forces → Veterans: Veteran-owned since January 2025 with Army & Navy veteran leadership. 150+ years combined operational experience. Combat Veteran Discount through respectful screening, 100% veteran hiring priority, active apprenticeship programs, strategic partnerships with selective veteran organizations. Group 1 Veteran Foundation values: Honesty, Integrity, Professionalism, Thoroughness guide every mission and partnership.",
     keywords: [
       "veteran-owned construction Tri-Cities",
       "combat veteran discount",

@@ -487,7 +487,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "What makes MH Construction different from other contractors?",
       answer:
-        "We're a veteran-owned construction company where traditional business values come first: handshakes matter, your word is your bond, and face-to-face trust defines every partnership. Founded in 2010, veteran-owned since January 2025 under Army veteran leadership, we combine military precision with helpful modern planning tools, transparent communication, and authentic community relationships. Our motto: 'Building projects for the client, NOT the dollar.'",
+        "We're a veteran-owned construction company where traditional business values come first: handshakes matter, your word is your bond, and face-to-face trust defines every partnership. Founded in 2010 by Mike Holstein, purchased by Army veteran Jeremy Thamert in January 2025, we combine military precision with helpful modern planning tools, transparent communication, and authentic community relationships. Our motto: 'Building projects for the client, NOT the dollar.'",
     },
     {
       question: "How does the construction planning assistant work?",

@@ -2,6 +2,13 @@
 
 **🚀 Your website now has ULTIMATE SEO optimization + AI Search (GEO)!**
 
+**⭐ NEW (Dec 27, 2025):** Dual-label military/construction titles across all pages!
+
+**Related Documentation:**
+
+- [Browser Titles Inventory](./docs/technical/BROWSER-TAB-TITLES-INVENTORY.md) - Complete title system
+- [Analytics Enhancement](./docs/technical/ANALYTICS-ENHANCEMENT-DEC-2025.md) - Latest tracking improvements
+
 ---
 
 ## 🤖 AI Search Optimization (NEW - Nov 20, 2025)

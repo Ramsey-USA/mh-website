@@ -33,11 +33,12 @@ Army Commendation Medal, Army Achievement Medal
 
 ## 👤 Biography
 
-Jeremy Thamert, a U.S. military veteran, became owner of MH Construction in January 2025 after
-serving as General Manager for 2 years. He is the visionary behind MH Construction's traditional
-business values approach, bringing extensive experience and a commitment to face-to-face relationships and trust-based partnerships.
+Jeremy Thamert, a U.S. Army veteran, purchased MH Construction in January 2025 after serving as General
+Manager for 2 years. He is the visionary behind MH Construction's traditional business values approach,
+bringing extensive experience and a commitment to face-to-face relationships and trust-based partnerships.
 Under his veteran leadership, MH Construction continues to honor its values of discipline, integrity,
-and precision while using helpful modern tools to support client relationships.
+and precision while using helpful modern tools to support client relationships. His purchase of the company
+from founder Mike Holstein brought MH Construction to veteran-owned status.
 
 ## ⭐ Career Highlights
 

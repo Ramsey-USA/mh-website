@@ -65,55 +65,96 @@ export class AdvancedAnalyticsEngine {
 
   /**
    * Track analytics event
-   *
-   * FUTURE: Refactor to eliminate circular dependency with dataCollector
-   * Current implementation creates events inline to avoid circular imports
+   * Now with enhanced metadata collection
    */
   track(
     type: AnalyticsEventType,
     properties: Record<string, unknown> = {},
   ): void {
-    // Using inline event creation to avoid circular dependency
-    const event: AnalyticsEvent = {
-      id: `event-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-      type,
-      timestamp: new Date(),
-      sessionId: "default-session",
-      properties: properties as Record<string, AnalyticsPropertyValue>,
-      metadata: {
-        page: window?.location?.pathname || "/",
-        referrer: document?.referrer || "",
-        userAgent: navigator?.userAgent || "",
-        device: {
-          type: "desktop",
-          os: "",
-          browser: "",
-          screenResolution: "",
-          viewportSize: "",
-        },
-        location: {
-          timezone: "",
-          language: navigator?.language || "en-US",
-        },
-      },
-    };
+    if (typeof window === "undefined") return;
 
-    // Store event - using available methods if applicable
-    if (type === "page_view") {
-      this.collector.trackPageView(properties["page"] as string);
-    } else if (type === "form_submission") {
-      this.collector.trackFormSubmission(
-        properties["formId"] as string,
-        properties as Record<string, AnalyticsPropertyValue>,
-      );
+    try {
+      // Import enhanced metadata inline to avoid circular deps
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const { getEventMetadata } = require("./metadata");
+
+      // Create event with comprehensive metadata
+      const event: AnalyticsEvent = {
+        id: `event-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        type,
+        timestamp: new Date(),
+        sessionId: this.getCurrentSessionId(),
+        properties: properties as Record<string, AnalyticsPropertyValue>,
+        metadata: getEventMetadata(),
+      };
+
+      // Store event using proper data collector methods
+      if (type === "page_view") {
+        this.collector.trackPageView(properties["page"] as string);
+      } else if (type === "form_submission") {
+        this.collector.trackFormSubmission(
+          properties["formId"] as string,
+          properties as Record<string, AnalyticsPropertyValue>,
+        );
+      } else if (type === "user_interaction") {
+        this.collector.trackInteraction(
+          properties["action"] as string,
+          properties["element"] as string,
+          properties as Record<string, unknown>,
+        );
+      }
+
+      // Store all events in general event log
+      this.storeEvent(event);
+
+      // Send to analytics providers (Google Analytics, etc.)
+      this.sendToAnalyticsProviders(event);
+
+      // Trigger custom trackers
+      this.triggerCustomTrackers(event);
+    } catch (error) {
+      logger.error("Error tracking analytics event:", error);
     }
-    // For other types, skip direct tracking since we send to providers below
+  }
 
-    // Send to analytics providers
-    this.sendToAnalyticsProviders(event);
+  /**
+   * Get or create current session ID
+   */
+  private getCurrentSessionId(): string {
+    if (typeof window === "undefined") return "server-session";
 
-    // Trigger custom trackers
-    this.triggerCustomTrackers(event);
+    const sessionKey = "mh_analytics_current_session";
+    let sessionId = sessionStorage.getItem(sessionKey);
+
+    if (!sessionId) {
+      sessionId = `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      sessionStorage.setItem(sessionKey, sessionId);
+    }
+
+    return sessionId;
+  }
+
+  /**
+   * Store event in localStorage
+   */
+  private storeEvent(event: AnalyticsEvent): void {
+    if (typeof window === "undefined") return;
+
+    try {
+      const stored = localStorage.getItem("mh_analytics_events");
+      const events = stored ? JSON.parse(stored) : [];
+
+      events.push({
+        ...event,
+        timestamp: event.timestamp.toISOString(),
+      });
+
+      // Keep last 500 events
+      const trimmed = events.slice(-500);
+      localStorage.setItem("mh_analytics_events", JSON.stringify(trimmed));
+    } catch (error) {
+      logger.error("Error storing event:", error);
+    }
   }
 
   /**

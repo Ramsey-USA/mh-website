@@ -1,5 +1,14 @@
 # PWA Quick Reference Guide
 
+**⭐ UPDATED (Dec 27, 2025):** PWA manifest now includes dual-label military/construction terminology!
+
+**Related Documentation:**
+
+- [PWA Full Documentation](./pwa-documentation.md) - Complete guide
+- [Browser Titles](./BROWSER-TAB-TITLES-INVENTORY.md) - Title system used in PWA
+
+---
+
 ## Quick Commands
 
 ```bash

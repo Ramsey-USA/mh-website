@@ -312,7 +312,7 @@ export const contentTemplates = {
   contactLocation: `Headquarters: ${locationFragments.headquartersLong}. ${locationFragments.servingPhrase}.`,
 
   // About page location context
-  aboutLocation: `Based in ${locationFragments.headquarters}, proudly serving ${locationFragments.triCitiesLong}, ${locationFragments.counties}, and communities throughout the Pacific Northwest. Founded in 2010, veteran-owned since January 2025, with 650+ completed projects and consecutive AGC-WA safety awards demonstrating our commitment to excellence.`,
+  aboutLocation: `Based in ${locationFragments.headquarters}, proudly serving ${locationFragments.triCitiesLong}, ${locationFragments.counties}, and communities throughout the Pacific Northwest. Founded in 2010 by Mike Holstein, purchased by Army veteran Jeremy Thamert in January 2025, with 650+ completed projects and consecutive AGC-WA safety awards demonstrating our commitment to excellence.`,
 
   // Service page location introduction
   serviceIntro: (serviceName: string) =>

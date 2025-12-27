@@ -15,6 +15,7 @@ import {
 import { SkipLink } from "@/components/ui/accessibility/SkipLink";
 import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
 import { PWAManager } from "@/components/pwa";
+import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -22,11 +23,11 @@ export const metadata: Metadata = {
   ),
   title: {
     default:
-      "Base HQ → Home | Building projects for the client, NOT the dollar | MH Construction",
+      "Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction",
     template: "%s | MH Construction",
   },
   description:
-    "Base HQ → Home: Your Tri-Cities Construction Command Center. Veteran-owned general contractor serving the Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County, and Pacific Northwest since 2010. Dual-label approach: Military Operations → Construction Services. Service-earned values meet construction excellence with military precision, authentic partnerships, and transparent communication. Chain of Command structure with 150+ years combined expertise. Licensed in WA, OR, ID.",
+    "Base HQ → Home: Your Tri-Cities Construction Command Center. Founded 2010, veteran-owned since 2025. General contractor serving the Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County, and Pacific Northwest. Dual-label approach: Military Operations → Construction Services. Service-earned values meet construction excellence with military precision, authentic partnerships, and transparent communication. Chain of Command structure with 150+ years combined expertise. Licensed in WA, OR, ID.",
   keywords: [
     "Base HQ Home construction command center",
     "dual-label military civilian construction",
@@ -87,7 +88,7 @@ export const metadata: Metadata = {
     title:
       "Base HQ → Home | Building projects for the client, NOT the dollar | MH Construction",
     description:
-      "Your Tri-Cities Construction Command Center. Veteran-owned general contractor since 2010. Dual-label approach: Military Operations → Construction Services. Service-earned values meet construction excellence. Chain of Command structure with 150+ years combined expertise. Military precision, authentic partnerships, transparent communication.",
+      "Your Tri-Cities Construction Command Center. Founded 2010, veteran-owned since 2025. Dual-label approach: Military Operations → Construction Services. Service-earned values meet construction excellence. Chain of Command structure with 150+ years combined expertise. Military precision, authentic partnerships, transparent communication.",
     images: [
       {
         url: "/images/logo/mh-logo.png",
@@ -104,7 +105,7 @@ export const metadata: Metadata = {
     title:
       "Base HQ → Home | Building projects for the client, NOT the dollar | MH Construction",
     description:
-      "Your Tri-Cities Construction Command Center. Veteran-owned since 2010. Dual-label: Military Operations → Construction Services. Service-earned values, battle-tested excellence.",
+      "Your Tri-Cities Construction Command Center. Founded 2010, veteran-owned since 2025. Dual-label: Military Operations → Construction Services. Service-earned values, battle-tested excellence.",
     images: ["/images/logo/mh-logo.png"],
   },
   robots: {
@@ -162,6 +163,12 @@ export default function RootLayout({
     <html lang="en" className="font-sans">
       <head>
         <FaviconLinks />
+        {/* Google Analytics */}
+        {process.env["NEXT_PUBLIC_GOOGLE_ANALYTICS_ID"] && (
+          <GoogleAnalytics
+            measurementId={process.env["NEXT_PUBLIC_GOOGLE_ANALYTICS_ID"]}
+          />
+        )}
         {/* Preconnect to Google Fonts for faster loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

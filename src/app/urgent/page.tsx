@@ -1,4 +1,6 @@
-import { type Metadata } from "next";
+"use client";
+
+import { usePageTracking } from "@/lib/analytics/hooks";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -23,60 +25,12 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 // Feature flag - set to false to show full page content
 const SHOW_UNDER_CONSTRUCTION = false;
 
-export const metadata: Metadata = {
-  title:
-    "Rapid Response → Emergency | 24/7 Emergency Construction Response | MH Construction",
-  description: `Rapid Response → Emergency: 24/7 Emergency Construction Response - Mission-Ready Support. Rapid response when your construction mission is critical. Veteran-owned emergency deployment with honest assessment, transparent pricing, proven solutions. Expert consultation, specialized equipment, experienced crews—immediate deployment WA, OR, ID. THE ROI IS THE RELATIONSHIP. Call ${COMPANY_INFO.phone.display}.`,
-  keywords: [
-    "Rapid Response Emergency 24/7",
-    "mission-ready support construction",
-    "veteran-owned urgent construction",
-    "honest emergency assessment",
-    "transparent urgent pricing",
-    "dual-label emergency construction",
-    "service-earned urgent response",
-    "urgent construction support",
-    "emergency structural repairs",
-    "immediate construction response",
-    "construction equipment rental",
-    "heavy machinery operators",
-    "general contractor support",
-    "Pacific Northwest urgent construction",
-    "Tri-Cities emergency construction",
-    "Richland urgent contractor support",
-    "Pasco emergency repairs",
-    "Kennewick urgent construction",
-    "Benton County emergency construction",
-    "Franklin County urgent support",
-  ],
-  openGraph: {
-    title:
-      "Rapid Response → Emergency | 24/7 Construction Response - MH Construction",
-    description:
-      "Mission-Ready Support: 24/7 emergency construction response with veteran-owned deployment. Honest assessment, transparent pricing, proven solutions. Immediate deployment WA, OR, ID.",
-    type: "website",
-    locale: "en_US",
-    url: "https://www.mhc-gc.com/urgent",
-    siteName: "MH Construction",
-  },
-  twitter: {
-    card: "summary",
-    site: "@mhc_gc",
-    creator: "@mhc_gc",
-    title: "Rapid Response → Emergency | 24/7 Support - MH Construction",
-    description:
-      "Mission-Ready: 24/7 emergency construction response. Veteran-owned with service-earned values. Immediate deployment WA, OR, ID. THE ROI IS THE RELATIONSHIP.",
-  },
-  alternates: {
-    canonical: "https://www.mhc-gc.com/urgent",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+// Note: Metadata moved to parent layout due to 'use client' directive
 
 export default function UrgentSupportPage() {
+  // Analytics tracking
+  usePageTracking("Urgent Support");
+
   // Show under construction notice while preserving all content below
   if (SHOW_UNDER_CONSTRUCTION) {
     return (

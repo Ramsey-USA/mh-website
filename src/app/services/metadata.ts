@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Operations → Services | The Battle Plan - Strategic Construction Excellence | MH Construction",
+    "Operations → Services | The Battle Plan - Mission-Ready Construction Excellence | MH Construction",
   description:
-    "Operations → Services: The Battle Plan - Strategic Construction Excellence from Concept to Completion. Comprehensive construction management services with military precision and honest communication: Commercial buildings, Master Planning, Medical Facilities, Light Industrial, Religious Facilities, Tenant Improvements, Government Projects. Veteran-owned with service-earned values. Serving Tri-Cities WA, OR, ID. Call (509) 308-6489.",
+    "Operations → Services: The Battle Plan - Mission-Ready Construction Excellence from Concept to Completion. Comprehensive construction management operations with military precision and honest communication: Commercial buildings, Master Planning, Medical Facilities, Light Industrial, Religious Facilities, Tenant Improvements, Government Missions. Veteran-owned with service-earned values. Serving Tri-Cities WA, OR, ID. Call (509) 308-6489.",
   keywords: [
     "Operations Services battle plan",
     "strategic construction excellence",

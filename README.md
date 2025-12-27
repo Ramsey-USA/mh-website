@@ -1,9 +1,8 @@
-# MH Construction – Veteran-Owned Excellence
+# MH Construction – Founded 2010, Veteran-Owned Since January 2025
 
-🎯 Production Ready | ✓ Cloudflare Optimized | 🇺🇸 Veteran-Owned (Since Jan 2025)
+🎯 Production Ready | ✓ Cloudflare Optimized | 🇺🇸 Your Tri-Cities Construction Command Center
 
-**Building projects for the client, NOT the dollar** — Traditional business values, veteran integrity,
-and proven craftsmanship. Call (509) 308-6489 for direct consultation.
+**Building projects for the Client, NOT the Dollar** — Founded by Mike Holstein in 2010, purchased by Army veteran Jeremy Thamert in 2025. Veteran excellence, honest communication, and proven craftsmanship. Call (509) 308-6489 for direct consultation.
 
 ---
 
@@ -21,10 +20,14 @@ and proven craftsmanship. Call (509) 308-6489 for direct consultation.
 - **Dark Mode:** Fully optimized (Dec 25, 2025)
 - **PWA:** 100% test score (50/50), offline-ready ⭐ NEW (Dec 26, 2025)
 - **Media Optimization:** Auto-optimized images (42% smaller), video support ⭐ NEW (Dec 26, 2025)
+- **Analytics:** Complete marketing intelligence system - 100% page coverage, geographic tracking, CTA effectiveness, journey stages, lead scoring (0-100), military-themed dashboard ⭐ COMPLETE (Dec 27, 2025)
+- **SEO:** Dual-label military/construction titles across all pages ⭐ UPDATED (Dec 27, 2025)
 
 ### Core Identity (Dec 2025)
 
-- **Veteran-owned since January 2025** under Army veteran leadership
+- **Founded 2010 by Mike Holstein, Purchased 2025 by Army Veteran Jeremy Thamert**
+- **Your Tri-Cities Construction Command Center** serving the Pacific Northwest since 2010
+- **Building projects for the Client, NOT the Dollar** - core mission statement
 - **No gimmicks:** Removed booking/estimator/AI features - direct human contact only
 - **Contact-first:** All paths lead to phone (509) 308-6489 or email
 - **Honest messaging:** Removed 50+ instances of "AI-powered", "cutting-edge", "revolutionary"
@@ -75,6 +78,10 @@ npm run test:pwa         # PWA functionality tests (50 tests)
 npm run optimize:images  # Optimize images to WebP
 npm run optimize:videos  # Optimize videos to WebM/MP4
 npm run audit:images     # Analyze image optimization opportunities
+
+# Analytics Testing
+open test-analytics.html # Comprehensive analytics test suite
+# Or visit /dashboard after triple-clicking footer copyright
 ```
 
 ### Environment Setup
@@ -98,6 +105,7 @@ CLOUDFLARE_API_TOKEN=your_api_token
 
 - **Standards:** color-system, component-standards, hero-section, typography
 - **Strategy:** brand-overview, messaging, page-specific-messaging, universal-terminology
+- **Browser Titles:** BROWSER-TAB-TITLES-INVENTORY.md - Complete dual-label title inventory ⭐ NEW
 
 ### 💼 Business (18 files)
 
@@ -113,7 +121,8 @@ CLOUDFLARE_API_TOKEN=your_api_token
 - buttons-ctas-complete-guide, icon-system-complete
 - dark-mode-implementation-guide, dark-mode-quick-reference
 - seo-complete-guide, cloudflare-guide
-- **Analytics:** admin-analytics-system, analytics-tracking-guide, analytics-quick-reference
+- **Analytics:** admin-analytics-system, analytics-tracking-guide, analytics-quick-reference, ANALYTICS-ENHANCEMENT-DEC-2025, ANALYTICS-DATA-COLLECTION-CHECKLIST
+- **Analytics Guide:** ANALYTICS-GUIDE-FOR-MATT-AND-JEREMY.md - Complete marketing intelligence guide ⭐ NEW
 - **PWA:** pwa-documentation, pwa-quick-reference, pwa-audit-report ⭐ NEW
 - **Media:** automatic-media-optimization, image-optimization-guide, image-optimization-results ⭐ NEW
 
@@ -1207,7 +1216,133 @@ See: [Future Phases Roadmap](./docs/project/roadmaps/future-phases-roadmap.md)
 
 ---
 
-## 🔧 Troubleshooting
+## � Analytics System (December 27, 2025)
+
+### Complete Marketing Intelligence Platform
+
+**Status:** ✅ FULLY OPERATIONAL - 100% page coverage, real-time dashboard
+
+The analytics system provides comprehensive marketing intelligence to help Matt & Jeremy understand visitor behavior, lead quality, and conversion patterns.
+
+### Core Features
+
+#### 1. Geographic Intelligence 🌍
+
+- **3-tier fallback system:**
+  1. Cloudflare headers (production)
+  2. IP geolocation API (ipapi.co)
+  3. Timezone inference (fallback)
+- **Data captured:** City, state, country, ZIP, lat/long, timezone
+- **Coverage:** Every event includes geographic context
+
+#### 2. CTA Effectiveness Tracking 📞
+
+- **Tracked elements:** Phone, email, address links in footer
+- **Components:** `TrackedPhoneLink`, `TrackedEmailLink`, `TrackedLocationLink`
+- **Metrics:** Click rates, device type, page context, geographic origin
+
+#### 3. User Journey Tracking 🛣️
+
+- **Stages:** Awareness → Consideration → Decision → Engaged → Veteran
+- **Automatic detection:** Based on page paths and navigation patterns
+- **Storage:** Complete journey history with timestamps
+
+#### 4. Service & Project Interest 🏗️
+
+- **Service tracking:** Which services attract views/clicks/learn-more
+- **Project tracking:** Which project types generate interest
+- **Context:** Position, featured status, category, location
+
+#### 5. Lead Quality Scoring ⭐
+
+- **Score range:** 0-100 automatic calculation
+- **Factors:** Journey progression, page views, service interest, form submissions
+- **Categories:** Cold (0-24), Warm (25-49), Hot (50-74), Qualified (75-100)
+
+#### 6. Military-Themed Dashboard 🎖️
+
+- **Access:** Triple-click footer copyright → `/dashboard`
+- **Design:** Military terminology, MH branding (green #2D5F3F, tan #8B7355)
+- **Metrics:** Active visitors, hot leads, conversion funnel, geographic breakdown
+- **Real-time:** Live data from localStorage
+
+### Implementation Coverage
+
+- ✅ **27/27 pages tracked** (100% coverage)
+- ✅ **All footer CTAs instrumented** (phone, email, address)
+- ✅ **Service cards tracked** (ServicesShowcase.tsx)
+- ✅ **Project cards tracked** (ProjectCard.tsx, SimpleProjectCards.tsx)
+- ✅ **Form submissions tracked** (ContactForm.tsx with full context)
+- ✅ **Geographic data on all events**
+- ✅ **Journey stages automatically calculated**
+- ✅ **Lead scoring operational**
+
+### Key Files
+
+**Core Analytics:**
+
+- `src/lib/analytics/geolocation.ts` - Geographic location service
+- `src/lib/analytics/marketing-analytics.ts` - Journey, service, project tracking
+- `src/lib/analytics/marketing-tracking.ts` - Marketing utilities
+- `src/lib/analytics/hooks.ts` - React hooks (usePageTracking)
+- `src/lib/analytics/tracking.ts` - Core tracking functions
+
+**API Endpoints:**
+
+- `src/app/api/analytics/geolocation/route.ts` - Edge API for Cloudflare headers
+
+**Components:**
+
+- `src/components/analytics/TrackedContactLinks.tsx` - CTA tracking components
+- `src/app/dashboard/page.tsx` - Military-themed analytics dashboard
+
+**Documentation:**
+
+- `ANALYTICS-GUIDE-FOR-MATT-AND-JEREMY.md` - Complete owner's guide
+- `docs/technical/ANALYTICS-ENHANCEMENT-DEC-2025.md` - Technical details
+- `test-analytics.html` - Comprehensive test suite
+
+### Testing & Verification
+
+**Test Suite:** `test-analytics.html`
+
+- Geographic tracking test
+- CTA effectiveness test
+- Journey tracking simulation
+- Service interest test
+- Lead scoring calculation
+- Data storage verification
+
+**Dashboard Access:**
+
+1. Visit any page on the site
+2. Triple-click the footer copyright text
+3. Dashboard opens with real-time data
+4. View: Geographic breakdown, CTA performance, journey stages, lead quality
+
+**Data Storage:** All data stored in localStorage with these keys:
+
+- `mh_analytics_pageviews` - Page visit history
+- `mh_analytics_clicks` - Click events with context
+- `mh_analytics_journey` - User journey progression
+- `mh_analytics_journey_stages` - Stage counts
+- `mh_analytics_service_interests` - Service engagement
+- `mh_analytics_project_interests` - Project interest
+- `mh_analytics_forms` - Form submissions
+- `mh_analytics_conversions` - Conversion events
+
+### What Matt & Jeremy Can Learn
+
+1. **Where visitors come from:** City/state/country on every event
+2. **What attracts attention:** Service and project interest metrics
+3. **What people click:** CTA effectiveness, navigation patterns
+4. **Lead quality:** Automatic scoring identifies hot prospects
+5. **Journey paths:** Understanding how visitors move through the funnel
+6. **Conversion patterns:** Which pages and actions lead to form submissions
+
+---
+
+## �🔧 Troubleshooting
 
 ### Common Issues
 
@@ -1325,9 +1460,9 @@ Advanced roadmap: [Advanced SEO Optimization](./docs/technical/seo/advanced-seo-
 
 ---
 
-**Last Updated:** December 26, 2025
-**Version:** 4.0.1
-**Status:** Production Ready | Veteran-Focused | Honesty-First | 100/100 SEO
+**Last Updated:** December 27, 2025
+**Version:** 4.1.0
+**Status:** Production Ready | Veteran-Focused | Honesty-First | 100/100 SEO | Complete Analytics Intelligence
 
 ---
 

@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
+import { usePageTracking } from "@/lib/analytics/hooks";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { StructuredData } from "@/components/seo/seo-meta";
@@ -8,29 +10,12 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 
-export const metadata: Metadata = {
-  title: "Accessibility Statement | MH Construction, Inc.",
-  description:
-    "Our commitment to web accessibility and ensuring our website is usable by everyone, including people with disabilities. WCAG 2.1 Level AA compliant.",
-  alternates: {
-    canonical: "https://www.mhc-gc.com/accessibility",
-  },
-  openGraph: {
-    title: "Accessibility Statement | MH Construction, Inc.",
-    description:
-      "Our commitment to digital accessibility for all users. Learn about our WCAG compliance and accessibility features.",
-    url: "https://www.mhc-gc.com/accessibility",
-    type: "website",
-  },
-  twitter: {
-    card: "summary",
-    title: "Accessibility Statement | MH Construction, Inc.",
-    description:
-      "Our commitment to digital accessibility for all users. WCAG 2.1 Level AA compliant.",
-  },
-};
+// Note: Metadata moved to parent layout due to "use client" directive
 
 export default function AccessibilityPage() {
+  // Analytics tracking
+  usePageTracking("Accessibility");
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-black">
       <StructuredData

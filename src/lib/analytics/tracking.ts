@@ -22,11 +22,13 @@
  */
 
 import { analyticsEngine } from "./index";
-import { getEnhancedTrackingProperties, getDeviceInfo } from "./metadata";
+import { getEnhancedTrackingPropertiesSync, getDeviceInfo } from "./metadata";
+import { getGeographicLocation } from "./geolocation";
 
 /**
  * Track button/link clicks
  * Use this on any clickable element you want to track
+ * Now includes geographic location data
  *
  * @example
  * <button onClick={() => trackClick('contact-cta', { section: 'footer' })}>
@@ -37,8 +39,9 @@ export function trackClick(
   elementId: string,
   properties?: Record<string, unknown>,
 ): void {
-  const enhancedProps = getEnhancedTrackingProperties();
+  const enhancedProps = getEnhancedTrackingPropertiesSync();
 
+  // Track click immediately with synchronous data
   analyticsEngine.track("user_interaction", {
     element: elementId,
     action: "click",
@@ -50,19 +53,44 @@ export function trackClick(
   if (typeof window !== "undefined") {
     const clicks = getStoredClicks();
     const deviceInfo = getDeviceInfo();
-    clicks.push({
-      element: elementId,
-      timestamp: new Date().toISOString(),
-      page: window.location.pathname,
-      deviceType: deviceInfo.type,
-      browser: deviceInfo.browser,
-      os: deviceInfo.os,
-      ...properties,
-    });
-    localStorage.setItem(
-      "mh_analytics_clicks",
-      JSON.stringify(clicks.slice(-1000)),
-    ); // Keep last 1000
+
+    // Get geographic location asynchronously and update stored data
+    getGeographicLocation()
+      .then((location) => {
+        clicks.push({
+          element: elementId,
+          timestamp: new Date().toISOString(),
+          page: window.location.pathname,
+          deviceType: deviceInfo.type,
+          browser: deviceInfo.browser,
+          os: deviceInfo.os,
+          // Geographic data
+          country: location.country,
+          state: location.state,
+          city: location.city,
+          ...properties,
+        });
+        localStorage.setItem(
+          "mh_analytics_clicks",
+          JSON.stringify(clicks.slice(-1000)),
+        ); // Keep last 1000
+      })
+      .catch(() => {
+        // If geolocation fails, store without it
+        clicks.push({
+          element: elementId,
+          timestamp: new Date().toISOString(),
+          page: window.location.pathname,
+          deviceType: deviceInfo.type,
+          browser: deviceInfo.browser,
+          os: deviceInfo.os,
+          ...properties,
+        });
+        localStorage.setItem(
+          "mh_analytics_clicks",
+          JSON.stringify(clicks.slice(-1000)),
+        );
+      });
   }
 }
 
@@ -80,7 +108,7 @@ export function trackFormSubmit(
   formId: string,
   properties?: Record<string, unknown>,
 ): void {
-  const enhancedProps = getEnhancedTrackingProperties();
+  const enhancedProps = getEnhancedTrackingPropertiesSync();
 
   analyticsEngine.track("form_submission", {
     formId,

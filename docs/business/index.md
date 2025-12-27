@@ -52,4 +52,4 @@ Logistics Command (Administration & Support):
 ---
 
 **Building projects for the client, NOT the dollar**  
-**MH Construction** - Veteran-Owned Excellence Since 2010
+**MH Construction** - Founded 2010, Veteran-Owned Since 2025

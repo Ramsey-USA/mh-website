@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Public Sector → Government | Veteran-Owned Excellence for Government Construction | MH Construction",
+    "Public Sector → Government | Veteran-Owned Excellence for Government Operations | MH Construction",
   description:
-    "Public Sector → Government: Veteran-Owned Excellence for Government Construction Missions. Mission-ready construction operations with federal compliance-driven standards. Veteran-owned construction services for public sector and government projects with service-earned values. Experienced with government contracting, compliance, and military facility construction in the Pacific Northwest. Building bonding capacity for public sector work.",
+    "Public Sector → Government: Veteran-Owned Excellence for Government Construction Operations. Mission-ready construction execution with federal compliance-driven standards. Veteran-owned construction operations for public sector and government missions with service-earned values. Experienced with government contracting, compliance, and military facility construction in the Pacific Northwest. Building bonding capacity for public sector operations.",
   keywords: [
     "Public Sector Government construction missions",
     "mission-ready construction operations",

@@ -13,6 +13,9 @@ import {
 } from "../ui";
 import { analytics } from "../analytics/google-analytics";
 import { isValidEmail, isValidPhone } from "@/lib/utils/validation";
+import { useFormTracking } from "@/lib/analytics/hooks";
+import { trackFormSubmit } from "@/lib/analytics/tracking";
+import { trackJourneyMilestone } from "@/lib/analytics/marketing-tracking";
 
 interface ContactFormData {
   firstName: string;
@@ -43,6 +46,9 @@ export function ContactForm({
   title,
   description,
 }: ContactFormProps) {
+  // Form tracking hook (field tracking can be added to inputs as needed)
+  useFormTracking(`contact-form-${formType}`);
+
   const [formData, setFormData] = useState<ContactFormData>({
     firstName: "",
     lastName: "",
@@ -185,8 +191,18 @@ export function ContactForm({
     setIsSubmitting(true);
 
     try {
-      // Track form submission
+      // Track form submission with analytics
       analytics.contactForm(formType, formData.projectType);
+
+      // Track with our comprehensive analytics system
+      trackFormSubmit(`contact-form-${formType}`, {
+        projectType: formData.projectType,
+        projectCategory: formData.projectCategory,
+        urgency: formData.urgency,
+        isVeteran: formData.isVeteran,
+        budget: formData.budget,
+        timeline: formData.timeline,
+      });
 
       // Prepare email content with all form data
       const emailMessage = `
@@ -248,6 +264,13 @@ ${formData.message}
       if (!response.ok) {
         throw new Error("Failed to submit form");
       }
+
+      // Track successful conversion
+      trackJourneyMilestone("completed_form", {
+        formType,
+        projectType: formData.projectType,
+        isVeteran: formData.isVeteran,
+      });
 
       setIsSubmitted(true);
 

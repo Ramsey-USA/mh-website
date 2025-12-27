@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Enlist → Careers | Build More Than Projects - Build Your Future | MH Construction",
+    "Enlist → Careers | Build Your Future - Join the Mission | MH Construction",
   description:
-    "Enlist → Careers: Build More Than Projects - Build Your Future with a Veteran-Owned Team. Join the mission - your construction career starts here. Explore career opportunities at MH Construction. Join our veteran-led team in the Tri-Cities with service-earned values. We offer competitive benefits, professional development, transparent expectations, proven mentorship, and a collaborative work environment where military precision meets construction excellence.",
+    "Enlist → Careers: Build Your Future - Join the Mission with a Veteran-Owned Team. Your construction career starts here. Explore career opportunities at MH Construction. Join our veteran-led team in the Tri-Cities with service-earned values. We offer competitive benefits, professional development, transparent expectations, proven mentorship, and a collaborative work environment where military precision meets construction excellence.",
   keywords: [
     "Enlist Careers build your future",
     "join the mission construction career",

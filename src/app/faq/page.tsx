@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePageTracking } from "@/lib/analytics/hooks";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
@@ -36,7 +37,7 @@ const faqCategories = [
         question:
           "What makes MH Construction different from other construction companies?",
         answer:
-          "We're built on a four-value professional foundation system: Honesty, Integrity, Professionalism, and Thoroughness—all culminating in Trust as our ultimate goal. As a veteran-owned company since January 2025, we combine military precision with partnership-driven construction management. Our philosophy is simple: Building projects for the client, NOT the dollar. We work WITH you, not FOR you, ensuring your vision guides every decision.",
+          "We're built on a four-value professional foundation system: Honesty, Integrity, Professionalism, and Thoroughness—all culminating in Trust as our ultimate goal. Founded in 2010, we became veteran-owned in January 2025 when Army veteran Jeremy Thamert purchased the company, combining our 15-year heritage with military precision and partnership-driven construction management. Our philosophy is simple: Building projects for the client, NOT the dollar. We work WITH you, not FOR you, ensuring your vision guides every decision.",
       },
       {
         question: "Where are you licensed and what areas do you serve?",
@@ -51,7 +52,7 @@ const faqCategories = [
       {
         question: "Are you really veteran-owned?",
         answer:
-          "Yes! MH Construction has been veteran-owned since January 2025, led by Army veteran leadership. Our military background brings discipline, attention to detail, and a commitment to excellence to every project. We understand the value of keeping promises and completing missions—values that directly translate to construction excellence.",
+          "Yes! MH Construction was founded in 2010 and became veteran-owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our military background brings discipline, attention to detail, and a commitment to excellence to every project. We understand the value of keeping promises and completing missions—values that directly translate to construction excellence.",
       },
     ],
   },
@@ -189,7 +190,7 @@ const faqCategories = [
       {
         question: "Is MH Construction a certified Veteran-Owned business?",
         answer:
-          "Yes, MH Construction is a Veteran-Owned business founded by U.S. Army Veteran Jeremy Thamert. We operate with an 'Old School' mentality where your word is your bond, living by the slogan: 'Building projects for the client, NOT the dollar.'",
+          "Yes, MH Construction is a Veteran-Owned business. Founded in 2010 by Mike Holstein, the company was purchased in January 2025 by U.S. Army Veteran Jeremy Thamert. We operate with an 'Old School' mentality where your word is your bond, living by the slogan: 'Building projects for the client, NOT the dollar.'",
       },
       {
         question:
@@ -315,6 +316,9 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
  * FAQ Page Component
  */
 export default function FAQPage() {
+  // Analytics tracking
+  usePageTracking("FAQ");
+
   // Get enhanced SEO data for FAQ page
   const faqSEO = getFAQSEO();
 

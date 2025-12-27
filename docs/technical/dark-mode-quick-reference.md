@@ -255,4 +255,4 @@ See [Dark Mode Implementation Guide](./dark-mode-implementation-guide.md) for co
 
 ---
 
-**MH Construction** - Veteran-Owned Excellence Since 2010
+**MH Construction** - Founded 2010, Veteran-Owned Since 2025

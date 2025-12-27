@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
+import { usePageTracking } from "@/lib/analytics/hooks";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { COMPANY_INFO } from "@/lib/constants/company";
@@ -8,29 +10,12 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | MH Construction, Inc.",
-  description:
-    "Learn how MH Construction protects your privacy and handles your personal information. Our commitment to data security, transparency, and GDPR compliance.",
-  alternates: {
-    canonical: "https://www.mhc-gc.com/privacy",
-  },
-  openGraph: {
-    title: "Privacy Policy | MH Construction, Inc.",
-    description:
-      "Our privacy policy and data protection practices. Learn how we handle your information securely.",
-    url: "https://www.mhc-gc.com/privacy",
-    type: "website",
-  },
-  twitter: {
-    card: "summary",
-    title: "Privacy Policy | MH Construction, Inc.",
-    description:
-      "Our commitment to data security, transparency, and protecting your privacy.",
-  },
-};
+// Note: Metadata moved to parent layout due to "use client" directive
 
 export default function PrivacyPolicyPage() {
+  // Analytics tracking
+  usePageTracking("Privacy Policy");
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-black">
       <StructuredData

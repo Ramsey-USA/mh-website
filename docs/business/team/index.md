@@ -87,5 +87,5 @@ and relationships that outlast projects.
 
 ---
 
-**MH Construction** - Veteran-Owned Excellence Since 2010  
+**MH Construction** - Founded 2010, Veteran-Owned Since 2025  
 **Building projects for the client, NOT the dollar**

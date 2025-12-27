@@ -12,6 +12,9 @@ export const analyticsEngine = new AdvancedAnalyticsEngine();
 export * from "./types";
 export { AdvancedAnalyticsEngine } from "./analytics-engine";
 
+// Export data collector for direct access if needed
+export { dataCollector } from "./data-collector";
+
 // Re-export metadata utilities
 export {
   getDeviceInfo,
@@ -21,6 +24,11 @@ export {
   getTrafficSource,
   getEventMetadata,
   getEnhancedTrackingProperties,
+  getUserPreferences,
+  getOrientationInfo,
+  getSecurityInfo,
+  getMemoryInfo,
+  getPagePerformance,
 } from "./metadata";
 
 // Re-export tracking utilities for convenience
@@ -45,3 +53,14 @@ export {
   useCTATracking,
   useElementTracking,
 } from "./hooks";
+
+// Re-export data export utilities
+export {
+  exportAsJSON,
+  exportPageViewsAsCSV,
+  exportClicksAsCSV,
+  exportFormsAsCSV,
+  exportInteractionsAsCSV,
+  downloadAnalyticsData,
+  getAnalyticsSummary,
+} from "./export";

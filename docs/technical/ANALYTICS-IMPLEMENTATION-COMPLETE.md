@@ -280,6 +280,15 @@ trackClick("custom-element", { context: "data" });
 - **Dashboard features**
 - **API endpoints**
 
+### Latest Enhancements ⭐ NEW (Dec 27, 2025)
+
+- **Enhancement Guide**: See [ANALYTICS-ENHANCEMENT-DEC-2025.md](./ANALYTICS-ENHANCEMENT-DEC-2025.md)
+- **Data Collection**: See [ANALYTICS-DATA-COLLECTION-CHECKLIST.md](./ANALYTICS-DATA-COLLECTION-CHECKLIST.md)
+- **100+ data points** collected privacy-first
+- **Google Analytics integration** ready
+- **Data export** in CSV/JSON formats
+- **Enhanced metadata** collection
+
 ### Live Example
 
 - **Demo Page**: `/tracking-example`

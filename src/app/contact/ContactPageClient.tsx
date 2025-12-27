@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePageTracking } from "@/lib/analytics/hooks";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   DiagonalStripePattern,
@@ -85,6 +86,9 @@ const mainCTAs = [
 ];
 
 export default function ContactPageClient() {
+  // Analytics tracking
+  usePageTracking("Contact");
+
   // Show under construction notice while preserving all content below
   if (SHOW_UNDER_CONSTRUCTION) {
     return (

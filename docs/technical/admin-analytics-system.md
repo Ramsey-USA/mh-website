@@ -1,5 +1,7 @@
 # Admin Analytics System
 
+> **📊 Latest Enhancement (December 2025):** Analytics system now collects 100+ comprehensive data points including device info, user preferences, performance metrics, and security context. See [Analytics Enhancement Documentation](../../ANALYTICS-ENHANCEMENT-DEC-2025.md) for complete details.
+
 ## Overview
 
 A secure, hidden analytics dashboard accessible only to Matt and Jeremy through a discrete trigger in the website footer.
@@ -74,6 +76,13 @@ A secure, hidden analytics dashboard accessible only to Matt and Jeremy through 
 - **Top Active Pages**: Most viewed pages right now
 
 ## Technical Architecture
+
+### Related Documentation
+
+- [Analytics Enhancement (Dec 2025)](../../ANALYTICS-ENHANCEMENT-DEC-2025.md) - Comprehensive data collection improvements
+- [Analytics Data Collection Checklist](../../ANALYTICS-DATA-COLLECTION-CHECKLIST.md) - Complete inventory of 100+ data points
+- [Browser Tab Titles Inventory](../../BROWSER-TAB-TITLES-INVENTORY.md) - SEO-optimized dual-label title system
+- [Analytics Quick Reference](../../analytics-quick-reference.md) - Quick start guide
 
 ### Components Created
 

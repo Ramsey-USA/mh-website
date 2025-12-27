@@ -1,5 +1,7 @@
-import { type Metadata } from "next";
+"use client";
+
 import Link from "next/link";
+import { usePageTracking } from "@/lib/analytics/hooks";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -19,45 +21,12 @@ import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponent
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
-export const metadata: Metadata = {
-  title:
-    "Commendations → Reviews | Verified Success Stories from Completed Missions | MH Construction",
-  description:
-    "Commendations → Reviews: Verified Success Stories from Completed Missions. After-action reports from real client missions. Read authentic testimonials from our valued Client Partners across the Pacific Northwest. See why businesses trust our veteran-owned construction team for commercial, industrial, and government projects. Battle-tested excellence through proven results.",
-  keywords: [
-    "Commendations Reviews testimonials",
-    "after-action reports client missions",
-    "verified success stories",
-    "MH Construction reviews",
-    "construction testimonials",
-    "Tri-Cities contractor reviews",
-    "client feedback",
-    "construction company ratings",
-    "Pasco WA contractor reviews",
-    "commercial construction testimonials",
-    "veteran-owned construction reviews",
-  ],
-  openGraph: {
-    title:
-      "Commendations → Reviews | Verified Success Stories | MH Construction",
-    description:
-      "After-action reports from real client missions. Authentic testimonials from our Client Partners. See why businesses across Washington, Oregon, and Idaho choose our veteran-owned construction team.",
-    type: "website",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title:
-      "Commendations → Reviews | Verified Success Stories | MH Construction",
-    description:
-      "After-action reports from completed missions. Read what our Client Partners say about working with our veteran-owned construction team.",
-  },
-  alternates: {
-    canonical: "/testimonials",
-  },
-};
+// Note: Metadata moved to parent layout due to 'use client' directive
 
 export default function TestimonialsPage() {
+  // Analytics tracking
+  usePageTracking("Testimonials");
+
   // Get client testimonials from centralized data source
   const testimonials = getClientTestimonials();
 

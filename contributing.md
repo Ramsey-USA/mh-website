@@ -19,9 +19,10 @@ developers working on this project.
 
 ## 🏗️ Project Overview
 
-This is a partnership-driven foundation platform for MH Construction, a veteran-owned company
-serving the Pacific Northwest. The platform emphasizes collaborative client relationships, professional
-Ally relationships, and veteran excellence.
+This is a partnership-driven foundation platform for MH Construction, founded in 2010 by Mike Holstein
+and purchased in January 2025 by Jeremy Thamert, an Army veteran, bringing the company to veteran-owned
+status. Serving the Pacific Northwest as **Your Tri-Cities Construction Command Center**. The platform
+emphasizes collaborative client relationships, professional Ally relationships, and service-earned values.
 
 **⚠️ CRITICAL RELATIONSHIP DISTINCTION:** The platform serves two distinct audiences:
 

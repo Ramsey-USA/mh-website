@@ -3,10 +3,14 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { COMPANY_INFO } from "@/lib/constants/company";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PWAInstallButton } from "@/components/pwa";
 import { AdminSignInModal } from "@/components/ui/modals/AdminSignInModal";
+import {
+  TrackedPhoneLink,
+  TrackedEmailLink,
+  TrackedLocationLink,
+} from "@/components/analytics/TrackedContactLinks";
 
 export default function Footer() {
   const [showAdminModal, setShowAdminModal] = useState(false);
@@ -704,11 +708,14 @@ export default function Footer() {
                 itemScope
                 itemType="https://schema.org/ContactPoint"
               >
-                <a
-                  href={`tel:${COMPANY_INFO.phone.tel}`}
+                <TrackedPhoneLink
+                  trackId="footer-phone-cta"
+                  trackProperties={{
+                    location: "footer-prominent-cta",
+                    style: "button",
+                  }}
                   className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation"
                   aria-label="Call MH Construction at 509-308-6489"
-                  itemProp="telephone"
                 >
                   <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
                     <MaterialIcon
@@ -730,13 +737,16 @@ export default function Footer() {
                     size="sm"
                     className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
                   />
-                </a>
+                </TrackedPhoneLink>
 
-                <a
-                  href="mailto:office@mhc-gc.com"
+                <TrackedEmailLink
+                  trackId="footer-email-cta"
+                  trackProperties={{
+                    location: "footer-prominent-cta",
+                    style: "button",
+                  }}
                   className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation"
                   aria-label="Email MH Construction at office@mhc-gc.com"
-                  itemProp="email"
                 >
                   <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
                     <MaterialIcon
@@ -758,17 +768,15 @@ export default function Footer() {
                     size="sm"
                     className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
                   />
-                </a>
+                </TrackedEmailLink>
 
-                <a
-                  href="https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <TrackedLocationLink
+                  trackId="footer-address-cta"
+                  trackProperties={{
+                    location: "footer-prominent-cta",
+                    style: "button",
+                  }}
                   className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation"
-                  aria-label="Get directions to MH Construction office at 3111 N Capitol Ave, Pasco, WA 99301"
-                  itemProp="address"
-                  itemScope
-                  itemType="https://schema.org/PostalAddress"
                 >
                   <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
                     <MaterialIcon
@@ -794,7 +802,7 @@ export default function Footer() {
                     size="sm"
                     className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
                   />
-                </a>
+                </TrackedLocationLink>
               </div>
 
               {/* Newsletter Signup */}

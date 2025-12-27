@@ -9,7 +9,7 @@ const milestones = [
     icon: "foundation",
     title: "Foundation: Partnership Philosophy",
     description:
-      'Mike Holstein establishes MH Construction on the principle: "We Work WITH You, Not FOR You"—building trust through honest communication and transparent practices.',
+      'Mike Holstein founds MH Construction on the principle: "We Work WITH You, Not FOR You"—building trust through honest communication and transparent practices.',
     impact: "Family Values Foundation",
     color: "primary",
   },
@@ -107,20 +107,20 @@ const milestones = [
     phase: 3,
     year: "2024",
     icon: "history",
-    title: "15th Anniversary & Succession",
+    title: "15th Anniversary & Sale Preparation",
     description:
-      "Mike Holstein announces succession plan ensuring continuity of partnership philosophy while preparing for next chapter—15 years of trust-building leadership.",
-    impact: "Legacy Secured",
+      "Mike Holstein prepares to sell MH Construction to Jeremy Thamert, ensuring continuity of partnership philosophy while preparing for next chapter—15 years of trust-building leadership.",
+    impact: "Legacy Transition",
     color: "bronze",
   },
   {
     phase: 4,
     year: "Jan 2025",
     icon: "military_tech",
-    title: "Veteran-Owned Leadership",
+    title: "Veteran Ownership Transition",
     description:
-      "Jeremy Thamert assumes ownership bringing operational discipline and mission-focused execution—enhancing established excellence with military-grade structure and zero-compromise standards.",
-    impact: "Operational Enhancement",
+      "Army veteran Jeremy Thamert purchases MH Construction, bringing the company to veteran-owned status. Operational discipline and mission-focused execution enhance established excellence with military-grade structure and zero-compromise standards.",
+    impact: "Veteran-Owned Excellence",
     color: "veteran",
   },
   {

@@ -15,18 +15,27 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { OptimizedImage } from "@/components/ui/media/OptimizedImage";
 import { getCardClassName } from "@/lib/styles/card-variants";
 import type { ProjectPortfolio } from "@/lib/types";
+import { trackProjectInterest } from "@/lib/analytics/marketing-tracking";
 
 interface ProjectCardProps {
   project: ProjectPortfolio;
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const handleCardClick = () => {
+    trackProjectInterest(project.title, project.category, "click", {
+      location: project.location.city,
+      featured: project.isFeatured,
+    });
+  };
+
   return (
     <Card
       className={getCardClassName(
         "default",
-        "overflow-hidden hover:-translate-y-1 hover:shadow-xl",
+        "overflow-hidden hover:-translate-y-1 hover:shadow-xl cursor-pointer",
       )}
+      onClick={handleCardClick}
     >
       {/* Project Image */}
       <div className="relative bg-gray-200 dark:bg-gray-700 h-64">

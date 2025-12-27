@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePageTracking } from "@/lib/analytics/hooks";
 import { Button } from "@/components/ui";
 import { SectionContainer } from "@/components/layout";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -15,6 +18,9 @@ interface LocationPageProps {
 }
 
 export function LocationPageContent({ location }: LocationPageProps) {
+  // Analytics tracking
+  usePageTracking(`Location - ${location.city}`);
+
   // Generate location-specific structured data
   const locationSchema = {
     "@context": "https://schema.org",

@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { usePageTracking } from "@/lib/analytics/hooks";
 
 export default function OfflinePage() {
+  // Analytics tracking
+  usePageTracking("Offline");
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4">
       <div className="max-w-2xl w-full text-center">

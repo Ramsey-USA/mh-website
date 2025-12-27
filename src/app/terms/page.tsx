@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
+import { usePageTracking } from "@/lib/analytics/hooks";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { COMPANY_INFO } from "@/lib/constants/company";
@@ -8,29 +10,12 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 
-export const metadata: Metadata = {
-  title: "Terms of Service | MH Construction, Inc.",
-  description:
-    "Read our terms of service and understand the legal agreement between you and MH Construction, Inc. User rights, responsibilities, and legal compliance.",
-  alternates: {
-    canonical: "https://www.mhc-gc.com/terms",
-  },
-  openGraph: {
-    title: "Terms of Service | MH Construction, Inc.",
-    description:
-      "Our terms of service and legal agreements. Understand your rights and responsibilities when using our website.",
-    url: "https://www.mhc-gc.com/terms",
-    type: "website",
-  },
-  twitter: {
-    card: "summary",
-    title: "Terms of Service | MH Construction, Inc.",
-    description:
-      "Our terms of service and legal agreements. User rights and responsibilities.",
-  },
-};
+// Note: Metadata moved to parent layout due to "use client" directive
 
 export default function TermsOfServicePage() {
+  // Analytics tracking
+  usePageTracking("Terms of Service");
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-black">
       <StructuredData

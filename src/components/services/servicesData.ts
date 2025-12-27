@@ -377,7 +377,7 @@ export const whyChooseUs: WhyChooseUsItem[] = [
     iconName: "military_tech",
     title: "650+ Successful Projects - Reliability",
     description:
-      "Over 650 successfully completed projects demonstrate our veteran-trained reliability. Veteran-owned under Army veteran leadership since January 2025. We apply military precision, discipline, and unwavering attention to detail to every construction project, ensuring reliable execution and mission-focused results. Our veteran-fueled reliability means staying calm and precise under pressure—delivering results when it matters most.",
+      "Over 650 successfully completed projects demonstrate our veteran-trained reliability. Founded 2010, veteran-owned since January 2025 when Army veteran Jeremy Thamert purchased the company. We apply military precision, discipline, and unwavering attention to detail to every construction project, ensuring reliable execution and mission-focused results. Our veteran-fueled reliability means staying calm and precise under pressure—delivering results when it matters most.",
   },
   {
     iconName: "verified",

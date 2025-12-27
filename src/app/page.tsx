@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import {
   generateOrganizationStructuredData,
@@ -42,7 +41,7 @@ import { PWAInstallCTA } from "@/components/pwa";
 import { StrategicCTABanner } from "@/components/ui/cta";
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { useAnalytics } from "@/components/analytics/enhanced-analytics";
+import { usePageTracking } from "@/lib/analytics/hooks";
 import { useImagePreloader } from "@/hooks/usePerformanceOptimization";
 import { useScrollDepthTracking } from "@/hooks/useScrollDepthTracking";
 import {
@@ -51,8 +50,8 @@ import {
 } from "@/components/ui/backgrounds";
 
 export default function Home() {
-  // Initialize analytics
-  const { trackEvent } = useAnalytics();
+  // Analytics tracking
+  usePageTracking("Home");
 
   // Get enhanced SEO data for homepage
   const homepageSEO = getHomepageSEO();
@@ -65,15 +64,6 @@ export default function Home() {
 
   // Preload critical images for performance
   useImagePreloader(criticalImages);
-
-  // Track page view
-  useEffect(() => {
-    trackEvent("page_view", {
-      page_name: "homepage",
-      page_location: "/",
-      content_group1: "marketing",
-    });
-  }, [trackEvent]);
 
   // Track scroll depth for engagement analytics with custom hook
   useScrollDepthTracking("homepage");

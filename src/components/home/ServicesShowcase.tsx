@@ -11,6 +11,7 @@ import {
   CardContent,
   Button,
 } from "@/components/ui";
+import { trackServiceInterest } from "@/lib/analytics/marketing-tracking";
 
 // Helper function to render subtitle with styled "NOT"
 function renderSubtitle(subtitle: string) {
@@ -290,10 +291,21 @@ export function ServicesShowcase() {
               key={service.title}
               className="scroll-reveal cursor-pointer"
               style={{ animationDelay: `${index * 0.1}s` }}
-              onClick={() => openModal(index)}
+              onClick={() => {
+                trackServiceInterest(service.title, "click", {
+                  location: "homepage-showcase",
+                  position: index + 1,
+                });
+                openModal(index);
+              }}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
+                  trackServiceInterest(service.title, "click", {
+                    location: "homepage-showcase",
+                    position: index + 1,
+                    method: "keyboard",
+                  });
                   openModal(index);
                 }
               }}

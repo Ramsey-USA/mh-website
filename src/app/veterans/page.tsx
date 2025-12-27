@@ -1,6 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import type { Metadata } from "next";
 import Image from "next/image";
+import { usePageTracking } from "@/lib/analytics/hooks";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { AmericanFlag } from "@/components/icons/AmericanFlag";
 import {
@@ -23,61 +25,20 @@ import {
 const SHOW_UNDER_CONSTRUCTION = false;
 
 /**
- * Veterans Initiative Page Metadata
- * SEO optimized for veteran-owned construction services and veteran support programs
+ * Veterans Initiative Page
+ * Client component with analytics tracking
  * Updated: December 2025 - Comprehensive veteran foundation, partnerships, and year-round programs
+ * Note: Metadata moved to parent layout due to 'use client' directive
  */
-export const metadata: Metadata = {
-  title:
-    "Veteran-Owned Construction | Combat Veteran Discount | Year-Round Support | MH Construction",
-  description:
-    "Veteran-owned since January 2025. Army & Navy veteran leadership with 150+ years combined experience. Combat Veteran Discount through respectful screening, 100% veteran hiring priority, active apprenticeship programs, strategic partnerships with selective veteran organizations. Honesty, integrity, professionalism, thoroughness guide every project.",
-  keywords: [
-    "veteran-owned construction",
-    "veteran-owned contractor Tri-Cities",
-    "combat veteran discount",
-    "military construction services",
-    "veteran hiring priority",
-    "Army Navy veteran owned",
-    "all-branch veterans",
-    "veteran support programs",
-    "Tri-Cities veteran contractor",
-    "military precision construction",
-    "service-earned values",
-    "veteran partnerships",
-    "veteran discount screening",
-    "veteran apprenticeship programs",
-    "veteran-owned subcontractors",
-    "Pacific Northwest veteran contractor",
-    "Group 1 Veteran Foundation",
-    "Jeremy Ramsey Army veteran",
-    "Matt Hunzeker Navy veteran",
-  ],
-  openGraph: {
-    title:
-      "Veteran-Owned Construction | Combat Veteran Discount | Year-Round Programs",
-    description:
-      "Army & Navy veteran leadership since January 2025. Combat Veteran Discount, 100% hiring priority, active apprenticeships, strategic partnerships. Service-earned values: Honesty, Integrity, Professionalism, Thoroughness.",
-    type: "website",
-    images: [
-      {
-        url: "/images/logo/mh-veteran-bg.webp",
-        width: 1200,
-        height: 630,
-        alt: "MH Construction - Veteran-Owned Excellence Since January 2025",
-      },
-    ],
-  },
-  alternates: {
-    canonical: "https://www.mhc-gc.com/veterans",
-  },
-};
 
 /**
  * Veterans Initiative Page
  * Showcasing MH Construction's veteran-owned status and community support programs
  */
 export default function VeteransPage() {
+  // Analytics tracking
+  usePageTracking("Veterans");
+
   // Show under construction notice while preserving all content below
   if (SHOW_UNDER_CONSTRUCTION) {
     return (

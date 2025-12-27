@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Missions → Projects | Mission Success: 650+ Completed Projects | MH Construction",
+    "Missions → Projects | Mission Success: 650+ Completed Operations | MH Construction",
   description:
-    "Missions → Projects: Mission Success - 650+ Completed Projects, Countless Lasting Relationships. Explore MH Construction's completed construction missions: commercial buildings, medical facilities, industrial construction, and tenant improvements across the Pacific Northwest. Veteran-owned since 2025, building excellence since 2010 with service-earned values, honest communication, transparent pricing, and proven craftsmanship.",
+    "Missions → Projects: Mission Success - 650+ Completed Operations, Countless Lasting Relationships. Explore MH Construction's completed construction missions: commercial buildings, medical facilities, industrial operations, and tenant improvements across the Pacific Northwest. Veteran-owned since 2025, executing excellence since 2010 with service-earned values, honest communication, transparent pricing, and proven craftsmanship.",
   keywords: [
     "Missions Projects 650 completed",
     "mission success proven results",

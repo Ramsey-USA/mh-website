@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePageTracking } from "@/lib/analytics/hooks";
 import {
   Button,
   Card,
@@ -275,11 +278,14 @@ const successFactors = [
     icon: "military_tech",
     title: "Veteran-Owned Qualified Contractor",
     description:
-      "Veteran-owned since January 2025 under Army veteran leadership with proven federal contracting capabilities and 150+ years combined team experience",
+      "Founded 2010, veteran-owned since January 2025 when Army veteran Jeremy Thamert purchased the company, bringing proven federal contracting capabilities and 150+ years combined team experience",
   },
 ];
 
 export default function PublicSectorPage() {
+  // Analytics tracking
+  usePageTracking("Public Sector");
+
   // Show under construction notice while preserving all content below
   if (SHOW_UNDER_CONSTRUCTION) {
     return (

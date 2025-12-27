@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePageTracking } from "@/lib/analytics/hooks";
 import { Button, IconContainer, GlowEffect } from "@/components/ui";
 import {
   DiagonalStripePattern,
@@ -44,6 +47,9 @@ function groupByDepartment(members: VintageTeamMember[]) {
 }
 
 export default function TeamPage() {
+  // Analytics tracking
+  usePageTracking("Team");
+
   // Get enhanced SEO data for Team page
   const teamSEO = getTeamSEO();
 
@@ -110,7 +116,7 @@ export default function TeamPage() {
                 name: "Who leads MH Construction?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "MH Construction is led by Owner & President Jeremy Thamert (35+ years construction experience, 15 years Army aviation), Vice President Arnold Garcia (40+ years construction experience), and Founder Mike Holstein who established the company in 2010.",
+                  text: "MH Construction is led by Owner & President Jeremy Thamert (35+ years construction experience, 15 years Army aviation), Vice President Arnold Garcia (40+ years construction experience), and Founder Mike Holstein who founded the company in 2010.",
                 },
               },
               {
@@ -126,7 +132,7 @@ export default function TeamPage() {
                 name: "Is MH Construction veteran-owned?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Yes, MH Construction has been veteran-owned since January 2025 under Army veteran Jeremy Thamert's leadership. Our team honors all service branches with military precision and service-earned values.",
+                  text: "Yes, MH Construction became veteran-owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our team honors all service branches with military precision and service-earned values.",
                 },
               },
               {

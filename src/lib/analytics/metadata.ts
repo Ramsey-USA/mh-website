@@ -7,6 +7,7 @@
  */
 
 import type { DeviceInfo, LocationInfo, EventMetadata } from "./types";
+import { getGeographicLocation, type GeographicLocation } from "./geolocation";
 
 /**
  * Get comprehensive device information
@@ -254,14 +255,166 @@ export function getEventMetadata(): EventMetadata {
 }
 
 /**
+ * Get battery status (if available)
+ */
+export function getBatteryInfo(): Record<string, unknown> {
+  // Battery Status API is experimental and may not be available
+  return {}; // Will be populated if battery API is available
+}
+
+/**
+ * Get memory information (if available)
+ */
+export function getMemoryInfo(): Record<string, unknown> {
+  if (typeof window === "undefined") return {};
+
+  // Performance memory API (Chrome/Edge only)
+  const performance = (window as any).performance;
+  if (performance?.memory) {
+    return {
+      jsHeapSizeLimit: performance.memory.jsHeapSizeLimit,
+      totalJSHeapSize: performance.memory.totalJSHeapSize,
+      usedJSHeapSize: performance.memory.usedJSHeapSize,
+    };
+  }
+  return {};
+}
+
+/**
+ * Get user preferences and accessibility settings
+ */
+export function getUserPreferences(): Record<string, unknown> {
+  if (typeof window === "undefined") return {};
+
+  return {
+    colorScheme: window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light",
+    reducedMotion: window.matchMedia("(prefers-reduced-motion: reduce)")
+      .matches,
+    highContrast: window.matchMedia("(prefers-contrast: high)").matches,
+    reducedTransparency: window.matchMedia(
+      "(prefers-reduced-transparency: reduce)",
+    ).matches,
+    cookiesEnabled: navigator.cookieEnabled,
+    doNotTrack: navigator.doNotTrack === "1",
+  };
+}
+
+/**
+ * Get device orientation and screen info
+ */
+export function getOrientationInfo(): Record<string, unknown> {
+  if (typeof window === "undefined") return {};
+
+  return {
+    orientation: window.screen?.orientation?.type || "unknown",
+    angle: window.screen?.orientation?.angle || 0,
+    pixelRatio: window.devicePixelRatio || 1,
+    availableScreenSize: `${window.screen?.availWidth || 0}x${
+      window.screen?.availHeight || 0
+    }`,
+  };
+}
+
+/**
+ * Get security and protocol information
+ */
+export function getSecurityInfo(): Record<string, unknown> {
+  if (typeof window === "undefined") return {};
+
+  return {
+    protocol: window.location.protocol,
+    isSecure: window.location.protocol === "https:",
+    hasServiceWorker: "serviceWorker" in navigator,
+    hasNotifications: "Notification" in window,
+    hasGeolocation: "geolocation" in navigator,
+  };
+}
+
+/**
+ * Get page performance timing
+ */
+export function getPagePerformance(): Record<string, unknown> {
+  if (typeof window === "undefined" || !window.performance?.timing) return {};
+
+  const timing = window.performance.timing;
+  const navigationStart = timing.navigationStart;
+
+  return {
+    dnsTime: timing.domainLookupEnd - timing.domainLookupStart,
+    tcpTime: timing.connectEnd - timing.connectStart,
+    requestTime: timing.responseStart - timing.requestStart,
+    responseTime: timing.responseEnd - timing.responseStart,
+    domLoadTime:
+      timing.domContentLoadedEventEnd - timing.domContentLoadedEventStart,
+    pageLoadTime: timing.loadEventEnd - navigationStart,
+  };
+}
+
+/**
  * Get enhanced tracking properties
  * Returns all available context for an analytics event
+ * Now includes geographic location data
  */
-export function getEnhancedTrackingProperties(): Record<string, unknown> {
+export async function getEnhancedTrackingProperties(): Promise<
+  Record<string, unknown>
+> {
+  // Get geographic location asynchronously
+  let geographicLocation: GeographicLocation | undefined;
+  try {
+    geographicLocation = await getGeographicLocation();
+  } catch (error) {
+    // Silently fail if geolocation unavailable
+    geographicLocation = undefined;
+  }
+
   return {
     ...getSessionInfo(),
     ...getTrafficSource(),
     connection: getConnectionInfo(),
+    preferences: getUserPreferences(),
+    orientation: getOrientationInfo(),
+    security: getSecurityInfo(),
+    memory: getMemoryInfo(),
+    performance: getPagePerformance(),
+    // Geographic location data
+    ...(geographicLocation && {
+      geographic: {
+        country: geographicLocation.country,
+        countryCode: geographicLocation.countryCode,
+        state: geographicLocation.state,
+        city: geographicLocation.city,
+        zip: geographicLocation.zip,
+        region: geographicLocation.region,
+        timezone: geographicLocation.timezone,
+        latitude: geographicLocation.latitude,
+        longitude: geographicLocation.longitude,
+        source: geographicLocation.source,
+      },
+    }),
+    timestamp: new Date().toISOString(),
+    url: typeof window !== "undefined" ? window.location.href : "",
+    path: typeof window !== "undefined" ? window.location.pathname : "",
+    search: typeof window !== "undefined" ? window.location.search : "",
+    hash: typeof window !== "undefined" ? window.location.hash : "",
+  };
+}
+
+/**
+ * Synchronous version of enhanced tracking properties (without geolocation)
+ * Use when you need immediate data without async operations
+ */
+export function getEnhancedTrackingPropertiesSync(): Record<string, unknown> {
+  return {
+    ...getSessionInfo(),
+    ...getTrafficSource(),
+    connection: getConnectionInfo(),
+    preferences: getUserPreferences(),
+    orientation: getOrientationInfo(),
+    security: getSecurityInfo(),
+    memory: getMemoryInfo(),
+    performance: getPagePerformance(),
     timestamp: new Date().toISOString(),
     url: typeof window !== "undefined" ? window.location.href : "",
     path: typeof window !== "undefined" ? window.location.pathname : "",

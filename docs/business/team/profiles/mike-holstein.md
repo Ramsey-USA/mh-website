@@ -12,7 +12,8 @@
 - **Years with Company**: 15 years (2010-2025)
 - **Hometown**: Pacific Northwest
 - **Education**: Construction Management
-- **Status**: Ownership transferred to Jeremy Thamert (January 2025)
+- **Military Service**: None (Non-veteran)
+- **Status**: Sold company to Jeremy Thamert (January 2025)
 
 ## 📊 2025 Performance Statistics
 
@@ -34,9 +35,9 @@ Lifetime Achievement Award, Regional Business Excellence Award
 
 ## 👤 Biography
 
-Mike Holstein founded MH Construction in 2010 and served as owner until January 2025 when ownership
-transferred to Jeremy Thamert. He established the company's reputation for integrity, quality, and
-precision. His leadership and vision established the "We Work With You" partnership philosophy that
+Mike Holstein founded MH Construction in 2010 and served as owner until January 2025 when he sold the
+company to Army veteran Jeremy Thamert. He established the company's reputation for integrity, quality,
+and precision. His leadership and vision established the "We Work With You" partnership philosophy that
 defines MH Construction today.
 
 ## ⭐ Career Highlights

@@ -31,6 +31,7 @@ import {
   trackCTA as trackCTAFn,
 } from "./tracking";
 import { analyticsEngine } from "./index";
+import { trackJourneyMilestone, trackLandingPage } from "./marketing-tracking";
 
 /**
  * Main hook for page-level tracking
@@ -73,6 +74,22 @@ export function usePageTracking(pageName?: string) {
       referrer: typeof document !== "undefined" ? document.referrer : "",
       timestamp: new Date().toISOString(),
     });
+
+    // Track landing page on first visit
+    if (typeof document !== "undefined") {
+      trackLandingPage(page, document.referrer);
+    }
+
+    // Track journey milestones based on page
+    if (page === "/" && !hasInitializedRef.current) {
+      trackJourneyMilestone("entered_site");
+    } else if (page === "/services") {
+      trackJourneyMilestone("viewed_services");
+    } else if (page === "/projects") {
+      trackJourneyMilestone("viewed_projects");
+    } else if (page === "/contact") {
+      trackJourneyMilestone("viewed_contact");
+    }
 
     startTimeRef.current = Date.now();
   }, [pathname, pageName]);
