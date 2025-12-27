@@ -305,6 +305,17 @@ export default function PublicSectorPage() {
 
         {/* Content - Bottom Right */}
         <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
+          {/* Mission Icon */}
+          <div className="flex justify-end mb-4">
+            <div className="relative p-4 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
+              <MaterialIcon
+                icon="account_balance"
+                size="4xl"
+                className="text-white drop-shadow-lg"
+                ariaLabel="Federal Contracting Excellence"
+              />
+            </div>
+          </div>
           <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
             <span className="block text-gray-300 text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
               Public Sector → Government

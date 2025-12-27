@@ -395,28 +395,33 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
   });
 }
 
-// Veterans page SEO - GROUP 4: Professional & Patriotic
+// Veterans page SEO - GROUP 4: Professional & Patriotic - UPDATED December 2025
 export function getVeteransSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Service First → Veterans | Supporting Those Who Served - One Community, One Mission | MH Construction",
+      "Veteran-Owned Construction | Combat Veteran Discount | Year-Round Support | MH Construction",
     description:
-      "Service First → Veterans: Supporting Those Who Served - One Community, One Mission. Honoring all branches, all values. Veteran-owned under Army veteran leadership since January 2025. Serving those who served with honest communication, transparent pricing, and proven craftsmanship. Supporting Pacific Northwest veterans through hiring initiatives, community partnerships, and shared military values.",
+      "Veteran-owned since January 2025 with Army & Navy veteran leadership. 150+ years combined experience. Combat Veteran Discount through respectful screening, 100% veteran hiring priority, active apprenticeship programs, strategic partnerships with selective veteran organizations. Group 1 Veteran Foundation values: Honesty, Integrity, Professionalism, Thoroughness guide every project and partnership.",
     keywords: [
-      "Service First Veterans community mission",
-      "honoring all service branches",
-      "veteran-owned construction company",
-      "Army veteran leadership",
+      "veteran-owned construction Tri-Cities",
+      "combat veteran discount",
+      "veteran hiring priority",
+      "Army Navy veteran leadership",
+      "veteran apprenticeship programs",
+      "veteran-owned subcontractors",
+      "Pacific Northwest veteran contractor",
+      "Group 1 Veteran Foundation",
+      "military precision construction",
       "veteran support programs",
-      "military veteran hiring",
-      "honest veteran employer",
-      "transparent veteran business",
-      "veteran benefit events",
-      "Pacific Northwest veterans",
-      "military family support",
-      "veteran community partnerships",
-      "service-disabled veteran business",
-      "military values construction",
+      "service-earned values",
+      "veteran partnerships",
+      "Jeremy Ramsey Army veteran",
+      "Matt Hunzeker Navy veteran",
+      "all-branch veterans",
+      "veteran discount screening",
+      "military construction services",
+      "Tri-Cities veteran contractor",
+      "veteran-owned business Washington",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/veterans`,
     schemas: [],

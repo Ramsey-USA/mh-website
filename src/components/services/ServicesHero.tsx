@@ -15,16 +15,13 @@ export function ServicesHero() {
       <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
         {/* Mission Icon */}
         <div className="flex justify-end mb-4">
-          <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 blur-2xl rounded-full"></div>
-            <div className="relative w-24 h-24 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white/50 dark:border-gray-700/50">
-              <MaterialIcon
-                icon="map"
-                size="2xl"
-                className="text-white drop-shadow-lg"
-                ariaLabel="The Battle Plan - Construction services"
-              />
-            </div>
+          <div className="relative p-4 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
+            <MaterialIcon
+              icon="map"
+              size="4xl"
+              className="text-white drop-shadow-lg"
+              ariaLabel="The Battle Plan - Construction services"
+            />
           </div>
         </div>
         <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">

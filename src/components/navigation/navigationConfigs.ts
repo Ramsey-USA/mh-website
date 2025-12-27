@@ -540,16 +540,28 @@ export const navigationConfigs = {
 
   veterans: [
     {
-      href: "#fishing-event",
-      label: "Fishing Event",
-      mobileLabel: "Event",
-      icon: "phishing",
+      href: "#veteran-leadership",
+      label: "Veteran Foundation",
+      mobileLabel: "Foundation",
+      icon: "verified",
     },
     {
-      href: "#sponsorship",
-      label: "Become a Sponsor",
-      mobileLabel: "Sponsor",
-      icon: "handshake",
+      href: "#combat-veteran-discount",
+      label: "Veteran Discount",
+      mobileLabel: "Discount",
+      icon: "military_tech",
+    },
+    {
+      href: "#year-round-support",
+      label: "Veteran Support",
+      mobileLabel: "Support",
+      icon: "volunteer_activism",
+    },
+    {
+      href: "#veteran-partnerships",
+      label: "Strategic Partnerships",
+      mobileLabel: "Partners",
+      icon: "groups",
     },
   ],
 };
