@@ -99,12 +99,8 @@ export const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
           "https://www.googletagmanager.com",
           "https://www.google-analytics.com",
         ],
-        "style-src": [
-          "'self'",
-          "'unsafe-inline'",
-          "https://fonts.googleapis.com",
-        ],
-        "font-src": ["'self'", "https://fonts.gstatic.com"],
+        "style-src": ["'self'", "'unsafe-inline'"],
+        "font-src": ["'self'"],
         "img-src": ["'self'", "data:", "https:", "blob:"],
         "connect-src": [
           "'self'",

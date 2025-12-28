@@ -1,15 +1,18 @@
 # Cloudflare Pages Headers Configuration
 # Ensures proper MIME types and caching for Next.js assets
 
-# Static JavaScript chunks
+# Static JavaScript chunks - with preload hints
 /_next/static/chunks/*.js
   Content-Type: application/javascript; charset=utf-8
   Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
 
-# CSS files
+# CSS files - with early hints
 /_next/static/css/*.css
   Content-Type: text/css; charset=utf-8
   Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+  Link: </fonts/MaterialIcons-Regular.woff2>; rel=preload; as=font; type=font/woff2; crossorigin
 
 # Media files
 /_next/static/media/*
@@ -26,6 +29,7 @@
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
+  X-Content-Type-Options: nosniff
 
 # Security headers for all pages
 /*
@@ -33,3 +37,4 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-XSS-Protection: 1; mode=block

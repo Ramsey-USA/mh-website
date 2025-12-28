@@ -172,8 +172,9 @@ export default function RootLayout({
             measurementId={process.env["NEXT_PUBLIC_GOOGLE_ANALYTICS_ID"]}
           />
         )}
-        {/* Cloudflare Email Protection - defer script to prevent render blocking */}
+        {/* Cloudflare Email Protection - async non-blocking script */}
         <script
+          async
           data-cfasync="false"
           dangerouslySetInnerHTML={{
             __html: `
