@@ -42,6 +42,14 @@ const StrategicCTABanner = dynamic(
   { ssr: false },
 );
 
+const NextStepsSection = dynamic(
+  () =>
+    import("@/components/shared-sections").then((mod) => ({
+      default: mod.NextStepsSection,
+    })),
+  { ssr: true },
+);
+
 // Group team members by department
 function groupByDepartment(members: VintageTeamMember[]) {
   return members.reduce(
@@ -1333,6 +1341,9 @@ export default function TeamPage() {
             </div>
           </div>
         </section>
+
+        {/* Next Steps Section - Standardized Final CTA */}
+        <NextStepsSection />
       </div>
     </>
   );

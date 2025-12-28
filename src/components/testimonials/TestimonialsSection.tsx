@@ -173,6 +173,10 @@ export default function TestimonialsSection({
                     alt={testimonial.projectTitle}
                     fill
                     className="object-cover"
+                    loading="lazy"
+                    quality={75}
+                    priority={false}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute top-4 left-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-800 dark:text-gray-200 capitalize">
                     {testimonial.projectType}
@@ -218,6 +222,10 @@ export default function TestimonialsSection({
                         alt={testimonial.clientName}
                         fill
                         className="object-cover"
+                        loading="lazy"
+                        quality={75}
+                        priority={false}
+                        sizes="48px"
                       />
                     </div>
                   )}

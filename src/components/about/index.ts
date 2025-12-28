@@ -1,6 +1,5 @@
 export { AboutHero } from "./AboutHero";
 export { AboutValues, type CoreValue } from "./AboutValues";
-export { CompanyEvolution } from "./CompanyEvolution";
 export { PartnershipPhilosophy } from "./PartnershipPhilosophy";
 export {
   CompanyStats,
@@ -11,6 +10,7 @@ export {
 export { LeadershipTeam } from "./LeadershipTeam";
 export { SafetySection } from "./SafetySection";
 export { AwardsSection } from "./AwardsSection";
+export { ValuesShowcase } from "./ValuesShowcase";
 import type { CoreValue } from "./AboutValues";
 
 // Core Values Data - Heritage Storytelling (About Page)

@@ -87,17 +87,13 @@ const PartnershipProcessSection = dynamic(
   },
 );
 
-const ProjectsCTASection = dynamic(
+// Standardized final CTA section
+const NextStepsSection = dynamic(
   () =>
-    import("./components/ProjectsCTASection").then((mod) => ({
-      default: mod.ProjectsCTASection,
+    import("@/components/shared-sections").then((mod) => ({
+      default: mod.NextStepsSection,
     })),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="h-64 animate-pulse bg-gray-100 dark:bg-gray-800" />
-    ),
-  },
+  { ssr: true },
 );
 
 import { StrategicCTABanner } from "@/components/ui/cta";
@@ -193,8 +189,8 @@ export default function ProjectsPage() {
         {/* Strategic CTA Banner - Conversion Optimization */}
         <StrategicCTABanner variant="combo" className="my-0" />
 
-        {/* CTA Section */}
-        <ProjectsCTASection />
+        {/* Next Steps Section - Standardized Final CTA */}
+        <NextStepsSection />
       </div>
     </>
   );

@@ -69,7 +69,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return Promise.reject(new Error("Authentication not configured"));
   };
 
-  const logout = async () => {
+  const logout = () => {
     setUser(null);
     setUserProfile(null);
     return Promise.resolve();
@@ -79,7 +79,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return Promise.reject(new Error("Authentication not configured"));
   };
 
-  const updateUserProfile = async (updates: Partial<UserProfile>) => {
+  const updateUserProfile = (updates: Partial<UserProfile>) => {
     if (!userProfile) {
       throw new Error("No user profile");
     }

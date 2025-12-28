@@ -6,6 +6,7 @@ import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import type { AnalyticsDashboardData } from "@/lib/analytics/types";
 import { dataCollector } from "@/lib/analytics/data-collector";
+import { usePageTracking } from "@/lib/analytics/hooks";
 
 interface LocalAnalyticsData {
   pageviews: {
@@ -22,6 +23,9 @@ interface LocalAnalyticsData {
 }
 
 export default function AnalyticsDashboardPage() {
+  // Track page views and engagement for the analytics dashboard
+  usePageTracking("Analytics Dashboard");
+
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);

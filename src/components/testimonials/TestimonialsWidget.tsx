@@ -202,6 +202,10 @@ function TestimonialSlide({ testimonial }: { testimonial: ClientTestimonial }) {
             alt={`${testimonial.projectTitle} - Completed Project`}
             fill
             className="object-cover"
+            loading="lazy"
+            quality={75}
+            priority={false}
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
         ) : (
           <div className="absolute inset-0 flex justify-center items-center bg-gradient-to-br from-blue-500 to-blue-700">
@@ -271,6 +275,10 @@ function TestimonialSlide({ testimonial }: { testimonial: ClientTestimonial }) {
                 alt={testimonial.clientName}
                 fill
                 className="object-cover"
+                loading="lazy"
+                quality={75}
+                priority={false}
+                sizes="64px"
               />
             </div>
           )}
@@ -415,6 +423,10 @@ function CardsTestimonialsWidget({
                     alt={testimonial.projectTitle}
                     fill
                     className="object-cover"
+                    loading="lazy"
+                    quality={75}
+                    priority={false}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
               )}

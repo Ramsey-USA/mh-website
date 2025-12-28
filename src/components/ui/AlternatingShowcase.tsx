@@ -1,43 +1,81 @@
-"use client";
-
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import Image from "next/image";
+import { type ReactNode } from "react";
 
-export interface CoreValue {
-  iconName: string;
+/**
+ * AlternatingShowcase - Reusable alternating image/text layout component
+ *
+ * Mimics the homepage CoreValuesSection format with alternating image and content sides.
+ * Features decorative header, gradient styling, and responsive image/text layouts.
+ *
+ * Use this for sections that need:
+ * - Visual storytelling with images
+ * - Alternating left/right layouts for visual interest
+ * - Consistent branding with icons and stats
+ * - Professional showcase format
+ *
+ * Examples: Process steps, service features, team capabilities, methodology details
+ */
+
+export interface AlternatingShowcaseItem {
+  /** Unique identifier */
+  id: string;
+  /** Main title */
   title: string;
-  subtitle: string;
+  /** Material icon name */
+  icon: string;
+  /** Subtitle/tagline */
+  tagline: string;
+  /** Main description text */
   description: string;
-  practices: string[];
+  /** Path to showcase image */
+  image: string;
+  /** Icon background color class (e.g., "bg-brand-primary") */
+  iconBg: string;
+  /** Optional stat or metric to display */
+  stats?: string;
+  /** Optional stat label (defaults to "Key Metric") */
+  statsLabel?: string;
 }
 
-interface AboutValuesProps {
-  coreValues: CoreValue[];
+interface AlternatingShowcaseProps {
+  /** Array of items to display in alternating layout */
+  items: AlternatingShowcaseItem[];
+
+  /** Section heading (displayed on second line) */
+  title: string;
+
+  /** Section subtitle (displayed on first line) */
+  subtitle: string;
+
+  /** Main section icon */
+  icon: string;
+
+  /** Description paragraph with optional JSX highlighting */
+  description: ReactNode;
+
+  /** Optional section ID for anchor links */
+  sectionId?: string;
+
+  /** Optional background gradient for header icon */
+  iconGradient?: string;
 }
 
-// Map values to images
-const valueImages: { [key: string]: string } = {
-  Honesty: "/images/values/honesty.webp",
-  Integrity: "/images/values/integrity.webp",
-  Professionalism: "/images/values/professionalism.webp",
-  Thoroughness: "/images/values/thoroughness.webp",
-};
-
-// Map values to stats
-const valueStats: { [key: string]: string } = {
-  Honesty: "100% Transparent Pricing",
-  Integrity: "Unwavering Ethics",
-  Professionalism: "Expert Service Standards",
-  Thoroughness: "Zero Details Missed",
-};
-
-export function AboutValues({ coreValues }: AboutValuesProps) {
+export function AlternatingShowcase({
+  items,
+  title,
+  subtitle,
+  icon,
+  description,
+  sectionId,
+  iconGradient = "from-brand-primary via-brand-primary-dark to-brand-primary-darker",
+}: AlternatingShowcaseProps) {
   return (
     <section
-      id="values"
+      id={sectionId}
       className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
     >
-      {/* Diagonal Stripe Background Pattern */}
+      {/* Unique Diagonal Stripe Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
         <div
           className="absolute inset-0"
@@ -65,9 +103,11 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
             <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-              <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+              <div
+                className={`relative bg-gradient-to-br ${iconGradient} p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600`}
+              >
                 <MaterialIcon
-                  icon="shield"
+                  icon={icon}
                   size="2xl"
                   className="text-white drop-shadow-lg"
                 />
@@ -79,45 +119,26 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
           {/* Two-line gradient heading */}
           <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
             <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-              Veteran-Owned Values
+              {subtitle}
             </span>
             <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-              Built on Honesty & Integrity
+              {title}
             </span>
           </h2>
 
-          {/* Description with colored keyword highlighting */}
-          <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-            Four foundational values guide every{" "}
-            <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              project and partnership
-            </span>
-            —focused on building projects for the{" "}
-            <span className="font-bold text-gray-900 dark:text-white">
-              client
-            </span>
-            ,{" "}
-            <span className="font-black italic text-bronze-600 dark:text-bronze-400">
-              NOT
-            </span>{" "}
-            <span className="font-bold text-gray-900 dark:text-white">
-              the dollar
-            </span>
-            .
-          </p>
+          {/* Description */}
+          <div className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+            {description}
+          </div>
         </div>
 
-        {/* Stacked Value Cards with Alternating Layout */}
+        {/* Stacked Cards with Alternating Image/Text Layout */}
         <div className="space-y-12 lg:space-y-16">
-          {coreValues.map((item, index) => {
+          {items.map((item, index) => {
             const isEven = index % 2 === 0;
-            const image =
-              valueImages[item.title] || "/images/values/honesty.webp";
-            const stats = valueStats[item.title] || "Core Value";
-
             return (
               <div
-                key={item.title}
+                key={item.id}
                 className="scroll-reveal group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
@@ -129,8 +150,8 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
                     }`}
                   >
                     <Image
-                      src={image}
-                      alt={`${item.title} - ${item.subtitle}`}
+                      src={item.image}
+                      alt={`${item.title} - ${item.tagline}`}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 1024px) 100vw, 50vw"
@@ -144,12 +165,15 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
                     {/* Icon Badge on Image */}
                     <div className="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">
                       <div className="relative inline-block">
-                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-2xl"></div>
-                        <div className="relative w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white/50 dark:border-gray-700/50">
+                        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 blur-xl rounded-2xl"></div>
+                        <div
+                          className={`relative w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 ${item.iconBg} rounded-2xl flex items-center justify-center shadow-xl`}
+                        >
                           <MaterialIcon
-                            icon={item.iconName}
+                            icon={item.icon}
                             size="xl"
-                            className="text-white drop-shadow-lg"
+                            className="text-white"
+                            interactive
                           />
                         </div>
                       </div>
@@ -168,7 +192,7 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
                           {item.title}
                         </h3>
                         <p className="font-semibold text-brand-primary dark:text-brand-primary-light text-base sm:text-lg lg:text-xl">
-                          {item.subtitle}
+                          {item.tagline}
                         </p>
                       </div>
 
@@ -176,23 +200,26 @@ export function AboutValues({ coreValues }: AboutValuesProps) {
                         {item.description}
                       </p>
 
-                      <div className="flex items-center gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
-                        <div className="flex items-center justify-center w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex-shrink-0">
-                          <MaterialIcon
-                            icon="analytics"
-                            size="md"
-                            className="text-brand-primary dark:text-brand-primary-light"
-                          />
+                      {/* Optional Stats/Metric Display */}
+                      {item.stats && (
+                        <div className="flex items-center gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
+                          <div className="flex items-center justify-center w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex-shrink-0">
+                            <MaterialIcon
+                              icon="analytics"
+                              size="md"
+                              className="text-brand-primary dark:text-brand-primary-light"
+                            />
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
+                              {item.statsLabel || "Key Metric"}
+                            </p>
+                            <p className="font-bold text-sm sm:text-base lg:text-lg text-gray-900 dark:text-gray-100">
+                              {item.stats}
+                            </p>
+                          </div>
                         </div>
-                        <div className="flex-1">
-                          <p className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
-                            Key Metric
-                          </p>
-                          <p className="font-bold text-sm sm:text-base lg:text-lg text-gray-900 dark:text-gray-100">
-                            {stats}
-                          </p>
-                        </div>
-                      </div>
+                      )}
                     </div>
                   </div>
                 </div>

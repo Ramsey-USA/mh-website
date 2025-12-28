@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
+  AlternatingShowcase,
 } from "@/components/ui";
 import { DiagonalStripePattern } from "@/components/ui/backgrounds";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -42,6 +43,14 @@ const StrategicCTABanner = dynamic(
       default: mod.StrategicCTABanner,
     })),
   { ssr: false },
+);
+
+const NextStepsSection = dynamic(
+  () =>
+    import("@/components/shared-sections").then((mod) => ({
+      default: mod.NextStepsSection,
+    })),
+  { ssr: true },
 );
 
 // Feature flag - set to false to show full page content
@@ -470,6 +479,79 @@ export default function PublicSectorPage() {
           </StaggeredFadeIn>
         </div>
       </section>
+      {/* Federal Compliance Features - AlternatingShowcase */}
+      <AlternatingShowcase
+        items={[
+          {
+            id: "prevailing-wage",
+            title: "Prevailing Wage Compliance",
+            icon: "payments",
+            tagline: "Federal Wage Standards",
+            description:
+              "Full compliance with Davis-Bacon and Related Acts (DBRA) prevailing wage requirements for federal construction projects. Certified payroll documentation, wage determination expertise, and meticulous record-keeping ensure all federal labor standards are met with military precision and complete transparency.",
+            image: "/images/compliance/prevailing-wage.jpg",
+            iconBg: "bg-brand-primary",
+            stats: "100%",
+            statsLabel: "DBRA Compliance Rate",
+          },
+          {
+            id: "bonding-insurance",
+            title: "Bonding & Insurance Excellence",
+            icon: "verified_user",
+            tagline: "Financial Security Assurance",
+            description:
+              "Comprehensive bonding capacity and insurance coverage meeting all federal requirements. Performance bonds, payment bonds, bid bonds, and professional liability insurance ensure complete financial protection for government projects. Our bonding relationships and insurance portfolio demonstrate financial stability and commitment to federal contracting excellence.",
+            image: "/images/compliance/bonding.jpg",
+            iconBg: "bg-brand-secondary",
+            stats: "$5M+",
+            statsLabel: "Bonding Capacity",
+          },
+          {
+            id: "safety-certifications",
+            title: "Award-Winning Safety Programs",
+            icon: "health_and_safety",
+            tagline: "OSHA VPP Star Designation",
+            description:
+              ".64 EMR safety rating—40% better than industry average—with OSHA VPP Star designation and multiple AGC-WA Top EMR Awards. Zero time-loss injuries for 3+ consecutive years. Our military-grade safety protocols, comprehensive training programs, and daily safety briefings exceed all federal safety requirements and ensure mission-critical project execution without compromise.",
+            image: "/images/compliance/safety.jpg",
+            iconBg: "bg-bronze-700",
+            stats: ".64",
+            statsLabel: "EMR Safety Rating",
+          },
+          {
+            id: "veteran-preference",
+            title: "Veteran-Owned Commitment",
+            icon: "military_tech",
+            tagline: "Service-Earned Values",
+            description:
+              "Veteran-owned since January 2025 when Army veteran Jeremy Thamert purchased the company, bringing 15+ years military aviation experience and operational discipline. We actively recruit veterans across all branches, offer veteran hiring initiatives, and maintain veteran preference in all employment decisions. Our veteran ownership and values translate to mission-focused execution, transparent communication, and unwavering commitment to federal project success.",
+            image: "/images/compliance/veteran-owned.jpg",
+            iconBg: "bg-brand-primary",
+            stats: "2025",
+            statsLabel: "Veteran-Owned Since",
+          },
+        ]}
+        title="Excellence"
+        subtitle="Federal Compliance"
+        icon="verified"
+        description={
+          <>
+            Navigate complex federal regulations with{" "}
+            <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+              veteran-owned expertise and military precision
+            </span>
+            . Our comprehensive compliance programs, award-winning safety
+            record, and{" "}
+            <span className="font-bold text-gray-900 dark:text-white">
+              proven federal contracting capabilities
+            </span>{" "}
+            ensure every government project meets or exceeds all federal
+            requirements with complete transparency and accountability.
+          </>
+        }
+        sectionId="compliance"
+        iconGradient="from-brand-primary via-brand-primary-dark to-brand-primary-darker"
+      />
       {/* Hanford & DOE Section */}
       <section className="bg-gradient-to-br from-gray-900 to-black py-20 text-white">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -1055,6 +1137,8 @@ export default function PublicSectorPage() {
           </FadeInWhenVisible>
         </div>
       </section>
+      {/* Next Steps Section - Standardized Final CTA */}
+      <NextStepsSection />
     </div>
   );
 }

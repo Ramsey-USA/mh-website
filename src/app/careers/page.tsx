@@ -4,7 +4,11 @@ import { useState } from "react";
 import { usePageTracking } from "@/lib/analytics/hooks";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { Button, JobApplicationModal } from "@/components/ui";
+import {
+  Button,
+  JobApplicationModal,
+  AlternatingShowcase,
+} from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   FadeInWhenVisible,
@@ -43,6 +47,15 @@ const TestimonialGrid = dynamic(
     ssr: false,
     loading: () => <SimpleSkeleton />,
   },
+);
+
+// Standardized final CTA section
+const NextStepsSection = dynamic(
+  () =>
+    import("@/components/shared-sections").then((mod) => ({
+      default: mod.NextStepsSection,
+    })),
+  { ssr: true },
 );
 
 export default function CareersPage() {
@@ -240,59 +253,43 @@ export default function CareersPage() {
               </div>
             </div>
 
-            {/* Modern Grid Cards with Unique Hover Effects */}
-            <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
-              {cultureValues.map((value) => (
-                <div
-                  key={value.title}
-                  className="group relative flex h-full min-h-[400px]"
-                >
-                  {/* Colored Border Glow - Visible on hover */}
-                  <div
-                    className={`absolute -inset-2 bg-gradient-to-br ${value.color} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse`}
-                  ></div>
-
-                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
-                    {/* Top Accent Bar */}
-                    <div
-                      className={`h-2 bg-gradient-to-r ${value.color}`}
-                    ></div>
-
-                    <div className="p-6 sm:p-8 flex flex-col flex-1">
-                      {/* Icon Section */}
-                      <div className="mb-5">
-                        {/* Enhanced Icon with Header Style */}
-                        <div className="relative inline-block">
-                          {/* Blur glow layer behind icon */}
-                          <div
-                            className={`absolute -inset-2 bg-gradient-to-br ${value.color} opacity-30 blur-lg rounded-2xl`}
-                          ></div>
-                          <div
-                            className={`relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${value.color} rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-700/50 group-hover:scale-110 transition-all duration-300`}
-                          >
-                            <MaterialIcon
-                              icon={value.icon}
-                              size="xl"
-                              className="text-white drop-shadow-lg"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="mb-4 font-black text-gray-900 dark:text-white text-xl sm:text-2xl leading-tight">
-                        {value.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="flex-grow text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-                        {value.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </StaggeredFadeIn>
+            {/* Culture Values Showcase - Alternating Image/Text Layout */}
+            <AlternatingShowcase
+              items={cultureValues.map((value, index) => ({
+                id: `culture-${index + 1}`,
+                title: value.title,
+                icon: value.icon,
+                tagline: `Core Value ${index + 1}`,
+                description: value.description,
+                image: `/images/culture/culture-${index + 1}.jpg`,
+                iconBg: value.color.includes("primary")
+                  ? "bg-brand-primary"
+                  : value.color.includes("secondary")
+                    ? "bg-brand-secondary"
+                    : "bg-bronze-700",
+              }))}
+              title="MH Construction"
+              subtitle="Why Choose"
+              icon="star"
+              description={
+                <>
+                  This isn't just another construction job—it's a{" "}
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    career investment in YOU
+                  </span>
+                  . We're building your skills, your future, and your financial
+                  security through{" "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    meaningful work, continuous training, and authentic
+                    partnerships
+                  </span>
+                  . Every team member gets a mentor, clear advancement paths,
+                  and the tools to succeed.
+                </>
+              }
+              sectionId="why-work-here"
+              iconGradient="from-brand-secondary via-bronze-700 to-bronze-800"
+            />
           </div>
         </section>
 
@@ -1423,6 +1420,9 @@ export default function CareersPage() {
             </div>
           </div>
         </section>
+
+        {/* Next Steps Section - Standardized Final CTA */}
+        <NextStepsSection />
 
         {/* Job Application Modal */}
         <JobApplicationModal

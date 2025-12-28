@@ -34,6 +34,34 @@ Complete analytics tracking system with geographic tracking, CTA effectiveness, 
 
 **Test Suite:** `test-analytics.html` - Comprehensive system verification
 
+### Component Pattern Architecture ⭐ NEW (Dec 28, 2025)
+
+**Status:** ✅ Strategic framework for cohesive page design
+
+Comprehensive pattern strategy for building consistent, engaging pages using reusable showcase components.
+
+- **[Component Pattern Strategy](./component-pattern-strategy.md)** - Overall architecture philosophy ⭐ **START HERE**
+- **[AlternatingShowcase Pattern](./AlternatingShowcase-pattern.md)** - Image/text alternating layout guide
+- **[NextStepsSection Standardization](./NextStepsSection-standardization.md)** - Unified final CTA across pages
+- **[Homepage Documentation](./homepage.md)** - Reference implementation example
+
+**Key Principles:**
+
+- **"One of Each" Philosophy:** Use 1-2 showcase patterns per page for cohesion
+- **Five Core Patterns:** AlternatingShowcase, ValuesShowcase, ContentCard Grid, Timeline, NextStepsSection
+- **Pattern Selection Decision Trees:** Choose the right pattern for your content
+- **Page-by-Page Recommendations:** Services, About, Team, Projects, Careers guidance
+- **Performance Budgets:** Max 2 showcase patterns per page (<300KB budget)
+- **Content Planning Worksheets:** Pre-implementation planning tools
+
+**Available Patterns:**
+
+1. **AlternatingShowcase** - Image/text alternating (Homepage Core Values, About Safety)
+2. **ValuesShowcase** - Interactive modal exploration (About Values)
+3. **ContentCard Grid** - 6+ items in card format (About News)
+4. **Timeline** - Sequential steps (Homepage Process, About History)
+5. **NextStepsSection** - Final CTA on every major page (7 pages)
+
 ### Design System
 
 Component implementation and technical design documentation.

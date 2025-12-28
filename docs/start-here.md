@@ -30,21 +30,60 @@
 
 ### 🔧 Technical Implementation
 
-1. **[Buttons & CTAs](./technical/design-system/buttons-ctas-complete-guide.md)** - Button patterns
-2. **[Icon System](./technical/design-system/icon-system-complete.md)** - Material Icons
-3. **[Dark Mode Guide](./technical/dark-mode-implementation-guide.md)** - Complete dark mode implementation
-4. **[Dark Mode Quick Reference](./technical/dark-mode-quick-reference.md)** - Quick cheatsheet
-5. **[Analytics System](./technical/admin-analytics-system.md)** - Admin dashboard & tracking
-6. **[Analytics Tracking Guide](./technical/analytics-tracking-guide.md)** - Implementation guide
-7. **[Analytics Quick Reference](./technical/analytics-quick-reference.md)** - Quick tracking reference
-8. **[Marketing Analytics Guide](../analytics-guide-for-matt-and-jeremy.md)** - Complete guide for Matt & Jeremy with geographic tracking, CTA effectiveness, journey stages, lead scoring ⭐ **NEW (Dec 27)**
-9. **[Browser Titles Inventory](./technical/browser-tab-titles-inventory.md)** - Dual-label SEO titles ⭐ **NEW**
-10. **[PWA Documentation](./technical/pwa-documentation.md)** - Progressive Web App implementation
-11. **[PWA Quick Reference](./technical/pwa-quick-reference.md)** - PWA cheatsheet ⭐ **NEW**
-12. **[Media Optimization](./technical/automatic-media-optimization.md)** - Automatic image/video optimization ⭐ **NEW**
-13. **[Image Optimization Guide](./technical/image-optimization-guide.md)** - Implementation details ⭐ **NEW**
-14. **[SEO Guide](./technical/seo/seo-complete-guide.md)** - Keywords, meta tags
-15. **[Navigation System](#-navigation-pattern-dec-2025)** - Section-based navigation (Dec 2025)
+1. **[Component Pattern Strategy](./technical/component-pattern-strategy.md)** - Pattern architecture & "one of each" philosophy ⭐ **NEW (Dec 28)**
+2. **[AlternatingShowcase Pattern](./technical/AlternatingShowcase-pattern.md)** - Image/text alternating layout guide ⭐ **NEW (Dec 28)**
+3. **[NextStepsSection Standardization](./technical/NextStepsSection-standardization.md)** - Unified final CTA ⭐ **NEW (Dec 28)**
+4. **[Homepage Documentation](./technical/homepage.md)** - Complete homepage structure & implementation ⭐ **UPDATED (Dec 28)**
+5. **[Buttons & CTAs](./technical/design-system/buttons-ctas-complete-guide.md)** - Button patterns
+6. **[Icon System](./technical/design-system/icon-system-complete.md)** - Material Icons
+7. **[Dark Mode Guide](./technical/dark-mode-implementation-guide.md)** - Complete dark mode implementation
+8. **[Dark Mode Quick Reference](./technical/dark-mode-quick-reference.md)** - Quick cheatsheet
+9. **[Analytics System](./technical/admin-analytics-system.md)** - Admin dashboard & tracking
+10. **[Analytics Tracking Guide](./technical/analytics-tracking-guide.md)** - Implementation guide
+11. **[Analytics Quick Reference](./technical/analytics-quick-reference.md)** - Quick tracking reference
+12. **[Marketing Analytics Guide](../analytics-guide-for-matt-and-jeremy.md)** - Complete guide for Matt & Jeremy with geographic tracking, CTA effectiveness, journey stages, lead scoring ⭐ **NEW (Dec 27)**
+13. **[Browser Titles Inventory](./technical/browser-tab-titles-inventory.md)** - Dual-label SEO titles ⭐ **NEW**
+14. **[PWA Documentation](./technical/pwa-documentation.md)** - Progressive Web App implementation
+15. **[PWA Quick Reference](./technical/pwa-quick-reference.md)** - PWA cheatsheet ⭐ **NEW**
+16. **[Media Optimization](./technical/automatic-media-optimization.md)** - Automatic image/video optimization ⭐ **NEW**
+17. **[Image Optimization Guide](./technical/image-optimization-guide.md)** - Implementation details ⭐ **NEW**
+18. **[SEO Guide](./technical/seo/seo-complete-guide.md)** - Keywords, meta tags
+19. **[Navigation System](#-navigation-pattern-dec-2025)** - Section-based navigation (Dec 2025)
+
+### 🎨 Component Pattern Architecture (Dec 28, 2025)
+
+**"One of Each" Philosophy:** Use 1-2 showcase patterns per page for cohesive design
+
+**Five Core Patterns:**
+
+1. **AlternatingShowcase** - Image/text alternating (Homepage Core Values, About Safety)
+2. **ValuesShowcase** - Interactive modal exploration (About Values)
+3. **ContentCard Grid** - 6+ items in cards (About News)
+4. **Timeline** - Sequential steps (Homepage Process, About History)
+5. **NextStepsSection** - Final CTA on every major page (7 pages)
+
+**Quick Pattern Selection:**
+
+- **3-6 features with images?** → AlternatingShowcase
+- **Deep concepts needing exploration?** → ValuesShowcase
+- **6+ list items?** → ContentCard Grid
+- **Process/history steps?** → Timeline
+- **Page ending?** → NextStepsSection (always)
+
+**Key Principles:**
+
+- Max 2 showcase patterns per page
+- Performance budget: < 300KB per page
+- NextStepsSection on all major pages
+- Choose patterns based on content type
+- Quality over quantity
+
+**Files:**
+
+- Strategy: `docs/technical/component-pattern-strategy.md`
+- AlternatingShowcase: `src/components/ui/AlternatingShowcase.tsx`
+- ValuesShowcase: `src/components/about/ValuesShowcase.tsx`
+- NextStepsSection: `src/components/shared-sections/NextStepsSection.tsx`
 
 ### 🧭 Navigation Pattern (Dec 2025)
 
@@ -137,6 +176,10 @@ docs/
 │   └── development-standards.md
 ├── technical/
 │   ├── index.md
+│   ├── component-pattern-strategy.md ⭐ NEW (Dec 28)
+│   ├── AlternatingShowcase-pattern.md ⭐ NEW (Dec 28)
+│   ├── NextStepsSection-standardization.md ⭐ NEW (Dec 28)
+│   ├── homepage.md ⭐ UPDATED (Dec 28)
 │   ├── dark-mode-implementation-guide.md ⭐ NEW
 │   ├── dark-mode-quick-reference.md ⭐ NEW
 │   ├── design-system/

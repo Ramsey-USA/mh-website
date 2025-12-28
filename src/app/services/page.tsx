@@ -104,19 +104,6 @@ const ConstructionExpertiseSection = dynamic(
   { ssr: true },
 );
 
-const ServicesCTA = dynamic(
-  () =>
-    import("@/components/services").then((mod) => ({
-      default: mod.ServicesCTA,
-    })),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="h-64 animate-pulse bg-gray-100 dark:bg-gray-800" />
-    ),
-  },
-);
-
 // Import data separately (not lazy loaded)
 import {
   coreServices,
@@ -136,6 +123,14 @@ const TestimonialsSection = dynamic(
       <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
     ),
   },
+);
+
+const NextStepsSection = dynamic(
+  () =>
+    import("@/components/shared-sections").then((mod) => ({
+      default: mod.NextStepsSection,
+    })),
+  { ssr: true },
 );
 
 export default function ServicesPage() {
@@ -293,16 +288,13 @@ export default function ServicesPage() {
           items={[{ label: "Home", href: "/" }, { label: "The Battle Plan" }]}
         />
 
-        {/* Construction Expertise Section */}
+        {/* Construction Expertise Section - Early trust signals */}
         <ConstructionExpertiseSection />
 
-        {/* Core Services Section */}
-        <CoreServicesSection services={coreServices} />
+        {/* Why Choose Us Section - Value proposition early for SEO */}
+        <WhyChooseUs />
 
-        {/* Specialty Services Section */}
-        <SpecialtyServicesSection services={specialtyServices} />
-
-        {/* Client Testimonials Section - Optimal SEO position (25-30% page depth) */}
+        {/* Client Testimonials Section - Social proof after value prop (optimal 15-20% depth) */}
         <TestimonialsSection
           id="testimonials"
           subtitle="Client Partner"
@@ -310,14 +302,17 @@ export default function ServicesPage() {
           description="Hear directly from our partners about their experience working with MH Construction on their most important projects—where trust is earned, not claimed."
         />
 
+        {/* Core Services Section - Main services after establishing trust */}
+        <CoreServicesSection services={coreServices} />
+
+        {/* Specialty Services Section */}
+        <SpecialtyServicesSection services={specialtyServices} />
+
         {/* Government & Grant-Funded Projects Section */}
         <GovernmentProjectsSection />
 
         {/* Service Areas Section */}
         <ServiceAreasSection serviceAreas={serviceAreas} />
-
-        {/* Why Choose Us Section */}
-        <WhyChooseUs />
 
         {/* Construction Process Overview Section */}
         <ConstructionProcessSection />
@@ -1015,8 +1010,8 @@ export default function ServicesPage() {
         {/* Strategic CTA Banner - Conversion Optimization */}
         <StrategicCTABanner variant="combo" className="my-0" />
 
-        {/* CTA Section */}
-        <ServicesCTA />
+        {/* Next Steps Section - Standardized Final CTA */}
+        <NextStepsSection />
       </div>
     </>
   );

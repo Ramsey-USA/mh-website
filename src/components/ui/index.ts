@@ -33,6 +33,14 @@ export { AnimatedCounter } from "./AnimatedCounter";
 export { IconContainer } from "./IconContainer";
 export { GlowEffect } from "./GlowEffect";
 
+// Content Components
+export { ContentCard, type ContentCardProps } from "./ContentCard";
+export { Timeline, type TimelineStep, type TimelineProps } from "./Timeline";
+export {
+  AlternatingShowcase,
+  type AlternatingShowcaseItem,
+} from "./AlternatingShowcase";
+
 // Loading Components
 export {
   Skeleton,

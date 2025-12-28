@@ -1,6 +1,6 @@
 # MH Construction Documentation Index
 
-**Last Updated:** December 27, 2025  
+**Last Updated:** December 28, 2025  
 **Version:** 2.0 (Streamlined)
 
 **Start Here:** [start-here.md](start-here.md) - Quick navigation by role
@@ -20,6 +20,7 @@
 
 #### Technical Implementation
 
+- [Homepage Documentation](technical/homepage.md) - Complete homepage structure & implementation ⭐ **NEW**
 - [Analytics Quick Reference](technical/analytics-quick-reference.md) - Tracking implementation
 - [Dark Mode Quick Reference](technical/dark-mode-quick-reference.md) - Dark mode patterns
 - [PWA Quick Reference](technical/pwa-quick-reference.md) - Progressive Web App guide
