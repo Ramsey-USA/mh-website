@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "../styles/material-icons.css";
 import { Navigation, Footer } from "@/components/layout";
 import FaviconLinks from "@/components/layout/FaviconLinks";
 import { AuthProvider } from "@/lib/auth/AuthContext";
@@ -171,36 +172,25 @@ export default function RootLayout({
             measurementId={process.env["NEXT_PUBLIC_GOOGLE_ANALYTICS_ID"]}
           />
         )}
-        {/* Preconnect to Google Fonts for faster loading */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
+        {/* Cloudflare Email Protection - defer script to prevent render blocking */}
+        <script
+          data-cfasync="false"
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (window.CloudFlare) {
+                window.CloudFlare.emailDecode = window.CloudFlare.emailDecode || function() {};
+              }
+            `,
+          }}
         />
-        {/* Preload Material Icons font file with high priority */}
+        {/* Preload self-hosted Material Icons font for optimal performance */}
         <link
           rel="preload"
-          href="https://fonts.gstatic.com/s/materialicons/v145/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2"
+          href="/fonts/MaterialIcons-Regular.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
-          fetchPriority="high"
         />
-        {/* Google Material Icons - Load asynchronously to prevent render blocking */}
-        <link
-          href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
-          rel="stylesheet"
-          media="print"
-          // @ts-expect-error - onLoad string for async font loading
-          onLoad="this.media='all'"
-        />
-        <noscript>
-          <link
-            href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
-            rel="stylesheet"
-          />
-        </noscript>
         {/* Preload critical hero image for faster LCP */}
         <link
           rel="preload"

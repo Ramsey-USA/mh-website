@@ -2,15 +2,7 @@
 
 import Image from "next/image";
 import { MaterialIcon } from "../icons/MaterialIcon";
-import {
-  Radar,
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
-  ResponsiveContainer,
-  Tooltip,
-} from "recharts";
+import { SkillsRadarChart } from "./SkillsRadarChart";
 import { type VintageTeamMember } from "@/lib/data/vintage-team";
 import { useEffect, useState } from "react";
 
@@ -664,70 +656,15 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
               </div>
             )}
 
-            <ResponsiveContainer
-              width="100%"
-              height={250}
-              className="sm:!h-[280px] md:!h-[300px]"
-            >
-              <RadarChart data={radarData}>
-                <PolarGrid
-                  stroke={isDark ? "#BD9264" : "#386851"}
-                  strokeOpacity={0.3}
-                />
-                <PolarAngleAxis
-                  dataKey="skill"
-                  tick={{
-                    fill: isDark ? "#BD9264" : "#386851",
-                    fontSize: 12,
-                    fontWeight: 600,
-                  }}
-                />
-                <PolarRadiusAxis
-                  angle={90}
-                  domain={[0, 100]}
-                  tick={{ fill: isDark ? "#9ca3af" : "#6b7280", fontSize: 10 }}
-                />
-                <Tooltip
-                  content={({ payload }) => {
-                    if (payload && payload.length > 0) {
-                      const data = payload[0].payload;
-                      const skillLevel = getSkillLevel(data.value);
-                      return (
-                        <div className="bg-white dark:bg-gray-800 p-3 rounded-lg shadow-lg border-2 border-brand-primary/20 dark:border-brand-primary/30">
-                          <p className="font-bold text-gray-900 dark:text-white text-sm mb-1">
-                            {data.skill.replace("\n", " ")}
-                          </p>
-                          <p className="text-lg font-bold text-brand-primary dark:text-brand-secondary">
-                            {data.value}/100
-                          </p>
-                          <div className="flex items-center gap-1 mt-1">
-                            <MaterialIcon
-                              icon={skillLevel.icon}
-                              size="sm"
-                              className={skillLevel.color}
-                            />
-                            <span
-                              className={`text-xs font-semibold ${skillLevel.color}`}
-                            >
-                              {skillLevel.level}
-                            </span>
-                          </div>
-                        </div>
-                      );
-                    }
-                    return null;
-                  }}
-                />
-                <Radar
-                  name={member.name}
-                  dataKey="value"
-                  stroke={isDark ? "#BD9264" : "#386851"}
-                  fill={isDark ? "#BD9264" : "#386851"}
-                  fillOpacity={0.6}
-                  strokeWidth={2}
-                />
-              </RadarChart>
-            </ResponsiveContainer>
+            {/* Lazy-loaded Skills Radar Chart */}
+            <SkillsRadarChart
+              data={radarData.map((d) => ({
+                subject: d.skill.replace("\n", " "),
+                value: d.value,
+                fullMark: d.fullMark,
+              }))}
+              isDark={isDark}
+            />
 
             {/* Top 3 Skills Display */}
             <div className="mt-4 flex flex-wrap gap-2 justify-center">

@@ -92,6 +92,20 @@ const nextConfig = {
               priority: 40,
               enforce: true,
             },
+            // Recharts chunk (lazy-loaded only when needed)
+            recharts: {
+              test: /[\\/]node_modules[\\/]recharts[\\/]/,
+              name: "recharts",
+              priority: 35,
+              reuseExistingChunk: true,
+            },
+            // Separate framer-motion into its own chunk
+            motion: {
+              test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
+              name: "framer-motion",
+              priority: 35,
+              reuseExistingChunk: true,
+            },
             // Lib chunk (large dependencies)
             lib: {
               test: /[\\/]node_modules[\\/]/,
@@ -110,13 +124,6 @@ const nextConfig = {
               name: "commons",
               minChunks: 2,
               priority: 20,
-            },
-            // Separate framer-motion into its own chunk
-            motion: {
-              test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
-              name: "framer-motion",
-              priority: 35,
-              reuseExistingChunk: true,
             },
           },
           maxInitialRequests: 25,
@@ -197,6 +204,38 @@ const nextConfig = {
       // Cache Next.js build chunks (main.js, etc.)
       {
         source: "/_next/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      // Cache Cloudflare static resources with long TTL
+      {
+        source: "/:path*.js",
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      // Cache CSS files
+      {
+        source: "/:path*.css",
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      // Cache fonts
+      {
+        source: "/:path*.(woff|woff2|eot|ttf|otf)",
         headers: [
           {
             key: "Cache-Control",
