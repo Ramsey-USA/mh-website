@@ -34,13 +34,36 @@ Complete analytics tracking system with geographic tracking, CTA effectiveness, 
 
 **Test Suite:** `test-analytics.html` - Comprehensive system verification
 
-### Component Pattern Architecture ⭐ NEW (Dec 28, 2025)
+### Development Resources
+
+See main [README.md](../../README.md#quick-start-by-role) for complete development guide including:
+
+- Component Cheatsheet - Copy-paste patterns
+- Page Compliance Checklist - Systematic audit tool
+- Page Template Guide - New page boilerplate
+- StandardSection Template - 82% code reduction
+
+2. Customize with your content
+3. Use Component Cheatsheet for patterns
+4. Run Page Compliance Checklist
+5. Check Common Mistakes list
+6. Test and deploy
+
+**Key Benefits:**
+
+- **82% Code Reduction:** StandardSection template eliminates boilerplate
+- **Consistency Guarantee:** Checklists catch deviations before deployment
+- **Faster Development:** Copy-paste ready code snippets
+- **Quality Assurance:** 150+ item compliance checklist
+- **Error Prevention:** Common mistakes guide with 22 examples
+
+### Component Pattern Architecture (Dec 28, 2025)
 
 **Status:** ✅ Strategic framework for cohesive page design
 
 Comprehensive pattern strategy for building consistent, engaging pages using reusable showcase components.
 
-- **[Component Pattern Strategy](./component-pattern-strategy.md)** - Overall architecture philosophy ⭐ **START HERE**
+- **[Component Pattern Strategy](./component-pattern-strategy.md)** - Overall architecture philosophy
 - **[AlternatingShowcase Pattern](./AlternatingShowcase-pattern.md)** - Image/text alternating layout guide
 - **[NextStepsSection Standardization](./NextStepsSection-standardization.md)** - Unified final CTA across pages
 - **[Homepage Documentation](./homepage.md)** - Reference implementation example
@@ -90,7 +113,7 @@ Search engine optimization guidelines, dual-label military/construction messagin
 
 ## Quick Links
 
-- [← Back to Documentation Home](../start-here.md)
+- [← Back to Main README](../../README.md)
 - [Development Standards](../development/standards/)
 - [Branding Documentation](../branding/)
 

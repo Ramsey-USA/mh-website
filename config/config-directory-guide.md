@@ -10,7 +10,7 @@
 This directory contains **only deployment and environment-specific configurations** for Cloudflare, Docker, and CI/CD.
 
 **For complete configuration documentation, see:**
-**For full documentation:** See [Documentation Index](../docs/index.md)
+**For full documentation:** See [Main README](../README.md)
 
 ---
 
@@ -144,6 +144,6 @@ config/
 
 ---
 
-**For Questions:** See [Documentation Index](../docs/index.md)
+**For Questions:** See [Main README](../README.md)
 
 **Last Updated:** November 8, 2025

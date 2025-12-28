@@ -87,7 +87,7 @@ export function SafetySection() {
         </>
       }
       sectionId="safety"
-      iconGradient="from-brand-primary via-brand-primary-dark to-brand-primary-darker"
+      iconVariant="primary"
     />
   );
 }

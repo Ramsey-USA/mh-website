@@ -8,7 +8,7 @@
 ## 🧭 Quick Navigation
 
 - [📚 Consistency Guide](./consistency-guide.md)
-- [🏠 Documentation Home](../../start-here.md)
+- [Main README](../../../README.md)
 
 ---
 

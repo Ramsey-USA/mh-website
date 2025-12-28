@@ -188,7 +188,7 @@ export function JobApplicationModal({
             <MaterialIcon icon="check_circle" size="4xl" />
           </div>
           <h3 className="mb-4 font-black text-3xl sm:text-4xl md:text-5xl leading-tight text-gray-900 dark:text-white">
-            🌟 Your Future Starts Now!
+            Your Future Starts Now!
           </h3>
           <p className="mb-6 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             Welcome to the MH Construction family! We're excited to have

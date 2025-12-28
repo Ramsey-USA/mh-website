@@ -115,7 +115,7 @@ export default function CareersPage() {
               </div>
             </div>
             <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
-              <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
+              <span className="block text-brand-secondary-text text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
                 Enlist → Careers
               </span>
               <span className="block text-brand-secondary">
@@ -129,7 +129,7 @@ export default function CareersPage() {
                 <span className="font-black italic text-bronze-300">NOT</span>{" "}
                 the dollar
               </span>
-              <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
+              <span className="block text-brand-secondary-text text-sm xs:text-base sm:text-lg md:text-xl mt-2">
                 THE ROI IS THE RELATIONSHIP
               </span>
             </h1>
@@ -208,7 +208,7 @@ export default function CareersPage() {
                     <p className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
                       "THE ROI IS THE RELATIONSHIP"
                     </p>
-                    <p className="text-brand-secondary dark:text-brand-secondary-light text-sm sm:text-base font-semibold text-center mt-2">
+                    <p className="text-brand-secondary-text dark:text-brand-secondary-light text-sm sm:text-base font-semibold text-center mt-2">
                       Where partnerships outlast projects and your growth is our
                       success
                     </p>
@@ -288,7 +288,7 @@ export default function CareersPage() {
                 </>
               }
               sectionId="why-work-here"
-              iconGradient="from-brand-secondary via-bronze-700 to-bronze-800"
+              iconVariant="secondary"
             />
           </div>
         </section>
@@ -776,7 +776,7 @@ export default function CareersPage() {
                                   <MaterialIcon icon="business" size="xs" />
                                   {position.department}
                                 </span>
-                                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-secondary/10 dark:bg-brand-secondary/20 text-brand-secondary dark:text-brand-secondary-light rounded-full text-xs font-semibold">
+                                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-secondary/10 dark:bg-brand-secondary/20 text-brand-secondary-text dark:text-brand-secondary-light rounded-full text-xs font-semibold">
                                   <MaterialIcon icon="location_on" size="xs" />
                                   {position.location}
                                 </span>
@@ -1184,7 +1184,7 @@ export default function CareersPage() {
                             </h4>
                             <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                               Most candidates complete the full process in{" "}
-                              <span className="font-bold text-brand-secondary">
+                              <span className="font-bold text-brand-secondary-text dark:text-brand-secondary-light">
                                 2-3 weeks
                               </span>{" "}
                               from application to offer
@@ -1231,7 +1231,7 @@ export default function CareersPage() {
                   <p className="mb-6 font-medium text-gray-700 text-xl dark:text-gray-300">
                     Ready to start your journey with MH Construction?
                   </p>
-                  <p className="mb-6 font-semibold text-brand-secondary text-lg dark:text-brand-secondary-light">
+                  <p className="mb-6 font-semibold text-brand-secondary-text text-lg dark:text-brand-secondary-light">
                     THE ROI IS THE RELATIONSHIP — Build your career on a
                     foundation of trust
                   </p>

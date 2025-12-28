@@ -550,7 +550,7 @@ export default function PublicSectorPage() {
           </>
         }
         sectionId="compliance"
-        iconGradient="from-brand-primary via-brand-primary-dark to-brand-primary-darker"
+        iconVariant="primary"
       />
       {/* Hanford & DOE Section */}
       <section className="bg-gradient-to-br from-gray-900 to-black py-20 text-white">

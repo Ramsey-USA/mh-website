@@ -280,7 +280,7 @@ export default function AlliesPage() {
             </div>
           </div>
           <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
-            <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
+            <span className="block text-brand-secondary-text text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
               Allies → Partners
             </span>
             <span className="block text-brand-secondary">
@@ -428,7 +428,7 @@ export default function AlliesPage() {
                   leadership, award-winning safety (.64 EMR), and 150+ years
                   combined experience.
                 </p>
-                <cite className="block mt-4 font-semibold text-brand-secondary text-lg">
+                <cite className="block mt-4 font-semibold text-brand-secondary-text text-lg dark:text-brand-secondary-light">
                   — MH Construction Leadership Team
                 </cite>
               </div>
@@ -965,7 +965,7 @@ export default function AlliesPage() {
                               </div>
                             </div>
                             <div className="inline-block bg-brand-secondary/20 dark:bg-brand-secondary/30 mb-3 px-3 py-1 rounded-full">
-                              <span className="font-bold text-brand-secondary dark:text-brand-secondary-light text-sm">
+                              <span className="font-bold text-brand-secondary-text dark:text-brand-secondary-light text-sm">
                                 Step {step.step}
                               </span>
                             </div>

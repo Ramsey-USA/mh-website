@@ -357,9 +357,23 @@ export default function TestimonialsPage() {
                       with no hidden costs. Realistic timelines and honest
                       assessments every time.
                     </p>
-                    <div className="text-xs text-gray-600 dark:text-gray-300">
-                      ✓ Open-book pricing
-                      <br />✓ No surprises, just solutions
+                    <div className="text-xs text-gray-600 dark:text-gray-300 space-y-1">
+                      <div className="flex items-center gap-1">
+                        <MaterialIcon
+                          icon="check_circle"
+                          size="sm"
+                          className="text-brand-primary"
+                        />
+                        <span>Open-book pricing</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MaterialIcon
+                          icon="check_circle"
+                          size="sm"
+                          className="text-brand-primary"
+                        />
+                        <span>No surprises, just solutions</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -396,9 +410,23 @@ export default function TestimonialsPage() {
                       backed by 70% referral business and 650+ completed
                       projects.
                     </p>
-                    <div className="text-xs text-gray-600 dark:text-gray-300">
-                      ✓ We finish what we start
-                      <br />✓ Your word is your bond — so is ours
+                    <div className="text-xs text-gray-600 dark:text-gray-300 space-y-1">
+                      <div className="flex items-center gap-1">
+                        <MaterialIcon
+                          icon="check_circle"
+                          size="sm"
+                          className="text-brand-primary"
+                        />
+                        <span>We finish what we start</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MaterialIcon
+                          icon="check_circle"
+                          size="sm"
+                          className="text-brand-primary"
+                        />
+                        <span>Your word is your bond — so is ours</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -435,9 +463,23 @@ export default function TestimonialsPage() {
                       with .64 EMR, 150+ years team experience, 3-state
                       licensing.
                     </p>
-                    <div className="text-xs text-gray-600 dark:text-gray-300">
-                      ✓ Military precision applied
-                      <br />✓ Expert credentials
+                    <div className="text-xs text-gray-600 dark:text-gray-300 space-y-1">
+                      <div className="flex items-center gap-1">
+                        <MaterialIcon
+                          icon="check_circle"
+                          size="sm"
+                          className="text-brand-primary"
+                        />
+                        <span>Military precision applied</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MaterialIcon
+                          icon="check_circle"
+                          size="sm"
+                          className="text-brand-primary"
+                        />
+                        <span>Expert credentials</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -474,9 +516,23 @@ export default function TestimonialsPage() {
                       with meticulous attention to detail. Zero accidents, zero
                       shortcuts.
                     </p>
-                    <div className="text-xs text-gray-600 dark:text-gray-300">
-                      ✓ Every detail matters
-                      <br />✓ Comprehensive quality control
+                    <div className="text-xs text-gray-600 dark:text-gray-300 space-y-1">
+                      <div className="flex items-center gap-1">
+                        <MaterialIcon
+                          icon="check_circle"
+                          size="sm"
+                          className="text-brand-primary"
+                        />
+                        <span>Every detail matters</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MaterialIcon
+                          icon="check_circle"
+                          size="sm"
+                          className="text-brand-primary"
+                        />
+                        <span>Comprehensive quality control</span>
+                      </div>
                     </div>
                   </div>
                 </div>

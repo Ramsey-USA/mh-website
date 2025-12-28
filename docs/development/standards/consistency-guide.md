@@ -12,7 +12,7 @@ veteran-owned excellence, honest communication, transparent pricing, and proven 
 
 - [🎯 Development Standards](./development-standards.md) - Core standards
 - [🎨 Branding](../../branding/) - Brand guidelines
-- [🏠 Documentation Home](../../start-here.md) - Central documentation hub
+- [Main README](../../../README.md) - Central documentation hub
 
 ---
 

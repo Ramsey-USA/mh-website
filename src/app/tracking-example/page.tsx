@@ -23,7 +23,7 @@ import {
 import { trackDownload, trackVideo } from "@/lib/analytics/tracking";
 
 export default function TrackingExamplePage() {
-  // ✅ Step 1: Add page tracking - This tracks views, duration, scroll automatically
+  // Step 1: Add page tracking - This tracks views, duration, scroll automatically
   usePageTracking("Tracking Example");
 
   // For manual tracking when needed
@@ -253,7 +253,7 @@ export default function TrackingExamplePage() {
 
         <div className="p-4 bg-purple-50 rounded">
           <p className="text-center font-medium">
-            🎯 When this section is 50% visible, it's automatically tracked!
+            When this section is 50% visible, it's automatically tracked!
           </p>
         </div>
 
@@ -266,7 +266,7 @@ export default function TrackingExamplePage() {
       {/* Automatic Tracking Info */}
       <section className="border-2 border-gray-300 p-6 rounded-lg bg-gray-50">
         <h2 className="text-2xl font-semibold mb-4">
-          ✨ Automatic Tracking (Happening Now!)
+          Automatic Tracking (Happening Now!)
         </h2>
         <p className="mb-4">
           Because we added{" "}
@@ -296,7 +296,7 @@ export default function TrackingExamplePage() {
         </ul>
 
         <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded">
-          <h3 className="font-semibold mb-2">📊 View Your Data:</h3>
+          <h3 className="font-semibold mb-2">View Your Data:</h3>
           <ol className="list-decimal list-inside space-y-1 text-sm">
             <li>Triple-click the copyright text in the footer</li>
             <li>Sign in (matt@mhc-gc.com / admin123)</li>
@@ -308,7 +308,7 @@ export default function TrackingExamplePage() {
       {/* Implementation Guide */}
       <section className="border-2 border-green-300 p-6 rounded-lg bg-green-50">
         <h2 className="text-2xl font-semibold mb-4">
-          📚 How to Add Tracking to Your Page
+          How to Add Tracking to Your Page
         </h2>
 
         <div className="space-y-4">
@@ -325,7 +325,7 @@ export default function TrackingExamplePage() {
             </h3>
             <pre className="bg-gray-800 text-gray-100 p-3 rounded overflow-x-auto text-sm">
               {`export default function MyPage() {
-  usePageTracking('My Page Name'); // ✅ That's it!
+  usePageTracking('My Page Name'); // That's it!
   
   return <div>Your content</div>;
 }`}
@@ -347,7 +347,7 @@ export default function TrackingExamplePage() {
         </div>
 
         <div className="mt-4 p-3 bg-white rounded border border-green-300">
-          <strong>📖 Complete guide:</strong>{" "}
+          <strong>Complete guide:</strong>{" "}
           <code className="text-sm">
             docs/technical/analytics-tracking-guide.md
           </code>

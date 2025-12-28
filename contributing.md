@@ -274,7 +274,7 @@ All markdown documentation files MUST follow kebab-case naming convention:
 - ❌ `MasterIndex.md`, `ARCHIVE_README.md`, `PHASE_CONSOLIDATION_PLAN.md`
 
 This ensures consistency across the project and improves maintainability for future developers.
-See the [Documentation Index](./docs/index.md) for the complete documentation structure.
+See the [Main README](./README.md#documentation-structure) for the complete documentation structure.
 
 ## 🎨 Design System Compliance
 

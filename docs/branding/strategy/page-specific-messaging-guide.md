@@ -13,7 +13,7 @@ transparent communication.
 - [📖 Universal Terminology Guide](./universal-terminology-guide.md) ⭐ **NEW**
 
 - [📝 Messaging Guidelines](./messaging.md)
-- [🏠 Documentation Home](../../start-here.md)
+- [Main README](../../../README.md)
 
 ---
 

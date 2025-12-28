@@ -927,5 +927,5 @@ import { MaterialIcon } from '@/components/ui/material-icon';
 
 **Questions or Issues?**
 
-- [Documentation Home](../../start-here.md) - Central documentation hub
+- [Main README](../../../README.md) - Central documentation hub
 - [Material Icons Library](https://mui.com/material-ui/material-icons/) - Browse available icons

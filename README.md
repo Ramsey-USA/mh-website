@@ -1,43 +1,83 @@
 # MH Construction – Founded 2010, Veteran-Owned Since January 2025
 
-🎯 Production Ready | ✓ Cloudflare Optimized | 🇺🇸 Your Tri-Cities Construction Command Center
+**START HERE** - This is your single source of truth for the entire project.
 
 **Building projects for the Client, NOT the Dollar** — Founded by Mike Holstein in 2010, purchased by Army veteran Jeremy Thamert in 2025. Veteran excellence, honest communication, and proven craftsmanship.
 
-📞 **(509) 308-6489** | 📧 **<office@mhc-gc.com>** | 🌐 **mhc-gc.com**
+**(509) 308-6489** | **<office@mhc-gc.com>** | **mhc-gc.com**
 
 ---
 
-## 🚀 Project Status (December 27, 2025)
+## For Developers: Complete Workflow
 
-### Production-Ready Platform ✅
+**New to this project?** Follow this exact path:
 
-| Metric            | Status         | Details                                     |
-| ----------------- | -------------- | ------------------------------------------- |
-| **Build**         | ✅ Passing     | ~42s compilation, zero errors               |
-| **TypeScript**    | ✅ Strict      | Zero type errors                            |
-| **ESLint**        | ✅ Clean       | Zero lint warnings                          |
-| **Tests**         | ✅ Passing     | PWA: 50/50, Analytics: verified             |
-| **SEO**           | ✅ 100/100     | Perfect scores across all pages             |
-| **Lighthouse**    | ✅ 94+         | Performance optimized                       |
-| **Bundle Size**   | ✅ 225 kB      | Production optimized                        |
-| **Dark Mode**     | ✅ Complete    | Full theme support                          |
-| **PWA**           | ✅ Installable | Offline-ready, 5-layer caching              |
-| **Analytics**     | ✅ Live        | 100% page coverage, dashboard active        |
-| **Documentation** | ✅ Optimized   | 57 active files, 0 broken links, kebab-case |
+1. **Read this README** (you're here) - Project overview, tech stack, setup
+2. **Study the [Homepage](src/app/page.tsx)** as your reference standard - See [Homepage Documentation](docs/technical/homepage.md) for complete breakdown
+3. **Review [Unified Component Standards](docs/branding/standards/unified-component-standards.md) v7.0.0** - Complete design system (colors, typography, components)
+4. **Study [Component Cheatsheet](docs/development/quick-reference/component-cheatsheet.md)** - Copy-paste patterns matching homepage style
+5. **Use [Page Template Guide](docs/development/standards/page-template-guide.md)** - Complete boilerplate for new pages
+6. **Build your page** using StandardSection template and cheatsheet patterns to match homepage cohesiveness
+7. **Audit with [Page Compliance Checklist](docs/development/standards/page-compliance-checklist.md)** - 150+ items to verify homepage-level quality
+8. **Deploy** following standards
+
+**Key Principle:** Your page should feel like it belongs on the same site as the homepage - same visual weight, spacing, animations, and polish.
+
+**Daily Reference:**
+
+- [Common Mistakes Guide](docs/development/standards/common-mistakes.md) - 22 errors to avoid
+- [Development Standards](docs/development/standards/development-standards.md) - Code patterns
+- [Consistency Guide](docs/development/standards/consistency-guide.md) - **MANDATORY** reading
+
+**When You Need Specific Features:**
+
+- **Adding analytics tracking?** → [Analytics Tracking Guide](docs/technical/analytics-tracking-guide.md)
+- **Implementing dark mode?** → [Dark Mode Quick Reference](docs/technical/dark-mode-quick-reference.md)
+- **Styling buttons/CTAs?** → [Buttons & CTAs Complete Guide](docs/technical/design-system/buttons-ctas-complete-guide.md)
+- **Adding icons?** → [Icon System Complete](docs/technical/design-system/icon-system-complete.md)
+- **Optimizing images/videos?** → [Automatic Media Optimization](docs/technical/automatic-media-optimization.md)
+- **Adding SEO metadata?** → [SEO Complete Guide](docs/technical/seo/seo-complete-guide.md) + [SEO Quick Reference](seo-quick-reference.md)
+- **Making page installable (PWA)?** → [PWA Quick Reference](docs/technical/pwa-quick-reference.md)
+- **Using reusable components?** → [StandardSection Template](docs/development/components/template-components.md)
+- **Deploying to Cloudflare?** → [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md)
+- **Understanding project structure?** → [Project Architecture](docs/project/architecture.md)
+
+That's it. Everything else is organized in `/docs/` by category (branding, technical, business, etc.).
+
+---
+
+## Project Status (December 28, 2025)
+
+### Production-Ready Platform
+
+| Metric            | Status    | Details                                   |
+| ----------------- | --------- | ----------------------------------------- |
+| **Build**         | Passing   | ~42s compilation, zero errors             |
+| **TypeScript**    | Strict    | Zero type errors                          |
+| **ESLint**        | Clean     | Zero lint warnings                        |
+| **Tests**         | Passing   | PWA: 50/50, Analytics: verified           |
+| **SEO**           | 100/100   | Perfect scores across all pages           |
+| **Lighthouse**    | 94+       | Performance optimized                     |
+| **Bundle Size**   | 225 kB    | Production optimized                      |
+| **Dark Mode**     | Complete  | Full theme support                        |
+| **PWA**           | Ready     | Offline-ready, 5-layer caching            |
+| **Analytics**     | Live      | 100% page coverage, dashboard active      |
+| **Documentation** | Optimized | 61 docs + 12 supporting files, zero bloat |
 
 ### Recent Improvements (Dec 2025)
 
-- ✅ **Dec 27:** Documentation optimized - 79→57 files, archive deleted, 0 broken links, kebab-case naming
-- ✅ **Dec 27:** Analytics system complete - geographic tracking, lead scoring, military dashboard
-- ✅ **Dec 27:** SEO dual-label titles - military/construction terminology
-- ✅ **Dec 26:** Media optimization - WebP images (42% smaller), WebM/MP4 videos
-- ✅ **Dec 26:** PWA implementation - offline support, installable, service worker v4.0.0
-- ✅ **Dec 25:** Dark mode optimization - WCAG 2.1 AA compliant
+- **Dec 28:** Documentation consolidation - Single README entry point, removed 5 bloat files (summaries/reports)
+- **Dec 28:** Development tooling - Component cheatsheet, compliance checklist, StandardSection template (82% code reduction)
+- **Dec 27:** Documentation optimized - 79→68 files, 0 broken links, kebab-case naming
+- **Dec 27:** Analytics system complete - geographic tracking, lead scoring, military dashboard
+- **Dec 27:** SEO dual-label titles - military/construction terminology
+- **Dec 26:** Media optimization - WebP images (42% smaller), WebM/MP4 videos
+- **Dec 26:** PWA implementation - offline support, installable, service worker v4.0.0
+- **Dec 25:** Dark mode optimization - WCAG 2.1 AA compliant
 
 ---
 
-## 🏗️ About MH Construction
+## About MH Construction
 
 **Veteran-Owned General Contractor** serving the Pacific Northwest since 2010.
 
@@ -58,7 +98,34 @@
 
 ---
 
-## 🛠️ Tech Stack
+## Quick Start by Role
+
+### Developers (Start Here)
+
+**Follow the 7-step workflow above** for complete guidance from setup to deployment.
+
+#### Designers & Branding
+
+- [Unified Component Standards](docs/branding/standards/unified-component-standards.md) - Complete design system v7.0.0
+- [Color System](docs/branding/standards/color-system.md) - Brand colors (Hunter Green, Leather Tan)
+- [Brand Overview](docs/branding/strategy/brand-overview.md) - Brand identity & values
+- [Messaging Guide](docs/branding/strategy/messaging.md) - Core messaging v7.0.0
+
+#### Marketing (Matt & Jeremy)
+
+- **[Analytics Guide for Matt & Jeremy](analytics-guide-for-matt-and-jeremy.md)** - PRIMARY guide for all marketing intelligence
+- [SEO Quick Reference](seo-quick-reference.md) - SEO optimization actions
+- [GBP Post Templates](docs/marketing/gbp-post-templates.md) - Google Business Profile posts
+
+#### Content Writers
+
+- [Messaging Guide](docs/branding/strategy/messaging.md) - Core brand messaging v7.0.0
+- [Universal Terminology](docs/branding/strategy/universal-terminology-guide.md) - Approved word choices
+- [Page-Specific Messaging](docs/branding/strategy/page-specific-messaging-guide.md) - Voice per page
+
+---
+
+## Tech Stack
 
 ### Core Framework
 
@@ -87,7 +154,7 @@
 
 ---
 
-## ⚡ Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -142,7 +209,7 @@ NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
 
 ---
 
-## 📦 Available Scripts
+## Available Scripts
 
 ### Development
 
@@ -188,79 +255,50 @@ npm run clean            # Clean build artifacts
 
 ---
 
-## 📚 Documentation
+## Documentation Structure
 
-### 📖 Start Here
-
-| Resource                                                                             | Purpose                      | Audience             |
-| ------------------------------------------------------------------------------------ | ---------------------------- | -------------------- |
-| **[docs/index.md](docs/index.md)**                                                   | Complete documentation index | Everyone             |
-| **[docs/start-here.md](docs/start-here.md)**                                         | Role-based quick navigation  | New contributors     |
-| **[analytics-guide-for-matt-and-jeremy.md](analytics-guide-for-matt-and-jeremy.md)** | Marketing intelligence guide | Matt & Jeremy        |
-| **[seo-quick-reference.md](seo-quick-reference.md)**                                 | SEO optimization             | Marketing/Developers |
-
-### 📂 Documentation Structure
+All documentation is organized in `/docs/` by category:
 
 ```
 docs/
-├── index.md                      # Main documentation index
-├── start-here.md                 # Role-based quick start
-├── branding/                     # Brand guidelines (11 files)
-│   ├── standards/               # Color, typography, components
-│   └── strategy/                # Messaging, terminology
-├── business/                     # Business documentation (18 files)
-│   ├── services.md              # Service offerings
-│   ├── core-values.md           # Company values
+├── branding/                     # Brand guidelines
+│   ├── standards/               # unified-component-standards.md (v7.0.0), color-system.md, etc.
+│   └── strategy/                # messaging.md, brand-overview.md, terminology
+├── business/                     # Business documentation
+│   ├── services.md, core-values.md
 │   └── team/profiles/           # 15 team member profiles
-├── development/                  # Development guides (3 files)
-│   └── standards/               # Coding standards, consistency
-├── technical/                    # Technical implementation (20 files)
-│   ├── design-system/           # Buttons, icons, components
-│   ├── seo/                     # SEO implementation
+├── development/                  # Development guides
+│   ├── quick-reference/         # component-cheatsheet.md
+│   ├── standards/               # page-compliance-checklist.md, page-template-guide.md, common-mistakes.md
+│   └── components/              # template-components.md (StandardSection docs)
+├── technical/                    # Technical implementation
+│   ├── design-system/           # buttons-ctas-complete-guide.md, icon-system-complete.md
+│   ├── seo/                     # seo-complete-guide.md
 │   ├── analytics-quick-reference.md
 │   ├── dark-mode-quick-reference.md
 │   └── pwa-quick-reference.md
-├── marketing/                    # Marketing resources (2 files)
-│   ├── gbp-post-templates.md    # Google Business Profile
-│   └── google-business-profile-guide.md
-├── deployment/                   # Deployment guides (1 file)
-│   └── cloudflare-guide.md      # Cloudflare Pages deployment
-└── project/                      # Project documentation (1 file)
-    └── architecture.md          # System architecture
+├── marketing/                    # Marketing resources
+│   └── gbp-post-templates.md
+├── deployment/                   # Deployment guides
+│   └── cloudflare-guide.md
+└── project/                      # Project documentation
+    └── architecture.md
+
+# Root-level guides
+analytics-guide-for-matt-and-jeremy.md  # PRIMARY marketing intelligence guide
+seo-quick-reference.md                  # Quick SEO actions
+contributing.md                         # Contribution guidelines
 ```
 
-### 🎯 Key Documentation by Role
+**Key Documentation:**
 
-**👨‍💻 Developers:**
-
-- [Development Standards](docs/development/standards/development-standards.md)
-- [Consistency Guide](docs/development/standards/consistency-guide.md)
-- [Analytics Quick Reference](docs/technical/analytics-quick-reference.md)
-- [Dark Mode Quick Reference](docs/technical/dark-mode-quick-reference.md)
-- [PWA Quick Reference](docs/technical/pwa-quick-reference.md)
-
-**🎨 Designers:**
-
-- [Color System](docs/branding/standards/color-system.md)
-- [Typography](docs/branding/standards/typography.md)
-- [Component Standards](docs/branding/standards/component-standards.md)
-- [Brand Overview](docs/branding/strategy/brand-overview.md)
-
-**📊 Marketing (Matt & Jeremy):**
-
-- [Analytics Guide](analytics-guide-for-matt-and-jeremy.md) ⭐ PRIMARY
-- [SEO Quick Reference](seo-quick-reference.md)
-- [GBP Post Templates](docs/marketing/gbp-post-templates.md)
-
-**✍️ Content Writers:**
-
-- [Messaging Guide](docs/branding/strategy/messaging.md)
-- [Universal Terminology](docs/branding/strategy/universal-terminology-guide.md)
-- [Page-Specific Messaging](docs/branding/strategy/page-specific-messaging-guide.md)
+- **Development:** [Component Cheatsheet](docs/development/quick-reference/component-cheatsheet.md) | [Compliance Checklist](docs/development/standards/page-compliance-checklist.md) | [StandardSection Template](docs/development/components/template-components.md)
+- **Design System:** [Unified Component Standards](docs/branding/standards/unified-component-standards.md) v7.0.0 (consolidated typography & components)
+- **Marketing:** [Analytics Guide for Matt & Jeremy](analytics-guide-for-matt-and-jeremy.md) | [SEO Quick Reference](seo-quick-reference.md)
 
 ---
 
-## 🏗️ Project Architecture
+## Project Architecture
 
 ```
 mh-website/
@@ -306,7 +344,7 @@ mh-website/
 
 ---
 
-## 🎨 Design System
+## Design System
 
 ### Brand Colors
 
@@ -358,7 +396,7 @@ dark: text - brand - secondary - light;
 
 ---
 
-## 🚀 Deployment
+## Deployment
 
 ### Cloudflare Pages
 
@@ -391,7 +429,7 @@ See [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md) for detai
 
 ---
 
-## 📊 Analytics System
+## Analytics System
 
 ### Overview
 
@@ -433,7 +471,7 @@ open test-analytics.html
 
 ---
 
-## 🎯 SEO Optimization
+## SEO Optimization
 
 ### Dual-Label System
 
@@ -466,7 +504,7 @@ Military/construction terminology across all pages for veteran branding + access
 
 ---
 
-## ♿ Accessibility
+## Accessibility
 
 ### WCAG 2.1 AA Compliance
 
@@ -487,7 +525,7 @@ Military/construction terminology across all pages for veteran branding + access
 
 ---
 
-## 🔒 Security
+## Security
 
 ### Implemented Measures
 
@@ -509,7 +547,7 @@ Triple-click authentication (footer copyright) - simple but effective for intern
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ### Test Suites
 
@@ -534,13 +572,13 @@ npm run lint
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 ### Getting Started
 
-1. Read [docs/start-here.md](docs/start-here.md) for role-based navigation
-2. Review [Development Standards](docs/development/standards/development-standards.md)
-3. Check [Consistency Guide](docs/development/standards/consistency-guide.md) ⭐ MANDATORY
+1. Review this README for comprehensive project overview
+2. Check [Development Standards](docs/development/standards/development-standards.md)
+3. Read [Consistency Guide](docs/development/standards/consistency-guide.md) MANDATORY
 4. Follow coding patterns and conventions
 
 ### Pull Request Guidelines
@@ -555,12 +593,11 @@ npm run lint
 
 - All markdown files use **kebab-case** naming
 - Internal links must be relative
-- Update [docs/index.md](docs/index.md) for new files
-- Archive completed work to [docs/archive/](docs/archive/)
+- Archive completed work to [docs/archive/](docs/archive/) (if needed)
 
 ---
 
-## 📞 Contact & Support
+## Contact & Support
 
 ### MH Construction
 
@@ -577,7 +614,7 @@ npm run lint
 
 ---
 
-## 📜 License & Copyright
+## License & Copyright
 
 **Copyright © 2025 MH Construction**  
 **Founded 2010 | Veteran-Owned Since January 2025**
@@ -586,7 +623,7 @@ All rights reserved. This software and associated documentation files are propri
 
 ---
 
-## 🎖️ About the Veteran Transition
+## About the Veteran Transition
 
 **January 2025** - MH Construction transitioned from founder Mike Holstein to Army veteran Jeremy Thamert, continuing 15 years of construction excellence with renewed veteran commitment.
 
@@ -601,5 +638,5 @@ All rights reserved. This software and associated documentation files are propri
 
 ---
 
-**Last Updated:** December 27, 2025  
-**Documentation Version:** 2.0 (Optimized & Streamlined)
+**Last Updated:** December 28, 2025  
+**Documentation Version:** 3.0 (Single Entry Point - Zero Bloat)

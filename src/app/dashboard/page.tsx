@@ -113,7 +113,7 @@ export default function AnalyticsDashboardPage() {
               </div>
               <div>
                 <h1 className="text-3xl font-black text-white tracking-tight">
-                  🎯 MISSION CONTROL
+                  MISSION CONTROL
                 </h1>
                 <p className="text-sm text-brand-secondary font-bold uppercase tracking-wider">
                   SITREP: Welcome back, {userData?.name} • Status: OPERATIONAL
@@ -152,7 +152,7 @@ export default function AnalyticsDashboardPage() {
               <MaterialIcon icon="warning" size="lg" className="text-red-400" />
               <div>
                 <h3 className="font-black text-red-300 mb-1 uppercase tracking-wide">
-                  ⚠️ MISSION CRITICAL ERROR
+                  MISSION CRITICAL ERROR
                 </h3>
                 <p className="text-red-200">{error}</p>
               </div>
@@ -168,7 +168,7 @@ export default function AnalyticsDashboardPage() {
                   size="lg"
                   className="text-brand-secondary"
                 />
-                📊 TACTICAL OVERVIEW - ENGAGEMENT METRICS
+                TACTICAL OVERVIEW - ENGAGEMENT METRICS
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <MilitaryStatCard
@@ -218,7 +218,7 @@ export default function AnalyticsDashboardPage() {
                   size="lg"
                   className="text-brand-secondary"
                 />
-                🗺️ GEOGRAPHIC INTELLIGENCE - AO COVERAGE
+                GEOGRAPHIC INTELLIGENCE - AO COVERAGE
               </h2>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <GeographicHeatMap clicks={localData?.clicks || []} />
@@ -234,7 +234,7 @@ export default function AnalyticsDashboardPage() {
                   size="lg"
                   className="text-brand-secondary"
                 />
-                🎯 CTA ENGAGEMENT - TACTICAL RESPONSE
+                CTA ENGAGEMENT - TACTICAL RESPONSE
               </h2>
               <CTAPerformanceGrid clicks={localData?.clicks || []} />
             </div>
@@ -247,7 +247,7 @@ export default function AnalyticsDashboardPage() {
                   size="lg"
                   className="text-brand-secondary"
                 />
-                ✅ MISSION OBJECTIVES - CONVERSIONS
+                MISSION OBJECTIVES - CONVERSIONS
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <MilitaryMetricCard
@@ -284,7 +284,7 @@ export default function AnalyticsDashboardPage() {
                   size="lg"
                   className="text-bronze-400"
                 />
-                🎖️ VETERAN OPERATIONS - BROTHERHOOD ENGAGEMENT
+                VETERAN OPERATIONS - BROTHERHOOD ENGAGEMENT
               </h2>
               <div className="bg-gradient-to-br from-bronze-900/60 to-bronze-800/40 backdrop-blur-sm rounded-xl border-2 border-bronze-500 p-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -340,7 +340,7 @@ export default function AnalyticsDashboardPage() {
                   size="lg"
                   className="text-brand-secondary"
                 />
-                ⚡ PERFORMANCE READINESS - SYSTEM STATUS
+                PERFORMANCE READINESS - SYSTEM STATUS
               </h2>
               <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary p-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -353,7 +353,7 @@ export default function AnalyticsDashboardPage() {
                     <div className="text-3xl font-black text-white mb-2">
                       {analyticsData?.performance?.coreWebVitals?.lcp || 0}ms
                     </div>
-                    <div className="text-brand-secondary font-bold uppercase tracking-wide text-sm">
+                    <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-sm">
                       Load Time
                     </div>
                   </div>
@@ -366,7 +366,7 @@ export default function AnalyticsDashboardPage() {
                     <div className="text-3xl font-black text-white mb-2">
                       {analyticsData?.performance?.coreWebVitals?.fcp || 0}ms
                     </div>
-                    <div className="text-brand-secondary font-bold uppercase tracking-wide text-sm">
+                    <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-sm">
                       First Paint
                     </div>
                   </div>
@@ -381,7 +381,7 @@ export default function AnalyticsDashboardPage() {
                         3,
                       ) || 0}
                     </div>
-                    <div className="text-brand-secondary font-bold uppercase tracking-wide text-sm">
+                    <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-sm">
                       Layout Stability
                     </div>
                   </div>
@@ -436,7 +436,7 @@ function MilitaryStatCard({
         </span>
       </div>
       <div className="text-4xl font-black text-white mb-2">{value}</div>
-      <div className="text-brand-secondary font-bold uppercase tracking-wide text-xs mb-1">
+      <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-xs mb-1">
         {label}
       </div>
       <div className="text-gray-600 text-xs">{sublabel}</div>
@@ -622,8 +622,8 @@ function TopLocations({ clicks }: { clicks: Array<{ state?: string }> }) {
           <div className="text-5xl font-black text-white mb-2">
             {targetPercentage.toFixed(0)}%
           </div>
-          <div className="text-brand-secondary font-bold uppercase tracking-wide text-sm">
-            🎯 Target Market Coverage
+          <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-sm">
+            TARGET MARKET COVERAGE
           </div>
           <div className="text-gray-600 text-xs mt-1">
             WA, OR, ID Operations
@@ -641,7 +641,14 @@ function TopLocations({ clicks }: { clicks: Array<{ state?: string }> }) {
               className={`flex items-center justify-between p-3 rounded-lg ${isTarget ? "bg-brand-secondary/20 border border-brand-secondary" : "bg-gray-700/50"}`}
             >
               <span className="text-white font-bold flex items-center gap-2">
-                {isTarget && "🎯"} {state}
+                {isTarget && (
+                  <MaterialIcon
+                    icon="gps_fixed"
+                    size="sm"
+                    className="text-brand-secondary"
+                  />
+                )}
+                {state}
               </span>
               <span className="text-brand-secondary font-black">{count}</span>
             </div>
@@ -681,7 +688,7 @@ function CTAPerformanceGrid({
         <div className="flex items-center gap-3 mb-4">
           <MaterialIcon icon="phone" size="lg" className="text-green-300" />
           <h3 className="text-lg font-black text-white uppercase tracking-wide">
-            📞 DIRECT COMMS
+            DIRECT COMMS
           </h3>
         </div>
         <div className="space-y-2">

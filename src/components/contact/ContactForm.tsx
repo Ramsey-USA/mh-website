@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { logger } from "@/lib/utils/logger";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   Button,
   Card,
@@ -222,7 +223,7 @@ Project Type: ${formData.projectType}
 Project Location: ${formData.projectLocation}
 Budget Range: ${formData.budget || "Not specified"}
 Timeline: ${formData.timeline || "Not specified"}
-${formData.projectCategory === "residential" ? `Veteran Status: ${formData.isVeteran ? "✓ Confirmed Veteran" : "Not Veteran"}` : ""}
+${formData.projectCategory === "residential" ? `Veteran Status: ${formData.isVeteran ? "CONFIRMED VETERAN" : "Not Veteran"}` : ""}
 `
     : ""
 }
@@ -319,7 +320,13 @@ ${formData.message}
   if (isSubmitted) {
     return (
       <Card className="p-8 text-center">
-        <div className="mb-4 text-green-600 text-6xl">✓</div>
+        <div className="mb-4 flex justify-center">
+          <MaterialIcon
+            icon="check_circle"
+            size="4xl"
+            className="text-green-600"
+          />
+        </div>
         <h3 className="mb-2 font-semibold text-gray-900 dark:text-white text-2xl">
           Partnership Initiated!
         </h3>
@@ -473,19 +480,19 @@ ${formData.message}
                     {
                       value: "commercial",
                       label: "Commercial",
-                      icon: "🏢",
+                      icon: "business",
                       desc: "Offices, retail, hospitality",
                     },
                     {
                       value: "industrial",
                       label: "Industrial",
-                      icon: "🏭",
+                      icon: "factory",
                       desc: "Manufacturing, warehouses",
                     },
                     {
                       value: "residential",
                       label: "Residential",
-                      icon: "🏠",
+                      icon: "home",
                       desc: "Veterans & families only",
                     },
                   ].map((category) => (
@@ -502,7 +509,17 @@ ${formData.message}
                           : "border-gray-300 dark:border-gray-600 hover:border-brand-primary/50"
                       }`}
                     >
-                      <div className="text-2xl mb-1">{category.icon}</div>
+                      <div className="mb-1">
+                        <MaterialIcon
+                          icon={category.icon}
+                          size="xl"
+                          className={
+                            formData.projectCategory === category.value
+                              ? "text-brand-primary"
+                              : "text-gray-600 dark:text-gray-300"
+                          }
+                        />
+                      </div>
                       <div className="font-semibold text-gray-900 dark:text-white">
                         {category.label}
                       </div>
@@ -535,10 +552,14 @@ ${formData.message}
                     <div className="flex-1">
                       <label
                         htmlFor="veteran-status"
-                        className="block font-semibold text-gray-900 dark:text-white cursor-pointer"
+                        className="flex items-center gap-2 font-semibold text-gray-900 dark:text-white cursor-pointer"
                       >
-                        ✓ I am a U.S. Military Veteran or immediate family
-                        member
+                        <MaterialIcon
+                          icon="check_circle"
+                          size="sm"
+                          className="text-brand-primary"
+                        />
+                        I am a U.S. Military Veteran or immediate family member
                       </label>
                       <p className="text-gray-600 dark:text-gray-300 text-sm mt-1">
                         MH Construction proudly serves Veterans. Residential
@@ -770,10 +791,28 @@ ${formData.message}
               partnership journey. We look forward to working together with you!
             </p>
             {formType === "project" && (
-              <p className="text-xs text-gray-600 dark:text-gray-500">
-                {formData.projectCategory === "residential"
-                  ? "🎖️ Proudly serving those who served. Residential projects exclusively for Veterans."
-                  : "🏢 Specializing in commercial and industrial construction excellence."}
+              <p className="text-xs text-gray-600 dark:text-gray-500 flex items-center gap-2">
+                {formData.projectCategory === "residential" ? (
+                  <>
+                    <MaterialIcon
+                      icon="military_tech"
+                      size="sm"
+                      className="text-bronze-600"
+                    />
+                    Proudly serving those who served. Residential projects
+                    exclusively for Veterans.
+                  </>
+                ) : (
+                  <>
+                    <MaterialIcon
+                      icon="business"
+                      size="sm"
+                      className="text-brand-primary"
+                    />
+                    Specializing in commercial and industrial construction
+                    excellence.
+                  </>
+                )}
               </p>
             )}
           </div>

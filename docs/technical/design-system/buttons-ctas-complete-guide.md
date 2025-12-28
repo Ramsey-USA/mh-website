@@ -1286,7 +1286,7 @@ export function MobileCTA() {
 
 - **[Consistency Guide](../../development/standards/consistency-guide.md)** - Implementation standards
 - **[Development Standards](../../development/standards/development-standards.md)** - Coding conventions
-- **[Documentation Home](../../start-here.md)** - Central documentation hub
+- **[Main README](../../../README.md)** - Central documentation hub
 
 ---
 
@@ -1329,5 +1329,5 @@ export function MobileCTA() {
 **Questions or Issues?**
 
 - [Button System Documentation](./buttons-ctas-complete-guide.md) - This complete guide
-- [Documentation Home](../../start-here.md) - Central documentation hub
+- [Main README](../../../README.md) - Central documentation hub
 - [Consistency Guide](../../development/standards/consistency-guide.md) - General implementation standards

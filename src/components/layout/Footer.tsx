@@ -854,20 +854,20 @@ export default function Footer() {
                       if (response.ok) {
                         emailInput.value = "";
                         if (feedbackEl) {
-                          feedbackEl.textContent = "✅ Subscribed!";
+                          feedbackEl.textContent = "Subscribed!";
                           feedbackEl.className =
                             "newsletter-feedback text-green-400 text-xs mt-2";
                         }
                       } else {
                         if (feedbackEl) {
-                          feedbackEl.textContent = "❌ Try again";
+                          feedbackEl.textContent = "Try again";
                           feedbackEl.className =
                             "newsletter-feedback text-red-400 text-xs mt-2";
                         }
                       }
                     } catch (_error) {
                       if (feedbackEl) {
-                        feedbackEl.textContent = "❌ Error";
+                        feedbackEl.textContent = "Error";
                         feedbackEl.className =
                           "newsletter-feedback text-red-400 text-xs mt-2";
                       }

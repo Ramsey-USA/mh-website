@@ -112,7 +112,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Community Impact Badge */}
         <div className="mb-4">
-          <span className="inline-flex items-center bg-brand-secondary/10 dark:bg-brand-secondary/20 px-2 py-1 border-brand-secondary border-l-4 font-medium text-brand-secondary text-xs">
+          <span className="inline-flex items-center bg-brand-secondary/10 dark:bg-brand-secondary/20 px-2 py-1 border-brand-secondary border-l-4 font-medium text-brand-secondary-text text-xs">
             <MaterialIcon icon="groups" size="sm" className="mr-1" />
             Community Partnership
           </span>

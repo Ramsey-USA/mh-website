@@ -49,7 +49,15 @@ export default function GlobalError({
               textAlign: "center",
             }}
           >
-            <div style={{ fontSize: "4rem", marginBottom: "1.5rem" }}>⚠️</div>
+            <div
+              style={{
+                fontSize: "4rem",
+                marginBottom: "1.5rem",
+                color: "#f59e0b",
+              }}
+            >
+              ⚠
+            </div>
 
             <h2
               style={{

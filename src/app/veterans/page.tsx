@@ -61,7 +61,7 @@ export default function VeteransPage() {
             </div>
             <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
               {/* DUAL NAMING - Military → Civilian (Required) */}
-              <span className="block text-brand-secondary/80 text-sm sm:text-base md:text-lg lg:text-xl font-normal mb-2">
+              <span className="block text-brand-secondary-text/80 text-sm sm:text-base md:text-lg lg:text-xl font-normal mb-2">
                 Service First → Veterans
               </span>
               {/* PAGE-SPECIFIC MANTRA */}
@@ -427,7 +427,7 @@ export default function VeteransPage() {
                         <h3 className="text-gray-900 dark:text-white text-2xl sm:text-3xl font-bold mb-2">
                           Matt Ramsey
                         </h3>
-                        <p className="text-brand-secondary font-semibold text-lg mb-6">
+                        <p className="text-brand-secondary-text font-semibold text-lg mb-6 dark:text-brand-secondary-light">
                           Digital Marketing Manager | Navy Veteran
                         </p>
                         <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">

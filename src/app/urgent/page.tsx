@@ -20,6 +20,7 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
 
 // Note: Metadata moved to parent layout due to 'use client' directive
 
@@ -507,102 +508,67 @@ export default function UrgentSupportPage() {
       </section>
 
       {/* Large Equipment Section */}
-      <section
+      <BrandedContentSection
         id="urgent-equipment"
-        className="relative py-12 sm:py-16 lg:py-20 xl:py-24 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 text-white overflow-hidden"
+        header={{
+          icon: "engineering",
+          iconVariant: "custom",
+          customIconGradient: "from-orange-600 via-orange-700 to-orange-800",
+          customIconBlur: "from-orange-500/30 to-orange-600/30",
+          customTitleGradient: "from-yellow-200 via-white to-yellow-200",
+          subtitle: "Heavy Equipment &",
+          title: "Certified Operators",
+          description:
+            "Large-scale equipment available for urgent hire with experienced, certified operators ready for immediate deployment to your project site.",
+        }}
+        className="bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 text-white"
       >
-        {/* Diagonal Stripe Pattern */}
-        <div className="absolute inset-0 opacity-[0.05]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                45deg,
-                #ea580c 0px,
-                #ea580c 2px,
-                transparent 2px,
-                transparent 60px
-              )`,
-            }}
-          ></div>
-        </div>
+        <FadeInWhenVisible>
+          <StaggeredFadeIn className={gridPresets.twoColumn("lg")}>
+            {equipmentList.map((equipment, _index) => (
+              <div key={_index} className="group relative flex h-full">
+                {/* Animated Border Glow */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-yellow-300/40 to-white/40 rounded-2xl opacity-20 group-hover:opacity-60 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible>
-            <div className="text-center mb-12">
-              <div className="flex justify-center mb-6">
-                <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl">
-                  <MaterialIcon
-                    icon="engineering"
-                    size="4xl"
-                    className="text-yellow-300"
-                    ariaLabel="Heavy equipment"
-                  />
-                </div>
-              </div>
-              {/* Section Header - Military Construction Standard */}
-              <h2 className="mb-4 font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tighter">
-                <span className="block mb-2 font-semibold text-gray-200 text-xl xs:text-2xl sm:text-3xl tracking-tight">
-                  Heavy Equipment &
-                </span>
-                <span className="block bg-gradient-to-r from-yellow-200 via-white to-yellow-200 bg-clip-text text-transparent font-black drop-shadow-sm">
-                  Certified Operators
-                </span>
-              </h2>
-              <p className="text-lg text-white/90 max-w-3xl mx-auto">
-                Large-scale equipment available for urgent hire with
-                experienced, certified operators ready for immediate deployment
-                to your project site.
-              </p>
-            </div>
+                <div className="relative bg-white/10 backdrop-blur-sm rounded-xl border-2 border-white/20 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                  {/* Top Accent Bar */}
+                  <div className="h-2 bg-gradient-to-r from-yellow-200 via-white to-yellow-200"></div>
 
-            <StaggeredFadeIn className={gridPresets.twoColumn("lg")}>
-              {equipmentList.map((equipment, _index) => (
-                <div key={_index} className="group relative flex h-full">
-                  {/* Animated Border Glow */}
-                  <div className="absolute -inset-2 bg-gradient-to-br from-yellow-300/40 to-white/40 rounded-2xl opacity-20 group-hover:opacity-60 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
-
-                  <div className="relative bg-white/10 backdrop-blur-sm rounded-xl border-2 border-white/20 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
-                    {/* Top Accent Bar */}
-                    <div className="h-2 bg-gradient-to-r from-yellow-200 via-white to-yellow-200"></div>
-
-                    <div className="p-6 flex items-start gap-4">
-                      <div className="relative flex-shrink-0">
-                        <div className="absolute -inset-2 bg-gradient-to-br from-yellow-300/40 to-white/40 opacity-30 blur-lg rounded-full"></div>
-                        <div className="relative group-hover:scale-110 transition-all duration-300">
-                          <MaterialIcon
-                            icon={equipment.icon}
-                            size="2xl"
-                            className="text-yellow-300 drop-shadow-lg"
-                            ariaLabel={equipment.name}
-                          />
-                        </div>
+                  <div className="p-6 flex items-start gap-4">
+                    <div className="relative flex-shrink-0">
+                      <div className="absolute -inset-2 bg-gradient-to-br from-yellow-300/40 to-white/40 opacity-30 blur-lg rounded-full"></div>
+                      <div className="relative group-hover:scale-110 transition-all duration-300">
+                        <MaterialIcon
+                          icon={equipment.icon}
+                          size="2xl"
+                          className="text-yellow-300 drop-shadow-lg"
+                          ariaLabel={equipment.name}
+                        />
                       </div>
-                      <div>
-                        <h3 className="font-bold text-xl mb-2">
-                          {equipment.name}
-                        </h3>
-                        <p className="text-white/80">{equipment.description}</p>
-                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-xl mb-2">
+                        {equipment.name}
+                      </h3>
+                      <p className="text-white/80">{equipment.description}</p>
                     </div>
                   </div>
                 </div>
-              ))}
-            </StaggeredFadeIn>
+              </div>
+            ))}
+          </StaggeredFadeIn>
 
-            <div className="mt-12 text-center">
-              <p className="text-lg font-semibold text-yellow-300 mb-4">
-                Equipment + Operators = Ready to Work
-              </p>
-              <p className="text-white/90 max-w-2xl mx-auto">
-                All operators are certified, experienced, and ready for
-                immediate deployment. We handle the logistics - you get the
-                results.
-              </p>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
+          <div className="mt-12 text-center">
+            <p className="text-lg font-semibold text-yellow-300 mb-4">
+              Equipment + Operators = Ready to Work
+            </p>
+            <p className="text-white/90 max-w-2xl mx-auto">
+              All operators are certified, experienced, and ready for immediate
+              deployment. We handle the logistics - you get the results.
+            </p>
+          </div>
+        </FadeInWhenVisible>
+      </BrandedContentSection>
 
       {/* What We Provide / Don't Provide */}
       <section
@@ -1017,87 +983,55 @@ export default function UrgentSupportPage() {
       </section>
 
       {/* CTA Section */}
-      <section
+      <BrandedContentSection
         id="urgent-cta"
-        className="relative py-12 sm:py-16 lg:py-20 xl:py-24 bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 text-white overflow-hidden"
+        header={{
+          icon: "support_agent",
+          iconVariant: "custom",
+          customIconGradient: "from-red-600 via-red-700 to-red-800",
+          customIconBlur: "from-red-500/30 to-red-600/30",
+          customTitleGradient: "from-yellow-200 via-white to-yellow-200",
+          subtitle: "Ready to Resolve Your",
+          title: "Critical Challenge?",
+          description:
+            "Contact MH Construction today for expert consultation, specialized equipment with operators, and experienced crews ready for immediate deployment.",
+        }}
+        className="bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 text-white"
       >
-        {/* Diagonal Stripe Pattern */}
-        <div className="absolute inset-0 opacity-[0.05]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                45deg,
-                #dc2626 0px,
-                #dc2626 2px,
-                transparent 2px,
-                transparent 60px
-              )`,
-            }}
-          ></div>
-        </div>
+        <FadeInWhenVisible>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a
+              href={`tel:${COMPANY_INFO.phone.tel}`}
+              className="inline-flex items-center gap-3 bg-white hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-orange-700 transition-all duration-200 hover:scale-105 shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/50"
+              aria-label={`Call MH Construction at ${COMPANY_INFO.phone.display}`}
+            >
+              <MaterialIcon icon="call" size="lg" ariaLabel="Call Now" />
+              {COMPANY_INFO.phone.display}
+            </a>
+            <a
+              href={`mailto:${COMPANY_INFO.email.main}?subject=Urgent%20Construction%20Support%20Request`}
+              className="inline-flex items-center gap-3 bg-orange-800 hover:bg-orange-900 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-200 hover:scale-105 shadow-xl focus:outline-none focus:ring-4 focus:ring-orange-900/50"
+              aria-label="Email urgent support request"
+            >
+              <MaterialIcon
+                icon="mark_email_read"
+                size="lg"
+                ariaLabel="Email Us"
+              />
+              Email Us
+            </a>
+          </div>
 
-        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
-          <FadeInWhenVisible>
-            <div className="flex justify-center mb-6">
-              <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl">
-                <MaterialIcon
-                  icon="support_agent"
-                  size="4xl"
-                  className="text-yellow-300"
-                  ariaLabel="Contact support"
-                />
-              </div>
-            </div>
-            {/* Section Header - Military Construction Standard */}
-            <h2 className="mb-4 font-black text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tighter">
-              <span className="block mb-2 font-semibold text-gray-200 text-xl xs:text-2xl sm:text-3xl tracking-tight">
-                Ready to Resolve Your
-              </span>
-              <span className="block bg-gradient-to-r from-yellow-200 via-white to-yellow-200 bg-clip-text text-transparent font-black drop-shadow-sm">
-                Critical Challenge?
-              </span>
-            </h2>
-            <p className="text-lg mb-8 text-white/90 max-w-2xl mx-auto">
-              Contact MH Construction today for expert consultation, specialized
-              equipment with operators, and experienced crews ready for
-              immediate deployment.
+          <div className="mt-8 pt-8 border-t border-white/30">
+            <p className="text-white/90 mb-2">
+              <strong>Service Area:</strong> Washington, Oregon, and Idaho
             </p>
-
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <a
-                href={`tel:${COMPANY_INFO.phone.tel}`}
-                className="inline-flex items-center gap-3 bg-white hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-orange-700 transition-all duration-200 hover:scale-105 shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/50"
-                aria-label={`Call MH Construction at ${COMPANY_INFO.phone.display}`}
-              >
-                <MaterialIcon icon="call" size="lg" ariaLabel="Call Now" />
-                {COMPANY_INFO.phone.display}
-              </a>
-              <a
-                href={`mailto:${COMPANY_INFO.email.main}?subject=Urgent%20Construction%20Support%20Request`}
-                className="inline-flex items-center gap-3 bg-orange-800 hover:bg-orange-900 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-200 hover:scale-105 shadow-xl focus:outline-none focus:ring-4 focus:ring-orange-900/50"
-                aria-label="Email urgent support request"
-              >
-                <MaterialIcon
-                  icon="mark_email_read"
-                  size="lg"
-                  ariaLabel="Email Us"
-                />
-                Email Us
-              </a>
-            </div>
-
-            <div className="mt-8 pt-8 border-t border-white/30">
-              <p className="text-white/90 mb-2">
-                <strong>Service Area:</strong> Washington, Oregon, and Idaho
-              </p>
-              <p className="text-white/90">
-                <strong>Headquarters:</strong> {COMPANY_INFO.address.full}
-              </p>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
+            <p className="text-white/90">
+              <strong>Headquarters:</strong> {COMPANY_INFO.address.full}
+            </p>
+          </div>
+        </FadeInWhenVisible>
+      </BrandedContentSection>
     </>
   );
 }

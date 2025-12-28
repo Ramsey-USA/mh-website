@@ -7,7 +7,7 @@
 ## 🧭Quick Navigation
 
 - [📝 Page-Specific Messaging Guide](./page-specific-messaging-guide.md)
-- [🏠 Documentation Home](../../start-here.md)
+- [Main README](../../../README.md)
 
 ---
 

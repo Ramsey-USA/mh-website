@@ -10,6 +10,7 @@ import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import Link from "next/link";
 import { useAnalytics } from "@/components/analytics/enhanced-analytics";
+import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
 
 interface StrategicCTABannerProps {
   variant?: "pwa" | "pitch-deck" | "consultation" | "combo";
@@ -185,122 +186,91 @@ export function StrategicCTABanner({
 
   // Combo variant (default) - All three actions
   return (
-    <section
-      className={`relative bg-white dark:bg-gray-900 py-12 sm:py-16 overflow-hidden ${className}`}
-      aria-labelledby="combo-cta-heading"
-      role="complementary"
+    <BrandedContentSection
+      id="strategic-cta"
+      header={{
+        icon: "rocket_launch",
+        iconVariant: "secondary",
+        subtitle: "Ready to Partner?",
+        title: "Take the Next Step",
+        description: "Choose how you'd like to engage with MH Construction",
+      }}
+      className={className}
     >
-      {/* Diagonal Stripe Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              45deg,
-              #386851 0px,
-              #386851 2px,
-              transparent 2px,
-              transparent 60px
-            )`,
+      <div
+        className="grid grid-cols-1 sm:grid-cols-3 gap-4"
+        role="group"
+        aria-label="Engagement options"
+      >
+        {/* Install App */}
+        <Button
+          variant="outline"
+          size="lg"
+          onClick={() => {
+            trackEvent("cta_combo_click", { type: "pwa_install" });
           }}
-        ></div>
-      </div>
-
-      {/* Large Brand Color Blobs */}
-      <div className="absolute top-10 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-10 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-6">
-          <h2
-            id="combo-cta-heading"
-            className="font-bold text-gray-900 dark:text-white text-2xl mb-2"
-          >
-            Take the Next Step
-          </h2>
-          <p className="text-gray-700 dark:text-gray-300 text-sm">
-            Choose how you'd like to engage with MH Construction
-          </p>
-        </div>
-        <div
-          className="grid grid-cols-1 sm:grid-cols-3 gap-4"
-          role="group"
-          aria-label="Engagement options"
+          className="flex flex-col items-center gap-2 h-auto py-6 border-2 border-brand-primary/20 hover:border-brand-primary/40 bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
+          aria-label="Install MH Construction app for offline access"
         >
-          {/* Install App */}
+          <MaterialIcon
+            icon="install_mobile"
+            size="xl"
+            aria-hidden="true"
+            className="text-brand-primary"
+          />
+          <span className="font-bold text-gray-900 dark:text-white">
+            Install App
+          </span>
+          <span className="text-xs text-gray-600 dark:text-gray-300">
+            Offline access
+          </span>
+        </Button>
+
+        {/* View Pitch Deck */}
+        <Button
+          variant="outline"
+          size="lg"
+          onClick={() => {
+            trackEvent("cta_combo_click", {
+              type: "pitch_deck",
+              status: "coming_soon",
+            });
+          }}
+          className="flex flex-col items-center gap-2 h-auto py-6 border-2 border-gray-300/40 bg-white/50 dark:bg-gray-800/50 opacity-60 cursor-not-allowed"
+          disabled
+          aria-label="View pitch deck - Coming soon"
+        >
+          <MaterialIcon
+            icon="picture_as_pdf"
+            size="xl"
+            aria-hidden="true"
+            className="text-gray-500 dark:text-gray-300"
+          />
+          <span className="font-bold text-gray-900 dark:text-white">
+            Pitch Deck
+          </span>
+          <span className="text-xs text-gray-600 dark:text-gray-300">
+            Coming soon
+          </span>
+        </Button>
+
+        {/* Get Consultation */}
+        <Link href="/contact" className="block">
           <Button
-            variant="outline"
+            variant="primary"
             size="lg"
             onClick={() => {
-              trackEvent("cta_combo_click", { type: "pwa_install" });
+              trackEvent("cta_combo_click", { type: "consultation" });
             }}
-            className="flex flex-col items-center gap-2 h-auto py-6 border-2 border-brand-primary/20 hover:border-brand-primary/40 bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
-            aria-label="Install MH Construction app for offline access"
+            className="w-full flex flex-col items-center gap-2 h-auto py-6"
+            aria-label="Schedule a free consultation with MH Construction"
           >
-            <MaterialIcon
-              icon="install_mobile"
-              size="xl"
-              aria-hidden="true"
-              className="text-brand-primary"
-            />
-            <span className="font-bold text-gray-900 dark:text-white">
-              Install App
-            </span>
-            <span className="text-xs text-gray-600 dark:text-gray-300">
-              Offline access
-            </span>
+            <MaterialIcon icon="event_available" size="xl" aria-hidden="true" />
+            <span className="font-bold">Get Consultation</span>
+            <span className="text-xs">Free estimate</span>
           </Button>
-
-          {/* View Pitch Deck */}
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={() => {
-              trackEvent("cta_combo_click", {
-                type: "pitch_deck",
-                status: "coming_soon",
-              });
-            }}
-            className="flex flex-col items-center gap-2 h-auto py-6 border-2 border-gray-300/40 bg-white/50 dark:bg-gray-800/50 opacity-60 cursor-not-allowed"
-            disabled
-            aria-label="View pitch deck - Coming soon"
-          >
-            <MaterialIcon
-              icon="picture_as_pdf"
-              size="xl"
-              aria-hidden="true"
-              className="text-gray-500 dark:text-gray-300"
-            />
-            <span className="font-bold text-gray-900 dark:text-white">
-              Pitch Deck
-            </span>
-            <span className="text-xs text-gray-600 dark:text-gray-300">
-              Coming soon
-            </span>
-          </Button>
-
-          {/* Get Consultation */}
-          <Link href="/contact" className="block">
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={() => {
-                trackEvent("cta_combo_click", { type: "consultation" });
-              }}
-              className="w-full flex flex-col items-center gap-2 h-auto py-6"
-              aria-label="Schedule a free consultation with MH Construction"
-            >
-              <MaterialIcon
-                icon="event_available"
-                size="xl"
-                aria-hidden="true"
-              />
-              <span className="font-bold">Get Consultation</span>
-              <span className="text-xs">Free estimate</span>
-            </Button>
-          </Link>
-        </div>
+        </Link>
       </div>
-    </section>
+    </BrandedContentSection>
   );
 }

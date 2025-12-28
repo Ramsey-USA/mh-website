@@ -169,7 +169,7 @@ export default function ContactPageClient() {
               id="hero-heading"
               className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed"
             >
-              <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
+              <span className="block text-brand-secondary-text text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
                 Rally Point → Contact
               </span>
               <span className="block text-brand-secondary">
@@ -402,7 +402,7 @@ export default function ContactPageClient() {
                           </p>
                           <a
                             href={`tel:${COMPANY_INFO.phone.tel}`}
-                            className="text-brand-primary hover:text-brand-secondary text-lg font-bold transition-colors"
+                            className="text-brand-primary hover:text-brand-secondary-text text-lg font-bold transition-colors"
                             aria-label={`Call Client services at ${COMPANY_INFO.phone.display}`}
                           >
                             {COMPANY_INFO.phone.display}
@@ -423,7 +423,7 @@ export default function ContactPageClient() {
                           </p>
                           <a
                             href="mailto:office@mhc-gc.com?subject=Project%20Inquiry"
-                            className="text-brand-primary hover:text-brand-secondary text-lg font-bold transition-colors"
+                            className="text-brand-primary hover:text-brand-secondary-text text-lg font-bold transition-colors"
                             aria-label="Email office@mhc-gc.com for project inquiries"
                           >
                             office@mhc-gc.com
@@ -525,7 +525,7 @@ export default function ContactPageClient() {
                           </p>
                           <a
                             href={`tel:${COMPANY_INFO.phone.tel}`}
-                            className="text-brand-secondary hover:text-bronze-600 text-lg font-bold transition-colors"
+                            className="text-brand-secondary-text hover:text-bronze-600 text-lg font-bold transition-colors dark:text-brand-secondary-light"
                             aria-label={`Call Ally inquiries at ${COMPANY_INFO.phone.display}`}
                           >
                             {COMPANY_INFO.phone.display}
@@ -546,7 +546,7 @@ export default function ContactPageClient() {
                           </p>
                           <a
                             href="mailto:office@mhc-gc.com?subject=Ally%20Inquiry"
-                            className="text-brand-secondary hover:text-bronze-600 text-lg font-bold transition-colors"
+                            className="text-brand-secondary-text hover:text-bronze-600 text-lg font-bold transition-colors dark:text-brand-secondary-light"
                             aria-label="Email office@mhc-gc.com for Ally inquiries"
                           >
                             office@mhc-gc.com
