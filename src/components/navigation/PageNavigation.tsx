@@ -96,7 +96,7 @@ export function PageNavigation({ items, className = "" }: PageNavigationProps) {
                 <MaterialIcon
                   icon={item.icon}
                   size="sm"
-                  className="mb-0.5 mobile-sm:mb-0 xs:mb-1 text-gray-600 dark:text-gray-400 group-hover:text-brand-primary group-focus:text-brand-primary transition-colors duration-200 mobile-sm:w-4 mobile-sm:h-4"
+                  className="mb-0.5 mobile-sm:mb-0 xs:mb-1 text-gray-600 dark:text-gray-300 group-hover:text-brand-primary group-focus:text-brand-primary transition-colors duration-200 mobile-sm:w-4 mobile-sm:h-4"
                   aria-hidden="true"
                 />
                 <span className="text-[10px] mobile-sm:text-[9px] xs:text-xs text-gray-700 dark:text-gray-300 group-hover:text-brand-primary group-focus:text-brand-primary font-medium transition-colors duration-200 text-center leading-tight mobile-sm:leading-none">

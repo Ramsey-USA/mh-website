@@ -131,7 +131,7 @@ export function ServicesCTA() {
                   (509) 308-6489
                 </a>
               </p>
-              <p className="font-medium text-gray-600 dark:text-gray-400 text-base md:text-lg">
+              <p className="font-medium text-gray-600 dark:text-gray-300 text-base md:text-lg">
                 <MaterialIcon
                   icon="email"
                   size="md"
@@ -146,7 +146,7 @@ export function ServicesCTA() {
                   office@mhc-gc.com
                 </a>
               </p>
-              <p className="font-medium text-gray-600 dark:text-gray-400 text-base md:text-lg">
+              <p className="font-medium text-gray-600 dark:text-gray-300 text-base md:text-lg">
                 <MaterialIcon
                   icon="location_on"
                   size="md"

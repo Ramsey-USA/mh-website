@@ -10,7 +10,7 @@ const LazyRadarChart = dynamic(
     ssr: false,
     loading: () => (
       <div className="flex items-center justify-center h-full">
-        <div className="animate-pulse text-gray-400">Loading chart...</div>
+        <div className="animate-pulse text-gray-600">Loading chart...</div>
       </div>
     ),
   },
@@ -152,7 +152,7 @@ export function SkillsRadarChart({
             <div className="animate-pulse mb-2">
               <div className="w-16 h-16 mx-auto bg-gray-300 dark:bg-gray-700 rounded-full"></div>
             </div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500 dark:text-gray-300">
               Loading skills chart...
             </p>
           </div>

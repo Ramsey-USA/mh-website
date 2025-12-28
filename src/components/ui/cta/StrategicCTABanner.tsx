@@ -246,7 +246,7 @@ export function StrategicCTABanner({
             <span className="font-bold text-gray-900 dark:text-white">
               Install App
             </span>
-            <span className="text-xs text-gray-600 dark:text-gray-400">
+            <span className="text-xs text-gray-600 dark:text-gray-300">
               Offline access
             </span>
           </Button>
@@ -269,12 +269,12 @@ export function StrategicCTABanner({
               icon="picture_as_pdf"
               size="xl"
               aria-hidden="true"
-              className="text-gray-500 dark:text-gray-400"
+              className="text-gray-500 dark:text-gray-300"
             />
             <span className="font-bold text-gray-900 dark:text-white">
               Pitch Deck
             </span>
-            <span className="text-xs text-gray-600 dark:text-gray-400">
+            <span className="text-xs text-gray-600 dark:text-gray-300">
               Coming soon
             </span>
           </Button>

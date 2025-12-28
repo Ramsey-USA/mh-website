@@ -454,7 +454,7 @@ export default function PublicSectorPage() {
                         <li key={fIndex} className="flex items-start text-sm">
                           <MaterialIcon
                             icon="check_circle"
-                            className="flex-shrink-0 mt-0.5 mr-2 text-gray-600 dark:text-gray-400"
+                            className="flex-shrink-0 mt-0.5 mr-2 text-gray-600 dark:text-gray-300"
                             size="sm"
                           />
                           <span className="text-gray-700 dark:text-gray-300">
@@ -798,7 +798,7 @@ export default function PublicSectorPage() {
                       >
                         <MaterialIcon
                           icon="arrow_forward"
-                          className="mr-2 text-gray-600 dark:text-gray-400"
+                          className="mr-2 text-gray-600 dark:text-gray-300"
                           size="sm"
                         />
                         <span className="text-sm">{example}</span>

@@ -82,7 +82,7 @@ export function PitchDeckCTA({
           <p className="font-bold text-gray-900 dark:text-white text-sm mb-1">
             Want more details?
           </p>
-          <p className="text-xs text-gray-600 dark:text-gray-400">
+          <p className="text-xs text-gray-600 dark:text-gray-300">
             Our pitch deck covers everything you need to know
           </p>
         </div>
@@ -121,7 +121,7 @@ export function PitchDeckCTA({
         Download our comprehensive pitch deck to explore our capabilities,
         values, and proven track record.
       </p>
-      <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
+      <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 flex-grow">
         <li className="flex items-center gap-2">
           <MaterialIcon
             icon="check_circle"

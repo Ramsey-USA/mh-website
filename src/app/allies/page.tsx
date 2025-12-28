@@ -1072,7 +1072,7 @@ export default function AlliesPage() {
                     </Button>
                   </Link>
                 </div>
-                <p className="mt-6 text-gray-500 dark:text-gray-400">
+                <p className="mt-6 text-gray-500 dark:text-gray-300">
                   <MaterialIcon
                     icon="call"
                     size="sm"
@@ -1083,7 +1083,7 @@ export default function AlliesPage() {
                   Trade Partnership Inquiries: (509) 308-6489 | 7:00 AM - 4:00
                   PM PST
                 </p>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-gray-500 dark:text-gray-300">
                   <MaterialIcon
                     icon="mark_email_read"
                     size="sm"

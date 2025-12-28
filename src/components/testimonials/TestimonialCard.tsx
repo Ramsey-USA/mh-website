@@ -84,7 +84,7 @@ export function TestimonialCard({
           {testimonial.type === "client" && (
             <>
               {testimonial.location && (
-                <p className="mb-2 sm:mb-3 font-medium text-gray-600 dark:text-gray-400 text-xs sm:text-sm md:text-base tracking-wide">
+                <p className="mb-2 sm:mb-3 font-medium text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base tracking-wide">
                   {testimonial.location}
                   {testimonial.project && (
                     <>
@@ -97,7 +97,7 @@ export function TestimonialCard({
                 </p>
               )}
               {testimonial.company && (
-                <p className="mb-2 text-gray-600 dark:text-gray-400 text-xs sm:text-sm">
+                <p className="mb-2 text-gray-600 dark:text-gray-300 text-xs sm:text-sm">
                   {testimonial.company}
                 </p>
               )}
@@ -115,7 +115,7 @@ export function TestimonialCard({
                   </p>
                 )}
                 {testimonial.title && (
-                  <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">
+                  <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm">
                     {testimonial.title}
                   </p>
                 )}

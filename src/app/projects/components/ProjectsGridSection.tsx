@@ -79,7 +79,7 @@ export function ProjectsGridSection({
                 showcasing only real, completed partnerships with our valued
                 Client Partners.
               </p>
-              <p className="max-w-xl font-light text-gray-500 dark:text-gray-400 text-base sm:text-lg text-center">
+              <p className="max-w-xl font-light text-gray-500 dark:text-gray-300 text-base sm:text-lg text-center">
                 Please check back soon or contact us to learn more about our
                 current and past projects.
               </p>

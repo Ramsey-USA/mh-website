@@ -109,7 +109,7 @@ export function TeamMemberTag({
           <p className="font-semibold text-gray-900 dark:text-white text-sm group-hover:text-brand-primary transition-colors duration-300 truncate">
             {name}
           </p>
-          <p className="text-xs text-gray-600 dark:text-gray-400 truncate">
+          <p className="text-xs text-gray-600 dark:text-gray-300 truncate">
             {role}
           </p>
           {showDepartment && department && (
@@ -173,7 +173,7 @@ export function TeamMemberTag({
         <p className="font-semibold text-gray-900 dark:text-white text-sm mb-1 group-hover:text-brand-primary transition-colors duration-300">
           {name}
         </p>
-        <p className="text-xs text-gray-600 dark:text-gray-400">{role}</p>
+        <p className="text-xs text-gray-600 dark:text-gray-300">{role}</p>
         {showDepartment && department && (
           <span className="inline-block mt-2 px-2 py-1 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-medium">
             {department}
@@ -294,7 +294,7 @@ export function TeamMemberTags({
               <p className="font-semibold text-brand-primary text-sm">
                 +{hiddenCount} More
               </p>
-              <p className="text-xs text-gray-600 dark:text-gray-400">
+              <p className="text-xs text-gray-600 dark:text-gray-300">
                 View Team
               </p>
             </div>

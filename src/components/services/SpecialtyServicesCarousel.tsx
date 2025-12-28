@@ -173,7 +173,7 @@ export function SpecialtyServicesCarousel({
 
         {/* Counter */}
         {services.length > 1 && (
-          <div className="text-center mt-4 text-gray-600 dark:text-gray-400 text-sm font-medium">
+          <div className="text-center mt-4 text-gray-600 dark:text-gray-300 text-sm font-medium">
             {currentIndex + 1} / {services.length}
           </div>
         )}

@@ -130,7 +130,7 @@ export function PerformanceDashboard() {
       case "poor":
         return "text-red-600 bg-red-100 dark:bg-red-900/30 dark:text-red-400";
       default:
-        return "text-gray-600 bg-gray-100 dark:bg-gray-900/30 dark:text-gray-400";
+        return "text-gray-600 bg-gray-100 dark:bg-gray-900/30 dark:text-gray-300";
     }
   };
 
@@ -170,13 +170,13 @@ export function PerformanceDashboard() {
                     <MaterialIcon
                       icon={metric.icon}
                       size="sm"
-                      className="text-gray-600 dark:text-gray-400"
+                      className="text-gray-600 dark:text-gray-300"
                     />
                     <div>
                       <div className="font-semibold text-gray-900 dark:text-gray-100 text-xs">
                         {key}
                       </div>
-                      <div className="text-gray-600 dark:text-gray-400 text-[10px]">
+                      <div className="text-gray-600 dark:text-gray-300 text-[10px]">
                         {metric.name}
                       </div>
                     </div>
@@ -199,7 +199,7 @@ export function PerformanceDashboard() {
                     </span>
                   </span>
                 </div>
-                <p className="mt-2 text-gray-600 dark:text-gray-400 text-[10px]">
+                <p className="mt-2 text-gray-600 dark:text-gray-300 text-[10px]">
                   {metric.description}
                 </p>
               </div>

@@ -310,7 +310,7 @@ export default function VeteransPage() {
                             >
                               {value.stat}
                             </div>
-                            <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+                            <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
                               {value.statLabel}
                             </div>
                           </div>
@@ -640,7 +640,7 @@ export default function VeteransPage() {
                                       />
                                     </div>
                                   </div>
-                                  <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+                                  <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                                     {step.desc}
                                   </p>
                                 </div>
@@ -685,7 +685,7 @@ export default function VeteransPage() {
                                       </h4>
                                     </div>
                                   </div>
-                                  <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+                                  <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                                     {step.desc}
                                   </p>
                                 </div>
@@ -733,7 +733,7 @@ export default function VeteransPage() {
                                   {step.title}
                                 </h4>
                               </div>
-                              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                                 {step.desc}
                               </p>
                             </div>
@@ -788,7 +788,7 @@ export default function VeteransPage() {
                     />
                     <span>Call (509) 308-6489 - Mention Your Service</span>
                   </Link>
-                  <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                  <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                     Direct line to veteran-owned leadership. No automated
                     systems, no gatekeepers—just honest conversation with
                     someone who understands.
@@ -897,7 +897,7 @@ export default function VeteransPage() {
                       <div className="text-gray-900 dark:text-white font-bold text-base sm:text-lg mb-3">
                         {stat.label}
                       </div>
-                      <div className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mt-auto">
+                      <div className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mt-auto">
                         {stat.description}
                       </div>
                     </div>

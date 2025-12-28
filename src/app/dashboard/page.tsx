@@ -435,7 +435,7 @@ function MilitaryStatCard({
       <div className="text-brand-secondary font-bold uppercase tracking-wide text-xs mb-1">
         {label}
       </div>
-      <div className="text-gray-400 text-xs">{sublabel}</div>
+      <div className="text-gray-600 text-xs">{sublabel}</div>
     </div>
   );
 }
@@ -486,7 +486,7 @@ function MilitaryMetricCard({
       >
         {label}
       </div>
-      <div className="text-gray-400 text-xs">{sublabel}</div>
+      <div className="text-gray-600 text-xs">{sublabel}</div>
     </div>
   );
 }
@@ -540,7 +540,7 @@ function GeographicHeatMap({
       </h3>
       <div className="space-y-3">
         {sortedLocations.length === 0 ? (
-          <div className="text-gray-400 text-center py-8">
+          <div className="text-gray-600 text-center py-8">
             <MaterialIcon
               icon="explore_off"
               size="2xl"
@@ -621,7 +621,7 @@ function TopLocations({ clicks }: { clicks: Array<{ state?: string }> }) {
           <div className="text-brand-secondary font-bold uppercase tracking-wide text-sm">
             🎯 Target Market Coverage
           </div>
-          <div className="text-gray-400 text-xs mt-1">
+          <div className="text-gray-600 text-xs mt-1">
             WA, OR, ID Operations
           </div>
         </div>
@@ -682,7 +682,7 @@ function CTAPerformanceGrid({
         </div>
         <div className="space-y-2">
           {phoneCTAs.length === 0 ? (
-            <p className="text-gray-400 text-sm">No phone clicks yet</p>
+            <p className="text-gray-600 text-sm">No phone clicks yet</p>
           ) : (
             phoneCTAs.map(([id, count]) => (
               <div
@@ -707,7 +707,7 @@ function CTAPerformanceGrid({
         </div>
         <div className="space-y-2">
           {emailCTAs.length === 0 ? (
-            <p className="text-gray-400 text-sm">No email clicks yet</p>
+            <p className="text-gray-600 text-sm">No email clicks yet</p>
           ) : (
             emailCTAs.map(([id, count]) => (
               <div
@@ -732,7 +732,7 @@ function CTAPerformanceGrid({
         </div>
         <div className="space-y-2">
           {addressCTAs.length === 0 ? (
-            <p className="text-gray-400 text-sm">No address clicks yet</p>
+            <p className="text-gray-600 text-sm">No address clicks yet</p>
           ) : (
             addressCTAs.map(([id, count]) => (
               <div

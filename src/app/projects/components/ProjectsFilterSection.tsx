@@ -44,7 +44,7 @@ export function ProjectsFilterSection({
               <MaterialIcon
                 icon="search"
                 size="md"
-                className="top-1/2 left-4 absolute text-gray-400 -translate-y-1/2 transform"
+                className="top-1/2 left-4 absolute text-gray-600 -translate-y-1/2 transform"
               />
               <input
                 type="text"
@@ -56,7 +56,7 @@ export function ProjectsFilterSection({
               {searchQuery && (
                 <button
                   onClick={onClearSearch}
-                  className="top-1/2 right-4 absolute hover:bg-gray-200 dark:hover:bg-gray-600 p-1 rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors -translate-y-1/2 transform"
+                  className="top-1/2 right-4 absolute hover:bg-gray-200 dark:hover:bg-gray-600 p-1 rounded-full text-gray-600 hover:text-gray-600 dark:hover:text-gray-300 transition-colors -translate-y-1/2 transform"
                   aria-label="Clear search"
                 >
                   <MaterialIcon icon="close" size="sm" />

@@ -114,7 +114,7 @@ export default function TestimonialsSection({
                 <div className="text-3xl font-bold text-brand-primary dark:text-brand-primary-light">
                   {displayTestimonials.length}+
                 </div>
-                <div className="text-gray-600 dark:text-gray-400 font-medium">
+                <div className="text-gray-600 dark:text-gray-300 font-medium">
                   Happy Clients
                 </div>
               </div>
@@ -125,7 +125,7 @@ export default function TestimonialsSection({
                     displayTestimonials.length
                   ).toFixed(1)}
                 </div>
-                <div className="text-gray-600 dark:text-gray-400 font-medium">
+                <div className="text-gray-600 dark:text-gray-300 font-medium">
                   Average Rating
                 </div>
               </div>
@@ -133,7 +133,7 @@ export default function TestimonialsSection({
                 <div className="text-3xl font-bold text-brand-primary dark:text-brand-primary-light">
                   100%
                 </div>
-                <div className="text-gray-600 dark:text-gray-400 font-medium">
+                <div className="text-gray-600 dark:text-gray-300 font-medium">
                   Satisfaction
                 </div>
               </div>
@@ -194,7 +194,7 @@ export default function TestimonialsSection({
                       }`}
                     />
                   ))}
-                  <span className="ml-2 text-gray-600 dark:text-gray-400 font-medium">
+                  <span className="ml-2 text-gray-600 dark:text-gray-300 font-medium">
                     {testimonial.rating}/5
                   </span>
                 </div>
@@ -225,7 +225,7 @@ export default function TestimonialsSection({
                     <div className="font-semibold text-gray-900 dark:text-white">
                       {testimonial.clientName}
                     </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-4">
+                    <div className="text-sm text-gray-600 dark:text-gray-300 flex items-center gap-4">
                       <span className="flex items-center gap-1">
                         <MaterialIcon icon="place" className="w-4 h-4" />
                         {testimonial.clientLocation}

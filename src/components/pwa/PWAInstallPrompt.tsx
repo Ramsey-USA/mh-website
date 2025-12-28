@@ -116,7 +116,7 @@ export function PWAInstallPrompt() {
         {/* Close button */}
         <button
           onClick={handleDismiss}
-          className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          className="absolute top-2 right-2 text-gray-600 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
           aria-label="Dismiss"
         >
           <svg
@@ -169,7 +169,7 @@ export function PWAInstallPrompt() {
 
           {/* Features */}
           <ul className="space-y-1.5 mb-4 ml-15">
-            <li className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+            <li className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
               <svg
                 className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0"
                 fill="none"
@@ -186,7 +186,7 @@ export function PWAInstallPrompt() {
               </svg>
               <span>Works offline</span>
             </li>
-            <li className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+            <li className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
               <svg
                 className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0"
                 fill="none"
@@ -203,7 +203,7 @@ export function PWAInstallPrompt() {
               </svg>
               <span>Faster loading times</span>
             </li>
-            <li className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+            <li className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
               <svg
                 className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0"
                 fill="none"

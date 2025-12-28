@@ -174,7 +174,7 @@ export function UnderConstruction({
                   the dollar
                 </p>
 
-                <p className="text-center text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-center text-sm text-gray-600 dark:text-gray-300">
                   Expected Completion: {estimatedCompletion}
                 </p>
               </div>

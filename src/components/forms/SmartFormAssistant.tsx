@@ -113,7 +113,7 @@ export function SmartFormAssistant({
                   <span className="font-medium text-gray-700 dark:text-gray-300 text-sm">
                     Partnership Progress
                   </span>
-                  <span className="text-gray-600 dark:text-gray-400 text-sm">
+                  <span className="text-gray-600 dark:text-gray-300 text-sm">
                     {completionProgress}%
                   </span>
                 </div>

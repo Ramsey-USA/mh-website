@@ -1217,7 +1217,7 @@ export default function TeamPage() {
                       <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-gradient-to-br from-brand-primary to-brand-primary-dark bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
                         150+
                       </p>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base font-medium">
+                      <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
                         Years Combined
                         <br />
                         Experience
@@ -1238,7 +1238,7 @@ export default function TeamPage() {
                       <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-gradient-to-br from-brand-secondary to-bronze-700 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
                         100%
                       </p>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base font-medium">
+                      <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
                         Training
                         <br />
                         Funding
@@ -1259,7 +1259,7 @@ export default function TeamPage() {
                       <p className="font-black text-2xl sm:text-3xl md:text-4xl bg-gradient-to-br from-brand-primary to-brand-primary-dark bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
                         AGC-WA
                       </p>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base font-medium">
+                      <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
                         Top EMR Awards
                         <br />
                         (Multiple Years)
@@ -1280,7 +1280,7 @@ export default function TeamPage() {
                       <p className="font-black text-3xl sm:text-4xl md:text-5xl bg-gradient-to-br from-brand-secondary to-bronze-700 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
                         15+
                       </p>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base font-medium">
+                      <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base font-medium">
                         Years in Business
                         <br />
                         Since 2010

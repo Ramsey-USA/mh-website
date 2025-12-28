@@ -81,7 +81,7 @@ export function PageHero({ title, subtitle, description }: PageHeroProps) {
                     <MaterialIcon
                       icon={item.icon}
                       size="md"
-                      className="mb-1 text-gray-600 dark:text-gray-400 group-hover:text-brand-primary transition-colors duration-200"
+                      className="mb-1 text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors duration-200"
                     />
                     <span className="font-medium text-gray-700 dark:text-gray-300 group-hover:text-brand-primary text-xs transition-colors duration-200">
                       {item.label}

@@ -271,7 +271,7 @@ export function ActivityFeed({
         return {
           bg: "bg-gray-50 dark:bg-gray-800",
           border: "border-gray-200 dark:border-gray-700",
-          icon: "text-gray-600 dark:text-gray-400",
+          icon: "text-gray-600 dark:text-gray-300",
           iconBg: "bg-gray-100 dark:bg-gray-700",
         };
     }
@@ -348,14 +348,14 @@ export function ActivityFeed({
                 <p className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
                   {activity.message}
                 </p>
-                <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400">
+                <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-300">
                   <MaterialIcon icon="location_on" size="sm" />
                   <span>{activity.location}</span>
                   <span>•</span>
                   <span>{activity.timeAgo}</span>
                 </div>
                 {activity.projectType && (
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">
                     {activity.projectType}
                     {activity.estimatedValue && (
                       <span className="ml-1 font-medium text-gray-700 dark:text-gray-300">
@@ -378,7 +378,7 @@ export function ActivityFeed({
                   e.stopPropagation();
                   handleDismiss(activity.id);
                 }}
-                className="flex-shrink-0 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                className="flex-shrink-0 text-gray-600 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                 aria-label="Dismiss notification"
               >
                 <MaterialIcon icon="close" size="sm" />
@@ -390,7 +390,7 @@ export function ActivityFeed({
 
       {/* Attribution footer */}
       <div className="text-center">
-        <p className="text-xs text-gray-500 dark:text-gray-400 px-2">
+        <p className="text-xs text-gray-500 dark:text-gray-300 px-2">
           Live activity from our community
         </p>
       </div>

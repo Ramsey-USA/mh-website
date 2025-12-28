@@ -431,7 +431,7 @@ export default function ContactPageClient() {
                         </div>
                       </div>
                       <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
-                        <p className="text-gray-600 dark:text-gray-400 text-sm italic">
+                        <p className="text-gray-600 dark:text-gray-300 text-sm italic">
                           For: Free estimates, consultations, and project
                           discussions
                         </p>
@@ -554,7 +554,7 @@ export default function ContactPageClient() {
                         </div>
                       </div>
                       <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
-                        <p className="text-gray-600 dark:text-gray-400 text-sm italic">
+                        <p className="text-gray-600 dark:text-gray-300 text-sm italic">
                           For: Vendor applications, Ally relationships, and
                           business opportunities
                         </p>
@@ -659,7 +659,7 @@ export default function ContactPageClient() {
                     3111 N. Capitol Ave., Pasco, WA 99301
                   </span>
                 </p>
-                <p className="mt-4 text-gray-500 dark:text-gray-400 text-base sm:text-lg">
+                <p className="mt-4 text-gray-500 dark:text-gray-300 text-base sm:text-lg">
                   Serving the Tri-Cities and Pacific Northwest
                 </p>
               </div>
@@ -928,7 +928,7 @@ export default function ContactPageClient() {
                         </h3>
                       </div>
 
-                      <p className="mb-6 text-gray-600 dark:text-gray-400 text-sm">
+                      <p className="mb-6 text-gray-600 dark:text-gray-300 text-sm">
                         Primary Service Region - Immediate Response Available
                       </p>
 
@@ -1006,7 +1006,7 @@ export default function ContactPageClient() {
                         </h3>
                       </div>
 
-                      <p className="mb-6 text-gray-600 dark:text-gray-400 text-sm">
+                      <p className="mb-6 text-gray-600 dark:text-gray-300 text-sm">
                         Multi-State Licensed - WA, OR, ID
                       </p>
 

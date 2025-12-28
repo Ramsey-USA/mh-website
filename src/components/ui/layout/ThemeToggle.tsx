@@ -148,7 +148,7 @@ export function ThemeToggle({
               ${
                 theme === key
                   ? "bg-gradient-to-r from-[#386851] to-[#2d5240] text-white shadow-md transform scale-105"
-                  : "text-gray-600 dark:text-gray-400 hover:text-[#386851] dark:hover:text-[#BD9264] hover:bg-white dark:hover:bg-gray-700"
+                  : "text-gray-600 dark:text-gray-300 hover:text-[#386851] dark:hover:text-[#BD9264] hover:bg-white dark:hover:bg-gray-700"
               }
             `}
             aria-label={`Switch to ${label.toLowerCase()} mode`}

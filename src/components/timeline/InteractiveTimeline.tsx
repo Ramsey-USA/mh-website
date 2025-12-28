@@ -282,7 +282,7 @@ export function InteractiveTimeline({
             </span>
           </label>
           <div className="flex items-center gap-4">
-            <span className="text-xs text-gray-600 dark:text-gray-400 w-16">
+            <span className="text-xs text-gray-600 dark:text-gray-300 w-16">
               Minimal
             </span>
             <input
@@ -293,11 +293,11 @@ export function InteractiveTimeline({
               onChange={(e) => setComplexity(parseInt(e.target.value))}
               className="flex-1 h-3 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-primary-600"
             />
-            <span className="text-xs text-gray-600 dark:text-gray-400 w-16 text-right">
+            <span className="text-xs text-gray-600 dark:text-gray-300 w-16 text-right">
               Extensive
             </span>
           </div>
-          <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+          <div className="mt-2 text-xs text-gray-600 dark:text-gray-300">
             {complexity === 1 && "Basic project with standard features"}
             {complexity === 2 && "Simple project with few custom requirements"}
             {complexity === 3 && "Standard complexity with typical features"}
@@ -311,7 +311,7 @@ export function InteractiveTimeline({
         <div className="mt-6 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20 rounded-lg p-4 border-2 border-primary-200 dark:border-primary-800">
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
+              <div className="text-sm text-gray-600 dark:text-gray-300">
                 Estimated Timeline
               </div>
               <div className="text-3xl font-black text-primary-600 dark:text-primary-400">
@@ -368,7 +368,7 @@ export function InteractiveTimeline({
                         <h4 className="font-bold text-gray-900 dark:text-white">
                           {phase.name}
                         </h4>
-                        <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                        <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
                           {phase.description}
                         </p>
                       </div>
@@ -405,7 +405,7 @@ export function InteractiveTimeline({
               <h4 className="font-bold text-gray-900 dark:text-white mb-1">
                 Questions About Your Timeline?
               </h4>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-gray-600 dark:text-gray-300">
                 Chat with General MH to discuss your specific project needs and
                 timeline expectations
               </p>
@@ -431,7 +431,7 @@ export function InteractiveTimeline({
               <h4 className="font-bold text-gray-900 dark:text-white mb-1">
                 Ready to Start Your Project?
               </h4>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-gray-600 dark:text-gray-300">
                 Schedule a free consultation to discuss your timeline and get
                 accurate estimates
               </p>
@@ -460,7 +460,7 @@ export function InteractiveTimeline({
 
       {/* Disclaimer */}
       <div className="px-6 py-3 bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-        <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
+        <p className="text-xs text-gray-500 dark:text-gray-300 text-center">
           * Timeline estimates are preliminary. Actual duration depends on
           weather, permits, site conditions, and material availability. Detailed
           schedule provided during consultation.

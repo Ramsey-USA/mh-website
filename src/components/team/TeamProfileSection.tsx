@@ -304,7 +304,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
     }
     return {
       level: "Developing",
-      color: "text-gray-600 dark:text-gray-400",
+      color: "text-gray-600 dark:text-gray-300",
       icon: "trending_up",
     };
   };
@@ -477,7 +477,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
               <p className="text-lg sm:text-xl text-brand-primary dark:text-brand-secondary font-bold tracking-tight">
                 {member.role}
               </p>
-              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-1 font-medium">
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1 font-medium">
                 {member.department}
               </p>
 
@@ -643,7 +643,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                           className="text-yellow-300 dark:text-yellow-200"
                         />
                       </div>
-                      <p className="text-xs text-gray-600 dark:text-gray-400 italic flex items-center gap-1">
+                      <p className="text-xs text-gray-600 dark:text-gray-300 italic flex items-center gap-1">
                         <MaterialIcon
                           icon="flag"
                           size="sm"
@@ -723,7 +723,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
               </h5>
               <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400 font-medium">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
                     Projects
                   </span>
                   <span className="font-bold text-gray-900 dark:text-white">
@@ -731,7 +731,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400 font-medium">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
                     Satisfaction
                   </span>
                   <span className="font-bold text-gray-900 dark:text-white">
@@ -739,7 +739,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400 font-medium">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
                     Safety
                   </span>
                   <span className="font-bold text-green-600 dark:text-green-400">
@@ -747,7 +747,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400 font-medium">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
                     Collabs
                   </span>
                   <span className="font-bold text-gray-900 dark:text-white">
@@ -769,7 +769,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
               </h5>
               <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400 font-medium">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
                     Total Projects
                   </span>
                   <span className="font-bold text-gray-900 dark:text-white">
@@ -777,7 +777,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400 font-medium">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
                     Experience
                   </span>
                   <span className="font-bold text-gray-900 dark:text-white">
@@ -785,7 +785,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400 font-medium">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
                     Specialties
                   </span>
                   <span className="font-bold text-gray-900 dark:text-white">
@@ -793,7 +793,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400 font-medium">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
                     Mentorships
                   </span>
                   <span className="font-bold text-gray-900 dark:text-white">
@@ -820,10 +820,10 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                   <MaterialIcon
                     icon="home"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 flex-shrink-0 mt-0.5"
+                    className="text-gray-500 dark:text-gray-300 flex-shrink-0 mt-0.5"
                   />
                   <div>
-                    <span className="text-gray-600 dark:text-gray-400 font-medium">
+                    <span className="text-gray-600 dark:text-gray-300 font-medium">
                       Hometown:{" "}
                     </span>
                     <span className="text-gray-900 dark:text-white font-semibold">
@@ -837,10 +837,10 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                   <MaterialIcon
                     icon="school"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 flex-shrink-0 mt-0.5"
+                    className="text-gray-500 dark:text-gray-300 flex-shrink-0 mt-0.5"
                   />
                   <div>
-                    <span className="text-gray-600 dark:text-gray-400 font-medium">
+                    <span className="text-gray-600 dark:text-gray-300 font-medium">
                       Education:{" "}
                     </span>
                     <span className="text-gray-900 dark:text-white font-semibold">
@@ -854,10 +854,10 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                   <MaterialIcon
                     icon="verified"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 flex-shrink-0 mt-0.5"
+                    className="text-gray-500 dark:text-gray-300 flex-shrink-0 mt-0.5"
                   />
                   <div>
-                    <span className="text-gray-600 dark:text-gray-400 font-medium">
+                    <span className="text-gray-600 dark:text-gray-300 font-medium">
                       Certifications:{" "}
                     </span>
                     <span className="text-gray-900 dark:text-white font-semibold">
@@ -874,7 +874,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                     className="text-bronze-badge flex-shrink-0 mt-0.5"
                   />
                   <div>
-                    <span className="text-gray-600 dark:text-gray-400 font-medium">
+                    <span className="text-gray-600 dark:text-gray-300 font-medium">
                       Awards:{" "}
                     </span>
                     <span className="text-gray-900 dark:text-white font-semibold">
@@ -887,10 +887,10 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                 <MaterialIcon
                   icon="business_center"
                   size="sm"
-                  className="text-gray-500 dark:text-gray-400 flex-shrink-0 mt-0.5"
+                  className="text-gray-500 dark:text-gray-300 flex-shrink-0 mt-0.5"
                 />
                 <div>
-                  <span className="text-gray-600 dark:text-gray-400 font-medium">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium">
                     Years at MH:{" "}
                   </span>
                   <span className="text-gray-900 dark:text-white font-semibold">
@@ -933,7 +933,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                         className="text-bronze-badge dark:text-bronze-badge-light flex-shrink-0 mt-0.5"
                       />
                       <div>
-                        <span className="text-gray-600 dark:text-gray-400 font-medium">
+                        <span className="text-gray-600 dark:text-gray-300 font-medium">
                           Fun Fact:{" "}
                         </span>
                         <span className="text-gray-900 dark:text-white">
@@ -950,7 +950,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                         className="text-brand-primary dark:text-brand-primary-light flex-shrink-0 mt-0.5"
                       />
                       <div>
-                        <span className="text-gray-600 dark:text-gray-400 font-medium">
+                        <span className="text-gray-600 dark:text-gray-300 font-medium">
                           Hobbies:{" "}
                         </span>
                         <span className="text-gray-900 dark:text-white">
@@ -967,7 +967,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                         className="text-brand-secondary dark:text-brand-secondary-light flex-shrink-0 mt-0.5"
                       />
                       <div>
-                        <span className="text-gray-600 dark:text-gray-400 font-medium">
+                        <span className="text-gray-600 dark:text-gray-300 font-medium">
                           Special Interests:{" "}
                         </span>
                         <span className="text-gray-900 dark:text-white">

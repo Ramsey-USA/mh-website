@@ -62,7 +62,7 @@ export function InteractiveGrantSelector({
                     <li key={pIdx} className="flex items-start">
                       <MaterialIcon
                         icon="check_circle"
-                        className="flex-shrink-0 mt-0.5 mr-2 text-gray-600 dark:text-gray-400"
+                        className="flex-shrink-0 mt-0.5 mr-2 text-gray-600 dark:text-gray-300"
                         size="sm"
                       />
                       <span className="text-gray-700 dark:text-gray-300 text-sm">

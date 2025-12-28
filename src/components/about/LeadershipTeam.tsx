@@ -188,7 +188,7 @@ export function LeadershipTeam() {
                       </h3>
                     </div>
                   </div>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                     {specialty.description}
                   </p>
                 </div>
@@ -203,7 +203,7 @@ export function LeadershipTeam() {
             <h3 className="text-2xl lg:text-3xl font-black text-gray-900 dark:text-white mb-4">
               Meet Your Chain of Command
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
               Discover the leaders, specialists, and field professionals who
               bring individual mastery to every MH Construction mission—each
               dedicated to your project's success.

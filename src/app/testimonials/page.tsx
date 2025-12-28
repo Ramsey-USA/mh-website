@@ -357,7 +357,7 @@ export default function TestimonialsPage() {
                       with no hidden costs. Realistic timelines and honest
                       assessments every time.
                     </p>
-                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                    <div className="text-xs text-gray-600 dark:text-gray-300">
                       ✓ Open-book pricing
                       <br />✓ No surprises, just solutions
                     </div>
@@ -396,7 +396,7 @@ export default function TestimonialsPage() {
                       backed by 70% referral business and 650+ completed
                       projects.
                     </p>
-                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                    <div className="text-xs text-gray-600 dark:text-gray-300">
                       ✓ We finish what we start
                       <br />✓ Your word is your bond — so is ours
                     </div>
@@ -435,7 +435,7 @@ export default function TestimonialsPage() {
                       with .64 EMR, 150+ years team experience, 3-state
                       licensing.
                     </p>
-                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                    <div className="text-xs text-gray-600 dark:text-gray-300">
                       ✓ Military precision applied
                       <br />✓ Expert credentials
                     </div>
@@ -474,7 +474,7 @@ export default function TestimonialsPage() {
                       with meticulous attention to detail. Zero accidents, zero
                       shortcuts.
                     </p>
-                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                    <div className="text-xs text-gray-600 dark:text-gray-300">
                       ✓ Every detail matters
                       <br />✓ Comprehensive quality control
                     </div>
@@ -527,7 +527,7 @@ export default function TestimonialsPage() {
                           <h4 className="font-bold text-gray-900 dark:text-white mb-1">
                             Tri-Cities, WA (Headquarters)
                           </h4>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">
+                          <p className="text-sm text-gray-600 dark:text-gray-300">
                             Pasco, Kennewick, Richland, West Richland
                           </p>
                         </div>
@@ -548,7 +548,7 @@ export default function TestimonialsPage() {
                           <h4 className="font-bold text-gray-900 dark:text-white mb-1">
                             Eastern Washington
                           </h4>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">
+                          <p className="text-sm text-gray-600 dark:text-gray-300">
                             Yakima, Walla Walla, Spokane, and surrounding areas
                           </p>
                         </div>
@@ -569,7 +569,7 @@ export default function TestimonialsPage() {
                           <h4 className="font-bold text-gray-900 dark:text-white mb-1">
                             Multi-State Projects
                           </h4>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">
+                          <p className="text-sm text-gray-600 dark:text-gray-300">
                             Eastern Oregon, Southern Idaho, and beyond
                           </p>
                         </div>
@@ -612,7 +612,7 @@ export default function TestimonialsPage() {
                         <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
                           Office Buildings
                         </h4>
-                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                        <p className="text-xs text-gray-600 dark:text-gray-300">
                           Corporate spaces & tenant improvements
                         </p>
                       </div>
@@ -631,7 +631,7 @@ export default function TestimonialsPage() {
                         <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
                           Medical Facilities
                         </h4>
-                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                        <p className="text-xs text-gray-600 dark:text-gray-300">
                           Healthcare centers & clinics
                         </p>
                       </div>
@@ -650,7 +650,7 @@ export default function TestimonialsPage() {
                         <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
                           Industrial
                         </h4>
-                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                        <p className="text-xs text-gray-600 dark:text-gray-300">
                           Warehouses & manufacturing
                         </p>
                       </div>
@@ -669,7 +669,7 @@ export default function TestimonialsPage() {
                         <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
                           Government
                         </h4>
-                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                        <p className="text-xs text-gray-600 dark:text-gray-300">
                           Public sector & municipal
                         </p>
                       </div>
@@ -688,7 +688,7 @@ export default function TestimonialsPage() {
                         <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
                           Retail & Hospitality
                         </h4>
-                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                        <p className="text-xs text-gray-600 dark:text-gray-300">
                           Stores & restaurants
                         </p>
                       </div>
@@ -707,7 +707,7 @@ export default function TestimonialsPage() {
                         <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1">
                           Agricultural
                         </h4>
-                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                        <p className="text-xs text-gray-600 dark:text-gray-300">
                           Farm & processing facilities
                         </p>
                       </div>
@@ -1055,7 +1055,7 @@ export default function TestimonialsPage() {
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                       Veteran-Owned
                     </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
                       SBA Certified Veteran-Owned Small Business
                     </p>
                   </div>
@@ -1075,7 +1075,7 @@ export default function TestimonialsPage() {
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                       Multi-State Licensed
                     </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
                       Licensed in WA, OR, and ID
                     </p>
                   </div>
@@ -1095,7 +1095,7 @@ export default function TestimonialsPage() {
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                       Safety Excellence
                     </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
                       .64 EMR Safety Rating
                     </p>
                   </div>
@@ -1115,7 +1115,7 @@ export default function TestimonialsPage() {
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                       650+ Projects
                     </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
                       Completed Since 2010
                     </p>
                   </div>

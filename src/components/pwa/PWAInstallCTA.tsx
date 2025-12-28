@@ -111,12 +111,12 @@ export function PWAInstallCTA({
             offline support.
           </p>
 
-          <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
+          <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 flex-grow">
             <li className="flex items-center gap-2">
               <MaterialIcon
                 icon="check_circle"
                 size="sm"
-                className="text-gray-400 flex-shrink-0"
+                className="text-gray-600 flex-shrink-0"
               />
               <span>Works offline with cached content</span>
             </li>
@@ -124,7 +124,7 @@ export function PWAInstallCTA({
               <MaterialIcon
                 icon="check_circle"
                 size="sm"
-                className="text-gray-400 flex-shrink-0"
+                className="text-gray-600 flex-shrink-0"
               />
               <span>3-5x faster page loads</span>
             </li>
@@ -132,7 +132,7 @@ export function PWAInstallCTA({
               <MaterialIcon
                 icon="check_circle"
                 size="sm"
-                className="text-gray-400 flex-shrink-0"
+                className="text-gray-600 flex-shrink-0"
               />
               <span>Quick shortcuts to key pages</span>
             </li>
@@ -181,7 +181,7 @@ export function PWAInstallCTA({
           screen for faster loading and native app experience.
         </p>
 
-        <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
+        <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 flex-grow">
           <li className="flex items-center gap-2">
             <MaterialIcon
               icon="check_circle"

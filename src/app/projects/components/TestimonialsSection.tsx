@@ -119,7 +119,7 @@ export function TestimonialsSection({ projects }: TestimonialsSectionProps) {
                       <p className="font-semibold text-gray-900 dark:text-white mb-1">
                         {project.clientTestimonial!.clientName}
                       </p>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm font-medium">
+                      <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">
                         {project.title}
                       </p>
                     </div>

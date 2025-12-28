@@ -124,7 +124,7 @@ export function ProjectsCTASection() {
                   {COMPANY_INFO.phone.display}
                 </a>
               </p>
-              <p className="font-medium text-gray-600 dark:text-gray-400 text-base md:text-lg">
+              <p className="font-medium text-gray-600 dark:text-gray-300 text-base md:text-lg">
                 <MaterialIcon
                   icon="location_on"
                   size="md"
@@ -141,7 +141,7 @@ export function ProjectsCTASection() {
                   {COMPANY_INFO.address.full}
                 </a>
               </p>
-              <p className="font-medium text-gray-600 dark:text-gray-400 text-base md:text-lg">
+              <p className="font-medium text-gray-600 dark:text-gray-300 text-base md:text-lg">
                 <MaterialIcon
                   icon="email"
                   size="md"

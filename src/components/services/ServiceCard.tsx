@@ -73,7 +73,7 @@ export function ServiceCard({ service, onOpenModal }: ServiceCardProps) {
               {service.features.slice(0, 3).map((feature, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400"
+                  className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-300"
                 >
                   <MaterialIcon
                     icon="check_circle"

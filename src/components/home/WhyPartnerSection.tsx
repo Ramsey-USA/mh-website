@@ -244,7 +244,7 @@ export function WhyPartnerSection() {
                       >
                         {value.stat}
                       </div>
-                      <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+                      <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
                         {value.statLabel}
                       </div>
                     </div>

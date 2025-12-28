@@ -169,7 +169,7 @@ export function SimpleProjectCards({
                 </h3>
 
                 {/* Description */}
-                <p className="mb-4 text-gray-600 text-sm dark:text-gray-400">
+                <p className="mb-4 text-gray-600 text-sm dark:text-gray-300">
                   {project.description}
                 </p>
 

@@ -327,7 +327,7 @@ ${formData.message}
           Your partnership request has been received. We&apos;ll reach out
           within 24 hours to begin our collaboration.
         </p>
-        <div className="text-gray-500 dark:text-gray-400 text-sm">
+        <div className="text-gray-500 dark:text-gray-300 text-sm">
           For urgent matters, please call us directly at{" "}
           <strong>(509) 308-6489</strong>
         </div>
@@ -765,12 +765,12 @@ ${formData.message}
           </Button>
 
           <div className="text-center space-y-2">
-            <p className="text-gray-500 dark:text-gray-400 text-sm">
+            <p className="text-gray-500 dark:text-gray-300 text-sm">
               By submitting this form, you're taking the first step in our
               partnership journey. We look forward to working together with you!
             </p>
             {formType === "project" && (
-              <p className="text-xs text-gray-400 dark:text-gray-500">
+              <p className="text-xs text-gray-600 dark:text-gray-500">
                 {formData.projectCategory === "residential"
                   ? "🎖️ Proudly serving those who served. Residential projects exclusively for Veterans."
                   : "🏢 Specializing in commercial and industrial construction excellence."}

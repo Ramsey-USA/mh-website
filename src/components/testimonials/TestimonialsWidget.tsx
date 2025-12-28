@@ -351,7 +351,7 @@ function CompactTestimonialsWidget({
           <div className="font-medium text-gray-900 dark:text-white text-sm">
             {currentTestimonial.clientName}
           </div>
-          <div className="text-gray-600 dark:text-gray-400 text-xs">
+          <div className="text-gray-600 dark:text-gray-300 text-xs">
             {currentTestimonial.projectTitle}
           </div>
         </div>
@@ -461,7 +461,7 @@ function CardsTestimonialsWidget({
                     <div className="font-medium text-gray-900 dark:text-white text-sm">
                       {testimonial.clientName}
                     </div>
-                    <div className="text-gray-600 dark:text-gray-400 text-xs">
+                    <div className="text-gray-600 dark:text-gray-300 text-xs">
                       {testimonial.clientLocation}
                     </div>
                   </div>

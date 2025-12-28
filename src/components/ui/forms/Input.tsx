@@ -34,7 +34,7 @@ export function Input({
         <p className="text-red-600 dark:text-red-400 text-sm">{error}</p>
       )}
       {helperText && !error && (
-        <p className="text-gray-500 dark:text-gray-400 text-sm">{helperText}</p>
+        <p className="text-gray-500 dark:text-gray-300 text-sm">{helperText}</p>
       )}
     </div>
   );
@@ -73,7 +73,7 @@ export function Textarea({
         <p className="text-red-600 dark:text-red-400 text-sm">{error}</p>
       )}
       {helperText && !error && (
-        <p className="text-gray-500 dark:text-gray-400 text-sm">{helperText}</p>
+        <p className="text-gray-500 dark:text-gray-300 text-sm">{helperText}</p>
       )}
     </div>
   );

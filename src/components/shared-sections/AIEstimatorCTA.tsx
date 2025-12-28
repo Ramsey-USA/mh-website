@@ -94,7 +94,7 @@ export function AIEstimatorCTA({
                 <div className="font-bold text-gray-900 dark:text-white mb-1 text-lg">
                   Under 5 Minutes
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">
+                <div className="text-sm text-gray-600 dark:text-gray-300">
                   Fast & thorough analysis
                 </div>
               </div>
@@ -109,7 +109,7 @@ export function AIEstimatorCTA({
                 <div className="font-bold text-gray-900 dark:text-white mb-1 text-lg">
                   650+ Projects
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">
+                <div className="text-sm text-gray-600 dark:text-gray-300">
                   Data-driven intelligence
                 </div>
               </div>
@@ -124,7 +124,7 @@ export function AIEstimatorCTA({
                 <div className="font-bold text-gray-900 dark:text-white mb-1 text-lg">
                   Veteran-Owned
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">
+                <div className="text-sm text-gray-600 dark:text-gray-300">
                   Military precision & .64 EMR
                 </div>
               </div>
@@ -163,7 +163,7 @@ export function AIEstimatorCTA({
               </Link>
             </div>
 
-            <p className="mt-6 text-sm text-gray-500 dark:text-gray-400 italic">
+            <p className="mt-6 text-sm text-gray-500 dark:text-gray-300 italic">
               Contact us to discuss your project • View our completed work
             </p>
           </FadeInWhenVisible>
@@ -229,7 +229,7 @@ export function AIEstimatorCTA({
                       <h4 className="font-bold text-gray-900 dark:text-white mb-1 text-lg">
                         Under 5 Minutes
                       </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
                         Complete detailed estimates fast, 24/7 availability
                       </p>
                     </div>
@@ -245,7 +245,7 @@ export function AIEstimatorCTA({
                       <h4 className="font-bold text-gray-900 dark:text-white mb-1 text-lg">
                         Data-Driven Intelligence
                       </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
                         Pacific Northwest market data from WA, OR, and ID
                       </p>
                     </div>
@@ -261,7 +261,7 @@ export function AIEstimatorCTA({
                       <h4 className="font-bold text-gray-900 dark:text-white mb-1 text-lg">
                         Veteran-Owned Expertise
                       </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
                         Military precision backed by award-winning .64 EMR
                         safety
                       </p>

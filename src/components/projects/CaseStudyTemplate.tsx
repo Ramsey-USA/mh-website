@@ -208,7 +208,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
                 <p className="mb-1 font-bold text-gray-900 text-lg dark:text-white">
                   {spec.value}
                 </p>
-                <p className="text-gray-600 text-sm dark:text-gray-400">
+                <p className="text-gray-600 text-sm dark:text-gray-300">
                   {spec.label}
                 </p>
               </div>
@@ -367,7 +367,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
                   <p className="mb-2 font-black text-3xl text-gray-900 dark:text-white">
                     {metric.value}
                   </p>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600 dark:text-gray-300">
                     {metric.label}
                   </p>
                 </div>
@@ -421,7 +421,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
                   <p className="font-bold text-gray-900 text-lg dark:text-white">
                     {data.clientQuote.author}
                   </p>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600 dark:text-gray-300">
                     {data.clientQuote.role}, {data.clientQuote.company}
                   </p>
                 </div>

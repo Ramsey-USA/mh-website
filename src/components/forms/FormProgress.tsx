@@ -122,7 +122,7 @@ export function FormProgress({
           />
         </div>
 
-        <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+        <div className="mt-2 text-xs text-gray-600 dark:text-gray-300">
           {steps[currentStep - 1]?.label}
         </div>
       </div>
@@ -142,7 +142,7 @@ export function FormProgress({
               <h3 className="text-lg font-bold text-gray-900 dark:text-white">
                 Form Progress
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-gray-600 dark:text-gray-300">
                 Step {currentStep} of {steps.length}:{" "}
                 {steps[currentStep - 1]?.label}
               </p>
@@ -152,7 +152,7 @@ export function FormProgress({
                 <div className="text-3xl font-black text-primary-600 dark:text-primary-400">
                   {progressPercentage}%
                 </div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">
+                <div className="text-xs text-gray-500 dark:text-gray-300">
                   Complete
                 </div>
               </div>
@@ -220,7 +220,7 @@ export function FormProgress({
                     </div>
 
                     <div className="flex-grow min-w-0">
-                      <div className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                      <div className="text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wide">
                         Step {step.number}
                       </div>
                       <div
@@ -229,13 +229,13 @@ export function FormProgress({
                             ? "text-green-700 dark:text-green-400"
                             : isCurrent
                               ? "text-primary-700 dark:text-primary-300"
-                              : "text-gray-500 dark:text-gray-400"
+                              : "text-gray-500 dark:text-gray-300"
                         }`}
                       >
                         {step.label}
                       </div>
                       {showDescriptions && step.description && (
-                        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">
+                        <p className="text-xs text-gray-600 dark:text-gray-300 mt-1 line-clamp-2">
                           {step.description}
                         </p>
                       )}
@@ -257,7 +257,7 @@ export function FormProgress({
                       </span>
                     )}
                     {isUpcoming && (
-                      <span className="text-xs text-gray-500 dark:text-gray-400">
+                      <span className="text-xs text-gray-500 dark:text-gray-300">
                         Upcoming
                       </span>
                     )}
@@ -271,7 +271,7 @@ export function FormProgress({
           {enableSaveResume && (
             <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
                   <MaterialIcon icon="save" size="sm" />
                   <span>
                     {saveStatus === "saved"
@@ -370,7 +370,7 @@ export function FormProgress({
                   <MaterialIcon
                     icon={step.icon}
                     size="sm"
-                    className={isCurrent ? "text-white" : "text-gray-400"}
+                    className={isCurrent ? "text-white" : "text-gray-600"}
                   />
                 ) : (
                   <span
@@ -392,7 +392,7 @@ export function FormProgress({
                     ? "text-green-700 dark:text-green-400"
                     : isCurrent
                       ? "text-primary-700 dark:text-primary-400"
-                      : "text-gray-500 dark:text-gray-400"
+                      : "text-gray-500 dark:text-gray-300"
                 }`}
               >
                 {step.label}
@@ -418,7 +418,7 @@ export function FormProgress({
       {/* Save & Resume */}
       {enableSaveResume && (
         <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
             <MaterialIcon icon="info" size="sm" />
             <span>
               {saveStatus === "saved"

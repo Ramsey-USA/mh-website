@@ -538,7 +538,7 @@ export default function CareersPage() {
                     <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                       Consideration
                     </div>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
+                    <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">
                       All Positions
                     </p>
                   </div>
@@ -554,7 +554,7 @@ export default function CareersPage() {
                     <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                       Military-Friendly
                     </div>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
+                    <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">
                       Workplace Culture
                     </p>
                   </div>
@@ -570,7 +570,7 @@ export default function CareersPage() {
                     <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                       Welcome Here
                     </div>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
+                    <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">
                       Army • Navy • Marines • Air Force • Coast Guard • Space
                       Force
                     </p>
@@ -1025,7 +1025,7 @@ export default function CareersPage() {
                                       />
                                     </div>
                                   </div>
-                                  <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+                                  <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                                     {step.desc}
                                   </p>
                                 </div>
@@ -1070,7 +1070,7 @@ export default function CareersPage() {
                                       </h3>
                                     </div>
                                   </div>
-                                  <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+                                  <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                                     {step.desc}
                                   </p>
                                 </div>
@@ -1118,7 +1118,7 @@ export default function CareersPage() {
                                   {step.title}
                                 </h3>
                               </div>
-                              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                                 {step.desc}
                               </p>
                             </div>
@@ -1371,7 +1371,7 @@ export default function CareersPage() {
                     </Button>
                   </Link>
                 </div>
-                <p className="mt-8 text-gray-500 dark:text-gray-400 text-lg">
+                <p className="mt-8 text-gray-500 dark:text-gray-300 text-lg">
                   <MaterialIcon
                     icon="call"
                     size="sm"

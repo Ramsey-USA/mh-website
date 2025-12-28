@@ -211,7 +211,7 @@ export function JobApplicationModal({
             </div>
           </div>
 
-          <p className="mt-6 text-sm text-gray-500 dark:text-gray-400">
+          <p className="mt-6 text-sm text-gray-500 dark:text-gray-300">
             Your application has been sent to{" "}
             <a
               href="mailto:office@mhc-gc.com"
@@ -509,7 +509,7 @@ export function JobApplicationModal({
                     </label>
                     <p className="pl-1">or drag and drop</p>
                   </div>
-                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                  <p className="text-gray-500 dark:text-gray-300 text-xs">
                     PDF, DOC, DOCX up to 10MB
                   </p>
                   {formData.resumeFile && (

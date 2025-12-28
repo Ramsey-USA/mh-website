@@ -247,7 +247,7 @@ export default function Home() {
                                 />
                               </div>
                             </div>
-                            <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+                            <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                               {step.desc}
                             </p>
                           </div>
@@ -292,7 +292,7 @@ export default function Home() {
                                 </h3>
                               </div>
                             </div>
-                            <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+                            <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
                               {step.desc}
                             </p>
                           </div>
@@ -340,7 +340,7 @@ export default function Home() {
                             {step.title}
                           </h3>
                         </div>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                           {step.desc}
                         </p>
                       </div>

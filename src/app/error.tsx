@@ -59,11 +59,11 @@ export default function Error({
                 {error.message}
               </p>
               {error.digest && (
-                <p className="text-gray-600 dark:text-gray-400 mb-2">
+                <p className="text-gray-600 dark:text-gray-300 mb-2">
                   Digest: {error.digest}
                 </p>
               )}
-              <pre className="text-gray-700 dark:text-gray-400 whitespace-pre-wrap">
+              <pre className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
                 {error.stack}
               </pre>
             </div>
@@ -94,7 +94,7 @@ export default function Error({
         </div>
 
         <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-500 dark:text-gray-300">
             Need help?{" "}
             <a
               href="/contact"

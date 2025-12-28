@@ -190,9 +190,9 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
                 <MaterialIcon
                   icon="security"
                   size="sm"
-                  className="text-gray-400 mt-0.5"
+                  className="text-gray-600 mt-0.5"
                 />
-                <p className="text-xs text-gray-500 dark:text-gray-400">
+                <p className="text-xs text-gray-500 dark:text-gray-300">
                   This is a secure administrative area. All access attempts are
                   logged.
                 </p>

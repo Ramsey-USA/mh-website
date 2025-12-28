@@ -99,7 +99,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.status === "completed" ? "Completed" : "In Progress"}
           </span>
         </div>
-        <p className="font-semibold text-gray-600 dark:text-gray-400 text-sm">
+        <p className="font-semibold text-gray-600 dark:text-gray-300 text-sm">
           {project.subcategory}
         </p>
       </CardHeader>
@@ -120,13 +120,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Project Details */}
         {project.details && (
-          <div className="space-y-2 mb-4 text-gray-600 dark:text-gray-400 text-sm">
+          <div className="space-y-2 mb-4 text-gray-600 dark:text-gray-300 text-sm">
             {project.details.squareFootage && (
               <div className="flex items-center">
                 <MaterialIcon
                   icon="square_foot"
                   size="sm"
-                  className="mr-2 text-gray-400"
+                  className="mr-2 text-gray-600"
                 />
                 <span>
                   {project.details.squareFootage.toLocaleString()} sq ft
@@ -138,7 +138,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 <MaterialIcon
                   icon="schedule"
                   size="sm"
-                  className="mr-2 text-gray-400"
+                  className="mr-2 text-gray-600"
                 />
                 <span>{project.details.duration}</span>
               </div>
@@ -148,7 +148,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 <MaterialIcon
                   icon="event"
                   size="sm"
-                  className="mr-2 text-gray-400"
+                  className="mr-2 text-gray-600"
                 />
                 <span>
                   {project.details.completionDate.toLocaleDateString("en-US", {

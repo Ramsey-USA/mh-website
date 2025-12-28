@@ -61,7 +61,7 @@ export function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
                   <MaterialIcon
                     icon="chevron_right"
                     size="sm"
-                    className="text-gray-400 dark:text-gray-500 mx-1"
+                    className="text-gray-600 dark:text-gray-500 mx-1"
                     aria-hidden="true"
                   />
                 )}
@@ -78,7 +78,7 @@ export function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
                   // Clickable parent page link
                   <Link
                     href={item.href}
-                    className="text-gray-600 dark:text-gray-400 hover:text-brand-primary dark:hover:text-brand-primary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 rounded px-1"
+                    className="text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 rounded px-1"
                   >
                     {item.label}
                   </Link>

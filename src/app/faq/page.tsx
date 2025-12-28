@@ -474,7 +474,7 @@ export default function FAQPage() {
                   you're looking for? We're always available for a conversation.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                  <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
                     <MaterialIcon
                       icon="verified"
                       className="text-brand-primary"
@@ -483,7 +483,7 @@ export default function FAQPage() {
                     />
                     <span>Veteran-Owned Since Jan 2025</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                  <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
                     <MaterialIcon
                       icon="health_and_safety"
                       className="text-brand-primary"
@@ -492,7 +492,7 @@ export default function FAQPage() {
                     />
                     <span>0.64 EMR Safety Record</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                  <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
                     <MaterialIcon
                       icon="location_on"
                       className="text-brand-primary"

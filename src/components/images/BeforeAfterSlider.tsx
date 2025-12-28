@@ -272,7 +272,7 @@ export function BeforeAfterSlider({
         </div>
 
         {/* Instructions (mobile-friendly) */}
-        <div className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
+        <div className="mt-4 text-center text-sm text-gray-500 dark:text-gray-300">
           <p className="hidden md:block">
             <MaterialIcon icon="mouse" size="sm" className="inline mr-1" />
             Drag the slider or click anywhere to compare

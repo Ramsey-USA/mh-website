@@ -140,7 +140,7 @@ export function AggregateRating({
         <span className="text-sm font-semibold text-gray-900 dark:text-white">
           {averageRating}
         </span>
-        <span className="text-sm text-gray-600 dark:text-gray-400">
+        <span className="text-sm text-gray-600 dark:text-gray-300">
           ({totalReviews} {totalReviews === 1 ? "review" : "reviews"})
         </span>
 
@@ -185,7 +185,7 @@ export function AggregateRating({
               <span className="text-6xl lg:text-7xl font-black text-brand-primary dark:text-brand-secondary">
                 {averageRating}
               </span>
-              <span className="text-3xl lg:text-4xl text-gray-400 dark:text-gray-500">
+              <span className="text-3xl lg:text-4xl text-gray-600 dark:text-gray-500">
                 / 5.0
               </span>
             </div>
@@ -200,7 +200,7 @@ export function AggregateRating({
           </div>
 
           {/* Trust Badges */}
-          <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+          <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-gray-600 dark:text-gray-300">
             <div className="flex items-center gap-2">
               <MaterialIcon
                 icon="verified"
@@ -261,7 +261,7 @@ export function AggregateRating({
             <span className="text-4xl lg:text-5xl font-black text-brand-primary dark:text-brand-secondary">
               {averageRating}
             </span>
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <span className="text-sm text-gray-500 dark:text-gray-300">
               out of 5
             </span>
           </div>
@@ -296,7 +296,7 @@ export function AggregateRating({
                       style={{ width: `${percentage}%` }}
                     />
                   </div>
-                  <span className="text-sm text-gray-600 dark:text-gray-400 w-12 text-right">
+                  <span className="text-sm text-gray-600 dark:text-gray-300 w-12 text-right">
                     {count}
                   </span>
                 </div>

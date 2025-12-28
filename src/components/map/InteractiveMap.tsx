@@ -151,7 +151,7 @@ export const InteractiveMap = ({
     return (
       <Card className={className}>
         <CardContent className="p-8 text-center">
-          <div className="mb-4 text-gray-400 text-4xl">[MAP]</div>
+          <div className="mb-4 text-gray-600 text-4xl">[MAP]</div>
           <h3 className="mb-2 font-semibold text-xl">
             Map Temporarily Unavailable
           </h3>
@@ -294,7 +294,7 @@ export const InteractiveMap = ({
                 <h3 className="mb-2 font-semibold text-lg">
                   {selectedLocation.title}
                 </h3>
-                <p className="mb-4 text-gray-600 dark:text-gray-400">
+                <p className="mb-4 text-gray-600 dark:text-gray-300">
                   {selectedLocation.description}
                 </p>
                 <div className="flex flex-wrap gap-3">

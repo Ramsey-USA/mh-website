@@ -129,7 +129,7 @@ export function NextStepsSection({
               Real projects. Real results. Real testimonials from Client
               Partners who trust us.
             </p>
-            <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
+            <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 flex-grow">
               <li className="flex items-center gap-2">
                 <MaterialIcon
                   icon="check_circle"
@@ -189,7 +189,7 @@ export function NextStepsSection({
               Honest answers from real people. No automated systems. Just
               transparent communication.
             </p>
-            <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-400 flex-grow">
+            <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 flex-grow">
               <li className="flex items-center gap-2">
                 <MaterialIcon
                   icon="check_circle"

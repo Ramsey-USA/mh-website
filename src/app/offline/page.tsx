@@ -127,7 +127,7 @@ export default function OfflinePage() {
         </div>
 
         {/* Footer note */}
-        <p className="mt-8 text-sm text-gray-400">
+        <p className="mt-8 text-sm text-gray-600">
           This page is part of our Progressive Web App (PWA) features
         </p>
       </div>

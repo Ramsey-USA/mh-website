@@ -125,7 +125,7 @@ export function TestimonialsCarousel({
               {currentTestimonial.name}
             </p>
             {currentTestimonial.location && (
-              <p className="font-medium text-gray-600 dark:text-gray-400 text-sm sm:text-base tracking-wide">
+              <p className="font-medium text-gray-600 dark:text-gray-300 text-sm sm:text-base tracking-wide">
                 {currentTestimonial.location}
               </p>
             )}
@@ -178,7 +178,7 @@ export function TestimonialsCarousel({
       </div>
 
       {/* Counter */}
-      <div className="text-center mt-4 text-gray-600 dark:text-gray-400 text-sm font-medium">
+      <div className="text-center mt-4 text-gray-600 dark:text-gray-300 text-sm font-medium">
         {currentIndex + 1} / {testimonials.length}
       </div>
     </div>

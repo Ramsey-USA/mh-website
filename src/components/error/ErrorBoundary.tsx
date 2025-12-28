@@ -117,7 +117,7 @@ function DefaultErrorFallback({
               <p className="font-mono text-red-600 dark:text-red-400 mb-2">
                 {error.message}
               </p>
-              <pre className="text-gray-700 dark:text-gray-400 whitespace-pre-wrap">
+              <pre className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
                 {error.stack}
               </pre>
             </div>
@@ -141,7 +141,7 @@ function DefaultErrorFallback({
         </div>
 
         <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-500 dark:text-gray-300">
             Need help?{" "}
             <a
               href="/contact"

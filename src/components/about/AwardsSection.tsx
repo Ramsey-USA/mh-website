@@ -140,7 +140,7 @@ export function AwardsSection() {
                   <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
                     Certified VOSB
                   </p>
-                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                  <p className="text-gray-500 dark:text-gray-300 text-xs">
                     Department of Veterans Affairs certification
                   </p>
                 </div>
@@ -172,7 +172,7 @@ export function AwardsSection() {
                   <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
                     AGC Washington
                   </p>
-                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                  <p className="text-gray-500 dark:text-gray-300 text-xs">
                     Outstanding Commercial Project Award
                   </p>
                 </div>
@@ -204,7 +204,7 @@ export function AwardsSection() {
                   <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
                     WA Green Building Council
                   </p>
-                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                  <p className="text-gray-500 dark:text-gray-300 text-xs">
                     LEED compliance & sustainable practices
                   </p>
                 </div>
@@ -236,7 +236,7 @@ export function AwardsSection() {
                   <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm">
                     OSHA VPP Star
                   </p>
-                  <p className="text-gray-500 dark:text-gray-400 text-xs">
+                  <p className="text-gray-500 dark:text-gray-300 text-xs">
                     Exemplary workplace safety programs
                   </p>
                 </div>
@@ -308,7 +308,7 @@ export function AwardsSection() {
                         {item.achievement}
                       </p>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm lg:text-base leading-relaxed">
+                    <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-relaxed">
                       {item.details}
                     </p>
                   </div>
@@ -347,7 +347,7 @@ export function AwardsSection() {
                   className="text-brand-primary"
                 />
               </div>
-              <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+              <p className="mt-2 text-gray-600 dark:text-gray-300 text-sm">
                 Consistently recognized for industry-leading safety performance
                 and zero-incident culture
               </p>

@@ -516,7 +516,7 @@ export default function ServicesPage() {
                             Schedule Free Consultation
                           </Button>
                         </Link>
-                        <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
+                        <p className="text-center text-gray-600 dark:text-gray-300 text-sm">
                           <MaterialIcon
                             icon="phone"
                             size="sm"
@@ -673,7 +673,7 @@ export default function ServicesPage() {
                             Download Vendor Package
                           </Button>
                         </Link>
-                        <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
+                        <p className="text-center text-gray-600 dark:text-gray-300 text-sm">
                           <MaterialIcon
                             icon="phone"
                             size="sm"

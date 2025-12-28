@@ -195,10 +195,10 @@ export function QuickBookingModal({ isOpen, onClose }: QuickBookingModalProps) {
                   </div>
                   <div className="bg-gray-600 dark:bg-gray-400 w-12 h-0.5" />
                   <div className="flex items-center">
-                    <div className="flex justify-center items-center bg-gray-600 dark:bg-gray-500 rounded-full w-8 h-8 font-bold text-gray-400 dark:text-gray-300 text-sm">
+                    <div className="flex justify-center items-center bg-gray-600 dark:bg-gray-500 rounded-full w-8 h-8 font-bold text-gray-600 dark:text-gray-300 text-sm">
                       2
                     </div>
-                    <span className="ml-2 text-gray-400 dark:text-gray-500 text-sm">
+                    <span className="ml-2 text-gray-600 dark:text-gray-500 text-sm">
                       Contact Information
                     </span>
                   </div>

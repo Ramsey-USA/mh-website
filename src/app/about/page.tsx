@@ -472,7 +472,7 @@ export default function AboutPage() {
                             Company Milestone
                           </span>
                         </div>
-                        <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
+                        <span className="text-gray-500 dark:text-gray-300 text-xs sm:text-sm flex-shrink-0">
                           Nov 2025
                         </span>
                       </div>
@@ -529,7 +529,7 @@ export default function AboutPage() {
                             New Technology
                           </span>
                         </div>
-                        <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
+                        <span className="text-gray-500 dark:text-gray-300 text-xs sm:text-sm flex-shrink-0">
                           Coming Soon
                         </span>
                       </div>
@@ -586,7 +586,7 @@ export default function AboutPage() {
                             Partnership
                           </span>
                         </div>
-                        <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
+                        <span className="text-gray-500 dark:text-gray-300 text-xs sm:text-sm flex-shrink-0">
                           Oct 2025
                         </span>
                       </div>
@@ -642,7 +642,7 @@ export default function AboutPage() {
                             Recognition
                           </span>
                         </div>
-                        <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
+                        <span className="text-gray-500 dark:text-gray-300 text-xs sm:text-sm flex-shrink-0">
                           Sep 2025
                         </span>
                       </div>
@@ -698,7 +698,7 @@ export default function AboutPage() {
                             Industry Insight
                           </span>
                         </div>
-                        <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
+                        <span className="text-gray-500 dark:text-gray-300 text-xs sm:text-sm flex-shrink-0">
                           Aug 2025
                         </span>
                       </div>
@@ -754,7 +754,7 @@ export default function AboutPage() {
                             Veteran Initiative
                           </span>
                         </div>
-                        <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex-shrink-0">
+                        <span className="text-gray-500 dark:text-gray-300 text-xs sm:text-sm flex-shrink-0">
                           Jul 2025
                         </span>
                       </div>

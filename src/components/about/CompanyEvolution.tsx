@@ -271,7 +271,7 @@ export function CompanyEvolution() {
                             <div className="flex items-start justify-end gap-4 mb-4">
                               <div className="text-right">
                                 <div className="flex items-center justify-end gap-2 mb-2">
-                                  <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                  <span className="text-xs font-bold text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                                     {milestone.impact}
                                   </span>
                                 </div>
@@ -289,7 +289,7 @@ export function CompanyEvolution() {
                                 />
                               </div>
                             </div>
-                            <p className="text-gray-600 dark:text-gray-400 text-sm lg:text-base leading-relaxed">
+                            <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-relaxed">
                               {milestone.description}
                             </p>
                           </div>
@@ -338,7 +338,7 @@ export function CompanyEvolution() {
                               </div>
                               <div>
                                 <div className="flex items-center gap-2 mb-2">
-                                  <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                  <span className="text-xs font-bold text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                                     {milestone.impact}
                                   </span>
                                 </div>
@@ -347,7 +347,7 @@ export function CompanyEvolution() {
                                 </h3>
                               </div>
                             </div>
-                            <p className="text-gray-600 dark:text-gray-400 text-sm lg:text-base leading-relaxed">
+                            <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base leading-relaxed">
                               {milestone.description}
                             </p>
                           </div>
@@ -386,7 +386,7 @@ export function CompanyEvolution() {
                             />
                           </div>
                           <div className="flex-1">
-                            <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block mb-1">
+                            <span className="text-xs font-bold text-gray-500 dark:text-gray-300 uppercase tracking-wider block mb-1">
                               {milestone.impact}
                             </span>
                             <h3 className="font-black text-gray-900 dark:text-white text-lg">
@@ -394,7 +394,7 @@ export function CompanyEvolution() {
                             </h3>
                           </div>
                         </div>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                           {milestone.description}
                         </p>
                       </div>
