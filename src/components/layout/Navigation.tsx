@@ -80,10 +80,10 @@ export function Navigation() {
                 <Image
                   src="/images/logo/mh-logo.png"
                   alt="MH Construction"
-                  width={300}
-                  height={300}
+                  width={247}
+                  height={141}
                   priority
-                  sizes="(max-width: 475px) 70px, (max-width: 640px) 77px, (max-width: 768px) 90px, (max-width: 1024px) 112px, 141px"
+                  sizes="(max-width: 475px) 123px, (max-width: 640px) 135px, (max-width: 768px) 158px, (max-width: 1024px) 196px, 247px"
                   quality={85}
                   className="drop-shadow-lg w-auto h-[70px] xs:h-[77px] sm:h-[90px] md:h-[112px] lg:h-[141px]"
                 />
@@ -144,16 +144,19 @@ export function Navigation() {
       >
         <div className="relative bg-gradient-to-br from-white dark:from-gray-900 via-gray-50 dark:via-gray-800 to-white dark:to-gray-900 shadow-inner backdrop-blur-lg border-gray-200 dark:border-gray-700 border-b h-full">
           {/* Logo Background Watermark */}
-          <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-            <Image
-              src="/images/logo/mh-logo.png"
-              alt=""
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              quality={20}
-              priority={false}
-              className="opacity-5 dark:opacity-10 grayscale object-contain filter"
-            />
+          <div className="absolute inset-0 flex justify-center items-center pointer-events-none overflow-hidden">
+            <div className="relative w-full h-full">
+              <Image
+                src="/images/logo/mh-logo.png"
+                alt=""
+                fill
+                sizes="100vw"
+                quality={20}
+                priority={false}
+                style={{ objectFit: "contain", objectPosition: "center" }}
+                className="opacity-5 dark:opacity-10 grayscale filter"
+              />
+            </div>
           </div>
 
           {/* Menu Content - No scroll, fits viewport */}

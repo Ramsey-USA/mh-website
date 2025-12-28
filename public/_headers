@@ -1,0 +1,35 @@
+# Cloudflare Pages Headers Configuration
+# Ensures proper MIME types and caching for Next.js assets
+
+# Static JavaScript chunks
+/_next/static/chunks/*.js
+  Content-Type: application/javascript; charset=utf-8
+  Cache-Control: public, max-age=31536000, immutable
+
+# CSS files
+/_next/static/css/*.css
+  Content-Type: text/css; charset=utf-8
+  Cache-Control: public, max-age=31536000, immutable
+
+# Media files
+/_next/static/media/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Next.js image optimization
+/_next/image*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Static assets
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# Security headers for all pages
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
