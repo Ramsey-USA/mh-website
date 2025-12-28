@@ -31,6 +31,7 @@ const eslintConfig = [
       "dist/**",
       "coverage/**",
       ".turbo/**",
+      ".vercel/**",
 
       // Dependencies
       "node_modules/**",

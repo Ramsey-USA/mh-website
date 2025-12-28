@@ -12,6 +12,17 @@ import {
   isSlowConnection,
 } from "@/lib/performance/mobile-optimizations";
 
+// Type definitions for performance API
+interface PerformanceEventTiming extends PerformanceEntry {
+  processingStart: number;
+  startTime: number;
+}
+
+interface LayoutShift extends PerformanceEntry {
+  value: number;
+  hadRecentInput: boolean;
+}
+
 export function MobilePerformanceMonitor() {
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -45,10 +56,11 @@ export function MobilePerformanceMonitor() {
 
         // Monitor First Input Delay (FID)
         const fidObserver = new PerformanceObserver((list) => {
-          list.getEntries().forEach((entry: any) => {
+          list.getEntries().forEach((entry: PerformanceEntry) => {
+            const fidEntry = entry as PerformanceEventTiming;
             logger.info(
               "[Mobile FID]",
-              entry.processingStart - entry.startTime,
+              fidEntry.processingStart - fidEntry.startTime,
               "ms",
             );
           });
@@ -58,9 +70,10 @@ export function MobilePerformanceMonitor() {
         // Monitor Cumulative Layout Shift (CLS)
         let clsScore = 0;
         const clsObserver = new PerformanceObserver((list) => {
-          list.getEntries().forEach((entry: any) => {
-            if (!entry.hadRecentInput) {
-              clsScore += entry.value;
+          list.getEntries().forEach((entry: PerformanceEntry) => {
+            const clsEntry = entry as LayoutShift;
+            if (!clsEntry.hadRecentInput) {
+              clsScore += clsEntry.value;
             }
           });
           logger.info("[Mobile CLS]", clsScore);

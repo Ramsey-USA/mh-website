@@ -16,12 +16,18 @@ export const isMobileDevice = (): boolean => {
 /**
  * Check if the connection is slow
  */
+interface NetworkConnection {
+  effectiveType?: string;
+  saveData?: boolean;
+}
+
 export const isSlowConnection = (): boolean => {
   if (typeof navigator === "undefined" || !("connection" in navigator)) {
     return false;
   }
 
-  const connection = (navigator as any).connection;
+  const connection = (navigator as { connection?: NetworkConnection })
+    .connection;
   return (
     connection?.effectiveType === "slow-2g" ||
     connection?.effectiveType === "2g" ||

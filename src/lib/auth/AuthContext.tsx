@@ -72,6 +72,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const logout = async () => {
     setUser(null);
     setUserProfile(null);
+    return Promise.resolve();
   };
 
   const resetPassword = () => {
@@ -83,6 +84,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       throw new Error("No user profile");
     }
     setUserProfile({ ...userProfile, ...updates });
+    return Promise.resolve();
   };
 
   const updateUserProfileById = () => {
