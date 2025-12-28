@@ -20,6 +20,10 @@ const nextConfig = {
   compress: true, // Enable gzip compression
   productionBrowserSourceMaps: false, // Disable source maps in production
 
+  // Target modern browsers to reduce polyfills
+  // Matches browserslist: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
+  swcMinify: true,
+
   experimental: {
     optimizePackageImports: [
       "framer-motion",
@@ -30,6 +34,7 @@ const nextConfig = {
       "@radix-ui/react-tabs",
       "@radix-ui/react-progress",
     ],
+    swcPlugins: [],
   },
 
   // === BUILD CONFIGURATION ===

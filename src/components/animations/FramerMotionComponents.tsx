@@ -144,24 +144,25 @@ export function FadeInWhenVisible({
   // Always show content for elements that are initially visible
   const [shouldForceShow, setShouldForceShow] = useState(false);
   useEffect(() => {
-    // Check if element is initially in viewport
+    // Check if element is initially in viewport using RAF to batch layout reads
     const checkInitialVisibility = () => {
       if (ref.current) {
-        const rect = (ref.current as HTMLElement).getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          setShouldForceShow(true);
-        }
+        requestAnimationFrame(() => {
+          if (!ref.current) return;
+          const rect = (ref.current as HTMLElement).getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            setShouldForceShow(true);
+          }
+        });
       }
     };
 
-    // Check immediately and after a short delay
-    checkInitialVisibility();
-    const timer = setTimeout(
-      checkInitialVisibility,
-      TIMING.PERFORMANCE.VISIBILITY_CHECK,
-    );
-
-    return () => clearTimeout(timer);
+    // Check after initial render using RAF
+    requestAnimationFrame(() => {
+      checkInitialVisibility();
+      // Recheck after visibility timeout to catch slow-loading content
+      setTimeout(checkInitialVisibility, TIMING.PERFORMANCE.VISIBILITY_CHECK);
+    });
   }, []);
 
   // Skip animations if user prefers reduced motion or on slow connections
