@@ -17,10 +17,11 @@ import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { GlobalChatbotProvider } from "@/providers/GlobalChatbotProvider";
 import { PWAManager } from "@/components/pwa";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com",
+    process.env["NEXT_PUBLIC_SITE_URL"] || COMPANY_INFO.urls.getSiteUrl(),
   ),
   title: {
     default:
@@ -177,14 +178,10 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* Google Material Icons - Deferred for better mobile performance */}
+        {/* Google Material Icons */}
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
           rel="stylesheet"
-          media="print"
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          onLoad="this.media='all'"
         />
         {/* Preload critical hero image for faster LCP */}
         <link

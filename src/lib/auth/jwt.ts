@@ -6,12 +6,13 @@
  */
 
 import { SignJWT, jwtVerify, type JWTPayload } from "jose";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 // JWT configuration
 const JWT_SECRET =
   process.env["JWT_SECRET"] || "your-secret-key-change-in-production";
 const JWT_ISSUER =
-  process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com";
+  process.env["NEXT_PUBLIC_SITE_URL"] || COMPANY_INFO.urls.getSiteUrl();
 const JWT_AUDIENCE = "mh-construction-api";
 
 // Token expiration times

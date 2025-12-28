@@ -19,7 +19,6 @@ import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
-import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getTeamSEO } from "@/lib/seo/page-seo-utils";
 import {
@@ -43,9 +42,6 @@ const StrategicCTABanner = dynamic(
   { ssr: false },
 );
 
-// Feature flag - set to false to show full page content
-const SHOW_UNDER_CONSTRUCTION = false;
-
 // Group team members by department
 function groupByDepartment(members: VintageTeamMember[]) {
   return members.reduce(
@@ -68,18 +64,6 @@ export default function TeamPage() {
   // Get enhanced SEO data for Team page
   const teamSEO = getTeamSEO();
 
-  // Show under construction notice while preserving all content below
-  if (SHOW_UNDER_CONSTRUCTION) {
-    return (
-      <UnderConstruction
-        pageName="Our Team"
-        description="We're finalizing team member profiles and information to showcase the dedicated professionals who make MH Construction exceptional."
-        estimatedCompletion="December 2025"
-      />
-    );
-  }
-
-  // Original page content preserved below - will be shown when flag is set to false
   const membersByDepartment = groupByDepartment(vintageTeamMembers);
 
   // Define department order matching the Chain of Command structure

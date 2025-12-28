@@ -50,9 +50,9 @@ export function VideoHeroSection() {
         .then(() => {
           setIsVideoPlaying(true);
         })
-        .catch((error) => {
-          console.info("Video autoplay prevented:", error);
+        .catch(() => {
           // Fallback: poster image will remain visible
+          // Video autoplay prevented by browser, which is expected
         });
     }
   }, [shouldLoadVideo]);

@@ -49,7 +49,7 @@ export function PWAManager() {
   };
 
   const handleInstalled = () => {
-    console.info("[PWA Manager] Service worker installed for first time");
+    logger.info("[PWA Manager] Service worker installed for first time");
   };
 
   const handleError = (error: Error) => {

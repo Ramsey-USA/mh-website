@@ -14,7 +14,6 @@ import { gridPresets } from "@/lib/styles/layout-variants";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
-import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { StructuredData } from "@/components/seo/seo-meta";
 import {
   generateBreadcrumbSchema,
@@ -22,27 +21,12 @@ import {
 } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
 
-// Feature flag - set to false to show full page content
-const SHOW_UNDER_CONSTRUCTION = false;
-
 // Note: Metadata moved to parent layout due to 'use client' directive
 
 export default function UrgentSupportPage() {
   // Analytics tracking
   usePageTracking("Urgent Support");
 
-  // Show under construction notice while preserving all content below
-  if (SHOW_UNDER_CONSTRUCTION) {
-    return (
-      <UnderConstruction
-        pageName="Urgent Support"
-        description={`We're updating our emergency response information. For urgent construction needs, please call us immediately at ${COMPANY_INFO.phone.display}.`}
-        estimatedCompletion="December 2025"
-      />
-    );
-  }
-
-  // Original page content preserved below - will be shown when flag is set to false
   const equipmentList = [
     {
       icon: "engineering",

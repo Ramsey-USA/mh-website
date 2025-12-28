@@ -1,6 +1,13 @@
 /**
  * Responsive Image Component with Advanced Optimization
  * Implements srcset, lazy loading, and modern formats
+ *
+ * NOTE: Currently not actively used in the codebase. Next.js Image component is used directly instead.
+ * This component overlaps with OptimizedImage.tsx functionality.
+ * Consider deprecating or consolidating with OptimizedImage if custom image handling is needed.
+ *
+ * @status Available but not actively used - candidate for deprecation
+ * @lastReviewed December 2025
  */
 
 "use client";

@@ -1,6 +1,13 @@
 /**
  * Optimized Image Component
  * High-performance image component with lazy loading, optimization, and performance tracking
+ *
+ * NOTE: Currently not actively used in the codebase. Next.js Image component is used directly instead.
+ * This component provides additional performance tracking and lazy loading features.
+ * Consider using this for performance-critical images that need tracking.
+ *
+ * @status Available but not actively used
+ * @lastReviewed December 2025
  */
 
 "use client";

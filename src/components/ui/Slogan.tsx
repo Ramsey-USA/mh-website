@@ -7,7 +7,7 @@
  * @see /src/lib/data/slogans.ts - Slogan data and assignments
  */
 
-import React from "react";
+import type { ReactNode } from "react";
 import { SectionContainer } from "@/components/layout";
 import {
   getSloganForPage,
@@ -244,7 +244,7 @@ export interface HeroWithSloganProps {
   taglineContext?: string;
 
   /** Optional CTA button */
-  cta?: React.ReactNode;
+  cta?: ReactNode;
 
   /** Background image URL */
   backgroundImage?: string;

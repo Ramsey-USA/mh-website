@@ -1,6 +1,13 @@
 /**
  * Case Study Template Component
  * Reusable template for detailed project showcases
+ *
+ * NOTE: This component is currently unused but preserved for future case study pages.
+ * To use: Create a case study page and import this template with project-specific data.
+ * Example: /app/projects/[slug]/case-study/page.tsx
+ *
+ * @status Available but not actively used
+ * @lastReviewed December 2025
  */
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";

@@ -24,9 +24,7 @@ const ProjectsStatsSection = dynamic(
     })),
   {
     ssr: false,
-    loading: () => (
-      <div className="h-64 animate-pulse bg-gray-100 dark:bg-gray-800" />
-    ),
+    loading: () => <SimpleSkeleton height="h-64" />,
   },
 );
 
@@ -37,9 +35,7 @@ const VeteranBenefitsBanner = dynamic(
     })),
   {
     ssr: false,
-    loading: () => (
-      <div className="h-48 animate-pulse bg-gray-100 dark:bg-gray-800" />
-    ),
+    loading: () => <SimpleSkeleton height="h-48" />,
   },
 );
 
@@ -50,9 +46,7 @@ const CapabilitiesSection = dynamic(
     })),
   {
     ssr: false,
-    loading: () => (
-      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
-    ),
+    loading: () => <SimpleSkeleton />,
   },
 );
 
@@ -63,9 +57,7 @@ const WhyChooseSection = dynamic(
     })),
   {
     ssr: false,
-    loading: () => (
-      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
-    ),
+    loading: () => <SimpleSkeleton />,
   },
 );
 
@@ -109,16 +101,13 @@ const ProjectsCTASection = dynamic(
 );
 
 import { StrategicCTABanner } from "@/components/ui/cta";
-import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getProjectsSEO } from "@/lib/seo/page-seo-utils";
+import { SimpleSkeleton } from "@/components/ui/SimpleSkeleton";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
-
-// Feature flag - set to false to show full page content
-const SHOW_UNDER_CONSTRUCTION = false;
 
 export default function ProjectsPage() {
   // Analytics tracking
@@ -140,18 +129,6 @@ export default function ProjectsPage() {
   // Get all projects for testimonials section
   const allProjects = PortfolioService.getAllProjects();
 
-  // Show under construction notice while preserving all content below
-  if (SHOW_UNDER_CONSTRUCTION) {
-    return (
-      <UnderConstruction
-        pageName="Projects"
-        description="We're curating our project showcase to highlight completed work with verified details, authentic photos, and accurate client testimonials."
-        estimatedCompletion="December 2025"
-      />
-    );
-  }
-
-  // Original page content preserved below - will be shown when flag is set to false
   return (
     <>
       {/* SEO Meta Tags */}

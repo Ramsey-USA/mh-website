@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
       })
       .filter(Boolean);
 
-    console.info("[File Handler] Received files:", fileInfo);
+    logger.info("[File Handler] Received files:", fileInfo);
 
     // Determine action based on file types
     const hasImages = files.some(

@@ -1,11 +1,13 @@
 import { type Metadata } from "next";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 /**
  * Centralized SEO Metadata Configuration
  * Each page's metadata optimized for 100% SEO score
  */
 
-const baseUrl = process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com";
+const baseUrl =
+  process.env["NEXT_PUBLIC_SITE_URL"] || COMPANY_INFO.urls.getSiteUrl();
 
 export const pageMetadata: Record<string, Metadata> = {
   "/": {

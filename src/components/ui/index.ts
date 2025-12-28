@@ -19,9 +19,7 @@ export { Input, Textarea } from "./forms/Input";
 
 // Layout Components
 export { PageHero } from "./layout/PageHero";
-export { LazyWrapper } from "./layout/LazyWrapper";
 export { ThemeToggle } from "./layout/ThemeToggle";
-export { LoadingPlaceholder } from "./layout/loading-placeholder";
 
 // Modal Components
 export { Modal } from "./modals/Modal";

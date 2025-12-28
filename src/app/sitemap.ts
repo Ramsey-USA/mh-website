@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 /**
  * Dynamic Sitemap - Auto-adapts to new pages
@@ -70,7 +71,7 @@ const ACTIVE_PAGES = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl =
-    process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com";
+    process.env["NEXT_PUBLIC_SITE_URL"] || COMPANY_INFO.urls.getSiteUrl();
   const currentDate = new Date();
 
   // Auto-generate sitemap entries from registry

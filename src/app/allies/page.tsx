@@ -24,15 +24,11 @@ import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
-import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { StructuredData } from "@/components/seo/seo-meta";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
-
-// Feature flag - set to false to show full page content
-const SHOW_UNDER_CONSTRUCTION = false;
 
 // Trade Partner Categories
 const partnerCategories = [
@@ -257,19 +253,6 @@ const partnershipBenefits = [
 export default function AlliesPage() {
   // Analytics tracking
   usePageTracking("Allies");
-
-  // Show under construction notice while preserving all content below
-  if (SHOW_UNDER_CONSTRUCTION) {
-    return (
-      <UnderConstruction
-        pageName="Allies"
-        description="We're refining our ally information to accurately represent partnership opportunities and requirements for subcontractors and suppliers."
-        estimatedCompletion="December 2025"
-      />
-    );
-  }
-
-  // Original page content preserved below - will be shown when flag is set to false
 
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">

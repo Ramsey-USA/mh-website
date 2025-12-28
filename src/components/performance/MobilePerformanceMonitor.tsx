@@ -6,6 +6,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { logger } from "@/lib/utils/logger";
 import {
   isMobileDevice,
   isSlowConnection,
@@ -19,7 +20,7 @@ export function MobilePerformanceMonitor() {
     const slowConnection = isSlowConnection();
 
     // Report device capabilities
-    console.info("[Performance] Device Info:", {
+    logger.info("[Performance] Device Info:", {
       mobile,
       slowConnection,
       screenWidth: window.innerWidth,
@@ -34,7 +35,7 @@ export function MobilePerformanceMonitor() {
           const entries = list.getEntries();
           const lastEntry = entries[entries.length - 1];
           if (lastEntry) {
-            console.info("[Mobile LCP]", lastEntry.startTime, "ms");
+            logger.info("[Mobile LCP]", lastEntry.startTime, "ms");
           }
         });
         lcpObserver.observe({
@@ -45,7 +46,7 @@ export function MobilePerformanceMonitor() {
         // Monitor First Input Delay (FID)
         const fidObserver = new PerformanceObserver((list) => {
           list.getEntries().forEach((entry: any) => {
-            console.info(
+            logger.info(
               "[Mobile FID]",
               entry.processingStart - entry.startTime,
               "ms",
@@ -62,7 +63,7 @@ export function MobilePerformanceMonitor() {
               clsScore += entry.value;
             }
           });
-          console.info("[Mobile CLS]", clsScore);
+          logger.info("[Mobile CLS]", clsScore);
         });
         clsObserver.observe({ type: "layout-shift", buffered: true });
 
@@ -72,7 +73,7 @@ export function MobilePerformanceMonitor() {
           clsObserver.disconnect();
         };
       } catch (error) {
-        console.warn("[Performance] Observer setup failed:", error);
+        logger.warn("[Performance] Observer setup failed:", error);
       }
     }
 

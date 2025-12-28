@@ -15,11 +15,7 @@ import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
-import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { COMPANY_INFO } from "@/lib/constants/company";
-
-// Feature flag - set to false to show full page content
-const SHOW_UNDER_CONSTRUCTION = false;
 
 // Quick contact info with proper accessibility
 const quickContact = [
@@ -89,18 +85,6 @@ export default function ContactPageClient() {
   // Analytics tracking
   usePageTracking("Contact");
 
-  // Show under construction notice while preserving all content below
-  if (SHOW_UNDER_CONSTRUCTION) {
-    return (
-      <UnderConstruction
-        pageName="Contact"
-        description="We're optimizing our contact page for the best user experience. In the meantime, you can reach us directly using the contact information below."
-        estimatedCompletion="December 2025"
-      />
-    );
-  }
-
-  // Original page content preserved below - will be shown when flag is set to false
   // Structured Data for SEO
   const structuredData = {
     "@context": "https://schema.org",

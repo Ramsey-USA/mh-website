@@ -25,9 +25,9 @@ import {
   cultureValues,
 } from "@/lib/data/careers";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getCareersSEO } from "@/lib/seo/page-seo-utils";
+import { SimpleSkeleton } from "@/components/ui/SimpleSkeleton";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
@@ -41,14 +41,9 @@ const TestimonialGrid = dynamic(
     })),
   {
     ssr: false,
-    loading: () => (
-      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
-    ),
+    loading: () => <SimpleSkeleton />,
   },
 );
-
-// Feature flag - set to false to show full page content
-const SHOW_UNDER_CONSTRUCTION = false;
 
 export default function CareersPage() {
   // Analytics tracking
@@ -65,18 +60,6 @@ export default function CareersPage() {
     setShowApplicationModal(true);
   };
 
-  // Show under construction notice while preserving all content below
-  if (SHOW_UNDER_CONSTRUCTION) {
-    return (
-      <UnderConstruction
-        pageName="Careers"
-        description="We're perfecting our career opportunities and benefits information to attract the best talent and accurately represent what makes MH Construction a great place to build your future."
-        estimatedCompletion="December 2025"
-      />
-    );
-  }
-
-  // Original page content preserved below - will be shown when flag is set to false
   return (
     <>
       {/* SEO Meta Tags */}

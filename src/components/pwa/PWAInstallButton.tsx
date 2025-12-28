@@ -65,7 +65,7 @@ export function PWAInstallButton() {
       const { outcome } = await deferredPrompt.userChoice;
 
       if (outcome === "accepted") {
-        console.info("[PWA] User accepted the install prompt");
+        logger.info("[PWA] User accepted the install prompt");
 
         // Track installation with Google Analytics if available
         if (typeof window !== "undefined" && "gtag" in window) {
@@ -84,7 +84,7 @@ export function PWAInstallButton() {
           });
         }
       } else {
-        console.info("[PWA] User dismissed the install prompt");
+        logger.info("[PWA] User dismissed the install prompt");
       }
 
       // Clear the deferred prompt

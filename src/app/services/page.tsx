@@ -6,6 +6,7 @@ import { usePageTracking } from "@/lib/analytics/hooks";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { Button, IconContainer } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { SimpleSkeleton } from "@/components/ui/SimpleSkeleton";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -13,7 +14,6 @@ import {
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { StrategicCTABanner } from "@/components/ui/cta";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { getServicesSEO } from "@/lib/seo/page-seo-utils";
 import {
@@ -59,9 +59,7 @@ const GovernmentProjectsSection = dynamic(
     })),
   {
     ssr: false,
-    loading: () => (
-      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
-    ),
+    loading: () => <SimpleSkeleton />,
   },
 );
 
@@ -72,9 +70,7 @@ const ServiceAreasSection = dynamic(
     })),
   {
     ssr: false,
-    loading: () => (
-      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
-    ),
+    loading: () => <SimpleSkeleton />,
   },
 );
 
@@ -85,9 +81,7 @@ const WhyChooseUs = dynamic(
     })),
   {
     ssr: false,
-    loading: () => (
-      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
-    ),
+    loading: () => <SimpleSkeleton />,
   },
 );
 
@@ -98,9 +92,7 @@ const ConstructionProcessSection = dynamic(
     })),
   {
     ssr: false,
-    loading: () => (
-      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
-    ),
+    loading: () => <SimpleSkeleton />,
   },
 );
 
@@ -146,9 +138,6 @@ const TestimonialsSection = dynamic(
   },
 );
 
-// Feature flag - set to false to show full page content
-const SHOW_UNDER_CONSTRUCTION = false;
-
 export default function ServicesPage() {
   // Analytics tracking
   usePageTracking("Services");
@@ -156,18 +145,6 @@ export default function ServicesPage() {
   // Get enhanced SEO data for Services page
   const servicesSEO = getServicesSEO();
 
-  // Show under construction notice while preserving all content below
-  if (SHOW_UNDER_CONSTRUCTION) {
-    return (
-      <UnderConstruction
-        pageName="Services"
-        description="We're refining our services descriptions to ensure 100% accuracy in what we offer and how we deliver exceptional results for every project."
-        estimatedCompletion="December 2025"
-      />
-    );
-  }
-
-  // Original page content preserved below - will be shown when flag is set to false
   // Structured Data for SEO
   const serviceSchema = {
     "@context": "https://schema.org",

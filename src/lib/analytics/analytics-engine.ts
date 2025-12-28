@@ -774,8 +774,8 @@ export class AdvancedAnalyticsEngine {
   }
 }
 
-// Export singleton instance
-export const analyticsEngine = new AdvancedAnalyticsEngine();
+// Export singleton instance moved to index.ts to avoid duplicate exports
+// export const analyticsEngine = new AdvancedAnalyticsEngine();
 
 // Re-export types for convenience
 export * from "./types";

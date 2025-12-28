@@ -1,6 +1,9 @@
 /**
  * Lightweight Performance Manager
  * Simplified version with essential features only for production use
+ *
+ * NOTE: Renamed to avoid conflicts with full PerformanceManager in performance-manager.ts
+ * Use this lightweight version for basic performance tracking in production
  */
 
 import { useState, useEffect, useCallback } from "react";
@@ -109,8 +112,9 @@ class LightweightPerformanceManager {
   }
 }
 
-// Singleton instance
-export const performanceManager = new LightweightPerformanceManager();
+// Singleton instance - renamed to avoid conflict with PerformanceManager
+export const lightweightPerformanceManager =
+  new LightweightPerformanceManager();
 
 // Essential hooks only
 export function usePerformanceTiming(componentName: string) {
@@ -118,7 +122,10 @@ export function usePerformanceTiming(componentName: string) {
 
   const trackInteraction = (action: string) => {
     const duration = performance.now() - startTime;
-    performanceManager.recordMetric(`${componentName}_${action}`, duration);
+    lightweightPerformanceManager.recordMetric(
+      `${componentName}_${action}`,
+      duration,
+    );
   };
 
   return { trackInteraction };
@@ -136,7 +143,7 @@ export function useOptimizedQuery<T>(
   const memoizedQueryFn = useCallback(queryFn, [queryFn]);
 
   useEffect(() => {
-    const cached = performanceManager.getCache<T>(key);
+    const cached = lightweightPerformanceManager.getCache<T>(key);
     if (cached) {
       setData(cached);
       return;
@@ -146,7 +153,7 @@ export function useOptimizedQuery<T>(
     memoizedQueryFn()
       .then((result) => {
         setData(result);
-        performanceManager.setCache(key, result, ttl);
+        lightweightPerformanceManager.setCache(key, result, ttl);
       })
       .finally(() => setLoading(false));
   }, [key, ttl, memoizedQueryFn]);

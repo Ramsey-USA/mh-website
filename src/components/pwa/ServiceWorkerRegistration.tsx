@@ -33,7 +33,7 @@ export function ServiceWorkerRegistration({
     navigator.serviceWorker
       .register("/sw.js", { scope: "/" })
       .then((reg) => {
-        console.info("[PWA] Service worker registered successfully");
+        logger.info("[PWA] Service worker registered successfully");
         setRegistration(reg);
 
         // Check for updates every hour
@@ -46,14 +46,14 @@ export function ServiceWorkerRegistration({
 
         // Handle initial installation
         if (!navigator.serviceWorker.controller) {
-          console.info("[PWA] Service worker installed for the first time");
+          logger.info("[PWA] Service worker installed for the first time");
           onInstalled?.();
           return;
         }
 
         // Check for waiting service worker
         if (reg.waiting) {
-          console.info("[PWA] New service worker waiting");
+          logger.info("[PWA] New service worker waiting");
           onUpdateAvailable?.(reg);
         }
 
@@ -62,17 +62,17 @@ export function ServiceWorkerRegistration({
           const newWorker = reg.installing;
           if (!newWorker) return;
 
-          console.info("[PWA] New service worker installing");
+          logger.info("[PWA] New service worker installing");
 
           newWorker.addEventListener("statechange", () => {
             if (newWorker.state === "installed") {
               if (navigator.serviceWorker.controller) {
                 // New service worker available
-                console.info("[PWA] New service worker available");
+                logger.info("[PWA] New service worker available");
                 onUpdateAvailable?.(reg);
               } else {
                 // First time install
-                console.info("[PWA] Content cached for offline use");
+                logger.info("[PWA] Content cached for offline use");
                 onInstalled?.();
               }
             }
@@ -88,14 +88,14 @@ export function ServiceWorkerRegistration({
     navigator.serviceWorker.addEventListener("controllerchange", () => {
       if (refreshing) return;
       refreshing = true;
-      console.info("[PWA] New service worker activated, reloading page");
+      logger.info("[PWA] New service worker activated, reloading page");
       window.location.reload();
     });
 
     // Listen for messages from service worker
     navigator.serviceWorker.addEventListener("message", (event) => {
       if (event.data && event.data.type === "SW_UPDATED") {
-        console.info("[PWA] Service worker updated message received");
+        logger.info("[PWA] Service worker updated message received");
         if (registration) {
           onUpdateAvailable?.(registration);
         }

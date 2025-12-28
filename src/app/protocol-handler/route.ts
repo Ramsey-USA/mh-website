@@ -21,7 +21,7 @@ export function GET(request: NextRequest) {
     const action = protocolUrl.hostname;
     const params = Object.fromEntries(protocolUrl.searchParams);
 
-    console.info("[Protocol Handler] Received:", { action, params });
+    logger.info("[Protocol Handler] Received:", { action, params });
 
     // Handle different protocol actions
     switch (action) {

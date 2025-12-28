@@ -19,6 +19,8 @@ export {
 } from "./hooks";
 
 // Optimized components
+// NOTE: OptimizedImage is in lib/performance because it includes performance tracking hooks
+// It's exported here for convenience but the actual component lives in @/components/performance
 export { OptimizedImage } from "@/components/performance/OptimizedImage";
 
 // Code splitting utilities

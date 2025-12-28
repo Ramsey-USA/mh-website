@@ -7,6 +7,7 @@
 
 import type { MetadataRoute } from "next";
 import { detectPageType, PAGE_CATEGORIES } from "@/lib/seo/auto-seo-manager";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 // ============================================================================
 // ACTIVE PAGES REGISTRY
@@ -51,7 +52,7 @@ export const EXCLUDED_PATTERNS = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl =
-    process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com";
+    process.env["NEXT_PUBLIC_SITE_URL"] || COMPANY_INFO.urls.getSiteUrl();
   const currentDate = new Date();
 
   // Generate sitemap entries using auto-detection

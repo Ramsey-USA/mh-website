@@ -5,11 +5,11 @@
 /* Import CSS variables for cohesive design system */
 @import "../styles/variables.css";
 
-/* Import legacy card styles (deprecated - for backward compatibility only) */
-@import "../styles/vintage-service-record.css";
-
 /* Import 3D card flip utilities */
 @import "../styles/card-flip.css";
+
+/* Import video hero section styles */
+@import "../styles/video-hero.css";
 
 /* Material Icons font setup */
 .material-icons {

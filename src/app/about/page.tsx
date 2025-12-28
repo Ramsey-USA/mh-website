@@ -72,11 +72,6 @@ const NextStepsSection = dynamic(
   { ssr: true },
 );
 
-import { UnderConstruction } from "@/components/layout/UnderConstruction";
-
-// Feature flag - set to false to show full page content
-const SHOW_UNDER_CONSTRUCTION = false;
-
 export default function AboutPage() {
   // Analytics tracking
   usePageTracking("About");
@@ -84,18 +79,6 @@ export default function AboutPage() {
   // Get enhanced SEO data for About page
   const aboutSEO = getAboutSEO();
 
-  // Show under construction notice while preserving all content below
-  if (SHOW_UNDER_CONSTRUCTION) {
-    return (
-      <UnderConstruction
-        pageName="About Us"
-        description="We're ensuring every detail about our company history, values, and team accurately reflects the excellence you'll experience when partnering with us."
-        estimatedCompletion="December 2025"
-      />
-    );
-  }
-
-  // Original page content preserved below - will be shown when flag is set to false
   return (
     <>
       {/* SEO Meta Tags */}
