@@ -9,7 +9,7 @@ export default function NotFound() {
         <div className="mb-6">
           <MaterialIcon
             icon="search_off"
-            className="text-gray-400 dark:text-gray-500 mx-auto"
+            className="text-gray-600 dark:text-gray-300 mx-auto"
             size="4xl"
           />
         </div>
@@ -44,7 +44,7 @@ export default function NotFound() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+          <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
             Looking for something specific?
           </p>
           <div className="flex flex-wrap gap-2 justify-center text-sm">

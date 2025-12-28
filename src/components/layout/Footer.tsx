@@ -186,7 +186,7 @@ export default function Footer() {
                     <MaterialIcon
                       icon="thumb_up"
                       size="md"
-                      className="text-gray-400 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(24,119,242,0.8)]"
+                      className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(24,119,242,0.8)]"
                     />
                   </a>
                   <a
@@ -201,7 +201,7 @@ export default function Footer() {
                     <MaterialIcon
                       icon="photo_camera"
                       size="md"
-                      className="text-gray-400 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(228,64,95,0.8)]"
+                      className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(228,64,95,0.8)]"
                     />
                   </a>
                   <a
@@ -216,7 +216,7 @@ export default function Footer() {
                     <MaterialIcon
                       icon="close"
                       size="md"
-                      className="text-gray-400 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(29,155,240,0.8)]"
+                      className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(29,155,240,0.8)]"
                     />
                   </a>
                   <a
@@ -231,7 +231,7 @@ export default function Footer() {
                     <MaterialIcon
                       icon="play_circle"
                       size="md"
-                      className="text-gray-400 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(255,0,0,0.8)]"
+                      className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(255,0,0,0.8)]"
                     />
                   </a>
                   <a
@@ -246,7 +246,7 @@ export default function Footer() {
                     <MaterialIcon
                       icon="work"
                       size="md"
-                      className="text-gray-400 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.8)]"
+                      className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.8)]"
                     />
                   </a>
                 </nav>
@@ -317,7 +317,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="home"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>Home</span>
@@ -339,7 +339,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="handshake"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>Contact</span>
@@ -361,7 +361,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="construction"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>Services</span>
@@ -383,7 +383,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="photo_library"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>Projects</span>
@@ -405,7 +405,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="fact_check"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>Inspections</span>
@@ -427,7 +427,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="engineering"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>Emergency</span>
@@ -449,7 +449,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="help"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>Help/FAQ</span>
@@ -471,7 +471,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="home_repair_service"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>Maintenance</span>
@@ -511,7 +511,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="foundation"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>About Us</span>
@@ -533,7 +533,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="people"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>Our Team</span>
@@ -555,7 +555,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="group"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>Partners</span>
@@ -577,7 +577,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="account_balance"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>Government</span>
@@ -599,7 +599,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="military_tech"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>Veterans</span>
@@ -621,7 +621,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="handshake"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>Careers</span>
@@ -643,7 +643,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="verified"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>Reviews</span>
@@ -665,7 +665,7 @@ export default function Footer() {
                   <MaterialIcon
                     icon="verified_user"
                     size="sm"
-                    className="text-gray-500 dark:text-gray-400 group-hover:text-brand-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
                   />
                   <span className="flex flex-col">
                     <span>Safety</span>

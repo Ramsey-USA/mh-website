@@ -572,7 +572,7 @@ export default function PublicSectorPage() {
                           >
                             <MaterialIcon
                               icon="arrow_right"
-                              className="mr-2 text-gray-400"
+                              className="mr-2 text-gray-600 dark:text-gray-300"
                               size="sm"
                             />
                             <span>{item}</span>
@@ -955,7 +955,9 @@ export default function PublicSectorPage() {
                       ariaLabel="Call Us"
                       className="mb-3 text-gray-300"
                     />
-                    <p className="mb-1 text-gray-400 text-sm">Call Us</p>
+                    <p className="mb-1 text-gray-600 dark:text-gray-300 text-sm">
+                      Call Us
+                    </p>
                     <a
                       href={`tel:${COMPANY_INFO.phone.tel}`}
                       className="font-bold text-white hover:text-gray-300 text-2xl"
@@ -971,7 +973,9 @@ export default function PublicSectorPage() {
                       ariaLabel="Email Us"
                       className="mb-3 text-gray-300"
                     />
-                    <p className="mb-1 text-gray-400 text-sm">Email Us</p>
+                    <p className="mb-1 text-gray-600 dark:text-gray-300 text-sm">
+                      Email Us
+                    </p>
                     <a
                       href={`mailto:${COMPANY_INFO.email.main}`}
                       className="font-bold text-white hover:text-gray-300 text-lg"
@@ -987,7 +991,9 @@ export default function PublicSectorPage() {
                       ariaLabel="Visit Us"
                       className="mb-3 text-gray-300"
                     />
-                    <p className="mb-1 text-gray-400 text-sm">Visit Us</p>
+                    <p className="mb-1 text-gray-600 dark:text-gray-300 text-sm">
+                      Visit Us
+                    </p>
                     <p className="font-bold text-white text-lg">
                       {COMPANY_INFO.address.street}
                       <br />
@@ -1034,7 +1040,7 @@ export default function PublicSectorPage() {
                 </Button>
               </div>
 
-              <p className="mt-8 text-gray-400 text-sm">
+              <p className="mt-8 text-gray-600 dark:text-gray-300 text-sm">
                 <MaterialIcon
                   icon="schedule"
                   className="inline mr-2"

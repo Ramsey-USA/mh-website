@@ -22,7 +22,7 @@ const nextConfig = {
 
   // Target modern browsers to reduce polyfills
   // Matches browserslist: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
-  swcMinify: true,
+  // Note: swcMinify is enabled by default in Next.js 13+
 
   experimental: {
     optimizePackageImports: [
@@ -35,6 +35,7 @@ const nextConfig = {
       "@radix-ui/react-progress",
     ],
     swcPlugins: [],
+    // CSS optimization - cssChunking defaults to true for better splitting
   },
 
   // === BUILD CONFIGURATION ===

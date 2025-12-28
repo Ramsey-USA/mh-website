@@ -80,10 +80,11 @@ export function Navigation() {
                 <Image
                   src="/images/logo/mh-logo.png"
                   alt="MH Construction"
-                  width={141}
-                  height={141}
+                  width={300}
+                  height={300}
                   priority
                   sizes="(max-width: 475px) 70px, (max-width: 640px) 77px, (max-width: 768px) 90px, (max-width: 1024px) 112px, 141px"
+                  quality={85}
                   className="drop-shadow-lg w-auto h-[70px] xs:h-[77px] sm:h-[90px] md:h-[112px] lg:h-[141px]"
                 />
               </Link>
@@ -148,8 +149,9 @@ export function Navigation() {
               src="/images/logo/mh-logo.png"
               alt=""
               fill
-              sizes="100vw"
-              quality={30}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={20}
+              priority={false}
               className="opacity-5 dark:opacity-10 grayscale object-contain filter"
             />
           </div>
@@ -287,7 +289,7 @@ export function Navigation() {
                   <MaterialIcon
                     icon="thumb_up"
                     size="md"
-                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(24,119,242,0.8)]"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(24,119,242,0.8)]"
                   />
                 </a>
                 <a
@@ -301,7 +303,7 @@ export function Navigation() {
                   <MaterialIcon
                     icon="photo_camera"
                     size="md"
-                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(228,64,95,0.8)]"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(228,64,95,0.8)]"
                   />
                 </a>
                 <a
@@ -315,7 +317,7 @@ export function Navigation() {
                   <MaterialIcon
                     icon="work"
                     size="md"
-                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.8)]"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.8)]"
                   />
                 </a>
                 <a
@@ -329,7 +331,7 @@ export function Navigation() {
                   <MaterialIcon
                     icon="close"
                     size="md"
-                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(29,155,240,0.8)]"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(29,155,240,0.8)]"
                   />
                 </a>
                 <a
@@ -343,7 +345,7 @@ export function Navigation() {
                   <MaterialIcon
                     icon="play_circle"
                     size="md"
-                    className="text-gray-400 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(255,0,0,0.8)]"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(255,0,0,0.8)]"
                   />
                 </a>
               </div>
