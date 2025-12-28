@@ -1,0 +1,11 @@
+# Cloudflare Pages Redirects Configuration
+# Handles Next.js static export routing
+
+# Serve static files directly (no redirect)
+/_next/static/* 200
+
+# Handle API routes if using Edge Functions
+/api/* 200
+
+# SPA fallback for all other routes
+/*  /index.html  200
