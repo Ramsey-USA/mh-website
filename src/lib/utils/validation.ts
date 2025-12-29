@@ -13,7 +13,7 @@ export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
  * Phone validation regex (international format support)
  * Accepts formats like: 5093086489, +15093086489, (509) 308-6489
  */
-export const PHONE_REGEX = /^[\+]?[1-9][\d]{0,15}$/;
+export const PHONE_REGEX = /^[+]?[1-9][\d]{0,15}$/;
 
 /**
  * Validate email address
@@ -30,7 +30,7 @@ export function isValidEmail(email: string): boolean {
  * @returns true if valid, false otherwise
  */
 export function isValidPhone(phone: string): boolean {
-  const cleaned = phone.replace(/[\s\-\(\)]/g, "");
+  const cleaned = phone.replace(/[\s()-]/g, "");
   return PHONE_REGEX.test(cleaned);
 }
 
@@ -40,7 +40,7 @@ export function isValidPhone(phone: string): boolean {
  * @returns Cleaned phone number with only digits and optional +
  */
 export function cleanPhone(phone: string): string {
-  return phone.replace(/[\s\-\(\)]/g, "");
+  return phone.replace(/[\s()-]/g, "");
 }
 
 /**

@@ -40,7 +40,7 @@ export class SQLInjectionScanner {
     /Warning.*\Wpg_/i,
     /valid PostgreSQL result/i,
     /Npgsql\./i,
-    /Driver.* SQL[\-\_\ ]*Server/i,
+    /Driver.* SQL[-_ ]*Server/i,
     /OLE DB.* SQL Server/i,
     /SQLServer JDBC Driver/i,
     /SqlClient\./i,

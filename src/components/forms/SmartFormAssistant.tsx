@@ -1,18 +1,11 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { MaterialIcon } from "../icons/MaterialIcon";
-import { Button } from "../ui";
-
-// Dynamic import for Framer Motion to reduce bundle size
-const MotionDiv = dynamic(
-  () => import("framer-motion").then((mod) => mod.motion.div),
-  { ssr: false },
-);
-const AnimatePresence = dynamic(
-  () => import("framer-motion").then((mod) => mod.AnimatePresence),
-  { ssr: false },
-);
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { Button } from "@/components/ui";
+import {
+  motion,
+  AnimatePresence,
+} from "@/components/animations/FramerMotionComponents";
 
 interface FieldValidation {
   isValid: boolean;
@@ -64,7 +57,7 @@ export function SmartFormAssistant({
   return (
     <AnimatePresence>
       {showSmartSuggestions && (
-        <MotionDiv
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
@@ -118,7 +111,7 @@ export function SmartFormAssistant({
                   </span>
                 </div>
                 <div className="bg-gray-200 dark:bg-gray-600 rounded-full w-full h-2">
-                  <MotionDiv
+                  <motion.div
                     className="bg-brand-primary rounded-full h-2"
                     initial={{ width: 0 }}
                     animate={{ width: `${completionProgress}%` }}
@@ -408,7 +401,7 @@ export function SmartFormAssistant({
                 </div>
               </div>
             )}
-        </MotionDiv>
+        </motion.div>
       )}
     </AnimatePresence>
   );

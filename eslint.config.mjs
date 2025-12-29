@@ -1,7 +1,6 @@
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
-import nextPlugin from "@next/eslint-plugin-next";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -17,8 +16,8 @@ const compat = new FlatCompat({
  * Production-ready rules ensuring code quality and consistency
  *
  * @see docs/technical/configuration-guide.md
- * @version 2.0.0
- * @lastUpdated 2025-11-08
+ * @version 2.1.0
+ * @lastUpdated 2025-12-29
  */
 const eslintConfig = [
   // === IGNORE PATTERNS ===
@@ -71,21 +70,8 @@ const eslintConfig = [
   },
 
   // === BASE CONFIGURATION ===
-  // Extend Next.js recommended configs (ensure Next plugin detected)
-  ...compat.config({
-    extends: ["next", "next/core-web-vitals", "next/typescript"],
-  }),
-
-  // Explicitly register Next.js plugin
-  {
-    plugins: {
-      "@next/next": nextPlugin,
-    },
-    rules: {
-      ...nextPlugin.configs.recommended.rules,
-      ...nextPlugin.configs["core-web-vitals"].rules,
-    },
-  },
+  // Extend Next.js recommended configs using array spread (ESLint 9 compatible)
+  ...compat.extends("next/core-web-vitals", "next/typescript"),
 
   // === CUSTOM RULES ===
   {
@@ -133,6 +119,19 @@ const eslintConfig = [
       "prefer-arrow-callback": "warn",
       "no-duplicate-imports": "error",
       "no-unused-expressions": "warn",
+
+      // === Quality Control - Prevent Dead Code ===
+      "no-warning-comments": [
+        "warn",
+        {
+          terms: ["FIXME", "XXX", "HACK"],
+          location: "start",
+        },
+      ],
+      "no-unreachable": "error",
+      "no-unused-labels": "error",
+      "no-useless-catch": "warn",
+      "no-useless-escape": "warn",
 
       // === Import Organization ===
       "no-restricted-imports": [

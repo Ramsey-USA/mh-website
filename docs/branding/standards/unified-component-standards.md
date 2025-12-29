@@ -1,5 +1,6 @@
 # MH Construction Unified Component & Typography Standards
 
+**Category:** Branding - Standards  
 **Version:** 7.0.0  
 **Last Updated:** December 28, 2025  
 **Status:** ✅ Official Standard - Consolidated Documentation  

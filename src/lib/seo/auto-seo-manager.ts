@@ -68,7 +68,7 @@ const SEO_RULES = {
   },
   url: {
     maxLength: 100,
-    preferredStructure: /^[a-z0-9-\/]+$/,
+    preferredStructure: /^[a-z0-9-/]+$/,
   },
 };
 

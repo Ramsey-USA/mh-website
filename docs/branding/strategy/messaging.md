@@ -1,10 +1,9 @@
 # MH Construction Messaging Guidelines
 
-**Date:** December 13, 2025
-**Status:** ✅ Current - Veteran-Owned Excellence Transformation
-**Category:** Business - Brand Guidelines
-**Version:** 7.0.0
-**Last Updated:** December 13, 2025
+**Category:** Branding - Strategy  
+**Last Updated:** December 28, 2025  
+**Version:** 7.0.0  
+**Status:** ✅ Active
 
 **⭐ MAJOR UPDATE (Dec 13, 2025)**: **Veteran-Owned Excellence Transformation** - Complete shift from
 AI/tech-focused messaging to veteran values and honest relationships:

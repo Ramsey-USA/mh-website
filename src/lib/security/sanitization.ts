@@ -157,7 +157,7 @@ export function sanitizeFilename(filename: string): string | null {
 
   // Remove path traversal attempts
   let sanitized = filename.replace(/\.\./g, "");
-  sanitized = sanitized.replace(/[\/\\]/g, "");
+  sanitized = sanitized.replace(/[/\\]/g, "");
 
   // Remove dangerous characters
   sanitized = sanitized.replace(/[<>:"|?*\x00-\x1F]/g, "");

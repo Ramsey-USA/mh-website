@@ -1,3 +1,8 @@
+/**
+ * Home Page Components
+ * Main sections for the homepage
+ */
+
 export { HeroSection } from "./HeroSection";
 export { VideoHeroSection } from "./VideoHeroSection";
 export { FeaturesSection } from "./FeaturesSection";

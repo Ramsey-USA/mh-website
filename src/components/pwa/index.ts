@@ -1,3 +1,8 @@
+/**
+ * PWA Components
+ * Progressive Web App functionality components
+ */
+
 export {
   ServiceWorkerRegistration,
   useServiceWorkerUpdate,

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Script from "next/script";
+import { logger } from "@/lib/utils/logger";
 
 interface GoogleAnalyticsProps {
   measurementId: string;
@@ -14,7 +15,7 @@ export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
     if (process.env.NODE_ENV !== "production") return;
 
     const loadAnalytics = () => {
-      console.info("[Analytics] Loading Google Analytics");
+      logger.info("Loading Google Analytics");
     };
 
     // Load after user interaction or timeout

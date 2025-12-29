@@ -2,7 +2,9 @@
 
 **START HERE** - This is your single source of truth for the entire project.
 
-**Building projects for the Client, NOT the Dollar** — Founded by Mike Holstein in 2010, purchased by Army veteran Jeremy Thamert in 2025. Veteran excellence, honest communication, and proven craftsmanship.
+**Building projects for the Client, NOT the Dollar** — Founded by Mike Holstein in 2010,
+purchased by Army veteran Jeremy Thamert in 2025. Veteran excellence, honest communication,
+and proven craftsmanship.
 
 **(509) 308-6489** | **<office@mhc-gc.com>** | **mhc-gc.com**
 
@@ -13,15 +15,20 @@
 **New to this project?** Follow this exact path:
 
 1. **Read this README** (you're here) - Project overview, tech stack, setup
-2. **Study the [Homepage](src/app/page.tsx)** as your reference standard - See [Homepage Documentation](docs/technical/homepage.md) for complete breakdown
-3. **Review [Unified Component Standards](docs/branding/standards/unified-component-standards.md) v7.0.0** - Complete design system (colors, typography, components)
-4. **Study [Component Cheatsheet](docs/development/quick-reference/component-cheatsheet.md)** - Copy-paste patterns matching homepage style
+2. **Study the [Homepage](src/app/page.tsx)** as your reference standard - See
+   [Homepage Documentation](docs/technical/homepage.md) for complete breakdown
+3. **Review [Unified Component Standards](docs/branding/standards/unified-component-standards.md)
+   v7.0.0** - Complete design system (colors, typography, components)
+4. **Study [Component Cheatsheet](docs/development/quick-reference/component-cheatsheet.md)** -
+   Copy-paste patterns matching homepage style
 5. **Use [Page Template Guide](docs/development/standards/page-template-guide.md)** - Complete boilerplate for new pages
 6. **Build your page** using StandardSection template and cheatsheet patterns to match homepage cohesiveness
-7. **Audit with [Page Compliance Checklist](docs/development/standards/page-compliance-checklist.md)** - 150+ items to verify homepage-level quality
+7. **Audit with [Page Compliance Checklist](docs/development/standards/page-compliance-checklist.md)** -
+   150+ items to verify homepage-level quality
 8. **Deploy** following standards
 
-**Key Principle:** Your page should feel like it belongs on the same site as the homepage - same visual weight, spacing, animations, and polish.
+**Key Principle:** Your page should feel like it belongs on the same site as the
+homepage - same visual weight, spacing, animations, and polish.
 
 **Daily Reference:**
 
@@ -142,6 +149,13 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 - **Analytics:** Custom localStorage-based system
 - **CI/CD:** GitHub Actions
 
+### Quality Control
+
+- **Pre-commit hooks:** Auto-run type-check and quality scans before each commit
+- **CI/CD pipeline:** Automated TypeScript, ESLint 9, tests, and build verification
+- **AI workflow:** Ask AI: _"Run quality check and fix issues"_ → instant fixes
+- **Manual commands:** `npm run type-check`, `npm run lint`, `npm run quality:check`
+
 ### Features & Capabilities
 
 - **PWA:** Service Worker v4.0.0, offline support, installable
@@ -259,7 +273,7 @@ npm run clean            # Clean build artifacts
 
 All documentation is organized in `/docs/` by category:
 
-```
+```text
 docs/
 ├── branding/                     # Brand guidelines
 │   ├── standards/               # unified-component-standards.md (v7.0.0), color-system.md, etc.
@@ -292,15 +306,20 @@ contributing.md                         # Contribution guidelines
 
 **Key Documentation:**
 
-- **Development:** [Component Cheatsheet](docs/development/quick-reference/component-cheatsheet.md) | [Compliance Checklist](docs/development/standards/page-compliance-checklist.md) | [StandardSection Template](docs/development/components/template-components.md)
-- **Design System:** [Unified Component Standards](docs/branding/standards/unified-component-standards.md) v7.0.0 (consolidated typography & components)
+- **Development:**
+  [Component Cheatsheet](docs/development/quick-reference/component-cheatsheet.md) |
+  [Compliance Checklist](docs/development/standards/page-compliance-checklist.md) |
+  [StandardSection Template](docs/development/components/template-components.md)
+- **Design System:**
+  [Unified Component Standards](docs/branding/standards/unified-component-standards.md) v7.0.0
+  (consolidated typography & components)
 - **Marketing:** [Analytics Guide for Matt & Jeremy](analytics-guide-for-matt-and-jeremy.md) | [SEO Quick Reference](seo-quick-reference.md)
 
 ---
 
 ## Project Architecture
 
-```
+```text
 mh-website/
 ├── src/
 │   ├── app/                      # Next.js 15 App Router
@@ -625,7 +644,8 @@ All rights reserved. This software and associated documentation files are propri
 
 ## About the Veteran Transition
 
-**January 2025** - MH Construction transitioned from founder Mike Holstein to Army veteran Jeremy Thamert, continuing 15 years of construction excellence with renewed veteran commitment.
+**January 2025** - MH Construction transitioned from founder Mike Holstein to Army veteran
+Jeremy Thamert, continuing 15 years of construction excellence with renewed veteran commitment.
 
 **Core Values Unchanged:**
 

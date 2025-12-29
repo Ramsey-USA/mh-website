@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { TIMING } from "@/lib/constants/timing";
-import { MaterialIcon } from "../icons/MaterialIcon";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   mockTestimonials,
   type ClientTestimonial,

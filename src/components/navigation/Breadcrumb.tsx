@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { MaterialIcon } from "../icons/MaterialIcon";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 export interface BreadcrumbItem {
   label: string;

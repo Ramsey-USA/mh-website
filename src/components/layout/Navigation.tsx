@@ -2,8 +2,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ThemeToggle } from "../ui/layout/ThemeToggle";
-import { MaterialIcon } from "../icons/MaterialIcon";
+import { ThemeToggle } from "@/components/ui/layout/ThemeToggle";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 /**
  * Global Hamburger Navigation Component

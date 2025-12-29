@@ -112,15 +112,5 @@ export const injectResourceHints = () => {
 
     // Preload critical fonts and images
     preloadLink("/images/logo/mh-logo.png", "image");
-
-    // DNS prefetch for external domains can be added here if needed
-    // Example:
-    // const dnsPrefetch = (href: string) => {
-    //   const link = document.createElement("link");
-    //   link.rel = "dns-prefetch";
-    //   link.href = href;
-    //   head.appendChild(link);
-    // };
-    // dnsPrefetch('https://fonts.googleapis.com')
   }
 };

@@ -3,6 +3,7 @@
 // Optimized imports - only import what we need to reduce bundle size
 import {
   motion,
+  AnimatePresence,
   useScroll,
   useTransform,
   useSpring,
@@ -11,6 +12,9 @@ import {
 import { useRef, type ReactNode, useState, useEffect } from "react";
 import { TIMING } from "@/lib/constants/timing";
 import { getAnimationConfig } from "@/lib/performance/mobile-optimizations";
+
+// Re-export motion primitives for direct use
+export { motion, AnimatePresence };
 
 // Get performance-aware animation config
 const animConfig =

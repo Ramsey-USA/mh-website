@@ -1,7 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Card, CardContent, CardHeader, CardTitle, Button } from "../ui";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  Button,
+} from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
 
 interface MapLocation {
@@ -19,12 +25,12 @@ interface InteractiveMapProps {
   className?: string;
 }
 
-export const InteractiveMap = ({
+export function InteractiveMap({
   showServiceAreas = true,
   showProjects = false,
   height = "400px",
   className = "",
-}: InteractiveMapProps) => {
+}: InteractiveMapProps) {
   const [selectedLocation, setSelectedLocation] = useState<MapLocation | null>(
     null,
   );
@@ -351,10 +357,10 @@ export const InteractiveMap = ({
       </Card>
     </div>
   );
-};
+}
 
 // Service Area Overview Component
-export const ServiceAreaOverview = () => {
+export function ServiceAreaOverview() {
   const serviceAreas = [
     {
       city: "Pasco",
@@ -420,4 +426,4 @@ export const ServiceAreaOverview = () => {
       ))}
     </div>
   );
-};
+}

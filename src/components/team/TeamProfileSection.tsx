@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { MaterialIcon } from "../icons/MaterialIcon";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { SkillsRadarChart } from "./SkillsRadarChart";
 import { type VintageTeamMember } from "@/lib/data/vintage-team";
 import { useEffect, useState } from "react";
@@ -248,22 +248,6 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
         textColor: "text-white",
       });
     }
-
-    // FUTURE BADGE OPPORTUNITIES (commented for reference):
-    // - OSHA 30 Certified (member.certifications?.includes("OSHA 30"))
-    // - LEED Certified Professional (sustainability credentials)
-    // - First Aid/CPR Certified (member.certifications?.includes("CPR"))
-    // - CDL License Holder (member.certifications?.includes("CDL"))
-    // - Mentor Achievement (10+ mentorships)
-    // - Decade of Service (10+ years at company)
-    // - Award Winner (specific industry awards)
-    // - Forklift Certified (equipment operations)
-    // - Bilingual Professional (Spanish/English interpreter)
-    // - Community Leader (volunteer/community work)
-    // - Project Excellence (consistent on-time delivery)
-    // - Budget Master (under-budget project completion)
-    // - Client Retention Specialist (repeat client rate)
-    // - Cross-Functional Expert (multiple specialty areas)
 
     return badges;
   };

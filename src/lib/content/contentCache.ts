@@ -89,12 +89,6 @@ Dedicated administrative and support team ensuring project success.
  * Get content by key - Edge Runtime compatible
  */
 export function getContent(key: string): ContentItem | null {
-  // In production with Cloudflare KV:
-  // if (env?.CONTENT_KV) {
-  //   const cached = await env.CONTENT_KV.get(key, 'json');
-  //   if (cached) return cached;
-  // }
-
   return contentCache[key] || null;
 }
 
