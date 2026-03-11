@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -22,25 +22,9 @@ interface OptimizedImageProps {
 }
 
 // Generate a simple blur data URL for placeholder
-const generateBlurDataURL = (width = 400, height = 300): string => {
-  const canvas = document.createElement("canvas");
-  canvas.width = width;
-  canvas.height = height;
-  const ctx = canvas.getContext("2d");
-
-  if (!ctx) return "";
-
-  // Create a simple gradient blur effect
-  const gradient = ctx.createLinearGradient(0, 0, width, height);
-  gradient.addColorStop(0, "#f3f4f6");
-  gradient.addColorStop(0.5, "#e5e7eb");
-  gradient.addColorStop(1, "#d1d5db");
-
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, width, height);
-
-  return canvas.toDataURL();
-};
+// Static base64 blur placeholder — avoids canvas/DOM dependency and SSR/hydration mismatch
+const BLUR_DATA_URL =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAMElEQVQI12NgYGBg+P//P8P/GQwMDAwMDP/////MYGBgYGBg+M/AwMDAwMDAsAEAVxQGiWvBl5AAAAAASUVORK5CYII=";
 
 export function OptimizedImage({
   src,
@@ -60,19 +44,19 @@ export function OptimizedImage({
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  const handleLoad = useCallback(() => {
+  const handleLoad = useCallback((): void => {
     setIsLoaded(true);
     onLoad?.();
   }, [onLoad]);
 
-  const handleError = useCallback(() => {
+  const handleError = useCallback((): void => {
     setHasError(true);
   }, []);
 
-  // Generate blur data URL if not provided
-  const defaultBlurDataURL =
-    blurDataURL ||
-    (typeof window !== "undefined" ? generateBlurDataURL(width, height) : "");
+  const defaultBlurDataURL = useMemo(
+    () => blurDataURL || BLUR_DATA_URL,
+    [blurDataURL],
+  );
 
   const imageProps = {
     src: hasError ? "/images/placeholder.webp" : src,
@@ -117,8 +101,10 @@ export function OptimizedImage({
 }
 
 // Specialized component for hero images
-interface HeroImageProps
-  extends Omit<OptimizedImageProps, "priority" | "sizes"> {
+interface HeroImageProps extends Omit<
+  OptimizedImageProps,
+  "priority" | "sizes"
+> {
   overlay?: boolean;
   overlayClassName?: string;
 }

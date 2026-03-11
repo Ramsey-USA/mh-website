@@ -1,23 +1,11 @@
-/**
- * Optimized Image Component
- * High-performance image component with lazy loading, optimization, and performance tracking
- *
- * NOTE: Currently not actively used in the codebase. Next.js Image component is used directly instead.
- * This component provides additional performance tracking and lazy loading features.
- * Consider using this for performance-critical images that need tracking.
- *
- * @status Available but not actively used
- * @lastReviewed December 2025
- */
-
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import { logger } from "@/lib/utils/logger";
-import Image from "next/image";
-import { useLazyImage, usePerformanceTiming } from "@/lib/performance/hooks";
-import { ImageOptimizer } from "@/lib/performance/performance-manager";
-import { cn } from "@/lib/utils";
+import React from "react";
+import {
+  OptimizedImage as CanonicalOptimizedImage,
+  HeroImage as CanonicalHeroImage,
+  GalleryImage as CanonicalGalleryImage,
+} from "@/components/ui/media/OptimizedImage";
 
 interface OptimizedImageProps {
   src: string;
@@ -33,266 +21,57 @@ interface OptimizedImageProps {
   blurDataURL?: string;
   onLoad?: () => void;
   onError?: () => void;
-  // Performance tracking
+  // Legacy props kept for backward compatibility
   trackPerformance?: boolean;
   componentName?: string;
-  // Lazy loading options
   lazy?: boolean;
   rootMargin?: string;
   threshold?: number;
-  // Responsive options
   breakpoints?: Array<{ minWidth?: number; maxWidth?: number; vw: number }>;
   widths?: number[];
+  enableAnimation?: boolean;
 }
 
+/**
+ * Compatibility export for legacy performance image imports.
+ *
+ * Canonical image implementation lives in "@/components/ui/media/OptimizedImage".
+ */
 export function OptimizedImage({
-  src,
-  alt,
   width,
   height,
-  className,
-  priority = false,
-  quality = 75,
-  sizes,
-  fill = false,
-  placeholder = "empty",
-  blurDataURL,
-  onLoad,
-  onError,
-  trackPerformance = true,
-  componentName = "OptimizedImage",
-  lazy = true,
-  rootMargin = "50px",
-  threshold = 0.1,
-  breakpoints,
+  quality,
+  ...props
 }: OptimizedImageProps & React.ImgHTMLAttributes<HTMLImageElement>) {
-  const [imageError, setImageError] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const loadStartTime = useRef<number | undefined>(undefined);
+  const numericProps = {
+    ...(width !== undefined ? { width: Number(width) } : {}),
+    ...(height !== undefined ? { height: Number(height) } : {}),
+    ...(quality !== undefined ? { quality: Number(quality) } : {}),
+  };
 
-  // Performance tracking
-  const { trackInteraction } = usePerformanceTiming(componentName);
-
-  // Lazy loading with performance tracking
-  const {
-    imgRef: _imgRef,
-    loaded: _loaded,
-    error: _error,
-    inView,
-  } = useLazyImage(src, {
-    rootMargin: lazy ? rootMargin : "0px",
-    threshold: lazy ? threshold : 0,
-    onLoad: () => {
-      if (loadStartTime.current && trackPerformance) {
-        const loadTime = performance.now() - loadStartTime.current;
-        logger.log(`Image ${src} loaded in ${loadTime.toFixed(2)}ms`);
-      }
-      setIsLoaded(true);
-      onLoad?.();
-    },
-    onError: () => {
-      setImageError(true);
-      onError?.();
-    },
-  });
-
-  // Generate responsive image attributes
-  // srcSet generation skipped (Next/Image handles responsive sources).
-  const imageSizes =
-    sizes ||
-    (breakpoints
-      ? ImageOptimizer.generateSizes(breakpoints)
-      : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw");
-
-  // Track load start time
-  useEffect(() => {
-    if (inView && !priority) {
-      loadStartTime.current = performance.now();
-    }
-  }, [inView, priority]);
-
-  // Preload critical images
-  useEffect(() => {
-    if (priority) {
-      ImageOptimizer.preloadCriticalImages([src]);
-      loadStartTime.current = performance.now();
-    }
-  }, [src, priority]);
-
-  // Handle click interactions for performance tracking
-  const handleClick = trackPerformance ? trackInteraction("click") : undefined;
-
-  // Build image URL with optimization parameters
-  const optimizedSrc = `${src}${src.includes("?") ? "&" : "?"}q=${quality}`;
-
-  // Blur placeholder styles
-  const blurStyle =
-    placeholder === "blur" && blurDataURL
-      ? {
-          backgroundImage: `url(${blurDataURL})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }
-      : {};
-
-  // Container styles for fill mode
-  const containerStyles = fill
-    ? {
-        position: "relative" as const,
-        width: "100%",
-        height: "100%",
-      }
-    : {};
-
-  // Image styles
-  const imageStyles = fill
-    ? {
-        position: "absolute" as const,
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        objectFit: "cover" as const,
-      }
-    : {};
-
-  if (imageError) {
-    return (
-      <div
-        className={cn(
-          "flex items-center justify-center bg-muted text-muted-foreground",
-          fill ? "absolute inset-0" : "",
-          className,
-        )}
-        style={fill ? imageStyles : { width, height }}
-      >
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-          />
-        </svg>
-      </div>
-    );
-  }
-
-  const imageSizeProps: Partial<{
-    width: number | `${number}`;
-    height: number | `${number}`;
-  }> = {};
-  if (!fill) {
-    imageSizeProps.width = (width !== undefined ? width : 500) as
-      | number
-      | `${number}`;
-    imageSizeProps.height = (height !== undefined ? height : 300) as
-      | number
-      | `${number}`;
-  }
-
-  const imageElement = (
-    <Image
-      src={!lazy || priority || inView ? optimizedSrc : src}
-      alt={alt}
-      {...imageSizeProps}
-      sizes={!lazy || priority || inView ? imageSizes : undefined}
-      priority={priority}
-      quality={quality}
-      placeholder={placeholder}
-      blurDataURL={blurDataURL ?? (undefined as unknown as string)}
-      fill={fill}
-      className={cn(
-        "transition-opacity duration-300",
-        !isLoaded && placeholder === "blur" ? "opacity-0" : "",
-        isLoaded ? "opacity-100" : "",
-        fill ? "object-cover" : "",
-        className,
-      )}
-      style={{
-        ...imageStyles,
-        ...blurStyle,
-      }}
-      onClick={handleClick}
-      onLoad={() => {
-        if (loadStartTime.current && trackPerformance) {
-          const loadTime = performance.now() - loadStartTime.current;
-          logger.log(`Image ${src} loaded in ${loadTime.toFixed(2)}ms`);
-        }
-        setIsLoaded(true);
-        onLoad?.();
-      }}
-      onError={() => {
-        setImageError(true);
-        onError?.();
-      }}
-    />
-  );
-
-  if (fill) {
-    return (
-      <div style={containerStyles} className={cn("overflow-hidden", className)}>
-        {placeholder === "blur" && blurDataURL && !isLoaded && (
-          <div
-            className="absolute inset-0 transition-opacity duration-300"
-            style={{
-              ...blurStyle,
-              opacity: isLoaded ? 0 : 1,
-            }}
-          />
-        )}
-        {imageElement}
-      </div>
-    );
-  }
-
-  return imageElement;
+  return <CanonicalOptimizedImage {...props} {...numericProps} />;
 }
 
-// HOC for automatic performance tracking
+// HOC preserved for API compatibility
 export function withImagePerformanceTracking<P extends object>(
   Component: React.ComponentType<P>,
 ) {
-  return function PerformanceTrackedImage(
-    props: P & { componentName?: string },
-  ) {
-    const { componentName = Component.displayName || Component.name, ...rest } =
-      props;
-    const { trackInteraction } = usePerformanceTiming(`${componentName}_Image`);
-
-    return (
-      <Component
-        {...(rest as P)}
-        trackPerformance={true}
-        componentName={componentName}
-        onLoad={() => {
-          const endTracking = trackInteraction("load");
-          endTracking();
-        }}
-      />
-    );
+  return function PerformanceTrackedImage(props: P) {
+    return <Component {...props} />;
   };
 }
 
-// Specialized components for common use cases
+// Specialized compatibility variants
 export const HeroImage = withImagePerformanceTracking(
   (props: OptimizedImageProps) => {
+    const { width, height, quality, ...rest } = props;
+
     return (
-      <OptimizedImage
-        {...props}
-        priority={true}
-        lazy={false}
-        quality={90}
-        componentName="HeroImage"
-        breakpoints={[
-          { maxWidth: 768, vw: 100 },
-          { minWidth: 769, vw: 50 },
-        ]}
+      <CanonicalHeroImage
+        {...rest}
+        {...(width !== undefined ? { width: Number(width) } : {})}
+        {...(height !== undefined ? { height: Number(height) } : {})}
+        {...(quality !== undefined ? { quality: Number(quality) } : {})}
       />
     );
   },
@@ -300,17 +79,16 @@ export const HeroImage = withImagePerformanceTracking(
 
 export const ThumbnailImage = withImagePerformanceTracking(
   (props: OptimizedImageProps) => {
+    const { width, height, quality, sizes, enableAnimation, ...rest } = props;
+
     return (
-      <OptimizedImage
-        {...props}
-        lazy={true}
-        quality={60}
-        componentName="ThumbnailImage"
-        widths={[150, 300, 450]}
-        breakpoints={[
-          { maxWidth: 768, vw: 30 },
-          { minWidth: 769, vw: 15 },
-        ]}
+      <CanonicalOptimizedImage
+        {...rest}
+        {...(width !== undefined ? { width: Number(width) } : {})}
+        {...(height !== undefined ? { height: Number(height) } : {})}
+        quality={quality !== undefined ? Number(quality) : 60}
+        sizes={sizes || "(max-width: 768px) 30vw, 15vw"}
+        enableAnimation={enableAnimation ?? false}
       />
     );
   },
@@ -318,23 +96,23 @@ export const ThumbnailImage = withImagePerformanceTracking(
 
 export const GalleryImage = withImagePerformanceTracking(
   (props: OptimizedImageProps) => {
+    const { width, height, quality, sizes, enableAnimation, ...rest } = props;
+
     return (
-      <OptimizedImage
-        {...props}
-        lazy={true}
-        quality={75}
-        componentName="GalleryImage"
-        breakpoints={[
-          { maxWidth: 640, vw: 100 },
-          { minWidth: 641, maxWidth: 1024, vw: 50 },
-          { minWidth: 1025, vw: 33 },
-        ]}
+      <CanonicalGalleryImage
+        {...rest}
+        {...(width !== undefined ? { width: Number(width) } : {})}
+        {...(height !== undefined ? { height: Number(height) } : {})}
+        quality={quality !== undefined ? Number(quality) : 75}
+        sizes={
+          sizes || "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        }
+        enableAnimation={enableAnimation ?? true}
       />
     );
   },
 );
 
-// Image preloader utility
 export function preloadImages(imageSrcs: string[], quality = 75) {
   if (typeof window === "undefined") return;
 
@@ -345,7 +123,6 @@ export function preloadImages(imageSrcs: string[], quality = 75) {
   });
 }
 
-// Critical images preloader for above-the-fold content
 export function preloadCriticalImages(imageSrcs: string[]) {
   if (typeof window === "undefined") return;
 

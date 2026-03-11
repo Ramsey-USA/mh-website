@@ -7,7 +7,7 @@ import {
 } from "@/lib/auth/jwt";
 import { sendNotification } from "@/lib/notifications/notificationService";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 // Cloudflare-based API routes

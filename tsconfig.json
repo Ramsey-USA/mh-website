@@ -56,7 +56,6 @@
     ],
 
     // === Path Mapping ===
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }

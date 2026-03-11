@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -15,33 +15,34 @@ import {
 export default function Footer() {
   const [showAdminModal, setShowAdminModal] = useState(false);
   const [clickCount, setClickCount] = useState(0);
-  const [clickTimeout, setClickTimeout] = useState<NodeJS.Timeout | null>(null);
+  const clickTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Clean up any pending timeout when Footer unmounts
+  useEffect(() => {
+    return () => {
+      if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+    };
+  }, []);
 
   // Triple-click handler for admin access (hidden feature for Matt & Jeremy)
-  const handleCopyrightClick = () => {
+  const handleCopyrightClick = useCallback(() => {
     setClickCount((prev) => prev + 1);
 
     // Clear existing timeout
-    if (clickTimeout) {
-      clearTimeout(clickTimeout);
-    }
+    if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
 
     // Set new timeout to reset count
-    const timeout = setTimeout(() => {
+    clickTimeoutRef.current = setTimeout(() => {
       setClickCount(0);
     }, 800); // 800ms window for triple-click
-
-    setClickTimeout(timeout);
 
     // Check if triple-clicked
     if (clickCount + 1 === 3) {
       setShowAdminModal(true);
       setClickCount(0);
-      if (clickTimeout) {
-        clearTimeout(clickTimeout);
-      }
+      if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
     }
-  };
+  }, [clickCount]);
 
   return (
     <>

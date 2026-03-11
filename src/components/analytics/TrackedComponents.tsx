@@ -68,8 +68,10 @@ export function TrackedButton({
   );
 }
 
-interface TrackedLinkProps
-  extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> {
+interface TrackedLinkProps extends Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  "href"
+> {
   trackId: string;
   trackProperties?: Record<string, unknown>;
   href: string;
@@ -203,7 +205,7 @@ export function TrackedForm({
 }: TrackedFormProps) {
   const { trackSubmit } = useFormTracking(trackId);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     trackSubmit(trackProperties);
     onSubmit?.(e);
   };
@@ -215,8 +217,7 @@ export function TrackedForm({
   );
 }
 
-interface TrackedInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+interface TrackedInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   trackId: string;
   formId: string;
 }
@@ -263,8 +264,7 @@ export function TrackedInput({
   );
 }
 
-interface TrackedTextAreaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+interface TrackedTextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   trackId: string;
   formId: string;
 }

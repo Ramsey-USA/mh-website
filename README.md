@@ -53,7 +53,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ---
 
-## Project Status (December 28, 2025)
+## Project Status (March 11, 2026)
 
 ### Production-Ready Platform
 
@@ -62,7 +62,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Build**         | Passing   | ~42s compilation, zero errors             |
 | **TypeScript**    | Strict    | Zero type errors                          |
 | **ESLint**        | Clean     | Zero lint warnings                        |
-| **Tests**         | Passing   | PWA: 50/50, Analytics: verified           |
+| **Tests**         | Passing   | 65/65 passing                             |
 | **SEO**           | 100/100   | Perfect scores across all pages           |
 | **Lighthouse**    | 94+       | Performance optimized                     |
 | **Bundle Size**   | 225 kB    | Production optimized                      |
@@ -71,7 +71,14 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Analytics**     | Live      | 100% page coverage, dashboard active      |
 | **Documentation** | Optimized | 61 docs + 12 supporting files, zero bloat |
 
-### Recent Improvements (Dec 2025)
+### Recent Improvements (March 2026)
+
+- **Mar 11:** Dependency security hardening - production audit at 0 vulnerabilities; dev-only count reduced 25→15
+- **Mar 11:** Added `package.json` overrides for `tar@7.5.11` and `cookie@1.1.1` to patch high/low transitive CVEs
+- **Mar 11:** Upgraded `markdownlint-cli2` to v0.21.0; pinned `vercel` to 32.3.0 for Cloudflare adapter stability
+- **Mar 11:** Next.js updated to 15.5.12, React 18.3.1, Tailwind 3.4.19, TypeScript 5.9.2
+
+### Previous Improvements (Dec 2025)
 
 - **Dec 28:** Documentation consolidation - Single README entry point, removed 5 bloat files (summaries/reports)
 - **Dec 28:** Development tooling - Component cheatsheet, compliance checklist, StandardSection template (82% code reduction)
@@ -136,9 +143,10 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Core Framework
 
-- **Next.js** 15.5.2 (App Router, React 19)
-- **TypeScript** 5.9.3 (strict mode)
-- **Tailwind CSS** 3.4.18
+- **Next.js** 15.5.12 (App Router)
+- **React** 18.3.1 (with React 19 type definitions)
+- **TypeScript** 5.9.2 (strict mode)
+- **Tailwind CSS** 3.4.19
 - **Node.js** 18+ LTS
 
 ### Deployment & Infrastructure
@@ -257,6 +265,29 @@ npm run audit:images     # Analyze optimization opportunities
 ```bash
 npm run clean            # Clean build artifacts
 ```
+
+---
+
+## Dependency Maintenance Notes (March 2026)
+
+- Production dependencies are currently clean: `npm audit --omit=dev` reports 0 vulnerabilities.
+- `build:cloudflare` intentionally sets `NPM_CONFIG_LEGACY_PEER_DEPS=true`
+  because `@cloudflare/next-on-pages` peer ranges can lag patched Next.js
+  releases.
+- API route handlers under `src/app/api/*` are pinned to `runtime = "nodejs"`
+  to avoid Next.js Edge-runtime static-generation warnings during `npm run build`.
+- `vercel` is pinned to `32.3.0` to stay within
+  `@cloudflare/next-on-pages@1.13.16` peer constraints and reduce inherited
+  tooling vulnerabilities.
+- `package.json` includes `overrides` to force patched versions of transitive
+  dev toolchain dependencies:
+  - `glob -> minimatch@9.0.7` (production transitive minimatch)
+  - `tar@7.5.11` (fixes high CVEs in `@mapbox/node-pre-gyp` chain via `vercel`)
+  - `cookie@1.1.1` (fixes low CVE in `@cloudflare/next-on-pages` chain)
+- Full `npm audit` still reports dev-only advisories in tooling (all in
+  Cloudflare/Vercel adapter transitive chains; no override path available).
+- Current full-audit status after this pass: 15 dev-only vulnerabilities
+  (0 critical, 6 high, 9 moderate, 0 low).
 
 ### Analytics Dashboard Access
 
@@ -635,7 +666,7 @@ npm run lint
 
 ## License & Copyright
 
-**Copyright © 2025 MH Construction**  
+**Copyright © 2026 MH Construction**  
 **Founded 2010 | Veteran-Owned Since January 2025**
 
 All rights reserved. This software and associated documentation files are proprietary.
@@ -658,5 +689,5 @@ Jeremy Thamert, continuing 15 years of construction excellence with renewed vete
 
 ---
 
-**Last Updated:** December 28, 2025  
-**Documentation Version:** 3.0 (Single Entry Point - Zero Bloat)
+**Last Updated:** March 11, 2026  
+**Documentation Version:** 3.1 (Single Entry Point - Zero Bloat)

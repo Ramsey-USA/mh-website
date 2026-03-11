@@ -13,7 +13,7 @@ import { generateTokenPair } from "@/lib/auth/jwt";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rateLimiter";
 import { logger } from "@/lib/utils/logger";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 // Admin credentials (in production, these should be in environment variables)
 const ADMIN_USERS = [

@@ -4,7 +4,7 @@ import {
   handleFormRetrieval,
 } from "@/lib/api/formHandler";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 // Consultation API routes using consolidated form handler

@@ -14,7 +14,7 @@ import {
   internalServerError,
 } from "@/lib/api/responses";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 interface RefreshRequest {
   refreshToken: string;
