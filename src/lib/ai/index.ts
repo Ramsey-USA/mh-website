@@ -3,8 +3,8 @@
  * Clean implementation (fixed corrupted previous version).
  */
 import { logger } from "@/lib/utils/logger";
-export { CoreAIEngine } from "./core/AIEngine";
-export { VeteranAI } from "./veteran/VeteranAI";
+export { CoreAIEngine } from "./core/ai-engine";
+export { VeteranAI } from "./veteran/veteran-ai";
 export type {
   ConstructionIntel,
   AIResponse,
@@ -19,23 +19,61 @@ export type {
   TimelineCategory,
 } from "./types";
 
-import { CoreAIEngine } from "./core/AIEngine";
-import { VeteranAI } from "./veteran/VeteranAI";
+import { CoreAIEngine } from "./core/ai-engine";
+import { VeteranAI } from "./veteran/veteran-ai";
 import type { EstimateInput, EnhancedFormResult, FormType } from "./types";
-import {
-  VeteranPersonalizationSystem,
-  type VeteranProfile,
-} from "@/lib/veteran";
+import type { VeteranProfile } from "@/lib/veteran/types/veteran-types";
 import {
   cacheAIResponse,
   getCachedAIResponse,
   generateCacheKey,
-} from "@/lib/cache/AIResponseCache";
+} from "@/lib/cache/ai-response-cache";
+
+interface VeteranSubmissionResult {
+  response: string;
+  priorityHandling: string;
+  veteranBenefits: string[];
+  nextSteps: string[];
+}
+
+class VeteranPersonalizationSystemCompat {
+  static getInstance(): VeteranPersonalizationSystemCompat {
+    return new VeteranPersonalizationSystemCompat();
+  }
+
+  processVeteranFormSubmission(
+    _sessionId: string,
+    formType: FormType | "estimate",
+    formData: Record<string, unknown>,
+  ): VeteranSubmissionResult {
+    const projectLabel =
+      typeof formData["projectType"] === "string"
+        ? formData["projectType"]
+        : "your project";
+
+    return {
+      response:
+        formType === "estimate"
+          ? `Veteran-priority estimate request received for ${projectLabel}. Our team will follow up directly to coordinate next steps and any eligible veteran support.`
+          : `Veteran-priority ${formType} request received for ${projectLabel}. Our team will follow up directly with tailored support.`,
+      priorityHandling: "veteran-priority",
+      veteranBenefits: [
+        "Priority scheduling review",
+        "Veteran-aware consultation follow-up",
+      ],
+      nextSteps: [
+        "Our team will review your request and contact you within 24 hours",
+        "We will confirm any veteran-priority accommodations during follow-up",
+        "A personalized consultation will be scheduled if needed",
+      ],
+    };
+  }
+}
 
 export class MilitaryConstructionAI {
   private coreEngine = new CoreAIEngine();
   private veteranAI = new VeteranAI();
-  private veteranSystem = VeteranPersonalizationSystem.getInstance();
+  private veteranSystem = VeteranPersonalizationSystemCompat.getInstance();
 
   /**
    * Generate AI response with caching + veteran detection
@@ -128,51 +166,51 @@ export class MilitaryConstructionAI {
     }
   }
 
-  processEnhancedForm(
+  async processEnhancedForm(
     formType: FormType,
     formData: Record<string, unknown>,
     sessionId?: string,
   ): Promise<EnhancedFormResult> {
     try {
       if (sessionId) {
-        const result = this.veteranSystem.processVeteranFormSubmission(
+        const result = await this.veteranSystem.processVeteranFormSubmission(
           sessionId,
           formType,
           formData,
         );
-        return Promise.resolve({
+        return {
           response: result.response,
           veteranHandling: result.priorityHandling,
           discounts: result.veteranBenefits,
           nextSteps: result.nextSteps,
-        });
+        };
       }
       const response = this.generateResponse(
         `${(formData["name"] as string) || ""} ${(formData["message"] as string) || ""} ${(formData["projectType"] as string) || ""}`,
         formData,
       );
-      return Promise.resolve({
+      return {
         response,
         nextSteps: [
           "Our team will review your request and contact you within 24 hours",
           "Free consultation will be scheduled",
           "Detailed proposal will be provided",
         ],
-      });
+      };
     } catch (_error) {
       logger.error("Enhanced form processing _error:", _error);
       const response = this.generateResponse(
         `${(formData["name"] as string) || ""} ${(formData["message"] as string) || ""} ${(formData["projectType"] as string) || ""}`,
         formData,
       );
-      return Promise.resolve({
+      return {
         response,
         nextSteps: [
           "Our team will review your request and contact you within 48 hours",
           "Free consultation will be scheduled",
           "Detailed proposal will be provided",
         ],
-      });
+      };
     }
   }
 

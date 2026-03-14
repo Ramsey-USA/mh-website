@@ -5,7 +5,8 @@
 **Last Updated:** December 27, 2025  
 **Status:** ✅ 100% Active - All pages tracking, military dashboard live
 
-**System Capabilities:** Geographic tracking, CTA effectiveness, journey stages, lead scoring (0-100), device intelligence, traffic attribution, 100+ data points
+**System Capabilities:** Geographic tracking, CTA effectiveness, journey stages, lead
+scoring (0-100), device intelligence, traffic attribution, 100+ data points
 
 **Related Documentation:**
 
@@ -18,7 +19,7 @@
 
 ### **1. Geographic Intelligence** 🗺️
 
-**Question: "Where are our visitors coming from?"**
+#### Question: "Where are our visitors coming from?"
 
 **Data Captured:**
 
@@ -29,7 +30,7 @@
 
 **Marketing Insights:**
 
-```
+```text
 ✓ "Are we getting traction in Spokane?" → See city breakdown
 ✓ "How many Idaho visitors?" → State-level metrics
 ✓ "Target market penetration (WA/OR/ID)" → Percentage analysis
@@ -42,7 +43,7 @@
 
 ### **2. Service Interest Tracking** 🏗️
 
-**Question: "What services attract the most attention?"**
+#### Question: "What services attract the most attention?"
 
 **Data Captured:**
 
@@ -53,7 +54,7 @@
 
 **Marketing Insights:**
 
-```
+```text
 ✓ "Commercial vs Residential interest" → Click comparison
 ✓ "Which service converts best?" → Service-to-contact correlation
 ✓ "Master Planning popularity" → Engagement metrics
@@ -66,7 +67,7 @@
 
 ### **3. Project Portfolio Engagement** 📂
 
-**Question: "What project types generate interest?"**
+#### Question: "What project types generate interest?"
 
 **Data Captured:**
 
@@ -78,7 +79,7 @@
 
 **Marketing Insights:**
 
-```
+```text
 ✓ "Healthcare projects vs retail" → Interest comparison
 ✓ "High-value projects ($1M+) engagement" → Premium market interest
 ✓ "Local projects (Tri-Cities) vs regional" → Geographic preference
@@ -91,7 +92,7 @@
 
 ### **4. User Journey Tracking** 🛤️
 
-**Question: "What path do users take before contacting us?"**
+#### Question: "What path do users take before contacting us?"
 
 **Journey Milestones:**
 
@@ -104,7 +105,7 @@
 
 **Marketing Insights:**
 
-```
+```text
 ✓ "Most common path to conversion" → Sequential analysis
 ✓ "How many pages before contact?" → Journey length
 ✓ "Services → Contact direct conversion" → Skip rate
@@ -113,7 +114,7 @@
 
 **Conversion Funnel:**
 
-```
+```text
 100 Visitors Enter Site
 ↓
 75 View Services (75% engagement)
@@ -133,7 +134,7 @@
 
 ### **5. CTA Performance** 🎯
 
-**Question: "Which calls-to-action work best?"**
+#### Question: "Which calls-to-action work best?"
 
 **CTAs Tracked:**
 
@@ -155,7 +156,7 @@
 
 **Marketing Insights:**
 
-```
+```text
 ✓ "Mobile users prefer phone vs email" → Channel preference
 ✓ "Footer phone clicks vs header" → Position effectiveness
 ✓ "After-hours contact attempts" → 24/7 demand signals
@@ -168,7 +169,7 @@
 
 ### **6. Device & Browser Intelligence** 📱💻
 
-**Question: "What devices are visitors using?"**
+#### Question: "What devices are visitors using?"
 
 **Data Captured:**
 
@@ -180,7 +181,7 @@
 
 **Marketing Insights:**
 
-```
+```text
 ✓ "Mobile vs desktop conversion rates" → Device optimization ROI
 ✓ "iOS vs Android user behavior" → Platform targeting
 ✓ "Low-resolution screen accommodations" → Accessibility needs
@@ -193,7 +194,7 @@
 
 ### **7. Traffic Source Attribution** 🚦
 
-**Question: "How are people finding us?"**
+#### Question: "How are people finding us?"
 
 **Sources Tracked:**
 
@@ -206,7 +207,7 @@
 
 **Marketing Insights:**
 
-```
+```text
 ✓ "Google vs Bing traffic quality" → SEO focus
 ✓ "LinkedIn vs Facebook conversions" → Social ROI
 ✓ "Referral sources (partner sites)" → Partnership value
@@ -219,7 +220,7 @@
 
 ### **8. Veterans Marketing Effectiveness** 🎖️
 
-**Question: "Is our veteran-focused marketing working?"**
+#### Question: "Is our veteran-focused marketing working?"
 
 **Veteran-Specific Tracking:**
 
@@ -231,7 +232,7 @@
 
 **Marketing Insights:**
 
-```
+```text
 ✓ "Veteran page → Contact conversion" → Target audience response
 ✓ "Veteran discount awareness" → Marketing reach
 ✓ "Veteran hiring interest" → Recruitment effectiveness
@@ -244,7 +245,7 @@
 
 ### **9. Content Engagement Depth** 📖
 
-**Question: "What content resonates most?"**
+#### Question: "What content resonates most?"
 
 **Content Tracked:**
 
@@ -256,7 +257,7 @@
 
 **Marketing Insights:**
 
-```
+```text
 ✓ "Which testimonials get most attention" → Social proof effectiveness
 ✓ "Team member popularity" → Personal brand value
 ✓ "FAQ topics of interest" → Customer pain points
@@ -269,7 +270,7 @@
 
 ### **10. Form Analytics** 📝
 
-**Question: "How do users interact with forms?"**
+#### Question: "How do users interact with forms?"
 
 **Form Data:**
 
@@ -282,7 +283,7 @@
 
 **Marketing Insights:**
 
-```
+```text
 ✓ "Form abandonment points" → UX improvement opportunities
 ✓ "Field completion time" → Complexity analysis
 ✓ "Error-prone fields" → Validation improvements

@@ -19,14 +19,10 @@ import { ContentCard } from "@/components/ui/ContentCard";
 import { aboutTimelineSteps } from "@/data/about-timeline";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { StructuredData } from "@/components/seo/seo-meta";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
-
-// Enhanced SEO for veteran-owned heritage and proven track record
-import { getAboutSEO } from "@/lib/seo/page-seo-utils";
 
 // Lazy load heavy below-the-fold sections for better mobile performance
 const LeadershipTeam = dynamic(
@@ -69,17 +65,10 @@ export default function AboutPage() {
   // Analytics tracking
   usePageTracking("About");
 
-  // Get enhanced SEO data for About page
-  const aboutSEO = getAboutSEO();
-
   return (
     <>
       {/* SEO Meta Tags */}
-
-      {/* Structured Data */}
-      {aboutSEO.schemas && aboutSEO.schemas.length > 0 && (
-        <StructuredData data={aboutSEO.schemas} />
-      )}
+      {/* Structured Data is injected via layout.tsx to avoid duplication */}
 
       {/* Breadcrumb Schema */}
       <script
@@ -215,8 +204,8 @@ export default function AboutPage() {
                   icon="celebration"
                   category="Company Milestone"
                   categoryColor="primary"
-                  title="50+ Successful Projects in Pacific Northwest"
-                  description="We're proud to announce reaching a major milestone: over 50 completed construction projects across Washington and Oregon. Thank you to all our partners for your continued trust."
+                  title="650+ Successful Projects in Pacific Northwest"
+                  description="We're proud to announce over 650 completed construction projects across Washington, Oregon, and Idaho. Thank you to all our client partners for your continued trust in MH Construction."
                   date="Nov 2025"
                   href="/projects"
                   linkText="View Our Work"

@@ -19,7 +19,7 @@ import { useState, useMemo } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Button } from "@/components/ui";
 import Link from "next/link";
-import { useChatbot } from "@/providers/GlobalChatbotProvider";
+import { useChatbot } from "@/providers/global-chatbot-provider";
 
 export interface InteractiveTimelineProps {
   /** Optional: Custom className */

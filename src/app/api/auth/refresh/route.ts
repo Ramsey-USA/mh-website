@@ -5,7 +5,7 @@
 
 import { type NextRequest, type NextResponse } from "next/server";
 import { refreshAccessToken, type JWTUser } from "@/lib/auth/jwt";
-import { rateLimit, rateLimitPresets } from "@/lib/security/rateLimiter";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import { logger } from "@/lib/utils/logger";
 import {
   badRequest,

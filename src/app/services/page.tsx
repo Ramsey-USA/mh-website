@@ -14,8 +14,6 @@ import {
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { StrategicCTABanner } from "@/components/ui/cta";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { StructuredData } from "@/components/seo/seo-meta";
-import { getServicesSEO } from "@/lib/seo/page-seo-utils";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
@@ -137,139 +135,9 @@ export default function ServicesPage() {
   // Analytics tracking
   usePageTracking("Services");
 
-  // Get enhanced SEO data for Services page
-  const servicesSEO = getServicesSEO();
-
-  // Structured Data for SEO
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    serviceType: "Construction Management Services",
-    provider: {
-      "@type": "Organization",
-      name: "MH Construction, Inc.",
-      "@id": "https://www.mhc-gc.com/#organization",
-      url: "https://www.mhc-gc.com",
-      telephone: "+1-509-308-6489",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "3111 N. Capitol Ave.",
-        addressLocality: "Pasco",
-        addressRegion: "WA",
-        postalCode: "99301",
-        addressCountry: "US",
-      },
-    },
-    areaServed: [
-      {
-        "@type": "City",
-        name: "Pasco",
-        containedInPlace: { "@type": "State", name: "Washington" },
-      },
-      {
-        "@type": "City",
-        name: "Kennewick",
-        containedInPlace: { "@type": "State", name: "Washington" },
-      },
-      {
-        "@type": "City",
-        name: "Richland",
-        containedInPlace: { "@type": "State", name: "Washington" },
-      },
-      { "@type": "State", name: "Washington" },
-      { "@type": "State", name: "Oregon" },
-      { "@type": "State", name: "Idaho" },
-    ],
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Construction Services",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Commercial Construction Management",
-            description:
-              "Comprehensive construction management services for commercial, industrial, and medical facilities",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Master Planning & Pre-Construction",
-            description:
-              "Detailed pre-construction planning and coordination services",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Procurement & Trade Partnership Management",
-            description: "Material sourcing and vendor coordination services",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Constructability & Budget Control",
-            description: "Feasibility analysis and proactive budget management",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Project Modularization",
-            description: "Advanced subproject management for complex builds",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Tenant Improvements",
-            description: "Commercial space renovation and transformation",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Religious Facility Construction",
-            description:
-              "Specialized construction for churches and religious facilities",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Government & Grant-Funded Projects",
-            description:
-              "Construction for government and grant-funded projects",
-          },
-        },
-      ],
-    },
-  };
-
   return (
     <>
       {/* SEO Meta Tags */}
-
-      {/* Structured Data from servicesSEO */}
-      {servicesSEO.schemas && servicesSEO.schemas.length > 0 && (
-        <StructuredData data={servicesSEO.schemas} />
-      )}
-
-      {/* Legacy Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
       {/* Breadcrumb Schema */}
       <script
         type="application/ld+json"

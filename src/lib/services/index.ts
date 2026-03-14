@@ -3,4 +3,4 @@
  * Centralized exports for all service modules
  */
 
-export * from "./portfolioService";
+export * from "./portfolio-service";

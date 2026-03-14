@@ -2,7 +2,9 @@
 
 ## Overview
 
-The MH Construction website is a fully-featured Progressive Web App (PWA) that provides offline capabilities, installability, and native app-like experience. This document covers the PWA implementation, features, and maintenance.
+The MH Construction website is a fully-featured Progressive Web App (PWA) that
+provides offline capabilities, installability, and native app-like experience.
+This document covers the PWA implementation, features, and maintenance.
 
 ## Current Status
 
@@ -354,7 +356,7 @@ caches
 
 #### Manual Cache Inspection
 
-```
+```text
 DevTools → Application → Cache Storage
 ```
 
@@ -362,7 +364,7 @@ DevTools → Application → Cache Storage
 
 #### Service Worker Status
 
-```
+```text
 DevTools → Application → Service Workers
 ```
 

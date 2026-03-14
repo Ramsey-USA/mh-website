@@ -1,239 +1,111 @@
-/**
- * VA Benefits Coordinator
- * Coordinates VA benefits, grants, and loan programs for veterans
- */
-
-import type { VeteranProfile } from "../VeteranProfileEngine";
+import type { VeteranProfile } from "@/lib/veteran/types/veteran-types";
 import type {
-  VABenefitCoordination,
-  VABenefit,
+  CoordinationService,
+  DocumentationAssistance,
   GrantProgram,
   LoanProgram,
-  CoordinationService,
+  VABenefit,
+  VABenefitCoordination,
 } from "./types";
 
 export class VABenefitsCoordinator {
-  /**
-   * Generate VA benefits coordination services
-   */
   public coordinateBenefits(profile: VeteranProfile): VABenefitCoordination {
     if (!profile.isVeteran) {
-      return this.createEmptyCoordination();
+      return {
+        eligibleBenefits: [],
+        grantPrograms: [],
+        loanPrograms: [],
+        coordinationServices: [],
+        documentation: this.buildDocumentation(false),
+      };
     }
 
-    const eligibleBenefits = this.determineEligibleBenefits(profile);
-    const grantPrograms = this.determineGrantPrograms(profile);
-    const loanPrograms = this.determineLoanPrograms(profile);
-    const coordinationServices = this.createCoordinationServices(profile);
+    const eligibleBenefits: VABenefit[] = [
+      {
+        type: "VR&E",
+        name: "Veteran Readiness and Employment",
+        description:
+          "Support for employment-focused accessibility improvements",
+        eligibility: ["Verified veteran status"],
+        maxBenefit: "Varies",
+        applicationProcess: ["Eligibility review", "VA counselor intake"],
+        estimatedTimeline: "2-6 weeks",
+        coordinationOffered: true,
+      },
+    ];
+
+    if (profile.disabledVeteran) {
+      eligibleBenefits.push({
+        type: "HISA",
+        name: "Home Improvements and Structural Alterations",
+        description: "Funding for medically necessary home modifications",
+        eligibility: ["Service-connected disability"],
+        maxBenefit: "Per VA policy",
+        applicationProcess: ["Clinical recommendation", "VA submission"],
+        estimatedTimeline: "2-8 weeks",
+        coordinationOffered: true,
+      });
+    }
+
+    const grantPrograms: GrantProgram[] = [
+      {
+        name: "State/Local Veteran Accessibility Grant",
+        maxAmount: 10000,
+        eligibility: ["Veteran household"],
+        projectTypes: ["Accessibility", "Safety upgrades"],
+        processingTime: "4-10 weeks",
+      },
+    ];
+
+    const loanPrograms: LoanProgram[] = [
+      {
+        name: "VA Renovation Loan",
+        type: "VA Renovation Loan",
+        maxAmount: 150000,
+        interestRate: "Market rate",
+        terms: ["Qualified contractor", "Lender approval"],
+        eligibility: ["VA loan eligibility"],
+      },
+    ];
+
+    const coordinationServices: CoordinationService[] = [
+      {
+        service: "Benefits Intake Review",
+        description: "Map project scope to applicable VA benefits",
+        included: true,
+        specialist: "Veteran Benefits Specialist",
+        timeline: "Within 3 business days",
+      },
+      {
+        service: "Documentation Packet Support",
+        description: "Assist with collection and submission prep",
+        included: true,
+        specialist: "Veteran Benefits Specialist",
+        timeline: "1-2 weeks",
+      },
+    ];
 
     return {
       eligibleBenefits,
       grantPrograms,
       loanPrograms,
       coordinationServices,
-      documentation: {
-        provided: true,
-        services: [
-          "Document collection assistance",
-          "Form completion help",
-          "Medical records coordination",
-          "VA communication liaison",
-        ],
-        specialist: "VA Benefits Coordinator",
-        timeline: "1-2 weeks",
-      },
+      documentation: this.buildDocumentation(true),
     };
   }
 
-  /**
-   * Create empty coordination for non-veterans
-   */
-  private createEmptyCoordination(): VABenefitCoordination {
+  private buildDocumentation(provided: boolean): DocumentationAssistance {
     return {
-      eligibleBenefits: [],
-      grantPrograms: [],
-      loanPrograms: [],
-      coordinationServices: [],
-      documentation: {
-        provided: false,
-        services: [],
-        specialist: "",
-        timeline: "",
-      },
+      provided,
+      services: provided
+        ? [
+            "Benefit eligibility checklist",
+            "Document collection guidance",
+            "Submission sequencing support",
+          ]
+        : [],
+      specialist: provided ? "Veteran Benefits Specialist" : "N/A",
+      timeline: provided ? "1-2 weeks" : "N/A",
     };
-  }
-
-  /**
-   * Determine eligible VA benefits
-   */
-  private determineEligibleBenefits(profile: VeteranProfile): VABenefit[] {
-    const benefits: VABenefit[] = [];
-
-    // Standard VA healthcare for all veterans
-    benefits.push({
-      type: "Healthcare",
-      name: "VA Healthcare Benefits",
-      description: "Comprehensive healthcare services through VA system",
-      eligibility: ["Veteran status", "Eligible discharge"],
-      maxBenefit: "Full healthcare coverage",
-      applicationProcess: [
-        "VA Form 10-10EZ",
-        "Medical evaluation",
-        "Enrollment",
-      ],
-      estimatedTimeline: "30-60 days",
-      coordinationOffered: true,
-    });
-
-    // Disabled veteran specific benefits
-    if (profile.disabledVeteran) {
-      benefits.push({
-        type: "SAH",
-        name: "Specially Adapted Housing (SAH)",
-        description:
-          "Grant for home modifications for severely disabled veterans",
-        eligibility: [
-          "50% or higher disability rating",
-          "Specific qualifying disabilities",
-        ],
-        maxBenefit: "$101,754 (2024)",
-        applicationProcess: [
-          "VA Form 26-4555",
-          "Medical evaluation",
-          "Home assessment",
-        ],
-        estimatedTimeline: "60-120 days",
-        coordinationOffered: true,
-      });
-
-      benefits.push({
-        type: "SHA",
-        name: "Special Housing Adaptation (SHA)",
-        description: "Grant for accessibility modifications",
-        eligibility: ["Qualifying disabilities", "Home ownership or rental"],
-        maxBenefit: "$20,387 (2024)",
-        applicationProcess: [
-          "VA Form 26-4555",
-          "Contractor estimates",
-          "VA approval",
-        ],
-        estimatedTimeline: "45-90 days",
-        coordinationOffered: true,
-      });
-    }
-
-    // Vocational Rehabilitation for eligible veterans
-    if (profile.disabledVeteran || profile.combatVeteran) {
-      benefits.push({
-        type: "VR&E",
-        name: "Vocational Rehabilitation & Employment",
-        description:
-          "Education and training benefits for employment preparation",
-        eligibility: ["Service-connected disability", "Employment handicap"],
-        maxBenefit: "Full tuition + living allowance",
-        applicationProcess: [
-          "VA Form 28-1900",
-          "Vocational assessment",
-          "Plan development",
-        ],
-        estimatedTimeline: "60-90 days",
-        coordinationOffered: true,
-      });
-    }
-
-    return benefits;
-  }
-
-  /**
-   * Determine eligible grant programs
-   */
-  private determineGrantPrograms(profile: VeteranProfile): GrantProgram[] {
-    const grants: GrantProgram[] = [];
-
-    if (profile.disabledVeteran) {
-      grants.push({
-        name: "Home Improvements and Structural Alterations (HISA)",
-        maxAmount: 6800,
-        eligibility: ["Service-connected disability", "Medical necessity"],
-        projectTypes: [
-          "Accessibility ramps",
-          "Bathroom modifications",
-          "Door widening",
-        ],
-        processingTime: "30-60 days",
-      });
-    }
-
-    return grants;
-  }
-
-  /**
-   * Determine eligible loan programs
-   */
-  private determineLoanPrograms(_profile: VeteranProfile): LoanProgram[] {
-    const loans: LoanProgram[] = [];
-
-    // VA Home Loan Program
-    loans.push({
-      name: "VA Home Loan",
-      type: "VA Home Loan",
-      maxAmount: 1000000, // Varies by location
-      interestRate: "Competitive VA rates",
-      terms: ["No down payment", "No PMI", "Competitive rates"],
-      eligibility: [
-        "90+ days active duty",
-        "Eligible discharge",
-        "Credit requirements",
-      ],
-    });
-
-    loans.push({
-      name: "VA Energy Efficient Mortgage",
-      type: "Energy Efficient Mortgage",
-      maxAmount: 6000,
-      interestRate: "Standard VA rates",
-      terms: ["Energy improvements funding", "Rolled into mortgage"],
-      eligibility: ["VA loan eligibility", "Energy efficiency improvements"],
-    });
-
-    return loans;
-  }
-
-  /**
-   * Create coordination services
-   */
-  private createCoordinationServices(
-    profile: VeteranProfile,
-  ): CoordinationService[] {
-    return [
-      {
-        service: "Benefits Application Assistance",
-        description: "Help with VA benefits applications and documentation",
-        included: true,
-        specialist: "Certified VA Benefits Coordinator",
-        timeline: "Throughout project",
-      },
-      {
-        service: "Medical Documentation Coordination",
-        description: "Assistance obtaining required medical documentation",
-        included: profile.disabledVeteran,
-        specialist: "Medical Liaison Specialist",
-        timeline: "1-2 weeks",
-      },
-      {
-        service: "Grant Application Support",
-        description: "Complete grant application process management",
-        included: profile.disabledVeteran,
-        specialist: "Grant Specialist",
-        timeline: "2-4 weeks",
-      },
-      {
-        service: "VA Inspector Coordination",
-        description: "Scheduling and coordination with VA inspectors",
-        included: true,
-        specialist: "Project Coordinator",
-        timeline: "As needed",
-      },
-    ];
   }
 }

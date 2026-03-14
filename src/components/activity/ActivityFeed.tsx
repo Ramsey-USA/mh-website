@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { useChatbot } from "@/providers/GlobalChatbotProvider";
+import { useChatbot } from "@/providers/global-chatbot-provider";
 
 // Activity types for the feed
 type ActivityType = "booking" | "estimate" | "consultation" | "project_start";

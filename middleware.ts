@@ -21,11 +21,19 @@ export async function middleware(request: NextRequest) {
 
     if (url.pathname.startsWith("/api/")) {
       response.headers.set("CF-Cache-Tag", "api");
-      // Enable stale-while-revalidate for API routes
-      response.headers.set(
-        "Cache-Control",
-        "public, max-age=300, stale-while-revalidate=600",
-      );
+      // Mutation requests must never be stored in any cache (browser or CDN)
+      // to prevent contact submissions, auth tokens, and form payloads from
+      // being replayed. Read-only GETs are scoped to private revalidation only.
+      if (request.method !== "GET") {
+        response.headers.set("Cache-Control", "no-store");
+      } else {
+        // Private: CDN must not share this response between users.
+        // must-revalidate: stale copies are never served without re-checking.
+        response.headers.set(
+          "Cache-Control",
+          "private, max-age=0, must-revalidate",
+        );
+      }
     } else if (
       url.pathname.match(/\.(js|css|png|jpg|jpeg|gif|webp|svg|ico|woff|woff2)$/)
     ) {
@@ -45,13 +53,13 @@ export async function middleware(request: NextRequest) {
     response.headers.set("X-Real-IP", cfConnectingIP || "unknown");
     response.headers.set("X-Forwarded-Country", cfCountry || "unknown");
 
-    // Enable early hints for better performance
-    if (url.pathname === "/") {
-      response.headers.set(
-        "Link",
-        "</images/logo.webp>; rel=preload; as=image, </styles/critical.css>; rel=preload; as=style",
-      );
-    }
+    // NOTE: Link: rel=preload headers for critical assets (Material Icons font
+    // and hero background image) are handled by <link rel="preload"> tags in
+    // src/app/layout.tsx, which is the correct scope for document-level preloads.
+    // Middleware-level Link headers were removed: they referenced non-existent
+    // paths (/images/logo.webp, /styles/critical.css) causing wasted fetch
+    // requests on every page load. The asset-integrity.test.ts guard enforces
+    // that any future middleware preloads point to real files in /public.
 
     // Add CSP nonce for better security
     const nonce = generateNonce();
@@ -79,18 +87,35 @@ function generateNonce(): string {
 export const config = {
   matcher: [
     /*
-     * Match all request paths except for the ones starting with:
-     * - api/health (health checks)
-     * - api/cf-* (Cloudflare specific endpoints)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - sw.js (service worker)
-     * - manifest.json (PWA manifest)
-     * - robots.txt (robots file)
-     * - sitemap.xml (sitemap file)
-     * - public files (icons, images, etc.)
+     * Match all request paths EXCEPT:
+     *
+     * Static framework assets
+     *   - _next/              Next.js static chunks and image optimiser
+     *
+     * Browser / PWA entry points (served verbatim, no extra middleware needed)
+     *   - favicon.ico
+     *   - sw.js               Service worker (requires exact same-origin headers)
+     *   - manifest.json       PWA manifest
+     *
+     * SEO / crawler discovery files (static, must not be modified in-flight)
+     *   - robots.txt
+     *   - sitemap.xml
+     *   - sitemap-index.xml   Root sitemap index (public/sitemap-index.xml)
+     *   - llms.txt            LLM discovery file (public/llms.txt)
+     *
+     * Static asset directories (cache headers already set in next.config.js)
+     *   - fonts/              Self-hosted woff2 files
+     *   - icons/              PWA icons
+     *   - images/             Optimised WebP/AVIF images
+     *
+     * Cloudflare-native / internal health endpoints
+     *   - api/health          Uptime-probe — skip auth & rate-limit overhead
+     *   - api/cf-*            Cloudflare-managed API endpoints
+     *
+     * Cloudflare Pages config files (not real HTTP paths)
+     *   - _headers            Custom response headers file
+     *   - _redirects          Redirect rules file
      */
-    "/((?!api/health|api/cf-|_next|favicon.ico|sw.js|manifest.json|robots.txt|sitemap.xml|icons|images|public).*)",
+    "/((?!api/health|api/cf-|_next|favicon\\.ico|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|sitemap-index\\.xml|llms\\.txt|_headers|_redirects|fonts|icons|images).*)",
   ],
 };

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { type NavigationItem, getNavigationLabel } from "./navigationConfigs";
-import { useIsMobile } from "@/hooks/useBreakpoint";
+import { useIsMobile } from "@/hooks/use-breakpoint";
 
 /**
  * Props interface for PageNavigation component

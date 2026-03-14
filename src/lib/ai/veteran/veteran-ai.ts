@@ -3,8 +3,8 @@
  * Specialized AI responses for veteran-related inquiries
  */
 
-import type { VeteranProfile } from "@/lib/veteran/VeteranProfileEngine";
-import { matchesKeywords } from "@/lib/utils/keywordMatcher";
+import type { VeteranProfile } from "@/lib/veteran/types/veteran-types";
+import { matchesKeywords } from "@/lib/utils/keyword-matcher";
 
 export class VeteranAI {
   generateVeteranResponse(

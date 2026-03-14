@@ -1,7 +1,7 @@
 "use client";
 
 import { type MouseEvent } from "react";
-import { useTheme } from "@/contexts/ThemeContext";
+import { useTheme } from "@/contexts/theme-context";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 interface ThemeToggleProps {

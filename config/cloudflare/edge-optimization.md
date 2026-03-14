@@ -2,7 +2,8 @@
 
 ## Email Protection Script Deferral
 
-To prevent the `email-decode.min.js` script from blocking initial render, configure Cloudflare Email Address Obfuscation settings:
+To prevent the `email-decode.min.js` script from blocking initial render, configure
+Cloudflare Email Address Obfuscation settings:
 
 ### In Cloudflare Dashboard
 

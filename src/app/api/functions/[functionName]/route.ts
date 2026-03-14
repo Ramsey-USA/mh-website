@@ -5,7 +5,7 @@ import {
   extractTokenFromHeader,
   type JWTUser,
 } from "@/lib/auth/jwt";
-import { sendNotification } from "@/lib/notifications/notificationService";
+import { sendNotification } from "@/lib/notifications/notification-service";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

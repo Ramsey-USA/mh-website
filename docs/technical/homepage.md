@@ -5,9 +5,14 @@
 **Status:** ✅ Active & Optimized  
 **File:** `/src/app/page.tsx`
 
-> **📐 DESIGN TEMPLATE:** This page serves as the **visual and structural template** for most site pages. Component patterns (timelines, section headers, cards, etc.) should look consistent across pages. However, **messaging is page-specific** based on target audience groups.
+> **📐 DESIGN TEMPLATE:** This page serves as the **visual and structural
+> template** for most site pages. Component patterns (timelines, section
+> headers, cards, etc.) should look consistent across pages. However,
+> **messaging is page-specific** based on target audience groups.
 >
-> **⚠️ EXCEPTIONS:** Public Sector (`/public-sector`), Veterans (`/veterans`), and Urgent (`/urgent`) pages have completely unique structures and designs - they do not follow this template.
+> **⚠️ EXCEPTIONS:** Public Sector (`/public-sector`), Veterans
+> (`/veterans`), and Urgent (`/urgent`) pages have completely unique
+> structures and designs - they do not follow this template.
 
 ---
 
@@ -24,7 +29,9 @@
 
 ## 🎯 Overview
 
-The homepage is the primary landing page for MH Construction, serving as the "Base HQ → Home" command center. It follows a partnership-focused approach with veteran-owned values and transparent communication.
+The homepage is the primary landing page for MH Construction, serving as the
+"Base HQ → Home" command center. It follows a partnership-focused approach with
+veteran-owned values and transparent communication.
 
 ### Design Template Role
 
@@ -71,7 +78,10 @@ The homepage is the primary landing page for MH Construction, serving as the "Ba
 
 The homepage follows an optimized section ordering strategy (25-30% testimonial placement):
 
-> **📋 Structural Template:** Most pages follow similar section patterns (Hero → Values/Benefits → Services/Content → Testimonials → Stats → Process → Next Steps). However, section ordering and content are optimized per page purpose. Timeline and component designs remain visually consistent.
+> **📋 Structural Template:** Most pages follow similar section patterns
+> (Hero → Values/Benefits → Services/Content → Testimonials → Stats → Process
+> → Next Steps). However, section ordering and content are optimized per page
+> purpose. Timeline and component designs remain visually consistent.
 >
 > **Exception Pages:** Public Sector, Veterans, and Urgent pages have completely different structures.
 
@@ -86,7 +96,9 @@ The homepage follows an optimized section ordering strategy (25-30% testimonial 
   - "Base HQ → Home" dual-label
   - "Building projects for the Client, NOT the Dollar"
 
-> **Implementation Note:** Other pages reuse the hero structure but with unique icons (Services = "engineering", About = "groups", Careers = "work", etc.) and audience-specific messaging.
+> **Implementation Note:** Other pages reuse the hero structure but with
+> unique icons (Services = "engineering", About = "groups", Careers = "work",
+> etc.) and audience-specific messaging.
 
 ### 2. PWA Install Banner (Conditional)
 
@@ -187,7 +199,10 @@ The homepage follows an optimized section ordering strategy (25-30% testimonial 
   - Animated hover effects
   - Gradient connecting line
 
-> **Reuse Note:** The timeline visual design (alternating layout, icons, gradients) is consistent across pages. Only the step content changes per page context.
+> **Reuse Note:** The timeline visual design (alternating layout, icons,
+> gradients) is consistent across pages. Only the step content changes per
+> page context.
+> page context.
 
 ### 10. Next Steps Section (80-100%)
 
@@ -414,7 +429,7 @@ This provides visual feedback during component loading.
 
 **Title:**
 
-```
+```text
 Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction
 ```
 
@@ -652,12 +667,14 @@ className = "bg-white dark:bg-gray-900 text-gray-900 dark:text-white";
 
 ### Design & Messaging Guides
 
-- **[Component Standards](../branding/standards/component-standards.md)** - Reusable component patterns (timelines, headers, cards)
-- **[Hero Section Standards](../branding/standards/hero-section-standards.md)** - Hero design template with page-specific variations
-
-- **[Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md)** - Unique messaging for each page type
-- **[Universal Terminology](../branding/strategy/universal-terminology-guide.md)** - Consistent word choices across all pages
-- **[Hero Section Standards](../branding/standards/hero-section-standards.md)** - Hero design patterns (each page unique)
+- **[Component Standards](../branding/standards/component-standards.md)** -
+  Reusable component patterns (timelines, headers, cards)
+- **[Hero Section Standards](../branding/standards/hero-section-standards.md)** -
+  Hero design template with page-specific variations
+- **[Page-Specific Messaging Guide](../branding/strategy/page-specific-messaging-guide.md)** -
+  Unique messaging for each page type
+- **[Universal Terminology](../branding/strategy/universal-terminology-guide.md)** -
+  Consistent word choices across all pages
 
 ### General Technical Guides
 

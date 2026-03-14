@@ -2,8 +2,8 @@ import { type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { createDbClient, type ContactSubmission } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
-import { sendEmail, type EmailAttachment } from "@/lib/email/emailService";
-import { rateLimit, rateLimitPresets } from "@/lib/security/rateLimiter";
+import { sendEmail, type EmailAttachment } from "@/lib/email/email-service";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import {
   badRequest,

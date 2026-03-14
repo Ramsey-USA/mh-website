@@ -5,30 +5,12 @@
 
 import { logger } from "@/lib/utils/logger";
 
-// Re-export everything
-export {
-  VeteranProfileEngine,
-  type VeteranProfile,
-} from "./VeteranProfileEngine";
-export {
-  ContentPersonalizationEngine,
-  type PersonalizedContent,
-} from "./ContentPersonalizationEngine";
-export {
-  VeteranBenefitsAutomation,
-  type VeteranBenefitsPackage,
-} from "./VeteranBenefitsAutomation";
-export {
-  VeteranPersonalizationSystem,
-  type ComprehensiveVeteranExperience,
-  type VeteranSessionData,
-  type VeteranRecommendation,
-  type VeteranNotification,
-} from "./VeteranPersonalizationSystem";
+// Re-export existing modules and types
+export { VeteranBenefitsAutomation } from "./benefits";
+export type { VeteranBenefitsPackage } from "./benefits/types";
 
-// Type Exports for External Use
 export type {
-  // Profile Types
+  VeteranProfile,
   ServiceBranch,
   ServiceEra,
   RankCategory,
@@ -49,22 +31,9 @@ export type {
   DeploymentRecord,
   AdaptiveNeed,
   VABenefit,
-} from "./VeteranProfileEngine";
+} from "./types/veteran-types";
 
 export type {
-  // Personalization Types
-  PersonalizedMessaging,
-  PersonalizedRecommendation,
-  PersonalizedPricing,
-  VeteranDiscount,
-  FinancingOption,
-  PersonalizedTestimonial,
-  PersonalizedFormData,
-  PersonalizedCommunication,
-} from "./ContentPersonalizationEngine";
-
-export type {
-  // Benefits Types
   AutomatedDiscount,
   DiscountVerification,
   VABenefitCoordination,
@@ -83,7 +52,7 @@ export type {
   AutomatedTimeline,
   TimelineMilestone,
   EmergencyResponse,
-} from "./VeteranBenefitsAutomation";
+} from "./benefits/types";
 
 /**
  * Quick Start Guide:

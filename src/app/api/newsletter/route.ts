@@ -1,7 +1,7 @@
 import { type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
-import { sendEmail } from "@/lib/email/emailService";
-import { rateLimit, rateLimitPresets } from "@/lib/security/rateLimiter";
+import { sendEmail } from "@/lib/email/email-service";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import {
   badRequest,
   createSuccessResponse,

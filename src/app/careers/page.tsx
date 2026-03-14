@@ -23,7 +23,6 @@ import {
 } from "@/components/ui/backgrounds";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
 import {
-  openPositions,
   companyBenefits,
   veteranBenefits,
   cultureValues,
@@ -716,184 +715,109 @@ export default function CareersPage() {
               {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Current Career
+                  Build Your
                 </span>
                 <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Opportunities
+                  Future with MH Construction
                 </span>
               </h2>
 
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                Your next career chapter starts here. These aren't just job
-                openings—they're{" "}
+                We are always looking for driven individuals who mirror our
+                commitment to our{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  gateways to your future
+                  4 Core Values: Honesty, Integrity, Professionalism, and
+                  Thoroughness
                 </span>
-                . Every position offers{" "}
+                . Even when we aren't hiring for a specific role, we are always
+                open to inquiries from{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  competitive pay, comprehensive training, clear advancement
-                  paths
+                  skilled professionals who want to contribute to a
+                  high-standard operations environment
                 </span>
-                , and the chance to build something meaningful. Veterans receive
-                priority consideration.
+                . Whether you are a seasoned Project Manager or a dedicated
+                Field Specialist, we want to hear from you.
               </p>
             </div>
 
-            <StaggeredFadeIn className="space-y-8">
-              {openPositions.map((position, _index) => (
-                <div key={_index} className="group relative">
-                  {/* Colored Border Glow - Visible on hover */}
-                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
+            {/* General Inquiry CTA Card */}
+            <FadeInWhenVisible>
+              <div className="relative">
+                {/* Colored Border Glow */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
 
-                  <div className="relative bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden">
-                    {/* Top Accent Bar */}
-                    <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+                <div className="relative bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-lg transition-all duration-300 overflow-hidden">
+                  {/* Top Accent Bar */}
+                  <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
 
-                    <div className="p-6 sm:p-8">
-                      {/* Header Section with Title and Apply Button */}
-                      <div className="flex sm:flex-row flex-col justify-between items-start gap-6 mb-6">
-                        <div className="flex-grow">
-                          {/* Job Title with Icon */}
-                          <div className="flex items-start gap-4 mb-4">
-                            <div className="relative flex-shrink-0">
-                              <div className="absolute -inset-1 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 opacity-30 blur-lg rounded-xl"></div>
-                              <div className="relative inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 rounded-xl shadow-lg group-hover:scale-110 transition-all duration-300">
-                                <MaterialIcon
-                                  icon="badge"
-                                  size="lg"
-                                  className="text-white drop-shadow-lg"
-                                />
-                              </div>
-                            </div>
-                            <div className="flex-1">
-                              <h3 className="mb-2 font-black text-gray-900 dark:text-gray-100 text-2xl sm:text-3xl leading-tight">
-                                {position.title}
-                              </h3>
-                              {/* Metadata Pills */}
-                              <div className="flex flex-wrap gap-2">
-                                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-brand-primary-light rounded-full text-xs font-semibold">
-                                  <MaterialIcon icon="business" size="xs" />
-                                  {position.department}
-                                </span>
-                                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-secondary/10 dark:bg-brand-secondary/20 text-brand-secondary-text dark:text-brand-secondary-light rounded-full text-xs font-semibold">
-                                  <MaterialIcon icon="location_on" size="xs" />
-                                  {position.location}
-                                </span>
-                                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-bronze-700/10 dark:bg-bronze-700/20 text-bronze-700 dark:text-bronze-400 rounded-full text-xs font-semibold">
-                                  <MaterialIcon icon="schedule" size="xs" />
-                                  {position.type}
-                                </span>
-                                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs font-semibold">
-                                  <MaterialIcon icon="work" size="xs" />
-                                  {position.experience}
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Description */}
-                          <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
-                            {position.description}
-                          </p>
-                        </div>
-
-                        {/* Apply Button - Desktop Sticky */}
-                        <div className="flex-shrink-0 w-full sm:w-auto">
-                          <Button
-                            onClick={() => handleApplyNow(position.title)}
-                            variant="primary"
-                            size="lg"
-                            className="w-full sm:w-auto transition-all duration-300 min-w-[200px] shadow-lg hover:shadow-xl group/btn"
-                          >
-                            <MaterialIcon
-                              icon="send"
-                              size="md"
-                              className="mr-2 group-hover/btn:translate-x-1 transition-transform duration-300"
-                            />
-                            Apply Now
-                          </Button>
-                        </div>
-                      </div>
-
-                      {/* Divider */}
-                      <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-6"></div>
-
-                      {/* Requirements and Benefits Grid */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        {/* Requirements */}
-                        <div>
-                          <div className="flex items-center gap-2 mb-4">
-                            <div className="w-8 h-8 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center">
-                              <MaterialIcon
-                                icon="checklist"
-                                size="sm"
-                                className="text-brand-primary"
-                              />
-                            </div>
-                            <h4 className="font-black text-gray-900 dark:text-gray-100 text-lg">
-                              Requirements
-                            </h4>
-                          </div>
-                          <ul className="space-y-3">
-                            {position.requirements.map((req, reqIndex) => (
-                              <li
-                                key={reqIndex}
-                                className="flex items-start gap-3 group/item"
-                              >
-                                <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br from-brand-primary to-brand-primary-dark flex items-center justify-center mt-0.5 group-hover/item:scale-110 transition-transform duration-300">
-                                  <MaterialIcon
-                                    icon="check"
-                                    className="text-white text-xs"
-                                  />
-                                </div>
-                                <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                                  {req}
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* What We Offer */}
-                        <div>
-                          <div className="flex items-center gap-2 mb-4">
-                            <div className="w-8 h-8 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-lg flex items-center justify-center">
-                              <MaterialIcon
-                                icon="workspace_premium"
-                                size="sm"
-                                className="text-brand-secondary"
-                              />
-                            </div>
-                            <h4 className="font-black text-gray-900 dark:text-gray-100 text-lg">
-                              What We Offer
-                            </h4>
-                          </div>
-                          <ul className="space-y-3">
-                            {position.benefits.map((benefit, benefitIndex) => (
-                              <li
-                                key={benefitIndex}
-                                className="flex items-start gap-3 group/item"
-                              >
-                                <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br from-brand-secondary to-bronze-700 flex items-center justify-center mt-0.5 group-hover/item:scale-110 transition-transform duration-300">
-                                  <MaterialIcon
-                                    icon="star"
-                                    className="text-white text-xs"
-                                  />
-                                </div>
-                                <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                                  {benefit}
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                  <div className="p-8 sm:p-12 text-center">
+                    {/* Icon */}
+                    <div className="relative inline-block mb-8">
+                      <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                      <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-6 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                        <MaterialIcon
+                          icon="mail"
+                          size="3xl"
+                          className="text-white drop-shadow-lg"
+                        />
                       </div>
                     </div>
+
+                    {/* Heading */}
+                    <h3 className="mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl leading-tight">
+                      Ready to Join Our Team?
+                    </h3>
+
+                    {/* Description */}
+                    <p className="mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+                      Submit an inquiry with your information and let us know
+                      what you're looking for. If you align with our values and
+                      bring the skills we need—or might need soon—we'll be in
+                      touch.
+                    </p>
+
+                    {/* CTA Buttons */}
+                    <div className="flex sm:flex-row flex-col justify-center gap-4 sm:gap-6">
+                      <Button
+                        onClick={() => handleApplyNow("General Inquiry")}
+                        variant="primary"
+                        size="lg"
+                        className="transition-all duration-300 min-w-[260px] shadow-xl hover:shadow-2xl"
+                      >
+                        <MaterialIcon icon="send" size="lg" className="mr-3" />
+                        <span className="font-medium">Send Inquiry Now</span>
+                      </Button>
+                      <Link href="/contact">
+                        <Button
+                          variant="outline"
+                          size="lg"
+                          className="transition-all duration-300 min-w-[260px]"
+                        >
+                          <MaterialIcon
+                            icon="phone"
+                            size="lg"
+                            className="mr-3"
+                          />
+                          <span className="font-medium">
+                            Call (509) 308-6489
+                          </span>
+                        </Button>
+                      </Link>
+                    </div>
+
+                    {/* Supporting Text */}
+                    <p className="mt-8 text-sm text-gray-600 dark:text-gray-400 font-medium">
+                      <span className="text-brand-primary dark:text-brand-primary-light font-bold">
+                        Veterans receive priority consideration
+                      </span>{" "}
+                      on all inquiries. No gimmicks—just direct conversations
+                      with real opportunities.
+                    </p>
                   </div>
                 </div>
-              ))}
-            </StaggeredFadeIn>
+              </div>
+            </FadeInWhenVisible>
           </div>
         </section>
 
@@ -1237,28 +1161,22 @@ export default function CareersPage() {
                   </p>
                   <div className="flex flex-wrap justify-center gap-4">
                     <Button
-                      onClick={() => {
-                        const positionsSection =
-                          document.getElementById("positions");
-                        positionsSection?.scrollIntoView({
-                          behavior: "smooth",
-                        });
-                      }}
+                      onClick={() => handleApplyNow("General Inquiry")}
                       variant="primary"
                       size="lg"
                     >
                       <MaterialIcon
-                        icon="badge"
+                        icon="send"
                         size="md"
                         theme="military"
-                        ariaLabel="Open Positions"
+                        ariaLabel="Send Inquiry"
                         className="mr-2"
                       />
-                      View Open Positions
+                      Send Inquiry Now
                     </Button>
                     <Button
                       onClick={() => {
-                        window.location.href = "mailto:careers@mhc-gc.com";
+                        window.location.href = `mailto:${COMPANY_INFO.email.main}`;
                       }}
                       variant="secondary"
                       size="lg"

@@ -10,7 +10,8 @@
 
 ## 🎯 What "Cohesive with Homepage" Means
 
-Your new page should be **indistinguishable in quality** from the homepage. A visitor should not be able to tell which page was built first.
+Your new page should be **indistinguishable in quality** from the homepage. A
+visitor should not be able to tell which page was built first.
 
 ### Visual Indicators of Cohesiveness
 
@@ -32,7 +33,8 @@ Your new page should be **indistinguishable in quality** from the homepage. A vi
 - Plain cards without glows or different border styles
 - Icons without blur effects or different sizes
 
-**Example: Compare two sections side-by-side with homepage - they should look like siblings, not cousins.**
+**Example:** Compare two sections side-by-side with homepage - they should look
+like siblings, not cousins.
 
 ---
 
@@ -41,13 +43,18 @@ Your new page should be **indistinguishable in quality** from the homepage. A vi
 1. **Copy the full template** from section below
 2. **Replace placeholders** (search for `YOUR_PAGE_NAME`, `Your Page Title`, etc.)
 3. **Customize hero section** (icon, title, description)
-4. **Add content sections using BrandedContentSection** (eliminates 68 lines of boilerplate per section)
+4. **Add content sections using BrandedContentSection** (eliminates 68 lines of
+   boilerplate per section)
 5. **Run compliance checklist** (see page-compliance-checklist.md)
 6. **Test responsiveness** (mobile, tablet, desktop)
 
-**Pro Tip:** Use BrandedContentSection component instead of manual section markup - it automatically includes all required patterns (DiagonalStripePattern, blobs, gradient headers) and reduces code by 82%.
+**Pro Tip:** Use BrandedContentSection component instead of manual section
+markup - it automatically includes all required patterns
+(DiagonalStripePattern, blobs, gradient headers) and reduces code by 82%.
 
-**Non-coder explanation:** BrandedContentSection is the "fancy section with gold/green gradient titles and background patterns" - it's pre-made so developers don't code the same thing 26 times.
+**Non-coder explanation:** BrandedContentSection is the "fancy section with
+gold/green gradient titles and background patterns" - it's pre-made so
+developers don't code the same thing 26 times.
 
 ---
 

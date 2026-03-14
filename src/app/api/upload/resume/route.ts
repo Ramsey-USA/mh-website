@@ -6,7 +6,7 @@ import {
   R2StorageService,
   generateFileKey,
 } from "@/lib/cloudflare/r2";
-import { rateLimit } from "@/lib/security/rateLimiter";
+import { rateLimit } from "@/lib/security/rate-limiter";
 import {
   badRequest,
   createSuccessResponse,

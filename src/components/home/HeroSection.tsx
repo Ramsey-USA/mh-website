@@ -44,6 +44,9 @@ export function HeroSection() {
             <span className="font-black italic text-bronze-300">NOT</span> the
             Dollar
           </span>
+          <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
+            Serving Tri-Cities, Yakima, Spokane, and Walla Walla
+          </span>
         </h1>
       </div>
 

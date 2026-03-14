@@ -2,7 +2,10 @@
 
 ## Overview
 
-The `NextStepsSection` component is the standardized final call-to-action (CTA) section used across all major pages of the MH Website. It provides a consistent user experience by offering clear next steps for visitors to take action.
+The `NextStepsSection` component is the standardized final call-to-action (CTA)
+section used across all major pages of the MH Website. It provides a
+consistent user experience by offering clear next steps for visitors to take
+action.
 
 ## Component Location
 

@@ -10,7 +10,7 @@
 
 import { type NextRequest, NextResponse } from "next/server";
 import { generateTokenPair } from "@/lib/auth/jwt";
-import { rateLimit, rateLimitPresets } from "@/lib/security/rateLimiter";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import { logger } from "@/lib/utils/logger";
 
 export const runtime = "nodejs";

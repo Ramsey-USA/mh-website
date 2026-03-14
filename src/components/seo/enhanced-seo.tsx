@@ -1,6 +1,7 @@
 // Enhanced SEO and Schema Markup System
 import { type Metadata } from "next";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 // Enhanced company information
 export const enhancedSEO = {
@@ -689,6 +690,54 @@ export function generateLocalBusinessSchema() {
       latitude: 46.2396,
       longitude: -119.1006,
     },
+    areaServed: [
+      {
+        "@type": "City",
+        name: "Richland",
+        addressRegion: "WA",
+      },
+      {
+        "@type": "City",
+        name: "Pasco",
+        addressRegion: "WA",
+      },
+      {
+        "@type": "City",
+        name: "Kennewick",
+        addressRegion: "WA",
+      },
+      {
+        "@type": "City",
+        name: "Yakima",
+        addressRegion: "WA",
+      },
+      {
+        "@type": "City",
+        name: "Spokane",
+        addressRegion: "WA",
+      },
+      {
+        "@type": "City",
+        name: "Walla Walla",
+        addressRegion: "WA",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Benton County",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Franklin County",
+      },
+      {
+        "@type": "Place",
+        name: "Tri-Cities Washington",
+      },
+      {
+        "@type": "Place",
+        name: "Pacific Northwest",
+      },
+    ],
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -758,11 +807,11 @@ export function generateEnhancedMetadata({
   const pageUrl = canonicalUrl || enhancedSEO.siteUrl;
   const pageImage = ogImage || `${enhancedSEO.siteUrl}/images/og-default.png`;
 
-  return {
+  const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
     keywords: pageKeywords,
-    robots: noIndex ? "noindex,nofollow" : "_index,follow",
+    robots: noIndex ? "noindex,nofollow" : "index,follow",
 
     alternates: {
       canonical: pageUrl,
@@ -804,7 +853,10 @@ export function generateEnhancedMetadata({
       "msapplication-TileColor": "#386851",
       "msapplication-config": "/browserconfig.xml",
     },
+  };
 
+  return {
+    ...withGeoMetadata(metadata),
     schemas,
   };
 }

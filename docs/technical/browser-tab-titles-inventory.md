@@ -2,7 +2,9 @@
 
 ## Complete Site Title Inventory - Updated December 27, 2025
 
-All browser tab titles now consistently use the dual military → construction messaging format, honoring our veteran heritage while maintaining civilian accessibility.
+All browser tab titles now consistently use the dual military → construction
+messaging format, honoring our veteran heritage while maintaining civilian
+accessibility.
 
 ---
 
@@ -119,7 +121,8 @@ All browser tab titles now consistently use the dual military → construction m
 
 ## 📄 Legal & Policy Pages
 
-**Note:** These pages intentionally use straightforward titles without military terminology, as they are legal documents that should be clear and accessible.
+**Note:** These pages intentionally use straightforward titles without military
+terminology, as they are legal documents that should be clear and accessible.
 
 ### Privacy Policy
 
@@ -144,7 +147,7 @@ All browser tab titles now consistently use the dual military → construction m
 
 All main content pages use the format:
 
-```
+```text
 [Military Term] → [Civilian Term] | [Value Proposition/Tagline] | MH Construction
 ```
 

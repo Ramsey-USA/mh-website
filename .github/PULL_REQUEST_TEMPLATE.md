@@ -28,7 +28,8 @@
 
 ---
 
-**Note:** Pre-commit hooks and CI/CD automatically verify code quality. If checks fail, ask AI: _"Run quality check and fix issues"_
+**Note:** Pre-commit hooks and CI/CD automatically verify code quality. If checks fail,
+ask AI: _"Run quality check and fix issues"_
 
 - [ ] 📦 No unnecessary dependencies added
 - [ ] 🎯 No duplicate code (DRY principle followed)
@@ -49,4 +50,5 @@
 
 ---
 
-**Note:** Pre-commit hooks and CI/CD automatically verify code quality. If checks fail, ask AI: _"Run quality check and fix issues"_
+**Note:** Pre-commit hooks and CI/CD automatically verify code quality. If checks fail,
+ask AI: _"Run quality check and fix issues"_

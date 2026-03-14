@@ -62,7 +62,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Build**         | Passing   | ~42s compilation, zero errors             |
 | **TypeScript**    | Strict    | Zero type errors                          |
 | **ESLint**        | Clean     | Zero lint warnings                        |
-| **Tests**         | Passing   | 65/65 passing                             |
+| **Tests**         | Passing   | 95/95 passing                             |
 | **SEO**           | 100/100   | Perfect scores across all pages           |
 | **Lighthouse**    | 94+       | Performance optimized                     |
 | **Bundle Size**   | 225 kB    | Production optimized                      |
@@ -73,10 +73,30 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Recent Improvements (March 2026)
 
+- **Mar 11:** GEO-proof location content — `LocationProject` data model added; Kennewick (healthcare), Richland
+  (automotive), Pasco (industrial), Yakima/Zillah (public-safety), and Walla Walla (regional)
+  city pages now carry verified completed-project cards, `hasOfferCatalog` LocalBusiness schema,
+  and a Yakima public-sector callout linking fire-station work to `/public-sector`
+- **Mar 11:** API cache security hardened — POST/PUT/DELETE routes assert `Cache-Control: no-store`;
+  30-test suite added (`src/__tests__/api-cache-security.test.ts`)
+- **Mar 11:** Asset-integrity guard test added — middleware preload declarations are cross-checked
+  against `/public` at test time; broken `/styles/critical.css` and `/images/logo.webp` preloads
+  removed from `middleware.ts` (9-test suite in `src/__tests__/asset-integrity.test.ts`)
+- **Mar 11:** Middleware SEO hygiene — matcher now explicitly excludes `sitemap-index.xml`,
+  `_next`, and all static-asset extensions, eliminating unnecessary edge compute on crawl traffic
 - **Mar 11:** Dependency security hardening - production audit at 0 vulnerabilities; dev-only count reduced 25→15
 - **Mar 11:** Added `package.json` overrides for `tar@7.5.11` and `cookie@1.1.1` to patch high/low transitive CVEs
 - **Mar 11:** Upgraded `markdownlint-cli2` to v0.21.0; pinned `vercel` to 32.3.0 for Cloudflare adapter stability
 - **Mar 11:** Next.js updated to 15.5.12, React 18.3.1, Tailwind 3.4.19, TypeScript 5.9.2
+- **Mar 11:** SEO/GEO hardening completed - canonical host standardized to
+  `https://www.mhc-gc.com` across sitemap/robots/LLM discovery assets
+- **Mar 11:** Location intelligence upgraded - city-priority service metadata,
+  GEO-enriched schema, and visible city-specific service/CTA copy alignment
+- **Mar 11:** Media discovery expanded - sitemap now includes all assets in
+  `public/images` and `public/videos` with priority boost for key
+  industrial/safety media
+- **Mar 11:** Metadata consistency cleanup - resolved duplicate Contact route
+  metadata source to prevent title/canonical drift
 
 ### Previous Improvements (Dec 2025)
 
@@ -330,6 +350,7 @@ docs/
     └── architecture.md
 
 # Root-level guides
+master-index.md                        # Central markdown index
 analytics-guide-for-matt-and-jeremy.md  # PRIMARY marketing intelligence guide
 seo-quick-reference.md                  # Quick SEO actions
 contributing.md                         # Contribution guidelines
@@ -542,9 +563,16 @@ Military/construction terminology across all pages for veteran branding + access
 
 - **All pages:** 100/100
 - **Structured data:** Organization, Service, Breadcrumb schemas
-- **Sitemap:** Auto-generated, 27 pages
+- **Sitemap:** Auto-generated pages + media discovery (`public/images`, `public/videos`)
 - **Robots.txt:** AI crawler permissions (ChatGPT, Claude, Perplexity)
 - **llms.txt:** LLM-optimized content for accurate AI responses
+
+### GEO Enhancements (March 2026)
+
+- City-priority service targeting now applied to location metadata, schema, and visible page content
+- Nearby market expansion cues included where applicable (for example: Yakima/Zillah, Walla Walla/Dayton)
+- Internal location page linking strengthened for service discovery and consultation flow
+- Canonical host standardized for crawler consistency: `https://www.mhc-gc.com`
 
 ### SEO Documentation
 

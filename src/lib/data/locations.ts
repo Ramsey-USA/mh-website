@@ -3,6 +3,23 @@
  * Centralized location information for all service areas
  */
 
+/**
+ * A completed project associated with a specific service area.
+ * Used for GEO-proof content and LocalBusiness schema enrichment.
+ */
+export interface LocationProject {
+  /** Formal project name as it would appear in a portfolio or proposal */
+  name: string;
+  /** Year or year-range of completion (e.g. 2025, "2025-2026") */
+  year?: number | string;
+  /** Project category — drives schema serviceType and keyword generation */
+  category: string;
+  /** Short plain-language description emphasising the relevant MHC core value */
+  description?: string;
+  /** Which MHC core value this project best exemplifies */
+  coreValue?: "Honesty" | "Integrity" | "Professionalism" | "Thoroughness";
+}
+
 export interface LocationData {
   slug: string;
   city: string;
@@ -35,6 +52,12 @@ export interface LocationData {
     title: string;
     description: string[];
   };
+  servicePriorities?: string[];
+  nearbyAreas?: string[];
+  /** Verified completed projects in or directly serving this location */
+  recentProjects?: LocationProject[];
+  /** When true, renders a strong internal link to the Public & Government service page */
+  publicSectorHighlight?: boolean;
 }
 
 export const locations: Record<string, LocationData> = {
@@ -93,6 +116,35 @@ export const locations: Record<string, LocationData> = {
         "With over 650 completed projects throughout Benton and Franklin Counties, we're your trusted local partner for construction excellence in Richland.",
       ],
     },
+    servicePriorities: [
+      "High-end residential production",
+      "Site facilitation",
+      "Municipal inspections",
+    ],
+    nearbyAreas: ["Richland", "Benton County"],
+    recentProjects: [
+      {
+        name: "Audi Tri-Cities",
+        category: "Automotive / Commercial",
+        description:
+          "Premium automotive dealership built to OEM brand standards with showcase-quality finishes and honest project delivery throughout.",
+        coreValue: "Integrity",
+      },
+      {
+        name: "BMW of Tri-Cities",
+        category: "Automotive / Commercial",
+        description:
+          "Luxury automotive facility demanding precise manufacturer compliance and a craftsmanship-forward approach at every phase.",
+        coreValue: "Professionalism",
+      },
+      {
+        name: "Country Mercantile",
+        category: "Retail / Hospitality",
+        description:
+          "Retail and hospitality environment built with transparent communication and honest timelines to serve the Richland community.",
+        coreValue: "Honesty",
+      },
+    ],
   },
   kennewick: {
     slug: "kennewick",
@@ -149,6 +201,35 @@ export const locations: Record<string, LocationData> = {
         "With extensive experience in commercial, industrial, and government projects throughout the region, we're your trusted construction partner in Kennewick.",
       ],
     },
+    servicePriorities: [
+      "High-end residential production",
+      "Site facilitation",
+      "Municipal inspections",
+    ],
+    nearbyAreas: ["Kennewick", "Benton County"],
+    recentProjects: [
+      {
+        name: "Tri-Cities Cancer Center Expansion",
+        category: "Healthcare",
+        description:
+          "Specialized medical facility expansion requiring exacting standards and zero disruption to active patient care — Thoroughness in healthcare infrastructure.",
+        coreValue: "Thoroughness",
+      },
+      {
+        name: "Tri-City Orthopaedic Clinic",
+        category: "Healthcare",
+        description:
+          "Precision clinic buildout delivering meticulous code compliance and careful coordination with medical equipment suppliers.",
+        coreValue: "Professionalism",
+      },
+      {
+        name: "Amazon Building Renovation",
+        category: "Commercial / Industrial",
+        description:
+          "High-profile commercial renovation executed on tight logistics timelines with full transparency on costs and scope changes.",
+        coreValue: "Integrity",
+      },
+    ],
   },
   pasco: {
     slug: "pasco",
@@ -203,6 +284,35 @@ export const locations: Record<string, LocationData> = {
         "Being based in Pasco allows us to serve the Tri-Cities area efficiently and maintain close relationships with local suppliers, subcontractors, and officials.",
       ],
     },
+    servicePriorities: [
+      "Industrial builds",
+      "Administrative and office remodels",
+    ],
+    nearbyAreas: ["Pasco", "Franklin County", "Zillah"],
+    recentProjects: [
+      {
+        name: "Volm Corporate Warehouse",
+        category: "Industrial",
+        description:
+          "Large-scale industrial warehouse delivered with thorough pre-construction planning and direct command-center oversight from our Pasco headquarters.",
+        coreValue: "Thoroughness",
+      },
+      {
+        name: "Allied Potato Corporate Office",
+        category: "Corporate / Commercial",
+        description:
+          "Corporate headquarters buildout completed with transparent pricing, clear milestones, and honest communication at every decision point.",
+        coreValue: "Honesty",
+      },
+      {
+        name: "Summer's Hub",
+        year: 2025,
+        category: "Commercial",
+        description:
+          "2025 mixed-use commercial project demonstrating continued professional investment in Pasco and Franklin County's growing economy.",
+        coreValue: "Professionalism",
+      },
+    ],
   },
   yakima: {
     slug: "yakima",
@@ -257,6 +367,28 @@ export const locations: Record<string, LocationData> = {
         "Our commitment to quality and service excellence extends throughout Central Washington, bringing the same veteran-owned professionalism to every Yakima project.",
       ],
     },
+    servicePriorities: [
+      "Fire station and emergency services remodeling",
+      "Public works infrastructure",
+    ],
+    nearbyAreas: ["Yakima", "Yakima Valley", "Zillah"],
+    recentProjects: [
+      {
+        name: "Zillah Fire Station #10 Remodel & Admin Building",
+        category: "Public Safety / Government",
+        description:
+          "Full station remodel plus new administrative building for an active fire company — mission-critical public safety infrastructure executed with Thoroughness and zero service interruption.",
+        coreValue: "Thoroughness",
+      },
+      {
+        name: "Yakima County Fire District #5 (Parker)",
+        category: "Public Safety / Government",
+        description:
+          "Fire district facility serving Yakima County communities; held to the highest standards of public-sector compliance and life-safety performance.",
+        coreValue: "Thoroughness",
+      },
+    ],
+    publicSectorHighlight: true,
   },
   spokane: {
     slug: "spokane",
@@ -311,6 +443,11 @@ export const locations: Record<string, LocationData> = {
         "Our veteran-owned values and commitment to excellence travel with us, ensuring Spokane clients receive the same quality service and partnership-driven approach.",
       ],
     },
+    servicePriorities: [
+      "General contracting",
+      "Commercial tenant improvements",
+    ],
+    nearbyAreas: ["Spokane", "Spokane County"],
   },
   "west-richland": {
     slug: "west-richland",
@@ -365,6 +502,12 @@ export const locations: Record<string, LocationData> = {
         "Our proximity allows us to provide responsive service and maintain strong relationships with local officials and the West Richland community.",
       ],
     },
+    servicePriorities: [
+      "High-end residential production",
+      "Site facilitation",
+      "Municipal inspections",
+    ],
+    nearbyAreas: ["West Richland", "Benton County"],
   },
   "walla-walla": {
     slug: "walla-walla",
@@ -419,6 +562,28 @@ export const locations: Record<string, LocationData> = {
         "Our veteran-owned commitment to excellence and partnership-driven approach ensures Walla Walla clients receive the same quality service that has built our reputation throughout Eastern Washington.",
       ],
     },
+    servicePriorities: [
+      "Land development",
+      "Private retreats",
+      "High-stakes land stewardship",
+    ],
+    nearbyAreas: ["Walla Walla", "Walla Walla County", "Dayton"],
+    recentProjects: [
+      {
+        name: "NW Equipment Sales",
+        category: "Industrial / Equipment",
+        description:
+          "Regional equipment sales and service facility built for long-term operational durability across the Columbia River Basin corridor.",
+        coreValue: "Professionalism",
+      },
+      {
+        name: "Columbia Crest Winery Corridor Projects",
+        category: "Specialty / Commercial",
+        description:
+          "Specialty commercial work in the Columbia Crest Winery region — heritage-sensitive site coordination with high-end finish standards and full client transparency.",
+        coreValue: "Integrity",
+      },
+    ],
   },
 };
 

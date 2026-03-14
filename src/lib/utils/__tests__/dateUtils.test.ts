@@ -1,4 +1,4 @@
-import { formatDate, formatDateLong, getRelativeTime } from "../dateUtils";
+import { formatDate, formatDateLong, getRelativeTime } from "../date-utils";
 
 describe("dateUtils", () => {
   describe("formatDate", () => {

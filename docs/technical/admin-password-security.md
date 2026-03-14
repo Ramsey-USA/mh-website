@@ -9,7 +9,9 @@
 
 ## Overview
 
-The MH Construction admin analytics system uses default passwords (`admin123`) for development convenience. **These MUST be changed before production deployment.**
+The MH Construction admin analytics system uses default passwords (`admin123`)
+for development convenience. **These MUST be changed before production
+deployment.**
 
 ### Current Admin Accounts
 
@@ -18,7 +20,7 @@ The MH Construction admin analytics system uses default passwords (`admin123`) f
 
 ### 🔴 Known Security Issues (Fixed Dec 26, 2025)
 
-**Issue 1: No Password Hashing**
+#### Issue 1: No Password Hashing
 
 - **Status:** ⚠️ DOCUMENTED (fix requires bcrypt implementation)
 - **Current:** Passwords stored in plain text environment variables
@@ -26,14 +28,14 @@ The MH Construction admin analytics system uses default passwords (`admin123`) f
 - **Mitigation:** Passwords stored as Cloudflare Workers secrets (encrypted at rest)
 - **Future:** Implement bcrypt hashing when moving to database authentication
 
-**Issue 2: Brute Force Vulnerability**
+#### Issue 2: Brute Force Vulnerability
 
 - **Status:** ✅ FIXED (Dec 26, 2025)
 - **Solution:** Added strict rate limiting (3 attempts per 5 minutes)
 - **Implementation:** Using `rateLimitPresets.strict` on admin login endpoint
 - **Protection:** Prevents automated password guessing attacks
 
-**Issue 3: Demo Account Exposure**
+#### Issue 3: Demo Account Exposure
 
 - **Status:** ⚠️ DOCUMENTED (must remove before production)
 - **Current:** `demo@mhc-gc.com` / `demo123` hardcoded in code
@@ -84,7 +86,7 @@ openssl rand -base64 32
 
 **Example strong password format:**
 
-```
+```text
 Mh2025!Tr@nsf0rm#Secur3$Build
 ```
 
@@ -98,7 +100,7 @@ Mh2025!Tr@nsf0rm#Secur3$Build
 4. Click **Settings** → **Environment Variables**
 5. Add/Update variables for **Production**:
 
-   ```
+   ```text
    Variable: ADMIN_MATT_PASSWORD
    Value: [your strong password for Matt]
    Encrypt: ✓ (check this box)
@@ -149,9 +151,9 @@ wrangler secret list
 - ✅ Keep in secure note with MFA
 - ✅ Document in secure company vault
 
-**Recommended: 1Password Team Setup**
+#### Recommended: 1Password Team Setup
 
-```
+```text
 Vault: MH Construction Admin
 Item: Admin Analytics Dashboard
 Fields:
@@ -299,7 +301,7 @@ If passwords are compromised:
 
 **Strong Password Example:**
 
-```
+```text
 Mh2025#Analytics!Dashboard$Secure
 ```
 
@@ -315,7 +317,7 @@ Mh2025#Analytics!Dashboard$Secure
 
 **Weak Password Examples (NEVER USE):**
 
-```
+```text
 ❌ admin123          - Too short, dictionary word
 ❌ Password123!      - Common pattern
 ❌ MH2025            - Too short, predictable
@@ -489,7 +491,7 @@ if (email === "demo@mhc-gc.com" && password === "demo123") {
 
 **Production Options:**
 
-**Option 1: Complete Removal (Recommended)**
+#### Option 1: Complete Removal (Recommended)
 
 ```typescript
 function verifyCredentials(email: string, password: string): JWTUser | null {
@@ -499,7 +501,7 @@ function verifyCredentials(email: string, password: string): JWTUser | null {
 }
 ```
 
-**Option 2: IP Whitelist (If Demo Needed)**
+#### Option 2: IP Whitelist (If Demo Needed)
 
 ```typescript
 const DEMO_ALLOWED_IPS = ["YOUR_OFFICE_IP", "YOUR_HOME_IP"];

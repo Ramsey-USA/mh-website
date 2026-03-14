@@ -4,9 +4,9 @@
  */
 
 import { type AuditLogger, AuditEventType } from "../audit-logger";
-import { XSSScanner } from "./XSSScanner";
-import { SQLInjectionScanner } from "./SQLInjectionScanner";
-import { HeaderScanner } from "./HeaderScanner";
+import { XSSScanner } from "./xss-scanner";
+import { SQLInjectionScanner } from "./sql-injection-scanner";
+import { HeaderScanner } from "./header-scanner";
 import type {
   Vulnerability,
   VulnerabilityType,

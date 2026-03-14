@@ -9,9 +9,13 @@
 
 ## Overview
 
-Template components eliminate repetitive code by providing pre-built, standard-compliant section structures that developers can customize with content while maintaining visual consistency.
+Template components eliminate repetitive code by providing pre-built,
+standard-compliant section structures that developers can customize with content
+while maintaining visual consistency.
 
-**Non-coder friendly explanation:** These are pre-made building blocks for pages. Instead of manually coding the same fancy background and header pattern 26 times, developers import one component and just fill in the content.
+**Non-coder friendly explanation:** These are pre-made building blocks for pages.
+Instead of manually coding the same fancy background and header pattern 26 times,
+developers import one component and just fill in the content.
 
 ---
 
@@ -19,7 +23,9 @@ Template components eliminate repetitive code by providing pre-built, standard-c
 
 ### Purpose
 
-**Non-coder explanation:** "This is the fancy section with the gold/green gradient title and the subtle background patterns (diagonal stripes + color blobs)"
+**Non-coder explanation:** "This is the fancy section with the gold/green
+gradient title and the subtle background patterns (diagonal stripes + color
+blobs)"
 
 **Technical features:**
 

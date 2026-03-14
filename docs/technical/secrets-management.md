@@ -8,7 +8,8 @@
 
 ## Overview
 
-This guide establishes standards for managing sensitive information like API keys, database credentials, and authentication tokens.
+This guide establishes standards for managing sensitive information like API
+keys, database credentials, and authentication tokens.
 
 ---
 

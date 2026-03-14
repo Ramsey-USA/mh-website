@@ -2,7 +2,7 @@ import { type NextRequest } from "next/server";
 import {
   handleFormSubmission,
   handleFormRetrieval,
-} from "@/lib/api/formHandler";
+} from "@/lib/api/form-handler";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

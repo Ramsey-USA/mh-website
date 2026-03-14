@@ -8,7 +8,7 @@ import type {
   AIResponse as _AIResponse,
 } from "@/lib/ai/types";
 import { logger as _logger } from "@/lib/utils/logger";
-import { matchesKeywords } from "@/lib/utils/keywordMatcher";
+import { matchesKeywords } from "@/lib/utils/keyword-matcher";
 
 export class CoreAIEngine {
   private constructionIntel: ConstructionIntel;

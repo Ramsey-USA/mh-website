@@ -1,6 +1,7 @@
 # Video Optimization Setup
 
-FFmpeg is not installed in this dev container, but it **will be automatically installed** in GitHub Actions when the workflow runs.
+FFmpeg is not installed in this dev container, but it **will be automatically
+installed** in GitHub Actions when the workflow runs.
 
 ## Testing Locally (Optional)
 
@@ -38,4 +39,6 @@ npm run optimize:videos
 
 ## GitHub Actions
 
-No local installation needed for automatic optimization - FFmpeg is installed automatically in the CI environment using the `FedericoCarboni/setup-ffmpeg@v3` action.
+No local installation needed for automatic optimization - FFmpeg is installed
+automatically in the CI environment using the
+`FedericoCarboni/setup-ffmpeg@v3` action.

@@ -47,7 +47,9 @@
 **Added:** December 26, 2025  
 **Version:** 5.2.0 - Accessibility Color Variants
 
-The original Leather Tan (#BD9264) provides insufficient contrast for WCAG AA compliance on white backgrounds (2.82:1 ratio). To maintain brand identity while ensuring accessibility:
+The original Leather Tan (#BD9264) provides insufficient contrast for WCAG AA
+compliance on white backgrounds (2.82:1 ratio). To maintain brand identity while
+ensuring accessibility:
 
 **✅ APPROVED USES for #BD9264:**
 
@@ -65,7 +67,7 @@ The original Leather Tan (#BD9264) provides insufficient contrast for WCAG AA co
 
 **Contrast Ratios:**
 
-```
+```text
 Original (#BD9264) on white: 2.82:1 ❌ Fails WCAG AA
 Secondary-Text (#8a6643) on white: 4.59:1 ✅ Passes WCAG AA
 White on Secondary-700 (#8a6643): 5.17:1 ✅ Passes WCAG AA

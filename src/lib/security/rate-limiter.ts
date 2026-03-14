@@ -88,7 +88,7 @@ function cleanupExpiredEntries() {
  *
  * @example
  * ```typescript
- * import { rateLimit } from '@/lib/security/rateLimiter';
+ * import { rateLimit } from '@/lib/security/rate-limiter';
  *
  * export const GET = rateLimit({
  *   maxRequests: 10,

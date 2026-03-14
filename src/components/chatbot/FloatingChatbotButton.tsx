@@ -1,7 +1,7 @@
 "use client";
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { useChatbot } from "@/providers/GlobalChatbotProvider";
+import { useChatbot } from "@/providers/global-chatbot-provider";
 
 export function FloatingChatbotButton() {
   const { isOpen, toggleChatbot } = useChatbot();

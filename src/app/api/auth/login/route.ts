@@ -6,7 +6,7 @@
 import { type NextRequest, type NextResponse } from "next/server";
 import { generateTokenPair, type JWTUser } from "@/lib/auth/jwt";
 import { sanitizeEmail } from "@/lib/security/sanitization";
-import { rateLimit, rateLimitPresets } from "@/lib/security/rateLimiter";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import { logger } from "@/lib/utils/logger";
 import {
   badRequest,

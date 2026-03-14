@@ -329,7 +329,7 @@
 
 **Score Calculation:**
 
-```
+```text
 (Checked Items / Total Items) × 100 = Compliance %
 ```
 

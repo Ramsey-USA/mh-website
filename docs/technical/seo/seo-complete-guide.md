@@ -1,8 +1,8 @@
 # Complete SEO & Search Optimization Guide
 
 **Category:** Technical - SEO  
-**Version:** 3.0.0  
-**Last Updated:** December 28, 2025  
+**Version:** 3.1.0  
+**Last Updated:** March 11, 2026  
 **Status:** ✅ Active & Comprehensive
 
 > **Consolidation Note:** This document consolidates and supersedes:
@@ -583,6 +583,69 @@ generateServiceSchema({
   ]
 }
 ```
+
+### Location Page Schema (`LocalBusiness` + `hasOfferCatalog`)
+
+**File:** `src/components/locations/LocationPageContent.tsx`  
+**Data source:** `src/lib/data/locations.ts` → `recentProjects[]`
+
+Every location page emits a `LocalBusiness` node. When the city has `recentProjects` defined,
+an `hasOfferCatalog` block is automatically appended, surfacing verified completed
+projects as structured `Offer → Service` items. This creates a direct semantic link between
+MH Construction and specific named projects in that city for search engines.
+
+```typescript
+// Automatically generated — do NOT hand-edit in the component
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "MH Construction - Kennewick",
+  // ... address, geo, telephone ...
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Recent Projects — Kennewick, WA",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "position": 1,
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Tri-Cities Cancer Center Expansion",
+          "serviceType": "Healthcare",
+          "description": "Specialized medical facility expansion..."
+        }
+      }
+      // ... one entry per recentProjects item
+    ]
+  }
+}
+```
+
+**To add projects to a city schema**, edit only `src/lib/data/locations.ts`:
+
+```typescript
+kennewick: {
+  // ...
+  recentProjects: [
+    {
+      name: "Project Name",          // required
+      category: "Healthcare",         // required — becomes serviceType in schema
+      year: 2025,                     // optional badge
+      description: "One sentence.",   // optional — shown in card + schema
+      coreValue: "Thoroughness",      // optional — badge on project card
+    },
+  ],
+  publicSectorHighlight: true,        // optional — adds /public-sector callout
+}
+```
+
+**Rules:**
+
+- `category` is the only field mapped to schema `serviceType`; keep it concise (1–4 words)
+- Set `coreValue` only on projects where one value is clearly dominant
+- Set `publicSectorHighlight: true` only for cities with verified government / public-safety work
+
+---
 
 ### IRL Consultation Schema
 

@@ -5,6 +5,7 @@ import {
   generateConstructionFAQSchema,
   generateServiceSchema,
   generateLocalBusinessSchema,
+  generateEnhancedOrganizationSchema,
   enhancedSEO,
 } from "@/components/seo/enhanced-seo";
 
@@ -14,7 +15,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     title:
       "Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction",
     description:
-      "Base HQ → Home: Your Tri-Cities Construction Command Center. Veteran-owned construction management since 2010. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest. Four core values (Honesty, Integrity, Professionalism, Thoroughness) building trust through transparent communication. Dual-label approach: Military Operations → Construction Services. Licensed in WA, OR, ID.",
+      "Base HQ → Home: Your Tri-Cities Construction Command Center serving Richland, Pasco, Kennewick, Yakima, Spokane, and Walla Walla. Veteran-owned construction management since 2010. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest. Four core values (Honesty, Integrity, Professionalism, Thoroughness) building trust through transparent communication. Dual-label approach: Military Operations → Construction Services. Licensed in WA, OR, ID.",
     keywords: [
       "Base HQ Home construction command center",
       "veteran-owned contractor Pacific Northwest",
@@ -32,6 +33,9 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
       "general contractor Richland WA",
       "general contractor Pasco WA",
       "general contractor Kennewick WA",
+      "general contractor Yakima WA",
+      "general contractor Spokane WA",
+      "general contractor Walla Walla WA",
       "Tri-Cities construction company",
       "construction partnership approach",
       "face-to-face construction consultation",
@@ -108,6 +112,38 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
       ],
       slogan: "We Work WITH You, Not FOR You",
       mission: "Building projects for the client, NOT the dollar",
+      areaServed: [
+        {
+          "@type": "City",
+          name: "Richland",
+          containedIn: { "@type": "State", name: "Washington" },
+        },
+        {
+          "@type": "City",
+          name: "Kennewick",
+          containedIn: { "@type": "State", name: "Washington" },
+        },
+        {
+          "@type": "City",
+          name: "Pasco",
+          containedIn: { "@type": "State", name: "Washington" },
+        },
+        {
+          "@type": "City",
+          name: "Yakima",
+          containedIn: { "@type": "State", name: "Washington" },
+        },
+        {
+          "@type": "City",
+          name: "Spokane",
+          containedIn: { "@type": "State", name: "Washington" },
+        },
+        {
+          "@type": "City",
+          name: "Walla Walla",
+          containedIn: { "@type": "State", name: "Washington" },
+        },
+      ],
     },
     mentions: [
       {
@@ -150,7 +186,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
     title:
       "Our Oath → About Us | Service-Earned Values, Battle-Tested Excellence | MH Construction",
     description:
-      "Our Oath → About Us: Service-Earned Values, Battle-Tested Excellence. 15 years of proven operations: Mike Holstein founded MH Construction in 2010 on partnership values. Army veteran Jeremy Thamert purchased the company in January 2025, bringing it to veteran-owned status with operational leadership. 650+ completed missions, 70% referral rate, consecutive AGC-WA Top EMR Awards, OSHA VPP Star certification. Chain of Command approach: individual specialists, unified mission.",
+      "Our Oath → About Us: Service-Earned Values, Battle-Tested Excellence. 15 years of proven operations serving Tri-Cities WA (Richland, Kennewick, Pasco), Yakima, Spokane, and Walla Walla. Mike Holstein founded MH Construction in 2010 on partnership values. Army veteran Jeremy Thamert purchased the company in January 2025, bringing veteran-owned leadership. 650+ completed missions, 70% referral rate, consecutive AGC-WA Top EMR Awards, OSHA VPP Star certification. Chain of Command approach: individual specialists, unified mission.",
     keywords: [
       "Our Oath About Us service-earned values",
       "battle-tested construction excellence",
@@ -179,6 +215,11 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
       "Kennewick construction awards",
       "Benton County construction excellence",
       "Franklin County veteran-owned contractor",
+      "Yakima veteran-owned construction company",
+      "Spokane veteran general contractor",
+      "Walla Walla construction company",
+      "Eastern Washington construction history",
+      "Pacific Northwest general contractor about",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/about`,
     schemas: [companyHistorySchema],
@@ -222,7 +263,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     title:
       "Operations → Services | The Battle Plan - Strategic Construction Excellence | MH Construction",
     description:
-      "Operations → Services: The Battle Plan - Strategic Construction Excellence from Concept to Completion. Veteran-owned construction services with military precision: honest communication, transparent pricing, proven craftsmanship. Residential, commercial, and government projects across Pacific Northwest. Your construction mission deserves veteran-led expert oversight. Get started with consultation booking, PWA app, or pitch deck download.",
+      "Operations → Services: The Battle Plan - Strategic Construction Excellence from Concept to Completion. Veteran-owned construction services with military precision: honest communication, transparent pricing, proven craftsmanship. Residential, commercial, and government projects across the Tri-Cities (Richland, Kennewick, Pasco), Yakima, Spokane, and Walla Walla. Serving Eastern Washington and the Pacific Northwest. Your construction mission deserves veteran-led expert oversight.",
     keywords: [
       "Operations Services battle plan",
       "strategic construction excellence concept to completion",
@@ -241,6 +282,12 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
       "Kennewick transparent contractor",
       "Benton County construction services",
       "Franklin County veteran contractor",
+      "Yakima construction services WA",
+      "Yakima veteran contractor Washington",
+      "Spokane construction services WA",
+      "Spokane veteran contractor Washington",
+      "Walla Walla construction services WA",
+      "Eastern Washington construction services",
       "construction consultation booking",
       "PWA construction services app",
     ],
@@ -461,33 +508,143 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
 export function getCareersSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     title:
-      "Enlist → Careers | Build More Than Projects - Build Your Future | MH Construction",
+      "Enlist → Careers | Build Your Future with MH Construction | MH Construction",
     description:
-      "Enlist → Careers: Build More Than Projects - Build Your Future with a Veteran-Owned Team. Join the mission - your construction career starts here. Your career growth is our mission. Join a veteran-owned team where honest communication, transparent expectations, and proven mentorship create tomorrow's leaders. Exciting construction career opportunities with competitive benefits and award-winning safety (.64 EMR).",
+      "Enlist → Careers: Build Your Future with a Veteran-Owned Team. We are always looking for driven individuals who mirror our 4 Core Values: Honesty, Integrity, Professionalism, and Thoroughness. Submit a general career inquiry - even when we aren't hiring for a specific role we welcome skilled professionals in the Tri-Cities, Yakima, Spokane, and Walla Walla, WA. Veterans receive priority consideration.",
     keywords: [
-      "Enlist Careers build your future",
+      "Enlist Careers build your future MH Construction",
       "join the mission construction career",
-      "veteran-owned construction careers",
-      "honest construction employer",
-      "transparent career growth",
+      "veteran-owned construction careers Pacific Northwest",
+      "honest construction employer Pacific Northwest",
+      "transparent career growth construction",
+      "construction career inquiry Washington state",
       "construction jobs Pacific Northwest",
-      "veteran construction careers",
-      "construction career opportunities",
+      "veteran construction careers Washington",
       "construction employment Tri-Cities WA",
       "military values construction jobs",
-      "construction career growth",
-      "Project Manager jobs",
-      "Superintendent jobs",
-      "Carpenter jobs",
-      "Project Engineer jobs",
-      "Richland veteran-owned jobs",
-      "Pasco construction careers",
-      "Kennewick construction employment",
-      "Benton County veteran careers",
-      "Franklin County construction careers",
+      "4 core values employer construction",
+      "honesty integrity professionalism thoroughness jobs",
+      "skilled trades career inquiry WA",
+      "general contractor career Washington",
+      "Tri-Cities construction careers WA",
+      "Richland construction jobs WA",
+      "Pasco construction careers WA",
+      "Kennewick construction employment WA",
+      "Benton County veteran construction careers",
+      "Franklin County construction careers WA",
+      "Yakima construction jobs WA",
+      "Spokane construction careers WA",
+      "Walla Walla construction jobs WA",
+      "Eastern Washington contractor hiring",
+      "construction career growth mentorship",
+      "veteran priority consideration construction jobs",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/careers`,
-    schemas: [],
+    schemas: [
+      generateEnhancedOrganizationSchema(),
+      {
+        "@context": "https://schema.org",
+        "@type": "JobPosting",
+        "@id": `${enhancedSEO.siteUrl}/careers#general-inquiry`,
+        title:
+          "Build Your Future with MH Construction - General Career Inquiry",
+        description:
+          "Submit a general inquiry for career opportunities at MH Construction. We are always looking for driven individuals who mirror our commitment to our 4 Core Values: Honesty, Integrity, Professionalism, and Thoroughness. Even when we aren't hiring for a specific role, we are always open to inquiries from skilled professionals who want to contribute to a high-standard operations environment. Whether you are a seasoned Project Manager or a dedicated Field Specialist, we want to hear from you. Veterans receive priority consideration. Serving Tri-Cities WA (Richland, Kennewick, Pasco), Yakima, Spokane, and Walla Walla.",
+        datePosted: "2026-03-11",
+        url: `${enhancedSEO.siteUrl}/careers`,
+        hiringOrganization: {
+          "@type": "Organization",
+          name: enhancedSEO.companyInfo.name,
+          sameAs: enhancedSEO.siteUrl,
+          logo: `${enhancedSEO.siteUrl}/images/logo/mh-logo.png`,
+        },
+        jobLocation: [
+          {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Richland",
+              addressRegion: "WA",
+              addressCountry: "US",
+            },
+          },
+          {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Pasco",
+              addressRegion: "WA",
+              addressCountry: "US",
+            },
+          },
+          {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Kennewick",
+              addressRegion: "WA",
+              addressCountry: "US",
+            },
+          },
+          {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Yakima",
+              addressRegion: "WA",
+              addressCountry: "US",
+            },
+          },
+          {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Spokane",
+              addressRegion: "WA",
+              addressCountry: "US",
+            },
+          },
+          {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Walla Walla",
+              addressRegion: "WA",
+              addressCountry: "US",
+            },
+          },
+        ],
+        employmentType: "FULL_TIME",
+        baseSalary: {
+          "@type": "PriceSpecification",
+          priceCurrency: "USD",
+          price: "Competitive",
+        },
+        validThrough: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
+          .toISOString()
+          .split("T")[0],
+        benefits: [
+          "Competitive pay",
+          "Comprehensive health, dental, and vision insurance",
+          "Professional development and certifications",
+          "100% mentorship program coverage",
+          "Veteran priority consideration",
+          "Retirement planning with company match",
+          "Award-winning safety culture (.64 EMR)",
+        ],
+        qualifications:
+          "Commitment to our 4 Core Values: Honesty, Integrity, Professionalism, and Thoroughness. Skills in construction management, field operations, or skilled trades welcome. Veterans encouraged to apply.",
+        industry: "Construction",
+        occupationalCategory: "Construction and Extraction",
+        jobBenefits:
+          "Health insurance, dental, vision, 401(k) with company match, professional development, mentorship, safety incentive programs",
+        workHours: "Full-time",
+        applicantLocationRequirements: {
+          "@type": "Country",
+          name: "United States",
+        },
+      },
+    ],
   });
 }
 
@@ -497,7 +654,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
     title:
       "Missions → Projects | Mission Success: 650+ Completed Projects | MH Construction",
     description:
-      "Missions → Projects: Mission Success - 650+ Completed Projects, Countless Lasting Relationships. Veteran-owned since 2025, building excellence since 2010. Our completed construction missions showcase honest communication, transparent pricing, and proven craftsmanship across residential, commercial, and government work. Trust built project by project through proven results and trusted partnerships. Start your next mission with consultation booking, PWA app, or pitch deck.",
+      "Missions → Projects: Mission Success - 650+ Completed Projects, Countless Lasting Relationships. Veteran-owned since 2025, building excellence since 2010. Our completed construction missions showcase honest communication, transparent pricing, and proven craftsmanship across residential, commercial, and government work throughout Tri-Cities WA (Richland, Kennewick, Pasco), Yakima, Spokane, and Walla Walla. Trust built project by project through proven results and trusted partnerships.",
     keywords: [
       "Missions Projects 650 completed",
       "mission success proven results",
@@ -515,11 +672,16 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
       "Kennewick proven results",
       "Benton County construction work",
       "Franklin County veteran-owned portfolio",
+      "Yakima construction projects",
+      "Spokane construction portfolio",
+      "Walla Walla contractor projects",
+      "Eastern Washington construction projects",
+      "WA OR ID construction projects",
       "construction project consultation",
-      "PWA construction portfolio app",
+      "construction portfolio Pacific Northwest",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/projects`,
-    schemas: [],
+    schemas: [generateLocalBusinessSchema()],
   });
 }
 

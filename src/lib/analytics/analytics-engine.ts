@@ -5,7 +5,7 @@
 
 import { logger } from "@/lib/utils/logger";
 import { dataCollector } from "./data-collector";
-import { MetricsCalculator } from "./MetricsCalculator";
+import { MetricsCalculator } from "./metrics-calculator";
 import type {
   AnalyticsEventType,
   AnalyticsEvent,

@@ -4,7 +4,7 @@
  */
 
 import { useState, useMemo, useEffect } from "react";
-import { PortfolioService } from "@/lib/services/portfolioService";
+import { PortfolioService } from "@/lib/services/portfolio-service";
 import { useAnalytics } from "@/components/analytics/enhanced-analytics";
 
 export function useProjectsSearch() {

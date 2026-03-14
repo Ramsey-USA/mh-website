@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
-import { COMPANY_INFO } from "@/lib/constants/company";
+import fs from "node:fs";
+import path from "node:path";
 
 /**
  * Dynamic Sitemap - Auto-adapts to new pages
@@ -70,15 +71,91 @@ const ACTIVE_PAGES = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl =
-    process.env["NEXT_PUBLIC_SITE_URL"] || COMPANY_INFO.urls.getSiteUrl();
+  const baseUrl = "https://www.mhc-gc.com";
   const currentDate = new Date();
 
   // Auto-generate sitemap entries from registry
-  return ACTIVE_PAGES.map(({ path, priority, changeFreq }) => ({
+  const pageEntries = ACTIVE_PAGES.map(({ path, priority, changeFreq }) => ({
     url: `${baseUrl}${path}`,
     lastModified: currentDate,
     changeFrequency: changeFreq,
     priority,
   }));
+
+  const mediaEntries = getMediaUrls().map((mediaUrl) => ({
+    url: `${baseUrl}${mediaUrl}`,
+    lastModified: currentDate,
+    changeFrequency: "monthly" as const,
+    priority: getMediaPriority(mediaUrl),
+  }));
+
+  return [...pageEntries, ...mediaEntries];
+}
+
+function getMediaUrls(): string[] {
+  const publicDir = path.join(process.cwd(), "public");
+  const targets = ["images", "videos"];
+  const allowedExt = new Set([
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".webp",
+    ".gif",
+    ".svg",
+    ".mp4",
+    ".webm",
+    ".mov",
+  ]);
+  const urls: string[] = [];
+
+  for (const target of targets) {
+    const targetPath = path.join(publicDir, target);
+    if (!fs.existsSync(targetPath)) {
+      continue;
+    }
+    collectMediaUrls(targetPath, publicDir, allowedExt, urls);
+  }
+
+  return urls;
+}
+
+function collectMediaUrls(
+  currentPath: string,
+  publicDir: string,
+  allowedExt: Set<string>,
+  urls: string[],
+) {
+  const items = fs.readdirSync(currentPath, { withFileTypes: true });
+  for (const item of items) {
+    const fullPath = path.join(currentPath, item.name);
+    if (item.isDirectory()) {
+      collectMediaUrls(fullPath, publicDir, allowedExt, urls);
+      continue;
+    }
+
+    const ext = path.extname(item.name).toLowerCase();
+    if (!allowedExt.has(ext)) {
+      continue;
+    }
+
+    const relative = fullPath.replace(publicDir, "").split(path.sep).join("/");
+    urls.push(relative.startsWith("/") ? relative : `/${relative}`);
+  }
+}
+
+function getMediaPriority(mediaUrl: string): number {
+  const importantPatterns = [
+    "zoom",
+    "boom",
+    "forklift",
+    "safety",
+    "job-site",
+    "jobsite",
+    "industrial",
+  ];
+
+  const lowered = mediaUrl.toLowerCase();
+  return importantPatterns.some((pattern) => lowered.includes(pattern))
+    ? 0.7
+    : 0.4;
 }

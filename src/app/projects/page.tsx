@@ -8,7 +8,7 @@
 import dynamic from "next/dynamic";
 import { usePageTracking } from "@/lib/analytics/hooks";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { PortfolioService } from "@/lib/services/portfolioService";
+import { PortfolioService } from "@/lib/services/portfolio-service";
 import { useProjectsSearch } from "./components/useProjectsSearch";
 
 // Critical above-the-fold components - load with SSR
@@ -97,8 +97,6 @@ const NextStepsSection = dynamic(
 );
 
 import { StrategicCTABanner } from "@/components/ui/cta";
-import { StructuredData } from "@/components/seo/seo-meta";
-import { getProjectsSEO } from "@/lib/seo/page-seo-utils";
 import { SimpleSkeleton } from "@/components/ui/SimpleSkeleton";
 import {
   generateBreadcrumbSchema,
@@ -108,9 +106,6 @@ import {
 export default function ProjectsPage() {
   // Analytics tracking
   usePageTracking("Projects");
-
-  // Get enhanced SEO data for Projects page
-  const projectsSEO = getProjectsSEO();
 
   // ALL HOOKS MUST BE CALLED BEFORE ANY CONDITIONAL RETURNS
   const {
@@ -128,11 +123,7 @@ export default function ProjectsPage() {
   return (
     <>
       {/* SEO Meta Tags */}
-
-      {/* Structured Data */}
-      {projectsSEO.schemas && projectsSEO.schemas.length > 0 && (
-        <StructuredData data={projectsSEO.schemas} />
-      )}
+      {/* Structured Data is injected via layout.tsx to avoid duplication */}
 
       {/* Breadcrumb Schema */}
       <script

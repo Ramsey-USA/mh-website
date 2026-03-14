@@ -1,6 +1,9 @@
 # Admin Analytics System
 
-> **📊 Latest Enhancement (December 2025):** Analytics system now collects 100+ comprehensive data points including device info, user preferences, performance metrics, and security context. See archived documentation for complete details.
+> **📊 Latest Enhancement (December 2025):** Analytics system now collects 100+
+> comprehensive data points including device info, user preferences,
+> performance metrics, and security context. See archived documentation for
+> complete details.
 
 ## Overview
 
@@ -32,7 +35,10 @@ A secure, hidden analytics dashboard accessible only to Matt and Jeremy through 
 - Email: `jeremy@mhc-gc.com`
 - Password: `admin123` (default - change immediately for production)
 
-> 🔴 **CRITICAL**: These default passwords are ONLY for development. Before deploying to production, you **MUST** change them by setting environment variables `ADMIN_MATT_PASSWORD` and `ADMIN_JEREMY_PASSWORD` in Cloudflare Workers.
+> 🔴 **CRITICAL**: These default passwords are ONLY for development. Before
+> deploying to production, you **MUST** change them by setting environment
+> variables `ADMIN_MATT_PASSWORD` and `ADMIN_JEREMY_PASSWORD` in Cloudflare
+> Workers.
 >
 > **See: [Admin Password Security Guide](./admin-password-security.md) for complete instructions.**
 

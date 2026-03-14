@@ -8,7 +8,7 @@ import Image from "next/image";
 import { SectionContainer } from "@/components/layout";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { mockTestimonials } from "@/lib/types/testimonials";
-import { formatDate } from "@/lib/utils/dateUtils";
+import { formatDate } from "@/lib/utils/date-utils";
 
 interface TestimonialsSectionProps {
   title?: string;

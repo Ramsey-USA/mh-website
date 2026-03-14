@@ -133,7 +133,7 @@ The optimization workflow runs when:
 
 Optimized files are saved to:
 
-```
+```text
 public/
 ├── images/
 │   └── my-photo.jpg          # Original

@@ -2,7 +2,7 @@ import {
   matchesKeywords,
   matchesAllKeywords,
   countMatchedKeywords,
-} from "../keywordMatcher";
+} from "../keyword-matcher";
 
 describe("keywordMatcher", () => {
   describe("matchesKeywords", () => {

@@ -1,5 +1,5 @@
 # MH Construction, Inc. - Robots Configuration
-# Website: https://mhc-gc.com
+# Website: https://www.mhc-gc.com
 # Optimized for AI Search Engines (GEO)
 
 # AI Crawlers - Explicitly Allow for Retrieval & Indexing
@@ -51,6 +51,6 @@ Disallow: /_next/static/
 Crawl-delay: 1
 
 # Sitemaps
-Sitemap: https://mhc-gc.com/sitemap-index.xml
-Sitemap: https://mhc-gc.com/sitemap.xml
+Sitemap: https://www.mhc-gc.com/sitemap-index.xml
+Sitemap: https://www.mhc-gc.com/sitemap.xml
 

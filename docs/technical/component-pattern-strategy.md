@@ -2,11 +2,15 @@
 
 ## Overview
 
-The MH Website uses a carefully curated set of reusable component patterns to create a cohesive, professional user experience. This document outlines the strategic approach to implementing these patterns across pages to maintain consistency while allowing each page to have its unique character.
+The MH Website uses a carefully curated set of reusable component patterns to
+create a cohesive, professional user experience. This document outlines the
+strategic approach to implementing these patterns across pages to maintain
+consistency while allowing each page to have its unique character.
 
 ## Core Philosophy: "One of Each"
 
-**Key Principle:** Each page should utilize 1-2 of these showcase patterns to create visual interest without overwhelming users or creating pattern fatigue.
+**Key Principle:** Each page should utilize 1-2 of these showcase patterns to
+create visual interest without overwhelming users or creating pattern fatigue.
 
 ### Why This Matters
 
@@ -159,7 +163,8 @@ The MH Website uses a carefully curated set of reusable component patterns to cr
 - Homepage, About, Services, Projects, Team, FAQ, Veterans
 
 **Philosophy:**
-This is the ONE pattern that should be repeated across all pages—it's the unified conversion point that ties the entire site together.
+This is the ONE pattern that should be repeated across all pages—it's the
+unified conversion point that ties the entire site together.
 
 ## Strategic Pattern Assignment by Page
 
@@ -200,11 +205,15 @@ This is the ONE pattern that should be repeated across all pages—it's the unif
 
 **Recommended Patterns:**
 
-1. ✅ **ValuesShowcase (Modal)** - Core Services Interactive Exploration (implemented as CoreServicesSection)
-2. ✅ **ContentCard Grid** - Specialty Services + Why Choose Us (multiple grids implemented)
-3. ✅ **NextStepsSection** - Final CTA (already implemented)
+1. ✅ **ValuesShowcase (Modal)** - Core Services Interactive Exploration
+   (implemented as CoreServicesSection)
+1. ✅ **ContentCard Grid** - Specialty Services + Why Choose Us (multiple grids
+   implemented)
+1. ✅ **NextStepsSection** - Final CTA (already implemented)
 
-**Implementation Status:** Page uses modal-based showcase (similar to ValuesShowcase) for core services, multiple ContentCard grids for specialty services and features, and NextStepsSection for final CTA. Strategy fully met.
+**Implementation Status:** Page uses modal-based showcase (similar to
+ValuesShowcase) for core services, multiple ContentCard grids for specialty
+services and features, and NextStepsSection for final CTA. Strategy fully met.
 
 **Strategy:** Choose ONE showcase pattern (Alternating OR Interactive), supplement with ContentCard grid
 
@@ -221,7 +230,9 @@ This is the ONE pattern that should be repeated across all pages—it's the unif
 3. ✅ **NextStepsSection** - Final CTA (already implemented)
 4. **AlternatingShowcase** - Project Type Highlights (OPTIONAL - not implemented, not required)
 
-**Implementation Status:** Page uses primary ContentCard grid for portfolio with multiple supporting grids. AlternatingShowcase marked as optional enhancement. Core strategy fully met.
+**Implementation Status:** Page uses primary ContentCard grid for portfolio with
+multiple supporting grids. AlternatingShowcase marked as optional enhancement.
+Core strategy fully met.
 
 **Strategy:** Primarily grid-based for portfolio volume, optional Alternating for featured projects
 
@@ -239,7 +250,11 @@ This is the ONE pattern that should be repeated across all pages—it's the unif
 4. ✅ **Employee Testimonials** - Testimonial grid at optimal SEO position
 5. ✅ **NextStepsSection** - Final CTA (already implemented)
 
-**Implementation Status:** Page correctly prioritizes individual team member profiles organized by 5 departments (Upper Brass, Mission Commanders, Field Officers, Special Operations, Logistics Command). Includes employee testimonials and company culture grid. Full compliance with "faces are the focus" strategy.
+**Implementation Status:** Page correctly prioritizes individual team member
+profiles organized by 5 departments (Upper Brass, Mission Commanders, Field
+Officers, Special Operations, Logistics Command). Includes employee
+testimonials and company culture grid. Full compliance with "faces are the
+focus" strategy.
 
 **Strategy:** Keep focus on people, use interactive pattern only for specialty areas if needed
 
@@ -256,7 +271,9 @@ This is the ONE pattern that should be repeated across all pages—it's the unif
 3. ✅ **Timeline** - Application Process (5-step hiring timeline implemented)
 4. ✅ **NextStepsSection** - Final CTA (standardized section added)
 
-**Implementation Status:** Refactored culture values from 2x2 grid to AlternatingShowcase for visual storytelling. All 4 recommended patterns now present. Full compliance achieved.
+**Implementation Status:** Refactored culture values from 2x2 grid to
+AlternatingShowcase for visual storytelling. All 4 recommended patterns now
+present. Full compliance achieved.
 
 **Strategy:** Show culture visually, make applying clear and simple
 
@@ -278,7 +295,11 @@ This is the ONE pattern that should be repeated across all pages—it's the unif
 4. ✅ **ContentCard Grid** - Government Project Types (6 facility types)
 5. ✅ **NextStepsSection** - Final CTA (added)
 
-**Implementation Status:** Page refactored from "under construction" to full production. Added AlternatingShowcase for federal compliance features with detailed stats and visual storytelling. Multiple ContentCard grids showcase services and capabilities. NextStepsSection provides final CTA. Full compliance achieved.
+**Implementation Status:** Page refactored from "under construction" to full
+production. Added AlternatingShowcase for federal compliance features with
+detailed stats and visual storytelling. Multiple ContentCard grids showcase
+services and capabilities. NextStepsSection provides final CTA. Full compliance
+achieved.
 
 **Strategy:** Visual credibility through Alternating, portfolio through grid
 
@@ -307,7 +328,8 @@ This is the ONE pattern that should be repeated across all pages—it's the unif
 1. ✅ **Accordion-style Q&A** (appropriate) - Main content format
 2. ✅ **NextStepsSection** - Final CTA (already implemented)
 
-**Implementation Status:** Page uses accordion format for Q&A scanability with NextStepsSection for final CTA. Full compliance achieved.
+**Implementation Status:** Page uses accordion format for Q&A scanability with
+NextStepsSection for final CTA. Full compliance achieved.
 
 **Strategy:** Q&A format is best for scanability, no showcase patterns needed
 
@@ -324,7 +346,10 @@ This is the ONE pattern that should be repeated across all pages—it's the unif
 3. ✅ **ContentCard Grid** - Partnership Criteria (6 criteria cards)
 4. ✅ **NextStepsSection** - Final CTA with veteran-specific messaging
 
-**Implementation Status:** Page uses multiple ContentCard grids to showcase veteran leadership, benefits, programs, and partnership opportunities. NextStepsSection includes veteran-specific customization. Strategy fully met using grid format.
+**Implementation Status:** Page uses multiple ContentCard grids to showcase
+veteran leadership, benefits, programs, and partnership opportunities.
+NextStepsSection includes veteran-specific customization. Strategy fully met
+using grid format.
 
 **Strategy:** Choose showcase format based on content depth and imagery availability
 
@@ -332,7 +357,7 @@ This is the ONE pattern that should be repeated across all pages—it's the unif
 
 ### When to Use AlternatingShowcase
 
-```
+```text
 Do you have 3-6 key concepts?
   └─ YES → Do you have high-quality relevant images?
       └─ YES → Does each concept need 2-4 sentences explanation?
@@ -344,7 +369,7 @@ Do you have 3-6 key concepts?
 
 ### When to Use ValuesShowcase
 
-```
+```text
 Do you have 3-6 categories with EXTENSIVE detail?
   └─ YES → Does the content benefit from progressive disclosure?
       └─ YES → Do users need to explore at their own pace?
@@ -356,7 +381,7 @@ Do you have 3-6 categories with EXTENSIVE detail?
 
 ### When to Use ContentCard Grid
 
-```
+```text
 Do you have 6+ similar items?
   └─ YES → Are they primarily list/preview based?
       └─ YES → Do they need quick scanning vs. deep reading?
@@ -368,7 +393,7 @@ Do you have 6+ similar items?
 
 ### When to Use Timeline
 
-```
+```text
 Is your content sequential or chronological?
   └─ YES → Do you have 3-7 clear steps/phases?
       └─ YES → Does progression/order matter?
@@ -427,7 +452,7 @@ Is your content sequential or chronological?
 
 Use this before building a new page:
 
-### Page: ******\_\_\_******
+### Page: **\*\***\_\_\_**\*\***
 
 **1. What's the page goal?**
 
@@ -435,7 +460,7 @@ Use this before building a new page:
 - [ ] Build trust
 - [ ] Drive conversion
 - [ ] Showcase work
-- [ ] Other: ******\_\_\_******
+- [ ] Other: **\*\***\_\_\_**\*\***
 
 **2. What content types do you have?**
 
@@ -459,8 +484,8 @@ Use this before building a new page:
 
 **5. Selected Patterns:**
 
-1. Primary: ******\_\_\_******
-2. Secondary: ******\_\_\_******
+1. Primary: **\*\***\_\_\_**\*\***
+2. Secondary: **\*\***\_\_\_**\*\***
 3. Final CTA: NextStepsSection ✓
 
 ## Implementation Checklist

@@ -4,7 +4,7 @@
  */
 
 import { useCallback } from "react";
-import { trackPhoneCall } from "@/lib/utils/phoneTracking";
+import { trackPhoneCall } from "@/lib/utils/phone-tracking";
 import { COMPANY_INFO } from "@/lib/constants/company";
 
 interface UsePhoneTrackingReturn {

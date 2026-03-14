@@ -22,7 +22,7 @@ import {
   sendToOffice,
   sendAcknowledgment,
   type EmailAttachment,
-} from "@/lib/email/emailService";
+} from "@/lib/email/email-service";
 import {
   createFormSubmissionResponse,
   createPaginatedResponse,

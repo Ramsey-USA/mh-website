@@ -9,9 +9,11 @@
 
 ## Overview
 
-This guide explains the different "building blocks" used to construct pages on the MH Construction website. Think of these like LEGO pieces - each has a specific purpose and look.
+This guide explains the different "building blocks" used to construct pages on the MH
+Construction website. Think of these like LEGO pieces - each has a specific purpose and look.
 
-**Why this matters:** When discussing page layouts or requesting changes, using these names helps everyone understand exactly which part of the page you're talking about.
+**Why this matters:** When discussing page layouts or requesting changes, using these names helps
+everyone understand exactly which part of the page you're talking about.
 
 ---
 
@@ -204,7 +206,7 @@ This guide explains the different "building blocks" used to construct pages on t
 
 ### Typical Page Structure
 
-```
+```text
 HeroSection (full-screen intro)
    ↓
 BrandedContentSection (introduction)
@@ -224,13 +226,13 @@ NextStepsSection (final CTA)
 
 ### Service Page Pattern
 
-```
+```text
 HeroSection → BrandedContentSection (overview) → ShowcaseSection (services grid) → ProcessTimeline (construction process) → BrandedContentSection (differentiators) → CTABanner → Testimonials
 ```
 
 ### About Page Pattern
 
-```
+```text
 HeroSection → BrandedContentSection (mission) → ShowcaseSection (values) → BrandedContentSection (history) → ShowcaseSection (team) → Testimonials → NextSteps
 ```
 
@@ -273,7 +275,7 @@ HeroSection → BrandedContentSection (mission) → ShowcaseSection (values) →
 
 ## Questions?
 
-**"Which section type should I use for X?"**
+### "Which section type should I use for X?"
 
 - **Introducing a topic:** BrandedContentSection
 - **Listing 3-6 items:** ShowcaseSection
@@ -281,11 +283,11 @@ HeroSection → BrandedContentSection (mission) → ShowcaseSection (values) →
 - **Asking user to act:** CTABanner
 - **Page intro:** HeroSection
 
-**"Can we mix and match?"**
+### "Can we mix and match?"
 
 Yes! Pages typically use 4-8 different sections combined. The key is using the right section for the right purpose.
 
-**"How do I know which section I'm looking at?"**
+### "How do I know which section I'm looking at?"
 
 Look for these visual clues:
 
@@ -297,4 +299,4 @@ Look for these visual clues:
 
 ---
 
-_This guide is maintained by the development team. Last updated: December 28, 2025_
+This guide is maintained by the development team. Last updated: December 28, 2025.

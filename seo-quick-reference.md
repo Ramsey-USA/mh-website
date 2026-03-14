@@ -4,18 +4,25 @@
 
 **⭐ NEW (Dec 27, 2025):** Dual-label military/construction titles across all pages!
 
+**⭐ NEW (Mar 11, 2026):** City-priority GEO service targeting + canonical host
+standardization + media sitemap discovery.
+
+**⭐ NEW (Mar 11, 2026):** GEO-proof completed-project content — named projects
+now embedded in location data, metadata keywords, and `LocalBusiness` schema.
+
 **Related Documentation:**
 
 - [Browser Titles Inventory](./docs/technical/browser-tab-titles-inventory.md) - Complete title system
 
 ---
 
-## 🤖 AI Search Optimization (NEW - Nov 20, 2025)
+## 🤖 AI Search Optimization (Updated - Mar 11, 2026)
 
 **Files:**
 
-- `public/robots.txt` - Allows AI crawlers (GPTBot, OAI-SearchBot, CCBot, Google-Extended)
-- `public/llms.txt` - LLM-optimized content for accurate AI responses
+- `public/robots.txt` - Allows AI crawlers and advertises canonical `https://www.mhc-gc.com` sitemap endpoints
+- `public/llms.txt` - LLM-optimized content with city-priority service targeting context
+- `src/app/sitemap.ts` - Includes page URLs plus all supported media assets from `public/images` and `public/videos`
 
 **Supported AI Systems:**
 
@@ -48,6 +55,38 @@
    ```
 
 3. **Done!** The system handles everything else automatically.
+
+### GEO Updates by City
+
+Update `src/lib/data/locations.ts` with up to four fields per city:
+
+- `servicePriorities` - top services to push in SEO + on-page content
+- `nearbyAreas` - nearby locality cues for GEO and internal market expansion
+- `recentProjects` - verified completed projects; each entry has `name`, `year?`, `category`,
+  `description?`, and `coreValue?` (`Honesty | Integrity | Professionalism | Thoroughness`)
+- `publicSectorHighlight` - set `true` to render a dedicated public-sector callout with a
+  hard link to `/public-sector` (use for cities with verified government/public-safety work)
+
+These values automatically propagate into:
+
+- location metadata keywords (project name + category × city)
+- location JSON-LD (`serviceType`, `knowsAbout`, **`hasOfferCatalog`**)
+- location page hero/service CTA copy
+- **"Recent Projects in [City]"** card section on every location page
+
+**Project card format:** `Category badge · Year badge · Project name · Description · Core value badge`
+
+**Adding a project:**
+
+```typescript
+// src/lib/data/locations.ts  →  kennewick.recentProjects
+{
+  name: "Tri-Cities Cancer Center Expansion",
+  category: "Healthcare",
+  description: "Specialized medical facility expansion...",
+  coreValue: "Thoroughness",
+}
+```
 
 ---
 
@@ -140,7 +179,10 @@ npm run type-check         # TypeScript check
 ✅ **90-100 scores** - All pages optimized  
 ✅ **Auto-sitemap** - Updates automatically  
 ✅ **Smart defaults** - Page types detected  
-✅ **Best practices** - Auto-enforced
+✅ **Best practices** - Auto-enforced  
+✅ **Media discovery** - Images/videos auto-added to sitemap  
+✅ **GEO targeting** - City-priority service signals live
+✅ **GEO-proof projects** - Verified completed-project data in schema + on-page cards
 
 ---
 
@@ -183,5 +225,5 @@ npm run type-check         # TypeScript check
 
 **💡 Remember:** The system works FOR you. Add pages naturally, audit regularly, deploy confidently!
 
-**Last Updated:** December 26, 2025  
-**System Version:** 2.0.0
+**Last Updated:** March 11, 2026  
+**System Version:** 2.1.0

@@ -27,7 +27,7 @@ npm run lighthouse
 
 ## Service Worker Lifecycle
 
-```
+```text
 Install → Activate → Fetch → Update → Repeat
 ```
 
@@ -144,7 +144,7 @@ caches
 
 ## File Locations
 
-```
+```text
 public/
 ├── sw.js                    ← Service worker
 └── manifest.json            ← PWA manifest

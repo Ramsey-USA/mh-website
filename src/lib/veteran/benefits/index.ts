@@ -10,7 +10,7 @@
  * - index.ts: Main orchestrator (this file)
  */
 
-import type { VeteranProfile } from "../VeteranProfileEngine";
+import type { VeteranProfile } from "@/lib/veteran/types/veteran-types";
 import { DiscountCalculator } from "./DiscountCalculator";
 import { VABenefitsCoordinator } from "./VABenefitsCoordinator";
 import { SpecialistManager } from "./SpecialistManager";

@@ -2,7 +2,10 @@
 
 ## Overview
 
-The `AlternatingShowcase` component provides a reusable alternating image/text layout pattern originally developed for the homepage Core Values section. This format creates visual interest through alternating left/right layouts with professional image/content pairs.
+The `AlternatingShowcase` component provides a reusable alternating image/text
+layout pattern originally developed for the homepage Core Values section. This
+format creates visual interest through alternating left/right layouts with
+professional image/content pairs.
 
 ## Component Location
 
@@ -10,7 +13,10 @@ The `AlternatingShowcase` component provides a reusable alternating image/text l
 
 ## Origin
 
-Extracted from the **homepage CoreValuesSection** (`/src/components/home/CoreValuesSection.tsx`), this pattern represents the unique alternating image/text layout that makes core values visually engaging and professional.
+Extracted from the **homepage CoreValuesSection**
+(`/src/components/home/CoreValuesSection.tsx`), this pattern represents the
+unique alternating image/text layout that makes core values visually engaging
+and professional.
 
 ## Purpose
 

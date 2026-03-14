@@ -3,7 +3,7 @@
  * Shared type definitions for the veteran benefits automation system
  */
 
-import type { ServiceBranch } from "../VeteranProfileEngine";
+import type { ServiceBranch } from "@/lib/veteran/types/veteran-types";
 
 export interface VeteranBenefitsPackage {
   discounts: AutomatedDiscount[];

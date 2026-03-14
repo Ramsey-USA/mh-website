@@ -1,10 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import {
-  generateOrganizationStructuredData,
-  StructuredData,
-} from "@/components/seo/seo-meta";
+import { StructuredData } from "@/components/seo/seo-meta";
 
 // Enhanced SEO for veteran-owned construction with traditional values
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
@@ -59,8 +56,8 @@ import { PWAInstallCTA } from "@/components/pwa";
 import { StrategicCTABanner } from "@/components/ui/cta";
 
 import { usePageTracking } from "@/lib/analytics/hooks";
-import { useImagePreloader } from "@/hooks/usePerformanceOptimization";
-import { useScrollDepthTracking } from "@/hooks/useScrollDepthTracking";
+import { useImagePreloader } from "@/hooks/use-performance-optimization";
+import { useScrollDepthTracking } from "@/hooks/use-scroll-depth-tracking";
 
 // Process timeline steps
 const processSteps: TimelineStep[] = [
@@ -124,9 +121,6 @@ export default function Home() {
     <>
       {/* Enhanced SEO structured data for veteran-owned construction excellence */}
       <StructuredData data={homepageSEO.schemas} />
-
-      {/* Add structured data for SEO */}
-      <StructuredData data={generateOrganizationStructuredData()} />
 
       {/* Home Page Hero Section */}
       <HeroSection />

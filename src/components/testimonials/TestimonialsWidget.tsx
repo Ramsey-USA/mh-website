@@ -9,7 +9,7 @@ import {
   mockTestimonials,
   type ClientTestimonial,
 } from "@/lib/types/testimonials";
-import { formatDate } from "@/lib/utils/dateUtils";
+import { formatDate } from "@/lib/utils/date-utils";
 import { gridPresets } from "@/lib/styles/layout-variants";
 
 interface TestimonialsWidgetProps {
