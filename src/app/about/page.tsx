@@ -1,7 +1,4 @@
-"use client";
-
-import dynamic from "next/dynamic";
-import { usePageTracking } from "@/lib/analytics/hooks";
+import { PageTrackingClient } from "@/components/analytics";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   DiagonalStripePattern,
@@ -9,10 +6,17 @@ import {
 } from "@/components/ui/backgrounds";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import {
+  TestimonialsSection,
+  NextStepsSection,
+} from "@/components/shared-sections";
+import {
   AboutHero,
   PartnershipPhilosophy,
   CompanyStats,
   ValuesShowcase,
+  LeadershipTeam,
+  SafetySection,
+  AwardsSection,
 } from "@/components/about";
 import { Timeline } from "@/components/ui/Timeline";
 import { ContentCard } from "@/components/ui/ContentCard";
@@ -24,49 +28,11 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 
-// Lazy load heavy below-the-fold sections for better mobile performance
-const LeadershipTeam = dynamic(
-  () =>
-    import("@/components/about").then((mod) => ({
-      default: mod.LeadershipTeam,
-    })),
-  { ssr: false },
-);
-const SafetySection = dynamic(
-  () =>
-    import("@/components/about").then((mod) => ({
-      default: mod.SafetySection,
-    })),
-  { ssr: false },
-);
-const AwardsSection = dynamic(
-  () =>
-    import("@/components/about").then((mod) => ({
-      default: mod.AwardsSection,
-    })),
-  { ssr: false },
-);
-const TestimonialsSection = dynamic(
-  () =>
-    import("@/components/shared-sections").then((mod) => ({
-      default: mod.TestimonialsSection,
-    })),
-  { ssr: true },
-);
-const NextStepsSection = dynamic(
-  () =>
-    import("@/components/shared-sections").then((mod) => ({
-      default: mod.NextStepsSection,
-    })),
-  { ssr: true },
-);
-
 export default function AboutPage() {
-  // Analytics tracking
-  usePageTracking("About");
-
   return (
     <>
+      <PageTrackingClient pageName="About" />
+
       {/* SEO Meta Tags */}
       {/* Structured Data is injected via layout.tsx to avoid duplication */}
 

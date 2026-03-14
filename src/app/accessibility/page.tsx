@@ -1,7 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { usePageTracking } from "@/lib/analytics/hooks";
+import { PageTrackingClient } from "@/components/analytics";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { StructuredData } from "@/components/seo/seo-meta";
@@ -10,14 +8,10 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 
-// Note: Metadata moved to parent layout due to "use client" directive
-
 export default function AccessibilityPage() {
-  // Analytics tracking
-  usePageTracking("Accessibility");
-
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-black">
+      <PageTrackingClient pageName="Accessibility" />
       <StructuredData
         data={generateBreadcrumbSchema(breadcrumbPatterns.accessibility)}
       />

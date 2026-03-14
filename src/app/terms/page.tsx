@@ -1,7 +1,5 @@
-"use client";
-
+import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
-import { usePageTracking } from "@/lib/analytics/hooks";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StructuredData } from "@/components/seo/seo-meta";
 import { COMPANY_INFO } from "@/lib/constants/company";
@@ -10,14 +8,10 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 
-// Note: Metadata moved to parent layout due to "use client" directive
-
 export default function TermsOfServicePage() {
-  // Analytics tracking
-  usePageTracking("Terms of Service");
-
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-black">
+      <PageTrackingClient pageName="Terms of Service" />
       <StructuredData
         data={generateBreadcrumbSchema(breadcrumbPatterns.terms)}
       />

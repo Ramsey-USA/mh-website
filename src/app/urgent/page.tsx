@@ -1,6 +1,4 @@
-"use client";
-
-import { usePageTracking } from "@/lib/analytics/hooks";
+import { PageTrackingClient } from "@/components/analytics";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -22,12 +20,7 @@ import {
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
 
-// Note: Metadata moved to parent layout due to 'use client' directive
-
 export default function UrgentSupportPage() {
-  // Analytics tracking
-  usePageTracking("Urgent Support");
-
   const equipmentList = [
     {
       icon: "engineering",
@@ -219,6 +212,7 @@ export default function UrgentSupportPage() {
 
   return (
     <>
+      <PageTrackingClient pageName="Urgent Support" />
       <StructuredData
         data={generateBreadcrumbSchema(breadcrumbPatterns.urgent)}
       />

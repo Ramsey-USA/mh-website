@@ -1,7 +1,5 @@
-"use client";
-
+import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
-import { usePageTracking } from "@/lib/analytics/hooks";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
@@ -316,9 +314,6 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
  * FAQ Page Component
  */
 export default function FAQPage() {
-  // Analytics tracking
-  usePageTracking("FAQ");
-
   // Get enhanced SEO data for FAQ page
   const faqSEO = getFAQSEO();
 
@@ -340,6 +335,7 @@ export default function FAQPage() {
 
   return (
     <>
+      <PageTrackingClient pageName="FAQ" />
       {/* SEO Meta Tags */}
 
       {/* Structured Data */}

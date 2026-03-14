@@ -46,7 +46,6 @@ Allow: /
 Disallow: /api/private/
 Disallow: /admin/
 Disallow: /dashboard/
-Disallow: /tracking-example/
 Disallow: /_next/static/
 Crawl-delay: 1
 

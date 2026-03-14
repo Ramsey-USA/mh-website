@@ -1,9 +1,5 @@
-// Note: Metadata export removed due to "use client" directive
-// SEO handled via next-seo or alternative client-side SEO solution
-"use client";
-
+import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
-import { usePageTracking } from "@/lib/analytics/hooks";
 import {
   Button,
   Card,
@@ -251,11 +247,9 @@ const partnershipBenefits = [
 ];
 
 export default function AlliesPage() {
-  // Analytics tracking
-  usePageTracking("Allies");
-
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
+      <PageTrackingClient pageName="Allies" />
       <StructuredData
         data={generateBreadcrumbSchema(breadcrumbPatterns.allies)}
       />

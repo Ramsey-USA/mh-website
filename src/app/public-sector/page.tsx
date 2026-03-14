@@ -1,8 +1,8 @@
 "use client";
 
+import { usePageTracking } from "@/lib/analytics/hooks";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { usePageTracking } from "@/lib/analytics/hooks";
 import {
   Button,
   Card,
@@ -307,7 +307,6 @@ const successFactors = [
 ];
 
 export default function PublicSectorPage() {
-  // Analytics tracking
   usePageTracking("Public Sector");
 
   // Show under construction notice while preserving all content below

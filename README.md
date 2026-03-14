@@ -53,32 +53,49 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ---
 
-## Project Status (March 11, 2026)
+## Project Status (March 14, 2026)
 
 ### Production-Ready Platform
 
 | Metric            | Status    | Details                                   |
 | ----------------- | --------- | ----------------------------------------- |
-| **Build**         | Passing   | ~42s compilation, zero errors             |
+| **Build**         | Passing   | ~33s compilation, zero errors             |
 | **TypeScript**    | Strict    | Zero type errors                          |
 | **ESLint**        | Clean     | Zero lint warnings                        |
 | **Tests**         | Passing   | 95/95 passing                             |
 | **SEO**           | 100/100   | Perfect scores across all pages           |
 | **Lighthouse**    | 94+       | Performance optimized                     |
-| **Bundle Size**   | 225 kB    | Production optimized                      |
+| **Bundle Size**   | 221 kB    | Production optimized                      |
 | **Dark Mode**     | Complete  | Full theme support                        |
 | **PWA**           | Ready     | Offline-ready, 5-layer caching            |
 | **Analytics**     | Live      | 100% page coverage, dashboard active      |
-| **Documentation** | Optimized | 61 docs + 12 supporting files, zero bloat |
+| **Documentation** | Optimized | 63 docs + 13 supporting files, zero bloat |
 
 ### Recent Improvements (March 2026)
 
+- **Mar 14:** Third optimization pass — deleted 5 dead `lib/` directories (`ai`, `cache`, `content`, `storage`, `branding`,
+  ~1,600 lines); removed `components/images` compat shim directory, `QuickBookingModal`, `PerformanceDashboard`,
+  and `components/activity` empty barrel; deleted dev-demo `/tracking-example` route; removed 3 unused production type
+  packages (`@types/hast`, `@types/mdast`, `@types/unist`), removed unused `@playwright/test` dev dep; added missing
+  `cross-env` dev dep required by `build:profile` script; cleaned `robots.txt` stale disallow entry; 95/95 tests still passing
+- **Mar 14:** Second optimization pass — converted `/accessibility` to RSC (223 kB → 221 kB); deleted 5 more dead
+  code files (`BlogNewsSection`, `CaseStudyTemplate`, `bundle-optimization`, `SmartFormAssistant`,
+  `use-smart-form-assistant`); removed unused `@react-email/render` production dependency; cleaned up
+  `CaseStudyTemplate` stale barrel export from `src/components/projects/index.ts`
+- **Mar 14:** Codebase optimization pass — deleted 2 exact-duplicate page files (`CareersPageClient`, `ProjectsPageClient`),
+  219 `.bak` backup artifacts, dead `FeaturesSection` and `ActivityFeed` components, entire unused chatbot component tree
+  (`GlobalChatbot`, `FloatingChatbotButton`, `GlobalChatbotProvider`, `InteractiveTimeline`, chatbot lib), and removed
+  `GlobalChatbotProvider` wrapper from root layout — 7 pages converted from client components to React Server Components
+  (`terms`, `privacy`, `testimonials`, `veterans`, `faq`, `urgent`, `allies`) by replacing inline `usePageTracking` hook
+  with the existing `PageTrackingClient` island pattern; fixed dead `/book` → `/contact` redirect; pruned 3 unused
+  entries from `optimizePackageImports` and removed empty `swcPlugins: []` from `next.config.js`; shared bundle
+  reduced from 223 kB → 221 kB with per-page hydration costs significantly lower on converted RSC pages
 - **Mar 11:** GEO-proof location content — `LocationProject` data model added; Kennewick (healthcare), Richland
   (automotive), Pasco (industrial), Yakima/Zillah (public-safety), and Walla Walla (regional)
   city pages now carry verified completed-project cards, `hasOfferCatalog` LocalBusiness schema,
   and a Yakima public-sector callout linking fire-station work to `/public-sector`
 - **Mar 11:** API cache security hardened — POST/PUT/DELETE routes assert `Cache-Control: no-store`;
-  30-test suite added (`src/__tests__/api-cache-security.test.ts`)
+  21-test suite added (`src/__tests__/api-cache-security.test.ts`)
 - **Mar 11:** Asset-integrity guard test added — middleware preload declarations are cross-checked
   against `/public` at test time; broken `/styles/critical.css` and `/images/logo.webp` preloads
   removed from `middleware.ts` (9-test suite in `src/__tests__/asset-integrity.test.ts`)
@@ -269,7 +286,6 @@ npm run lint:fix         # Fix linting issues
 ```bash
 npm run test             # Run test suite
 npm run test:pwa         # PWA functionality tests (50 tests)
-open test-analytics.html # Analytics test suite in browser
 ```
 
 ### Media Optimization
@@ -331,7 +347,7 @@ docs/
 │   └── strategy/                # messaging.md, brand-overview.md, terminology
 ├── business/                     # Business documentation
 │   ├── services.md, core-values.md
-│   └── team/profiles/           # 15 team member profiles
+    └── team/profiles/           # 14 team member profiles
 ├── development/                  # Development guides
 │   ├── quick-reference/         # component-cheatsheet.md
 │   ├── standards/               # page-compliance-checklist.md, page-template-guide.md, common-mistakes.md
@@ -375,20 +391,27 @@ contributing.md                         # Contribution guidelines
 mh-website/
 ├── src/
 │   ├── app/                      # Next.js 15 App Router
-│   │   ├── (pages)/             # 27 public pages
+│   │   ├── (pages)/             # 26 public pages
 │   │   ├── api/                 # API routes (analytics, contact, etc.)
 │   │   ├── dashboard/           # Analytics dashboard
 │   │   ├── layout.tsx           # Root layout
 │   │   └── page.tsx             # Homepage
 │   ├── components/               # React components
 │   │   ├── analytics/           # Tracking components
+│   │   ├── animations/          # Animation utilities
 │   │   ├── forms/               # Form components
 │   │   ├── home/                # Homepage sections
+│   │   ├── layout/              # Layout components
+│   │   ├── locations/           # Location page components
 │   │   ├── navigation/          # Nav components
+│   │   ├── projects/            # Project components
 │   │   ├── pwa/                 # PWA install prompt
 │   │   ├── seo/                 # SEO components
+│   │   ├── shared/              # Shared utilities
 │   │   ├── shared-sections/     # Reusable sections
-│   │   └── ui/                  # Base UI components
+│   │   ├── team/                # Team components
+│   │   ├── ui/                  # Base UI components
+│   │   └── (+ about, contact, icons, images, map, services, testimonials, veterans, ...)
 │   ├── lib/                      # Core libraries
 │   │   ├── analytics/           # Analytics system
 │   │   ├── seo/                 # SEO utilities
@@ -406,7 +429,7 @@ mh-website/
 │   ├── sitemap-index.xml        # SEO sitemap
 │   ├── manifest.json            # PWA manifest
 │   └── sw.js                    # Service Worker v4.0.0
-├── docs/                         # Documentation (67 files)
+├── docs/                         # Documentation (63 files)
 ├── migrations/                   # D1 database migrations
 ├── scripts/                      # Utility scripts
 ├── config/                       # Configuration files
@@ -528,10 +551,7 @@ Custom analytics system with **100% page coverage** tracking visitor behavior, g
 ### Analytics Testing
 
 ```bash
-# Open comprehensive test suite
-open test-analytics.html
-
-# Or visit localhost:3000 and access dashboard
+# Visit localhost:3000 and access dashboard via footer triple-click
 ```
 
 ### Documentation
@@ -633,8 +653,8 @@ Triple-click authentication (footer copyright) - simple but effective for intern
 # PWA Tests (50 tests)
 npm run test:pwa
 
-# Analytics Tests (browser-based)
-open test-analytics.html
+# Dark mode visual test
+open testing/dark-mode-visual-test.html
 
 # Type checking
 npm run type-check
@@ -717,5 +737,5 @@ Jeremy Thamert, continuing 15 years of construction excellence with renewed vete
 
 ---
 
-**Last Updated:** March 11, 2026  
+**Last Updated:** March 14, 2026  
 **Documentation Version:** 3.1 (Single Entry Point - Zero Bloat)

@@ -5,7 +5,6 @@
  */
 
 export { WebVitalsReporter } from "./WebVitalsReporter";
-export { PerformanceDashboard } from "./PerformanceDashboard";
 export {
   OptimizedPortfolioCard,
   OptimizedGallery,

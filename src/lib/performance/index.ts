@@ -18,10 +18,6 @@ export {
   useBundleAnalysis,
 } from "./hooks";
 
-// Optimized components
-// NOTE: exported via performance compatibility layer; canonical UI implementation lives in @/components/ui/media
-export { OptimizedImage } from "@/components/performance/OptimizedImage";
-
 // Code splitting utilities
 export {
   createDynamicImport,
@@ -63,19 +59,13 @@ export type { CacheConfig } from "./caching";
  *    const { trackInteraction } = usePerformanceTiming('ComponentName')
  *    ```
  *
- * 3. Optimize images:
- *    ```tsx
- *    import { OptimizedImage } from '@/lib/performance'
- *    <OptimizedImage src="/image.jpg" alt="Description" />
- *    ```
- *
- * 4. Use optimized fetch:
+ * 3. Use optimized fetch:
  *    ```ts
  *    import { performanceFetch } from '@/lib/performance'
  *    const data = await performanceFetch('/api/data')
  *    ```
  *
- * 5. Lazy load components:
+ * 4. Lazy load components:
  *    ```tsx
  *    import { createDynamicImport } from '@/lib/performance'
  *    const LazyComponent = createDynamicImport(() => import('./Component'))

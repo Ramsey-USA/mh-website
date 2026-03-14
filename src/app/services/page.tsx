@@ -1,12 +1,8 @@
-"use client";
-
 import Link from "next/link";
-import dynamic from "next/dynamic";
-import { usePageTracking } from "@/lib/analytics/hooks";
+import { PageTrackingClient } from "@/components/analytics";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { Button, IconContainer } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { SimpleSkeleton } from "@/components/ui/SimpleSkeleton";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -15,128 +11,34 @@ import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponent
 import { StrategicCTABanner } from "@/components/ui/cta";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import {
+  TestimonialsSection,
+  NextStepsSection,
+} from "@/components/shared-sections";
+import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 
-// Lazy load above-the-fold critical sections - load with SSR
-const ServicesHero = dynamic(
-  () =>
-    import("@/components/services").then((mod) => ({
-      default: mod.ServicesHero,
-    })),
-  { ssr: true },
-);
-
-const CoreServicesSection = dynamic(
-  () =>
-    import("@/components/services").then((mod) => ({
-      default: mod.CoreServicesSection,
-    })),
-  { ssr: true },
-);
-
-// Lazy load below-the-fold sections for better mobile performance
-const SpecialtyServicesSection = dynamic(
-  () =>
-    import("@/components/services").then((mod) => ({
-      default: mod.SpecialtyServicesSection,
-    })),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
-    ),
-  },
-);
-
-const GovernmentProjectsSection = dynamic(
-  () =>
-    import("@/components/services").then((mod) => ({
-      default: mod.GovernmentProjectsSection,
-    })),
-  {
-    ssr: false,
-    loading: () => <SimpleSkeleton />,
-  },
-);
-
-const ServiceAreasSection = dynamic(
-  () =>
-    import("@/components/services").then((mod) => ({
-      default: mod.ServiceAreasSection,
-    })),
-  {
-    ssr: false,
-    loading: () => <SimpleSkeleton />,
-  },
-);
-
-const WhyChooseUs = dynamic(
-  () =>
-    import("@/components/services").then((mod) => ({
-      default: mod.WhyChooseUs,
-    })),
-  {
-    ssr: false,
-    loading: () => <SimpleSkeleton />,
-  },
-);
-
-const ConstructionProcessSection = dynamic(
-  () =>
-    import("@/components/services").then((mod) => ({
-      default: mod.ConstructionProcessSection,
-    })),
-  {
-    ssr: false,
-    loading: () => <SimpleSkeleton />,
-  },
-);
-
-const ConstructionExpertiseSection = dynamic(
-  () =>
-    import("@/components/services").then((mod) => ({
-      default: mod.ConstructionExpertiseSection,
-    })),
-  { ssr: true },
-);
-
 // Import data separately (not lazy loaded)
 import {
+  ServicesHero,
+  CoreServicesSection,
+  SpecialtyServicesSection,
+  GovernmentProjectsSection,
+  ServiceAreasSection,
+  WhyChooseUs,
+  ConstructionProcessSection,
+  ConstructionExpertiseSection,
   coreServices,
   specialtyServices,
   serviceAreas,
 } from "@/components/services";
 
-// Lazy load testimonials section for better performance
-const TestimonialsSection = dynamic(
-  () =>
-    import("@/components/shared-sections").then((mod) => ({
-      default: mod.TestimonialsSection,
-    })),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />
-    ),
-  },
-);
-
-const NextStepsSection = dynamic(
-  () =>
-    import("@/components/shared-sections").then((mod) => ({
-      default: mod.NextStepsSection,
-    })),
-  { ssr: true },
-);
-
 export default function ServicesPage() {
-  // Analytics tracking
-  usePageTracking("Services");
-
   return (
     <>
+      <PageTrackingClient pageName="Services" />
+
       {/* SEO Meta Tags */}
       {/* Breadcrumb Schema */}
       <script

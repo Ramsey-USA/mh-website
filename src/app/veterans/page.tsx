@@ -1,8 +1,6 @@
-"use client";
-
+import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
 import Image from "next/image";
-import { usePageTracking } from "@/lib/analytics/hooks";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { AmericanFlag } from "@/components/icons/AmericanFlag";
 import {
@@ -22,21 +20,12 @@ import {
 
 /**
  * Veterans Initiative Page
- * Client component with analytics tracking
- * Updated: December 2025 - Comprehensive veteran foundation, partnerships, and year-round programs
- * Note: Metadata moved to parent layout due to 'use client' directive
- */
-
-/**
- * Veterans Initiative Page
  * Showcasing MH Construction's veteran-owned status and community support programs
  */
 export default function VeteransPage() {
-  // Analytics tracking
-  usePageTracking("Veterans");
-
   return (
     <div className="relative min-h-screen">
+      <PageTrackingClient pageName="Veterans" />
       <StructuredData
         data={generateBreadcrumbSchema(breadcrumbPatterns.veterans)}
       />

@@ -10,3 +10,4 @@
 export * from "./TrackedComponents";
 export * from "./TrackedContactLinks";
 export * from "./enhanced-analytics";
+export * from "./PageTrackingClient";

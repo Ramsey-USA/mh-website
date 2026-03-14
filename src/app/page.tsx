@@ -1,7 +1,5 @@
-"use client";
-
-import dynamic from "next/dynamic";
 import { StructuredData } from "@/components/seo/seo-meta";
+import { PageTrackingClient } from "@/components/analytics";
 
 // Enhanced SEO for veteran-owned construction with traditional values
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
@@ -13,51 +11,20 @@ import {
   ServicesShowcase,
   WhyPartnerSection,
 } from "@/components/home";
+import {
+  TestimonialsSection,
+  NextStepsSection,
+} from "@/components/shared-sections";
+import { CompanyStats } from "@/components/about/CompanyStats";
 
 // UI Components
 import { Timeline, type TimelineStep } from "@/components/ui/Timeline";
-
-// Shared sections - Lazy load below-the-fold content
-const TestimonialsSection = dynamic(
-  () =>
-    import("@/components/shared-sections").then((mod) => ({
-      default: mod.TestimonialsSection,
-    })),
-  {
-    ssr: false,
-    loading: () => <div className="h-96 animate-pulse bg-gray-100" />,
-  },
-);
-const NextStepsSection = dynamic(
-  () =>
-    import("@/components/shared-sections").then((mod) => ({
-      default: mod.NextStepsSection,
-    })),
-  {
-    ssr: false,
-    loading: () => <div className="h-64 animate-pulse bg-gray-100" />,
-  },
-);
-const CompanyStats = dynamic(
-  () =>
-    import("@/components/about/CompanyStats").then((mod) => ({
-      default: mod.CompanyStats,
-    })),
-  {
-    ssr: false,
-    loading: () => <div className="h-96 animate-pulse bg-gray-100" />,
-  },
-);
 
 // PWA Components
 import { PWAInstallCTA } from "@/components/pwa";
 
 // Strategic CTA Components
 import { StrategicCTABanner } from "@/components/ui/cta";
-
-import { usePageTracking } from "@/lib/analytics/hooks";
-import { useImagePreloader } from "@/hooks/use-performance-optimization";
-import { useScrollDepthTracking } from "@/hooks/use-scroll-depth-tracking";
 
 // Process timeline steps
 const processSteps: TimelineStep[] = [
@@ -99,26 +66,15 @@ const processSteps: TimelineStep[] = [
 ];
 
 export default function Home() {
-  // Analytics tracking
-  usePageTracking("Home");
+  // Analytics tracking remains client-only while page rendering stays server-first
 
   // Get enhanced SEO data for homepage
   const homepageSEO = getHomepageSEO();
 
-  // Preload critical images for better performance
-  const criticalImages = [
-    "/images/placeholder.webp",
-    "/images/logo/mh-logo.png",
-  ];
-
-  // Preload critical images for performance
-  useImagePreloader(criticalImages);
-
-  // Track scroll depth for engagement analytics with custom hook
-  useScrollDepthTracking("homepage");
-
   return (
     <>
+      <PageTrackingClient pageName="Home" />
+
       {/* Enhanced SEO structured data for veteran-owned construction excellence */}
       <StructuredData data={homepageSEO.schemas} />
 

@@ -1,7 +1,5 @@
-"use client";
-
+import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
-import { usePageTracking } from "@/lib/analytics/hooks";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -21,12 +19,7 @@ import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponent
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
-// Note: Metadata moved to parent layout due to 'use client' directive
-
 export default function TestimonialsPage() {
-  // Analytics tracking
-  usePageTracking("Testimonials");
-
   // Get client testimonials from centralized data source
   const testimonials = getClientTestimonials();
 
@@ -106,6 +99,7 @@ export default function TestimonialsPage() {
 
   return (
     <>
+      <PageTrackingClient pageName="Testimonials" />
       {/* Schema.org Structured Data */}
       <StructuredData data={breadcrumbSchema} />
       {aggregateRatingSchema && <StructuredData data={aggregateRatingSchema} />}

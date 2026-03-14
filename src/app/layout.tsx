@@ -16,7 +16,6 @@ import {
 import { SkipLink } from "@/components/ui/accessibility/SkipLink";
 import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
-import { GlobalChatbotProvider } from "@/providers/global-chatbot-provider";
 import { PWAManager } from "@/components/pwa";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
@@ -214,17 +213,15 @@ export default function RootLayout({
         <PWAManager />
         <ThemeProvider defaultTheme="light" storageKey="mh-construction-theme">
           <AuthProvider>
-            <GlobalChatbotProvider>
-              <ErrorBoundary>
-                <Navigation />
-                <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
-                  <main id="main-content" className="flex-grow">
-                    {children}
-                  </main>
-                  <Footer />
-                </div>
-              </ErrorBoundary>
-            </GlobalChatbotProvider>
+            <ErrorBoundary>
+              <Navigation />
+              <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
+                <main id="main-content" className="flex-grow">
+                  {children}
+                </main>
+                <Footer />
+              </div>
+            </ErrorBoundary>
           </AuthProvider>
         </ThemeProvider>
       </body>

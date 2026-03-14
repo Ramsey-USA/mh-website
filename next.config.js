@@ -27,14 +27,10 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: [
       "framer-motion",
-      "@radix-ui/react-icons",
-      "react-markdown",
-      "lucide-react",
       "@radix-ui/react-slot",
       "@radix-ui/react-tabs",
       "@radix-ui/react-progress",
     ],
-    swcPlugins: [],
     // CSS optimization - cssChunking defaults to true for better splitting
   },
 
@@ -178,7 +174,7 @@ const nextConfig = {
       },
       {
         source: "/book",
-        destination: "/booking",
+        destination: "/contact",
         permanent: true, // 301
       },
     ];
