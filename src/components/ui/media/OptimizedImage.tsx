@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, type CSSProperties } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface OptimizedImageProps {
@@ -74,19 +73,22 @@ export function OptimizedImage({
     ...(fill ? { fill: true } : { width: width || 800, height: height || 600 }),
   };
 
+  const animStyle: CSSProperties = enableAnimation
+    ? {
+        opacity: 1,
+        scale: 1,
+        transition: "opacity 0.6s ease-out, scale 0.6s ease-out",
+      }
+    : {};
+
   if (enableAnimation) {
     return (
-      <motion.div
-        initial={{ opacity: 0, scale: 1.1 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative overflow-hidden"
-      >
+      <div className="relative overflow-hidden" style={animStyle}>
         <Image {...imageProps} alt={imageProps.alt} />
         {!isLoaded && !hasError && (
           <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
         )}
-      </motion.div>
+      </div>
     );
   }
 
@@ -144,11 +146,7 @@ export function GalleryImage({
   ...props
 }: GalleryImageProps) {
   return (
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.3 }}
-      className="group relative rounded-lg overflow-hidden cursor-pointer"
-    >
+    <div className="group relative rounded-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105">
       <OptimizedImage
         {...props}
         className={cn(
@@ -168,7 +166,7 @@ export function GalleryImage({
           {caption && <p className="font-medium text-sm">{caption}</p>}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

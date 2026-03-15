@@ -1,8 +1,12 @@
 "use client";
 
-// Optimized imports - only import what we need to reduce bundle size
-import { motion, useInView } from "framer-motion";
-import { useRef, type ReactNode, useState, useEffect } from "react";
+import {
+  useRef,
+  type ReactNode,
+  useState,
+  useEffect,
+  type CSSProperties,
+} from "react";
 import { TIMING } from "@/lib/constants/timing";
 import { getAnimationConfig } from "@/lib/performance/mobile-optimizations";
 
@@ -16,6 +20,29 @@ const animConfig =
         enableAnimations: true,
         threshold: 0.2,
       };
+
+function useInView(
+  threshold = 0.1,
+): [React.RefObject<HTMLDivElement | null>, boolean] {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return [ref, inView];
+}
 
 // Component for automatic fade-in when in view
 interface FadeInWhenVisibleProps {
@@ -31,59 +58,41 @@ export function FadeInWhenVisible({
   delay = 0,
   duration = animConfig.duration,
 }: FadeInWhenVisibleProps) {
-  const ref = useRef(null);
-  // Use more generous margin for mobile compatibility
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "0px 0px -10% 0px",
-    amount: animConfig.threshold,
-  });
+  const [ref, inView] = useInView(animConfig.threshold);
+  const [forceShow, setForceShow] = useState(false);
 
-  // Always show content for elements that are initially visible
-  const [shouldForceShow, setShouldForceShow] = useState(false);
   useEffect(() => {
-    // Check if element is initially in viewport using RAF to batch layout reads
-    const checkInitialVisibility = () => {
-      if (ref.current) {
-        requestAnimationFrame(() => {
-          if (!ref.current) return;
-          const rect = (ref.current as HTMLElement).getBoundingClientRect();
-          if (rect.top < window.innerHeight && rect.bottom > 0) {
-            setShouldForceShow(true);
-          }
-        });
-      }
+    const el = ref.current;
+    if (!el) return;
+    const check = () => {
+      requestAnimationFrame(() => {
+        if (!ref.current) return;
+        const rect = ref.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0)
+          setForceShow(true);
+      });
     };
-
-    // Check after initial render using RAF
     requestAnimationFrame(() => {
-      checkInitialVisibility();
-      // Recheck after visibility timeout to catch slow-loading content
-      setTimeout(checkInitialVisibility, TIMING.PERFORMANCE.VISIBILITY_CHECK);
+      check();
+      setTimeout(check, TIMING.PERFORMANCE.VISIBILITY_CHECK);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Skip animations if user prefers reduced motion or on slow connections
-  if (!animConfig.enableAnimations || shouldForceShow) {
+  if (!animConfig.enableAnimations || forceShow) {
     return <div className={className}>{children}</div>;
   }
 
-  const shouldShow = isInView;
+  const style: CSSProperties = {
+    opacity: inView ? 1 : 0,
+    transform: inView ? "translateY(0)" : "translateY(20px)",
+    transition: `opacity ${duration}s cubic-bezier(0.25,0.25,0,1) ${delay}s, transform ${duration}s cubic-bezier(0.25,0.25,0,1) ${delay}s`,
+  };
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={shouldShow ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{
-        duration,
-        delay,
-        ease: [0.25, 0.25, 0, 1],
-      }}
-      className={className}
-    >
+    <div ref={ref} style={style} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -99,43 +108,24 @@ export function StaggeredFadeIn({
   className = "",
   staggerDelay = 0.1,
 }: StaggeredFadeInProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-10px" });
+  const [ref, inView] = useInView(0.1);
 
   return (
-    <motion.div
-      ref={ref}
-      variants={{
-        hidden: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: { staggerChildren: 0.1, delayChildren: 0.1 },
-        },
-      }}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      className={className}
-    >
-      {children.map((child, index) => (
-        <motion.div
-          key={index}
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: {
-                delay: index * staggerDelay,
-                duration: 0.6,
-                ease: [0.25, 0.25, 0, 1],
-              },
-            },
-          }}
-        >
-          {child}
-        </motion.div>
-      ))}
-    </motion.div>
+    <div ref={ref} className={className}>
+      {children.map((child, index) => {
+        const delay = index * staggerDelay;
+        const style: CSSProperties = {
+          opacity: inView ? 1 : 0,
+          transform: inView ? "translateY(0)" : "translateY(20px)",
+          transition: `opacity 0.6s cubic-bezier(0.25,0.25,0,1) ${delay}s, transform 0.6s cubic-bezier(0.25,0.25,0,1) ${delay}s`,
+        };
+        return (
+          <div key={index} style={style}>
+            {child}
+          </div>
+        );
+      })}
+    </div>
   );
 }
 
@@ -151,21 +141,29 @@ export function HoverScale({
   scale = 1.05,
   className = "",
 }: HoverScaleProps) {
+  const [hovered, setHovered] = useState(false);
+  const [pressed, setPressed] = useState(false);
+  const currentScale = pressed ? 0.95 : hovered ? scale : 1;
+  const style: CSSProperties = {
+    transform: `translateZ(0) scale(${currentScale})`,
+    transition: "transform 0.2s cubic-bezier(0.34,1.56,0.64,1)",
+    backfaceVisibility: "hidden",
+    willChange: "transform",
+    WebkitFontSmoothing: "antialiased",
+  };
   return (
-    <motion.div
-      whileHover={{ scale }}
-      whileTap={{ scale: 0.95 }}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+    <div
       className={`${className} hover-scale`}
-      style={{
-        WebkitFontSmoothing: "antialiased",
-        MozOsxFontSmoothing: "grayscale",
-        transform: "translateZ(0)",
-        backfaceVisibility: "hidden",
-        willChange: "transform",
+      style={style}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => {
+        setHovered(false);
+        setPressed(false);
       }}
+      onMouseDown={() => setPressed(true)}
+      onMouseUp={() => setPressed(false)}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
