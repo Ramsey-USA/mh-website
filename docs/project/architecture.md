@@ -61,7 +61,6 @@ src/
 │   ├── contact/page.tsx            # Contact page (Complete)
 │   ├── careers/page.tsx            # Careers page (Complete)
 │   ├── dashboard/page.tsx          # Admin analytics dashboard (Matt & Jeremy only)
-│   ├── tracking-example/page.tsx   # Analytics demo page
 │   ├── api/
 │   │   ├── auth/admin-login/       # Admin authentication endpoint
 │   │   └── analytics/dashboard/    # Analytics data API

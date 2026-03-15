@@ -94,41 +94,41 @@ Generated: 12/24/2025, 10:02:38 PM
 - **File:** `qr-contact-bw.png`
 - **URL:** <https://mhc-gc.com/contact>
 
-### ✅ Schedule Consultation (Color)
+### ⚠️ Schedule Consultation (Color) — DEPRECATED (route removed)
 
 - **Name:** `booking`
 - **File:** `qr-booking-color.png`
-- **URL:** <https://mhc-gc.com/booking>
+- **URL:** <https://mhc-gc.com/booking> _(route removed — redirects to /contact)_
 
-### ✅ Schedule Consultation (B&W)
+### ⚠️ Schedule Consultation (B&W) — DEPRECATED (route removed)
 
 - **Name:** `booking`
 - **File:** `qr-booking-bw.png`
-- **URL:** <https://mhc-gc.com/booking>
+- **URL:** <https://mhc-gc.com/booking> _(route removed — redirects to /contact)_
 
-### ✅ AI Project Estimator (Color)
+### ⚠️ AI Project Estimator (Color) — DEPRECATED (route removed)
 
 - **Name:** `estimator`
 - **File:** `qr-estimator-color.png`
-- **URL:** <https://mhc-gc.com/estimator>
+- **URL:** <https://mhc-gc.com/estimator> _(route removed — AI estimator tools disabled)_
 
-### ✅ AI Project Estimator (B&W)
+### ⚠️ AI Project Estimator (B&W) — DEPRECATED (route removed)
 
 - **Name:** `estimator`
 - **File:** `qr-estimator-bw.png`
-- **URL:** <https://mhc-gc.com/estimator>
+- **URL:** <https://mhc-gc.com/estimator> _(route removed — AI estimator tools disabled)_
 
-### ✅ Case Studies (Color)
+### ⚠️ Case Studies (Color) — DEPRECATED (route removed)
 
 - **Name:** `case-studies`
 - **File:** `qr-case-studies-color.png`
-- **URL:** <https://mhc-gc.com/case-studies>
+- **URL:** <https://mhc-gc.com/case-studies> _(route removed — see /projects)_
 
-### ✅ Case Studies (B&W)
+### ⚠️ Case Studies (B&W) — DEPRECATED (route removed)
 
 - **Name:** `case-studies`
 - **File:** `qr-case-studies-bw.png`
-- **URL:** <https://mhc-gc.com/case-studies>
+- **URL:** <https://mhc-gc.com/case-studies> _(route removed — see /projects)_
 
 ### ✅ Allies (Color)
 

@@ -80,7 +80,8 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
   `csrf.ts` (194 lines, CSRF logic lives inside `security-manager`); converted 3 more pages from client to RSC
   (`team`, `public-sector`, `contact/ContactPageClient`) via `PageTrackingClient` island pattern — 4,302 lines of dead
   code removed, 95/95 tests still passing; removed Urgent page (`/urgent`) and all associated navigation links,
-  sitemap entries, SEO metadata, and breadcrumb schema — page count 23 → 22
+  sitemap entries, SEO metadata, and breadcrumb schema — page count 23 → 22; deleted stale
+  `docs/examples/performance-examples.tsx` (dead usage example for the removed performance modules)
 
 - **Mar 14:** Third optimization pass — deleted 5 dead `lib/` directories (`ai`, `cache`, `content`, `storage`, `branding`,
   ~1,600 lines); removed `components/images` compat shim directory, `QuickBookingModal`, `PerformanceDashboard`,
@@ -365,7 +366,8 @@ contributing.md                         # Contribution guidelines
 mh-website/
 ├── src/
 │   ├── app/                      # Next.js 15 App Router
-│   │   ├── (public pages)/      # 22 public pages (about, services, locations, etc.)
+│   │   ├── about/ allies/ careers/ contact/  # 22 public pages (flat route directories)
+│   │   ├── locations/           # 7 city pages (kennewick, pasco, richland, etc.)
 │   │   ├── api/                 # API routes (analytics, contact, etc.)
 │   │   ├── dashboard/           # Analytics dashboard
 │   │   ├── layout.tsx           # Root layout
@@ -422,7 +424,7 @@ mh-website/
 │   ├── sitemap-index.xml        # SEO sitemap
 │   ├── manifest.json            # PWA manifest
 │   └── sw.js                    # Service Worker v4.0.0
-├── docs/                         # Documentation (63 files)
+├── docs/                         # Documentation (62 files)
 ├── migrations/                   # D1 database migrations
 ├── scripts/                      # Utility scripts
 ├── config/                       # Configuration files
@@ -717,7 +719,7 @@ npm run lint
 
 - All markdown files use **kebab-case** naming
 - Internal links must be relative
-- Archive completed work to [docs/archive/](docs/archive/) (if needed)
+- Archive completed work to `docs/archive/` (if needed)
 
 ---
 

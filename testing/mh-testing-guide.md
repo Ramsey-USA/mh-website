@@ -46,7 +46,7 @@ Run individual tests:
 
 ## Test Coverage
 
-- **Pages Tested**: /, /about, /services, /projects, /team, /contact, /estimator,
+- **Pages Tested**: /, /about, /services, /projects, /team, /contact,
   /public-sector, /allies, /careers
 - **Breakpoints**: iPhone SE (320x568), iPhone 8 (375x667), iPhone 12/13/14 (390x844),
   iPad (768x1024), iPad Landscape (1024x768), Common laptop (1366x768)

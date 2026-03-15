@@ -1,6 +1,6 @@
 # Homepage Documentation
 
-**Last Updated:** December 28, 2025  
+**Last Updated:** March 15, 2026  
 **Version:** 2.0  
 **Status:** ✅ Active & Optimized  
 **File:** `/src/app/page.tsx`
@@ -586,10 +586,10 @@ export default function Home() {
 
 ```json
 {
-  "next": "15.5.2",
-  "react": "19.0.0",
+  "next": "^15.5.12",
+  "react": "^18.3.1",
   "framer-motion": "12.23.24",
-  "typescript": "5.9.3"
+  "typescript": "^5.9.2"
 }
 ```
 

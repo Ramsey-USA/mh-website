@@ -144,9 +144,7 @@ npm run build && npm run seo:audit
 | ------------ | -------- | --------------------------- |
 | Homepage     | 1.0      | `/`                         |
 | Services     | 0.9      | `/services`                 |
-| Contact      | 0.9      | `/contact`, `/booking`      |
-| Tools        | 0.85     | `/estimator`                |
-| Emergency    | 0.85     | `/urgent`                   |
+| Contact      | 0.9      | `/contact`                  |
 | Projects     | 0.8      | `/projects`                 |
 | Partnerships | 0.75     | `/public-sector`, `/allies` |
 | Team/About   | 0.7      | `/team`, `/about`           |

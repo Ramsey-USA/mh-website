@@ -92,7 +92,7 @@ export function ThemeToggle({
           <div
             className={`
               absolute inset-1 rounded-full 
-              bg-gradient-to-r from-[#386851] to-[#1E392C]
+              bg-gradient-to-r from-brand-primary to-brand-primary-dark
               transition-transform duration-300 ease-in-out
               ${isDarkMode ? "translate-x-0" : "translate-x-full"}
             `}

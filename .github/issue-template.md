@@ -56,7 +56,7 @@ Drag and drop images here or click to upload.
 
 - Node.js version: [e.g., 18.12.0]
 - npm version: [e.g., 8.19.2]
-- Next.js version: [e.g., 15.5.2]
+- Next.js version: [e.g., 15.5.12]
 - Build version/commit: [e.g., v2.1.0 or commit hash]
 
 ## Additional Context

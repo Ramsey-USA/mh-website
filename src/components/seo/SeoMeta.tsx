@@ -114,13 +114,13 @@ export function generateSEOMetadata({
 
     // Additional meta tags
     other: {
-      "theme-color": "#1E40AF", // Brand primary color
+      "theme-color": "#386851", // Hunter Green — MH Construction brand primary
       "mobile-web-app-capable": "yes",
       "apple-mobile-web-app-capable": "yes",
       "apple-mobile-web-app-status-bar-style": "default",
       "apple-mobile-web-app-title": defaultSEO.siteName,
       "application-name": defaultSEO.siteName,
-      "msapplication-TileColor": "#1E40AF",
+      "msapplication-TileColor": "#386851",
       "msapplication-config": "/browserconfig.xml",
     },
   };

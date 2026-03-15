@@ -139,7 +139,6 @@ localStorage.getItem("mh_analytics_sessions");
 ## 📚 Full Documentation
 
 - **Setup Guide**: `docs/technical/analytics-tracking-guide.md`
-- **Live Example**: Visit `/tracking-example` in dev
 - **Admin System**: `docs/technical/admin-analytics-system.md`
 
 ## ✅ New Page Checklist
