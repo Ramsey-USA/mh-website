@@ -69,7 +69,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Dark Mode**     | Complete  | Full theme support                        |
 | **PWA**           | Ready     | Offline-ready, 5-layer caching            |
 | **Analytics**     | Live      | 100% page coverage, dashboard active      |
-| **Documentation** | Optimized | 63 docs + 13 supporting files, zero bloat |
+| **Documentation** | Optimized | 62 docs + 12 supporting files, zero bloat |
 
 ### Recent Improvements (March 2026)
 
@@ -341,7 +341,6 @@ docs/
     └── architecture.md
 
 # Root-level guides
-master-index.md                        # Central markdown index
 analytics-guide-for-matt-and-jeremy.md  # PRIMARY marketing intelligence guide
 seo-quick-reference.md                  # Quick SEO actions
 contributing.md                         # Contribution guidelines
