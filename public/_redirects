@@ -1,11 +1,8 @@
-# Cloudflare Pages Redirects Configuration
-# Handles Next.js static export routing
+# Cloudflare Pages Redirects
+# Routing is handled by the next-on-pages _worker.js.
+# Only true 301 redirects belong here (mirrors next.config.js for CDN-level resolution).
 
-# Serve static files directly (no redirect)
-/_next/static/* 200
-
-# Handle API routes if using Edge Functions
-/api/* 200
-
-# SPA fallback for all other routes
-/*  /index.html  200
+/partners /allies 301
+/trade-partners /allies 301
+/government /public-sector 301
+/book /contact 301

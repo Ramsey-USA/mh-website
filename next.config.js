@@ -63,6 +63,9 @@ const nextConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
       "@": require("path").resolve(__dirname, "src"),
+      // resend v6 optionally requires @react-email/render which is not installed;
+      // stub it out so the edge bundler doesn't emit a module-not-found warning.
+      "@react-email/render": false,
     };
 
     // Production optimizations
