@@ -99,41 +99,16 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
   with the existing `PageTrackingClient` island pattern; fixed dead `/book` → `/contact` redirect; pruned 3 unused
   entries from `optimizePackageImports` and removed empty `swcPlugins: []` from `next.config.js`; shared bundle
   reduced from 223 kB → 221 kB with per-page hydration costs significantly lower on converted RSC pages
-- **Mar 11:** GEO-proof location content — `LocationProject` data model added; Kennewick (healthcare), Richland
-  (automotive), Pasco (industrial), Yakima/Zillah (public-safety), and Walla Walla (regional)
-  city pages now carry verified completed-project cards, `hasOfferCatalog` LocalBusiness schema,
-  and a Yakima public-sector callout linking fire-station work to `/public-sector`
-- **Mar 11:** API cache security hardened — POST/PUT/DELETE routes assert `Cache-Control: no-store`;
-  21-test suite added (`src/__tests__/api-cache-security.test.ts`)
-- **Mar 11:** Asset-integrity guard test added — middleware preload declarations are cross-checked
-  against `/public` at test time; broken `/styles/critical.css` and `/images/logo.webp` preloads
-  removed from `middleware.ts` (9-test suite in `src/__tests__/asset-integrity.test.ts`)
-- **Mar 11:** Middleware SEO hygiene — matcher now explicitly excludes `sitemap-index.xml`,
-  `_next`, and all static-asset extensions, eliminating unnecessary edge compute on crawl traffic
-- **Mar 11:** Dependency security hardening - production audit at 0 vulnerabilities; dev-only count reduced 25→15
-- **Mar 11:** Added `package.json` overrides for `tar@7.5.11` and `cookie@1.1.1` to patch high/low transitive CVEs
-- **Mar 11:** Upgraded `markdownlint-cli2` to v0.21.0; pinned `vercel` to 32.3.0 for Cloudflare adapter stability
-- **Mar 11:** Next.js updated to 15.5.12, React 18.3.1, Tailwind 3.4.19, TypeScript 5.9.2
-- **Mar 11:** SEO/GEO hardening completed - canonical host standardized to
-  `https://www.mhc-gc.com` across sitemap/robots/LLM discovery assets
-- **Mar 11:** Location intelligence upgraded - city-priority service metadata,
-  GEO-enriched schema, and visible city-specific service/CTA copy alignment
-- **Mar 11:** Media discovery expanded - sitemap now includes all assets in
-  `public/images` and `public/videos` with priority boost for key
-  industrial/safety media
-- **Mar 11:** Metadata consistency cleanup - resolved duplicate Contact route
-  metadata source to prevent title/canonical drift
-
-### Previous Improvements (Dec 2025)
-
-- **Dec 28:** Documentation consolidation - Single README entry point, removed 5 bloat files (summaries/reports)
-- **Dec 28:** Development tooling - Component cheatsheet, compliance checklist, StandardSection template (82% code reduction)
-- **Dec 27:** Documentation optimized - 79→68 files, 0 broken links, kebab-case naming
-- **Dec 27:** Analytics system complete - geographic tracking, lead scoring, military dashboard
-- **Dec 27:** SEO dual-label titles - military/construction terminology
-- **Dec 26:** Media optimization - WebP images (42% smaller), WebM/MP4 videos
-- **Dec 26:** PWA implementation - offline support, installable, service worker v4.0.0
-- **Dec 25:** Dark mode optimization - WCAG 2.1 AA compliant
+- **Mar 11:** GEO-proof location content — city pages (Kennewick, Richland, Pasco, Yakima/Zillah,
+  Walla Walla) carry verified project cards, `hasOfferCatalog` LocalBusiness schema, and
+  public-sector callout linking fire-station work to `/public-sector`
+- **Mar 11:** Security hardening — API cache `Cache-Control: no-store` on mutating routes (21 tests);
+  asset-integrity guard tests added; middleware SEO matcher excludes static assets; production
+  audit at 0 vulnerabilities (dev-only: 15); `tar@7.5.11` and `cookie@1.1.1` CVE overrides added
+- **Mar 11:** Dependency upgrades — Next.js 15.5.12, React 18.3.1, Tailwind 3.4.19,
+  TypeScript 5.9.2, `markdownlint-cli2` v0.21.0, `vercel` pinned to 32.3.0
+- **Mar 11:** SEO/GEO hardening — canonical host standardized to `https://www.mhc-gc.com`;
+  city-priority service metadata; media sitemap expanded; Contact metadata deduped
 
 ---
 
@@ -294,7 +269,7 @@ npm run lint:fix         # Fix linting issues
 
 ```bash
 npm run test             # Run test suite
-npm run test:pwa         # PWA functionality tests (36 tests)
+npm run test:pwa         # PWA functionality tests
 ```
 
 ### Media Optimization
@@ -334,15 +309,6 @@ npm run clean            # Clean build artifacts
 - Current full-audit status after this pass: 15 dev-only vulnerabilities
   (0 critical, 6 high, 9 moderate, 0 low).
 
-### Analytics Dashboard Access
-
-```bash
-# Visit any page, then:
-# 1. Scroll to footer
-# 2. Triple-click the copyright text
-# 3. Dashboard opens at /dashboard
-```
-
 ---
 
 ## Documentation Structure
@@ -356,7 +322,7 @@ docs/
 │   └── strategy/                # messaging.md, brand-overview.md, terminology
 ├── business/                     # Business documentation
 │   ├── services.md, core-values.md
-    └── team/profiles/           # 14 team member profiles
+│   └── team/profiles/           # 14 team member profiles
 ├── development/                  # Development guides
 │   ├── quick-reference/         # component-cheatsheet.md
 │   ├── standards/               # page-compliance-checklist.md, page-template-guide.md, common-mistakes.md
@@ -711,7 +677,7 @@ Triple-click authentication (footer copyright) - simple but effective for intern
 ### Test Suites
 
 ```bash
-# PWA Tests (50 tests)
+# PWA tests
 npm run test:pwa
 
 # Dark mode visual test
