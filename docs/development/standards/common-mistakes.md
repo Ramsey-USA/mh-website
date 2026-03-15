@@ -261,7 +261,8 @@
 <MaterialIcon icon="verified" size="2xl" />
 ```
 
-**Standard Sizes:** `xs` (20px), `sm` (24px), `md` (30px), `lg` (36px), `xl` (48px), `2xl` (60px), `3xl` (72px), `4xl` (96px), `5xl` (120px)
+**Standard Sizes:** `xs` (20px), `sm` (24px), `md` (30px), `lg` (36px), `xl` (48px), `2xl` (60px),
+`3xl` (72px), `4xl` (96px), `5xl` (120px)
 
 **Why:** Standardized sizes ensure consistency and proper scaling.
 

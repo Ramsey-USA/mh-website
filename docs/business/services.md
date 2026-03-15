@@ -281,7 +281,7 @@ Northwest. By integrating architecture, engineering, and construction expertise 
 we eliminate communication gaps and reduce costly change orders that plague traditional
 design-bid-build projects.
 
-**What Our Service Provides**
+### What Our Service Provides
 
 - **Unified design and construction** under one contract
 - **Single point of accountability** from concept to completion

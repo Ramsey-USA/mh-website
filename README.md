@@ -73,13 +73,28 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Recent Improvements (March 2026)
 
-- **Mar 15:** Comprehensive build audit — production build: 32.6s, 39/39 static pages generated, zero errors; fixed 3 pre-existing lint issues (`OptimizedImage.tsx` — 2× missing `alt` on spread `<Image>` calls, `PitchDeckCTA.tsx` — `role="none"` on hover-shim div); TypeScript strict: zero errors; ESLint: zero warnings/errors; 56/56 tests passing; shared bundle reduced 221 kB → 211 kB
+- **Mar 15:** Comprehensive build audit — production build: 32.6s, 39/39 static pages generated, zero errors;
+  fixed 3 pre-existing lint issues (`OptimizedImage.tsx` — 2× missing `alt` on spread `<Image>` calls,
+  `PitchDeckCTA.tsx` — `role="none"` on hover-shim div); TypeScript strict: zero errors; ESLint: zero
+  warnings/errors; 56/56 tests passing; shared bundle reduced 221 kB → 211 kB
 
-- **Mar 15:** Eighth optimization pass — deleted 2 dead `lib/utils/` modules (`keyword-matcher.ts` — written for removed AI/veteran systems, 14 tests; `date-utils.ts` — written for removed components, 9 tests); fixed pre-existing missing `JWTPayload` import in `lib/auth/jwt.ts`; 56/56 tests passing, zero TS errors, zero lint warnings
+- **Mar 15:** Eighth optimization pass — deleted 2 dead `lib/utils/` modules (`keyword-matcher.ts` — written
+  for removed AI/veteran systems, 14 tests; `date-utils.ts` — written for removed components, 9 tests);
+  fixed pre-existing missing `JWTPayload` import in `lib/auth/jwt.ts`; 56/56 tests passing, zero TS errors,
+  zero lint warnings
 
-- **Mar 15:** Seventh optimization pass — deleted `components/veterans/` directory (`VeteranBadgeSection.tsx`, `index.ts`) — component never imported anywhere in the codebase (the previously deleted `shared/VeteranBadgeSection.tsx` was a compat-wrapper; this was the original source that also had no consumers); 79/79 tests still passing, zero TS errors, zero lint warnings
+- **Mar 15:** Seventh optimization pass — deleted `components/veterans/` directory (`VeteranBadgeSection.tsx`,
+  `index.ts`) — component never imported anywhere in the codebase (the previously deleted
+  `shared/VeteranBadgeSection.tsx` was a compat-wrapper; this was the original source that also had no
+  consumers); 79/79 tests still passing, zero TS errors, zero lint warnings
 
-- **Mar 15:** Sixth optimization pass — deleted 3 dead component directories (`components/slider/` — `BeforeAfterSlider` + `BeforeAfterGallery`, `components/ratings/` — `AggregateRating`, `components/map/` — `InteractiveMap` + `ServiceAreaOverview`), 7 dead files (`components/home/VideoHeroSection.tsx` & `PartnershipCTA.tsx`, `components/testimonials/TestimonialsWidget.tsx` & `TestimonialsSection.tsx`, `lib/analytics/marketing-analytics.ts`, `lib/auth/protected-route.tsx`, `lib/types/testimonials.ts`); cleaned 2 barrel files (`home/index.ts`, `testimonials/index.ts`); 79/79 tests still passing, zero TS errors, zero lint warnings
+- **Mar 15:** Sixth optimization pass — deleted 3 dead component directories (`components/slider/` —
+  `BeforeAfterSlider` + `BeforeAfterGallery`, `components/ratings/` — `AggregateRating`, `components/map/`
+  — `InteractiveMap` + `ServiceAreaOverview`), 7 dead files (`components/home/VideoHeroSection.tsx` &
+  `PartnershipCTA.tsx`, `components/testimonials/TestimonialsWidget.tsx` & `TestimonialsSection.tsx`,
+  `lib/analytics/marketing-analytics.ts`, `lib/auth/protected-route.tsx`, `lib/types/testimonials.ts`);
+  cleaned 2 barrel files (`home/index.ts`, `testimonials/index.ts`); 79/79 tests still passing, zero TS
+  errors, zero lint warnings
 
 - **Mar 15:** Fifth optimization pass — deleted 11 dead files: `components/shared/` compat-wrapper directory
   (`VeteranBadgeSection.tsx`, `index.ts`), `shared-sections/AIEstimatorCTA.tsx` (AI estimator removed per business

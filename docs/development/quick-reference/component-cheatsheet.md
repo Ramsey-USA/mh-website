@@ -80,7 +80,8 @@ Before using any pattern below, verify your page matches homepage quality:
 - ✅ ALWAYS use: `py-12 sm:py-16 lg:py-20 xl:py-24` padding
 - ❌ NEVER use: Complex gradients on base, small animated blobs
 
-> **Prefer `BrandedContentSection`** for new sections — it wraps all of the above automatically with 82% less code. See [Template Components](../components/template-components.md).
+> **Prefer `BrandedContentSection`** for new sections — it wraps all of the above automatically with 82%
+> less code. See [Template Components](../components/template-components.md).
 
 ---
 

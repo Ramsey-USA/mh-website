@@ -373,7 +373,8 @@ interface TeamMemberSkills {
 
 **Version History**:
 
-- v2.1.0 (Mar 15, 2026): Synced interface & radarData to include Passion and Growth Mindset; removed duplicate Organizational Expertise entry
+- v2.1.0 (Mar 15, 2026): Synced interface & radarData to include Passion and Growth Mindset; removed
+  duplicate Organizational Expertise entry
 - v2.0.0 (Dec 24, 2025): Added Passion and Growth Mindset dimensions (10 total)
 - v1.0.0: Initial 8 dimensions
 

@@ -282,7 +282,8 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 <span>🏗️</span>
 ```
 
-**Icon Sizes**: `xs` (20px), `sm` (24px), `md` (30px), `lg` (36px), `xl` (48px), `2xl` (60px), `3xl` (72px), `4xl` (96px), `5xl` (120px)
+**Icon Sizes**: `xs` (20px), `sm` (24px), `md` (30px), `lg` (36px), `xl` (48px), `2xl` (60px),
+`3xl` (72px), `4xl` (96px), `5xl` (120px)
 
 ---
 

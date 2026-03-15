@@ -48,7 +48,8 @@ and personal commitment to every Client Partner.
 
 #### Marketing, Safety & Strategic Initiatives
 
-- **[Matt Ramsey](./profiles/matt-ramsey.md)** - Project Manager's Assistant / Marketing Manager / Safety Officer | Navy Veteran
+- **[Matt Ramsey](./profiles/matt-ramsey.md)** - Project Manager's Assistant / Marketing Manager /
+  Safety Officer | Navy Veteran
 - **[Todd Schoeff](./profiles/todd-schoeff.md)** - Lead Estimator
 
 ### Field Officers (4)
