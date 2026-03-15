@@ -47,7 +47,7 @@ export function generateJobApplicationAcknowledgment(
   <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
     <!-- Header -->
     <tr>
-      <td style="background: linear-gradient(135deg, #386851 0%, #2d5340 100%); padding: 30px; text-align: center;">
+      <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
         <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
         <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Veteran-Owned Excellence</p>
       </td>
@@ -67,7 +67,7 @@ export function generateJobApplicationAcknowledgment(
         </p>
         
         <div style="background-color: #f0f7f4; border-left: 4px solid #386851; padding: 15px; margin: 20px 0;">
-          <p style="margin: 0; font-size: 15px; color: #2d5340; line-height: 1.6;">
+          <p style="margin: 0; font-size: 15px; color: #1E392C; line-height: 1.6;">
             <strong>🚀 What happens next?</strong><br>
             Our team is looking forward to reviewing your application and learning more about YOUR unique talents and aspirations! We're committed to finding the perfect fit for both you and our growing company, so we take time to thoughtfully consider each candidate and the opportunities we can offer.
           </p>
@@ -189,7 +189,7 @@ export function generateConsultationAcknowledgment(
   <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
     <!-- Header -->
     <tr>
-      <td style="background: linear-gradient(135deg, #386851 0%, #2d5340 100%); padding: 30px; text-align: center;">
+      <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
         <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
         <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600; font-style: italic;">Building projects for the client, <em>NOT</em> the dollar</p>
       </td>
@@ -211,7 +211,7 @@ export function generateConsultationAcknowledgment(
         ${appointmentInfo}
         
         <div style="background-color: #f0f7f4; border-left: 4px solid #386851; padding: 15px; margin: 20px 0;">
-          <p style="margin: 0; font-size: 15px; color: #2d5340; line-height: 1.6;">
+          <p style="margin: 0; font-size: 15px; color: #1E392C; line-height: 1.6;">
             <strong>What to Expect:</strong><br>
             We'll review your project details and reach out within <strong>24 hours</strong> to discuss your vision, timeline, and budget. Our partnership-driven approach means we work WITH you to bring your project to life.
           </p>
@@ -332,7 +332,7 @@ export function generateContactAcknowledgment(data: ContactEmailData): {
   <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
     <!-- Header -->
     <tr>
-      <td style="background: linear-gradient(135deg, #386851 0%, #2d5340 100%); padding: 30px; text-align: center;">
+      <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
         <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
         <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Your Partner in Building Tomorrow</p>
       </td>
@@ -352,7 +352,7 @@ export function generateContactAcknowledgment(data: ContactEmailData): {
         </p>
         
         <div style="background-color: #f0f7f4; border-left: 4px solid #386851; padding: 15px; margin: 20px 0;">
-          <p style="margin: 0; font-size: 15px; color: #2d5340; line-height: 1.6;">
+          <p style="margin: 0; font-size: 15px; color: #1E392C; line-height: 1.6;">
             <strong>Next Steps:</strong><br>
             A member of our team will review your message and respond within <strong>24 hours</strong> during business hours. For urgent matters, please call us directly at <strong>(509) 308-6489</strong>.
           </p>
@@ -444,7 +444,7 @@ export function generateNewsletterAcknowledgment(data: NewsletterEmailData): {
   <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
     <!-- Header with Logo -->
     <tr>
-      <td style="background: linear-gradient(135deg, #386851 0%, #2d5340 100%); padding: 40px 30px; text-align: center;">
+      <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 40px 30px; text-align: center;">
         <img src="https://mhc-gc.com/images/logo/mh-logo.png" alt="MH Construction Logo" style="max-width: 240px; height: auto; margin-bottom: 20px;" />
         <h1 style="color: #ffffff; margin: 0; font-size: 26px; font-weight: 700;">Welcome to Our Community!</h1>
         <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Building Excellence Together</p>
@@ -466,7 +466,7 @@ export function generateNewsletterAcknowledgment(data: NewsletterEmailData): {
         
         <div style="background-color: #f0f7f4; border-left: 4px solid #386851; padding: 20px; margin: 25px 0; border-radius: 4px;">
           <h3 style="color: #386851; margin: 0 0 15px 0; font-size: 18px;">📬 What to Expect</h3>
-          <ul style="margin: 0; padding-left: 20px; color: #2d5340;">
+          <ul style="margin: 0; padding-left: 20px; color: #1E392C;">
             <li style="margin-bottom: 10px;"><strong>Project Showcases:</strong> See our latest completed projects and construction updates</li>
             <li style="margin-bottom: 10px;"><strong>Industry Insights:</strong> Expert tips and construction best practices</li>
             <li style="margin-bottom: 10px;"><strong>Company News:</strong> Updates from our veteran-owned family business</li>

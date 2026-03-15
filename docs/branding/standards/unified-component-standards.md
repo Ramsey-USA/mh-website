@@ -41,12 +41,15 @@ The gradient text in section headers, as implemented across all pages, is the co
 - Use for: Large text (18pt+), backgrounds, decorative elements
 - Contrast: 2.82:1 on white (WCAG AA compliant for large text only)
 
-**Secondary Text (Accessible Tan):** `#8a6643` - Normal text variant
+**Secondary Text (Accessible Tan):** `#8A6B49` - Normal text variant
 
 - Use for: Body text, buttons with white text, normal-sized text
-- Contrast: 4.59:1 on white (WCAG AA compliant for all text sizes)
+- Contrast: 4.71:1 on white (WCAG AA compliant for all text sizes)
 
-**Supporting Colors:** Black, White, Gray scale
+**Architectural Bronze (Accent):** `#A87948` - CTA borders, Featured Project labels
+
+- Use for: Outline CTA borders, Featured Project badges, premium UI accents
+- Contrast (Dark `#6B4E2E`): 7.32:1 on white (WCAG AAA compliant)
 
 ### **Contextual Color Schemes**
 
@@ -601,9 +604,10 @@ All page sections MUST follow this standardized background:
 | Color Combination | Ratio  | WCAG AA                       | Use Case              |
 | ----------------- | ------ | ----------------------------- | --------------------- |
 | #BD9264 on white  | 2.82:1 | ❌ Normal<br>✅ Large (18pt+) | Headlines, decorative |
-| #8a6643 on white  | 4.59:1 | ✅ All sizes                  | Body copy, buttons    |
-| White on #8a6643  | 5.17:1 | ✅ All sizes                  | Buttons, badges       |
+| #8A6B49 on white  | 4.71:1 | ✅ All sizes                  | Body copy, buttons    |
+| White on #8A6B49  | 4.71:1 | ✅ All sizes                  | Buttons, badges       |
 | #386851 on white  | 6.43:1 | ✅ All sizes                  | Primary elements      |
+| #6B4E2E on white  | 7.32:1 | ✅ AAA — all sizes            | Bronze text, labels   |
 
 #### **Font Size Requirements**
 

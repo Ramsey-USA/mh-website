@@ -107,7 +107,7 @@ export function QRCode({
   alt,
   className = "",
   errorCorrectionLevel = "H",
-  color = "#386851", // Hunter Green
+  color = "var(--color-brand-primary)", // Hunter Green
   backgroundColor = "#FFFFFF",
   downloadable = false,
 }: QRCodeProps) {

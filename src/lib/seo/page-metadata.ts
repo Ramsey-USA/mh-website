@@ -13,7 +13,7 @@ export const pageMetadata: Record<string, Metadata> = {
   "/": {
     title: "MH Construction | Veteran-Owned General Contractor - Pasco, WA",
     description:
-      "Building projects for the client, NOT the dollar. Veteran-owned general contractor serving Tri-Cities, WA since 2010. Expert concrete, carpentry, and construction management with military precision and transparent partnerships.",
+      "Building projects for the client, NOT the dollar. Founded 2010, veteran-owned since January 2025. General contractor serving Tri-Cities, WA. Expert concrete, carpentry, and construction management with military precision and transparent partnerships.",
     keywords: [
       "veteran-owned contractor Pasco",
       "Tri-Cities general contractor",

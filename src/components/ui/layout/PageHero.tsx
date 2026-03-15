@@ -44,7 +44,7 @@ export function PageHero({ title, subtitle, description }: PageHeroProps) {
           </video> */}
 
           {/* Temporary background for now */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#386851]/20 via-gray-900 to-[#BD9264]/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-gray-900 to-brand-secondary/20"></div>
         </div>
 
         {/* Content Overlay */}

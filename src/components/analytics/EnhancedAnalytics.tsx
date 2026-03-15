@@ -241,94 +241,6 @@ export function useAnalytics() {
     });
   };
 
-  // Enhanced chatbot tracking events
-  const trackChatbotOpen = (source: string, currentPage?: string) => {
-    trackEvent("chatbot_opened", {
-      event_category: "chatbot_engagement",
-      source_location: source,
-      current_page: currentPage || "",
-    });
-  };
-
-  const trackChatbotClose = (sessionDuration: number, messageCount: number) => {
-    trackEvent("chatbot_closed", {
-      event_category: "chatbot_engagement",
-      session_duration: sessionDuration,
-      message_count: messageCount,
-    });
-  };
-
-  const trackChatbotMessage = (
-    messageType: "user" | "bot",
-    messageLength: number,
-    conversationTurn: number,
-    messageContent?: string,
-  ) => {
-    trackEvent("chatbot_message", {
-      event_category: "chatbot_engagement",
-      message_type: messageType,
-      message_length: messageLength,
-      conversation_turn: conversationTurn,
-      has_business_keywords: messageContent
-        ? /project|estimate|cost|budget|build|construction/i.test(
-            messageContent,
-          )
-        : false,
-    });
-  };
-
-  const trackChatbotLeadGenerated = (
-    leadType: "veteran" | "standard",
-    priority: "low" | "medium" | "high" | "critical",
-    projectType?: string,
-  ) => {
-    trackEvent("chatbot_lead_generated", {
-      event_category: "lead_generation",
-      lead_type: leadType,
-      priority_level: priority,
-      project_type: projectType || "unknown",
-    });
-  };
-
-  const trackChatbotFormAssist = (
-    formType: string,
-    assistType: "suggestion" | "completion" | "validation",
-    fieldName?: string,
-  ) => {
-    trackEvent("chatbot_form_assist", {
-      event_category: "chatbot_engagement",
-      form_type: formType,
-      assist_type: assistType,
-      field_name: fieldName || "",
-    });
-  };
-
-  const trackChatbotError = (
-    errorType: "ai_response" | "connection" | "validation",
-    errorMessage?: string,
-  ) => {
-    trackEvent("chatbot_error", {
-      event_category: "chatbot_errors",
-      error_type: errorType,
-      error_message: errorMessage || "unknown",
-    });
-  };
-
-  const trackChatbotDrag = (fromPosition: string, toPosition: string) => {
-    trackEvent("chatbot_dragged", {
-      event_category: "chatbot_engagement",
-      from_position: fromPosition,
-      to_position: toPosition,
-    });
-  };
-
-  const trackChatbotMinimize = (isMinimized: boolean) => {
-    trackEvent("chatbot_minimize_toggle", {
-      event_category: "chatbot_engagement",
-      is_minimized: isMinimized,
-    });
-  };
-
   return {
     trackEvent,
     trackPageView,
@@ -346,14 +258,6 @@ export function useAnalytics() {
     trackSearchResultClick,
     trackSearchViewToggle,
     trackSearchClear,
-    trackChatbotOpen,
-    trackChatbotClose,
-    trackChatbotMessage,
-    trackChatbotLeadGenerated,
-    trackChatbotFormAssist,
-    trackChatbotError,
-    trackChatbotDrag,
-    trackChatbotMinimize,
   };
 }
 

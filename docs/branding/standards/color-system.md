@@ -26,8 +26,8 @@
 
 **Color Variants:**
 
-- **Primary Light:** `#4a7a63` - Lighter hunter green for hover states
-- **Primary Dark:** `#2d5240` - Darker hunter green for active states
+- **Primary Light:** `#628F79` - Lighter hunter green for hover states and dark-mode surfaces
+- **Primary Dark:** `#1E392C` - Darker hunter green for active states and high-contrast headings
 
 ### Secondary Color - Leather Tan
 
@@ -38,9 +38,9 @@
 
 **Color Variants:**
 
-- **Secondary Light:** `#c9a176` - Lighter tan for hover states, light text on dark backgrounds
-- **Secondary Text:** `#8a6643` - **WCAG AA compliant** for all text sizes (4.59:1 contrast on white)
-- **Secondary Dark:** `#a67d52` - Darker tan for active states
+- **Secondary Light:** `#D9BD93` - Lighter tan for hover states, light text on dark backgrounds
+- **Secondary Text:** `#8A6B49` - **WCAG AA compliant** for all text sizes (4.71:1 contrast on white)
+- **Secondary Dark:** `#8A6B49` - Darker tan for active states
 
 #### Accessibility Standards (WCAG AA Compliance)
 
@@ -58,7 +58,7 @@ ensuring accessibility:
 - Decorative elements, borders, and non-text UI
 - Hover states and transitions
 
-**⚠️ REQUIRES DARKER VARIANT (#8a6643) for:**
+**⚠️ REQUIRES DARKER VARIANT (#8A6B49) for:**
 
 - Normal text (under 18pt) on white/light backgrounds
 - Small buttons and badges with white text
@@ -69,9 +69,9 @@ ensuring accessibility:
 
 ```text
 Original (#BD9264) on white: 2.82:1 ❌ Fails WCAG AA
-Secondary-Text (#8a6643) on white: 4.59:1 ✅ Passes WCAG AA
-White on Secondary-700 (#8a6643): 5.17:1 ✅ Passes WCAG AA
-Secondary-Light (#c9a176) on Primary (#386851): 2.71:1 ✅ Passes for large text
+Secondary-Text (#8A6B49) on white: 4.71:1 ✅ Passes WCAG AA
+White on Secondary-Dark (#8A6B49): 4.71:1 ✅ Passes WCAG AA
+Secondary-Light (#D9BD93) on Primary (#386851): 2.71:1 ✅ Passes for large text
 ```
 
 **Implementation Guide:**
@@ -102,25 +102,25 @@ Secondary-Light (#c9a176) on Primary (#386851): 2.71:1 ✅ Passes for large text
 ```javascript
 colors: {
   brand: {
-    secondary: '#BD9264',      // Original - large text only
-    'secondary-text': '#8a6643', // WCAG AA compliant for all text
-    'secondary-light': '#c9a176',
-    'secondary-dark': '#a67d52',
+    secondary: '#BD9264',       // Original - large text only
+    'secondary-text': '#8A6B49', // WCAG AA compliant for all text (4.71:1)
+    'secondary-light': '#D9BD93',
+    'secondary-dark': '#8A6B49',
   },
   secondary: {
     500: '#BD9264',  // Original brand color
-    600: '#a67d52',  // Darker variant
-    700: '#8a6643',  // WCAG AA compliant
-    800: '#6f5236',  // Very dark
-    900: '#5a422c',  // Darkest
+    600: '#8A6B49',  // Mid variant
+    700: '#8A6B49',  // WCAG AA compliant
+    800: '#6f5236',
+    900: '#5a422c',
   }
 }
 ```
 
 **Color Variants:**
 
-- **Secondary Light:** `#c9a176` - Lighter tan for hover states
-- **Secondary Dark:** `#a67d52` - Darker tan for active states
+- **Secondary Light:** `#D9BD93` - Lighter tan for hover states
+- **Secondary Dark:** `#8A6B49` - Darker tan for active states
 
 ### Accent Colors
 
@@ -175,28 +175,34 @@ grayscale palette to convey authority, compliance, and institutional reliability
 - On commercial construction pages (use brand green/tan)
 - Without veteran-owned trust indicators nearby
 
-### Badge Colors
+### Accent Color - Architectural Bronze
 
-#### Bronze - Veteran Designation
+**Hex:** `#A87948`
+**RGB:** `rgb(168, 121, 72)`
+**HSL:** `hsl(31, 40%, 47%)`
+**Use Case:** CTA borders, Featured Project labels, premium UI accents
 
-**Hex:** `#CD7F32`
-**RGB:** `rgb(205, 127, 50)`
-**HSL:** `hsl(30, 61%, 50%)`
-**Use Case:** Military veteran badges, service designation indicators
-**Tailwind Class:** `bronze-badge` (with scale 50-900)
+**Color Variants:**
+
+- **Bronze Light:** `#CD9B6D` - Used on dark-mode surfaces
+- **Bronze Dark:** `#6B4E2E` - WCAG AAA compliant for text (7.32:1 on white)
+- **Bronze Text:** `#6B4E2E` - Accessible body text alias
 
 **Design Notes:**
 
-- Use sparingly - reserved exclusively for veteran/military service recognition
-- Pairs well with dark backgrounds for maximum visibility
-- Available in full Tailwind scale: `bronze-badge-50` through `bronze-badge-900`
-- Default shade (`bronze-badge`) is the primary bronze (#CD7F32)
+- Applied to `outline` button borders for a premium CTA feel
+- Applied to Featured Project badge backgrounds and card borders
+- Accessible text always uses Dark shade (`#6B4E2E`)
+- Pairs well with Hunter Green backgrounds for veteran/premium contexts
+- Available in full Tailwind scale via `bronze-500` (core), `bronze-400` (light), `bronze-700` (dark)
 
 **Accessibility:**
 
-- Ensure sufficient contrast when placing text over bronze backgrounds
-- Use `text-white` or `text-gray-900` for optimal readability depending on shade
-- Bronze badges should include descriptive `aria-label` attributes for screen readers
+```text
+Bronze Core (#A87948) on white: 3.47:1 ✅ Large text / non-text only
+Bronze Dark (#6B4E2E) on white: 7.32:1 ✅ WCAG AAA — all text sizes
+White on Bronze Dark (#6B4E2E): 7.32:1 ✅ WCAG AAA — badges, labels
+```
 
 **Example Usage:**
 
@@ -815,8 +821,8 @@ Combine multiple highlight colors within a single paragraph for visual richness:
 
 **Active/Pressed State:**
 
-- Background: `#2d5240` (darker hunter green)
-- Border: `2px solid #2d5240`
+- Background: `#1E392C` (darker hunter green)
+- Border: `2px solid #1E392C`
 - Text: `white`
 
 **Usage:** Primary CTAs, IRL Consultations, main actions, client partnerships
@@ -838,8 +844,8 @@ Combine multiple highlight colors within a single paragraph for visual richness:
 
 **Active/Pressed State:**
 
-- Background: `#a67d52` (darker tan)
-- Border: `2px solid #a67d52`
+- Background: `#8A6B49` (darker tan)
+- Border: `2px solid #8A6B49`
 - Text: `white`
 
 **Usage:** Automated Estimator, secondary actions, supporting CTAs, trade partnerships
@@ -894,12 +900,12 @@ Combine multiple highlight colors within a single paragraph for visual richness:
 
 - Primary buttons use Hunter Green outline with white background
 - Hover states: Solid Hunter Green background with white text
-- Active states: Darker hunter green (`#2d5240`) with white text
+- Active states: Darker hunter green (`#1E392C`) with white text
 
 #### Links and Interactive Elements
 
 - Text links use Hunter Green for brand consistency
-- Hover states: Slightly lighter hunter green (`#4a7a63`)
+- Hover states: Slightly lighter hunter green (`#628F79`)
 - Focus states: Include visible outline for accessibility
 
 ### Secondary Color Applications
@@ -952,11 +958,11 @@ Combine multiple highlight colors within a single paragraph for visual richness:
 :root {
   /* Brand Colors */
   --color-brand-primary: #386851;        /* Hunter Green */
-  --color-brand-primary-light: #4a7a63;  /* Lighter Hunter Green */
-  --color-brand-primary-dark: #2d5240;   /* Darker Hunter Green */
+  --color-brand-primary-light: #628F79;  /* Lighter Hunter Green */
+  --color-brand-primary-dark: #1E392C;   /* Darker Hunter Green */
   --color-brand-secondary: #BD9264;      /* Leather Tan */
-  --color-brand-secondary-light: #c9a176; /* Lighter Tan */
-  --color-brand-secondary-dark: #a67d52;  /* Darker Tan */
+  --color-brand-secondary-light: #D9BD93; /* Lighter Tan */
+  --color-brand-secondary-dark: #8A6B49;  /* Darker Tan */
 
   /* Light Mode */
   --color-text-primary: #212121;
@@ -997,11 +1003,11 @@ module.exports = {
       colors: {
         brand: {
           primary: '#386851',         // Hunter Green
-          'primary-light': '#4a7a63', // Lighter Hunter Green
-          'primary-dark': '#2d5240',  // Darker Hunter Green
+          'primary-light': '#628F79', // Lighter Hunter Green
+          'primary-dark': '#1E392C',  // Darker Hunter Green
           secondary: '#BD9264',       // Leather Tan
-          'secondary-light': '#c9a176', // Lighter Tan
-          'secondary-dark': '#a67d52'   // Darker Tan
+          'secondary-light': '#D9BD93', // Lighter Tan
+          'secondary-dark': '#8A6B49'   // Darker Tan
         },
         gray: {
           50: '#FAFAFA',
@@ -1112,11 +1118,11 @@ module.exports = {
 | Color | Hex | Usage |
 |-------|-----|-------|
 | **Hunter Green** | `#386851` | Primary buttons, main CTAs, IRL consultations |
-| **Hunter Green Light** | `#4a7a63` | Hover states, lighter accents |
-| **Hunter Green Dark** | `#2d5240` | Active states, pressed buttons |
+| **Hunter Green Light** | `#628F79` | Hover states, lighter accents |
+| **Hunter Green Dark** | `#1E392C` | Active states, pressed buttons |
 | **Leather Tan** | `#BD9264` | Secondary buttons, Automated Estimator, trade partnerships |
-| **Leather Tan Light** | `#c9a176` | Hover states, lighter accents |
-| **Leather Tan Dark** | `#a67d52` | Active states, pressed buttons |
+| **Leather Tan Light** | `#D9BD93` | Hover states, lighter accents |
+| **Leather Tan Dark** | `#8A6B49` | Active states, pressed buttons |
 
 ### Service/Partnership Color Associations
 

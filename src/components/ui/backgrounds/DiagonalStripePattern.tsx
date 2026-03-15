@@ -18,7 +18,7 @@ interface DiagonalStripePatternProps {
   lightOpacity?: number;
   /** Opacity in dark mode (default: 0.05) */
   darkOpacity?: number;
-  /** Stripe color (default: #386851 - brand primary) */
+  /** Stripe color (default: var(--color-brand-primary) - brand primary) */
   color?: string;
   /** Additional CSS classes */
   className?: string;
@@ -27,7 +27,7 @@ interface DiagonalStripePatternProps {
 export function DiagonalStripePattern({
   lightOpacity = 0.03,
   darkOpacity = 0.05,
-  color = "#386851",
+  color = "var(--color-brand-primary)",
   className = "",
 }: DiagonalStripePatternProps) {
   return (

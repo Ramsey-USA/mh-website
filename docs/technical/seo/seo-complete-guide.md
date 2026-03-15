@@ -337,7 +337,7 @@ with transparent pricing. Schedule your free consultation today.
 | Services     | `/services`, `/service/`    | 0.9      | monthly     | Service, Offer                            |
 | Projects     | `/projects`, `/portfolio`   | 0.8      | weekly      | CreativeWork                              |
 | Team         | `/team`, `/about`           | 0.7      | monthly     | Person, Organization                      |
-| Contact      | `/contact`, `/booking`      | 0.9      | monthly     | ContactPage, LocalBusiness                |
+| Contact      | `/contact`                  | 0.9      | monthly     | ContactPage, LocalBusiness                |
 | Careers      | `/careers`, `/jobs`         | 0.7      | weekly      | JobPosting                                |
 | Partnerships | `/allies`, `/public-sector` | 0.75     | monthly     | Service, Organization                     |
 
@@ -353,12 +353,9 @@ const ACTIVE_PAGES = [
   { path: "/about", priority: 0.7, changeFreq: "monthly" as const },
   { path: "/team", priority: 0.7, changeFreq: "monthly" as const },
   { path: "/contact", priority: 0.9, changeFreq: "monthly" as const },
-  { path: "/booking", priority: 0.9, changeFreq: "monthly" as const },
   { path: "/careers", priority: 0.7, changeFreq: "weekly" as const },
   { path: "/public-sector", priority: 0.8, changeFreq: "monthly" as const },
   { path: "/allies", priority: 0.75, changeFreq: "monthly" as const },
-  { path: "/allies", priority: 0.75, changeFreq: "monthly" as const },
-  { path: "/3d-explorer", priority: 0.5, changeFreq: "monthly" as const },
 ];
 ```
 
@@ -871,11 +868,11 @@ export default function ServicesPage() {
 1. **Integrate Page-Specific Metadata**
    - Consider server/client split for key pages
    - Integrate existing SEO utils from `page-seo-utils.ts`
-   - Priority pages: `/booking`, `/services`
+   - Priority pages: `/contact`, `/services`
 
 2. **Add Missing Schemas**
    - Service schema on `/services` page
-   - Consultation schema on `/booking`
+   - Consultation schema on `/contact`
 
 #### Phase 2: Local SEO Enhancement
 

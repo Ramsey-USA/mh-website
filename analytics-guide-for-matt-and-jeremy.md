@@ -401,7 +401,7 @@ Your analytics dashboard uses **mission-ready language** familiar to veterans:
 ## **⚡ System Status**
 
 ✅ **Geographic Tracking:** Active (3-tier fallback)
-✅ **Page Tracking:** 27/27 pages (100%)
+✅ **Page Tracking:** 22/22 pages (100%)
 ✅ **CTA Tracking:** Footer phone/email/address
 ✅ **Form Tracking:** Contact form all types
 ✅ **Service Interest:** Homepage showcase

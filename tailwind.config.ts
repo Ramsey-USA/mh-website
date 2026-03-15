@@ -16,28 +16,33 @@ const config: Config = {
       colors: {
         brand: {
           primary: "#386851",
-          "primary-light": "#4a7a63",
-          "primary-dark": "#2d5240",
-          secondary: "#BD9264", // Original brand color (use for large text 18pt+, backgrounds)
-          "secondary-text": "#8a6643", // WCAG AA compliant for normal text (4.59:1)
-          "secondary-light": "#c9a176",
-          "secondary-dark": "#a67d52",
+          "primary-light": "#628F79",
+          "primary-dark": "#1E392C",
+          secondary: "#BD9264", // Leather Tan (large text 18pt+, backgrounds)
+          "secondary-text": "#8A6B49", // WCAG AA compliant for normal text (4.71:1)
+          "secondary-light": "#D9BD93",
+          "secondary-dark": "#8A6B49",
           accent: "#BD9264",
-          "accent-text": "#8a6643", // WCAG AA compliant for normal text
-          "accent-light": "#c9a176",
-          "accent-dark": "#a67d52",
+          "accent-text": "#8A6B49", // WCAG AA compliant for normal text
+          "accent-light": "#D9BD93",
+          "accent-dark": "#8A6B49",
+          // Architectural Bronze — CTA borders & Featured Project labels
+          bronze: "#A87948",
+          "bronze-light": "#CD9B6D",
+          "bronze-dark": "#6B4E2E",
+          "bronze-text": "#6B4E2E", // WCAG AAA compliant for body text (7.32:1)
         },
         bronze: {
-          50: "#faf8f5",
-          100: "#f5f1e8",
-          200: "#ebe3d1",
-          300: "#dccfb3",
-          400: "#cdb995",
-          500: "#BD9264",
-          600: "#a67d52",
-          700: "#8a6643",
-          800: "#6f5236",
-          900: "#5a422c",
+          50: "#fdf9f5",
+          100: "#f8f0e6",
+          200: "#f0ddc6",
+          300: "#e4c49e",
+          400: "#CD9B6D", // Bronze Light
+          500: "#A87948", // Bronze Core
+          600: "#8c6139",
+          700: "#6B4E2E", // Bronze Dark
+          800: "#503a22",
+          900: "#3a2918",
         },
         primary: {
           50: "#f0f7f4",
@@ -46,32 +51,32 @@ const config: Config = {
           300: "#8cc3a8",
           400: "#66af8b",
           500: "#386851",
-          600: "#2d5240",
-          700: "#264737",
-          800: "#1d362a",
-          900: "#14251d",
+          600: "#1E392C",
+          700: "#192f24",
+          800: "#12231b",
+          900: "#0c1812",
         },
         secondary: {
-          50: "#faf8f5",
-          100: "#f5f1e8",
-          200: "#ebe3d1",
-          300: "#dccfb3",
-          400: "#cdb995",
-          500: "#BD9264", // Original brand color
-          600: "#a67d52", // Good for small text
-          700: "#8a6643", // WCAG AA compliant (4.59:1)
+          50: "#fdf9f5",
+          100: "#f8f0e6",
+          200: "#f0ddc6",
+          300: "#e4c49e",
+          400: "#D9BD93", // Leather Tan Light
+          500: "#BD9264", // Leather Tan Core
+          600: "#a67d52",
+          700: "#8A6B49", // Leather Tan Dark — AA text
           800: "#6f5236",
           900: "#5a422c",
         },
         accent: {
-          50: "#faf8f5",
-          100: "#f5f1e8",
-          200: "#ebe3d1",
-          300: "#dccfb3",
-          400: "#cdb995",
-          500: "#BD9264", // Original brand color
-          600: "#a67d52", // Good for small text
-          700: "#8a6643", // WCAG AA compliant (4.59:1)
+          50: "#fdf9f5",
+          100: "#f8f0e6",
+          200: "#f0ddc6",
+          300: "#e4c49e",
+          400: "#D9BD93", // Leather Tan Light
+          500: "#BD9264", // Leather Tan Core
+          600: "#a67d52",
+          700: "#8A6B49", // Leather Tan Dark — AA text
           800: "#6f5236",
           900: "#5a422c",
         },

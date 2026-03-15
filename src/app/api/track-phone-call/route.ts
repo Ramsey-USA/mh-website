@@ -91,7 +91,7 @@ function generatePhoneTrackingEmailHTML(
   <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
     <!-- Header -->
     <tr>
-      <td style="background: linear-gradient(135deg, #386851 0%, #2d5340 100%); padding: 30px; text-align: center;">
+      <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
         <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">📞 Phone Call Activity</h1>
         <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">MH Construction, Inc.</p>
       </td>

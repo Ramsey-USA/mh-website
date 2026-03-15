@@ -885,10 +885,10 @@ export function MobileCTA() {
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t p-4 md:hidden z-50">
       <div className="flex gap-2">
-        <Link href="/booking" className="flex-1">
+        <Link href="/contact" className="flex-1">
           <Button variant="primary" size="lg" className="w-full">
             <MaterialIcon icon="event" size="md" className="mr-1.5" />
-            <span className="text-xs sm:text-sm">Book Now</span>
+            <span className="text-xs sm:text-sm">Get a Quote</span>
           </Button>
         </Link>
         <Link href="tel:+15093086489">

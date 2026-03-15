@@ -92,11 +92,11 @@ export function SkillsRadarChart({
   }, [chartRef]);
 
   const chartColors = {
-    stroke: isDark ? "#BD9264" : "#386851", // Bronze/brand colors
-    fill: isDark ? "#BD9264" : "#386851",
-    grid: isDark ? "#BD9264" : "#386851",
+    stroke: isDark ? "#D9BD93" : "#386851", // Leather Tan light (dark mode) / Hunter Green (light mode)
+    fill: isDark ? "#D9BD93" : "#386851",
+    grid: isDark ? "#D9BD93" : "#386851",
     gridOpacity: 0.3,
-    text: isDark ? "#BD9264" : "#386851",
+    text: isDark ? "#D9BD93" : "#386851",
     axisText: isDark ? "#9ca3af" : "#6b7280",
   };
 

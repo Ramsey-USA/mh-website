@@ -121,7 +121,7 @@ const faqCategories = [
       {
         question: "Can I speak with a real person?",
         answer:
-          "Always! You can call us at (509) 308-6489 or email office@mhc-gc.com anytime. Our General MH chatbot assistant is available 24/7 to help answer quick questions, but we prioritize personal communication. Face-to-face consultation is where real partnerships begin, and we're always ready to meet with you in person.",
+          "Always! You can call us at (509) 308-6489 or email office@mhc-gc.com anytime. We prioritize personal communication above all else. Face-to-face consultation is where real partnerships begin, and we're always ready to meet with you in person.",
       },
       {
         question: "How do I schedule a consultation?",

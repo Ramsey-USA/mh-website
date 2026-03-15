@@ -37,7 +37,7 @@ groups aligned with SEO optimization strategy.
 
 - **Company Name**: MH Construction, Inc.
 - **Industry**: Commercial Construction Management
-- **Founded**: Veteran-owned and operated
+- **Founded**: 2010 by Mike Holstein; Veteran-Owned Since January 2025
 - **Service Area**: Tri-Cities, WA | Licensed in WA, OR, ID
 - **Headquarters**: 3111 N. Capitol Ave., Pasco, WA 99301
 - **Phone**: [(509) 308-6489](tel:+15093086489)

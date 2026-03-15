@@ -69,7 +69,7 @@ export const locations: Record<string, LocationData> = {
     militaryTitle: "Operations Base → Richland",
     tagline: "Strategic Construction Operations in Benton County",
     description:
-      "Veteran-owned construction excellence serving Richland with honesty, integrity, professionalism, and thoroughness since 2010.",
+      "Founded 2010, veteran-owned since January 2025. Construction excellence serving Richland with honesty, integrity, professionalism, and thoroughness.",
     telephone: "(509) 308-6489",
     email: "office@mhc-gc.com",
     address: {

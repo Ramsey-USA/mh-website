@@ -126,7 +126,7 @@ export function SimpleProjectCards({
             <Card
               className={`h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer group ${
                 project.featured
-                  ? "border-2 border-brand-primary dark:border-brand-primary/50"
+                  ? "border-2 border-brand-bronze dark:border-brand-bronze-light/50"
                   : "border border-gray-200 dark:border-gray-700"
               }`}
             >
@@ -154,7 +154,7 @@ export function SimpleProjectCards({
                 <h3 className="mb-3 font-bold text-gray-900 text-xl dark:text-white">
                   {project.title}
                   {project.featured && (
-                    <span className="ml-2 bg-brand-primary/10 px-2 py-1 rounded text-brand-primary text-xs">
+                    <span className="ml-2 bg-bronze-700 px-2 py-1 rounded text-white text-xs">
                       Popular
                     </span>
                   )}

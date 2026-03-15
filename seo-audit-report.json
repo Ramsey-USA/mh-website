@@ -1,6 +1,6 @@
 {
-  "totalPages": 26,
-  "passing": 23,
+  "totalPages": 25,
+  "passing": 22,
   "warnings": 0,
   "errors": 3,
   "pages": [
@@ -54,14 +54,6 @@
     },
     {
       "pathname": "/veterans",
-      "score": 100,
-      "issues": [],
-      "hasMetadata": true,
-      "inSitemap": true,
-      "pageExists": true
-    },
-    {
-      "pathname": "/urgent",
       "score": 100,
       "issues": [],
       "hasMetadata": true,

@@ -199,11 +199,11 @@ All consultation CTAs now direct to `/contact` for face-to-face consultation.
 /* Primary Colors - Use these via Tailwind classes */
 --brand-primary: #386851; /* Hunter Green - Main CTAs, headers */
 --brand-secondary: #bd9264; /* Leather Tan - Large text (18pt+), backgrounds, decorative */
---brand-secondary-text: #8a6643; /* WCAG AA compliant - Normal text on white */
+--brand-secondary-text: #8a6b49; /* WCAG AA compliant - Normal text on white (4.71:1) */
 
 /* Extended Palette */
---bronze-300: #cd7f32; /* Veteran badge highlights */
---bronze-400: #b8691c; /* Dark mode veteran badges */
+--brand-bronze: #a87948; /* Architectural Bronze - CTA borders, Featured labels */
+--brand-bronze-dark: #6b4e2e; /* Bronze text - WCAG AAA (7.32:1) */
 ```
 
 ### Brand Color Usage Rules - WCAG AA Accessibility (Updated Dec 26, 2025)
@@ -239,17 +239,17 @@ Use these guidelines to maintain brand identity while meeting WCAG AA requiremen
 **Contrast Ratios Reference:**
 
 - Original (#BD9264) on white: 2.82:1 ❌ (fails WCAG AA for normal text)
-- Secondary-Text (#8a6643) on white: 4.59:1 ✅ (passes WCAG AA)
-- White on Secondary-700 (#8a6643): 5.17:1 ✅ (passes WCAG AA)
+- Secondary-Text (#8A6B49) on white: 4.71:1 ✅ (passes WCAG AA)
+- White on Secondary-Dark (#8A6B49): 4.71:1 ✅ (passes WCAG AA)
 
 **Quick Decision Matrix:**
 
 | Use Case                    | Tailwind Class                                      | Hex Code | Passes WCAG AA              |
 | --------------------------- | --------------------------------------------------- | -------- | --------------------------- |
 | Large text (18pt+) on white | `text-brand-secondary`                              | #BD9264  | ✅ (3:1 for large text)     |
-| Normal text on white        | `text-brand-secondary-text` or `text-secondary-700` | #8a6643  | ✅ (4.59:1)                 |
-| White text on background    | `bg-secondary-700`                                  | #8a6643  | ✅ (5.17:1)                 |
-| Light text on dark          | `text-brand-secondary-light`                        | #c9a176  | ✅ (context dependent)      |
+| Normal text on white        | `text-brand-secondary-text` or `text-secondary-700` | #8A6B49  | ✅ (4.71:1)                 |
+| White text on background    | `bg-secondary-700`                                  | #8A6B49  | ✅ (4.71:1)                 |
+| Light text on dark          | `text-brand-secondary-light`                        | #D9BD93  | ✅ (context dependent)      |
 | Borders/decorative          | `border-brand-secondary`                            | #BD9264  | ✅ (non-text)               |
 | Backgrounds                 | `bg-brand-secondary`                                | #BD9264  | ✅ (with proper text color) |
 
@@ -873,7 +873,7 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 - All page hero sections
 - Footer taglines
 - Section descriptions
-- Email signatures (use color: #cd7f32)
+- Email signatures (use color: #A87948)
 - Documentation examples
 - Marketing materials
 

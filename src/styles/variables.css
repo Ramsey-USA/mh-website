@@ -8,14 +8,29 @@
      ============================================ */
 
   /* PRIMARY BRAND COLOR: Hunter Green */
+  --color-brand-hunter-green: #386851;
+  --color-brand-hunter-green-light: #628f79;
+  --color-brand-hunter-green-dark: #1e392c;
+  /* Backward-compat aliases */
   --color-brand-primary: #386851;
-  --color-brand-primary-light: #4a7a63;
-  --color-brand-primary-dark: #2d5240;
+  --color-brand-primary-light: #628f79;
+  --color-brand-primary-dark: #1e392c;
 
   /* SECONDARY BRAND COLOR: Leather Tan */
+  --color-brand-leather-tan: #bd9264;
+  --color-brand-leather-tan-light: #d9bd93;
+  --color-brand-leather-tan-dark: #8a6b49;
+  /* Backward-compat aliases */
   --color-brand-secondary: #bd9264;
-  --color-brand-secondary-light: #c9a176;
-  --color-brand-secondary-dark: #a67d52;
+  --color-brand-secondary-light: #d9bd93;
+  --color-brand-secondary-dark: #8a6b49;
+
+  /* TERTIARY BRAND COLOR: Architectural Bronze — CTA borders & Featured labels */
+  --color-brand-bronze: #a87948;
+  --color-brand-bronze-light: #cd9b6d;
+  --color-brand-bronze-dark: #6b4e2e;
+  /* Accessible text alias (7.32:1 contrast on white — WCAG AAA) */
+  --color-brand-bronze-text: #6b4e2e;
 
   /* GRAYSCALE PALETTE (approved for use) */
   --color-brand-light: #f7f9f7;
@@ -89,6 +104,8 @@
   --shadow-brand-lg: 0 10px 25px -3px rgba(56, 104, 81, 0.3);
   --shadow-brand-secondary: 0 4px 14px 0 rgba(189, 146, 100, 0.39);
   --shadow-brand-secondary-lg: 0 10px 25px -3px rgba(189, 146, 100, 0.3);
+  --shadow-brand-bronze: 0 4px 14px 0 rgba(168, 121, 72, 0.39);
+  --shadow-brand-bronze-lg: 0 10px 25px -3px rgba(168, 121, 72, 0.3);
 
   /* Animation Durations */
   --duration-75: 75ms;
@@ -152,15 +169,27 @@
 }
 
 /* Dark mode variables */
-[data-theme="dark"] {
+.dark {
   --color-brand-light: #1a332a;
-  --color-brand-primary: #4a7a63;
-  --color-brand-primary-light: #5c9378;
+
+  --color-brand-hunter-green: #628f79;
+  --color-brand-hunter-green-light: #7aab93;
+  --color-brand-hunter-green-dark: #386851;
+  --color-brand-primary: #628f79;
+  --color-brand-primary-light: #7aab93;
   --color-brand-primary-dark: #386851;
 
-  --color-brand-secondary: #d4a876;
-  --color-brand-secondary-light: #e0ba8e;
+  --color-brand-leather-tan: #d9bd93;
+  --color-brand-leather-tan-light: #ead4ae;
+  --color-brand-leather-tan-dark: #bd9264;
+  --color-brand-secondary: #d9bd93;
+  --color-brand-secondary-light: #ead4ae;
   --color-brand-secondary-dark: #bd9264;
+
+  --color-brand-bronze: #cd9b6d;
+  --color-brand-bronze-light: #ddb58a;
+  --color-brand-bronze-dark: #a87948;
+  --color-brand-bronze-text: #cd9b6d;
 
   /* Dark mode text colors */
   --color-text-primary: #f5f5f5;
@@ -191,6 +220,8 @@
   --shadow-brand-lg: 0 10px 25px -3px rgba(56, 104, 81, 0.5);
   --shadow-brand-secondary: 0 4px 14px 0 rgba(189, 146, 100, 0.6);
   --shadow-brand-secondary-lg: 0 10px 25px -3px rgba(189, 146, 100, 0.5);
+  --shadow-brand-bronze: 0 4px 14px 0 rgba(205, 155, 109, 0.6);
+  --shadow-brand-bronze-lg: 0 10px 25px -3px rgba(205, 155, 109, 0.5);
 
   /* Dark mode semantic colors (adjusted for visibility) */
   --color-success: #22c55e;

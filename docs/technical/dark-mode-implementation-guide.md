@@ -85,11 +85,11 @@ function MyComponent() {
 colors: {
   brand: {
     primary: "#386851",        // Hunter Green
-    "primary-light": "#4a7a63", // Light Hunter Green
-    "primary-dark": "#2d5240",  // Dark Hunter Green
+    "primary-light": "#628F79", // Light Hunter Green
+    "primary-dark": "#1E392C",  // Dark Hunter Green
     secondary: "#BD9264",       // Leather Tan
-    "secondary-light": "#c9a176",
-    "secondary-dark": "#a67d52",
+    "secondary-light": "#D9BD93",
+    "secondary-dark": "#8A6B49",
   }
 }
 ```
@@ -184,7 +184,7 @@ CSS custom properties automatically update based on theme:
 }
 
 [data-theme="dark"] {
-  --color-brand-primary: #4a7a63;
+  --color-brand-primary: #628f79;
   --color-success: #22c55e;
   --color-text-primary: #f5f5f5;
   --color-bg-primary: #121212;

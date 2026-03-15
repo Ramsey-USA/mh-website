@@ -9,7 +9,7 @@ export const enhancedSEO = {
   defaultTitle:
     "Base HQ → Home | Building projects for the client, NOT the dollar | MH Construction",
   defaultDescription:
-    "Base HQ → Home: Your Tri-Cities Construction Command Center. Veteran-owned construction management services since 2010 with dual-label approach (Military Operations → Construction Services). Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction. Service-earned values—Honesty, Integrity, Professionalism, Thoroughness—building trust through SITREP-level transparency and Chain of Command excellence throughout the Pacific Northwest.",
+    "Base HQ → Home: Your Tri-Cities Construction Command Center. Construction management services since 2010, veteran-owned since January 2025, with dual-label approach (Military Operations → Construction Services). Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction. Service-earned values—Honesty, Integrity, Professionalism, Thoroughness—building trust through SITREP-level transparency and Chain of Command excellence throughout the Pacific Northwest.",
   siteUrl: COMPANY_INFO.urls.getSiteUrl(),
   twitterHandle: COMPANY_INFO.social.twitterHandle,
   defaultKeywords: [
@@ -437,8 +437,8 @@ export function generateIRLConsultationSchema() {
     hoursAvailable: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:00",
-      closes: "17:00",
+      opens: "07:00",
+      closes: "16:00",
     },
     potentialAction: {
       "@type": "ReserveAction",

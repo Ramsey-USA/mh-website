@@ -91,7 +91,7 @@ export default function GlobalError({
               <button
                 onClick={() => reset()}
                 style={{
-                  backgroundColor: "#386851",
+                  backgroundColor: "var(--color-brand-primary)",
                   color: "white",
                   padding: "0.75rem 1.5rem",
                   borderRadius: "0.375rem",
@@ -108,10 +108,10 @@ export default function GlobalError({
                 onClick={() => (window.location.href = "/")}
                 style={{
                   backgroundColor: "white",
-                  color: "#386851",
+                  color: "var(--color-brand-primary)",
                   padding: "0.75rem 1.5rem",
                   borderRadius: "0.375rem",
-                  border: "2px solid #386851",
+                  border: "2px solid var(--color-brand-primary)",
                   cursor: "pointer",
                   fontSize: "1rem",
                   fontWeight: "500",
@@ -133,7 +133,7 @@ export default function GlobalError({
                 <a
                   href="/contact"
                   style={{
-                    color: "#386851",
+                    color: "var(--color-brand-primary)",
                     textDecoration: "none",
                     fontWeight: "500",
                   }}

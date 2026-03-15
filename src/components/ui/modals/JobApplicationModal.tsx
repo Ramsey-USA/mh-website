@@ -422,7 +422,7 @@ export function JobApplicationModal({
                     required
                     value={formData.experience}
                     onChange={handleInputChange}
-                    className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-[#386851] focus:ring-2 w-full text-gray-900 dark:text-white"
+                    className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-brand-primary focus:ring-2 w-full text-gray-900 dark:text-white"
                   >
                     <option value="">Select experience level</option>
                     {experienceLevels.map((level) => (
@@ -446,7 +446,7 @@ export function JobApplicationModal({
                   required
                   value={formData.availability}
                   onChange={handleInputChange}
-                  className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-[#386851] focus:ring-2 w-full text-gray-900 dark:text-white"
+                  className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-brand-primary focus:ring-2 w-full text-gray-900 dark:text-white"
                 >
                   <option value="">Select availability</option>
                   {availabilityOptions.map((option) => (
@@ -464,7 +464,7 @@ export function JobApplicationModal({
                   name="veteranStatus"
                   value={formData.veteranStatus}
                   onChange={handleInputChange}
-                  className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-[#386851] focus:ring-2 w-full text-gray-900 dark:text-white"
+                  className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-brand-primary focus:ring-2 w-full text-gray-900 dark:text-white"
                 >
                   <option value="">Prefer not to say</option>
                   <option value="veteran">Veteran</option>

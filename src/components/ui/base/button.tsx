@@ -16,9 +16,9 @@ const buttonVariants = cva(
         secondary:
           "border-brand-secondary bg-white dark:bg-gray-900 text-brand-secondary dark:text-bronze-300 hover:bg-brand-secondary hover:text-white hover:border-bronze-700 focus:ring-brand-secondary shadow-[0_4px_16px_rgba(189,146,100,0.2)] hover:shadow-[0_8px_25px_rgba(189,146,100,0.35)]",
 
-        // MH Construction Outline
+        // MH Construction Outline — Bronze border for premium CTA feel
         outline:
-          "border-brand-primary bg-transparent text-brand-primary dark:text-bronze-400 hover:bg-brand-primary/5 dark:hover:bg-bronze-400/10 focus:ring-brand-primary/50",
+          "border-brand-bronze bg-transparent text-brand-primary dark:text-bronze-400 hover:bg-brand-bronze/5 dark:hover:bg-bronze-400/10 hover:border-brand-bronze-dark focus:ring-brand-bronze/50",
 
         // Neutral/Theme-aware
         neutral:

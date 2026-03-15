@@ -86,8 +86,8 @@ export function Section({
               style={{
                 backgroundImage: `repeating-linear-gradient(
               45deg,
-              #386851 0px,
-              #386851 2px,
+              var(--color-brand-primary) 0px,
+              var(--color-brand-primary) 2px,
               transparent 2px,
               transparent 60px
             )`,

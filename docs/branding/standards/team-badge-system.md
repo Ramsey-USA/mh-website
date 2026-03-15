@@ -40,7 +40,7 @@ branding guidelines and are awarded based on objective, verifiable criteria.
 
 **Criteria**: Active military service (any branch)  
 **Icon**: `military_tech`  
-**Color**: Bronze (`#CD7F32` / `bg-bronze-badge`)  
+**Color**: Bronze (`#A87948` / `bg-bronze-badge`)  
 **Text Color**: White  
 **Special Designation**: Gold ring highlight  
 **Display Text**: `[Branch] Veteran` (e.g., "Navy Veteran", "Army Veteran")
@@ -74,7 +74,7 @@ branding guidelines and are awarded based on objective, verifiable criteria.
 
 **Criteria**: Completed master's degree (any field)  
 **Icon**: `school`  
-**Color**: Bronze (`#CD7F32` / `bg-bronze-badge` / `dark:bg-bronze-badge`)  
+**Color**: Bronze (`#A87948` / `bg-bronze-badge` / `dark:bg-bronze-badge`)  
 **Text Color**: White  
 **Display Text**: "Master's Degree"  
 **Note**: Bronze color represents highest educational achievement, matching veteran honor color

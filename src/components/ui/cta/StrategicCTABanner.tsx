@@ -209,7 +209,7 @@ export function StrategicCTABanner({
           onClick={() => {
             trackEvent("cta_combo_click", { type: "pwa_install" });
           }}
-          className="flex flex-col items-center gap-2 h-auto py-6 border-2 border-brand-primary/20 hover:border-brand-primary/40 bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
+          className="flex flex-col items-center gap-2 h-auto py-6 border-2 border-brand-bronze/30 hover:border-brand-bronze/60 bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
           aria-label="Install MH Construction app for offline access"
         >
           <MaterialIcon

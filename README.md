@@ -80,7 +80,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
   `csrf.ts` (194 lines, CSRF logic lives inside `security-manager`); converted 3 more pages from client to RSC
   (`team`, `public-sector`, `contact/ContactPageClient`) via `PageTrackingClient` island pattern — 4,302 lines of dead
   code removed, 95/95 tests still passing; removed Urgent page (`/urgent`) and all associated navigation links,
-  sitemap entries, SEO metadata, and breadcrumb schema — page count 27 → 26
+  sitemap entries, SEO metadata, and breadcrumb schema — page count 23 → 22
 
 - **Mar 14:** Third optimization pass — deleted 5 dead `lib/` directories (`ai`, `cache`, `content`, `storage`, `branding`,
   ~1,600 lines); removed `components/images` compat shim directory, `QuickBookingModal`, `PerformanceDashboard`,
@@ -146,7 +146,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 - **Mission:** Building projects for the Client, NOT the Dollar
 - **Values:** Honesty, Integrity, Professionalism, Thoroughness
 - **Approach:** Face-to-face consultation, transparent pricing, veteran priority scheduling
-- **Service Area:** Tri-Cities WA (Richland, Kennewick, Pasco), Yakima, Spokane, Walla Walla
+- **Service Area:** Tri-Cities WA (Richland, Kennewick, Pasco, West Richland), Yakima, Spokane, Walla Walla
 - **Specialties:** Commercial construction, residential, public sector, master planning
 
 ### Business Philosophy
@@ -400,7 +400,7 @@ contributing.md                         # Contribution guidelines
 mh-website/
 ├── src/
 │   ├── app/                      # Next.js 15 App Router
-│   │   ├── (public pages)/      # 26 public pages (about, services, locations, etc.)
+│   │   ├── (public pages)/      # 22 public pages (about, services, locations, etc.)
 │   │   ├── api/                 # API routes (analytics, contact, etc.)
 │   │   ├── dashboard/           # Analytics dashboard
 │   │   ├── layout.tsx           # Root layout
@@ -470,11 +470,34 @@ mh-website/
 
 ### Brand Colors
 
-**Primary Colors:**
+Three-tiered palette using `--color-brand-[name]-[shade]` CSS variables.
 
-- **Hunter Green:** `#2C5530` (light), `#1a3d1f` (dark)
-- **Leather Tan:** `#D4A574` (light), `#c89a63` (dark)
-- **Bronze:** `#CD7F32` (veteran badges)
+**Hunter Green (Primary):**
+
+| Shade | Hex       | CSS Variable                       | Tailwind Class             |
+| ----- | --------- | ---------------------------------- | -------------------------- |
+| Core  | `#386851` | `--color-brand-hunter-green`       | `text-brand-primary`       |
+| Light | `#628F79` | `--color-brand-hunter-green-light` | `text-brand-primary-light` |
+| Dark  | `#1E392C` | `--color-brand-hunter-green-dark`  | `text-brand-primary-dark`  |
+
+**Leather Tan (Secondary):**
+
+| Shade | Hex       | CSS Variable                      | Tailwind Class               |
+| ----- | --------- | --------------------------------- | ---------------------------- |
+| Core  | `#BD9264` | `--color-brand-leather-tan`       | `text-brand-secondary`       |
+| Light | `#D9BD93` | `--color-brand-leather-tan-light` | `text-brand-secondary-light` |
+| Dark  | `#8A6B49` | `--color-brand-leather-tan-dark`  | `text-brand-secondary-dark`  |
+
+**Architectural Bronze (Accent — CTA borders & Featured labels):**
+
+| Shade | Hex       | CSS Variable                 | Tailwind Class            |
+| ----- | --------- | ---------------------------- | ------------------------- |
+| Core  | `#A87948` | `--color-brand-bronze`       | `text-brand-bronze`       |
+| Light | `#CD9B6D` | `--color-brand-bronze-light` | `text-brand-bronze-light` |
+| Dark  | `#6B4E2E` | `--color-brand-bronze-dark`  | `text-brand-bronze-dark`  |
+
+> **Bronze usage:** Applied to CTA borders and Featured Project labels for a premium feel.
+> For accessible body text, always use the Dark shade (contrast ≥ 7:1 on white).
 
 **Neutrals:**
 
@@ -484,14 +507,24 @@ mh-website/
 **Usage:**
 
 ```tsx
-// Tailwind classes
-bg - brand - primary; // Hunter Green
-text - brand - secondary; // Leather Tan
-bg - bronze - 600; // Bronze accent
+// Tailwind classes — primary (Hunter Green)
+bg - brand - primary; // Hunter Green core
+text - brand - primary - light; // Lighter tint (dark mode surfaces)
+text - brand - primary - dark; // Deepest shade (headings, high contrast)
+
+// Secondary (Leather Tan)
+bg - brand - secondary; // Leather Tan core (backgrounds, large text only)
+text - brand - secondary - dark; // AA-compliant for body text (4.71:1)
+
+// Accent (Architectural Bronze — CTA borders & featured labels)
+border - brand - bronze; // CTA outline borders
+bg - brand - bronze - dark; // Featured label backgrounds (7:1 on white)
+text - brand - bronze - dark; // Accessible bronze text
 
 // Dark mode variants
 dark: bg - brand - primary - light;
 dark: text - brand - secondary - light;
+dark: border - brand - bronze - light;
 ```
 
 ### Typography
@@ -730,7 +763,7 @@ npm run lint
 - **Phone:** (509) 308-6489
 - **Email:** <office@mhc-gc.com>
 - **Website:** <https://mhc-gc.com>
-- **Address:** 2839 W 19th Ave, Kennewick, WA 99337
+- **Address:** 3111 N Capitol Ave, Pasco, WA 98953
 
 ### Repository
 
@@ -761,7 +794,7 @@ Jeremy Thamert, continuing 15 years of construction excellence with renewed vete
 - Professionalism in every project
 - Thoroughness in every detail
 
-**Building projects for the Client, NOT the Dollar.**
+**Building projects for the client, NOT the dollar.**
 
 ---
 

@@ -1,7 +1,7 @@
 # MH Construction - Architecture Documentation
 
 **Category:** Project - Architecture  
-**Last Updated:** December 28, 2025  
+**Last Updated:** March 15, 2026  
 **Version:** 1.0.0  
 **Status:** ✅ Active
 
@@ -18,8 +18,8 @@
 - ✅ **Team Page** (`/src/app/team/page.tsx`) - Leadership profiles and specializations
 - ✅ **Contact Page** (`/src/app/contact/page.tsx`) - Multiple communication channels
 - ✅ **Careers Page** (`/src/app/careers/page.tsx`) - Job listings and company benefits
-- ✅ **Government Page** (`/src/app/government/page.tsx`) - Public sector project focus
-- ✅ **Trade Partners Page** (`/src/app/trade-partners/page.tsx`) - Subcontractor network
+- ✅ **Public Sector Page** (`/src/app/public-sector/page.tsx`) - Government & public sector project focus
+- ✅ **Allies Page** (`/src/app/allies/page.tsx`) - Trade partner / subcontractor network
 
 ### **Advanced Platform Features**
 
@@ -35,11 +35,11 @@
 
 ### **Core Technologies**
 
-- **Framework**: Next.js 15.5.2 (App Router)
-- **Language**: TypeScript 5.9.3
-- **Styling**: Tailwind CSS 3.4.18
+- **Framework**: Next.js 15.5.12 (App Router)
+- **Language**: TypeScript 5.9.2
+- **Styling**: Tailwind CSS 3.4.19
 - **Icons**: Google Material Icons (font-based)
-- **Animations**: Framer Motion 12.23.24
+- **Animations**: Framer Motion 12.35.2
 - **Deployment**: Cloudflare Pages
 - **Database**: Cloudflare D1 (SQLite)
 - **Analytics**: Custom tracking system with admin dashboard (Matt & Jeremy only)
@@ -133,8 +133,7 @@ src/
 ### 🎛️ **Content Management System** - ✅ COMPLETE
 
 - **Cloudflare Integration**: ✅ Edge runtime with D1 database (ACTIVE)
-- **Dynamic Content**: Project galleries, blog posts (via BlogSection
-  component), testimonials (via TestimonialsSection component)
+- **Dynamic Content**: Project galleries and testimonials (via TestimonialsSection component)
 - **Image Management**: ✅ Optimized storage and delivery via Cloudflare R2 (ACTIVE)
 - **API Routes**: ✅ Secure Edge Functions and API endpoints (ACTIVE)
 - **Data Storage**: ✅ Cloudflare D1 SQL database for structured data (ACTIVE)
@@ -171,7 +170,6 @@ src/
 
 - **Micro-Frontend Architecture**: Modular, independently deployable features
 - **Enhanced Analytics**: Heat mapping, user journey tracking, A/B testing
-- **AI Integration**: ChatGPT integration for customer support and project estimation
 - **AVIF Image Support**: Next-gen image format (20-30% smaller than WebP)
 - **Video Streaming**: Adaptive bitrate streaming for large video content
 - **Performance Monitoring**: Real User Monitoring (RUM) and synthetic testing

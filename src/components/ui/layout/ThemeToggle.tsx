@@ -39,13 +39,13 @@ export function ThemeToggle({
       key: "light" as const,
       label: "Light",
       icon: "light_mode",
-      colors: "text-[#BD9264]",
+      colors: "text-brand-secondary",
     },
     {
       key: "dark" as const,
       label: "Dark",
       icon: "dark_mode",
-      colors: "text-[#386851]",
+      colors: "text-brand-primary",
     },
     {
       key: "system" as const,
@@ -80,8 +80,8 @@ export function ThemeToggle({
             dark:from-gray-700 dark:to-gray-600
             border-2 border-gray-300 dark:border-gray-500
             transition-all duration-300 ease-in-out
-            hover:shadow-lg hover:shadow-[#386851]/20
-            focus:outline-none focus:ring-2 focus:ring-[#386851] focus:ring-offset-2
+            hover:shadow-lg hover:shadow-brand-primary/20
+            focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2
             group overflow-hidden
             pointer-events-auto cursor-pointer
           `}
@@ -92,7 +92,7 @@ export function ThemeToggle({
           <div
             className={`
               absolute inset-1 rounded-full 
-              bg-gradient-to-r from-[#386851] to-[#2d5240]
+              bg-gradient-to-r from-[#386851] to-[#1E392C]
               transition-transform duration-300 ease-in-out
               ${isDarkMode ? "translate-x-0" : "translate-x-full"}
             `}
@@ -144,11 +144,11 @@ export function ThemeToggle({
             className={`
               relative flex items-center justify-center px-3 py-2 rounded-md
               transition-all duration-200 ease-in-out
-              focus:outline-none focus:ring-2 focus:ring-[#386851] focus:ring-offset-2
+              focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2
               ${
                 theme === key
-                  ? "bg-gradient-to-r from-[#386851] to-[#2d5240] text-white shadow-md transform scale-105"
-                  : "text-gray-600 dark:text-gray-300 hover:text-[#386851] dark:hover:text-[#BD9264] hover:bg-white dark:hover:bg-gray-700"
+                  ? "bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white shadow-md transform scale-105"
+                  : "text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-secondary hover:bg-white dark:hover:bg-gray-700"
               }
             `}
             aria-label={`Switch to ${label.toLowerCase()} mode`}
