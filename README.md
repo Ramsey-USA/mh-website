@@ -59,7 +59,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 | Metric            | Status    | Details                                   |
 | ----------------- | --------- | ----------------------------------------- |
-| **Build**         | Passing   | ~33s compilation, zero errors             |
+| **Build**         | Passing   | ~29s compilation, zero errors             |
 | **TypeScript**    | Strict    | Zero type errors                          |
 | **ESLint**        | Clean     | Zero lint warnings, zero errors           |
 | **Tests**         | Passing   | 56/56 passing                             |
@@ -72,6 +72,10 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Documentation** | Optimized | 62 docs + 12 supporting files, zero bloat |
 
 ### Recent Improvements (March 2026)
+
+- **Mar 15:** Removed redundant `export const runtime = "edge"` declarations from 18 API route files — Cloudflare Workers is inherently an edge runtime so the declarations are no-ops, but OpenNext was treating them as signals to bundle those routes into a separate edge function which it cannot reconcile with the single-Worker output model; build now completes cleanly end-to-end
+
+- **Mar 15:** Fixed Cloudflare Pages CI build failure — added `[build] command = "npm run build"` to `wrangler.toml` to override the stale dashboard build command (`npm run build && npx @cloudflare/next-on-pages`); the deprecated `@cloudflare/next-on-pages` adapter was running as a second step after OpenNext and failing because it requires `export const runtime = 'edge'` on all dynamic routes — the two adapters are mutually exclusive; `wrangler.toml` `[build]` overrides the dashboard setting so only OpenNext runs
 
 - **Mar 15:** Comprehensive build audit — production build: 32.6s, 39/39 static pages generated, zero errors;
   fixed 3 pre-existing lint issues (`OptimizedImage.tsx` — 2× missing `alt` on spread `<Image>` calls,
@@ -334,8 +338,6 @@ npm run clean            # Clean build artifacts
 - `build:cloudflare` intentionally sets `NPM_CONFIG_LEGACY_PEER_DEPS=true`
   because `@cloudflare/next-on-pages` peer ranges can lag patched Next.js
   releases.
-- API route handlers under `src/app/api/*` are pinned to `runtime = "nodejs"`
-  to avoid Next.js Edge-runtime static-generation warnings during `npm run build`.
 - `vercel` is pinned to `32.3.0` to stay within
   `@cloudflare/next-on-pages@1.13.16` peer constraints and reduce inherited
   tooling vulnerabilities.
@@ -405,13 +407,15 @@ contributing.md                         # Contribution guidelines
 mh-website/
 ├── src/
 │   ├── app/                      # Next.js 15 App Router
-│   │   ├── about/ allies/ careers/ contact/  # 22 public pages (flat route directories)
-│   │   ├── locations/           # 7 city pages (kennewick, pasco, richland, etc.)
+│   │   ├── about/ allies/ careers/ contact/  # 21 public pages (flat route directories)
+│   │   ├── locations/           # 11 city pages (kennewick, pasco, richland, spokane, yakima,
+│   │   │                        #  walla-walla, west-richland, coeur-d-alene, hermiston, omak, pendleton)
 │   │   ├── api/                 # API routes (analytics, contact, etc.)
 │   │   ├── dashboard/           # Analytics dashboard
 │   │   ├── layout.tsx           # Root layout
 │   │   └── page.tsx             # Homepage
 │   ├── components/               # React components
+│   │   ├── about/               # About page components
 │   │   ├── analytics/           # Tracking components
 │   │   ├── animations/          # Animation utilities
 │   │   ├── error/               # Error boundary components
@@ -422,16 +426,14 @@ mh-website/
 │   │   ├── locations/           # Location page components
 │   │   ├── navigation/          # Nav components
 │   │   ├── performance/         # Performance utilities
-│   │   ├── projects/            # Project components
 │   │   ├── pwa/                 # PWA install prompt
-│   │   ├── ratings/             # Rating components
 │   │   ├── seo/                 # SEO components
+│   │   ├── services/            # Services components
 │   │   ├── shared-sections/     # Reusable sections (TestimonialsSection, NextStepsSection)
-│   │   ├── slider/              # Slider/carousel components
 │   │   ├── team/                # Team components
 │   │   ├── templates/           # Page templates
-│   │   ├── ui/                  # Base UI components
-│   │   └── (+ about, contact, map, services, testimonials, veterans, ...)
+│   │   ├── testimonials/        # Testimonials components
+│   │   └── ui/                  # Base UI components
 │   ├── lib/                      # Core libraries
 │   │   ├── analytics/           # Analytics system
 │   │   ├── api/                 # API helpers
@@ -442,7 +444,7 @@ mh-website/
 │   │   ├── db/                  # Database (D1) access layer
 │   │   ├── email/               # Email (Resend) helpers
 │   │   ├── notifications/       # Notification utilities
-│   │   ├── performance/         # Performance helpers
+│   │   ├── performance/         # mobile-optimizations.ts only
 │   │   ├── security/            # Security utilities (CSRF, etc.)
 │   │   ├── seo/                 # SEO utilities
 │   │   ├── services/            # Business-logic services
@@ -450,8 +452,7 @@ mh-website/
 │   │   ├── types/               # Library-scoped types
 │   │   └── utils/               # General helper functions
 │   ├── contexts/                 # React contexts (Theme, etc.)
-│   ├── hooks/                    # Custom React hooks
-│   │   └── use-breakpoint.ts    # Responsive breakpoint detection
+│   ├── hooks/                    # Custom React hooks (use-breakpoint.ts)
 │   └── types/                    # TypeScript definitions
 ├── public/                       # Static assets
 │   ├── icons/                   # PWA icons
