@@ -80,60 +80,10 @@ const mainCTAs = [
 ];
 
 export default function ContactPageClient() {
-  // Structured Data for SEO
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "GeneralContractor",
-    name: COMPANY_INFO.name,
-    description:
-      "Expert concrete, carpentry, and general contracting services in Pasco, WA and the Pacific Northwest",
-    url: COMPANY_INFO.urls.site,
-    telephone: COMPANY_INFO.phone.tel,
-    email: COMPANY_INFO.email.main,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: COMPANY_INFO.address.street,
-      addressLocality: COMPANY_INFO.address.city,
-      addressRegion: COMPANY_INFO.address.stateCode,
-      postalCode: COMPANY_INFO.address.zip,
-      addressCountry: COMPANY_INFO.address.country,
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: COMPANY_INFO.coordinates.latitude.toString(),
-      longitude: COMPANY_INFO.coordinates.longitude.toString(),
-    },
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "07:00",
-      closes: "16:00",
-    },
-    areaServed: {
-      "@type": "State",
-      name: "Washington",
-    },
-    slogan: "Building projects for the client, NOT the dollar",
-  };
-
   return (
     <>
       <PageTrackingClient pageName="Contact" />
-      {/* Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-
       <div className="bg-white dark:bg-gray-900 min-h-screen">
-        {/* Skip to main content - Accessibility */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-4 focus:left-4 bg-brand-primary text-white px-4 py-2 rounded-lg font-semibold"
-        >
-          Skip to main content
-        </a>
-
         {/* Hero Section */}
         <section
           className="relative h-screen flex items-end justify-end text-white overflow-hidden"
@@ -254,15 +204,13 @@ export default function ContactPageClient() {
 
               {/* Contact Cards Grid */}
               <div className="gap-6 lg:gap-8 grid grid-cols-1 md:grid-cols-3 mb-16">
-                {quickContact.map((contact, _index) => (
+                {quickContact.map((contact, index) => (
                   <a
-                    key={_index}
+                    key={index}
                     href={contact.link}
-                    target={
-                      contact.icon === "location_on" ? "_blank" : undefined
-                    }
+                    target={contact.icon === "place" ? "_blank" : undefined}
                     rel={
-                      contact.icon === "location_on"
+                      contact.icon === "place"
                         ? "noopener noreferrer"
                         : undefined
                     }
@@ -754,9 +702,9 @@ export default function ContactPageClient() {
               <StaggeredFadeIn
                 className={gridPresets.cards3("md", "max-w-6xl mx-auto")}
               >
-                {mainCTAs.map((cta, _index) => (
+                {mainCTAs.map((cta, index) => (
                   <Link
-                    key={_index}
+                    key={index}
                     href={cta.link}
                     aria-label={cta.ariaLabel}
                     className="group relative flex h-full"

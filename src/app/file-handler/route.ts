@@ -26,15 +26,17 @@ export async function POST(request: NextRequest) {
 
     logger.info("[File Handler] Received files:", fileInfo);
 
-    // Determine action based on file types
-    const hasImages = files.some(
-      (file) => file instanceof File && file.type.startsWith("image/"),
-    );
-    const hasPDFs = files.some(
-      (file) => file instanceof File && file.type === "application/pdf",
+    const { hasImages, hasPDFs } = files.reduce(
+      (acc, file) => {
+        if (file instanceof File) {
+          if (file.type.startsWith("image/")) acc.hasImages = true;
+          else if (file.type === "application/pdf") acc.hasPDFs = true;
+        }
+        return acc;
+      },
+      { hasImages: false, hasPDFs: false },
     );
 
-    // Route based on file type
     if (hasImages) {
       // Redirect to contact page with indication to share project photos
       return NextResponse.redirect(
@@ -49,7 +51,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Default: redirect to contact page
     return NextResponse.redirect(new URL("/contact", request.url), {
       status: 303,
     });
@@ -62,7 +63,8 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export function GET() {
-  // Handle GET requests by redirecting to contact
-  return NextResponse.redirect("/contact", { status: 302 });
+export function GET(request: NextRequest) {
+  return NextResponse.redirect(new URL("/contact", request.url), {
+    status: 302,
+  });
 }

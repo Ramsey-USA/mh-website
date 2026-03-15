@@ -2,7 +2,7 @@
 
 **Category:** Business — Portfolio & Capabilities  
 **Version:** 1.0.0  
-**Last Updated:** March 11, 2026  
+**Last Updated:** March 15, 2026  
 **Status:** ✅ Active
 
 > Full-spectrum general contractor licensed in Washington, Oregon, and Idaho — with a primary
@@ -13,14 +13,17 @@
 
 ## Contents
 
-1. [Commercial & Retail](#commercial--retail)
-2. [Healthcare & Medical Facilities](#healthcare--medical-facilities)
-3. [Public Safety & Government Facilities](#public-safety--government-facilities)
-4. [Education](#education)
-5. [Industrial & Warehouse](#industrial--warehouse)
-6. [Civic, Cultural & Nonprofit](#civic-cultural--nonprofit)
-7. [Tenant Improvements & Renovations](#tenant-improvements--renovations)
-8. [Portfolio Summary](#portfolio-summary)
+- [MH Construction — Project Specialization Summary](#mh-construction--project-specialization-summary)
+  - [Contents](#contents)
+  - [Commercial \& Retail](#commercial--retail)
+  - [Healthcare \& Medical Facilities](#healthcare--medical-facilities)
+  - [Public Safety \& Government Facilities](#public-safety--government-facilities)
+  - [Education](#education)
+  - [Industrial \& Warehouse](#industrial--warehouse)
+  - [Civic, Cultural \& Nonprofit](#civic-cultural--nonprofit)
+  - [Tenant Improvements \& Renovations](#tenant-improvements--renovations)
+  - [Portfolio Summary](#portfolio-summary)
+  - [Related Documentation](#related-documentation)
 
 ---
 
@@ -38,7 +41,6 @@ across auto, retail, food & beverage, and corporate office categories.
 | Bruchi's                       | Food & Beverage                        |
 | Summer's Hub (2025)            | Food & Beverage / Mixed-Use Commercial |
 | Allied Potato Corporate Office | Corporate Office                       |
-| Volm Corporate Warehouse       | Corporate Office / Industrial          |
 | Amazon Building Renovation     | Commercial Renovation                  |
 
 **Core value demonstrated:** Integrity — precise delivery against OEM brand standards, ownership
@@ -108,11 +110,11 @@ rigorous phasing, and accountability to public school boards and community stake
 
 Heavy-use, agricultural-adjacent, and large-format industrial facilities.
 
-| Project                          | Type                                     |
-| -------------------------------- | ---------------------------------------- |
-| Volm Corporate Warehouse         | Industrial Warehouse                     |
-| Columbia Crest Winery Tank Pads  | Agricultural / Industrial Infrastructure |
-| Trucks and Auto Auction Facility | Industrial / Commercial                  |
+| Project                                 | Type                                     |
+| --------------------------------------- | ---------------------------------------- |
+| Volm Corporate Warehouse                | Industrial Warehouse                     |
+| Columbia Crest Winery Corridor Projects | Agricultural / Industrial Infrastructure |
+| Trucks and Auto Auction Facility        | Industrial / Commercial                  |
 
 **Core value demonstrated:** Thoroughness — industrial builds require precision engineering
 coordination and durable construction systems rated for long-term operational loads.

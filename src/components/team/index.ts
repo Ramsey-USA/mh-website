@@ -3,4 +3,4 @@
  * Reusable components for team member displays
  */
 
-export { TeamMemberTag, TeamMemberTags } from "./TeamMemberTag";
+export { TeamProfileSection } from "./TeamProfileSection";

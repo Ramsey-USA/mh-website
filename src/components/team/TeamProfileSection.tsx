@@ -5,7 +5,63 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { SkillsRadarChart } from "./SkillsRadarChart";
 import { type VintageTeamMember } from "@/lib/data/vintage-team";
 import { useEffect, useState } from "react";
+function getSkillLevel(score: number): {
+  level: string;
+  color: string;
+  icon: string;
+} {
+  if (score >= 95) {
+    return {
+      level: "Master",
+      color: "text-bronze-badge dark:text-bronze-badge-light",
+      icon: "workspace_premium",
+    };
+  }
+  if (score >= 85) {
+    return {
+      level: "Expert",
+      color: "text-brand-primary dark:text-brand-primary-light",
+      icon: "verified",
+    };
+  }
+  if (score >= 75) {
+    return {
+      level: "Proficient",
+      color: "text-green-700 dark:text-green-600",
+      icon: "check_circle",
+    };
+  }
+  if (score >= 65) {
+    return {
+      level: "Competent",
+      color: "text-brand-secondary dark:text-brand-secondary-light",
+      icon: "task_alt",
+    };
+  }
+  return {
+    level: "Developing",
+    color: "text-gray-600 dark:text-gray-300",
+    icon: "trending_up",
+  };
+}
 
+function getRoleIcon(role: string): string {
+  if (role.toLowerCase().includes("project")) return "engineering";
+  if (role.toLowerCase().includes("estimat")) return "calculate";
+  if (role.toLowerCase().includes("superintend")) return "construction";
+  if (role.toLowerCase().includes("foreman")) return "build";
+  if (role.toLowerCase().includes("safety")) return "security";
+  if (
+    role.toLowerCase().includes("ceo") ||
+    role.toLowerCase().includes("president") ||
+    role.toLowerCase().includes("owner")
+  ) {
+    return "business";
+  }
+  if (role.toLowerCase().includes("admin")) return "admin_panel_settings";
+  if (role.toLowerCase().includes("vice")) return "badge";
+  return "person";
+}
 interface TeamProfileSectionProps {
   member: VintageTeamMember;
   index: number;
@@ -254,45 +310,6 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
 
   const achievementBadges = getAchievementBadges();
 
-  // Skill level indicator based on score
-  const getSkillLevel = (
-    score: number,
-  ): { level: string; color: string; icon: string } => {
-    if (score >= 95) {
-      return {
-        level: "Master",
-        color: "text-bronze-badge dark:text-bronze-badge-light",
-        icon: "workspace_premium",
-      };
-    }
-    if (score >= 85) {
-      return {
-        level: "Expert",
-        color: "text-brand-primary dark:text-brand-primary-light",
-        icon: "verified",
-      };
-    }
-    if (score >= 75) {
-      return {
-        level: "Proficient",
-        color: "text-green-700 dark:text-green-600",
-        icon: "check_circle",
-      };
-    }
-    if (score >= 65) {
-      return {
-        level: "Competent",
-        color: "text-brand-secondary dark:text-brand-secondary-light",
-        icon: "task_alt",
-      };
-    }
-    return {
-      level: "Developing",
-      color: "text-gray-600 dark:text-gray-300",
-      icon: "trending_up",
-    };
-  };
-
   // Calculate top 3 skills for highlighting
   const getTopSkills = () => {
     const skillsArray = [
@@ -331,6 +348,16 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
         name: "Client-Focused Excellence",
         value: member.skills.innovation,
         key: "innovation",
+      },
+      {
+        name: "Passionate Drive",
+        value: member.skills.passion,
+        key: "passion",
+      },
+      {
+        name: "Growth Mindset",
+        value: member.skills.continuingEducation,
+        key: "continuingEducation",
       },
     ];
     return skillsArray.sort((a, b) => b.value - a.value).slice(0, 3);
@@ -373,33 +400,19 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
       fullMark: 100,
     },
     {
-      skill: "Organizational\nExpertise",
-      value: member.skills.organization,
+      skill: "Passionate\nDrive",
+      value: member.skills.passion,
+      fullMark: 100,
+    },
+    {
+      skill: "Growth\nMindset",
+      value: member.skills.continuingEducation,
       fullMark: 100,
     },
   ];
 
   // Alternate layout direction
   const isReversed = index % 2 === 1;
-
-  // Get role icon
-  const getRoleIcon = (role: string) => {
-    if (role.toLowerCase().includes("project")) return "engineering";
-    if (role.toLowerCase().includes("estimat")) return "calculate";
-    if (role.toLowerCase().includes("superintend")) return "construction";
-    if (role.toLowerCase().includes("foreman")) return "build";
-    if (role.toLowerCase().includes("safety")) return "security";
-    if (
-      role.toLowerCase().includes("ceo") ||
-      role.toLowerCase().includes("president") ||
-      role.toLowerCase().includes("owner")
-    ) {
-      return "business";
-    }
-    if (role.toLowerCase().includes("admin")) return "admin_panel_settings";
-    if (role.toLowerCase().includes("vice")) return "badge";
-    return "person";
-  };
 
   return (
     <div

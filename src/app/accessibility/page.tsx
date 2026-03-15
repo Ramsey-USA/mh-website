@@ -29,7 +29,7 @@ export default function AccessibilityPage() {
             Accessibility Statement
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
-            Last Updated: December 22, 2025
+            Last Updated: March 15, 2026
           </p>
         </div>
 

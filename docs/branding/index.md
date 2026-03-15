@@ -14,7 +14,7 @@ and brand identity guidelines.
 
 Design and visual standards for consistent brand implementation.
 
-- **[Color System](./standards/color-system.md)** - Brand colors (Hunter Green #2C5530, Leather Tan #C19A6B)
+- **[Color System](./standards/color-system.md)** - Brand colors (Hunter Green #386851, Leather Tan #BD9264)
 - **[Hero Section Standards](./standards/hero-section-standards.md)** - Page header guidelines
 - **[Unified Component Standards](./standards/unified-component-standards.md)** - UI component patterns
 - **[Team Badge System](./standards/team-badge-system.md)** - Veteran and role badge guidelines

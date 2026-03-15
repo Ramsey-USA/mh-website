@@ -58,28 +58,33 @@ export function AnimatedCounter({
   animateOnMount = false,
 }: AnimatedCounterProps) {
   const [count, setCount] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  // Use ref instead of state to avoid an extra re-render when animation completes
+  const hasAnimated = useRef(false);
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    // Skip if already animated
-    if (hasAnimated) return;
+    if (hasAnimated.current) return;
+
+    // Respect user's motion preference
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     const animateValue = () => {
+      if (prefersReducedMotion) {
+        setCount(value);
+        hasAnimated.current = true;
+        return;
+      }
+
       const startTime = performance.now();
-      const startValue = 0;
-      const endValue = value;
 
       const animate = (currentTime: number) => {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-
-        // Easing function: easeOutCubic for smooth deceleration
+        // easeOutCubic for smooth deceleration
         const easeProgress = 1 - Math.pow(1 - progress, 3);
-
-        const currentValue =
-          startValue + (endValue - startValue) * easeProgress;
-        setCount(currentValue);
+        setCount(value * easeProgress);
 
         if (progress < 1) {
           requestAnimationFrame(animate);
@@ -87,41 +92,32 @@ export function AnimatedCounter({
       };
 
       requestAnimationFrame(animate);
+      hasAnimated.current = true;
     };
 
-    // Animate on mount if specified
     if (animateOnMount) {
       animateValue();
-      setHasAnimated(true);
       return;
     }
 
-    // Otherwise wait for scroll into view
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
+          if (entry.isIntersecting) {
             animateValue();
-            setHasAnimated(true);
           }
         });
       },
-      {
-        threshold: 0.2, // Trigger when 20% visible
-      },
+      { threshold: 0.2 },
     );
 
     const currentRef = ref.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
+    if (currentRef) observer.observe(currentRef);
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
+      if (currentRef) observer.unobserve(currentRef);
     };
-  }, [hasAnimated, animateOnMount, value, duration]);
+  }, [animateOnMount, value, duration]);
 
   const displayValue = count.toFixed(decimals);
 

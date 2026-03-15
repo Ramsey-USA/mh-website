@@ -66,7 +66,7 @@ export const metadata: Metadata = withGeoMetadata({
     "Tri-Cities construction legal",
   ],
   alternates: {
-    canonical: "https://www.mhc-gc.com/terms",
+    canonical: `${siteUrl}/terms`,
   },
   robots: {
     index: true,
@@ -78,7 +78,7 @@ export const metadata: Metadata = withGeoMetadata({
       "Website usage terms, legal disclaimers, and service agreement boundaries.",
     type: "website",
     locale: "en_US",
-    url: "https://www.mhc-gc.com/terms",
+    url: `${siteUrl}/terms`,
   },
   twitter: {
     card: "summary",

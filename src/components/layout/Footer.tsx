@@ -12,6 +12,122 @@ import {
   TrackedLocationLink,
 } from "@/components/analytics/TrackedContactLinks";
 
+const navCol1Links = [
+  { href: "/", icon: "home", label: "Home", sub: "Base HQ" },
+  { href: "/contact", icon: "handshake", label: "Contact", sub: "Rally Point" },
+  {
+    href: "/services",
+    icon: "construction",
+    label: "Services",
+    sub: "Operations",
+  },
+  {
+    href: "/projects",
+    icon: "photo_library",
+    label: "Projects",
+    sub: "Missions",
+  },
+  {
+    href: "/services",
+    icon: "fact_check",
+    label: "Inspections",
+    sub: "Quality Assurance",
+  },
+  { href: "/faq", icon: "help", label: "Help/FAQ", sub: "Intel Brief" },
+  {
+    href: "/services",
+    icon: "home_repair_service",
+    label: "Maintenance",
+    sub: "Field Service",
+  },
+];
+
+const navCol2Links = [
+  { href: "/about", icon: "foundation", label: "About Us", sub: "Our Oath" },
+  { href: "/team", icon: "people", label: "Our Team", sub: "Chain of Command" },
+  { href: "/allies", icon: "group", label: "Partners", sub: "Allies" },
+  {
+    href: "/public-sector",
+    icon: "account_balance",
+    label: "Government",
+    sub: "Public Sector",
+  },
+  {
+    href: "/veterans",
+    icon: "military_tech",
+    label: "Veterans",
+    sub: "Service First",
+  },
+  { href: "/careers", icon: "handshake", label: "Careers", sub: "Enlist" },
+  {
+    href: "/testimonials",
+    icon: "verified",
+    label: "Reviews",
+    sub: "Commendations",
+  },
+  {
+    href: "/about",
+    icon: "verified_user",
+    label: "Safety",
+    sub: "Force Protection",
+  },
+];
+
+const linkedCities = [
+  { href: "/locations/pasco", name: "Pasco" },
+  { href: "/locations/kennewick", name: "Kennewick" },
+  { href: "/locations/richland", name: "Richland" },
+  { href: "/locations/west-richland", name: "West Richland" },
+  { href: "/locations/spokane", name: "Spokane" },
+  { href: "/locations/yakima", name: "Yakima" },
+  { href: "/locations/walla-walla", name: "Walla Walla" },
+];
+
+const regionalAreas = [
+  "Eastern Washington",
+  "Eastern Oregon",
+  "Southern Idaho",
+];
+
+const areaItemClass =
+  "bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium";
+
+function FooterNavLink({
+  href,
+  icon,
+  label,
+  sub,
+}: {
+  href: string;
+  icon: string;
+  label: string;
+  sub: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
+    >
+      <MaterialIcon
+        icon={icon}
+        size="sm"
+        className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
+      />
+      <span className="flex flex-col">
+        <span>{label}</span>
+        <span className="text-[9px] text-brand-secondary opacity-75">
+          {sub}
+        </span>
+      </span>
+      <MaterialIcon
+        icon="arrow_forward"
+        size="sm"
+        className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
+      />
+    </Link>
+  );
+}
+
 export default function Footer() {
   const [showAdminModal, setShowAdminModal] = useState(false);
   const [clickCount, setClickCount] = useState(0);
@@ -311,159 +427,9 @@ export default function Footer() {
                 </h3>
               </div>
               <div className="space-y-1.5 xs:space-y-2">
-                <Link
-                  href="/"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="home"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>Home</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Base HQ
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
-
-                <Link
-                  href="/contact"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="handshake"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>Contact</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Rally Point
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
-
-                <Link
-                  href="/services"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="construction"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>Services</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Operations
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
-
-                <Link
-                  href="/projects"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="photo_library"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>Projects</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Missions
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
-
-                <Link
-                  href="/services"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="fact_check"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>Inspections</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Quality Assurance
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
-
-                <Link
-                  href="/faq"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="help"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>Help/FAQ</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Intel Brief
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
-
-                <Link
-                  href="/services"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="home_repair_service"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>Maintenance</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Field Service
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
+                {navCol1Links.map((link) => (
+                  <FooterNavLink key={`${link.href}-${link.label}`} {...link} />
+                ))}
               </div>
             </nav>
 
@@ -483,181 +449,9 @@ export default function Footer() {
                 </h3>
               </div>
               <div className="space-y-1.5 xs:space-y-2">
-                <Link
-                  href="/about"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="foundation"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>About Us</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Our Oath
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
-
-                <Link
-                  href="/team"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="people"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>Our Team</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Chain of Command
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
-
-                <Link
-                  href="/allies"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="group"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>Partners</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Allies
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
-
-                <Link
-                  href="/public-sector"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="account_balance"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>Government</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Public Sector
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
-
-                <Link
-                  href="/veterans"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="military_tech"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>Veterans</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Service First
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
-
-                <Link
-                  href="/careers"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="handshake"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>Careers</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Enlist
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
-
-                <Link
-                  href="/testimonials"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="verified"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>Reviews</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Commendations
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
-
-                <Link
-                  href="/about"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="verified_user"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>Safety</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Force Protection
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
+                {navCol2Links.map((link) => (
+                  <FooterNavLink key={`${link.href}-${link.label}`} {...link} />
+                ))}
               </div>
             </nav>
 
@@ -900,105 +694,31 @@ export default function Footer() {
               role="list"
               aria-label="Service area cities"
             >
-              {/* Cities with location pages - linked */}
-              <Link
-                href="/locations/pasco"
-                className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium"
-                role="listitem"
-                itemProp="areaServed"
-                itemScope
-                itemType="https://schema.org/City"
-              >
-                <span itemProp="name">Pasco</span>
-              </Link>
-              <Link
-                href="/locations/kennewick"
-                className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium"
-                role="listitem"
-                itemProp="areaServed"
-                itemScope
-                itemType="https://schema.org/City"
-              >
-                <span itemProp="name">Kennewick</span>
-              </Link>
-              <Link
-                href="/locations/richland"
-                className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium"
-                role="listitem"
-                itemProp="areaServed"
-                itemScope
-                itemType="https://schema.org/City"
-              >
-                <span itemProp="name">Richland</span>
-              </Link>
-              <Link
-                href="/locations/west-richland"
-                className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium"
-                role="listitem"
-                itemProp="areaServed"
-                itemScope
-                itemType="https://schema.org/City"
-              >
-                <span itemProp="name">West Richland</span>
-              </Link>
-              <Link
-                href="/locations/spokane"
-                className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium"
-                role="listitem"
-                itemProp="areaServed"
-                itemScope
-                itemType="https://schema.org/City"
-              >
-                <span itemProp="name">Spokane</span>
-              </Link>
-              <Link
-                href="/locations/yakima"
-                className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium"
-                role="listitem"
-                itemProp="areaServed"
-                itemScope
-                itemType="https://schema.org/City"
-              >
-                <span itemProp="name">Yakima</span>
-              </Link>
-              <Link
-                href="/locations/walla-walla"
-                className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium"
-                role="listitem"
-                itemProp="areaServed"
-                itemScope
-                itemType="https://schema.org/City"
-              >
-                <span itemProp="name">Walla Walla</span>
-              </Link>
-              {/* Regional areas without dedicated pages - remain as badges */}
-              <span
-                className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium"
-                role="listitem"
-                itemProp="areaServed"
-                itemScope
-                itemType="https://schema.org/State"
-              >
-                <span itemProp="name">Eastern Washington</span>
-              </span>
-              <span
-                className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium"
-                role="listitem"
-                itemProp="areaServed"
-                itemScope
-                itemType="https://schema.org/State"
-              >
-                <span itemProp="name">Eastern Oregon</span>
-              </span>
-              <span
-                className="bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 cursor-default border border-gray-600/50 dark:border-gray-500/50 font-medium"
-                role="listitem"
-                itemProp="areaServed"
-                itemScope
-                itemType="https://schema.org/State"
-              >
-                <span itemProp="name">Southern Idaho</span>
-              </span>
+              {linkedCities.map((city) => (
+                <Link
+                  key={city.href}
+                  href={city.href}
+                  className={areaItemClass}
+                  role="listitem"
+                  itemProp="areaServed"
+                  itemScope
+                  itemType="https://schema.org/City"
+                >
+                  <span itemProp="name">{city.name}</span>
+                </Link>
+              ))}
+              {regionalAreas.map((area) => (
+                <span
+                  key={area}
+                  className={`${areaItemClass} cursor-default`}
+                  role="listitem"
+                  itemProp="areaServed"
+                  itemScope
+                  itemType="https://schema.org/State"
+                >
+                  <span itemProp="name">{area}</span>
+                </span>
+              ))}
             </div>
           </section>
 

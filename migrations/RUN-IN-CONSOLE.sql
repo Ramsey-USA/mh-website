@@ -45,24 +45,27 @@ CREATE TABLE IF NOT EXISTS job_applications (
   first_name TEXT NOT NULL,
   last_name TEXT NOT NULL,
   email TEXT NOT NULL,
-  phone TEXT,
+  phone TEXT NOT NULL,
   address TEXT,
+  city TEXT,
+  state TEXT,
+  zip_code TEXT,
   position TEXT NOT NULL,
-  experience TEXT,
+  experience TEXT NOT NULL,
   availability TEXT,
   cover_letter TEXT,
-  resume_url TEXT,
+  resume_url TEXT, -- Cloudflare R2 URL
   veteran_status TEXT,
   referral_source TEXT,
   status TEXT DEFAULT 'new',
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  metadata TEXT
+  metadata TEXT -- JSON field for additional data
 );
 
-CREATE INDEX idx_job_applications_status ON job_applications(status);
-CREATE INDEX idx_job_applications_position ON job_applications(position);
-CREATE INDEX idx_job_applications_email ON job_applications(email);
+CREATE INDEX idx_applications_status ON job_applications(status);
+CREATE INDEX idx_applications_position ON job_applications(position);
+CREATE INDEX idx_applications_email ON job_applications(email);
 
 -- ============================================================================
 -- SECTION 3: CONTACT SUBMISSIONS TABLE
@@ -75,21 +78,21 @@ CREATE TABLE IF NOT EXISTS contact_submissions (
   email TEXT NOT NULL,
   phone TEXT,
   project_type TEXT,
-  location TEXT,
+  project_location TEXT,
   budget TEXT,
   timeline TEXT,
-  message TEXT,
+  message TEXT NOT NULL,
   urgency TEXT DEFAULT 'medium',
-  preferred_contact_method TEXT,
+  preferred_contact TEXT DEFAULT 'either',
   status TEXT DEFAULT 'new',
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  metadata TEXT
+  metadata TEXT -- JSON field for additional data
 );
 
-CREATE INDEX idx_contact_submissions_status ON contact_submissions(status);
-CREATE INDEX idx_contact_submissions_urgency ON contact_submissions(urgency);
-CREATE INDEX idx_contact_submissions_email ON contact_submissions(email);
+CREATE INDEX idx_contacts_status ON contact_submissions(status);
+CREATE INDEX idx_contacts_urgency ON contact_submissions(urgency);
+CREATE INDEX idx_contacts_email ON contact_submissions(email);
 
 -- ============================================================================
 -- SECTION 4: USERS TABLE
@@ -99,15 +102,17 @@ CREATE TABLE IF NOT EXISTS users (
   id TEXT PRIMARY KEY,
   email TEXT UNIQUE NOT NULL,
   password_hash TEXT NOT NULL,
-  role TEXT DEFAULT 'user',
+  role TEXT NOT NULL DEFAULT 'user', -- user, admin, manager
   first_name TEXT,
   last_name TEXT,
+  phone TEXT,
   veteran_status TEXT,
   is_active INTEGER DEFAULT 1,
   email_verified INTEGER DEFAULT 0,
   last_login TIMESTAMP,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  metadata TEXT -- JSON field for additional data
 );
 
 CREATE INDEX idx_users_email ON users(email);
@@ -129,7 +134,7 @@ CREATE TABLE IF NOT EXISTS sessions (
 );
 
 CREATE INDEX idx_sessions_user_id ON sessions(user_id);
-CREATE INDEX idx_sessions_token_hash ON sessions(token_hash);
+CREATE INDEX idx_sessions_expires_at ON sessions(expires_at);
 
 -- ============================================================================
 -- VERIFICATION QUERY - Run this last to confirm all tables exist

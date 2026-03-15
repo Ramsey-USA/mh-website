@@ -808,7 +808,7 @@ updated to reflect the evolution.
 
 ---
 
-**Last Updated:** January 2025 | **Version:** 1.0.0  
+**Last Updated:** December 14, 2025 | **Version:** 1.0.0  
 **Maintained by:** MH Construction Marketing & Brand Team  
 **Status:** Active - Official Brand Standard
 

@@ -6,7 +6,7 @@
     "cardNumber": 1,
     "position": "Owner & President",
     "nickname": "The Commander",
-    "yearsWithCompany": 2,
+    "yearsWithCompany": 4,
     "hometown": "Tri-Cities, WA",
     "education": "Business Management",
     "currentYearStats": {
@@ -121,7 +121,7 @@
     "name": "Arnold Garcia",
     "role": "Vice President",
     "department": "The Upper Brass",
-    "cardNumber": 2,
+    "cardNumber": 3,
     "position": "Vice President",
     "nickname": "The Executive Officer",
     "yearsWithCompany": 15,
@@ -647,7 +647,7 @@
       "organization": 94,
       "innovation": 89,
       "passion": 88,
-      "continuingEducation": 78
+      "continuingEducation": 88
     },
     "qrCode": "/images/qr-codes/qr-team-matt-ramsey.png"
   },
@@ -780,7 +780,7 @@
     "currentYearStats": {
       "projectsCompleted": 55,
       "clientSatisfaction": 98,
-      "safetyRecord": 60,
+      "safetyRecord": "N/A",
       "teamCollaborations": 45
     },
     "careerStats": {

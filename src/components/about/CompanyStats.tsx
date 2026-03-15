@@ -109,8 +109,8 @@ export function CompanyStats({
       className={className}
     >
       <div className="gap-4 sm:gap-6 grid grid-cols-2 lg:grid-cols-4 mx-auto max-w-6xl">
-        {stats.map((stat, _index) => (
-          <HoverScale key={_index}>
+        {stats.map((stat) => (
+          <HoverScale key={stat.label}>
             <div className="h-full flex flex-col text-center p-5 sm:p-6 lg:p-8 bg-white dark:bg-gray-800 rounded-3xl border-2 border-gray-200 dark:border-gray-700 hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 group shadow-lg">
               <MaterialIcon
                 icon={stat.iconName}

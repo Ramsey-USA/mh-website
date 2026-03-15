@@ -19,88 +19,83 @@ import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponent
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
-export default function TestimonialsPage() {
-  // Get client testimonials from centralized data source
-  const testimonials = getClientTestimonials();
+const testimonials = getClientTestimonials();
 
-  // Calculate aggregate rating for Schema.org
-  const aggregateRating =
-    testimonials.length > 0
-      ? {
-          ratingValue:
-            testimonials.reduce((sum, t) => sum + (t.rating || 5), 0) /
-            testimonials.length,
-          reviewCount: testimonials.length,
-        }
-      : null;
-
-  // Generate Schema.org structured data
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Testimonials", url: "https://www.mhc-gc.com/testimonials" },
-  ]);
-
-  const aggregateRatingSchema = aggregateRating
-    ? generateAggregateRatingSchema(
-        aggregateRating.ratingValue,
-        aggregateRating.reviewCount,
-      )
+const aggregateRating =
+  testimonials.length > 0
+    ? {
+        ratingValue:
+          testimonials.reduce((sum, t) => sum + (t.rating || 5), 0) /
+          testimonials.length,
+        reviewCount: testimonials.length,
+      }
     : null;
 
-  const reviewSchemas = testimonials.map((testimonial) =>
-    generateReviewSchema({
-      reviewBody: testimonial.quote,
-      ratingValue: testimonial.rating || 5,
-      author: testimonial.name,
-      reviewTitle: testimonial.project || "MH Construction Project",
-      datePublished: testimonial.date || new Date().toISOString(),
-    }),
-  );
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Home", url: "https://www.mhc-gc.com" },
+  { name: "Testimonials", url: "https://www.mhc-gc.com/testimonials" },
+]);
 
-  // Generate FAQ Schema for testimonials page
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "How do I leave a testimonial for MH Construction?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "You can leave a Google review through our testimonials page link, or contact us directly to share your experience. We appreciate client feedback as it helps us maintain our high standards of Honesty, Integrity, Professionalism, and Thoroughness, and helps other businesses make informed decisions about partnering with our veteran-owned construction team.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Are MH Construction testimonials verified?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes! All testimonials come from real Client Partners on completed projects across Washington, Oregon, and Idaho. We maintain the highest standards of authenticity—no paid reviews, no fabricated stories. Just honest feedback from valued partnerships in commercial, industrial, and government construction projects throughout the Pacific Northwest.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What makes MH Construction different from other contractors?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "As a veteran-owned business certified by the U.S. Small Business Administration, we bring military precision and four core values—Honesty, Integrity, Professionalism, and Thoroughness—to every project. Our 70% referral rate, 650+ completed projects, .64 EMR safety rating, and 150+ years combined team experience demonstrate our commitment to building for the client, not the dollar.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can I speak with past MH Construction clients?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "We're happy to provide references during your consultation. We can connect you with past Client Partners who've experienced projects similar to yours in commercial, industrial, or government construction. Their firsthand accounts demonstrate our commitment to transparent communication, open-book pricing, and quality craftsmanship across the Pacific Northwest.",
-        },
-      },
-    ],
-  };
+const aggregateRatingSchema = aggregateRating
+  ? generateAggregateRatingSchema(
+      aggregateRating.ratingValue,
+      aggregateRating.reviewCount,
+    )
+  : null;
 
+const reviewSchemas = testimonials.map((testimonial) =>
+  generateReviewSchema({
+    reviewBody: testimonial.quote,
+    ratingValue: testimonial.rating || 5,
+    author: testimonial.name,
+    reviewTitle: testimonial.project || "MH Construction Project",
+    datePublished: testimonial.date || new Date().toISOString(),
+  }),
+);
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How do I leave a testimonial for MH Construction?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "You can leave a Google review through our testimonials page link, or contact us directly to share your experience. We appreciate client feedback as it helps us maintain our high standards of Honesty, Integrity, Professionalism, and Thoroughness, and helps other businesses make informed decisions about partnering with our veteran-owned construction team.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Are MH Construction testimonials verified?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes! All testimonials come from real Client Partners on completed projects across Washington, Oregon, and Idaho. We maintain the highest standards of authenticity—no paid reviews, no fabricated stories. Just honest feedback from valued partnerships in commercial, industrial, and government construction projects throughout the Pacific Northwest.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What makes MH Construction different from other contractors?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "As a veteran-owned business certified by the U.S. Small Business Administration, we bring military precision and four core values—Honesty, Integrity, Professionalism, and Thoroughness—to every project. Our 70% referral rate, 650+ completed projects, .64 EMR safety rating, and 150+ years combined team experience demonstrate our commitment to building for the client, not the dollar.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I speak with past MH Construction clients?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We're happy to provide references during your consultation. We can connect you with past Client Partners who've experienced projects similar to yours in commercial, industrial, or government construction. Their firsthand accounts demonstrate our commitment to transparent communication, open-book pricing, and quality craftsmanship across the Pacific Northwest.",
+      },
+    },
+  ],
+};
+
+export default function TestimonialsPage() {
   return (
     <>
       <PageTrackingClient pageName="Testimonials" />
-      {/* Schema.org Structured Data */}
       <StructuredData data={breadcrumbSchema} />
       {aggregateRatingSchema && <StructuredData data={aggregateRatingSchema} />}
       {reviewSchemas.map((schema) => (

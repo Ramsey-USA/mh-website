@@ -2,7 +2,7 @@
 
 **Purpose:** Systematic audit tool to verify page compliance with MH standards  
 **Version:** 1.0.0  
-**Last Updated:** December 28, 2025  
+**Last Updated:** March 15, 2026  
 **Use Case:** Run this checklist on any page to ensure consistency
 
 ---
@@ -134,7 +134,7 @@
 
 - [ ] All icons use MaterialIcon component
 - [ ] Import from: `@/components/icons/MaterialIcon`
-- [ ] Appropriate size prop used: `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`
+- [ ] Appropriate size prop used: `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`
 - [ ] Icons have proper className for colors
 
 ### Emoji-Free Policy (CRITICAL)
@@ -165,7 +165,7 @@
 ### Button Component
 
 - [ ] Uses Button component from `@/components/ui`
-- [ ] Appropriate variant: `primary`, `secondary`, `outline`, `neutral`
+- [ ] Appropriate variant: `primary`, `secondary`, `outline`, `neutral`, `default`, `destructive`, `ghost`, `link`
 - [ ] Appropriate size: `sm`, `default`, `lg`, `xl`
 - [ ] Group class for hover effects: `className="group"`
 - [ ] Icons scale on hover: `group-hover:scale-110`
@@ -349,5 +349,5 @@
 
 ---
 
-**Last Updated:** December 28, 2025  
+**Last Updated:** March 15, 2026  
 **Maintained by:** MH Construction Development Team

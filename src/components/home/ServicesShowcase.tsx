@@ -129,7 +129,7 @@ const services = [
     title: "Light Industrial",
     subtitle: "Durable, High-Performance Infrastructure",
     description:
-      "Safe, durable industrial construction with 13+ years proven experience. Warehouses to processing plants built to exacting specifications with industry-leading safety standards.",
+      "Safe, durable industrial construction with 16+ years proven experience. Warehouses to processing plants built to exacting specifications with industry-leading safety standards.",
     features: [
       "Warehouse & distribution centers",
       "Manufacturing & processing plants",

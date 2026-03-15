@@ -4,8 +4,6 @@
  * Used on: Homepage, About, Services, Projects pages
  */
 
-"use client";
-
 import { TestimonialsCarousel } from "@/components/testimonials";
 import { getClientTestimonials } from "@/lib/data/testimonials";
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";

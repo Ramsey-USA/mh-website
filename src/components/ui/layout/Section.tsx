@@ -4,13 +4,18 @@
  * Eliminates repeated section patterns across 10+ pages
  */
 
+import type { ReactNode } from "react";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
+import {
+  DiagonalStripePattern,
+  BrandColorBlobs,
+} from "@/components/ui/backgrounds";
 
 export type SectionVariant = "default" | "gray" | "gradient";
 export type SectionPadding = "default" | "large" | "small" | "none";
 
 interface SectionProps {
-  children: React.ReactNode;
+  children: ReactNode;
   variant?: SectionVariant;
   padding?: SectionPadding;
   animated?: boolean;
@@ -79,25 +84,8 @@ export function Section({
     >
       {!noBackground && (
         <>
-          {/* Diagonal Stripe Background Pattern - MH Branding Standard */}
-          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `repeating-linear-gradient(
-              45deg,
-              var(--color-brand-primary) 0px,
-              var(--color-brand-primary) 2px,
-              transparent 2px,
-              transparent 60px
-            )`,
-              }}
-            ></div>
-          </div>
-
-          {/* Large Brand Color Blobs - MH Branding Standard */}
-          <div className="absolute top-20 right-[15%] w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-transparent dark:from-brand-primary/20 blur-3xl rounded-full"></div>
-          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-gradient-to-tr from-brand-secondary/10 to-transparent dark:from-brand-secondary/20 blur-3xl rounded-full"></div>
+          <DiagonalStripePattern />
+          <BrandColorBlobs />
         </>
       )}
 

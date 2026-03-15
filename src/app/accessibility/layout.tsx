@@ -20,7 +20,7 @@ const accessibilitySchemas = [
       "@id": `${siteUrl}/#organization`,
       name: COMPANY_INFO.name,
     },
-    dateModified: "2025-12-22",
+    dateModified: "2026-03-15",
     inLanguage: "en-US",
     accessibilityFeature: [
       "alternativeText",
@@ -45,7 +45,7 @@ const accessibilitySchemas = [
     name: "MH Construction Accessibility Statement",
     url: `${siteUrl}/accessibility`,
     inLanguage: "en-US",
-    dateModified: "2025-12-22",
+    dateModified: "2026-03-15",
     publisher: {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,

@@ -19,11 +19,12 @@
  * ```
  */
 
+import { type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export interface IconContainerProps {
   /** Icon element to render inside container */
-  children: React.ReactNode;
+  children: ReactNode;
   /** Size variant */
   size?: "sm" | "md" | "lg" | "xl" | "2xl";
   /** Gradient color scheme */

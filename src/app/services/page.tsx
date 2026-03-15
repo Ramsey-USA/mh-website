@@ -14,6 +14,7 @@ import {
   TestimonialsSection,
   NextStepsSection,
 } from "@/components/shared-sections";
+import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
@@ -39,15 +40,8 @@ export default function ServicesPage() {
     <>
       <PageTrackingClient pageName="Services" />
 
-      {/* SEO Meta Tags */}
-      {/* Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            generateBreadcrumbSchema(breadcrumbPatterns.services),
-          ),
-        }}
+      <StructuredData
+        data={generateBreadcrumbSchema(breadcrumbPatterns.services)}
       />
       <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
         {/* Hero Section */}
@@ -287,7 +281,7 @@ export default function ServicesPage() {
                             size="sm"
                             className="inline mr-1"
                           />
-                          Call (509) 308-6489
+                          Call {COMPANY_INFO.phone.display}
                         </p>
                       </div>
                     </div>
@@ -444,7 +438,7 @@ export default function ServicesPage() {
                             size="sm"
                             className="inline mr-1"
                           />
-                          Call (509) 308-6489
+                          Call {COMPANY_INFO.phone.display}
                         </p>
                       </div>
                     </div>
@@ -601,7 +595,7 @@ export default function ServicesPage() {
                       size="md"
                       className="mr-2 group-hover/btn:rotate-12 transition-transform duration-300"
                     />
-                    Schedule Free Consultation
+                    View Our Projects
                   </Button>
                 </Link>
               </div>
@@ -617,7 +611,7 @@ export default function ServicesPage() {
                   className="mx-auto mb-6"
                 >
                   <MaterialIcon
-                    icon="calculate"
+                    icon="forum"
                     size="xl"
                     className="text-white group-hover:rotate-12 transition-transform duration-300"
                   />
@@ -703,7 +697,7 @@ export default function ServicesPage() {
               >
                 <a href={`tel:${COMPANY_INFO.phone.tel}`}>
                   <MaterialIcon icon="call" className="mr-2" />
-                  Call (509) 308-6489
+                  Call {COMPANY_INFO.phone.display}
                 </a>
               </Button>
             </div>

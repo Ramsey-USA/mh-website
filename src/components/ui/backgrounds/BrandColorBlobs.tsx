@@ -27,6 +27,8 @@ export function BrandColorBlobs({
   showSecondary = true,
   className = "",
 }: BrandColorBlobsProps) {
+  if (!showPrimary && !showSecondary) return null;
+
   return (
     <>
       {showPrimary && (

@@ -1,5 +1,3 @@
-"use client";
-
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import Image from "next/image";
 import { BrandedContentSection } from "@/components/templates";

@@ -406,33 +406,6 @@ export const navigationConfigs = {
     },
   ],
 
-  government: [
-    {
-      href: "#overview",
-      label: "Overview",
-      mobileLabel: "Overview",
-      icon: "info",
-    },
-    {
-      href: "#services",
-      label: "Our Services",
-      mobileLabel: "Services",
-      icon: "build",
-    },
-    {
-      href: "#compliance",
-      label: "Compliance",
-      mobileLabel: "Compliance",
-      icon: "fact_check",
-    },
-    {
-      href: "#contact",
-      label: "Get Started",
-      mobileLabel: "Start",
-      icon: "contact_phone",
-    },
-  ],
-
   allies: [
     {
       href: "#partnership-philosophy",

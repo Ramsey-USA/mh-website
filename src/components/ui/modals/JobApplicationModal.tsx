@@ -1,9 +1,37 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Input, Textarea } from "@/components/ui/forms/Input";
+
+const POSITIONS = [
+  "Construction Laborer",
+  "Skilled Tradesperson",
+  "Equipment Operator",
+  "Project Manager",
+  "Site Supervisor",
+  "Estimator",
+  "Administrative Assistant",
+  "Safety Coordinator",
+  "Other",
+];
+
+const EXPERIENCE_LEVELS = [
+  "0-1 years",
+  "2-5 years",
+  "6-10 years",
+  "11-15 years",
+  "16+ years",
+];
+
+const AVAILABILITY_OPTIONS = [
+  "Immediately",
+  "Within 2 weeks",
+  "Within 1 month",
+  "Within 3 months",
+  "Other",
+];
 
 interface JobApplicationModalProps {
   isOpen: boolean;
@@ -53,51 +81,21 @@ export function JobApplicationModal({
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState("");
 
-  const positions = [
-    "Construction Laborer",
-    "Skilled Tradesperson",
-    "Equipment Operator",
-    "Project Manager",
-    "Site Supervisor",
-    "Estimator",
-    "Administrative Assistant",
-    "Safety Coordinator",
-    "Other",
-  ];
-
-  const experienceLevels = [
-    "0-1 years",
-    "2-5 years",
-    "6-10 years",
-    "11-15 years",
-    "16+ years",
-  ];
-
-  const availabilityOptions = [
-    "Immediately",
-    "Within 2 weeks",
-    "Within 1 month",
-    "Within 3 months",
-    "Other",
-  ];
-
   const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       setFormData((prev) => ({ ...prev, resumeFile: file }));
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitError("");
@@ -227,13 +225,27 @@ export function JobApplicationModal({
 
   return (
     <div className="z-50 fixed inset-0 flex justify-center items-center bg-black/75 backdrop-blur-sm p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden shadow-2xl border-2 border-brand-primary/20">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="job-modal-title"
+        className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden shadow-2xl border-2 border-brand-primary/20"
+      >
         {/* Enhanced Header with v4.0.2 branding */}
         <div className="relative bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary p-6 sm:p-8 text-white overflow-hidden">
           {/* Background decoration */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"></div>
-          <div className="top-0 right-0 absolute bg-white/5 rounded-full w-32 h-32 -translate-y-16 translate-x-16" />
-          <div className="bottom-0 left-0 absolute bg-white/5 rounded-full w-24 h-24 -translate-x-12 translate-y-12" />
+          <div
+            className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"
+            aria-hidden="true"
+          ></div>
+          <div
+            className="top-0 right-0 absolute bg-white/5 rounded-full w-32 h-32 -translate-y-16 translate-x-16"
+            aria-hidden="true"
+          />
+          <div
+            className="bottom-0 left-0 absolute bg-white/5 rounded-full w-24 h-24 -translate-x-12 translate-y-12"
+            aria-hidden="true"
+          />
 
           <div className="relative z-10">
             {/* Veteran Badge - Always Visible */}
@@ -250,7 +262,10 @@ export function JobApplicationModal({
 
             <div className="flex justify-between items-start">
               <div className="flex-1">
-                <h2 className="mb-2 font-black text-2xl sm:text-3xl md:text-4xl leading-tight">
+                <h2
+                  id="job-modal-title"
+                  className="mb-2 font-black text-2xl sm:text-3xl md:text-4xl leading-tight"
+                >
                   Build Your Future With Us
                 </h2>
                 <p className="text-white/90 text-sm sm:text-base">
@@ -395,10 +410,14 @@ export function JobApplicationModal({
               </h3>
               <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                 <div>
-                  <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
+                  <label
+                    htmlFor="job-position"
+                    className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm"
+                  >
                     Position of Interest *
                   </label>
                   <select
+                    id="job-position"
                     name="position"
                     required
                     value={formData.position}
@@ -406,7 +425,7 @@ export function JobApplicationModal({
                     className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-brand-primary focus:ring-2 w-full text-gray-900 dark:text-white"
                   >
                     <option value="">Select a position</option>
-                    {positions.map((position) => (
+                    {POSITIONS.map((position) => (
                       <option key={position} value={position}>
                         {position}
                       </option>
@@ -414,10 +433,14 @@ export function JobApplicationModal({
                   </select>
                 </div>
                 <div>
-                  <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
+                  <label
+                    htmlFor="job-experience"
+                    className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm"
+                  >
                     Years of Experience *
                   </label>
                   <select
+                    id="job-experience"
                     name="experience"
                     required
                     value={formData.experience}
@@ -425,7 +448,7 @@ export function JobApplicationModal({
                     className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-brand-primary focus:ring-2 w-full text-gray-900 dark:text-white"
                   >
                     <option value="">Select experience level</option>
-                    {experienceLevels.map((level) => (
+                    {EXPERIENCE_LEVELS.map((level) => (
                       <option key={level} value={level}>
                         {level}
                       </option>
@@ -438,10 +461,14 @@ export function JobApplicationModal({
             {/* Additional Information */}
             <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
               <div>
-                <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
+                <label
+                  htmlFor="job-availability"
+                  className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm"
+                >
                   Availability *
                 </label>
                 <select
+                  id="job-availability"
                   name="availability"
                   required
                   value={formData.availability}
@@ -449,7 +476,7 @@ export function JobApplicationModal({
                   className="bg-white dark:bg-gray-700 px-3 py-2 border border-gray-300 dark:border-gray-600 focus:border-transparent rounded-md focus:outline-none focus:ring-brand-primary focus:ring-2 w-full text-gray-900 dark:text-white"
                 >
                   <option value="">Select availability</option>
-                  {availabilityOptions.map((option) => (
+                  {AVAILABILITY_OPTIONS.map((option) => (
                     <option key={option} value={option}>
                       {option}
                     </option>
@@ -457,10 +484,14 @@ export function JobApplicationModal({
                 </select>
               </div>
               <div>
-                <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm">
+                <label
+                  htmlFor="job-veteran-status"
+                  className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm"
+                >
                   Veteran Status
                 </label>
                 <select
+                  id="job-veteran-status"
                   name="veteranStatus"
                   value={formData.veteranStatus}
                   onChange={handleInputChange}
@@ -540,7 +571,10 @@ export function JobApplicationModal({
 
             {/* Error Message */}
             {submitError && (
-              <div className="bg-red-50 dark:bg-red-900/20 p-4 border border-red-200 dark:border-red-800 rounded-md">
+              <div
+                role="alert"
+                className="bg-red-50 dark:bg-red-900/20 p-4 border border-red-200 dark:border-red-800 rounded-md"
+              >
                 <p className="text-red-800 dark:text-red-200">{submitError}</p>
               </div>
             )}

@@ -71,14 +71,7 @@ export default function Error({
         )}
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            onClick={
-              // Attempt to recover by trying to re-render the segment
-              () => reset()
-            }
-            variant="primary"
-            size="lg"
-          >
+          <Button onClick={reset} variant="primary" size="lg">
             <MaterialIcon icon="refresh" size="md" className="mr-2" />
             Try again
           </Button>

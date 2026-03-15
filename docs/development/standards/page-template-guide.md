@@ -2,7 +2,7 @@
 
 **Purpose:** Copy-paste boilerplate for creating new MH-standard pages  
 **Version:** 1.0.0  
-**Last Updated:** December 28, 2025  
+**Last Updated:** March 15, 2026  
 **Reference:** [Homepage](../../technical/homepage.md) - Your page must match this quality level  
 **Quick Start:** Copy the template below and customize for your page
 
@@ -71,7 +71,7 @@ import { BrandedContentSection } from "@/components/templates"; // ⭐ RECOMMEND
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
-import { StructuredData } from "@/components/seo/seo-meta";
+import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
@@ -449,6 +449,6 @@ Before deploying your new page:
 
 ---
 
-**Last Updated:** December 28, 2025  
+**Last Updated:** March 15, 2026  
 **Maintained by:** MH Construction Development Team  
 **Questions?** Refer to component examples in existing pages (Home, About, Services)

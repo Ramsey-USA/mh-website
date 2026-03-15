@@ -37,18 +37,17 @@ Honesty, Integrity, Professionalism, and Thoroughness—culminating in
 **Trust** as our ultimate goal.
 
 For page-specific messaging strategies, see the comprehensive
-**[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** which defines 7 distinct page
-groups with unique voices, tones, and keyword priorities.
+**[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** which defines 5 Core Page Groups
+with unique voices, tones, and keyword priorities.
 
 ## Quick Navigation
 
 - [🏠 Brand Documentation](../)
 - [📋 Brand Overview](./brand-overview.md)
 - [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Four-value professional system
-- [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
+- [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 5 Core Page Groups strategy
 - [🎨 Color System](../standards/color-system.md)
-- [📝 Typography](../standards/typography.md)
-- [🔧 Component Standards](../standards/component-standards.md)
+- [📝 Unified Component Standards](../standards/unified-component-standards.md)
 
 ---
 
@@ -916,11 +915,10 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 - **[Core Values](../../business/core-values.md)** - ⭐ **CRITICAL** - Four-value professional foundation
   system (MUST READ for all content creators)
 - **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** - ⭐ **CRITICAL** -
-  7-group messaging strategy (MUST READ for content creators)
+  5 Core Page Groups strategy (MUST READ for content creators)
 - **[Brand Overview](./brand-overview.md)** - Complete brand identity guide
 - **[Color System](../standards/color-system.md)** - Visual brand standards
-- **[Typography](../standards/typography.md)** - Text and font guidelines
-- **[Component Standards](../standards/component-standards.md)** - Visual elements
+- **[Unified Component Standards](../standards/unified-component-standards.md)** - Complete design system (typography, components)
 - **[Branding](../)** - Hub for all brand documentation
 
 ---

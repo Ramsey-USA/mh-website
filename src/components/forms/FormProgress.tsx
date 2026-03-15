@@ -173,7 +173,7 @@ export function FormProgress({
         {/* Step Details */}
         <div className="p-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {steps.map((step, _index) => {
+            {steps.map((step) => {
               const isCompleted = currentStep > step.number;
               const isCurrent = currentStep === step.number;
               const isUpcoming = currentStep < step.number;
@@ -345,7 +345,7 @@ export function FormProgress({
 
       {/* Steps */}
       <div className="flex justify-between items-start">
-        {steps.map((step, _index) => {
+        {steps.map((step, index) => {
           const isCompleted = currentStep > step.number;
           const isCurrent = currentStep === step.number;
 
@@ -399,7 +399,7 @@ export function FormProgress({
               </div>
 
               {/* Connector Line */}
-              {_index < steps.length - 1 && (
+              {index < steps.length - 1 && (
                 <div className="absolute top-5 left-1/2 w-full h-0.5 -z-10 hidden md:block">
                   <div
                     className={`h-full transition-all duration-300 ${

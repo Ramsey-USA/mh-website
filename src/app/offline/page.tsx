@@ -4,12 +4,10 @@ import Link from "next/link";
 import { usePageTracking } from "@/lib/analytics/hooks";
 
 export default function OfflinePage() {
-  // Analytics tracking
   usePageTracking("Offline");
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4">
       <div className="max-w-2xl w-full text-center">
-        {/* Icon */}
         <div className="mb-8 flex justify-center">
           <div className="w-24 h-24 bg-amber-500/10 rounded-full flex items-center justify-center">
             <svg
@@ -30,18 +28,15 @@ export default function OfflinePage() {
           </div>
         </div>
 
-        {/* Heading */}
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
           You&apos;re Offline
         </h1>
 
-        {/* Description */}
         <p className="text-xl text-gray-300 mb-8">
           It looks like you&apos;ve lost your connection. Don&apos;t worry,
           we&apos;ve saved some content for offline viewing.
         </p>
 
-        {/* Info Box */}
         <div className="bg-green-900/20 border border-green-700/30 rounded-lg p-6 mb-8">
           <h2 className="text-lg font-semibold text-green-400 mb-3 flex items-center justify-center gap-2">
             <svg
@@ -79,7 +74,6 @@ export default function OfflinePage() {
           </ul>
         </div>
 
-        {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={() => window.location.reload()}
@@ -126,7 +120,6 @@ export default function OfflinePage() {
           </Link>
         </div>
 
-        {/* Footer note */}
         <p className="mt-8 text-sm text-gray-600">
           This page is part of our Progressive Web App (PWA) features
         </p>

@@ -23,7 +23,7 @@ interface NewsletterRequest {
   name?: string;
 }
 
-export async function handlePOST(request: NextRequest) {
+async function handlePOST(request: NextRequest) {
   try {
     const data: NewsletterRequest = await request.json();
 

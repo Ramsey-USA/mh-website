@@ -638,8 +638,7 @@ useEffect(() => {
 ### Internal Documentation
 
 - [Color System](../branding/standards/color-system.md)
-- [Typography](../branding/standards/typography.md)
-- [Component Standards](../branding/standards/component-standards.md)
+- [Unified Component Standards](../branding/standards/unified-component-standards.md)
 - [Brand Overview](../branding/strategy/brand-overview.md)
 
 ### External Resources

@@ -1,11 +1,19 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
 
 type Theme = "dark" | "light" | "system";
 
 type ThemeProviderProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   defaultTheme?: Theme;
   storageKey?: string;
 };
@@ -28,16 +36,15 @@ export function ThemeProvider({
   children,
   defaultTheme = "system",
   storageKey = "mh-construction-theme",
-  ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(defaultTheme);
+  const [theme, setThemeState] = useState<Theme>(defaultTheme);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     const storedTheme = localStorage.getItem(storageKey) as Theme;
     if (storedTheme) {
-      setTheme(storedTheme);
+      setThemeState(storedTheme);
     }
   }, [storageKey]);
 
@@ -45,43 +52,53 @@ export function ThemeProvider({
     if (!mounted) return;
 
     const root = window.document.documentElement;
-    root.classList.remove("dark");
+    const applyTheme = () => {
+      root.classList.toggle(
+        "dark",
+        theme === "dark" ||
+          (theme === "system" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches),
+      );
+    };
+
+    applyTheme();
 
     if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light";
-      if (systemTheme === "dark") {
-        root.classList.add("dark");
-      }
-      return;
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      mediaQuery.addEventListener("change", applyTheme);
+      return () => mediaQuery.removeEventListener("change", applyTheme);
     }
 
-    if (theme === "dark") {
-      root.classList.add("dark");
-    }
+    return undefined;
   }, [theme, mounted]);
 
-  const value = {
-    theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
-      setTheme(theme);
+  const setTheme = useCallback(
+    (newTheme: Theme) => {
+      localStorage.setItem(storageKey, newTheme);
+      setThemeState(newTheme);
     },
-    isDarkMode:
-      mounted &&
-      (theme === "dark" ||
-        (theme === "system" &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)),
-  };
+    [storageKey],
+  );
+
+  const value = useMemo<ThemeProviderState>(
+    () => ({
+      theme,
+      setTheme,
+      isDarkMode:
+        mounted &&
+        (theme === "dark" ||
+          (theme === "system" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)),
+    }),
+    [theme, setTheme, mounted],
+  );
 
   if (!mounted) {
     return <>{children}</>;
   }
 
   return (
-    <ThemeProviderContext.Provider value={value} {...(props ? props : {})}>
+    <ThemeProviderContext.Provider value={value}>
       {children}
     </ThemeProviderContext.Provider>
   );

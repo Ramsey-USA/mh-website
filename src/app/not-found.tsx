@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+
+export const metadata: Metadata = {
+  title: "404 – Page Not Found | MH Construction",
+  robots: { index: false, follow: false },
+};
 
 export default function NotFound() {
   return (
@@ -28,19 +34,19 @@ export default function NotFound() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/">
-            <Button variant="primary" size="lg">
+          <Button variant="primary" size="lg" asChild>
+            <Link href="/">
               <MaterialIcon icon="home" size="md" className="mr-2" />
               Back to Home
-            </Button>
-          </Link>
+            </Link>
+          </Button>
 
-          <Link href="/services">
-            <Button variant="outline" size="lg">
+          <Button variant="outline" size="lg" asChild>
+            <Link href="/services">
               <MaterialIcon icon="build" size="md" className="mr-2" />
               View Services
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
 
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">

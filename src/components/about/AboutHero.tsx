@@ -1,5 +1,3 @@
-"use client";
-
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";

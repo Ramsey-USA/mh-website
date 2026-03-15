@@ -629,7 +629,7 @@ Process for deprecating badges:
 ## Related Documentation
 
 - [Color System](./color-system.md) - Brand color palette
-- [Component Standards](./component-standards.md) - UI guidelines
+- [Unified Component Standards](./unified-component-standards.md) - Complete design system
 - [Brand Overview](../strategy/brand-overview.md) - Core values
 
 ---

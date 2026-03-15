@@ -23,7 +23,6 @@ interface LocalAnalyticsData {
 }
 
 export default function AnalyticsDashboardPage() {
-  // Track page views and engagement for the analytics dashboard
   usePageTracking("Analytics Dashboard");
 
   const router = useRouter();
@@ -39,7 +38,6 @@ export default function AnalyticsDashboardPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Check authentication
     const token = localStorage.getItem("admin_token");
     const user = localStorage.getItem("admin_user");
 
@@ -52,8 +50,6 @@ export default function AnalyticsDashboardPage() {
       const parsedUser = JSON.parse(user);
       setUserData(parsedUser);
       setIsAuthenticated(true);
-
-      // Fetch analytics data
       fetchAnalyticsData(token);
     } catch (err) {
       logger.error("Auth error:", err);
@@ -76,7 +72,6 @@ export default function AnalyticsDashboardPage() {
       const data = await response.json();
       setAnalyticsData(data);
 
-      // Get local storage data for geographic/CTA tracking
       const local = dataCollector.getAllData();
       setLocalData(local);
     } catch (err) {
@@ -99,7 +94,6 @@ export default function AnalyticsDashboardPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
-      {/* Command Center Header */}
       <header className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary border-b-4 border-brand-secondary shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
@@ -131,7 +125,6 @@ export default function AnalyticsDashboardPage() {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {isLoading ? (
           <div className="flex items-center justify-center py-20">
@@ -160,7 +153,6 @@ export default function AnalyticsDashboardPage() {
           </div>
         ) : (
           <div className="space-y-6">
-            {/* Tactical Overview - Main Stats */}
             <div>
               <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
                 <MaterialIcon
@@ -210,7 +202,6 @@ export default function AnalyticsDashboardPage() {
               </div>
             </div>
 
-            {/* Geographic Intelligence - NEW */}
             <div>
               <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
                 <MaterialIcon
@@ -226,7 +217,6 @@ export default function AnalyticsDashboardPage() {
               </div>
             </div>
 
-            {/* CTA Performance - NEW */}
             <div>
               <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
                 <MaterialIcon
@@ -239,7 +229,6 @@ export default function AnalyticsDashboardPage() {
               <CTAPerformanceGrid clicks={localData?.clicks || []} />
             </div>
 
-            {/* Conversion Intelligence */}
             <div>
               <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
                 <MaterialIcon
@@ -276,7 +265,6 @@ export default function AnalyticsDashboardPage() {
               </div>
             </div>
 
-            {/* Veteran Operations */}
             <div>
               <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
                 <MaterialIcon
@@ -332,7 +320,6 @@ export default function AnalyticsDashboardPage() {
               </div>
             </div>
 
-            {/* Performance Readiness */}
             <div>
               <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
                 <MaterialIcon
@@ -395,14 +382,11 @@ export default function AnalyticsDashboardPage() {
   );
 }
 
-// Helper Functions
 function formatDuration(seconds: number): string {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
   return `${minutes}m ${remainingSeconds}s`;
 }
-
-// NEW MILITARY-THEMED COMPONENTS
 
 function MilitaryStatCard({
   icon,
@@ -500,7 +484,6 @@ function GeographicHeatMap({
 }: {
   clicks: Array<{ state?: string; city?: string }>;
 }) {
-  // Aggregate clicks by city/state
   const locationCounts: Record<
     string,
     { count: number; state?: string; city?: string }
@@ -585,7 +568,6 @@ function GeographicHeatMap({
 }
 
 function TopLocations({ clicks }: { clicks: Array<{ state?: string }> }) {
-  // Count by state for target market analysis
   const stateCounts: Record<string, number> = {};
   clicks.forEach((click) => {
     if (click.state) {
@@ -616,7 +598,6 @@ function TopLocations({ clicks }: { clicks: Array<{ state?: string }> }) {
         TARGET AO STATUS
       </h3>
 
-      {/* Target Market Indicator */}
       <div className="bg-brand-primary/20 border-2 border-brand-secondary rounded-lg p-4 mb-4">
         <div className="text-center">
           <div className="text-5xl font-black text-white mb-2">
@@ -631,7 +612,6 @@ function TopLocations({ clicks }: { clicks: Array<{ state?: string }> }) {
         </div>
       </div>
 
-      {/* Top States */}
       <div className="space-y-2">
         {topStates.map(([state, count]) => {
           const isTarget = targetMarket.includes(state);
@@ -664,7 +644,6 @@ function CTAPerformanceGrid({
 }: {
   clicks: Array<{ element?: string }>;
 }) {
-  // Aggregate clicks by element ID
   const ctaCounts: Record<string, number> = {};
   clicks.forEach((click) => {
     if (click.element) {
@@ -676,7 +655,6 @@ function CTAPerformanceGrid({
     .sort(([, a], [, b]) => b - a)
     .slice(0, 12);
 
-  // Categorize CTAs
   const phoneCTAs = sortedCTAs.filter(([id]) => id.includes("phone"));
   const emailCTAs = sortedCTAs.filter(([id]) => id.includes("email"));
   const addressCTAs = sortedCTAs.filter(([id]) => id.includes("address"));

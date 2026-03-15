@@ -107,7 +107,7 @@ export const aboutTimelineSteps: TimelineStep[] = [
     num: 14,
     icon: "explore",
     title: "Continued Mission Excellence",
-    desc: "Building projects for the client, NOT the dollar—where founding father's partnership philosophy meets veteran operational discipline, creating unmatched construction excellence. (Future)",
+    desc: "Building projects for the client, NOT the dollar—where founding father's partnership philosophy meets veteran operational discipline, creating unmatched construction excellence. (2026 & Beyond)",
     position: "right",
   },
 ];

@@ -1,5 +1,3 @@
-"use client";
-
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { Button } from "@/components/ui";

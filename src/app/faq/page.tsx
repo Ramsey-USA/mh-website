@@ -16,13 +16,10 @@ import {
 } from "@/lib/seo/breadcrumb-schema";
 import { generateHowToSchema } from "@/lib/seo/howto-schema";
 import { StructuredData } from "@/components/seo/SeoMeta";
-import { getFAQSEO } from "@/lib/seo/page-seo-utils";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
-
-// SEO data moved to component for client-side rendering
 
 // FAQ categories and data
 const faqCategories = [
@@ -271,6 +268,52 @@ const faqCategories = [
   },
 ];
 
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.faq);
+
+const howToSchema = generateHowToSchema({
+  name: "How to Work with MH Construction",
+  description:
+    "Step-by-step guide to our partnership-driven construction process from consultation to project completion",
+  totalTime: "P30D",
+  steps: [
+    {
+      name: "Discovery Phase",
+      text: "Initial free consultation, site assessment, needs analysis, and budget discussion",
+    },
+    {
+      name: "Planning Phase",
+      text: "Detailed proposal with open-book pricing, timeline development, and contract signing",
+    },
+    {
+      name: "Permitting Phase",
+      text: "Permit applications, code compliance review, and approval coordination",
+    },
+    {
+      name: "Construction Phase",
+      text: "Regular progress updates, photo documentation, quality inspections, and client walkthroughs",
+    },
+    {
+      name: "Completion Phase",
+      text: "Final inspection, punch list completion, warranty documentation, and ongoing support",
+    },
+  ],
+});
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqCategories.flatMap((category) =>
+    category.questions.map((q) => ({
+      "@type": "Question",
+      name: q.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: q.answer,
+      },
+    })),
+  ),
+};
+
 /**
  * FAQ Accordion Component - Modern Card Design
  */
@@ -314,92 +357,14 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
  * FAQ Page Component
  */
 export default function FAQPage() {
-  // Get enhanced SEO data for FAQ page
-  const faqSEO = getFAQSEO();
-
-  // Structured data for SEO (FAQ Schema)
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqCategories.flatMap((category) =>
-      category.questions.map((q) => ({
-        "@type": "Question",
-        name: q.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: q.answer,
-        },
-      })),
-    ),
-  };
-
   return (
     <>
       <PageTrackingClient pageName="FAQ" />
-      {/* SEO Meta Tags */}
-
-      {/* Structured Data */}
-      {faqSEO.schemas && faqSEO.schemas.length > 0 && (
-        <StructuredData data={faqSEO.schemas} />
-      )}
+      <StructuredData data={breadcrumbSchema} />
+      <StructuredData data={howToSchema} />
+      <StructuredData data={faqSchema} />
 
       <div className="bg-white dark:bg-gray-900 min-h-screen">
-        {/* Breadcrumb Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(
-              generateBreadcrumbSchema([
-                ...breadcrumbPatterns.services,
-                { name: "FAQ", url: "https://www.mhc-gc.com/faq" },
-              ]),
-            ),
-          }}
-        />
-
-        {/* HowTo Schema - Construction Process */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(
-              generateHowToSchema({
-                name: "How to Work with MH Construction",
-                description:
-                  "Step-by-step guide to our partnership-driven construction process from consultation to project completion",
-                totalTime: "P30D",
-                steps: [
-                  {
-                    name: "Discovery Phase",
-                    text: "Initial free consultation, site assessment, needs analysis, and budget discussion",
-                  },
-                  {
-                    name: "Planning Phase",
-                    text: "Detailed proposal with open-book pricing, timeline development, and contract signing",
-                  },
-                  {
-                    name: "Permitting Phase",
-                    text: "Permit applications, code compliance review, and approval coordination",
-                  },
-                  {
-                    name: "Construction Phase",
-                    text: "Regular progress updates, photo documentation, quality inspections, and client walkthroughs",
-                  },
-                  {
-                    name: "Completion Phase",
-                    text: "Final inspection, punch list completion, warranty documentation, and ongoing support",
-                  },
-                ],
-              }),
-            ),
-          }}
-        />
-
-        {/* FAQ Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-
         {/* Hero Section */}
         <section className="relative h-screen flex items-end justify-end text-white overflow-hidden">
           {/* Background - Dark gradient */}

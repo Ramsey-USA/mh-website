@@ -182,9 +182,9 @@ export default function TermsOfServicePage() {
               <p className="text-gray-700 dark:text-gray-300">
                 <strong>MH Construction, Inc.</strong>
                 <br />
-                3111 N. Capitol Ave.
+                {COMPANY_INFO.address.street}
                 <br />
-                Pasco, WA 99301
+                {COMPANY_INFO.address.cityStateZip}
                 <br />
                 Phone:{" "}
                 <a

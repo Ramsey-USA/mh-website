@@ -1,10 +1,10 @@
 # Team Profile Radar Chart System
 
-**Date:** December 24, 2025  
+**Date:** March 15, 2026  
 **Status:** ✅ Current  
 **Category:** Business - Team Profiles  
-**Last Updated:** December 24, 2025  
-**Version:** 2.0.0
+**Last Updated:** March 15, 2026  
+**Version:** 2.1.0
 
 ## Quick Navigation
 
@@ -373,10 +373,11 @@ interface TeamMemberSkills {
 
 **Version History**:
 
+- v2.1.0 (Mar 15, 2026): Synced interface & radarData to include Passion and Growth Mindset; removed duplicate Organizational Expertise entry
 - v2.0.0 (Dec 24, 2025): Added Passion and Growth Mindset dimensions (10 total)
 - v1.0.0: Initial 8 dimensions
 
-**Last Review Date**: December 24, 2025  
-**Next Review Date**: March 24, 2026  
+**Last Review Date**: March 15, 2026  
+**Next Review Date**: June 15, 2026  
 **Document Owner**: Marketing/HR Department  
 **Technical Contact**: Development Team

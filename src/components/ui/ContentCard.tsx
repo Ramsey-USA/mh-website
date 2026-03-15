@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 export interface ContentCardProps {
@@ -109,23 +110,26 @@ export function ContentCard({
     glowGradient || `bg-gradient-to-br ${defaultGlowGradients[categoryColor]}`;
 
   const cardContent = (
-    <div className={`group relative flex h-full ${className}`}>
+    <div className={cn("group relative flex h-full", className)}>
       {/* Animated Border Glow */}
       <div
-        className={`absolute -inset-2 ${glowClass} rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 ${
-          variant === "news" || variant === "feature"
-            ? "group-hover:animate-pulse"
-            : ""
-        }`}
+        className={cn(
+          "absolute -inset-2 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500",
+          glowClass,
+          (variant === "news" || variant === "feature") &&
+            "group-hover:animate-pulse",
+        )}
+        aria-hidden="true"
       ></div>
 
       <div
-        className={`relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full ${
-          variant === "feature" ? "group-hover:-translate-y-1" : ""
-        }`}
+        className={cn(
+          "relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full",
+          variant === "feature" && "group-hover:-translate-y-1",
+        )}
       >
         {/* Top Accent Bar */}
-        <div className={`h-2 ${accentClass}`}></div>
+        <div className={cn("h-2", accentClass)}></div>
 
         <div className="pt-6 px-6 pb-6 flex flex-col flex-grow">
           {/* Header: Icon/Category + Date */}
@@ -135,10 +139,20 @@ export function ContentCard({
               <div className="flex items-center gap-2">
                 <div className="relative inline-block">
                   <div
-                    className={`absolute -inset-2 ${glowClass} opacity-30 blur-lg rounded-xl`}
+                    className={cn(
+                      "absolute -inset-2 opacity-30 blur-lg rounded-xl",
+                      glowClass,
+                    )}
+                    aria-hidden="true"
                   ></div>
                   <div
-                    className={`relative rounded-xl ${accentClass.replace("bg-gradient-to-r", "bg-gradient-to-br")} p-2 shadow-xl group-hover:scale-110 transition-all duration-300`}
+                    className={cn(
+                      "relative rounded-xl p-2 shadow-xl group-hover:scale-110 transition-all duration-300",
+                      accentClass.replace(
+                        "bg-gradient-to-r",
+                        "bg-gradient-to-br",
+                      ),
+                    )}
                   >
                     <MaterialIcon
                       icon={icon}
@@ -148,7 +162,10 @@ export function ContentCard({
                   </div>
                 </div>
                 <span
-                  className={`font-semibold ${categoryClass} text-xs sm:text-sm`}
+                  className={cn(
+                    "font-semibold text-xs sm:text-sm",
+                    categoryClass,
+                  )}
                 >
                   {category}
                 </span>
@@ -162,7 +179,10 @@ export function ContentCard({
                   size={iconSize}
                 />
                 <span
-                  className={`font-semibold ${categoryClass} text-xs sm:text-sm`}
+                  className={cn(
+                    "font-semibold text-xs sm:text-sm",
+                    categoryClass,
+                  )}
                 >
                   {category}
                 </span>

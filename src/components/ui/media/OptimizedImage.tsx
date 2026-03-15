@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface OptimizedImageProps {
   src: string;
@@ -38,6 +39,7 @@ export function OptimizedImage({
   quality = 85,
   placeholder = "blur",
   onLoad,
+  onError,
   enableAnimation = true,
   blurDataURL,
 }: OptimizedImageProps) {
@@ -51,26 +53,24 @@ export function OptimizedImage({
 
   const handleError = useCallback((): void => {
     setHasError(true);
-  }, []);
-
-  const defaultBlurDataURL = useMemo(
-    () => blurDataURL || BLUR_DATA_URL,
-    [blurDataURL],
-  );
+    onError?.();
+  }, [onError]);
 
   const imageProps = {
     src: hasError ? "/images/placeholder.webp" : src,
-    alt: alt || "Image", // Provide fallback alt text
+    alt: alt || "Image",
     onLoad: handleLoad,
     onError: handleError,
     quality,
     placeholder,
-    blurDataURL: defaultBlurDataURL,
+    blurDataURL: blurDataURL || BLUR_DATA_URL,
     sizes,
     priority,
-    className: `transition-opacity duration-500 ${
-      isLoaded ? "opacity-100" : "opacity-0"
-    } ${className}`,
+    className: cn(
+      "transition-opacity duration-500",
+      isLoaded ? "opacity-100" : "opacity-0",
+      className,
+    ),
     ...(fill ? { fill: true } : { width: width || 800, height: height || 600 }),
   };
 
@@ -120,9 +120,14 @@ export function HeroImage({
         {...props}
         priority={true}
         sizes="100vw"
-        className={`object-cover ${props.className || ""}`}
+        className={cn("object-cover", props.className)}
       />
-      {overlay && <div className={`absolute inset-0 ${overlayClassName}`} />}
+      {overlay && (
+        <div
+          className={cn("absolute inset-0", overlayClassName)}
+          aria-hidden="true"
+        />
+      )}
     </div>
   );
 }
@@ -146,9 +151,10 @@ export function GalleryImage({
     >
       <OptimizedImage
         {...props}
-        className={`object-cover transition-transform duration-300 group-hover:scale-110 ${
-          props.className || ""
-        }`}
+        className={cn(
+          "object-cover transition-transform duration-300 group-hover:scale-110",
+          props.className,
+        )}
       />
 
       {/* Overlay with caption */}
@@ -196,7 +202,11 @@ export function AvatarImage({
   if (!src || hasError) {
     return (
       <div
-        className={`${sizeClasses[size]} bg-brand-primary/20 rounded-full flex items-center justify-center ${className}`}
+        className={cn(
+          sizeClasses[size],
+          "bg-brand-primary/20 rounded-full flex items-center justify-center",
+          className,
+        )}
       >
         <span className="font-semibold text-brand-primary text-sm">
           {fallback || alt.charAt(0).toUpperCase()}
@@ -207,7 +217,11 @@ export function AvatarImage({
 
   return (
     <div
-      className={`${sizeClasses[size]} relative rounded-full overflow-hidden ${className}`}
+      className={cn(
+        sizeClasses[size],
+        "relative rounded-full overflow-hidden",
+        className,
+      )}
     >
       <OptimizedImage
         src={src}

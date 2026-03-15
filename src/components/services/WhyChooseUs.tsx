@@ -69,7 +69,7 @@ export function WhyChooseUs() {
         <StaggeredFadeIn
           className={gridPresets.cards4("md", "mx-auto max-w-7xl")}
         >
-          {whyChooseUs.map((reason, _index) => {
+          {whyChooseUs.map((reason, index) => {
             const cardContent = (
               <Card className="flex flex-col bg-gradient-to-br from-white via-white to-brand-primary/5 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 hover:shadow-2xl dark:hover:shadow-brand-primary/20 border-2 border-brand-primary/20 dark:border-brand-primary/30 hover:border-brand-primary dark:hover:border-brand-primary-light h-full transition-all duration-300 hover:-translate-y-2 group overflow-hidden">
                 {/* Decorative background pattern */}
@@ -108,11 +108,11 @@ export function WhyChooseUs() {
             );
 
             return reason.ctaLink ? (
-              <Link key={_index} href={reason.ctaLink}>
+              <Link key={index} href={reason.ctaLink}>
                 {cardContent}
               </Link>
             ) : (
-              <div key={_index}>{cardContent}</div>
+              <div key={index}>{cardContent}</div>
             );
           })}
         </StaggeredFadeIn>

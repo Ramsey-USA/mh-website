@@ -36,8 +36,6 @@ export interface GlowEffectProps {
   animate?: boolean;
   /** Initial opacity (0-100) */
   opacity?: number;
-  /** Hover opacity (0-100) */
-  hoverOpacity?: number;
   /** Additional classes */
   className?: string;
 }
@@ -75,20 +73,19 @@ export function GlowEffect({
   animate = true,
   opacity = 20,
   className = "",
-}: Omit<GlowEffectProps, "hoverOpacity">) {
+}: GlowEffectProps) {
   return (
     <div
       className={cn(
         "absolute blur-xl transition-all duration-500",
+        `opacity-[${opacity / 100}]`,
         gradientVariants[gradient],
         sizeVariants[size],
         roundedVariants[rounded],
         animate && "group-hover:opacity-100 group-hover:animate-pulse",
         className,
       )}
-      style={{
-        opacity: opacity / 100,
-      }}
+      aria-hidden="true"
     />
   );
 }

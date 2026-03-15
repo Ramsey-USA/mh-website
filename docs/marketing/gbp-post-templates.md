@@ -279,8 +279,10 @@ Ready to build in [CITY]?
 - Pasco (headquarters)
 - Kennewick
 - Richland
+- West Richland
 - Yakima
 - Spokane
+- Walla Walla
 
 ### Template 2: Community Involvement
 
@@ -500,5 +502,5 @@ Thank you for trusting us with your construction projects. We're grateful for th
 
 ---
 
-**Last Updated:** December 22, 2025  
+**Last Updated:** March 15, 2026  
 **For questions, contact your marketing team**

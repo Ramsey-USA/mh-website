@@ -4,9 +4,8 @@
  * Shows placeholder content while real content is loading
  */
 
-/**
- * Base Skeleton Component
- */
+import { cn } from "@/lib/utils";
+
 export function Skeleton({
   className = "",
   variant = "rounded",
@@ -22,7 +21,11 @@ export function Skeleton({
 
   return (
     <div
-      className={`animate-pulse bg-gray-200 dark:bg-gray-700 ${variantClasses[variant]} ${className}`}
+      className={cn(
+        "animate-pulse bg-gray-200 dark:bg-gray-700",
+        variantClasses[variant],
+        className,
+      )}
       aria-label="Loading..."
       role="status"
     />
@@ -210,7 +213,7 @@ export function GridSkeleton({
     }[columns] || "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
 
   return (
-    <div className={`grid ${gridClasses} gap-6`}>
+    <div className={cn("grid gap-6", gridClasses)}>
       {type === "card" && <CardSkeleton count={totalItems} />}
       {type === "team" && <TeamMemberSkeleton count={totalItems} />}
       {type === "list" && <ListItemSkeleton count={totalItems} />}

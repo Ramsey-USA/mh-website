@@ -3,10 +3,7 @@
  * Progressive Web App functionality components
  */
 
-export {
-  ServiceWorkerRegistration,
-  useServiceWorkerUpdate,
-} from "./ServiceWorkerRegistration";
+export { ServiceWorkerRegistration } from "./ServiceWorkerRegistration";
 export { PWAInstallPrompt } from "./PWAInstallPrompt";
 export { UpdateNotification } from "./UpdateNotification";
 export { PWAManager } from "./PWAManager";

@@ -1,6 +1,6 @@
 # MH Construction Core Values - Service-Earned Foundation
 
-**Last Updated:** December 14, 2025  
+**Last Updated:** March 15, 2026  
 **Status:** Official Company Values  
 **Methodology:** Military/Construction Terminology Integration
 
@@ -154,11 +154,11 @@ Trust isn't just another value - it's the result when all other values are consi
 
 ---
 
-## �️ Our Owner-First Process
+## 🏗️ Our Process
 
 ### Putting Our Values Into Action
 
-Our values guide every phase of your project through our proven Owner-First Process. Each step reinforces our
+Our values guide every phase of your project through our proven process. Each step reinforces our
 commitment to transparency, quality, and relationship-building.
 
 ### 1. Pre-Construction Planning
@@ -195,7 +195,7 @@ commitment to transparency, quality, and relationship-building.
 - Weekly progress meetings during construction
 - Always available for your questions and concerns
 
-**Value Connection**: _Honesty_ and _Reliability_
+**Value Connection**: _Honesty_ and _Professionalism_
 
 ### 4. Quality Execution
 
@@ -207,7 +207,7 @@ commitment to transparency, quality, and relationship-building.
 - Premium materials selected for longevity
 - Continuous site supervision and coordination
 
-**Value Connection**: _Partnership_ and _Thoroughness_
+**Value Connection**: _Professionalism_ and _Thoroughness_
 
 ### 5. Seamless Close-Out
 
@@ -219,7 +219,7 @@ commitment to transparency, quality, and relationship-building.
 - Post-completion follow-up
 - Ongoing support for any questions
 
-**Value Connection**: _Partnership_ - consistent support that continues beyond completion
+**Value Connection**: _Integrity_ - consistent support that continues beyond completion
 
 ---
 
@@ -326,4 +326,4 @@ Our 4 Core Values aren't abstract concepts—they create 6 measurable difference
 
 ---
 
-**Last Updated:** December 13, 2025 | MH Construction, Inc.
+**Last Updated:** March 15, 2026 | MH Construction, Inc.

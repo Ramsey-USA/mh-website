@@ -54,9 +54,9 @@ export function ServiceAreasSection({
         <StaggeredFadeIn
           className={gridPresets.twoColumn("md", "mx-auto max-w-4xl")}
         >
-          {serviceAreas.map((area, _index) => (
+          {serviceAreas.map((area, index) => (
             <Card
-              key={_index}
+              key={index}
               className="relative bg-gradient-to-br from-white via-white to-brand-primary/5 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 border-2 border-brand-primary/20 dark:border-brand-primary/30 p-8 hover:border-brand-primary dark:hover:border-brand-primary-light hover:scale-[1.02] hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 group overflow-hidden"
             >
               {/* Card decorative background */}

@@ -88,27 +88,27 @@ export function OptimizedGallery({
       <div className="space-y-4">
         <h3 className="font-semibold text-lg">Project Gallery</h3>
         <div className="gap-2 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8">
-          {images.map((image, _index) => (
+          {images.map((image, index) => (
             <div
-              key={_index}
+              key={index}
               role="button"
               tabIndex={0}
               className={`relative h-16 sm:h-18 md:h-20 rounded cursor-pointer transition-opacity ${
-                _index === activeIndex
+                index === activeIndex
                   ? "ring-2 ring-primary-500"
                   : "hover:opacity-80"
               }`}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
-                  onImageClick(_index);
+                  onImageClick(index);
                 }
               }}
-              onClick={() => onImageClick(_index)}
+              onClick={() => onImageClick(index)}
             >
               <Image
                 src={image.url}
-                alt={image.caption || `Project image ${_index + 1}`}
+                alt={image.caption || `Project image ${index + 1}`}
                 fill
                 className="rounded object-cover"
                 sizes="80px"
@@ -120,6 +120,3 @@ export function OptimizedGallery({
     </div>
   );
 }
-
-// Performance monitoring component
-export { WebVitalsReporter } from "./WebVitalsReporter";

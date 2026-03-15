@@ -29,9 +29,11 @@ export interface VintageTeamMember {
     teamwork: number;
     organization: number;
     innovation: number;
+    passion: number;
+    continuingEducation: number;
   };
 
-  // Current year performance (2025)
+  // Current year performance (2026)
   currentYearStats: {
     projectsCompleted: number;
     clientSatisfaction: number;
@@ -71,32 +73,3 @@ export interface VintageTeamMember {
 // Export team members from JSON data
 export const vintageTeamMembers: VintageTeamMember[] =
   teamDataJson as VintageTeamMember[];
-
-// Legacy team members interface for backward compatibility
-export interface TeamMember {
-  name: string;
-  role: string;
-  department: string;
-  experienceYears: number | string;
-  veteranStatus?: string;
-  specialties?: string[];
-  bio?: string;
-  slug: string;
-  active?: boolean;
-  avatar?: string;
-}
-
-// Convert vintage team members to legacy format for existing components
-export const teamMembers: TeamMember[] = vintageTeamMembers.map((member) => ({
-  name: member.name,
-  role: member.role,
-  department: member.department,
-  experienceYears: member.careerStats.yearsExperience,
-  ...(member.veteranStatus && { veteranStatus: member.veteranStatus }),
-  specialties: member.specialties,
-  bio: member.bio,
-  slug: member.slug,
-  ...(member.active !== undefined && { active: member.active }),
-  ...(member.avatar && { avatar: member.avatar }),
-  ...(member.email && { email: member.email }),
-}));

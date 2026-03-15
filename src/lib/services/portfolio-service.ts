@@ -47,7 +47,7 @@ export class PortfolioService {
 
     if (filter.tags && filter.tags.length > 0) {
       filteredProjects = filteredProjects.filter((project) =>
-        filter.tags!.some((tag) => project.tags.includes(tag)),
+        filter.tags!.some((tag: string) => project.tags.includes(tag)),
       );
     }
 

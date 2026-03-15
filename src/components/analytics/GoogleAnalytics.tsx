@@ -1,51 +1,10 @@
-"use client";
-
-import { useEffect } from "react";
 import Script from "next/script";
-import { logger } from "@/lib/utils/logger";
 
 interface GoogleAnalyticsProps {
   measurementId: string;
 }
 
 export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
-  // Defer analytics initialization until after page is interactive
-  useEffect(() => {
-    // Only load on production and after user interaction or 3 seconds
-    if (process.env.NODE_ENV !== "production") return;
-
-    const loadAnalytics = () => {
-      logger.info("Loading Google Analytics");
-    };
-
-    // Load after user interaction or timeout
-    const events = ["scroll", "click", "touchstart", "mousemove"];
-    const handleInteraction = () => {
-      loadAnalytics();
-      events.forEach((event) =>
-        window.removeEventListener(event, handleInteraction),
-      );
-    };
-
-    // Add interaction listeners
-    events.forEach((event) =>
-      window.addEventListener(event, handleInteraction, {
-        once: true,
-        passive: true,
-      }),
-    );
-
-    // Fallback timeout
-    const timeout = setTimeout(loadAnalytics, 3000);
-
-    return () => {
-      clearTimeout(timeout);
-      events.forEach((event) =>
-        window.removeEventListener(event, handleInteraction),
-      );
-    };
-  }, []);
-
   return (
     <>
       <Script
@@ -93,35 +52,6 @@ export const analytics = {
     }
   },
 
-  // Track portfolio project views
-  portfolioView: (projectTitle: string, projectCategory: string) => {
-    analytics.event("portfolio_view", {
-      project_title: projectTitle,
-      project_category: projectCategory,
-      event_category: "Portfolio",
-      event_label: projectTitle,
-    });
-  },
-
-  // Track estimate requests
-  estimateRequest: (projectType: string, location: string) => {
-    analytics.event("estimate_request", {
-      project_type: projectType,
-      location: location,
-      event_category: "Lead Generation",
-      event_label: "AI Estimate Request",
-    });
-  },
-
-  // Track consultation bookings
-  consultationBooking: (serviceType: string) => {
-    analytics.event("consultation_booking", {
-      service_type: serviceType,
-      event_category: "Lead Generation",
-      event_label: "Consultation Booking",
-    });
-  },
-
   // Track contact form submissions
   contactForm: (formType: string, inquiryType?: string) => {
     analytics.event("contact_form_submit", {
@@ -131,55 +61,7 @@ export const analytics = {
       event_label: "Contact Form",
     });
   },
-
-  // Track phone clicks
-  phoneClick: (phoneNumber: string) => {
-    analytics.event("phone_click", {
-      phone_number: phoneNumber,
-      event_category: "Contact",
-      event_label: "Phone Call",
-    });
-  },
-
-  // Track email clicks
-  emailClick: (emailAddress: string) => {
-    analytics.event("email_click", {
-      email_address: emailAddress,
-      event_category: "Contact",
-      event_label: "Email",
-    });
-  },
-
-  // Track file downloads
-  download: (fileName: string, fileType: string) => {
-    analytics.event("file_download", {
-      file_name: fileName,
-      file_type: fileType,
-      event_category: "Downloads",
-      event_label: fileName,
-    });
-  },
-
-  // Track social media clicks
-  socialClick: (platform: string, url: string) => {
-    analytics.event("social_click", {
-      social_platform: platform,
-      social_url: url,
-      event_category: "Social Media",
-      event_label: platform,
-    });
-  },
 };
-
-// Hook for tracking page views in Next.js
-export function useAnalytics() {
-  useEffect(() => {
-    // Track initial page view
-    analytics.pageView(window.location.href);
-  }, []);
-
-  return analytics;
-}
 
 // Declare gtag function for TypeScript
 declare global {

@@ -16,6 +16,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 // Type for the qrcode library
 type QRCodeLibType = {
@@ -171,7 +172,7 @@ export function QRCode({
     const altText = alt || `QR Code for ${description}`;
 
     return (
-      <div className={`inline-flex flex-col items-center gap-2 ${className}`}>
+      <div className={cn("inline-flex flex-col items-center gap-2", className)}>
         <div
           className="relative bg-white rounded-lg shadow-md p-2"
           style={{ width: size, height: size }}
@@ -220,7 +221,7 @@ export function QRCode({
   const altText = alt || (url ? `QR Code for ${url}` : "QR Code");
 
   return (
-    <div className={`inline-flex flex-col items-center gap-2 ${className}`}>
+    <div className={cn("inline-flex flex-col items-center gap-2", className)}>
       <div
         className="relative bg-white rounded-lg shadow-md p-2"
         style={{ width: size, height: size }}
@@ -237,7 +238,10 @@ export function QRCode({
         )}
         <canvas
           ref={canvasRef}
-          className={`w-full h-full ${isLoading ? "opacity-0" : "opacity-100"} transition-opacity`}
+          className={cn(
+            "w-full h-full transition-opacity",
+            isLoading ? "opacity-0" : "opacity-100",
+          )}
           aria-label={altText}
           role="img"
         />
@@ -283,7 +287,7 @@ export function QRCodeSection({
 }: QRCodeSectionProps) {
   return (
     <div
-      className={`flex flex-col items-center text-center gap-4 ${className}`}
+      className={cn("flex flex-col items-center text-center gap-4", className)}
     >
       {title && (
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white">

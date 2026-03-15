@@ -2,9 +2,21 @@ import { type Metadata } from "next";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { PageTrackingClient } from "@/components/analytics";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
-
-// Enhanced SEO for veteran-owned construction with traditional values
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
+import {
+  HeroSection,
+  CoreValuesSection,
+  ServicesShowcase,
+  WhyPartnerSection,
+} from "@/components/home";
+import {
+  TestimonialsSection,
+  NextStepsSection,
+} from "@/components/shared-sections";
+import { CompanyStats } from "@/components/about/CompanyStats";
+import { Timeline, type TimelineStep } from "@/components/ui/Timeline";
+import { PWAInstallCTA } from "@/components/pwa";
+import { StrategicCTABanner } from "@/components/ui/cta";
 
 const SITE_URL = "https://www.mhc-gc.com";
 
@@ -67,28 +79,6 @@ export const metadata: Metadata = withGeoMetadata({
     images: ["/images/og-default.jpg"],
   },
 });
-
-// Homepage sections - Critical above-the-fold content
-import {
-  HeroSection,
-  CoreValuesSection,
-  ServicesShowcase,
-  WhyPartnerSection,
-} from "@/components/home";
-import {
-  TestimonialsSection,
-  NextStepsSection,
-} from "@/components/shared-sections";
-import { CompanyStats } from "@/components/about/CompanyStats";
-
-// UI Components
-import { Timeline, type TimelineStep } from "@/components/ui/Timeline";
-
-// PWA Components
-import { PWAInstallCTA } from "@/components/pwa";
-
-// Strategic CTA Components
-import { StrategicCTABanner } from "@/components/ui/cta";
 
 // Process timeline steps
 const processSteps: TimelineStep[] = [

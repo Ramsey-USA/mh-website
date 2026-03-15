@@ -27,6 +27,10 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 
+const breadcrumbSchema = generateBreadcrumbSchema(
+  breadcrumbPatterns.publicSector,
+);
+
 // Lazy load heavy interactive components for better mobile performance
 const InteractiveGrantSelector = dynamic(() =>
   import("./InteractiveGrantSelector").then((mod) => ({
@@ -319,10 +323,7 @@ export default function PublicSectorPage() {
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
       <PageTrackingClient pageName="Public Sector" />
-      <StructuredData
-        data={generateBreadcrumbSchema(breadcrumbPatterns.publicSector)}
-      />
-      {/* Enhanced SEO Meta Tags */}
+      <StructuredData data={breadcrumbSchema} />
       {/* Hero Section - Group 4: Professional & Patriotic */}
       <section className="relative bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 h-screen flex items-end justify-end text-white overflow-hidden">
         {/* Background Elements */}
@@ -428,9 +429,9 @@ export default function PublicSectorPage() {
           <StaggeredFadeIn
             className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
           >
-            {grantSupportServices.map((service, _index) => (
+            {grantSupportServices.map((service, index) => (
               <Card
-                key={_index}
+                key={index}
                 className="dark:bg-gray-800 hover:shadow-2xl dark:hover:shadow-gray-600/50 border-gray-800 dark:border-gray-600 border-t-4 transition-all hover:-translate-y-2"
               >
                 <CardHeader>
@@ -598,9 +599,9 @@ export default function PublicSectorPage() {
               </div>
 
               <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
-                {hanfordCapabilities.map((capability, _index) => (
+                {hanfordCapabilities.map((capability, index) => (
                   <Card
-                    key={_index}
+                    key={index}
                     className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border-white/20 transition-all"
                   >
                     <CardContent className="p-6">
@@ -761,9 +762,9 @@ export default function PublicSectorPage() {
               </div>
 
               <div className="space-y-6">
-                {processSteps.map((process, _index) => (
+                {processSteps.map((process, index) => (
                   <Card
-                    key={_index}
+                    key={index}
                     className="dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border-gray-800 dark:border-gray-600 border-l-4 transition-shadow"
                   >
                     <CardContent className="p-8">
@@ -849,9 +850,9 @@ export default function PublicSectorPage() {
           <StaggeredFadeIn
             className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
           >
-            {governmentProjects.map((project, _index) => (
+            {governmentProjects.map((project, index) => (
               <Card
-                key={_index}
+                key={index}
                 className="dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 transition-all hover:-translate-y-1"
               >
                 <CardHeader>
@@ -937,9 +938,9 @@ export default function PublicSectorPage() {
               </div>
 
               <div className="gap-6 grid md:grid-cols-2">
-                {successFactors.map((factor, _index) => (
+                {successFactors.map((factor, index) => (
                   <Card
-                    key={_index}
+                    key={index}
                     className="dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 transition-shadow"
                   >
                     <CardContent className="p-8">

@@ -10,7 +10,7 @@
 
 - [🏠 Brand Documentation](../)
 - [📋 Brand Overview](../strategy/brand-overview.md)
-- [Typography](./typography.md)
+- [📝 Unified Component Standards](./unified-component-standards.md)
 - [🎯 Hero Section Standards](./hero-section-standards.md) ⭐ **UPDATED Dec 14, 2025**
 
 ---
@@ -1098,8 +1098,7 @@ module.exports = {
 ## Related Documentation
 
 - [**Brand Overview**](../strategy/brand-overview.md) - Complete brand identity guide
-- [**Typography**](./typography.md) - Font system and text guidelines
-- [**Component Standards**](./component-standards.md) - Component design patterns
+- [**Unified Component Standards**](./unified-component-standards.md) - Complete design system (typography, components)
 - [**Branding**](../) - Hub for all brand documentation
 
 ---

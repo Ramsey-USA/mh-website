@@ -1,7 +1,7 @@
 # Icon System - Complete Implementation Guide
 
 **Category:** UI Components - Icons and Visual Indicators  
-**Last Updated:** December 14, 2025  
+**Last Updated:** March 15, 2026  
 **Status:** ✅ Active - Consolidated Documentation  
 **Version:** 2.0.0 (Consolidated)
 
@@ -174,45 +174,13 @@
 
 ### Installation & Setup
 
-```bash
-npm install @mui/material @mui/icons-material
-```
+The `MaterialIcon` component is already installed and available — no additional packages required.
+It uses Google Material Icons (font-based rendering) loaded globally via the root layout.
 
-**Component Setup:**
+**Component Import:**
 
 ```tsx
-// components/ui/material-icon.tsx
-import { type IconProps } from "@mui/material";
-import * as Icons from "@mui/icons-material";
-
-export interface MaterialIconProps {
-  icon: keyof typeof Icons;
-  size?: "sm" | "md" | "lg" | "xl" | "2xl";
-  className?: string;
-}
-
-export function MaterialIcon({
-  icon,
-  size = "md",
-  className,
-}: MaterialIconProps) {
-  const IconComponent = Icons[icon];
-
-  const sizeMap = {
-    sm: "text-sm", // 14px
-    md: "text-base", // 16px
-    lg: "text-lg", // 18px
-    xl: "text-xl", // 20px
-    "2xl": "text-2xl", // 24px
-  };
-
-  return (
-    <IconComponent
-      className={`${sizeMap[size]} ${className}`}
-      aria-hidden="true"
-    />
-  );
-}
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 ```
 
 ---
@@ -222,7 +190,7 @@ export function MaterialIcon({
 ### Basic Usage
 
 ```tsx
-import { MaterialIcon } from "@/components/ui/material-icon";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 export function Example() {
   return (
@@ -304,13 +272,17 @@ export function Example() {
 
 ### Size Scale
 
-| Size Name | Tailwind    | Pixels | Use Case                          |
-| --------- | ----------- | ------ | --------------------------------- |
-| `sm`      | `text-sm`   | 14px   | Inline icons, small buttons       |
-| `md`      | `text-base` | 16px   | Body text icons, standard buttons |
-| `lg`      | `text-lg`   | 18px   | Section headers, CTA buttons      |
-| `xl`      | `text-xl`   | 20px   | Card headers, feature highlights  |
-| `2xl`     | `text-2xl`  | 24px   | Hero sections, major features     |
+| Size Name | Pixels | Use Case                                    |
+| --------- | ------ | ------------------------------------------- |
+| `xs`      | 20px   | Dense layouts, inline small icons           |
+| `sm`      | 24px   | Small buttons, compact containers           |
+| `md`      | 30px   | Body text icons, standard buttons (default) |
+| `lg`      | 36px   | Section headers, CTA buttons                |
+| `xl`      | 48px   | Card headers, feature highlights            |
+| `2xl`     | 60px   | Hero sections, major feature callouts       |
+| `3xl`     | 72px   | Large hero/display icons                    |
+| `4xl`     | 96px   | Extra-large display sizes                   |
+| `5xl`     | 120px  | Maximum hero displays                       |
 
 ### Spacing Guidelines
 
@@ -674,14 +646,14 @@ style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
 
 ```tsx
 // Check import
-import { MaterialIcon } from '@/components/ui/material-icon';
+import { MaterialIcon } from '@/components/icons/MaterialIcon';
 
-// Verify icon name (exact match, case-sensitive)
+// Verify icon name (exact match, lower_snake_case)
 <MaterialIcon icon="CheckCircle" />  // ❌ Wrong (PascalCase)
 <MaterialIcon icon="check_circle" /> // ✅ Correct (snake_case)
 
-// Check if icon exists in Material Icons library
-// Visit: https://mui.com/material-ui/material-icons/
+// Browse available icons:
+// https://fonts.google.com/icons
 ```
 
 #### 2. Icon Wrong Size
@@ -694,11 +666,12 @@ import { MaterialIcon } from '@/components/ui/material-icon';
 // Use size prop, not className for base size
 <MaterialIcon icon="event" size="lg" />  // ✅ Correct
 
-// For custom sizing, use both
+// Available sizes: xs, sm, md, lg, xl, 2xl, 3xl, 4xl, 5xl
+// For custom sizing override:
 <MaterialIcon
   icon="event"
   size="lg"
-  className="text-2xl"  // Override if needed
+  style={{ fontSize: '40px' }}  // Override if needed
 />
 ```
 
@@ -883,8 +856,7 @@ import { MaterialIcon } from '@/components/ui/material-icon';
 ### Brand Guidelines
 
 - **[Color System](../../branding/standards/color-system.md)** - Brand colors for icons
-- **[Component Standards](../../branding/standards/component-standards.md)** - Component design
-- **[Typography](../../branding/standards/typography.md)** - Icon sizing alignment
+- **[Unified Component Standards](../../branding/standards/unified-component-standards.md)** - Component design & typography
 
 ---
 
@@ -920,7 +892,7 @@ import { MaterialIcon } from '@/components/ui/material-icon';
 
 **Document Maintained By:** MH Construction Development Team  
 **Last Major Update:** November 17, 2025 (Consolidation)  
-**Next Review Date:** December 17, 2025  
+**Next Review Date:** March 15, 2026  
 **Version:** 2.0.0 (Consolidated from 5 source files)
 
 ---

@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
+import { COMPANY_INFO } from "@/lib/constants/company";
+
+const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 
 export const metadata: Metadata = withGeoMetadata({
   title: "Offline Mode | MH Construction PWA",
   description:
     "Offline fallback experience for the MH Construction progressive web app.",
   alternates: {
-    canonical: "https://www.mhc-gc.com/offline",
+    canonical: `${siteUrl}/offline`,
   },
   robots: {
     index: false,
@@ -18,7 +21,7 @@ export const metadata: Metadata = withGeoMetadata({
       "Offline fallback page for cached MH Construction website content.",
     type: "website",
     locale: "en_US",
-    url: "https://www.mhc-gc.com/offline",
+    url: `${siteUrl}/offline`,
   },
   twitter: {
     card: "summary",

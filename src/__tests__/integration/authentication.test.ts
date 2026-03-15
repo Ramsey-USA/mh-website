@@ -1,8 +1,13 @@
 /**
- * Authentication Flow Integration Tests
+ * Admin Authentication Flow Integration Tests
  *
- * Tests the complete authentication flow including login,
- * token generation, refresh, and protected routes
+ * Tests the admin login flow used by Matt and Jeremy to access
+ * the analytics dashboard via the AdminSignInModal in the Footer.
+ *
+ * Real flow: Footer → AdminSignInModal → POST /api/auth/admin-login → JWT token
+ *
+ * Note: General user login (/api/auth/login) is not implemented —
+ * the site uses a "direct human contact" model (phone/email only).
  */
 
 import "@testing-library/jest-dom";
@@ -10,25 +15,24 @@ import "@testing-library/jest-dom";
 // Mock fetch for API calls
 global.fetch = jest.fn();
 
-describe("Authentication Flow Integration Tests", () => {
+describe("Admin Authentication Flow Integration Tests", () => {
   beforeEach(() => {
     jest.clearAllMocks();
     (global.fetch as jest.Mock).mockClear();
   });
 
-  describe("Login Flow", () => {
-    it("should login with valid credentials", async () => {
+  describe("Admin Login Flow (Matt & Jeremy)", () => {
+    it("should login with valid admin credentials", async () => {
       const mockResponse = {
         success: true,
         user: {
-          uid: "user-123",
-          email: "test@example.com",
-          role: "user",
-          name: "Test User",
+          uid: "admin-matt",
+          email: "matt@mhc-gc.com",
+          role: "admin",
+          name: "Matt",
         },
         accessToken: "mock-access-token",
-        refreshToken: "mock-refresh-token",
-        expiresIn: 900,
+        expiresIn: 3600,
       };
 
       (global.fetch as jest.Mock).mockResolvedValueOnce({
@@ -36,12 +40,12 @@ describe("Authentication Flow Integration Tests", () => {
         json: async () => mockResponse,
       });
 
-      const response = await fetch("/api/auth/login", {
+      const response = await fetch("/api/auth/admin-login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email: "test@example.com",
-          password: "password123",
+          email: "matt@mhc-gc.com",
+          password: "correct-password",
         }),
       });
 
@@ -50,11 +54,11 @@ describe("Authentication Flow Integration Tests", () => {
       expect(response.ok).toBe(true);
       expect(result.success).toBe(true);
       expect(result.accessToken).toBeDefined();
-      expect(result.refreshToken).toBeDefined();
-      expect(result.user.email).toBe("test@example.com");
+      expect(result.user.role).toBe("admin");
+      expect(result.user.email).toBe("matt@mhc-gc.com");
     });
 
-    it("should reject invalid credentials", async () => {
+    it("should reject invalid admin credentials", async () => {
       (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: false,
         status: 401,
@@ -63,11 +67,11 @@ describe("Authentication Flow Integration Tests", () => {
         }),
       });
 
-      const response = await fetch("/api/auth/login", {
+      const response = await fetch("/api/auth/admin-login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email: "test@example.com",
+          email: "matt@mhc-gc.com",
           password: "wrongpassword",
         }),
       });
@@ -77,106 +81,81 @@ describe("Authentication Flow Integration Tests", () => {
       expect(result.error).toBe("Invalid credentials");
     });
 
-    it("should enforce rate limiting on login attempts", async () => {
+    it("should enforce strict rate limiting (3 attempts per 5 minutes)", async () => {
       (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: false,
         status: 429,
         headers: new Headers({
-          "Retry-After": "60",
-          "X-RateLimit-Limit": "5",
+          "Retry-After": "300",
+          "X-RateLimit-Limit": "3",
           "X-RateLimit-Remaining": "0",
         }),
         json: async () => ({
           error: "Too many authentication attempts",
-          retryAfter: 60,
+          retryAfter: 300,
         }),
       });
 
-      const response = await fetch("/api/auth/login", {
+      const response = await fetch("/api/auth/admin-login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email: "test@example.com",
+          email: "matt@mhc-gc.com",
           password: "password",
         }),
       });
 
       expect(response.status).toBe(429);
     });
-  });
 
-  describe("Token Refresh Flow", () => {
-    it("should refresh access token with valid refresh token", async () => {
-      const mockResponse = {
-        success: true,
-        accessToken: "new-access-token",
-        expiresIn: 900,
-      };
-
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
-        ok: true,
-        json: async () => mockResponse,
-      });
-
-      const response = await fetch("/api/auth/refresh", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          refreshToken: "valid-refresh-token",
-        }),
-      });
-
-      const result = await response.json();
-
-      expect(response.ok).toBe(true);
-      expect(result.success).toBe(true);
-      expect(result.accessToken).toBeDefined();
-    });
-
-    it("should reject invalid refresh token", async () => {
+    it("should require both email and password", async () => {
       (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: false,
-        status: 401,
+        status: 400,
         json: async () => ({
-          error: "Invalid or expired refresh token",
+          error: "Email and password are required",
         }),
       });
 
-      const response = await fetch("/api/auth/refresh", {
+      const response = await fetch("/api/auth/admin-login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          refreshToken: "invalid-token",
-        }),
+        body: JSON.stringify({ email: "matt@mhc-gc.com" }),
       });
 
-      expect(response.status).toBe(401);
+      expect(response.status).toBe(400);
+      const result = await response.json();
+      expect(result.error).toBe("Email and password are required");
     });
   });
 
-  describe("Protected Routes", () => {
-    it("should access protected route with valid token", async () => {
+  describe("Dashboard Access (Protected Routes)", () => {
+    it("should access analytics dashboard with valid admin token", async () => {
       (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: true,
         json: async () => ({
           success: true,
-          data: { message: "Protected data" },
+          data: { message: "Dashboard data" },
         }),
       });
 
-      const response = await fetch("/api/functions/getUserData", {
+      const response = await fetch("/api/functions/sendNotification", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer valid-token",
+          Authorization: "Bearer valid-admin-token",
         },
-        body: JSON.stringify({}),
+        body: JSON.stringify({
+          recipient: "matt@mhc-gc.com",
+          message: "Test notification",
+          type: "email",
+        }),
       });
 
       expect(response.ok).toBe(true);
     });
 
-    it("should reject access without token", async () => {
+    it("should reject dashboard access without token", async () => {
       (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: false,
         status: 401,
@@ -185,7 +164,7 @@ describe("Authentication Flow Integration Tests", () => {
         }),
       });
 
-      const response = await fetch("/api/functions/getUserData", {
+      const response = await fetch("/api/functions/sendNotification", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({}),
@@ -194,7 +173,7 @@ describe("Authentication Flow Integration Tests", () => {
       expect(response.status).toBe(401);
     });
 
-    it("should reject expired tokens", async () => {
+    it("should reject expired admin tokens", async () => {
       (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: false,
         status: 401,
@@ -204,7 +183,7 @@ describe("Authentication Flow Integration Tests", () => {
         }),
       });
 
-      const response = await fetch("/api/functions/getUserData", {
+      const response = await fetch("/api/functions/sendNotification", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -217,7 +196,7 @@ describe("Authentication Flow Integration Tests", () => {
     });
   });
 
-  describe("Authorization Header", () => {
+  describe("Authorization Header Parsing", () => {
     it("should parse Bearer token correctly", () => {
       const authHeader = "Bearer abc123xyz";
       const token = authHeader.startsWith("Bearer ")
@@ -245,47 +224,6 @@ describe("Authentication Flow Integration Tests", () => {
         : null;
 
       expect(token).toBeNull();
-    });
-  });
-
-  describe("User Roles and Permissions", () => {
-    it("should check user role hierarchy", () => {
-      const roleHierarchy: Record<string, number> = {
-        user: 1,
-        editor: 2,
-        admin: 3,
-        superadmin: 4,
-      };
-
-      const hasPermission = (userRole: string, requiredRole: string) => {
-        const userLevel = roleHierarchy[userRole] || 0;
-        const requiredLevel = roleHierarchy[requiredRole] || 0;
-        return userLevel >= requiredLevel;
-      };
-
-      expect(hasPermission("admin", "user")).toBe(true);
-      expect(hasPermission("user", "admin")).toBe(false);
-      expect(hasPermission("editor", "editor")).toBe(true);
-    });
-
-    it("should enforce role-based access", async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
-        ok: false,
-        status: 403,
-        json: async () => ({
-          error: "Insufficient permissions",
-          message: "Required role: admin",
-        }),
-      });
-
-      const response = await fetch("/api/admin/settings", {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer user-token-with-user-role",
-        },
-      });
-
-      expect(response.status).toBe(403);
     });
   });
 });

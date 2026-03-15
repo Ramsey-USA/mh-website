@@ -5,7 +5,7 @@ import { Navigation, Footer } from "@/components/layout";
 import FaviconLinks from "@/components/layout/FaviconLinks";
 import { AuthProvider } from "@/lib/auth/auth-context";
 import { ThemeProvider } from "@/contexts/theme-context";
-import { WebVitalsReporter } from "@/components/performance/OptimizedComponents";
+import { WebVitalsReporter } from "@/components/performance/WebVitalsReporter";
 import { MobilePerformanceMonitor } from "@/components/performance/MobilePerformanceMonitor";
 import { ErrorBoundary } from "@/components/error";
 import {
@@ -163,7 +163,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="font-sans">
+    <html lang="en">
       <head>
         <FaviconLinks />
         {/* Google Analytics */}

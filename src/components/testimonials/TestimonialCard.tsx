@@ -1,7 +1,28 @@
-"use client";
-
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import type { Testimonial } from "@/lib/data/testimonials";
+
+const variantStyles = {
+  client: {
+    borderColor: "border-brand-primary dark:border-brand-primary/50",
+    iconBg: "from-brand-primary to-brand-secondary",
+    quoteColor: "text-brand-secondary",
+  },
+  employee: {
+    borderColor: "border-brand-secondary dark:border-brand-secondary/50",
+    iconBg: "from-brand-secondary to-bronze-700",
+    quoteColor: "text-brand-secondary",
+  },
+  veteran: {
+    borderColor: "border-brand-secondary dark:border-brand-secondary/50",
+    iconBg: "from-brand-secondary to-brand-primary",
+    quoteColor: "text-brand-primary",
+  },
+  default: {
+    borderColor: "border-gray-200 dark:border-gray-700",
+    iconBg: "from-brand-primary to-brand-secondary",
+    quoteColor: "text-brand-secondary",
+  },
+};
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
@@ -21,29 +42,6 @@ export function TestimonialCard({
   className = "",
 }: TestimonialCardProps) {
   // Determine colors based on variant
-  const variantStyles = {
-    client: {
-      borderColor: "border-brand-primary dark:border-brand-primary/50",
-      iconBg: "from-brand-primary to-brand-secondary",
-      quoteColor: "text-brand-secondary",
-    },
-    employee: {
-      borderColor: "border-brand-secondary dark:border-brand-secondary/50",
-      iconBg: "from-brand-secondary to-bronze-700",
-      quoteColor: "text-brand-secondary",
-    },
-    veteran: {
-      borderColor: "border-brand-secondary dark:border-brand-secondary/50",
-      iconBg: "from-brand-secondary to-brand-primary",
-      quoteColor: "text-brand-primary",
-    },
-    default: {
-      borderColor: "border-gray-200 dark:border-gray-700",
-      iconBg: "from-brand-primary to-brand-secondary",
-      quoteColor: "text-brand-secondary",
-    },
-  };
-
   const activeVariant = variant === "default" ? testimonial.type : variant;
   const styles = variantStyles[activeVariant] || variantStyles.default;
 

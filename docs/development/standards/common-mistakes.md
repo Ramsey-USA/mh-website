@@ -2,7 +2,7 @@
 
 **Purpose:** Learn from common errors to avoid repeated issues  
 **Version:** 1.0.0  
-**Last Updated:** December 28, 2025  
+**Last Updated:** March 15, 2026  
 **Use Case:** Reference before starting work to avoid known pitfalls
 
 ---
@@ -261,7 +261,7 @@
 <MaterialIcon icon="verified" size="2xl" />
 ```
 
-**Standard Sizes:** `sm` (16px), `md` (24px), `lg` (32px), `xl` (48px), `2xl` (64px), `3xl` (96px)
+**Standard Sizes:** `xs` (20px), `sm` (24px), `md` (30px), `lg` (36px), `xl` (48px), `2xl` (60px), `3xl` (72px), `4xl` (96px), `5xl` (120px)
 
 **Why:** Standardized sizes ensure consistency and proper scaling.
 
@@ -748,6 +748,6 @@ export default function MyPage() {
 
 ---
 
-**Last Updated:** December 28, 2025  
+**Last Updated:** March 15, 2026  
 **Maintained by:** MH Construction Development Team  
 **Have a mistake to add?** Submit a PR or notify the team

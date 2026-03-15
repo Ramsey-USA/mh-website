@@ -666,7 +666,7 @@ className = "bg-white dark:bg-gray-900 text-gray-900 dark:text-white";
 
 ### Design & Messaging Guides
 
-- **[Component Standards](../branding/standards/component-standards.md)** -
+- **[Unified Component Standards](../branding/standards/unified-component-standards.md)** -
   Reusable component patterns (timelines, headers, cards)
 - **[Hero Section Standards](../branding/standards/hero-section-standards.md)** -
   Hero design template with page-specific variations
@@ -678,7 +678,7 @@ className = "bg-white dark:bg-gray-900 text-gray-900 dark:text-white";
 ### General Technical Guides
 
 - **[SEO Complete Guide](./seo/seo-complete-guide.md)** - SEO strategy & implementation
-- **[Component Standards](../branding/standards/component-standards.md)** - UI component patterns
+- **[Unified Component Standards](../branding/standards/unified-component-standards.md)** - UI component patterns
 - **[Analytics Guide](../../analytics-guide-for-matt-and-jeremy.md)** - Marketing analytics
 - **[PWA Documentation](./pwa-documentation.md)** - Progressive Web App details
 - **[Architecture](../project/architecture.md)** - Overall platform architecture

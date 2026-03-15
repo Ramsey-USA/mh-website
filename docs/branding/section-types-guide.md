@@ -37,7 +37,7 @@ everyone understand exactly which part of the page you're talking about.
 
 **Example pages:**
 
-- Homepage hero (with "Building Excellence Since 1998")
+- Homepage hero (with "Building projects for the Client, NOT the Dollar")
 - Services hero (with construction icon)
 - About hero (with team-related imagery)
 

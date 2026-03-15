@@ -19,9 +19,12 @@ export { Input, Textarea } from "./forms/Input";
 
 // Layout Components
 export { PageHero } from "./layout/PageHero";
+export { Section } from "./layout/Section";
+export type { SectionVariant, SectionPadding } from "./layout/Section";
 export { ThemeToggle } from "./layout/ThemeToggle";
 
 // Modal Components
+export { AdminSignInModal } from "./modals/AdminSignInModal";
 export { Modal } from "./modals/Modal";
 export { JobApplicationModal } from "./modals/JobApplicationModal";
 

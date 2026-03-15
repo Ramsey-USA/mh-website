@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useId, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Card, CardHeader, CardContent } from "@/components/ui";
@@ -20,12 +20,23 @@ interface AdminSignInModalProps {
  */
 export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
   const router = useRouter();
+  const titleId = useId();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleClose();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError("");
     setIsSubmitting(true);
@@ -73,19 +84,27 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
       <div
         className="absolute inset-0 bg-black/80 backdrop-blur-sm"
         onClick={handleClose}
-        onKeyDown={(e) => e.key === "Escape" && handleClose()}
-        role="button"
-        tabIndex={0}
-        aria-label="Close modal"
+        aria-hidden="true"
       />
 
       {/* Modal */}
-      <div className="relative z-10 mx-4 w-full max-w-md animate-modal-slide">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        className="relative z-10 mx-4 w-full max-w-md animate-modal-slide"
+      >
         <Card className="bg-white dark:bg-gray-900 shadow-2xl border-2 border-brand-primary/30">
           <CardHeader className="relative bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary p-6 overflow-hidden text-white">
             {/* Background decoration */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10" />
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-16 translate-x-16" />
+            <div
+              className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-16 translate-x-16"
+              aria-hidden="true"
+            />
 
             <div className="relative z-10">
               <div className="flex items-center justify-between mb-2">
@@ -97,7 +116,9 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
                       className="text-white"
                     />
                   </div>
-                  <h2 className="text-2xl font-black">Admin Access</h2>
+                  <h2 id={titleId} className="text-2xl font-black">
+                    Admin Access
+                  </h2>
                 </div>
                 <button
                   onClick={handleClose}
@@ -116,7 +137,10 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
           <CardContent className="p-6">
             <form onSubmit={handleSubmit} className="space-y-4">
               {error && (
-                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3 flex items-start gap-2">
+                <div
+                  role="alert"
+                  className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3 flex items-start gap-2"
+                >
                   <MaterialIcon
                     icon="error"
                     size="sm"

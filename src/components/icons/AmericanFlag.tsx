@@ -19,6 +19,19 @@ const sizeMap = {
   "5xl": "w-48 h-36",
 };
 
+// 9 rows of stars: alternating 6/5 count, staggered cx, incrementing cy and delay
+const starRows = [
+  { count: 6, cx: 7, cy: 4, delayBase: 0.0 },
+  { count: 5, cx: 13.3, cy: 10, delayBase: 0.2 },
+  { count: 6, cx: 7, cy: 16, delayBase: 0.4 },
+  { count: 5, cx: 13.3, cy: 22, delayBase: 0.6 },
+  { count: 6, cx: 7, cy: 28, delayBase: 0.8 },
+  { count: 5, cx: 13.3, cy: 34, delayBase: 1.0 },
+  { count: 6, cx: 7, cy: 40, delayBase: 1.2 },
+  { count: 5, cx: 13.3, cy: 46, delayBase: 1.4 },
+  { count: 6, cx: 7, cy: 52, delayBase: 1.6 },
+];
+
 /**
  * American Flag SVG Component
  * Features a proper American flag with 50 stars and 13 stripes
@@ -83,114 +96,21 @@ export function AmericanFlag({
         />
 
         {/* 50 Stars arranged in 9 rows (staggered pattern) */}
-        {/* Row 1: 6 stars */}
-        {[...Array(6)].map((_, i) => (
-          <circle
-            key={`row1-${i}`}
-            cx={7 + i * 12.6}
-            cy={4}
-            r="1.5"
-            fill="#FFFFFF"
-            className={animated ? "animate-twinkle" : ""}
-            style={animated ? { animationDelay: `${i * 0.1}s` } : {}}
-          />
-        ))}
-        {/* Row 2: 5 stars */}
-        {[...Array(5)].map((_, i) => (
-          <circle
-            key={`row2-${i}`}
-            cx={13.3 + i * 12.6}
-            cy={10}
-            r="1.5"
-            fill="#FFFFFF"
-            className={animated ? "animate-twinkle" : ""}
-            style={animated ? { animationDelay: `${i * 0.1 + 0.2}s` } : {}}
-          />
-        ))}
-        {/* Row 3: 6 stars */}
-        {[...Array(6)].map((_, i) => (
-          <circle
-            key={`row3-${i}`}
-            cx={7 + i * 12.6}
-            cy={16}
-            r="1.5"
-            fill="#FFFFFF"
-            className={animated ? "animate-twinkle" : ""}
-            style={animated ? { animationDelay: `${i * 0.1 + 0.4}s` } : {}}
-          />
-        ))}
-        {/* Row 4: 5 stars */}
-        {[...Array(5)].map((_, i) => (
-          <circle
-            key={`row4-${i}`}
-            cx={13.3 + i * 12.6}
-            cy={22}
-            r="1.5"
-            fill="#FFFFFF"
-            className={animated ? "animate-twinkle" : ""}
-            style={animated ? { animationDelay: `${i * 0.1 + 0.6}s` } : {}}
-          />
-        ))}
-        {/* Row 5: 6 stars */}
-        {[...Array(6)].map((_, i) => (
-          <circle
-            key={`row5-${i}`}
-            cx={7 + i * 12.6}
-            cy={28}
-            r="1.5"
-            fill="#FFFFFF"
-            className={animated ? "animate-twinkle" : ""}
-            style={animated ? { animationDelay: `${i * 0.1 + 0.8}s` } : {}}
-          />
-        ))}
-        {/* Row 6: 5 stars */}
-        {[...Array(5)].map((_, i) => (
-          <circle
-            key={`row6-${i}`}
-            cx={13.3 + i * 12.6}
-            cy={34}
-            r="1.5"
-            fill="#FFFFFF"
-            className={animated ? "animate-twinkle" : ""}
-            style={animated ? { animationDelay: `${i * 0.1 + 1.0}s` } : {}}
-          />
-        ))}
-        {/* Row 7: 6 stars */}
-        {[...Array(6)].map((_, i) => (
-          <circle
-            key={`row7-${i}`}
-            cx={7 + i * 12.6}
-            cy={40}
-            r="1.5"
-            fill="#FFFFFF"
-            className={animated ? "animate-twinkle" : ""}
-            style={animated ? { animationDelay: `${i * 0.1 + 1.2}s` } : {}}
-          />
-        ))}
-        {/* Row 8: 5 stars */}
-        {[...Array(5)].map((_, i) => (
-          <circle
-            key={`row8-${i}`}
-            cx={13.3 + i * 12.6}
-            cy={46}
-            r="1.5"
-            fill="#FFFFFF"
-            className={animated ? "animate-twinkle" : ""}
-            style={animated ? { animationDelay: `${i * 0.1 + 1.4}s` } : {}}
-          />
-        ))}
-        {/* Row 9: 6 stars */}
-        {[...Array(6)].map((_, i) => (
-          <circle
-            key={`row9-${i}`}
-            cx={7 + i * 12.6}
-            cy={52}
-            r="1.5"
-            fill="#FFFFFF"
-            className={animated ? "animate-twinkle" : ""}
-            style={animated ? { animationDelay: `${i * 0.1 + 1.6}s` } : {}}
-          />
-        ))}
+        {starRows.map(({ count, cx, cy, delayBase }, row) =>
+          [...Array(count)].map((_, i) => (
+            <circle
+              key={`r${row}-${i}`}
+              cx={cx + i * 12.6}
+              cy={cy}
+              r="1.5"
+              fill="#FFFFFF"
+              className={animated ? "animate-twinkle" : ""}
+              style={
+                animated ? { animationDelay: `${i * 0.1 + delayBase}s` } : {}
+              }
+            />
+          )),
+        )}
       </svg>
     </div>
   );

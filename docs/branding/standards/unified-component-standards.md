@@ -72,19 +72,28 @@ The gradient text in section headers, as implemented across all pages, is the co
 
 ## 📝 **Typography System**
 
-### **Primary Typeface: Inter**
+### **Primary Typeface: System UI**
 
 **Font Family Stack:**
 
 ```css
-font-family: "Inter", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+font-family:
+  ui-sans-serif,
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  Arial,
+  sans-serif;
 ```
 
 **Key Characteristics:**
 
+- Native OS font — zero loading overhead
 - High legibility at all sizes
 - Professional, modern aesthetic
-- Variable font support
 - Excellent accessibility
 - Wide language support
 

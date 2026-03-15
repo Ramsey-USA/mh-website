@@ -86,7 +86,7 @@ export default function AboutPage() {
           id="company-evolution"
           icon="history"
           iconBg="bronze"
-          subtitle="15+ Years of Excellence"
+          subtitle="16+ Years of Excellence"
           title="Our Journey"
           description={
             <>
@@ -94,7 +94,7 @@ export default function AboutPage() {
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                 veteran-owned excellence
               </span>
-              —fifteen years of partnership philosophy, safety leadership, and{" "}
+              —sixteen years of partnership philosophy, safety leadership, and{" "}
               <span className="font-bold text-gray-900 dark:text-white">
                 650+ successfully completed projects
               </span>

@@ -8,13 +8,13 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.privacy);
+
 export default function PrivacyPolicyPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-black">
       <PageTrackingClient pageName="Privacy Policy" />
-      <StructuredData
-        data={generateBreadcrumbSchema(breadcrumbPatterns.privacy)}
-      />
+      <StructuredData data={breadcrumbSchema} />
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl py-12 sm:py-16 lg:py-20">
         {/* Header */}
         <div className="mb-8 sm:mb-12">
@@ -149,9 +149,9 @@ export default function PrivacyPolicyPage() {
               <p className="text-gray-700 dark:text-gray-300">
                 <strong>MH Construction, Inc.</strong>
                 <br />
-                3111 N. Capitol Ave.
+                {COMPANY_INFO.address.street}
                 <br />
-                Pasco, WA 99301
+                {COMPANY_INFO.address.cityStateZip}
                 <br />
                 Phone:{" "}
                 <a

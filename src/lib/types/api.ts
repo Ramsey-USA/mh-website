@@ -4,16 +4,6 @@
  */
 
 /**
- * Base API response structure
- */
-export interface ApiResponse<T = unknown> {
-  success: boolean;
-  data?: T;
-  message?: string;
-  error?: string;
-}
-
-/**
  * Success response structure
  */
 export interface ApiSuccessResponse<T = unknown> {
@@ -51,37 +41,6 @@ export interface FormSubmissionResponse {
     id: string;
     emailSent: boolean;
     dbStored?: boolean;
-  };
-  error?: string;
-}
-
-/**
- * Authentication response
- */
-export interface AuthResponse {
-  success: boolean;
-  user?: {
-    uid: string;
-    email?: string;
-    role?: string;
-    name?: string;
-  };
-  accessToken?: string;
-  refreshToken?: string;
-  expiresIn?: number;
-  error?: string;
-}
-
-/**
- * File upload response
- */
-export interface FileUploadResponse {
-  success: boolean;
-  data?: {
-    url: string;
-    key: string;
-    filename: string;
-    size: number;
   };
   error?: string;
 }

@@ -80,6 +80,8 @@ Before using any pattern below, verify your page matches homepage quality:
 - ✅ ALWAYS use: `py-12 sm:py-16 lg:py-20 xl:py-24` padding
 - ❌ NEVER use: Complex gradients on base, small animated blobs
 
+> **Prefer `BrandedContentSection`** for new sections — it wraps all of the above automatically with 82% less code. See [Template Components](../components/template-components.md).
+
 ---
 
 ## 📝 Section Headers (Two-Line Gradient Pattern)
@@ -219,12 +221,15 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 **Standard Sizes:**
 
-- `sm` - Small (16px) - Inline with text
-- `md` - Medium (24px) - Default size
-- `lg` - Large (32px) - Card icons
+- `xs` - Extra Small (20px) - Dense layouts
+- `sm` - Small (24px) - Inline with text
+- `md` - Medium (30px) - Default size
+- `lg` - Large (36px) - Card icons
 - `xl` - Extra Large (48px) - Feature icons
-- `2xl` - 2X Large (64px) - Section header icons
-- `3xl` - 3X Large (96px) - Hero icons
+- `2xl` - 2X Large (60px) - Section header icons
+- `3xl` - 3X Large (72px) - Hero icons
+- `4xl` - 4X Large (96px) - Large hero/display
+- `5xl` - 5X Large (120px) - Extra large hero displays
 
 **Common Icons:**
 
@@ -276,17 +281,24 @@ import { Button } from "@/components/ui";
 
 **Variants:**
 
-- `primary` - Green, main actions
-- `secondary` - Tan, secondary actions
-- `outline` - Bordered, tertiary actions
-- `neutral` - Gray, cancel actions
+- `primary` - Green, main actions (MH brand)
+- `secondary` - Leather Tan, secondary actions
+- `outline` - Bronze bordered, premium CTA feel
+- `neutral` - Theme-aware gray, cancel/neutral actions
+- `default` - Gray bordered, utility actions
+- `destructive` - Red, delete/critical actions
+- `ghost` - Transparent, minimal actions
+- `link` - Text link style
 
 **Sizes:**
 
-- `sm` - Small buttons
-- `default` - Standard size
-- `lg` - Large buttons
-- `xl` - Extra large CTAs
+- `sm` - Small buttons (`h-8`)
+- `default` - Standard size (`h-10`)
+- `lg` - Large buttons (`h-12`)
+- `xl` - Extra large CTAs (`h-14`)
+- `icon` - Square icon button (`h-10 w-10`)
+- `icon-sm` - Small icon button (`h-8 w-8`)
+- `icon-lg` - Large icon button (`h-12 w-12`)
 
 ---
 
@@ -379,7 +391,7 @@ import { usePageTracking } from "@/lib/analytics/hooks";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { StructuredData } from "@/components/seo/seo-meta";
+import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
@@ -523,5 +535,5 @@ className="text-brand-primary"
 
 ---
 
-**Last Updated:** December 28, 2025  
+**Last Updated:** March 15, 2026  
 **Maintained by:** MH Construction Development Team

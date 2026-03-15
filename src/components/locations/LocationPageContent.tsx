@@ -13,12 +13,40 @@ import {
 } from "@/lib/seo/breadcrumb-schema";
 import { type LocationData } from "@/lib/data/locations";
 
+const coreValues = [
+  {
+    icon: "handshake",
+    title: "Honesty",
+    desc: "Transparent communication and pricing",
+  },
+  {
+    icon: "verified_user",
+    title: "Integrity",
+    desc: "Your word is your bond - so is ours",
+  },
+  {
+    icon: "engineering",
+    title: "Professionalism",
+    desc: "Military precision in every project",
+  },
+  {
+    icon: "task_alt",
+    title: "Thoroughness",
+    desc: "Attention to detail in every phase",
+  },
+];
+
+const trustIndicators = [
+  { icon: "verified", label: "Licensed in WA, OR, ID" },
+  { icon: "military_tech", label: "Veteran-Owned" },
+  { icon: "workspace_premium", label: "650+ Projects Completed" },
+];
+
 interface LocationPageProps {
   location: LocationData;
 }
 
 export function LocationPageContent({ location }: LocationPageProps) {
-  // Analytics tracking
   usePageTracking(`Location - ${location.city}`);
   const priorityServices = location.servicePriorities || [];
   const nearbyAreas = location.nearbyAreas || [];
@@ -60,6 +88,12 @@ export function LocationPageContent({ location }: LocationPageProps) {
     },
   ];
 
+  const breadcrumbSchema = generateBreadcrumbSchema(
+    breadcrumbPatterns[
+      location.breadcrumbKey as keyof typeof breadcrumbPatterns
+    ],
+  );
+
   // Generate location-specific structured data
   const locationSchema = {
     "@context": "https://schema.org",
@@ -83,12 +117,21 @@ export function LocationPageContent({ location }: LocationPageProps) {
       latitude: location.coordinates.latitude,
       longitude: location.coordinates.longitude,
     },
-    areaServed: {
-      "@type": "City",
-      name: location.city,
-      addressRegion: location.state,
-      addressCountry: "US",
-    },
+    areaServed: [
+      {
+        "@type": "City",
+        name: location.city,
+        addressRegion: location.state,
+        addressCountry: "US",
+      },
+      ...(location.serviceZipCodes || []).map((zip) => ({
+        "@type": "PostalAddress",
+        addressLocality: location.city,
+        addressRegion: location.state,
+        postalCode: zip,
+        addressCountry: "US",
+      })),
+    ],
     knowsAbout: priorityServices,
     openingHoursSpecification: [
       {
@@ -146,13 +189,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
   return (
     <>
       <StructuredData data={locationSchema} />
-      <StructuredData
-        data={generateBreadcrumbSchema(
-          breadcrumbPatterns[
-            location.breadcrumbKey as keyof typeof breadcrumbPatterns
-          ],
-        )}
-      />
+      <StructuredData data={breadcrumbSchema} />
 
       <main className="min-h-screen">
         {/* Hero Section - Location Specific */}
@@ -226,18 +263,12 @@ export function LocationPageContent({ location }: LocationPageProps) {
 
               {/* Trust Indicators */}
               <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 pt-8 text-xs sm:text-sm text-white/70">
-                <div className="flex items-center gap-2">
-                  <MaterialIcon icon="verified" size="sm" />
-                  <span>Licensed in WA, OR, ID</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MaterialIcon icon="military_tech" size="sm" />
-                  <span>Veteran-Owned</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MaterialIcon icon="workspace_premium" size="sm" />
-                  <span>650+ Projects Completed</span>
-                </div>
+                {trustIndicators.map((t) => (
+                  <div key={t.label} className="flex items-center gap-2">
+                    <MaterialIcon icon={t.icon} size="sm" />
+                    <span>{t.label}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </SectionContainer>
@@ -469,69 +500,23 @@ export function LocationPageContent({ location }: LocationPageProps) {
 
               {/* Features Grid */}
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-                <div className="text-center">
-                  <div className="flex justify-center mb-4">
-                    <MaterialIcon
-                      icon="handshake"
-                      size="2xl"
-                      className="text-brand-secondary"
-                    />
+                {coreValues.map((v) => (
+                  <div key={v.title} className="text-center">
+                    <div className="flex justify-center mb-4">
+                      <MaterialIcon
+                        icon={v.icon}
+                        size="2xl"
+                        className="text-brand-secondary"
+                      />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">
+                      {v.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                      {v.desc}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">
-                    Honesty
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Transparent communication and pricing
-                  </p>
-                </div>
-
-                <div className="text-center">
-                  <div className="flex justify-center mb-4">
-                    <MaterialIcon
-                      icon="verified_user"
-                      size="2xl"
-                      className="text-brand-secondary"
-                    />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">
-                    Integrity
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Your word is your bond - so is ours
-                  </p>
-                </div>
-
-                <div className="text-center">
-                  <div className="flex justify-center mb-4">
-                    <MaterialIcon
-                      icon="engineering"
-                      size="2xl"
-                      className="text-brand-secondary"
-                    />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">
-                    Professionalism
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Military precision in every project
-                  </p>
-                </div>
-
-                <div className="text-center">
-                  <div className="flex justify-center mb-4">
-                    <MaterialIcon
-                      icon="task_alt"
-                      size="2xl"
-                      className="text-brand-secondary"
-                    />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">
-                    Thoroughness
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Attention to detail in every phase
-                  </p>
-                </div>
+                ))}
               </div>
 
               {/* Local Expertise Callout */}

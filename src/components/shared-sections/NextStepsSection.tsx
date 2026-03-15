@@ -4,8 +4,6 @@
  * Used on: Homepage, About, Services pages
  */
 
-"use client";
-
 import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";

@@ -560,9 +560,9 @@ export function generateBreadcrumbSchema(
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: breadcrumbs.map((crumb, _index) => ({
+    itemListElement: breadcrumbs.map((crumb, index) => ({
       "@type": "ListItem",
-      position: _index + 1,
+      position: index + 1,
       name: crumb.name,
       item: crumb.url,
     })),

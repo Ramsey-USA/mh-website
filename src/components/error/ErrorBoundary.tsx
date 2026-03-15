@@ -155,23 +155,3 @@ function DefaultErrorFallback({
     </div>
   );
 }
-
-/**
- * Async Error Boundary Hook
- * For use with async operations in function components
- */
-export function useErrorHandler() {
-  const handleError = (error: Error) => {
-    logger.error("Async error:", error);
-
-    // Track in analytics
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "exception", {
-        description: error.message,
-        fatal: false,
-      });
-    }
-  };
-
-  return handleError;
-}

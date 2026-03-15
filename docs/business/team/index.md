@@ -1,7 +1,7 @@
 # Team Documentation - Chain of Command
 
 **Category:** Business - Team  
-**Last Updated:** December 24, 2025  
+**Last Updated:** March 15, 2026  
 **Version:** 1.0.0  
 **Status:** ✅ Active
 
@@ -32,25 +32,24 @@ and personal commitment to every Client Partner.
 
 #### Executive Leadership
 
-- **[Jeremy Thamert](./profiles/jeremy-thamert.md)** - Owner & General Manager | Army Veteran
+- **[Jeremy Thamert](./profiles/jeremy-thamert.md)** - Owner & President | Army Veteran
 - **[Arnold Garcia](./profiles/arnold-garcia.md)** - Vice President (1 year) | Former GM (10 years)
-- **[Mike Holstein](./profiles/mike-holstein.md)** - Founder & Former Owner (Retired)
+- **[Mike Holstein](./profiles/mike-holstein.md)** - Founder (Retired)
 
-### Mission Commanders (5)
+### Mission Commanders (3)
 
 #### Project Management & Estimating
 
 - **[Ben Woodall](./profiles/ben-woodall.md)** - Project Manager
-- **[Jennifer Tenehuerta](./profiles/jennifer-tenehuerta.md)** - Project Engineer / Admin Assistant
+- **[Jennifer Tene](./profiles/jennifer-tenehuerta.md)** - Project Engineer / Admin Assistant
 - **[Lisa Kandle](./profiles/lisa-kandle.md)** - Project Engineer / Marketing Agent
-- **[Matt Ramsey](./profiles/matt-ramsey.md)** - Project Manager's Assistant / Marketing Manager | Navy Veteran
-- **[Todd Schoeff](./profiles/todd-schoeff.md)** - Lead Estimator | Navy Veteran
 
-### Special Operations (1)
+### Special Operations (2)
 
 #### Marketing, Safety & Strategic Initiatives
 
-- Currently being restructured - functions distributed across Mission Commanders
+- **[Matt Ramsey](./profiles/matt-ramsey.md)** - Project Manager's Assistant / Marketing Manager / Safety Officer | Navy Veteran
+- **[Todd Schoeff](./profiles/todd-schoeff.md)** - Lead Estimator
 
 ### Field Officers (4)
 
@@ -65,7 +64,7 @@ and personal commitment to every Client Partner.
 
 #### Administration & Support
 
-- **[Brooks Morris](./profiles/brooks-morris.md)** - Senior Accountant
+- **[Brooks Morris](./profiles/brooks-morris.md)** - Finance and Operations Manager
 - **[Brittney Holstein](./profiles/brittney-holstein.md)** - HR Manager
 
 ---
@@ -80,7 +79,7 @@ and relationships that outlast projects.
 ## 📊 Team Statistics
 
 - **Total Team Members:** 14
-- **Veteran Leadership:** 3 (Army, Navy)
+- **Veteran Leadership:** 2 (Army, Navy)
 - **Combined Experience:** 150+ years
 - **Command Structure:** 5 specialized divisions (The Upper Brass, Mission Commanders, Special Operations,
   Field Officers, Logistics Command)

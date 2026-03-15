@@ -141,5 +141,37 @@ export const breadcrumbPatterns = {
       url: "https://www.mhc-gc.com/locations/walla-walla",
     },
   ],
+  locationHermiston: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    {
+      name: "Hermiston, OR",
+      url: "https://www.mhc-gc.com/locations/hermiston",
+    },
+  ],
+  locationPendleton: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    {
+      name: "Pendleton, OR",
+      url: "https://www.mhc-gc.com/locations/pendleton",
+    },
+  ],
+  locationCoeurDAlene: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    {
+      name: "Coeur d'Alene, ID",
+      url: "https://www.mhc-gc.com/locations/coeur-d-alene",
+    },
+  ],
+  locationOmak: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Services", url: "https://www.mhc-gc.com/services" },
+    {
+      name: "Omak, WA",
+      url: "https://www.mhc-gc.com/locations/omak",
+    },
+  ],
   // Removed: 3dExplorer breadcrumb (feature deprecated)
 };

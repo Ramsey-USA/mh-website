@@ -888,7 +888,7 @@ export default function CareersPage() {
                         num: 1,
                         icon: "description",
                         title: "Submit Application",
-                        desc: "Complete our online application form or email your resume to careers@mhc-gc.com. Include relevant certifications and references. Response within 3-5 business days.",
+                        desc: "Complete our online application form or email your resume to office@mhc-gc.com. Include relevant certifications and references. Response within 3-5 business days.",
                         position: "left",
                       },
                       {

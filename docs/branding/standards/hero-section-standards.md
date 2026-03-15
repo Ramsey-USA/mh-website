@@ -271,8 +271,7 @@ Use this checklist when creating or reviewing any page's hero section:
 
 ## Related Documentation
 
-- [Typography Standards](./typography.md) - Full typography system
-- [Component Standards](./component-standards.md) - All component guidelines
+- [Unified Component Standards](./unified-component-standards.md) - Complete design system (typography, components)
 - [MH Branding](../) - Hub for all brand documentation
 
 ---
@@ -283,7 +282,7 @@ If you need clarification on hero section standards:
 
 1. Review the complete example in this document
 2. Check existing page implementations (home, services, projects, etc.)
-3. Refer to [Typography Standards](./typography.md#-hero-section-typography-standards)
+3. Refer to [Unified Component Standards](./unified-component-standards.md#-typography-system)
 4. Consult the implementation checklist above
 
 ---

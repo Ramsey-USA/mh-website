@@ -1,7 +1,7 @@
 # Buttons & CTAs - Complete Implementation Guide
 
 **Category:** UI Components - Buttons & Call-to-Actions  
-**Last Updated:** December 25, 2025  
+**Last Updated:** March 15, 2026  
 **Status:** ✅ Active - Government Color Scheme
 **Version:** 3.3.0 - Emergency/Urgent Button Variants Removed
 
@@ -32,12 +32,16 @@
 
 ### Button Variant Matrix
 
-| Variant       | Color                  | Use Case                    | Icon Examples             | Text Examples                |
-| ------------- | ---------------------- | --------------------------- | ------------------------- | ---------------------------- |
-| **Primary**   | Hunter Green (#386851) | Main CTAs, consultations    | `phone`, `email`          | "Call Us Today"              |
-| **Secondary** | Leather Tan (#BD9264)  | Supporting actions          | `handshake`, `visibility` | "View Our Work"              |
-| **Outline**   | Transparent border     | Subtle actions, navigation  | `arrow_forward`, `info`   | "Learn More", "View Details" |
-| **Neutral**   | Theme-aware            | System actions, UI controls | `close`, `arrow_back`     | "Back", "Cancel"             |
+| Variant         | Color                  | Use Case                    | Icon Examples             | Text Examples                |
+| --------------- | ---------------------- | --------------------------- | ------------------------- | ---------------------------- |
+| **Primary**     | Hunter Green (#386851) | Main CTAs, consultations    | `phone`, `email`          | "Call Us Today"              |
+| **Secondary**   | Leather Tan (#BD9264)  | Supporting actions          | `handshake`, `visibility` | "View Our Work"              |
+| **Outline**     | Transparent border     | Subtle actions, navigation  | `arrow_forward`, `info`   | "Learn More", "View Details" |
+| **Neutral**     | Theme-aware            | System actions, UI controls | `close`, `arrow_back`     | "Back", "Cancel"             |
+| **Default**     | Gray, theme-aware      | General utility actions     | `settings`, `tune`        | "Settings", "Filters"        |
+| **Destructive** | Red                    | Delete / destructive ops    | `delete`, `warning`       | "Delete", "Remove"           |
+| **Ghost**       | Transparent            | Minimal UI actions          | `more_horiz`              | "More", "Options"            |
+| **Link**        | Text only, underlined  | Inline text links           | —                         | "View Details", "Read More"  |
 
 ### Service Type Distinctions
 
@@ -103,11 +107,11 @@
 ```tsx
 <Button variant="secondary" size="lg" className="group/btn">
   <MaterialIcon
-    icon="smart_toy"
+    icon="photo_library"
     size="lg"
     className="mr-2 group-hover/btn:scale-110 transition-transform"
   />
-  Get Instant AI Estimate
+  View Our Work
 </Button>
 ```
 
@@ -484,7 +488,7 @@ Always include veteran-owned and safety credentials when using government button
 1. **Button Component:** Import from `@/components/ui`
 
 ```tsx
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui";
 ```
 
 1. **Proper Variant:** `primary`, `secondary`, `outline`, or `neutral`
@@ -734,8 +738,8 @@ color: white;
 ### Complete CTA Section Pattern
 
 ```tsx
-import { Button } from "@/components/ui/button";
-import { MaterialIcon } from "@/components/ui/material-icon";
+import { Button } from "@/components/ui";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import Link from "next/link";
 
 export function CTASection() {
@@ -769,7 +773,7 @@ export function CTASection() {
           </Link>
 
           {/* Secondary CTA - Email Contact */}
-          <Link href="mailto:info@mhconstruction.com">
+          <Link href="mailto:office@mhc-gc.com">
             <Button
               variant="secondary"
               size="lg"
@@ -799,8 +803,8 @@ export function CTASection() {
 ### Next Steps Section Pattern (3 Options)
 
 ```tsx
-import { Button } from "@/components/ui/button";
-import { MaterialIcon } from "@/components/ui/material-icon";
+import { Button } from "@/components/ui";
+import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import Link from "next/link";
 
 export function NextStepsSection() {
@@ -817,7 +821,7 @@ export function NextStepsSection() {
       icon: "email",
       title: "Email Us",
       description: "Send us your project details and questions",
-      href: "mailto:info@mhconstruction.com",
+      href: "mailto:office@mhc-gc.com",
       variant: "secondary" as const,
       buttonText: "Email Us",
     },
@@ -1008,7 +1012,7 @@ export function MobileCTA() {
 ### Design System
 
 - **[Icon System Complete](./icon-system-complete.md)** - Material Icon standards
-- **[Typography](../../branding/standards/typography.md)** - Text styling
+- **[Unified Component Standards](../../branding/standards/unified-component-standards.md)** - Text styling & typography
 
 ### Development
 
@@ -1049,7 +1053,7 @@ export function MobileCTA() {
 
 **Document Maintained By:** MH Construction Development Team  
 **Last Major Update:** November 17, 2025 (Consolidation)  
-**Next Review Date:** December 17, 2025  
+**Next Review Date:** March 15, 2026  
 **Version:** 2.0.0 (Consolidated from 4 source files)
 
 ---

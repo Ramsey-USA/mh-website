@@ -8,9 +8,6 @@
 /* Import 3D card flip utilities */
 @import "../styles/card-flip.css";
 
-/* Import video hero section styles */
-@import "../styles/video-hero.css";
-
 /* Material Icons font setup */
 .material-icons {
   font-family: "Material Icons";
@@ -23,7 +20,6 @@
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "liga";
 }
@@ -98,11 +94,6 @@ nav[aria-label="Breadcrumb navigation"] {
   }
   .cta-border:hover {
     border-color: var(--color-brand-bronze-dark);
-  }
-
-  /* Smooth scrolling */
-  .scroll-smooth {
-    scroll-behavior: smooth;
   }
 
   /* Mobile-specific text utilities */
@@ -200,11 +191,6 @@ nav[aria-label="Breadcrumb navigation"] {
   /* Optimize rendering performance */
   * {
     -webkit-tap-highlight-color: transparent;
-  }
-
-  /* Global focus styling for accessibility */
-  *:focus-visible {
-    @apply outline-2 outline-brand-primary outline-offset-2;
   }
 
   /* Dark mode color scheme for native browser elements */
@@ -591,11 +577,6 @@ main {
     font-size: inherit;
     width: 1em;
     height: 1em;
-  }
-
-  /* Prevent horizontal overflow on small screens */
-  body {
-    overflow-x: hidden;
   }
 
   /* Ensure cards don't overflow container */

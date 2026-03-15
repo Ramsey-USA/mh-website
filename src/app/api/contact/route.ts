@@ -42,7 +42,7 @@ interface ContactRequest {
   customHtml?: string; // For custom email templates (e.g., acknowledgments)
 }
 
-export async function handlePOST(request: NextRequest) {
+async function handlePOST(request: NextRequest) {
   try {
     const data: ContactRequest = await request.json();
 

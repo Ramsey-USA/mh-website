@@ -21,14 +21,13 @@ export function GET(request: NextRequest) {
 
     logger.info("[Protocol Handler] Received:", { action, params });
 
-    // Handle different protocol actions
     switch (action) {
       case "contact":
         return NextResponse.redirect(new URL("/contact", request.url), {
           status: 302,
         });
 
-      case "project":
+      case "project": {
         const projectId = params["id"];
         if (projectId) {
           return NextResponse.redirect(
@@ -39,6 +38,7 @@ export function GET(request: NextRequest) {
         return NextResponse.redirect(new URL("/projects", request.url), {
           status: 302,
         });
+      }
 
       case "estimate":
         return NextResponse.redirect(
@@ -53,7 +53,6 @@ export function GET(request: NextRequest) {
         );
 
       default:
-        // Unknown action, redirect to home
         return NextResponse.redirect(new URL("/", request.url), {
           status: 302,
         });

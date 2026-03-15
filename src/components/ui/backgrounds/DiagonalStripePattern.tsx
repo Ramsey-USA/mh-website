@@ -1,3 +1,16 @@
+import type { CSSProperties } from "react";
+
+interface DiagonalStripePatternProps {
+  /** Opacity in light mode (default: 0.03) */
+  lightOpacity?: number;
+  /** Opacity in dark mode (default: 0.05) */
+  darkOpacity?: number;
+  /** Stripe color (default: var(--color-brand-primary) - brand primary) */
+  color?: string;
+  /** Additional CSS classes */
+  className?: string;
+}
+
 /**
  * DiagonalStripePattern Component
  *
@@ -12,18 +25,6 @@
  * </section>
  * ```
  */
-
-interface DiagonalStripePatternProps {
-  /** Opacity in light mode (default: 0.03) */
-  lightOpacity?: number;
-  /** Opacity in dark mode (default: 0.05) */
-  darkOpacity?: number;
-  /** Stripe color (default: var(--color-brand-primary) - brand primary) */
-  color?: string;
-  /** Additional CSS classes */
-  className?: string;
-}
-
 export function DiagonalStripePattern({
   lightOpacity = 0.03,
   darkOpacity = 0.05,
@@ -32,25 +33,21 @@ export function DiagonalStripePattern({
 }: DiagonalStripePatternProps) {
   return (
     <div
-      className={`absolute inset-0 ${className}`}
-      style={{ opacity: lightOpacity }}
+      className={`absolute inset-0 opacity-[var(--stripe-light-op)] dark:opacity-[var(--stripe-dark-op)] ${className}`}
+      style={
+        {
+          "--stripe-light-op": lightOpacity,
+          "--stripe-dark-op": darkOpacity,
+          backgroundImage: `repeating-linear-gradient(
+          45deg,
+          ${color} 0px,
+          ${color} 2px,
+          transparent 2px,
+          transparent 60px
+        )`,
+        } as CSSProperties
+      }
       aria-hidden="true"
-    >
-      <div
-        className="absolute inset-0 dark:opacity-[var(--dark-opacity)]"
-        style={
-          {
-            backgroundImage: `repeating-linear-gradient(
-              45deg,
-              ${color} 0px,
-              ${color} 2px,
-              transparent 2px,
-              transparent 60px
-            )`,
-            "--dark-opacity": darkOpacity / lightOpacity,
-          } as React.CSSProperties & { "--dark-opacity": number }
-        }
-      />
-    </div>
+    />
   );
 }

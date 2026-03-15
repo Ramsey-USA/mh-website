@@ -66,7 +66,7 @@ export const metadata: Metadata = withGeoMetadata({
     "Pasco WA privacy notice",
   ],
   alternates: {
-    canonical: "https://www.mhc-gc.com/privacy",
+    canonical: `${siteUrl}/privacy`,
   },
   robots: {
     index: true,
@@ -78,7 +78,7 @@ export const metadata: Metadata = withGeoMetadata({
       "How MH Construction protects your data and handles privacy across contact and project workflows.",
     type: "website",
     locale: "en_US",
-    url: "https://www.mhc-gc.com/privacy",
+    url: `${siteUrl}/privacy`,
   },
   twitter: {
     card: "summary",

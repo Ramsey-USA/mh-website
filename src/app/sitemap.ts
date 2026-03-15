@@ -57,6 +57,26 @@ const ACTIVE_PAGES = [
     priority: 0.8,
     changeFreq: "monthly" as const,
   },
+  {
+    path: "/locations/hermiston",
+    priority: 0.8,
+    changeFreq: "monthly" as const,
+  },
+  {
+    path: "/locations/pendleton",
+    priority: 0.8,
+    changeFreq: "monthly" as const,
+  },
+  {
+    path: "/locations/coeur-d-alene",
+    priority: 0.8,
+    changeFreq: "monthly" as const,
+  },
+  {
+    path: "/locations/omak",
+    priority: 0.8,
+    changeFreq: "monthly" as const,
+  },
 
   // Priority 0.7 - Supporting pages
   { path: "/team", priority: 0.7, changeFreq: "monthly" as const },
@@ -70,7 +90,8 @@ const ACTIVE_PAGES = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.mhc-gc.com";
+  const baseUrl =
+    process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com";
   const currentDate = new Date();
 
   // Auto-generate sitemap entries from registry

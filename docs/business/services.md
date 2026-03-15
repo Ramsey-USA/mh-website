@@ -1,6 +1,6 @@
 # MH Construction Services & Capabilities - Veteran-Led Excellence
 
-**Last Updated:** December 14, 2025  
+**Last Updated:** March 15, 2026  
 **Status:** Official Service Offerings  
 **Methodology:** Military/Construction Terminology Integration
 
@@ -92,9 +92,9 @@ We meticulously consider:
 
 ---
 
-### 3. **Procurement & Ally Management**
+### 3. **Procurement & Trade Partnership Management**
 
-#### Reliable Construction Material Procurement and Ally Coordination
+#### Reliable Material Sourcing & Professional Vendor Coordination
 
 Navigating the logistics of construction requires extensive planning and coordination.
 At MH Construction, we offer comprehensive Ally Management services throughout the
@@ -268,6 +268,28 @@ Centers, and Religious Facilities across Washington, Oregon, and Idaho. We under
 these spaces require thoughtful design, careful budgeting, and a deep respect for the
 community they serve. Trust our experienced team to manage every detail of your renovation
 or new construction project.
+
+---
+
+### **Design-Build Services**
+
+#### Integrated Design & Construction Excellence
+
+MH Construction offers comprehensive Design-Build Services, a streamlined approach that
+unifies design and construction under one partnership throughout the Tri-Cities and Pacific
+Northwest. By integrating architecture, engineering, and construction expertise from day one,
+we eliminate communication gaps and reduce costly change orders that plague traditional
+design-bid-build projects.
+
+**What Our Service Provides**
+
+- **Unified design and construction** under one contract
+- **Single point of accountability** from concept to completion
+- **Faster project delivery** through parallel workflows
+- **Better cost control** and reduced change orders
+- **Seamless collaboration** between designers and builders
+- **Value engineering** integrated throughout the process
+- **Streamlined decision-making** and communication
 
 ---
 

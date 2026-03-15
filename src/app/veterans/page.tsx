@@ -17,6 +17,9 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+import { COMPANY_INFO } from "@/lib/constants/company";
+
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.veterans);
 
 /**
  * Veterans Initiative Page
@@ -26,17 +29,13 @@ export default function VeteransPage() {
   return (
     <div className="relative min-h-screen">
       <PageTrackingClient pageName="Veterans" />
-      <StructuredData
-        data={generateBreadcrumbSchema(breadcrumbPatterns.veterans)}
-      />
+      <StructuredData data={breadcrumbSchema} />
 
       {/* Hero Section - No parallax (will be video later) */}
       <div className="relative z-10">
         <section className="relative h-screen flex items-end justify-end text-white overflow-hidden">
           {/* Background - Ready for photo or video */}
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900">
-            {/* Add background image or video here in future */}
-            {/* Overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
           </div>
 
@@ -49,15 +48,12 @@ export default function VeteransPage() {
               </div>
             </div>
             <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
-              {/* DUAL NAMING - Military → Civilian (Required) */}
               <span className="block text-brand-secondary-text/80 text-sm sm:text-base md:text-lg lg:text-xl font-normal mb-2">
                 Service First → Veterans
               </span>
-              {/* PAGE-SPECIFIC MANTRA */}
               <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
                 Supporting Those Who Served - One Community, One Mission
               </span>
-              {/* TAGLINE */}
               <span className="block text-brand-secondary">
                 Honoring Those Who Served
               </span>
@@ -571,7 +567,7 @@ export default function VeteransPage() {
                         num: 1,
                         icon: "phone",
                         title: "Initial Consultation",
-                        desc: "Contact us at (509) 308-6489 or through our contact page. Mention your military service during the initial discussion. We'll schedule a face-to-face or virtual consultation to discuss your project scope and requirements.",
+                        desc: `Contact us at ${COMPANY_INFO.phone.display} or through our contact page. Mention your military service during the initial discussion. We'll schedule a face-to-face or virtual consultation to discuss your project scope and requirements.`,
                         position: "left",
                       },
                       {
@@ -775,7 +771,9 @@ export default function VeteransPage() {
                       theme="military"
                       ariaLabel="Contact Now"
                     />
-                    <span>Call (509) 308-6489 - Mention Your Service</span>
+                    <span>
+                      Call {COMPANY_INFO.phone.display} - Mention Your Service
+                    </span>
                   </Link>
                   <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                     Direct line to veteran-owned leadership. No automated

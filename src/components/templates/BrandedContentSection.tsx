@@ -99,6 +99,52 @@ export interface BrandedContentSectionProps {
  * </BrandedContentSection>
  * ```
  */
+function getIconGradient(
+  iconVariant: "primary" | "secondary" | "bronze" | "custom" = "primary",
+  customGradient?: string,
+) {
+  if (iconVariant === "custom" && customGradient) {
+    return customGradient;
+  }
+  switch (iconVariant) {
+    case "bronze":
+      return "from-brand-secondary via-bronze-700 to-bronze-800";
+    case "secondary":
+      return "from-brand-secondary via-brand-secondary-dark to-bronze-700";
+    case "primary":
+    default:
+      return "from-brand-primary via-brand-primary-dark to-brand-primary-darker";
+  }
+}
+
+function getIconBlurGradient(
+  iconVariant: "primary" | "secondary" | "bronze" | "custom" = "primary",
+  customBlur?: string,
+) {
+  if (iconVariant === "custom" && customBlur) {
+    return customBlur;
+  }
+  switch (iconVariant) {
+    case "bronze":
+      return "from-brand-secondary/30 to-bronze-700/30";
+    case "secondary":
+      return "from-brand-secondary/30 to-brand-secondary-dark/30";
+    case "primary":
+    default:
+      return "from-brand-primary/30 to-brand-primary-dark/30";
+  }
+}
+
+function getTitleGradient(
+  iconVariant: "primary" | "secondary" | "bronze" | "custom" = "primary",
+  customTitleGradient?: string,
+) {
+  if (iconVariant === "custom" && customTitleGradient) {
+    return customTitleGradient;
+  }
+  return "from-brand-primary via-brand-secondary to-brand-primary";
+}
+
 export function BrandedContentSection({
   id,
   header,
@@ -113,54 +159,6 @@ export function BrandedContentSection({
     variant === "gray"
       ? "bg-gray-50 dark:bg-gray-800"
       : "bg-white dark:bg-gray-900";
-
-  // Icon gradient classes based on variant
-  const getIconGradient = (
-    iconVariant: "primary" | "secondary" | "bronze" | "custom" = "primary",
-    customGradient?: string,
-  ) => {
-    if (iconVariant === "custom" && customGradient) {
-      return customGradient;
-    }
-    switch (iconVariant) {
-      case "bronze":
-        return "from-brand-secondary via-bronze-700 to-bronze-800";
-      case "secondary":
-        return "from-brand-secondary via-brand-secondary-dark to-bronze-700";
-      case "primary":
-      default:
-        return "from-brand-primary via-brand-primary-dark to-brand-primary-darker";
-    }
-  };
-
-  const getIconBlurGradient = (
-    iconVariant: "primary" | "secondary" | "bronze" | "custom" = "primary",
-    customBlur?: string,
-  ) => {
-    if (iconVariant === "custom" && customBlur) {
-      return customBlur;
-    }
-    switch (iconVariant) {
-      case "bronze":
-        return "from-brand-secondary/30 to-bronze-700/30";
-      case "secondary":
-        return "from-brand-secondary/30 to-brand-secondary-dark/30";
-      case "primary":
-      default:
-        return "from-brand-primary/30 to-brand-primary-dark/30";
-    }
-  };
-
-  const getTitleGradient = (
-    iconVariant: "primary" | "secondary" | "bronze" | "custom" = "primary",
-    customTitleGradient?: string,
-  ) => {
-    if (iconVariant === "custom" && customTitleGradient) {
-      return customTitleGradient;
-    }
-    // Default: always use brand colors for title gradient
-    return "from-brand-primary via-brand-secondary to-brand-primary";
-  };
 
   const content = (
     <>

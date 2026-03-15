@@ -1,52 +1,53 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 /**
  * Scroll Progress Indicator
- * Shows reading progress at top of page
- * Optimized to prevent forced reflows
+ * Shows reading progress at top of page.
+ * Uses direct DOM mutation via ref — no React re-renders on scroll.
  */
 export function ScrollProgress() {
-  const [progress, setProgress] = useState(0);
+  const barRef = useRef<HTMLDivElement>(null);
   const rafId = useRef<number | null>(null);
   const scrollHeightCache = useRef<number>(0);
+  const lastProgress = useRef<number>(-1);
 
   useEffect(() => {
-    // Cache scroll height and recalculate on resize
+    const bar = barRef.current;
+    if (!bar) return;
+
     const cacheScrollHeight = () => {
       scrollHeightCache.current =
         document.documentElement.scrollHeight - window.innerHeight;
     };
 
     const updateProgress = () => {
-      // Cancel previous RAF to throttle updates
-      if (rafId.current) {
-        cancelAnimationFrame(rafId.current);
-      }
+      if (rafId.current) cancelAnimationFrame(rafId.current);
 
-      // Use RAF to batch layout reads and avoid forced reflows
       rafId.current = requestAnimationFrame(() => {
         const scrolled =
           scrollHeightCache.current > 0
             ? (window.scrollY / scrollHeightCache.current) * 100
             : 0;
-        setProgress(Math.min(scrolled, 100));
+        const progress = Math.min(Math.round(scrolled), 100);
+
+        // Skip DOM writes when value hasn't changed
+        if (progress === lastProgress.current) return;
+        lastProgress.current = progress;
+
+        bar.style.width = `${progress}%`;
+        bar.setAttribute("aria-valuenow", String(progress));
       });
     };
 
-    // Cache scroll height initially and on resize
     cacheScrollHeight();
     window.addEventListener("resize", cacheScrollHeight, { passive: true });
-
-    // Use passive listener for better scroll performance
     window.addEventListener("scroll", updateProgress, { passive: true });
-    updateProgress(); // Initial call
+    updateProgress();
 
     return () => {
-      if (rafId.current) {
-        cancelAnimationFrame(rafId.current);
-      }
+      if (rafId.current) cancelAnimationFrame(rafId.current);
       window.removeEventListener("scroll", updateProgress);
       window.removeEventListener("resize", cacheScrollHeight);
     };
@@ -54,10 +55,10 @@ export function ScrollProgress() {
 
   return (
     <div
+      ref={barRef}
       className="scroll-progress"
-      style={{ width: `${progress}%` }}
       role="progressbar"
-      aria-valuenow={Math.round(progress)}
+      aria-valuenow={0}
       aria-valuemin={0}
       aria-valuemax={100}
       aria-label="Page scroll progress"

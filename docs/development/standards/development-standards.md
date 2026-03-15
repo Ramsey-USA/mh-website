@@ -1,7 +1,7 @@
 # MH Construction Website - Development Standards
 
 **Category:** Development - Code Standards  
-**Last Updated:** December 14, 2025  
+**Last Updated:** March 15, 2026  
 **Version:** 1.0.0  
 **Status:** ✅ Active - Mandatory
 
@@ -25,7 +25,7 @@ These standards ensure consistency, maintainability, and prevent recurring bugs.
 
 - **[MH Branding](../../branding/)** - Modular brand docs,
   standards and visual identity
-- **[Typography Standards](../../branding/standards/typography.md)** - Responsive
+- **[Unified Component Standards](../../branding/standards/unified-component-standards.md)** - Responsive
   typography patterns and hero section requirements
 - **[Color System](../../branding/standards/color-system.md)** - Brand colors and usage
   guidelines

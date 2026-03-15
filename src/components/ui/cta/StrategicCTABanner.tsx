@@ -1,11 +1,12 @@
+"use client";
+
 /**
  * Strategic CTA Banner
  * Compact, attention-grabbing banner to drive key actions
  * Displays after important homepage sections
  */
 
-"use client";
-
+import { useCallback } from "react";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import Link from "next/link";
@@ -22,6 +23,39 @@ export function StrategicCTABanner({
   className = "",
 }: StrategicCTABannerProps) {
   const { trackEvent } = useAnalytics();
+
+  const trackPwaInstall = useCallback(
+    () => trackEvent("cta_banner_click", { type: "pwa_install" }),
+    [trackEvent],
+  );
+  const trackPitchDeck = useCallback(
+    () =>
+      trackEvent("cta_banner_click", {
+        type: "pitch_deck",
+        status: "coming_soon",
+      }),
+    [trackEvent],
+  );
+  const trackConsultation = useCallback(
+    () => trackEvent("cta_banner_click", { type: "consultation" }),
+    [trackEvent],
+  );
+  const trackComboPwa = useCallback(
+    () => trackEvent("cta_combo_click", { type: "pwa_install" }),
+    [trackEvent],
+  );
+  const trackComboPitchDeck = useCallback(
+    () =>
+      trackEvent("cta_combo_click", {
+        type: "pitch_deck",
+        status: "coming_soon",
+      }),
+    [trackEvent],
+  );
+  const trackComboConsultation = useCallback(
+    () => trackEvent("cta_combo_click", { type: "consultation" }),
+    [trackEvent],
+  );
 
   if (variant === "pwa") {
     return (
@@ -55,10 +89,7 @@ export function StrategicCTABanner({
           <Button
             variant="secondary"
             size="lg"
-            onClick={() => {
-              trackEvent("cta_banner_click", { type: "pwa_install" });
-              // PWA install logic handled by PWAInstallPrompt
-            }}
+            onClick={trackPwaInstall}
             className="flex-shrink-0"
             aria-label="Install MH Construction Progressive Web App"
           >
@@ -107,12 +138,7 @@ export function StrategicCTABanner({
           <Button
             variant="outline"
             size="lg"
-            onClick={() => {
-              trackEvent("cta_banner_click", {
-                type: "pitch_deck",
-                status: "coming_soon",
-              });
-            }}
+            onClick={trackPitchDeck}
             className="flex-shrink-0 bg-white/10 border-white/30 text-white hover:bg-white/20 opacity-60 cursor-not-allowed"
             disabled
             aria-label="Download pitch deck - Coming soon"
@@ -165,9 +191,7 @@ export function StrategicCTABanner({
             <Button
               variant="primary"
               size="lg"
-              onClick={() => {
-                trackEvent("cta_banner_click", { type: "consultation" });
-              }}
+              onClick={trackConsultation}
               aria-label="Book a free consultation with MH Construction"
             >
               <MaterialIcon
@@ -206,9 +230,7 @@ export function StrategicCTABanner({
         <Button
           variant="outline"
           size="lg"
-          onClick={() => {
-            trackEvent("cta_combo_click", { type: "pwa_install" });
-          }}
+          onClick={trackComboPwa}
           className="flex flex-col items-center gap-2 h-auto py-6 border-2 border-brand-bronze/30 hover:border-brand-bronze/60 bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
           aria-label="Install MH Construction app for offline access"
         >
@@ -230,12 +252,7 @@ export function StrategicCTABanner({
         <Button
           variant="outline"
           size="lg"
-          onClick={() => {
-            trackEvent("cta_combo_click", {
-              type: "pitch_deck",
-              status: "coming_soon",
-            });
-          }}
+          onClick={trackComboPitchDeck}
           className="flex flex-col items-center gap-2 h-auto py-6 border-2 border-gray-300/40 bg-white/50 dark:bg-gray-800/50 opacity-60 cursor-not-allowed"
           disabled
           aria-label="View pitch deck - Coming soon"
@@ -259,9 +276,7 @@ export function StrategicCTABanner({
           <Button
             variant="primary"
             size="lg"
-            onClick={() => {
-              trackEvent("cta_combo_click", { type: "consultation" });
-            }}
+            onClick={trackComboConsultation}
             className="w-full flex flex-col items-center gap-2 h-auto py-6"
             aria-label="Schedule a free consultation with MH Construction"
           >

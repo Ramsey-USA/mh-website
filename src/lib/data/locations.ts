@@ -2,6 +2,18 @@
  * Location Data Configuration
  * Centralized location information for all service areas
  */
+import { COMPANY_INFO } from "@/lib/constants/company";
+
+const LOCATION_CONTACT = {
+  telephone: COMPANY_INFO.phone.display,
+  email: COMPANY_INFO.email.main,
+  address: {
+    street: COMPANY_INFO.address.street,
+    city: COMPANY_INFO.address.city,
+    state: COMPANY_INFO.address.state,
+    zip: COMPANY_INFO.address.zip,
+  },
+};
 
 /**
  * A completed project associated with a specific service area.
@@ -54,6 +66,8 @@ export interface LocationData {
   };
   servicePriorities?: string[];
   nearbyAreas?: string[];
+  /** Primary USPS postal codes for the served city — used for structured data and keyword generation */
+  serviceZipCodes?: string[];
   /** Verified completed projects in or directly serving this location */
   recentProjects?: LocationProject[];
   /** When true, renders a strong internal link to the Public & Government service page */
@@ -70,14 +84,7 @@ export const locations: Record<string, LocationData> = {
     tagline: "Strategic Construction Operations in Benton County",
     description:
       "Founded 2010, veteran-owned since January 2025. Construction excellence serving Richland with honesty, integrity, professionalism, and thoroughness.",
-    telephone: "(509) 308-6489",
-    email: "office@mhc-gc.com",
-    address: {
-      street: "3111 N. Capitol Ave.",
-      city: "Pasco",
-      state: "WA",
-      zip: "99301",
-    },
+    ...LOCATION_CONTACT,
     coordinates: {
       latitude: 46.2396,
       longitude: -119.1006,
@@ -122,6 +129,7 @@ export const locations: Record<string, LocationData> = {
       "Municipal inspections",
     ],
     nearbyAreas: ["Richland", "Benton County"],
+    serviceZipCodes: ["99352", "99354"],
     recentProjects: [
       {
         name: "Audi Tri-Cities",
@@ -155,14 +163,7 @@ export const locations: Record<string, LocationData> = {
     tagline: "Tactical Construction Excellence in Benton County",
     description:
       "Professional veteran-owned construction services with service-earned values and all-branch veteran leadership. SITREP-level communication.",
-    telephone: "(509) 308-6489",
-    email: "office@mhc-gc.com",
-    address: {
-      street: "3111 N. Capitol Ave.",
-      city: "Pasco",
-      state: "WA",
-      zip: "99301",
-    },
+    ...LOCATION_CONTACT,
     coordinates: {
       latitude: 46.2396,
       longitude: -119.1006,
@@ -207,6 +208,7 @@ export const locations: Record<string, LocationData> = {
       "Municipal inspections",
     ],
     nearbyAreas: ["Kennewick", "Benton County"],
+    serviceZipCodes: ["99336", "99337", "99338"],
     recentProjects: [
       {
         name: "Tri-Cities Cancer Center Expansion",
@@ -240,14 +242,7 @@ export const locations: Record<string, LocationData> = {
     tagline: "Home Base Construction Excellence in Franklin County",
     description:
       "Headquartered in Pasco since 2010, delivering veteran-owned construction excellence with honesty, integrity, professionalism, and thoroughness.",
-    telephone: "(509) 308-6489",
-    email: "office@mhc-gc.com",
-    address: {
-      street: "3111 N. Capitol Ave.",
-      city: "Pasco",
-      state: "WA",
-      zip: "99301",
-    },
+    ...LOCATION_CONTACT,
     coordinates: {
       latitude: 46.2396,
       longitude: -119.1006,
@@ -289,6 +284,7 @@ export const locations: Record<string, LocationData> = {
       "Administrative and office remodels",
     ],
     nearbyAreas: ["Pasco", "Franklin County", "Zillah"],
+    serviceZipCodes: ["99301", "99302"],
     recentProjects: [
       {
         name: "Volm Corporate Warehouse",
@@ -323,14 +319,7 @@ export const locations: Record<string, LocationData> = {
     tagline: "Regional Construction Excellence in Yakima County",
     description:
       "Extending veteran-owned construction services to Yakima with the same honesty, integrity, professionalism, and thoroughness.",
-    telephone: "(509) 308-6489",
-    email: "office@mhc-gc.com",
-    address: {
-      street: "3111 N. Capitol Ave.",
-      city: "Pasco",
-      state: "WA",
-      zip: "99301",
-    },
+    ...LOCATION_CONTACT,
     coordinates: {
       latitude: 46.2396,
       longitude: -119.1006,
@@ -372,6 +361,7 @@ export const locations: Record<string, LocationData> = {
       "Public works infrastructure",
     ],
     nearbyAreas: ["Yakima", "Yakima Valley", "Zillah"],
+    serviceZipCodes: ["98901", "98902", "98903", "98908"],
     recentProjects: [
       {
         name: "Zillah Fire Station #10 Remodel & Admin Building",
@@ -399,14 +389,7 @@ export const locations: Record<string, LocationData> = {
     tagline: "Eastern Washington Construction Excellence",
     description:
       "Expanding veteran-owned construction excellence to Spokane with honesty, integrity, professionalism, and thoroughness.",
-    telephone: "(509) 308-6489",
-    email: "office@mhc-gc.com",
-    address: {
-      street: "3111 N. Capitol Ave.",
-      city: "Pasco",
-      state: "WA",
-      zip: "99301",
-    },
+    ...LOCATION_CONTACT,
     coordinates: {
       latitude: 46.2396,
       longitude: -119.1006,
@@ -448,6 +431,16 @@ export const locations: Record<string, LocationData> = {
       "Commercial tenant improvements",
     ],
     nearbyAreas: ["Spokane", "Spokane County"],
+    serviceZipCodes: [
+      "99201",
+      "99202",
+      "99203",
+      "99204",
+      "99205",
+      "99206",
+      "99207",
+      "99208",
+    ],
   },
   "west-richland": {
     slug: "west-richland",
@@ -458,14 +451,7 @@ export const locations: Record<string, LocationData> = {
     tagline: "Community-Focused Construction in Benton County",
     description:
       "Serving West Richland with veteran-owned construction services built on honesty, integrity, professionalism, and thoroughness.",
-    telephone: "(509) 308-6489",
-    email: "office@mhc-gc.com",
-    address: {
-      street: "3111 N. Capitol Ave.",
-      city: "Pasco",
-      state: "WA",
-      zip: "99301",
-    },
+    ...LOCATION_CONTACT,
     coordinates: {
       latitude: 46.2396,
       longitude: -119.1006,
@@ -508,6 +494,7 @@ export const locations: Record<string, LocationData> = {
       "Municipal inspections",
     ],
     nearbyAreas: ["West Richland", "Benton County"],
+    serviceZipCodes: ["99353"],
   },
   "walla-walla": {
     slug: "walla-walla",
@@ -518,14 +505,7 @@ export const locations: Record<string, LocationData> = {
     tagline: "Historic Valley Construction Excellence",
     description:
       "Bringing veteran-owned construction expertise to Walla Walla with honesty, integrity, professionalism, and thoroughness.",
-    telephone: "(509) 308-6489",
-    email: "office@mhc-gc.com",
-    address: {
-      street: "3111 N. Capitol Ave.",
-      city: "Pasco",
-      state: "WA",
-      zip: "99301",
-    },
+    ...LOCATION_CONTACT,
     coordinates: {
       latitude: 46.2396,
       longitude: -119.1006,
@@ -568,6 +548,7 @@ export const locations: Record<string, LocationData> = {
       "High-stakes land stewardship",
     ],
     nearbyAreas: ["Walla Walla", "Walla Walla County", "Dayton"],
+    serviceZipCodes: ["99362"],
     recentProjects: [
       {
         name: "NW Equipment Sales",
@@ -585,14 +566,216 @@ export const locations: Record<string, LocationData> = {
       },
     ],
   },
+  hermiston: {
+    slug: "hermiston",
+    city: "Hermiston",
+    state: "OR",
+    county: "Umatilla County",
+    militaryTitle: "Forward Base → Hermiston",
+    tagline: "Oregon Columbia Basin Construction Excellence",
+    description:
+      "Bringing veteran-owned construction expertise to Hermiston and the Oregon Columbia Basin with honesty, integrity, professionalism, and thoroughness.",
+    ...LOCATION_CONTACT,
+    coordinates: COMPANY_INFO.coordinates,
+    seo: {
+      title:
+        "Forward Base → Hermiston | General Contractor Hermiston OR | MH Construction",
+      metaDescription:
+        "Veteran-owned GC serving Hermiston OR. Commercial, industrial & agricultural construction with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
+      keywords: [
+        "Forward Base Hermiston Oregon construction",
+        "general contractor Hermiston OR",
+        "general contractor Hermiston Oregon",
+        "construction company Hermiston OR",
+        "commercial contractor Hermiston Oregon",
+        "Hermiston construction services",
+        "veteran-owned contractor Hermiston",
+        "Umatilla County general contractor",
+        "Hermiston OR builder",
+        "construction management Hermiston",
+        "industrial contractor Hermiston Oregon",
+        "agricultural facility contractor Hermiston",
+      ],
+      openGraphDescription:
+        "Forward Base → Hermiston: Oregon Columbia Basin Construction Excellence. Professional veteran-owned construction services serving Hermiston. Commercial, industrial & agricultural projects.",
+      twitterDescription:
+        "Professional construction services in Hermiston, OR. Veteran-owned, partnership-driven approach.",
+    },
+    breadcrumbKey: "locationHermiston",
+    localExpertise: {
+      title: "Serving the Hermiston Area",
+      description: [
+        "Expanding our veteran-owned construction services to Hermiston and the Oregon Columbia Basin. We understand the region's industrial and agricultural development demands and bring the same rigorous standards that have served the Tri-Cities since 2010.",
+        "Licensed in Oregon, Washington, and Idaho, MH Construction is positioned to serve Hermiston clients across commercial, industrial, and government project types — with transparent pricing and mission-focused delivery.",
+      ],
+    },
+    servicePriorities: [
+      "Industrial and warehouse construction",
+      "Agricultural facility builds",
+      "Commercial development",
+    ],
+    nearbyAreas: ["Hermiston", "Umatilla County", "Boardman", "Irrigon"],
+    serviceZipCodes: ["97838"],
+  },
+  pendleton: {
+    slug: "pendleton",
+    city: "Pendleton",
+    state: "OR",
+    county: "Umatilla County",
+    militaryTitle: "Tactical Position → Pendleton",
+    tagline: "Eastern Oregon Construction Excellence",
+    description:
+      "Delivering veteran-owned construction services to Pendleton and Eastern Oregon with honesty, integrity, professionalism, and thoroughness.",
+    ...LOCATION_CONTACT,
+    coordinates: COMPANY_INFO.coordinates,
+    seo: {
+      title:
+        "Tactical Position → Pendleton | General Contractor Pendleton OR | MH Construction",
+      metaDescription:
+        "Veteran-owned GC serving Pendleton OR. Commercial, industrial & government construction with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
+      keywords: [
+        "Tactical Position Pendleton Oregon construction",
+        "general contractor Pendleton OR",
+        "general contractor Pendleton Oregon",
+        "construction company Pendleton OR",
+        "commercial contractor Pendleton Oregon",
+        "Pendleton construction services",
+        "veteran-owned contractor Pendleton",
+        "Umatilla County general contractor",
+        "Pendleton OR builder",
+        "construction management Pendleton",
+        "government contractor Pendleton Oregon",
+      ],
+      openGraphDescription:
+        "Tactical Position → Pendleton: Eastern Oregon Construction Excellence. Professional veteran-owned construction services serving Pendleton. Commercial, industrial & government projects.",
+      twitterDescription:
+        "Professional construction services in Pendleton, OR. Veteran-owned, partnership-driven approach.",
+    },
+    breadcrumbKey: "locationPendleton",
+    localExpertise: {
+      title: "Serving Eastern Oregon from Pendleton",
+      description: [
+        "Pendleton anchors Eastern Oregon's commercial and government construction corridor. Our veteran-owned team brings the same mission-focused execution that has served the Tri-Cities for 15+ years to every Pendleton and Umatilla County project.",
+        "Licensed in Oregon, Washington, and Idaho, MH Construction delivers commercial, industrial, and public-sector builds across Eastern Oregon with transparent communication and zero-surprise project delivery.",
+      ],
+    },
+    servicePriorities: [
+      "Commercial construction",
+      "Industrial facility builds",
+      "Government and municipal projects",
+    ],
+    nearbyAreas: [
+      "Pendleton",
+      "Umatilla County",
+      "Milton-Freewater",
+      "Hermiston",
+    ],
+    serviceZipCodes: ["97801"],
+  },
+  "coeur-d-alene": {
+    slug: "coeur-d-alene",
+    city: "Coeur d'Alene",
+    state: "ID",
+    county: "Kootenai County",
+    militaryTitle: "Northern Operations → Coeur d'Alene",
+    tagline: "North Idaho Construction Excellence",
+    description:
+      "Bringing veteran-owned construction expertise to Coeur d'Alene and North Idaho with honesty, integrity, professionalism, and thoroughness.",
+    ...LOCATION_CONTACT,
+    coordinates: COMPANY_INFO.coordinates,
+    seo: {
+      title:
+        "Northern Operations → Coeur d'Alene | General Contractor Coeur d'Alene ID | MH Construction",
+      metaDescription:
+        "Veteran-owned GC serving Coeur d'Alene ID. Commercial, resort & government construction with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
+      keywords: [
+        "Northern Operations Coeur d'Alene Idaho construction",
+        "general contractor Coeur d'Alene ID",
+        "general contractor Coeur d'Alene Idaho",
+        "construction company Coeur d'Alene ID",
+        "commercial contractor Coeur d'Alene Idaho",
+        "Coeur d'Alene construction services",
+        "veteran-owned contractor Coeur d'Alene",
+        "Kootenai County general contractor",
+        "Coeur d'Alene ID builder",
+        "construction management Coeur d'Alene",
+        "resort construction North Idaho",
+        "CDA contractor Idaho",
+      ],
+      openGraphDescription:
+        "Northern Operations → Coeur d'Alene: North Idaho Construction Excellence. Professional veteran-owned construction services serving Coeur d'Alene. Commercial, resort & government projects.",
+      twitterDescription:
+        "Professional construction services in Coeur d'Alene, ID. Veteran-owned, partnership-driven approach.",
+    },
+    breadcrumbKey: "locationCoeurDAlene",
+    localExpertise: {
+      title: "Serving Coeur d'Alene and North Idaho",
+      description: [
+        "Coeur d'Alene is one of the Pacific Northwest's fastest-growing markets, with strong demand across commercial, resort hospitality, and public-sector construction. Our veteran-owned team brings licensed Idaho expertise and the same mission-precision that has served Eastern Washington since 2010.",
+        "Licensed in Idaho, Washington, and Oregon, MH Construction is ready to partner on Coeur d'Alene and Kootenai County projects of any scale — with transparent pricing, honest timelines, and veteran-earned professionalism.",
+      ],
+    },
+    servicePriorities: [
+      "Commercial and resort construction",
+      "Industrial builds",
+      "Government and municipal projects",
+    ],
+    nearbyAreas: ["Coeur d'Alene", "Kootenai County", "Post Falls", "Hayden"],
+    serviceZipCodes: ["83814", "83815"],
+  },
+  omak: {
+    slug: "omak",
+    city: "Omak",
+    state: "WA",
+    county: "Okanogan County",
+    militaryTitle: "Remote Station → Omak",
+    tagline: "Okanogan Valley Construction Excellence",
+    description:
+      "Delivering veteran-owned construction services to Omak and the Okanogan Valley with honesty, integrity, professionalism, and thoroughness.",
+    ...LOCATION_CONTACT,
+    coordinates: COMPANY_INFO.coordinates,
+    seo: {
+      title:
+        "Remote Station → Omak | General Contractor Omak WA | MH Construction",
+      metaDescription:
+        "Veteran-owned GC serving Omak WA. Commercial, agricultural & community construction with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
+      keywords: [
+        "Remote Station Omak Washington construction",
+        "general contractor Omak WA",
+        "general contractor Omak Washington",
+        "construction company Omak WA",
+        "commercial contractor Omak Washington",
+        "Omak construction services",
+        "veteran-owned contractor Omak",
+        "Okanogan County general contractor",
+        "Omak WA builder",
+        "construction management Omak",
+        "rural commercial contractor Okanogan County",
+      ],
+      openGraphDescription:
+        "Remote Station → Omak: Okanogan Valley Construction Excellence. Professional veteran-owned construction services serving Omak. Commercial, agricultural & community projects.",
+      twitterDescription:
+        "Professional construction services in Omak, WA. Veteran-owned, partnership-driven approach.",
+    },
+    breadcrumbKey: "locationOmak",
+    localExpertise: {
+      title: "Serving the Okanogan Valley",
+      description: [
+        "Omak and the Okanogan Valley represent a growing market for quality construction services. Our veteran-owned team brings the discipline and transparency that rural communities deserve — no shortcuts, no surprises, and honest communication from first conversation to final inspection.",
+        "Based in Pasco and licensed throughout Washington, we serve Omak and Okanogan County clients with the same commitment to quality and community partnership that defines every MH Construction project.",
+      ],
+    },
+    servicePriorities: [
+      "Rural commercial construction",
+      "Agricultural and industrial builds",
+      "Community infrastructure",
+    ],
+    nearbyAreas: ["Omak", "Okanogan County", "Okanogan", "Tonasket"],
+    serviceZipCodes: ["98841"],
+  },
 };
 
 // Helper function to get location by slug
 export function getLocationBySlug(slug: string): LocationData | undefined {
   return locations[slug];
-}
-
-// Get all location slugs (useful for static generation)
-export function getAllLocationSlugs(): string[] {
-  return Object.keys(locations);
 }

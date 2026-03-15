@@ -1,7 +1,7 @@
 # Business Documentation
 
 **Category:** Business - Overview  
-**Last Updated:** December 24, 2025
+**Last Updated:** March 15, 2026
 
 ## Overview
 
@@ -25,16 +25,15 @@ offerings, team profiles, and client testimonials.
 
 The Upper Brass (Executive Leadership):
 
-- Jeremy Thamert (Owner & GM) | Arnold Garcia (VP) | Mike Holstein (Founder - Retired)
+- Jeremy Thamert (Owner & President) | Arnold Garcia (VP) | Mike Holstein (Founder - Retired)
 
 Mission Commanders (Project Management):
 
-- Ben Woodall (PM), Jennifer Tenehuerta (Project Engineer/Admin), Lisa Kandle (Project Engineer/Marketing),
-  Matt Ramsey (PM Assistant/Marketing Mgr), Todd Schoeff (Lead Estimator)
+- Ben Woodall (PM), Jennifer Tene (Project Engineer/Admin), Lisa Kandle (Project Engineer/Marketing)
 
 Special Operations (Marketing, Safety & Strategic Initiatives):
 
-- Currently being restructured - functions distributed across Mission Commanders
+- Matt Ramsey (PM Assistant/Marketing Mgr/Safety Officer), Todd Schoeff (Lead Estimator)
 
 Field Officers (Site & Field Operations):
 
@@ -42,7 +41,7 @@ Field Officers (Site & Field Operations):
 
 Logistics Command (Administration & Support):
 
-- Brooks Morris (Sr. Accountant), Brittney Holstein (HR Manager)
+- Brooks Morris (Finance & Operations Manager), Brittney Holstein (HR Manager)
 
 ## Quick Links
 

@@ -3,7 +3,7 @@
 **Purpose:** Reusable page section templates that enforce MH standards  
 **Location:** `/src/components/templates/`  
 **Version:** 2.0.0  
-**Updated:** December 28, 2025
+**Updated:** March 15, 2026
 
 ---
 
@@ -74,13 +74,16 @@ import { BrandedContentSection } from "@/components/templates";
 
 ### Header Object
 
-| Property      | Type                                   | Required | Default     | Description              |
-| ------------- | -------------------------------------- | -------- | ----------- | ------------------------ |
-| `icon`        | `string`                               | ✅ Yes   | -           | Material icon name       |
-| `iconVariant` | `"primary" \| "secondary" \| "bronze"` | No       | `"primary"` | Icon color theme         |
-| `subtitle`    | `string`                               | ✅ Yes   | -           | First line (solid color) |
-| `title`       | `string`                               | ✅ Yes   | -           | Second line (gradient)   |
-| `description` | `string`                               | No       | -           | Paragraph below title    |
+| Property              | Type                                               | Required | Default     | Description                                                            |
+| --------------------- | -------------------------------------------------- | -------- | ----------- | ---------------------------------------------------------------------- |
+| `icon`                | `string`                                           | ✅ Yes   | -           | Material icon name                                                     |
+| `iconVariant`         | `"primary" \| "secondary" \| "bronze" \| "custom"` | No       | `"primary"` | Icon color theme; use `"custom"` with the props below                  |
+| `subtitle`            | `string`                                           | ✅ Yes   | -           | First line (solid color)                                               |
+| `title`               | `string`                                           | ✅ Yes   | -           | Second line (gradient)                                                 |
+| `description`         | `ReactNode`                                        | No       | -           | Paragraph below title                                                  |
+| `customIconGradient`  | `string`                                           | No       | -           | Tailwind gradient classes for icon (requires `iconVariant="custom"`)   |
+| `customIconBlur`      | `string`                                           | No       | -           | Tailwind blur gradient for icon glow (requires `iconVariant="custom"`) |
+| `customTitleGradient` | `string`                                           | No       | -           | Tailwind gradient classes for title (requires `iconVariant="custom"`)  |
 
 ### Examples
 
@@ -317,14 +320,38 @@ Potential additions to template library:
 
 ## Examples in Codebase
 
-**Current Usage:** None yet (newly created)
+**Current Usage:** 19+ components (widely adopted)
 
-**Recommended for migration:**
+**Home page components:**
 
-- About page sections
-- Services page sections
-- Team page sections
-- Any page with multiple standard sections
+- `src/components/home/CoreValuesSection.tsx`
+- `src/components/home/ServicesShowcase.tsx`
+- `src/components/home/WhyPartnerSection.tsx`
+- `src/components/home/PartnershipCTA.tsx`
+
+**Services components:**
+
+- `src/components/services/CoreServicesSection.tsx`
+- `src/components/services/SpecialtyServicesSection.tsx`
+- `src/components/services/ConstructionProcessSection.tsx`
+- `src/components/services/GovernmentProjectsSection.tsx`
+- `src/components/services/ServiceAreasSection.tsx`
+- `src/components/services/ServicesCTA.tsx`
+- `src/components/services/ConstructionExpertiseSection.tsx`
+
+**About components:**
+
+- `src/components/about/AboutValues.tsx`
+- `src/components/about/AwardsSection.tsx`
+- `src/components/about/CompanyStats.tsx`
+- `src/components/about/LeadershipTeam.tsx`
+- `src/components/about/PartnershipPhilosophy.tsx`
+
+**Shared/UI components:**
+
+- `src/components/shared-sections/NextStepsSection.tsx`
+- `src/components/shared-sections/TestimonialsSection.tsx`
+- `src/components/ui/cta/StrategicCTABanner.tsx`
 
 ---
 

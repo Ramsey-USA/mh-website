@@ -61,17 +61,41 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | ----------------- | --------- | ----------------------------------------- |
 | **Build**         | Passing   | ~33s compilation, zero errors             |
 | **TypeScript**    | Strict    | Zero type errors                          |
-| **ESLint**        | Clean     | Zero lint warnings                        |
-| **Tests**         | Passing   | 95/95 passing                             |
+| **ESLint**        | Clean     | Zero lint warnings, zero errors           |
+| **Tests**         | Passing   | 56/56 passing                             |
 | **SEO**           | 100/100   | Perfect scores across all pages           |
 | **Lighthouse**    | 94+       | Performance optimized                     |
-| **Bundle Size**   | 221 kB    | Production optimized                      |
+| **Bundle Size**   | 211 kB    | Production optimized                      |
 | **Dark Mode**     | Complete  | Full theme support                        |
 | **PWA**           | Ready     | Offline-ready, 5-layer caching            |
 | **Analytics**     | Live      | 100% page coverage, dashboard active      |
 | **Documentation** | Optimized | 62 docs + 12 supporting files, zero bloat |
 
 ### Recent Improvements (March 2026)
+
+- **Mar 15:** Comprehensive build audit — production build: 32.6s, 39/39 static pages generated, zero errors; fixed 3 pre-existing lint issues (`OptimizedImage.tsx` — 2× missing `alt` on spread `<Image>` calls, `PitchDeckCTA.tsx` — `role="none"` on hover-shim div); TypeScript strict: zero errors; ESLint: zero warnings/errors; 56/56 tests passing; shared bundle reduced 221 kB → 211 kB
+
+- **Mar 15:** Eighth optimization pass — deleted 2 dead `lib/utils/` modules (`keyword-matcher.ts` — written for removed AI/veteran systems, 14 tests; `date-utils.ts` — written for removed components, 9 tests); fixed pre-existing missing `JWTPayload` import in `lib/auth/jwt.ts`; 56/56 tests passing, zero TS errors, zero lint warnings
+
+- **Mar 15:** Seventh optimization pass — deleted `components/veterans/` directory (`VeteranBadgeSection.tsx`, `index.ts`) — component never imported anywhere in the codebase (the previously deleted `shared/VeteranBadgeSection.tsx` was a compat-wrapper; this was the original source that also had no consumers); 79/79 tests still passing, zero TS errors, zero lint warnings
+
+- **Mar 15:** Sixth optimization pass — deleted 3 dead component directories (`components/slider/` — `BeforeAfterSlider` + `BeforeAfterGallery`, `components/ratings/` — `AggregateRating`, `components/map/` — `InteractiveMap` + `ServiceAreaOverview`), 7 dead files (`components/home/VideoHeroSection.tsx` & `PartnershipCTA.tsx`, `components/testimonials/TestimonialsWidget.tsx` & `TestimonialsSection.tsx`, `lib/analytics/marketing-analytics.ts`, `lib/auth/protected-route.tsx`, `lib/types/testimonials.ts`); cleaned 2 barrel files (`home/index.ts`, `testimonials/index.ts`); 79/79 tests still passing, zero TS errors, zero lint warnings
+
+- **Mar 15:** Fifth optimization pass — deleted 11 dead files: `components/shared/` compat-wrapper directory
+  (`VeteranBadgeSection.tsx`, `index.ts`), `shared-sections/AIEstimatorCTA.tsx` (AI estimator removed per business
+  policy; component orphaned), `lib/seo/seo-content-fragments.ts` (never imported), `lib/utils/dynamic-imports.tsx`
+  (utility only referenced in its own doc comment), `hooks/use-performance.ts` & `use-performance-optimization.ts`
+  (mock implementations, hooks never called in any component), `hooks/use-scroll-animation.ts` &
+  `use-scroll-depth-tracking.ts` (never imported), `hooks/use-phone-tracking.ts` (phone tracking handled via
+  `EnhancedAnalytics` directly), `components/team/TeamMemberTag.tsx` (never rendered),
+  `components/analytics/TrackedComponents.tsx` (`TrackedButton`/`TrackedLink`/`TrackedForm` never used — tracking goes
+  through `EnhancedAnalytics` and `TrackedContactLinks`); cleaned 4 barrel files; 79/79 tests still passing, zero TS
+  errors, zero lint warnings
+
+- **Mar 15:** Integration test cleanup — deleted orphaned `booking-flow.test.ts` (multi-step booking UI was removed;
+  no corresponding component exists); rewrote `authentication.test.ts` to reflect real admin auth flow
+  (Matt & Jeremy via `AdminSignInModal` → `/api/auth/admin-login`) replacing unimplemented general user login tests;
+  test count 95 → 79 (16 obsolete tests removed), all 79 passing
 
 - **Mar 15:** Fourth optimization pass — deleted 7 dead `lib/performance/` modules (`caching`, `performance-manager`,
   `code-splitting`, `hooks`, `app-performance`, `lightweight-performance`, `index`, ~2,528 lines, only
@@ -387,8 +411,7 @@ mh-website/
 │   │   ├── pwa/                 # PWA install prompt
 │   │   ├── ratings/             # Rating components
 │   │   ├── seo/                 # SEO components
-│   │   ├── shared/              # Shared utilities
-│   │   ├── shared-sections/     # Reusable sections
+│   │   ├── shared-sections/     # Reusable sections (TestimonialsSection, NextStepsSection)
 │   │   ├── slider/              # Slider/carousel components
 │   │   ├── team/                # Team components
 │   │   ├── templates/           # Page templates
@@ -413,6 +436,7 @@ mh-website/
 │   │   └── utils/               # General helper functions
 │   ├── contexts/                 # React contexts (Theme, etc.)
 │   ├── hooks/                    # Custom React hooks
+│   │   └── use-breakpoint.ts    # Responsive breakpoint detection
 │   └── types/                    # TypeScript definitions
 ├── public/                       # Static assets
 │   ├── icons/                   # PWA icons
@@ -730,7 +754,7 @@ npm run lint
 - **Phone:** (509) 308-6489
 - **Email:** <office@mhc-gc.com>
 - **Website:** <https://mhc-gc.com>
-- **Address:** 3111 N Capitol Ave, Pasco, WA 98953
+- **Address:** 3111 N Capitol Ave, Pasco, WA 99301
 
 ### Repository
 

@@ -27,7 +27,7 @@ export interface R2Bucket {
   }>;
 }
 
-export interface UploadResult {
+interface UploadResult {
   success: boolean;
   key?: string;
   url?: string;

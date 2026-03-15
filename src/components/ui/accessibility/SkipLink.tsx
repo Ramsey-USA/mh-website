@@ -1,17 +1,24 @@
 "use client";
 
-/**
- * Skip to Main Content Link
- * WCAG AAA compliance - allows keyboard users to skip navigation
- */
 export function SkipLink() {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const main = document.querySelector("main");
-    if (main) {
-      main.setAttribute("tabindex", "-1");
-      main.focus();
-      main.removeAttribute("tabindex");
+    const main = document.querySelector<HTMLElement>("main");
+    if (!main) return;
+
+    // Temporarily make the element programmatically focusable;
+    // clean up only after focus leaves so the browser can process it.
+    main.setAttribute("tabindex", "-1");
+    main.focus();
+    main.addEventListener("blur", () => main.removeAttribute("tabindex"), {
+      once: true,
+    });
+
+    // Respect user's motion preference before smooth-scrolling
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (!prefersReducedMotion) {
       main.scrollIntoView({ behavior: "smooth" });
     }
   };

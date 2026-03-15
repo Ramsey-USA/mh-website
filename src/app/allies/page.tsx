@@ -25,6 +25,9 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+import { COMPANY_INFO } from "@/lib/constants/company";
+
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.allies);
 
 // Trade Partner Categories
 const partnerCategories = [
@@ -250,10 +253,7 @@ export default function AlliesPage() {
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       <PageTrackingClient pageName="Allies" />
-      <StructuredData
-        data={generateBreadcrumbSchema(breadcrumbPatterns.allies)}
-      />
-      {/* Enhanced SEO Meta Tags */}
+      <StructuredData data={breadcrumbSchema} />
 
       {/* Hero Section - Group 7: Partnership & ROI Focus */}
       <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-end justify-end text-white overflow-hidden">
@@ -429,8 +429,8 @@ export default function AlliesPage() {
             </FadeInWhenVisible>
 
             <StaggeredFadeIn className={gridPresets.compactCards("lg")}>
-              {partnershipValues.map((value, _index) => (
-                <div key={_index} className="group relative flex h-full">
+              {partnershipValues.map((value, index) => (
+                <div key={index} className="group relative flex h-full">
                   {/* Animated Border Glow */}
                   <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
@@ -643,8 +643,8 @@ export default function AlliesPage() {
               </div>
 
               <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
-                {partnershipBenefits.map((benefit, _index) => (
-                  <div key={_index} className="group relative flex h-full">
+                {partnershipBenefits.map((benefit, index) => (
+                  <div key={index} className="group relative flex h-full">
                     {/* Animated Border Glow */}
                     <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
@@ -815,8 +815,8 @@ export default function AlliesPage() {
                           "Professional references from recent projects",
                           "Commitment to safety standards and protocols",
                           "Alignment with MH Construction values and standards",
-                        ].map((item, _index) => (
-                          <li key={_index} className="flex items-start">
+                        ].map((item, index) => (
+                          <li key={index} className="flex items-start">
                             <MaterialIcon
                               icon="check_circle"
                               size="sm"
@@ -870,8 +870,8 @@ export default function AlliesPage() {
                           "Strong safety record and industry certifications",
                           "Technology-capable for project communication",
                           "Sustainable and community-minded business practices",
-                        ].map((item, _index) => (
-                          <li key={_index} className="flex items-start">
+                        ].map((item, index) => (
+                          <li key={index} className="flex items-start">
                             <MaterialIcon
                               icon="star"
                               size="sm"
@@ -935,8 +935,8 @@ export default function AlliesPage() {
                       description:
                         "Upon approval, receive vendor credentials and access to our trade partnership portal.",
                     },
-                  ].map((step, _index) => (
-                    <FadeInWhenVisible key={_index}>
+                  ].map((step, index) => (
+                    <FadeInWhenVisible key={index}>
                       <div className="group relative flex h-full">
                         {/* Animated Border Glow */}
                         <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
@@ -1074,8 +1074,8 @@ export default function AlliesPage() {
                     ariaLabel="Phone"
                     className="inline mr-2"
                   />
-                  Trade Partnership Inquiries: (509) 308-6489 | 7:00 AM - 4:00
-                  PM PST
+                  Trade Partnership Inquiries: {COMPANY_INFO.phone.display} |
+                  7:00 AM - 4:00 PM PST
                 </p>
                 <p className="text-gray-500 dark:text-gray-300">
                   <MaterialIcon
@@ -1085,7 +1085,7 @@ export default function AlliesPage() {
                     ariaLabel="Email"
                     className="inline mr-2"
                   />
-                  office@mhc-gc.com
+                  {COMPANY_INFO.email.main}
                 </p>
               </div>
             </FadeInWhenVisible>

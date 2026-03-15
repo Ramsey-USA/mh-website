@@ -1,6 +1,6 @@
 # Client Testimonials - Service-Earned Trust
 
-**Last Updated:** December 14, 2025  
+**Last Updated:** March 15, 2026  
 **Status:** Under Development  
 **Methodology:** Military/Construction Excellence
 
@@ -63,12 +63,10 @@ Please check back soon, or contact us directly to learn more about our client ex
 
 Our approach consistently demonstrates our four core values:
 
-1. **Professionalism** - Excellence in every interaction and project phase
-2. **Thoroughness** - Meticulous attention to detail in all we do
-3. **Honesty** - Transparent communication and realistic timelines
-4. **Integrity** - Doing what's right, even when no one is watching
-5. **Reliability** - Veteran-trained dependability you can count on
-6. **Quality Craftsmanship** - Building excellence that stands the test of time
+1. **Honesty** - Transparent communication and realistic timelines
+2. **Integrity** - Doing what's right, even when no one is watching
+3. **Professionalism** - Excellence in every interaction and project phase
+4. **Thoroughness** - Meticulous attention to detail in all we do
 
 ---
 
@@ -78,16 +76,16 @@ We value every client relationship and would love to hear about your experience 
 
 **Contact us to share your testimonial:**
 
-- Email: <info@mhconstruction.com>
-- Phone: (509) 555-0100
-- Website: <www.mhconstruction.com/contact>
+- Email: [office@mhc-gc.com](mailto:office@mhc-gc.com)
+- Phone: [(509) 308-6489](tel:+15093086489)
+- Website: [www.mhc-gc.com/contact](https://www.mhc-gc.com/contact)
 
 ---
 
-**Last Updated:** December 14, 2025 | MH Construction, Inc. | Veteran-Owned
+**Last Updated:** March 15, 2026 | MH Construction, Inc. | Veteran-Owned
 
 ---
 
 ## Last Updated
 
-November 2025
+March 2026

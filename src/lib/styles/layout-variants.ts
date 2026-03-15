@@ -37,7 +37,7 @@ const gapSizes: Record<GridGap, string> = {
   xl: "gap-12",
 };
 
-// Responsive gap overrides (for lg:gap-8 patterns)
+// Responsive gap overrides (for lg:gap-* patterns)
 const responsiveGapSizes: Record<GridGap, string> = {
   sm: "sm:gap-4",
   md: "lg:gap-8",
@@ -64,7 +64,7 @@ const columnClasses: Record<GridColumns, string> = {
  * @param extraClasses - Additional custom classes to append
  * @returns Complete grid className string
  */
-export function getGridClassName(
+function getGridClassName(
   columns: GridConfig,
   gap: GridGap = "md",
   useResponsiveGap = false,
@@ -140,11 +140,4 @@ export const gridPresets = {
    */
   compactCards: (gap: GridGap = "lg", extraClasses = "") =>
     getGridClassName({ base: 1, md: 2, lg: 4 }, gap, false, extraClasses),
-
-  /**
-   * 1 → 2 → 3 columns with md breakpoint
-   * Usage: alternative responsive pattern
-   */
-  cards3Alt: (gap: GridGap = "lg", extraClasses = "") =>
-    getGridClassName({ base: 1, md: 2, lg: 3 }, gap, false, extraClasses),
 };

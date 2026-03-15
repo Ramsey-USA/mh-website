@@ -16,18 +16,17 @@ Replaced with emphasis on veteran values, proven craftsmanship, honest communica
 consultation. All tools and automation removed in favor of direct human relationships.
 
 For page-specific messaging and voice variations, see the comprehensive
-**[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** which defines 7 distinct page
-groups aligned with SEO optimization strategy.
+**[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** which defines 5 Core Page Groups
+aligned with our veteran-owned, honesty-first brand identity.
 
 ## Quick Navigation
 
 - [🏠 Brand Documentation](../)
 - [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Four-value professional system
 - [📝 Messaging Guidelines](./messaging.md) - Built on core values
-- [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 7-group strategy
+- [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 5 Core Page Groups strategy
 - [🎨 Color System](../standards/color-system.md)
-- [� Typography](../standards/typography.md)
-- [🔧 Component Standards](../standards/component-standards.md)
+- [📝 Unified Component Standards](../standards/unified-component-standards.md)
 
 ---
 
@@ -263,29 +262,19 @@ See [Core Values](../../business/core-values.md) for complete details on our fou
 
 ## Current Architecture & Implementation
 
-### Foundation-Only Architecture (v3.7.2)
+### Full-Stack Production Platform (v3.2)
 
-**Current Status**: Production-ready foundation with Material Icons integration
+**Current Status**: 22-page production-ready platform, fully deployed on Cloudflare Pages
 
 **Key Features:**
 
-- Clean, scalable foundation ready for expansion
+- 22 public pages (flat route directories) + Analytics dashboard
+- 7 city/location pages (Kennewick, Pasco, Richland, West Richland, Yakima, Spokane, Walla Walla)
 - Complete Material Icons system implementation
-- Light/dark mode support throughout
-- Zero-error production build
-- Optimized performance and accessibility
-
-### Navigation Standards
-
-**Current State Labels:**
-
-- **Home** - Active and functional
-- **About Us** - Coming soon states for future development
-- **Services** - Coming soon states for future development
-- **Portfolio** - Coming soon states for future development
-- **Contact** - Coming soon states for future development
-
-**Future Expansion**: Clean foundation ready for creative expansion as business needs evolve
+- Light/dark mode support throughout (three modes)
+- PWA-ready with Service Worker v4.0.0, offline support
+- Zero-error production build, 95/95 tests passing
+- 100/100 SEO scores across all pages
 
 ## Brand Implementation Guidelines
 
@@ -327,9 +316,9 @@ See [Core Values](../../business/core-values.md) for complete details on our fou
   (MUST READ for all team members)
 - **[Messaging Guidelines](./messaging.md)** - Voice and tone built on core values
 - **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** - ⭐ **CRITICAL** -
-  7-group messaging strategy for all pages
+  5 Core Page Groups messaging strategy
 - [**Color System**](../standards/color-system.md) - Complete brand color palette
-- [**Typography**](../standards/typography.md) - Font system and standards
+- [**Unified Component Standards**](../standards/unified-component-standards.md) - Complete design system (typography, components)
 - [**Branding**](../) - Hub for all brand documentation
 
 ---

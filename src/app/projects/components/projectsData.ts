@@ -74,7 +74,7 @@ export const capabilities = [
     icon: "precision_manufacturing",
     title: "Light Industrial Construction",
     description:
-      "Collaborating on warehouses, processing plants, and manufacturing facilities that support regional economic growth. With 13+ years of proven experience, we create safe, functional, and code-compliant buildings built to your precise specifications with durability, accessibility, and reliability as top priorities.",
+      "Collaborating on warehouses, processing plants, and manufacturing facilities that support regional economic growth. With 16+ years of proven experience, we create safe, functional, and code-compliant buildings built to your precise specifications with durability, accessibility, and reliability as top priorities.",
   },
   {
     icon: "domain",

@@ -50,6 +50,8 @@ export default function GlobalError({
             }}
           >
             <div
+              role="img"
+              aria-label="Warning"
               style={{
                 fontSize: "4rem",
                 marginBottom: "1.5rem",
@@ -89,9 +91,9 @@ export default function GlobalError({
               }}
             >
               <button
-                onClick={() => reset()}
+                onClick={reset}
                 style={{
-                  backgroundColor: "var(--color-brand-primary)",
+                  backgroundColor: "#386851",
                   color: "white",
                   padding: "0.75rem 1.5rem",
                   borderRadius: "0.375rem",
@@ -108,10 +110,10 @@ export default function GlobalError({
                 onClick={() => (window.location.href = "/")}
                 style={{
                   backgroundColor: "white",
-                  color: "var(--color-brand-primary)",
+                  color: "#386851",
                   padding: "0.75rem 1.5rem",
                   borderRadius: "0.375rem",
-                  border: "2px solid var(--color-brand-primary)",
+                  border: "2px solid #386851",
                   cursor: "pointer",
                   fontSize: "1rem",
                   fontWeight: "500",
@@ -133,7 +135,7 @@ export default function GlobalError({
                 <a
                   href="/contact"
                   style={{
-                    color: "var(--color-brand-primary)",
+                    color: "#386851",
                     textDecoration: "none",
                     fontWeight: "500",
                   }}

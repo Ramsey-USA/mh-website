@@ -92,31 +92,6 @@ export const COMPANY_INFO = {
 } as const;
 
 /**
- * Schema.org formatted company information
- * Ready to use in structured data
- */
-export const COMPANY_SCHEMA = {
-  "@type": "GeneralContractor",
-  name: COMPANY_INFO.name,
-  legalName: COMPANY_INFO.legalName,
-  telephone: COMPANY_INFO.phone.display,
-  email: COMPANY_INFO.email.main,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: COMPANY_INFO.address.street,
-    addressLocality: COMPANY_INFO.address.city,
-    addressRegion: COMPANY_INFO.address.stateCode,
-    postalCode: COMPANY_INFO.address.zip,
-    addressCountry: COMPANY_INFO.address.country,
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: COMPANY_INFO.coordinates.latitude,
-    longitude: COMPANY_INFO.coordinates.longitude,
-  },
-} as const;
-
-/**
  * Email recipient lists for different purposes
  */
 export const EMAIL_RECIPIENTS: {

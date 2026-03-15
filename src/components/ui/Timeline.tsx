@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   DiagonalStripePattern,
@@ -71,7 +72,10 @@ export function Timeline({
   return (
     <section
       id={id}
-      className={`relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden ${className}`}
+      className={cn(
+        "relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden",
+        className,
+      )}
     >
       <DiagonalStripePattern />
       <BrandColorBlobs />
@@ -211,11 +215,12 @@ export function Timeline({
                   {/* Left Side - Number and Line */}
                   <div className="flex flex-col items-center flex-shrink-0">
                     <div
-                      className={`w-16 h-16 ${
+                      className={cn(
+                        "w-16 h-16 rounded-full flex items-center justify-center text-white font-black text-2xl shadow-xl border-4 border-white dark:border-gray-900 relative z-10",
                         step.num === steps.length
                           ? "bg-gradient-to-br from-brand-secondary to-brand-secondary-dark"
-                          : "bg-gradient-to-br from-brand-primary to-brand-primary-dark"
-                      } rounded-full flex items-center justify-center text-white font-black text-2xl shadow-xl border-4 border-white dark:border-gray-900 relative z-10`}
+                          : "bg-gradient-to-br from-brand-primary to-brand-primary-dark",
+                      )}
                     >
                       {step.num}
                     </div>
@@ -229,11 +234,12 @@ export function Timeline({
                     <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-brand-primary dark:hover:border-brand-primary-light">
                       <div className="flex items-center gap-3 mb-4">
                         <div
-                          className={`flex-shrink-0 w-14 h-14 ${
+                          className={cn(
+                            "flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center shadow-lg",
                             step.num === steps.length
                               ? "bg-gradient-to-br from-brand-secondary to-brand-secondary-dark"
-                              : "bg-gradient-to-br from-brand-primary to-brand-primary-dark"
-                          } rounded-xl flex items-center justify-center shadow-lg`}
+                              : "bg-gradient-to-br from-brand-primary to-brand-primary-dark",
+                          )}
                         >
                           <MaterialIcon
                             icon={step.icon}

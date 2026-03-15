@@ -18,7 +18,6 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
 import { StructuredData } from "@/components/seo/SeoMeta";
-import { getTeamSEO } from "@/lib/seo/page-seo-utils";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
@@ -59,10 +58,90 @@ function groupByDepartment(members: VintageTeamMember[]) {
   );
 }
 
-export default function TeamPage() {
-  // Get enhanced SEO data for Team page
-  const teamSEO = getTeamSEO();
+const departmentConfig: Record<
+  string,
+  { icon: string; description: string; id: string }
+> = {
+  "The Upper Brass": {
+    icon: "workspace_premium",
+    description:
+      "Command leadership setting strategic direction and maintaining mission-focused excellence across all operations.",
+    id: "upper-brass",
+  },
+  "Mission Commanders": {
+    icon: "engineering",
+    description:
+      "Mission planning and execution—precision estimating, strategic scheduling, and tactical project coordination.",
+    id: "mission-commanders",
+  },
+  "Special Operations": {
+    icon: "military_tech",
+    description:
+      "Specialized operations in marketing, safety, and strategic initiatives driving competitive advantage.",
+    id: "special-operations",
+  },
+  "Logistics Command": {
+    icon: "support_agent",
+    description:
+      "Base operations providing critical logistics, communications, and administrative support for mission success.",
+    id: "logistics-command",
+  },
+  "Field Officers": {
+    icon: "construction",
+    description:
+      "Frontline operations delivering quality craftsmanship with disciplined execution and safety excellence.",
+    id: "field-officers",
+  },
+};
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What makes MH Construction's leadership team unique?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "MH Construction's Chain of Command brings together 150+ years combined military-grade expertise from all service branches (Army, Navy, Air Force, Marines, Coast Guard, Space Force). Our veteran-owned leadership combines military discipline with proven construction excellence.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Who leads MH Construction?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "MH Construction is led by Owner & President Jeremy Thamert (35+ years construction experience, 15 years Army aviation), Vice President Arnold Garcia (40+ years construction experience), and Founder Mike Holstein who founded the company in 2010.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is MH Construction's Chain of Command structure?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Our Chain of Command includes: The Upper Brass (executive leadership), Mission Commanders (project management and estimating), Special Operations (marketing and safety), Logistics Command (administration and support), and Field Officers (superintendents).",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is MH Construction veteran-owned?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, MH Construction became veteran-owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our team honors all service branches with military precision and service-earned values.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does MH Construction hire veterans?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, MH Construction actively recruits veterans across all branches. We value military experience and offer veteran hiring initiatives, mentorship programs, and career development opportunities. Visit our careers page to learn more.",
+      },
+    },
+  ],
+};
+
+export default function TeamPage() {
   const membersByDepartment = groupByDepartment(vintageTeamMembers);
 
   // Define department order matching the Chain of Command structure
@@ -77,73 +156,10 @@ export default function TeamPage() {
   return (
     <>
       <PageTrackingClient pageName="Team" />
-      {/* Structured Data */}
-      {teamSEO.schemas && teamSEO.schemas.length > 0 && (
-        <StructuredData data={teamSEO.schemas} />
-      )}
-
-      {/* Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            generateBreadcrumbSchema(breadcrumbPatterns.team),
-          ),
-        }}
+      <StructuredData
+        data={generateBreadcrumbSchema(breadcrumbPatterns.team)}
       />
-
-      {/* FAQ Schema for Team Page */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "What makes MH Construction's leadership team unique?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "MH Construction's Chain of Command brings together 150+ years combined military-grade expertise from all service branches (Army, Navy, Air Force, Marines, Coast Guard, Space Force). Our veteran-owned leadership combines military discipline with proven construction excellence.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Who leads MH Construction?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "MH Construction is led by Owner & President Jeremy Thamert (35+ years construction experience, 15 years Army aviation), Vice President Arnold Garcia (40+ years construction experience), and Founder Mike Holstein who founded the company in 2010.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "What is MH Construction's Chain of Command structure?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Our Chain of Command includes: The Upper Brass (executive leadership), Mission Commanders (project management and estimating), Special Operations (marketing and safety), Logistics Command (administration and support), and Field Officers (superintendents).",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Is MH Construction veteran-owned?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, MH Construction became veteran-owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our team honors all service branches with military precision and service-earned values.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Does MH Construction hire veterans?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, MH Construction actively recruits veterans across all branches. We value military experience and offer veteran hiring initiatives, mentorship programs, and career development opportunities. Visit our careers page to learn more.",
-                },
-              },
-            ],
-          }),
-        }}
-      />
+      <StructuredData data={faqSchema} />
 
       {/* Initialize scroll reveal animations */}
       <ScrollReveal />
@@ -283,29 +299,7 @@ export default function TeamPage() {
                 const members = membersByDepartment[department];
                 if (!members || members.length === 0) return null;
 
-                // Map departments to icons and descriptions
-                const departmentConfig: {
-                  [key: string]: {
-                    icon: string;
-                    description: string;
-                    id: string;
-                  };
-                } = {
-                  "The Upper Brass": {
-                    icon: "workspace_premium",
-                    description:
-                      "Command leadership setting strategic direction and maintaining mission-focused excellence across all operations.",
-                    id: "upper-brass",
-                  },
-                  "Mission Commanders": {
-                    icon: "engineering",
-                    description:
-                      "Mission planning and execution—precision estimating, strategic scheduling, and tactical project coordination.",
-                    id: "mission-commanders",
-                  },
-                };
-
-                const config = departmentConfig[department] || {
+                const config = departmentConfig[department] ?? {
                   icon: "groups",
                   description: "",
                   id: "team",
@@ -439,35 +433,7 @@ export default function TeamPage() {
                 const members = membersByDepartment[department];
                 if (!members || members.length === 0) return null;
 
-                // Map departments to icons and descriptions
-                const departmentConfig: {
-                  [key: string]: {
-                    icon: string;
-                    description: string;
-                    id: string;
-                  };
-                } = {
-                  "Special Operations": {
-                    icon: "military_tech",
-                    description:
-                      "Specialized operations in marketing, safety, and strategic initiatives driving competitive advantage.",
-                    id: "special-operations",
-                  },
-                  "Logistics Command": {
-                    icon: "support_agent",
-                    description:
-                      "Base operations providing critical logistics, communications, and administrative support for mission success.",
-                    id: "logistics-command",
-                  },
-                  "Field Officers": {
-                    icon: "construction",
-                    description:
-                      "Frontline operations delivering quality craftsmanship with disciplined execution and safety excellence.",
-                    id: "field-officers",
-                  },
-                };
-
-                const config = departmentConfig[department] || {
+                const config = departmentConfig[department] ?? {
                   icon: "groups",
                   description: "",
                   id: "team",

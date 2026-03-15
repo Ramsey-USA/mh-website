@@ -3,7 +3,7 @@
 ## Comprehensive Standards for Pages, Sections, Components, and Mobile
 
 **Category:** Development - Implementation Standards  
-**Last Updated:** December 13, 2025 | **Version:** 2.0.0 | **Status:** Official Standard
+**Last Updated:** March 15, 2026 | **Version:** 2.0.0 | **Status:** Official Standard
 
 **⭐ UPDATE (Dec 2025)**: Complete shift to veteran/honest messaging. All content now emphasizes
 veteran-owned excellence, honest communication, transparent pricing, and proven craftsmanship.
@@ -34,7 +34,7 @@ veteran-owned excellence, honest communication, transparent pricing, and proven 
 
 ### November 15, 2025 Update
 
-**⭐ CRITICAL FOR ALL CONTENT DEVELOPMENT:** All pages must follow the 7-group messaging strategy
+**⭐ CRITICAL FOR ALL CONTENT DEVELOPMENT:** All pages must follow the 7 Core Page Groups messaging strategy
 documented in **[Page-Specific Messaging Guide](../../branding/strategy/page-specific-messaging-guide.md)**.
 
 ### Why This Matters
@@ -282,7 +282,7 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 <span>🏗️</span>
 ```
 
-**Icon Sizes**: `sm`, `md`, `lg`, `xl`, `2xl`
+**Icon Sizes**: `xs` (20px), `sm` (24px), `md` (30px), `lg` (36px), `xl` (48px), `2xl` (60px), `3xl` (72px), `4xl` (96px), `5xl` (120px)
 
 ---
 
@@ -392,7 +392,9 @@ export default function PageName() {
         id="section-name"
         className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40"
       >
-        <div className="mx-auto px-4 container">{/* Section content */}</div>
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          {/* Section content */}
+        </div>
       </section>
 
       {/* CTA Section - RECOMMENDED */}
@@ -464,7 +466,7 @@ pageName: [
 
 ```tsx
 <section className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-gray-900 py-20 sm:py-24 lg:py-32 text-white">
-  <div className="relative mx-auto px-4 container">
+  <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
     {/* NO BADGES - Professional and clean */}
     <h1
       className="text-center font-bold mb-6 text-brand-secondary"
@@ -494,7 +496,7 @@ pageName: [
 
 ```tsx
 <section className="bg-white dark:bg-gray-900 py-20 lg:py-32 xl:py-40">
-  <div className="mx-auto px-4 container">
+  <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
     <FadeInWhenVisible>
       {/* Section Header - NO BADGES */}
       <div className="mx-auto mb-16 lg:mb-24 max-w-4xl text-center">
@@ -539,7 +541,7 @@ pageName: [
 ### Section Spacing
 
 - **Vertical padding**: `py-20 lg:py-32 xl:py-40`
-- **Container**: `mx-auto px-4 container`
+- **Container**: `relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl`
 - **Header margin bottom**: `mb-16 lg:mb-24`
 - **Content grid gaps**: `gap-6 lg:gap-8`
 
@@ -549,7 +551,7 @@ pageName: [
 
 ### Button Component
 
-**Variants**: `primary`, `secondary`, `outline`, `neutral`, `ghost`, `link`
+**Variants**: `primary`, `secondary`, `outline`, `neutral`, `default`, `destructive`, `ghost`, `link`
 
 ```tsx
 import { Button } from "@/components/ui";
@@ -754,7 +756,7 @@ className = "transform-gpu will-change-transform";
 - [ ] Use correct typography tier (hero vs standard section)
 - [ ] Include all responsive breakpoints in typography
 - [ ] Alternating section backgrounds (white/gray-50)
-- [ ] Container with proper padding: `mx-auto px-4 container`
+- [ ] Container with proper padding: `relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl`
 
 ### Before Creating a New Section
 
@@ -1007,14 +1009,14 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 ## 📚 Related Documentation
 
 - **[Page-Specific Messaging Guide](../../branding/strategy/page-specific-messaging-guide.md)** - ⭐
-  **CRITICAL** - 7-group messaging strategy
+  **CRITICAL** - 5 Core Page Groups strategy
 - **[Brand Overview](../../branding/strategy/brand-overview.md)** - Complete brand standards
 - **[Brand Overview](../../branding/strategy/brand-overview.md)** - Complete brand standards
 - **[Design System Components](../../technical/design-system/buttons-ctas-complete-guide.md)** - Complete design system
 - **[Icon System](../../technical/design-system/icon-system-complete.md)** - Icon standards
 - **[Brand Strategy](../../branding/strategy/)** - Brand identity and messaging
 - **[Brand Standards](../../branding/standards/)** - Visual and typography standards
-- **[Component Standards](../../branding/standards/component-standards.md)** - UI components
+- **[Unified Component Standards](../../branding/standards/unified-component-standards.md)** - UI components
 
 ---
 

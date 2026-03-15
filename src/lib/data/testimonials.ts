@@ -40,26 +40,3 @@ export function getEmployeeTestimonials(featured?: boolean): Testimonial[] {
     ? employeeTestimonials.filter((t) => t.featured)
     : employeeTestimonials;
 }
-
-export function getVeteranTestimonials(): Testimonial[] {
-  return [
-    ...employeeTestimonials.filter((t) => t.type === "veteran"),
-    ...clientTestimonials.filter((t) => t.veteranStatus),
-  ];
-}
-
-export function getTestimonialsByCategory(
-  category: string,
-): Testimonial[] | undefined {
-  return clientTestimonials.filter((t) => t.category === category);
-}
-
-export function getAllTestimonials(): Testimonial[] {
-  return [...clientTestimonials, ...employeeTestimonials];
-}
-
-export function getFeaturedTestimonials(): Testimonial[] {
-  return [...clientTestimonials, ...employeeTestimonials].filter(
-    (t) => t.featured,
-  );
-}

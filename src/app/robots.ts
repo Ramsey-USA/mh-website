@@ -22,36 +22,6 @@ export default function robots(): MetadataRoute.Robots {
           "/monitoring/",
         ],
       },
-      {
-        userAgent: "Googlebot",
-        allow: "/",
-        disallow: ["/api/", "/admin/", "/dashboard/", "/_next/", "/private/"],
-      },
-      {
-        userAgent: "Bingbot",
-        allow: "/",
-        disallow: ["/api/", "/admin/", "/dashboard/", "/_next/", "/private/"],
-      },
-      {
-        userAgent: "Edgebot",
-        allow: "/",
-        disallow: ["/api/", "/admin/", "/dashboard/", "/_next/", "/private/"],
-      },
-      {
-        userAgent: "DuckDuckBot",
-        allow: "/",
-        disallow: ["/api/", "/admin/", "/dashboard/", "/_next/", "/private/"],
-      },
-      {
-        userAgent: "Yandex",
-        allow: "/",
-        disallow: ["/api/", "/admin/", "/dashboard/", "/_next/", "/private/"],
-      },
-      {
-        userAgent: "Baiduspider",
-        allow: "/",
-        disallow: ["/api/", "/admin/", "/dashboard/", "/_next/", "/private/"],
-      },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
     host: baseUrl,

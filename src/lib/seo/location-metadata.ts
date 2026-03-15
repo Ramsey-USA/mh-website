@@ -26,6 +26,9 @@ export function generateLocationMetadata(location: LocationData): Metadata {
     `${project.name} ${location.city}`,
     `${project.category} contractor ${location.city} ${location.state}`,
   ]);
+  const zipKeywords = (location.serviceZipCodes || []).map(
+    (zip) => `general contractor ${zip}`,
+  );
 
   return withGeoMetadata(
     {
@@ -36,6 +39,7 @@ export function generateLocationMetadata(location: LocationData): Metadata {
         ...priorityKeywords,
         ...nearbyAreaKeywords,
         ...projectKeywords,
+        ...zipKeywords,
       ],
       alternates: {
         canonical: `${siteUrl}/locations/${location.slug}`,

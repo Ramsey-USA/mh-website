@@ -20,6 +20,23 @@
 - ✅ **Careers Page** (`/src/app/careers/page.tsx`) - Job listings and company benefits
 - ✅ **Public Sector Page** (`/src/app/public-sector/page.tsx`) - Government & public sector project focus
 - ✅ **Allies Page** (`/src/app/allies/page.tsx`) - Trade partner / subcontractor network
+- ✅ **Veterans Page** (`/src/app/veterans/page.tsx`) - Veteran hiring and recognition
+- ✅ **Testimonials Page** (`/src/app/testimonials/page.tsx`) - Client partner reviews
+- ✅ **FAQ Page** (`/src/app/faq/page.tsx`) - Common questions and answers
+- ✅ **Privacy Policy** (`/src/app/privacy/page.tsx`) - Privacy policy
+- ✅ **Terms of Service** (`/src/app/terms/page.tsx`) - Terms of service
+- ✅ **Accessibility Statement** (`/src/app/accessibility/page.tsx`) - WCAG accessibility info
+- ✅ **Offline Page** (`/src/app/offline/page.tsx`) - PWA offline fallback
+
+### **Location Pages** (Service Area)
+
+- ✅ **Pasco** (`/src/app/locations/pasco/page.tsx`) - Headquarters city
+- ✅ **Kennewick** (`/src/app/locations/kennewick/page.tsx`)
+- ✅ **Richland** (`/src/app/locations/richland/page.tsx`)
+- ✅ **West Richland** (`/src/app/locations/west-richland/page.tsx`)
+- ✅ **Yakima** (`/src/app/locations/yakima/page.tsx`)
+- ✅ **Spokane** (`/src/app/locations/spokane/page.tsx`)
+- ✅ **Walla Walla** (`/src/app/locations/walla-walla/page.tsx`)
 
 ### **Advanced Platform Features**
 
@@ -53,47 +70,99 @@
 ```text
 src/
 ├── app/
-│   ├── page.tsx                    # Homepage (Complete)
-│   ├── about/page.tsx              # About page (Complete)
-│   ├── services/page.tsx           # Services page (Complete)
-│   ├── projects/page.tsx           # Projects page (Complete)
-│   ├── team/page.tsx               # Team page (Complete)
-│   ├── contact/page.tsx            # Contact page (Complete)
-│   ├── careers/page.tsx            # Careers page (Complete)
+│   ├── page.tsx                    # Homepage
+│   ├── about/page.tsx              # About page
+│   ├── services/page.tsx           # Services page
+│   ├── projects/page.tsx           # Projects / portfolio page
+│   ├── team/page.tsx               # Team page
+│   ├── contact/page.tsx            # Contact page
+│   ├── careers/page.tsx            # Careers page
+│   ├── public-sector/page.tsx      # Government & public sector page
+│   ├── allies/page.tsx             # Trade partners / subcontractors page
+│   ├── veterans/page.tsx           # Veterans page
+│   ├── testimonials/page.tsx       # Client testimonials page
+│   ├── faq/page.tsx                # FAQ page
+│   ├── privacy/page.tsx            # Privacy policy
+│   ├── terms/page.tsx              # Terms of service
+│   ├── accessibility/page.tsx      # Accessibility statement
+│   ├── offline/page.tsx            # PWA offline fallback
 │   ├── dashboard/page.tsx          # Admin analytics dashboard (Matt & Jeremy only)
+│   ├── locations/
+│   │   ├── pasco/page.tsx          # Location: Pasco (HQ)
+│   │   ├── kennewick/page.tsx      # Location: Kennewick
+│   │   ├── richland/page.tsx       # Location: Richland
+│   │   ├── west-richland/page.tsx  # Location: West Richland
+│   │   ├── yakima/page.tsx         # Location: Yakima
+│   │   ├── spokane/page.tsx        # Location: Spokane
+│   │   └── walla-walla/page.tsx    # Location: Walla Walla
 │   ├── api/
-│   │   ├── auth/admin-login/       # Admin authentication endpoint
-│   │   └── analytics/dashboard/    # Analytics data API
+│   │   ├── auth/                   # Admin authentication endpoints
+│   │   ├── analytics/              # Analytics data API
+│   │   ├── consultations/          # Consultation form submissions
+│   │   ├── contact/                # Contact form submissions
+│   │   ├── job-applications/       # Career application submissions
+│   │   ├── newsletter/             # Newsletter signup
+│   │   ├── security/               # Security/rate-limiting endpoints
+│   │   ├── track-phone-call/       # Phone call analytics tracking
+│   │   ├── upload/                 # File upload handling
+│   │   └── functions/              # Edge function utilities
 │   ├── layout.tsx                  # Root layout with providers
-│   ├── sitemap.ts                  # SEO sitemap
+│   ├── error.tsx                   # Error boundary
+│   ├── global-error.tsx            # Global error boundary
+│   ├── not-found.tsx               # 404 page
+│   ├── sitemap.ts                  # Primary SEO sitemap
+│   ├── sitemap-dynamic.ts          # Dynamic sitemap entries
 │   └── robots.ts                   # SEO robots.txt
 ├── components/
+│   ├── about/                      # About page components
+│   ├── analytics/
+│   │   └── TrackedComponents.tsx   # Tracked button/link/form components
+│   ├── animations/                 # Framer Motion animation components
+│   ├── contact/                    # Contact form & info components
+│   ├── error/                      # Error display components
+│   ├── forms/                      # Reusable form primitives
+│   ├── home/                       # Homepage-specific components
 │   ├── icons/
 │   │   └── MaterialIcon.tsx        # Universal icon system
 │   ├── layout/
 │   │   ├── Navigation.tsx          # Responsive navigation
 │   │   └── Footer.tsx              # Footer with hidden admin trigger
-│   ├── ui/
-│   │   └── modals/
-│   │       └── AdminSignInModal.tsx # Admin authentication modal
-│   ├── analytics/
-│   │   └── TrackedComponents.tsx   # Tracked button/link/form components
-│   ├── seo/                        # SEO components
-│   └── shared-sections/            # Reusable sections
+│   ├── locations/                  # Location page components
+│   ├── map/                        # Map/geography components
+│   ├── navigation/                 # Navigation config & utilities
+│   ├── performance/                # Performance optimization components
+│   ├── projects/                   # Projects/portfolio components
+│   ├── pwa/                        # PWA install prompt components
+│   ├── ratings/                    # Review/rating display components
+│   ├── seo/                        # SEO meta & structured data components
+│   ├── services/                   # Services page components
+│   ├── shared/                     # Miscellaneous shared components
+│   ├── shared-sections/            # Reusable full-page sections
+│   ├── slider/                     # Carousel/slider components
+│   ├── team/                       # Team page components
+│   ├── templates/                  # BrandedContentSection & page templates
+│   ├── testimonials/               # Testimonials section components
+│   ├── ui/                         # Base UI primitives (Button, Card, etc.)
+│   └── veterans/                   # Veterans page components
 ├── lib/
-│   ├── analytics/
-│   │   ├── index.ts                # Analytics module exports
-│   │   ├── analytics-engine.ts     # Core analytics engine
-│   │   ├── tracking.ts             # Tracking utility functions
-│   │   ├── hooks.ts                # React hooks (usePageTracking, etc.)
-│   │   ├── metadata.ts             # Enhanced metadata collection
-│   │   └── types.ts                # Analytics type definitions
+│   ├── analytics/                  # Analytics engine, hooks, tracking
+│   ├── api/                        # API client utilities
 │   ├── auth/
 │   │   ├── jwt.ts                  # JWT token generation
 │   │   └── middleware.ts           # Role-based access control
-│   ├── services/                   # API services
-│   ├── utils/                      # Utility functions
-│   └── types/                      # TypeScript types
+│   ├── cloudflare/                 # Cloudflare D1/R2/KV integrations
+│   ├── constants/                  # App-wide constants
+│   ├── data/                       # Static data files (team, portfolio, etc.)
+│   ├── db/                         # Database query helpers
+│   ├── email/                      # Email sending utilities
+│   ├── notifications/              # Notification system
+│   ├── performance/                # Performance monitoring utilities
+│   ├── security/                   # Input sanitization, rate limiting
+│   ├── seo/                        # SEO utilities, breadcrumb schemas
+│   ├── services/                   # Business logic services
+│   ├── styles/                     # Centralized style utilities
+│   ├── types/                      # TypeScript type definitions
+│   └── utils/                      # General utility functions
 └── hooks/                          # Custom React hooks
 ```
 

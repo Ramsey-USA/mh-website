@@ -1,6 +1,7 @@
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import Image from "next/image";
 import { type ReactNode } from "react";
+import { cn } from "@/lib/utils";
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
 
 /**
@@ -95,9 +96,10 @@ export function AlternatingShowcase({
               <div className="flex flex-col lg:grid lg:grid-cols-2 bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300">
                 {/* Image Side */}
                 <div
-                  className={`relative h-64 sm:h-80 lg:h-full lg:min-h-[500px] overflow-hidden ${
-                    isEven ? "lg:order-1" : "lg:order-2"
-                  }`}
+                  className={cn(
+                    "relative h-64 sm:h-80 lg:h-full lg:min-h-[500px] overflow-hidden",
+                    isEven ? "lg:order-1" : "lg:order-2",
+                  )}
                 >
                   <Image
                     src={item.image}
@@ -110,14 +112,23 @@ export function AlternatingShowcase({
                     priority={false}
                   />
                   {/* Overlay gradient for better icon visibility */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent lg:bg-gradient-to-r lg:from-black/60 lg:via-black/20 lg:to-transparent"></div>
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent lg:bg-gradient-to-r lg:from-black/60 lg:via-black/20 lg:to-transparent"
+                    aria-hidden="true"
+                  ></div>
 
                   {/* Icon Badge on Image */}
                   <div className="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">
                     <div className="relative inline-block">
-                      <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 blur-xl rounded-2xl"></div>
                       <div
-                        className={`relative w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 ${item.iconBg} rounded-2xl flex items-center justify-center shadow-xl`}
+                        className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 blur-xl rounded-2xl"
+                        aria-hidden="true"
+                      ></div>
+                      <div
+                        className={cn(
+                          "relative w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-2xl flex items-center justify-center shadow-xl",
+                          item.iconBg,
+                        )}
                       >
                         <MaterialIcon
                           icon={item.icon}
@@ -132,9 +143,10 @@ export function AlternatingShowcase({
 
                 {/* Content Side */}
                 <div
-                  className={`p-8 sm:p-10 lg:p-12 flex flex-col justify-center ${
-                    isEven ? "lg:order-2" : "lg:order-1"
-                  }`}
+                  className={cn(
+                    "p-8 sm:p-10 lg:p-12 flex flex-col justify-center",
+                    isEven ? "lg:order-2" : "lg:order-1",
+                  )}
                 >
                   <div className="space-y-4 lg:space-y-5">
                     <div>

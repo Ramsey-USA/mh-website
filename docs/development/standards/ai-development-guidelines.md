@@ -1,7 +1,7 @@
 # AI Development Guidelines for MH Construction Website
 
 **Category:** Development - AI Standards  
-**Last Updated:** December 14, 2025  
+**Last Updated:** March 15, 2026  
 **Version:** 1.0.0  
 **Status:** ✅ Active - Mandatory
 
@@ -33,8 +33,8 @@ introduction of inconsistencies and bugs that have historically plagued this pro
   for all code
 - **[MH Branding](../../branding/)** - Modular brand standards (colors,
   typography, icons)
-- **[Typography Standards](../../branding/standards/typography.md)** - Hero section
-  requirements, responsive scaling
+- **[Unified Component Standards](../../branding/standards/unified-component-standards.md)** - Hero section
+  requirements, responsive scaling & typography
 - **[Consistency Guide](./consistency-guide.md)** - Overall
   project consistency strategy
 

@@ -1,10 +1,10 @@
+"use client";
+
 /**
  * Pitch Deck CTA Component
  * Strategic call-to-action to download company pitch deck
  * Variants: banner, card, inline
  */
-
-"use client";
 
 import { useState } from "react";
 import { Button } from "@/components/ui";
@@ -147,15 +147,19 @@ export function PitchDeckCTA({
           <span>Project portfolio highlights</span>
         </li>
       </ul>
-      <div className="relative">
+      {/* Wrapper captures hover since disabled buttons suppress mouse events */}
+      <div
+        role="none"
+        className="relative"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <Button
           variant="primary"
           size="lg"
           className="w-full group/btn opacity-60 cursor-not-allowed"
           onClick={handleClick}
           disabled
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
           aria-label="Download pitch deck - Coming soon"
         >
           <MaterialIcon
@@ -172,7 +176,7 @@ export function PitchDeckCTA({
             className="absolute -top-12 left-1/2 -translate-x-1/2 bg-gray-900 dark:bg-gray-700 text-white text-xs px-3 py-2 rounded-lg whitespace-nowrap shadow-lg"
           >
             Available soon!
-            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
+            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45" />
           </div>
         )}
       </div>
