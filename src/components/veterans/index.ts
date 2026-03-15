@@ -1,0 +1,1 @@
+export { VeteranBadgeSection } from "./VeteranBadgeSection";

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getGovernmentSEO } from "@/lib/seo/page-seo-utils";
-import { StructuredData } from "@/components/seo/seo-meta";
+import { StructuredData } from "@/components/seo/SeoMeta";
 
 // Enhanced SEO metadata for Government page
 const seoData = getGovernmentSEO();

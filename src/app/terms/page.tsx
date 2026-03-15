@@ -1,7 +1,7 @@
 import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { StructuredData } from "@/components/seo/seo-meta";
+import { StructuredData } from "@/components/seo/SeoMeta";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import {
   generateBreadcrumbSchema,

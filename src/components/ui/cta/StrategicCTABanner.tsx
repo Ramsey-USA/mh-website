@@ -9,7 +9,7 @@
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import Link from "next/link";
-import { useAnalytics } from "@/components/analytics/enhanced-analytics";
+import { useAnalytics } from "@/components/analytics/EnhancedAnalytics";
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
 
 interface StrategicCTABannerProps {

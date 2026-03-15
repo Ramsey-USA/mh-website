@@ -20,7 +20,7 @@ import {
 } from "@/components/about";
 import { Timeline } from "@/components/ui/Timeline";
 import { ContentCard } from "@/components/ui/ContentCard";
-import { aboutTimelineSteps } from "@/data/about-timeline";
+import { aboutTimelineSteps } from "@/lib/data/about-timeline";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import {

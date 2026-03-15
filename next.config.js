@@ -48,12 +48,6 @@ const nextConfig = {
   distDir: ".next",
   cleanDistDir: true,
 
-  // On-demand entries configuration
-  onDemandEntries: {
-    maxInactiveAge: 60 * 1000,
-    pagesBufferLength: 5,
-  },
-
   // === SECURITY ===
   poweredByHeader: false,
 

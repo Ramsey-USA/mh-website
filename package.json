@@ -59,11 +59,8 @@
     "@radix-ui/react-progress": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
     "@radix-ui/react-tabs": "^1.1.13",
-    "@types/node": "^24.12.0",
-    "@types/react": "^19.2.14",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "eslint": "^9.39.4",
     "framer-motion": "^12.35.2",
     "jose": "^5.10.0",
     "next": "^15.5.12",
@@ -74,7 +71,6 @@
     "resend": "^6.9.3",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^3.4.19",
-    "typescript": "^5.9.2",
     "web-vitals": "^5.1.0"
   },
   "devDependencies": {
@@ -83,6 +79,8 @@
     "@commitlint/config-conventional": "^20.4.3",
     "@eslint/eslintrc": "^3.3.5",
     "@next/bundle-analyzer": "^16.1.6",
+    "@types/node": "^24.12.0",
+    "@types/react": "^19.2.14",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/typography": "^0.5.19",
@@ -93,6 +91,7 @@
     "chalk": "^5.6.2",
     "chrome-launcher": "^1.2.1",
     "cross-env": "^7.0.3",
+    "eslint": "^9.39.4",
     "eslint-config-next": "^15.5.12",
     "husky": "^9.1.7",
     "jest": "^30.3.0",
@@ -106,6 +105,7 @@
     "prettier": "^3.8.1",
     "qrcode": "^1.5.4",
     "sharp": "^0.34.5",
+    "typescript": "^5.9.2",
     "vercel": "32.3.0",
     "wrangler": "^4.72.0"
   },
@@ -123,6 +123,7 @@
       "minimatch": "9.0.7"
     },
     "tar": "7.5.11",
-    "cookie": "1.1.1"
+    "cookie": "1.1.1",
+    "flatted": ">=3.4.0"
   }
 }

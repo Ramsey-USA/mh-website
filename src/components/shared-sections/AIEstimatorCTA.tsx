@@ -10,7 +10,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
-import { useAnalytics } from "@/components/analytics/enhanced-analytics";
+import { useAnalytics } from "@/components/analytics/EnhancedAnalytics";
 
 interface AIEstimatorCTAProps {
   variant?: "full" | "compact";

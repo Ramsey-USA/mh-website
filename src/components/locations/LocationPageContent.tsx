@@ -5,8 +5,8 @@ import { usePageTracking } from "@/lib/analytics/hooks";
 import { Button } from "@/components/ui";
 import { SectionContainer } from "@/components/layout";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { StructuredData } from "@/components/seo/seo-meta";
-import { enhancedSEO } from "@/components/seo/enhanced-seo";
+import { StructuredData } from "@/components/seo/SeoMeta";
+import { enhancedSEO } from "@/components/seo/EnhancedSEO";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,

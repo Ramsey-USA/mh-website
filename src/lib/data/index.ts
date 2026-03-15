@@ -29,3 +29,6 @@ export {
 // Location data exports
 export type { LocationData } from "./locations";
 export { locations, getLocationBySlug, getAllLocationSlugs } from "./locations";
+
+// About page data exports
+export { aboutTimelineSteps } from "./about-timeline";

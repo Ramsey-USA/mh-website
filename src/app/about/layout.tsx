@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getAboutSEO } from "@/lib/seo/page-seo-utils";
-import { StructuredData } from "@/components/seo/seo-meta";
+import { StructuredData } from "@/components/seo/SeoMeta";
 
 // Enhanced SEO metadata for About page
 const seoData = getAboutSEO();

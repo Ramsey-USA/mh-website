@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useAnalytics } from "@/components/analytics/enhanced-analytics";
+import { useAnalytics } from "@/components/analytics/EnhancedAnalytics";
 
 /**
  * Custom hook for tracking scroll depth on pages using Intersection Observer

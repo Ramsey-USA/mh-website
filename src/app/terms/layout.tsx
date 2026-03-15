@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
-import { StructuredData } from "@/components/seo/seo-meta";
+import { StructuredData } from "@/components/seo/SeoMeta";
 import { COMPANY_INFO } from "@/lib/constants/company";
 
 const siteUrl = COMPANY_INFO.urls.getSiteUrl();

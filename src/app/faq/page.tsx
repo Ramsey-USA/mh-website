@@ -15,7 +15,7 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { generateHowToSchema } from "@/lib/seo/howto-schema";
-import { StructuredData } from "@/components/seo/seo-meta";
+import { StructuredData } from "@/components/seo/SeoMeta";
 import { getFAQSEO } from "@/lib/seo/page-seo-utils";
 import {
   DiagonalStripePattern,

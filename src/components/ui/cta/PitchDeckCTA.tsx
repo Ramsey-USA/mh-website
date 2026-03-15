@@ -9,7 +9,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { useAnalytics } from "@/components/analytics/enhanced-analytics";
+import { useAnalytics } from "@/components/analytics/EnhancedAnalytics";
 
 interface PitchDeckCTAProps {
   variant?: "banner" | "card" | "inline";

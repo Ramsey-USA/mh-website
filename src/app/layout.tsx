@@ -5,17 +5,17 @@ import { Navigation, Footer } from "@/components/layout";
 import FaviconLinks from "@/components/layout/FaviconLinks";
 import { AuthProvider } from "@/lib/auth/auth-context";
 import { ThemeProvider } from "@/contexts/theme-context";
-import { WebVitalsReporter } from "@/components/performance/optimized-components";
+import { WebVitalsReporter } from "@/components/performance/OptimizedComponents";
 import { MobilePerformanceMonitor } from "@/components/performance/MobilePerformanceMonitor";
 import { ErrorBoundary } from "@/components/error";
 import {
   StructuredData,
   generateEnhancedOrganizationSchema,
   generateWebsiteSchema,
-} from "@/components/seo/seo-meta";
+} from "@/components/seo/SeoMeta";
 import { SkipLink } from "@/components/ui/accessibility/SkipLink";
 import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
-import { GoogleAnalytics } from "@/components/analytics/google-analytics";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { PWAManager } from "@/components/pwa";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";

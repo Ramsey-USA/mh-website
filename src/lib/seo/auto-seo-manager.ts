@@ -10,7 +10,7 @@
  */
 
 import { type Metadata } from "next";
-import { enhancedSEO } from "@/components/seo/enhanced-seo";
+import { enhancedSEO } from "@/components/seo/EnhancedSEO";
 
 // ============================================================================
 // TYPES & INTERFACES

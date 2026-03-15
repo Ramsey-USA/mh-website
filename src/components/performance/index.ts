@@ -8,4 +8,4 @@ export { WebVitalsReporter } from "./WebVitalsReporter";
 export {
   OptimizedPortfolioCard,
   OptimizedGallery,
-} from "./optimized-components";
+} from "./OptimizedComponents";

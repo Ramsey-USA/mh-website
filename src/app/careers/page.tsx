@@ -28,7 +28,7 @@ import {
   cultureValues,
 } from "@/lib/data/careers";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { StructuredData } from "@/components/seo/seo-meta";
+import { StructuredData } from "@/components/seo/SeoMeta";
 import { getCareersSEO } from "@/lib/seo/page-seo-utils";
 import { SimpleSkeleton } from "@/components/ui/SimpleSkeleton";
 import {

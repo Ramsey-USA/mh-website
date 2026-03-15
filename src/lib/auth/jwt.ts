@@ -9,11 +9,8 @@ import { SignJWT, jwtVerify, type JWTPayload } from "jose";
 import { COMPANY_INFO } from "@/lib/constants/company";
 
 // JWT configuration — JWT_SECRET must be set in production via environment variable
-const JWT_SECRET = process.env["JWT_SECRET"];
-if (!JWT_SECRET && process.env.NODE_ENV === "production") {
-  throw new Error("JWT_SECRET environment variable is required in production");
-}
-const JWT_SECRET_VALUE = JWT_SECRET ?? "dev-only-secret-not-for-production";
+// NOTE: validation is deferred to request-time (inside getSecretKey) so the build
+// succeeds without this runtime secret being present in the CI/build environment.
 const JWT_ISSUER =
   process.env["NEXT_PUBLIC_SITE_URL"] || COMPANY_INFO.urls.getSiteUrl();
 const JWT_AUDIENCE = "mh-construction-api";
@@ -36,10 +33,20 @@ export interface TokenPair {
 }
 
 /**
- * Get JWT secret as Uint8Array for jose library
+ * Get JWT secret as Uint8Array for jose library.
+ * Validation is deferred here so the build succeeds without the secret present;
+ * it will throw at request-time in production if the variable is missing.
  */
 function getSecretKey(): Uint8Array {
-  return new TextEncoder().encode(JWT_SECRET_VALUE);
+  const secret = process.env["JWT_SECRET"];
+  if (!secret && process.env.NODE_ENV === "production") {
+    throw new Error(
+      "JWT_SECRET environment variable is required in production",
+    );
+  }
+  return new TextEncoder().encode(
+    secret ?? "dev-only-secret-not-for-production",
+  );
 }
 
 /**

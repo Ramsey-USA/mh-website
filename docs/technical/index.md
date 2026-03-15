@@ -34,8 +34,6 @@ lead scoring, and military-themed dashboard.
 - **Military Dashboard:** Access at /dashboard (triple-click footer copyright)
 - **Privacy-First:** No external services, localStorage only, GDPR compliant
 
-**Test Suite:** `test-analytics.html` - Comprehensive system verification
-
 ### Development Resources
 
 See main [README.md](../../README.md#quick-start-by-role) for complete development guide including:
@@ -95,6 +93,12 @@ Component implementation and technical design documentation.
 - **[Icon System](./design-system/icon-system-complete.md)** - Material Icons implementation
 - **[Dark Mode Guide](./dark-mode-implementation-guide.md)** - Complete dark mode implementation
 - **[Dark Mode Quick Reference](./dark-mode-quick-reference.md)** - Quick cheatsheet
+- **[PWA Documentation](./pwa-documentation.md)** - Progressive Web App implementation guide
+- **[PWA Quick Reference](./pwa-quick-reference.md)** - PWA setup cheatsheet
+- **[Secrets Management](./secrets-management.md)** - Environment variables and secrets guide
+- **[Admin Password Security](./admin-password-security.md)** - Admin authentication security
+- **[Automatic Media Optimization](./automatic-media-optimization.md)** - Image and video optimization pipeline
+- **[FFmpeg Setup](./ffmpeg-setup.md)** - Video processing setup guide
 
 ### SEO & Browser Titles ⭐ UPDATED (Dec 27, 2025)
 
@@ -105,9 +109,9 @@ Search engine optimization guidelines, dual-label military/construction messagin
 
 ## Tech Stack
 
-- **Framework:** Next.js 15.5.2 with App Router
-- **Language:** TypeScript 5.9.3 (strict mode)
-- **Styling:** Tailwind CSS 3.4.18
+- **Framework:** Next.js 15.5.12 with App Router
+- **Language:** TypeScript 5.9.2 (strict mode)
+- **Styling:** Tailwind CSS 3.4.19
 - **Icons:** Google Material Icons (font-based)
 - **Deployment:** Cloudflare Pages
 - **Email:** Resend API

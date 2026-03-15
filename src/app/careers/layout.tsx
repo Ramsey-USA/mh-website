@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getCareersSEO } from "@/lib/seo/page-seo-utils";
-import { StructuredData } from "@/components/seo/seo-meta";
+import { StructuredData } from "@/components/seo/SeoMeta";
 
 // Enhanced SEO metadata for Careers page
 const seoData = getCareersSEO();

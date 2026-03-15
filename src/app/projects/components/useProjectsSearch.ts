@@ -5,7 +5,7 @@
 
 import { useState, useMemo, useEffect } from "react";
 import { PortfolioService } from "@/lib/services/portfolio-service";
-import { useAnalytics } from "@/components/analytics/enhanced-analytics";
+import { useAnalytics } from "@/components/analytics/EnhancedAnalytics";
 
 export function useProjectsSearch() {
   const { trackSearchPerformed, trackSearchFilterUsed, trackSearchClear } =

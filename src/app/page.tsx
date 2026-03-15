@@ -1,4 +1,4 @@
-import { StructuredData } from "@/components/seo/seo-meta";
+import { StructuredData } from "@/components/seo/SeoMeta";
 import { PageTrackingClient } from "@/components/analytics";
 
 // Enhanced SEO for veteran-owned construction with traditional values

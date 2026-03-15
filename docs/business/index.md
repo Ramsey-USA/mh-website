@@ -14,6 +14,7 @@ offerings, team profiles, and client testimonials.
 
 - **[Core Values](./core-values.md)** - Four pillars: Honesty, Integrity, Professionalism, Thoroughness
 - **[Services](./services.md)** - Complete service offerings and capabilities
+- **[Project Specializations](./project-specializations.md)** - Specialized project types and capabilities
 - **[Testimonials](./testimonials.md)** - Client feedback and project success stories
 
 ### Team
@@ -33,7 +34,7 @@ Mission Commanders (Project Management):
 
 Special Operations (Marketing, Safety & Strategic Initiatives):
 
-- Todd Schoeff (Lead Estimator)
+- Currently being restructured - functions distributed across Mission Commanders
 
 Field Officers (Site & Field Operations):
 

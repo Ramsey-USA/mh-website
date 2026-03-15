@@ -12,7 +12,7 @@ import {
   Input,
   Textarea,
 } from "@/components/ui";
-import { analytics } from "@/components/analytics/google-analytics";
+import { analytics } from "@/components/analytics/GoogleAnalytics";
 import { isValidEmail, isValidPhone } from "@/lib/utils/validation";
 import { useFormTracking } from "@/lib/analytics/hooks";
 import { trackFormSubmit } from "@/lib/analytics/tracking";

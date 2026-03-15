@@ -7,7 +7,7 @@ import {
   generateLocalBusinessSchema,
   generateEnhancedOrganizationSchema,
   enhancedSEO,
-} from "@/components/seo/enhanced-seo";
+} from "@/components/seo/EnhancedSEO";
 
 // Homepage SEO
 export function getHomepageSEO(): Metadata & { schemas: object[] } {

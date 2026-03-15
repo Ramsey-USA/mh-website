@@ -17,7 +17,7 @@ import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { getEmployeeTestimonials } from "@/lib/data/testimonials";
-import { StructuredData } from "@/components/seo/seo-meta";
+import { StructuredData } from "@/components/seo/SeoMeta";
 import { getTeamSEO } from "@/lib/seo/page-seo-utils";
 import {
   generateBreadcrumbSchema,
@@ -25,19 +25,15 @@ import {
 } from "@/lib/seo/breadcrumb-schema";
 
 // Lazy load below-the-fold heavy components for better mobile performance
-const TestimonialGrid = dynamic(
-  () =>
-    import("@/components/testimonials").then((mod) => ({
-      default: mod.TestimonialGrid,
-    })),
-  { ssr: false },
+const TestimonialGrid = dynamic(() =>
+  import("@/components/testimonials").then((mod) => ({
+    default: mod.TestimonialGrid,
+  })),
 );
-const StrategicCTABanner = dynamic(
-  () =>
-    import("@/components/ui/cta").then((mod) => ({
-      default: mod.StrategicCTABanner,
-    })),
-  { ssr: false },
+const StrategicCTABanner = dynamic(() =>
+  import("@/components/ui/cta").then((mod) => ({
+    default: mod.StrategicCTABanner,
+  })),
 );
 
 const NextStepsSection = dynamic(

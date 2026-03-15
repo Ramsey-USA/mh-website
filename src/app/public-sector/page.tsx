@@ -21,26 +21,22 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { UnderConstruction } from "@/components/layout/UnderConstruction";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { StructuredData } from "@/components/seo/seo-meta";
+import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 
 // Lazy load heavy interactive components for better mobile performance
-const InteractiveGrantSelector = dynamic(
-  () =>
-    import("./InteractiveGrantSelector").then((mod) => ({
-      default: mod.InteractiveGrantSelector,
-    })),
-  { ssr: false },
+const InteractiveGrantSelector = dynamic(() =>
+  import("./InteractiveGrantSelector").then((mod) => ({
+    default: mod.InteractiveGrantSelector,
+  })),
 );
-const StrategicCTABanner = dynamic(
-  () =>
-    import("@/components/ui/cta").then((mod) => ({
-      default: mod.StrategicCTABanner,
-    })),
-  { ssr: false },
+const StrategicCTABanner = dynamic(() =>
+  import("@/components/ui/cta").then((mod) => ({
+    default: mod.StrategicCTABanner,
+  })),
 );
 
 const NextStepsSection = dynamic(
