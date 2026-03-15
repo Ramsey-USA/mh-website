@@ -4,7 +4,7 @@ import {
   handleFormRetrieval,
 } from "@/lib/api/form-handler";
 
-export const runtime = "nodejs";
+export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 // Job applications API using consolidated form handler

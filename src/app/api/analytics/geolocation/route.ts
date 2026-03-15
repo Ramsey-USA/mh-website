@@ -6,7 +6,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 
-export const runtime = "nodejs";
+export const runtime = "edge";
 
 export function GET(request: NextRequest) {
   try {

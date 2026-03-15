@@ -9,7 +9,7 @@ import {
 } from "@/lib/api/responses";
 import { generateNewsletterAcknowledgment } from "@/lib/email/templates";
 
-export const runtime = "nodejs";
+export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 /**

@@ -9,7 +9,7 @@ import { withSecurity } from "@/middleware/security";
 import { logger } from "@/lib/utils/logger";
 import { analyticsEngine } from "@/lib/analytics/index";
 
-export const runtime = "nodejs";
+export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 function handler(request: NextRequest) {

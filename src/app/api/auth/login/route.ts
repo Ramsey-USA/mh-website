@@ -15,7 +15,7 @@ import {
   internalServerError,
 } from "@/lib/api/responses";
 
-export const runtime = "nodejs";
+export const runtime = "edge";
 
 interface LoginRequest {
   email: string;

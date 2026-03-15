@@ -19,7 +19,7 @@ import {
   type RiskLevel,
 } from "@/lib/security/audit-logger";
 
-export const runtime = "nodejs";
+export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 async function handler(request: NextRequest) {
