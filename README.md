@@ -60,6 +60,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | Metric            | Status    | Details                                   |
 | ----------------- | --------- | ----------------------------------------- |
 | **Build**         | Passing   | ~29s compilation, zero errors             |
+| **Deployed**      | Live      | Cloudflare Pages — mhc-gc.com             |
 | **TypeScript**    | Strict    | Zero type errors                          |
 | **ESLint**        | Clean     | Zero lint warnings, zero errors           |
 | **Tests**         | Passing   | 56/56 passing                             |
@@ -73,9 +74,17 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Recent Improvements (March 2026)
 
-- **Mar 15:** Removed redundant `export const runtime = "edge"` declarations from 18 API route files — Cloudflare Workers is inherently an edge runtime so the declarations are no-ops, but OpenNext was treating them as signals to bundle those routes into a separate edge function which it cannot reconcile with the single-Worker output model; build now completes cleanly end-to-end
+- **Mar 15:** Removed redundant `export const runtime = "edge"` declarations from 18 API route files —
+  Cloudflare Workers is inherently an edge runtime so the declarations are no-ops, but OpenNext was
+  treating them as signals to bundle those routes into a separate edge function which it cannot reconcile
+  with the single-Worker output model; build now completes cleanly end-to-end
 
-- **Mar 15:** **ACTION REQUIRED** — Cloudflare Pages dashboard build command must be changed from `npm run build && npx @cloudflare/next-on-pages` to `npm run build`. The deprecated `@cloudflare/next-on-pages` adapter runs as a second step after OpenNext and fails because it requires `export const runtime = 'edge'` on all dynamic routes; the two adapters are mutually exclusive. Fix: Pages dashboard → Settings → Builds & deployments → Build command → set to `npm run build`. Note: `[build]` in `wrangler.toml` is not supported for Pages projects (Workers only) and cannot be used as a workaround.
+- **Mar 15:** Fixed Cloudflare Pages CI — dashboard build command updated from
+  `npm run build && npx @cloudflare/next-on-pages` to `npm run build`; deprecated
+  `@cloudflare/next-on-pages` was running as a second step after OpenNext and failing because it
+  requires `export const runtime = 'edge'` on all dynamic routes — the two adapters are mutually
+  exclusive; note: `[build]` in `wrangler.toml` is not valid for Pages projects (Workers-only field);
+  fix must be applied in the dashboard; deployment confirmed: 318 assets uploaded, site live
 
 - **Mar 15:** Comprehensive build audit — production build: 32.6s, 39/39 static pages generated, zero errors;
   fixed 3 pre-existing lint issues (`OptimizedImage.tsx` — 2× missing `alt` on spread `<Image>` calls,
@@ -565,11 +574,11 @@ dark: border - brand - bronze - light;
 **Production Deployment:**
 
 ```bash
-# Build command
+# Build command (set in Cloudflare Pages dashboard)
 npm run build
 
-# Output directory
-.next
+# Build output directory (set via wrangler.toml: pages_build_output_dir)
+.open-next/assets
 
 # Environment variables
 # Set in Cloudflare Dashboard → Settings → Environment Variables
@@ -582,10 +591,10 @@ npm run build
 
 **Build Configuration:**
 
-- Framework: Next.js
-- Build command: `npm run build`
-- Output: `.next`
-- Node version: 18
+- Framework: Next.js (via OpenNext for Cloudflare)
+- Build command: `npm run build` ← set in Pages dashboard, not wrangler.toml
+- Output: `.open-next/assets` ← set via `pages_build_output_dir` in wrangler.toml
+- Node version: 22
 
 See [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md) for details.
 
