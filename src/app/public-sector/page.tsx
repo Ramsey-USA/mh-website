@@ -1,6 +1,4 @@
-"use client";
-
-import { usePageTracking } from "@/lib/analytics/hooks";
+import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import {
@@ -307,22 +305,24 @@ const successFactors = [
 ];
 
 export default function PublicSectorPage() {
-  usePageTracking("Public Sector");
-
   // Show under construction notice while preserving all content below
   if (SHOW_UNDER_CONSTRUCTION) {
     return (
-      <UnderConstruction
-        pageName="Public Sector Contracting"
-        description="We're building bonding capacity and establishing partnerships to serve government projects. Currently available for grant application support and subcontracting opportunities."
-        estimatedCompletion="Q2 2026"
-      />
+      <>
+        <PageTrackingClient pageName="Public Sector" />
+        <UnderConstruction
+          pageName="Public Sector Contracting"
+          description="We're building bonding capacity and establishing partnerships to serve government projects. Currently available for grant application support and subcontracting opportunities."
+          estimatedCompletion="Q2 2026"
+        />
+      </>
     );
   }
 
   // Original page content preserved below - will be shown when flag is set to false
   return (
     <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
+      <PageTrackingClient pageName="Public Sector" />
       <StructuredData
         data={generateBreadcrumbSchema(breadcrumbPatterns.publicSector)}
       />

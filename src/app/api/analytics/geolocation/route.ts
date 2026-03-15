@@ -50,10 +50,14 @@ export function GET(request: NextRequest) {
       );
     }
 
-    // Map Cloudflare data to our format
+    // Map Cloudflare data to our format.
+    // CF-IPCountry is always a 2-letter ISO code (e.g. "US") — there is no
+    // full country-name header, so both `country` and `countryCode` carry the
+    // same value.  Consumers that need a display name should resolve it locally
+    // (e.g.  new Intl.DisplayNames(["en"],{type:"region"}).of(countryCode)).
     const locationData = {
       country: country,
-      countryCode: country, // Cloudflare returns country code
+      countryCode: country,
       city: city,
       state: regionCode, // State code (e.g., "WA")
       region: region, // Full region name

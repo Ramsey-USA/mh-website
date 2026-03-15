@@ -8,9 +8,12 @@
 import { SignJWT, jwtVerify, type JWTPayload } from "jose";
 import { COMPANY_INFO } from "@/lib/constants/company";
 
-// JWT configuration
-const JWT_SECRET =
-  process.env["JWT_SECRET"] || "your-secret-key-change-in-production";
+// JWT configuration — JWT_SECRET must be set in production via environment variable
+const JWT_SECRET = process.env["JWT_SECRET"];
+if (!JWT_SECRET && process.env.NODE_ENV === "production") {
+  throw new Error("JWT_SECRET environment variable is required in production");
+}
+const JWT_SECRET_VALUE = JWT_SECRET ?? "dev-only-secret-not-for-production";
 const JWT_ISSUER =
   process.env["NEXT_PUBLIC_SITE_URL"] || COMPANY_INFO.urls.getSiteUrl();
 const JWT_AUDIENCE = "mh-construction-api";
@@ -36,7 +39,7 @@ export interface TokenPair {
  * Get JWT secret as Uint8Array for jose library
  */
 function getSecretKey(): Uint8Array {
-  return new TextEncoder().encode(JWT_SECRET);
+  return new TextEncoder().encode(JWT_SECRET_VALUE);
 }
 
 /**

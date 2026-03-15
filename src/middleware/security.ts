@@ -7,41 +7,31 @@ import { NextRequest, NextResponse } from "next/server";
 import { securityManager } from "@/lib/security/security-manager";
 import { auditLogger, AuditEventType } from "@/lib/security/audit-logger";
 
-// Configuration for different routes
+// Configuration for different routes — only `logAll` is currently consumed by
+// securityMiddleware; the other fields are retained for future enforcement.
 const ROUTE_SECURITY_CONFIG = {
   // API routes require stricter security
   "/api/": {
-    rateLimitMultiplier: 0.5, // More restrictive rate limiting
-    requireCSRF: true,
-    validateInput: true,
+    rateLimitMultiplier: 0.5,
     logAll: true,
   },
   // Contact and forms
   "/contact": {
     rateLimitMultiplier: 0.3,
-    requireCSRF: true,
-    validateInput: true,
     logAll: true,
   },
   "/estimate": {
     rateLimitMultiplier: 0.3,
-    requireCSRF: true,
-    validateInput: true,
     logAll: true,
   },
-  // Admin areas (if any)
+  // Admin areas
   "/admin": {
     rateLimitMultiplier: 0.1,
-    requireCSRF: true,
-    validateInput: true,
     logAll: true,
-    requireAuth: true,
   },
   // Public pages - lighter security
   "/": {
     rateLimitMultiplier: 1.0,
-    requireCSRF: false,
-    validateInput: false,
     logAll: false,
   },
 };

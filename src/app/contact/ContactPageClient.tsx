@@ -1,7 +1,5 @@
-"use client";
-
+import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
-import { usePageTracking } from "@/lib/analytics/hooks";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   DiagonalStripePattern,
@@ -82,9 +80,6 @@ const mainCTAs = [
 ];
 
 export default function ContactPageClient() {
-  // Analytics tracking
-  usePageTracking("Contact");
-
   // Structured Data for SEO
   const structuredData = {
     "@context": "https://schema.org",
@@ -123,6 +118,7 @@ export default function ContactPageClient() {
 
   return (
     <>
+      <PageTrackingClient pageName="Contact" />
       {/* Structured Data */}
       <script
         type="application/ld+json"

@@ -7,6 +7,8 @@ import {
   generateFileKey,
 } from "@/lib/cloudflare/r2";
 import { rateLimit } from "@/lib/security/rate-limiter";
+import { requireRole } from "@/lib/auth/middleware";
+import { withSecurity } from "@/middleware/security";
 import {
   badRequest,
   createSuccessResponse,
@@ -96,9 +98,9 @@ async function handlePOST(request: NextRequest) {
 }
 
 /**
- * GET endpoint to retrieve a resume (requires authentication in production)
+ * GET endpoint to retrieve a resume — admin only
  */
-export async function GET(request: NextRequest) {
+async function handleGET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const key = searchParams.get("key");
@@ -131,7 +133,8 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// Apply rate limiting to file uploads (3 requests per minute)
+// Require admin role to download resumes; rate-limit uploads (3 per minute)
+export const GET = requireRole(["admin"], withSecurity(handleGET));
 export const POST = rateLimit({
   maxRequests: 3,
   windowMs: 60000,

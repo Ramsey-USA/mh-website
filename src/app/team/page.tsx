@@ -1,8 +1,6 @@
-"use client";
-
+import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { usePageTracking } from "@/lib/analytics/hooks";
 import { Button, IconContainer, GlowEffect } from "@/components/ui";
 import {
   DiagonalStripePattern,
@@ -66,9 +64,6 @@ function groupByDepartment(members: VintageTeamMember[]) {
 }
 
 export default function TeamPage() {
-  // Analytics tracking
-  usePageTracking("Team");
-
   // Get enhanced SEO data for Team page
   const teamSEO = getTeamSEO();
 
@@ -85,8 +80,7 @@ export default function TeamPage() {
 
   return (
     <>
-      {/* SEO Meta Tags */}
-
+      <PageTrackingClient pageName="Team" />
       {/* Structured Data */}
       {teamSEO.schemas && teamSEO.schemas.length > 0 && (
         <StructuredData data={teamSEO.schemas} />

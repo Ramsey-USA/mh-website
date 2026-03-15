@@ -4,6 +4,8 @@ import { createDbClient, type ContactSubmission } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
 import { sendEmail, type EmailAttachment } from "@/lib/email/email-service";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
+import { requireRole } from "@/lib/auth/middleware";
+import { withSecurity } from "@/middleware/security";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import {
   badRequest,
@@ -328,13 +330,11 @@ function formatFieldName(fieldName: string): string {
 }
 
 /**
- * GET endpoint to retrieve contact submissions
- * Should require authentication in production
+ * GET endpoint to retrieve contact submissions — admin only
  */
-export async function GET() {
+async function handleGET() {
   try {
     // Retrieve contact submissions from D1 database (when deployed to Cloudflare)
-    // Note: This endpoint should typically require authentication
     const DB = getD1Database();
 
     if (DB) {
@@ -363,5 +363,6 @@ export async function GET() {
   }
 }
 
-// Apply rate limiting to POST endpoint (10 requests per minute)
+// Require admin role to list submissions; apply rate limiting to POST
+export const GET = requireRole(["admin"], withSecurity(handleGET));
 export const POST = rateLimit(rateLimitPresets.api)(handlePOST);

@@ -172,10 +172,21 @@ export class DbClient {
   }
 
   /**
-   * Insert a record and return the inserted ID
+  /**
+   * Insert a record and return the inserted ID.
+   *
+   * Column names are validated against an allowlist of safe identifier
+   * characters before interpolation; values are bound via parameterized
+   * placeholders.
    */
   async insert(table: string, data: Record<string, unknown>): Promise<string> {
-    const keys = Object.keys(data);
+    const SAFE_COLUMN = /^[a-zA-Z_][a-zA-Z0-9_]*$/;
+    const keys = Object.keys(data).filter((k) => SAFE_COLUMN.test(k));
+
+    if (keys.length === 0) {
+      throw new Error("No valid column names provided for insert");
+    }
+
     const placeholders = keys.map(() => "?").join(", ");
 
     const sql = `
@@ -192,15 +203,25 @@ export class DbClient {
   }
 
   /**
-   * Update a record by ID
+   * Update a record by ID.
+   *
+   * Column names are validated against an allowlist of safe identifier
+   * characters (alphanumeric + underscore) before being interpolated into the
+   * SQL string.  Values are always bound via parameterized placeholders.
    */
   async update(
     table: string,
     id: string,
     data: Record<string, unknown>,
   ): Promise<boolean> {
-    const keys = Object.keys(data);
-    const values = Object.values(data);
+    const SAFE_COLUMN = /^[a-zA-Z_][a-zA-Z0-9_]*$/;
+    const keys = Object.keys(data).filter((k) => SAFE_COLUMN.test(k));
+
+    if (keys.length === 0) {
+      throw new Error("No valid column names provided for update");
+    }
+
+    const values = keys.map((k) => data[k]);
     const sets = keys.map((key) => `${key} = ?`).join(", ");
 
     const sql = `
