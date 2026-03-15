@@ -78,7 +78,6 @@ const STATIC_ASSETS = [
   // Specialized pages
   "/public-sector",
   "/veterans",
-  "/urgent",
   "/allies",
   // Next.js static assets (if they exist)
   "/_next/static/css/app/layout.css",

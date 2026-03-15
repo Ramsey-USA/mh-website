@@ -86,7 +86,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Operations Base → Richland | General Contractor Richland WA | MH Construction",
       metaDescription:
-        "Operations Base → Richland: Strategic Construction Operations in Benton County. MH Construction provides professional veteran-owned general contractor services in Richland, Washington with service-earned values and military precision. Dual-label approach: Missions → Projects. Commercial, industrial, and government projects. 150+ years combined expertise. Licensed in WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving Richland WA. Commercial, industrial & government projects with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Operations Base Richland strategic construction",
         "dual-label military construction Richland",
@@ -171,7 +171,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Forward Operating Base → Kennewick | General Contractor Kennewick WA | MH Construction",
       metaDescription:
-        "Forward Operating Base → Kennewick: Tactical Construction Excellence in Benton County. MH Construction provides professional veteran-owned general contractor services in Kennewick, Washington with service-earned values and military precision. Dual-label approach: Rally Point → Contact. Commercial, industrial, and government projects. All-branch veteran leadership. Licensed in WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving Kennewick WA. Commercial, industrial & government projects with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Forward Operating Base Kennewick tactical construction",
         "dual-label military construction Kennewick",
@@ -256,7 +256,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Command Center → Pasco | General Contractor Pasco WA | MH Construction",
       metaDescription:
-        "Command Center → Pasco: Home Base Construction Excellence. MH Construction headquarters serving Pasco, Washington with professional veteran-owned general contractor services. Service-earned values and military precision. Dual-label approach. Commercial, industrial, and government projects. Licensed in WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC headquartered in Pasco WA. Commercial, industrial & government construction since 2010. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Command Center Pasco home base construction",
         "dual-label military construction Pasco",
@@ -339,7 +339,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Outpost → Yakima | General Contractor Yakima WA | MH Construction",
       metaDescription:
-        "Outpost → Yakima: Regional Construction Excellence. MH Construction serves Yakima, Washington with professional veteran-owned general contractor services. Service-earned values and military precision. Commercial, industrial, and government projects. Licensed in WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving Yakima WA. Commercial, industrial & public-safety construction with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Outpost Yakima regional construction",
         "dual-label military construction Yakima",
@@ -415,7 +415,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Deployment Zone → Spokane | General Contractor Spokane WA | MH Construction",
       metaDescription:
-        "Deployment Zone → Spokane: Eastern Washington Construction Excellence. MH Construction serves Spokane, Washington with professional veteran-owned general contractor services. Service-earned values and military precision. Commercial, industrial, and government projects. Licensed in WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving Spokane WA. Commercial, industrial & government construction with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Deployment Zone Spokane construction",
         "dual-label military construction Spokane",
@@ -474,7 +474,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Station → West Richland | General Contractor West Richland WA | MH Construction",
       metaDescription:
-        "Station → West Richland: Community-Focused Construction. MH Construction serves West Richland, Washington with professional veteran-owned general contractor services. Service-earned values. Commercial, industrial, and government projects. Licensed in WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving West Richland WA. Commercial, industrial & government projects with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Station West Richland community construction",
         "dual-label military construction West Richland",
@@ -534,7 +534,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Forward Position → Walla Walla | General Contractor Walla Walla WA | MH Construction",
       metaDescription:
-        "Forward Position → Walla Walla: Historic Valley Construction Excellence. MH Construction serves Walla Walla, Washington with professional veteran-owned general contractor services. Service-earned values. Commercial, industrial, and government projects. Licensed in WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving Walla Walla WA. Commercial, industrial & specialty construction with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Forward Position Walla Walla construction",
         "dual-label military construction Walla Walla",

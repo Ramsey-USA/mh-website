@@ -354,13 +354,6 @@ Try our helpful budget planning tool for preliminary estimates - available 24/7 
 4. **Proposal**: Comprehensive project proposal with transparent pricing
 5. **Partnership**: Collaborative execution with regular communication
 
-### **Urgent Construction Support**
-
-Specialized expertise, manpower, and equipment available for companies facing critical
-construction challenges. We partner with businesses to provide urgent structural
-consultation and repairs - fixing the source of problems like damaged foundations,
-roofing systems, and structural issues causing leaks or failures.
-
 ---
 
 ## Get Started Today

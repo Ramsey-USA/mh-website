@@ -27,7 +27,6 @@ const pages = [
   { name: "Veterans", url: "/veterans" },
   { name: "Public Sector", url: "/public-sector" },
   { name: "Allies", url: "/allies" },
-  { name: "Urgent", url: "/urgent" },
   // Location pages
   { name: "Pasco", url: "/locations/pasco" },
   { name: "Richland", url: "/locations/richland" },

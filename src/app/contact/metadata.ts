@@ -1,10 +1,14 @@
+/**
+ * DEAD FILE — Next.js App Router does NOT consume metadata exports from metadata.ts.
+ * Active metadata is exported from layout.tsx (which calls getContactSEO() from page-seo-utils.ts).
+ * This file is kept for reference only.
+ */
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title:
-    "Rally Point → Contact | Your Project. Our Expertise. Let's Connect. | MH Construction",
+  title: "Rally Point → Contact | Your Project. Our Expertise. Let's Connect.",
   description:
-    "Rally Point → Contact: Your Project. Our Expertise. Let's Connect. Schedule your free mission brief with SITREP-level clarity. Contact MH Construction for veteran-owned construction services serving Tri-Cities (Pasco, Kennewick, Richland) and Pacific Northwest. Dual-label approach with service-earned values. Call (509) 308-6489 or email office@mhc-gc.com.",
+    "Get a free consultation with MH Construction — veteran-owned general contractor in Pasco, WA. Serving the Tri-Cities & Pacific Northwest. Call (509) 308-6489.",
   keywords: [
     "Rally Point Contact mission brief",
     "SITREP-level clarity consultation",
@@ -29,19 +33,28 @@ export const metadata: Metadata = {
     title:
       "Rally Point → Contact | Your Project. Our Expertise. | MH Construction",
     description:
-      "Rally Point → Contact: Schedule your free mission brief with SITREP-level clarity. Serving the Tri-Cities with veteran-owned construction excellence and service-earned values. Call (509) 308-6489.",
+      "Get a free consultation with MH Construction — veteran-owned general contractor in Pasco, WA. Serving the Tri-Cities & Pacific Northwest. Call (509) 308-6489.",
     type: "website",
     locale: "en_US",
     url: "https://www.mhc-gc.com/contact",
     siteName: "MH Construction",
+    images: [
+      {
+        url: "https://www.mhc-gc.com/images/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MH Construction — Contact Us",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: "Contact MH Construction - Free Consultation",
+    title: "Contact MH Construction — Free Consultation",
     description:
-      "Veteran-owned construction excellence. Call (509) 308-6489 for free consultation. Tri-Cities, WA.",
+      "Veteran-owned general contractor in Pasco, WA. Free consultation for your Tri-Cities construction project. Call (509) 308-6489.",
+    images: ["https://www.mhc-gc.com/images/og-default.jpg"],
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/contact",

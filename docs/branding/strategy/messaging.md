@@ -87,7 +87,6 @@ these core values in hierarchical order:
 - **Contact**: Direct communication, personal consultation, relationship initiation
 - **Trade Partners**: Collaborative partnerships, honest dealings
 - **Veterans**: Military heritage, veteran support, service recognition
-- **Urgent**: Rapid response, reliable support, proven expertise
 
 ### Dual-Label Navigation Pattern (NEW - Dec 22, 2025)
 
@@ -112,7 +111,6 @@ these core values in hierarchical order:
   - **Clear accountability** from executive leadership to field operations
 - "Reviews" / "Commendations" - Client testimonials
 - "Contact" / "Rally Point" - Get in touch
-- "Emergency" / "Rapid Response" - Urgent support
 
 **Documentation**: Section-based navigation implemented site-wide.
 

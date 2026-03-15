@@ -148,7 +148,6 @@ export const veteranFragments = {
     allies: "Allies → Partners",
     careers: "Enlist → Careers",
     contact: "Rally Point → Contact",
-    urgent: "Rapid Response → Emergency",
     faq: "Intel Brief → FAQ",
     testimonials: "Commendations → Reviews",
     publicSector: "Public Sector → Government",

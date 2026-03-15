@@ -72,7 +72,7 @@ prioritization:
    - Priority: Service → Support → Communication → Trust
    - Focus: Direct human assistance, no automation emphasis
 
-7. **Group 7: Partnership & Urgency** (Trade Partners, Urgent Projects)
+7. **Group 7: Partnership** (Trade Partners)
    - Voice: Decisive, responsive, solution-oriented
    - Priority: Speed → Solution → Partnership → Action
    - Focus: Immediate response and collaboration
@@ -168,7 +168,6 @@ When creating a new page hero section:
 | Team           | "Experience You Can Trust"                                                 | Team expertise           |
 | Careers        | "Your Future Starts Here"                                                  | Career growth            |
 | Booking        | "Start Your Project With Confidence"                                       | Consultation confidence  |
-| Urgent         | "When Time Is Critical, We Respond"                                        | Rapid response           |
 | Government     | "Mission-Ready, Compliance-Driven"                                         | Federal expertise        |
 | Trade Partners | "Building Success Together"                                                | B2B partnership          |
 | Veterans       | "Honoring Those Who Served"                                                | Veteran support          |

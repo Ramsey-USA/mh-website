@@ -110,7 +110,6 @@
 - [ ] Uses appropriate color theme:
   - Green: `from-brand-primary via-brand-primary-dark to-brand-primary-darker`
   - Bronze: `from-brand-secondary via-bronze-700 to-brand-secondary`
-  - Emergency: `from-orange-500 via-orange-600 to-orange-700` (urgent page only)
   - Government: `from-slate-600 via-gray-700 to-slate-600` (public-sector only)
 
 ### Card Icons

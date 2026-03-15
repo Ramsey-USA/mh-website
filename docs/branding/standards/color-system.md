@@ -125,54 +125,7 @@ colors: {
 ### Accent Colors
 
 **Black:** `#000000` - High contrast text, borders, emphasis
-**White:** `#FFFFFF` - Light backgrounds, inverted text
-**Gray Palette:** Professional neutral tones for text and backgrounds
 
-### Emergency/Urgent Color Scheme
-
-**Context:** The `/urgent` emergency response page uses a distinct color palette to convey
-urgency and immediate action while maintaining brand trust.
-
-#### Emergency Primary - Orange
-
-**Hex:** `#ea580c` (Tailwind Orange-600)
-**RGB:** `rgb(234, 88, 12)`
-**Use Case:** Emergency CTAs, urgent action buttons, critical alerts
-**Psychology:** Creates sense of urgency without triggering alarm
-
-#### Emergency Accent - Red
-
-**Hex:** `#dc2626` (Tailwind Red-600)
-**RGB:** `rgb(220, 38, 38)`
-**Use Case:** Emergency gradient transitions, critical emphasis
-**Psychology:** Amplifies urgency in gradients and accents
-
-#### Emergency Highlight - Yellow
-
-**Hex:** `#fde047` (Tailwind Yellow-300)
-**RGB:** `rgb(253, 224, 71)`
-**Use Case:** Response time indicators, timeframe badges
-**Psychology:** Attention-grabbing without being alarming
-
-#### Emergency Color Philosophy
-
-**When to Use:**
-
-- Emergency/urgent response pages only
-- 24/7 rapid response messaging
-- Critical timeline indicators
-- Contractor-focused emergency services
-
-**Trust Balance:**
-
-- Use brand green (Hunter Green) for trust elements (certifications, credentials)
-- Emergency colors for action and urgency
-- Maintains professional credibility while emphasizing speed
-
-**DO NOT Use:**
-
-- On standard service pages (use Hunter Green)
-- For non-emergency content
 - Without corresponding trust signals nearby
 
 ### Government/Public Sector Grayscale Scheme
@@ -220,7 +173,6 @@ grayscale palette to convey authority, compliance, and institutional reliability
 **DO NOT Use:**
 
 - On commercial construction pages (use brand green/tan)
-- For emergency services (use orange-red scheme)
 - Without veteran-owned trust indicators nearby
 
 ### Badge Colors
@@ -305,7 +257,6 @@ grayscale palette to convey authority, compliance, and institutional reliability
 **DO NOT Use:**
 
 - On commercial construction pages (use brand green/tan)
-- For emergency services (use orange-red scheme)
 - Without veteran-owned trust indicators nearby
 
 ## Light Mode Color Palette
@@ -514,52 +465,6 @@ className =
 
 - **Use for:** Hero sections, featured content
 - **Effect:** Maximum brand impact
-
-#### Emergency CTA Gradients (Urgent Page Only)
-
-**Emergency Button Primary:**
-
-```tsx
-className = "bg-gradient-to-r from-orange-600 via-red-600 to-orange-600";
-```
-
-- **Use for:** Primary CTAs on emergency/urgent page
-- **Colors:** Orange → Red → Orange
-- **Effect:** Conveys urgency and immediate action
-- **Context:** Emergency response contact buttons
-
-**Emergency Button Hover:**
-
-```tsx
-className = "hover:from-orange-700 hover:via-red-700 hover:to-orange-800";
-```
-
-- **Intensifies on hover** for clear interactive feedback
-- **Maintains gradient pattern** with darker shades
-
-**Emergency Icon Container:**
-
-```tsx
-// Glow layer
-className = "bg-gradient-to-br from-orange-600/30 to-red-600/30 blur-2xl";
-
-// Container
-className = "bg-gradient-to-br from-orange-600 via-red-600 to-orange-700";
-```
-
-- **Use for:** Icons on emergency page sections
-- **Effect:** Creates urgent, attention-grabbing glow
-- **Trust Balance:** Use standard brand green icons for credentials/trust sections
-
-**Emergency Hero Background:**
-
-```tsx
-className = "bg-gradient-to-br from-gray-900 via-orange-950/40 to-gray-900";
-```
-
-- **Use for:** Emergency page hero sections
-- **Subtle orange tint** maintains urgency without overwhelming
-- **Dark base** ensures text readability
 
 #### Government/Public Sector Grayscale Gradients
 
@@ -1157,15 +1062,6 @@ module.exports = {
 - "Apply to be Approved Vendor" (icon: `check_circle`)
 - "Submit Vendor Application" (icon: `contact_mail`)
 
-**Emergency/Urgent Response Actions (Orange-Red Gradient):**
-
-- "Call Emergency Line Now" (icon: `phone`, `call`)
-- "Email Emergency Response" (icon: `email`, `emergency`)
-- "24/7 Rapid Response" (icon: `bolt`, `schedule`)
-- "Immediate Project Support" (icon: `engineering`, `military_tech`)
-
-**Context:** Used exclusively on `/urgent` emergency response page for contractor-focused rapid deployment services. Creates urgency while maintaining professional credibility through accompanying trust signals.
-
 ### Color Accessibility in Context
 
 **Hunter Green on White:** 7.2:1 contrast ratio (AAA compliant)
@@ -1230,7 +1126,6 @@ module.exports = {
 | **Client Partnership** | Hunter Green (Primary) | `handshake` | "Begin Partnership" |
 | **Automated Estimator** | Leather Tan (Secondary) | `smart_toy` | "Get Instant Automated Estimate" |
 | **Trade Partnership** | Leather Tan (Secondary) | `construction` | "Join Trade Network" |
-| **Emergency Response** | Orange-Red Gradient | `bolt` | "Call Emergency Line Now" |
 | **Government/Federal** | Grayscale Gradient | `account_balance` | "Request Grant Support" |
 
 ### Contact Information Color Coding

@@ -1,0 +1,255 @@
+{
+  "totalPages": 26,
+  "passing": 23,
+  "warnings": 0,
+  "errors": 3,
+  "pages": [
+    {
+      "pathname": "/",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/about",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/services",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/projects",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/team",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/contact",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/veterans",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/urgent",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/faq",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/public-sector",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/testimonials",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/allies",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/careers",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/privacy",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/terms",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/accessibility",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/locations/richland",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/locations/kennewick",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/locations/pasco",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/locations/yakima",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/locations/spokane",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/locations/walla-walla",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/locations/west-richland",
+      "score": 100,
+      "issues": [],
+      "hasMetadata": true,
+      "inSitemap": true,
+      "pageExists": true
+    },
+    {
+      "pathname": "/booking",
+      "score": 10,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "Using default layout metadata - consider adding page-specific metadata"
+        },
+        {
+          "type": "error",
+          "message": "Page not found in sitemap.ts"
+        },
+        {
+          "type": "error",
+          "message": "Page file does not exist"
+        }
+      ],
+      "hasMetadata": false,
+      "inSitemap": false,
+      "pageExists": false
+    },
+    {
+      "pathname": "/estimator",
+      "score": 10,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "Using default layout metadata - consider adding page-specific metadata"
+        },
+        {
+          "type": "error",
+          "message": "Page not found in sitemap.ts"
+        },
+        {
+          "type": "error",
+          "message": "Page file does not exist"
+        }
+      ],
+      "hasMetadata": false,
+      "inSitemap": false,
+      "pageExists": false
+    },
+    {
+      "pathname": "/3d-explorer",
+      "score": 10,
+      "issues": [
+        {
+          "type": "warning",
+          "message": "Using default layout metadata - consider adding page-specific metadata"
+        },
+        {
+          "type": "error",
+          "message": "Page not found in sitemap.ts"
+        },
+        {
+          "type": "error",
+          "message": "Page file does not exist"
+        }
+      ],
+      "hasMetadata": false,
+      "inSitemap": false,
+      "pageExists": false
+    }
+  ]
+}

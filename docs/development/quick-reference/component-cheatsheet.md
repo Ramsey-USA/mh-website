@@ -200,10 +200,6 @@ from-brand-secondary via-brand-secondary-dark to-bronze-700
 from-brand-secondary/40 to-bronze-700/40  // Border glow
 from-brand-secondary via-bronze-700 to-brand-secondary  // Top accent
 
-// Emergency/Urgent (ONLY on /urgent page)
-from-orange-500/40 to-orange-600/40  // Border glow
-from-orange-500 via-orange-600 to-orange-700  // Top accent
-
 // Government (ONLY on /public-sector page)
 from-slate-600/40 to-gray-700/40  // Border glow
 from-slate-600 via-gray-700 to-slate-600  // Top accent
@@ -364,10 +360,6 @@ text - secondary - 700; // Alternative
 ### Context-Specific Colors
 
 ```tsx
-// Emergency/Urgent (/urgent page ONLY)
-(text - orange - 600, bg - orange - 600);
-(text - red - 600, bg - red - 600);
-
 // Government (/public-sector page ONLY)
 (text - slate - 600, bg - slate - 600);
 (text - gray - 700, bg - gray - 700);

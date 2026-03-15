@@ -19,9 +19,8 @@ const ACTIVE_PAGES = [
   { path: "/about", priority: 0.9, changeFreq: "monthly" as const },
   { path: "/services", priority: 0.9, changeFreq: "monthly" as const },
 
-  // Priority 0.85 - Veteran focus & urgent needs
+  // Priority 0.85 - Veteran focus
   { path: "/veterans", priority: 0.85, changeFreq: "monthly" as const },
-  { path: "/urgent", priority: 0.85, changeFreq: "monthly" as const },
   { path: "/faq", priority: 0.85, changeFreq: "monthly" as const },
 
   // Priority 0.8 - Important secondary pages

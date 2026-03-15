@@ -70,10 +70,6 @@ export const breadcrumbPatterns = {
     { name: "Home", url: "https://www.mhc-gc.com" },
     { name: "Trade Partners", url: "https://www.mhc-gc.com/allies" },
   ],
-  urgent: [
-    { name: "Home", url: "https://www.mhc-gc.com" },
-    { name: "Urgent Support", url: "https://www.mhc-gc.com/urgent" },
-  ],
   veterans: [
     { name: "Home", url: "https://www.mhc-gc.com" },
     { name: "Veterans", url: "https://www.mhc-gc.com/veterans" },

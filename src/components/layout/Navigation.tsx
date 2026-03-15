@@ -233,12 +233,6 @@ export function Navigation() {
                       icon: "workspace_premium",
                     },
                     {
-                      href: "/urgent",
-                      label: "Emergency",
-                      subLabel: "Rapid Response",
-                      icon: "engineering",
-                    },
-                    {
                       href: "/faq",
                       label: "Help/FAQ",
                       subLabel: "Intel Brief",

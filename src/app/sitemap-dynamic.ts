@@ -29,7 +29,7 @@ export const ACTIVE_PAGES = [
   "/public-sector",
   "/allies",
   // Removed: /estimator (feature deprecated)
-  "/urgent",
+  // Removed: /urgent (page removed)
   // Removed: /3d-explorer (feature deprecated)
 ] as const;
 

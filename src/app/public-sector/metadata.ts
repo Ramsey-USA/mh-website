@@ -1,10 +1,15 @@
+/**
+ * DEAD FILE — Next.js App Router does NOT consume metadata exports from metadata.ts.
+ * Active metadata is exported from layout.tsx (which calls getGovernmentSEO() from page-seo-utils.ts).
+ * This file is kept for reference only.
+ */
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Public Sector → Government | Veteran-Owned Excellence for Government Operations | MH Construction",
+    "Public Sector → Government | Veteran-Owned Excellence for Government Construction",
   description:
-    "Public Sector → Government: Veteran-Owned Excellence for Government Construction Operations. Mission-ready construction execution with federal compliance-driven standards. Veteran-owned construction operations for public sector and government missions with service-earned values. Experienced with government contracting, compliance, and military facility construction in the Pacific Northwest. Building bonding capacity for public sector operations.",
+    "Veteran-owned Tri-Cities contractor for government & public sector construction. Federal compliance, grant support, bonding capacity. Pasco, WA.",
   keywords: [
     "Public Sector Government construction missions",
     "mission-ready construction operations",
@@ -32,20 +37,29 @@ export const metadata: Metadata = {
     title:
       "Public Sector → Government | Veteran-Owned Excellence - MH Construction",
     description:
-      "Public Sector → Government: Mission-Ready Construction Operations with Federal Compliance-Driven Standards. Veteran-owned construction services with service-earned values for public sector and government projects. Military precision meets government requirements.",
+      "Veteran-owned Tri-Cities contractor for government & public sector construction. Federal compliance, grant support, bonding capacity. Pasco, WA.",
     type: "website",
     locale: "en_US",
     url: "https://www.mhc-gc.com/public-sector",
     siteName: "MH Construction",
+    images: [
+      {
+        url: "https://www.mhc-gc.com/images/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MH Construction — Government & Public Sector",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     site: "@mhc_gc",
     creator: "@mhc_gc",
     title:
       "Public Sector → Government | Veteran-Owned Excellence - MH Construction",
     description:
-      "Mission-ready construction operations. Veteran-owned federal contractor with service-earned values. Government construction with compliance expertise and military precision.",
+      "Veteran-owned Tri-Cities contractor for government & public sector construction. Federal compliance, grant support, bonding capacity. Pasco, WA.",
+    images: ["https://www.mhc-gc.com/images/og-default.jpg"],
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/public-sector",

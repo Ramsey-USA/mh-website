@@ -47,12 +47,21 @@ export function generateLocationMetadata(location: LocationData): Metadata {
         siteName: "MH Construction",
         locale: "en_US",
         type: "website",
+        images: [
+          {
+            url: `${siteUrl}/images/og-default.jpg`,
+            width: 1200,
+            height: 630,
+            alt: `MH Construction — General Contractor ${location.city}, ${location.state}`,
+          },
+        ],
       },
       twitter: {
         card: "summary_large_image",
         title: `General Contractor ${location.city} ${location.state} | MH Construction`,
         description: location.seo.twitterDescription,
         creator: "@mhc_gc",
+        images: [`${siteUrl}/images/og-default.jpg`],
       },
       robots: {
         index: true,

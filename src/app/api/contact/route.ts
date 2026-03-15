@@ -34,7 +34,6 @@ interface ContactRequest {
     | "contact"
     | "job-application"
     | "consultation"
-    | "urgent"
     | "general"
     | "acknowledgment";
   recipientEmail?: string;
@@ -107,12 +106,7 @@ export async function handlePOST(request: NextRequest) {
 
     // For general contact forms, store in contact_submissions table
     // (job-application and consultation types are stored in their own tables)
-    if (
-      data.type === "contact" ||
-      data.type === "general" ||
-      data.type === "urgent" ||
-      !data.type
-    ) {
+    if (data.type === "contact" || data.type === "general" || !data.type) {
       try {
         const DB = getD1Database();
         if (DB) {
@@ -147,7 +141,7 @@ export async function handlePOST(request: NextRequest) {
             timeline:
               (typeof timeline === "string" ? timeline : undefined) || "",
             message: data.message,
-            urgency: data.type === "urgent" ? "high" : "medium",
+            urgency: "medium",
             preferred_contact: "either",
             status: emailSent ? "new" : "in_progress",
             metadata: JSON.stringify({

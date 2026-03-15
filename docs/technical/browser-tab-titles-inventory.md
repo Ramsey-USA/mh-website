@@ -111,12 +111,6 @@ accessibility.
 **Format:** Military term → Civilian term | Content type | Company
 **Location:** `/src/app/testimonials/page.tsx`
 
-### Emergency/Urgent
-
-**Title:** `Rapid Response → Emergency | 24/7 Emergency Construction Response | MH Construction`
-**Format:** Military term → Civilian term | Service availability | Company
-**Location:** `/src/app/urgent/page.tsx`
-
 ---
 
 ## 📄 Legal & Policy Pages
@@ -164,7 +158,6 @@ All main content pages use the format:
 - **Operations Base / Forward Operating Base / Outpost** - Location designations
 - **Intel Brief** - Information/FAQ
 - **Commendations** - Reviews/Testimonials
-- **Rapid Response** - Emergency services
 - **Public Sector** - Government (already dual-use term)
 
 ### Key Descriptors

@@ -54,14 +54,6 @@ const projectTypes: ProjectType[] = [
     href: "/services#tenant-improvement",
   },
   {
-    icon: "home_repair_service",
-    title: "Emergency Services",
-    description: "24/7 urgent construction and repair support",
-    priceRange: "Varies",
-    timeline: "Immediate",
-    href: "/services#emergency",
-  },
-  {
     icon: "apartment",
     title: "Healthcare Facilities",
     description: "ICRA Level 4, medical office, hospital expansions",

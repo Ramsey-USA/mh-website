@@ -73,8 +73,8 @@ specific terms and phrases.
 
 ### Group 4: Direct Communication
 
-**Pages:** Contact, FAQ, Urgent  
-**Core Theme:** Accessible, transparent, human-first  
+**Pages:** Contact, FAQ
+**Core Theme:** Accessible, transparent, human-first
 **Key Message:** Face-to-face consultation. Honest answers. Real people.
 
 ---
@@ -343,14 +343,13 @@ appropriately.
 
 ## 📞 GROUP 4: Direct Communication
 
-### Pages: Contact, FAQ, Urgent
+### Pages: Contact, FAQ
 
 ### Voice & Tone (Group 4)
 
 - **Accessible:** Easy to reach, quick to respond
 - **Transparent:** Honest answers to direct questions
 - **Human-First:** Real people, not automated systems
-- **Responsive:** 24/7 for urgent needs
 - **Clear:** No jargon, no runaround, just straight answers
 
 ### Core Values Emphasis
@@ -372,7 +371,6 @@ appropriately.
 
 - "Rally Point" / "Contact Center"
 - "SITREP Request" / "Project Update"
-- "Rapid Response" / "Emergency Service"
 - "Direct Comms" / "Personal Consultation"
 - "Mission Intel" / "Project Information" (for FAQ)
 
@@ -399,7 +397,6 @@ appropriately.
 ### Key Phrases (Group 4)
 
 - "Let's discuss your specific situation face-to-face"
-- "We're here 24/7 for urgent construction needs"
 - "No question is too small - we're here to help"
 - "Honest answers from experienced professionals"
 - "Schedule a consultation - see the difference personal attention makes"
@@ -609,7 +606,7 @@ appropriately.
 - **GROUP 1:** Veteran Foundation (Home, About, Veterans) - honesty-first messaging
 - **GROUP 2:** Professional Services (Services, Projects, Government) - proven expertise
 - **GROUP 3:** Partnership & Team (Team, Careers, Trade Partners) - ROI IS THE RELATIONSHIP
-- **GROUP 4:** Direct Communication (Contact, FAQ, Urgent) - transparent, accessible
+- **GROUP 4:** Direct Communication (Contact, FAQ) - transparent, accessible
 - **REMOVED:** Tech Innovation group, all AI/automation messaging deprecated
 - **EMPHASIS:** "Your word is your bond — so is ours. Period."
 

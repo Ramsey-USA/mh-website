@@ -377,12 +377,6 @@ export const navigationConfigs = {
       mobileLabel: "Areas",
       icon: "map",
     },
-    {
-      href: "#urgent-support",
-      label: "Urgent Support",
-      mobileLabel: "Urgent",
-      icon: "emergency",
-    },
   ],
 
   publicSector: [
@@ -496,45 +490,6 @@ export const navigationConfigs = {
       label: "Begin Partnership",
       mobileLabel: "Partner",
       icon: "diversity_3",
-    },
-  ],
-
-  urgent: [
-    {
-      href: "#urgent-contact",
-      label: "Emergency Contact",
-      mobileLabel: "Contact",
-      icon: "bolt",
-    },
-    {
-      href: "#urgent-focus",
-      label: "Our Focus",
-      mobileLabel: "Focus",
-      icon: "construction",
-    },
-    {
-      href: "#urgent-capabilities",
-      label: "Capabilities",
-      mobileLabel: "Capabilities",
-      icon: "military_tech",
-    },
-    {
-      href: "#urgent-equipment",
-      label: "Equipment",
-      mobileLabel: "Equipment",
-      icon: "engineering",
-    },
-    {
-      href: "#urgent-timeline",
-      label: "Response Timeline",
-      mobileLabel: "Timeline",
-      icon: "schedule",
-    },
-    {
-      href: "#urgent-faq",
-      label: "Common Questions",
-      mobileLabel: "FAQ",
-      icon: "help",
     },
   ],
 

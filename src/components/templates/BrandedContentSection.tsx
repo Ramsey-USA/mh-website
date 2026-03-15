@@ -81,21 +81,21 @@ export interface BrandedContentSectionProps {
  *   </div>
  * </BrandedContentSection>
  *
- * // Custom colors for unique pages (urgent, veterans, etc.)
+ * // Custom colors for unique pages (veterans, public-sector, etc.)
  * <BrandedContentSection
- *   id="urgent-response"
+ *   id="veteran-services"
  *   header={{
- *     icon: "bolt",
+ *     icon: "military_tech",
  *     iconVariant: "custom",
- *     customIconGradient: "from-orange-600 via-orange-700 to-orange-800",
- *     customIconBlur: "from-orange-500/30 to-orange-600/30",
- *     customTitleGradient: "from-orange-600 via-orange-700 to-orange-600",
- *     subtitle: "Rapid Response",
- *     title: "Emergency Support",
- *     description: "Available when you need us most."
+ *     customIconGradient: "from-green-700 via-green-800 to-green-900",
+ *     customIconBlur: "from-green-600/30 to-green-700/30",
+ *     customTitleGradient: "from-green-700 via-green-800 to-green-700",
+ *     subtitle: "Veteran Owned",
+ *     title: "Built on Service",
+ *     description: "Military precision in every project."
  *   }}
  * >
- *   // Your urgent content
+ *   // Your custom content
  * </BrandedContentSection>
  * ```
  */

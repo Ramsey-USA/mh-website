@@ -7,7 +7,7 @@ import { logger } from "./logger";
 import { COMPANY_INFO } from "@/lib/constants/company";
 
 interface PhoneTrackingData {
-  source: string; // Where the click originated (e.g., "header", "footer", "urgent-page")
+  source: string; // Where the click originated (e.g., "header", "footer", "contact-page")
   phoneNumber: string;
   timestamp: string;
   userAgent?: string | undefined;

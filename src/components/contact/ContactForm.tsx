@@ -37,7 +37,7 @@ interface ContactFormData {
 }
 
 interface ContactFormProps {
-  formType: "general" | "project" | "urgent";
+  formType: "general" | "project";
   title: string;
   description?: string;
 }

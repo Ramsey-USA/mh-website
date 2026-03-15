@@ -339,7 +339,6 @@ with transparent pricing. Schedule your free consultation today.
 | Team         | `/team`, `/about`           | 0.7      | monthly     | Person, Organization                      |
 | Contact      | `/contact`, `/booking`      | 0.9      | monthly     | ContactPage, LocalBusiness                |
 | Careers      | `/careers`, `/jobs`         | 0.7      | weekly      | JobPosting                                |
-| Emergency    | `/urgent`, `/emergency`     | 0.85     | monthly     | Service, EmergencyService                 |
 | Partnerships | `/allies`, `/public-sector` | 0.75     | monthly     | Service, Organization                     |
 
 ### Sitemap Configuration
@@ -358,7 +357,7 @@ const ACTIVE_PAGES = [
   { path: "/careers", priority: 0.7, changeFreq: "weekly" as const },
   { path: "/public-sector", priority: 0.8, changeFreq: "monthly" as const },
   { path: "/allies", priority: 0.75, changeFreq: "monthly" as const },
-  { path: "/urgent", priority: 0.85, changeFreq: "monthly" as const },
+  { path: "/allies", priority: 0.75, changeFreq: "monthly" as const },
   { path: "/3d-explorer", priority: 0.5, changeFreq: "monthly" as const },
 ];
 ```
@@ -701,7 +700,6 @@ get3DExplorerSEO();
 // Service pages
 getServicesSEO();
 getBookingSEO();
-getUrgentSEO();
 
 // Company pages
 getAboutSEO();
@@ -873,7 +871,7 @@ export default function ServicesPage() {
 1. **Integrate Page-Specific Metadata**
    - Consider server/client split for key pages
    - Integrate existing SEO utils from `page-seo-utils.ts`
-   - Priority pages: `/booking`, `/services`, `/urgent`
+   - Priority pages: `/booking`, `/services`
 
 2. **Add Missing Schemas**
    - Service schema on `/services` page

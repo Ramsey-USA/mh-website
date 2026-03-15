@@ -50,12 +50,6 @@ The gradient text in section headers, as implemented across all pages, is the co
 
 ### **Contextual Color Schemes**
 
-**Emergency/Urgent (Orange-Red):** Used ONLY on `/urgent` page
-
-- Emergency Primary: `orange-600` (#ea580c)
-- Emergency Accent: `red-600` (#dc2626)
-- Trust Balance: Always pair with brand green trust signals
-
 **Government/Public Sector (Grayscale):** Used ONLY on `/public-sector` page
 
 - Grayscale Primary: `slate-600` (#475569)
@@ -498,13 +492,6 @@ All page sections MUST follow this standardized background:
 <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-brand-secondary"></div>
 ```
 
-**Emergency (Orange) Cards - /urgent page ONLY:**
-
-```tsx
-<div className="absolute -inset-2 bg-gradient-to-r from-orange-500/40 to-orange-600/40 ..."></div>
-<div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700"></div>
-```
-
 **Government (Grayscale) Cards - /public-sector page ONLY:**
 
 ```tsx
@@ -743,7 +730,7 @@ className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
 - Modern card structure with animated border glows ✅
 - Top accent bars (h-2) on all cards ✅
 - Enhanced icon system with nested blur layers ✅
-- Emergency and government color schemes for specific pages ✅
+- Government color scheme for public-sector page ✅
 - Diagonal stripe backgrounds with large blobs ✅
 
 **What's Clarified:**

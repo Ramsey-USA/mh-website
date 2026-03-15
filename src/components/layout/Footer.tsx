@@ -422,28 +422,6 @@ export default function Footer() {
                 </Link>
 
                 <Link
-                  href="/urgent"
-                  className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
-                >
-                  <MaterialIcon
-                    icon="engineering"
-                    size="sm"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-brand-primary transition-colors"
-                  />
-                  <span className="flex flex-col">
-                    <span>Emergency</span>
-                    <span className="text-[9px] text-brand-secondary opacity-75">
-                      Rapid Response
-                    </span>
-                  </span>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="opacity-0 group-hover:opacity-100 text-brand-primary transition-opacity"
-                  />
-                </Link>
-
-                <Link
                   href="/faq"
                   className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
                 >

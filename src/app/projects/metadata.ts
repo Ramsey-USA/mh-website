@@ -1,40 +1,46 @@
+/**
+ * NOTE: This file is not consumed by Next.js App Router.
+ * The active metadata for /projects is exported from layout.tsx via getProjectsSEO().
+ * Kept for reference only.
+ */
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
     "Missions → Projects | Mission Success: 650+ Completed Operations | MH Construction",
   description:
-    "Missions → Projects: Mission Success - 650+ Completed Operations, Countless Lasting Relationships. Explore MH Construction's completed construction missions: commercial buildings, medical facilities, industrial operations, and tenant improvements across the Pacific Northwest. Veteran-owned since 2025, executing excellence since 2010 with service-earned values, honest communication, transparent pricing, and proven craftsmanship.",
+    "650+ completed commercial, industrial & government projects across Tri-Cities WA, Yakima, Spokane, and Walla Walla. Veteran-owned since 2025. 70% referral rate. Licensed WA, OR, ID.",
   keywords: [
-    "Missions Projects 650 completed",
-    "mission success proven results",
+    "construction portfolio Tri-Cities WA",
     "650 completed construction projects",
-    "veteran-owned construction portfolio",
-    "dual-label project showcase",
-    "service-earned project excellence",
-    "construction projects",
-    "construction portfolio",
-    "completed projects",
-    "commercial construction projects",
-    "medical facility projects",
-    "industrial building projects",
-    "Tri-Cities construction projects",
-    "Pasco projects",
-    "Kennewick construction",
-    "Richland contractor projects",
+    "commercial construction projects Pacific Northwest",
+    "light industrial construction portfolio",
+    "government construction projects veteran-owned",
+    "tenant improvement portfolio",
+    "Richland construction projects",
+    "Pasco construction portfolio",
+    "Kennewick construction work",
     "Benton County construction portfolio",
-    "Franklin County projects",
+    "Franklin County construction projects",
     "general contractor projects Tri-Cities",
     "Pacific Northwest construction",
   ],
   openGraph: {
     title: "Missions → Projects | 650+ Completed Projects - MH Construction",
     description:
-      "Missions → Projects: Mission Success - 650+ Completed Projects, Countless Lasting Relationships. View our completed commercial, industrial, and medical facility construction missions. Veteran-owned excellence with service-earned values in action.",
+      "650+ completed commercial, industrial & government projects across Tri-Cities WA, Yakima, Spokane, and Walla Walla. Veteran-owned since 2025. 70% referral rate.",
     type: "website",
     locale: "en_US",
     url: "https://www.mhc-gc.com/projects",
     siteName: "MH Construction",
+    images: [
+      {
+        url: "https://www.mhc-gc.com/images/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MH Construction Project Portfolio - 650+ Completed Projects Pacific Northwest",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -42,7 +48,8 @@ export const metadata: Metadata = {
     creator: "@mhc_gc",
     title: "Missions → Projects | 650+ Completed - MH Construction",
     description:
-      "Mission Success: 650+ completed projects, countless lasting relationships. Commercial, industrial, and medical facility missions. Veteran-owned excellence with service-earned values. Pacific Northwest.",
+      "650+ completed commercial, industrial & government projects across Tri-Cities WA, Yakima, Spokane, and Walla Walla. Veteran-owned since 2025.",
+    images: ["https://www.mhc-gc.com/images/og-default.jpg"],
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/projects",

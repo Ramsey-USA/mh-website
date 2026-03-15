@@ -1,10 +1,15 @@
+/**
+ * NOTE: This file is not consumed by Next.js App Router.
+ * The active metadata for /services is exported from layout.tsx via getServicesSEO().
+ * Kept for reference only.
+ */
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
     "Operations → Services | The Battle Plan - Mission-Ready Construction Excellence | MH Construction",
   description:
-    "Operations → Services: The Battle Plan - Mission-Ready Construction Excellence from Concept to Completion. Comprehensive construction management operations with military precision and honest communication: Commercial buildings, Master Planning, Medical Facilities, Light Industrial, Religious Facilities, Tenant Improvements, Government Missions. Veteran-owned with service-earned values. Serving Tri-Cities WA, OR, ID. Call (509) 308-6489.",
+    "Commercial construction, master planning, tenant improvements, light industrial & government projects. Veteran-owned, Tri-Cities WA. Licensed WA, OR, ID. Transparent pricing.",
   keywords: [
     "Operations Services battle plan",
     "strategic construction excellence",
@@ -58,10 +63,10 @@ export const metadata: Metadata = {
     siteName: "MH Construction",
     images: [
       {
-        url: "https://www.mhc-gc.com/images/logo/mh-logo.png",
+        url: "https://www.mhc-gc.com/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "MH Construction Services - Commercial, Industrial & Medical Facilities",
+        alt: "MH Construction Services - Commercial, Industrial & Government Construction Pacific Northwest",
       },
     ],
   },
@@ -72,8 +77,8 @@ export const metadata: Metadata = {
     title:
       "Operations → Services | Strategic Construction Excellence - MH Construction",
     description:
-      "The Battle Plan for construction success. Veteran-owned with military precision. Commercial, industrial, medical & government projects. Service-earned values, proven results.",
-    images: ["https://www.mhc-gc.com/images/logo/mh-logo.png"],
+      "Commercial construction, master planning, tenant improvements, light industrial & government projects. Veteran-owned, Tri-Cities WA. Licensed WA, OR, ID.",
+    images: ["https://www.mhc-gc.com/images/og-default.jpg"],
   },
   alternates: {
     canonical: "https://www.mhc-gc.com/services",

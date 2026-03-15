@@ -10,8 +10,8 @@
 > headers, cards, etc.) should look consistent across pages. However,
 > **messaging is page-specific** based on target audience groups.
 >
-> **⚠️ EXCEPTIONS:** Public Sector (`/public-sector`), Veterans
-> (`/veterans`), and Urgent (`/urgent`) pages have completely unique
+> **⚠️ EXCEPTIONS:** Public Sector (`/public-sector`) and Veterans
+> (`/veterans`) pages have completely unique
 > structures and designs - they do not follow this template.
 
 ---
@@ -54,7 +54,6 @@ veteran-owned values and transparent communication.
 
 - Public Sector (`/public-sector`)
 - Veterans (`/veterans`)
-- Urgent (`/urgent`)
 
 ### Purpose
 
@@ -83,7 +82,7 @@ The homepage follows an optimized section ordering strategy (25-30% testimonial 
 > → Next Steps). However, section ordering and content are optimized per page
 > purpose. Timeline and component designs remain visually consistent.
 >
-> **Exception Pages:** Public Sector, Veterans, and Urgent pages have completely different structures.
+> **Exception Pages:** Public Sector and Veterans pages have completely different structures.
 
 ### 1. Hero Section (0-10%)
 
@@ -659,7 +658,7 @@ className = "bg-white dark:bg-gray-900 text-gray-900 dark:text-white";
 - Performance optimizations follow best practices
 - SEO structure is already near-optimal (95/100)
 - **Visual/structural patterns established here are reused across pages** - only messaging differs per audience
-- **Exception:** Public Sector, Veterans, and Urgent pages have unique structures
+- **Exception:** Public Sector and Veterans pages have unique structures
 
 ---
 

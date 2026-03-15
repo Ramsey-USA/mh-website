@@ -174,35 +174,6 @@ export const coreServices: CoreService[] = [
       "Leverages expertise specifically at each stage",
     ],
   },
-  {
-    iconName: "emergency",
-    title: "Emergency Commercial Response",
-    subtitle: "24/7 Urgent Construction Services for Business Continuity",
-    description:
-      "When commercial facilities face unexpected construction emergencies, business continuity depends on rapid, professional response. MH Construction provides Emergency Commercial Response Services for business owners, facility managers, and property managers throughout the Tri-Cities and Pacific Northwest. Our veteran-trained team applies military crisis management precision to assess, stabilize, and restore your commercial operations quickly. From storm damage and structural failures to urgent tenant improvements and emergency repairs, we understand that downtime costs your business money—our rapid deployment capabilities minimize operational disruption while maintaining the same quality standards and partnership approach you expect from MH Construction.",
-    features: [
-      "24/7 Emergency Response for Commercial Facilities",
-      "Rapid Assessment and Professional Deployment",
-      "Storm Damage and Structural Emergency Repairs",
-      "Fire and Water Damage Commercial Restoration",
-      "Emergency Tenant Improvements and Modifications",
-      "Business Continuity and Downtime Minimization",
-      "Facility Manager and Property Manager Support",
-      "Insurance Claim Documentation Assistance",
-    ],
-    benefits: [
-      "Veteran-trained crisis management and rapid response",
-      "Military precision under pressure situations",
-      "Minimize business operational disruption and downtime",
-      "Same quality standards as planned projects",
-      "Professional coordination with insurance providers",
-      "24/7 availability for urgent commercial needs",
-      "Business-focused solutions, not residential DIY",
-      "Protect your facility investment and operations",
-    ],
-    ctaText:
-      "Facing a commercial construction emergency? Call (509) 308-6489 immediately for 24/7 emergency response. Our rapid deployment team is ready to protect your business operations and facility investment.",
-  },
 ];
 
 // Specialty Services & Markets

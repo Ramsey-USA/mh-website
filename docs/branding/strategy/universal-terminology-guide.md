@@ -562,7 +562,7 @@ Pasco, WA 99301
 
 **Usage Rules:**
 
-- PRIMARY USE: Trade Partners page and Urgent Support page ONLY
+- PRIMARY USE: Trade Partners page ONLY
 - All caps: "THE ROI IS THE RELATIONSHIP"
 - Emphasizes business value and mutual benefit
 - B2B focused messaging
@@ -571,7 +571,6 @@ Pasco, WA 99301
 
 ```text
 ✅ "THE ROI IS THE RELATIONSHIP - and we prove it" (Trade Partners)
-✅ "THE ROI IS THE RELATIONSHIP - even in emergencies" (Urgent)
 ```
 
 **DO NOT use on:**
@@ -714,7 +713,7 @@ Use these based on page context and messaging group:
 - [ ] Location: States listed as WA, OR, ID (in that order)?
 - [ ] Safety: "0.6 EMR" with context (40% better)?
 - [ ] Primary slogan: "Building projects for the client, NOT the dollar" included?
-- [ ] "THE ROI IS THE RELATIONSHIP" ONLY on Trade Partners/Urgent pages?
+- [ ] "THE ROI IS THE RELATIONSHIP" ONLY on Trade Partners page?
 - [ ] "You control it, we manage it" used for client empowerment?
 - [ ] "Work WITH" (not "work FOR") phrasing?
 - [ ] Technology balanced with personal relationship emphasis?

@@ -390,27 +390,6 @@ Schedule your consultation:
 #FreeConsultation #TriCities #CommercialConstruction
 ```
 
-### Template 2: Urgent Support
-
-```text
-🚨 Need Urgent Construction Support?
-
-Construction emergencies don't wait for business hours.
-
-We provide urgent support for:
-• Structural issues
-• Weather damage
-• Equipment needs
-• Critical timeline rescues
-
-Available when you need us most.
-
-📞 Emergency line: (509) 308-6489
-🌐 www.mhc-gc.com/urgent
-
-#EmergencySupport #Construction #TriCities
-```
-
 ---
 
 ## 📅 **Seasonal Templates**

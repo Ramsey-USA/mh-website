@@ -366,7 +366,7 @@ export function ServiceAreaOverview() {
       city: "Pasco",
       state: "WA",
       description: "Headquarters location with full-service construction",
-      services: ["Custom Homes", "Commercial", "Renovations", "Urgent Support"],
+      services: ["Custom Homes", "Commercial", "Renovations"],
       responseTime: "24 hours",
     },
     {

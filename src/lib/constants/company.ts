@@ -123,10 +123,8 @@ export const EMAIL_RECIPIENTS: {
   general: string[];
   contact: string[];
   careers: string[];
-  urgent: string[];
 } = {
   general: [COMPANY_INFO.email.main, COMPANY_INFO.email.owner],
   contact: [COMPANY_INFO.email.main, COMPANY_INFO.email.owner],
   careers: [COMPANY_INFO.email.main, COMPANY_INFO.email.owner],
-  urgent: [COMPANY_INFO.email.main, COMPANY_INFO.email.owner],
 };

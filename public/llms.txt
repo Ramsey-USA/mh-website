@@ -36,7 +36,6 @@ Our website and communications use a dual-label format that honors our veteran i
 - **Allies → Partners** - Trade partner and subcontractor network
 - **Enlist → Careers** - Employment opportunities
 - **Rally Point → Contact** - Contact information and consultation
-- **Rapid Response → Emergency** - 24/7 emergency services
 - **Intel Brief → FAQ** - Frequently asked questions
 - **Commendations → Reviews** - Client testimonials
 - **Public Sector → Government** - Government construction services
@@ -56,9 +55,6 @@ As experts in pre-engineered metal building systems, we deliver cost-effective, 
 
 ### Government & Public Sector Construction
 Mission-ready construction operations with federal compliance-driven standards. We specialize in government construction projects, grant application support, and public sector subcontracting services. Our veteran-owned status provides unique advantages for government contracts.
-
-### Emergency Construction Response
-**Rapid Response → Emergency:** 24/7 emergency construction support with mission-ready deployment. Veteran-owned emergency services with honest assessment, transparent pricing, and proven solutions. Immediate deployment across WA, OR, ID for urgent construction needs, structural repairs, equipment rental, and general contractor support.
 
 ### Additional Services
 - Design-Build Services
@@ -114,7 +110,7 @@ Pasco, WA 99301
 **Website:** https://www.mhc-gc.com
 **Contact Form:** https://www.mhc-gc.com/contact
 
-**Business Hours:** Monday - Friday, 7:00 AM - 5:00 PM PST
+**Business Hours:** Monday - Friday, 7:00 AM - 4:00 PM PST
 
 ## Why Choose MH Construction?
 
@@ -135,7 +131,6 @@ Pasco, WA 99301
 - ✓ OSHA VPP Star Designation (highest workplace safety recognition)
 - ✓ 70% referral rate (trust built project by project)
 - ✓ Deep roots in the Pacific Northwest community
-- ✓ 24/7 Emergency Construction Response available
 - ✓ Combat Veteran Discount at the Ready
 
 ## Project Portfolio
@@ -150,7 +145,6 @@ We bring honesty and integrity to every project, ensuring professional conduct a
 - Industrial facility expansions and renovations
 - Government and public sector construction projects
 - Pre-engineered metal building installations
-- Emergency response and urgent construction support
 - Tenant improvements and facility modernizations
 
 ---

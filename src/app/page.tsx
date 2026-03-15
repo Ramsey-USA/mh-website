@@ -1,8 +1,72 @@
+import { type Metadata } from "next";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { PageTrackingClient } from "@/components/analytics";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 // Enhanced SEO for veteran-owned construction with traditional values
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
+
+const SITE_URL = "https://www.mhc-gc.com";
+
+export const metadata: Metadata = withGeoMetadata({
+  title: {
+    absolute:
+      "Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction",
+  },
+  description:
+    "Base HQ → Home: Your Tri-Cities Construction Command Center serving Richland, Pasco, Kennewick, Yakima, Spokane, and Walla Walla. Veteran-owned construction management since 2010. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest. Service-earned values: Honesty, Integrity, Professionalism, Thoroughness. Licensed in WA, OR, ID.",
+  keywords: [
+    "general contractor Tri-Cities WA",
+    "veteran-owned contractor Pacific Northwest",
+    "Richland general contractor",
+    "Pasco general contractor",
+    "Kennewick general contractor",
+    "Benton County general contractor",
+    "Franklin County general contractor",
+    "commercial construction Tri-Cities",
+    "construction management services",
+    "master planning preconstruction",
+    "tenant improvement contractor",
+    "light industrial construction Pacific Northwest",
+    "general contractor Yakima WA",
+    "general contractor Spokane WA",
+    "general contractor Walla Walla WA",
+    "veteran construction values",
+    "WA OR ID licensed contractor",
+    "Eastern Washington contractor",
+  ],
+  alternates: {
+    canonical: SITE_URL,
+  },
+  openGraph: {
+    title:
+      "Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction",
+    description:
+      "Your Tri-Cities Construction Command Center. Veteran-owned since 2025. Commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest.",
+    url: SITE_URL,
+    siteName: "MH Construction",
+    type: "website",
+    images: [
+      {
+        url: "/images/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MH Construction - Veteran-Owned General Contractor serving Tri-Cities and Pacific Northwest",
+      },
+    ],
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@mhc_gc",
+    creator: "@mhc_gc",
+    title:
+      "Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction",
+    description:
+      "Your Tri-Cities Construction Command Center. Veteran-owned since 2025. Commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest.",
+    images: ["/images/og-default.jpg"],
+  },
+});
 
 // Homepage sections - Critical above-the-fold content
 import {

@@ -73,7 +73,14 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Recent Improvements (March 2026)
 
-- **Mar 15:** Fourth optimization pass — deleted 7 dead `lib/performance/` modules (`caching`, `performance-manager`, `code-splitting`, `hooks`, `app-performance`, `lightweight-performance`, `index`, ~2,528 lines, only `mobile-optimizations` retained); deleted `IconLibrary.tsx` (628 lines) and its 40+ unused re-exports from the icons barrel; deleted `Slogan.tsx` and `slogans.ts` (~952 lines, never rendered); deleted standalone `csrf.ts` (194 lines, CSRF logic lives inside `security-manager`); converted 3 more pages from client to RSC (`team`, `public-sector`, `contact/ContactPageClient`) via `PageTrackingClient` island pattern — 4,302 lines of dead code removed, 95/95 tests still passing
+- **Mar 15:** Fourth optimization pass — deleted 7 dead `lib/performance/` modules (`caching`, `performance-manager`,
+  `code-splitting`, `hooks`, `app-performance`, `lightweight-performance`, `index`, ~2,528 lines, only
+  `mobile-optimizations` retained); deleted `IconLibrary.tsx` (628 lines) and its 40+ unused re-exports from the icons
+  barrel; deleted `Slogan.tsx` and `slogans.ts` (~952 lines, never rendered); deleted standalone
+  `csrf.ts` (194 lines, CSRF logic lives inside `security-manager`); converted 3 more pages from client to RSC
+  (`team`, `public-sector`, `contact/ContactPageClient`) via `PageTrackingClient` island pattern — 4,302 lines of dead
+  code removed, 95/95 tests still passing; removed Urgent page (`/urgent`) and all associated navigation links,
+  sitemap entries, SEO metadata, and breadcrumb schema — page count 27 → 26
 
 - **Mar 14:** Third optimization pass — deleted 5 dead `lib/` directories (`ai`, `cache`, `content`, `storage`, `branding`,
   ~1,600 lines); removed `components/images` compat shim directory, `QuickBookingModal`, `PerformanceDashboard`,
@@ -88,7 +95,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
   219 `.bak` backup artifacts, dead `FeaturesSection` and `ActivityFeed` components, entire unused chatbot component tree
   (`GlobalChatbot`, `FloatingChatbotButton`, `GlobalChatbotProvider`, `InteractiveTimeline`, chatbot lib), and removed
   `GlobalChatbotProvider` wrapper from root layout — 7 pages converted from client components to React Server Components
-  (`terms`, `privacy`, `testimonials`, `veterans`, `faq`, `urgent`, `allies`) by replacing inline `usePageTracking` hook
+  (`terms`, `privacy`, `testimonials`, `veterans`, `faq`, `allies`) by replacing inline `usePageTracking` hook
   with the existing `PageTrackingClient` island pattern; fixed dead `/book` → `/contact` redirect; pruned 3 unused
   entries from `optimizePackageImports` and removed empty `swcPlugins: []` from `next.config.js`; shared bundle
   reduced from 223 kB → 221 kB with per-page hydration costs significantly lower on converted RSC pages
@@ -287,7 +294,7 @@ npm run lint:fix         # Fix linting issues
 
 ```bash
 npm run test             # Run test suite
-npm run test:pwa         # PWA functionality tests (50 tests)
+npm run test:pwa         # PWA functionality tests (36 tests)
 ```
 
 ### Media Optimization
@@ -393,7 +400,7 @@ contributing.md                         # Contribution guidelines
 mh-website/
 ├── src/
 │   ├── app/                      # Next.js 15 App Router
-│   │   ├── (pages)/             # 26 public pages
+│   │   ├── (public pages)/      # 26 public pages (about, services, locations, etc.)
 │   │   ├── api/                 # API routes (analytics, contact, etc.)
 │   │   ├── dashboard/           # Analytics dashboard
 │   │   ├── layout.tsx           # Root layout
@@ -401,23 +408,42 @@ mh-website/
 │   ├── components/               # React components
 │   │   ├── analytics/           # Tracking components
 │   │   ├── animations/          # Animation utilities
+│   │   ├── error/               # Error boundary components
 │   │   ├── forms/               # Form components
 │   │   ├── home/                # Homepage sections
+│   │   ├── icons/               # Icon components
 │   │   ├── layout/              # Layout components
 │   │   ├── locations/           # Location page components
 │   │   ├── navigation/          # Nav components
+│   │   ├── performance/         # Performance utilities
 │   │   ├── projects/            # Project components
 │   │   ├── pwa/                 # PWA install prompt
+│   │   ├── ratings/             # Rating components
 │   │   ├── seo/                 # SEO components
 │   │   ├── shared/              # Shared utilities
 │   │   ├── shared-sections/     # Reusable sections
+│   │   ├── slider/              # Slider/carousel components
 │   │   ├── team/                # Team components
+│   │   ├── templates/           # Page templates
 │   │   ├── ui/                  # Base UI components
-│   │   └── (+ about, contact, icons, images, map, services, testimonials, veterans, ...)
+│   │   └── (+ about, contact, map, services, testimonials, veterans, ...)
 │   ├── lib/                      # Core libraries
 │   │   ├── analytics/           # Analytics system
+│   │   ├── api/                 # API helpers
+│   │   ├── auth/                # Authentication utilities
+│   │   ├── cloudflare/          # Cloudflare-specific helpers
+│   │   ├── constants/           # App-wide constants
+│   │   ├── data/                # Static data helpers
+│   │   ├── db/                  # Database (D1) access layer
+│   │   ├── email/               # Email (Resend) helpers
+│   │   ├── notifications/       # Notification utilities
+│   │   ├── performance/         # Performance helpers
+│   │   ├── security/            # Security utilities (CSRF, etc.)
 │   │   ├── seo/                 # SEO utilities
-│   │   └── utils/               # Helper functions
+│   │   ├── services/            # Business-logic services
+│   │   ├── styles/              # Shared style utilities
+│   │   ├── types/               # Library-scoped types
+│   │   └── utils/               # General helper functions
 │   ├── contexts/                 # React contexts (Theme, etc.)
 │   ├── hooks/                    # Custom React hooks
 │   └── types/                    # TypeScript definitions

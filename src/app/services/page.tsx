@@ -670,9 +670,9 @@ export default function ServicesPage() {
               </div>
               <div className="group">
                 <p className="mb-2 font-black text-4xl lg:text-5xl group-hover:scale-110 transition-transform duration-300 inline-block">
-                  24/7
+                  70%
                 </p>
-                <p className="text-white/90 text-lg">Emergency Support</p>
+                <p className="text-white/90 text-lg">Referral Rate</p>
               </div>
             </div>
           </div>

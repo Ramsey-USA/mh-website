@@ -1125,8 +1125,7 @@ export default function PublicSectorPage() {
                   theme="military"
                   ariaLabel="Business Hours"
                 />
-                Monday - Friday: 0700 - 1600 PST | Emergency Response Available
-                24/7
+                Monday - Friday: 0700 - 1600 PST
               </p>
             </div>
           </FadeInWhenVisible>

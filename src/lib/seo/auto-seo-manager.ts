@@ -120,12 +120,6 @@ export const PAGE_CATEGORIES = {
     changeFrequency: "monthly" as const,
     schemas: ["SoftwareApplication"],
   },
-  emergency: {
-    patterns: ["/urgent", "/emergency"],
-    priority: 0.85,
-    changeFrequency: "monthly" as const,
-    schemas: ["Service", "EmergencyService"],
-  },
   partnerships: {
     patterns: [
       "/partners",
@@ -378,7 +372,6 @@ export function autoGenerateSEO(
     contact: `Get in touch with MH Construction. Schedule consultations, request estimates, or connect with our veteran-owned construction team serving the Pacific Northwest.`,
     careers: `Join MH Construction's veteran-owned team. ${pageName} opportunities with competitive benefits and a partnership-driven culture.`,
     tools: `${pageName} tool from MH Construction. Construction technology for instant estimates and project planning in the Pacific Northwest.`,
-    emergency: `${pageName} construction support from MH Construction. Expert response for critical structural challenges with veteran-owned reliability.`,
     partnerships: `${pageName} opportunities with MH Construction. Build lasting partnerships with our veteran-owned construction platform.`,
   };
 
