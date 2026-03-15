@@ -69,13 +69,15 @@ const nextConfig = {
     };
 
     // Production optimizations
-    if (!dev && !isServer) {
-      // Enable persistent caching for faster rebuilds
+    if (!dev) {
+      // Enable persistent caching for faster rebuilds (all build targets)
       config.cache = {
         type: "filesystem",
         compression: "gzip",
       };
+    }
 
+    if (!dev && !isServer) {
       // Better code splitting
       config.optimization = {
         ...config.optimization,

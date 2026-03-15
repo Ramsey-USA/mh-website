@@ -10,7 +10,7 @@
     "build:fast": "NODE_ENV=production SKIP_LINT=true next build",
     "build:profile": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" next build",
     "build:analyze": "ANALYZE=true npm run build",
-    "build:cloudflare": "NPM_CONFIG_LEGACY_PEER_DEPS=true npx @cloudflare/next-on-pages@1",
+    "build:cloudflare": "opennextjs-cloudflare build",
     "start": "next start",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
@@ -24,9 +24,9 @@
     "lighthouse:guide": "node lighthouse-guide.js",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "pages:deploy": "npm run build:cloudflare && npx wrangler pages deploy .vercel/output/static --project-name=mh-construction",
+    "pages:deploy": "opennextjs-cloudflare build && npx wrangler pages deploy --project-name=mh-construction",
     "pages:dev": "npm run dev",
-    "deploy:production": "npm run build:cloudflare && npm run pages:deploy",
+    "deploy:production": "npm run pages:deploy",
     "bundle:size": "npm run build && du -sh .next/static/chunks/*.js | sort -hr | head -10",
     "clean": "bash scripts/cleanup/cleanup.sh",
     "maintenance": "npm run clean",
@@ -40,7 +40,7 @@
     "optimize:videos": "node scripts/optimization/optimize-videos.js",
     "audit:images": "node scripts/optimization/audit-images.js",
     "quality:check": "bash scripts/utilities/cleanup-check.sh",
-    "deps:check": "npx depcheck --ignores='@types/*,eslint-*,prettier,husky,@commitlint/*,postcss,autoprefixer,jest-environment-jsdom,@cloudflare/next-on-pages,chalk'",
+    "deps:check": "npx depcheck --ignores='@types/*,eslint-*,prettier,husky,@commitlint/*,postcss,autoprefixer,jest-environment-jsdom,@opennextjs/cloudflare,chalk'",
     "deps:update": "npm outdated",
     "deps:clean": "npm prune && npm dedupe",
     "prepare": "husky"
@@ -54,6 +54,9 @@
   ],
   "author": "MH Construction Development Team",
   "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.4.0",
     "@radix-ui/react-progress": "^1.1.8",
@@ -74,19 +77,19 @@
     "web-vitals": "^5.1.0"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.16",
     "@commitlint/cli": "^20.4.3",
     "@commitlint/config-conventional": "^20.4.3",
     "@eslint/eslintrc": "^3.3.5",
     "@next/bundle-analyzer": "^16.1.6",
-    "@types/node": "^24.12.0",
-    "@types/react": "^19.2.14",
+    "@opennextjs/cloudflare": "^1.17.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/typography": "^0.5.19",
     "@testing-library/jest-dom": "^6.9.1",
     "@types/jest": "^30.0.0",
+    "@types/node": "^24.12.0",
     "@types/qrcode": "^1.5.6",
+    "@types/react": "^19.2.14",
     "autoprefixer": "^10.4.27",
     "chalk": "^5.6.2",
     "chrome-launcher": "^1.2.1",
@@ -106,8 +109,7 @@
     "qrcode": "^1.5.4",
     "sharp": "^0.34.5",
     "typescript": "^5.9.2",
-    "vercel": "32.3.0",
-    "wrangler": "^4.72.0"
+    "wrangler": "^4.73.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -124,6 +126,8 @@
     },
     "tar": "7.5.11",
     "cookie": "0.7.2",
-    "flatted": ">=3.4.0"
+    "flatted": ">=3.4.0",
+    "undici": ">=7.24.0",
+    "yauzl": ">=3.2.1"
   }
 }

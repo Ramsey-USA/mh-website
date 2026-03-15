@@ -2,12 +2,12 @@
  * Cloudflare Environment Access for Next.js
  *
  * Helper to access Cloudflare Workers bindings (D1, KV, R2) from Next.js API routes
- * when deployed to Cloudflare Pages.
+ * when deployed to Cloudflare Pages via @opennextjs/cloudflare.
  *
- * Note: This uses @cloudflare/next-on-pages which makes env bindings available
- * via getRequestContext() when deployed, but not in local development.
+ * Returns null when called outside of a Cloudflare Workers context (e.g. local dev).
  */
 
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { logger } from "@/lib/utils/logger";
 import type { D1Database } from "@/lib/db/client";
 
@@ -17,24 +17,10 @@ import type { D1Database } from "@/lib/db/client";
  */
 export function getD1Database(): D1Database | null {
   try {
-    // When deployed to Cloudflare Pages with @cloudflare/next-on-pages
-    // the env bindings are available via getRequestContext()
-    if (
-      typeof globalThis !== "undefined" &&
-      "getRequestContext" in globalThis
-    ) {
-      const context = (
-        globalThis as unknown as {
-          getRequestContext: () => {
-            env?: { DB?: D1Database };
-            cloudflare?: { env?: { DB?: D1Database } };
-          };
-        }
-      ).getRequestContext();
-      const env = context?.env || context?.cloudflare?.env;
-      return env?.DB || null;
-    }
-    return null;
+    const { env } = getCloudflareContext();
+    return (
+      ((env as Record<string, unknown>)["DB"] as D1Database | undefined) ?? null
+    );
   } catch (error) {
     logger.error("Error getting D1 database:", error);
     return null;
@@ -46,20 +32,10 @@ export function getD1Database(): D1Database | null {
  */
 export function getKVNamespace(binding: string): unknown | null {
   try {
-    if (
-      typeof globalThis !== "undefined" &&
-      "getRequestContext" in globalThis
-    ) {
-      const { env } = (
-        globalThis as unknown as {
-          getRequestContext: () => { env?: Record<string, unknown> };
-        }
-      ).getRequestContext();
-      return env?.[binding] || null;
-    }
-    return null;
+    const { env } = getCloudflareContext();
+    return (env as Record<string, unknown>)[binding] ?? null;
   } catch (_error) {
-    logger.error("Error getting KV namespace:", { binding, _error: _error });
+    logger.error("Error getting KV namespace:", { binding, _error });
     return null;
   }
 }
@@ -69,20 +45,10 @@ export function getKVNamespace(binding: string): unknown | null {
  */
 export function getR2Bucket(binding: string): unknown | null {
   try {
-    if (
-      typeof globalThis !== "undefined" &&
-      "getRequestContext" in globalThis
-    ) {
-      const { env } = (
-        globalThis as unknown as {
-          getRequestContext: () => { env?: Record<string, unknown> };
-        }
-      ).getRequestContext();
-      return env?.[binding] || null;
-    }
-    return null;
+    const { env } = getCloudflareContext();
+    return (env as Record<string, unknown>)[binding] ?? null;
   } catch (_error) {
-    logger.error("Error getting R2 bucket:", { binding, _error: _error });
+    logger.error("Error getting R2 bucket:", { binding, _error });
     return null;
   }
 }
@@ -91,5 +57,10 @@ export function getR2Bucket(binding: string): unknown | null {
  * Check if running in Cloudflare Workers environment
  */
 export function isCloudflareWorkers(): boolean {
-  return typeof globalThis !== "undefined" && "getRequestContext" in globalThis;
+  try {
+    getCloudflareContext();
+    return true;
+  } catch {
+    return false;
+  }
 }
