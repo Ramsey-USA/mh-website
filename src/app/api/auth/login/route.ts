@@ -15,8 +15,6 @@ import {
   internalServerError,
 } from "@/lib/api/responses";
 
-export const runtime = "edge";
-
 interface LoginRequest {
   email: string;
   password: string;

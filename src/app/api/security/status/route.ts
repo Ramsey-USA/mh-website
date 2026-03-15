@@ -19,7 +19,6 @@ import {
   type Vulnerability,
 } from "@/lib/security/vulnerability-scanner";
 
-export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 async function handler(request: NextRequest) {

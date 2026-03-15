@@ -1,8 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 
-export const runtime = "edge";
-
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();

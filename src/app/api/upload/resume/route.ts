@@ -15,7 +15,6 @@ import {
   internalServerError,
 } from "@/lib/api/responses";
 
-export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 /**
