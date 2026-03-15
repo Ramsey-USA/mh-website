@@ -221,7 +221,9 @@ export class R2StorageService {
 /**
  * Get R2 bucket from Cloudflare Workers environment
  */
-export function getR2Bucket(bucketName: "RESUMES" | "ASSETS"): R2Bucket | null {
+export function getR2Bucket(
+  bucketName: "RESUMES" | "FILE_ASSETS",
+): R2Bucket | null {
   // In Cloudflare Workers environment, bindings are available on globalThis
   if (typeof globalThis !== "undefined") {
     const bucket = (globalThis as Record<string, unknown>)[

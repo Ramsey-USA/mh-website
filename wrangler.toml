@@ -19,7 +19,7 @@ preview_id = "${CLOUDFLARE_ANALYTICS_KV_PREVIEW_ID}"
 
 # R2 buckets for file storage
 [[r2_buckets]]
-binding = "ASSETS"
+binding = "FILE_ASSETS"
 bucket_name = "mh-construction-assets"
 
 [[r2_buckets]]
