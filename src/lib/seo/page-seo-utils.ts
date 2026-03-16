@@ -605,28 +605,124 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
     inLanguage: "en-US",
   };
 
+  // Organization schemas for active vendor partners — "digital handshakes"
+  // Each schema creates an entity relationship between MHC and the vendor,
+  // supporting GEO co-citation and structured-data link equity.
+  const vendorSchemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Diamond Electric",
+      description:
+        "Primary electrical contractor for MH Construction. Commercial and industrial electrical installations, code-compliant work, safety-first approach.",
+      sameAs: ["https://www.facebook.com/diamondelectricllc/photos/"],
+      areaServed: "Tri-Cities, WA",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "Mustang Signs",
+      description:
+        "Primary signage vendor for MH Construction. Commercial signage, ADA-compliant interior signs, LED reader boards, fleet vehicle wraps, vinyl lettering.",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "10379 W Clearwater Ave",
+        addressLocality: "Kennewick",
+        addressRegion: "WA",
+        postalCode: "99336",
+        addressCountry: "US",
+      },
+      url: "https://www.mustangsigns.com/",
+      sameAs: [
+        "https://www.mustangsigns.com/",
+        "https://www.facebook.com/mustangsigns/",
+        "https://www.instagram.com/mustangsigns/",
+      ],
+      areaServed: "Pacific Northwest",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "Bagley Landscaping",
+      description:
+        "Primary landscaping contractor for MH Construction. Commercial landscape design, irrigation, hydroseeding, retaining walls, concrete curbing, Tri-Cities WA.",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "1418 St Helens St",
+        addressLocality: "Pasco",
+        addressRegion: "WA",
+        postalCode: "99301",
+        addressCountry: "US",
+      },
+      url: "https://bagleylandscape.com/",
+      sameAs: ["https://bagleylandscape.com/"],
+      areaServed: "Tri-Cities, WA",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "McKinney Glass",
+      description:
+        "Primary glass and glazing contractor for MH Construction. Commercial storefront systems, curtain walls, window installation, specialty glass, Yakima WA.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Yakima",
+        addressRegion: "WA",
+        addressCountry: "US",
+      },
+      url: "https://mckinneyglass.com/",
+      sameAs: [
+        "https://mckinneyglass.com/",
+        "https://www.facebook.com/McKinneyglassyakima",
+      ],
+      areaServed: "Pacific Northwest",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "Dupree Building Specialties",
+      description:
+        "Primary building specialties vendor for MH Construction. Commercial doors, frames, hardware, toilet partitions, lockers, operable walls, Spokane WA.",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "1035 E Cataldo Ave",
+        addressLocality: "Spokane",
+        addressRegion: "WA",
+        postalCode: "99202",
+        addressCountry: "US",
+      },
+      url: "https://dupreebldg.com/",
+      sameAs: [
+        "https://dupreebldg.com/",
+        "https://www.facebook.com/people/Dupree-Building-Specialties/61554190085687/",
+        "https://www.linkedin.com/company/dupree-building-specialties",
+      ],
+      areaServed: "Pacific Northwest",
+    },
+  ];
+
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title:
       "Allies → Partners | Strategic Partnerships Built on Trust & Mutual Success",
     description:
-      "Join MH Construction's trade partner network. Subcontractor opportunities with a veteran-owned Tri-Cities GC. Fair pay, consistent project flow, mutual success.",
+      "MH Construction's trusted vendor network: Diamond Electric, Mustang Signs, Bagley Landscaping, McKinney Glass, Dupree Building Specialties. Subcontractor opportunities with a veteran-owned Tri-Cities GC.",
     keywords: [
-      "construction subcontractor opportunities",
-      "trade partner network",
-      "ROI construction partnerships",
-      "veteran-owned contractor partnerships",
-      "Pacific Northwest subcontractor work",
-      "professional construction partnerships",
-      "Tri-Cities subcontractor opportunities",
-      "Richland trade partner network",
-      "Pasco subcontractor work",
-      "Kennewick construction partnerships",
-      "Benton County subcontractors",
-      "Franklin County trade partners",
+      "construction subcontractor opportunities Tri-Cities WA",
+      "trade partner network Pacific Northwest",
+      "veteran-owned contractor partnerships Washington",
+      "Diamond Electric electrical contractor Tri-Cities",
+      "Mustang Signs Kennewick commercial signage",
+      "Bagley Landscaping Pasco WA landscaping contractor",
+      "McKinney Glass Yakima glazing contractor",
+      "Dupree Building Specialties Spokane WA",
+      "MH Construction vendor partners",
+      "subcontractor opportunities Richland Kennewick Pasco",
+      "construction digital handshake subcontractor",
+      "Benton County Franklin County trade partners",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/allies`,
-    schemas: [webPageSchema, generateLocalBusinessSchema()],
+    schemas: [webPageSchema, generateLocalBusinessSchema(), ...vendorSchemas],
   });
 }
 

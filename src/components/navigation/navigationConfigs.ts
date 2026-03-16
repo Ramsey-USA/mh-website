@@ -408,32 +408,20 @@ export const navigationConfigs = {
 
   allies: [
     {
-      href: "#partnership-philosophy",
-      label: "Partnership Values",
-      mobileLabel: "Values",
+      href: "#partnership",
+      label: "Why MHC",
+      mobileLabel: "Why MHC",
       icon: "handshake",
     },
     {
-      href: "#trade-categories",
-      label: "Trade Categories",
-      mobileLabel: "Trades",
-      icon: "groups",
-    },
-    {
-      href: "#benefits",
-      label: "Partnership Benefits",
-      mobileLabel: "Benefits",
-      icon: "workspace_premium",
-    },
-    {
-      href: "#requirements",
-      label: "Requirements",
-      mobileLabel: "Requirements",
-      icon: "verified",
+      href: "#vendors",
+      label: "Our Partners",
+      mobileLabel: "Partners",
+      icon: "star",
     },
     {
       href: "#apply",
-      label: "Apply Now",
+      label: "Become an Ally",
       mobileLabel: "Apply",
       icon: "diversity_3",
     },

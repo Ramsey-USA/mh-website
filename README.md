@@ -202,10 +202,6 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ## Quick Start by Role
 
-### Developers (Start Here)
-
-**Follow the 7-step workflow above** for complete guidance from setup to deployment.
-
 #### Designers & Branding
 
 - [Unified Component Standards](docs/branding/standards/unified-component-standards.md) - Complete design system v7.0.0
