@@ -23,6 +23,14 @@ export const dynamic = "force-dynamic";
  * Email Service: Resend (https://resend.com)
  */
 
+// Emails that callers are permitted to designate as the recipient.
+// Any value outside this set is silently replaced with the default.
+const ALLOWED_RECIPIENT_EMAILS = new Set([
+  COMPANY_INFO.email.main,
+  "matt@mhc-gc.com",
+  "arnold@mhc-gc.com",
+]);
+
 interface ContactRequest {
   name: string;
   email: string;
@@ -38,7 +46,6 @@ interface ContactRequest {
   recipientEmail?: string;
   metadata?: Record<string, string | number | boolean | null>;
   attachments?: EmailAttachment[];
-  customHtml?: string; // For custom email templates (e.g., acknowledgments)
 }
 
 async function handlePOST(request: NextRequest) {
@@ -58,8 +65,12 @@ async function handlePOST(request: NextRequest) {
       return badRequest("Invalid email address");
     }
 
-    // Prepare email recipients
-    const recipientEmail = data.recipientEmail || COMPANY_INFO.email.main;
+    // Prepare email recipients — only accept known internal addresses to
+    // prevent open email relay.
+    const recipientEmail =
+      data.recipientEmail && ALLOWED_RECIPIENT_EMAILS.has(data.recipientEmail)
+        ? data.recipientEmail
+        : COMPANY_INFO.email.main;
     const emailSubject =
       data.subject || `New ${data.type || "Contact"} Form Submission`;
 
@@ -81,8 +92,8 @@ async function handlePOST(request: NextRequest) {
       emailRecipients = [recipientEmail, "matt@mhc-gc.com"];
     }
 
-    // Generate email content
-    const emailHtml = data.customHtml || generateEmailHTML(data);
+    // Generate email content from structured data only — no caller-supplied HTML.
+    const emailHtml = generateEmailHTML(data);
     const emailText = generateEmailText(data);
 
     // Send email using centralized service

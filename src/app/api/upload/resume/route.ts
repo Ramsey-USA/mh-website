@@ -137,5 +137,4 @@ export const GET = requireRole(["admin"], withSecurity(handleGET));
 export const POST = rateLimit({
   maxRequests: 3,
   windowMs: 60000,
-  skipSuccessfulRequests: false,
 })(handlePOST);

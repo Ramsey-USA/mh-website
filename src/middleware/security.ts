@@ -12,26 +12,21 @@ import { auditLogger, AuditEventType } from "@/lib/security/audit-logger";
 const ROUTE_SECURITY_CONFIG = {
   // API routes require stricter security
   "/api/": {
-    rateLimitMultiplier: 0.5,
     logAll: true,
   },
   // Contact and forms
   "/contact": {
-    rateLimitMultiplier: 0.3,
     logAll: true,
   },
   "/estimate": {
-    rateLimitMultiplier: 0.3,
     logAll: true,
   },
   // Admin areas
   "/admin": {
-    rateLimitMultiplier: 0.1,
     logAll: true,
   },
   // Public pages - lighter security
   "/": {
-    rateLimitMultiplier: 1.0,
     logAll: false,
   },
 };
@@ -113,8 +108,8 @@ export async function securityMiddleware(
     }
 
     return securedResponse;
-  } catch (_error) {
-    // Log _error and continue with minimal security
+  } catch (error) {
+    // Log error and continue with minimal security
     await auditLogger.logEvent(AuditEventType.ERROR_OCCURRED, {
       source: "middleware",
       ipAddress,
@@ -123,7 +118,7 @@ export async function securityMiddleware(
       details: {
         path: pathname,
         method: request.method,
-        _error: _error instanceof Error ? _error.message : "Unknown _error",
+        error: error instanceof Error ? error.message : "Unknown error",
       },
       tags: ["error", "middleware"],
     });
@@ -200,7 +195,7 @@ export function withSecurity<
               headers: request.headers,
               body: JSON.stringify(validation.sanitizedData),
             });
-          } catch (_error) {
+          } catch (error) {
             await auditLogger.logSecurityViolation(
               AuditEventType.XSS_ATTEMPT,
               ipAddress,
@@ -208,7 +203,7 @@ export function withSecurity<
               {
                 path: pathname,
                 method: request.method,
-                _error: "Invalid JSON",
+                error: "Invalid JSON",
               },
             );
 
@@ -253,7 +248,7 @@ export function withSecurity<
       );
 
       return securedResponse;
-    } catch (_error) {
+    } catch (error) {
       await auditLogger.logEvent(AuditEventType.ERROR_OCCURRED, {
         source: "api",
         ipAddress,
@@ -262,7 +257,7 @@ export function withSecurity<
         details: {
           path: pathname,
           method: request.method,
-          _error: _error instanceof Error ? _error.message : "Unknown _error",
+          error: error instanceof Error ? error.message : "Unknown error",
         },
         tags: ["error", "api"],
       });
@@ -294,17 +289,14 @@ function getRouteConfig(pathname: string) {
 }
 
 function getClientIP(request: NextRequest): string {
+  // cf-connecting-ip is set exclusively by Cloudflare and cannot be spoofed.
+  // We do NOT read x-real-ip from the incoming request because any HTTP client
+  // can inject that header.
+  const cfIP = request.headers.get("cf-connecting-ip");
+  if (cfIP) return cfIP;
+
   const forwarded = request.headers.get("x-forwarded-for");
-  const realIP = request.headers.get("x-real-ip");
-
-  if (forwarded) {
-    const firstIP = forwarded.split(",")[0];
-    return firstIP ? firstIP.trim() : "unknown";
-  }
-
-  if (realIP) {
-    return realIP;
-  }
+  if (forwarded) return forwarded.split(",")[0]?.trim() ?? "unknown";
 
   return "unknown";
 }

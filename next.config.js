@@ -29,7 +29,6 @@ const nextConfig = {
 
   experimental: {
     optimizePackageImports: [
-      "framer-motion",
       "@radix-ui/react-slot",
       "@radix-ui/react-tabs",
       "@radix-ui/react-progress",

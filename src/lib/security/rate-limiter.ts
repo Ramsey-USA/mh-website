@@ -1,101 +1,148 @@
 /**
  * Rate Limiting Middleware
  *
- * Implements token bucket algorithm for rate limiting API requests.
- * Can be configured per-route with different limits.
+ * Implements a sliding-window counter for rate limiting API requests.
+ *
+ * Storage strategy (in priority order):
+ *   1. Cloudflare KV ("CACHE" binding) — durable, shared across all Workers
+ *      isolates, used automatically when deployed to Cloudflare Pages.
+ *   2. In-memory Map — local development fallback only.  This store is
+ *      per-isolate and is reset on cold-starts; it is intentionally NOT used
+ *      in production (Cloudflare Workers can spawn many isolates).
  */
 
 import { type NextRequest, NextResponse } from "next/server";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 interface RateLimitConfig {
-  /**
-   * Maximum number of requests allowed in the time window
-   */
+  /** Maximum number of requests allowed in the time window */
   maxRequests: number;
 
-  /**
-   * Time window in milliseconds
-   */
+  /** Time window in milliseconds */
   windowMs: number;
 
-  /**
-   * Message to return when rate limit is exceeded
-   */
+  /** Message to return when rate limit is exceeded */
   message?: string;
 
-  /**
-   * Whether to skip counting successful requests (only count errors)
-   */
-  skipSuccessfulRequests?: boolean;
-
-  /**
-   * Whether to use IP address for rate limiting
-   * If false, uses a custom identifier from request headers
-   */
+  /** Whether to use IP address for rate limiting */
   useIP?: boolean;
 
-  /**
-   * Custom header name to use for identification (if useIP is false)
-   */
+  /** Custom header name to use for identification (when useIP is false) */
   identifierHeader?: string;
 }
 
-// In-memory storage for rate limiting (use KV/D1 in production)
-const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
+interface RateLimitEntry {
+  count: number;
+  resetTime: number;
+}
+
+// ---------------------------------------------------------------------------
+// KV interface (subset used here)
+// ---------------------------------------------------------------------------
+interface KVNamespace {
+  get(key: string): Promise<string | null>;
+  put(
+    key: string,
+    value: string,
+    options?: { expirationTtl?: number },
+  ): Promise<void>;
+}
+
+// In-process fallback used in local development only.
+const localStore = new Map<string, RateLimitEntry>();
+
+function cleanupLocalStore() {
+  const now = Date.now();
+  for (const [key, entry] of localStore) {
+    if (entry.resetTime < now) localStore.delete(key);
+  }
+}
+
+/** Try to obtain the KV namespace bound as "CACHE". Returns null outside CF. */
+function getCacheKV(): KVNamespace | null {
+  try {
+    const { env } = getCloudflareContext();
+    const kv = (env as Record<string, unknown>)["CACHE"];
+    return kv ? (kv as KVNamespace) : null;
+  } catch {
+    return null;
+  }
+}
 
 /**
- * Get client identifier for rate limiting
+ * Read/increment the rate-limit counter.  Prefers KV; falls back to the
+ * local in-memory store so development works without Cloudflare bindings.
+ */
+async function incrementCounter(
+  key: string,
+  windowMs: number,
+): Promise<RateLimitEntry> {
+  const now = Date.now();
+  const kv = getCacheKV();
+
+  if (kv) {
+    const raw = await kv.get(`rl:${key}`);
+    let entry: RateLimitEntry = raw
+      ? (JSON.parse(raw) as RateLimitEntry)
+      : { count: 0, resetTime: now + windowMs };
+
+    if (entry.resetTime < now) {
+      entry = { count: 0, resetTime: now + windowMs };
+    }
+    entry.count += 1;
+
+    const ttlSeconds = Math.ceil((entry.resetTime - now) / 1000);
+    await kv.put(`rl:${key}`, JSON.stringify(entry), {
+      expirationTtl: ttlSeconds,
+    });
+    return entry;
+  }
+
+  // Local dev fallback
+  if (Math.random() < 0.01) cleanupLocalStore();
+  let entry = localStore.get(key);
+  if (!entry || entry.resetTime < now) {
+    entry = { count: 1, resetTime: now + windowMs };
+  } else {
+    entry.count += 1;
+  }
+  localStore.set(key, entry);
+  return entry;
+}
+
+/**
+ * Return the canonical client IP.
+ *
+ * Only `cf-connecting-ip` is trusted — it is set exclusively by Cloudflare
+ * and cannot be spoofed by callers.  We do NOT read `x-real-ip` here because
+ * this header can be injected by any HTTP client.
  */
 function getClientIdentifier(
   request: NextRequest,
   config: RateLimitConfig,
 ): string {
   if (config.useIP !== false) {
-    // Try to get IP from various headers (Cloudflare, proxies, etc.)
-    const forwardedFor = request.headers.get("x-forwarded-for");
-    const realIP = request.headers.get("x-real-ip");
-    const cfConnectingIP = request.headers.get("cf-connecting-ip");
-
-    return cfConnectingIP || realIP || forwardedFor?.split(",")[0] || "unknown";
+    // cf-connecting-ip is authoritative when behind Cloudflare.
+    // x-forwarded-for is kept as a last resort for non-Cloudflare local dev.
+    const cfIP = request.headers.get("cf-connecting-ip");
+    if (cfIP) return cfIP;
+    const forwarded = request.headers.get("x-forwarded-for");
+    return forwarded?.split(",")[0]?.trim() ?? "unknown";
   }
 
-  // Use custom identifier from header
   if (config.identifierHeader) {
-    return request.headers.get(config.identifierHeader) || "unknown";
+    return request.headers.get(config.identifierHeader) ?? "unknown";
   }
 
   return "default";
 }
 
 /**
- * Clean up expired entries from rate limit store
- */
-function cleanupExpiredEntries() {
-  const now = Date.now();
-  const keysToDelete: string[] = [];
-
-  rateLimitStore.forEach((value, key) => {
-    if (value.resetTime < now) {
-      keysToDelete.push(key);
-    }
-  });
-
-  keysToDelete.forEach((key) => rateLimitStore.delete(key));
-}
-
-/**
- * Rate limit middleware factory
+ * Rate limit middleware factory.
  *
  * @example
  * ```typescript
- * import { rateLimit } from '@/lib/security/rate-limiter';
- *
- * export const GET = rateLimit({
- *   maxRequests: 10,
- *   windowMs: 60000, // 1 minute
- * })(async (request: NextRequest) => {
- *   // Your handler code here
- * });
+ * export const POST = rateLimit({ maxRequests: 10, windowMs: 60_000 })(handler);
  * ```
  */
 export function rateLimit(config: RateLimitConfig) {
@@ -112,60 +159,37 @@ export function rateLimit(config: RateLimitConfig) {
       request: NextRequest,
       context?: unknown,
     ): Promise<NextResponse> {
-      // Clean up expired entries periodically
-      if (Math.random() < 0.01) {
-        // 1% chance to cleanup on each request
-        cleanupExpiredEntries();
-      }
-
       const identifier = getClientIdentifier(request, config);
       const key = `${request.nextUrl.pathname}:${identifier}`;
-      const now = Date.now();
 
-      let rateLimit = rateLimitStore.get(key);
+      const entry = await incrementCounter(key, windowMs);
 
-      if (!rateLimit || rateLimit.resetTime < now) {
-        // Create new rate limit window
-        rateLimit = {
-          count: 1,
-          resetTime: now + windowMs,
-        };
-        rateLimitStore.set(key, rateLimit);
-      } else {
-        // Increment counter
-        rateLimit.count++;
-      }
-
-      // Check if rate limit exceeded
-      if (rateLimit.count > maxRequests) {
-        const retryAfter = Math.ceil((rateLimit.resetTime - now) / 1000);
+      if (entry.count > maxRequests) {
+        const now = Date.now();
+        const retryAfter = Math.ceil((entry.resetTime - now) / 1000);
 
         return NextResponse.json(
-          {
-            error: message,
-            retryAfter,
-          },
+          { error: message, retryAfter },
           {
             status: 429,
             headers: {
               "Retry-After": retryAfter.toString(),
               "X-RateLimit-Limit": maxRequests.toString(),
               "X-RateLimit-Remaining": "0",
-              "X-RateLimit-Reset": rateLimit.resetTime.toString(),
+              "X-RateLimit-Reset": entry.resetTime.toString(),
             },
           },
         );
       }
 
-      // Add rate limit headers to response
       const response = await handler(request, context);
 
       response.headers.set("X-RateLimit-Limit", maxRequests.toString());
       response.headers.set(
         "X-RateLimit-Remaining",
-        (maxRequests - rateLimit.count).toString(),
+        Math.max(0, maxRequests - entry.count).toString(),
       );
-      response.headers.set("X-RateLimit-Reset", rateLimit.resetTime.toString());
+      response.headers.set("X-RateLimit-Reset", entry.resetTime.toString());
 
       return response;
     };
@@ -176,86 +200,39 @@ export function rateLimit(config: RateLimitConfig) {
  * Preset rate limit configurations
  */
 export const rateLimitPresets = {
-  /**
-   * Strict rate limit for authentication endpoints
-   * 5 requests per minute
-   */
+  /** 5 requests per minute — general auth endpoints */
   auth: {
     maxRequests: 5,
-    windowMs: 60000,
+    windowMs: 60_000,
     message: "Too many authentication attempts, please try again in a minute.",
   },
 
-  /**
-   * Standard rate limit for API endpoints
-   * 60 requests per minute
-   */
+  /** 60 requests per minute — standard API endpoints */
   api: {
     maxRequests: 60,
-    windowMs: 60000,
+    windowMs: 60_000,
     message: "API rate limit exceeded, please slow down.",
   },
 
-  /**
-   * Relaxed rate limit for public endpoints
-   * 100 requests per minute
-   */
+  /** 100 requests per minute — public endpoints */
   public: {
     maxRequests: 100,
-    windowMs: 60000,
+    windowMs: 60_000,
     message: "Rate limit exceeded, please try again shortly.",
   },
 
-  /**
-   * Very strict rate limit for expensive operations
-   * 3 requests per 5 minutes
-   */
+  /** 3 requests per 5 minutes — expensive operations */
   expensive: {
     maxRequests: 3,
-    windowMs: 300000,
+    windowMs: 300_000,
     message:
       "This operation is rate limited. Please try again in a few minutes.",
   },
 
-  /**
-   * Strict rate limit for admin authentication
-   * 3 attempts per 5 minutes
-   */
+  /** 3 attempts per 5 minutes — admin login */
   strict: {
     maxRequests: 3,
-    windowMs: 300000, // 5 minutes
+    windowMs: 300_000,
     message: "Too many login attempts. Please try again in 5 minutes.",
   },
 };
-
-/**
- * Get rate limit status for a client
- * Useful for displaying remaining requests to users
- */
-export function getRateLimitStatus(
-  request: NextRequest,
-  config: RateLimitConfig,
-): {
-  limit: number;
-  remaining: number;
-  reset: number;
-} {
-  const identifier = getClientIdentifier(request, config);
-  const key = `${request.nextUrl.pathname}:${identifier}`;
-  const rateLimit = rateLimitStore.get(key);
-  const now = Date.now();
-
-  if (!rateLimit || rateLimit.resetTime < now) {
-    return {
-      limit: config.maxRequests,
-      remaining: config.maxRequests,
-      reset: now + config.windowMs,
-    };
-  }
-
-  return {
-    limit: config.maxRequests,
-    remaining: Math.max(0, config.maxRequests - rateLimit.count),
-    reset: rateLimit.resetTime,
-  };
-}
