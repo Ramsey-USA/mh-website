@@ -49,6 +49,8 @@ type Vendor = {
   logo: string;
   brandColors: VendorBrandColors | null;
   address: string;
+  phone?: string;
+  email?: string;
   links: VendorLink[];
 };
 
@@ -83,11 +85,17 @@ const vendors: Vendor[] = [
     icon: "signpost",
     accentColor: "from-brand-secondary to-brand-secondary-dark",
     description:
-      "Mustang Signs is our go-to primary signage partner, delivering exceptional commercial signage, construction site branding, and wayfinding solutions across the Pacific Northwest. Their craftsmanship and reliability make them an integral part of every MH Construction project.",
+      "Mustang Signs is our go-to primary signage partner, delivering full-service custom signage solutions across the Pacific Northwest. From vehicle wraps and digital signage to LED retrofitting and professional installation, their craftsmanship and reliability make them an integral part of every MH Construction project.",
     highlights: [
-      "Commercial & Construction Signage",
-      "Custom Branding & Wayfinding",
-      "Site Identification Solutions",
+      "Custom Signage Solutions",
+      "Vehicle Wraps",
+      "Exterior & Interior Signage",
+      "Digital Signage",
+      "Print Solutions",
+      "Design & Consultation",
+      "Professional Installation",
+      "Retrofitting & LED Retrofitting",
+      "Maintenance, Cleaning & Repairs",
     ],
     portfolio: [
       "ADA-compliant interior signage",
@@ -99,14 +107,15 @@ const vendors: Vendor[] = [
       "MH Construction office front signage",
       "MH Construction job site signage",
     ],
-    // logo: "/images/vendors/mustang-signs-logo.webp",  ← uncomment when uploaded
-    logo: "",
+    logo: "/images/vendors/mustang_signs.png",
     brandColors: { primary: "#0089CF", secondary: "#F68E2D" },
     address: "10379 W Clearwater Ave, Kennewick, WA 99336",
+    phone: "(509) 735-4607",
+    email: "info@mustangsigns.com",
     links: [
       {
         label: "Website",
-        href: "https://www.mustangsigns.com/",
+        href: "https://mustangsigns.com/",
         platform: "website",
       },
       {
@@ -122,27 +131,29 @@ const vendors: Vendor[] = [
     ],
   },
   {
-    name: "Bagley Landscaping",
+    name: "Bagley Landscape Construction, Inc.",
     role: "Primary Landscaping Contractor",
     icon: "yard",
     accentColor: "from-brand-primary to-brand-primary-dark",
     description:
-      "Bagley Landscaping is our trusted primary landscaping partner, delivering professional site landscaping, grading, and grounds finishing for MH Construction projects across the Tri-Cities area. Their local expertise and quality workmanship keep every project looking its best.",
+      "Bagley Landscape Construction, Inc. is our trusted primary landscaping partner, delivering comprehensive landscape design, installation, hardscaping, maintenance, and snow & ice services across the Tri-Cities area. Their local expertise and full-service capabilities make them an essential part of every MH Construction project from groundbreaking to year-round upkeep.",
     highlights: [
-      "Commercial & Residential Landscape Design",
-      "Irrigation System Installation",
-      "Hydroseeding & Dust Control",
+      "Commercial & Residential Landscape Design & Installation",
+      "Irrigation Systems & Hydroseeding",
       "Landscape Lighting",
-      "Block & Boulder Retaining Walls",
-      "Brick Pavers & Flagstone",
-      "Concrete Curbing",
+      "Retaining Walls — Block, Boulder & Rock",
+      "Pavers, Flagstone & Concrete Curbing",
       "Ponds & Water Features",
+      "Landscape Maintenance — Mowing, Edging & Clean Up",
+      "Spraying — Fertilization, Weed & Spider Control",
+      "Snow & Ice — Plowing, Sidewalk Removal & De-icing",
     ],
     portfolio: [],
-    // logo: "/images/vendors/bagley-landscaping-logo.webp",  ← uncomment when uploaded
-    logo: "",
+    logo: "/images/vendors/bagley_landscape.png",
     brandColors: { primary: "#409416", secondary: "#262626" },
-    address: "1418 St Helens St, Pasco, WA 99301",
+    address: "1418 E St Helens St, Pasco, WA 99301",
+    phone: "(509) 546-2449",
+    email: "office@bagleylandscape.com",
     links: [
       {
         label: "Website",
@@ -157,18 +168,21 @@ const vendors: Vendor[] = [
     icon: "window",
     accentColor: "from-sky-500 to-sky-700",
     description:
-      "McKinney Glass is our trusted primary glass and glazing partner, providing commercial storefront systems, curtain walls, windows, and specialty glass installations for MH Construction projects. Based in Yakima, their craftsmanship delivers precision glazing on every build.",
+      "McKinney Glass is our trusted primary glass and glazing partner, providing full-service auto, residential, and commercial glass solutions for MH Construction projects. Based in the Yakima Valley, their expertise spans everything from windshield repair and energy-efficient windows to commercial storefronts and fire-rated specialty doors.",
     highlights: [
-      "Commercial Storefront Systems",
-      "Window Installation & Replacement",
-      "Curtain Wall & Architectural Glass",
-      "Mirror & Specialty Glass",
+      "Auto Glass — Windshield Repair/Replacement & Rock Chip Repair",
+      "RV, Bus & Heavy Equipment Glass",
+      "Energy Efficient Windows & Sliding Glass Doors",
+      "Skylights, Custom Showers & Mirrors",
+      "Commercial Storefronts & Automatic Doors",
+      "Fire-Rated & Specialty Doors",
+      "Interior Partitions",
     ],
     portfolio: [],
-    // logo: "/images/vendors/mckinney-glass-logo.webp",  ← uncomment when uploaded
-    logo: "",
+    logo: "/images/vendors/mckinney_glass.png",
     brandColors: null,
-    address: "Yakima, WA",
+    address: "2220 Goodman Rd, Union Gap, WA 98903",
+    phone: "(509) 248-2770",
     links: [
       {
         label: "Website",
@@ -188,19 +202,23 @@ const vendors: Vendor[] = [
     icon: "door_front",
     accentColor: "from-amber-600 to-amber-800",
     description:
-      "Dupree Building Specialties is our trusted primary vendor for commercial building specialties, supplying and installing the finish-trade components that complete every MH Construction project — from doors and hardware to toilet partitions, lockers, and specialty systems.",
+      "Dupree Building Specialties is our trusted primary vendor for commercial building specialties, supplying and installing specialty construction products across Divisions 7–12. From fire-rated doors and expansion control to lockers, visual displays, and athletic equipment, Dupree delivers the finish-trade components that complete every MH Construction project.",
     highlights: [
-      "Commercial Doors, Frames & Hardware",
-      "Toilet Partitions & Accessories",
-      "Lockers & Storage Systems",
-      "Visual Display & Markerboards",
-      "Operable Walls & Specialty Systems",
+      "Div 7 — Roof Accessories & Expansion Control",
+      "Div 8 — Access, Fire, Coiling, Folding & Traffic Doors",
+      "Div 8 — Skylights & Louvers",
+      "Div 9 — Access Flooring",
+      "Div 10 — Visual Displays, Signage & Partitions",
+      "Div 10 — Lockers, Wall Protection & Postal Specialties",
+      "Div 11 — Projection Screens & Athletic Equipment",
+      "Div 12 — Floor Mats & Window Shades",
     ],
     portfolio: [],
-    // logo: "/images/vendors/dupree-building-specialties-logo.webp",  ← uncomment when uploaded
-    logo: "",
+    logo: "/images/vendors/dupree_building.png",
     brandColors: { primary: "#384884", secondary: "#384884" },
-    address: "1035 E Cataldo Ave, Spokane, WA 99202",
+    address: "1035 E. Cataldo, Spokane, WA 99202",
+    phone: "509.484.2000",
+    email: "info@dupreebldg.com",
     links: [
       {
         label: "Website",
@@ -216,6 +234,147 @@ const vendors: Vendor[] = [
         label: "LinkedIn",
         href: "https://www.linkedin.com/company/dupree-building-specialties",
         platform: "linkedin",
+      },
+    ],
+  },
+  {
+    name: "D-Fence Fencing Company",
+    role: "Primary Fencing Contractor",
+    icon: "fence",
+    accentColor: "from-red-600 to-red-800",
+    description:
+      "D-Fence Fencing Company is our trusted primary fencing contractor, delivering residential and commercial fencing solutions across Eastern Washington. From galvanized chain link to ornamental and cedar privacy fencing, D-Fence brings craftsmanship and reliability to every MH Construction project.",
+    highlights: [
+      "Galvanized & Black Chain Link",
+      "Vinyl Fencing",
+      "Cedar Privacy Fencing",
+      "Ornamental Fencing",
+      "Field Fencing",
+      "Gates & Automated Gates",
+    ],
+    portfolio: [],
+    logo: "/images/vendors/d_fence_fencing.png",
+    brandColors: { primary: "#CC2020", secondary: "#333333" },
+    address: "P.O. Box 881, Selah, WA 98942",
+    phone: "(509) 731-8836",
+    links: [
+      {
+        label: "Website",
+        href: "https://dfencefencing.com/",
+        platform: "website",
+      },
+      {
+        label: "Facebook",
+        href: "https://www.facebook.com/EasternWAFENCING/",
+        platform: "facebook",
+      },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/dfencefencing2014/",
+        platform: "instagram",
+      },
+    ],
+  },
+  {
+    name: "Intermountain West Insulation (IWI)",
+    role: "Primary Insulation Contractor",
+    icon: "home_work",
+    accentColor: "from-red-600 to-red-800",
+    description:
+      "Intermountain West Insulation (IWI) is our trusted primary insulation contractor, delivering a comprehensive range of insulation and building product installation services across the Pacific Northwest. From spray foam and fiberglass to garage doors and epoxy flooring, IWI brings versatility and quality to every MH Construction project.",
+    highlights: [
+      "Fiberglass, Spray Foam & Cellulose Insulation",
+      "Air Sealing",
+      "Garage Doors — Sales, Installation & Service",
+      "Epoxy Flooring",
+      "Gutters, Siding & Windows",
+      "Window Blinds & Paint",
+    ],
+    portfolio: [],
+    logo: "/images/vendors/iwi_insulation.png",
+    brandColors: { primary: "#CE2027", secondary: "#262626" },
+    address: "9304 W. Clearwater Dr. Suite A, Kennewick, WA 99336",
+    phone: "509.735.8411",
+    links: [
+      {
+        label: "Website",
+        href: "https://iwinsulation.com/",
+        platform: "website",
+      },
+      {
+        label: "Facebook",
+        href: "https://www.facebook.com/p/Intermountain-West-Insulation-100063735342877/",
+        platform: "facebook",
+      },
+    ],
+  },
+  {
+    name: "Viking Plumbing & Mechanical",
+    role: "Primary Plumbing & Mechanical Contractor",
+    icon: "plumbing",
+    accentColor: "from-yellow-500 to-yellow-700",
+    description:
+      "Viking Plumbing & Mechanical is our trusted primary plumbing and mechanical contractor, delivering full-service commercial, industrial, and residential plumbing across the Pacific Northwest. From new construction to complex renovations, Viking brings the expertise and reliability that MH Construction projects demand.",
+    highlights: [
+      "Commercial & Industrial New Construction Plumbing",
+      "Residential New Construction & Remodeling",
+      "Drain Cleaning & Hydro Jetting",
+      "Water Heater Services",
+      "Sewer Line Inspection, Repair & Replacement",
+      "Water Filtration & Softening Systems",
+      "Fixture Installation, Repair & Replacement",
+      "Plumbing System Maintenance & Inspections",
+    ],
+    portfolio: [],
+    logo: "/images/vendors/viking_plumbing_logo.png",
+    brandColors: { primary: "#F5C645", secondary: "#2F2E2E" },
+    address: "2805 Ahtanum Rd, Yakima, WA 98942",
+    phone: "(509) 450-0485",
+    email: "info@vikingplumbingandmechanical.com",
+    links: [
+      {
+        label: "Website",
+        href: "https://vikingplumbingandmechanical.com/",
+        platform: "website",
+      },
+      {
+        label: "Facebook",
+        href: "https://www.facebook.com/profile.php?id=61552033463552",
+        platform: "facebook",
+      },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/vikingplumbingandmechanical/",
+        platform: "instagram",
+      },
+    ],
+  },
+  {
+    name: "Core Cabinet Production",
+    role: "Primary Cabinetry Vendor",
+    icon: "kitchen",
+    accentColor: "from-orange-500 to-orange-700",
+    description:
+      "Core Cabinet Production is our trusted primary cabinetry vendor, specializing in custom-designed and in-house fabricated cabinets for residential and commercial applications. From kitchen and bathroom cabinets to full commercial office builds, Core Cabinet delivers precision craftsmanship on every MH Construction project.",
+    highlights: [
+      "Kitchen Cabinets",
+      "Bathroom Cabinets",
+      "Home Offices",
+      "Closets",
+      "Storage & Bookcases",
+      "Commercial Offices",
+    ],
+    portfolio: [],
+    logo: "/images/vendors/core_cabinet.png",
+    brandColors: { primary: "#E35724", secondary: "#444444" },
+    address: "2573 Robertson Drive, Richland, WA 99354",
+    phone: "(509) 375-7900",
+    email: "admin@corecabinetproduction.com",
+    links: [
+      {
+        label: "Website",
+        href: "https://corecabinetproduction.com/",
+        platform: "website",
       },
     ],
   },
@@ -476,7 +635,7 @@ export default function AlliesPage() {
                       {/* Logo — hero element */}
                       <div className="flex-1 flex flex-col items-center justify-center gap-5 px-6 pt-6 pb-4">
                         <div
-                          className="relative flex justify-center items-center rounded-2xl w-32 h-32 shadow-2xl overflow-hidden border-4"
+                          className="relative flex justify-center items-center rounded-2xl w-48 h-48 shadow-2xl overflow-hidden border-4"
                           style={
                             vendor.brandColors
                               ? {
@@ -491,8 +650,8 @@ export default function AlliesPage() {
                               src={vendor.logo}
                               alt={`${vendor.name} logo`}
                               fill
-                              sizes="128px"
-                              className="object-contain p-3"
+                              sizes="192px"
+                              className="object-contain p-2"
                             />
                           ) : (
                             <div
@@ -531,6 +690,24 @@ export default function AlliesPage() {
                           </h3>
                         </div>
                       </div>
+
+                      {/* Phone */}
+                      {vendor.phone && (
+                        <div className="flex items-center justify-center gap-1.5 py-2 flex-shrink-0">
+                          <MaterialIcon
+                            icon="call"
+                            size="sm"
+                            ariaLabel=""
+                            className="text-gray-400"
+                          />
+                          <a
+                            href={`tel:${vendor.phone.replace(/[^0-9+]/g, "")}`}
+                            className="text-xs text-gray-600 dark:text-gray-300 font-medium hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors"
+                          >
+                            {vendor.phone}
+                          </a>
+                        </div>
+                      )}
 
                       {/* Flip hint */}
                       <div className="flex items-center justify-center gap-1.5 py-3 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-100 dark:border-gray-700 flex-shrink-0">
@@ -644,6 +821,42 @@ export default function AlliesPage() {
                               className="underline underline-offset-2 hover:text-white transition-colors"
                             >
                               {vendor.address}
+                            </a>
+                          </div>
+                        )}
+
+                        {/* Phone */}
+                        {vendor.phone && (
+                          <div className="flex items-center gap-2 text-white/90 text-xs">
+                            <MaterialIcon
+                              icon="call"
+                              size="sm"
+                              ariaLabel="Phone"
+                              className="text-white/60 flex-shrink-0"
+                            />
+                            <a
+                              href={`tel:${vendor.phone.replace(/[^0-9+]/g, "")}`}
+                              className="underline underline-offset-2 hover:text-white transition-colors"
+                            >
+                              {vendor.phone}
+                            </a>
+                          </div>
+                        )}
+
+                        {/* Email */}
+                        {vendor.email && (
+                          <div className="flex items-center gap-2 text-white/90 text-xs">
+                            <MaterialIcon
+                              icon="mail"
+                              size="sm"
+                              ariaLabel="Email"
+                              className="text-white/60 flex-shrink-0"
+                            />
+                            <a
+                              href={`mailto:${vendor.email}`}
+                              className="underline underline-offset-2 hover:text-white transition-colors break-all"
+                            >
+                              {vendor.email}
                             </a>
                           </div>
                         )}
