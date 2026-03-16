@@ -185,8 +185,8 @@ export default function AboutPage() {
                   category="New Technology"
                   categoryColor="secondary"
                   title="Integrated CRM & Project Management Platform"
-                  description="We're implementing High-Level CRM to provide seamless communication, real-time project updates, and an enhanced experience throughout your construction journey. Feedback from every project helps us improve."
-                  date="Coming Soon"
+                  description="High-Level CRM implementation underway — providing seamless communication, real-time project updates, and an enhanced client experience from first contact to project close-out."
+                  date="Mar 2026"
                   href="/contact"
                   linkText="Learn More"
                   enhancedIcon
@@ -266,7 +266,8 @@ export default function AboutPage() {
                     className="text-brand-primary"
                   />
                   <p className="font-medium text-gray-700 dark:text-gray-300">
-                    Full blog with integrated High-Level CRM coming soon
+                    Full blog integration with High-Level CRM platform — in
+                    progress
                   </p>
                 </div>
               </div>

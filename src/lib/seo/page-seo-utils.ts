@@ -110,7 +110,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
     url: aboutUrl,
     name: "Our Oath → About Us | MH Construction",
     description:
-      "Founded 2010, veteran-owned since January 2025. 650+ projects, 70% referral rate, AGC-WA Top EMR Awards & OSHA VPP Star. Serving Tri-Cities WA, Yakima, Spokane, and Walla Walla. Licensed WA, OR, ID.",
+      "Founded 2010, veteran-owned since January 2025. 650+ projects, 70% referral rate, AGC-WA Top EMR Awards & OSHA VPP Star. Serving Tri-Cities WA, Yakima, Spokane, Walla Walla, Hermiston OR, Coeur d'Alene ID, Omak WA, and Pendleton OR. Licensed WA, OR, ID.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     breadcrumb: { "@id": `${aboutUrl}#breadcrumb` },
@@ -191,6 +191,31 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
           name: "Walla Walla",
           containedIn: { "@type": "State", name: "Washington" },
         },
+        {
+          "@type": "City",
+          name: "West Richland",
+          containedIn: { "@type": "State", name: "Washington" },
+        },
+        {
+          "@type": "City",
+          name: "Hermiston",
+          containedIn: { "@type": "State", name: "Oregon" },
+        },
+        {
+          "@type": "City",
+          name: "Coeur d'Alene",
+          containedIn: { "@type": "State", name: "Idaho" },
+        },
+        {
+          "@type": "City",
+          name: "Omak",
+          containedIn: { "@type": "State", name: "Washington" },
+        },
+        {
+          "@type": "City",
+          name: "Pendleton",
+          containedIn: { "@type": "State", name: "Oregon" },
+        },
       ],
     },
     mentions: [
@@ -259,6 +284,10 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
       "Yakima veteran-owned construction company",
       "Spokane veteran general contractor",
       "Walla Walla construction company",
+      "Hermiston Oregon general contractor",
+      "Coeur d'Alene Idaho general contractor",
+      "Omak WA veteran-owned contractor",
+      "Pendleton OR general contractor",
       "Eastern Washington construction history",
       "Pacific Northwest general contractor about",
     ],

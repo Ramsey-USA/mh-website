@@ -69,6 +69,8 @@ export const metadata: Metadata = withGeoMetadata({
     "Walla Walla general contractor",
     "Hermiston general contractor",
     "Coeur d'Alene general contractor",
+    "Omak general contractor",
+    "Pendleton Oregon general contractor",
     "Eastern Washington contractor",
     "Army veteran-owned construction",
     "all-branch military construction",
