@@ -74,6 +74,15 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Recent Improvements (March 2026)
 
+- **Mar 16:** Cloudflare Pages build failure diagnosed and resolved — root cause: build command
+  (`npm run build`) was not set in the Cloudflare Pages dashboard, causing CF to skip the build
+  step and fail with "Output directory `.open-next/assets` not found"; fix is dashboard-only
+  (Settings → Builds & deployments → Build command = `npm run build`); also requires `CI=true`
+  env var to prevent husky `prepare` script from failing in the CF build environment; updated
+  [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md) to v2.0.0 — rewrote
+  entirely to reflect current OpenNext adapter setup, accurate build command, dashboard
+  requirements, and troubleshooting for the "no build command" failure mode
+
 - **Mar 16:** Build pipeline optimizations — moved `outputFileTracingExcludes` to top-level key in
   `next.config.js` (promoted out of `experimental` in Next.js 15; was emitting a config warning); excludes
   build-tool packages (`@swc`, `webpack`, `typescript`, `eslint`, `tailwindcss`, `postcss`, etc.) from the

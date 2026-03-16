@@ -1,463 +1,270 @@
 # Cloudflare Pages Deployment Guide
 
-**Category:** Deployment - Cloudflare  
-**Last Updated:** December 28, 2025  
-**Version:** 1.0.0  
-**Status:** ✅ Active - Production Deployed
+**Category:** Deployment - Cloudflare
+**Last Updated:** March 16, 2026
+**Version:** 2.0.0
+**Status:** ✅ Active - Production Deployed at `https://www.mhc-gc.com`
 
-## MH Construction - Complete Cloudflare Pages Setup & Deployment
-
-This guide covers everything needed to deploy the MH Construction website to Cloudflare Pages with Edge Runtime compatibility.
-
-### Recent Updates
-
-#### November 3, 2025 - CI/CD Pipeline Configured Successfully
-
-- ✅ GitHub Actions workflow deploying automatically on push to `main`
-- ✅ Cloudflare Pages project `mh-construction` created and active
-- ✅ Node.js 20 and Wrangler v3 configured
-- ✅ All secrets and permissions properly configured
-- ✅ Deployment completing in ~3 minutes per push
-
-#### November 2, 2025 - Build Configuration Fixed
-
-- ✅ Removed `output: "standalone"` from next.config.js (incompatible with Cloudflare Pages)
-- ✅ All 14 Edge Function Routes building successfully
-- ✅ Build Time: ~60 seconds with 3-second optimization phase
-
-**Status**: ✅ Production-ready and actively deploying
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-````bash
-Node.js >= 20.0.0  # Required for Wrangler v3+
-npm >= 8.0.0
-Cloudflare account (free tier works)
-Git repository connected to Cloudflare
-```text
-
-### One-Command Deploy
-
-```bash
-# Install dependencies and build for Cloudflare
-npm install
-npm run build:cloudflare
-
-# Deploy to Cloudflare Pages
-npm run pages:deploy
-```text
-
-## 📋 Table of Contents
-
-- [Environment Setup](#environment-setup)
-- [Build Configuration](#build-configuration)
-- [Cloudflare Dashboard Setup](#cloudflare-dashboard-setup)
-- [Edge Runtime Compatibility](#edge-runtime-compatibility)
-- [Deployment Methods](#deployment-methods)
-- [Custom Domain Setup](#custom-domain-setup)
-- [Troubleshooting](#troubleshooting)
+> **Adapter:** `@opennextjs/cloudflare` (OpenNext) — **NOT** `@cloudflare/next-on-pages`.
+> These two adapters are mutually exclusive. Only OpenNext is used in this project.
 
 ---
 
-## 🔧 Environment Setup
+## Table of Contents
 
-### 1. Environment Variables
+- [How It Works](#how-it-works)
+- [Cloudflare Dashboard Setup — REQUIRED](#cloudflare-dashboard-setup--required)
+- [Environment Variables](#environment-variables)
+- [Local Development & Manual Deploy](#local-development--manual-deploy)
+- [Build Output Explained](#build-output-explained)
+- [Custom Domain & DNS](#custom-domain--dns)
+- [Troubleshooting](#troubleshooting)
+- [Deployment Checklist](#deployment-checklist)
 
-Create `.env.local` from the template:
+---
+
+## How It Works
+
+```
+git push → Cloudflare Pages picks up the commit
+         → Runs: npm run build         ← must be set in dashboard
+         → npm run build = opennextjs-cloudflare build
+         → Output lands in: .open-next/assets
+         → CF Pages deploys .open-next/assets as static + Worker assets
+```
+
+The `opennextjs-cloudflare build` command:
+
+1. Runs `next build` internally
+2. Packages the Next.js App Router output into a Cloudflare Worker + static assets
+3. Writes everything to `.open-next/`
+
+`wrangler.toml` tells Cloudflare Pages where the output is:
+
+```toml
+pages_build_output_dir = ".open-next/assets"
+```
+
+> **Important:** The `[build]` section in `wrangler.toml` is a Workers-only field and is
+> **not** honoured by Cloudflare Pages. The build command **must** be set in the
+> **Cloudflare Pages Dashboard** under Settings → Builds & deployments.
+
+---
+
+## Cloudflare Dashboard Setup — REQUIRED
+
+These settings cannot be expressed in `wrangler.toml` for Pages projects.
+They must be configured at:
+**Cloudflare Dashboard → Workers & Pages → `mh-construction` → Settings → Builds & deployments**
+
+### Build Configuration
+
+| Field                      | Value               |
+| -------------------------- | ------------------- |
+| **Build command**          | `npm run build`     |
+| **Build output directory** | `.open-next/assets` |
+| **Root directory**         | _(leave blank)_     |
+| **Node.js version**        | `22`                |
+
+> **Without the build command set here**, Cloudflare skips the build entirely and fails with:
+> `Error: Output directory ".open-next/assets" not found.`
+
+### Required Environment Variables
+
+Set under: **Settings → Environment variables → Production**
+
+| Variable                  | Value                    | Notes                                     |
+| ------------------------- | ------------------------ | ----------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`    | `https://www.mhc-gc.com` | Canonical URL                             |
+| `RESEND_API_KEY`          | `re_xxxxx`               | Email notifications                       |
+| `CI`                      | `true`                   | Skips husky pre-commit hooks during build |
+| `NEXT_TELEMETRY_DISABLED` | `1`                      | Disable Next.js telemetry                 |
+
+> **`CI=true` is essential.** Without it, `npm install` triggers the `prepare` script which
+> runs husky and fails in the Cloudflare build environment.
+> The `prepare` script already handles this: `node -e "if (process.env.CI) process.exit(0)" && husky`
+
+### Optional Environment Variables
+
+| Variable                          | Value             | Notes                       |
+| --------------------------------- | ----------------- | --------------------------- |
+| `CLOUDFLARE_ACCOUNT_ID`           | `your_account_id` | For manual Wrangler deploys |
+| `CLOUDFLARE_API_TOKEN`            | `your_api_token`  | For manual Wrangler deploys |
+| `CLOUDFLARE_D1_DATABASE_ID`       | `your_d1_id`      | D1 database access          |
+| `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID` | `G-XXXXXXXXXX`    | Google Analytics (optional) |
+
+### Build Cache (Performance — ~15–20s savings)
+
+Under: **Settings → Builds & deployments → Build cache**
+
+Add path: `.next/cache`
+
+---
+
+## Environment Variables
+
+### `.env.local` (Local Development)
 
 ```bash
 cp .env.local.example .env.local
-```text
+```
 
-Required variables for production:
-
-```env
-# Site Configuration
-NEXT_PUBLIC_SITE_URL=https://mhc-gc.com
-NEXT_PUBLIC_SITE_NAME=MH Construction
-
-# Cloudflare Configuration
-CLOUDFLARE_ACCOUNT_ID=your_account_id_here
-CLOUDFLARE_ZONE_ID=your_zone_id_here
-CLOUDFLARE_API_TOKEN=your_api_token_here
-
-# Optional: Analytics
-NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
-```text
-
-### 2. Get Cloudflare Credentials
-
-**Account ID & Zone ID:**
-
-1. Log into Cloudflare Dashboard
-1. Select your website
-1. Scroll down on Overview page to find:
-   - **Account ID**: Right sidebar
-   - **Zone ID**: Right sidebar under API section
-
-**API Token:**
-
-1. Go to "My Profile" → "API Tokens"
-1. Click "Create Token"
-1. Use "Edit Cloudflare Workers" template
-1. Add permissions:
-   - Account - Cloudflare Pages: Edit
-   - Zone - DNS: Edit (for custom domains)
-1. Click "Continue to summary" → "Create Token"
-1. Copy the token (you won't see it again!)
-
----
-
-## ⚙️ Build Configuration
-
-### Next.js Configuration
-
-The `next.config.js` is already optimized for Cloudflare Pages:
-
-```javascript
-// Edge Runtime compatible
-// Optimized for @cloudflare/next-on-pages
-// No Node.js APIs in edge routes
-```text
-
-### Package Scripts
-
-```json
-{
-  "build:cloudflare": "npx @cloudflare/next-on-pages@1",
-  "pages:deploy": "npm run build:cloudflare && npx wrangler pages deploy .vercel/output/static --project-name=mh-construction",
-  "deploy:production": "npm run build:cloudflare && npm run pages:deploy"
-}
-```text
-
----
-
-## 🌐 Cloudflare Dashboard Setup
-
-### Automatic Deployment (Recommended)
-
-1. **Connect Repository**
-   - Go to Cloudflare Dashboard → Workers & Pages
-   - Click "Create application" → "Pages" → "Connect to Git"
-   - Authorize GitHub/GitLab and select your repository
-
-1. **Build Settings**
-
-   ```text
-   Framework preset: Next.js
-   Build command: npx @cloudflare/next-on-pages@1
-   Build output directory: .vercel/output/static
-   Root directory: (leave blank)
-````
-
-1. **Environment Variables**
-   Add in Cloudflare Dashboard → Pages → Settings → Environment Variables:
-
-   ```text
-   NEXT_PUBLIC_SITE_URL=https://mhc-gc.com
-   NODE_VERSION=18
-   ```
-
-1. **Branch Configuration**
-   - Production branch: `main`
-   - Preview branches: All branches (optional)
-
-### Manual Deployment
-
-````bash
-# Install Wrangler CLI globally
-npm install -g wrangler
-
-# Login to Cloudflare
-wrangler login
-
-# Deploy manually
-npm run build:cloudflare
-npx wrangler pages deploy .vercel/output/static --project-name=mh-construction
-```text
-
----
-
-## ⚡ Edge Runtime Compatibility
-
-### What's Already Fixed
-
-✅ **All API routes** have `export const runtime = "edge"`
-✅ **Middleware** uses Web-standard APIs (no Buffer, no Node.js APIs)
-✅ **Security middleware** uses `btoa()` instead of Buffer
-✅ **No fs/path imports** in edge execution paths
-
-### Edge-Compatible APIs Used
-
-- `crypto.getRandomValues()` - Random number generation
-- `btoa()` - Base64 encoding
-- `fetch()` - HTTP requests
-- `Response`, `Request` - Web standard APIs
-- `Headers` - Web standard headers
-
-### What to Avoid in Edge Routes
-
-❌ `fs` - File system access
-❌ `path` - Path manipulation
-❌ `Buffer` - Node.js buffer
-❌ `process.cwd()` - Current directory
-❌ `child_process` - Process spawning
-
----
-
-## 🚀 Deployment Methods
-
-### Method 1: GitHub Integration (Easiest)
+Minimum required for local dev:
 
 ```bash
-# Just push to GitHub
-git add .
-git commit -m "Deploy to Cloudflare Pages"
-git push origin main
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+RESEND_API_KEY=re_xxxxx
+```
 
-# Cloudflare automatically builds and deploys
-```text
+---
 
-### Method 2: Wrangler CLI
+## Local Development & Manual Deploy
 
-```bash
-# One-time setup
-npm install -g wrangler
-wrangler login
-
-# Deploy
-npm run deploy:production
-```text
-
-### Method 3: npm Scripts
+### Development Server
 
 ```bash
-# Build only
-npm run build:cloudflare
+npm run dev          # http://localhost:3000
+npm run dev:turbo    # Turbopack mode (faster, experimental)
+```
 
-# Build and deploy
+### Production Build (Local Test)
+
+```bash
+npm run build
+# Runs: opennextjs-cloudflare build
+# Output: .open-next/assets
+```
+
+### Manual Deploy via Wrangler
+
+```bash
+# One-time: login to Cloudflare
+npx wrangler login
+
+# Build + deploy to Pages
 npm run pages:deploy
-```text
+# Equivalent to: opennextjs-cloudflare build && npx wrangler pages deploy --project-name=mh-construction
+```
 
 ---
 
-## 🌍 Custom Domain Setup
+## Build Output Explained
 
-### 1. Add Domain in Cloudflare Pages
+After `npm run build`, the output structure is:
 
-1. Go to Pages project → "Custom domains"
-1. Click "Set up a custom domain"
-1. Enter your domain: `mhc-gc.com`
-1. Cloudflare will provide DNS records
-
-### 2. Configure DNS
-
-If domain is already on Cloudflare:
-
-- DNS records are added automatically
-- Wait 5-10 minutes for propagation
-
-If domain is external (e.g., Namecheap):
-
-1. Go to domain registrar
-1. Change nameservers to Cloudflare's:
-
-   ```text
-   alfred.ns.cloudflare.com
-   luna.ns.cloudflare.com
-````
-
-1. Wait 24-48 hours for nameserver propagation
-
-### 3. SSL/TLS Setup
-
-Cloudflare provides free SSL automatically:
-
-- **Full (strict)** recommended for production
-- Certificate provisions in 5-15 minutes
-- Auto-renewal enabled
-
-### 4. Add www Subdomain
-
-1. Add another custom domain: `www.mhc-gc.com`
-1. Or create redirect rule:
-   - From: `www.mhc-gc.com`
-   - To: `mhc-gc.com`
-   - Status: 301 Permanent
+```
+.open-next/
+├── assets/               ← CF Pages serves this directory
+│   ├── _next/static/     ← CSS, JS, fonts, images
+│   ├── _worker.js/       ← Cloudflare Worker for SSR/API routes
+│   └── ...               ← Other static assets
+└── cache/                ← Build cache (not deployed)
+```
 
 ---
 
-## 🔍 Troubleshooting
+## Custom Domain & DNS
 
-### Build Fails with "Routes not configured for Edge Runtime" Error
+Production lives at `https://www.mhc-gc.com` (canonical — with `www`).
 
-**Fixed** (November 2, 2025)
+- `mhc-gc.com` → 301 redirect to `www.mhc-gc.com` (Cloudflare Page Rule)
+- `www.mhc-gc.com` → Cloudflare Pages project
 
-**Cause**: The `output: "standalone"` setting in next.config.js was incompatible with
-@cloudflare/next-on-pages
+### SSL/TLS
 
-**Solution**: Removed the `output: "standalone"` line from next.config.js. Cloudflare Pages uses
-@cloudflare/next-on-pages which generates its own output structure.
+- Mode: **Full (strict)**
+- Certificate: Cloudflare-managed, auto-renewed
+- HSTS: Enforced via `public/_headers`
 
-**Verification**:
+---
 
-````bash
-# Clean build to verify fix
-rm -rf .next .vercel
-npm run build:cloudflare
+## Troubleshooting
 
-# Should show: "✓ Build completed in ~60s" with 14 Edge Function Routes detected
-```text
+### ❌ "No build command specified. Skipping build step." / "Output directory not found"
 
-### Build Fails with "Edge Runtime" Error
+**Cause:** Build command not set in the Cloudflare Pages dashboard.
 
-**Cause**: Node.js APIs used in edge routes
+**Fix:**
 
-**Solution**:
+1. Cloudflare Dashboard → Workers & Pages → `mh-construction`
+2. Settings → Builds & deployments
+3. Set **Build command** = `npm run build`
+4. Set **Build output directory** = `.open-next/assets`
+5. Trigger a new deployment
+
+---
+
+### ❌ Husky / prepare script fails during build
+
+**Cause:** `npm install` triggers the `prepare` script which tries to run husky hooks.
+
+**Fix:** Add `CI=true` (or `HUSKY=0`) to Environment Variables in the CF Pages dashboard.
+
+---
+
+### ❌ Build fails with `@cloudflare/next-on-pages` errors
+
+**Cause:** Two conflicting adapters running. `@cloudflare/next-on-pages` requires
+`export const runtime = "edge"` on all dynamic routes and conflicts with OpenNext.
+
+**Fix:** Build command must be `npm run build` only — do **not** append
+`npx @cloudflare/next-on-pages` as a second step.
+
+---
+
+### ❌ API routes return 500 / Worker errors
+
+1. Cloudflare Dashboard → Workers & Pages → `mh-construction` → Functions → Logs
+2. Check for missing environment variables or D1 binding issues
+
+---
+
+### ❌ D1 database queries fail
+
+Verify `wrangler.toml` has the correct binding:
+
+```toml
+[[d1_databases]]
+binding = "DB"
+database_name = "mh-construction-db"
+database_id = "98ad144a-cfe2-4f19-a55c-c43140279840"
+```
+
+Local dev with D1:
 
 ```bash
-# Check for incompatible imports
-grep -r "from 'fs'" src/app/api/
-grep -r "from 'path'" src/app/api/
-
-# All API routes must have:
-export const runtime = "edge";
-```text
-
-### "Buffer is not defined" Error
-
-**Cause**: Using Node.js Buffer in edge runtime
-
-**Solution**: Already fixed in middleware, but if you see it:
-
-```typescript
-// ❌ Don't use
-const b64 = Buffer.from(data).toString('base64');
-
-// ✅ Use this instead
-const binary = String.fromCharCode(...new Uint8Array(data));
-const b64 = btoa(binary);
-```text
-
-### Build Succeeds but Pages Don't Load
-
-**Check**:
-
-1. Build output directory is correct: `.vercel/output/static`
-1. All environment variables are set in Cloudflare Dashboard
-1. Check Cloudflare Pages build logs for errors
-
-### Custom Domain Not Working
-
-**Check**:
-
-1. DNS propagation: `dig mhc-gc.com` or use [whatsmydns.net](https://whatsmydns.net)
-1. SSL certificate status in Cloudflare Dashboard
-1. Wait 5-15 minutes for initial SSL provisioning
-
-### API Routes Return 500 Error
-
-**Check**:
-
-1. All routes have `export const runtime = "edge"`
-1. No Node.js APIs used (fs, path, Buffer)
-1. Check Cloudflare Pages → Functions logs for errors
+npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create_consultations.sql
+```
 
 ---
 
-## Performance Optimization
+## Deployment Checklist
 
-### Performance Features
+### First-Time Setup
 
-✅ **Edge Runtime** - Runs at CDN edge, near users
-✅ **Smart Caching** - Static assets cached globally
-✅ **Image Optimization** - Next.js Image component
-✅ **Code Splitting** - Automatic chunk splitting
-✅ **Compression** - Brotli/gzip enabled
+- [ ] Connect GitHub repo to Cloudflare Pages project `mh-construction`
+- [ ] Set **Build command** = `npm run build` in dashboard
+- [ ] Set **Build output directory** = `.open-next/assets` in dashboard
+- [ ] Set **Node.js version** = `22` in dashboard
+- [ ] Add `CI=true` environment variable
+- [ ] Add `NEXT_PUBLIC_SITE_URL`, `RESEND_API_KEY`, `NEXT_TELEMETRY_DISABLED=1`
+- [ ] Set production branch to `main`
+- [ ] Enable `.next/cache` build cache path
+- [ ] Connect custom domain `www.mhc-gc.com`
+- [ ] Verify SSL certificate is active (Full strict)
 
-### Monitoring Performance
+### Every Deploy (Automatic via Git Push)
+
+- [ ] Push to `main` branch
+- [ ] Monitor build in Cloudflare Dashboard → Deployments
+- [ ] Build should complete in ~30–45 seconds
+- [ ] Verify `https://www.mhc-gc.com` is live
+
+### Before Pushing
 
 ```bash
-# Run Lighthouse
-npm install -g lighthouse
-lighthouse https://mhc-gc.com --view
-
-# Check Core Web Vitals
-# Use Chrome DevTools → Lighthouse → Performance
-```text
-
----
-
-## Security Best Practices
-
-### Security Features
-
-✅ **CSP Headers** - Content Security Policy in middleware
-✅ **HSTS** - HTTP Strict Transport Security
-✅ **XSS Protection** - X-XSS-Protection header
-✅ **Frame Options** - X-Frame-Options: DENY
-✅ **Edge Runtime** - Isolated execution environment
-
-### Additional Security
-
-**Enable Cloudflare Security Features**:
-
-1. **WAF (Web Application Firewall)** - Enable managed rules
-1. **Bot Protection** - Block malicious bots
-1. **DDoS Protection** - Automatic mitigation
-1. **Rate Limiting** - Prevent abuse (requires Workers)
-
----
-
-## 📚 Additional Resources
-
-### Documentation
-
-- [Cloudflare Pages Docs](https://developers.cloudflare.com/pages/)
-- [Next.js on Cloudflare](https://developers.cloudflare.com/pages/framework-guides/nextjs/)
-- [Edge Runtime Docs](https://nextjs.org/docs/app/api-reference/edge)
-
-### Monitoring
-
-- [Cloudflare Analytics](https://dash.cloudflare.com) - Built-in analytics
-- [Google Analytics](https://analytics.google.com) - Detailed user tracking
-- [Web Vitals](https://web.dev/vitals/) - Performance metrics
-
-### Support
-
-- [Cloudflare Community](https://community.cloudflare.com/)
-- [Cloudflare Discord](https://discord.cloudflare.com/)
-- [MH Construction Support](mailto:office@mhc-gc.com)
-
----
-
-## ✅ Deployment Checklist
-
-Before deploying to production:
-
-- [ ] Environment variables configured in Cloudflare Dashboard
-- [ ] Custom domain added and DNS configured
-- [ ] SSL certificate provisioned (wait 5-15 min)
-- [ ] Test build locally: `npm run build:cloudflare`
-- [ ] All API routes have `export const runtime = "edge"`
-- [ ] No Node.js APIs in edge routes
-- [ ] Git repository connected to Cloudflare Pages
-- [ ] Production branch set to `main`
-- [ ] Test deployment URL works
-- [ ] Custom domain resolves correctly
-- [ ] SSL certificate active (https:// works)
-- [ ] Check Lighthouse score (aim for 90+)
-
----
-
-**Last Updated:** March 15, 2026
-**Platform**: Cloudflare Pages
-**Framework**: Next.js 15.5.12
-**Runtime**: Edge Runtime
-
-## Ready to Deploy
-
-Your website is now configured and ready for Cloudflare Pages deployment! 🚀
-````
+npm run type-check   # zero type errors
+npm run lint         # zero lint warnings/errors
+npm test             # all tests passing
+npm run build        # local build succeeds
+```
