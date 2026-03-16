@@ -43,6 +43,8 @@ export const metadata: Metadata = withGeoMetadata({
     "general contractor Yakima WA",
     "general contractor Spokane WA",
     "general contractor Walla Walla WA",
+    "general contractor Omak WA",
+    "general contractor Pendleton OR",
     "veteran construction values",
     "WA OR ID licensed contractor",
     "Eastern Washington contractor",

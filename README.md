@@ -66,7 +66,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Tests**         | Passing   | 54/54 passing                             |
 | **SEO**           | 100/100   | Perfect scores across all pages           |
 | **Lighthouse**    | 94+       | Performance optimized                     |
-| **Bundle Size**   | 211 kB    | Production optimized                      |
+| **Bundle Size**   | 210 kB    | Production optimized                      |
 | **Dark Mode**     | Complete  | Full theme support                        |
 | **PWA**           | Ready     | Offline-ready, 5-layer caching            |
 | **Analytics**     | Live      | 100% page coverage, dashboard active      |
@@ -228,10 +228,10 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 ### Core Framework
 
 - **Next.js** 15.5.12 (App Router)
-- **React** 18.3.1 (with React 19 type definitions)
+- **React** 19.x (^19.0.0)
 - **TypeScript** 5.9.2 (strict mode)
 - **Tailwind CSS** 3.4.19
-- **Node.js** 18+ LTS
+- **Node.js** 22+
 
 ### Deployment & Infrastructure
 
@@ -266,7 +266,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ```bash
 # Required
-Node.js 18+ LTS
+Node.js 22+
 npm 9+
 Git
 
@@ -364,7 +364,7 @@ npm run clean            # Clean build artifacts
   dev toolchain dependencies:
   - `glob -> minimatch@9.0.7` (production transitive minimatch)
   - `tar@7.5.11` (fixes high CVEs in `@mapbox/node-pre-gyp` chain via `vercel`)
-  - `cookie@1.1.1` (fixes low CVE in `@cloudflare/next-on-pages` chain)
+  - `cookie@0.7.2` (fixes low CVE in `@cloudflare/next-on-pages` chain)
 - Full `npm audit` still reports dev-only advisories in tooling (all in
   Cloudflare/Vercel adapter transitive chains; no override path available).
 - Current full-audit status after this pass: 15 dev-only vulnerabilities
@@ -426,7 +426,7 @@ contributing.md                         # Contribution guidelines
 mh-website/
 ├── src/
 │   ├── app/                      # Next.js 15 App Router
-│   │   ├── about/ allies/ careers/ contact/  # 21 public pages (flat route directories)
+│   │   ├── about/ allies/ careers/ contact/  # 17 public pages (flat route directories)
 │   │   ├── locations/           # 11 city pages (kennewick, pasco, richland, spokane, yakima,
 │   │   │                        #  walla-walla, west-richland, coeur-d-alene, hermiston, omak, pendleton)
 │   │   ├── api/                 # API routes (analytics, contact, etc.)
@@ -830,5 +830,5 @@ Jeremy Thamert, continuing 15 years of construction excellence with renewed vete
 
 ---
 
-**Last Updated:** March 15, 2026  
+**Last Updated:** March 16, 2026  
 **Documentation Version:** 3.2 (Single Entry Point - Zero Bloat)

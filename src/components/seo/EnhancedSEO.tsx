@@ -92,7 +92,7 @@ export const enhancedSEO = {
       radius: "Licensed in WA, OR, ID",
     },
     veteranOwned: true,
-    businessType: "Veteran-Owned Partnership-Driven Platform",
+    businessType: "Veteran-Owned General Contractor",
     mission:
       "Building partnerships, serving communities, creating lasting value in the Pacific Northwest",
     partnershipPhilosophy:
@@ -106,16 +106,6 @@ export const enhancedSEO = {
       "Financing Available",
     ],
     priceRange: "$$$$",
-    constructionTools: {
-      hasTools: true,
-      toolName: "General MH - Construction Assistant",
-      toolServices: [
-        "Real-time cost estimation",
-        "Construction intelligence",
-        "Lead qualification",
-        "Veteran recognition",
-      ],
-    },
   },
   socialMedia: {
     facebook: COMPANY_INFO.social.facebook,
@@ -134,8 +124,7 @@ export function generateEnhancedOrganizationSchema() {
     "@id": `${enhancedSEO.siteUrl}/#organization`,
     name: enhancedSEO.companyInfo.name,
     legalName: enhancedSEO.companyInfo.legalName,
-    alternateName:
-      "MH Construction - Veteran-Owned Partnership-Driven Platform",
+    alternateName: "MH Construction - Veteran-Owned General Contractor",
     description: enhancedSEO.defaultDescription,
     url: enhancedSEO.siteUrl,
     logo: {
@@ -248,6 +237,18 @@ export function generateEnhancedOrganizationSchema() {
         addressRegion: "ID",
         description: "General contractor services in Coeur d'Alene, Idaho",
       },
+      {
+        "@type": "City",
+        name: "Omak",
+        addressRegion: "WA",
+        description: "General contractor services in Omak, Washington",
+      },
+      {
+        "@type": "City",
+        name: "Pendleton",
+        addressRegion: "OR",
+        description: "General contractor services in Pendleton, Oregon",
+      },
     ],
     serviceType: [
       "Residential Construction",
@@ -259,7 +260,6 @@ export function generateEnhancedOrganizationSchema() {
       "Construction Consulting",
       "Green Building",
       "LEED Certification",
-      "Budget Planning Tools",
       "Military Precision Construction Management",
     ],
     veteranOwned: true,
@@ -267,19 +267,6 @@ export function generateEnhancedOrganizationSchema() {
     slogan: "Building projects for the client, NOT the dollar",
     mission:
       "Building partnerships through traditional values, serving communities with face-to-face trust, creating lasting value in the Pacific Northwest",
-    technology: {
-      "@type": "SoftwareApplication",
-      name: "General MH - Construction Planning Assistant",
-      description: "Construction planning tools with military precision",
-      applicationCategory: "Construction Management Software",
-      features: [
-        "Budget planning estimates",
-        "Military-style project assessment",
-        "Veteran recognition and benefits",
-        "Construction guidance",
-        "Lead qualification system",
-      ],
-    },
     hasCredential: [
       {
         "@type": "EducationalOccupationalCredential",
@@ -488,17 +475,17 @@ export function generateConstructionFAQSchema() {
     {
       question: "What makes MH Construction different from other contractors?",
       answer:
-        "We're a veteran-owned construction company where traditional business values come first: handshakes matter, your word is your bond, and face-to-face trust defines every partnership. Founded in 2010 by Mike Holstein, purchased by Army veteran Jeremy Thamert in January 2025, we combine military precision with helpful modern planning tools, transparent communication, and authentic community relationships. Our motto: 'Building projects for the client, NOT the dollar.'",
+        "We're a veteran-owned construction company where traditional business values come first: handshakes matter, your word is your bond, and face-to-face trust defines every partnership. Founded in 2010 by Mike Holstein, purchased by Army veteran Jeremy Thamert in January 2025, we combine military precision with transparent communication and authentic community relationships. Our motto: 'Building projects for the client, NOT the dollar.'",
     },
     {
-      question: "How does the construction planning assistant work?",
+      question: "What safety record and awards does MH Construction hold?",
       answer:
-        "General MH is our construction planning assistant available 24/7 on every page. It provides construction support, preliminary budget planning, veteran recognition, lead qualification, and construction guidance with military-style professionalism. The assistant prepares you for your in-person consultation with our team.",
+        "MH Construction has an award-winning safety record, including multiple AGC-WA Top EMR Awards (2019, 2020, 2021) with a 0.64 EMR — roughly 40% better than the industry average — and the OSHA VPP Star Designation, the highest workplace safety recognition. In 2025 we received the AGC-WA Most Improved EMR Award and have operated claims-free for 3+ consecutive years. Safety is a core value, not just a metric.",
     },
     {
       question: "What types of construction services do you provide?",
       answer:
-        "MH Construction offers comprehensive construction services including residential, commercial, industrial, and government projects. We specialize in renovation services, project management, construction consulting, green building, LEED certification, and military precision construction management with helpful budget planning tools.",
+        "MH Construction offers comprehensive construction services including commercial, industrial, and government projects. We specialize in general contracting, construction management, master planning and preconstruction, tenant improvements, light industrial construction, design-build, facility renovations, and public-sector builds. Each project is approached with military precision and transparent open-book communication.",
     },
     {
       question: "How can I get started with my construction project?",
@@ -736,6 +723,16 @@ export function generateLocalBusinessSchema() {
       {
         "@type": "Place",
         name: "Pacific Northwest",
+      },
+      {
+        "@type": "City",
+        name: "Omak",
+        addressRegion: "WA",
+      },
+      {
+        "@type": "City",
+        name: "Pendleton",
+        addressRegion: "OR",
       },
     ],
     openingHoursSpecification: [

@@ -592,7 +592,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/allies`,
     name: "Allies → Partners | MH Construction",
     description:
-      "Join MH Construction's trade partner network. Subcontractor opportunities with a veteran-owned Tri-Cities GC. Fair pay, consistent project flow, mutual success.",
+      "Join MH Construction's trade partner network. Trusted vendors include Diamond Electric, Mustang Signs, Bagley Landscape Construction, McKinney Glass, Dupree Building Specialties, D-Fence Fencing, IWI Insulation, Viking Plumbing & Mechanical, and Core Cabinet Production.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -623,7 +623,9 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Mustang Signs",
       description:
-        "Primary signage vendor for MH Construction. Commercial signage, ADA-compliant interior signs, LED reader boards, fleet vehicle wraps, vinyl lettering.",
+        "Primary signage vendor for MH Construction. Full-service custom signage, vehicle wraps, exterior & interior signage, digital signage, LED retrofitting, print solutions, and professional installation.",
+      telephone: "(509) 735-4607",
+      email: "info@mustangsigns.com",
       address: {
         "@type": "PostalAddress",
         streetAddress: "10379 W Clearwater Ave",
@@ -632,9 +634,9 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
         postalCode: "99336",
         addressCountry: "US",
       },
-      url: "https://www.mustangsigns.com/",
+      url: "https://mustangsigns.com/",
       sameAs: [
-        "https://www.mustangsigns.com/",
+        "https://mustangsigns.com/",
         "https://www.facebook.com/mustangsigns/",
         "https://www.instagram.com/mustangsigns/",
       ],
@@ -643,12 +645,14 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      name: "Bagley Landscaping",
+      name: "Bagley Landscape Construction, Inc.",
       description:
-        "Primary landscaping contractor for MH Construction. Commercial landscape design, irrigation, hydroseeding, retaining walls, concrete curbing, Tri-Cities WA.",
+        "Primary landscaping contractor for MH Construction. Commercial & residential landscape design, irrigation, hydroseeding, retaining walls, hardscaping, maintenance, spraying, and snow & ice services. Tri-Cities WA.",
+      telephone: "(509) 546-2449",
+      email: "office@bagleylandscape.com",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "1418 St Helens St",
+        streetAddress: "1418 E St Helens St",
         addressLocality: "Pasco",
         addressRegion: "WA",
         postalCode: "99301",
@@ -663,11 +667,14 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "McKinney Glass",
       description:
-        "Primary glass and glazing contractor for MH Construction. Commercial storefront systems, curtain walls, window installation, specialty glass, Yakima WA.",
+        "Primary glass and glazing contractor for MH Construction. Auto glass, residential windows & skylights, commercial storefronts, automatic doors, fire-rated specialty doors, and interior partitions. Union Gap WA.",
+      telephone: "(509) 248-2770",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Yakima",
+        streetAddress: "2220 Goodman Rd",
+        addressLocality: "Union Gap",
         addressRegion: "WA",
+        postalCode: "98903",
         addressCountry: "US",
       },
       url: "https://mckinneyglass.com/",
@@ -682,10 +689,12 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Dupree Building Specialties",
       description:
-        "Primary building specialties vendor for MH Construction. Commercial doors, frames, hardware, toilet partitions, lockers, operable walls, Spokane WA.",
+        "Primary building specialties vendor for MH Construction. CSI Division 7–12 products: roof accessories, commercial doors, skylights, access flooring, visual displays, lockers, partitions, athletic equipment, window shades. Spokane WA.",
+      telephone: "509.484.2000",
+      email: "info@dupreebldg.com",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "1035 E Cataldo Ave",
+        streetAddress: "1035 E. Cataldo",
         addressLocality: "Spokane",
         addressRegion: "WA",
         postalCode: "99202",
@@ -699,6 +708,94 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       ],
       areaServed: "Pacific Northwest",
     },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "D-Fence Fencing Company",
+      description:
+        "Primary fencing contractor for MH Construction. Galvanized & black chain link, vinyl, cedar privacy, ornamental, and field fencing, plus gates and automated gates. Eastern Washington.",
+      telephone: "(509) 731-8836",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Selah",
+        addressRegion: "WA",
+        postalCode: "98942",
+        addressCountry: "US",
+      },
+      url: "https://dfencefencing.com/",
+      sameAs: [
+        "https://dfencefencing.com/",
+        "https://www.facebook.com/EasternWAFENCING/",
+        "https://www.instagram.com/dfencefencing2014/",
+      ],
+      areaServed: "Eastern Washington",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "Intermountain West Insulation",
+      description:
+        "Primary insulation contractor for MH Construction. Fiberglass, spray foam, cellulose insulation, air sealing, garage door sales & installation, epoxy flooring, gutters, siding, windows, and window blinds. Kennewick WA.",
+      telephone: "509.735.8411",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "9304 W. Clearwater Dr. Suite A",
+        addressLocality: "Kennewick",
+        addressRegion: "WA",
+        postalCode: "99336",
+        addressCountry: "US",
+      },
+      url: "https://iwinsulation.com/",
+      sameAs: [
+        "https://iwinsulation.com/",
+        "https://www.facebook.com/p/Intermountain-West-Insulation-100063735342877/",
+      ],
+      areaServed: "Pacific Northwest",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "Viking Plumbing & Mechanical",
+      description:
+        "Primary plumbing and mechanical contractor for MH Construction. Commercial & industrial new construction plumbing, residential plumbing, drain cleaning, hydro jetting, water heater services, sewer line repair, and water filtration. Yakima WA.",
+      telephone: "(509) 450-0485",
+      email: "info@vikingplumbingandmechanical.com",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "2805 Ahtanum Rd",
+        addressLocality: "Yakima",
+        addressRegion: "WA",
+        postalCode: "98942",
+        addressCountry: "US",
+      },
+      url: "https://vikingplumbingandmechanical.com/",
+      sameAs: [
+        "https://vikingplumbingandmechanical.com/",
+        "https://www.facebook.com/profile.php?id=61552033463552",
+        "https://www.instagram.com/vikingplumbingandmechanical/",
+      ],
+      areaServed: "Pacific Northwest",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "Core Cabinet Production",
+      description:
+        "Primary cabinetry vendor for MH Construction. Custom-designed and in-house fabricated kitchen, bathroom, home office, closet, storage, and commercial office cabinets. Richland WA.",
+      telephone: "(509) 375-7900",
+      email: "admin@corecabinetproduction.com",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "2573 Robertson Drive",
+        addressLocality: "Richland",
+        addressRegion: "WA",
+        postalCode: "99354",
+        addressCountry: "US",
+      },
+      url: "https://corecabinetproduction.com/",
+      sameAs: ["https://corecabinetproduction.com/"],
+      areaServed: "Tri-Cities, WA",
+    },
   ];
 
   return generateEnhancedMetadata({
@@ -706,20 +803,24 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
     title:
       "Allies → Partners | Strategic Partnerships Built on Trust & Mutual Success",
     description:
-      "MH Construction's trusted vendor network: Diamond Electric, Mustang Signs, Bagley Landscaping, McKinney Glass, Dupree Building Specialties. Subcontractor opportunities with a veteran-owned Tri-Cities GC.",
+      "MH Construction's trusted vendor network: Diamond Electric, Mustang Signs, Bagley Landscape Construction, McKinney Glass, Dupree Building Specialties, D-Fence Fencing, IWI Insulation, Viking Plumbing & Mechanical, Core Cabinet Production. Subcontractor opportunities with a veteran-owned Pacific Northwest GC.",
     keywords: [
       "construction subcontractor opportunities Tri-Cities WA",
       "trade partner network Pacific Northwest",
       "veteran-owned contractor partnerships Washington",
       "Diamond Electric electrical contractor Tri-Cities",
-      "Mustang Signs Kennewick commercial signage",
-      "Bagley Landscaping Pasco WA landscaping contractor",
-      "McKinney Glass Yakima glazing contractor",
+      "Mustang Signs Kennewick commercial signage vehicle wraps",
+      "Bagley Landscape Construction Pasco WA landscaping",
+      "McKinney Glass Union Gap Yakima glazing contractor",
       "Dupree Building Specialties Spokane WA",
+      "D-Fence Fencing Company Selah WA fencing contractor",
+      "Intermountain West Insulation IWI Kennewick spray foam",
+      "Viking Plumbing Mechanical Yakima WA plumbing contractor",
+      "Core Cabinet Production Richland WA custom cabinets",
       "MH Construction vendor partners",
-      "subcontractor opportunities Richland Kennewick Pasco",
+      "subcontractor opportunities Richland Kennewick Pasco Yakima Spokane",
       "construction digital handshake subcontractor",
-      "Benton County Franklin County trade partners",
+      "Benton County Franklin County Yakima County trade partners",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/allies`,
     schemas: [webPageSchema, generateLocalBusinessSchema(), ...vendorSchemas],
