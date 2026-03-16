@@ -1,12 +1,10 @@
 import { PageTrackingClient } from "@/components/analytics";
+import Image from "next/image";
 import Link from "next/link";
 import {
-  Button,
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-} from "@/components/ui";
+  VendorPlatformLink,
+  type VendorPlatform,
+} from "@/components/allies/VendorPlatformLink";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -19,7 +17,6 @@ import {
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
-import { gridPresets } from "@/lib/styles/layout-variants";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   generateBreadcrumbSchema,
@@ -29,240 +26,246 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.allies);
 
-// Trade Partner Categories
-const partnerCategories = [
+// ── Vendor Data ─────────────────────────────────────────────────────────────
+type VendorLink = { label: string; href: string; platform: VendorPlatform };
+type VendorBrandColors = { primary: string; secondary?: string };
+
+type Vendor = {
+  name: string;
+  role: string;
+  icon: string;
+  accentColor: string;
+  description: string;
+  highlights: string[];
+  /**
+   * Real deliverables completed together — the "digital handshake".
+   * Each item shown under "Our Work Together" on the vendor card.
+   */
+  portfolio: string[];
+  /**
+   * Path relative to /public once logo is uploaded.
+   * e.g. "/images/vendors/mustang-signs-logo.webp"
+   */
+  logo: string;
+  brandColors: VendorBrandColors | null;
+  address: string;
+  links: VendorLink[];
+};
+
+const vendors: Vendor[] = [
   {
-    category: "Electrical Contractors",
+    name: "Diamond Electric",
+    role: "Primary Electrical Contractor",
     icon: "electrical_services",
+    accentColor: "from-brand-primary to-brand-primary-dark",
     description:
-      "Licensed electrical professionals providing safe, code-compliant installations",
-    partners: [
+      "Diamond Electric is our trusted primary electrical contractor, providing safe, code-compliant commercial and industrial electrical installations on MH Construction projects. Their expertise and commitment to safety align perfectly with our award-winning safety culture.",
+    highlights: [
+      "Commercial & Industrial Electrical",
+      "Code-Compliant Installations",
+      "Safety-First Approach",
+    ],
+    portfolio: [],
+    logo: "",
+    brandColors: { primary: "#5C2D91", secondary: "#C9A227" },
+    address: "",
+    links: [
       {
-        name: "Pacific Northwest Electric",
-        specialty: "Commercial & Industrial Electrical",
-        yearsWorking: "8+ years",
-        location: "Tri-Cities, WA",
-        description:
-          "Specializing in high-voltage commercial installations and industrial electrical systems.",
-      },
-      {
-        name: "Columbia Basin Electrical",
-        specialty: "Residential & Light Commercial",
-        yearsWorking: "5+ years",
-        location: "Pasco, WA",
-        description:
-          "Expert residential electrical work and light commercial electrical installations.",
+        label: "Facebook",
+        href: "https://www.facebook.com/diamondelectricllc/photos/",
+        platform: "facebook",
       },
     ],
   },
   {
-    category: "Plumbing Contractors",
-    icon: "plumbing",
+    name: "Mustang Signs",
+    role: "Primary Signage Vendor",
+    icon: "signpost",
+    accentColor: "from-brand-secondary to-brand-secondary-dark",
     description:
-      "Expert plumbing professionals for all water, sewer, and gas line needs",
-    partners: [
+      "Mustang Signs is our go-to primary signage partner, delivering exceptional commercial signage, construction site branding, and wayfinding solutions across the Pacific Northwest. Their craftsmanship and reliability make them an integral part of every MH Construction project.",
+    highlights: [
+      "Commercial & Construction Signage",
+      "Custom Branding & Wayfinding",
+      "Site Identification Solutions",
+    ],
+    portfolio: [
+      "ADA-compliant interior signage",
+      "Commercial lettering for storefronts",
+      "LED exterior reader boards",
+      "Exterior and interior clocks",
+      "Vinyl storefront lettering & designs",
+      "Fleet vehicle wraps",
+      "MH Construction office front signage",
+      "MH Construction job site signage",
+    ],
+    // logo: "/images/vendors/mustang-signs-logo.webp",  ← uncomment when uploaded
+    logo: "",
+    brandColors: { primary: "#0089CF", secondary: "#F68E2D" },
+    address: "10379 W Clearwater Ave, Kennewick, WA 99336",
+    links: [
       {
-        name: "Tri-Cities Plumbing Solutions",
-        specialty: "Commercial Plumbing Systems",
-        yearsWorking: "6+ years",
-        location: "Richland, WA",
-        description:
-          "Commercial plumbing specialists with expertise in large-scale water and sewer systems.",
+        label: "Website",
+        href: "https://www.mustangsigns.com/",
+        platform: "website",
       },
       {
-        name: "Desert Plumbing & Heating",
-        specialty: "HVAC & Plumbing Integration",
-        yearsWorking: "4+ years",
-        location: "Kennewick, WA",
-        description:
-          "Combined plumbing and HVAC services for comprehensive building system solutions.",
+        label: "Facebook",
+        href: "https://www.facebook.com/mustangsigns/",
+        platform: "facebook",
+      },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/mustangsigns/",
+        platform: "instagram",
       },
     ],
   },
   {
-    category: "HVAC Specialists",
-    icon: "hvac",
+    name: "Bagley Landscaping",
+    role: "Primary Landscaping Contractor",
+    icon: "yard",
+    accentColor: "from-brand-primary to-brand-primary-dark",
     description:
-      "Climate control experts ensuring comfortable, efficient building environments",
-    partners: [
+      "Bagley Landscaping is our trusted primary landscaping partner, delivering professional site landscaping, grading, and grounds finishing for MH Construction projects across the Tri-Cities area. Their local expertise and quality workmanship keep every project looking its best.",
+    highlights: [
+      "Commercial & Residential Landscape Design",
+      "Irrigation System Installation",
+      "Hydroseeding & Dust Control",
+      "Landscape Lighting",
+      "Block & Boulder Retaining Walls",
+      "Brick Pavers & Flagstone",
+      "Concrete Curbing",
+      "Ponds & Water Features",
+    ],
+    portfolio: [],
+    // logo: "/images/vendors/bagley-landscaping-logo.webp",  ← uncomment when uploaded
+    logo: "",
+    brandColors: { primary: "#409416", secondary: "#262626" },
+    address: "1418 St Helens St, Pasco, WA 99301",
+    links: [
       {
-        name: "Columbia River HVAC",
-        specialty: "Commercial Climate Systems",
-        yearsWorking: "7+ years",
-        location: "Tri-Cities, WA",
-        description:
-          "Large-scale commercial HVAC installations and energy-efficient climate solutions.",
-      },
-      {
-        name: "Valley Air Systems",
-        specialty: "Industrial HVAC Solutions",
-        yearsWorking: "5+ years",
-        location: "Pasco, WA",
-        description:
-          "Industrial-grade heating, ventilation, and air conditioning for specialized facilities.",
+        label: "Website",
+        href: "https://bagleylandscape.com/",
+        platform: "website",
       },
     ],
   },
   {
-    category: "Concrete & Masonry",
-    icon: "foundation",
+    name: "McKinney Glass",
+    role: "Primary Glass & Glazing Contractor",
+    icon: "window",
+    accentColor: "from-sky-500 to-sky-700",
     description:
-      "Foundation and structural concrete experts building solid foundations",
-    partners: [
+      "McKinney Glass is our trusted primary glass and glazing partner, providing commercial storefront systems, curtain walls, windows, and specialty glass installations for MH Construction projects. Based in Yakima, their craftsmanship delivers precision glazing on every build.",
+    highlights: [
+      "Commercial Storefront Systems",
+      "Window Installation & Replacement",
+      "Curtain Wall & Architectural Glass",
+      "Mirror & Specialty Glass",
+    ],
+    portfolio: [],
+    // logo: "/images/vendors/mckinney-glass-logo.webp",  ← uncomment when uploaded
+    logo: "",
+    brandColors: null,
+    address: "Yakima, WA",
+    links: [
       {
-        name: "Northwest Concrete Works",
-        specialty: "Foundation & Structural Concrete",
-        yearsWorking: "10+ years",
-        location: "Tri-Cities, WA",
-        description:
-          "Premier concrete contractors specializing in foundations, slabs, and structural elements.",
+        label: "Website",
+        href: "https://mckinneyglass.com/",
+        platform: "website",
       },
       {
-        name: "Columbia Masonry",
-        specialty: "Decorative & Structural Masonry",
-        yearsWorking: "6+ years",
-        location: "Richland, WA",
-        description:
-          "Expert masonry work including brick, block, and stone for both aesthetic and structural applications.",
+        label: "Facebook",
+        href: "https://www.facebook.com/McKinneyglassyakima",
+        platform: "facebook",
       },
     ],
   },
   {
-    category: "Roofing Specialists",
-    icon: "roofing",
+    name: "Dupree Building Specialties",
+    role: "Primary Building Specialties Vendor",
+    icon: "door_front",
+    accentColor: "from-amber-600 to-amber-800",
     description:
-      "Professional roofing contractors protecting every project from the elements",
-    partners: [
-      {
-        name: "Pacific Roofing Solutions",
-        specialty: "Commercial & Industrial Roofing",
-        yearsWorking: "9+ years",
-        location: "Tri-Cities, WA",
-        description:
-          "Commercial roofing specialists with expertise in flat, metal, and specialty roofing systems.",
-      },
-      {
-        name: "Desert Shield Roofing",
-        specialty: "Weather-Resistant Systems",
-        yearsWorking: "4+ years",
-        location: "Pasco, WA",
-        description:
-          "Specialized in durable roofing solutions designed for the Pacific Northwest climate.",
-      },
+      "Dupree Building Specialties is our trusted primary vendor for commercial building specialties, supplying and installing the finish-trade components that complete every MH Construction project — from doors and hardware to toilet partitions, lockers, and specialty systems.",
+    highlights: [
+      "Commercial Doors, Frames & Hardware",
+      "Toilet Partitions & Accessories",
+      "Lockers & Storage Systems",
+      "Visual Display & Markerboards",
+      "Operable Walls & Specialty Systems",
     ],
-  },
-  {
-    category: "Material Suppliers",
-    icon: "local_shipping",
-    description:
-      "Reliable suppliers providing quality materials for every construction need",
-    partners: [
+    portfolio: [],
+    // logo: "/images/vendors/dupree-building-specialties-logo.webp",  ← uncomment when uploaded
+    logo: "",
+    brandColors: { primary: "#384884", secondary: "#384884" },
+    address: "1035 E Cataldo Ave, Spokane, WA 99202",
+    links: [
       {
-        name: "Columbia Building Supply",
-        specialty: "Lumber & Building Materials",
-        yearsWorking: "12+ years",
-        location: "Tri-Cities, WA",
-        description:
-          "Full-service building supply with lumber, hardware, and construction materials.",
+        label: "Website",
+        href: "https://dupreebldg.com/",
+        platform: "website",
       },
       {
-        name: "Northwest Steel & Supply",
-        specialty: "Structural Steel & Metal",
-        yearsWorking: "8+ years",
-        location: "Richland, WA",
-        description:
-          "Industrial steel supplier providing structural steel, metal fabrication, and welding materials.",
+        label: "Facebook",
+        href: "https://www.facebook.com/people/Dupree-Building-Specialties/61554190085687/",
+        platform: "facebook",
+      },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/company/dupree-building-specialties",
+        platform: "linkedin",
       },
     ],
   },
 ];
 
-// Trade Partnership values - Focused on vendor relationships
+// ── Partnership Values ───────────────────────────────────────────────────────
 const partnershipValues = [
   {
     icon: "handshake",
     title: "Where Handshakes Still Matter",
     description:
-      "Your word is your bond. We treat our Trade Partners with the same integrity and respect we give our Client Partners—building relationships through face-to-face trust, mutual respect, and shared commitment to doing what's right. Veteran-owned leadership brings honor, accountability, and unwavering integrity to every partnership.",
+      "Your word is your bond. We treat our trade partners with the same integrity and respect we give our clients — face-to-face trust, mutual respect, and a shared commitment to doing what's right.",
     color: "from-brand-primary to-brand-primary-dark",
   },
   {
     icon: "campaign",
-    title: "Reliable Scheduling & Clear Communication",
+    title: "Reliable Scheduling & Open Communication",
     description:
-      "Transparent open-book communication and dependable project timelines help our trade partners plan effectively and manage their resources with confidence. You control it, we manage it—together with award-winning execution (.64 EMR safety record).",
+      "Transparent, open-book communication and dependable project timelines help our trade partners plan confidently and manage their resources effectively. You control it, we manage it — together.",
     color: "from-brand-secondary to-brand-secondary-dark",
   },
   {
     icon: "account_balance",
-    title: "Fair & Prompt Payment Terms",
+    title: "Fair & Prompt Payment",
     description:
-      "Competitive compensation and reliable payment schedules support the financial health and business growth of our Trade Partners. Building projects for the client, NOT the dollar means treating partners with the same transparency and fairness we give Client Partners.",
+      "Competitive compensation and reliable payment schedules support the financial health and growth of every trade partner. Building for the client, NOT the dollar, means treating partners with the same fairness.",
     color: "from-brand-secondary to-brand-secondary-dark",
   },
   {
     icon: "health_and_safety",
-    title: "Collaborative Excellence & Safety First",
+    title: "Award-Winning Safety Culture",
     description:
-      "Working together to solve challenges, share expertise, and deliver exceptional results with award-winning safety standards (.64 EMR—40% better than industry). Everyone goes home safe, every single day, strengthening our network through mutual success.",
+      "Our .64 EMR safety record is 40% better than the industry average. Everyone goes home safe, every single day. Partners on our sites operate within a culture of accountability and excellence.",
     color: "from-brand-primary-light to-brand-primary",
   },
 ];
 
-// Trade Partnership benefits - Business growth focused
-const partnershipBenefits = [
-  {
-    icon: "trending_up",
-    title: "Consistent Project Pipeline",
-    description:
-      "Access to a steady flow of quality construction projects throughout the Pacific Northwest, providing reliable business opportunities year-round backed by 150+ years combined team experience and veteran-owned reliability.",
-  },
-  {
-    icon: "diversity_3",
-    title: "Professional Network & Veteran Support",
-    description:
-      "Join a network of trusted trade professionals and industry leaders, opening doors to collaboration and business development opportunities. Veteran-owned businesses receive priority consideration in our partnership network.",
-  },
-  {
-    icon: "verified",
-    title: "Clear Quality Standards & Safety Excellence",
-    description:
-      "Well-defined quality expectations and project specifications help trade partners deliver their best work with confidence and consistency. Award-winning safety protocols (.64 EMR) ensure everyone goes home safe while maintaining the highest standards.",
-  },
-  {
-    icon: "military_tech",
-    title: "Industry Collaboration & Continuous Improvement",
-    description:
-      "Share best practices, proven solutions, and industry insights in a professional environment that values continuous improvement. 150+ years combined experience means learning from reliable methods while embracing excellence.",
-  },
-  {
-    icon: "verified_user",
-    title: "Insurance & Compliance Support",
-    description:
-      "Guidance on insurance requirements, safety protocols, and compliance standards to help meet project specifications and industry regulations.",
-  },
-  {
-    icon: "workspace_premium",
-    title: "Business Growth Opportunities",
-    description:
-      "Work on diverse, high-quality projects that enhance capabilities, build reputation, and create opportunities for sustainable business expansion.",
-  },
-];
-
+// ── Page ─────────────────────────────────────────────────────────────────────
 export default function AlliesPage() {
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       <PageTrackingClient pageName="Allies" />
       <StructuredData data={breadcrumbSchema} />
 
-      {/* Hero Section - Group 7: Partnership & ROI Focus */}
+      {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-end justify-end text-white overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20" />
 
-        {/* Content - Bottom Right */}
+        {/* Content — bottom right */}
         <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
-          {/* Mission Icon */}
           <div className="flex justify-end mb-4">
             <div className="relative p-4 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
               <MaterialIcon
@@ -291,156 +294,84 @@ export default function AlliesPage() {
           </h1>
         </div>
 
-        {/* Page-Specific Navigation Bar */}
         <PageNavigation
           items={navigationConfigs.allies}
           className="absolute bottom-0 left-0 right-0"
         />
       </section>
 
-      {/* Breadcrumb Navigation */}
+      {/* ── BREADCRUMB ────────────────────────────────────────────────────── */}
       <Breadcrumb
         items={[{ label: "Home", href: "/" }, { label: "Allies in Force" }]}
       />
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl">
-        {/* Important Distinction Notice */}
-        <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32">
-          <DiagonalStripePattern />
-          <BrandColorBlobs />
-
-          <div className="relative z-10">
-            <FadeInWhenVisible>
-              <div className="bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 border-l-4 border-brand-primary p-6 md:p-8 rounded-r-xl">
-                <div className="flex items-start gap-4">
-                  <MaterialIcon
-                    icon="info"
-                    size="xl"
-                    theme="military"
-                    ariaLabel="Important Partnership Information"
-                    className="text-brand-primary flex-shrink-0 mt-1"
-                  />
-                  <div>
-                    <h3 className="font-bold text-gray-900 dark:text-white text-xl mb-3">
-                      Strategic Partnership Network: THE ROI IS THE RELATIONSHIP
-                    </h3>
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-2">
-                      <strong>
-                        Allies in Force \u2014 This page is for subcontractors,
-                        suppliers, and vendors
-                      </strong>{" "}
-                      interested in joining our strategic partnership network to
-                      work on MH Construction projects where the return on
-                      investment is truly the relationship we build together.
-                    </p>
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      If you're a{" "}
-                      <strong>
-                        property owner or business seeking construction services
-                      </strong>
-                      , please visit our{" "}
-                      <Link
-                        href="/contact"
-                        className="text-brand-primary hover:text-brand-primary-dark font-semibold underline"
-                      >
-                        Contact Page
-                      </Link>{" "}
-                      to schedule a free consultation or explore our{" "}
-                      <Link
-                        href="/services"
-                        className="text-brand-primary hover:text-brand-primary-dark font-semibold underline"
-                      >
-                        Services
-                      </Link>{" "}
-                      to learn about Client Partner relationships. Visit our
-                      Services page for detailed information about project
-                      collaboration.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </FadeInWhenVisible>
-          </div>
-        </section>
-
-        {/* Trade Partnership Philosophy */}
+        {/* ── SECTION 1: WHY PARTNER WITH MHC ──────────────────────────── */}
         <section
-          id="partnership-philosophy"
-          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
+          id="partnership"
+          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32 rounded-2xl"
         >
           <DiagonalStripePattern />
           <BrandColorBlobs />
 
-          <div className="relative z-10">
+          <div className="relative z-10 px-6 sm:px-10 lg:px-14">
             <FadeInWhenVisible>
-              {/* Section Header - Military Construction Standard */}
               <div className="mb-16 sm:mb-20 text-center">
-                {/* Icon with decorative lines */}
                 <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full" />
                     <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
                         icon="handshake"
                         size="2xl"
                         className="text-white drop-shadow-lg"
-                        ariaLabel="Partnership values"
+                        ariaLabel="Why partner with MHC"
                       />
                     </div>
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
                 </div>
 
-                {/* Two-line gradient heading */}
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Where Handshakes Matter
+                    Why Build With
                   </span>
                   <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    In Every Partnership
+                    MH Construction
                   </span>
                 </h2>
 
-                {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <p className="mx-auto max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    "THE ROI IS THE RELATIONSHIP—and we prove it."
+                    &ldquo;THE ROI IS THE RELATIONSHIP — and we prove it.&rdquo;
                   </span>{" "}
-                  Building for the Client,{" "}
-                  <span className="font-black text-bronze-600 dark:text-bronze-400">
-                    NOT
-                  </span>{" "}
-                  the Dollar means treating our trade partners with the same
-                  integrity we give our Client Partners.{" "}
+                  Since 2010, MH Construction has built a reputation for honest
+                  communication, prompt payment, and a safety culture second to
+                  none{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    Quality construction is built through trusted relationships
+                    (.64 EMR — 40% safer than industry average)
                   </span>
-                  —where your word is your bond, handshakes matter, and mutual
-                  respect defines every partnership. Fair payment, clear
-                  communication, mutual success. Backed by veteran-owned
-                  leadership, award-winning safety (.64 EMR), and 150+ years
-                  combined experience.
+                  . Veteran-owned leadership since January 2025 means our
+                  partners get the same code of conduct that defines military
+                  service: honor, accountability, and follow-through on every
+                  commitment.
                 </p>
-                <cite className="block mt-4 font-semibold text-brand-secondary-text text-lg dark:text-brand-secondary-light">
+                <cite className="block mt-4 font-semibold text-brand-secondary-text text-lg dark:text-brand-secondary-light not-italic">
                   — MH Construction Leadership Team
                 </cite>
               </div>
             </FadeInWhenVisible>
 
-            <StaggeredFadeIn className={gridPresets.compactCards("lg")}>
+            <StaggeredFadeIn className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {partnershipValues.map((value, index) => (
                 <div key={index} className="group relative flex h-full">
-                  {/* Animated Border Glow */}
-                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
-
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse" />
                   <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
-                    {/* Top Accent Bar */}
-                    <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
-
+                    <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker" />
                     <div className="p-6 flex flex-col flex-1 text-center">
                       <div className="relative inline-block mx-auto mb-4">
-                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
+                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full" />
                         <div
                           className={`relative flex justify-center items-center bg-gradient-to-r ${value.color} rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300`}
                         >
@@ -466,9 +397,9 @@ export default function AlliesPage() {
           </div>
         </section>
 
-        {/* Trade Partner Categories - Join Our Network */}
+        {/* ── SECTION 2: VENDOR SHOWCASE ────────────────────────────────── */}
         <section
-          id="trade-categories"
+          id="vendors"
           className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
         >
           <DiagonalStripePattern />
@@ -476,511 +407,273 @@ export default function AlliesPage() {
 
           <div className="relative z-10">
             <FadeInWhenVisible>
-              {/* Section Header - Military Construction Standard */}
               <div className="mb-16 sm:mb-20 text-center">
-                {/* Icon with decorative lines */}
                 <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
                   <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 blur-2xl rounded-full" />
+                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                       <MaterialIcon
-                        icon="groups"
+                        icon="star"
                         size="2xl"
                         className="text-white drop-shadow-lg"
-                        ariaLabel="Trade partner network"
+                        ariaLabel="Our primary vendor partners"
                       />
                     </div>
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
                 </div>
 
-                {/* Two-line gradient heading */}
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Join Our Ally
+                    Our Primary
                   </span>
                   <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Network
+                    Vendor Partners
                   </span>
                 </h2>
 
-                {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  We're actively building our{" "}
+                  These trusted companies are{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    approved ally network
+                    integral members of our project teams
                   </span>{" "}
-                  with qualified professionals across all construction trades.
-                  Your company could be{" "}
+                  — proven partners whose expertise, reliability, and shared
+                  values make them our{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    featured here as a trusted partner
+                    first call on every MH Construction project
                   </span>
-                  —bringing expertise, reliability, and quality workmanship to
-                  MH Construction projects.
+                  .
                 </p>
               </div>
             </FadeInWhenVisible>
 
-            <div className="space-y-8">
-              {partnerCategories.map((category, categoryIndex) => (
-                <FadeInWhenVisible key={categoryIndex}>
-                  <Card className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-                    <CardHeader className="pb-4">
-                      <div className="flex items-center">
-                        <div className="flex justify-center items-center bg-brand-primary mr-4 rounded-full w-12 h-12">
-                          <MaterialIcon
-                            icon={category.icon}
-                            size="lg"
-                            className="text-white"
-                            ariaLabel={category.category}
-                          />
-                        </div>
-                        <div>
-                          <CardTitle className="text-gray-900 dark:text-white text-2xl">
-                            {category.category}
-                          </CardTitle>
-                          <p className="text-gray-600 dark:text-gray-300">
-                            {category.description}
-                          </p>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className={gridPresets.twoColumn("md")}>
-                        {category.partners.map((partner, partnerIndex) => (
-                          <div
-                            key={partnerIndex}
-                            className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 border-2 border-dashed border-brand-primary/30 dark:border-brand-primary/40 p-6 rounded-lg transition-all hover:border-brand-primary hover:shadow-lg text-center"
-                          >
-                            <MaterialIcon
-                              icon="add_business"
-                              className="mx-auto mb-4 text-brand-primary text-5xl"
-                              ariaLabel="Become a partner"
+            <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {vendors.map((vendor, index) => (
+                <div
+                  key={index}
+                  className="group relative [perspective:1200px] h-[480px]"
+                >
+                  {/* Glow */}
+                  <div className="absolute -inset-3 bg-gradient-to-br from-brand-primary/50 to-brand-secondary/50 rounded-2xl opacity-20 group-hover:opacity-70 blur-xl transition-all duration-500 pointer-events-none" />
+
+                  {/* Flip container */}
+                  <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    {/* ── FRONT FACE ────────────────────────────────────── */}
+                    <div className="absolute inset-0 [backface-visibility:hidden] bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-xl overflow-hidden flex flex-col">
+                      {/* Brand accent bar */}
+                      <div
+                        className={`h-3 flex-shrink-0 ${vendor.brandColors ? "" : `bg-gradient-to-r ${vendor.accentColor}`}`}
+                        style={
+                          vendor.brandColors
+                            ? {
+                                backgroundImage: `linear-gradient(to right, ${vendor.brandColors.primary}, ${vendor.brandColors.secondary ?? vendor.brandColors.primary})`,
+                              }
+                            : undefined
+                        }
+                      />
+
+                      {/* Logo — hero element */}
+                      <div className="flex-1 flex flex-col items-center justify-center gap-5 px-6 pt-6 pb-4">
+                        <div
+                          className="relative flex justify-center items-center rounded-2xl w-32 h-32 shadow-2xl overflow-hidden border-4"
+                          style={
+                            vendor.brandColors
+                              ? {
+                                  borderColor: `${vendor.brandColors.primary}60`,
+                                  background: `linear-gradient(145deg, ${vendor.brandColors.primary}22, ${vendor.brandColors.secondary ?? vendor.brandColors.primary}44)`,
+                                }
+                              : { borderColor: "transparent" }
+                          }
+                        >
+                          {vendor.logo ? (
+                            <Image
+                              src={vendor.logo}
+                              alt={`${vendor.name} logo`}
+                              fill
+                              sizes="128px"
+                              className="object-contain p-3"
                             />
-                            <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-3">
-                              Your Company Here
-                            </h4>
-                            <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed mb-4">
-                              {partner.specialty}
-                            </p>
-                            <Link
-                              href="/contact"
-                              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary hover:bg-brand-secondary text-white transition-all duration-300 rounded-lg font-semibold shadow-md hover:shadow-lg"
+                          ) : (
+                            <div
+                              className={`w-full h-full flex items-center justify-center ${vendor.brandColors ? "" : `bg-gradient-to-br ${vendor.accentColor}`}`}
+                              style={
+                                vendor.brandColors
+                                  ? {
+                                      backgroundImage: `linear-gradient(135deg, ${vendor.brandColors.primary}, ${vendor.brandColors.secondary ?? vendor.brandColors.primary})`,
+                                    }
+                                  : undefined
+                              }
                             >
                               <MaterialIcon
-                                icon="handshake"
-                                size="sm"
-                                theme="veteran"
-                                ariaLabel="Apply"
-                              />
-                              <span>Apply Now</span>
-                            </Link>
-                          </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </FadeInWhenVisible>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Partnership Benefits */}
-        <section
-          id="benefits"
-          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
-        >
-          <DiagonalStripePattern />
-          <BrandColorBlobs />
-
-          <div className="relative z-10">
-            <FadeInWhenVisible>
-              {/* Section Header - Military Construction Standard */}
-              <div className="mb-16 sm:mb-20 text-center">
-                {/* Icon with decorative lines */}
-                <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                  <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                      <MaterialIcon
-                        icon="workspace_premium"
-                        size="2xl"
-                        className="text-white drop-shadow-lg"
-                        ariaLabel="Partnership benefits"
-                      />
-                    </div>
-                  </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                </div>
-
-                {/* Two-line gradient heading */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Trade Partnership
-                  </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Benefits
-                  </span>
-                </h2>
-
-                {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  We're committed to creating{" "}
-                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    mutually beneficial business relationships
-                  </span>{" "}
-                  that support the growth and success of our approved vendors
-                  and trade professionals with{" "}
-                  <span className="font-bold text-gray-900 dark:text-white">
-                    transparent communication, award-winning safety culture, and
-                    veteran-owned integrity
-                  </span>{" "}
-                  in every partnership.
-                </p>
-              </div>
-
-              <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
-                {partnershipBenefits.map((benefit, index) => (
-                  <div key={index} className="group relative flex h-full">
-                    {/* Animated Border Glow */}
-                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
-
-                    <div className="relative bg-white dark:bg-gray-900 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
-                      {/* Top Accent Bar */}
-                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
-
-                      <div className="p-6 flex flex-col flex-1">
-                        <div className="flex items-center mb-4">
-                          <div className="relative mr-4">
-                            <div className="absolute -inset-1 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-md rounded-full"></div>
-                            <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-12 h-12 shadow-lg group-hover:scale-110 transition-all duration-300">
-                              <MaterialIcon
-                                icon={benefit.icon}
-                                size="lg"
+                                icon={vendor.icon}
+                                size="4xl"
                                 className="text-white drop-shadow-lg"
-                                ariaLabel={benefit.title}
+                                ariaLabel={vendor.name}
                               />
                             </div>
-                          </div>
-                          <h3 className="font-bold text-gray-900 dark:text-white text-lg">
-                            {benefit.title}
-                          </h3>
+                          )}
                         </div>
-                        <p className="flex-grow text-gray-600 dark:text-gray-300 leading-relaxed">
-                          {benefit.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </StaggeredFadeIn>
-            </FadeInWhenVisible>
-          </div>
-        </section>
 
-        {/* Vendor Requirements & Application Process */}
-        <section
-          id="requirements"
-          className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
-        >
-          <DiagonalStripePattern />
-          <BrandColorBlobs />
-
-          <div className="relative z-10">
-            <FadeInWhenVisible>
-              {/* Section Header - Military Construction Standard */}
-              <div className="mb-16 sm:mb-20 text-center">
-                {/* Icon with decorative lines */}
-                <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                  <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                      <MaterialIcon
-                        icon="verified"
-                        size="2xl"
-                        className="text-white drop-shadow-lg"
-                        ariaLabel="Vendor requirements"
-                      />
-                    </div>
-                  </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                </div>
-
-                {/* Two-line gradient heading */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Approved Vendor
-                  </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Requirements
-                  </span>
-                </h2>
-
-                {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  We seek{" "}
-                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    qualified trade professionals
-                  </span>{" "}
-                  who share our commitment to{" "}
-                  <span className="font-bold text-gray-900 dark:text-white">
-                    quality, safety excellence (.64 EMR award-winning record),
-                    and professional integrity
-                  </span>
-                  . Here's what we look for in approved vendors seeking
-                  partnership with our veteran-owned company.
-                </p>
-              </div>
-            </FadeInWhenVisible>
-
-            {/* Veteran Trade Partner Priority Callout */}
-            <FadeInWhenVisible>
-              <div className="bg-gradient-to-r from-brand-primary/10 via-brand-secondary/10 to-brand-primary/10 dark:from-brand-primary/20 dark:via-brand-secondary/20 dark:to-brand-primary/20 p-8 lg:p-10 border-2 border-brand-primary/30 rounded-xl shadow-lg mb-12">
-                <div className="flex flex-col lg:flex-row items-center gap-6 text-center lg:text-left">
-                  <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full shadow-lg">
-                    <MaterialIcon
-                      icon="military_tech"
-                      size="4xl"
-                      theme="veteran"
-                      ariaLabel="Veteran-Owned Priority"
-                      className="text-white"
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="mb-3 font-black text-gray-900 dark:text-white text-2xl lg:text-3xl">
-                      Veteran-Owned Trade Partners: Priority Consideration
-                    </h3>
-                    <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-4">
-                      As a veteran-owned company led by military veterans, we
-                      prioritize partnerships with fellow veteran-owned
-                      businesses across all service branches. Veteran trade
-                      partners receive expedited application review,
-                      preferential bidding opportunities, and dedicated support
-                      for business growth.
-                    </p>
-                    <Link
-                      href="/veterans"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary hover:bg-brand-secondary text-white transition-all duration-300 rounded-lg font-bold shadow-md hover:shadow-lg"
-                    >
-                      <MaterialIcon
-                        icon="military_tech"
-                        size="md"
-                        theme="veteran"
-                        ariaLabel="Veterans Initiative"
-                      />
-                      <span>Learn About Our Veterans Initiative</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </FadeInWhenVisible>
-
-            <div className={gridPresets.twoColumn("lg")}>
-              <FadeInWhenVisible>
-                <div className="group relative flex h-full">
-                  {/* Animated Border Glow */}
-                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
-
-                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
-                    {/* Top Accent Bar */}
-                    <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
-
-                    <div className="p-8">
-                      <div className="flex items-center mb-6">
-                        <div className="relative mr-4">
-                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
-                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-12 h-12 shadow-xl group-hover:scale-110 transition-all duration-300">
+                        {/* Name + role */}
+                        <div className="text-center">
+                          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border text-xs font-bold uppercase tracking-wider mb-2 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-brand-primary-light border-brand-primary/30">
                             <MaterialIcon
                               icon="verified"
-                              size="lg"
-                              theme="military"
-                              ariaLabel="Essential Qualifications"
-                              className="text-white drop-shadow-lg"
+                              size="sm"
+                              ariaLabel="Active partner"
+                              className="text-current"
                             />
+                            {vendor.role}
+                          </div>
+                          <h3 className="font-black text-gray-900 dark:text-white text-2xl leading-tight">
+                            {vendor.name}
+                          </h3>
+                        </div>
+                      </div>
+
+                      {/* Flip hint */}
+                      <div className="flex items-center justify-center gap-1.5 py-3 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-100 dark:border-gray-700 flex-shrink-0">
+                        <MaterialIcon
+                          icon="touch_app"
+                          size="sm"
+                          ariaLabel=""
+                          className="text-gray-400"
+                        />
+                        <span className="text-xs text-gray-400 font-medium">
+                          Hover to see services
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* ── BACK FACE ─────────────────────────────────────── */}
+                    <div
+                      className={`absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl border-2 shadow-xl overflow-hidden flex flex-col ${vendor.brandColors ? "" : `bg-gradient-to-br ${vendor.accentColor}`}`}
+                      style={
+                        vendor.brandColors
+                          ? {
+                              background: `linear-gradient(145deg, ${vendor.brandColors.primary}f0, ${vendor.brandColors.secondary ?? vendor.brandColors.primary}cc)`,
+                              borderColor: `${vendor.brandColors.primary}80`,
+                            }
+                          : undefined
+                      }
+                    >
+                      {/* Back header */}
+                      <div className="flex items-center gap-3 p-4 border-b border-white/20 flex-shrink-0">
+                        <div className="flex justify-center items-center rounded-xl w-10 h-10 bg-white/20 flex-shrink-0">
+                          <MaterialIcon
+                            icon={vendor.icon}
+                            size="sm"
+                            ariaLabel={vendor.name}
+                            className="text-white"
+                          />
+                        </div>
+                        <div className="min-w-0">
+                          <div className="text-white/70 text-xs font-medium truncate">
+                            {vendor.role}
+                          </div>
+                          <div className="text-white font-black text-lg leading-tight truncate">
+                            {vendor.name}
                           </div>
                         </div>
-                        <h3 className="text-gray-900 dark:text-white text-2xl font-bold">
-                          Essential Qualifications
-                        </h3>
                       </div>
-                      <ul className="space-y-3">
-                        {[
-                          "Valid trade licensing for Washington, Oregon, and/or Idaho",
-                          "Current liability and worker's compensation insurance",
-                          "Proven track record of quality workmanship",
-                          "Professional references from recent projects",
-                          "Commitment to safety standards and protocols",
-                          "Alignment with MH Construction values and standards",
-                        ].map((item, index) => (
-                          <li key={index} className="flex items-start">
-                            <MaterialIcon
-                              icon="check_circle"
-                              size="sm"
-                              theme="military"
-                              ariaLabel="Required"
-                              className="text-brand-primary mr-3 flex-shrink-0 mt-1"
-                            />
-                            <span className="text-gray-700 dark:text-gray-300">
-                              {item}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </FadeInWhenVisible>
 
-              <FadeInWhenVisible>
-                <div className="group relative flex h-full">
-                  {/* Animated Border Glow */}
-                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
-
-                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
-                    {/* Top Accent Bar */}
-                    <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
-
-                    <div className="p-8">
-                      <div className="flex items-center mb-6">
-                        <div className="relative mr-4">
-                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
-                          <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-secondary to-bronze-700 rounded-full w-12 h-12 shadow-xl group-hover:scale-110 transition-all duration-300">
-                            <MaterialIcon
-                              icon="workspace_premium"
-                              size="lg"
-                              theme="veteran"
-                              ariaLabel="Preferred Qualifications"
-                              className="text-white drop-shadow-lg"
-                            />
-                          </div>
-                        </div>
-                        <h3 className="text-gray-900 dark:text-white text-2xl font-bold">
-                          Preferred Qualifications
-                        </h3>
-                      </div>
-                      <ul className="space-y-3">
-                        {[
-                          "Veteran-owned or veteran-employed businesses (priority)",
-                          "Local Pacific Northwest presence and familiarity",
-                          "Experience with diverse project types and scales",
-                          "Strong safety record and industry certifications",
-                          "Technology-capable for project communication",
-                          "Sustainable and community-minded business practices",
-                        ].map((item, index) => (
-                          <li key={index} className="flex items-start">
-                            <MaterialIcon
-                              icon="star"
-                              size="sm"
-                              theme="veteran"
-                              ariaLabel="Preferred"
-                              className="text-brand-secondary mr-3 flex-shrink-0 mt-1"
-                            />
-                            <span className="text-gray-700 dark:text-gray-300">
-                              {item}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </FadeInWhenVisible>
-            </div>
-
-            {/* Application Process */}
-            <div className="mt-12">
-              <FadeInWhenVisible>
-                <div className="mb-8 text-center">
-                  <h3 className="mb-4 font-bold text-gray-900 dark:text-white text-xl md:text-2xl">
-                    Trade Partnership Application Process
-                  </h3>
-                  <p className="mx-auto max-w-2xl text-gray-600 dark:text-gray-300">
-                    Our straightforward application process ensures we build
-                    strong, qualified partnerships with the right trade
-                    professionals.
-                  </p>
-                </div>
-
-                <div className={gridPresets.compactCards("md")}>
-                  {[
-                    {
-                      step: "1",
-                      icon: "description",
-                      title: "Submit Application",
-                      description:
-                        "Complete our vendor application with company information, specializations, and licensing details.",
-                    },
-                    {
-                      step: "2",
-                      icon: "verified_user",
-                      title: "Documentation Review",
-                      description:
-                        "Provide required documents including licenses, insurance certificates, and safety certifications.",
-                    },
-                    {
-                      step: "3",
-                      icon: "emoji_events",
-                      title: "Portfolio & References",
-                      description:
-                        "Share recent project examples, quality samples, and professional references for verification.",
-                    },
-                    {
-                      step: "4",
-                      icon: "badge",
-                      title: "Approval & Onboarding",
-                      description:
-                        "Upon approval, receive vendor credentials and access to our trade partnership portal.",
-                    },
-                  ].map((step, index) => (
-                    <FadeInWhenVisible key={index}>
-                      <div className="group relative flex h-full">
-                        {/* Animated Border Glow */}
-                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
-
-                        <div className="relative bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-xl border-2 border-gray-200 dark:border-gray-600 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
-                          {/* Top Accent Bar */}
-                          <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
-
-                          <div className="p-6 text-center">
-                            <div className="relative inline-block mb-4 mx-auto">
-                              <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-30 blur-lg rounded-full"></div>
-                              <div className="relative flex justify-center items-center bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-full w-16 h-16 shadow-xl group-hover:scale-110 transition-all duration-300">
+                      {/* Scrollable content */}
+                      <div className="flex-1 overflow-y-auto p-4 space-y-4 overscroll-contain">
+                        {/* Services / highlights */}
+                        <div>
+                          <h4 className="text-white/70 text-xs font-bold uppercase tracking-wider mb-2">
+                            Services
+                          </h4>
+                          <ul className="space-y-1.5">
+                            {vendor.highlights.map((h, hi) => (
+                              <li
+                                key={hi}
+                                className="flex items-start gap-2 text-white text-xs"
+                              >
                                 <MaterialIcon
-                                  icon={step.icon}
-                                  size="xl"
-                                  theme="military"
-                                  ariaLabel={`Step ${step.step}`}
-                                  className="text-white drop-shadow-lg"
+                                  icon="check_circle"
+                                  size="sm"
+                                  ariaLabel=""
+                                  className="text-white/60 flex-shrink-0 mt-0.5"
                                 />
-                              </div>
-                            </div>
-                            <div className="inline-block bg-brand-secondary/20 dark:bg-brand-secondary/30 mb-3 px-3 py-1 rounded-full">
-                              <span className="font-bold text-brand-secondary-text dark:text-brand-secondary-light text-sm">
-                                Step {step.step}
-                              </span>
-                            </div>
-                            <h4 className="mb-3 font-bold text-gray-900 dark:text-white text-lg">
-                              {step.title}
-                            </h4>
-                            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                              {step.description}
-                            </p>
-                          </div>
+                                {h}
+                              </li>
+                            ))}
+                          </ul>
                         </div>
+
+                        {/* Our Work Together */}
+                        {vendor.portfolio.length > 0 && (
+                          <div>
+                            <h4 className="text-white/70 text-xs font-bold uppercase tracking-wider mb-2">
+                              Our Work Together
+                            </h4>
+                            <ul className="space-y-1.5">
+                              {vendor.portfolio.map((item, pi) => (
+                                <li
+                                  key={pi}
+                                  className="flex items-start gap-2 text-white text-xs"
+                                >
+                                  <MaterialIcon
+                                    icon="arrow_right"
+                                    size="sm"
+                                    ariaLabel=""
+                                    className="text-white/60 flex-shrink-0 mt-0.5"
+                                  />
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+
+                        {/* Address */}
+                        {vendor.address && (
+                          <div className="flex items-start gap-2 text-white/90 text-xs">
+                            <MaterialIcon
+                              icon="location_on"
+                              size="sm"
+                              ariaLabel="Address"
+                              className="text-white/60 flex-shrink-0 mt-0.5"
+                            />
+                            <a
+                              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(vendor.address)}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline underline-offset-2 hover:text-white transition-colors"
+                            >
+                              {vendor.address}
+                            </a>
+                          </div>
+                        )}
                       </div>
-                    </FadeInWhenVisible>
-                  ))}
+
+                      {/* Platform links repeated on back */}
+                      {vendor.links.length > 0 && (
+                        <div className="flex items-center gap-2 px-4 py-3 border-t border-white/20 flex-shrink-0">
+                          <span className="text-white/50 text-xs font-medium mr-1">
+                            Connect:
+                          </span>
+                          {vendor.links.map((link, lIndex) => (
+                            <VendorPlatformLink
+                              key={lIndex}
+                              href={link.href}
+                              label={link.label}
+                              platform={link.platform}
+                            />
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </FadeInWhenVisible>
-            </div>
+              ))}
+            </StaggeredFadeIn>
           </div>
         </section>
 
-        {/* Call to Action - Join Our Trade Network */}
+        {/* ── SECTION 3: CTA ────────────────────────────────────────────── */}
         <section
           id="apply"
           className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden rounded-2xl"
@@ -988,104 +681,100 @@ export default function AlliesPage() {
           <DiagonalStripePattern />
           <BrandColorBlobs />
 
-          <div className="relative z-10 p-12 lg:p-16 xl:p-20">
+          <div className="relative z-10 px-8 lg:px-16 xl:px-20">
             <FadeInWhenVisible>
               <div className="text-center">
-                {/* Section Header - Military Construction Standard */}
                 <div className="mb-16 sm:mb-20">
-                  {/* Icon with decorative lines */}
                   <div className="flex items-center justify-center mb-8 gap-4">
-                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
                     <div className="relative">
-                      <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                      <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full" />
                       <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                         <MaterialIcon
                           icon="diversity_3"
                           size="2xl"
                           className="text-white drop-shadow-lg"
-                          ariaLabel="Join partnership network"
+                          ariaLabel="Become an ally"
                         />
                       </div>
                     </div>
-                    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full" />
                   </div>
 
-                  {/* Two-line gradient heading */}
                   <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                     <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                      Join Our Trade
+                      Become an
                     </span>
                     <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                      Partnership Network
+                      Ally in Force
                     </span>
                   </h2>
 
-                  {/* Description with colored keyword highlighting */}
-                  <p className="mx-auto mb-8 max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                    Ready to{" "}
+                  <p className="mx-auto mb-8 max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                    Ready to grow your business with a{" "}
                     <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                      grow your business
-                    </span>{" "}
-                    with a veteran-owned construction leader? We're actively
-                    seeking{" "}
-                    <span className="font-bold text-gray-900 dark:text-white">
-                      reliable, skilled trade partners who value quality
-                      workmanship, professional collaboration, and sustainable
-                      business relationships
+                      veteran-owned construction leader
                     </span>
-                    . Apply to become an approved vendor and access consistent
-                    project opportunities.
+                    ? We&apos;re actively seeking reliable, skilled trade
+                    partners who value quality workmanship, honest
+                    communication, and{" "}
+                    <span className="font-bold text-gray-900 dark:text-white">
+                      sustainable business relationships built on mutual success
+                    </span>
+                    .
                   </p>
                 </div>
+
                 <div className="flex sm:flex-row flex-col justify-center gap-4">
-                  <Link href="/contact">
-                    <Button
-                      size="lg"
-                      className="bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary dark:hover:bg-brand-primary-dark shadow-xl text-white"
-                    >
-                      <MaterialIcon
-                        icon="handshake"
-                        className="mr-2"
-                        ariaLabel="Apply"
-                      />
-                      Begin Partnership Application
-                    </Button>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-primary hover:bg-brand-primary-dark text-white font-bold rounded-xl shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl"
+                  >
+                    <MaterialIcon icon="handshake" ariaLabel="Apply" />
+                    Begin Partnership Discussion
                   </Link>
-                  <Link href="/projects">
-                    <Button
-                      size="lg"
-                      className="bg-brand-secondary hover:bg-brand-secondary-dark dark:bg-brand-secondary dark:hover:bg-brand-secondary-dark shadow-xl text-black dark:text-black"
-                    >
-                      <MaterialIcon
-                        icon="emoji_events"
-                        size="sm"
-                        theme="veteran"
-                        ariaLabel="Portfolio"
-                      />
-                      View Our Portfolio
-                    </Button>
+                  <Link
+                    href="/projects"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-secondary hover:bg-brand-secondary-dark text-black font-bold rounded-xl shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl"
+                  >
+                    <MaterialIcon
+                      icon="emoji_events"
+                      size="sm"
+                      ariaLabel="Portfolio"
+                    />
+                    View Our Portfolio
                   </Link>
                 </div>
-                <p className="mt-6 text-gray-500 dark:text-gray-300">
+
+                <p className="mt-8 text-gray-500 dark:text-gray-300 text-sm">
                   <MaterialIcon
                     icon="call"
                     size="sm"
-                    theme="military"
                     ariaLabel="Phone"
                     className="inline mr-2"
                   />
-                  Trade Partnership Inquiries: {COMPANY_INFO.phone.display} |
-                  7:00 AM - 4:00 PM PST
+                  Trade Partnership Inquiries:{" "}
+                  <a
+                    href={`tel:${COMPANY_INFO.phone.tel}`}
+                    className="font-semibold hover:text-brand-primary transition-colors"
+                  >
+                    {COMPANY_INFO.phone.display}
+                  </a>{" "}
+                  | 7:00 AM – 4:00 PM PST
                 </p>
-                <p className="text-gray-500 dark:text-gray-300">
+                <p className="text-gray-500 dark:text-gray-300 text-sm">
                   <MaterialIcon
                     icon="mark_email_read"
                     size="sm"
-                    theme="military"
                     ariaLabel="Email"
                     className="inline mr-2"
                   />
-                  {COMPANY_INFO.email.main}
+                  <a
+                    href={`mailto:${COMPANY_INFO.email.main}`}
+                    className="font-semibold hover:text-brand-primary transition-colors"
+                  >
+                    {COMPANY_INFO.email.main}
+                  </a>
                 </p>
               </div>
             </FadeInWhenVisible>
