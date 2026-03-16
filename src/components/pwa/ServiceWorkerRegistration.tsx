@@ -87,6 +87,12 @@ export function ServiceWorkerRegistration({
     // Handle controller change (new SW activated)
     navigator.serviceWorker.addEventListener("controllerchange", () => {
       if (refreshing) return;
+      // Guard: do not reload if the current frame is a Chrome error page
+      // (chrome-error://chromewebdata/). Calling window.location.reload() from
+      // that context causes Chrome to attempt a cross-protocol navigation to
+      // https://www.mhc-gc.com/, which it blocks with an "Unsafe attempt to
+      // load URL" error in the console.
+      if (!window.location.protocol.startsWith("http")) return;
       refreshing = true;
       logger.info("[PWA] New service worker activated, reloading page");
       window.location.reload();

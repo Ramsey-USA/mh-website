@@ -583,8 +583,18 @@ async function handlePageRequest(request) {
       return rootResponse;
     }
 
-    // Return offline page
-    return caches.match("/offline");
+    // Return offline page, with a hard fallback so respondWith() never
+    // receives undefined — an undefined response causes a network error
+    // which Chrome renders as chrome-error://chromewebdata/, and any
+    // subsequent navigation attempt from that error-page frame produces
+    // the "Unsafe attempt to load URL" cross-protocol security error.
+    const offlineResponse = await caches.match("/offline");
+    if (offlineResponse) return offlineResponse;
+
+    return new Response(
+      '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Offline – MH Construction</title></head><body><p>You are offline. <a href="/">Retry</a></p></body></html>',
+      { status: 503, headers: { "Content-Type": "text/html; charset=utf-8" } },
+    );
   }
 }
 
