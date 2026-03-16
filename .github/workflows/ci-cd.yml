@@ -100,7 +100,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: mh-construction
-          directory: .vercel/output/static
+          directory: .open-next/assets
           wranglerVersion: "3"
 
   # Security Audit
