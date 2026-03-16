@@ -136,7 +136,7 @@ export function FormProgress({
         className={`bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden ${className}`}
       >
         {/* Header with Progress Bar */}
-        <div className="bg-gradient-to-r from-primary-50 to-accent-50 dark:from-gray-900 dark:to-gray-800 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+        <div className="bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-gray-900 dark:to-gray-800 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between mb-3">
             <div>
               <h3 className="text-lg font-bold text-gray-900 dark:text-white">
@@ -162,7 +162,7 @@ export function FormProgress({
           {/* Animated Progress Bar */}
           <div className="relative h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
             <div
-              className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary-500 via-primary-600 to-accent-500 rounded-full transition-all duration-700 ease-out shadow-lg"
+              className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary-500 via-primary-600 to-secondary-500 rounded-full transition-all duration-700 ease-out shadow-lg"
               style={{ width: `${progressPercentage}%` }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />

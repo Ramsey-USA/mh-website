@@ -44,7 +44,7 @@
     "deps:check": "npx depcheck --ignores='@types/*,eslint-*,prettier,husky,@commitlint/*,postcss,autoprefixer,jest-environment-jsdom,@opennextjs/cloudflare,chalk'",
     "deps:update": "npm outdated",
     "deps:clean": "npm prune && npm dedupe",
-    "prepare": "husky"
+    "prepare": "node -e \"if (process.env.CI) process.exit(0)\" && husky"
   },
   "keywords": [
     "construction",

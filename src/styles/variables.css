@@ -11,10 +11,12 @@
   --color-brand-hunter-green: #386851;
   --color-brand-hunter-green-light: #628f79;
   --color-brand-hunter-green-dark: #1e392c;
+  --color-brand-hunter-green-darker: #12231b;
   /* Backward-compat aliases */
   --color-brand-primary: #386851;
   --color-brand-primary-light: #628f79;
   --color-brand-primary-dark: #1e392c;
+  --color-brand-primary-darker: #12231b;
 
   /* SECONDARY BRAND COLOR: Leather Tan */
   --color-brand-leather-tan: #bd9264;

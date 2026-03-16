@@ -53,7 +53,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ---
 
-## Project Status (March 15, 2026)
+## Project Status (March 16, 2026)
 
 ### Production-Ready Platform
 
@@ -63,7 +63,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Deployed**      | Live      | Cloudflare Pages — mhc-gc.com             |
 | **TypeScript**    | Strict    | Zero type errors                          |
 | **ESLint**        | Clean     | Zero lint warnings, zero errors           |
-| **Tests**         | Passing   | 56/56 passing                             |
+| **Tests**         | Passing   | 54/54 passing                             |
 | **SEO**           | 100/100   | Perfect scores across all pages           |
 | **Lighthouse**    | 94+       | Performance optimized                     |
 | **Bundle Size**   | 211 kB    | Production optimized                      |
@@ -73,6 +73,20 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Documentation** | Optimized | 62 docs + 12 supporting files, zero bloat |
 
 ### Recent Improvements (March 2026)
+
+- **Mar 16:** Build pipeline optimizations — moved `outputFileTracingExcludes` to top-level key in
+  `next.config.js` (promoted out of `experimental` in Next.js 15; was emitting a config warning); excludes
+  build-tool packages (`@swc`, `webpack`, `typescript`, `eslint`, `tailwindcss`, `postcss`, etc.) from the
+  Next.js trace step; disabled Next.js telemetry unconditionally via `NEXT_TELEMETRY_DISABLED=1` at
+  config load time; made `prepare` script CI-aware so husky is skipped in Cloudflare Pages builds
+  (`node -e "if (process.env.CI) process.exit(0)" && husky`); updated `compatibility_date` in
+  `wrangler.toml` to `2026-03-15`; deleted dead `/api/auth/login` and `/api/auth/refresh` routes (both
+  always returned 401 — `getUserById` / `verifyCredentials` were stubs; superseded by
+  `/api/auth/admin-login`); removed deleted routes from `MUTATION_ROUTES` in `api-cache-security.test.ts`;
+  fixed `module.context` null-safety in webpack chunk naming (webpack 5 can pass `null` context);
+  build: zero warnings, zero errors, 37/37 static pages, 210 kB shared bundle; test count: 56 → 54;
+  remaining dashboard-only items: enable `.next/cache` build cache path in CF Pages dashboard,
+  add `HUSKY=0` env var
 
 - **Mar 15:** Removed redundant `export const runtime = "edge"` declarations from 18 API route files —
   Cloudflare Workers is inherently an edge runtime so the declarations are no-ops, but OpenNext was
@@ -490,11 +504,15 @@ Three-tiered palette using `--color-brand-[name]-[shade]` CSS variables.
 
 **Hunter Green (Primary):**
 
-| Shade | Hex       | CSS Variable                       | Tailwind Class             |
-| ----- | --------- | ---------------------------------- | -------------------------- |
-| Core  | `#386851` | `--color-brand-hunter-green`       | `text-brand-primary`       |
-| Light | `#628F79` | `--color-brand-hunter-green-light` | `text-brand-primary-light` |
-| Dark  | `#1E392C` | `--color-brand-hunter-green-dark`  | `text-brand-primary-dark`  |
+| Shade  | Hex       | CSS Variable                        | Tailwind Class              |
+| ------ | --------- | ----------------------------------- | --------------------------- |
+| Core   | `#386851` | `--color-brand-hunter-green`        | `text-brand-primary`        |
+| Light  | `#628F79` | `--color-brand-hunter-green-light`  | `text-brand-primary-light`  |
+| Dark   | `#1E392C` | `--color-brand-hunter-green-dark`   | `text-brand-primary-dark`   |
+| Deeper | `#12231b` | `--color-brand-hunter-green-darker` | `text-brand-primary-darker` |
+
+> **Deeper** is the gradient terminus used in 22+ component files.
+> Example: `from-brand-primary via-brand-primary-dark to-brand-primary-darker`
 
 **Leather Tan (Secondary):**
 
@@ -514,6 +532,8 @@ Three-tiered palette using `--color-brand-[name]-[shade]` CSS variables.
 
 > **Bronze usage:** Applied to CTA borders and Featured Project labels for a premium feel.
 > For accessible body text, always use the Dark shade (contrast ≥ 7:1 on white).
+> Note: `brand-bronze-light` is defined but currently unused in components — bronze gradients
+> use the numeric scale (`bronze-600`, `bronze-700`, `bronze-800`) directly.
 
 **Neutrals:**
 
@@ -526,7 +546,8 @@ Three-tiered palette using `--color-brand-[name]-[shade]` CSS variables.
 // Tailwind classes — primary (Hunter Green)
 bg - brand - primary; // Hunter Green core
 text - brand - primary - light; // Lighter tint (dark mode surfaces)
-text - brand - primary - dark; // Deepest shade (headings, high contrast)
+text - brand - primary - dark; // Deep shade (headings, high contrast)
+text - brand - primary - darker; // Gradient terminus (to-brand-primary-darker)
 
 // Secondary (Leather Tan)
 bg - brand - secondary; // Leather Tan core (backgrounds, large text only)
@@ -540,7 +561,6 @@ text - brand - bronze - dark; // Accessible bronze text
 // Dark mode variants
 dark: bg - brand - primary - light;
 dark: text - brand - secondary - light;
-dark: border - brand - bronze - light;
 ```
 
 ### Typography

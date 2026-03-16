@@ -18,15 +18,12 @@ const config: Config = {
           primary: "#386851",
           "primary-light": "#628F79",
           "primary-dark": "#1E392C",
+          "primary-darker": "#12231b", // Deepest Hunter Green — gradient terminus
           secondary: "#BD9264", // Leather Tan (large text 18pt+, backgrounds)
-          "secondary-text": "#8A6B49", // WCAG AA compliant for normal text (4.71:1)
+          "secondary-text": "#8A6B49", // Alias for secondary-dark — WCAG AA (4.71:1)
           "secondary-light": "#D9BD93",
           "secondary-dark": "#8A6B49",
-          accent: "#BD9264",
-          "accent-text": "#8A6B49", // WCAG AA compliant for normal text
-          "accent-light": "#D9BD93",
-          "accent-dark": "#8A6B49",
-          // Architectural Bronze — CTA borders & Featured Project labels
+          // Architectural Bronze — accent color for CTA borders & Featured Project labels
           bronze: "#A87948",
           "bronze-light": "#CD9B6D",
           "bronze-dark": "#6B4E2E",
@@ -57,18 +54,6 @@ const config: Config = {
           900: "#0c1812",
         },
         secondary: {
-          50: "#fdf9f5",
-          100: "#f8f0e6",
-          200: "#f0ddc6",
-          300: "#e4c49e",
-          400: "#D9BD93", // Leather Tan Light
-          500: "#BD9264", // Leather Tan Core
-          600: "#a67d52",
-          700: "#8A6B49", // Leather Tan Dark — AA text
-          800: "#6f5236",
-          900: "#5a422c",
-        },
-        accent: {
           50: "#fdf9f5",
           100: "#f8f0e6",
           200: "#f0ddc6",

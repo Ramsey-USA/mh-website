@@ -10,6 +10,9 @@
  * @lastUpdated 2025-12-25
  */
 
+// Disable telemetry during CI/production builds
+process.env.NEXT_TELEMETRY_DISABLED = "1";
+
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
@@ -32,6 +35,31 @@ const nextConfig = {
       "@radix-ui/react-progress",
     ],
     // CSS optimization - cssChunking defaults to true for better splitting
+  },
+
+  // Exclude build-tool node_modules from the trace step (~20s savings)
+  outputFileTracingExcludes: {
+    "*": [
+      "node_modules/@swc/core-linux-x64-gnu/**/*",
+      "node_modules/@swc/core-linux-x64-musl/**/*",
+      "node_modules/@esbuild/**/*",
+      "node_modules/webpack/**/*",
+      "node_modules/typescript/**/*",
+      "node_modules/jest-worker/**/*",
+      "node_modules/jest-resolve/**/*",
+      "node_modules/jest-runtime/**/*",
+      "node_modules/eslint/**/*",
+      "node_modules/@eslint/**/*",
+      "node_modules/eslint-*/**/*",
+      "node_modules/tailwindcss/**/*",
+      "node_modules/postcss/**/*",
+      "node_modules/autoprefixer/**/*",
+      "node_modules/@next/bundle-analyzer/**/*",
+      "node_modules/husky/**/*",
+      "node_modules/@commitlint/**/*",
+      "node_modules/markdownlint-cli2/**/*",
+      "node_modules/cspell/**/*",
+    ],
   },
 
   // === BUILD CONFIGURATION ===
@@ -111,10 +139,10 @@ const nextConfig = {
             lib: {
               test: /[\\/]node_modules[\\/]/,
               name(module) {
-                const packageName = module.context.match(
-                  /[\\/]node_modules[\\/](.*?)(?:[\\/]|$)/,
+                const packageName = module.context?.match(
+                  /[\/\\]node_modules[\/\\](.*?)(?:[\/\\]|$)/,
                 )?.[1];
-                return `npm.${packageName?.replace("@", "")}`;
+                return `npm.${packageName?.replace("@", "") ?? "vendor"}`;
               },
               priority: 30,
               minChunks: 1,
