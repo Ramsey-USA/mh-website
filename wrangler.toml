@@ -1,7 +1,15 @@
 name = "mh-construction"
 pages_build_output_dir = ".open-next/assets"
-compatibility_date = "2026-03-15"
-compatibility_flags = ["nodejs_compat_v2"]
+compatibility_date = "2024-11-18"
+compatibility_flags = ["nodejs_compat"]
+
+# Build-time / runtime environment variables
+# These are committed to version control — DO NOT put secrets here.
+# NEXT_PUBLIC_SITE_URL is baked into the Next.js client bundle at build time.
+# next.config.js falls back to this value if the dashboard var is missing, so
+# the dashboard setting is redundant but still recommended for clarity.
+[vars]
+NEXT_PUBLIC_SITE_URL = "https://www.mhc-gc.com"
 
 # NOTE: This is a Cloudflare Pages project. Do NOT add Workers-style fields:
 #   - `main` (worker entry point) — Pages discovers .open-next/worker.js automatically
