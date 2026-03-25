@@ -74,9 +74,9 @@ export const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
   },
   cors: {
     origin: [
-      "https://mh-construction.com",
-      "https://www.mh-construction.com",
-      "https://staging.mh-construction.com",
+      "https://mhc-gc.com",
+      "https://www.mhc-gc.com",
+      "https://staging.mhc-gc.com",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: [

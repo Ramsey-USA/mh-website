@@ -76,13 +76,24 @@ Set under: **Settings → Environment variables → Production**
 | Variable                  | Value                    | Notes                                     |
 | ------------------------- | ------------------------ | ----------------------------------------- |
 | `NEXT_PUBLIC_SITE_URL`    | `https://www.mhc-gc.com` | Canonical URL                             |
-| `RESEND_API_KEY`          | `re_xxxxx`               | Email notifications                       |
+| `RESEND_API_KEY`          | `re_xxxxx`               | Email notifications (contact forms)       |
+| `JWT_SECRET`              | 32+ random bytes (hex)   | Signs admin JWTs — **required in prod**   |
+| `ADMIN_MATT_PASSWORD`     | strong password          | Admin dashboard login for Matt            |
+| `ADMIN_JEREMY_PASSWORD`   | strong password          | Admin dashboard login for Jeremy          |
+| `EMAIL_FROM`              | `noreply@mhc-gc.com`     | Resend sender address (must be verified)  |
 | `CI`                      | `true`                   | Skips husky pre-commit hooks during build |
 | `NEXT_TELEMETRY_DISABLED` | `1`                      | Disable Next.js telemetry                 |
 
 > **`CI=true` is essential.** Without it, `npm install` triggers the `prepare` script which
 > runs husky and fails in the Cloudflare build environment.
 > The `prepare` script already handles this: `node -e "if (process.env.CI) process.exit(0)" && husky`
+
+> **`JWT_SECRET` must be set before the first admin login attempt.** The route throws a 500
+> in production if missing. Generate with: `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`
+
+> **Resend domain verification:** `mhc-gc.com` must be a verified sender domain in the
+> Resend dashboard (SPF + DKIM DNS records required). Without this all contact form emails
+> are silently dropped.
 
 ### Optional Environment Variables
 
@@ -247,11 +258,25 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 - [ ] Set **Build output directory** = `.open-next/assets` in dashboard
 - [ ] Set **Node.js version** = `22` in dashboard
 - [ ] Add `CI=true` environment variable
-- [ ] Add `NEXT_PUBLIC_SITE_URL`, `RESEND_API_KEY`, `NEXT_TELEMETRY_DISABLED=1`
+- [ ] Add `NEXT_PUBLIC_SITE_URL=https://www.mhc-gc.com`, `RESEND_API_KEY`, `NEXT_TELEMETRY_DISABLED=1`
+- [ ] Add `JWT_SECRET` (generate: `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`)
+- [ ] Add `ADMIN_MATT_PASSWORD` and `ADMIN_JEREMY_PASSWORD`
+- [ ] Add `EMAIL_FROM=noreply@mhc-gc.com`
 - [ ] Set production branch to `main`
 - [ ] Enable `.next/cache` build cache path
 - [ ] Connect custom domain `www.mhc-gc.com`
-- [ ] Verify SSL certificate is active (Full strict)
+- [ ] Verify SSL certificate is active (**Full strict** — not Flexible)
+- [ ] Enable **Always Use HTTPS** (Security → Settings)
+- [ ] Add Cloudflare Page Rule: `mhc-gc.com/*` → 301 redirect to `https://www.mhc-gc.com/$1`
+- [ ] **Disable Rocket Loader** (Speed → Optimization → Rocket Loader = OFF) — breaks Next.js hydration
+- [ ] **Disable HTML Minify** (Speed → Optimization → Auto Minify → HTML = OFF) — can break CSP
+- [ ] Verify no Cloudflare Cache Rules are caching HTML pages (HTML must not be CDN-cached)
+- [ ] Create R2 buckets: `mh-construction-assets` and `mh-construction-resumes`
+- [ ] Bind R2 buckets under Settings → Bindings: `FILE_ASSETS` and `RESUMES`
+- [ ] Bind KV namespaces: `CACHE` and `ANALYTICS`
+- [ ] Apply D1 migrations (see D1 Migrations section below)
+- [ ] Verify Resend domain: add SPF + DKIM DNS records for `mhc-gc.com` in Resend dashboard
+- [ ] Add GitHub repo secrets: `CLOUDFLARE_KV_NAMESPACE_ID`, `CLOUDFLARE_KV_PREVIEW_NAMESPACE_ID`, `CLOUDFLARE_ANALYTICS_KV_ID`, `CLOUDFLARE_ANALYTICS_KV_PREVIEW_ID`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
 
 ### Every Deploy (Automatic via Git Push)
 

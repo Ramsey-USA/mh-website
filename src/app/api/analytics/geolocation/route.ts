@@ -1,23 +1,45 @@
 /**
  * Geolocation API
- * Provides geographic location data from Cloudflare headers
+ * Provides geographic location data from Cloudflare Workers cf object.
+ *
+ * NOTE: Only CF-IPCountry is a real HTTP header added by Cloudflare.
+ * All other geo properties (city, region, timezone, etc.) are available
+ * exclusively on the Workers `request.cf` object, accessed via
+ * getCloudflareContext() from @opennextjs/cloudflare — NOT as headers.
  */
 
 import { type NextRequest, NextResponse } from "next/server";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { logger } from "@/lib/utils/logger";
 
 export function GET(request: NextRequest) {
   try {
-    // Extract Cloudflare geolocation headers
-    // These are automatically added by Cloudflare in production
+    // CF-IPCountry is the only real Cloudflare HTTP header for geo.
+    // All other geo data comes from the Workers cf object.
     const country = request.headers.get("CF-IPCountry") || undefined;
-    const city = request.headers.get("CF-IPCity") || undefined;
-    const region = request.headers.get("CF-Region") || undefined;
-    const regionCode = request.headers.get("CF-Region-Code") || undefined;
-    const latitude = request.headers.get("CF-IPLatitude") || undefined;
-    const longitude = request.headers.get("CF-IPLongitude") || undefined;
-    const timezone = request.headers.get("CF-Timezone") || undefined;
-    const postalCode = request.headers.get("CF-PostalCode") || undefined;
+
+    // Access the Cloudflare Workers cf object for all other geo properties.
+    // Wrapped in try/catch so the route doesn't throw outside a CF context.
+    let city: string | undefined;
+    let region: string | undefined;
+    let regionCode: string | undefined;
+    let latitude: string | undefined;
+    let longitude: string | undefined;
+    let timezone: string | undefined;
+    let postalCode: string | undefined;
+    try {
+      const { cf } = getCloudflareContext();
+      city = cf?.city ?? undefined;
+      region = cf?.region ?? undefined;
+      regionCode = cf?.regionCode ?? undefined;
+      latitude = cf?.latitude !== undefined ? String(cf.latitude) : undefined;
+      longitude =
+        cf?.longitude !== undefined ? String(cf.longitude) : undefined;
+      timezone = cf?.timezone ?? undefined;
+      postalCode = cf?.postalCode ?? undefined;
+    } catch {
+      // Not in a Cloudflare Workers context (local dev fallback below handles this)
+    }
 
     // For development, return mock data for testing
     if (process.env.NODE_ENV === "development") {

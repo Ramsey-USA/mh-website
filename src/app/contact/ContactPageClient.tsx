@@ -613,6 +613,14 @@ export default function ContactPageClient() {
                 className="relative mb-12 rounded-2xl shadow-2xl overflow-hidden border-4 border-brand-primary/20"
                 style={{ height: "600px" }}
               >
+                {/* TODO: Replace this embed URL with a real Google Maps Embed API URL.
+                    The current URL uses a placeholder Place ID (0x1234567890abcdef) and will
+                    render a blank or incorrect map tile.
+                    Steps:
+                      1. Go to https://console.cloud.google.com and enable the Maps Embed API
+                      2. Find the real Place ID for "3111 N Capitol Ave, Pasco WA" via
+                         https://developers.google.com/maps/documentation/places/web-service/place-id
+                      3. Replace this src with the real embed URL containing the correct Place ID */}
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2732.828269!2d-119.1319!3d46.2589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54983e0a7f5b5555%3A0x1234567890abcdef!2s3111%20N%20Capitol%20Ave%2C%20Pasco%2C%20WA%2099301!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
                   width="100%"

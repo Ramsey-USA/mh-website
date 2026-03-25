@@ -74,6 +74,18 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Recent Improvements (March 2026)
 
+- **Mar 25:** Codebase audit and hardening — fixed CORS origins in `security-manager.ts`
+  (was pointing to stale `mh-construction.com` domain); fixed SW precache paths for location
+  pages (`/pasco` etc. \u2192 `/locations/pasco`); fixed geolocation API to read from Workers `cf`
+  object instead of non-existent CF headers (only `CF-IPCountry` is a real header); fixed
+  `X-Frame-Options` in `public/_headers` from `SAMEORIGIN` to `DENY` (consistent with
+  security-manager); fixed CI Node version `20` \u2192 `22` (matches `engines` in package.json);
+  fixed CI `NEXT_PUBLIC_SITE_URL` missing `www` prefix; added `JWT_SECRET`,
+  `ADMIN_MATT_PASSWORD`, `ADMIN_JEREMY_PASSWORD`, `EMAIL_FROM`, R2 bucket bindings, KV
+  bindings, Cloudflare dashboard safety settings (Rocket Loader OFF, HTML minify OFF, SSL
+  Full strict, Always HTTPS) to deployment checklist; flagged placeholder Google Maps embed
+  URL on contact page (requires real Place ID + Maps Embed API key)
+
 - **Mar 25:** Fixed Cloudflare Pages deployment regression introduced by Workers-style wrangler config —
   reverted `wrangler.toml` from Workers-style (`main` + `[assets]`) back to Pages-required
   `pages_build_output_dir = ".open-next/assets"`; deleted `wrangler.jsonc` (file was truncated,
@@ -192,7 +204,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 - **Mar 11:** Security hardening — API cache `Cache-Control: no-store` on mutating routes (21 tests);
   asset-integrity guard tests added; middleware SEO matcher excludes static assets; production
   audit at 0 vulnerabilities (dev-only: 15); `tar@7.5.11` and `cookie@1.1.1` CVE overrides added
-- **Mar 11:** Dependency upgrades — Next.js 15.5.12, React 18.3.1, Tailwind 3.4.19,
+- **Mar 11:** Dependency upgrades — Next.js 15.5.12, React 19.0.0, Tailwind 3.4.19,
   TypeScript 5.9.2, `markdownlint-cli2` v0.21.0, `vercel` pinned to 32.3.0
 - **Mar 11:** SEO/GEO hardening — canonical host standardized to `https://www.mhc-gc.com`;
   city-priority service metadata; media sitemap expanded; Contact metadata deduped
@@ -424,6 +436,10 @@ docs/
 analytics-guide-for-matt-and-jeremy.md  # PRIMARY marketing intelligence guide
 seo-quick-reference.md                  # Quick SEO actions
 contributing.md                         # Contribution guidelines
+
+# Config guides
+config/config-directory-guide.md        # Config directory overview
+config/cloudflare/edge-optimization.md  # Cloudflare edge optimization reference
 ```
 
 **Key Documentation:**
@@ -445,7 +461,7 @@ contributing.md                         # Contribution guidelines
 mh-website/
 ├── src/
 │   ├── app/                      # Next.js 15 App Router
-│   │   ├── about/ allies/ careers/ contact/  # 17 public pages (flat route directories)
+│   │   ├── about/ allies/ careers/ contact/  # 16 public pages (flat route directories)
 │   │   ├── locations/           # 11 city pages (kennewick, pasco, richland, spokane, yakima,
 │   │   │                        #  walla-walla, west-richland, coeur-d-alene, hermiston, omak, pendleton)
 │   │   ├── api/                 # API routes (analytics, contact, etc.)
@@ -454,6 +470,7 @@ mh-website/
 │   │   └── page.tsx             # Homepage
 │   ├── components/               # React components
 │   │   ├── about/               # About page components
+│   │   ├── allies/              # Allies page components
 │   │   ├── analytics/           # Tracking components
 │   │   ├── animations/          # Animation utilities
 │   │   ├── error/               # Error boundary components
@@ -849,5 +866,5 @@ Jeremy Thamert, continuing 15 years of construction excellence with renewed vete
 
 ---
 
-**Last Updated:** March 16, 2026  
+**Last Updated:** March 25, 2026  
 **Documentation Version:** 3.2 (Single Entry Point - Zero Bloat)

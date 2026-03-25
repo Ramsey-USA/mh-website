@@ -11,8 +11,8 @@ permissions:
   deployments: write
 
 env:
-  NODE_VERSION: "20"
-  NEXT_PUBLIC_SITE_URL: https://mhc-gc.com
+  NODE_VERSION: "22"
+  NEXT_PUBLIC_SITE_URL: https://www.mhc-gc.com
 
 jobs:
   # Quality Checks Job
