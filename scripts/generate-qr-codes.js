@@ -15,7 +15,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Base URL for production
-const BASE_URL = "https://mhc-gc.com";
+const BASE_URL = "https://www.mhc-gc.com";
 
 // Output directory
 const OUTPUT_DIR = path.join(__dirname, "../public/images/qr-codes");
@@ -62,75 +62,75 @@ const QR_CODES = [
     name: "homepage",
     url: BASE_URL,
     description: "MH Construction Homepage",
-    label: "mhc-gc.com",
+    label: "www.mhc-gc.com",
   },
   {
     name: "about",
     url: `${BASE_URL}/about`,
     description: "About Us",
-    label: "mhc-gc.com/about",
+    label: "www.mhc-gc.com/about",
   },
   {
     name: "services",
     url: `${BASE_URL}/services`,
     description: "Our Services",
-    label: "mhc-gc.com/services",
+    label: "www.mhc-gc.com/services",
   },
   {
     name: "projects",
     url: `${BASE_URL}/projects`,
     description: "Our Projects",
-    label: "mhc-gc.com/projects",
+    label: "www.mhc-gc.com/projects",
   },
   {
     name: "team",
     url: `${BASE_URL}/team`,
     description: "Our Team",
-    label: "mhc-gc.com/team",
+    label: "www.mhc-gc.com/team",
   },
   {
     name: "careers",
     url: `${BASE_URL}/careers`,
     description: "Careers",
-    label: "mhc-gc.com/careers",
+    label: "www.mhc-gc.com/careers",
   },
   {
     name: "contact",
     url: `${BASE_URL}/contact`,
     description: "Contact Us",
-    label: "mhc-gc.com/contact",
+    label: "www.mhc-gc.com/contact",
   },
   {
     name: "booking",
     url: `${BASE_URL}/contact`,
     description: "Schedule Consultation",
-    label: "mhc-gc.com/contact",
+    label: "www.mhc-gc.com/contact",
   },
 
   // Special pages
   {
-    name: "case-studies",
-    url: `${BASE_URL}/case-studies`,
-    description: "Case Studies",
-    label: "mhc-gc.com/case-studies",
+    name: "projects",
+    url: `${BASE_URL}/projects`,
+    description: "Projects Portfolio",
+    label: "www.mhc-gc.com/projects",
   },
   {
     name: "allies",
     url: `${BASE_URL}/allies`,
     description: "Allies",
-    label: "mhc-gc.com/allies",
+    label: "www.mhc-gc.com/allies",
   },
   {
     name: "trade-partners",
     url: `${BASE_URL}/allies`,
     description: "Trade Partners",
-    label: "mhc-gc.com/allies",
+    label: "www.mhc-gc.com/allies",
   },
   {
-    name: "veteran-benefits",
-    url: `${BASE_URL}/veteran-benefits`,
-    description: "Veteran Benefits",
-    label: "mhc-gc.com/veteran-benefits",
+    name: "veterans",
+    url: `${BASE_URL}/veterans`,
+    description: "Veteran-Owned Construction",
+    label: "www.mhc-gc.com/veterans",
   },
 
   // Contact methods
