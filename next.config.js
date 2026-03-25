@@ -13,6 +13,22 @@
 // Disable telemetry during CI/production builds
 process.env.NEXT_TELEMETRY_DISABLED = "1";
 
+// ── Build-time environment guard ──────────────────────────────────────────────
+// NEXT_PUBLIC_SITE_URL is baked into the client bundle at build time.
+// If missing, canonical URLs, OG tags, and sitemap links will be wrong.
+// Note: RESEND_API_KEY and JWT_SECRET are Cloudflare Workers *runtime* secrets
+// (injected via dashboard bindings) — they are NOT available during `next build`
+// and must NOT be checked here.
+if (
+  process.env.NODE_ENV === "production" &&
+  !process.env.NEXT_PUBLIC_SITE_URL
+) {
+  throw new Error(
+    "NEXT_PUBLIC_SITE_URL is required for production builds. " +
+      "Set it in the Cloudflare Pages dashboard (Settings → Environment variables).",
+  );
+}
+
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });

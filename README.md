@@ -74,6 +74,13 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Recent Improvements (March 2026)
 
+- **Mar 25:** Dependency audit — `npm audit` now reports 4 vulnerabilities (0 critical, 2 high,
+  2 moderate): `fast-xml-parser` entity expansion bypass (via `wrangler` devDep); `flatted`
+  prototype pollution (partial override applied — awaiting upstream 3.4.2+ release); Next.js
+  2× moderate (HTTP request smuggling in rewrites, unbounded `next/image` disk cache — fix
+  requires Next.js >15.5.13 when available); `vercel` devDep fully removed; overrides updated
+  (`cookie@0.7.2`, `glob@>=11.0.0`, `flatted@>=3.4.0`, `undici@>=7.24.0`, `yauzl@>=3.2.1`)
+
 - **Mar 25:** Build type errors resolved — fixed 5 categories of pre-existing type errors exposed
   by TypeScript strict mode: (1) `rateLimit` is a middleware factory (`rateLimit(config)(handler)`) —
   4 API routes (`geolocation`, `consultations`, `job-applications`, `functions/[functionName]`) were
@@ -396,20 +403,24 @@ npm run clean            # Clean build artifacts
 
 ## Dependency Maintenance Notes (March 2026)
 
-- Production dependencies are currently clean: `npm audit --omit=dev` reports 0 vulnerabilities.
+- Production audit: `npm audit --omit=dev` reports 1 moderate vulnerability — Next.js
+  (HTTP request smuggling in rewrites, unbounded `next/image` disk cache growth; fix requires
+  upgrading Next.js beyond 15.5.13 when a patched release is available).
 - Deployment uses `@opennextjs/cloudflare` (OpenNext Workers adapter). The legacy
   `@cloudflare/next-on-pages` adapter has been fully removed — it is mutually exclusive
   with OpenNext and required `export const runtime = 'edge'` on every dynamic route.
-- `vercel` is pinned to `32.3.0` to reduce inherited tooling vulnerabilities.
-- `package.json` includes `overrides` to force patched versions of transitive
-  dev toolchain dependencies:
-  - `glob -> minimatch@9.0.7` (production transitive minimatch)
-  - `tar@7.5.11` (fixes high CVEs in `@mapbox/node-pre-gyp` chain via `vercel`)
-  - `cookie@1.1.1` (fixes low CVE in transitive chain)
-- Full `npm audit` still reports dev-only advisories in tooling (all in Vercel
-  adapter transitive chains; no override path available).
-- Current full-audit status: 15 dev-only vulnerabilities
-  (0 critical, 6 high, 9 moderate, 0 low).
+- `package.json` includes `overrides` to force patched versions of transitive dependencies:
+  - `tar@7.5.11` (fixes high CVEs in `@mapbox/node-pre-gyp` transitive chain)
+  - `cookie@0.7.2` (fixes low CVE in transitive chain)
+  - `flatted@>=3.4.0` (prototype pollution fix — needs `>=3.4.2` once released)
+  - `undici@>=7.24.0` (security fix in HTTP client)
+  - `yauzl@>=3.2.1` (zip parsing security fix)
+  - `glob@>=11.0.0` (transitive glob update)
+- Full `npm audit` reports 4 vulnerabilities in the toolchain:
+  - `fast-xml-parser` high (entity expansion bypass via `@aws-sdk/xml-builder` via `wrangler`)
+  - `flatted` high (prototype pollution — override partially effective; awaiting 3.4.2+)
+  - `next` 2× moderate (HTTP smuggling + disk cache; production dep, fix pending upstream)
+- Current full-audit status: 4 vulnerabilities (0 critical, 2 high, 2 moderate, 0 low).
 
 ---
 
@@ -471,7 +482,7 @@ config/cloudflare/edge-optimization.md  # Cloudflare edge optimization reference
 mh-website/
 ├── src/
 │   ├── app/                      # Next.js 15 App Router
-│   │   ├── about/ allies/ careers/ contact/  # 16 public pages (flat route directories)
+│   │   ├── about/ allies/ careers/ contact/  # 15 public pages (flat route directories)
 │   │   ├── locations/           # 11 city pages (kennewick, pasco, richland, spokane, yakima,
 │   │   │                        #  walla-walla, west-richland, coeur-d-alene, hermiston, omak, pendleton)
 │   │   ├── api/                 # API routes (analytics, contact, etc.)

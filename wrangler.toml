@@ -1,7 +1,14 @@
-name = "mh-construction-website"
+name = "mh-construction"
 pages_build_output_dir = ".open-next/assets"
 compatibility_date = "2026-03-15"
 compatibility_flags = ["nodejs_compat_v2"]
+
+# NOTE: This is a Cloudflare Pages project. Do NOT add Workers-style fields:
+#   - `main` (worker entry point) — Pages discovers .open-next/worker.js automatically
+#   - `[assets]` — Pages uses `pages_build_output_dir` instead
+#   - `[build]` — build command must be set in the CF Pages dashboard
+# Do NOT create a wrangler.jsonc file — CF Pages reads .jsonc before .toml,
+# and a malformed .jsonc silently overrides all config.
 
 # Runtime secrets — set via `wrangler secret put <NAME>` or the Cloudflare Pages
 # dashboard (Settings → Environment variables → Add variable → Secret).
@@ -18,21 +25,26 @@ compatibility_flags = ["nodejs_compat_v2"]
 #   TWILIO_AUTH_TOKEN        — Twilio auth token for SMS notifications
 #   TWILIO_FROM_NUMBER       — Twilio phone number (e.g. +15093086489)
 
-# The ${...} placeholders below must be replaced by your CI pipeline before
-# running `wrangler pages deploy` (e.g. via envsubst or a sed step).
-# In Cloudflare Pages dashboard builds, use the "Environment variables" section
-# to set these values — they are injected automatically by the build system.
+# Deployment is handled by Cloudflare Pages auto-deploy from the main branch.
+# The CI pipeline (.github/workflows/ci-cd.yml) is a quality gate only —
+# it does not run `wrangler pages deploy`.
+#
+# Bindings below (D1, R2) are read by Cloudflare Pages at deploy time.
+# KV namespaces are reserved for future use but not yet bound in the dashboard.
+# To activate KV, create the namespaces in the CF dashboard, then replace the
+# placeholder IDs below with real namespace IDs.
 
-# KV Namespaces for caching and analytics
-[[kv_namespaces]]
-binding = "CACHE"
-id = "${CLOUDFLARE_KV_NAMESPACE_ID}"
-preview_id = "${CLOUDFLARE_KV_PREVIEW_NAMESPACE_ID}"
-
-[[kv_namespaces]]
-binding = "ANALYTICS"
-id = "${CLOUDFLARE_ANALYTICS_KV_ID}"
-preview_id = "${CLOUDFLARE_ANALYTICS_KV_PREVIEW_ID}"
+# KV Namespaces — reserved for future use (analytics currently uses localStorage)
+# Uncomment and replace IDs when KV is needed:
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "YOUR_KV_NAMESPACE_ID"
+# preview_id = "YOUR_KV_PREVIEW_NAMESPACE_ID"
+#
+# [[kv_namespaces]]
+# binding = "ANALYTICS"
+# id = "YOUR_ANALYTICS_KV_ID"
+# preview_id = "YOUR_ANALYTICS_KV_PREVIEW_ID"
 
 # R2 buckets for file storage
 [[r2_buckets]]

@@ -273,14 +273,21 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 - [ ] Verify no Cloudflare Cache Rules are caching HTML pages (HTML must not be CDN-cached)
 - [ ] Create R2 buckets: `mh-construction-assets` and `mh-construction-resumes`
 - [ ] Bind R2 buckets under Settings → Bindings: `FILE_ASSETS` and `RESUMES`
-- [ ] Bind KV namespaces: `CACHE` and `ANALYTICS`
+- [ ] Bind KV namespaces: `CACHE` and `ANALYTICS` (reserved — not yet used; analytics runs on localStorage)
 - [ ] Apply D1 migrations (see D1 Migrations section below)
 - [ ] Verify Resend domain: add SPF + DKIM DNS records for `mhc-gc.com` in Resend dashboard
-- [ ] Add GitHub repo secrets: `CLOUDFLARE_KV_NAMESPACE_ID`, `CLOUDFLARE_KV_PREVIEW_NAMESPACE_ID`, `CLOUDFLARE_ANALYTICS_KV_ID`, `CLOUDFLARE_ANALYTICS_KV_PREVIEW_ID`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
+
+> **Note:** Deployment is handled entirely by Cloudflare Pages auto-deploy.
+> GitHub Actions (`.github/workflows/ci-cd.yml`) runs quality checks, tests, and
+> a build verification as a safety gate — it does **not** run `wrangler pages deploy`.
+> No `CLOUDFLARE_API_TOKEN` or `CLOUDFLARE_ACCOUNT_ID` GitHub secrets are required
+> unless you need manual `wrangler` deploys from a local machine.
 
 ### Every Deploy (Automatic via Git Push)
 
 - [ ] Push to `main` branch
+- [ ] GitHub Actions CI gate runs: type-check, lint, format, **54 tests**, build
+- [ ] Cloudflare Pages auto-deploys from `main` (independently of CI)
 - [ ] Monitor build in Cloudflare Dashboard → Deployments
 - [ ] Build should complete in ~30–45 seconds
 - [ ] Verify `https://www.mhc-gc.com` is live
