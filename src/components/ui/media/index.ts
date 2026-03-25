@@ -4,3 +4,5 @@ export {
   GalleryImage,
   AvatarImage,
 } from "./OptimizedImage";
+
+export { OptimizedVideo, HeroVideo } from "./OptimizedVideo";

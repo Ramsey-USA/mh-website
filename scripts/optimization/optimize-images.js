@@ -130,12 +130,11 @@ async function main() {
     process.exit(1);
   }
 
-  const outputDir = path.join(__dirname, "../../public/images-optimized");
-
-  // Create output directory
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
-  }
+  // Output alongside originals in public/images/ so component paths work
+  // without any reference changes. Running this script converts all JPG/PNG
+  // sources to .webp in-place; components that reference /images/foo.webp
+  // will resolve correctly after the first run.
+  const outputDir = imageDir;
 
   await processDirectory(imageDir, outputDir);
 
@@ -149,8 +148,11 @@ async function main() {
     ((savings.before - savings.after) / savings.before) * 100,
   );
   log(`\n💾 Total Savings: ${totalSavedKB}KB (${totalSavedPercent}%)`, "green");
-  log(`\nOptimized images saved to: public/images-optimized/`, "blue");
-  log("Review and replace originals when ready.", "blue");
+  log(
+    `\nOptimized WebP files written to: public/images/ (alongside originals)`,
+    "blue",
+  );
+  log("Components referencing .webp paths are now served correctly.", "blue");
 }
 
 main().catch(console.error);
