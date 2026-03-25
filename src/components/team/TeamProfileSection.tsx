@@ -62,6 +62,35 @@ function getRoleIcon(role: string): string {
   if (role.toLowerCase().includes("vice")) return "badge";
   return "person";
 }
+function TeamAvatar({ member }: { member: VintageTeamMember }) {
+  const [hasError, setHasError] = useState(false);
+
+  if (!member.avatar || hasError) {
+    return (
+      <div className="w-full h-full rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark flex items-center justify-center shadow-lg">
+        <MaterialIcon
+          icon={getRoleIcon(member.role)}
+          size="4xl"
+          className="text-white"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <Image
+      src={member.avatar}
+      alt={member.name}
+      fill
+      loading="lazy"
+      priority={false}
+      className="rounded-lg md:rounded-xl object-cover border-2 sm:border-3 md:border-4 border-brand-primary dark:border-brand-secondary shadow-lg"
+      sizes="(max-width: 640px) 96px, (max-width: 768px) 112px, 128px"
+      onError={() => setHasError(true)}
+    />
+  );
+}
+
 interface TeamProfileSectionProps {
   member: VintageTeamMember;
   index: number;
@@ -433,25 +462,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
           <div className="flex items-start gap-4 sm:gap-5 md:gap-6">
             {/* Photo */}
             <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 flex-shrink-0">
-              {member.avatar ? (
-                <Image
-                  src={member.avatar}
-                  alt={member.name}
-                  fill
-                  loading="lazy"
-                  priority={false}
-                  className="rounded-lg md:rounded-xl object-cover border-2 sm:border-3 md:border-4 border-brand-primary dark:border-brand-secondary shadow-lg"
-                  sizes="(max-width: 640px) 96px, (max-width: 768px) 112px, 128px"
-                />
-              ) : (
-                <div className="w-full h-full rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark flex items-center justify-center shadow-lg">
-                  <MaterialIcon
-                    icon={getRoleIcon(member.role)}
-                    size="4xl"
-                    className="text-white"
-                  />
-                </div>
-              )}
+              <TeamAvatar member={member} />
               {/* Veteran Badge - Using Bronze per branding guidelines */}
               {member.veteranStatus &&
                 member.veteranStatus.toLowerCase().includes("veteran") && (
