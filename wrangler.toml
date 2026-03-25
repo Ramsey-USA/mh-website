@@ -1,10 +1,7 @@
 name = "mh-construction-website"
-main = ".open-next/worker.js"
+pages_build_output_dir = ".open-next/assets"
 compatibility_date = "2026-03-15"
 compatibility_flags = ["nodejs_compat"]
-
-[assets]
-directory = ".open-next/assets"
 
 # NOTE: Wrangler does NOT perform shell variable substitution in TOML files.
 # The ${...} placeholders below must be replaced by your CI pipeline before

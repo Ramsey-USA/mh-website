@@ -53,7 +53,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ---
 
-## Project Status (March 16, 2026)
+## Project Status (March 25, 2026)
 
 ### Production-Ready Platform
 
@@ -73,6 +73,17 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Documentation** | Optimized | 62 docs + 12 supporting files, zero bloat |
 
 ### Recent Improvements (March 2026)
+
+- **Mar 25:** Fixed Cloudflare Pages deployment regression introduced by Workers-style wrangler config —
+  reverted `wrangler.toml` from Workers-style (`main` + `[assets]`) back to Pages-required
+  `pages_build_output_dir = ".open-next/assets"`; deleted `wrangler.jsonc` (file was truncated,
+  causing a `PropertyNameExpected` JSONC parse error that CF Pages' wrangler-v3 picked up before
+  `wrangler.toml`, silently skipping all config); changed `build` script back to
+  `opennextjs-cloudflare build` (which runs `next build` internally AND creates `.open-next/`) —
+  `next build` alone does not produce `.open-next/`, so CF Pages could not find the output directory;
+  updated `deploy` script to `opennextjs-cloudflare build && wrangler pages deploy --project-name=mh-construction`;
+  note: `main` + `[assets]` + `nodejs_compat` is the Cloudflare Workers deployment model (not Pages) —
+  switching to Workers requires a separate project in the CF dashboard
 
 - **Mar 16:** Cloudflare Pages build failure diagnosed and resolved — root cause: build command
   (`npm run build`) was not set in the Cloudflare Pages dashboard, causing CF to skip the build
@@ -244,7 +255,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Deployment & Infrastructure
 
-- **Hosting:** Cloudflare Pages (Edge network)
+- **Hosting:** Cloudflare Pages (via OpenNext adapter)
 - **Database:** Cloudflare D1 (SQLite)
 - **Email:** Resend API
 - **Analytics:** Custom localStorage-based system
@@ -330,7 +341,8 @@ NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
 
 ```bash
 npm run dev              # Start dev server (http://localhost:3000)
-npm run build            # Production build
+npm run build            # OpenNext build → creates .open-next/ and .next/
+npm run deploy           # OpenNext build + deploy to Cloudflare Pages
 npm run start            # Start production server
 npm run type-check       # TypeScript validation
 npm run lint             # ESLint check
@@ -363,20 +375,18 @@ npm run clean            # Clean build artifacts
 ## Dependency Maintenance Notes (March 2026)
 
 - Production dependencies are currently clean: `npm audit --omit=dev` reports 0 vulnerabilities.
-- `build:cloudflare` intentionally sets `NPM_CONFIG_LEGACY_PEER_DEPS=true`
-  because `@cloudflare/next-on-pages` peer ranges can lag patched Next.js
-  releases.
-- `vercel` is pinned to `32.3.0` to stay within
-  `@cloudflare/next-on-pages@1.13.16` peer constraints and reduce inherited
-  tooling vulnerabilities.
+- Deployment uses `@opennextjs/cloudflare` (OpenNext Workers adapter). The legacy
+  `@cloudflare/next-on-pages` adapter has been fully removed — it is mutually exclusive
+  with OpenNext and required `export const runtime = 'edge'` on every dynamic route.
+- `vercel` is pinned to `32.3.0` to reduce inherited tooling vulnerabilities.
 - `package.json` includes `overrides` to force patched versions of transitive
   dev toolchain dependencies:
   - `glob -> minimatch@9.0.7` (production transitive minimatch)
   - `tar@7.5.11` (fixes high CVEs in `@mapbox/node-pre-gyp` chain via `vercel`)
-  - `cookie@0.7.2` (fixes low CVE in `@cloudflare/next-on-pages` chain)
-- Full `npm audit` still reports dev-only advisories in tooling (all in
-  Cloudflare/Vercel adapter transitive chains; no override path available).
-- Current full-audit status after this pass: 15 dev-only vulnerabilities
+  - `cookie@1.1.1` (fixes low CVE in transitive chain)
+- Full `npm audit` still reports dev-only advisories in tooling (all in Vercel
+  adapter transitive chains; no override path available).
+- Current full-audit status: 15 dev-only vulnerabilities
   (0 critical, 6 high, 9 moderate, 0 low).
 
 ---
