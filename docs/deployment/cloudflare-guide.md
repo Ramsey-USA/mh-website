@@ -30,19 +30,19 @@
 ## How It Works
 
 ```
-git push → run `npm run deploy` locally (or set up a CD trigger)
-         → opennextjs-cloudflare build
-         → Output lands in: .open-next/worker.js + .open-next/assets
-         → wrangler deploy pushes Worker + assets to Cloudflare Workers
+git push → Cloudflare Workers CI picks up the commit
+         → Runs build command:   npm run build
+         → Runs deploy command:  npx wrangler deploy
+         → Output: .open-next/worker.js + .open-next/assets deployed as a Worker
 ```
 
-The `opennextjs-cloudflare build` command:
+The `opennextjs-cloudflare build` command (invoked by `npm run build`):
 
 1. Runs `next build` internally
 2. Packages the Next.js App Router output into a Cloudflare Worker + static assets
 3. Writes everything to `.open-next/`
 
-`wrangler.toml` tells Cloudflare Workers where the output is:
+`wrangler.toml` tells `wrangler deploy` where the Worker entry point and assets are:
 
 ```toml
 name = "mhc-v2-website"
@@ -55,12 +55,29 @@ binding = "ASSETS"
 
 > **Important:** This is the Workers model — `main` + `[assets]` + `nodejs_compat`.
 > It is different from the Pages model (`pages_build_output_dir`).
-> Auto-deploy from GitHub must be configured via a GitHub Actions workflow or
-> in the Cloudflare Workers dashboard (Workers & Pages → mhc-v2-website → Deployments).
+> Do NOT use `wrangler pages deploy` — that is for Pages projects and will fail with
+> this `wrangler.toml` configuration.
 
 ---
 
-## Cloudflare Dashboard Setup — REQUIRED
+## Cloudflare Dashboard Build Config
+
+**Workers & Pages → mhc-v2-website → Settings → Builds → Edit**
+
+| Field               | Value                          | Notes                                      |
+| ------------------- | ------------------------------ | ------------------------------------------ |
+| **Build command**   | `npm run build`                | Runs `opennextjs-cloudflare build`         |
+| **Deploy command**  | `npx wrangler deploy`          | Deploys Worker; reads `wrangler.toml` auto |
+| **Version command** | `npx wrangler versions upload` | Optional — for gradual/versioned rollouts  |
+| **Root directory**  | `/`                            | Repo root                                  |
+
+> ⚠️ **`npx wrangler pages deploy .open-next/assets` is WRONG here.** That is the
+> Cloudflare Pages command and will not work with the Workers `wrangler.toml` config.
+> The correct deploy command is `npx wrangler deploy`.
+
+---
+
+## Cloudflare Dashboard Secrets — REQUIRED
 
 **Cloudflare Dashboard → Workers & Pages → `mhc-v2-website` → Settings → Variables & Secrets**
 
