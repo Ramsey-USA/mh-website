@@ -1,5 +1,3 @@
-export const runtime = "edge";
-
 /**
  * Geolocation API
  * Provides geographic location data from Cloudflare Workers cf object.

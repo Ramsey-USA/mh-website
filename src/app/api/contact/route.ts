@@ -1,5 +1,3 @@
-export const runtime = "edge";
-
 import { type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { createDbClient, type ContactSubmission } from "@/lib/db/client";

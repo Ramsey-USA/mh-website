@@ -1,5 +1,3 @@
-export const runtime = "edge";
-
 import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { LIMITS } from "@/lib/constants/limits";

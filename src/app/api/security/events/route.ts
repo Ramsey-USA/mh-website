@@ -1,5 +1,3 @@
-export const runtime = "edge";
-
 /**
  * Security Events API Endpoint
  * Provides access to security audit logs and events
