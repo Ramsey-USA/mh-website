@@ -25,6 +25,7 @@ const eslintConfig = [
     ignores: [
       // Build outputs
       ".next/**",
+      ".open-next/**",
       "out/**",
       "build/**",
       "dist/**",
