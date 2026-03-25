@@ -682,7 +682,7 @@ className = "bg-white dark:bg-gray-900 text-gray-900 dark:text-white";
 - **[Analytics Guide](../../analytics-guide-for-matt-and-jeremy.md)** - Marketing analytics
 - **[PWA Documentation](./pwa-documentation.md)** - Progressive Web App details
 - **[Architecture](../project/architecture.md)** - Overall platform architecture
-- **[Performance Summary](../../COMPLETE-PERFORMANCE-SUMMARY.md)** - Performance optimization status
+- **[Lighthouse Results](../../lighthouse-results/summary.json)** - Performance scores by page
 
 ---
 

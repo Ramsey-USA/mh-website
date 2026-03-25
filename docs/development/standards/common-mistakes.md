@@ -742,10 +742,10 @@ export default function MyPage() {
 
 ## 📚 Related Documentation
 
-- [Component Cheatsheet](../../quick-reference/component-cheatsheet.md) - Correct patterns
+- [Component Cheatsheet](../quick-reference/component-cheatsheet.md) - Correct patterns
 - [Page Compliance Checklist](./page-compliance-checklist.md) - Systematic audit
 - [Page Template Guide](./page-template-guide.md) - Correct boilerplate
-- [Unified Component Standards](../../../branding/standards/unified-component-standards.md) - Official standard
+- [Unified Component Standards](../../branding/standards/unified-component-standards.md) - Official standard
 
 ---
 

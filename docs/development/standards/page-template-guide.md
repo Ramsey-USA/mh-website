@@ -431,9 +431,9 @@ Before deploying your new page:
 
 ## 🔗 Related Documentation
 
-- [Component Cheatsheet](../../quick-reference/component-cheatsheet.md) - Quick patterns reference
+- [Component Cheatsheet](../quick-reference/component-cheatsheet.md) - Quick patterns reference
 - [Page Compliance Checklist](./page-compliance-checklist.md) - Audit tool
-- [Unified Component Standards](../../../branding/standards/unified-component-standards.md) - Complete standard
+- [Unified Component Standards](../../branding/standards/unified-component-standards.md) - Complete standard
 - [Common Mistakes](./common-mistakes.md) - What to avoid
 
 ---

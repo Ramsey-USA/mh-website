@@ -342,8 +342,8 @@
 
 ## 🔗 Related Documentation
 
-- [Component Cheatsheet](../../quick-reference/component-cheatsheet.md) - Quick reference
-- [Unified Component Standards](../../../branding/standards/unified-component-standards.md) - Complete standard
+- [Component Cheatsheet](../quick-reference/component-cheatsheet.md) - Quick reference
+- [Unified Component Standards](../../branding/standards/unified-component-standards.md) - Complete standard
 - [Page Template Guide](./page-template-guide.md) - New page boilerplate
 - [Common Mistakes](./common-mistakes.md) - What to avoid
 

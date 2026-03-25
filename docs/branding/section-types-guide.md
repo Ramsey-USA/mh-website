@@ -268,8 +268,7 @@ HeroSection → BrandedContentSection (mission) → ShowcaseSection (values) →
 
 **For Non-Technical Users:**
 
-- [Branding Overview](./branding-overview.md)
-- [Content Style Guide](../marketing/content-style-guide.md)
+- [Branding Overview](./strategy/brand-overview.md)
 
 ---
 
