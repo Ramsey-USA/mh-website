@@ -1,4 +1,4 @@
-name = "mh-construction"
+name = "mhc-v2-website"
 pages_build_output_dir = ".open-next/assets"
 compatibility_date = "2024-11-18"
 compatibility_flags = ["nodejs_compat"]
