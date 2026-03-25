@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "dev:turbo": "next dev --turbo",
-    "build": "opennextjs-cloudflare build",
+    "build": "next build",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "build:next": "next build",
     "build:fast": "NODE_ENV=production SKIP_LINT=true next build",
     "build:profile": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" next build",
