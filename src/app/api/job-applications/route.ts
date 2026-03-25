@@ -149,6 +149,6 @@ Submitted: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles
   );
 });
 
-export const GET = requireRole(["admin"], async () =>
+export const GET = requireRole(["admin"], () =>
   handleFormRetrieval("job_applications"),
 );

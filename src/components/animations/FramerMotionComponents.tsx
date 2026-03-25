@@ -154,6 +154,7 @@ export function HoverScale({
   };
   return (
     <div
+      role="none"
       className={`${className} hover-scale`}
       style={style}
       onMouseEnter={() => setHovered(true)}

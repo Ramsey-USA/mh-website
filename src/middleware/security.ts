@@ -229,7 +229,7 @@ export function withSecurity<
               headers: request.headers,
               body: JSON.stringify(validation.sanitizedData),
             });
-          } catch (error) {
+          } catch {
             await auditLogger.logSecurityViolation(
               AuditEventType.XSS_ATTEMPT,
               ipAddress,
