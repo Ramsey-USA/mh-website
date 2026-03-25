@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 /**
  * Cloudflare Security Integration API
  * Handles Cloudflare security configuration and monitoring

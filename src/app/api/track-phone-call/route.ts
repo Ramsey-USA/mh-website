@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import { type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { sendEmail } from "@/lib/email/email-service";

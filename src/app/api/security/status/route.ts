@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 /**
  * Security Status API Endpoint
  * Provides security metrics and status information

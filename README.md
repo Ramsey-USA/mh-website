@@ -251,20 +251,20 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ## Quick Start by Role
 
-#### Designers & Branding
+### Designers & Branding
 
 - [Unified Component Standards](docs/branding/standards/unified-component-standards.md) - Complete design system v7.0.0
 - [Color System](docs/branding/standards/color-system.md) - Brand colors (Hunter Green, Leather Tan)
 - [Brand Overview](docs/branding/strategy/brand-overview.md) - Brand identity & values
 - [Messaging Guide](docs/branding/strategy/messaging.md) - Core messaging v7.0.0
 
-#### Marketing (Matt & Jeremy)
+### Marketing (Matt & Jeremy)
 
 - **[Analytics Guide for Matt & Jeremy](analytics-guide-for-matt-and-jeremy.md)** - PRIMARY guide for all marketing intelligence
 - [SEO Quick Reference](seo-quick-reference.md) - SEO optimization actions
 - [GBP Post Templates](docs/marketing/gbp-post-templates.md) - Google Business Profile posts
 
-#### Content Writers
+### Content Writers
 
 - [Messaging Guide](docs/branding/strategy/messaging.md) - Core brand messaging v7.0.0
 - [Universal Terminology](docs/branding/strategy/universal-terminology-guide.md) - Approved word choices

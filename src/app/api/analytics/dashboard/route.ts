@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 /**
  * Analytics Dashboard API
  * Provides analytics data for admin dashboard

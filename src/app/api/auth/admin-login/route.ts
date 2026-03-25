@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 /**
  * Admin Login API Route
  * Restricted authentication endpoint for Matt and Jeremy
