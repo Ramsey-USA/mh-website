@@ -60,7 +60,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | Metric            | Status    | Details                                   |
 | ----------------- | --------- | ----------------------------------------- |
 | **Build**         | Passing   | ~29s compilation, zero errors             |
-| **Deployed**      | Live      | Cloudflare Pages — mhc-gc.com             |
+| **Deployed**      | Live      | Cloudflare Workers — mhc-gc.com           |
 | **TypeScript**    | Strict    | Zero type errors                          |
 | **ESLint**        | Clean     | Zero lint warnings, zero errors           |
 | **Tests**         | Passing   | 54/54 passing                             |
@@ -103,16 +103,12 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
   Full strict, Always HTTPS) to deployment checklist; flagged placeholder Google Maps embed
   URL on contact page (requires real Place ID + Maps Embed API key)
 
-- **Mar 25:** Fixed Cloudflare Pages deployment regression introduced by Workers-style wrangler config —
-  reverted `wrangler.toml` from Workers-style (`main` + `[assets]`) back to Pages-required
-  `pages_build_output_dir = ".open-next/assets"`; deleted `wrangler.jsonc` (file was truncated,
-  causing a `PropertyNameExpected` JSONC parse error that CF Pages' wrangler-v3 picked up before
-  `wrangler.toml`, silently skipping all config); changed `build` script back to
-  `opennextjs-cloudflare build` (which runs `next build` internally AND creates `.open-next/`) —
-  `next build` alone does not produce `.open-next/`, so CF Pages could not find the output directory;
-  updated `deploy` script to `opennextjs-cloudflare build && wrangler pages deploy --project-name=mh-construction`;
-  note: `main` + `[assets]` + `nodejs_compat` is the Cloudflare Workers deployment model (not Pages) —
-  switching to Workers requires a separate project in the CF dashboard
+- **Mar 25:** Migrated deployment from Cloudflare Pages (`mhc-gc-website`) to Cloudflare Workers
+  (`mhc-v2-website.twelthmann.workers.dev`) — `wrangler.toml` updated to Workers model (`main =
+.open-next/worker.js`, `[assets]` binding); `deploy` script changed from
+  `wrangler pages deploy --project-name=mhc-v2-website` to `wrangler deploy`; `sw.js`
+  `isCloudflareAsset()` extended to cover `workers.dev` preview URLs; cloudflare-guide.md
+  updated to v3.0.0 with new dashboard paths and first-time setup checklist
 
 - **Mar 16:** Cloudflare Pages build failure diagnosed and resolved — root cause: build command
   (`npm run build`) was not set in the Cloudflare Pages dashboard, causing CF to skip the build
@@ -284,7 +280,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Deployment & Infrastructure
 
-- **Hosting:** Cloudflare Pages (via OpenNext adapter)
+- **Hosting:** Cloudflare Workers — `mhc-v2-website` (via OpenNext adapter)
 - **Database:** Cloudflare D1 (SQLite)
 - **Email:** Resend API
 - **Analytics:** Custom localStorage-based system
@@ -371,7 +367,7 @@ NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
 ```bash
 npm run dev              # Start dev server (http://localhost:3000)
 npm run build            # OpenNext build → creates .open-next/ and .next/
-npm run deploy           # OpenNext build + deploy to Cloudflare Pages
+npm run deploy           # OpenNext build + deploy to Cloudflare Workers
 npm run start            # Start production server
 npm run type-check       # TypeScript validation
 npm run lint             # ESLint check
@@ -642,31 +638,30 @@ dark: text - brand - secondary - light;
 
 ## Deployment
 
-### Cloudflare Pages
+### Cloudflare Workers
 
 **Production Deployment:**
 
 ```bash
-# Build command (set in Cloudflare Pages dashboard)
-npm run build
+# Build + deploy
+npm run deploy
+# Equivalent to: opennextjs-cloudflare build && wrangler deploy
 
-# Build output directory (set via wrangler.toml: pages_build_output_dir)
-.open-next/assets
-
-# Environment variables
-# Set in Cloudflare Dashboard → Settings → Environment Variables
+# Secrets — set via wrangler or dashboard
+# Workers & Pages → mhc-v2-website → Settings → Variables & Secrets
 ```
 
-**Branch Deployments:**
+**URLs:**
 
-- `main` branch → Production (mhc-gc.com)
-- Other branches → Preview URLs
+- Workers URL: `mhc-v2-website.twelthmann.workers.dev`
+- Preview URLs: `*-mhc-v2-website.twelthmann.workers.dev`
+- Production: `www.mhc-gc.com` (custom domain)
 
 **Build Configuration:**
 
 - Framework: Next.js (via OpenNext for Cloudflare)
-- Build command: `npm run build` ← set in Pages dashboard, not wrangler.toml
-- Output: `.open-next/assets` ← set via `pages_build_output_dir` in wrangler.toml
+- Worker entry: `.open-next/worker.js` ← `main` in wrangler.toml
+- Assets: `.open-next/assets` ← `[assets]` binding in wrangler.toml
 - Node version: 22
 
 See [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md) for details.
