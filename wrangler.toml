@@ -27,6 +27,18 @@ NEXT_PUBLIC_SITE_URL = "https://www.mhc-gc.com"
 # Do NOT create a wrangler.jsonc file — wrangler reads .jsonc before .toml,
 # and a malformed .jsonc silently overrides all config.
 
+# Custom domain routes — keep in sync with the CF dashboard to prevent
+# wrangler deploy from overriding (and removing) the dashboard bindings.
+[[routes]]
+pattern = "mhc-gc.com"
+zone_name = "mhc-gc.com"
+custom_domain = true
+
+[[routes]]
+pattern = "www.mhc-gc.com"
+zone_name = "mhc-gc.com"
+custom_domain = true
+
 # Runtime secrets — set via `wrangler secret put <NAME>` or the Cloudflare Workers
 # dashboard (Workers & Pages → mhc-v2-website → Settings → Variables & Secrets).
 # Missing secrets cause silent failures (email/SMS won't send) or hard errors
@@ -65,10 +77,11 @@ NEXT_PUBLIC_SITE_URL = "https://www.mhc-gc.com"
 #   3. Uncomment the [[kv_namespaces]] block and paste both IDs.
 #   4. Run `wrangler deploy` — no code changes needed; rate-limiter.ts auto-detects.
 #
-# [[kv_namespaces]]
-# binding = "CACHE"
-# id = "YOUR_KV_NAMESPACE_ID"
-# preview_id = "YOUR_KV_PREVIEW_NAMESPACE_ID"
+[[kv_namespaces]]
+binding = "CACHE"
+id = "b6ecda1ca7a7463db0f8a3b5d9681131"
+# preview_id — run `wrangler kv namespace create CACHE --preview` to get this value,
+# then set it here. Required for local `wrangler dev` sessions; not needed for production.
 #
 # NEXT_CACHE_WORKERS_KV — required for ISR (Incremental Static Regeneration).
 # 13 pages declare `export const revalidate = 86400` (location pages, team,
