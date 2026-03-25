@@ -1,7 +1,12 @@
 name = "mhc-v2-website"
-pages_build_output_dir = ".open-next/assets"
+main = ".open-next/worker.js"
 compatibility_date = "2024-11-18"
 compatibility_flags = ["nodejs_compat"]
+
+# Workers Assets — serves the static output from opennextjs-cloudflare
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
 
 # Build-time / runtime environment variables
 # These are committed to version control — DO NOT put secrets here.
@@ -11,15 +16,15 @@ compatibility_flags = ["nodejs_compat"]
 [vars]
 NEXT_PUBLIC_SITE_URL = "https://www.mhc-gc.com"
 
-# NOTE: This is a Cloudflare Pages project. Do NOT add Workers-style fields:
-#   - `main` (worker entry point) — Pages discovers .open-next/worker.js automatically
-#   - `[assets]` — Pages uses `pages_build_output_dir` instead
-#   - `[build]` — build command must be set in the CF Pages dashboard
-# Do NOT create a wrangler.jsonc file — CF Pages reads .jsonc before .toml,
+# NOTE: This is a Cloudflare Workers project (NOT Pages).
+# Deployment: `wrangler deploy` (not `wrangler pages deploy`).
+# Preview URL:  *-mhc-v2-website.twelthmann.workers.dev
+# Workers URL:  mhc-v2-website.twelthmann.workers.dev
+# Do NOT create a wrangler.jsonc file — wrangler reads .jsonc before .toml,
 # and a malformed .jsonc silently overrides all config.
 
-# Runtime secrets — set via `wrangler secret put <NAME>` or the Cloudflare Pages
-# dashboard (Settings → Environment variables → Add variable → Secret).
+# Runtime secrets — set via `wrangler secret put <NAME>` or the Cloudflare Workers
+# dashboard (Workers & Pages → mhc-v2-website → Settings → Variables & Secrets).
 # Missing secrets cause silent failures (email/SMS won't send) or hard errors
 # (JWT_SECRET, ADMIN_*_PASSWORD throw at request time in production).
 #
@@ -33,11 +38,11 @@ NEXT_PUBLIC_SITE_URL = "https://www.mhc-gc.com"
 #   TWILIO_AUTH_TOKEN        — Twilio auth token for SMS notifications
 #   TWILIO_FROM_NUMBER       — Twilio phone number (e.g. +15093086489)
 
-# Deployment is handled by Cloudflare Pages auto-deploy from the main branch.
+# Deployment is triggered by `wrangler deploy` after `opennextjs-cloudflare build`.
 # The CI pipeline (.github/workflows/ci-cd.yml) is a quality gate only —
-# it does not run `wrangler pages deploy`.
+# it does not run `wrangler deploy`.
 #
-# Bindings below (D1, R2) are read by Cloudflare Pages at deploy time.
+# Bindings below (D1, R2) are read by Cloudflare Workers at deploy time.
 # KV namespaces are reserved for future use but not yet bound in the dashboard.
 # To activate KV, create the namespaces in the CF dashboard, then replace the
 # placeholder IDs below with real namespace IDs.

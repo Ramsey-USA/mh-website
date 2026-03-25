@@ -1,12 +1,16 @@
-# Cloudflare Pages Deployment Guide
+# Cloudflare Workers Deployment Guide
 
 **Category:** Deployment - Cloudflare
-**Last Updated:** March 16, 2026
-**Version:** 2.0.0
+**Last Updated:** March 25, 2026
+**Version:** 3.0.0
 **Status:** ✅ Active - Production Deployed at `https://www.mhc-gc.com`
 
 > **Adapter:** `@opennextjs/cloudflare` (OpenNext) — **NOT** `@cloudflare/next-on-pages`.
 > These two adapters are mutually exclusive. Only OpenNext is used in this project.
+
+> **Platform:** Cloudflare **Workers** (`mhc-v2-website`) — **NOT** Cloudflare Pages.
+> Workers URL: `mhc-v2-website.twelthmann.workers.dev`
+> Preview URLs: `*-mhc-v2-website.twelthmann.workers.dev`
 
 ---
 
@@ -26,11 +30,10 @@
 ## How It Works
 
 ```
-git push → Cloudflare Pages picks up the commit
-         → Runs: npm run build         ← must be set in dashboard
-         → npm run build = opennextjs-cloudflare build
-         → Output lands in: .open-next/assets
-         → CF Pages deploys .open-next/assets as static + Worker assets
+git push → run `npm run deploy` locally (or set up a CD trigger)
+         → opennextjs-cloudflare build
+         → Output lands in: .open-next/worker.js + .open-next/assets
+         → wrangler deploy pushes Worker + assets to Cloudflare Workers
 ```
 
 The `opennextjs-cloudflare build` command:
@@ -39,39 +42,27 @@ The `opennextjs-cloudflare build` command:
 2. Packages the Next.js App Router output into a Cloudflare Worker + static assets
 3. Writes everything to `.open-next/`
 
-`wrangler.toml` tells Cloudflare Pages where the output is:
+`wrangler.toml` tells Cloudflare Workers where the output is:
 
 ```toml
-pages_build_output_dir = ".open-next/assets"
+name = "mhc-v2-website"
+main = ".open-next/worker.js"
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
 ```
 
-> **Important:** The `[build]` section in `wrangler.toml` is a Workers-only field and is
-> **not** honoured by Cloudflare Pages. The build command **must** be set in the
-> **Cloudflare Pages Dashboard** under Settings → Builds & deployments.
+> **Important:** This is the Workers model — `main` + `[assets]` + `nodejs_compat`.
+> It is different from the Pages model (`pages_build_output_dir`).
+> Auto-deploy from GitHub must be configured via a GitHub Actions workflow or
+> in the Cloudflare Workers dashboard (Workers & Pages → mhc-v2-website → Deployments).
 
 ---
 
 ## Cloudflare Dashboard Setup — REQUIRED
 
-These settings cannot be expressed in `wrangler.toml` for Pages projects.
-They must be configured at:
-**Cloudflare Dashboard → Workers & Pages → `mhc-v2-website` → Settings → Builds & deployments**
-
-### Build Configuration
-
-| Field                      | Value               |
-| -------------------------- | ------------------- |
-| **Build command**          | `npm run build`     |
-| **Build output directory** | `.open-next/assets` |
-| **Root directory**         | _(leave blank)_     |
-| **Node.js version**        | `22`                |
-
-> **Without the build command set here**, Cloudflare skips the build entirely and fails with:
-> `Error: Output directory ".open-next/assets" not found.`
-
-### Required Environment Variables
-
-Set under: **Settings → Environment variables → Production**
+**Cloudflare Dashboard → Workers & Pages → `mhc-v2-website` → Settings → Variables & Secrets**
 
 | Variable                  | Value                    | Notes                                     |
 | ------------------------- | ------------------------ | ----------------------------------------- |
@@ -103,12 +94,6 @@ Set under: **Settings → Environment variables → Production**
 | `CLOUDFLARE_API_TOKEN`            | `your_api_token`  | For manual Wrangler deploys |
 | `CLOUDFLARE_D1_DATABASE_ID`       | `your_d1_id`      | D1 database access          |
 | `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID` | `G-XXXXXXXXXX`    | Google Analytics (optional) |
-
-### Build Cache (Performance — ~15–20s savings)
-
-Under: **Settings → Builds & deployments → Build cache**
-
-Add path: `.next/cache`
 
 ---
 
@@ -152,9 +137,9 @@ npm run build
 # One-time: login to Cloudflare
 npx wrangler login
 
-# Build + deploy to Pages
-npm run pages:deploy
-# Equivalent to: opennextjs-cloudflare build && npx wrangler pages deploy --project-name=mhc-v2-website
+# Build + deploy to Workers
+npm run deploy
+# Equivalent to: opennextjs-cloudflare build && wrangler deploy
 ```
 
 ---
@@ -165,9 +150,9 @@ After `npm run build`, the output structure is:
 
 ```
 .open-next/
-├── assets/               ← CF Pages serves this directory
+├── worker.js             ← Cloudflare Worker entry point (deployed via wrangler)
+├── assets/               ← Static files served via Workers Assets binding
 │   ├── _next/static/     ← CSS, JS, fonts, images
-│   ├── _worker.js/       ← Cloudflare Worker for SSR/API routes
 │   └── ...               ← Other static assets
 └── cache/                ← Build cache (not deployed)
 ```
@@ -179,7 +164,7 @@ After `npm run build`, the output structure is:
 Production lives at `https://www.mhc-gc.com` (canonical — with `www`).
 
 - `mhc-gc.com` → 301 redirect to `www.mhc-gc.com` (Cloudflare Page Rule)
-- `www.mhc-gc.com` → Cloudflare Pages project
+- `www.mhc-gc.com` → Cloudflare Workers project (`mhc-v2-website`)
 
 ### SSL/TLS
 
@@ -193,14 +178,10 @@ Production lives at `https://www.mhc-gc.com` (canonical — with `www`).
 
 ### ❌ "No build command specified. Skipping build step." / "Output directory not found"
 
-**Cause:** Build command not set in the Cloudflare Pages dashboard.
+**Cause:** Running `wrangler deploy` without building first.
 
-**Fix:**
-
-1. Cloudflare Dashboard → Workers & Pages → `mhc-v2-website`2. Settings → Builds & deployments
-2. Set **Build command** = `npm run build`
-3. Set **Build output directory** = `.open-next/assets`
-4. Trigger a new deployment
+**Fix:** Always use `npm run deploy` (which runs `opennextjs-cloudflare build && wrangler deploy`),
+or run `npm run build` before `npx wrangler deploy` manually.
 
 ---
 
@@ -224,7 +205,7 @@ Production lives at `https://www.mhc-gc.com` (canonical — with `www`).
 
 ### ❌ API routes return 500 / Worker errors
 
-1. Cloudflare Dashboard → Workers & Pages → `mhc-v2-website` → Functions → Logs
+1. Cloudflare Dashboard → Workers & Pages → `mhc-v2-website` → Logs
 2. Check for missing environment variables or D1 binding issues
 
 ---
@@ -252,18 +233,15 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 
 ### First-Time Setup
 
-- [ ] Connect GitHub repo to Cloudflare Pages project `mhc-v2-website`
-- [ ] Set **Build command** = `npm run build` in dashboard
-- [ ] Set **Build output directory** = `.open-next/assets` in dashboard
-- [ ] Set **Node.js version** = `22` in dashboard
-- [ ] Add `CI=true` environment variable
-- [ ] Add `NEXT_PUBLIC_SITE_URL=https://www.mhc-gc.com`, `RESEND_API_KEY`, `NEXT_TELEMETRY_DISABLED=1`
+- [ ] Create Workers project `mhc-v2-website` in the Cloudflare Dashboard (Workers & Pages → Create)
+- [ ] Run `npx wrangler login` and verify account access
 - [ ] Add `JWT_SECRET` (generate: `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`)
-- [ ] Add `ADMIN_MATT_PASSWORD` and `ADMIN_JEREMY_PASSWORD`
-- [ ] Add `EMAIL_FROM=noreply@mhc-gc.com`
-- [ ] Set production branch to `main`
-- [ ] Enable `.next/cache` build cache path
-- [ ] Connect custom domain `www.mhc-gc.com`
+- [ ] Add `ADMIN_MATT_PASSWORD` and `ADMIN_JEREMY_PASSWORD` via `wrangler secret put` or dashboard
+- [ ] Add `RESEND_API_KEY`, `EMAIL_FROM=noreply@mhc-gc.com`
+- [ ] Set `NEXT_PUBLIC_SITE_URL=https://www.mhc-gc.com` and `NEXT_TELEMETRY_DISABLED=1` in dashboard
+- [ ] Bind D1 database (`DB` → `mh-construction-db`) in dashboard
+- [ ] Bind R2 buckets (`FILE_ASSETS`, `RESUMES`) in dashboard
+- [ ] Connect custom domain `www.mhc-gc.com` under Workers & Pages → mhc-v2-website → Custom Domains
 - [ ] Verify SSL certificate is active (**Full strict** — not Flexible)
 - [ ] Enable **Always Use HTTPS** (Security → Settings)
 - [ ] Add Cloudflare Page Rule: `mhc-gc.com/*` → 301 redirect to `https://www.mhc-gc.com/$1`

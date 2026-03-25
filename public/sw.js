@@ -318,7 +318,8 @@ function isCloudflareAsset(url) {
   return (
     url.searchParams.has("cf") ||
     url.hostname.includes("cloudflare") ||
-    url.hostname.includes("pages.dev")
+    url.hostname.includes("pages.dev") ||
+    url.hostname.includes("workers.dev")
   );
 }
 
