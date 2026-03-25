@@ -86,8 +86,8 @@ export const locations: Record<string, LocationData> = {
       "Founded 2010, veteran-owned since January 2025. Construction excellence serving Richland with honesty, integrity, professionalism, and thoroughness.",
     ...LOCATION_CONTACT,
     coordinates: {
-      latitude: 46.2396,
-      longitude: -119.1006,
+      latitude: 46.2769,
+      longitude: -119.2752,
     },
     seo: {
       title:
@@ -165,8 +165,8 @@ export const locations: Record<string, LocationData> = {
       "Professional veteran-owned construction services with service-earned values and all-branch veteran leadership. SITREP-level communication.",
     ...LOCATION_CONTACT,
     coordinates: {
-      latitude: 46.2396,
-      longitude: -119.1006,
+      latitude: 46.2112,
+      longitude: -119.1372,
     },
     seo: {
       title:
@@ -321,8 +321,8 @@ export const locations: Record<string, LocationData> = {
       "Extending veteran-owned construction services to Yakima with the same honesty, integrity, professionalism, and thoroughness.",
     ...LOCATION_CONTACT,
     coordinates: {
-      latitude: 46.2396,
-      longitude: -119.1006,
+      latitude: 46.6021,
+      longitude: -120.5059,
     },
     seo: {
       title:
@@ -391,8 +391,8 @@ export const locations: Record<string, LocationData> = {
       "Expanding veteran-owned construction excellence to Spokane with honesty, integrity, professionalism, and thoroughness.",
     ...LOCATION_CONTACT,
     coordinates: {
-      latitude: 46.2396,
-      longitude: -119.1006,
+      latitude: 47.6588,
+      longitude: -117.426,
     },
     seo: {
       title:
@@ -453,8 +453,8 @@ export const locations: Record<string, LocationData> = {
       "Serving West Richland with veteran-owned construction services built on honesty, integrity, professionalism, and thoroughness.",
     ...LOCATION_CONTACT,
     coordinates: {
-      latitude: 46.2396,
-      longitude: -119.1006,
+      latitude: 46.3043,
+      longitude: -119.3611,
     },
     seo: {
       title:
@@ -507,8 +507,8 @@ export const locations: Record<string, LocationData> = {
       "Bringing veteran-owned construction expertise to Walla Walla with honesty, integrity, professionalism, and thoroughness.",
     ...LOCATION_CONTACT,
     coordinates: {
-      latitude: 46.2396,
-      longitude: -119.1006,
+      latitude: 46.0646,
+      longitude: -118.343,
     },
     seo: {
       title:
@@ -576,7 +576,10 @@ export const locations: Record<string, LocationData> = {
     description:
       "Bringing veteran-owned construction expertise to Hermiston and the Oregon Columbia Basin with honesty, integrity, professionalism, and thoroughness.",
     ...LOCATION_CONTACT,
-    coordinates: COMPANY_INFO.coordinates,
+    coordinates: {
+      latitude: 45.8402,
+      longitude: -119.2895,
+    },
     seo: {
       title:
         "Forward Base → Hermiston | General Contractor Hermiston OR | MH Construction",
@@ -627,7 +630,10 @@ export const locations: Record<string, LocationData> = {
     description:
       "Delivering veteran-owned construction services to Pendleton and Eastern Oregon with honesty, integrity, professionalism, and thoroughness.",
     ...LOCATION_CONTACT,
-    coordinates: COMPANY_INFO.coordinates,
+    coordinates: {
+      latitude: 45.6721,
+      longitude: -118.7886,
+    },
     seo: {
       title:
         "Tactical Position → Pendleton | General Contractor Pendleton OR | MH Construction",
@@ -682,7 +688,10 @@ export const locations: Record<string, LocationData> = {
     description:
       "Bringing veteran-owned construction expertise to Coeur d'Alene and North Idaho with honesty, integrity, professionalism, and thoroughness.",
     ...LOCATION_CONTACT,
-    coordinates: COMPANY_INFO.coordinates,
+    coordinates: {
+      latitude: 47.6777,
+      longitude: -116.7805,
+    },
     seo: {
       title:
         "Northern Operations → Coeur d'Alene | General Contractor Coeur d'Alene ID | MH Construction",
@@ -733,7 +742,10 @@ export const locations: Record<string, LocationData> = {
     description:
       "Delivering veteran-owned construction services to Omak and the Okanogan Valley with honesty, integrity, professionalism, and thoroughness.",
     ...LOCATION_CONTACT,
-    coordinates: COMPANY_INFO.coordinates,
+    coordinates: {
+      latitude: 48.4082,
+      longitude: -119.528,
+    },
     seo: {
       title:
         "Remote Station → Omak | General Contractor Omak WA | MH Construction",

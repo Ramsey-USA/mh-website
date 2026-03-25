@@ -59,20 +59,39 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 | Metric            | Status    | Details                                   |
 | ----------------- | --------- | ----------------------------------------- |
-| **Build**         | Passing   | ~29s compilation, zero errors             |
+| **Build**         | Passing   | ~33s compilation, zero errors             |
 | **Deployed**      | Live      | Cloudflare Workers — mhc-gc.com           |
 | **TypeScript**    | Strict    | Zero type errors                          |
 | **ESLint**        | Clean     | Zero lint warnings, zero errors           |
 | **Tests**         | Passing   | 54/54 passing                             |
 | **SEO**           | 100/100   | Perfect scores across all pages           |
 | **Lighthouse**    | 94+       | Performance optimized                     |
-| **Bundle Size**   | 210 kB    | Production optimized                      |
+| **Bundle Size**   | 211 kB    | Production optimized                      |
 | **Dark Mode**     | Complete  | Full theme support                        |
 | **PWA**           | Ready     | Offline-ready, 5-layer caching            |
 | **Analytics**     | Live      | 100% page coverage, dashboard active      |
 | **Documentation** | Optimized | 62 docs + 12 supporting files, zero bloat |
 
 ### Recent Improvements (March 2026)
+
+- **Mar 25:** Cloudflare performance optimizations — Worker Cache API added to `/api/analytics/geolocation`
+  (per-country, 5-min TTL — geolocation data is identical for all users from the same country) and
+  `/api/analytics/dashboard` (fixed cache key, 30-s TTL — all admins see the same snapshot);
+  `export const revalidate = 86400` added to all 11 location pages, team, and testimonials (24-h ISR
+  via OpenNext stale-while-revalidate); R2 public URL hostname warning added to `r2.ts` (correct
+  format is `pub-<accountHash>.r2.dev`, not `pub-<bucketName>.r2.dev` — Jeremy/Matt must update
+  with actual value from CF Dashboard → R2 → Settings → Public Access); `wrangler.toml` CACHE KV
+  block updated with step-by-step provisioning commands (`wrangler kv namespace create CACHE`) —
+  activating CACHE KV enables fleet-wide rate limiting (currently siloed per isolate)
+
+- **Mar 25:** Cloudflare deployment fixes & DB index audit — `wrangler.toml` `compatibility_date`
+  corrected from stale `2024-11-18` to `2026-03-25`; apex→www 301 redirect added to `middleware.ts`
+  (resolves SEO canonicalization: `mhc-gc.com` now redirects to `www.mhc-gc.com`); `SeoMeta.tsx`
+  `generateEnhancedOrganizationSchema` fixed to avoid duplicate `"@type"` key in esbuild output
+  (spreads base object without `"@type"`, then declares once as array — eliminates
+  `[duplicate-object-key]` warning on every deploy); `migrations/0007_add_created_at_indexes.sql`
+  added — `created_at` indexes on `contact_submissions`, `consultations`, `job_applications`
+  (all admin list views use `ORDER BY created_at DESC` but tables had no index on that column)
 
 - **Mar 25:** Dependency audit — `npm audit` now reports 4 vulnerabilities (0 critical, 2 high,
   2 moderate): `fast-xml-parser` entity expansion bypass (via `wrangler` devDep); `flatted`
@@ -89,7 +108,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
   `useIsMobile()` returns `boolean | null` (SSR-safe), coerced to `boolean | undefined` with `?? undefined`
   for `getNavigationLabel`; (4) `middleware/security.ts` — `getRouteConfig` fallback replaced
   indexing into `Record<string,…>` (possibly `undefined`) with an explicit `{ logAll: false }` object;
-  build now clean: ~28s, 37 static pages, 211 kB shared bundle, zero type errors
+  build now clean: ~33s, 35 static pages, 211 kB shared bundle, zero type errors
 
 - **Mar 25:** Codebase audit and hardening — fixed CORS origins in `security-manager.ts`
   (was pointing to stale `mh-construction.com` domain); fixed SW precache paths for location

@@ -320,14 +320,14 @@ export function generateEnhancedOrganizationSchema() {
     ],
     potentialAction: [
       {
-        "@type": "SearchAction",
-        target: `${enhancedSEO.siteUrl}/search?q={search_term_string}`,
-        "query-input": "required name=search_term_string",
-      },
-      {
         "@type": "ContactAction",
         target: `${enhancedSEO.siteUrl}/contact`,
         name: "Contact Us",
+      },
+      {
+        "@type": "ReserveAction",
+        target: `${enhancedSEO.siteUrl}/contact`,
+        name: "Schedule Free Consultation",
       },
     ],
   };
@@ -647,12 +647,9 @@ export function generateWebsiteSchema() {
       "@id": `${enhancedSEO.siteUrl}/#organization`,
     },
     potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${enhancedSEO.siteUrl}/search?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
+      "@type": "ContactAction",
+      target: `${enhancedSEO.siteUrl}/contact`,
+      name: "Contact MH Construction",
     },
   };
 }

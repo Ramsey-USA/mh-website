@@ -15,6 +15,10 @@ binding = "ASSETS"
 # the dashboard setting is redundant but still recommended for clarity.
 [vars]
 NEXT_PUBLIC_SITE_URL = "https://www.mhc-gc.com"
+# Google Analytics measurement ID — replace with the real G-XXXXXXXXXX value.
+# NEXT_PUBLIC_* vars are baked into the client bundle at build time; they must be
+# present here (or in the CF dashboard) before running `wrangler deploy`.
+# NEXT_PUBLIC_GA_MEASUREMENT_ID = "G-XXXXXXXXXX"
 
 # NOTE: This is a Cloudflare Workers project (NOT Pages).
 # Deployment: `wrangler deploy` (not `wrangler pages deploy`).
@@ -47,13 +51,41 @@ NEXT_PUBLIC_SITE_URL = "https://www.mhc-gc.com"
 # To activate KV, create the namespaces in the CF dashboard, then replace the
 # placeholder IDs below with real namespace IDs.
 
-# KV Namespaces — reserved for future use (analytics currently uses localStorage)
-# Uncomment and replace IDs when KV is needed:
+# KV Namespaces
+#
+# CACHE — required for fleet-wide rate limiting (security + DoS protection).
+# Without CACHE, src/lib/security/rate-limiter.ts silently falls back to a
+# per-isolate Map, meaning rate limits are NOT shared across the Worker fleet.
+#
+# To provision:
+#   1. wrangler kv namespace create CACHE
+#      → copy the returned `id` value below
+#   2. wrangler kv namespace create CACHE --preview
+#      → copy the returned `id` value as `preview_id`
+#   3. Uncomment the [[kv_namespaces]] block and paste both IDs.
+#   4. Run `wrangler deploy` — no code changes needed; rate-limiter.ts auto-detects.
+#
 # [[kv_namespaces]]
 # binding = "CACHE"
 # id = "YOUR_KV_NAMESPACE_ID"
 # preview_id = "YOUR_KV_PREVIEW_NAMESPACE_ID"
 #
+# NEXT_CACHE_WORKERS_KV — required for ISR (Incremental Static Regeneration).
+# 13 pages declare `export const revalidate = 86400` (location pages, team,
+# testimonials). Without this binding, those pages are built once at deploy time
+# and never re-rendered — `revalidate` has no effect. For now the content is
+# purely static local data so this is functionally acceptable.
+#
+# To activate ISR revalidation:
+#   1. wrangler kv namespace create NEXT_CACHE_WORKERS_KV
+#   2. wrangler kv namespace create NEXT_CACHE_WORKERS_KV --preview
+#   3. Uncomment and fill in:
+# [[kv_namespaces]]
+# binding = "NEXT_CACHE_WORKERS_KV"
+# id = "YOUR_NEXT_CACHE_KV_ID"
+# preview_id = "YOUR_NEXT_CACHE_KV_PREVIEW_ID"
+#
+# ANALYTICS — reserved for server-side analytics aggregation (currently localStorage).
 # [[kv_namespaces]]
 # binding = "ANALYTICS"
 # id = "YOUR_ANALYTICS_KV_ID"

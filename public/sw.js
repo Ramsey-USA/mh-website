@@ -84,7 +84,8 @@ const STATIC_ASSETS = [
 ];
 
 // API endpoints to cache with different strategies
-const CRITICAL_API_ENDPOINTS = ["/api/contact"];
+// Note: /api/contact is POST-only — excluded from warmup to avoid a wasted 405.
+const CRITICAL_API_ENDPOINTS = [];
 
 const _API_ENDPOINTS = [
   ...CRITICAL_API_ENDPOINTS,

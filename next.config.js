@@ -1,7 +1,7 @@
 /**
  * MH Construction - Next.js Configuration
  *
- * Optimized for Next.js 15 with Cloudflare Pages deployment
+ * Optimized for Next.js 15 with Cloudflare Workers deployment (OpenNext adapter)
  * Production-ready configuration with performance optimizations
  *
  * @see https://nextjs.org/docs/app/api-reference/next-config-js
@@ -149,13 +149,6 @@ const nextConfig = {
               priority: 35,
               reuseExistingChunk: true,
             },
-            // Separate framer-motion into its own chunk
-            motion: {
-              test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
-              name: "framer-motion",
-              priority: 35,
-              reuseExistingChunk: true,
-            },
             // Lib chunk (large dependencies)
             lib: {
               test: /[\\/]node_modules[\\/]/,
@@ -189,16 +182,19 @@ const nextConfig = {
   },
 
   // === IMAGE OPTIMIZATION ===
+  // CF Workers has no `sharp` runtime, so Next.js server-side image resizing
+  // and format conversion (AVIF/WebP) cannot run at request time.
+  // Images are pre-converted to WebP/WebM by the GitHub Actions optimize workflow
+  // (npm run optimize:images). Serve them as-is from the ASSETS binding.
   images: {
-    formats: ["image/webp", "image/avif"],
+    formats: ["image/webp"], // Pre-converted by CI; AVIF excluded (requires sharp)
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 2592000, // 30 days — safe because Next.js uses content-hash URLs
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    // Optimize for mobile
-    unoptimized: false,
+    unoptimized: true, // Required for CF Workers — no sharp available at runtime
     remotePatterns: [],
   },
 

@@ -11,6 +11,12 @@ import { analyticsEngine } from "@/lib/analytics/index";
 
 export const dynamic = "force-dynamic";
 
+// Fixed cache key — all admins see the same dashboard snapshot.
+const DASHBOARD_CACHE_KEY = new Request(
+  "https://cache.internal/analytics/dashboard",
+  { method: "GET" },
+);
+
 function handler(request: NextRequest) {
   if (request.method !== "GET") {
     return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
@@ -31,4 +37,30 @@ function handler(request: NextRequest) {
   }
 }
 
-export const GET = requireRole(["admin"], withSecurity(handler));
+async function cachedHandler(request: NextRequest): Promise<Response> {
+  // Worker Cache API: cache the dashboard for 30 s to avoid recomputing the
+  // analytics aggregate on every admin page refresh.
+  try {
+    // caches.default is a Cloudflare Workers Cache API extension not in standard TS types
+    const cache = (caches as unknown as { default: Cache }).default;
+    const cached = await cache.match(DASHBOARD_CACHE_KEY);
+    if (cached) return cached;
+
+    const response = handler(request);
+
+    try {
+      const toCache = response.clone();
+      toCache.headers.set("Cache-Control", "private, max-age=30, s-maxage=30");
+      await cache.put(DASHBOARD_CACHE_KEY, toCache);
+    } catch {
+      // Best-effort; do not block the response.
+    }
+
+    return response;
+  } catch {
+    // Cache API unavailable; fall back to uncached handler.
+    return handler(request);
+  }
+}
+
+export const GET = requireRole(["admin"], withSecurity(cachedHandler));

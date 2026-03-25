@@ -331,6 +331,9 @@ export class AdvancedAnalyticsEngine {
     pages: Record<string, number>;
     veteran: number;
   } {
+    if (typeof window === "undefined") {
+      return { total: 0, unique: 0, sessions: 0, pages: {}, veteran: 0 };
+    }
     try {
       const stored = localStorage.getItem("mh_analytics_pageviews");
       return stored
@@ -352,6 +355,9 @@ export class AdvancedAnalyticsEngine {
     consultations: number;
     contacts: number;
   } {
+    if (typeof window === "undefined") {
+      return { total: 0, consultations: 0, contacts: 0 };
+    }
     try {
       const stored = localStorage.getItem("mh_analytics_conversions");
       return stored

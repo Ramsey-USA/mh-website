@@ -96,7 +96,7 @@ export const metadata: Metadata = withGeoMetadata({
       "Your Tri-Cities Construction Command Center. Founded 2010, veteran-owned since 2025. Dual-label approach: Military Operations → Construction Services. Service-earned values meet construction excellence. Chain of Command structure with 150+ years combined expertise. Military precision, authentic partnerships, transparent communication.",
     images: [
       {
-        url: "/images/logo/mh-logo.png",
+        url: "/images/og-default.jpg",
         width: 1200,
         height: 630,
         alt: "MH Construction - Veteran-Owned General Contractor - Base HQ → Home",
@@ -111,7 +111,7 @@ export const metadata: Metadata = withGeoMetadata({
       "Base HQ → Home | Building projects for the client, NOT the dollar | MH Construction",
     description:
       "Your Tri-Cities Construction Command Center. Founded 2010, veteran-owned since 2025. Dual-label: Military Operations → Construction Services. Service-earned values, battle-tested excellence.",
-    images: ["/images/logo/mh-logo.png"],
+    images: ["/images/og-default.jpg"],
   },
   robots: {
     index: true,
@@ -169,9 +169,9 @@ export default function RootLayout({
       <head>
         <FaviconLinks />
         {/* Google Analytics */}
-        {process.env["NEXT_PUBLIC_GOOGLE_ANALYTICS_ID"] && (
+        {process.env["NEXT_PUBLIC_GA_MEASUREMENT_ID"] && (
           <GoogleAnalytics
-            measurementId={process.env["NEXT_PUBLIC_GOOGLE_ANALYTICS_ID"]}
+            measurementId={process.env["NEXT_PUBLIC_GA_MEASUREMENT_ID"]}
           />
         )}
         {/* Cloudflare Email Protection - async non-blocking script */}

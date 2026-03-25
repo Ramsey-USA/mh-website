@@ -1,3 +1,5 @@
+export const revalidate = 86400; // 24 h ISR
+
 import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
 import dynamic from "next/dynamic";

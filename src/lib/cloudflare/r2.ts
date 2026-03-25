@@ -3,6 +3,7 @@
  * Handles file uploads to R2 buckets
  */
 
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { logger } from "@/lib/utils/logger";
 
 export interface R2Bucket {
@@ -101,7 +102,12 @@ export class R2StorageService {
 
       await this.bucket.put(key, buffer, putOptions);
 
-      // Generate public URL (adjust based on your R2 public access configuration)
+      // Generate public URL.
+      // IMPORTANT: R2 public bucket domains follow the format
+      //   pub-<account-hash>.r2.dev/<key>
+      // NOT pub-<bucket-name>.r2.dev.
+      // Replace the hostname below with the actual value from:
+      //   Cloudflare Dashboard → R2 → <bucket> → Settings → Public Access
       const url = `https://pub-${this.bucketName}.r2.dev/${key}`;
 
       logger.info("File uploaded to R2", { key, size: buffer.byteLength });
@@ -228,19 +234,22 @@ export class R2StorageService {
 }
 
 /**
- * Get R2 bucket from Cloudflare Workers environment
+ * Get R2 bucket from Cloudflare Workers environment.
+ *
+ * In module-format Workers (OpenNext CF), bindings are passed via the `env`
+ * argument to the fetch handler — they are NOT on `globalThis`. Always use
+ * `getCloudflareContext().env` to access them.
  */
 export function getR2Bucket(
   bucketName: "RESUMES" | "FILE_ASSETS",
 ): R2Bucket | null {
-  // In Cloudflare Workers environment, bindings are available on globalThis
-  if (typeof globalThis !== "undefined") {
-    const bucket = (globalThis as Record<string, unknown>)[
-      bucketName
-    ] as R2Bucket;
-    return bucket || null;
+  try {
+    const { env } = getCloudflareContext();
+    return ((env as Record<string, unknown>)[bucketName] as R2Bucket) ?? null;
+  } catch {
+    // Not in a Cloudflare Workers context (local dev / test environment).
+    return null;
   }
-  return null;
 }
 
 /**

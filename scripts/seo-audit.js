@@ -34,10 +34,10 @@ const ACTIVE_PAGES = [
   "/locations/spokane",
   "/locations/walla-walla",
   "/locations/west-richland",
-  // Deprecated pages (files removed)
-  "/booking",
-  "/estimator",
-  "/3d-explorer",
+  "/locations/hermiston",
+  "/locations/pendleton",
+  "/locations/coeur-d-alene",
+  "/locations/omak",
 ];
 
 const SEO_RULES = {

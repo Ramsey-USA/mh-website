@@ -23,6 +23,11 @@ export function withGeoMetadata(
     geoOverride?.region ??
     `${COMPANY_INFO.address.country}-${COMPANY_INFO.address.stateCode}`;
 
+  // Extract state code from region string (e.g., "US-OR" → "OR")
+  const stateCode = region.includes("-")
+    ? (region.split("-")[1] ?? COMPANY_INFO.address.stateCode)
+    : COMPANY_INFO.address.stateCode;
+
   const existingOther = normalizeOther(metadata.other);
 
   return {
@@ -34,7 +39,7 @@ export function withGeoMetadata(
       "geo.position": `${latitude};${longitude}`,
       ICBM: `${latitude}, ${longitude}`,
       "business:contact_data:locality": placename,
-      "business:contact_data:region": COMPANY_INFO.address.stateCode,
+      "business:contact_data:region": stateCode,
       "business:contact_data:postal_code": COMPANY_INFO.address.zip,
       "business:contact_data:country_name": "USA",
     },
