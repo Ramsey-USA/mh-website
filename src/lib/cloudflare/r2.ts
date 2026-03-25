@@ -17,6 +17,7 @@ export interface R2Bucket {
       customMetadata?: Record<string, string>;
     },
   ): Promise<void>;
+  head(key: string): Promise<{ key: string; size: number } | null>;
   get(key: string): Promise<{
     body: ReadableStream;
     httpMetadata: Record<string, string>;
@@ -123,6 +124,20 @@ export class R2StorageService {
         success: false,
         error: error instanceof Error ? error.message : "Upload failed",
       };
+    }
+  }
+
+  /**
+   * Check whether a key exists in R2 without downloading the body
+   */
+  async fileExists(key: string): Promise<boolean> {
+    if (!this.bucket) return false;
+    try {
+      const meta = await this.bucket.head(key);
+      return meta !== null;
+    } catch (error) {
+      logger.error("R2 head error:", error);
+      return false;
     }
   }
 

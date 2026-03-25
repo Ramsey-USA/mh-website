@@ -285,6 +285,28 @@ export async function handleFormRetrieval(
   orderBy = "created_at",
   limit = 100,
 ): Promise<NextResponse> {
+  // Allowlist table names and order columns to prevent SQL injection
+  const ALLOWED_TABLES = new Set([
+    "consultations",
+    "job_applications",
+    "contact_submissions",
+    "newsletter_subscribers",
+  ]);
+  const ALLOWED_ORDER_COLS = new Set(["created_at", "updated_at", "id"]);
+
+  if (!ALLOWED_TABLES.has(tableName)) {
+    logger.error("handleFormRetrieval: rejected disallowed table", {
+      tableName,
+    });
+    return internalServerError("Invalid table name");
+  }
+  if (!ALLOWED_ORDER_COLS.has(orderBy)) {
+    logger.error("handleFormRetrieval: rejected disallowed order column", {
+      orderBy,
+    });
+    return internalServerError("Invalid order column");
+  }
+
   try {
     const DB = getD1Database();
     if (DB) {

@@ -74,12 +74,22 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Recent Improvements (March 2026)
 
+- **Mar 25:** Build type errors resolved — fixed 5 categories of pre-existing type errors exposed
+  by TypeScript strict mode: (1) `rateLimit` is a middleware factory (`rateLimit(config)(handler)`) —
+  4 API routes (`geolocation`, `consultations`, `job-applications`, `functions/[functionName]`) were
+  incorrectly calling it as `await rateLimit(request, config)`; (2) `newsletter/route.ts` —
+  `DbClient.query<T>()` returns `T[]` directly, not `{ results: T[] }`; (3) `PageNavigation.tsx` —
+  `useIsMobile()` returns `boolean | null` (SSR-safe), coerced to `boolean | undefined` with `?? undefined`
+  for `getNavigationLabel`; (4) `middleware/security.ts` — `getRouteConfig` fallback replaced
+  indexing into `Record<string,…>` (possibly `undefined`) with an explicit `{ logAll: false }` object;
+  build now clean: ~28s, 37 static pages, 211 kB shared bundle, zero type errors
+
 - **Mar 25:** Codebase audit and hardening — fixed CORS origins in `security-manager.ts`
   (was pointing to stale `mh-construction.com` domain); fixed SW precache paths for location
-  pages (`/pasco` etc. \u2192 `/locations/pasco`); fixed geolocation API to read from Workers `cf`
+  pages (`/pasco` etc. → `/locations/pasco`); fixed geolocation API to read from Workers `cf`
   object instead of non-existent CF headers (only `CF-IPCountry` is a real header); fixed
   `X-Frame-Options` in `public/_headers` from `SAMEORIGIN` to `DENY` (consistent with
-  security-manager); fixed CI Node version `20` \u2192 `22` (matches `engines` in package.json);
+  security-manager); fixed CI Node version `20` → `22` (matches `engines` in package.json);
   fixed CI `NEXT_PUBLIC_SITE_URL` missing `www` prefix; added `JWT_SECRET`,
   `ADMIN_MATT_PASSWORD`, `ADMIN_JEREMY_PASSWORD`, `EMAIL_FROM`, R2 bucket bindings, KV
   bindings, Cloudflare dashboard safety settings (Rocket Loader OFF, HTML minify OFF, SSL

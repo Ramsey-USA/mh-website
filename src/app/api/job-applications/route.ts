@@ -1,8 +1,11 @@
-import { type NextRequest } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import {
   handleFormSubmission,
   handleFormRetrieval,
 } from "@/lib/api/form-handler";
+import { requireRole } from "@/lib/auth/middleware";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
+import { getR2Bucket, R2StorageService } from "@/lib/cloudflare/r2";
 
 export const dynamic = "force-dynamic";
 
@@ -29,51 +32,94 @@ interface JobApplicationData {
   referralSource?: string;
 }
 
-export function POST(request: NextRequest) {
-  return handleFormSubmission<JobApplicationData>(request, {
-    tableName: "job_applications",
-    submissionType: "Job Application",
+export const POST = rateLimit(rateLimitPresets.api)(async (
+  request: NextRequest,
+) => {
+  // Parse the body once so we can validate resumeKey before handing off
+  let body: JobApplicationData;
+  try {
+    body = (await request.json()) as JobApplicationData;
+  } catch {
+    return NextResponse.json(
+      { error: "Invalid request body" },
+      { status: 400 },
+    );
+  }
 
-    validateFields: (data) => {
-      if (!data.firstName || !data.lastName || !data.email || !data.position) {
-        return {
-          valid: false,
-          error:
-            "Missing required fields: firstName, lastName, email, and position are required",
-        };
-      }
-      return { valid: true };
-    },
+  // If a resumeKey is provided, verify it actually exists in R2 before persisting
+  if (body.resumeKey) {
+    const bucket = getR2Bucket("RESUMES");
+    const storageService = new R2StorageService(
+      bucket,
+      "mh-construction-resumes",
+    );
+    const exists = await storageService.fileExists(body.resumeKey);
+    if (!exists) {
+      return NextResponse.json(
+        { error: "Resume file not found. Please upload your resume again." },
+        { status: 400 },
+      );
+    }
+  }
 
-    transformData: (data) => ({
-      first_name: data.firstName,
-      last_name: data.lastName,
-      email: data.email,
-      phone: data.phone,
-      address: data.address || null,
-      city: data.city || null,
-      state: data.state || null,
-      zip_code: data.zipCode || null,
-      position: data.position,
-      experience: data.experience,
-      availability: data.availability || null,
-      cover_letter: data.coverLetter || null,
-      resume_url: data.resumeUrl || null,
-      veteran_status: data.veteranStatus || null,
-      referral_source: data.referralSource || null,
-      metadata: JSON.stringify({
-        resumeFileName: data.resumeFileName,
-        resumeFileSize: data.resumeFileSize,
-        resumeKey: data.resumeKey,
-        submittedAt: new Date().toISOString(),
+  // Reconstruct a Request from the already-parsed body for handleFormSubmission
+  const reconstructed = new Request(request.url, {
+    method: "POST",
+    headers: request.headers,
+    body: JSON.stringify(body),
+  });
+
+  return handleFormSubmission<JobApplicationData>(
+    reconstructed as NextRequest,
+    {
+      tableName: "job_applications",
+      submissionType: "Job Application",
+
+      validateFields: (data) => {
+        if (
+          !data.firstName ||
+          !data.lastName ||
+          !data.email ||
+          !data.position
+        ) {
+          return {
+            valid: false,
+            error:
+              "Missing required fields: firstName, lastName, email, and position are required",
+          };
+        }
+        return { valid: true };
+      },
+
+      transformData: (data) => ({
+        first_name: data.firstName,
+        last_name: data.lastName,
+        email: data.email,
+        phone: data.phone,
+        address: data.address || null,
+        city: data.city || null,
+        state: data.state || null,
+        zip_code: data.zipCode || null,
+        position: data.position,
+        experience: data.experience,
+        availability: data.availability || null,
+        cover_letter: data.coverLetter || null,
+        resume_url: data.resumeUrl || null,
+        veteran_status: data.veteranStatus || null,
+        referral_source: data.referralSource || null,
+        metadata: JSON.stringify({
+          resumeFileName: data.resumeFileName,
+          resumeFileSize: data.resumeFileSize,
+          resumeKey: data.resumeKey,
+          submittedAt: new Date().toISOString(),
+        }),
       }),
-    }),
 
-    emailSubject: (data) =>
-      `New Job Application: ${data.position} - ${data.firstName} ${data.lastName}`,
+      emailSubject: (data) =>
+        `New Job Application: ${data.position} - ${data.firstName} ${data.lastName}`,
 
-    emailMessage: (data) =>
-      `
+      emailMessage: (data) =>
+        `
 New Job Application Received
 
 Position: ${data.position}
@@ -99,9 +145,10 @@ Referral Source: ${data.referralSource || "Not specified"}
 
 Submitted: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })} PST
     `.trim(),
-  });
-}
+    },
+  );
+});
 
-export function GET() {
-  return handleFormRetrieval("job_applications");
-}
+export const GET = requireRole(["admin"], async () =>
+  handleFormRetrieval("job_applications"),
+);

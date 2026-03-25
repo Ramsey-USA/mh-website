@@ -22,9 +22,13 @@ export type Breakpoint = keyof typeof breakpoints;
  * Returns true when the viewport width is at or below the given breakpoint.
  * Uses matchMedia so the listener fires only at the threshold, not on every
  * pixel of resize.
+ *
+ * Returns `null` on the first render (SSR / before hydration) so callers can
+ * avoid rendering placeholder content that would differ from the server render
+ * and trigger a React hydration mismatch.
  */
-export function useBreakpoint(breakpoint: Breakpoint): boolean {
-  const [isBelow, setIsBelow] = useState(false);
+export function useBreakpoint(breakpoint: Breakpoint): boolean | null {
+  const [isBelow, setIsBelow] = useState<boolean | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia(`(max-width: ${breakpoints[breakpoint]}px)`);

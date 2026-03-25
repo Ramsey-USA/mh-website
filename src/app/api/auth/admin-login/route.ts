@@ -98,8 +98,8 @@ async function handler(request: NextRequest) {
       );
     }
 
-    // Generate JWT token
-    const { accessToken } = await generateTokenPair({
+    // Generate JWT token pair (access + refresh)
+    const { accessToken, refreshToken } = await generateTokenPair({
       uid: `admin-${adminName.toLowerCase()}`,
       email: normalizedEmail,
       role: "admin",
@@ -108,7 +108,7 @@ async function handler(request: NextRequest) {
 
     logger.info(`Successful admin login: ${normalizedEmail}`);
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       success: true,
       accessToken,
       user: {
@@ -117,8 +117,19 @@ async function handler(request: NextRequest) {
         name: adminName,
         role: "admin",
       },
-      expiresIn: 3600, // 1 hour
+      expiresIn: 900, // 15 minutes
     });
+
+    // Store refresh token in httpOnly cookie (7-day TTL)
+    response.cookies.set("mh_refresh_token", refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      path: "/api/auth",
+      maxAge: 60 * 60 * 24 * 7, // 7 days in seconds
+    });
+
+    return response;
   } catch (error) {
     logger.error("Admin login error:", error);
     return NextResponse.json(

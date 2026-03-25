@@ -107,58 +107,78 @@ async function sendEmail(
 
 /**
  * Send push notification
- * NOTE: Push notifications not currently implemented.
- * Future integration options: OneSignal, FCM
- * Example: POST to https://onesignal.com/api/v1/notifications with API key and user IDs
+ * NOTE: Push notifications require a provider such as OneSignal or FCM.
+ * Set ONESIGNAL_APP_ID + ONESIGNAL_API_KEY environment variables and
+ * replace this function body with the provider SDK call.
  */
 function sendPush(options: NotificationOptions): NotificationResult {
-  const { recipient, message } = options;
-
-  try {
-    // Placeholder for push notification implementation
-    logger.info("Push notification would be sent", { recipient, message });
-
-    return {
-      success: true,
-      messageId: `push-${Date.now()}`,
-    };
-  } catch (_error) {
-    logger.error("Push notification _error", {
-      ["_error"]: _error,
-      ["recipient"]: recipient,
-    });
-    return {
-      success: false,
-      error: _error instanceof Error ? _error.message : "Unknown error",
-    };
-  }
+  const { recipient } = options;
+  logger.warn("Push notifications are not configured", { recipient });
+  return {
+    success: false,
+    error: "Push notifications are not configured",
+  };
 }
 
 /**
- * Send SMS notification
- * NOTE: SMS notifications not currently implemented.
- * Future integration: Twilio API
- * Example: POST to https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json
+ * Send SMS notification via Twilio.
+ * Set TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, and TWILIO_FROM_NUMBER
+ * environment variables to enable SMS delivery.
  */
-function sendSMS(options: NotificationOptions): NotificationResult {
+async function sendSMS(
+  options: NotificationOptions,
+): Promise<NotificationResult> {
   const { recipient, message } = options;
 
-  try {
-    // Placeholder for SMS implementation
-    logger.info("SMS would be sent", { recipient, message });
+  const accountSid = process.env["TWILIO_ACCOUNT_SID"];
+  const authToken = process.env["TWILIO_AUTH_TOKEN"];
+  const fromNumber = process.env["TWILIO_FROM_NUMBER"];
 
-    return {
-      success: true,
-      messageId: `sms-${Date.now()}`,
-    };
-  } catch (_error) {
-    logger.error("SMS send _error", {
-      ["_error"]: _error,
-      ["recipient"]: recipient,
+  if (!accountSid || !authToken || !fromNumber) {
+    logger.warn("Twilio credentials not configured, skipping SMS", {
+      recipient,
     });
     return {
       success: false,
-      error: _error instanceof Error ? _error.message : "Unknown error",
+      error: "SMS service not configured",
+    };
+  }
+
+  try {
+    const url = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;
+    const credentials = Buffer.from(`${accountSid}:${authToken}`).toString(
+      "base64",
+    );
+
+    const body = new URLSearchParams({
+      To: recipient,
+      From: fromNumber,
+      Body: message,
+    });
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Basic ${credentials}`,
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: body.toString(),
+    });
+
+    if (!response.ok) {
+      const error = await response.text();
+      logger.error("SMS send failed", { error, recipient });
+      return { success: false, error: `Failed to send SMS: ${error}` };
+    }
+
+    const result = (await response.json()) as { sid: string };
+    logger.info("SMS sent successfully", { recipient, sid: result.sid });
+    return { success: true, messageId: result.sid };
+  } catch (err) {
+    logger.error("SMS send error", { err, recipient });
+    return {
+      success: false,
+      error: err instanceof Error ? err.message : "Unknown error",
     };
   }
 }
@@ -181,7 +201,7 @@ export function sendNotification(
     case "push":
       return Promise.resolve(sendPush(options));
     case "sms":
-      return Promise.resolve(sendSMS(options));
+      return sendSMS(options);
     default:
       return Promise.resolve({
         success: false,

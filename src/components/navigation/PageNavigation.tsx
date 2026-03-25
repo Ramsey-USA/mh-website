@@ -90,7 +90,7 @@ export function PageNavigation({ items, className = "" }: PageNavigationProps) {
                 onClick={(e) => handleClick(e, item.href)}
                 className="group flex flex-col items-center hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 focus:bg-brand-primary/10 dark:focus:bg-brand-primary/20 px-2 mobile-sm:px-1.5 xs:px-4 py-3 mobile-sm:py-2.5 xs:py-4 min-w-[60px] mobile-sm:min-w-[56px] xs:min-w-[80px] transition-colors duration-200 rounded-lg snap-start focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900"
                 role="listitem"
-                aria-label={`Navigate to ${getNavigationLabel(item, isMobile)}`}
+                aria-label={`Navigate to ${getNavigationLabel(item, isMobile ?? undefined)}`}
                 tabIndex={0}
               >
                 <MaterialIcon
@@ -100,7 +100,7 @@ export function PageNavigation({ items, className = "" }: PageNavigationProps) {
                   aria-hidden="true"
                 />
                 <span className="text-[10px] mobile-sm:text-[9px] xs:text-xs text-gray-700 dark:text-gray-300 group-hover:text-brand-primary group-focus:text-brand-primary font-medium transition-colors duration-200 text-center leading-tight mobile-sm:leading-none">
-                  {getNavigationLabel(item, isMobile)}
+                  {getNavigationLabel(item, isMobile ?? undefined)}
                 </span>
               </Link>
             ))}

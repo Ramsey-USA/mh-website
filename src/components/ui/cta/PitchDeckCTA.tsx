@@ -2,11 +2,12 @@
 
 /**
  * Pitch Deck CTA Component
- * Strategic call-to-action to download company pitch deck
+ * Strategic call-to-action to request the company pitch deck via the contact form.
  * Variants: banner, card, inline
  */
 
-import { useState } from "react";
+import { useCallback } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { useAnalytics } from "@/components/analytics/EnhancedAnalytics";
@@ -16,19 +17,18 @@ interface PitchDeckCTAProps {
   className?: string;
 }
 
+/** Contact page URL pre-filled with pitch deck request subject */
+const PITCH_DECK_HREF = "/contact?subject=pitch-deck";
+
 export function PitchDeckCTA({
   variant = "card",
   className = "",
 }: PitchDeckCTAProps) {
-  const [isHovered, setIsHovered] = useState(false);
   const { trackEvent } = useAnalytics();
 
-  const handleClick = () => {
-    trackEvent("pitch_deck_click", {
-      variant,
-      status: "coming_soon",
-    });
-  };
+  const handleClick = useCallback(() => {
+    trackEvent("pitch_deck_click", { variant });
+  }, [trackEvent, variant]);
 
   if (variant === "banner") {
     return (
@@ -45,22 +45,23 @@ export function PitchDeckCTA({
               />
             </div>
             <div className="text-white">
-              <p className="font-bold text-lg">Download Our Pitch Deck</p>
+              <p className="font-bold text-lg">Request Our Pitch Deck</p>
               <p className="text-sm text-white/90">
-                Complete overview of our capabilities & track record
+                Complete overview of our capabilities &amp; track record
               </p>
             </div>
           </div>
-          <Button
-            variant="secondary"
-            size="lg"
-            onClick={handleClick}
-            className="opacity-60 cursor-not-allowed"
-            disabled
-          >
-            <MaterialIcon icon="download" size="md" className="mr-2" />
-            Coming Soon
-          </Button>
+          <Link href={PITCH_DECK_HREF}>
+            <Button
+              variant="secondary"
+              size="lg"
+              onClick={handleClick}
+              aria-label="Request MH Construction pitch deck"
+            >
+              <MaterialIcon icon="request_page" size="md" className="mr-2" />
+              Request Deck
+            </Button>
+          </Link>
         </div>
       </div>
     );
@@ -86,16 +87,17 @@ export function PitchDeckCTA({
             Our pitch deck covers everything you need to know
           </p>
         </div>
-        <Button
-          variant="primary"
-          size="sm"
-          onClick={handleClick}
-          className="opacity-60 cursor-not-allowed flex-shrink-0"
-          disabled
-        >
-          <MaterialIcon icon="download" size="sm" className="mr-1" />
-          Soon
-        </Button>
+        <Link href={PITCH_DECK_HREF} className="flex-shrink-0">
+          <Button
+            variant="primary"
+            size="sm"
+            onClick={handleClick}
+            aria-label="Request MH Construction pitch deck"
+          >
+            <MaterialIcon icon="request_page" size="sm" className="mr-1" />
+            Request
+          </Button>
+        </Link>
       </div>
     );
   }
@@ -118,8 +120,8 @@ export function PitchDeckCTA({
         MH Construction Pitch Deck
       </h3>
       <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-        Download our comprehensive pitch deck to explore our capabilities,
-        values, and proven track record.
+        Request our pitch deck to explore our capabilities, values, and 650+
+        project track record — we'll send it directly to you.
       </p>
       <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 flex-grow">
         <li className="flex items-center gap-2">
@@ -147,39 +149,22 @@ export function PitchDeckCTA({
           <span>Project portfolio highlights</span>
         </li>
       </ul>
-      {/* Wrapper captures hover since disabled buttons suppress mouse events */}
-      <div
-        role="none"
-        className="relative"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
+      <Link href={PITCH_DECK_HREF} className="block">
         <Button
           variant="primary"
           size="lg"
-          className="w-full group/btn opacity-60 cursor-not-allowed"
+          className="w-full group/btn"
           onClick={handleClick}
-          disabled
-          aria-label="Download pitch deck - Coming soon"
+          aria-label="Request MH Construction pitch deck"
         >
           <MaterialIcon
-            icon="download"
+            icon="request_page"
             size="lg"
             className="mr-2 group-hover/btn:scale-110 transition-transform"
           />
-          Coming Soon
+          Request Pitch Deck
         </Button>
-        {isHovered && (
-          <div
-            role="tooltip"
-            aria-live="polite"
-            className="absolute -top-12 left-1/2 -translate-x-1/2 bg-gray-900 dark:bg-gray-700 text-white text-xs px-3 py-2 rounded-lg whitespace-nowrap shadow-lg"
-          >
-            Available soon!
-            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45" />
-          </div>
-        )}
-      </div>
+      </Link>
     </div>
   );
 }

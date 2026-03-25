@@ -1,4 +1,4 @@
-import { type NextRequest } from "next/server";
+import { type NextRequest, type NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { sendEmail } from "@/lib/email/email-service";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
@@ -8,6 +8,8 @@ import {
   internalServerError,
 } from "@/lib/api/responses";
 import { generateNewsletterAcknowledgment } from "@/lib/email/templates";
+import { createDbClient } from "@/lib/db/client";
+import { getD1Database } from "@/lib/db/env";
 
 export const dynamic = "force-dynamic";
 
@@ -35,6 +37,30 @@ async function handlePOST(request: NextRequest) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
       return badRequest("Invalid email address");
+    }
+
+    // Persist subscription to D1 (upsert — idempotent if already subscribed)
+    const unsubscribeToken = crypto.randomUUID().replace(/-/g, "");
+    try {
+      const db = getD1Database();
+      if (db) {
+        const client = createDbClient({ DB: db });
+        await client.query(
+          `INSERT INTO newsletter_subscribers (email, name, unsubscribe_token, subscribed)
+           VALUES (?, ?, ?, 1)
+           ON CONFLICT(email) DO UPDATE SET
+             name = COALESCE(excluded.name, name),
+             subscribed = 1,
+             updated_at = datetime('now')`,
+          [data.email, data.name ?? null, unsubscribeToken],
+        );
+      }
+    } catch (dbErr) {
+      // DB unavailable (e.g. local dev) — log and continue so email still sends
+      logger.warn(
+        "Newsletter: DB insert failed, continuing without persist",
+        dbErr,
+      );
     }
 
     // Notification email to Matt
@@ -149,3 +175,53 @@ async function handlePOST(request: NextRequest) {
 }
 
 export const POST = rateLimit(rateLimitPresets.public)(handlePOST);
+
+/**
+ * DELETE /api/newsletter?token=<unsubscribe_token>
+ *
+ * One-click unsubscribe endpoint. Links sent in confirmation emails should
+ * point here. No authentication required — the opaque token is the credential.
+ * Complies with CAN-SPAM and GDPR right-to-erasure (soft-delete via flag).
+ */
+async function handleDELETE(request: NextRequest): Promise<NextResponse> {
+  const { searchParams } = new URL(request.url);
+  const token = searchParams.get("token");
+
+  if (!token || !/^[a-f0-9]{32}$/.test(token)) {
+    return badRequest("Invalid or missing unsubscribe token");
+  }
+
+  try {
+    const db = getD1Database();
+    if (!db) {
+      return internalServerError("Service temporarily unavailable");
+    }
+
+    const client = createDbClient({ DB: db });
+    const result = await client.query<{ email: string }>(
+      `UPDATE newsletter_subscribers
+       SET subscribed = 0, updated_at = datetime('now')
+       WHERE unsubscribe_token = ? AND subscribed = 1
+       RETURNING email`,
+      [token],
+    );
+
+    if (!result || result.length === 0) {
+      // Token not found or already unsubscribed — return 200 to avoid leaking info
+      return createSuccessResponse({ unsubscribed: true });
+    }
+
+    const email = result[0]?.email;
+    logger.info("Newsletter unsubscribe processed", { email });
+
+    return createSuccessResponse({
+      unsubscribed: true,
+      message: "You have been successfully unsubscribed.",
+    });
+  } catch (error) {
+    logger.error("Newsletter unsubscribe error:", error);
+    return internalServerError("Failed to process unsubscribe request.");
+  }
+}
+
+export const DELETE = rateLimit(rateLimitPresets.public)(handleDELETE);

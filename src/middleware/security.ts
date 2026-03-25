@@ -6,11 +6,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { securityManager } from "@/lib/security/security-manager";
 import { auditLogger, AuditEventType } from "@/lib/security/audit-logger";
+import { verifyToken, extractTokenFromHeader } from "@/lib/auth/jwt";
 
-// Configuration for different routes — only `logAll` is currently consumed by
-// securityMiddleware; the other fields are retained for future enforcement.
-const ROUTE_SECURITY_CONFIG = {
-  // API routes require stricter security
+// Configuration for different routes.
+// requireAdmin: true  — request must carry a valid JWT with role "admin"
+// logAll: true        — every request to the path is written to the audit log
+const ROUTE_SECURITY_CONFIG: Record<
+  string,
+  { logAll: boolean; requireAdmin?: boolean }
+> = {
+  // Admin areas require a valid admin JWT
+  "/admin": {
+    logAll: true,
+    requireAdmin: true,
+  },
+  // API routes get full logging
   "/api/": {
     logAll: true,
   },
@@ -19,10 +29,6 @@ const ROUTE_SECURITY_CONFIG = {
     logAll: true,
   },
   "/estimate": {
-    logAll: true,
-  },
-  // Admin areas
-  "/admin": {
     logAll: true,
   },
   // Public pages - lighter security
@@ -61,6 +67,34 @@ export async function securityMiddleware(
   try {
     // Get route-specific configuration
     const routeConfig = getRouteConfig(pathname);
+
+    // Enforce admin authentication for protected routes
+    if (routeConfig.requireAdmin) {
+      const authHeader = request.headers.get("authorization");
+      const token = extractTokenFromHeader(authHeader);
+      const user = token ? await verifyToken(token) : null;
+
+      if (!user || user.role !== "admin") {
+        await auditLogger.logSecurityViolation(
+          AuditEventType.ACCESS_DENIED,
+          ipAddress,
+          userAgent,
+          {
+            path: pathname,
+            method: request.method,
+            reason: "Admin authentication required",
+          },
+        );
+        // Redirect browser requests to home; reject API-style requests
+        if (request.headers.get("accept")?.includes("text/html")) {
+          return NextResponse.redirect(new URL("/", request.url));
+        }
+        return NextResponse.json(
+          { error: "Admin authentication required" },
+          { status: 401 },
+        );
+      }
+    }
 
     // Process security checks
     const securityResult = await securityManager.processRequest(request);
@@ -285,7 +319,7 @@ function getRouteConfig(pathname: string) {
   }
 
   // Default configuration
-  return ROUTE_SECURITY_CONFIG["/"];
+  return { logAll: false };
 }
 
 function getClientIP(request: NextRequest): string {

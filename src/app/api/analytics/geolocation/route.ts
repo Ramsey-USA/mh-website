@@ -11,8 +11,11 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { logger } from "@/lib/utils/logger";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 
-export function GET(request: NextRequest) {
+export const GET = rateLimit(rateLimitPresets.public)(async (
+  request: NextRequest,
+) => {
   try {
     // CF-IPCountry is the only real Cloudflare HTTP header for geo.
     // All other geo data comes from the Workers cf object.
@@ -98,4 +101,4 @@ export function GET(request: NextRequest) {
       { status: 500 },
     );
   }
-}
+});

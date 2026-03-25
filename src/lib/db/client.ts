@@ -181,6 +181,12 @@ export class DbClient {
    */
   async insert(table: string, data: Record<string, unknown>): Promise<string> {
     const SAFE_COLUMN = /^[a-zA-Z_][a-zA-Z0-9_]*$/;
+
+    // Validate table name against the same allowlist as form-handler
+    if (!SAFE_COLUMN.test(table)) {
+      throw new Error(`Invalid table name: ${table}`);
+    }
+
     const keys = Object.keys(data).filter((k) => SAFE_COLUMN.test(k));
 
     if (keys.length === 0) {

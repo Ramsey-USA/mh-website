@@ -13,6 +13,9 @@ import Link from "next/link";
 import { useAnalytics } from "@/components/analytics/EnhancedAnalytics";
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
 
+/** Contact page URL pre-filled with pitch deck request subject */
+const PITCH_DECK_HREF = "/contact?subject=pitch-deck";
+
 interface StrategicCTABannerProps {
   variant?: "pwa" | "pitch-deck" | "consultation" | "combo";
   className?: string;
@@ -29,11 +32,7 @@ export function StrategicCTABanner({
     [trackEvent],
   );
   const trackPitchDeck = useCallback(
-    () =>
-      trackEvent("cta_banner_click", {
-        type: "pitch_deck",
-        status: "coming_soon",
-      }),
+    () => trackEvent("cta_banner_click", { type: "pitch_deck" }),
     [trackEvent],
   );
   const trackConsultation = useCallback(
@@ -45,11 +44,7 @@ export function StrategicCTABanner({
     [trackEvent],
   );
   const trackComboPitchDeck = useCallback(
-    () =>
-      trackEvent("cta_combo_click", {
-        type: "pitch_deck",
-        status: "coming_soon",
-      }),
+    () => trackEvent("cta_combo_click", { type: "pitch_deck" }),
     [trackEvent],
   );
   const trackComboConsultation = useCallback(
@@ -130,27 +125,28 @@ export function StrategicCTABanner({
                 Explore Our Full Capabilities
               </p>
               <p className="text-sm text-white/90">
-                Download our pitch deck for detailed project portfolios & proven
-                results
+                Request our pitch deck for detailed project portfolios &amp;
+                proven results — we'll reach out personally
               </p>
             </div>
           </div>
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={trackPitchDeck}
-            className="flex-shrink-0 bg-white/10 border-white/30 text-white hover:bg-white/20 opacity-60 cursor-not-allowed"
-            disabled
-            aria-label="Download pitch deck - Coming soon"
-          >
-            <MaterialIcon
-              icon="download"
-              size="md"
-              className="mr-2"
-              aria-hidden="true"
-            />
-            Coming Soon
-          </Button>
+          <Link href={PITCH_DECK_HREF} className="flex-shrink-0">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={trackPitchDeck}
+              className="flex-shrink-0 bg-white/10 border-white/30 text-white hover:bg-white/20"
+              aria-label="Request MH Construction pitch deck"
+            >
+              <MaterialIcon
+                icon="request_page"
+                size="md"
+                className="mr-2"
+                aria-hidden="true"
+              />
+              Request Deck
+            </Button>
+          </Link>
         </div>
       </section>
     );
@@ -249,27 +245,28 @@ export function StrategicCTABanner({
         </Button>
 
         {/* View Pitch Deck */}
-        <Button
-          variant="outline"
-          size="lg"
-          onClick={trackComboPitchDeck}
-          className="flex flex-col items-center gap-2 h-auto py-6 border-2 border-gray-300/40 bg-white/50 dark:bg-gray-800/50 opacity-60 cursor-not-allowed"
-          disabled
-          aria-label="View pitch deck - Coming soon"
-        >
-          <MaterialIcon
-            icon="picture_as_pdf"
-            size="xl"
-            aria-hidden="true"
-            className="text-gray-500 dark:text-gray-300"
-          />
-          <span className="font-bold text-gray-900 dark:text-white">
-            Pitch Deck
-          </span>
-          <span className="text-xs text-gray-600 dark:text-gray-300">
-            Coming soon
-          </span>
-        </Button>
+        <Link href={PITCH_DECK_HREF} className="block">
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={trackComboPitchDeck}
+            className="w-full flex flex-col items-center gap-2 h-auto py-6 border-2 border-brand-primary/30 hover:border-brand-primary/60 bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
+            aria-label="Request MH Construction pitch deck"
+          >
+            <MaterialIcon
+              icon="request_page"
+              size="xl"
+              aria-hidden="true"
+              className="text-brand-primary"
+            />
+            <span className="font-bold text-gray-900 dark:text-white">
+              Pitch Deck
+            </span>
+            <span className="text-xs text-gray-600 dark:text-gray-300">
+              Request via contact
+            </span>
+          </Button>
+        </Link>
 
         {/* Get Consultation */}
         <Link href="/contact" className="block">

@@ -6,6 +6,7 @@ import {
   type JWTUser,
 } from "@/lib/auth/jwt";
 import { sendNotification } from "@/lib/notifications/notification-service";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 
 export const dynamic = "force-dynamic";
 
@@ -28,9 +29,22 @@ interface UserDataRequest {
   fields?: string[];
 }
 
-export async function POST(request: NextRequest, context: RouteParams) {
+export const POST = rateLimit(rateLimitPresets.api)(async (
+  request: NextRequest,
+  context: unknown,
+) => {
+  const { params } = context as RouteParams;
   try {
-    const { functionName } = await context.params;
+    const { functionName } = await params;
+
+    // Validate functionName format to prevent path traversal / unexpected routing
+    if (!/^[a-zA-Z][a-zA-Z0-9]{0,50}$/.test(functionName)) {
+      return NextResponse.json(
+        { error: "Invalid function name" },
+        { status: 400 },
+      );
+    }
+
     const body = await request.json();
     const authHeader = request.headers.get("authorization");
 
@@ -62,7 +76,7 @@ export async function POST(request: NextRequest, context: RouteParams) {
       { status: 500 },
     );
   }
-}
+});
 
 async function handleSendNotification(
   data: NotificationData,
