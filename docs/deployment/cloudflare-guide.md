@@ -55,7 +55,7 @@ pages_build_output_dir = ".open-next/assets"
 
 These settings cannot be expressed in `wrangler.toml` for Pages projects.
 They must be configured at:
-**Cloudflare Dashboard → Workers & Pages → `mh-construction` → Settings → Builds & deployments**
+**Cloudflare Dashboard → Workers & Pages → `mhc-v2-website` → Settings → Builds & deployments**
 
 ### Build Configuration
 
@@ -154,7 +154,7 @@ npx wrangler login
 
 # Build + deploy to Pages
 npm run pages:deploy
-# Equivalent to: opennextjs-cloudflare build && npx wrangler pages deploy --project-name=mh-construction
+# Equivalent to: opennextjs-cloudflare build && npx wrangler pages deploy --project-name=mhc-v2-website
 ```
 
 ---
@@ -197,11 +197,10 @@ Production lives at `https://www.mhc-gc.com` (canonical — with `www`).
 
 **Fix:**
 
-1. Cloudflare Dashboard → Workers & Pages → `mh-construction`
-2. Settings → Builds & deployments
-3. Set **Build command** = `npm run build`
-4. Set **Build output directory** = `.open-next/assets`
-5. Trigger a new deployment
+1. Cloudflare Dashboard → Workers & Pages → `mhc-v2-website`2. Settings → Builds & deployments
+2. Set **Build command** = `npm run build`
+3. Set **Build output directory** = `.open-next/assets`
+4. Trigger a new deployment
 
 ---
 
@@ -225,7 +224,7 @@ Production lives at `https://www.mhc-gc.com` (canonical — with `www`).
 
 ### ❌ API routes return 500 / Worker errors
 
-1. Cloudflare Dashboard → Workers & Pages → `mh-construction` → Functions → Logs
+1. Cloudflare Dashboard → Workers & Pages → `mhc-v2-website` → Functions → Logs
 2. Check for missing environment variables or D1 binding issues
 
 ---
@@ -253,7 +252,7 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 
 ### First-Time Setup
 
-- [ ] Connect GitHub repo to Cloudflare Pages project `mh-construction`
+- [ ] Connect GitHub repo to Cloudflare Pages project `mhc-v2-website`
 - [ ] Set **Build command** = `npm run build` in dashboard
 - [ ] Set **Build output directory** = `.open-next/assets` in dashboard
 - [ ] Set **Node.js version** = `22` in dashboard
