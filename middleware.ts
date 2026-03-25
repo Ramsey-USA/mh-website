@@ -3,10 +3,17 @@
  * Enhanced middleware with Cloudflare optimization and security features
  */
 
-import { type NextRequest } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { securityMiddleware } from "./src/middleware/security";
 
 export async function middleware(request: NextRequest) {
+  // Apex → www canonical redirect (mhc-gc.com → www.mhc-gc.com)
+  const url = new URL(request.url);
+  if (url.hostname === "mhc-gc.com") {
+    url.hostname = "www.mhc-gc.com";
+    return NextResponse.redirect(url.toString(), { status: 301 });
+  }
+
   // Get Cloudflare headers for enhanced processing
   const cfConnectingIP = request.headers.get("cf-connecting-ip");
   const cfCountry = request.headers.get("cf-ipcountry");

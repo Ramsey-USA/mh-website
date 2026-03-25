@@ -77,20 +77,29 @@ binding = "ASSETS"
 
 ---
 
-## Cloudflare Dashboard Secrets — REQUIRED
+## Cloudflare Dashboard Variables & Secrets
 
 **Cloudflare Dashboard → Workers & Pages → `mhc-v2-website` → Settings → Variables & Secrets**
 
-| Variable                  | Value                    | Notes                                     |
-| ------------------------- | ------------------------ | ----------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`    | `https://www.mhc-gc.com` | Canonical URL                             |
-| `RESEND_API_KEY`          | `re_xxxxx`               | Email notifications (contact forms)       |
-| `JWT_SECRET`              | 32+ random bytes (hex)   | Signs admin JWTs — **required in prod**   |
-| `ADMIN_MATT_PASSWORD`     | strong password          | Admin dashboard login for Matt            |
-| `ADMIN_JEREMY_PASSWORD`   | strong password          | Admin dashboard login for Jeremy          |
-| `EMAIL_FROM`              | `noreply@mhc-gc.com`     | Resend sender address (must be verified)  |
-| `CI`                      | `true`                   | Skips husky pre-commit hooks during build |
-| `NEXT_TELEMETRY_DISABLED` | `1`                      | Disable Next.js telemetry                 |
+### Currently Set ✅
+
+| Variable               | Type      | Value                    | Notes                           |
+| ---------------------- | --------- | ------------------------ | ------------------------------- |
+| `NEXT_PUBLIC_SITE_URL` | Plaintext | `https://www.mhc-gc.com` | Canonical URL                   |
+| `NODE_VERSION`         | Plaintext | `22.22.2`                | Pins Node.js version for builds |
+| `YARN_VERSION`         | Plaintext | `1.22.19`                | Pins Yarn version for builds    |
+
+### Still to Add ❌
+
+| Variable                  | Type   | Value                | Notes                                                    |
+| ------------------------- | ------ | -------------------- | -------------------------------------------------------- |
+| `CI`                      | Secret | `true`               | Skips husky hooks during build — **add first**           |
+| `NEXT_TELEMETRY_DISABLED` | Secret | `1`                  | Disable Next.js telemetry                                |
+| `RESEND_API_KEY`          | Secret | `re_xxxxx`           | Email notifications (contact forms)                      |
+| `EMAIL_FROM`              | Secret | `noreply@mhc-gc.com` | Resend sender address (must be verified domain)          |
+| `JWT_SECRET`              | Secret | 48-byte hex string   | Signs admin JWTs — **required before first admin login** |
+| `ADMIN_MATT_PASSWORD`     | Secret | strong password      | Admin dashboard login for Matt                           |
+| `ADMIN_JEREMY_PASSWORD`   | Secret | strong password      | Admin dashboard login for Jeremy                         |
 
 > **`CI=true` is essential.** Without it, `npm install` triggers the `prepare` script which
 > runs husky and fails in the Cloudflare build environment.

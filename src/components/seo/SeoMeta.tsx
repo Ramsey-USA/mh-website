@@ -276,10 +276,12 @@ export function generateWebsiteSchema() {
 
 // Generate enhanced organization schema (for root layout)
 export function generateEnhancedOrganizationSchema() {
-  // Returns the same as generateOrganizationStructuredData for compatibility
-  // but with additional properties for enhanced SEO
+  // Destructure out "@type" from the base object so esbuild doesn't see a
+  // duplicate key when inlining the spread (fixes [duplicate-object-key] warning).
+
+  const { "@type": _baseType, ...base } = generateOrganizationStructuredData();
   return {
-    ...generateOrganizationStructuredData(),
+    ...base,
     "@id": `${defaultSEO.siteUrl}/#organization`,
     "@type": ["GeneralContractor", "VeteranOwnedBusiness"],
     legalName: "MH Construction Incorporated - Veteran-Owned",
