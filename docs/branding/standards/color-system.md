@@ -4,7 +4,7 @@
 **Status:** ✅ Current  
 **Category:** Business - Brand Guidelines  
 **Last Updated:** December 25, 2025  
-**Version:** 5.1.0 - Emergency Color Scheme Added
+**Version:** 5.2.0 - Accessibility Color Variants
 
 ## Quick Navigation
 
@@ -142,8 +142,8 @@ grayscale palette to convey authority, compliance, and institutional reliability
 
 #### Grayscale Accent - Cool Gray
 
-**Hex:** `#6b7280` (Tailwind Gray-500)
-**RGB:** `rgb(107, 114, 128)`
+**Hex:** `#374151` (Tailwind Gray-700)
+**RGB:** `rgb(55, 65, 81)`
 **Use Case:** Gradient transitions, supporting elements
 **Psychology:** Balanced neutrality, regulatory compliance
 
@@ -232,8 +232,8 @@ grayscale palette to convey authority, compliance, and institutional reliability
 
 #### Grayscale Accent - Cool Gray
 
-**Hex:** `#6b7280` (Tailwind Gray-500)
-**RGB:** `rgb(107, 114, 128)`
+**Hex:** `#374151` (Tailwind Gray-700)
+**RGB:** `rgb(55, 65, 81)`
 **Use Case:** Gradient transitions, supporting elements
 **Psychology:** Balanced neutrality, regulatory compliance
 
@@ -1056,12 +1056,6 @@ module.exports = {
 - "Get Professional Estimate" (icon: `engineering`)
 - "Book Site Visit" (icon: `place`)
 
-**Automated Estimator Actions (Secondary - Leather Tan):**
-
-- "Get Instant AI Estimate" (icon: `smart_toy`)
-- "Try AI Cost Calculator" (icon: `smart_toy`)
-- "Calculate Project Cost" (icon: `calculate`)
-
 **Trade Partnership Actions (Secondary - Leather Tan):**
 
 - "Join Our Trade Partnership Network" (icon: `construction`)
@@ -1129,7 +1123,6 @@ module.exports = {
 |---------------------|--------------|------|-------------|
 | **IRL Consultation** | Hunter Green (Primary) | `event` | "Schedule Free Consultation" |
 | **Client Partnership** | Hunter Green (Primary) | `handshake` | "Begin Partnership" |
-| **Automated Estimator** | Leather Tan (Secondary) | `smart_toy` | "Get Instant Automated Estimate" |
 | **Trade Partnership** | Leather Tan (Secondary) | `construction` | "Join Trade Network" |
 | **Government/Federal** | Grayscale Gradient | `account_balance` | "Request Grant Support" |
 
@@ -1155,8 +1148,8 @@ module.exports = {
 
 ````tsx
 <Button variant="secondary" size="lg">
-  <MaterialIcon icon="smart_toy" size="lg" className="mr-3" />
-  <span className="font-medium">Get Instant AI Estimate</span>
+  <MaterialIcon icon="construction" size="lg" className="mr-3" />
+  <span className="font-medium">Join Trade Network</span>
 </Button>
 ```
 

@@ -569,7 +569,7 @@ wrangler deploy --env production
 
 1. Go to: <https://mhc-gc.com>
 2. Scroll to footer
-3. Triple-click on "2025 MH Construction, Inc."
+3. Triple-click on "2026 MH Construction, Inc."
 4. Enter admin credentials
 5. Access analytics dashboard
 

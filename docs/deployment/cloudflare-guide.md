@@ -215,7 +215,7 @@ or run `npm run build` before `npx wrangler deploy` manually.
 
 **Cause:** `npm install` triggers the `prepare` script which tries to run husky hooks.
 
-**Fix:** Add `CI=true` (or `HUSKY=0`) to Environment Variables in the CF Pages dashboard.
+**Fix:** Add `CI=true` (or `HUSKY=0`) to Environment Variables in the Cloudflare dashboard.
 
 ---
 
@@ -280,7 +280,7 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 - [ ] Apply D1 migrations (see D1 Migrations section below)
 - [ ] Verify Resend domain: add SPF + DKIM DNS records for `mhc-gc.com` in Resend dashboard
 
-> **Note:** Deployment is handled entirely by Cloudflare Pages auto-deploy.
+> **Note:** Deployment is handled entirely by Cloudflare Workers auto-deploy.
 > GitHub Actions (`.github/workflows/ci-cd.yml`) runs quality checks, tests, and
 > a build verification as a safety gate — it does **not** run `wrangler pages deploy`.
 > No `CLOUDFLARE_API_TOKEN` or `CLOUDFLARE_ACCOUNT_ID` GitHub secrets are required
@@ -290,7 +290,7 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 
 - [ ] Push to `main` branch
 - [ ] GitHub Actions CI gate runs: type-check, lint, format, **54 tests**, build
-- [ ] Cloudflare Pages auto-deploys from `main` (independently of CI)
+- [ ] Cloudflare Workers auto-deploys from `main` (independently of CI)
 - [ ] Monitor build in Cloudflare Dashboard → Deployments
 - [ ] Build should complete in ~30–45 seconds
 - [ ] Verify `https://www.mhc-gc.com` is live

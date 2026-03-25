@@ -5,7 +5,7 @@
  *
  * Storage strategy (in priority order):
  *   1. Cloudflare KV ("CACHE" binding) — durable, shared across all Workers
- *      isolates, used automatically when deployed to Cloudflare Pages.
+ *      isolates, used automatically when deployed to Cloudflare Workers.
  *   2. In-memory Map — local development fallback only.  This store is
  *      per-isolate and is reset on cold-starts; it is intentionally NOT used
  *      in production (Cloudflare Workers can spawn many isolates).

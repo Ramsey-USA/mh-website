@@ -23,7 +23,7 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
  *
  * Navigation Structure:
  * - Primary pages: Home, About, Services, Projects, Team, Careers, Contact
- * - Special features: AI Estimator, Government Services, Trade Partners
+ * - Special features: Government Services, Trade Partners
  * - Social links: Facebook, Instagram, LinkedIn, YouTube
  *
  * @component

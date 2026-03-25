@@ -166,27 +166,7 @@ each of the 7 page groups expresses these attributes differently.
 Our four core values build toward trust as the culmination of excellence in every interaction.
 Each value is essential, and together they create the foundation of lasting partnerships.
 
-#### 1. Professionalism - Excellence in Every Interaction
-
-**Core Message**: Expert knowledge meets professional conduct
-
-> "Excellence in every interaction. From our first conversation to final walk-through, we represent the
-> highest standards of professionalism in the construction industry."
-
-**Key Elements**: Expert construction knowledge, professional conduct, industry-leading credentials,
-organized processes, proper job site management
-
-#### 2. Thoroughness - Attention to Detail in Everything We Do
-
-**Core Message**: Comprehensive planning meets meticulous execution
-
-> "Meticulous attention to detail. We don't cut corners—every measurement, every material choice, every
-> finish is executed with precision and care."
-
-**Key Elements**: Detailed project planning, careful attention to every measurement, complete documentation,
-multiple quality checkpoints, systematic verification
-
-#### 3. Honesty - Transparent Communication Always
+#### 1. Honesty - Transparent Communication Always
 
 **Core Message**: Truthful assessments and open communication
 
@@ -196,7 +176,7 @@ multiple quality checkpoints, systematic verification
 **Key Elements**: Realistic timelines, accurate cost estimates, no hidden costs, transparent pricing,
 immediate notification of changes
 
-#### 4. Integrity - Doing What's Right, Every Time
+#### 2. Integrity - Doing What's Right, Every Time
 
 **Core Message**: Ethical decisions and promise keeping
 
@@ -205,6 +185,28 @@ immediate notification of changes
 
 **Key Elements**: Choosing the right path, following through on commitments, taking responsibility,
 using specified materials, making client-first decisions
+
+#### 3. Professionalism - Excellence in Every Interaction
+
+**Core Message**: Expert knowledge meets professional conduct
+
+> "Excellence in every interaction. From our first conversation to final walk-through, we represent the
+> highest standards of professionalism in the construction industry."
+
+**Key Elements**: Expert construction knowledge, professional conduct, industry-leading credentials,
+organized processes, proper job site management
+
+#### 4. Thoroughness - Attention to Detail in Everything We Do
+
+**Core Message**: Comprehensive planning meets meticulous execution
+
+> "Meticulous attention to detail. We don't cut corners—every measurement, every material choice, every
+> finish is executed with precision and care."
+
+**Key Elements**: Detailed project planning, careful attention to every measurement, complete documentation,
+multiple quality checkpoints, systematic verification
+
+#### (Value Outcome Note)
 
 #### 5. Reliability - Dependable Results You Can Count On
 
@@ -264,16 +266,16 @@ See [Core Values](../../business/core-values.md) for complete details on our fou
 
 ### Full-Stack Production Platform (v3.2)
 
-**Current Status**: 22-page production-ready platform, fully deployed on Cloudflare Pages
+**Current Status**: 35-page production-ready platform, fully deployed on Cloudflare Workers
 
 **Key Features:**
 
 - 22 public pages (flat route directories) + Analytics dashboard
-- 7 city/location pages (Kennewick, Pasco, Richland, West Richland, Yakima, Spokane, Walla Walla)
+- 11 city/location pages (Kennewick, Pasco, Richland, West Richland, Yakima, Spokane, Walla Walla, Coeur d'Alene, Hermiston, Omak, Pendleton)
 - Complete Material Icons system implementation
 - Light/dark mode support throughout (three modes)
 - PWA-ready with Service Worker v4.0.0, offline support
-- Zero-error production build, 95/95 tests passing
+- Zero-error production build, 54/54 tests passing
 - 100/100 SEO scores across all pages
 
 ## Brand Implementation Guidelines
@@ -324,7 +326,7 @@ See [Core Values](../../business/core-values.md) for complete details on our fou
 ---
 
 **Brand Authority**: MH Construction Leadership Team
-**Last Major Update**: November 20, 2025 (v5.0.0 - Core Values Integration)
+**Last Major Update**: December 28, 2025 (v6.0.0 - Veteran-Owned Excellence Transformation)
 **Next Review**: Quarterly brand compliance assessment
 
 **Version History**:

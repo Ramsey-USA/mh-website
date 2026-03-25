@@ -568,7 +568,6 @@ style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
 
 **Technology Features:**
 
-- `smart_toy` - AI/automated tools
 - `calculate` - Cost calculator
 - `analytics` - Project analytics
 - `insights` - Smart recommendations
@@ -614,7 +613,7 @@ style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
 **Homepage:**
 
 - `engineering`, `verified`, `handshake`, `military_tech`
-- `event`, `smart_toy`, `calculate`
+- `event`, `calculate`
 - `check_circle`, `workspace_premium`, `shield`
 
 **Services Page:**

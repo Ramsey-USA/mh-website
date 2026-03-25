@@ -34,7 +34,7 @@ veteran-owned excellence, honest communication, transparent pricing, and proven 
 
 ### November 15, 2025 Update
 
-**⭐ CRITICAL FOR ALL CONTENT DEVELOPMENT:** All pages must follow the 7 Core Page Groups messaging strategy
+**⭐ CRITICAL FOR ALL CONTENT DEVELOPMENT:** All pages must follow the 4 Core Page Groups messaging strategy
 documented in **[Page-Specific Messaging Guide](../../branding/strategy/page-specific-messaging-guide.md)**.
 
 ### Why This Matters
@@ -42,40 +42,25 @@ documented in **[Page-Specific Messaging Guide](../../branding/strategy/page-spe
 Each page has a specific role in the user journey and must use appropriate voice, tone, and keyword
 prioritization:
 
-1. **Group 1: Traditional Business Foundation** (Homepage, Contact, Booking)
-   - Voice: Warm, trustworthy, approachable
-   - Priority: Trust → Values → People → Technology
-   - Focus: Relationship-building and partnership invitation
+1. **Group 1: Veteran Foundation** (Homepage, About, Veterans)
+   - Voice: Straight-talk, service-minded, trust-earned
+   - Priority: Honesty → Integrity → Proof → Partnership
+   - Focus: Relationship-building and veteran values
 
-2. **Group 2: Heritage & Track Record** (About, Projects)
-   - Voice: Proud, accomplished, proven
-   - Priority: Experience → History → Results → Relationships
-   - Focus: Credibility through demonstrated success
+2. **Group 2: Professional Services** (Services, Projects, Government)
+   - Voice: Evidence-based, thorough, no-nonsense
+   - Priority: Professionalism → Thoroughness → Results → Compliance
+   - Focus: Proven expertise and real results
 
-3. **Group 3: Future Vision & Expertise** (Team, Services)
-   - Voice: Professional, forward-looking, comprehensive
-   - Priority: Expertise → Capabilities → Vision → Tools
-   - Focus: What we offer and how we deliver
+3. **Group 3: Partnership & Team** (Team, Careers, Trade Partners)
+   - Voice: Relationship-focused, long-term, mutual respect
+   - Priority: THE ROI IS THE RELATIONSHIP → All 4 values create ROI
+   - Focus: Partnerships that outlast projects
 
-4. **Group 4: Professional Patriotic** (Government, Veterans)
-   - Voice: Respectful, service-focused, capable
-   - Priority: Service → Standards → Capabilities → Partnership
-   - Focus: Alignment with mission and values
-
-5. **Group 5: Recruitment & Opportunity** (Careers)
-   - Voice: Welcoming, growth-focused, team-oriented
-   - Priority: Culture → Opportunity → Team → Benefits
-   - Focus: Career development and belonging
-
-6. **Group 6: Resources & Help** (FAQ, Support, Resources)
-   - Voice: Helpful, accessible, professional
-   - Priority: Service → Support → Communication → Trust
-   - Focus: Direct human assistance, no automation emphasis
-
-7. **Group 7: Partnership** (Trade Partners)
-   - Voice: Decisive, responsive, solution-oriented
-   - Priority: Speed → Solution → Partnership → Action
-   - Focus: Immediate response and collaboration
+4. **Group 4: Direct Communication** (Contact, FAQ)
+   - Voice: Accessible, transparent, human-first
+   - Priority: Honesty → Professionalism → Accessibility
+   - Focus: Face-to-face consultation, honest answers, real people
 
 ### Implementation Requirements
 
@@ -167,7 +152,6 @@ When creating a new page hero section:
 | Projects       | "Proven Results, Trusted Partnerships"                                     | Track record             |
 | Team           | "Experience You Can Trust"                                                 | Team expertise           |
 | Careers        | "Your Future Starts Here"                                                  | Career growth            |
-| Booking        | "Start Your Project With Confidence"                                       | Consultation confidence  |
 | Government     | "Mission-Ready, Compliance-Driven"                                         | Federal expertise        |
 | Trade Partners | "Building Success Together"                                                | B2B partnership          |
 | Veterans       | "Honoring Those Who Served"                                                | Veteran support          |
@@ -1010,7 +994,7 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 ## 📚 Related Documentation
 
 - **[Page-Specific Messaging Guide](../../branding/strategy/page-specific-messaging-guide.md)** - ⭐
-  **CRITICAL** - 5 Core Page Groups strategy
+  **CRITICAL** - 4 Core Page Groups strategy
 - **[Brand Overview](../../branding/strategy/brand-overview.md)** - Complete brand standards
 - **[Brand Overview](../../branding/strategy/brand-overview.md)** - Complete brand standards
 - **[Design System Components](../../technical/design-system/buttons-ctas-complete-guide.md)** - Complete design system

@@ -86,7 +86,7 @@ const PRESET_DESCRIPTIONS: Record<string, string> = {
   careers: "Careers",
   contact: "Contact Us",
   booking: "Schedule Consultation",
-  estimator: "AI Project Estimator",
+  estimator: "Request an Estimate",
   "case-studies": "Case Studies",
   allies: "Allies",
   "trade-partners": "Trade Partners",

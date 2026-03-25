@@ -1,4 +1,4 @@
-# Cloudflare Pages Headers Configuration
+# Cloudflare Workers Headers Configuration
 # Ensures proper MIME types and caching for Next.js assets
 
 # Static JavaScript chunks - with preload hints

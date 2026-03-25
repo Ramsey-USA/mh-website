@@ -95,7 +95,7 @@ echo ""
 # =============================================================================
 echo -e "${BLUE}5. Checking for unused dependencies...${NC}"
 if command -v depcheck &> /dev/null; then
-  UNUSED_DEPS=$(npx depcheck --ignores="@types/*,eslint-*,prettier,husky,@commitlint/*,postcss,autoprefixer,jest-environment-jsdom,@cloudflare/next-on-pages,chalk" --json | \
+  UNUSED_DEPS=$(npx depcheck --ignores="@types/*,eslint-*,prettier,husky,@commitlint/*,postcss,autoprefixer,jest-environment-jsdom,chalk" --json | \
     node -e "const data = JSON.parse(require('fs').readFileSync(0)); console.log(data.dependencies.join('\n'))" 2>/dev/null || true)
   
   if [ -n "$UNUSED_DEPS" ]; then

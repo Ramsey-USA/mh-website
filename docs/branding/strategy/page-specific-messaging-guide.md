@@ -2,7 +2,7 @@
 
 **Last Updated:** December 14, 2025 | **Version:** 3.0.0 | **Status:** Official Brand Standard - Veteran/Honesty Focus
 
-**⚠️ MAJOR UPDATE (Dec 14, 2025)**: Restructured from 7 groups to **5 Core Page Groups** reflecting our veteran-owned,
+**⚠️ MAJOR UPDATE (Dec 14, 2025)**: Restructured from 7 groups to **4 Core Page Groups** reflecting our veteran-owned,
 honesty-first business model. All tech/automation messaging removed in favor of direct human consultation and
 transparent communication.
 
@@ -51,7 +51,7 @@ specific terms and phrases.
 
 ---
 
-## 📖 Page Group Classifications (5 Core Groups)
+## 📖 Page Group Classifications (4 Core Groups)
 
 ### Group 1: Veteran Foundation
 
@@ -411,146 +411,6 @@ appropriately.
 - Generic FAQ answers that don't help
 - Pushing sales instead of providing genuine help
 - Any reference to automated tools or AI systems
-
----
-
-### Voice & Tone
-
-- **Forward-looking:** What's next, where we're going
-- **Growth-oriented:** Expanding capabilities and vision
-- **Values-Driven:** Four values guide our future direction
-- **Proven Methods:** Embracing excellence while honoring core values
-- **Empowering:** Enabling client success and team development
-
-### Core Values Emphasis (Services)
-
-**Featured Values:** Professionalism, Thoroughness, Partnership
-
-- Team expertise and professional growth
-- Comprehensive service offerings with meticulous execution
-- Building tomorrow's trust today
-
-### Primary Messaging (Services)
-
-**Main Slogan:**
-
-- "Building projects for the client, NOT the dollar" (as foundation)
-
-**Values-Future Messaging:**
-
-- "Our Values Today Shape Your Success Tomorrow"
-- "Trust: Yesterday's Foundation, Tomorrow's Promise"
-
-**Future-Focused Slogans:**
-
-- "Building Tomorrow's Success on Today's Values"
-- "Your Vision, Our Precision, Mutual Trust"
-- "From Vision to Victory Through Values"
-- "Shaping the Future with Timeless Values"
-
-### Language Characteristics (Group 3)
-
-- Use future-tense language about capabilities
-- Emphasize growth trajectory and expansion
-- Highlight emerging services and innovations
-- Focus on potential and possibility
-- Show team development and career paths
-
-### Key Phrases (Group 3)
-
-- "Leading the industry into tomorrow with timeless values"
-- "Evolving to serve you better, our values remain constant"
-- "Expanding our capabilities to match your vision, grounded in trust"
-- "The future of construction partnership built on four core values"
-- "Where your tomorrow begins today, on a foundation of trust"
-- "Growing together, building together, trusting together"
-- "Professional excellence today creates trusted partnerships tomorrow"
-- "Thorough planning now prevents problems later"
-
-### Avoid (Group 3)
-
-- Dwelling too much on the past
-- Suggesting instability or uncertainty
-- Overpromising without values foundation
-- Ignoring current capabilities while chasing future
-- Future talk without values anchor
-
----
-
-## 🇺🇸 GROUP 4: Professional & Patriotic (All-Branch Recognition)
-
-### Pages: Government, Veterans
-
-### Voice & Tone (Professional & Patriotic - Deprecated)
-
-- **Respectful:** Honoring service and sacrifice from **all branches**
-- **Professional:** Meeting federal standards and expectations (military-grade compliance)
-- **Mission-focused:** Commitment to duty and excellence (operation-level dedication)
-- **Integrity-Driven:** Doing what's right, every time (core values from every service branch)
-- **Reliable:** Veteran-trained dependability (from boot camp to boardroom)
-- **Patriotic:** Proud American values without being over-the-top
-- **Branch-Aware:** Understanding unique cultures—Army’s "Hooah", Navy's "Hooyah", Air Force’s
-  "Aim High", Marine’s "Oorah", Coast Guard’s "Semper Paratus", Space Force’s "Semper Supra"
-
-### Core Values Emphasis
-
-**Featured Values:** Integrity, Innovation, Professionalism
-
-- Integrity in all dealings (military values applied to construction)
-- Reliability earned through consistent performance
-- Professionalism meeting federal compliance standards
-
-### Primary Messaging
-
-**Main Slogan:**
-
-- "Building projects for the client, NOT the dollar" (as foundation)
-
-**Values-Patriotic Messaging:**
-
-- "Military Values Meet Construction Excellence"
-- "Trust Earned Through Service, Proven Through Performance"
-
-**Patriotic Professional Slogans:**
-
-- "Mission-Ready, Values-Driven, Compliance-Assured"
-- "Veteran Values, Community-Focused Results, Trusted Execution"
-- "Serving Those Who Served with Integrity and Reliability"
-- "Excellence in Every Detail, Trust in Every Interaction"
-
-### Language Characteristics (Group 4)
-
-- Use military-adjacent terminology appropriately
-- Reference veteran values: duty, integrity, mission focus
-- Emphasize regulatory compliance and federal standards
-- Show respect for government processes
-- Honor veteran sacrifice without exploitation
-
-### Key Phrases (Group 4)
-
-- "Veteran leadership since January 2025 — **all branches represented, all values honored**"
-- "Military precision from every service branch meets construction excellence through four core
-  values"
-- "Serving those who served our nation with integrity and reliability — Army, Navy, Air Force,
-  Marines, Coast Guard, Space Force"
-- "Mission-focused project execution guided by unwavering values (from parade ground to construction
-  ground)"
-- "Compliance-driven, quality-assured, integrity-based (federal standards meet military standards)"
-- "Your word is your bond - we understand that through military service across all branches"
-- "Reliability trained in service, proven in construction (deployment discipline in every detail)"
-- "Professionalism learned in uniform, applied to every project (military bearing in business)"
-- "Trust: earned in service, demonstrated in construction"
-- "Whether you wore Army green, Navy blue, Air Force blue, Marine Corps red, Coast Guard blue, or
-  Space Force black — we honor your service"
-
-### Avoid (Group 4)
-
-- Over-militarization of language
-- Exploiting veteran status for gain
-- Casual references to military service
-- Assuming all clients understand military jargon
-- Political messaging or partisanship
-- Values claims without military connection
 
 ---
 

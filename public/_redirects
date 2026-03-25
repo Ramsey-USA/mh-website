@@ -1,5 +1,5 @@
-# Cloudflare Pages Redirects
-# Routing is handled by the next-on-pages _worker.js.
+# Cloudflare Workers Redirects
+# Routing is handled by the OpenNext worker.js.
 # Only true 301 redirects belong here (mirrors next.config.js for CDN-level resolution).
 
 /partners /allies 301

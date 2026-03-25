@@ -88,8 +88,6 @@ check_internal_links() {
         "/allies"
         "/careers"
         "/contact"
-        "/booking"
-        "/estimator"
         "/testimonials"
     )
     
@@ -188,8 +186,12 @@ check_cta_consistency() {
     
     echo -e "${GREEN}✓${NC} CTA distribution:"
     echo "  • Contact CTAs: $contact_ctas"
-    echo "  • Booking CTAs: $booking_ctas"
-    echo "  • Estimator CTAs: $estimator_ctas"
+    if [ "$booking_ctas" -gt 0 ]; then
+        echo -e "  ${RED}•${NC} Booking CTAs: $booking_ctas (REMOVED route — should be 0)"
+    fi
+    if [ "$estimator_ctas" -gt 0 ]; then
+        echo -e "  ${RED}•${NC} Estimator CTAs: $estimator_ctas (REMOVED route — should be 0)"
+    fi
     PASSED_CHECKS=$((PASSED_CHECKS + 1))
 }
 

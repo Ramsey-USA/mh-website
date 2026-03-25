@@ -26,11 +26,11 @@ if (
   // Apply the production fallback so the build can proceed; canonical URLs will
   // still be correct since the fallback matches the live domain.
   // To silence this warning, add NEXT_PUBLIC_SITE_URL=https://www.mhc-gc.com
-  // in the Cloudflare Pages dashboard (Settings → Environment variables).
+  // in the Cloudflare Workers dashboard (Settings → Environment variables).
   console.warn(
     "[next.config.js] NEXT_PUBLIC_SITE_URL is not set — " +
       "falling back to https://www.mhc-gc.com. " +
-      "Add it to the Cloudflare Pages dashboard to suppress this warning.",
+      "Add it to the Cloudflare Workers dashboard to suppress this warning.",
   );
   process.env.NEXT_PUBLIC_SITE_URL = "https://www.mhc-gc.com";
 }

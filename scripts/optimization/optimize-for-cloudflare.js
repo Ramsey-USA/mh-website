@@ -36,12 +36,12 @@ function addCloudflareHeaders() {
   console.log(`✅ Updated ${htmlFiles.length} HTML files`);
 }
 
-// 2. Create _headers file for Cloudflare Pages
+// 2. Create _headers file for Cloudflare Workers
 function createHeadersFile() {
   console.log("📄 Creating _headers file...");
 
   const headersContent = `
-# Cloudflare Pages Headers Configuration
+# Cloudflare Workers Headers Configuration
 
 /*
   X-Frame-Options: DENY
@@ -82,12 +82,12 @@ function createHeadersFile() {
   console.log("✅ Created _headers file");
 }
 
-// 3. Create _redirects file for Cloudflare Pages
+// 3. Create _redirects file for Cloudflare Workers
 function createRedirectsFile() {
   console.log("🔀 Creating _redirects file...");
 
   const redirectsContent = `
-# Cloudflare Pages Redirects
+# Cloudflare Workers Redirects
 
 # Force HTTPS
 http://mhc-gc.com/* https://www.mhc-gc.com/:splat 301!

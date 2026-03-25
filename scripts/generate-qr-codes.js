@@ -102,18 +102,12 @@ const QR_CODES = [
   },
   {
     name: "booking",
-    url: `${BASE_URL}/booking`,
+    url: `${BASE_URL}/contact`,
     description: "Schedule Consultation",
-    label: "mhc-gc.com/booking",
+    label: "mhc-gc.com/contact",
   },
 
   // Special pages
-  {
-    name: "estimator",
-    url: `${BASE_URL}/estimator`,
-    description: "AI Project Estimator",
-    label: "mhc-gc.com/estimator",
-  },
   {
     name: "case-studies",
     url: `${BASE_URL}/case-studies`,

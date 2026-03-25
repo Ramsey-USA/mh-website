@@ -105,11 +105,11 @@ echo "🔍 Domain Setup Verification"
 echo "=============================="
 echo ""
 
-# Check Cloudflare Pages deployment status
-echo -e "${YELLOW}Checking Cloudflare Pages deployment...${NC}"
+# Check Cloudflare Workers deployment status
+echo -e "${YELLOW}Checking Cloudflare Workers deployment...${NC}"
 if command_exists wrangler; then
     echo -e "${GREEN}✅ Wrangler CLI is available${NC}"
-    echo -e "${YELLOW}Run 'wrangler pages project list' to see deployments${NC}"
+    echo -e "${YELLOW}Run 'wrangler deployments list' to see deployments${NC}"
 else
     echo -e "${YELLOW}⚠️  Wrangler CLI not found. Install with: npm install -g wrangler${NC}"
 fi
@@ -170,8 +170,8 @@ else
     
     if ! $web_success; then
         echo -e "${RED}❌ Website accessibility issues${NC}"
-        echo "   → Ensure Cloudflare Pages deployment is successful"
-        echo "   → Check Cloudflare Pages configuration"
+        echo "   → Ensure Cloudflare Workers deployment is successful"
+        echo "   → Check Cloudflare Workers configuration"
     fi
     
     if ! $ssl_success; then
@@ -186,10 +186,10 @@ echo "📚 Next Steps"
 echo "============="
 echo ""
 echo "1. 📖 Read the complete setup guide:"
-echo "   docs/deployment/cloudflare-pages-setup.md"
+echo "   docs/deployment/cloudflare-guide.md"
 echo ""
 echo "2. 🛠️  Deploy your website:"
-echo "   npm run deploy:production"
+echo "   npm run deploy"
 echo ""
 echo "3. 🔍 Monitor DNS propagation:"
 echo "   https://dnschecker.org"

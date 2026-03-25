@@ -40,7 +40,7 @@ export function generateHowToSchema(howTo: HowToSchemaProps) {
     tool: [
       {
         "@type": "HowToTool",
-        name: "AI Budget Planning Tool",
+        name: "MH Construction Website",
       },
     ],
   };

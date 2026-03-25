@@ -1,5 +1,5 @@
 // MH Construction Service Worker
-// Enhanced for Cloudflare Pages optimization
+// Enhanced for Cloudflare Workers optimization
 // Provides offline capabilities, advanced caching, and PWA functionality
 
 // Debug mode - set to false in production

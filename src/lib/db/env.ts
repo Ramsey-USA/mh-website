@@ -2,7 +2,7 @@
  * Cloudflare Environment Access for Next.js
  *
  * Helper to access Cloudflare Workers bindings (D1, KV, R2) from Next.js API routes
- * when deployed to Cloudflare Pages via @opennextjs/cloudflare.
+ * when deployed to Cloudflare Workers via @opennextjs/cloudflare.
  *
  * Returns null when called outside of a Cloudflare Workers context (e.g. local dev).
  */

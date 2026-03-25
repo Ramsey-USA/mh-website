@@ -10,7 +10,7 @@
 ### **Live Production Pages**
 
 - ✅ **Homepage** (`/src/app/page.tsx`) - Partnership-focused landing with core
-  values, SEO optimized (95/100), performance optimized with lazy loading
+  values, SEO optimized (100/100), performance optimized with lazy loading
   - Full documentation: [Homepage Documentation](../technical/homepage.md)
 - ✅ **About Page** (`/src/app/about/page.tsx`) - Company story and 4-value foundation
 - ✅ **Services Page** (`/src/app/services/page.tsx`) - Construction capabilities and expertise
@@ -37,6 +37,10 @@
 - ✅ **Yakima** (`/src/app/locations/yakima/page.tsx`)
 - ✅ **Spokane** (`/src/app/locations/spokane/page.tsx`)
 - ✅ **Walla Walla** (`/src/app/locations/walla-walla/page.tsx`)
+- ✅ **Coeur d'Alene** (`/src/app/locations/coeur-d-alene/page.tsx`)
+- ✅ **Hermiston** (`/src/app/locations/hermiston/page.tsx`)
+- ✅ **Omak** (`/src/app/locations/omak/page.tsx`)
+- ✅ **Pendleton** (`/src/app/locations/pendleton/page.tsx`)
 
 ### **Advanced Platform Features**
 
@@ -57,7 +61,7 @@
 - **Styling**: Tailwind CSS 3.4.19
 - **Icons**: Google Material Icons (font-based)
 - **Animations**: Framer Motion 12.35.2
-- **Deployment**: Cloudflare Pages
+- **Deployment**: Cloudflare Workers
 - **Database**: Cloudflare D1 (SQLite)
 - **Analytics**: Custom tracking system with admin dashboard (Matt & Jeremy only)
 - **Theme**: Dark/Light mode support
@@ -94,7 +98,11 @@ src/
 │   │   ├── west-richland/page.tsx  # Location: West Richland
 │   │   ├── yakima/page.tsx         # Location: Yakima
 │   │   ├── spokane/page.tsx        # Location: Spokane
-│   │   └── walla-walla/page.tsx    # Location: Walla Walla
+│   │   ├── walla-walla/page.tsx    # Location: Walla Walla
+│   │   ├── coeur-d-alene/page.tsx  # Location: Coeur d'Alene
+│   │   ├── hermiston/page.tsx      # Location: Hermiston
+│   │   ├── omak/page.tsx           # Location: Omak
+│   │   └── pendleton/page.tsx      # Location: Pendleton
 │   ├── api/
 │   │   ├── auth/                   # Admin authentication endpoints
 │   │   ├── analytics/              # Analytics data API

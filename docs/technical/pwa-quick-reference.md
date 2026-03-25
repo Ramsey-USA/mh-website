@@ -96,7 +96,7 @@ Then check browser console for `[SW]` prefixed logs.
 ### Pre-Deployment
 
 - [ ] Update cache version numbers
-- [ ] Run `npm run test:pwa` (should pass 49+/50)
+- [ ] Run `npm run test:pwa` (should pass 50/50)
 - [ ] Test offline mode (DevTools → Network → Offline)
 - [ ] Test installation prompt
 - [ ] Test update notification

@@ -36,7 +36,7 @@ interface PageNavigationProps {
  *
  * Usage Patterns:
  * - Section anchors within current page (e.g., "/services#section")
- * - Related contextual pages (e.g., "/estimator", "/contact")
+ * - Related contextual pages (e.g., "/services", "/contact")
  * - Strategic calls-to-action placement
  * - User journey optimization
  *

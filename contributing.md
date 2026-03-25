@@ -407,7 +407,7 @@ npm run type-check        # TypeScript validation
 
 # Building
 npm run build            # Production build test
-npm run build:cloudflare # Cloudflare Pages build
+npm run build            # OpenNext build → .open-next/ + .next/
 
 # Testing
 npm run test             # Run tests
@@ -550,14 +550,8 @@ docs/
 ### Deployment Commands
 
 ```bash
-# Production build (Cloudflare-optimized)
-npm run build:cloudflare
-
-# Deploy to Cloudflare Pages
-npm run pages:deploy
-
-# Full production deployment
-npm run deploy:production
+# Production build + deploy to Cloudflare Workers
+npm run deploy
 
 # Or push to Git for automatic deployment
 git push origin main

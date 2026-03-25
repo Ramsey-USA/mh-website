@@ -275,7 +275,6 @@ Experience these values in action on your next construction project.
 ### **For Project Clients**
 
 - **Schedule Free Consultation** - Discuss your project with our team
-- **Budget Planning Tool** - Prepare for your consultation
 
 **Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 

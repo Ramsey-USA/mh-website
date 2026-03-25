@@ -15,7 +15,7 @@ A secure, hidden analytics dashboard accessible only to Matt and Jeremy through 
 
 1. **Navigate to any page** on the MH Construction website
 2. **Scroll to the footer** at the bottom of the page
-3. **Find the copyright text** that says "2025 MH Construction, Inc."
+3. **Find the copyright text** that says "2026 MH Construction, Inc."
 4. **Triple-click** on the copyright text (click 3 times quickly)
 5. **Admin Sign-In Modal** will appear
 6. **Enter credentials** (see below)
@@ -67,7 +67,7 @@ A secure, hidden analytics dashboard accessible only to Matt and Jeremy through 
 ### Conversions
 
 - **Contact Form Submissions**: Total contact form completions
-- **Consultation Requests**: Booking requests
+- **Consultation Requests**: Contact form consultation requests
 - **Conversion by Type**: Breakdown of conversion types
 
 ### Veteran Engagement

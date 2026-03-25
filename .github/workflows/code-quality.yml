@@ -37,7 +37,7 @@ jobs:
         run: npm run test:ci
 
       - name: Check for unused dependencies
-        run: npx depcheck --ignores="@types/*,eslint-*,prettier,husky,@commitlint/*,postcss,autoprefixer,jest-environment-jsdom,@cloudflare/next-on-pages,chalk"
+        run: npx depcheck --ignores="@types/*,eslint-*,prettier,husky,@commitlint/*,postcss,autoprefixer,jest-environment-jsdom,chalk"
 
       - name: Build project
         run: npm run build

@@ -744,7 +744,7 @@ export default function Footer() {
                   className="text-brand-secondary dark:text-brand-secondary-light"
                 />
                 <span className="text-sm text-gray-300 dark:text-gray-200 font-semibold">
-                  2025 MH Construction, Inc.
+                  2026 MH Construction, Inc.
                 </span>
               </div>
 

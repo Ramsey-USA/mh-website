@@ -119,7 +119,7 @@ export const config = {
      *   - api/health          Uptime-probe — skip auth & rate-limit overhead
      *   - api/cf-*            Cloudflare-managed API endpoints
      *
-     * Cloudflare Pages config files (not real HTTP paths)
+     * Cloudflare Workers config files (not real HTTP paths)
      *   - _headers            Custom response headers file
      *   - _redirects          Redirect rules file
      */

@@ -63,7 +63,6 @@ commercial, industrial, and specialty businesses, including:
 **Ready to Start?** Schedule a free consultation to discuss your commercial construction project.
 
 - **Schedule Free Consultation** - Meet with our specialists (`event`)
-- **Budget Planning Tool** - Prepare for your consultation (`smart_toy`)
 
 **Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
@@ -360,12 +359,6 @@ Schedule a personalized consultation with our experienced team for expert guidan
 - **Schedule Free Consultation** - Meet with our project specialists (`event`)
 - **Book Site Visit** - On-location assessment (`place`)
 
-#### Budget Planning Tool
-
-Try our helpful budget planning tool for preliminary estimates - available 24/7 to prepare for your consultation.
-
-- **Budget Planning Tool** - Preliminary cost estimates (`smart_toy`)
-
 **Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
 ### **Service Request Process**
@@ -395,16 +388,6 @@ Schedule a personalized consultation with our experienced team for detailed prof
 
 - **Schedule Free Consultation** - Meet with our project specialists (`event`)
 - **Book Site Visit** - On-location assessment (`place`)
-
-#### 2. Budget Planning Tool
-
-Get preliminary project cost estimates with our helpful planning tool.
-Available 24/7 to prepare for your consultation.
-
-- **Budget Planning Tool** - Preliminary estimates (`smart_toy`)
-- **Quick Budget Planner** - Helpful preparation tool (`calculate`)
-- **Book Site Visit** - Arrange an on-location assessment (`place`)
-- **Request Project Review** - Submit plans for expert analysis (`visibility`)
 
 **Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 

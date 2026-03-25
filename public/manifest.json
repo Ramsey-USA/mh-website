@@ -131,18 +131,18 @@
       "label": "MH Construction Homepage - Mobile View"
     },
     {
-      "src": "/screenshots/desktop-estimator.png",
+      "src": "/screenshots/desktop-contact.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Automated Estimator Tool - Desktop View"
+      "label": "MH Construction Contact Page - Desktop View"
     },
     {
-      "src": "/screenshots/mobile-booking.png",
+      "src": "/screenshots/mobile-contact.png",
       "sizes": "390x844",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Booking System - Mobile View"
+      "label": "MH Construction Contact Page - Mobile View"
     }
   ],
   "prefer_related_applications": false,

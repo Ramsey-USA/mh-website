@@ -1,8 +1,8 @@
 name: CI/CD Pipeline
 
-# Deployment is handled by Cloudflare Pages auto-deploy (watches main branch).
+# Deployment is handled by Cloudflare Workers auto-deploy (watches main branch).
 # This pipeline is a quality gate: type-check, lint, test, and build must all
-# pass before code reaches production via CF Pages.
+# pass before code reaches production via Cloudflare Workers.
 
 on:
   push:
