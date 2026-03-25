@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import fs from "node:fs";
 import path from "node:path";
 
+export const dynamic = "force-static";
+
 /**
  * Dynamic Sitemap - Auto-adapts to new pages
  * To add a new page: just add it to ACTIVE_PAGES array below

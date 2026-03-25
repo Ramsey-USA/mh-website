@@ -1,9 +1,23 @@
 name = "mh-construction-website"
 pages_build_output_dir = ".open-next/assets"
 compatibility_date = "2026-03-15"
-compatibility_flags = ["nodejs_compat"]
+compatibility_flags = ["nodejs_compat_v2"]
 
-# NOTE: Wrangler does NOT perform shell variable substitution in TOML files.
+# Runtime secrets — set via `wrangler secret put <NAME>` or the Cloudflare Pages
+# dashboard (Settings → Environment variables → Add variable → Secret).
+# Missing secrets cause silent failures (email/SMS won't send) or hard errors
+# (JWT_SECRET, ADMIN_*_PASSWORD throw at request time in production).
+#
+# Required secrets:
+#   JWT_SECRET               — HMAC key for session tokens (min 32 chars)
+#   ADMIN_MATT_PASSWORD      — Login password for Matt
+#   ADMIN_JEREMY_PASSWORD    — Login password for Jeremy
+#   RESEND_API_KEY           — Resend API key (re_xxxx) for outbound email
+#   EMAIL_FROM               — Sender address (e.g. office@mhc-gc.com)
+#   TWILIO_ACCOUNT_SID       — Twilio account SID for SMS notifications
+#   TWILIO_AUTH_TOKEN        — Twilio auth token for SMS notifications
+#   TWILIO_FROM_NUMBER       — Twilio phone number (e.g. +15093086489)
+
 # The ${...} placeholders below must be replaced by your CI pipeline before
 # running `wrangler pages deploy` (e.g. via envsubst or a sed step).
 # In Cloudflare Pages dashboard builds, use the "Environment variables" section

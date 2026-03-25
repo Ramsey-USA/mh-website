@@ -162,19 +162,15 @@ interface RateLimitEntry {
 
 class RateLimitStore {
   private store: Map<string, RateLimitEntry> = new Map();
-  private cleanupInterval: NodeJS.Timeout;
 
   constructor() {
-    // Clean up expired entries every 5 minutes
-    this.cleanupInterval = setInterval(
-      () => {
-        this.cleanup();
-      },
-      5 * 60 * 1000,
-    );
+    // No setInterval: Cloudflare Workers freeze between requests so timers
+    // never fire. Cleanup is performed inline on every get() call instead.
   }
 
   get(key: string): RateLimitEntry | undefined {
+    // Opportunistic cleanup on each read to keep memory bounded.
+    this.cleanup();
     return this.store.get(key);
   }
 
@@ -196,7 +192,6 @@ class RateLimitStore {
   }
 
   destroy(): void {
-    clearInterval(this.cleanupInterval);
     this.store.clear();
   }
 }

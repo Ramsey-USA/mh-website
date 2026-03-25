@@ -13,6 +13,8 @@ import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { logger } from "@/lib/utils/logger";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 
+export const dynamic = "force-dynamic";
+
 export const GET = rateLimit(rateLimitPresets.public)(async (
   request: NextRequest,
 ) => {

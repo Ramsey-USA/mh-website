@@ -72,16 +72,10 @@ export class R2StorageService {
       if (file instanceof File) {
         buffer = await file.arrayBuffer();
         actualContentType = actualContentType || file.type;
-      } else if (Buffer.isBuffer(file)) {
-        // Convert Buffer to ArrayBuffer (handles both ArrayBuffer and SharedArrayBuffer)
-        const uint8Array = new Uint8Array(
-          file.buffer,
+      } else if (file instanceof Uint8Array) {
+        buffer = file.buffer.slice(
           file.byteOffset,
-          file.byteLength,
-        );
-        buffer = uint8Array.buffer.slice(
-          uint8Array.byteOffset,
-          uint8Array.byteOffset + uint8Array.byteLength,
+          file.byteOffset + file.byteLength,
         ) as ArrayBuffer;
       } else {
         buffer = file;

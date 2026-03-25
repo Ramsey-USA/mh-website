@@ -79,9 +79,8 @@ const STATIC_ASSETS = [
   "/public-sector",
   "/veterans",
   "/allies",
-  // Next.js static assets (if they exist)
-  "/_next/static/css/app/layout.css",
-  "/_next/static/css/app/page.css",
+  // Note: Next.js CSS chunks use content-hash filenames (e.g. /_next/static/css/4a8b2c.css)
+  // and cannot be reliably precached here. They are cached at runtime by fetch handlers below.
 ];
 
 // API endpoints to cache with different strategies
@@ -195,15 +194,6 @@ self.addEventListener("sync", (event) => {
 
   if (event.tag === "background-sync") {
     event.waitUntil(handleBackgroundSync());
-  }
-});
-
-// Handle messages from clients (like skip waiting)
-self.addEventListener("message", (event) => {
-  console.info("[SW] Message received:", event.data);
-
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
   }
 });
 

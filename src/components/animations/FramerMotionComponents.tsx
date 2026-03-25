@@ -68,8 +68,9 @@ export function FadeInWhenVisible({
       requestAnimationFrame(() => {
         if (!ref.current) return;
         const rect = ref.current.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0)
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
           setForceShow(true);
+        }
       });
     };
     requestAnimationFrame(() => {

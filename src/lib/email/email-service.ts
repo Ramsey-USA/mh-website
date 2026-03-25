@@ -35,21 +35,26 @@ export interface EmailResult {
  */
 export class EmailService {
   private resend: Resend | null = null;
-  private fromEmail: string;
-  private isConfigured: boolean;
+  private fromEmail: string | null = null;
+
+  /**
+   * Lazily initialise the Resend client on the first request.
+   * Reading env vars here (not in the constructor) ensures they are available
+   * at request time in Cloudflare Workers, where module-scope env reads can
+   * return undefined if the isolate was cold-started without secrets bound.
+   */
+  private getResend(): { client: Resend; from: string } | null {
+    if (!this.resend) {
+      const apiKey = process.env["RESEND_API_KEY"];
+      if (!apiKey) return null;
+      this.resend = new Resend(apiKey);
+      this.fromEmail = process.env["EMAIL_FROM"] || "noreply@mhc-gc.com";
+    }
+    return { client: this.resend, from: this.fromEmail! };
+  }
 
   constructor() {
-    const apiKey = process.env["RESEND_API_KEY"];
-    this.fromEmail = process.env["EMAIL_FROM"] || "noreply@mhc-gc.com";
-    this.isConfigured = Boolean(apiKey);
-
-    if (apiKey) {
-      this.resend = new Resend(apiKey);
-    } else {
-      logger.warn(
-        "⚠️  RESEND_API_KEY not configured. Emails will be logged only.",
-      );
-    }
+    // Intentionally empty — env vars are read lazily in getResend().
   }
 
   /**
@@ -78,7 +83,8 @@ export class EmailService {
     }
 
     // If Resend is not configured, log and return
-    if (!this.resend || !this.isConfigured) {
+    const resendContext = this.getResend();
+    if (!resendContext) {
       logger.warn("📧 Email that would be sent:");
       logger.info(
         `To: ${Array.isArray(to) ? to.join(", ") : to}, Subject: ${subject}, Attachments: ${attachments && attachments.length > 0 ? attachments.length : 0}`,
@@ -88,6 +94,7 @@ export class EmailService {
         error: "Email service not configured",
       };
     }
+    const { client: resend, from: defaultFrom } = resendContext;
 
     try {
       // Normalize recipients to array
@@ -106,7 +113,7 @@ export class EmailService {
           filename: string;
         }>;
       } = {
-        from: from || this.fromEmail,
+        from: from || defaultFrom,
         to: recipients,
         subject,
       };
@@ -125,8 +132,8 @@ export class EmailService {
       }
 
       // Send email
-      const { data: emailResult, error } = await this.resend.emails.send(
-        emailPayload as Parameters<typeof this.resend.emails.send>[0],
+      const { data: emailResult, error } = await resend.emails.send(
+        emailPayload as Parameters<typeof resend.emails.send>[0],
       );
 
       if (error) {
@@ -207,7 +214,7 @@ export class EmailService {
    * Check if email service is configured and ready
    */
   isReady(): boolean {
-    return this.isConfigured && this.resend !== null;
+    return this.getResend() !== null;
   }
 }
 

@@ -144,7 +144,8 @@ export class AuditLogger {
 
   constructor(config: SecurityConfig["audit"]) {
     this.config = config;
-    this.setupCleanup();
+    // No setInterval: Workers freeze between requests so timers never fire.
+    // Cleanup is handled inline in logEvent() instead.
   }
 
   /**
@@ -184,9 +185,16 @@ export class AuditLogger {
     // Add to in-memory store
     this.events.push(event);
 
-    // Maintain size limit
+    // Enforce size limit
     if (this.events.length > this.maxEvents) {
       this.events = this.events.slice(-this.maxEvents);
+    }
+
+    // Enforce retention window inline (Workers have no timer callbacks)
+    const cutoffDate = new Date();
+    cutoffDate.setDate(cutoffDate.getDate() - this.config.retentionDays);
+    if (this.events[0] && this.events[0].timestamp < cutoffDate) {
+      this.events = this.events.filter((e) => e.timestamp > cutoffDate);
     }
 
     // Log to console in development
@@ -565,21 +573,6 @@ export class AuditLogger {
 
   private async sendToExternalLogger(_event: AuditEvent): Promise<void> {
     // External logging integration point - extend as needed for production
-  }
-
-  private setupCleanup(): void {
-    // Clean up old events periodically
-    setInterval(
-      () => {
-        const cutoffDate = new Date();
-        cutoffDate.setDate(cutoffDate.getDate() - this.config.retentionDays);
-
-        this.events = this.events.filter(
-          (event) => event.timestamp > cutoffDate,
-        );
-      },
-      24 * 60 * 60 * 1000,
-    ); // Run daily
   }
 
   private generateTimelineData(events: AuditEvent[]): Array<{

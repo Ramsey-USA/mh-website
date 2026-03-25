@@ -6,6 +6,7 @@
 import { logger } from "@/lib/utils/logger";
 import { dataCollector } from "./data-collector";
 import { MetricsCalculator } from "./metrics-calculator";
+import { getEventMetadata } from "./metadata";
 import type {
   AnalyticsEventType,
   AnalyticsEvent,
@@ -74,10 +75,6 @@ export class AdvancedAnalyticsEngine {
     if (typeof window === "undefined") return;
 
     try {
-      // Import enhanced metadata inline to avoid circular deps
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const { getEventMetadata } = require("./metadata");
-
       // Create event with comprehensive metadata
       const event: AnalyticsEvent = {
         id: `event-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,

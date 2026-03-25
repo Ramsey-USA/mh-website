@@ -12,6 +12,8 @@ import { generateTokenPair } from "@/lib/auth/jwt";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import { logger } from "@/lib/utils/logger";
 
+export const dynamic = "force-dynamic";
+
 // Resolve credentials at request-time so the build succeeds without the env
 // vars present (same pattern as JWT's getSecretKey).  Missing vars throw in
 // production at the moment a login is attempted, not at build time.
