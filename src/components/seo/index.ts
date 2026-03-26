@@ -9,7 +9,6 @@ export {
   generateIRLConsultationSchema,
   generateFAQSchema,
   generateConstructionFAQSchema,
-  generateReviewSchema,
   generateBreadcrumbSchema,
   generateProjectSchema,
   generateArticleSchema,

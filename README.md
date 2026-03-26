@@ -75,241 +75,11 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Analytics**     | Live      | 100% page coverage, dashboard active      |
 | **Documentation** | Optimized | 62 docs + 12 supporting files, zero bloat |
 
-### Recent Improvements (March 2026)
+### Recent Changes
 
-- **Mar 26:** Build hygiene — removed stray `ReactDOM.preload()` call from `veterans/page.tsx`
-  (preloading `mh-veteran-bg.webp` at the RSC layer caused the browser to inject a `<link
-rel="preload">` into every page that prefetched `/veterans` via `<Link>`, resulting in
-  repeated "preloaded but not used" console warnings on the home page); added `remote = true`
-  to `[ai]` binding in `wrangler.toml` (suppresses wrangler dev charge warning); bumped
-  `wrangler` devDep `^4.73.0 → ^4.77.0`; added `picomatch>=4.0.4` and `yaml>=2.8.3` overrides
-  to fix 3 newly-released CVEs; bumped `flatted` override to `>=3.4.2` (3.4.2 now released —
-  prototype pollution fix fully effective); audit now reports 3 vulnerabilities (0 critical,
-  2 high devDep-only, 1 moderate production)
+See [CHANGELOG.md](CHANGELOG.md) for the full history of changes.
 
-- **Mar 26:** Partnership Guide chatbot — brand-compliant AI assistant powered by Cloudflare
-  Workers AI (`@cf/meta/llama-3.1-8b-instruct`) added to all pages via `ChatWidget` in root
-  layout; system prompt (`src/lib/chatbot/knowledge-base.ts`) encodes all 9 Allies with full
-  contact details, services overview, veteran benefits, FAQ highlights, and MH brand language
-  rules (forbidden phrases, approved terminology, no fabrication, no cost estimates);
-  `POST /api/chat` endpoint — input sanitized, rate-limited to 10 req/min/IP, gracefully falls
-  back to keyword-based responses when Workers AI binding is absent (local dev / quota); widget
-  is fully responsive — floating button on desktop, fullscreen drawer on mobile with iOS
-  safe-area padding; SEO/GEO integration: `contactPoint` for the AI assistant added to
-  Organization schema in root layout, chatbot Q&A added to FAQ page structured data,
-  `public/llms.txt` updated to describe the Partnership Guide, `public/robots.txt` disallows
-  `/api/chat` to scrapers; 19 new tests added (10 UI, 9 knowledge-base); all quality checks
-  pass: 95/95 tests, zero TypeScript errors, zero ESLint warnings
-
-- **Mar 26:** Cloudflare edge optimizations — added Early Hints `Link: rel=preload` headers
-  to `public/_headers` for Material Icons font and hero image (Cloudflare sends these as 103
-  responses before HTML, starting downloads during TLS negotiation); added HSTS header
-  (`max-age=63072000; includeSubDomains; preload`) to `_headers` for defence-in-depth alongside
-  `security-manager.ts`; cleaned up `middleware.ts` — removed dead response headers (`X-Real-IP`,
-  `X-Forwarded-Country`, `Accept-CH`, `X-CSP-Nonce`) and unused nonce generator that added CPU
-  overhead to every request without being consumed; documented Cloudflare Dashboard performance
-  settings in `wrangler.toml` and deployment guide v3.1.0 (Early Hints ON, HTTP/3 with QUIC ON,
-  0-RTT Connection Resumption ON, Smart Tiered Cache ON); added Redirect Rule upgrade path for
-  apex→www redirect (currently in middleware, can move to CDN-level rule for ~10-20 ms savings);
-  future upgrade potentials documented: Cloudflare Images (on-demand AVIF/WebP, ~$5/mo),
-  Email Routing (replace Resend for simple form emails, ~$100/yr savings), Bot Management
-  (~$20/mo), Analytics Engine binding
-
-- **Mar 26:** Analytics Cloudflare KV pipeline — analytics events now flow from client to server
-  via a beacon system (`navigator.sendBeacon` with `fetch(keepalive)` fallback) → `POST /api/analytics/collect`
-  → Cloudflare KV aggregation; previously the admin dashboard only showed the admin's own
-  browser data from localStorage; now it reads cross-visitor metrics from KV (`kv-store.ts` →
-  `getDashboardSnapshot()`); dashboard API uses Workers Cache API (30s TTL); beacon client
-  (`beacon.ts`) batches events in memory and flushes every 10s or on `visibilitychange`/`beforeunload`;
-  collect endpoint rate-limited (60 req/min/IP) with input validation (max 25 events, 256-char strings);
-  `trackFormSubmit()` wired into JobApplicationModal and Footer newsletter; double-counting fix
-  in `data-collector.ts`; session key collision fix in `marketing-tracking.ts`; `wrangler.toml`
-  ANALYTICS KV namespace enabled (requires `wrangler kv namespace create ANALYTICS` to
-  provision real ID); analytics docs updated to remove references to deleted TrackedComponents.tsx
-  and reflect actual APIs
-
-- **Mar 26:** Footer refactor and accessibility cleanup — consolidated repeated footer UI into
-  shared data-driven blocks for social links, action cards, and status badges; kept footer social
-  icons in a single row across screen sizes; replaced the newsletter form's direct DOM mutation
-  logic with React state and live status messaging; made WA/OR/ID license numbers directly visible
-  instead of hover-only; removed duplicate client-side organization schema from the footer in favor
-  of the canonical layout SEO source; moved admin access off the visible footer copyright control to
-  a private `Ctrl/Cmd + Shift + A` shortcut; added focused regression tests for newsletter feedback,
-  visible license details, and admin shortcut access
-
-- **Mar 26:** Careers/application UX and brand-language alignment — streamlined the job
-  application flow to reduce friction, carried CTA context into the application modal,
-  standardized shared dialog behavior across careers/admin/service/value modals
-  (scroll lock, escape close, focus trap, initial focus), added targeted regression coverage
-  for the modal/application paths, and removed legacy slogan-heavy phrasing from user-facing
-  copy plus shared SEO/location metadata so previews match the current relationship-first tone
-
-- **Mar 25:** Cloudflare performance optimizations — Worker Cache API added to `/api/analytics/geolocation`
-  (per-country, 5-min TTL — geolocation data is identical for all users from the same country) and
-  `/api/analytics/dashboard` (fixed cache key, 30-s TTL — all admins see the same snapshot);
-  `export const revalidate = 86400` added to all 11 location pages, team, and testimonials (24-h ISR
-  via OpenNext stale-while-revalidate); R2 public URL hostname warning added to `r2.ts` (correct
-  format is `pub-<accountHash>.r2.dev`, not `pub-<bucketName>.r2.dev` — Jeremy/Matt must update
-  with actual value from CF Dashboard → R2 → Settings → Public Access); `wrangler.toml` CACHE KV
-  block updated with step-by-step provisioning commands (`wrangler kv namespace create CACHE`) —
-  activating CACHE KV enables fleet-wide rate limiting (currently siloed per isolate)
-
-- **Mar 25:** Cloudflare deployment fixes & DB index audit — `wrangler.toml` `compatibility_date`
-  corrected from stale `2024-11-18` to `2026-03-25`; apex→www 301 redirect added to `middleware.ts`
-  (resolves SEO canonicalization: `mhc-gc.com` now redirects to `www.mhc-gc.com`); `SeoMeta.tsx`
-  `generateEnhancedOrganizationSchema` fixed to avoid duplicate `"@type"` key in esbuild output
-  (spreads base object without `"@type"`, then declares once as array — eliminates
-  `[duplicate-object-key]` warning on every deploy); `migrations/0007_add_created_at_indexes.sql`
-  added — `created_at` indexes on `contact_submissions`, `consultations`, `job_applications`
-  (all admin list views use `ORDER BY created_at DESC` but tables had no index on that column)
-
-- **Mar 25:** Dependency audit — `npm audit` now reports 4 vulnerabilities (0 critical, 2 high,
-  2 moderate): `fast-xml-parser` entity expansion bypass (via `wrangler` devDep); `flatted`
-  prototype pollution (partial override applied — awaiting upstream 3.4.2+ release); Next.js
-  2× moderate (HTTP request smuggling in rewrites, unbounded `next/image` disk cache — fix
-  requires Next.js >15.5.13 when available); `vercel` devDep fully removed; overrides updated
-  (`cookie@0.7.2`, `glob@>=11.0.0`, `flatted@>=3.4.0`, `undici@>=7.24.0`, `yauzl@>=3.2.1`)
-
-- **Mar 25:** Build type errors resolved — fixed 5 categories of pre-existing type errors exposed
-  by TypeScript strict mode: (1) `rateLimit` is a middleware factory (`rateLimit(config)(handler)`) —
-  4 API routes (`geolocation`, `consultations`, `job-applications`, `functions/[functionName]`) were
-  incorrectly calling it as `await rateLimit(request, config)`; (2) `newsletter/route.ts` —
-  `DbClient.query<T>()` returns `T[]` directly, not `{ results: T[] }`; (3) `PageNavigation.tsx` —
-  `useIsMobile()` returns `boolean | null` (SSR-safe), coerced to `boolean | undefined` with `?? undefined`
-  for `getNavigationLabel`; (4) `middleware/security.ts` — `getRouteConfig` fallback replaced
-  indexing into `Record<string,…>` (possibly `undefined`) with an explicit `{ logAll: false }` object;
-  build now clean: ~33s, 35 static pages, 211 kB shared bundle, zero type errors
-
-- **Mar 25:** Codebase audit and hardening — fixed CORS origins in `security-manager.ts`
-  (was pointing to stale `mh-construction.com` domain); fixed SW precache paths for location
-  pages (`/pasco` etc. → `/locations/pasco`); fixed geolocation API to read from Workers `cf`
-  object instead of non-existent CF headers (only `CF-IPCountry` is a real header); fixed
-  `X-Frame-Options` in `public/_headers` from `SAMEORIGIN` to `DENY` (consistent with
-  security-manager); fixed CI Node version `20` → `22` (matches `engines` in package.json);
-  fixed CI `NEXT_PUBLIC_SITE_URL` missing `www` prefix; added `JWT_SECRET`,
-  `ADMIN_MATT_PASSWORD`, `ADMIN_JEREMY_PASSWORD`, `EMAIL_FROM`, R2 bucket bindings, KV
-  bindings, Cloudflare dashboard safety settings (Rocket Loader OFF, HTML minify OFF, SSL
-  Full strict, Always HTTPS) to deployment checklist; flagged placeholder Google Maps embed
-  URL on contact page (requires real Place ID + Maps Embed API key)
-
-- **Mar 25:** Migrated deployment from Cloudflare Pages (`mhc-gc-website`) to Cloudflare Workers
-  (`mhc-v2-website.twelthmann.workers.dev`) — `wrangler.toml` updated to Workers model (`main =
-.open-next/worker.js`, `[assets]` binding); `deploy` script changed from
-  `wrangler pages deploy --project-name=mhc-v2-website` to `wrangler deploy`; `sw.js`
-  `isCloudflareAsset()` extended to cover `workers.dev` preview URLs; cloudflare-guide.md
-  updated to v3.0.0 with new dashboard paths and first-time setup checklist
-
-- **Mar 16:** Cloudflare Pages build failure diagnosed and resolved — root cause: build command
-  (`npm run build`) was not set in the Cloudflare Pages dashboard, causing CF to skip the build
-  step and fail with "Output directory `.open-next/assets` not found"; fix is dashboard-only
-  (Settings → Builds & deployments → Build command = `npm run build`); also requires `CI=true`
-  env var to prevent husky `prepare` script from failing in the CF build environment; updated
-  [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md) to v2.0.0 — rewrote
-  entirely to reflect current OpenNext adapter setup, accurate build command, dashboard
-  requirements, and troubleshooting for the "no build command" failure mode
-
-- **Mar 16:** Build pipeline optimizations — moved `outputFileTracingExcludes` to top-level key in
-  `next.config.js` (promoted out of `experimental` in Next.js 15; was emitting a config warning); excludes
-  build-tool packages (`@swc`, `webpack`, `typescript`, `eslint`, `tailwindcss`, `postcss`, etc.) from the
-  Next.js trace step; disabled Next.js telemetry unconditionally via `NEXT_TELEMETRY_DISABLED=1` at
-  config load time; made `prepare` script CI-aware so husky is skipped in Cloudflare Pages builds
-  (`node -e "if (process.env.CI) process.exit(0)" && husky`); updated `compatibility_date` in
-  `wrangler.toml` to `2026-03-15`; deleted dead `/api/auth/login` and `/api/auth/refresh` routes (both
-  always returned 401 — `getUserById` / `verifyCredentials` were stubs; superseded by
-  `/api/auth/admin-login`); removed deleted routes from `MUTATION_ROUTES` in `api-cache-security.test.ts`;
-  fixed `module.context` null-safety in webpack chunk naming (webpack 5 can pass `null` context);
-  build: zero warnings, zero errors, 37/37 static pages, 210 kB shared bundle; test count: 56 → 54;
-  remaining dashboard-only items: enable `.next/cache` build cache path in CF Pages dashboard,
-  add `HUSKY=0` env var
-
-- **Mar 15:** Removed redundant `export const runtime = "edge"` declarations from 18 API route files —
-  Cloudflare Workers is inherently an edge runtime so the declarations are no-ops, but OpenNext was
-  treating them as signals to bundle those routes into a separate edge function which it cannot reconcile
-  with the single-Worker output model; build now completes cleanly end-to-end
-
-- **Mar 15:** Fixed Cloudflare Pages CI — dashboard build command updated from
-  `npm run build && npx @cloudflare/next-on-pages` to `npm run build`; deprecated
-  `@cloudflare/next-on-pages` was running as a second step after OpenNext and failing because it
-  requires `export const runtime = 'edge'` on all dynamic routes — the two adapters are mutually
-  exclusive; note: `[build]` in `wrangler.toml` is not valid for Pages projects (Workers-only field);
-  fix must be applied in the dashboard; deployment confirmed: 318 assets uploaded, site live
-
-- **Mar 15:** Comprehensive build audit — production build: 32.6s, 39/39 static pages generated, zero errors;
-  fixed 3 pre-existing lint issues (`OptimizedImage.tsx` — 2× missing `alt` on spread `<Image>` calls,
-  `PitchDeckCTA.tsx` — `role="none"` on hover-shim div); TypeScript strict: zero errors; ESLint: zero
-  warnings/errors; 56/56 tests passing; shared bundle reduced 221 kB → 211 kB
-
-- **Mar 15:** Eighth optimization pass — deleted 2 dead `lib/utils/` modules (`keyword-matcher.ts` — written
-  for removed AI/veteran systems, 14 tests; `date-utils.ts` — written for removed components, 9 tests);
-  fixed pre-existing missing `JWTPayload` import in `lib/auth/jwt.ts`; 56/56 tests passing, zero TS errors,
-  zero lint warnings
-
-- **Mar 15:** Seventh optimization pass — deleted `components/veterans/` directory (`VeteranBadgeSection.tsx`,
-  `index.ts`) — component never imported anywhere in the codebase (the previously deleted
-  `shared/VeteranBadgeSection.tsx` was a compat-wrapper; this was the original source that also had no
-  consumers); 79/79 tests still passing, zero TS errors, zero lint warnings
-
-- **Mar 15:** Sixth optimization pass — deleted 3 dead component directories (`components/slider/` —
-  `BeforeAfterSlider` + `BeforeAfterGallery`, `components/ratings/` — `AggregateRating`, `components/map/`
-  — `InteractiveMap` + `ServiceAreaOverview`), 7 dead files (`components/home/VideoHeroSection.tsx` &
-  `PartnershipCTA.tsx`, `components/testimonials/TestimonialsWidget.tsx` & `TestimonialsSection.tsx`,
-  `lib/analytics/marketing-analytics.ts`, `lib/auth/protected-route.tsx`, `lib/types/testimonials.ts`);
-  cleaned 2 barrel files (`home/index.ts`, `testimonials/index.ts`); 79/79 tests still passing, zero TS
-  errors, zero lint warnings
-
-- **Mar 15:** Fifth optimization pass — deleted 11 dead files: `components/shared/` compat-wrapper directory
-  (`VeteranBadgeSection.tsx`, `index.ts`), `shared-sections/AIEstimatorCTA.tsx` (AI estimator removed per business
-  policy; component orphaned), `lib/seo/seo-content-fragments.ts` (never imported), `lib/utils/dynamic-imports.tsx`
-  (utility only referenced in its own doc comment), `hooks/use-performance.ts` & `use-performance-optimization.ts`
-  (mock implementations, hooks never called in any component), `hooks/use-scroll-animation.ts` &
-  `use-scroll-depth-tracking.ts` (never imported), `hooks/use-phone-tracking.ts` (phone tracking handled via
-  `EnhancedAnalytics` directly), `components/team/TeamMemberTag.tsx` (never rendered),
-  `components/analytics/TrackedComponents.tsx` (`TrackedButton`/`TrackedLink`/`TrackedForm` never used — tracking goes
-  through `EnhancedAnalytics` and `TrackedContactLinks`); cleaned 4 barrel files; 79/79 tests still passing, zero TS
-  errors, zero lint warnings
-
-- **Mar 15:** Integration test cleanup — deleted orphaned `booking-flow.test.ts` (multi-step booking UI was removed;
-  no corresponding component exists); rewrote `authentication.test.ts` to reflect real admin auth flow
-  (Matt & Jeremy via `AdminSignInModal` → `/api/auth/admin-login`) replacing unimplemented general user login tests;
-  test count 95 → 79 (16 obsolete tests removed), all 79 passing
-
-- **Mar 15:** Fourth optimization pass — deleted 7 dead `lib/performance/` modules (`caching`, `performance-manager`,
-  `code-splitting`, `hooks`, `app-performance`, `lightweight-performance`, `index`, ~2,528 lines, only
-  `mobile-optimizations` retained); deleted `IconLibrary.tsx` (628 lines) and its 40+ unused re-exports from the icons
-  barrel; deleted `Slogan.tsx` and `slogans.ts` (~952 lines, never rendered); deleted standalone
-  `csrf.ts` (194 lines, CSRF logic lives inside `security-manager`); converted 3 more pages from client to RSC
-  (`team`, `public-sector`, `contact/ContactPageClient`) via `PageTrackingClient` island pattern — 4,302 lines of dead
-  code removed, 95/95 tests still passing; removed Urgent page (`/urgent`) and all associated navigation links,
-  sitemap entries, SEO metadata, and breadcrumb schema — page count 23 → 22; deleted stale
-  `docs/examples/performance-examples.tsx` (dead usage example for the removed performance modules)
-
-- **Mar 14:** Third optimization pass — deleted 5 dead `lib/` directories (`ai`, `cache`, `content`, `storage`, `branding`,
-  ~1,600 lines); removed `components/images` compat shim directory, `QuickBookingModal`, `PerformanceDashboard`,
-  and `components/activity` empty barrel; deleted dev-demo `/tracking-example` route; removed 3 unused production type
-  packages (`@types/hast`, `@types/mdast`, `@types/unist`), removed unused `@playwright/test` dev dep; added missing
-  `cross-env` dev dep required by `build:profile` script; cleaned `robots.txt` stale disallow entry; 95/95 tests still passing
-- **Mar 14:** Second optimization pass — converted `/accessibility` to RSC (223 kB → 221 kB); deleted 5 more dead
-  code files (`BlogNewsSection`, `CaseStudyTemplate`, `bundle-optimization`, `SmartFormAssistant`,
-  `use-smart-form-assistant`); removed unused `@react-email/render` production dependency; cleaned up
-  `CaseStudyTemplate` stale barrel export from `src/components/projects/index.ts`
-- **Mar 14:** Codebase optimization pass — deleted 2 exact-duplicate page files (`CareersPageClient`, `ProjectsPageClient`),
-  219 `.bak` backup artifacts, dead `FeaturesSection` and `ActivityFeed` components, entire unused chatbot component tree
-  (`GlobalChatbot`, `FloatingChatbotButton`, `GlobalChatbotProvider`, `InteractiveTimeline`, chatbot lib), and removed
-  `GlobalChatbotProvider` wrapper from root layout — 7 pages converted from client components to React Server Components
-  (`terms`, `privacy`, `testimonials`, `veterans`, `faq`, `allies`) by replacing inline `usePageTracking` hook
-  with the existing `PageTrackingClient` island pattern; fixed dead `/book` → `/contact` redirect; pruned 3 unused
-  entries from `optimizePackageImports` and removed empty `swcPlugins: []` from `next.config.js`; shared bundle
-  reduced from 223 kB → 221 kB with per-page hydration costs significantly lower on converted RSC pages
-- **Mar 11:** GEO-proof location content — city pages (Kennewick, Richland, Pasco, Yakima/Zillah,
-  Walla Walla) carry verified project cards, `hasOfferCatalog` LocalBusiness schema, and
-  public-sector callout linking fire-station work to `/public-sector`
-- **Mar 11:** Security hardening — API cache `Cache-Control: no-store` on mutating routes (21 tests);
-  asset-integrity guard tests added; middleware SEO matcher excludes static assets; production
-  audit at 0 vulnerabilities (dev-only: 15); `tar@7.5.11` and `cookie@1.1.1` CVE overrides added
-- **Mar 11:** Dependency upgrades — Next.js 15.5.12, React 19.0.0, Tailwind 3.4.19,
-  TypeScript 5.9.2, `markdownlint-cli2` v0.21.0, `vercel` pinned to 32.3.0
-- **Mar 11:** SEO/GEO hardening — canonical host standardized to `https://www.mhc-gc.com`;
-  city-priority service metadata; media sitemap expanded; Contact metadata deduped
+**Mar 26 highlights:** Build hygiene (`veterans/page.tsx` preload fix), Partnership Guide chatbot (Cloudflare Workers AI), Cloudflare edge optimizations (Early Hints, HSTS, middleware cleanup), Analytics KV pipeline (cross-visitor metrics), Footer accessibility refactor, Careers UX improvements.
 
 ---
 
@@ -490,30 +260,9 @@ npm run clean            # Clean build artifacts
 
 ---
 
-## Dependency Maintenance Notes (March 2026)
+## Dependency Maintenance
 
-- Production audit: `npm audit --omit=dev` reports 1 moderate vulnerability — Next.js
-  (HTTP request smuggling in rewrites, unbounded `next/image` disk cache growth; fix requires
-  upgrading Next.js beyond 15.5.13 when a patched release is available).
-- Deployment uses `@opennextjs/cloudflare` (OpenNext Workers adapter). The legacy
-  `@cloudflare/next-on-pages` adapter has been fully removed — it is mutually exclusive
-  with OpenNext and required `export const runtime = 'edge'` on every dynamic route.
-- `package.json` includes `overrides` to force patched versions of transitive dependencies:
-  - `tar@7.5.11` (fixes high CVEs in `@mapbox/node-pre-gyp` transitive chain)
-  - `cookie@0.7.2` (fixes low CVE in transitive chain)
-  - `flatted@>=3.4.2` (prototype pollution fix — 3.4.2 released, override fully effective)
-  - `undici@>=7.24.0` (security fix in HTTP client)
-  - `yauzl@>=3.2.1` (zip parsing security fix)
-  - `glob@>=11.0.0` (transitive glob update)
-  - `picomatch@>=4.0.4` (ReDoS + method injection fixes)
-  - `yaml@>=2.8.3` (stack overflow fix for deeply nested YAML)
-- Full `npm audit` reports 3 vulnerabilities in the toolchain:
-  - `fast-xml-parser` high (entity expansion bypass via `@aws-sdk/xml-builder` via `wrangler` devDep)
-  - `fast-xml-parser` high (numeric entity expansion bypass — same transitive path, new CVE)
-  - `next` 1× moderate (HTTP smuggling + disk cache; production dep, fix pending upstream)
-- Current full-audit status: 3 vulnerabilities (0 critical, 2 high devDep-only, 1 moderate, 0 low).
-
----
+See [CHANGELOG.md](CHANGELOG.md#dependency-overrides-march-2026) for current `npm audit` status and package override rationale.
 
 ## Documentation Structure
 
@@ -534,7 +283,6 @@ docs/
 ├── technical/                    # Technical implementation
 │   ├── design-system/           # buttons-ctas-complete-guide.md, icon-system-complete.md
 │   ├── seo/                     # seo-complete-guide.md
-│   ├── analytics-quick-reference.md
 │   ├── dark-mode-quick-reference.md
 │   └── pwa-quick-reference.md
 ├── marketing/                    # Marketing resources
@@ -569,167 +317,11 @@ config/cloudflare/edge-optimization.md  # Cloudflare edge optimization reference
 
 ## Project Architecture
 
-```text
-mh-website/
-├── src/
-│   ├── app/                      # Next.js 15 App Router
-│   │   ├── about/ allies/ careers/ contact/  # 15 public pages (flat route directories)
-│   │   ├── locations/           # 11 city pages (kennewick, pasco, richland, spokane, yakima,
-│   │   │                        #  walla-walla, west-richland, coeur-d-alene, hermiston, omak, pendleton)
-│   │   ├── api/                 # API routes (analytics, contact, etc.)
-│   │   ├── dashboard/           # Analytics dashboard
-│   │   ├── layout.tsx           # Root layout
-│   │   └── page.tsx             # Homepage
-│   ├── components/               # React components
-│   │   ├── about/               # About page components
-│   │   ├── allies/              # Allies page components
-│   │   ├── analytics/           # Tracking components
-│   │   ├── animations/          # Animation utilities
-│   │   ├── error/               # Error boundary components
-│   │   ├── forms/               # Form components
-│   │   ├── home/                # Homepage sections
-│   │   ├── icons/               # Icon components
-│   │   ├── layout/              # Layout components
-│   │   ├── locations/           # Location page components
-│   │   ├── navigation/          # Nav components
-│   │   ├── performance/         # Performance utilities
-│   │   ├── pwa/                 # PWA install prompt
-│   │   ├── seo/                 # SEO components
-│   │   ├── services/            # Services components
-│   │   ├── shared-sections/     # Reusable sections (TestimonialsSection, NextStepsSection)
-│   │   ├── team/                # Team components
-│   │   ├── templates/           # Page templates
-│   │   ├── testimonials/        # Testimonials components
-│   │   └── ui/                  # Base UI components
-│   ├── lib/                      # Core libraries
-│   │   ├── analytics/           # Analytics system
-│   │   ├── api/                 # API helpers
-│   │   ├── auth/                # Authentication utilities
-│   │   ├── cloudflare/          # Cloudflare-specific helpers
-│   │   ├── constants/           # App-wide constants
-│   │   ├── data/                # Static data helpers
-│   │   ├── db/                  # Database (D1) access layer
-│   │   ├── email/               # Email (Resend) helpers
-│   │   ├── notifications/       # Notification utilities
-│   │   ├── performance/         # mobile-optimizations.ts only
-│   │   ├── security/            # Security utilities (CSRF, etc.)
-│   │   ├── seo/                 # SEO utilities
-│   │   ├── services/            # Business-logic services
-│   │   ├── styles/              # Shared style utilities
-│   │   ├── types/               # Library-scoped types
-│   │   └── utils/               # General helper functions
-│   ├── contexts/                 # React contexts (Theme, etc.)
-│   ├── hooks/                    # Custom React hooks (use-breakpoint.ts)
-│   └── types/                    # TypeScript definitions
-├── public/                       # Static assets
-│   ├── icons/                   # PWA icons
-│   ├── images/                  # Optimized images (WebP)
-│   │   └── qr-codes/            # QR codes + guide
-│   ├── videos/                  # Optimized videos (WebM/MP4)
-│   ├── robots.txt               # AI crawler permissions
-│   ├── llms.txt                 # LLM-optimized content
-│   ├── sitemap-index.xml        # SEO sitemap
-│   ├── manifest.json            # PWA manifest
-│   └── sw.js                    # Service Worker v4.0.0
-├── docs/                         # Documentation (62 files)
-├── migrations/                   # D1 database migrations
-├── scripts/                      # Utility scripts
-├── config/                       # Configuration files
-└── testing/                      # Test utilities
-```
-
----
+See [docs/project/architecture.md](docs/project/architecture.md) for the full directory tree, page inventory, and component map.
 
 ## Design System
 
-### Brand Colors
-
-Three-tiered palette using `--color-brand-[name]-[shade]` CSS variables.
-
-**Hunter Green (Primary):**
-
-| Shade  | Hex       | CSS Variable                        | Tailwind Class              |
-| ------ | --------- | ----------------------------------- | --------------------------- |
-| Core   | `#386851` | `--color-brand-hunter-green`        | `text-brand-primary`        |
-| Light  | `#628F79` | `--color-brand-hunter-green-light`  | `text-brand-primary-light`  |
-| Dark   | `#1E392C` | `--color-brand-hunter-green-dark`   | `text-brand-primary-dark`   |
-| Deeper | `#12231b` | `--color-brand-hunter-green-darker` | `text-brand-primary-darker` |
-
-> **Deeper** is the gradient terminus used in 22+ component files.
-> Example: `from-brand-primary via-brand-primary-dark to-brand-primary-darker`
-
-**Leather Tan (Secondary):**
-
-| Shade | Hex       | CSS Variable                      | Tailwind Class               |
-| ----- | --------- | --------------------------------- | ---------------------------- |
-| Core  | `#BD9264` | `--color-brand-leather-tan`       | `text-brand-secondary`       |
-| Light | `#D9BD93` | `--color-brand-leather-tan-light` | `text-brand-secondary-light` |
-| Dark  | `#8A6B49` | `--color-brand-leather-tan-dark`  | `text-brand-secondary-dark`  |
-
-**Architectural Bronze (Accent — CTA borders & Featured labels):**
-
-| Shade | Hex       | CSS Variable                 | Tailwind Class            |
-| ----- | --------- | ---------------------------- | ------------------------- |
-| Core  | `#A87948` | `--color-brand-bronze`       | `text-brand-bronze`       |
-| Light | `#CD9B6D` | `--color-brand-bronze-light` | `text-brand-bronze-light` |
-| Dark  | `#6B4E2E` | `--color-brand-bronze-dark`  | `text-brand-bronze-dark`  |
-
-> **Bronze usage:** Applied to CTA borders and Featured Project labels for a premium feel.
-> For accessible body text, always use the Dark shade (contrast ≥ 7:1 on white).
-> Note: `brand-bronze-light` is defined but currently unused in components — bronze gradients
-> use the numeric scale (`bronze-600`, `bronze-700`, `bronze-800`) directly.
-
-**Neutrals:**
-
-- Light mode: White, Gray 50-900
-- Dark mode: Gray 900-50 (inverted)
-
-**Usage:**
-
-```tsx
-// Tailwind classes — primary (Hunter Green)
-bg - brand - primary; // Hunter Green core
-text - brand - primary - light; // Lighter tint (dark mode surfaces)
-text - brand - primary - dark; // Deep shade (headings, high contrast)
-text - brand - primary - darker; // Gradient terminus (to-brand-primary-darker)
-
-// Secondary (Leather Tan)
-bg - brand - secondary; // Leather Tan core (backgrounds, large text only)
-text - brand - secondary - dark; // AA-compliant for body text (4.71:1)
-
-// Accent (Architectural Bronze — CTA borders & featured labels)
-border - brand - bronze; // CTA outline borders
-bg - brand - bronze - dark; // Featured label backgrounds (7:1 on white)
-text - brand - bronze - dark; // Accessible bronze text
-
-// Dark mode variants
-dark: bg - brand - primary - light;
-dark: text - brand - secondary - light;
-```
-
-### Typography
-
-**Font Stack:**
-
-- **Headings:** system-ui, -apple-system, sans-serif
-- **Body:** system-ui, -apple-system, sans-serif
-- **Weights:** 400 (normal), 600 (semibold), 700 (bold)
-
-**Scale:**
-
-- xs: 0.75rem / sm: 0.875rem / base: 1rem
-- lg: 1.125rem / xl: 1.25rem / 2xl: 1.5rem
-- 3xl: 1.875rem / 4xl: 2.25rem / 5xl: 3rem
-
-### Icons
-
-**Google Material Icons** (font-based)
-
-- Weights: 400 (regular), 500 (medium), 600 (semibold)
-- Usage: `<span className="material-icons">check_circle</span>`
-- Reference: [Icon System Complete](docs/technical/design-system/icon-system-complete.md)
-
----
+Colors, typography, icons, and component patterns are fully documented in [Unified Component Standards](docs/branding/standards/unified-component-standards.md) v7.0.0.
 
 ## Deployment
 
@@ -796,8 +388,7 @@ This keeps the admin entry point off the visible footer UI while preserving quic
 ### Documentation
 
 - **[Analytics Guide for Matt & Jeremy](analytics-guide-for-matt-and-jeremy.md)** - Complete guide
-- **[Analytics Quick Reference](docs/technical/analytics-quick-reference.md)** - Developer guide
-- **[Admin Analytics System](docs/technical/admin-analytics-system.md)** - Dashboard docs
+- **[Analytics Tracking Guide](docs/technical/analytics-tracking-guide.md)** - Developer guide, quick reference cheatsheet, and dashboard access
 
 ---
 
@@ -972,5 +563,5 @@ Jeremy Thamert, continuing 15 years of construction excellence with renewed vete
 
 ---
 
-**Last Updated:** March 25, 2026  
-**Documentation Version:** 3.2 (Single Entry Point - Zero Bloat)
+**Last Updated:** March 26, 2026  
+**Documentation Version:** 4.0 (README + CHANGELOG split)

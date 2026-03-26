@@ -6,7 +6,3 @@
 
 export { MobilePerformanceMonitor } from "./MobilePerformanceMonitor";
 export { WebVitalsReporter } from "./WebVitalsReporter";
-export {
-  OptimizedPortfolioCard,
-  OptimizedGallery,
-} from "./OptimizedComponents";

@@ -503,44 +503,6 @@ export function generateConstructionFAQSchema() {
   return generateFAQSchema(faqs);
 }
 
-// Generate review schema
-export function generateReviewSchema(
-  reviews: Array<{
-    rating: number;
-    reviewBody: string;
-    author: string;
-    datePublished: string;
-  }>,
-) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${enhancedSEO.siteUrl}/#organization`,
-    review: reviews.map((review) => ({
-      "@type": "Review",
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: review.rating,
-        bestRating: 5,
-      },
-      reviewBody: review.reviewBody,
-      author: {
-        "@type": "Person",
-        name: review.author,
-      },
-      datePublished: review.datePublished,
-    })),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue:
-        reviews.reduce((sum, review) => sum + review.rating, 0) /
-        reviews.length,
-      reviewCount: reviews.length,
-      bestRating: 5,
-    },
-  };
-}
-
 // Generate breadcrumb schema
 export function generateBreadcrumbSchema(
   breadcrumbs: Array<{ name: string; url: string }>,

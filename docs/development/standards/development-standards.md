@@ -142,8 +142,7 @@ import { trackClick, trackFormSubmit } from "@/lib/analytics/tracking";
 ### Documentation
 
 - **[Analytics Tracking Guide](../../technical/analytics-tracking-guide.md)** - Complete implementation
-- **[Analytics Quick Reference](../../technical/analytics-quick-reference.md)** - Quick patterns
-- **[Admin System](../../technical/admin-analytics-system.md)** - Dashboard access
+- **[Analytics Tracking Guide](../../technical/analytics-tracking-guide.md)** - Implementation guide, quick reference cheatsheet, and dashboard access
 
 ### Best Practices
 

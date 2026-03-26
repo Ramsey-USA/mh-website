@@ -25,7 +25,7 @@ create visual interest without overwhelming users or creating pattern fatigue.
 ### 1. AlternatingShowcase (Image/Text Alternating)
 
 **Component:** `/src/components/ui/AlternatingShowcase.tsx`  
-**Documentation:** `/docs/technical/AlternatingShowcase-pattern.md`
+**Documentation:** `./AlternatingShowcase-pattern.md`
 
 **Visual Format:**
 
@@ -147,7 +147,7 @@ create visual interest without overwhelming users or creating pattern fatigue.
 ### 5. NextStepsSection (Unified CTA)
 
 **Component:** `/src/components/shared-sections/NextStepsSection.tsx`  
-**Documentation:** `/docs/technical/NextStepsSection-standardization.md`
+**Documentation:** `./NextStepsSection-standardization.md`
 
 **Visual Format:**
 

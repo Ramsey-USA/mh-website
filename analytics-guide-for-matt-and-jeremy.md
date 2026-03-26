@@ -10,8 +10,7 @@ scoring (0-100), device intelligence, traffic attribution, 100+ data points
 
 **Related Documentation:**
 
-- Quick Reference: [docs/technical/analytics-quick-reference.md](docs/technical/analytics-quick-reference.md)
-- Admin System: [docs/technical/admin-analytics-system.md](docs/technical/admin-analytics-system.md)
+- Developer Guide: [docs/technical/analytics-tracking-guide.md](docs/technical/analytics-tracking-guide.md)
 
 ---
 

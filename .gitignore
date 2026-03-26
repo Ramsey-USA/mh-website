@@ -78,6 +78,8 @@ test-results/
 playwright-report/
 coverage/
 *.lcov
+lighthouse-results/
+seo-audit-report.json
 
 # Temporary files
 *.tmp
