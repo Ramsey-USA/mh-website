@@ -1,3 +1,4 @@
+import ReactDOM from "react-dom";
 import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
 import Image from "next/image";
@@ -26,6 +27,8 @@ const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.veterans);
  * Showcasing MH Construction's veteran-owned status and community support programs
  */
 export default function VeteransPage() {
+  // Preload the parallax background — CSS backgrounds are not auto-discovered by the browser
+  ReactDOM.preload("/images/logo/mh-veteran-bg.webp", { as: "image" });
   return (
     <div className="relative min-h-screen">
       <PageTrackingClient pageName="Veterans" />

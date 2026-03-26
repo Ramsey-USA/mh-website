@@ -195,14 +195,7 @@ export default function RootLayout({
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        {/* Preload critical hero image for faster LCP */}
-        <link
-          rel="preload"
-          href="/images/logo/mh-veteran-bg.webp"
-          as="image"
-          type="image/webp"
-          fetchPriority="high"
-        />
+
         {/* Enhanced Schema Markup */}
         <StructuredData
           data={[generateEnhancedOrganizationSchema(), generateWebsiteSchema()]}

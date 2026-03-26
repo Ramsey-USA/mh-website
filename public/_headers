@@ -45,4 +45,3 @@
 # These match the <link rel="preload"> tags in src/app/layout.tsx.
 /
   Link: </fonts/MaterialIcons-Regular.woff2>; rel=preload; as=font; type=font/woff2; crossorigin
-  Link: </images/logo/mh-veteran-bg.webp>; rel=preload; as=image; type=image/webp

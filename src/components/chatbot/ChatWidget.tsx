@@ -62,6 +62,18 @@ export function ChatWidget() {
     return () => document.removeEventListener("keydown", handleKey);
   }, [isOpen]);
 
+  // Scroll lock on mobile (full-screen layout: inset-0 at < sm breakpoint)
+  useEffect(() => {
+    if (!isOpen) return;
+    const isMobile = window.matchMedia("(max-width: 639px)").matches;
+    if (!isMobile) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [isOpen]);
+
   const sendMessage = useCallback(
     async (text: string) => {
       const trimmed = text.trim();

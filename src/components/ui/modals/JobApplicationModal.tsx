@@ -166,7 +166,20 @@ export function JobApplicationModal({
     setFormData(createInitialFormData(entryPoint));
   }, [isOpen, entryPoint]);
 
-  useDialogBehavior({ isOpen, onClose: handleClose, dialogRef: modalRef });
+  const successRef = useRef<HTMLDivElement>(null);
+
+  // Form state: active while the form is visible
+  useDialogBehavior({
+    isOpen: isOpen && !submitSuccess,
+    onClose: handleClose,
+    dialogRef: modalRef,
+  });
+  // Success state: active after submission
+  useDialogBehavior({
+    isOpen: isOpen && submitSuccess,
+    onClose: handleClose,
+    dialogRef: successRef,
+  });
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -290,6 +303,7 @@ export function JobApplicationModal({
         />
         <div className="flex min-h-full items-center justify-center p-4">
           <div
+            ref={successRef}
             role="dialog"
             aria-modal="true"
             aria-labelledby="job-application-success-title"
