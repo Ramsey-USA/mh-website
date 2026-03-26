@@ -3,6 +3,46 @@ main = ".open-next/worker.js"
 compatibility_date = "2026-03-25"
 compatibility_flags = ["nodejs_compat"]
 
+# Workers AI binding — powers the Partnership Guide chatbot.
+# No provisioning needed; the AI binding is available to all Workers plans.
+# Free tier: 10,000 neurons/day. Paid plan: $0.011 per 1,000 neurons.
+# Model: @cf/meta/llama-3.1-8b-instruct (fast, good for structured Q&A).
+# If the binding is absent, the chatbot falls back to keyword-based responses.
+[ai]
+binding = "AI"
+
+# ========================================================================
+# Cloudflare Dashboard Settings (not configurable via wrangler.toml)
+# ========================================================================
+#
+# Speed → Optimization → Content Optimization:
+#   Early Hints ................. ON  — sends 103 with Link: preload headers
+#                                       (font + hero image defined in _headers)
+#   Auto Minify JS/CSS/HTML ..... OFF — Next.js already minifies; double-minify
+#                                       can corrupt JSX output
+#   Rocket Loader ............... OFF — breaks Next.js hydration
+#
+# Speed → Optimization → Protocol Optimization:
+#   HTTP/2 ...................... ON  (default for proxied zones)
+#   HTTP/3 with QUIC ........... ON  — better mobile perf on lossy networks
+#   0-RTT Connection Resumption . ON  — returning visitors skip TLS handshake
+#
+# SSL/TLS:
+#   Mode ........................ Full (strict)
+#   Always Use HTTPS ........... ON
+#   Minimum TLS Version ........ 1.2
+#   HSTS ....................... Enable (managed via _headers in code;
+#                                       dashboard toggle provides defence-in-depth)
+#
+# Rules → Redirect Rules (future — currently handled in middleware.ts):
+#   "apex-to-www" rule: When hostname = mhc-gc.com → 301 to www.mhc-gc.com
+#   Moving this to a Redirect Rule saves ~10-20 ms Worker CPU per redirect.
+#
+# Caching → Tiered Cache:
+#   Smart Tiered Cache ......... ON  (free) — reduces origin hits by routing
+#                                       through regional upper-tier caches
+# ========================================================================
+
 # Workers Assets — serves the static output from opennextjs-cloudflare
 [assets]
 directory = ".open-next/assets"
@@ -98,10 +138,18 @@ id = "b6ecda1ca7a7463db0f8a3b5d9681131"
 # id = "YOUR_NEXT_CACHE_KV_ID"
 # preview_id = "YOUR_NEXT_CACHE_KV_PREVIEW_ID"
 #
-# ANALYTICS — reserved for server-side analytics aggregation (currently localStorage).
-# [[kv_namespaces]]
-# binding = "ANALYTICS"
-# id = "YOUR_ANALYTICS_KV_ID"
+# ANALYTICS — server-side analytics aggregation (pageviews, conversions, clicks).
+# Provision with:
+#   1. wrangler kv namespace create ANALYTICS
+#      → copy the returned `id` value below
+#   2. wrangler kv namespace create ANALYTICS --preview
+#      → copy the returned `id` value as `preview_id`
+#
+# Without ANALYTICS, the /api/analytics/collect endpoint falls back to a no-op
+# and the dashboard shows zeros for cross-visitor metrics.
+[[kv_namespaces]]
+binding = "ANALYTICS"
+id = "PLACEHOLDER_ANALYTICS_KV_ID"
 # preview_id = "YOUR_ANALYTICS_KV_PREVIEW_ID"
 
 # R2 buckets for file storage

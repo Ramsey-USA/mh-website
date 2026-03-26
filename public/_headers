@@ -31,10 +31,19 @@
   Access-Control-Allow-Origin: *
   X-Content-Type-Options: nosniff
 
-# Security headers for all pages
+# Security headers for all responses
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-XSS-Protection: 1; mode=block
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+# Early Hints — Cloudflare caches these Link headers and sends them as 103
+# responses on subsequent requests, starting downloads during TLS negotiation.
+# Enable in CF dashboard: Speed → Optimization → Content Optimization → Early Hints.
+# These match the <link rel="preload"> tags in src/app/layout.tsx.
+/
+  Link: </fonts/MaterialIcons-Regular.woff2>; rel=preload; as=font; type=font/woff2; crossorigin
+  Link: </images/logo/mh-veteran-bg.webp>; rel=preload; as=image; type=image/webp

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Component, type ReactNode } from "react";
 import { logger } from "@/lib/utils/logger";
 import { Button } from "@/components/ui";
@@ -91,11 +92,22 @@ function DefaultErrorFallback({
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 p-4">
       <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 text-center">
-        <div className="mb-6">
-          <MaterialIcon
-            icon="error_outline"
-            className="text-red-500 dark:text-red-400 mx-auto"
-            size="4xl"
+        <div className="mb-6 flex justify-center">
+          <Image
+            src="/images/logo/mh-logo-light-bg.webp"
+            alt="MH Construction"
+            width={180}
+            height={103}
+            priority
+            className="dark:hidden"
+          />
+          <Image
+            src="/images/logo/mh-logo-dark-bg.webp"
+            alt="MH Construction"
+            width={180}
+            height={103}
+            priority
+            className="hidden dark:block"
           />
         </div>
 

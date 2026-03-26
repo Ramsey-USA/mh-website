@@ -257,8 +257,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title:
-      "Our Oath → About Us | Service-Earned Values, Battle-Tested Excellence",
+    title: "Our Oath → About Us | Service-Earned Values, Honest Relationships",
     description:
       "Founded 2010, veteran-owned since January 2025. General contractor serving Tri-Cities WA. 650+ projects, 70% referral rate, AGC-WA Top EMR Awards & OSHA VPP Star. Licensed WA, OR, ID. Honesty, Integrity, Professionalism, Thoroughness.",
     keywords: [
@@ -531,7 +530,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title:
-      "Public Sector → Government | Veteran-Owned Excellence for Government Construction",
+      "Public Sector → Government | Veteran-Owned, Relationship-First Government Construction",
     description:
       "Veteran-owned Tri-Cities contractor for government & public sector construction. Federal compliance, grant support, bonding capacity. Pasco, WA.",
     keywords: [
@@ -594,7 +593,7 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
       "veteran-owned subcontractors",
       "Pacific Northwest veteran contractor",
       "Group 1 Veteran Foundation",
-      "military precision construction",
+      "disciplined execution construction",
       "veteran support programs",
       "service-earned values",
       "veteran partnerships",
@@ -1176,7 +1175,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
       "veteran-owned construction contact",
       "Pacific Northwest construction company",
       "construction consultation Tri-Cities",
-      "military precision construction contact",
+      "disciplined execution construction contact",
       "Richland general contractor contact",
       "Pasco general contractor",
       "Kennewick contractor contact",

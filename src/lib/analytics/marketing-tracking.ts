@@ -90,14 +90,15 @@ export function trackJourneyMilestone(
 export function trackLandingPage(page: string, referrer: string) {
   if (typeof window === "undefined") return;
 
+  // Use a separate key to avoid overwriting the sessions array in tracking.ts
   const session = JSON.parse(
-    localStorage.getItem("mh_analytics_sessions") || "{}",
+    localStorage.getItem("mh_analytics_landing") || "{}",
   );
   if (!session.landingPage) {
     session.landingPage = page;
     session.referrer = referrer;
     session.entryTime = new Date().toISOString();
-    localStorage.setItem("mh_analytics_sessions", JSON.stringify(session));
+    localStorage.setItem("mh_analytics_landing", JSON.stringify(session));
 
     trackClick("landing-page", {
       landingPage: page,

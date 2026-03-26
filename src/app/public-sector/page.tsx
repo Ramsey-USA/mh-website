@@ -86,7 +86,7 @@ const grantSupportServices = [
     icon: "verified",
     title: "Federal Compliance Assurance",
     description:
-      "Navigate complex federal regulations with veteran expertise and military precision",
+      "Navigate complex federal regulations with veteran expertise, disciplined planning, and clear documentation",
     features: [
       "Federal acquisition regulation (FAR) compliance review",
       "Security clearance coordination and documentation",
@@ -484,7 +484,7 @@ export default function PublicSectorPage() {
             icon: "payments",
             tagline: "Federal Wage Standards",
             description:
-              "Full compliance with Davis-Bacon and Related Acts (DBRA) prevailing wage requirements for federal construction projects. Certified payroll documentation, wage determination expertise, and meticulous record-keeping ensure all federal labor standards are met with military precision and complete transparency.",
+              "Full compliance with Davis-Bacon and Related Acts (DBRA) prevailing wage requirements for federal construction projects. Certified payroll documentation, wage determination expertise, and meticulous record-keeping ensure all federal labor standards are met with disciplined execution and complete transparency.",
             image: "/images/compliance/prevailing-wage.jpg",
             iconBg: "bg-brand-primary",
             stats: "100%",
@@ -520,7 +520,7 @@ export default function PublicSectorPage() {
             icon: "military_tech",
             tagline: "Service-Earned Values",
             description:
-              "Veteran-owned since January 2025 when Army veteran Jeremy Thamert purchased the company, bringing 15+ years military aviation experience and operational discipline. We actively recruit veterans across all branches, offer veteran hiring initiatives, and maintain veteran preference in all employment decisions. Our veteran ownership and values translate to mission-focused execution, transparent communication, and unwavering commitment to federal project success.",
+              "Veteran-owned since January 2025 when Army veteran Jeremy Thamert purchased the company, bringing 15+ years military aviation experience and operational discipline. We actively recruit veterans across all branches, offer veteran hiring initiatives, and maintain veteran preference in all employment decisions. Our veteran ownership and values translate to disciplined execution, transparent communication, and unwavering commitment to federal project success.",
             image: "/images/compliance/veteran-owned.jpg",
             iconBg: "bg-brand-primary",
             stats: "2025",
@@ -534,7 +534,7 @@ export default function PublicSectorPage() {
           <>
             Navigate complex federal regulations with{" "}
             <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              veteran-owned expertise and military precision
+              veteran-owned expertise and disciplined execution
             </span>
             . Our comprehensive compliance programs, award-winning safety
             record, and{" "}

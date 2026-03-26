@@ -60,6 +60,7 @@ const MUTATION_ROUTES = [
   "/api/functions/send-email",
   "/api/security/cloudflare",
   "/api/security/events",
+  "/api/analytics/collect",
 ] as const;
 
 // ---------------------------------------------------------------------------

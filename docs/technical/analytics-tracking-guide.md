@@ -37,34 +37,47 @@ export default function MyNewPage() {
 - ✅ **Network info** (connection type, speed) ⭐
 - ✅ **Traffic source** (referrer, UTM params, organic/social/paid) ⭐
 
-### Step 2: Track Buttons & Links (Optional)
+### Step 2: Track Clicks & CTAs (Optional)
 
-Replace regular elements with tracked versions:
+Use the manual tracking functions for buttons and links:
 
 ```tsx
-import { TrackedButton, TrackedLink, TrackedCTA } from '@/components/analytics/TrackedComponents';
+import { trackClick, trackCTA } from "@/lib/analytics/tracking";
 
-// Regular buttons → Tracked buttons
-<TrackedButton trackId="contact-us">Contact Us</TrackedButton>
+// Track a button click
+<button onClick={() => trackClick("contact-us", { section: "hero" })}>
+  Contact Us
+</button>
 
-// Regular links → Tracked links
-<TrackedLink trackId="services-link" href="/services">Services</TrackedLink>
-
-// CTA buttons (for conversion tracking)
-<TrackedCTA trackId="hero-cta" trackProperties={{ section: 'hero' }}>
+// Track a CTA for conversion tracking
+<button onClick={() => trackCTA("hero-cta", { section: "hero" })}>
   Get Started
-</TrackedCTA>
+</button>
+```
+
+For phone, email, and address links, use the built-in tracked components:
+
+```tsx
+import { TrackedPhoneLink, TrackedEmailLink } from "@/components/analytics/TrackedContactLinks";
+
+<TrackedPhoneLink />
+<TrackedEmailLink />
 ```
 
 ### Step 3: Track Forms (Optional)
 
-```tsx
-import { TrackedForm } from "@/components/analytics/TrackedComponents";
+Call `trackFormSubmit` after a successful form submission:
 
-<TrackedForm trackId="contact-form" onSubmit={handleSubmit}>
-  <input name="email" />
-  <button type="submit">Submit</button>
-</TrackedForm>;
+```tsx
+import { trackFormSubmit } from "@/lib/analytics/tracking";
+
+const handleSubmit = async (e: FormEvent) => {
+  e.preventDefault();
+  const response = await fetch("/api/contact", { method: "POST", body: ... });
+  if (response.ok) {
+    trackFormSubmit("contact-form", { source: "contact-page" });
+  }
+};
 ```
 
 ---
@@ -96,10 +109,7 @@ export default function AboutPage() {
 "use client";
 
 import { usePageTracking } from "@/lib/analytics/hooks";
-import {
-  TrackedButton,
-  TrackedLink,
-} from "@/components/analytics/TrackedComponents";
+import { trackClick, trackCTA } from "@/lib/analytics/tracking";
 
 export default function ServicesPage() {
   usePageTracking("Services");
@@ -108,17 +118,22 @@ export default function ServicesPage() {
     <div>
       <h1>Our Services</h1>
 
-      <TrackedLink trackId="service-construction" href="/services/construction">
+      <a
+        href="/services/construction"
+        onClick={() =>
+          trackClick("service-construction", { service: "construction" })
+        }
+      >
         Construction Services
-      </TrackedLink>
+      </a>
 
-      <TrackedButton
-        trackId="request-quote"
-        trackProperties={{ service: "general" }}
-        onClick={() => console.log("Quote requested")}
+      <button
+        onClick={() => {
+          trackCTA("request-quote", { service: "general" });
+        }}
       >
         Request Quote
-      </TrackedButton>
+      </button>
     </div>
   );
 }
@@ -131,39 +146,35 @@ export default function ServicesPage() {
 
 import { useState } from "react";
 import { usePageTracking } from "@/lib/analytics/hooks";
-import {
-  TrackedForm,
-  TrackedInput,
-} from "@/components/analytics/TrackedComponents";
+import { trackFormSubmit } from "@/lib/analytics/tracking";
 
 export default function ContactPage() {
   usePageTracking("Contact");
   const [formData, setFormData] = useState({ email: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Submit logic...
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+    if (response.ok) {
+      trackFormSubmit("contact-form", { source: "contact-page" });
+    }
   };
 
   return (
     <div>
       <h1>Contact Us</h1>
-
-      <TrackedForm
-        trackId="contact-form"
-        onSubmit={handleSubmit}
-        trackProperties={{ source: "contact-page" }}
-      >
-        <TrackedInput
-          trackId="email"
-          formId="contact-form"
+      <form onSubmit={handleSubmit}>
+        <input
           type="email"
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
         />
-
         <button type="submit">Send Message</button>
-      </TrackedForm>
+      </form>
     </div>
   );
 }
@@ -176,14 +187,13 @@ For specific interactions that need custom tracking:
 ```tsx
 "use client";
 
-import { usePageTracking, useClickTracking } from "@/lib/analytics/hooks";
+import { usePageTracking } from "@/lib/analytics/hooks";
+import { trackClick } from "@/lib/analytics/tracking";
 
 export default function InteractivePage() {
   usePageTracking("Interactive Demo");
-  const trackClick = useClickTracking();
 
   const handleSpecialAction = () => {
-    // Track this specific action
     trackClick("special-action-button", {
       category: "engagement",
       label: "User performed special action",
@@ -199,20 +209,6 @@ export default function InteractivePage() {
 ---
 
 ## Advanced Tracking
-
-### Track Element Visibility
-
-Track when specific elements come into view:
-
-```tsx
-import { useElementTracking } from "@/lib/analytics/hooks";
-
-function TestimonialCard() {
-  const ref = useElementTracking("testimonial-card-viewed");
-
-  return <div ref={ref}>Testimonial content</div>;
-}
-```
 
 ### Track Video Interactions
 
@@ -263,18 +259,14 @@ import { trackNavigation } from "@/lib/analytics/tracking";
 
 - `usePageTracking(pageName)` - Auto-tracks page views, duration, scroll
 - `useClickTracking()` - Returns function to track clicks
-- `useFormTracking(formId)` - Returns form tracking helpers
-- `useCTATracking()` - Returns function to track CTAs
-- `useElementTracking(elementId)` - Returns ref for visibility tracking
 
-### Components (Drop-in Replacements)
+### Components
 
-- `<TrackedButton>` - Replaces `<button>`
-- `<TrackedLink>` - Replaces `<Link>` or `<a>`
-- `<TrackedCTA>` - For conversion-focused buttons
-- `<TrackedForm>` - Replaces `<form>`
-- `<TrackedInput>` - Replaces `<input>`
-- `<TrackedTextArea>` - Replaces `<textarea>`
+- `<TrackedPhoneLink>` - Tracked phone number link
+- `<TrackedEmailLink>` - Tracked email link
+- `<TrackedLocationLink>` - Tracked address/maps link
+- `<PageTrackingClient>` - Lightweight tracking island for RSC pages
+- `<EnhancedAnalytics>` - Full analytics provider (root layout)
 
 ### Manual Functions (Direct Calls)
 
@@ -302,7 +294,7 @@ All tracking data is stored in localStorage under these keys:
 
 ### View Data in Dashboard
 
-1. Triple-click the copyright text in the footer
+1. Press `Ctrl + Shift + A` on Windows/Linux or `Cmd + Shift + A` on macOS
 2. Sign in with admin credentials:
    - **Matt:** <matt@mhc-gc.com> / admin123
    - **Jeremy:** <jeremy@mhc-gc.com> / admin123
@@ -324,10 +316,10 @@ console.log(dashboardData.userBehavior.averageSessionDuration);
 
 When creating a new page, follow this checklist:
 
-- [ ] Add `usePageTracking('Page Name')` at the top of the component
-- [ ] Replace key buttons with `<TrackedButton>` or `<TrackedCTA>`
-- [ ] Replace navigation links with `<TrackedLink>`
-- [ ] Wrap forms with `<TrackedForm>`
+- [ ] Add `usePageTracking('Page Name')` at the top of the component (or use `<PageTrackingClient>` for RSC pages)
+- [ ] Add `trackClick()` / `trackCTA()` calls for key buttons
+- [ ] Use `<TrackedPhoneLink>` / `<TrackedEmailLink>` for contact links
+- [ ] Call `trackFormSubmit()` after successful form submissions
 - [ ] Add custom tracking for special interactions (video, downloads, etc.)
 - [ ] Test by viewing data in admin dashboard
 
@@ -341,18 +333,20 @@ When creating a new page, follow this checklist:
 2. Check browser console for errors
 3. Verify localStorage isn't disabled
 4. Check that tracking functions are imported correctly
+5. Verify the `ANALYTICS` KV namespace is bound in `wrangler.toml`
 
 ### Data not showing in dashboard?
 
 1. Make sure you've interacted with the page (clicks, scrolls, etc.)
-2. Check localStorage in DevTools: Application → Local Storage
-3. Refresh the dashboard page
-4. Verify you're signed in as admin
+2. Check browser Network tab for `POST /api/analytics/collect` requests
+3. If KV is unavailable, the dashboard shows a "KV Unavailable" banner and falls back gracefully
+4. Refresh the dashboard page
+5. Verify you're signed in as admin
 
-### Need to reset data?
+### Need to reset local data?
 
 ```javascript
-// In browser console:
+// In browser console (resets client-side only; KV data persists server-side):
 localStorage.removeItem("mh_analytics_pageviews");
 localStorage.removeItem("mh_analytics_clicks");
 localStorage.removeItem("mh_analytics_conversions");

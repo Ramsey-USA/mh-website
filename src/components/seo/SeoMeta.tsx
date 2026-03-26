@@ -285,5 +285,22 @@ export function generateEnhancedOrganizationSchema() {
     "@id": `${defaultSEO.siteUrl}/#organization`,
     "@type": ["GeneralContractor", "VeteranOwnedBusiness"],
     legalName: "MH Construction Incorporated - Veteran-Owned",
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: defaultSEO.companyInfo.telephone,
+        contactType: "customer service",
+        areaServed: ["US"],
+        availableLanguage: ["English"],
+      },
+      {
+        "@type": "ContactPoint",
+        url: `${defaultSEO.siteUrl}`,
+        contactType: "customer service",
+        description:
+          "AI-powered Partnership Guide — available 24/7 to answer questions about services, Trade Partners (Allies), veteran benefits, and project consultations.",
+        availableLanguage: ["English"],
+      },
+    ],
   };
 }

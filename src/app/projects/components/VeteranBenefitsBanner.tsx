@@ -45,10 +45,10 @@ export function VeteranBenefitsBanner() {
                   </div>
                   <div>
                     <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-lg sm:text-xl">
-                      Veteran-Owned Excellence
+                      Veteran-Owned. Relationship-First.
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-                      Service-earned values with military precision since
+                      Service-earned values with disciplined execution since
                       January 2025
                     </p>
                   </div>

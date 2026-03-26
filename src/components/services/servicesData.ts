@@ -65,7 +65,7 @@ export const coreServices: CoreService[] = [
       "Streamlined process preventing costly on-the-fly decisions",
       "Expert oversight and intricate detail management",
       "Proven experience across all commercial sectors",
-      "Military precision applied to civilian construction",
+      "Disciplined execution applied to civilian construction",
       "Building projects for the client, NOT the dollar",
     ],
     ctaText:
@@ -348,7 +348,7 @@ export const whyChooseUs: WhyChooseUsItem[] = [
     iconName: "military_tech",
     title: "650+ Successful Projects - Reliability",
     description:
-      "Over 650 successfully completed projects demonstrate our veteran-trained reliability. Founded 2010, veteran-owned since January 2025 when Army veteran Jeremy Thamert purchased the company. We apply military precision, discipline, and unwavering attention to detail to every construction project, ensuring reliable execution and mission-focused results. Our veteran-fueled reliability means staying calm and precise under pressure—delivering results when it matters most.",
+      "Over 650 successfully completed projects demonstrate our veteran-trained reliability. Founded 2010, veteran-owned since January 2025 when Army veteran Jeremy Thamert purchased the company. We apply disciplined execution, attention to detail, and steady follow-through to every construction project, ensuring reliable delivery and dependable results. Our veteran-fueled reliability means staying calm and precise under pressure-delivering results when it matters most.",
   },
   {
     iconName: "verified",

@@ -44,7 +44,7 @@ const CACHE_DURATION = {
   CDN: 365 * 24 * 60 * 60 * 1000, // 1 year (immutable assets)
 };
 
-// Enhanced static assets to precache - critical paths first
+// Homepage-first precache optimized for Cloudflare-delivered repeat visits.
 const CRITICAL_ASSETS = [
   "/",
   "/offline",
@@ -55,44 +55,15 @@ const CRITICAL_ASSETS = [
 
 const STATIC_ASSETS = [
   ...CRITICAL_ASSETS,
-  // Main pages
-  "/about",
-  "/services",
-  "/projects",
   "/contact",
-  "/team",
-  "/careers",
-  "/faq",
-  "/testimonials",
-  "/accessibility",
-  "/privacy",
-  "/terms",
-  // Service areas
-  "/locations/pasco",
-  "/locations/kennewick",
-  "/locations/richland",
-  "/locations/west-richland",
-  "/locations/walla-walla",
-  "/locations/yakima",
-  "/locations/spokane",
-  // Specialized pages
-  "/public-sector",
-  "/veterans",
-  "/allies",
+  "/projects",
+  "/services",
   // Note: Next.js CSS chunks use content-hash filenames (e.g. /_next/static/css/4a8b2c.css)
   // and cannot be reliably precached here. They are cached at runtime by fetch handlers below.
 ];
 
-// API endpoints to cache with different strategies
-// Note: /api/contact is POST-only — excluded from warmup to avoid a wasted 405.
-const CRITICAL_API_ENDPOINTS = [];
-
-const _API_ENDPOINTS = [
-  ...CRITICAL_API_ENDPOINTS,
-  "/api/projects",
-  "/api/notifications/subscribe",
-  "/api/notifications/send",
-];
+// No API warmup list is maintained. The current app benefits more from runtime
+// caching than install-time network work, especially on first visit.
 
 // Enhanced caching strategies
 const CACHE_STRATEGIES = {
@@ -165,29 +136,9 @@ self.addEventListener("activate", (event) => {
       }),
       // Claim all clients immediately
       self.clients.claim(),
-      // Pre-warm critical API endpoints
-      warmupCriticalEndpoints(),
     ]),
   );
 });
-
-// Warm up critical API endpoints by making background requests
-async function warmupCriticalEndpoints() {
-  console.info("[SW] Warming up critical API endpoints");
-
-  for (const endpoint of CRITICAL_API_ENDPOINTS) {
-    try {
-      const response = await fetch(endpoint);
-      if (response.ok) {
-        const cache = await caches.open(API_CACHE_NAME);
-        await cache.put(endpoint, response.clone());
-        console.info("[SW] Warmed up:", endpoint);
-      }
-    } catch (_error) {
-      console.info("[SW] Could not warm up:", endpoint);
-    }
-  }
-}
 
 // Enhanced service worker with background sync support
 self.addEventListener("sync", (event) => {
@@ -343,9 +294,6 @@ function getCacheStrategy(request) {
 
   // API endpoints get different strategies based on criticality
   if (url.pathname.startsWith("/api/")) {
-    if (CRITICAL_API_ENDPOINTS.includes(url.pathname)) {
-      return CACHE_STRATEGIES.STALE_WHILE_REVALIDATE;
-    }
     return CACHE_STRATEGIES.NETWORK_FIRST;
   }
 
@@ -408,35 +356,7 @@ self.addEventListener("fetch", (event) => {
 
 // Enhanced API request handler with intelligent caching strategies
 async function handleApiRequest(request) {
-  const url = new URL(request.url);
   const cacheName = API_CACHE_NAME;
-
-  // Determine cache strategy based on endpoint
-  const isCriticalEndpoint = CRITICAL_API_ENDPOINTS.some((endpoint) =>
-    url.pathname.includes(endpoint),
-  );
-
-  if (isCriticalEndpoint) {
-    // Stale-while-revalidate for critical endpoints
-    const cachedResponse = await caches.match(request);
-
-    // Update cache in background
-    fetch(request)
-      .then((networkResponse) => {
-        if (networkResponse.ok) {
-          caches.open(cacheName).then((cache) => {
-            cache.put(request, networkResponse.clone());
-          });
-        }
-      })
-      .catch((_error) => {
-        console.info("[SW] Background update failed");
-      });
-
-    if (cachedResponse) {
-      return cachedResponse;
-    }
-  }
 
   // Network first strategy (default)
   try {
@@ -750,11 +670,17 @@ function createPlaceholderImage() {
 self.addEventListener("sync", (event) => {
   console.info("[SW] Background sync triggered:", event.tag);
 
+  if (event.tag === "background-sync") {
+    event.waitUntil(handleBackgroundSync());
+    return;
+  }
+
   if (event.tag === "contact-form-sync") {
     event.waitUntil(syncContactForms());
-  } else if (event.tag === "booking-sync") {
-    event.waitUntil(syncBookings());
-  } else if (event.tag === "testimonial-sync") {
+    return;
+  }
+
+  if (event.tag === "testimonial-sync") {
     event.waitUntil(syncTestimonials());
   }
 });
@@ -784,12 +710,6 @@ async function syncContactForms() {
   } catch (_error) {
     console.info("[SW] Contact form sync failed");
   }
-}
-
-// Bookings feature removed - function kept for backward compatibility
-function syncBookings() {
-  // No-op: booking functionality has been removed
-  return Promise.resolve();
 }
 
 // Sync pending testimonials
@@ -838,13 +758,6 @@ function openIndexedDB() {
         });
       }
 
-      if (!db.objectStoreNames.contains("bookings")) {
-        db.createObjectStore("bookings", {
-          keyPath: "id",
-          autoIncrement: true,
-        });
-      }
-
       if (!db.objectStoreNames.contains("testimonials")) {
         db.createObjectStore("testimonials", {
           keyPath: "id",
@@ -876,78 +789,6 @@ function deletePendingForm(db, storeName, id) {
     request.onsuccess = () => resolve();
   });
 }
-
-// Push notification handling
-self.addEventListener("push", (event) => {
-  console.info("[SW] Push message received");
-
-  let options = {
-    body: "You have a new update from MH Construction",
-    icon: "/icons/icon-192x192.png",
-    badge: "/icons/badge-72x72.png",
-    vibrate: [200, 100, 200],
-    data: {
-      dateOfArrival: Date.now(),
-      primaryKey: 1,
-    },
-    actions: [
-      {
-        action: "explore",
-        title: "View Details",
-        icon: "/icons/action-explore.png",
-      },
-      {
-        action: "close",
-        title: "Close",
-        icon: "/icons/action-close.png",
-      },
-    ],
-    requireInteraction: false,
-    silent: false,
-  };
-
-  if (event.data) {
-    try {
-      const data = event.data.json();
-      options = { ...options, ...data };
-    } catch (_error) {
-      console.info("[SW] Invalid push data format");
-    }
-  }
-
-  event.waitUntil(
-    self.registration.showNotification("MH Construction", options),
-  );
-});
-
-// Notification click handling
-self.addEventListener("notificationclick", (event) => {
-  console.info("[SW] Notification clicked:", event.notification.tag);
-
-  event.notification.close();
-
-  if (event.action === "close") {
-    return;
-  }
-
-  const urlToOpen = event.action === "explore" ? "/dashboard" : "/";
-
-  event.waitUntil(
-    clients.matchAll({ type: "window" }).then((clientList) => {
-      // Check if there's already a window/tab open with the target URL
-      for (const client of clientList) {
-        if (client.url.includes(urlToOpen) && "focus" in client) {
-          return client.focus();
-        }
-      }
-
-      // Open new window/tab if none found
-      if (clients.openWindow) {
-        return clients.openWindow(urlToOpen);
-      }
-    }),
-  );
-});
 
 // Periodic background sync for cache cleanup
 self.addEventListener("periodicsync", (event) => {

@@ -78,7 +78,7 @@ export function Navigation() {
                 className="flex items-center hover:scale-105 transition-all duration-300 bg-gradient-to-r from-brand-primary/80 via-brand-primary/60 to-transparent px-3 xs:px-4 py-2 rounded-lg backdrop-blur-sm"
               >
                 <Image
-                  src="/images/logo/mh-logo.png"
+                  src="/images/logo/mh-logo.webp"
                   alt="MH Construction"
                   width={247}
                   height={141}
@@ -147,7 +147,7 @@ export function Navigation() {
           <div className="absolute inset-0 flex justify-center items-center pointer-events-none overflow-hidden">
             <div className="relative w-full h-full">
               <Image
-                src="/images/logo/mh-logo.png"
+                src="/images/logo/mh-logo.webp"
                 alt=""
                 fill
                 sizes="100vw"

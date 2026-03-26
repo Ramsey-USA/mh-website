@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePageTracking } from "@/lib/analytics/hooks";
 
@@ -9,7 +10,16 @@ export default function OfflinePage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4">
       <div className="max-w-2xl w-full text-center">
         <div className="mb-8 flex justify-center">
-          <div className="w-24 h-24 bg-amber-500/10 rounded-full flex items-center justify-center">
+          <div className="hidden md:flex items-center justify-center">
+            <Image
+              src="/images/logo/mh-logo-dark-bg.webp"
+              alt="MH Construction"
+              width={200}
+              height={80}
+              priority
+            />
+          </div>
+          <div className="flex md:hidden w-24 h-24 bg-amber-500/10 rounded-full items-center justify-center">
             <svg
               className="w-12 h-12 text-amber-500"
               fill="none"

@@ -2,8 +2,8 @@
 
 ## **For Matt & Jeremy - Marketing Intelligence Dashboard**
 
-**Last Updated:** December 27, 2025  
-**Status:** ✅ 100% Active - All pages tracking, military dashboard live
+**Last Updated:** March 26, 2026  
+**Status:** ✅ 100% Active - All pages tracking, server-side KV pipeline live, military dashboard live
 
 **System Capabilities:** Geographic tracking, CTA effectiveness, journey stages, lead
 scoring (0-100), device intelligence, traffic attribution, 100+ data points
@@ -390,11 +390,24 @@ Your analytics dashboard uses **mission-ready language** familiar to veterans:
 
 ## **🔒 Security & Privacy**
 
-- All data stored locally in browser (localStorage)
+- Client-side events are batched and sent to the server via `navigator.sendBeacon`
+- Server-side data is aggregated in **Cloudflare KV** (cross-visitor metrics)
+- Local browser data is also retained for instant client feedback
 - No personal data sent to external services
 - Geographic data from Cloudflare (server-level)
 - No cookies required
 - GDPR/CCPA compliant
+
+### How Data Flows
+
+```text
+Visitor's Browser  →  POST /api/analytics/collect  →  Cloudflare KV (server-side)
+       ↓                                                        ↓
+  localStorage (local)                               Dashboard reads from KV
+                                                  (cross-visitor aggregated data)
+```
+
+**What changed (March 2026):** Previously the dashboard only showed data from the admin's own browser (localStorage). Now, all visitor events are sent to the server and aggregated in Cloudflare KV, so the dashboard shows data from **all visitors** across all devices.
 
 ---
 
@@ -403,13 +416,15 @@ Your analytics dashboard uses **mission-ready language** familiar to veterans:
 ✅ **Geographic Tracking:** Active (3-tier fallback)
 ✅ **Page Tracking:** 22/22 pages (100%)
 ✅ **CTA Tracking:** Footer phone/email/address
-✅ **Form Tracking:** Contact form all types
+✅ **Form Tracking:** Contact, job application, newsletter — all write to KV
 ✅ **Service Interest:** Homepage showcase
 ✅ **Project Interest:** All project cards
 ✅ **User Journey:** 6 milestone tracking
 ✅ **Device Intelligence:** Complete
 ✅ **Traffic Sources:** UTM & referrer
 ✅ **Dashboard:** Military-themed, MH branding
+✅ **Server-Side Pipeline:** Cloudflare KV aggregation (cross-visitor data)
+✅ **Beacon System:** Client batching + `sendBeacon` delivery
 
 ---
 

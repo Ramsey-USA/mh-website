@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/contexts/theme-context";
 import { WebVitalsReporter } from "@/components/performance/WebVitalsReporter";
 import { MobilePerformanceMonitor } from "@/components/performance/MobilePerformanceMonitor";
 import { ErrorBoundary } from "@/components/error";
+import { ChatWidget } from "@/components/chatbot";
 import {
   StructuredData,
   generateEnhancedOrganizationSchema,
@@ -30,12 +31,12 @@ export const metadata: Metadata = withGeoMetadata({
     template: "%s | MH Construction",
   },
   description:
-    "Base HQ → Home: Your Tri-Cities Construction Command Center. Founded 2010, veteran-owned since 2025. General contractor serving the Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County, and Pacific Northwest. Dual-label approach: Military Operations → Construction Services. Service-earned values meet construction excellence with military precision, authentic partnerships, and transparent communication. Chain of Command structure with 150+ years combined expertise. Licensed in WA, OR, ID.",
+    "Base HQ → Home: Your Tri-Cities Construction Command Center. Founded 2010, veteran-owned since 2025. General contractor serving the Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County, and Pacific Northwest. Dual-label approach: Military Operations → Construction Services. Service-earned values meet construction excellence with disciplined execution, authentic partnerships, and transparent communication. Chain of Command structure with 150+ years combined expertise. Licensed in WA, OR, ID.",
   keywords: [
     "Base HQ Home construction command center",
     "dual-label military civilian construction",
     "veteran-owned contractor",
-    "military precision construction",
+    "disciplined execution construction",
     "service-earned construction values",
     "Chain of Command construction approach",
     "Operations Services dual messaging",
@@ -93,7 +94,7 @@ export const metadata: Metadata = withGeoMetadata({
     title:
       "Base HQ → Home | Building projects for the client, NOT the dollar | MH Construction",
     description:
-      "Your Tri-Cities Construction Command Center. Founded 2010, veteran-owned since 2025. Dual-label approach: Military Operations → Construction Services. Service-earned values meet construction excellence. Chain of Command structure with 150+ years combined expertise. Military precision, authentic partnerships, transparent communication.",
+      "Your Tri-Cities Construction Command Center. Founded 2010, veteran-owned since 2025. Dual-label approach: Military Operations → Construction Services. Service-earned values meet construction excellence. Chain of Command structure with 150+ years combined expertise. Disciplined execution, authentic partnerships, transparent communication.",
     images: [
       {
         url: "/images/og-default.jpg",
@@ -110,7 +111,7 @@ export const metadata: Metadata = withGeoMetadata({
     title:
       "Base HQ → Home | Building projects for the client, NOT the dollar | MH Construction",
     description:
-      "Your Tri-Cities Construction Command Center. Founded 2010, veteran-owned since 2025. Dual-label: Military Operations → Construction Services. Service-earned values, battle-tested excellence.",
+      "Your Tri-Cities Construction Command Center. Founded 2010, veteran-owned since 2025. Dual-label: Military Operations → Construction Services. Service-earned values and honest relationships.",
     images: ["/images/og-default.jpg"],
   },
   robots: {
@@ -223,6 +224,7 @@ export default function RootLayout({
                 </main>
                 <Footer />
               </div>
+              <ChatWidget />
             </ErrorBoundary>
           </AuthProvider>
         </ThemeProvider>

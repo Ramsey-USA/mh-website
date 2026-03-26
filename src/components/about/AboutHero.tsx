@@ -20,7 +20,7 @@ export function AboutHero() {
               icon="military_tech"
               size="4xl"
               className="text-white drop-shadow-lg"
-              ariaLabel="Veteran-owned excellence"
+              ariaLabel="Veteran-owned, relationship-first leadership"
             />
           </div>
         </div>

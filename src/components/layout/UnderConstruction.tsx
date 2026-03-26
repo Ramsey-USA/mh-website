@@ -88,7 +88,7 @@ export function UnderConstruction({
                     "Your Word Is Your Bond - So Is Ours."
                   </span>{" "}
                   At MH Construction, we believe in doing things right, not
-                  fast. Just as we bring military precision to every
+                  fast. Just as we bring disciplined execution to every
                   construction project, we're applying the same standards to our
                   website.
                 </p>

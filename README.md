@@ -3,8 +3,8 @@
 **START HERE** - This is your single source of truth for the entire project.
 
 **Building projects for the Client, NOT the Dollar** — Founded by Mike Holstein in 2010,
-purchased by Army veteran Jeremy Thamert in 2025. Veteran excellence, honest communication,
-and proven craftsmanship.
+purchased by Army veteran Jeremy Thamert in 2025. Veteran-owned, relationship-first,
+honest communication, and proven craftsmanship.
 
 **(509) 308-6489** | **<office@mhc-gc.com>** | **mhc-gc.com**
 
@@ -38,6 +38,7 @@ homepage - same visual weight, spacing, animations, and polish.
 
 **When You Need Specific Features:**
 
+- **Working on the Partnership Guide chatbot?** → [src/components/chatbot/](src/components/chatbot/) · [src/lib/chatbot/](src/lib/chatbot/) · [src/app/api/chat/route.ts](src/app/api/chat/route.ts)
 - **Adding analytics tracking?** → [Analytics Tracking Guide](docs/technical/analytics-tracking-guide.md)
 - **Implementing dark mode?** → [Dark Mode Quick Reference](docs/technical/dark-mode-quick-reference.md)
 - **Styling buttons/CTAs?** → [Buttons & CTAs Complete Guide](docs/technical/design-system/buttons-ctas-complete-guide.md)
@@ -53,7 +54,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ---
 
-## Project Status (March 25, 2026)
+## Project Status (March 26, 2026)
 
 ### Production-Ready Platform
 
@@ -63,7 +64,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Deployed**      | Live      | Cloudflare Workers — mhc-gc.com           |
 | **TypeScript**    | Strict    | Zero type errors                          |
 | **ESLint**        | Clean     | Zero lint warnings, zero errors           |
-| **Tests**         | Passing   | 54/54 passing                             |
+| **Tests**         | Passing   | 95/95 passing                             |
 | **SEO**           | 100/100   | Perfect scores across all pages           |
 | **Lighthouse**    | 94+       | Performance optimized                     |
 | **Bundle Size**   | 211 kB    | Production optimized                      |
@@ -73,6 +74,51 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Documentation** | Optimized | 62 docs + 12 supporting files, zero bloat |
 
 ### Recent Improvements (March 2026)
+
+- **Mar 26:** Partnership Guide chatbot — brand-compliant AI assistant powered by Cloudflare Workers AI (`@cf/meta/llama-3.1-8b-instruct`) added to all pages via `ChatWidget` in root layout; system prompt (`src/lib/chatbot/knowledge-base.ts`) encodes all 9 Allies with full contact details, services overview, veteran benefits, FAQ highlights, and MH brand language rules (forbidden phrases, approved terminology, no fabrication, no cost estimates); `POST /api/chat` endpoint — input sanitized, rate-limited to 10 req/min/IP, gracefully falls back to keyword-based responses when Workers AI binding is absent (local dev / quota); widget is fully responsive — floating button on desktop, fullscreen drawer on mobile with iOS safe-area padding; SEO/GEO integration: `contactPoint` for the AI assistant added to Organization schema in root layout, chatbot Q&A added to FAQ page structured data, `public/llms.txt` updated to describe the Partnership Guide, `public/robots.txt` disallows `/api/chat` to scrapers; 19 new tests added (10 UI, 9 knowledge-base); all quality checks pass: 95/95 tests, zero TypeScript errors, zero ESLint warnings
+
+- **Mar 26:** Cloudflare edge optimizations — added Early Hints `Link: rel=preload` headers
+  to `public/_headers` for Material Icons font and hero image (Cloudflare sends these as 103
+  responses before HTML, starting downloads during TLS negotiation); added HSTS header
+  (`max-age=63072000; includeSubDomains; preload`) to `_headers` for defence-in-depth alongside
+  `security-manager.ts`; cleaned up `middleware.ts` — removed dead response headers (`X-Real-IP`,
+  `X-Forwarded-Country`, `Accept-CH`, `X-CSP-Nonce`) and unused nonce generator that added CPU
+  overhead to every request without being consumed; documented Cloudflare Dashboard performance
+  settings in `wrangler.toml` and deployment guide v3.1.0 (Early Hints ON, HTTP/3 with QUIC ON,
+  0-RTT Connection Resumption ON, Smart Tiered Cache ON); added Redirect Rule upgrade path for
+  apex→www redirect (currently in middleware, can move to CDN-level rule for ~10-20 ms savings);
+  future upgrade potentials documented: Cloudflare Images (on-demand AVIF/WebP, ~$5/mo),
+  Email Routing (replace Resend for simple form emails, ~$100/yr savings), Bot Management
+  (~$20/mo), Analytics Engine binding
+
+- **Mar 26:** Analytics Cloudflare KV pipeline — analytics events now flow from client to server
+  via a beacon system (`navigator.sendBeacon` with `fetch(keepalive)` fallback) → `POST /api/analytics/collect`
+  → Cloudflare KV aggregation; previously the admin dashboard only showed the admin's own
+  browser data from localStorage; now it reads cross-visitor metrics from KV (`kv-store.ts` →
+  `getDashboardSnapshot()`); dashboard API uses Workers Cache API (30s TTL); beacon client
+  (`beacon.ts`) batches events in memory and flushes every 10s or on `visibilitychange`/`beforeunload`;
+  collect endpoint rate-limited (60 req/min/IP) with input validation (max 25 events, 256-char strings);
+  `trackFormSubmit()` wired into JobApplicationModal and Footer newsletter; double-counting fix
+  in `data-collector.ts`; session key collision fix in `marketing-tracking.ts`; `wrangler.toml`
+  ANALYTICS KV namespace enabled (requires `wrangler kv namespace create ANALYTICS` to
+  provision real ID); analytics docs updated to remove references to deleted TrackedComponents.tsx
+  and reflect actual APIs
+
+- **Mar 26:** Footer refactor and accessibility cleanup — consolidated repeated footer UI into
+  shared data-driven blocks for social links, action cards, and status badges; kept footer social
+  icons in a single row across screen sizes; replaced the newsletter form's direct DOM mutation
+  logic with React state and live status messaging; made WA/OR/ID license numbers directly visible
+  instead of hover-only; removed duplicate client-side organization schema from the footer in favor
+  of the canonical layout SEO source; moved admin access off the visible footer copyright control to
+  a private `Ctrl/Cmd + Shift + A` shortcut; added focused regression tests for newsletter feedback,
+  visible license details, and admin shortcut access
+
+- **Mar 26:** Careers/application UX and brand-language alignment — streamlined the job
+  application flow to reduce friction, carried CTA context into the application modal,
+  standardized shared dialog behavior across careers/admin/service/value modals
+  (scroll lock, escape close, focus trap, initial focus), added targeted regression coverage
+  for the modal/application paths, and removed legacy slogan-heavy phrasing from user-facing
+  copy plus shared SEO/location metadata so previews match the current relationship-first tone
 
 - **Mar 25:** Cloudflare performance optimizations — Worker Cache API added to `/api/analytics/geolocation`
   (per-country, 5-min TTL — geolocation data is identical for all users from the same country) and
@@ -257,10 +303,10 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Business Philosophy
 
-- **No Gimmicks:** Direct human contact only - removed AI estimators/booking tools
 - **Contact-First:** All paths lead to phone (509) 308-6489 or personal consultation
 - **Honest Messaging:** Authentic communication, no marketing buzzwords
-- **Veteran Excellence:** Service recognizes service - priority scheduling across all branches
+- **Veteran-Owned Perspective:** Service-earned discipline, clear communication, and priority scheduling across all branches
+- **No AI Gimmicks:** Removed AI estimators, booking bots, and automated closers — replaced by the Partnership Guide, which answers questions honestly and routes every visitor to a real human conversation
 
 ---
 
@@ -302,7 +348,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 - **Hosting:** Cloudflare Workers — `mhc-v2-website` (via OpenNext adapter)
 - **Database:** Cloudflare D1 (SQLite)
 - **Email:** Resend API
-- **Analytics:** Custom localStorage-based system
+- **Analytics:** Custom system — localStorage client-side + Cloudflare KV server-side pipeline
 - **CI/CD:** GitHub Actions
 
 ### Quality Control
@@ -320,7 +366,8 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 - **Analytics:** Geographic tracking, CTA effectiveness, lead scoring (0-100)
 - **Media:** Auto-optimization to WebP/WebM via GitHub Actions
 - **Icons:** Google Material Icons (font-based, 400/500/600 weights)
-- **Forms:** Contact, consultations, job applications with email notifications
+- **Forms:** Contact, consultations, and a streamlined job application flow with email notifications
+- **Partnership Guide:** Cloudflare Workers AI chatbot — answers questions about services, Allies, and veteran benefits; guides all visitors toward direct human contact
 
 ---
 
@@ -706,16 +753,15 @@ Custom analytics system with **100% page coverage** tracking visitor behavior, g
 ### Dashboard Access
 
 1. Visit any page on the website
-2. Scroll to footer
-3. **Triple-click** the copyright text
-4. Dashboard opens at `/dashboard`
+2. Press **Ctrl + Shift + A** on Windows/Linux or **Cmd + Shift + A** on macOS
+3. Dashboard opens at `/dashboard`
 
-**Military-themed interface** with real-time data visualization.
+This keeps the admin entry point off the visible footer UI while preserving quick internal access.
 
 ### Analytics Testing
 
 ```bash
-# Visit localhost:3000 and access dashboard via footer triple-click
+# Visit localhost:3000 and use Ctrl/Cmd + Shift + A to open the admin sign-in modal
 ```
 
 ### Documentation
@@ -728,20 +774,15 @@ Custom analytics system with **100% page coverage** tracking visitor behavior, g
 
 ## SEO Optimization
 
-### Dual-Label System
+### Labeling Guidance
 
-Military/construction terminology across all pages for veteran branding + accessibility:
+Use clear, human-readable page labels across navigation, metadata, and structured data.
+Lead with plain-language terms like `Home`, `About`, `Services`, `Projects`, `Team`,
+`Testimonials`, `Careers`, and `Contact`.
 
-| Page         | Primary Label | Military Label   |
-| ------------ | ------------- | ---------------- |
-| Home         | Home          | Base HQ          |
-| About        | About Us      | Our Oath         |
-| Services     | Services      | Operations       |
-| Projects     | Projects      | Missions         |
-| Team         | Our Team      | Chain of Command |
-| Testimonials | Reviews       | Commendations    |
-| Careers      | Careers       | Enlist           |
-| Contact      | Contact       | Rally Point      |
+Use veteran identity where it is factual and differentiating, but avoid militarized aliases or
+slogan-heavy phrasing in titles, labels, and SEO copy. Current brand direction favors
+relationship-first language, disciplined execution, and direct communication.
 
 ### SEO Scores
 
@@ -800,7 +841,8 @@ Military/construction terminology across all pages for veteran branding + access
 
 ### Admin Dashboard
 
-Triple-click authentication (footer copyright) - simple but effective for internal analytics access.
+Private keyboard shortcut authentication (`Ctrl/Cmd + Shift + A`) keeps internal analytics access
+available without exposing an obvious public footer trigger.
 
 ### Security Documentation
 

@@ -123,7 +123,7 @@ export function WhyPartnerSection() {
       header={{
         icon: "verified",
         iconVariant: "primary",
-        subtitle: "Veteran-Owned Excellence",
+        subtitle: "Veteran-Owned. Relationship-First.",
         title: "Proven Performance & Earned Integrity",
         description: (
           <>

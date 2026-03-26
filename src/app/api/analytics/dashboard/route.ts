@@ -1,13 +1,19 @@
 /**
  * Analytics Dashboard API
- * Provides analytics data for admin dashboard
+ * Provides analytics data for admin dashboard.
+ *
+ * Reads aggregated metrics from Cloudflare KV (cross-visitor data).
+ * Falls back to zero-value response when KV is unavailable.
  */
 
 import { type NextRequest, NextResponse } from "next/server";
 import { requireRole } from "@/lib/auth/middleware";
 import { withSecurity } from "@/middleware/security";
 import { logger } from "@/lib/utils/logger";
-import { analyticsEngine } from "@/lib/analytics/index";
+import {
+  getDashboardSnapshot,
+  type KVDashboardSnapshot,
+} from "@/lib/analytics/kv-store";
 
 export const dynamic = "force-dynamic";
 
@@ -17,17 +23,67 @@ const DASHBOARD_CACHE_KEY = new Request(
   { method: "GET" },
 );
 
-function handler(request: NextRequest) {
-  if (request.method !== "GET") {
-    return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
-  }
+function buildDashboardResponse(snapshot: KVDashboardSnapshot) {
+  const avgDuration =
+    snapshot.sessions.count > 0
+      ? Math.round(snapshot.sessions.totalDuration / snapshot.sessions.count)
+      : 0;
 
+  // Top pages sorted by views
+  const topPages = Object.entries(snapshot.pageviews.pages)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 10)
+    .map(([page, views]) => ({ page, views }));
+
+  return {
+    pageviews: snapshot.pageviews,
+    conversions: snapshot.conversions,
+    clicks: snapshot.clicks,
+    sessions: {
+      ...snapshot.sessions,
+      averageDuration: avgDuration,
+    },
+    topPages,
+    today: {
+      pageviews: snapshot.dailyPageviews?.total ?? 0,
+      sessions: snapshot.dailySessions?.count ?? 0,
+    },
+  };
+}
+
+async function handler(_request: NextRequest) {
   try {
-    const dashboardData = analyticsEngine.getDashboardData();
+    const snapshot = await getDashboardSnapshot();
 
-    logger.info("Dashboard data fetched successfully");
+    if (!snapshot) {
+      logger.warn(
+        "ANALYTICS KV not available — returning empty dashboard data. " +
+          "Provision with: wrangler kv namespace create ANALYTICS",
+      );
+      return NextResponse.json({
+        pageviews: { pages: {}, total: 0, lastUpdated: "" },
+        conversions: {
+          contacts: 0,
+          consultations: 0,
+          total: 0,
+          lastUpdated: "",
+        },
+        clicks: [],
+        sessions: {
+          count: 0,
+          totalDuration: 0,
+          averageDuration: 0,
+          lastUpdated: "",
+        },
+        topPages: [],
+        today: { pageviews: 0, sessions: 0 },
+        kvStatus: "unavailable",
+      });
+    }
 
-    return NextResponse.json(dashboardData);
+    const data = buildDashboardResponse(snapshot);
+    logger.info("Dashboard data fetched from KV");
+    return NextResponse.json({ ...data, kvStatus: "connected" });
   } catch (error) {
     logger.error("Dashboard data fetch error:", error);
     return NextResponse.json(
@@ -41,12 +97,11 @@ async function cachedHandler(request: NextRequest): Promise<Response> {
   // Worker Cache API: cache the dashboard for 30 s to avoid recomputing the
   // analytics aggregate on every admin page refresh.
   try {
-    // caches.default is a Cloudflare Workers Cache API extension not in standard TS types
     const cache = (caches as unknown as { default: Cache }).default;
     const cached = await cache.match(DASHBOARD_CACHE_KEY);
     if (cached) return cached;
 
-    const response = handler(request);
+    const response = await handler(request);
 
     try {
       const toCache = response.clone();

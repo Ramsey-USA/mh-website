@@ -1,8 +1,8 @@
 # Cloudflare Workers Deployment Guide
 
 **Category:** Deployment - Cloudflare
-**Last Updated:** March 25, 2026
-**Version:** 3.0.0
+**Last Updated:** March 26, 2026
+**Version:** 3.1.0
 **Status:** ✅ Active - Production Deployed at `https://www.mhc-gc.com`
 
 > **Adapter:** `@opennextjs/cloudflare` (OpenNext) — **NOT** `@cloudflare/next-on-pages`.
@@ -22,6 +22,7 @@
 - [Local Development & Manual Deploy](#local-development--manual-deploy)
 - [Build Output Explained](#build-output-explained)
 - [Custom Domain & DNS](#custom-domain--dns)
+- [Cloudflare Dashboard Performance Settings](#cloudflare-dashboard-performance-settings)
 - [Troubleshooting](#troubleshooting)
 - [Deployment Checklist](#deployment-checklist)
 
@@ -200,6 +201,52 @@ Production lives at `https://www.mhc-gc.com` (canonical — with `www`).
 
 ---
 
+## Cloudflare Dashboard Performance Settings
+
+These settings are configured in the Cloudflare Dashboard (not in code) and provide
+significant free performance gains. All are in the `mhc-gc.com` zone.
+
+### Speed → Optimization → Content Optimization
+
+| Setting          | Value   | Reason                                                    |
+| ---------------- | ------- | --------------------------------------------------------- |
+| **Early Hints**  | **ON**  | Sends 103 response with Link preload headers (`_headers`) |
+| Auto Minify HTML | **OFF** | Next.js already minifies; double-minify can break CSP     |
+| Auto Minify JS   | **OFF** | Next.js already minifies                                  |
+| Auto Minify CSS  | **OFF** | Next.js already minifies                                  |
+| Rocket Loader    | **OFF** | Breaks Next.js hydration                                  |
+
+> **Early Hints** is the highest-impact free setting. When enabled, Cloudflare caches
+> the `Link: rel=preload` headers from `public/_headers` and sends them as a 103
+> Early Hints response on subsequent requests. This starts font and hero image
+> downloads during TLS negotiation — before the HTML arrives.
+
+### Speed → Optimization → Protocol Optimization
+
+| Setting                         | Value  | Reason                                      |
+| ------------------------------- | ------ | ------------------------------------------- |
+| HTTP/2                          | **ON** | Default for proxied zones                   |
+| **HTTP/3 with QUIC**            | **ON** | Better mobile performance on lossy networks |
+| **0-RTT Connection Resumption** | **ON** | Returning visitors skip TLS round-trip      |
+
+### Caching → Tiered Cache
+
+| Setting                | Value  | Reason                                                    |
+| ---------------------- | ------ | --------------------------------------------------------- |
+| **Smart Tiered Cache** | **ON** | Free — reduces origin hits via regional upper-tier caches |
+
+### Rules → Redirect Rules (Future Optimization)
+
+The apex → www redirect (`mhc-gc.com` → `www.mhc-gc.com`) currently runs in
+`middleware.ts`. Moving it to a Cloudflare Redirect Rule resolves it at the CDN edge
+before the Worker starts, saving ~10-20 ms of Worker CPU per redirect.
+
+To create: Rules → Redirect Rules → Create Rule → Name: `apex-to-www` →
+When hostname = `mhc-gc.com` → Redirect to `https://www.mhc-gc.com` + concat path →
+Status 301. After verifying the rule works, remove the redirect block from `middleware.ts`.
+
+---
+
 ## Troubleshooting
 
 ### ❌ "No build command specified. Skipping build step." / "Output directory not found"
@@ -273,10 +320,14 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 - [ ] Add Cloudflare Page Rule: `mhc-gc.com/*` → 301 redirect to `https://www.mhc-gc.com/$1`
 - [ ] **Disable Rocket Loader** (Speed → Optimization → Rocket Loader = OFF) — breaks Next.js hydration
 - [ ] **Disable HTML Minify** (Speed → Optimization → Auto Minify → HTML = OFF) — can break CSP
+- [ ] **Enable Early Hints** (Speed → Optimization → Content Optimization → Early Hints = ON)
+- [ ] **Enable HTTP/3 with QUIC** (Speed → Optimization → Protocol Optimization → HTTP/3 = ON)
+- [ ] **Enable 0-RTT** (Speed → Optimization → Protocol Optimization → 0-RTT = ON)
+- [ ] **Enable Smart Tiered Cache** (Caching → Tiered Cache → Smart Tiered Cache = ON)
 - [ ] Verify no Cloudflare Cache Rules are caching HTML pages (HTML must not be CDN-cached)
 - [ ] Create R2 buckets: `mh-construction-assets` and `mh-construction-resumes`
 - [ ] Bind R2 buckets under Settings → Bindings: `FILE_ASSETS` and `RESUMES`
-- [ ] Bind KV namespaces: `CACHE` and `ANALYTICS` (reserved — not yet used; analytics runs on localStorage)
+- [ ] Bind KV namespaces: `CACHE` (fleet-wide rate limiting) and `ANALYTICS` (server-side analytics aggregation)
 - [ ] Apply D1 migrations (see D1 Migrations section below)
 - [ ] Verify Resend domain: add SPF + DKIM DNS records for `mhc-gc.com` in Resend dashboard
 
@@ -289,7 +340,7 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 ### Every Deploy (Automatic via Git Push)
 
 - [ ] Push to `main` branch
-- [ ] GitHub Actions CI gate runs: type-check, lint, format, **54 tests**, build
+- [ ] GitHub Actions CI gate runs: type-check, lint, format, **76 tests**, build
 - [ ] Cloudflare Workers auto-deploys from `main` (independently of CI)
 - [ ] Monitor build in Cloudflare Dashboard → Deployments
 - [ ] Build should complete in ~30–45 seconds

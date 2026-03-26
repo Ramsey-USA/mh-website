@@ -260,7 +260,7 @@ export function generateEnhancedOrganizationSchema() {
       "Construction Consulting",
       "Green Building",
       "LEED Certification",
-      "Military Precision Construction Management",
+      "Disciplined Construction Management",
     ],
     veteranOwned: true,
     ownershipType: "Veteran-Owned Small Business",
@@ -315,6 +315,7 @@ export function generateEnhancedOrganizationSchema() {
     sameAs: [
       enhancedSEO.socialMedia.facebook,
       enhancedSEO.socialMedia.instagram,
+      enhancedSEO.socialMedia.twitter,
       enhancedSEO.socialMedia.linkedin,
       enhancedSEO.socialMedia.youtube,
     ],
@@ -475,7 +476,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "What makes MH Construction different from other contractors?",
       answer:
-        "We're a veteran-owned construction company where traditional business values come first: handshakes matter, your word is your bond, and face-to-face trust defines every partnership. Founded in 2010 by Mike Holstein, purchased by Army veteran Jeremy Thamert in January 2025, we combine military precision with transparent communication and authentic community relationships. Our motto: 'Building projects for the client, NOT the dollar.'",
+        "We're a veteran-owned construction company where traditional business values come first: handshakes matter, your word is your bond, and face-to-face trust defines every partnership. Founded in 2010 by Mike Holstein, purchased by Army veteran Jeremy Thamert in January 2025, we combine disciplined execution with transparent communication and authentic community relationships. Our motto: 'Building projects for the client, NOT the dollar.'",
     },
     {
       question: "What safety record and awards does MH Construction hold?",
@@ -485,7 +486,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "What types of construction services do you provide?",
       answer:
-        "MH Construction offers comprehensive construction services including commercial, industrial, and government projects. We specialize in general contracting, construction management, master planning and preconstruction, tenant improvements, light industrial construction, design-build, facility renovations, and public-sector builds. Each project is approached with military precision and transparent open-book communication.",
+        "MH Construction offers comprehensive construction services including commercial, industrial, and government projects. We specialize in general contracting, construction management, master planning and preconstruction, tenant improvements, light industrial construction, design-build, facility renovations, and public-sector builds. Each project is approached with disciplined planning and transparent open-book communication.",
     },
     {
       question: "How can I get started with my construction project?",
@@ -495,7 +496,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "Are you a veteran-owned business?",
       answer:
-        "Yes, MH Construction is a proud veteran-owned business certified by the U.S. Small Business Administration. We operate with military precision, serve the veteran community with specialized benefits and recognition, and maintain authentic partnerships that strengthen Pacific Northwest communities.",
+        "Yes, MH Construction is a proud veteran-owned business certified by the U.S. Small Business Administration. We operate with disciplined execution, serve the veteran community with specialized benefits and recognition, and maintain authentic partnerships that strengthen Pacific Northwest communities.",
     },
   ];
 

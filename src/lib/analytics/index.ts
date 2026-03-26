@@ -16,3 +16,14 @@ export { dataCollector } from "./data-collector";
 
 // Re-export hooks
 export { usePageTracking, useClickTracking } from "./hooks";
+
+// Re-export beacon for direct use
+export {
+  beaconPageview,
+  beaconClick,
+  beaconConversion,
+  beaconSessionEnd,
+  beaconFlush,
+} from "./beacon";
+
+// KV store functions are server-only — import directly from "./kv-store" in API routes

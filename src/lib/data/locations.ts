@@ -93,7 +93,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Operations Base → Richland | General Contractor Richland WA | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Richland WA. Commercial, industrial & government projects with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving Richland WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Operations Base Richland strategic construction",
         "dual-label military construction Richland",
@@ -107,11 +107,11 @@ export const locations: Record<string, LocationData> = {
         "Benton County general contractor",
         "Richland WA builder",
         "construction management Richland",
-        "military precision construction Richland",
-        "battle-tested construction excellence Richland",
+        "disciplined execution construction Richland",
+        "proven construction excellence Richland",
       ],
       openGraphDescription:
-        "Operations Base → Richland: Strategic Construction Operations. Professional veteran-owned construction services with service-earned values and 150+ years combined expertise. Dual-label approach. Commercial, industrial & government projects.",
+        "Operations Base → Richland: Strategic Construction Operations. Professional veteran-owned construction services with service-earned values, disciplined execution, and 150+ years combined expertise. Dual-label approach. Commercial, industrial & government projects.",
       twitterDescription:
         "Professional construction services in Richland, WA. Veteran-owned, partnership-driven approach.",
     },
@@ -172,7 +172,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Forward Operating Base → Kennewick | General Contractor Kennewick WA | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Kennewick WA. Commercial, industrial & government projects with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving Kennewick WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Forward Operating Base Kennewick tactical construction",
         "dual-label military construction Kennewick",
@@ -328,7 +328,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Outpost → Yakima | General Contractor Yakima WA | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Yakima WA. Commercial, industrial & public-safety construction with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving Yakima WA. Commercial, industrial & public-safety construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Outpost Yakima regional construction",
         "dual-label military construction Yakima",
@@ -398,7 +398,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Deployment Zone → Spokane | General Contractor Spokane WA | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Spokane WA. Commercial, industrial & government construction with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving Spokane WA. Commercial, industrial & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Deployment Zone Spokane construction",
         "dual-label military construction Spokane",
@@ -460,7 +460,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Station → West Richland | General Contractor West Richland WA | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving West Richland WA. Commercial, industrial & government projects with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving West Richland WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Station West Richland community construction",
         "dual-label military construction West Richland",
@@ -514,7 +514,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Forward Position → Walla Walla | General Contractor Walla Walla WA | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Walla Walla WA. Commercial, industrial & specialty construction with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving Walla Walla WA. Commercial, industrial & specialty construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Forward Position Walla Walla construction",
         "dual-label military construction Walla Walla",
@@ -584,7 +584,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Forward Base → Hermiston | General Contractor Hermiston OR | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Hermiston OR. Commercial, industrial & agricultural construction with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving Hermiston OR. Commercial, industrial & agricultural construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Forward Base Hermiston Oregon construction",
         "general contractor Hermiston OR",
@@ -609,7 +609,7 @@ export const locations: Record<string, LocationData> = {
       title: "Serving the Hermiston Area",
       description: [
         "Expanding our veteran-owned construction services to Hermiston and the Oregon Columbia Basin. We understand the region's industrial and agricultural development demands and bring the same rigorous standards that have served the Tri-Cities since 2010.",
-        "Licensed in Oregon, Washington, and Idaho, MH Construction is positioned to serve Hermiston clients across commercial, industrial, and government project types — with transparent pricing and mission-focused delivery.",
+        "Licensed in Oregon, Washington, and Idaho, MH Construction is positioned to serve Hermiston clients across commercial, industrial, and government project types — with transparent pricing and dependable delivery.",
       ],
     },
     servicePriorities: [
@@ -638,7 +638,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Tactical Position → Pendleton | General Contractor Pendleton OR | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Pendleton OR. Commercial, industrial & government construction with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving Pendleton OR. Commercial, industrial & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Tactical Position Pendleton Oregon construction",
         "general contractor Pendleton OR",
@@ -661,7 +661,7 @@ export const locations: Record<string, LocationData> = {
     localExpertise: {
       title: "Serving Eastern Oregon from Pendleton",
       description: [
-        "Pendleton anchors Eastern Oregon's commercial and government construction corridor. Our veteran-owned team brings the same mission-focused execution that has served the Tri-Cities for 15+ years to every Pendleton and Umatilla County project.",
+        "Pendleton anchors Eastern Oregon's commercial and government construction corridor. Our veteran-owned team brings the same disciplined execution that has served the Tri-Cities for 15+ years to every Pendleton and Umatilla County project.",
         "Licensed in Oregon, Washington, and Idaho, MH Construction delivers commercial, industrial, and public-sector builds across Eastern Oregon with transparent communication and zero-surprise project delivery.",
       ],
     },
@@ -696,7 +696,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Northern Operations → Coeur d'Alene | General Contractor Coeur d'Alene ID | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Coeur d'Alene ID. Commercial, resort & government construction with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving Coeur d'Alene ID. Commercial, resort & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Northern Operations Coeur d'Alene Idaho construction",
         "general contractor Coeur d'Alene ID",
@@ -750,7 +750,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Remote Station → Omak | General Contractor Omak WA | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Omak WA. Commercial, agricultural & community construction with military precision. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-owned GC serving Omak WA. Commercial, agricultural & community construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Remote Station Omak Washington construction",
         "general contractor Omak WA",

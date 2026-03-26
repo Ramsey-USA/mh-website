@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
@@ -13,6 +13,7 @@ import {
   Button,
 } from "@/components/ui";
 import { trackServiceInterest } from "@/lib/analytics/marketing-tracking";
+import { Modal } from "@/components/ui/modals/Modal";
 
 // Helper function to render subtitle with styled "NOT"
 function renderSubtitle(subtitle: string) {
@@ -197,26 +198,6 @@ export function ServicesShowcase() {
     setSelectedService(index);
   }, []);
 
-  // Handle escape key press
-  useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && selectedService !== null) {
-        closeModal();
-      }
-    };
-
-    if (selectedService !== null) {
-      document.addEventListener("keydown", handleEscape);
-      // Prevent body scroll when modal is open
-      document.body.style.overflow = "hidden";
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = "unset";
-    };
-  }, [selectedService, closeModal]);
-
   return (
     <BrandedContentSection
       id="services"
@@ -329,36 +310,22 @@ export function ServicesShowcase() {
 
       {/* Service Detail Modal */}
       {currentService && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
-          onClick={(e) => {
-            // Only close if clicking the backdrop itself, not its children
-            if (e.target === e.currentTarget) {
-              closeModal();
-            }
-          }}
-          onKeyDown={(e) => {
-            if (e.key === "Escape") {
-              closeModal();
-            }
-          }}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="modal-title"
-        >
-          <div
-            className="relative bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden animate-in zoom-in-95 duration-200"
-            onClick={(e) => e.stopPropagation()}
-            onKeyDown={(e) => e.stopPropagation()}
-            role="document"
-          >
-            {/* Header with gradient background - matches card color */}
+        <Modal
+          isOpen={true}
+          onClose={closeModal}
+          title={currentService.title}
+          size="xl"
+          showVeteranBadge={false}
+          backdropAriaLabel="Close service details modal"
+          panelClassName="max-w-3xl rounded-3xl border-0 dark:bg-gray-800"
+          contentClassName="p-0"
+          renderHeader={({ titleId, onClose }) => (
             <div
-              className={`relative bg-gradient-to-br ${currentService.iconGradient} p-6 sm:p-8`}
+              className={`relative bg-gradient-to-br ${currentService.iconGradient} p-6 sm:p-8 text-white`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/20"></div>
               <button
-                onClick={closeModal}
+                onClick={onClose}
                 className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white/20 active:bg-white/30 rounded-full p-2.5 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl hover:scale-110 z-10"
                 aria-label="Close modal"
                 type="button"
@@ -380,7 +347,7 @@ export function ServicesShowcase() {
                 </div>
                 <div className="flex-1">
                   <h3
-                    id="modal-title"
+                    id={titleId}
                     className="text-white font-black text-2xl sm:text-3xl lg:text-4xl leading-tight mb-2"
                   >
                     {currentService.title}
@@ -391,99 +358,98 @@ export function ServicesShowcase() {
                 </div>
               </div>
             </div>
+          )}
+        >
+          <div className="p-6 sm:p-8 overflow-y-auto max-h-[calc(90vh-200px)]">
+            <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
+              {currentService.description}
+            </p>
 
-            {/* Scrollable Content */}
-            <div className="p-6 sm:p-8 overflow-y-auto max-h-[calc(90vh-200px)]">
-              <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
-                {currentService.description}
-              </p>
-
-              {/* What's Included */}
-              <div className="mb-6">
-                <div className="flex items-center mb-4">
-                  <div className="flex items-center justify-center w-10 h-10 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl mr-3">
-                    <MaterialIcon
-                      icon="checklist"
-                      size="lg"
-                      className="text-brand-primary dark:text-brand-primary-light"
-                    />
-                  </div>
-                  <h4 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl">
-                    What's Included
-                  </h4>
+            {/* What's Included */}
+            <div className="mb-6">
+              <div className="flex items-center mb-4">
+                <div className="flex items-center justify-center w-10 h-10 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl mr-3">
+                  <MaterialIcon
+                    icon="checklist"
+                    size="lg"
+                    className="text-brand-primary dark:text-brand-primary-light"
+                  />
                 </div>
-                <ul className="space-y-3 ml-13">
-                  {currentService.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-start">
-                      <MaterialIcon
-                        icon="check_circle"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary dark:text-brand-primary-light"
-                        size="md"
-                      />
-                      <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                <h4 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl">
+                  What's Included
+                </h4>
               </div>
-
-              {/* Key Benefits */}
-              <div className="mb-6">
-                <div className="flex items-center mb-4">
-                  <div className="flex items-center justify-center w-10 h-10 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-xl mr-3">
+              <ul className="space-y-3 ml-13">
+                {currentService.features.map((feature, fIndex) => (
+                  <li key={fIndex} className="flex items-start">
                     <MaterialIcon
-                      icon="stars"
-                      size="lg"
-                      className="text-brand-secondary dark:text-brand-secondary-light"
+                      icon="check_circle"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-primary dark:text-brand-primary-light"
+                      size="md"
                     />
-                  </div>
-                  <h4 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl">
-                    Key Benefits
-                  </h4>
+                    <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Key Benefits */}
+            <div className="mb-6">
+              <div className="flex items-center mb-4">
+                <div className="flex items-center justify-center w-10 h-10 bg-brand-secondary/10 dark:bg-brand-secondary/20 rounded-xl mr-3">
+                  <MaterialIcon
+                    icon="stars"
+                    size="lg"
+                    className="text-brand-secondary dark:text-brand-secondary-light"
+                  />
                 </div>
-                <ul className="space-y-3 ml-13">
-                  {currentService.benefits.map((benefit, bIndex) => (
-                    <li key={bIndex} className="flex items-start">
-                      <MaterialIcon
-                        icon="military_tech"
-                        className="flex-shrink-0 mt-1 mr-3 text-brand-secondary dark:text-brand-secondary-light"
-                        size="md"
-                      />
-                      <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-                        {benefit}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                <h4 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl">
+                  Key Benefits
+                </h4>
               </div>
+              <ul className="space-y-3 ml-13">
+                {currentService.benefits.map((benefit, bIndex) => (
+                  <li key={bIndex} className="flex items-start">
+                    <MaterialIcon
+                      icon="military_tech"
+                      className="flex-shrink-0 mt-1 mr-3 text-brand-secondary dark:text-brand-secondary-light"
+                      size="md"
+                    />
+                    <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                      {benefit}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-              {/* CTA Button */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gray-200 dark:border-gray-700">
-                <Link href={currentService.link} className="flex-1">
-                  <Button variant="primary" className="w-full group/btn">
-                    <MaterialIcon
-                      icon="arrow_forward"
-                      size="md"
-                      className="mr-2 group-hover/btn:translate-x-1 transition-transform"
-                    />
-                    {currentService.cta}
-                  </Button>
-                </Link>
-                <Link href="/contact" className="flex-1">
-                  <Button variant="secondary" className="w-full group/btn">
-                    <MaterialIcon
-                      icon="mail"
-                      size="md"
-                      className="mr-2 group-hover/btn:scale-110 transition-transform"
-                    />
-                    Get Started
-                  </Button>
-                </Link>
-              </div>
+            {/* CTA Button */}
+            <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gray-200 dark:border-gray-700">
+              <Link href={currentService.link} className="flex-1">
+                <Button variant="primary" className="w-full group/btn">
+                  <MaterialIcon
+                    icon="arrow_forward"
+                    size="md"
+                    className="mr-2 group-hover/btn:translate-x-1 transition-transform"
+                  />
+                  {currentService.cta}
+                </Button>
+              </Link>
+              <Link href="/contact" className="flex-1">
+                <Button variant="secondary" className="w-full group/btn">
+                  <MaterialIcon
+                    icon="mail"
+                    size="md"
+                    className="mr-2 group-hover/btn:scale-110 transition-transform"
+                  />
+                  Get Started
+                </Button>
+              </Link>
             </div>
           </div>
-        </div>
+        </Modal>
       )}
     </BrandedContentSection>
   );

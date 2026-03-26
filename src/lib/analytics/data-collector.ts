@@ -58,18 +58,8 @@ export const dataCollector = {
       const trimmed = formData.slice(-500);
       localStorage.setItem("mh_analytics_forms", JSON.stringify(trimmed));
 
-      // Update conversion counts
-      const conversions = this.getConversions();
-      conversions["total"] = (conversions["total"] || 0) + 1;
-      if (formId.includes("contact")) {
-        conversions["contacts"] = (conversions["contacts"] || 0) + 1;
-      } else if (formId.includes("consult")) {
-        conversions["consultations"] = (conversions["consultations"] || 0) + 1;
-      }
-      localStorage.setItem(
-        "mh_analytics_conversions",
-        JSON.stringify(conversions),
-      );
+      // Note: conversion counter updates are handled by tracking.ts::trackFormSubmit
+      // to avoid double-counting. This method only stores the form event log.
     } catch (error) {
       logger.error("Error tracking form submission:", error);
     }

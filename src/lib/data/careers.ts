@@ -108,9 +108,9 @@ export const cultureValues: CultureValue[] = [
   },
   {
     icon: "diversity_3",
-    title: "Team Unity & Military Precision",
+    title: "Team Unity & Disciplined Execution",
     description:
-      "Founded in 2010, veteran-owned since January 2025 when Army veteran Jeremy Thamert purchased the company. From veterans to civilians, office to field—we're one team with shared values. Military discipline and structured processes meet proven craftsmanship, combining unwavering attention to detail with reliable execution and mission-focused excellence.",
+      "Founded in 2010, veteran-owned since January 2025 when Army veteran Jeremy Thamert purchased the company. From veterans to civilians, office to field-we're one team with shared values. Military discipline and structured processes meet proven craftsmanship, combining unwavering attention to detail with reliable execution and dependable follow-through.",
     color: "from-brand-secondary to-brand-secondary-dark",
   },
   {

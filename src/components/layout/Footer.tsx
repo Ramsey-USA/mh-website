@@ -1,18 +1,42 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { PWAInstallButton } from "@/components/pwa";
 import { AdminSignInModal } from "@/components/ui/modals/AdminSignInModal";
 import {
   TrackedPhoneLink,
   TrackedEmailLink,
   TrackedLocationLink,
 } from "@/components/analytics/TrackedContactLinks";
+import { COMPANY_INFO } from "@/lib/constants/company";
+import { trackFormSubmit } from "@/lib/analytics/tracking";
 
-const navCol1Links = [
+type FooterNavItem = {
+  href: string;
+  icon: string;
+  label: string;
+  sub: string;
+};
+
+type SocialLinkItem = {
+  href: string;
+  icon: string;
+  ariaLabel: string;
+  title: string;
+  hoverClassName: string;
+  shadowClassName: string;
+  iconGlowClassName: string;
+};
+
+type LicenseDetail = {
+  state: string;
+  label: string;
+  number: string;
+};
+
+const navCol1Links: FooterNavItem[] = [
   { href: "/", icon: "home", label: "Home", sub: "Base HQ" },
   { href: "/contact", icon: "handshake", label: "Contact", sub: "Rally Point" },
   {
@@ -42,7 +66,7 @@ const navCol1Links = [
   },
 ];
 
-const navCol2Links = [
+const navCol2Links: FooterNavItem[] = [
   { href: "/about", icon: "foundation", label: "About Us", sub: "Our Oath" },
   { href: "/team", icon: "people", label: "Our Team", sub: "Chain of Command" },
   { href: "/allies", icon: "group", label: "Partners", sub: "Allies" },
@@ -92,6 +116,93 @@ const regionalAreas = [
 const areaItemClass =
   "bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium";
 
+const socialLinkBaseClass =
+  "group flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-gray-600 bg-gradient-to-br from-gray-700 to-gray-800 p-2.5 shadow-md transition-all duration-300 touch-manipulation hover:scale-105 dark:border-gray-500 dark:from-gray-600 dark:to-gray-700";
+
+const primaryActionCardClassName =
+  "group flex items-center gap-3 rounded-lg border border-brand-primary/30 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 p-3 transition-all duration-300 hover:scale-105 hover:border-brand-primary hover:from-brand-primary/20 hover:to-brand-secondary/20 touch-manipulation";
+
+const secondaryActionCardClassName =
+  "group flex items-center gap-3 rounded-lg border border-brand-secondary/40 bg-gradient-to-r from-brand-secondary/15 to-brand-primary/15 p-3 transition-all duration-300 hover:scale-105 hover:border-brand-secondary hover:from-brand-secondary/25 hover:to-brand-primary/25 touch-manipulation";
+
+const footerBadgeBaseClassName =
+  "flex items-center gap-1.5 rounded-lg border px-3 py-2 text-sm font-semibold transition-all duration-300 touch-manipulation hover:scale-105";
+
+const socialLinks: SocialLinkItem[] = [
+  {
+    href: COMPANY_INFO.social.facebook,
+    icon: "thumb_up",
+    ariaLabel:
+      "Follow MH Construction on Facebook for project updates and partnership stories",
+    title: "Follow our partnership stories on Facebook",
+    hoverClassName:
+      "hover:border-[#1877F2] hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0]",
+    shadowClassName: "hover:shadow-[#1877F2]/40",
+    iconGlowClassName: "group-hover:drop-shadow-[0_0_8px_rgba(24,119,242,0.8)]",
+  },
+  {
+    href: COMPANY_INFO.social.instagram,
+    icon: "photo_camera",
+    ariaLabel: "View MH Construction project photos and reels on Instagram",
+    title: "See partnership projects on Instagram",
+    hoverClassName:
+      "hover:border-[#E4405F] hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737]",
+    shadowClassName: "hover:shadow-[#E4405F]/40",
+    iconGlowClassName: "group-hover:drop-shadow-[0_0_8px_rgba(228,64,95,0.8)]",
+  },
+  {
+    href: COMPANY_INFO.social.twitter,
+    icon: "alternate_email",
+    ariaLabel:
+      "Follow MH Construction on X (formerly Twitter) for construction industry updates",
+    title: "Follow partnership updates on X (Twitter)",
+    hoverClassName:
+      "hover:border-[#1D9BF0] hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000]",
+    shadowClassName: "hover:shadow-black/40",
+    iconGlowClassName: "group-hover:drop-shadow-[0_0_8px_rgba(29,155,240,0.8)]",
+  },
+  {
+    href: COMPANY_INFO.social.youtube,
+    icon: "smart_display",
+    ariaLabel:
+      "Watch MH Construction project videos and success stories on YouTube",
+    title: "Watch partnership success stories on YouTube",
+    hoverClassName:
+      "hover:border-[#FF0000] hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000]",
+    shadowClassName: "hover:shadow-[#FF0000]/40",
+    iconGlowClassName: "group-hover:drop-shadow-[0_0_8px_rgba(255,0,0,0.8)]",
+  },
+  {
+    href: COMPANY_INFO.social.linkedin,
+    icon: "business_center",
+    ariaLabel:
+      "Connect with MH Construction on LinkedIn for professional networking and industry insights",
+    title: "Connect with our partnership team on LinkedIn",
+    hoverClassName:
+      "hover:border-[#0A66C2] hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182]",
+    shadowClassName: "hover:shadow-[#0A66C2]/40",
+    iconGlowClassName: "group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.8)]",
+  },
+];
+
+const licenseDetails: LicenseDetail[] = [
+  {
+    state: "WA",
+    label: "Washington License",
+    number: "MHCONCI907R7",
+  },
+  {
+    state: "OR",
+    label: "Oregon License",
+    number: "765043-99",
+  },
+  {
+    state: "ID",
+    label: "Idaho License",
+    number: "RCE-49250",
+  },
+];
+
 function FooterNavLink({
   href,
   icon,
@@ -128,37 +239,226 @@ function FooterNavLink({
   );
 }
 
+function SocialLink({
+  href,
+  icon,
+  ariaLabel,
+  title,
+  hoverClassName,
+  shadowClassName,
+  iconGlowClassName,
+}: SocialLinkItem) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${socialLinkBaseClass} ${hoverClassName} ${shadowClassName}`}
+      aria-label={ariaLabel}
+      title={title}
+      itemProp="sameAs"
+    >
+      <MaterialIcon
+        icon={icon}
+        size="md"
+        className={`text-gray-600 transition-colors drop-shadow-lg group-hover:text-white dark:text-gray-300 ${iconGlowClassName}`}
+      />
+    </a>
+  );
+}
+
+function FooterActionCardContent({
+  icon,
+  eyebrow,
+  body,
+  accent = "primary",
+}: {
+  icon: string;
+  eyebrow: string;
+  body: ReactNode;
+  accent?: "primary" | "secondary";
+}) {
+  const accentClasses =
+    accent === "secondary"
+      ? {
+          iconWrapper: "bg-brand-secondary text-gray-900 group-hover:scale-110",
+          eyebrow: "text-brand-secondary",
+          arrow: "text-brand-secondary",
+        }
+      : {
+          iconWrapper: "bg-brand-primary text-white group-hover:scale-110",
+          eyebrow: "text-brand-secondary",
+          arrow: "text-brand-primary",
+        };
+
+  return (
+    <>
+      <div
+        className={`flex flex-shrink-0 items-center justify-center rounded-lg p-2 transition-transform ${accentClasses.iconWrapper}`}
+      >
+        <MaterialIcon icon={icon} size="md" />
+      </div>
+      <div className="min-w-0 flex-grow">
+        <div
+          className={`${accentClasses.eyebrow} mb-0.5 text-xs font-bold uppercase tracking-wide`}
+        >
+          {eyebrow}
+        </div>
+        {body}
+      </div>
+      <MaterialIcon
+        icon="arrow_forward"
+        size="sm"
+        className={`${accentClasses.arrow} flex-shrink-0 opacity-0 transition-opacity group-hover:opacity-100`}
+      />
+    </>
+  );
+}
+
+function FooterBadge({
+  icon,
+  label,
+  emphasis = false,
+}: {
+  icon: string;
+  label: string;
+  emphasis?: boolean;
+}) {
+  const className = emphasis
+    ? "border-brand-primary/40 bg-gradient-to-r from-brand-primary/15 to-brand-secondary/15 text-brand-secondary hover:border-brand-secondary/60 hover:from-brand-primary/25 hover:to-brand-secondary/25 dark:border-brand-primary/50 dark:from-brand-primary/20 dark:to-brand-secondary/20 dark:text-brand-secondary-light dark:hover:border-brand-secondary/70 dark:hover:from-brand-primary/30 dark:hover:to-brand-secondary/30"
+    : "border-brand-primary/20 bg-brand-primary/5 text-gray-300 hover:border-brand-primary/40 hover:bg-brand-primary/15 dark:border-brand-primary/30 dark:bg-brand-primary/10 dark:text-gray-200 dark:hover:border-brand-primary/50 dark:hover:bg-brand-primary/20";
+
+  const iconClassName = emphasis
+    ? "text-brand-secondary group-hover:scale-110 dark:text-brand-secondary-light"
+    : "text-brand-secondary dark:text-brand-secondary-light";
+
+  const textClassName = emphasis
+    ? "text-brand-secondary dark:text-brand-secondary-light"
+    : "text-gray-300 dark:text-gray-200";
+
+  return (
+    <div className={`group ${footerBadgeBaseClassName} ${className}`}>
+      <MaterialIcon
+        icon={icon}
+        size="sm"
+        className={`${iconClassName} transition-all duration-300`}
+      />
+      <span className={`${textClassName} transition-colors duration-300`}>
+        {label}
+      </span>
+    </div>
+  );
+}
+
+function LicenseBadge() {
+  return (
+    <div className="rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-3 py-2 text-sm transition-all duration-300 hover:border-brand-primary/40 hover:bg-brand-primary/15 dark:border-brand-primary/30 dark:bg-brand-primary/10 dark:hover:border-brand-primary/50 dark:hover:bg-brand-primary/20">
+      <div className="mb-1.5 flex items-center gap-1.5">
+        <MaterialIcon
+          icon="verified"
+          size="sm"
+          className="text-brand-secondary dark:text-brand-secondary-light"
+        />
+        <span className="font-semibold text-gray-300 dark:text-gray-200">
+          Licensed
+        </span>
+      </div>
+      <dl className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs sm:text-sm">
+        {licenseDetails.map((license) => (
+          <div key={license.state} className="flex items-center gap-1">
+            <dt className="font-bold text-brand-secondary dark:text-brand-secondary-light">
+              {license.state}
+            </dt>
+            <dd className="text-gray-300 dark:text-gray-200">
+              <span className="sr-only">{license.label}: </span>
+              {license.number}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
+}
+
 export default function Footer() {
   const [showAdminModal, setShowAdminModal] = useState(false);
-  const [clickCount, setClickCount] = useState(0);
-  const clickTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+  const [newsletterMessage, setNewsletterMessage] = useState("");
 
-  // Clean up any pending timeout when Footer unmounts
   useEffect(() => {
+    const handleAdminShortcut = (event: KeyboardEvent) => {
+      if (
+        (event.ctrlKey || event.metaKey) &&
+        event.shiftKey &&
+        event.key.toLowerCase() === "a"
+      ) {
+        event.preventDefault();
+        setShowAdminModal(true);
+      }
+    };
+
+    window.addEventListener("keydown", handleAdminShortcut);
+
     return () => {
-      if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+      window.removeEventListener("keydown", handleAdminShortcut);
     };
   }, []);
 
-  // Triple-click handler for admin access (hidden feature for Matt & Jeremy)
-  const handleCopyrightClick = useCallback(() => {
-    setClickCount((prev) => prev + 1);
-
-    // Clear existing timeout
-    if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
-
-    // Set new timeout to reset count
-    clickTimeoutRef.current = setTimeout(() => {
-      setClickCount(0);
-    }, 800); // 800ms window for triple-click
-
-    // Check if triple-clicked
-    if (clickCount + 1 === 3) {
-      setShowAdminModal(true);
-      setClickCount(0);
-      if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+  useEffect(() => {
+    if (newsletterStatus !== "success" && newsletterStatus !== "error") {
+      return;
     }
-  }, [clickCount]);
+
+    const timeoutId = window.setTimeout(() => {
+      setNewsletterStatus("idle");
+      setNewsletterMessage("");
+    }, 5000);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, [newsletterStatus]);
+
+  const handleNewsletterSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const normalizedEmail = newsletterEmail.trim();
+    if (!normalizedEmail) {
+      return;
+    }
+
+    setNewsletterStatus("submitting");
+    setNewsletterMessage("");
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: normalizedEmail }),
+      });
+
+      if (response.ok) {
+        setNewsletterEmail("");
+        setNewsletterStatus("success");
+        setNewsletterMessage("Subscribed!");
+        try {
+          trackFormSubmit("newsletter");
+        } catch {
+          /* analytics failure is non-blocking */
+        }
+        return;
+      }
+
+      setNewsletterStatus("error");
+      setNewsletterMessage("Try again");
+    } catch {
+      setNewsletterStatus("error");
+      setNewsletterMessage("Error");
+    }
+  };
 
   return (
     <>
@@ -171,97 +471,6 @@ export default function Footer() {
         itemScope
         itemType="https://schema.org/Organization"
       >
-        {/* Structured Data for SEO */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "GeneralContractor",
-              name: "MH Construction, Inc.",
-              description:
-                "Veteran-owned general contractor serving the Pacific Northwest with commercial and residential construction services",
-              url: "https://mhc-gc.com",
-              logo: "https://mhc-gc.com/images/logo/mh-logo-dark-bg.webp",
-              image: "https://mhc-gc.com/images/logo/mh-logo-dark-bg.webp",
-              telephone: "+1-509-308-6489",
-              email: "office@mhc-gc.com",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "3111 N Capitol Ave",
-                addressLocality: "Pasco",
-                addressRegion: "WA",
-                postalCode: "99301",
-                addressCountry: "US",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: "46.2396",
-                longitude: "-119.1006",
-              },
-              areaServed: [
-                {
-                  "@type": "City",
-                  name: "Pasco",
-                  address: { "@type": "PostalAddress", addressRegion: "WA" },
-                },
-                {
-                  "@type": "City",
-                  name: "Kennewick",
-                  address: { "@type": "PostalAddress", addressRegion: "WA" },
-                },
-                {
-                  "@type": "City",
-                  name: "Richland",
-                  address: { "@type": "PostalAddress", addressRegion: "WA" },
-                },
-                {
-                  "@type": "State",
-                  name: "Washington",
-                },
-                {
-                  "@type": "State",
-                  name: "Oregon",
-                },
-                {
-                  "@type": "State",
-                  name: "Idaho",
-                },
-              ],
-              sameAs: [
-                "https://www.facebook.com/profile.php?id=61575511773974",
-                "https://www.instagram.com/mh_construction_inc/",
-                "https://x.com/mhc_gc",
-                "https://youtube.com/@mhc-gc",
-                "https://www.linkedin.com/company/mh-construction-general-contractor/",
-              ],
-              foundingDate: "2010",
-              slogan: "Built with Precision, Driven by Honor",
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "5",
-                bestRating: "5",
-                worstRating: "1",
-              },
-              priceRange: "$$",
-              paymentAccepted: "Cash, Credit Card, Check, Financing",
-              openingHoursSpecification: [
-                {
-                  "@type": "OpeningHoursSpecification",
-                  dayOfWeek: [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                  ],
-                  opens: "07:00",
-                  closes: "16:00",
-                },
-              ],
-            }),
-          }}
-        />
         <div className="mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Main Footer Content */}
           <div className="gap-4 xs:gap-5 sm:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 pb-3">
@@ -289,83 +498,11 @@ export default function Footer() {
                 {/* Social Media Links */}
                 <nav
                   aria-label="Social media links"
-                  className="flex items-center justify-center sm:justify-start gap-2 xs:gap-2.5 flex-wrap"
+                  className="flex w-full flex-nowrap items-center justify-center gap-2 overflow-x-auto pb-1 sm:justify-start xs:gap-2.5"
                 >
-                  <a
-                    href="https://www.facebook.com/profile.php?id=61575511773974"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700 hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0] p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#1877F2] rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#1877F2]/40"
-                    aria-label="Follow MH Construction on Facebook for project updates and partnership stories"
-                    title="Follow our partnership stories on Facebook"
-                    itemProp="sameAs"
-                  >
-                    <MaterialIcon
-                      icon="thumb_up"
-                      size="md"
-                      className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(24,119,242,0.8)]"
-                    />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/mh_construction_inc/reels/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700 hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#E4405F] rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#E4405F]/40"
-                    aria-label="View MH Construction project photos and reels on Instagram"
-                    title="See partnership projects on Instagram"
-                    itemProp="sameAs"
-                  >
-                    <MaterialIcon
-                      icon="photo_camera"
-                      size="md"
-                      className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(228,64,95,0.8)]"
-                    />
-                  </a>
-                  <a
-                    href="https://x.com/mhc_gc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700 hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000] p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#1D9BF0] rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation shadow-md hover:shadow-black/40"
-                    aria-label="Follow MH Construction on X (formerly Twitter) for construction industry updates"
-                    title="Follow partnership updates on X (Twitter)"
-                    itemProp="sameAs"
-                  >
-                    <MaterialIcon
-                      icon="close"
-                      size="md"
-                      className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(29,155,240,0.8)]"
-                    />
-                  </a>
-                  <a
-                    href="https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700 hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000] p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#FF0000] rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#FF0000]/40"
-                    aria-label="Watch MH Construction project videos and success stories on YouTube"
-                    title="Watch partnership success stories on YouTube"
-                    itemProp="sameAs"
-                  >
-                    <MaterialIcon
-                      icon="play_circle"
-                      size="md"
-                      className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(255,0,0,0.8)]"
-                    />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 dark:from-gray-600 dark:to-gray-700 hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] p-2.5 border border-gray-600 dark:border-gray-500 hover:border-[#0A66C2] rounded-lg hover:scale-105 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#0A66C2]/40"
-                    aria-label="Connect with MH Construction on LinkedIn for professional networking and industry insights"
-                    title="Connect with our partnership team on LinkedIn"
-                    itemProp="sameAs"
-                  >
-                    <MaterialIcon
-                      icon="work"
-                      size="md"
-                      className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.8)]"
-                    />
-                  </a>
+                  {socialLinks.map((link) => (
+                    <SocialLink key={link.href} {...link} />
+                  ))}
                 </nav>
 
                 {/* Google Review Card */}
@@ -373,41 +510,29 @@ export default function Footer() {
                   href="https://g.page/r/CVdv3YZLzJvdEBM/review"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation mt-4"
+                  className={`${primaryActionCardClassName} mt-4`}
                   aria-label="Leave a 5-star Google review for MH Construction"
                   itemProp="review"
                 >
-                  <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
-                    <MaterialIcon
-                      icon="rate_review"
-                      size="md"
-                      className="text-white"
-                    />
-                  </div>
-                  <div className="flex-grow min-w-0">
-                    <div className="text-brand-secondary text-xs font-bold uppercase tracking-wide mb-0.5">
-                      Rate Us
-                    </div>
-                    <div className="text-gray-300 font-bold text-sm xs:text-base group-hover:text-brand-primary transition-colors mb-1">
-                      Leave a Google Review
-                    </div>
-                    <div className="flex items-center gap-1 text-yellow-500">
-                      <MaterialIcon icon="star" size="sm" />
-                      <MaterialIcon icon="star" size="sm" />
-                      <MaterialIcon icon="star" size="sm" />
-                      <MaterialIcon icon="star" size="sm" />
-                      <MaterialIcon icon="star" size="sm" />
-                    </div>
-                  </div>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
+                  <FooterActionCardContent
+                    icon="rate_review"
+                    eyebrow="Rate Us"
+                    body={
+                      <>
+                        <div className="mb-1 text-sm font-bold text-gray-300 transition-colors group-hover:text-brand-primary xs:text-base">
+                          Leave a Google Review
+                        </div>
+                        <div className="flex items-center gap-1 text-yellow-500">
+                          <MaterialIcon icon="star" size="sm" />
+                          <MaterialIcon icon="star" size="sm" />
+                          <MaterialIcon icon="star" size="sm" />
+                          <MaterialIcon icon="star" size="sm" />
+                          <MaterialIcon icon="star" size="sm" />
+                        </div>
+                      </>
+                    }
                   />
                 </a>
-
-                {/* PWA Install Card */}
-                <PWAInstallButton />
               </div>
             </div>
 
@@ -481,34 +606,40 @@ export default function Footer() {
                 itemScope
                 itemType="https://schema.org/ContactPoint"
               >
+                <Link
+                  href="/careers?apply=true&entryPoint=Footer%20Application"
+                  className={secondaryActionCardClassName}
+                  aria-label="Start a job application with MH Construction"
+                >
+                  <FooterActionCardContent
+                    icon="badge"
+                    eyebrow="Join the Team"
+                    accent="secondary"
+                    body={
+                      <div className="text-sm font-bold text-gray-300 transition-colors group-hover:text-brand-secondary xs:text-base">
+                        Quick Application
+                      </div>
+                    }
+                  />
+                </Link>
+
                 <TrackedPhoneLink
                   trackId="footer-phone-cta"
                   trackProperties={{
                     location: "footer-prominent-cta",
                     style: "button",
                   }}
-                  className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation"
-                  aria-label="Call MH Construction at 509-308-6489"
+                  className={primaryActionCardClassName}
+                  aria-label={`Call MH Construction at ${COMPANY_INFO.phone.display}`}
                 >
-                  <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
-                    <MaterialIcon
-                      icon="call"
-                      size="md"
-                      className="text-white"
-                    />
-                  </div>
-                  <div className="flex-grow">
-                    <div className="text-brand-secondary text-xs font-bold uppercase tracking-wide mb-0.5">
-                      Call Us
-                    </div>
-                    <div className="text-gray-300 font-bold text-sm xs:text-base group-hover:text-brand-primary transition-colors">
-                      (509) 308-6489
-                    </div>
-                  </div>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
+                  <FooterActionCardContent
+                    icon="call"
+                    eyebrow="Call Us"
+                    body={
+                      <div className="text-sm font-bold text-gray-300 transition-colors group-hover:text-brand-primary xs:text-base">
+                        {COMPANY_INFO.phone.display}
+                      </div>
+                    }
                   />
                 </TrackedPhoneLink>
 
@@ -518,28 +649,17 @@ export default function Footer() {
                     location: "footer-prominent-cta",
                     style: "button",
                   }}
-                  className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation"
-                  aria-label="Email MH Construction at office@mhc-gc.com"
+                  className={primaryActionCardClassName}
+                  aria-label={`Email MH Construction at ${COMPANY_INFO.email.main}`}
                 >
-                  <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
-                    <MaterialIcon
-                      icon="mail"
-                      size="md"
-                      className="text-white"
-                    />
-                  </div>
-                  <div className="flex-grow min-w-0">
-                    <div className="text-brand-secondary text-xs font-bold uppercase tracking-wide mb-0.5">
-                      Email Us
-                    </div>
-                    <div className="text-gray-300 font-bold text-xs xs:text-sm group-hover:text-brand-primary transition-colors truncate">
-                      office@mhc-gc.com
-                    </div>
-                  </div>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
+                  <FooterActionCardContent
+                    icon="mail"
+                    eyebrow="Email Us"
+                    body={
+                      <div className="truncate text-xs font-bold text-gray-300 transition-colors group-hover:text-brand-primary xs:text-sm">
+                        {COMPANY_INFO.email.main}
+                      </div>
+                    }
                   />
                 </TrackedEmailLink>
 
@@ -549,31 +669,29 @@ export default function Footer() {
                     location: "footer-prominent-cta",
                     style: "button",
                   }}
-                  className="group flex items-center gap-3 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 hover:from-brand-primary/20 hover:to-brand-secondary/20 p-3 rounded-lg border border-brand-primary/30 hover:border-brand-primary transition-all duration-300 hover:scale-105 touch-manipulation"
+                  className={primaryActionCardClassName}
                 >
-                  <div className="flex-shrink-0 flex justify-center items-center bg-brand-primary p-2 rounded-lg group-hover:scale-110 transition-transform">
-                    <MaterialIcon
-                      icon="place"
-                      size="md"
-                      className="text-white"
-                    />
-                  </div>
-                  <div className="flex-grow min-w-0">
-                    <div className="text-brand-secondary text-xs font-bold uppercase tracking-wide mb-0.5">
-                      Visit Us
-                    </div>
-                    <div className="text-gray-300 font-bold text-xs xs:text-sm group-hover:text-brand-primary transition-colors">
-                      <span itemProp="streetAddress">3111 N. Capitol Ave.</span>
-                      <br />
-                      <span itemProp="addressLocality">Pasco</span>,{" "}
-                      <span itemProp="addressRegion">WA</span>{" "}
-                      <span itemProp="postalCode">99301</span>
-                    </div>
-                  </div>
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    size="sm"
-                    className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
+                  <FooterActionCardContent
+                    icon="place"
+                    eyebrow="Visit Us"
+                    body={
+                      <div className="text-xs font-bold text-gray-300 transition-colors group-hover:text-brand-primary xs:text-sm">
+                        <span itemProp="streetAddress">
+                          {COMPANY_INFO.address.street}
+                        </span>
+                        <br />
+                        <span itemProp="addressLocality">
+                          {COMPANY_INFO.address.city}
+                        </span>
+                        ,{" "}
+                        <span itemProp="addressRegion">
+                          {COMPANY_INFO.address.state}
+                        </span>{" "}
+                        <span itemProp="postalCode">
+                          {COMPANY_INFO.address.zip}
+                        </span>
+                      </div>
+                    }
                   />
                 </TrackedLocationLink>
               </div>
@@ -597,78 +715,45 @@ export default function Footer() {
                     </div>
                   </div>
                 </div>
-                <form
-                  onSubmit={async (e) => {
-                    e.preventDefault();
-                    const form = e.currentTarget;
-                    const emailInput = form.querySelector(
-                      'input[name="email"]',
-                    ) as HTMLInputElement;
-                    const button = form.querySelector(
-                      'button[type="submit"]',
-                    ) as HTMLButtonElement;
-                    const feedbackEl = form.querySelector(
-                      ".newsletter-feedback",
-                    ) as HTMLElement;
-
-                    if (!emailInput?.value.trim()) return;
-
-                    button.disabled = true;
-                    const originalText = button.textContent;
-                    button.textContent = "...";
-
-                    try {
-                      const response = await fetch("/api/newsletter", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ email: emailInput.value }),
-                      });
-
-                      if (response.ok) {
-                        emailInput.value = "";
-                        if (feedbackEl) {
-                          feedbackEl.textContent = "Subscribed!";
-                          feedbackEl.className =
-                            "newsletter-feedback text-green-400 text-xs mt-2";
-                        }
-                      } else {
-                        if (feedbackEl) {
-                          feedbackEl.textContent = "Try again";
-                          feedbackEl.className =
-                            "newsletter-feedback text-red-400 text-xs mt-2";
-                        }
-                      }
-                    } catch (_error) {
-                      if (feedbackEl) {
-                        feedbackEl.textContent = "Error";
-                        feedbackEl.className =
-                          "newsletter-feedback text-red-400 text-xs mt-2";
-                      }
-                    } finally {
-                      button.disabled = false;
-                      button.textContent = originalText;
-                      setTimeout(() => {
-                        if (feedbackEl) feedbackEl.textContent = "";
-                      }, 5000);
-                    }
-                  }}
-                  className="space-y-2"
-                >
+                <form onSubmit={handleNewsletterSubmit} className="space-y-2">
+                  <label htmlFor="footer-newsletter-email" className="sr-only">
+                    Email address
+                  </label>
                   <input
+                    id="footer-newsletter-email"
                     type="email"
                     name="email"
                     placeholder="Enter your email"
                     required
+                    value={newsletterEmail}
+                    onChange={(event) => setNewsletterEmail(event.target.value)}
+                    aria-describedby="footer-newsletter-feedback"
                     className="w-full px-3 py-2 bg-gray-900/50 border border-gray-700 rounded text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-primary transition-colors"
                   />
                   <button
                     type="submit"
+                    disabled={newsletterStatus === "submitting"}
                     className="w-full px-4 py-2 bg-brand-primary hover:bg-brand-primary-dark text-brand-secondary-light hover:text-white text-sm font-bold rounded-lg transition-all duration-300 border-2 border-brand-secondary/50 hover:border-brand-secondary shadow-md hover:shadow-lg flex items-center justify-center gap-2"
                   >
-                    Subscribe
+                    {newsletterStatus === "submitting"
+                      ? "Subscribing..."
+                      : "Subscribe"}
                     <MaterialIcon icon="arrow_forward" size="sm" />
                   </button>
-                  <div className="newsletter-feedback text-xs"></div>
+                  <div
+                    id="footer-newsletter-feedback"
+                    role={newsletterStatus === "error" ? "alert" : "status"}
+                    aria-live="polite"
+                    className={`text-xs ${
+                      newsletterStatus === "success"
+                        ? "text-green-400"
+                        : newsletterStatus === "error"
+                          ? "text-red-400"
+                          : "text-gray-400"
+                    }`}
+                  >
+                    {newsletterMessage}
+                  </div>
                 </form>
               </div>
             </section>
@@ -725,106 +810,26 @@ export default function Footer() {
           {/* Clean Bottom Bar - Streamlined Design */}
           <div className="pt-6 pb-6 border-gray-700 dark:border-gray-600 border-t">
             <div className="flex lg:flex-row flex-col justify-between items-center gap-4 lg:gap-6">
-              {/* Copyright - Triple-click to access admin panel */}
-              <div
-                onClick={handleCopyrightClick}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    handleCopyrightClick();
-                  }
-                }}
-                role="button"
-                tabIndex={0}
-                className="flex items-center gap-2 bg-brand-primary/5 dark:bg-brand-primary/10 px-4 py-2 rounded-lg border border-brand-primary/20 dark:border-brand-primary/30 cursor-pointer select-none hover:bg-brand-primary/10 dark:hover:bg-brand-primary/15 transition-all"
-                title="Triple-click for admin access"
-              >
+              <div className="flex items-center gap-2 rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-4 py-2 dark:border-brand-primary/30 dark:bg-brand-primary/10">
                 <MaterialIcon
                   icon="copyright"
                   size="sm"
                   className="text-brand-secondary dark:text-brand-secondary-light"
                 />
                 <span className="text-sm text-gray-300 dark:text-gray-200 font-semibold">
-                  2026 MH Construction, Inc.
+                  2026 {COMPANY_INFO.name}, Inc.
                 </span>
               </div>
 
               {/* Badges & Credentials */}
               <div className="flex flex-wrap items-center justify-center lg:justify-end gap-2 xs:gap-3">
-                {/* Years in Business Badge */}
-                <div className="group flex items-center gap-1.5 bg-gradient-to-r from-brand-primary/15 to-brand-secondary/15 dark:from-brand-primary/20 dark:to-brand-secondary/20 hover:from-brand-primary/25 hover:to-brand-secondary/25 dark:hover:from-brand-primary/30 dark:hover:to-brand-secondary/30 px-3 py-2 rounded-lg transition-all duration-300 hover:scale-105 touch-manipulation border-2 border-brand-primary/40 dark:border-brand-primary/50 hover:border-brand-secondary/60 dark:hover:border-brand-secondary/70">
-                  <MaterialIcon
-                    icon="celebration"
-                    size="sm"
-                    className="text-brand-secondary dark:text-brand-secondary-light group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <span className="font-bold text-brand-secondary dark:text-brand-secondary-light group-hover:text-brand-secondary-light transition-colors duration-300 whitespace-nowrap text-sm">
-                    {new Date().getFullYear() - 2010}+ Years
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-1.5 bg-brand-primary/5 dark:bg-brand-primary/10 hover:bg-brand-primary/15 dark:hover:bg-brand-primary/20 px-3 py-2 rounded-lg transition-all duration-300 hover:scale-105 touch-manipulation border border-brand-primary/20 dark:border-brand-primary/30 hover:border-brand-primary/40 dark:hover:border-brand-primary/50">
-                  <MaterialIcon
-                    icon="verified"
-                    size="sm"
-                    className="text-brand-secondary dark:text-brand-secondary-light"
-                  />
-                  <span className="text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 text-sm font-semibold">
-                    Licensed
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-1.5 bg-brand-primary/5 dark:bg-brand-primary/10 hover:bg-brand-primary/15 dark:hover:bg-brand-primary/20 px-3 py-2 rounded-lg transition-all duration-300 hover:scale-105 touch-manipulation border border-brand-primary/20 dark:border-brand-primary/30 hover:border-brand-primary/40 dark:hover:border-brand-primary/50">
-                  <MaterialIcon
-                    icon="location_on"
-                    size="sm"
-                    className="text-brand-secondary dark:text-brand-secondary-light"
-                  />
-                  <div className="flex items-center gap-1">
-                    <span
-                      className="relative group cursor-help text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 text-sm font-bold"
-                      title="Washington License: MHCONCI907R7"
-                    >
-                      WA
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gradient-to-r from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-black text-white text-xs font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 pointer-events-none shadow-xl border-2 border-brand-secondary/30 dark:border-brand-secondary/50">
-                        MHCONCI907R7
-                      </div>
-                    </span>
-                    <span className="text-brand-primary/40 dark:text-brand-primary/50">
-                      •
-                    </span>
-                    <span
-                      className="relative group cursor-help text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 text-sm font-bold"
-                      title="Oregon License: 765043-99"
-                    >
-                      OR
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gradient-to-r from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-black text-white text-xs font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 pointer-events-none shadow-xl border-2 border-brand-secondary/30 dark:border-brand-secondary/50">
-                        765043-99
-                      </div>
-                    </span>
-                    <span className="text-brand-primary/40 dark:text-brand-primary/50">
-                      •
-                    </span>
-                    <span
-                      className="relative group cursor-help text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 text-sm font-bold"
-                      title="Idaho License: RCE-49250"
-                    >
-                      ID
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gradient-to-r from-brand-primary to-brand-primary-dark dark:from-brand-primary-dark dark:to-black text-white text-xs font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 pointer-events-none shadow-xl border-2 border-brand-secondary/30 dark:border-brand-secondary/50">
-                        RCE-49250
-                      </div>
-                    </span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-1.5 bg-brand-primary/5 dark:bg-brand-primary/10 hover:bg-brand-primary/15 dark:hover:bg-brand-primary/20 px-3 py-2 rounded-lg transition-all duration-300 hover:scale-105 touch-manipulation border border-brand-primary/20 dark:border-brand-primary/30 hover:border-brand-primary/40 dark:hover:border-brand-primary/50">
-                  <MaterialIcon
-                    icon="military_tech"
-                    size="sm"
-                    className="text-brand-secondary dark:text-brand-secondary-light"
-                  />
-                  <span className="font-bold text-brand-secondary dark:text-brand-secondary-light hover:text-brand-secondary-light transition-colors duration-300 text-sm">
-                    Veteran-Owned
-                  </span>
-                </div>
+                <FooterBadge
+                  icon="celebration"
+                  label={`${new Date().getFullYear() - COMPANY_INFO.details.foundingYear}+ Years`}
+                  emphasis
+                />
+                <LicenseBadge />
+                <FooterBadge icon="military_tech" label="Veteran-Owned" />
               </div>
 
               {/* Back to Top Button */}

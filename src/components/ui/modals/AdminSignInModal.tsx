@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useId, useState, type FormEvent } from "react";
+import { useCallback, useId, useRef, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Card, CardHeader, CardContent } from "@/components/ui";
 import { Input } from "@/components/ui/forms/Input";
 import { Button } from "@/components/ui/base/button";
 import { logger } from "@/lib/utils/logger";
+import { useDialogBehavior } from "@/hooks/useDialogBehavior";
 
 interface AdminSignInModalProps {
   isOpen: boolean;
@@ -16,25 +17,25 @@ interface AdminSignInModalProps {
 /**
  * Admin Sign-In Modal
  * Restricted access for Matt and Jeremy only
- * Triple-click on footer copyright to access
+ * Accessed through the private admin shortcut
  */
 export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
   const router = useRouter();
   const titleId = useId();
+  const modalRef = useRef<HTMLDivElement>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    if (!isOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") handleClose();
-    };
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOpen]);
+  const handleClose = useCallback(() => {
+    setEmail("");
+    setPassword("");
+    setError("");
+    onClose();
+  }, [onClose]);
+
+  useDialogBehavior({ isOpen, onClose: handleClose, dialogRef: modalRef });
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -69,26 +70,19 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
     }
   };
 
-  const handleClose = () => {
-    setEmail("");
-    setPassword("");
-    setError("");
-    onClose();
-  };
-
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center animate-modal-backdrop">
-      {/* Backdrop */}
-      <div
+      <button
+        type="button"
         className="absolute inset-0 bg-black/80 backdrop-blur-sm"
         onClick={handleClose}
-        aria-hidden="true"
+        aria-label="Close admin sign-in modal"
       />
 
-      {/* Modal */}
       <div
+        ref={modalRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
@@ -156,6 +150,7 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
                 id="admin-email"
                 type="email"
                 label="Email Address"
+                autoFocus
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required

@@ -92,7 +92,7 @@ export default function AboutPage() {
             <>
               From founding father's vision to{" "}
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                veteran-owned excellence
+                veteran-owned, relationship-first leadership
               </span>
               —sixteen years of partnership philosophy, safety leadership, and{" "}
               <span className="font-bold text-gray-900 dark:text-white">

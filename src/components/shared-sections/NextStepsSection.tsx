@@ -7,7 +7,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { PWAInstallCTA } from "@/components/pwa";
 import { PitchDeckCTA } from "@/components/ui/cta";
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
 
@@ -21,7 +20,7 @@ interface NextStepsSectionProps {
 export function NextStepsSection({
   title: _title = "Let's Build Your Vision Together",
   subtitle:
-    _subtitle = "Partner with veteran-owned excellence where honesty, integrity, professionalism, and thoroughness guide every decision.",
+    _subtitle = "Partner with a veteran-owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision.",
   className = "",
   noBackground: _noBackground = false,
 }: NextStepsSectionProps) {
@@ -39,9 +38,9 @@ export function NextStepsSection({
             <span className="font-bold text-brand-primary dark:text-brand-primary-light">
               your word is your bond
             </span>
-            , and ours is too. Partner with{" "}
+            , and ours is too. Partner with a{" "}
             <span className="font-bold text-gray-900 dark:text-white">
-              veteran-owned excellence
+              veteran-owned, relationship-first team
             </span>{" "}
             backed by proven values.
           </>
@@ -49,7 +48,7 @@ export function NextStepsSection({
       }}
       className={className}
     >
-      <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {/* Pitch Deck Card - Always visible */}
         <PitchDeckCTA variant="card" />
 
@@ -174,9 +173,6 @@ export function NextStepsSection({
             </Button>
           </Link>
         </div>
-
-        {/* PWA Install Card - Only shows if installable, appears as 4th card */}
-        <PWAInstallCTA variant="card" />
       </div>
     </BrandedContentSection>
   );

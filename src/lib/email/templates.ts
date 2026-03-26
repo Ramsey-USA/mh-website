@@ -49,7 +49,7 @@ export function generateJobApplicationAcknowledgment(
     <tr>
       <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
         <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
-        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Veteran-Owned Excellence</p>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Veteran-owned. Relationship-first.</p>
       </td>
     </tr>
     
@@ -218,7 +218,7 @@ export function generateConsultationAcknowledgment(
         </div>
         
         <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
-          At MH Construction, we believe <em>"THE ROI IS THE RELATIONSHIP."</em> We're not just building structures — we're building lasting partnerships based on trust, transparency, and military precision.
+          At MH Construction, we believe <em>"THE ROI IS THE RELATIONSHIP."</em> We're not just building structures - we're building lasting partnerships based on trust, transparency, and disciplined execution.
         </p>
         
         <div style="background-color: #fff; border: 2px solid #386851; padding: 20px; margin: 20px 0; border-radius: 6px;">
@@ -228,7 +228,7 @@ export function generateConsultationAcknowledgment(
           <ul style="margin: 0; padding-left: 20px; font-size: 14px; color: #666; line-height: 1.8;">
             <li>Open-book pricing with no surprises</li>
             <li>Regular progress updates and transparent communication</li>
-            <li>Military precision meets partnership warmth</li>
+            <li>Disciplined execution with a relationship-first approach</li>
             <li>Your vision guides every decision we make</li>
           </ul>
         </div>
@@ -283,12 +283,12 @@ YOUR CONSULTATION IS SCHEDULED:
 WHAT TO EXPECT:
 We'll review your project details and reach out within 24 hours to discuss your vision, timeline, and budget. Our partnership-driven approach means we work WITH you to bring your project to life.
 
-At MH Construction, we believe "THE ROI IS THE RELATIONSHIP." We're not just building structures — we're building lasting partnerships based on trust, transparency, and military precision.
+At MH Construction, we believe "THE ROI IS THE RELATIONSHIP." We're not just building structures — we're building lasting partnerships based on trust, transparency, and disciplined execution.
 
 🤝 OUR PARTNERSHIP PROMISE:
 - Open-book pricing with no surprises
 - Regular progress updates and transparent communication
-- Military precision meets partnership warmth
+- Disciplined execution with a relationship-first approach
 - Your vision guides every decision we make
 
 If you have any immediate questions or need to reach us, feel free to call ${COMPANY_INFO.phone.display} or reply to this email.
@@ -480,10 +480,10 @@ export function generateNewsletterAcknowledgment(data: NewsletterEmailData): {
         
         <div style="background-color: #fff9f0; border: 1px solid #d4af37; padding: 20px; margin: 25px 0; border-radius: 6px; text-align: center;">
           <p style="margin: 0 0 15px 0; font-size: 16px; color: #666;">
-            <strong style="color: #BD9264;">🎖️ Veteran-Owned Excellence</strong>
+            <strong style="color: #BD9264;">🎖️ Veteran-owned. Relationship-first.</strong>
           </p>
           <p style="margin: 0; font-size: 14px; color: #666; line-height: 1.6;">
-            As a veteran-owned company, we bring military precision, discipline, and integrity to every project. We're proud to serve the Tri-Cities community and the Pacific Northwest with the same dedication we showed in service to our country.
+            As a veteran-owned company, we bring disciplined execution, follow-through, and integrity to every project. We're proud to serve the Tri-Cities community and the Pacific Northwest with the same dedication we showed in service to our country.
           </p>
         </div>
         
@@ -553,8 +553,8 @@ WHAT TO EXPECT:
 
 At MH Construction, we believe in "Building projects for the client, NOT the dollar." This philosophy extends to everything we do, including the content we share with you.
 
-VETERAN-OWNED EXCELLENCE
-As a veteran-owned company, we bring military precision, discipline, and integrity to every project. We're proud to serve the Tri-Cities community and the Pacific Northwest with the same dedication we showed in service to our country.
+VETERAN-OWNED. RELATIONSHIP-FIRST.
+As a veteran-owned company, we bring disciplined execution, follow-through, and integrity to every project. We're proud to serve the Tri-Cities community and the Pacific Northwest with the same dedication we showed in service to our country.
 
 READY TO START YOUR PROJECT?
 Get your free consultation: https://mhc-gc.com/contact

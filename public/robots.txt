@@ -44,6 +44,7 @@ Allow: /
 User-agent: *
 Allow: /
 Disallow: /api/private/
+Disallow: /api/chat
 Disallow: /admin/
 Disallow: /dashboard/
 Disallow: /_next/static/

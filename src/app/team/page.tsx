@@ -67,7 +67,7 @@ const departmentConfig: Record<
   "The Upper Brass": {
     icon: "workspace_premium",
     description:
-      "Command leadership setting strategic direction and maintaining mission-focused excellence across all operations.",
+      "Command leadership setting strategic direction and maintaining disciplined, dependable standards across all operations.",
     id: "upper-brass",
   },
   "Mission Commanders": {
@@ -129,7 +129,7 @@ const faqSchema = {
       name: "Is MH Construction veteran-owned?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, MH Construction became veteran-owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our team honors all service branches with military precision and service-earned values.",
+        text: "Yes, MH Construction became veteran-owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our team honors all service branches with disciplined execution, direct communication, and service-earned values.",
       },
     },
     {
@@ -404,7 +404,7 @@ export default function TeamPage() {
                 philosophy to life every day—veteran and civilian voices united
                 in{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  mission excellence
+                  dependable execution
                 </span>{" "}
                 and{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
@@ -712,15 +712,15 @@ export default function TeamPage() {
                         </div>
                         <div>
                           <h4 className="mb-2 font-bold text-gray-900 dark:text-white text-lg group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
-                            Veteran-Owned Military Precision
+                            Veteran-Owned Discipline
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                             Veteran-owned under Army veteran leadership since
                             January 2025. Structured military processes and
                             unwavering attention to detail meet creative
                             civilian problem-solving—discipline, leadership,
-                            service, and excellence integrated into every
-                            project phase with mission-focused results.
+                            service, and accountability integrated into every
+                            project phase with clear, dependable results.
                           </p>
                         </div>
                       </div>

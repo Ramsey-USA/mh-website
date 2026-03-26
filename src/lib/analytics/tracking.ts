@@ -24,6 +24,12 @@
 import { analyticsEngine } from "./index";
 import { getEnhancedTrackingPropertiesSync, getDeviceInfo } from "./metadata";
 import { getGeographicLocation } from "./geolocation";
+import {
+  beaconPageview,
+  beaconClick,
+  beaconConversion,
+  beaconSessionEnd,
+} from "./beacon";
 
 /**
  * Track button/link clicks
@@ -49,7 +55,7 @@ export function trackClick(
     ...properties, // User properties override defaults
   });
 
-  // Store click data in localStorage for dashboard
+  // Store click data in localStorage for local cache + beacon to server
   if (typeof window !== "undefined") {
     const clicks = getStoredClicks();
     const deviceInfo = getDeviceInfo();
@@ -57,39 +63,40 @@ export function trackClick(
     // Get geographic location asynchronously and update stored data
     getGeographicLocation()
       .then((location) => {
-        clicks.push({
+        const clickData = {
           element: elementId,
           timestamp: new Date().toISOString(),
           page: window.location.pathname,
           deviceType: deviceInfo.type,
           browser: deviceInfo.browser,
           os: deviceInfo.os,
-          // Geographic data
           country: location.country,
           state: location.state,
           city: location.city,
-          ...properties,
-        });
-        localStorage.setItem(
-          "mh_analytics_clicks",
-          JSON.stringify(clicks.slice(-1000)),
-        ); // Keep last 1000
-      })
-      .catch(() => {
-        // If geolocation fails, store without it
-        clicks.push({
-          element: elementId,
-          timestamp: new Date().toISOString(),
-          page: window.location.pathname,
-          deviceType: deviceInfo.type,
-          browser: deviceInfo.browser,
-          os: deviceInfo.os,
-          ...properties,
-        });
+        };
+        clicks.push({ ...clickData, ...properties });
         localStorage.setItem(
           "mh_analytics_clicks",
           JSON.stringify(clicks.slice(-1000)),
         );
+        // Beacon to server for cross-visitor aggregation
+        beaconClick(elementId, clickData);
+      })
+      .catch(() => {
+        const clickData = {
+          element: elementId,
+          timestamp: new Date().toISOString(),
+          page: window.location.pathname,
+          deviceType: deviceInfo.type,
+          browser: deviceInfo.browser,
+          os: deviceInfo.os,
+        };
+        clicks.push({ ...clickData, ...properties });
+        localStorage.setItem(
+          "mh_analytics_clicks",
+          JSON.stringify(clicks.slice(-1000)),
+        );
+        beaconClick(elementId, clickData);
       });
   }
 }
@@ -116,19 +123,25 @@ export function trackFormSubmit(
     ...properties,
   });
 
-  // Store conversion data
+  // Store conversion data locally + beacon to server
   if (typeof window !== "undefined") {
     const conversions = getStoredConversions();
     conversions.total++;
-    if (formId.includes("contact")) {
+    const conversionType: "contact" | "consultation" = formId.includes(
+      "consult",
+    )
+      ? "consultation"
+      : "contact";
+    if (conversionType === "contact") {
       conversions.contacts++;
-    } else if (formId.includes("consult")) {
+    } else {
       conversions.consultations++;
     }
     localStorage.setItem(
       "mh_analytics_conversions",
       JSON.stringify(conversions),
     );
+    beaconConversion(conversionType);
   }
 }
 
@@ -178,18 +191,18 @@ export function trackPageView(
 ): void {
   analyticsEngine.trackPageView(page, properties);
 
-  // Store page view data
+  // Store page view data locally + beacon to server
   if (typeof window !== "undefined") {
     const pageViews = getStoredPageViews();
     pageViews.total++;
     pageViews.pages[page] = (pageViews.pages[page] || 0) + 1;
 
-    // Track veteran page views
     if (page.includes("veteran")) {
       pageViews.veteran++;
     }
 
     localStorage.setItem("mh_analytics_pageviews", JSON.stringify(pageViews));
+    beaconPageview(page);
   }
 }
 
@@ -206,7 +219,7 @@ export function trackPageDuration(page: string, duration: number): void {
     timestamp: new Date().toISOString(),
   });
 
-  // Update session data
+  // Update session data locally + beacon session duration to server
   if (typeof window !== "undefined") {
     const sessions = getStoredSessions();
     const currentSession = sessions[sessions.length - 1];
@@ -215,6 +228,7 @@ export function trackPageDuration(page: string, duration: number): void {
       currentSession.pageViews++;
       localStorage.setItem("mh_analytics_sessions", JSON.stringify(sessions));
     }
+    beaconSessionEnd(duration);
   }
 }
 

@@ -138,10 +138,10 @@ export default function VeteransPage() {
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   Where{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    military discipline meets construction excellence
+                    military discipline meets honest construction leadership
                   </span>
                   —service-earned values of honesty, integrity, and
-                  mission-focused commitment guide{" "}
+                  relationship-first commitment guide{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
                     every project and partnership
                   </span>{" "}
@@ -157,13 +157,13 @@ export default function VeteransPage() {
                     title: "Veteran-Owned Leadership",
                     subtitle: "Service-Earned Excellence",
                     description:
-                      "Army veteran owner Jeremy Thamert brings 15+ years military aviation experience and operational discipline. Navy veteran Matt Ramsey applies military precision to digital operations. Combined veteran leadership ensures every project receives mission-focused execution.",
+                      "Army veteran owner Jeremy Thamert brings 15+ years military aviation experience and operational discipline. Navy veteran Matt Ramsey applies disciplined execution to digital operations. Combined veteran leadership ensures every project receives dependable follow-through and clear communication.",
                     iconBgGradient: "from-brand-primary to-brand-primary-dark",
                     accentColor: "brand-primary",
                     highlights: [
                       "Army + Navy veteran team",
                       "Military operational discipline",
-                      "Mission-focused execution",
+                      "Dependable execution",
                     ],
                     stat: "2",
                     statLabel: "Veteran Leaders",
@@ -226,7 +226,7 @@ export default function VeteransPage() {
                     accentColor: "bronze-500",
                     highlights: [
                       "650+ completed projects",
-                      "Mission-focused planning",
+                      "Disciplined planning",
                       "Consistent execution",
                     ],
                     stat: "650+",
@@ -378,9 +378,9 @@ export default function VeteransPage() {
                         </p>
                         <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                           15+ years Army aviation experience brings operational
-                          discipline and mission-focused leadership. Your word
-                          is your bond—service-earned integrity guides every
-                          partnership we build.
+                          discipline and steady leadership. Your word is your
+                          bond—service-earned integrity guides every partnership
+                          we build.
                         </p>
                       </div>
                     </div>
@@ -1257,7 +1257,7 @@ export default function VeteransPage() {
           {/* Next Steps Section - Veteran-Specific Messaging */}
           <NextStepsSection
             title="Let's Build Together"
-            subtitle="Partner with veteran-owned excellence where honesty, integrity, professionalism, and thoroughness guide every decision. Your word is your bond—so is ours."
+            subtitle="Partner with a veteran-owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision. Your word is your bond-so is ours."
             noBackground={true}
           />
         </div>

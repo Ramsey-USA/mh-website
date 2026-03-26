@@ -4,22 +4,36 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import type { AnalyticsDashboardData } from "@/lib/analytics/types";
-import { dataCollector } from "@/lib/analytics/data-collector";
 import { usePageTracking } from "@/lib/analytics/hooks";
 
-interface LocalAnalyticsData {
+interface DashboardData {
   pageviews: {
     pages: Record<string, number>;
     total: number;
-    lastView?: string;
+    lastUpdated: string;
   };
-  events: unknown[];
-  sessions: unknown[];
-  interactions: unknown[];
-  forms: unknown[];
-  conversions: { contacts?: number; consultations?: number; total?: number };
-  clicks: Array<{ element?: string; state?: string; city?: string }>;
+  conversions: {
+    contacts: number;
+    consultations: number;
+    total: number;
+    lastUpdated: string;
+  };
+  clicks: Array<{
+    element?: string;
+    state?: string;
+    city?: string;
+    page?: string;
+    timestamp?: string;
+  }>;
+  sessions: {
+    count: number;
+    totalDuration: number;
+    averageDuration: number;
+    lastUpdated: string;
+  };
+  topPages: Array<{ page: string; views: number }>;
+  today: { pageviews: number; sessions: number };
+  kvStatus?: "connected" | "unavailable";
 }
 
 export default function AnalyticsDashboardPage() {
@@ -32,9 +46,9 @@ export default function AnalyticsDashboardPage() {
     name: string;
     email: string;
   } | null>(null);
-  const [analyticsData, setAnalyticsData] =
-    useState<AnalyticsDashboardData | null>(null);
-  const [localData, setLocalData] = useState<LocalAnalyticsData | null>(null);
+  const [dashboardData, setDashboardData] = useState<DashboardData | null>(
+    null,
+  );
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -70,10 +84,7 @@ export default function AnalyticsDashboardPage() {
       }
 
       const data = await response.json();
-      setAnalyticsData(data);
-
-      const local = dataCollector.getAllData();
-      setLocalData(local);
+      setDashboardData(data);
     } catch (err) {
       logger.error("Analytics fetch error:", err);
       setError("Failed to load analytics data");
@@ -153,6 +164,29 @@ export default function AnalyticsDashboardPage() {
           </div>
         ) : (
           <div className="space-y-6">
+            {dashboardData?.kvStatus === "unavailable" && (
+              <div className="bg-yellow-900/40 backdrop-blur-sm border-2 border-yellow-500 rounded-xl p-4">
+                <div className="flex items-start gap-3">
+                  <MaterialIcon
+                    icon="cloud_off"
+                    size="lg"
+                    className="text-yellow-400"
+                  />
+                  <div>
+                    <h3 className="font-black text-yellow-300 mb-1 uppercase tracking-wide text-sm">
+                      KV NOT CONNECTED
+                    </h3>
+                    <p className="text-yellow-200 text-sm">
+                      ANALYTICS KV namespace not provisioned. Run{" "}
+                      <code className="bg-black/40 px-1 rounded">
+                        wrangler kv namespace create ANALYTICS
+                      </code>{" "}
+                      and update wrangler.toml to see cross-visitor data.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
             <div>
               <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
                 <MaterialIcon
@@ -167,18 +201,20 @@ export default function AnalyticsDashboardPage() {
                   icon="visibility"
                   label="RECON OPERATIONS"
                   sublabel="Page Views"
-                  value={localData?.pageviews?.total?.toLocaleString() || "0"}
-                  trend="+12%"
+                  value={
+                    dashboardData?.pageviews?.total?.toLocaleString() || "0"
+                  }
+                  trend={`${dashboardData?.today?.pageviews ?? 0} today`}
                   trendUp
                 />
                 <MilitaryStatCard
                   icon="people"
-                  label="ALLIED FORCES"
-                  sublabel="Unique Visitors"
+                  label="TOTAL SESSIONS"
+                  sublabel="All Visitors"
                   value={
-                    analyticsData?.overview?.totalUsers?.toLocaleString() || "0"
+                    dashboardData?.sessions?.count?.toLocaleString() || "0"
                   }
-                  trend="+8%"
+                  trend={`${dashboardData?.today?.sessions ?? 0} today`}
                   trendUp
                 />
                 <MilitaryStatCard
@@ -186,17 +222,17 @@ export default function AnalyticsDashboardPage() {
                   label="ENGAGEMENT TIME"
                   sublabel="Avg. Session Duration"
                   value={formatDuration(
-                    analyticsData?.overview?.averageSessionDuration || 0,
+                    dashboardData?.sessions?.averageDuration || 0,
                   )}
-                  trend="+5%"
+                  trend={`${dashboardData?.sessions?.count || 0} sessions`}
                   trendUp
                 />
                 <MilitaryStatCard
                   icon="flag"
                   label="MISSION SUCCESS"
-                  sublabel="Conversion Rate"
-                  value={`${((analyticsData?.overview?.conversionRate || 0) * 100).toFixed(1)}%`}
-                  trend="+3%"
+                  sublabel="Total Conversions"
+                  value={dashboardData?.conversions?.total?.toString() || "0"}
+                  trend={`${dashboardData?.conversions?.contacts || 0} contacts`}
                   trendUp
                 />
               </div>
@@ -212,8 +248,8 @@ export default function AnalyticsDashboardPage() {
                 GEOGRAPHIC INTELLIGENCE - AO COVERAGE
               </h2>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <GeographicHeatMap clicks={localData?.clicks || []} />
-                <TopLocations clicks={localData?.clicks || []} />
+                <GeographicHeatMap clicks={dashboardData?.clicks || []} />
+                <TopLocations clicks={dashboardData?.clicks || []} />
               </div>
             </div>
 
@@ -226,7 +262,7 @@ export default function AnalyticsDashboardPage() {
                 />
                 CTA ENGAGEMENT - TACTICAL RESPONSE
               </h2>
-              <CTAPerformanceGrid clicks={localData?.clicks || []} />
+              <CTAPerformanceGrid clicks={dashboardData?.clicks || []} />
             </div>
 
             <div>
@@ -243,7 +279,9 @@ export default function AnalyticsDashboardPage() {
                   icon="mail"
                   label="CONTACT SECURED"
                   sublabel="Form Submissions"
-                  value={localData?.conversions?.contacts?.toString() || "0"}
+                  value={
+                    dashboardData?.conversions?.contacts?.toString() || "0"
+                  }
                   color="green"
                 />
                 <MilitaryMetricCard
@@ -251,7 +289,7 @@ export default function AnalyticsDashboardPage() {
                   label="CONSULTATIONS"
                   sublabel="Scheduled Meetings"
                   value={
-                    localData?.conversions?.consultations?.toString() || "0"
+                    dashboardData?.conversions?.consultations?.toString() || "0"
                   }
                   color="blue"
                 />
@@ -259,7 +297,7 @@ export default function AnalyticsDashboardPage() {
                   icon="assessment"
                   label="TOTAL OBJECTIVES"
                   sublabel="All Conversions"
-                  value={localData?.conversions?.total?.toString() || "0"}
+                  value={dashboardData?.conversions?.total?.toString() || "0"}
                   color="purple"
                 />
               </div>
@@ -283,11 +321,13 @@ export default function AnalyticsDashboardPage() {
                       className="text-bronze-300 mx-auto mb-3"
                     />
                     <div className="text-4xl font-black text-white mb-2">
-                      {analyticsData?.veteranInsights?.veteranUsers?.toString() ||
-                        "0"}
+                      {Object.entries(dashboardData?.pageviews?.pages ?? {})
+                        .filter(([page]) => page.includes("veteran"))
+                        .reduce((sum, [, v]) => sum + v, 0)
+                        .toString()}
                     </div>
                     <div className="text-bronze-300 font-bold uppercase tracking-wide text-sm">
-                      Veteran Visitors
+                      Veteran Page Views
                     </div>
                   </div>
                   <div className="text-center">
@@ -297,10 +337,12 @@ export default function AnalyticsDashboardPage() {
                       className="text-bronze-300 mx-auto mb-3"
                     />
                     <div className="text-4xl font-black text-white mb-2">
-                      {`${((analyticsData?.overview?.veteranUserPercentage || 0) * 100).toFixed(1)}%`}
+                      {dashboardData?.topPages?.length
+                        ? `${dashboardData.topPages.length}`
+                        : "0"}
                     </div>
                     <div className="text-bronze-300 font-bold uppercase tracking-wide text-sm">
-                      Veteran Percentage
+                      Active Pages
                     </div>
                   </div>
                   <div className="text-center">
@@ -333,28 +375,28 @@ export default function AnalyticsDashboardPage() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="text-center">
                     <MaterialIcon
-                      icon="timer"
+                      icon="bar_chart"
                       size="2xl"
                       className="text-brand-secondary mx-auto mb-3"
                     />
                     <div className="text-3xl font-black text-white mb-2">
-                      {analyticsData?.performance?.coreWebVitals?.lcp || 0}ms
+                      {dashboardData?.pageviews?.total?.toLocaleString() || "0"}
                     </div>
                     <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-sm">
-                      Load Time
+                      Total Page Views
                     </div>
                   </div>
                   <div className="text-center">
                     <MaterialIcon
-                      icon="palette"
+                      icon="groups"
                       size="2xl"
                       className="text-brand-secondary mx-auto mb-3"
                     />
                     <div className="text-3xl font-black text-white mb-2">
-                      {analyticsData?.performance?.coreWebVitals?.fcp || 0}ms
+                      {dashboardData?.sessions?.count?.toLocaleString() || "0"}
                     </div>
                     <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-sm">
-                      First Paint
+                      Total Sessions
                     </div>
                   </div>
                   <div className="text-center">
@@ -364,12 +406,10 @@ export default function AnalyticsDashboardPage() {
                       className="text-brand-secondary mx-auto mb-3"
                     />
                     <div className="text-3xl font-black text-white mb-2">
-                      {analyticsData?.performance?.coreWebVitals?.cls?.toFixed(
-                        3,
-                      ) || 0}
+                      {dashboardData?.clicks?.length?.toLocaleString() || "0"}
                     </div>
                     <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-sm">
-                      Layout Stability
+                      CTA Clicks Tracked
                     </div>
                   </div>
                 </div>

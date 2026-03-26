@@ -27,7 +27,7 @@ const coreValues = [
   {
     icon: "engineering",
     title: "Professionalism",
-    desc: "Military precision in every project",
+    desc: "Disciplined execution in every project",
   },
   {
     icon: "task_alt",
@@ -559,7 +559,8 @@ export function LocationPageContent({ location }: LocationPageProps) {
 
               <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-white/90 leading-relaxed font-light">
                 Let's discuss how MH Construction can bring your vision to life
-                with veteran-owned excellence and partnership-driven service.
+                with a veteran-owned, relationship-first approach and
+                partnership-driven service.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">

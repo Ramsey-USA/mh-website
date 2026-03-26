@@ -7,19 +7,17 @@
 
 ## Overview
 
-A secure, hidden analytics dashboard accessible only to Matt and Jeremy through a discrete trigger in the website footer.
+A secure analytics dashboard accessible only to Matt and Jeremy through a private keyboard shortcut and admin sign-in flow.
 
 ## Access Instructions
 
 ### How to Access the Dashboard
 
 1. **Navigate to any page** on the MH Construction website
-2. **Scroll to the footer** at the bottom of the page
-3. **Find the copyright text** that says "2026 MH Construction, Inc."
-4. **Triple-click** on the copyright text (click 3 times quickly)
-5. **Admin Sign-In Modal** will appear
-6. **Enter credentials** (see below)
-7. **Access the Analytics Dashboard**
+2. **Press** `Ctrl + Shift + A` on Windows/Linux or `Cmd + Shift + A` on macOS
+3. **Admin Sign-In Modal** will appear
+4. **Enter credentials** (see below)
+5. **Access the Analytics Dashboard**
 
 ### Default Credentials
 
@@ -122,7 +120,7 @@ A secure, hidden analytics dashboard accessible only to Matt and Jeremy through 
 
 ### Security Features
 
-- **Hidden Access**: Triple-click trigger not visible to regular users
+- **Private Access**: Keyboard shortcut keeps the admin entry point off the visible footer UI
 - **JWT Authentication**: Secure token-based auth
 - **Role-Based Access**: Admin role required
 - **Access Logging**: All login attempts are logged
@@ -203,7 +201,7 @@ Before production deployment:
 
 ### Can't Access Dashboard
 
-- Ensure you're triple-clicking the copyright text
+- Ensure you're using `Ctrl/Cmd + Shift + A` on a site page
 - Check that you're using correct credentials
 - Clear browser cache and try again
 - Check console for error messages

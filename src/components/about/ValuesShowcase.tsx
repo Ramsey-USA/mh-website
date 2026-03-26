@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useCallback, useEffect, useMemo } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
+import { Modal } from "@/components/ui/modals/Modal";
 
 interface ValueCategory {
   id: string;
@@ -115,26 +116,6 @@ export function ValuesShowcase() {
   const openModal = useCallback((index: number) => {
     setSelectedValue(index);
   }, []);
-
-  // Handle escape key press and body scroll lock
-  useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && selectedValue !== null) {
-        closeModal();
-      }
-    };
-
-    if (selectedValue !== null) {
-      document.addEventListener("keydown", handleEscape);
-      // Prevent body scroll when modal is open
-      document.body.style.overflow = "hidden";
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = "unset";
-    };
-  }, [selectedValue, closeModal]);
 
   return (
     <section
@@ -269,35 +250,22 @@ export function ValuesShowcase() {
 
         {/* Value Detail Modal */}
         {currentValue && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
-            onClick={(e) => {
-              if (e.target === e.currentTarget) {
-                closeModal();
-              }
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Escape") {
-                closeModal();
-              }
-            }}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-          >
-            <div
-              className="relative bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden animate-in zoom-in-95 duration-200"
-              onClick={(e) => e.stopPropagation()}
-              onKeyDown={(e) => e.stopPropagation()}
-              role="document"
-            >
-              {/* Header with gradient background */}
+          <Modal
+            isOpen={true}
+            onClose={closeModal}
+            title={currentValue.title}
+            size="xl"
+            showVeteranBadge={false}
+            backdropAriaLabel="Close value details modal"
+            panelClassName="max-w-3xl rounded-3xl border-0 dark:bg-gray-800"
+            contentClassName="p-0"
+            renderHeader={({ titleId, onClose }) => (
               <div
-                className={`relative bg-gradient-to-br ${currentValue.iconGradient} p-6 sm:p-8`}
+                className={`relative bg-gradient-to-br ${currentValue.iconGradient} p-6 sm:p-8 text-white`}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/20"></div>
                 <button
-                  onClick={closeModal}
+                  onClick={onClose}
                   className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white/20 active:bg-white/30 rounded-full p-2.5 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl hover:scale-110 z-10"
                   aria-label="Close modal"
                   type="button"
@@ -319,7 +287,7 @@ export function ValuesShowcase() {
                   </div>
                   <div className="flex-1">
                     <h3
-                      id="modal-title"
+                      id={titleId}
                       className="text-white font-black text-2xl sm:text-3xl lg:text-4xl leading-tight mb-2"
                     >
                       {currentValue.title}
@@ -330,68 +298,66 @@ export function ValuesShowcase() {
                   </div>
                 </div>
               </div>
+            )}
+          >
+            <div className="p-6 sm:p-8 overflow-y-auto max-h-[calc(90vh-200px)]">
+              <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
+                {currentValue.fullDescription}
+              </p>
 
-              {/* Scrollable Content */}
-              <div className="p-6 sm:p-8 overflow-y-auto max-h-[calc(90vh-200px)]">
-                <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
-                  {currentValue.fullDescription}
-                </p>
-
-                {/* Benefits List */}
-                <div className="mb-6">
-                  <div className="flex items-center mb-4">
-                    <div className="flex items-center justify-center w-10 h-10 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl mr-3">
-                      <MaterialIcon
-                        icon="checklist"
-                        className="text-brand-primary"
-                        size="lg"
-                      />
-                    </div>
-                    <h4 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl">
-                      Key Benefits
-                    </h4>
-                  </div>
-                  <ul className="space-y-3">
-                    {currentValue.benefits.map((benefit, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start text-gray-700 dark:text-gray-300"
-                      >
-                        <MaterialIcon
-                          icon="check_circle"
-                          className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
-                          size="md"
-                        />
-                        <span className="text-base sm:text-lg leading-relaxed">
-                          {benefit}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Veteran Badge */}
-                <div className="mt-8 p-6 bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 rounded-xl border border-brand-primary/20">
-                  <div className="flex items-center gap-3 mb-3">
+              {/* Benefits List */}
+              <div className="mb-6">
+                <div className="flex items-center mb-4">
+                  <div className="flex items-center justify-center w-10 h-10 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl mr-3">
                     <MaterialIcon
-                      icon="military_tech"
-                      size="lg"
+                      icon="checklist"
                       className="text-brand-primary"
+                      size="lg"
                     />
-                    <h5 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg">
-                      Veteran-Owned Excellence
-                    </h5>
                   </div>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-                    These values are backed by 150+ years combined
-                    military-grade expertise, ensuring operational discipline
-                    meets proven construction excellence in every project we
-                    undertake.
-                  </p>
+                  <h4 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl">
+                    Key Benefits
+                  </h4>
                 </div>
+                <ul className="space-y-3">
+                  {currentValue.benefits.map((benefit, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start text-gray-700 dark:text-gray-300"
+                    >
+                      <MaterialIcon
+                        icon="check_circle"
+                        className="flex-shrink-0 mt-1 mr-3 text-brand-primary"
+                        size="md"
+                      />
+                      <span className="text-base sm:text-lg leading-relaxed">
+                        {benefit}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Veteran Badge */}
+              <div className="mt-8 p-6 bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 rounded-xl border border-brand-primary/20">
+                <div className="flex items-center gap-3 mb-3">
+                  <MaterialIcon
+                    icon="military_tech"
+                    size="lg"
+                    className="text-brand-primary"
+                  />
+                  <h5 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg">
+                    Veteran-Owned. Relationship-First.
+                  </h5>
+                </div>
+                <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                  These values are backed by 150+ years combined military-grade
+                  expertise, ensuring operational discipline meets proven
+                  construction excellence in every project we undertake.
+                </p>
               </div>
             </div>
-          </div>
+          </Modal>
         )}
       </div>
     </section>

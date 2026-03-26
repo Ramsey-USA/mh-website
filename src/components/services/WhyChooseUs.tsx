@@ -61,7 +61,7 @@ export function WhyChooseUs() {
                 construction excellence
               </span>{" "}
               where handshakes still matter and promises are deployed with
-              military precision.
+              disciplined follow-through.
             </p>
           </div>
         </FadeInWhenVisible>

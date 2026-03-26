@@ -90,8 +90,8 @@ export const companyStats: StatItem[] = [
 export function CompanyStats({
   stats = companyStats,
   title = "Mission Track Record",
-  subtitle = "Battle-Tested",
-  description = "Proven results from a veteran-owned team committed to mission excellence across the Pacific Northwest—from deployment to development, we deliver.",
+  subtitle = "Disciplined Results",
+  description = "Proven results from a veteran-owned team committed to clear communication, disciplined execution, and lasting client relationships across the Pacific Northwest.",
   headerIcon = "analytics",
   className = "",
   id = "company-stats",

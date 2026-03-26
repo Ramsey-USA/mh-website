@@ -146,9 +146,9 @@ export default function Home() {
       {/* Company Statistics Section - Early trust signals & credibility */}
       <CompanyStats
         id="stats"
-        subtitle="Battle-Tested Excellence"
+        subtitle="Disciplined, Proven Results"
         title="Proven Track Record"
-        description="Measurable results from a veteran-owned team committed to mission excellence across the Pacific Northwest—from deployment to development, we deliver."
+        description="Measurable results from a veteran-owned team committed to disciplined execution, clear communication, and strong client relationships across the Pacific Northwest."
         variant="primary"
       />
 

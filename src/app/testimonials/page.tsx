@@ -80,7 +80,7 @@ const faqSchema = {
       name: "What makes MH Construction different from other contractors?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "As a veteran-owned business certified by the U.S. Small Business Administration, we bring military precision and four core values—Honesty, Integrity, Professionalism, and Thoroughness—to every project. Our 70% referral rate, 650+ completed projects, .64 EMR safety rating, and 150+ years combined team experience demonstrate our commitment to building for the client, not the dollar.",
+        text: "As a veteran-owned business certified by the U.S. Small Business Administration, we bring disciplined execution and four core values—Honesty, Integrity, Professionalism, and Thoroughness—to every project. Our 70% referral rate, 650+ completed projects, .64 EMR safety rating, and 150+ years combined team experience demonstrate our commitment to building for the client, not the dollar.",
       },
     },
     {
@@ -152,7 +152,7 @@ export default function TestimonialsPage() {
                 </span>{" "}
                 who've experienced our{" "}
                 <span className="text-white font-bold">
-                  veteran-owned excellence
+                  veteran-owned, relationship-first service
                 </span>{" "}
                 in commercial, industrial, and government construction
               </p>
@@ -296,7 +296,7 @@ export default function TestimonialsPage() {
                     Why Businesses Trust
                   </span>
                   <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Veteran-Owned Excellence
+                    Veteran-Owned. Relationship-First.
                   </span>
                 </h2>
 
@@ -461,7 +461,7 @@ export default function TestimonialsPage() {
                           size="sm"
                           className="text-brand-primary"
                         />
-                        <span>Military precision applied</span>
+                        <span>Disciplined execution applied</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <MaterialIcon
@@ -556,8 +556,8 @@ export default function TestimonialsPage() {
                     <span className="font-bold text-brand-primary">
                       Washington, Oregon, and Idaho
                     </span>
-                    , we bring veteran-owned excellence to commercial and
-                    industrial projects throughout the region.
+                    , we bring a veteran-owned, relationship-first approach to
+                    commercial and industrial projects throughout the region.
                   </p>
                   <div className="space-y-3">
                     {/* Tri-Cities Card */}
@@ -851,8 +851,8 @@ export default function TestimonialsPage() {
                       Veteran Excellence
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300">
-                      Military precision and dedication applied to commercial,
-                      industrial, and government construction
+                      Disciplined execution and dedication applied to
+                      commercial, industrial, and government construction
                     </p>
                   </div>
                 </div>
@@ -998,11 +998,12 @@ export default function TestimonialsPage() {
                       </h3>
                     </div>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      As a veteran-owned business, we bring military precision,
-                      Honesty, Integrity, Professionalism, and Thoroughness to
-                      every project. Our 70% referral rate and 650+ completed
-                      projects speak to our partnership-first approach and
-                      commitment to building for the client, not the dollar.
+                      As a veteran-owned business, we bring disciplined
+                      execution, Honesty, Integrity, Professionalism, and
+                      Thoroughness to every project. Our 70% referral rate and
+                      650+ completed projects speak to our partnership-first
+                      approach and commitment to building for the client, not
+                      the dollar.
                     </p>
                   </div>
                 </div>
@@ -1271,7 +1272,7 @@ export default function TestimonialsPage() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6">
             Ready to Experience{" "}
             <span className="text-brand-secondary">
-              Veteran-Owned Excellence?
+              Veteran-Owned, Relationship-First Service?
             </span>
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl mb-10 text-white/90 font-light">

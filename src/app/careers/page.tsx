@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { usePageTracking } from "@/lib/analytics/hooks";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -58,6 +59,9 @@ const NextStepsSection = dynamic(
 );
 
 export default function CareersPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   // Analytics tracking
   usePageTracking("Careers");
 
@@ -66,10 +70,42 @@ export default function CareersPage() {
 
   // ALL HOOKS MUST BE CALLED BEFORE ANY CONDITIONAL RETURNS
   const [showApplicationModal, setShowApplicationModal] = useState(false);
+  const [applicationEntryPoint, setApplicationEntryPoint] =
+    useState<string>("");
 
-  const handleApplyNow = (_position?: string) => {
-    // Position parameter reserved for future use to pre-fill the application form
+  const handleApplyNow = (entryPoint?: string) => {
+    setApplicationEntryPoint(entryPoint ?? "");
     setShowApplicationModal(true);
+  };
+
+  useEffect(() => {
+    if (searchParams.get("apply") !== "true") {
+      return;
+    }
+
+    setApplicationEntryPoint(
+      searchParams.get("entryPoint") ?? "Footer Application",
+    );
+    setShowApplicationModal(true);
+  }, [searchParams]);
+
+  const handleCloseApplicationModal = () => {
+    setShowApplicationModal(false);
+
+    if (
+      searchParams.get("apply") === "true" ||
+      searchParams.get("entryPoint")
+    ) {
+      const nextParams = new URLSearchParams(searchParams.toString());
+      nextParams.delete("apply");
+      nextParams.delete("entryPoint");
+
+      const nextUrl = nextParams.toString()
+        ? `/careers?${nextParams.toString()}`
+        : "/careers";
+
+      router.replace(nextUrl, { scroll: false });
+    }
   };
 
   return (
@@ -185,18 +221,17 @@ export default function CareersPage() {
 
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                This isn't just another construction job—it's a{" "}
+                This is not a generic hiring funnel. It is a{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  career investment in YOU
+                  direct path into a veteran-owned team
                 </span>
-                . We're building your skills, your future, and your financial
-                security through{" "}
+                . We invest in people who value honest communication,
+                professionalism, and steady growth through{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  meaningful work, continuous training, and authentic
-                  partnerships
+                  meaningful work, mentorship, and long-term relationships
                 </span>
-                . Every team member gets a mentor, clear advancement paths, and
-                the tools to succeed.
+                . Every team member should know what is expected, who they can
+                learn from, and how they can keep improving.
               </p>
 
               {/* Core Philosophy Callout */}
@@ -272,18 +307,17 @@ export default function CareersPage() {
               icon="star"
               description={
                 <>
-                  This isn't just another construction job—it's a{" "}
+                  This is not a generic hiring funnel. It is a{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    career investment in YOU
+                    direct path into a veteran-owned team
                   </span>
-                  . We're building your skills, your future, and your financial
-                  security through{" "}
+                  . We invest in people who value honest communication,
+                  professionalism, and steady growth through{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    meaningful work, continuous training, and authentic
-                    partnerships
+                    meaningful work, mentorship, and long-term relationships
                   </span>
-                  . Every team member gets a mentor, clear advancement paths,
-                  and the tools to succeed.
+                  . Every team member should know what is expected, who they can
+                  learn from, and how they can keep improving.
                 </>
               }
               sectionId="why-work-here"
@@ -771,10 +805,10 @@ export default function CareersPage() {
 
                     {/* Description */}
                     <p className="mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
-                      Submit an inquiry with your information and let us know
-                      what you're looking for. If you align with our values and
-                      bring the skills we need—or might need soon—we'll be in
-                      touch.
+                      Start with the essentials. Share your contact information,
+                      tell us where you can contribute, and attach a resume if
+                      you have one ready. If there is a fit, we will follow up
+                      directly.
                     </p>
 
                     {/* CTA Buttons */}
@@ -786,7 +820,7 @@ export default function CareersPage() {
                         className="transition-all duration-300 min-w-[260px] shadow-xl hover:shadow-2xl"
                       >
                         <MaterialIcon icon="send" size="lg" className="mr-3" />
-                        <span className="font-medium">Send Inquiry Now</span>
+                        <span className="font-medium">Start Application</span>
                       </Button>
                       <Link href="/contact">
                         <Button
@@ -810,9 +844,8 @@ export default function CareersPage() {
                     <p className="mt-8 text-sm text-gray-600 dark:text-gray-400 font-medium">
                       <span className="text-brand-primary dark:text-brand-primary-light font-bold">
                         Veterans receive priority consideration
-                      </span>{" "}
-                      on all inquiries. No gimmicks—just direct conversations
-                      with real opportunities.
+                      </span>
+                      . Name, email, and role are enough to begin.
                     </p>
                   </div>
                 </div>
@@ -863,14 +896,14 @@ export default function CareersPage() {
                   {/* Description with colored keyword highlighting */}
                   <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                     <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                      No games, no ghosting, no endless waiting
+                      Clear steps. Direct communication. Respect for your time.
                     </span>
-                    . Our hiring process is transparent, efficient, and
-                    respectful of YOUR time—because we know you're evaluating us
-                    just as much. Fast-track options available for exceptional
-                    candidates.{" "}
+                    Our process starts with a short application and moves
+                    forward only when there is a real fit. We keep the process
+                    focused and let you know what comes next.{" "}
                     <span className="font-bold text-gray-900 dark:text-white">
-                      Most offers extended within 2-3 weeks
+                      The goal is a good working relationship, not unnecessary
+                      steps
                     </span>
                     .
                   </p>
@@ -888,35 +921,35 @@ export default function CareersPage() {
                         num: 1,
                         icon: "description",
                         title: "Submit Application",
-                        desc: "Complete our online application form or email your resume to office@mhc-gc.com. Include relevant certifications and references. Response within 3-5 business days.",
+                        desc: "Start with the essentials: your name, email, and the role or trade you want to discuss. Add a resume or background if it helps.",
                         position: "left",
                       },
                       {
                         num: 2,
-                        icon: "phone",
-                        title: "Phone Screening",
-                        desc: "Brief 15-20 minute phone conversation to discuss your background, career goals, and answer initial questions about the position.",
+                        icon: "fact_check",
+                        title: "Team Review",
+                        desc: "We review your application against current project needs, open roles, and the standards we expect across the company.",
                         position: "right",
                       },
                       {
                         num: 3,
-                        icon: "groups",
-                        title: "In-Person Interview",
-                        desc: "Meet our team at our office or job site. Discuss your technical skills, safety mindset, and cultural fit. Questions encouraged! 45-60 minutes.",
+                        icon: "forum",
+                        title: "Direct Conversation",
+                        desc: "If there is a fit, we reach out directly to talk through your background, the work ahead, and what both sides need from the role.",
                         position: "left",
                       },
                       {
                         num: 4,
                         icon: "verified_user",
-                        title: "Background Check",
-                        desc: "Standard background and reference checks to verify employment history and qualifications. Drug screening may be required. 3-7 business days.",
+                        title: "Interview and Verification",
+                        desc: "For strong matches, we schedule an interview and verify the details needed for the position, including references, certifications, or site requirements.",
                         position: "right",
                       },
                       {
                         num: 5,
                         icon: "celebration",
                         title: "Offer & Onboarding",
-                        desc: "Receive formal offer, complete paperwork, and begin orientation. Meet your mentor, get safety training, and start building your career. 1-2 weeks.",
+                        desc: "When both sides are aligned, we move into an offer, paperwork, safety expectations, and a clear onboarding plan.",
                         position: "left",
                       },
                     ].map((step, index) => (
@@ -1074,13 +1107,13 @@ export default function CareersPage() {
                               </div>
                             </div>
                             <h4 className="mb-3 font-black text-gray-900 dark:text-white text-xl">
-                              Fast-Track Available
+                              Quick Start When Needed
                             </h4>
                             <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-                              Exceptional candidates with urgent availability
-                              may complete the process in{" "}
+                              When project timing and role alignment are clear,
+                              strong candidates may move through the process in{" "}
                               <span className="font-bold text-brand-primary">
-                                1 week
+                                fewer steps
                               </span>
                             </p>
                           </div>
@@ -1104,14 +1137,15 @@ export default function CareersPage() {
                               </div>
                             </div>
                             <h4 className="mb-3 font-black text-gray-900 dark:text-white text-xl">
-                              Standard Process
+                              Typical Review Pace
                             </h4>
                             <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-                              Most candidates complete the full process in{" "}
+                              Timing depends on hiring needs, project load, and
+                              role fit, but the process stays{" "}
                               <span className="font-bold text-brand-secondary-text dark:text-brand-secondary-light">
-                                2-3 weeks
+                                direct and transparent
                               </span>{" "}
-                              from application to offer
+                              from first contact forward
                             </p>
                           </div>
                         </div>
@@ -1137,8 +1171,8 @@ export default function CareersPage() {
                               Always Transparent
                             </h4>
                             <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-                              We keep you informed at every stage and are always
-                              available for your{" "}
+                              We do not add steps for appearance. We keep
+                              communication clear and stay available for your{" "}
                               <span className="font-bold text-bronze-700 dark:text-bronze-400">
                                 questions
                               </span>
@@ -1153,7 +1187,7 @@ export default function CareersPage() {
                 {/* CTA Section */}
                 <div className="mt-12 text-center">
                   <p className="mb-6 font-medium text-gray-700 text-xl dark:text-gray-300">
-                    Ready to start your journey with MH Construction?
+                    Ready to start a direct conversation with MH Construction?
                   </p>
                   <p className="mb-6 font-semibold text-brand-secondary-text text-lg dark:text-brand-secondary-light">
                     THE ROI IS THE RELATIONSHIP — Build your career on a
@@ -1172,7 +1206,7 @@ export default function CareersPage() {
                         ariaLabel="Send Inquiry"
                         className="mr-2"
                       />
-                      Send Inquiry Now
+                      Start Application
                     </Button>
                     <Button
                       onClick={() => {
@@ -1238,17 +1272,17 @@ export default function CareersPage() {
 
                   {/* Description with colored keyword highlighting */}
                   <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                    Your perfect role might not exist yet—but{" "}
+                    The right role might not be posted yet, but the right
+                    relationship can still begin now. If you bring{" "}
                     <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                      your FUTURE does
+                      the right values, work ethic, and craft mindset
                     </span>
-                    . We're always seeking exceptional people who share our
-                    values: military precision, partnership mindset, quality
-                    obsession. If you bring{" "}
+                    , we want to hear from you. We are always open to strong
+                    candidates who share our standards for{" "}
                     <span className="font-bold text-gray-900 dark:text-white">
-                      dedication and potential, we'll invest in your growth
+                      honesty, professionalism, and thorough work
                     </span>
-                    . Tell us your story.
+                    . Tell us where you can contribute.
                   </p>
                 </div>
 
@@ -1345,7 +1379,8 @@ export default function CareersPage() {
         {/* Job Application Modal */}
         <JobApplicationModal
           isOpen={showApplicationModal}
-          onClose={() => setShowApplicationModal(false)}
+          onClose={handleCloseApplicationModal}
+          entryPoint={applicationEntryPoint}
         />
       </div>
     </>

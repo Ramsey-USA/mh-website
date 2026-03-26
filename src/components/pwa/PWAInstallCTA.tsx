@@ -233,42 +233,72 @@ export function PWAInstallCTA({
   // Banner variant for after hero
   if (variant === "banner") {
     return (
-      <div
-        className={`bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary py-4 ${className}`}
+      <section
+        className={`relative overflow-hidden bg-gradient-to-br from-gray-950 via-brand-primary-dark to-brand-primary py-8 sm:py-10 ${className}`}
+        aria-labelledby="homepage-offline-access-heading"
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex items-center justify-between gap-4 flex-wrap">
-            <div className="flex items-center gap-3 flex-1 min-w-0">
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                  <MaterialIcon
-                    icon="install_mobile"
-                    size="lg"
-                    className="text-white"
-                  />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(217,189,147,0.18),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_30%)]" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-white/15 bg-white/8 p-6 shadow-2xl backdrop-blur-sm sm:p-8">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <div className="flex min-w-0 flex-1 items-start gap-4 sm:gap-5">
+                <div className="flex-shrink-0">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/20 bg-white/12 shadow-lg sm:h-16 sm:w-16">
+                    <MaterialIcon
+                      icon="install_mobile"
+                      size="lg"
+                      className="text-white"
+                    />
+                  </div>
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-brand-secondary-light">
+                    Field Access
+                  </p>
+                  <h2
+                    id="homepage-offline-access-heading"
+                    className="text-2xl font-bold leading-tight text-white sm:text-3xl"
+                  >
+                    Keep MH Construction available even when the signal drops.
+                  </h2>
+                  <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/85 sm:text-base">
+                    Add the site to your device for faster return visits,
+                    offline access to key pages, and a cleaner home-screen
+                    experience built to work well with our Cloudflare-powered
+                    deployment.
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2.5 text-xs font-semibold text-white/90 sm:text-sm">
+                    <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5">
+                      Offline-ready core pages
+                    </span>
+                    <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5">
+                      Faster repeat visits
+                    </span>
+                    <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5">
+                      Cloudflare-optimized delivery
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-white font-semibold text-sm sm:text-base">
-                  Install MH Construction App
-                </p>
-                <p className="text-white/90 text-xs sm:text-sm">
-                  Faster access, offline support, and native experience
+              <div className="flex flex-col gap-3 sm:min-w-[220px] sm:max-w-[240px]">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="w-full bg-brand-secondary text-gray-950 hover:bg-brand-secondary-light"
+                  onClick={handleInstallClick}
+                >
+                  <MaterialIcon icon="download" size="lg" className="mr-2" />
+                  Save To Device
+                </Button>
+                <p className="text-center text-xs leading-relaxed text-white/70 sm:text-left">
+                  Available on supported mobile and desktop browsers when
+                  install criteria are met.
                 </p>
               </div>
             </div>
-            <Button
-              variant="secondary"
-              size="lg"
-              className="flex-shrink-0 bg-white hover:bg-gray-100 text-brand-primary"
-              onClick={handleInstallClick}
-            >
-              <MaterialIcon icon="download" size="lg" className="mr-2" />
-              Install
-            </Button>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 

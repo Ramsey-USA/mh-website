@@ -162,7 +162,7 @@ Fields:
   - Jeremy's Email: jeremy@mhc-gc.com
   - Jeremy's Password: [secure password]
   - Dashboard URL: https://mhc-gc.com/dashboard
-  - Access Method: Triple-click footer copyright
+   - Access Method: `Ctrl/Cmd + Shift + A` on any site page
 ```
 
 ### Step 4: Test the New Passwords (5 minutes)
@@ -175,14 +175,14 @@ Fields:
    ```
 
 2. **Test Matt's login:**
-   - Triple-click footer copyright
+   - Press `Ctrl + Shift + A` on Windows/Linux or `Cmd + Shift + A` on macOS
    - Enter: `matt@mhc-gc.com`
    - Enter: [new password]
    - Should successfully access dashboard
 
 3. **Test Jeremy's login:**
    - Log out from Matt's account
-   - Triple-click footer copyright
+   - Press `Ctrl + Shift + A` on Windows/Linux or `Cmd + Shift + A` on macOS
    - Enter: `jeremy@mhc-gc.com`
    - Enter: [new password]
    - Should successfully access dashboard
@@ -568,10 +568,9 @@ wrangler deploy --env production
 ### Access Method
 
 1. Go to: <https://mhc-gc.com>
-2. Scroll to footer
-3. Triple-click on "2026 MH Construction, Inc."
-4. Enter admin credentials
-5. Access analytics dashboard
+2. Press `Ctrl + Shift + A` on Windows/Linux or `Cmd + Shift + A` on macOS
+3. Enter admin credentials
+4. Access analytics dashboard
 
 ---
 

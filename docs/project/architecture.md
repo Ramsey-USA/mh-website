@@ -1,7 +1,7 @@
 # MH Construction - Architecture Documentation
 
 **Category:** Project - Architecture  
-**Last Updated:** March 15, 2026  
+**Last Updated:** March 26, 2026  
 **Version:** 1.0.0  
 **Status:** ✅ Active
 
@@ -49,6 +49,7 @@
 - ✅ **MaterialIcon System** - Universal icon system with Google Material Icons
 - ✅ **Theme System** - Dark/Light mode support with seamless switching
 - ✅ **Analytics Integration** - Enhanced tracking and performance monitoring
+- ✅ **Partnership Guide** - Cloudflare Workers AI chatbot (floating widget, all pages)
 
 ---
 
@@ -64,6 +65,7 @@
 - **Deployment**: Cloudflare Workers
 - **Database**: Cloudflare D1 (SQLite)
 - **Analytics**: Custom tracking system with admin dashboard (Matt & Jeremy only)
+- **AI**: Cloudflare Workers AI — `@cf/meta/llama-3.1-8b-instruct` (Partnership Guide chatbot)
 - **Theme**: Dark/Light mode support
 - **PWA**: Service Worker v4.0.0, offline-ready, installable
 - **Media Optimization**: Automatic WebP/WebM conversion via GitHub Actions
@@ -106,6 +108,7 @@ src/
 │   ├── api/
 │   │   ├── auth/                   # Admin authentication endpoints
 │   │   ├── analytics/              # Analytics data API
+│   │   ├── chat/                   # Partnership Guide chatbot (Cloudflare Workers AI)
 │   │   ├── consultations/          # Consultation form submissions
 │   │   ├── contact/                # Contact form submissions
 │   │   ├── job-applications/       # Career application submissions
@@ -126,6 +129,9 @@ src/
 │   ├── analytics/
 │   │   └── TrackedComponents.tsx   # Tracked button/link/form components
 │   ├── animations/                 # Framer Motion animation components
+│   ├── chatbot/
+│   │   ├── ChatWidget.tsx          # Floating Partnership Guide widget (all pages)
+│   │   └── index.ts                # Barrel export
 │   ├── contact/                    # Contact form & info components
 │   ├── error/                      # Error display components
 │   ├── forms/                      # Reusable form primitives
@@ -134,7 +140,7 @@ src/
 │   │   └── MaterialIcon.tsx        # Universal icon system
 │   ├── layout/
 │   │   ├── Navigation.tsx          # Responsive navigation
-│   │   └── Footer.tsx              # Footer with hidden admin trigger
+│   │   └── Footer.tsx              # Footer UI, analytics links, and private admin shortcut listener
 │   ├── locations/                  # Location page components
 │   ├── map/                        # Map/geography components
 │   ├── navigation/                 # Navigation config & utilities
@@ -158,6 +164,8 @@ src/
 │   ├── auth/
 │   │   ├── jwt.ts                  # JWT token generation
 │   │   └── middleware.ts           # Role-based access control
+│   ├── chatbot/
+│   │   └── knowledge-base.ts       # System prompt, Allies data, fallback responses
 │   ├── cloudflare/                 # Cloudflare D1/R2/KV integrations
 │   ├── constants/                  # App-wide constants
 │   ├── data/                       # Static data files (team, portfolio, etc.)
@@ -178,6 +186,17 @@ src/
 
 ## ✨ **Advanced Features Implementation Status**
 
+### 🤖 **Partnership Guide (AI Chatbot)** - ✅ COMPLETE (March 26, 2026)
+
+- **Cloudflare Workers AI**: `@cf/meta/llama-3.1-8b-instruct` via `[ai]` binding in `wrangler.toml` (no provisioning needed)
+- **Graceful Fallback**: Keyword-based responses when AI binding is absent (local dev, quota exhaustion)
+- **Knowledge Base**: All 9 Allies with contact info, full services list, FAQ, veteran benefits, navigation help
+- **Brand-Safe System Prompt**: Forbids fabrication, cost estimates; enforces MH terminology (Client Partners, Trade Partners, Veteran-Owned)
+- **Responsive Widget**: Floating button on desktop → fullscreen drawer on mobile with iOS safe-area padding
+- **Security**: Input sanitized (max 500 chars), rate-limited to 10 req/min/IP, history capped at 10 turns
+- **SEO/GEO**: `contactPoint` in Organization schema, FAQ structured data, `public/llms.txt` updated
+- **Test Coverage**: 19 tests (10 UI assertions, 9 knowledge-base assertions)
+
 ### 🎬 **Animation System** - ✅ COMPLETE
 
 - **Framer Motion Integration**: Smooth, performant animations with spring physics
@@ -189,7 +208,7 @@ src/
 
 **Custom Analytics System:**
 
-- **Admin Dashboard**: Hidden access via triple-click footer (Matt & Jeremy only)
+- **Admin Dashboard**: Private keyboard shortcut access for Matt & Jeremy only (`Ctrl/Cmd + Shift + A`)
 - **Comprehensive Tracking**: Page views, clicks, forms, scrolls, time-on-page
 - **Enhanced Metadata**: Device, browser, OS, screen resolution, viewport
 - **Geographic Data**: Timezone, language, country/region inference
@@ -202,9 +221,10 @@ src/
 
 **SEO:**
 
-- **Enhanced SEO Schema**: Organization, LocalBusiness, Service, Project markup
+- **Enhanced SEO Schema**: Organization (with AI assistant `contactPoint`), LocalBusiness, Service, Project markup
 - **Dynamic Sitemap**: Auto-generated from active pages
-- **Robots.txt**: Optimized for AI crawlers, excludes admin pages
+- **Robots.txt**: Optimized for AI crawlers, excludes admin and API-only endpoints (`/api/chat`)
+- **llms.txt**: Machine-readable company overview including Partnership Guide description
 
 ### 🎛️ **Content Management System** - ✅ COMPLETE
 

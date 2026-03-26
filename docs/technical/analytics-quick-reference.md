@@ -27,20 +27,17 @@ export default function MyPage() {
 import {
   usePageTracking, // Page views, duration, scroll
   useClickTracking, // Click events
-  useFormTracking, // Form interactions
-  useCTATracking, // Conversion tracking
-  useElementTracking, // Visibility tracking
 } from "@/lib/analytics/hooks";
 
-// Components (drop-in replacements)
+// Contact link components
 import {
-  TrackedButton, // <button>
-  TrackedLink, // <Link> or <a>
-  TrackedCTA, // CTA button
-  TrackedForm, // <form>
-  TrackedInput, // <input>
-  TrackedTextArea, // <textarea>
-} from "@/components/analytics/TrackedComponents";
+  TrackedPhoneLink,
+  TrackedEmailLink,
+  TrackedLocationLink,
+} from "@/components/analytics/TrackedContactLinks";
+
+// Lightweight tracking island for RSC pages
+import { PageTrackingClient } from "@/components/analytics/PageTrackingClient";
 
 // Manual tracking functions
 import {
@@ -59,49 +56,45 @@ import {
 ### Button Click
 
 ```tsx
-<TrackedButton trackId="my-button">Click Me</TrackedButton>
+<button onClick={() => trackClick("my-button", { context: "hero" })}>
+  Click Me
+</button>
 ```
 
-### Link Click
+### Contact Links
 
 ```tsx
-<TrackedLink trackId="nav-services" href="/services">
-  Services
-</TrackedLink>
+<TrackedPhoneLink />
+<TrackedEmailLink />
+<TrackedLocationLink />
 ```
 
 ### CTA (Conversion)
 
 ```tsx
-<TrackedCTA trackId="hero-cta" trackProperties={{ section: "hero" }}>
+<button onClick={() => trackCTA("hero-cta", { section: "hero" })}>
   Get Started
-</TrackedCTA>
+</button>
 ```
 
-### Form
+### Form Submission
 
 ```tsx
-<TrackedForm trackId="contact-form" onSubmit={handleSubmit}>
-  <TrackedInput trackId="email" formId="contact-form" type="email" />
-  <button type="submit">Submit</button>
-</TrackedForm>
+const handleSubmit = async (e: FormEvent) => {
+  e.preventDefault();
+  const res = await fetch("/api/contact", { method: "POST", body: ... });
+  if (res.ok) trackFormSubmit("contact-form", { source: "contact-page" });
+};
 ```
 
 ### Manual Click
 
 ```tsx
-const trackClick = useClickTracking();
+import { trackClick } from "@/lib/analytics/tracking";
 
 <button onClick={() => trackClick("custom-button", { extra: "data" })}>
   Click
 </button>;
-```
-
-### Element Visibility
-
-```tsx
-const ref = useElementTracking("testimonial-viewed");
-<div ref={ref}>Content</div>;
 ```
 
 ### Video
@@ -122,11 +115,20 @@ const ref = useElementTracking("testimonial-viewed");
 
 ## 📊 View Dashboard
 
-1. Triple-click copyright in footer
+1. Press `Ctrl + Shift + A` on Windows/Linux or `Cmd + Shift + A` on macOS
 2. Sign in: `matt@mhc-gc.com` / `admin123`
 3. View at `/dashboard`
 
-## 🔍 Debug Data
+## 🔄 Data Pipeline
+
+**Client → Server → KV:**
+
+1. Tracking functions write to localStorage (client) and batch events via `beacon.ts`
+2. Events sent to `POST /api/analytics/collect` via `navigator.sendBeacon`
+3. Collect endpoint writes aggregated data to Cloudflare KV
+4. Dashboard reads cross-visitor KV data via `GET /api/analytics/dashboard`
+
+**Debug (client-side only):**
 
 ```javascript
 // In browser console:
@@ -143,10 +145,10 @@ localStorage.getItem("mh_analytics_sessions");
 
 ## ✅ New Page Checklist
 
-- [ ] Add `usePageTracking('Page Name')`
-- [ ] Replace buttons with `<TrackedButton>`
-- [ ] Replace links with `<TrackedLink>`
-- [ ] Wrap forms with `<TrackedForm>`
+- [ ] Add `usePageTracking('Page Name')` (or `<PageTrackingClient>` for RSC)
+- [ ] Add `trackClick()` / `trackCTA()` for key buttons
+- [ ] Use `<TrackedPhoneLink>` / `<TrackedEmailLink>` for contact links
+- [ ] Call `trackFormSubmit()` after successful form submissions
 - [ ] Test in dashboard
 
 ---

@@ -32,7 +32,7 @@ const faqCategories = [
         question:
           "What makes MH Construction different from other construction companies?",
         answer:
-          "We're built on a four-value professional foundation system: Honesty, Integrity, Professionalism, and Thoroughness—all culminating in Trust as our ultimate goal. Founded in 2010, we became veteran-owned in January 2025 when Army veteran Jeremy Thamert purchased the company, combining our 15-year heritage with military precision and partnership-driven construction management. Our philosophy is simple: Building projects for the client, NOT the dollar. We work WITH you, not FOR you, ensuring your vision guides every decision.",
+          "We're built on a four-value professional foundation system: Honesty, Integrity, Professionalism, and Thoroughness-all culminating in Trust as our ultimate goal. Founded in 2010, we became veteran-owned in January 2025 when Army veteran Jeremy Thamert purchased the company, combining our 15-year heritage with disciplined execution and partnership-driven construction management. Our philosophy is simple: Building projects for the client, NOT the dollar. We work WITH you, not FOR you, ensuring your vision guides every decision.",
       },
       {
         question: "Where are you licensed and what areas do you serve?",
@@ -47,7 +47,7 @@ const faqCategories = [
       {
         question: "Are you really veteran-owned?",
         answer:
-          "Yes! MH Construction was founded in 2010 and became veteran-owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our military background brings discipline, attention to detail, and a commitment to excellence to every project. We understand the value of keeping promises and completing missions—values that directly translate to construction excellence.",
+          "Yes! MH Construction was founded in 2010 and became veteran-owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our military background brings discipline, attention to detail, and a commitment to follow-through to every project. We understand the value of keeping promises and meeting commitments-values that directly translate to construction excellence.",
       },
     ],
   },
@@ -145,7 +145,7 @@ const faqCategories = [
       {
         question: "Do you work on government projects?",
         answer:
-          "Yes. We have extensive experience with government contracts and understand federal compliance requirements. Our mission-focused approach, military precision, and regulatory expertise make us well-suited for government facility projects. We're compliance-driven and familiar with all necessary protocols.",
+          "Yes. We have extensive experience with government contracts and understand federal compliance requirements. Our disciplined planning, careful documentation, and regulatory expertise make us well-suited for government facility projects. We're compliance-driven and familiar with all necessary protocols.",
       },
       {
         question: "Can you coordinate with VA benefits?",
@@ -236,6 +236,11 @@ const faqCategories = [
         question: "What if we don't see eye-to-eye on something?",
         answer:
           "Honest communication is one of our core values. If disagreements arise, we address them through transparent dialogue, present options clearly, and work collaboratively toward solutions. Our Integrity means making decisions that benefit you, not just our bottom line. The partnership succeeds when both parties are heard and respected.",
+      },
+      {
+        question: "What is the Partnership Guide chat on your website?",
+        answer:
+          "Our Partnership Guide is a 24/7 on-site assistant that helps you learn about our services, connect with our Allies (Trade Partners), understand veteran benefits, and find the right contact information — all without waiting for business hours. It complements our face-to-face approach; for project-specific questions, estimates, or consultations, it will always direct you to call (509) 308-6489 or visit our Contact page.",
       },
     ],
   },

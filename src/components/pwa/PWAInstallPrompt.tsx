@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { logger } from "@/lib/utils/logger";
 
 interface BeforeInstallPromptEvent extends Event {
@@ -9,12 +10,18 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 export function PWAInstallPrompt() {
+  const pathname = usePathname();
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
   const [showPrompt, setShowPrompt] = useState(false);
   const [isInstalled, setIsInstalled] = useState(false);
 
   useEffect(() => {
+    if (pathname !== "/") {
+      setShowPrompt(false);
+      return;
+    }
+
     // Check if already installed
     if (window.matchMedia("(display-mode: standalone)").matches) {
       setIsInstalled(true);
@@ -78,7 +85,7 @@ export function PWAInstallPrompt() {
         handleBeforeInstallPrompt,
       );
     };
-  }, []);
+  }, [pathname]);
 
   const handleInstallClick = async () => {
     if (!deferredPrompt) return;
@@ -106,7 +113,7 @@ export function PWAInstallPrompt() {
     localStorage.setItem("pwa-install-dismissed", new Date().toISOString());
   };
 
-  if (isInstalled || !showPrompt) {
+  if (pathname !== "/" || isInstalled || !showPrompt) {
     return null;
   }
 

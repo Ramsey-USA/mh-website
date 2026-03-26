@@ -122,13 +122,21 @@ export default function MyPage() {
 }
 ```
 
-**Tracked Components:**
+**Tracked Contact Links:**
 
 ```tsx
-import { TrackedButton, TrackedLink } from '@/components/analytics/TrackedComponents';
+import { TrackedPhoneLink, TrackedEmailLink } from '@/components/analytics/TrackedContactLinks';
 
-<TrackedButton trackId="contact-us">Contact</TrackedButton>
-<TrackedLink trackId="services" href="/services">Services</TrackedLink>
+<TrackedPhoneLink />
+<TrackedEmailLink />
+```
+
+**Manual Tracking:**
+
+```tsx
+import { trackClick, trackFormSubmit } from "@/lib/analytics/tracking";
+
+<button onClick={() => trackClick("contact-us")}>Contact</button>;
 ```
 
 ### Documentation

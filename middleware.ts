@@ -7,16 +7,15 @@ import { type NextRequest, NextResponse } from "next/server";
 import { securityMiddleware } from "./src/middleware/security";
 
 export async function middleware(request: NextRequest) {
-  // Apex → www canonical redirect (mhc-gc.com → www.mhc-gc.com)
+  // Apex → www canonical redirect (mhc-gc.com → www.mhc-gc.com).
+  // Future upgrade: replace with a Cloudflare Redirect Rule (dashboard →
+  // Rules → Redirect Rules → "apex-to-www") to resolve at the CDN edge
+  // before the Worker starts, saving ~10-20 ms of Worker CPU per redirect.
   const url = new URL(request.url);
   if (url.hostname === "mhc-gc.com") {
     url.hostname = "www.mhc-gc.com";
     return NextResponse.redirect(url.toString(), { status: 301 });
   }
-
-  // Get Cloudflare headers for enhanced processing
-  const cfConnectingIP = request.headers.get("cf-connecting-ip");
-  const cfCountry = request.headers.get("cf-ipcountry");
 
   // Apply security middleware
   const response = await securityMiddleware(request);
@@ -52,42 +51,9 @@ export async function middleware(request: NextRequest) {
     } else {
       response.headers.set("CF-Cache-Tag", "html");
     }
-
-    // Add performance hints for Cloudflare
-    response.headers.set("Accept-CH", "Viewport-Width, Width, Device-Memory");
-
-    // Add security headers optimized for Cloudflare
-    response.headers.set("X-Real-IP", cfConnectingIP || "unknown");
-    response.headers.set("X-Forwarded-Country", cfCountry || "unknown");
-
-    // NOTE: Link: rel=preload headers for critical assets (Material Icons font
-    // and hero background image) are handled by <link rel="preload"> tags in
-    // src/app/layout.tsx, which is the correct scope for document-level preloads.
-    // Middleware-level Link headers were removed: they referenced non-existent
-    // paths (/images/logo.webp, /styles/critical.css) causing wasted fetch
-    // requests on every page load. The asset-integrity.test.ts guard enforces
-    // that any future middleware preloads point to real files in /public.
-
-    // Add CSP nonce for better security
-    const nonce = generateNonce();
-    response.headers.set("X-CSP-Nonce", nonce);
   }
 
   return response;
-}
-
-// Generate a random nonce for CSP (Edge Runtime compatible)
-function generateNonce(): string {
-  const array = crypto.getRandomValues(new Uint8Array(16));
-  // Convert to base64 without Buffer (Edge Runtime compatible)
-  let binary = "";
-  for (let i = 0; i < array.length; i++) {
-    const byte = array[i];
-    if (byte !== undefined) {
-      binary += String.fromCharCode(byte);
-    }
-  }
-  return btoa(binary);
 }
 
 // Configure which paths the middleware should run on

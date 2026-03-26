@@ -50,9 +50,9 @@ const safetyFeatures: AlternatingShowcaseItem[] = [
     id: "quality-assurance",
     title: "Quality Control Systems",
     icon: "task_alt",
-    tagline: "Battle-Tested Standards",
+    tagline: "Proven Quality Standards",
     description:
-      "Multi-point inspection processes at every construction phase ensure first-time-right execution. Detailed quality checklists adapted from military precision, material verification and testing, third-party inspections for critical systems, and comprehensive photo documentation. Our systematic approach to quality prevents costly rework, maintains project schedules, and delivers construction that stands the test of time.",
+      "Multi-point inspection processes at every construction phase ensure first-time-right execution. Detailed quality checklists built around disciplined execution, material verification and testing, third-party inspections for critical systems, and comprehensive photo documentation. Our systematic approach to quality prevents costly rework, maintains project schedules, and delivers construction that stands the test of time.",
     image: "/images/safety/quality-control.webp",
     iconBg: "bg-blue-700",
     stats: "Multi-Point Inspections",
