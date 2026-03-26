@@ -10,6 +10,7 @@ compatibility_flags = ["nodejs_compat"]
 # If the binding is absent, the chatbot falls back to keyword-based responses.
 [ai]
 binding = "AI"
+remote = true
 
 # ========================================================================
 # Cloudflare Dashboard Settings (not configurable via wrangler.toml)

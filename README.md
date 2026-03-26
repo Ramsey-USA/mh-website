@@ -77,6 +77,16 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Recent Improvements (March 2026)
 
+- **Mar 26:** Build hygiene — removed stray `ReactDOM.preload()` call from `veterans/page.tsx`
+  (preloading `mh-veteran-bg.webp` at the RSC layer caused the browser to inject a `<link
+rel="preload">` into every page that prefetched `/veterans` via `<Link>`, resulting in
+  repeated "preloaded but not used" console warnings on the home page); added `remote = true`
+  to `[ai]` binding in `wrangler.toml` (suppresses wrangler dev charge warning); bumped
+  `wrangler` devDep `^4.73.0 → ^4.77.0`; added `picomatch>=4.0.4` and `yaml>=2.8.3` overrides
+  to fix 3 newly-released CVEs; bumped `flatted` override to `>=3.4.2` (3.4.2 now released —
+  prototype pollution fix fully effective); audit now reports 3 vulnerabilities (0 critical,
+  2 high devDep-only, 1 moderate production)
+
 - **Mar 26:** Partnership Guide chatbot — brand-compliant AI assistant powered by Cloudflare
   Workers AI (`@cf/meta/llama-3.1-8b-instruct`) added to all pages via `ChatWidget` in root
   layout; system prompt (`src/lib/chatbot/knowledge-base.ts`) encodes all 9 Allies with full
@@ -491,15 +501,17 @@ npm run clean            # Clean build artifacts
 - `package.json` includes `overrides` to force patched versions of transitive dependencies:
   - `tar@7.5.11` (fixes high CVEs in `@mapbox/node-pre-gyp` transitive chain)
   - `cookie@0.7.2` (fixes low CVE in transitive chain)
-  - `flatted@>=3.4.0` (prototype pollution fix — needs `>=3.4.2` once released)
+  - `flatted@>=3.4.2` (prototype pollution fix — 3.4.2 released, override fully effective)
   - `undici@>=7.24.0` (security fix in HTTP client)
   - `yauzl@>=3.2.1` (zip parsing security fix)
   - `glob@>=11.0.0` (transitive glob update)
-- Full `npm audit` reports 4 vulnerabilities in the toolchain:
-  - `fast-xml-parser` high (entity expansion bypass via `@aws-sdk/xml-builder` via `wrangler`)
-  - `flatted` high (prototype pollution — override partially effective; awaiting 3.4.2+)
-  - `next` 2× moderate (HTTP smuggling + disk cache; production dep, fix pending upstream)
-- Current full-audit status: 4 vulnerabilities (0 critical, 2 high, 2 moderate, 0 low).
+  - `picomatch@>=4.0.4` (ReDoS + method injection fixes)
+  - `yaml@>=2.8.3` (stack overflow fix for deeply nested YAML)
+- Full `npm audit` reports 3 vulnerabilities in the toolchain:
+  - `fast-xml-parser` high (entity expansion bypass via `@aws-sdk/xml-builder` via `wrangler` devDep)
+  - `fast-xml-parser` high (numeric entity expansion bypass — same transitive path, new CVE)
+  - `next` 1× moderate (HTTP smuggling + disk cache; production dep, fix pending upstream)
+- Current full-audit status: 3 vulnerabilities (0 critical, 2 high devDep-only, 1 moderate, 0 low).
 
 ---
 

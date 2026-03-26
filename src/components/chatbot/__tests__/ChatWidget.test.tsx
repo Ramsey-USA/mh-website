@@ -31,6 +31,21 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
 // Mock scrollIntoView (not available in jsdom)
 Element.prototype.scrollIntoView = jest.fn();
 
+// Mock matchMedia (not available in jsdom)
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: jest.fn().mockImplementation((query: string) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  })),
+});
+
 // Mock fetch globally
 const mockFetch = jest.fn();
 global.fetch = mockFetch;
