@@ -559,21 +559,9 @@ async function handleCloudflareRequest(request) {
       return cachedResponse;
     }
 
-    // Fetch from network with Cloudflare optimization headers
-    const enhancedRequest = new Request(request.url, {
-      method: request.method,
-      headers: {
-        ...Object.fromEntries(request.headers.entries()),
-        "CF-Cache-Tag": "sw-request",
-        Accept: request.headers.get("Accept") || "*/*",
-      },
-      body: request.body,
-      mode: request.mode,
-      credentials: request.credentials,
-      cache: "default",
-    });
-
-    const networkResponse = await fetch(enhancedRequest);
+    // Fetch using the original request to avoid CORS issues with custom headers
+    // on cross-origin Cloudflare domains (e.g. static.cloudflareinsights.com)
+    const networkResponse = await fetch(request);
 
     if (networkResponse.ok) {
       const cache = await caches.open(cacheName);
@@ -595,7 +583,9 @@ async function handleCloudflareRequest(request) {
       return cachedResponse;
     }
 
-    throw _error;
+    // Return empty 200 rather than re-throwing so the page doesn't get
+    // net::ERR_FAILED for non-critical third-party analytics scripts
+    return new Response("", { status: 200 });
   }
 }
 
