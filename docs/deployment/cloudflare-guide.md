@@ -7,7 +7,7 @@
 
 > **Adapter:** `@opennextjs/cloudflare` (OpenNext) — **NOT** `@cloudflare/next-on-pages`.
 > These two adapters are mutually exclusive. Only OpenNext is used in this project.
-
+>
 > **Platform:** Cloudflare **Workers** (`mhc-v2-website`) — **NOT** Cloudflare Pages.
 > Workers URL: `mhc-v2-website.twelthmann.workers.dev`
 > Preview URLs: `*-mhc-v2-website.twelthmann.workers.dev`
@@ -30,7 +30,7 @@
 
 ## How It Works
 
-```
+```text
 git push → Cloudflare Workers CI picks up the commit
          → Runs build command:   npm run build
          → Runs deploy command:  npx wrangler deploy
@@ -63,7 +63,7 @@ binding = "ASSETS"
 
 ## Cloudflare Dashboard Build Config
 
-**Workers & Pages → mhc-v2-website → Settings → Builds → Edit**
+### Workers & Pages → mhc-v2-website → Settings → Builds → Edit
 
 | Field               | Value                          | Notes                                      |
 | ------------------- | ------------------------------ | ------------------------------------------ |
@@ -105,10 +105,10 @@ binding = "ASSETS"
 > **`CI=true` is essential.** Without it, `npm install` triggers the `prepare` script which
 > runs husky and fails in the Cloudflare build environment.
 > The `prepare` script already handles this: `node -e "if (process.env.CI) process.exit(0)" && husky`
-
+>
 > **`JWT_SECRET` must be set before the first admin login attempt.** The route throws a 500
 > in production if missing. Generate with: `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`
-
+>
 > **Resend domain verification:** `mhc-gc.com` must be a verified sender domain in the
 > Resend dashboard (SPF + DKIM DNS records required). Without this all contact form emails
 > are silently dropped.
@@ -175,7 +175,7 @@ npm run deploy
 
 After `npm run build`, the output structure is:
 
-```
+```text
 .open-next/
 ├── worker.js             ← Cloudflare Worker entry point (deployed via wrangler)
 ├── assets/               ← Static files served via Workers Assets binding

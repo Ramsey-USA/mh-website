@@ -38,7 +38,9 @@ homepage - same visual weight, spacing, animations, and polish.
 
 **When You Need Specific Features:**
 
-- **Working on the Partnership Guide chatbot?** → [src/components/chatbot/](src/components/chatbot/) · [src/lib/chatbot/](src/lib/chatbot/) · [src/app/api/chat/route.ts](src/app/api/chat/route.ts)
+- **Working on the Partnership Guide chatbot?** →
+  [src/components/chatbot/](src/components/chatbot/) · [src/lib/chatbot/](src/lib/chatbot/) ·
+  [src/app/api/chat/route.ts](src/app/api/chat/route.ts)
 - **Adding analytics tracking?** → [Analytics Tracking Guide](docs/technical/analytics-tracking-guide.md)
 - **Implementing dark mode?** → [Dark Mode Quick Reference](docs/technical/dark-mode-quick-reference.md)
 - **Styling buttons/CTAs?** → [Buttons & CTAs Complete Guide](docs/technical/design-system/buttons-ctas-complete-guide.md)
@@ -75,7 +77,19 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Recent Improvements (March 2026)
 
-- **Mar 26:** Partnership Guide chatbot — brand-compliant AI assistant powered by Cloudflare Workers AI (`@cf/meta/llama-3.1-8b-instruct`) added to all pages via `ChatWidget` in root layout; system prompt (`src/lib/chatbot/knowledge-base.ts`) encodes all 9 Allies with full contact details, services overview, veteran benefits, FAQ highlights, and MH brand language rules (forbidden phrases, approved terminology, no fabrication, no cost estimates); `POST /api/chat` endpoint — input sanitized, rate-limited to 10 req/min/IP, gracefully falls back to keyword-based responses when Workers AI binding is absent (local dev / quota); widget is fully responsive — floating button on desktop, fullscreen drawer on mobile with iOS safe-area padding; SEO/GEO integration: `contactPoint` for the AI assistant added to Organization schema in root layout, chatbot Q&A added to FAQ page structured data, `public/llms.txt` updated to describe the Partnership Guide, `public/robots.txt` disallows `/api/chat` to scrapers; 19 new tests added (10 UI, 9 knowledge-base); all quality checks pass: 95/95 tests, zero TypeScript errors, zero ESLint warnings
+- **Mar 26:** Partnership Guide chatbot — brand-compliant AI assistant powered by Cloudflare
+  Workers AI (`@cf/meta/llama-3.1-8b-instruct`) added to all pages via `ChatWidget` in root
+  layout; system prompt (`src/lib/chatbot/knowledge-base.ts`) encodes all 9 Allies with full
+  contact details, services overview, veteran benefits, FAQ highlights, and MH brand language
+  rules (forbidden phrases, approved terminology, no fabrication, no cost estimates);
+  `POST /api/chat` endpoint — input sanitized, rate-limited to 10 req/min/IP, gracefully falls
+  back to keyword-based responses when Workers AI binding is absent (local dev / quota); widget
+  is fully responsive — floating button on desktop, fullscreen drawer on mobile with iOS
+  safe-area padding; SEO/GEO integration: `contactPoint` for the AI assistant added to
+  Organization schema in root layout, chatbot Q&A added to FAQ page structured data,
+  `public/llms.txt` updated to describe the Partnership Guide, `public/robots.txt` disallows
+  `/api/chat` to scrapers; 19 new tests added (10 UI, 9 knowledge-base); all quality checks
+  pass: 95/95 tests, zero TypeScript errors, zero ESLint warnings
 
 - **Mar 26:** Cloudflare edge optimizations — added Early Hints `Link: rel=preload` headers
   to `public/_headers` for Material Icons font and hero image (Cloudflare sends these as 103
@@ -306,7 +320,9 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 - **Contact-First:** All paths lead to phone (509) 308-6489 or personal consultation
 - **Honest Messaging:** Authentic communication, no marketing buzzwords
 - **Veteran-Owned Perspective:** Service-earned discipline, clear communication, and priority scheduling across all branches
-- **No AI Gimmicks:** Removed AI estimators, booking bots, and automated closers — replaced by the Partnership Guide, which answers questions honestly and routes every visitor to a real human conversation
+- **No AI Gimmicks:** Removed AI estimators, booking bots, and automated closers — replaced by
+  the Partnership Guide, which answers questions honestly and routes every visitor to a real
+  human conversation
 
 ---
 
@@ -367,7 +383,8 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 - **Media:** Auto-optimization to WebP/WebM via GitHub Actions
 - **Icons:** Google Material Icons (font-based, 400/500/600 weights)
 - **Forms:** Contact, consultations, and a streamlined job application flow with email notifications
-- **Partnership Guide:** Cloudflare Workers AI chatbot — answers questions about services, Allies, and veteran benefits; guides all visitors toward direct human contact
+- **Partnership Guide:** Cloudflare Workers AI chatbot — answers questions about services,
+  Allies, and veteran benefits; guides all visitors toward direct human contact
 
 ---
 

@@ -188,10 +188,12 @@ src/
 
 ### 🤖 **Partnership Guide (AI Chatbot)** - ✅ COMPLETE (March 26, 2026)
 
-- **Cloudflare Workers AI**: `@cf/meta/llama-3.1-8b-instruct` via `[ai]` binding in `wrangler.toml` (no provisioning needed)
+- **Cloudflare Workers AI**: `@cf/meta/llama-3.1-8b-instruct` via `[ai]` binding in
+  `wrangler.toml` (no provisioning needed)
 - **Graceful Fallback**: Keyword-based responses when AI binding is absent (local dev, quota exhaustion)
 - **Knowledge Base**: All 9 Allies with contact info, full services list, FAQ, veteran benefits, navigation help
-- **Brand-Safe System Prompt**: Forbids fabrication, cost estimates; enforces MH terminology (Client Partners, Trade Partners, Veteran-Owned)
+- **Brand-Safe System Prompt**: Forbids fabrication, cost estimates; enforces MH terminology
+  (Client Partners, Trade Partners, Veteran-Owned)
 - **Responsive Widget**: Floating button on desktop → fullscreen drawer on mobile with iOS safe-area padding
 - **Security**: Input sanitized (max 500 chars), rate-limited to 10 req/min/IP, history capped at 10 turns
 - **SEO/GEO**: `contactPoint` in Organization schema, FAQ structured data, `public/llms.txt` updated

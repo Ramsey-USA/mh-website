@@ -407,7 +407,9 @@ Visitor's Browser  →  POST /api/analytics/collect  →  Cloudflare KV (server-
                                                   (cross-visitor aggregated data)
 ```
 
-**What changed (March 2026):** Previously the dashboard only showed data from the admin's own browser (localStorage). Now, all visitor events are sent to the server and aggregated in Cloudflare KV, so the dashboard shows data from **all visitors** across all devices.
+**What changed (March 2026):** Previously the dashboard only showed data from the admin's own
+browser (localStorage). Now, all visitor events are sent to the server and aggregated in
+Cloudflare KV, so the dashboard shows data from **all visitors** across all devices.
 
 ---
 

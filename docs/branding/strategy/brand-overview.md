@@ -271,7 +271,8 @@ See [Core Values](../../business/core-values.md) for complete details on our fou
 **Key Features:**
 
 - 22 public pages (flat route directories) + Analytics dashboard
-- 11 city/location pages (Kennewick, Pasco, Richland, West Richland, Yakima, Spokane, Walla Walla, Coeur d'Alene, Hermiston, Omak, Pendleton)
+- 11 city/location pages (Kennewick, Pasco, Richland, West Richland, Yakima, Spokane,
+  Walla Walla, Coeur d'Alene, Hermiston, Omak, Pendleton)
 - Complete Material Icons system implementation
 - Light/dark mode support throughout (three modes)
 - PWA-ready with Service Worker v4.0.0, offline support
