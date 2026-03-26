@@ -12,7 +12,6 @@
   Content-Type: text/css; charset=utf-8
   Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
-  Link: </fonts/MaterialIcons-Regular.woff2>; rel=preload; as=font; type=font/woff2; crossorigin
 
 # Media files
 /_next/static/media/*

@@ -9,7 +9,6 @@
  */
 
 import { type NextRequest, NextResponse } from "next/server";
-import { withSecurity } from "@/middleware/security";
 import { rateLimit } from "@/lib/security/rate-limiter";
 import { logger } from "@/lib/utils/logger";
 import {
@@ -101,7 +100,7 @@ function validatePayload(body: unknown): CollectPayload | null {
 
 // ── Handler ──────────────────────────────────────────────────────────────────
 
-async function handler(request: NextRequest): Promise<Response> {
+async function handler(request: NextRequest): Promise<NextResponse> {
   if (request.method !== "POST") {
     return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
   }
@@ -172,6 +171,4 @@ async function handler(request: NextRequest): Promise<Response> {
 }
 
 // Rate limit: 60 requests per minute per IP (generous for beacon batches)
-export const POST = rateLimit({ maxRequests: 60, windowMs: 60_000 })(
-  withSecurity(handler),
-);
+export const POST = rateLimit({ maxRequests: 60, windowMs: 60_000 })(handler);

@@ -85,18 +85,27 @@ self.addEventListener("install", (event) => {
       // Cache critical assets first for faster offline experience
       caches
         .open(STATIC_CACHE_NAME)
-        .then((cache) => {
+        .then(async (cache) => {
           console.info("[SW] Precaching critical assets");
-          return cache.addAll(CRITICAL_ASSETS);
-        })
-        .then(() => {
-          // Then cache remaining static assets
-          return caches.open(STATIC_CACHE_NAME).then((cache) => {
-            console.info("[SW] Precaching remaining static assets");
-            return cache.addAll(
-              STATIC_ASSETS.filter((asset) => !CRITICAL_ASSETS.includes(asset)),
+          // Use allSettled so one failing URL doesn't abort the whole batch
+          // (e.g. Worker cold-start returning 503 during install)
+          const criticalResults = await Promise.allSettled(
+            CRITICAL_ASSETS.map((url) => cache.add(url)),
+          );
+          const criticalFailed = criticalResults.filter(
+            (r) => r.status === "rejected",
+          ).length;
+          if (criticalFailed > 0) {
+            console.warn(
+              `[SW] ${criticalFailed}/${CRITICAL_ASSETS.length} critical assets failed to cache`,
             );
-          });
+          }
+
+          console.info("[SW] Precaching remaining static assets");
+          const remaining = STATIC_ASSETS.filter(
+            (asset) => !CRITICAL_ASSETS.includes(asset),
+          );
+          await Promise.allSettled(remaining.map((url) => cache.add(url)));
         })
         .catch((error) => {
           console.error("[SW] Cache installation failed:", error);
