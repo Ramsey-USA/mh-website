@@ -147,10 +147,14 @@ id = "b6ecda1ca7a7463db0f8a3b5d9681131"
 #
 # Without ANALYTICS, the /api/analytics/collect endpoint falls back to a no-op
 # and the dashboard shows zeros for cross-visitor metrics.
+#
+# TO ENABLE: Run these two commands, then uncomment the block below and fill in the IDs:
+#   wrangler kv namespace create ANALYTICS
+#   wrangler kv namespace create ANALYTICS --preview
+#
 [[kv_namespaces]]
 binding = "ANALYTICS"
-id = "PLACEHOLDER_ANALYTICS_KV_ID"
-# preview_id = "YOUR_ANALYTICS_KV_PREVIEW_ID"
+id = "969e74f0815b47ce9e75ae5acfe2a70d"
 
 # R2 buckets for file storage
 [[r2_buckets]]
