@@ -423,6 +423,14 @@ describe("DbClient", () => {
           meta: { duration: 1, rows_read: 0, rows_written: 1 },
         },
       ]),
+      batch: jest
+        .fn()
+        .mockResolvedValue([
+          {
+            success: true,
+            meta: { duration: 1, rows_read: 0, rows_written: 1 },
+          },
+        ]),
       exec: jest.fn(),
     };
     const client = new DbClient(db);

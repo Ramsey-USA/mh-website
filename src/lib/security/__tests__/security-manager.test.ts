@@ -9,6 +9,15 @@ function makeConfig(overrides?: {
   [K in keyof SecurityConfig]?: Partial<SecurityConfig[K]>;
 }): SecurityConfig {
   return {
+    rateLimit: {
+      windowMs: 60_000,
+      maxRequests: 2,
+      skipSuccessfulRequests: false,
+      skipFailedRequests: false,
+      standardHeaders: true,
+      legacyHeaders: true,
+      ...overrides?.rateLimit,
+    },
     cors: {
       origin: ["https://www.mhc-gc.com"],
       methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
@@ -144,6 +153,25 @@ describe("SecurityManager", () => {
     expect(result).toBe(true);
   });
 
+  it("enforces the configured rate limit", async () => {
+    const manager = new SecurityManager(
+      makeConfig({ rateLimit: { maxRequests: 1, windowMs: 60_000 } }),
+    );
+    const request = makeRequest("/api/contact", {
+      headers: { "x-forwarded-for": "10.0.0.1" },
+    });
+
+    await expect(manager.processRequest(request)).resolves.toEqual(
+      expect.objectContaining({ allowed: true }),
+    );
+
+    const second = await manager.processRequest(request);
+    expect(second.allowed).toBe(false);
+    expect(second.response?.status).toBe(429);
+    expect(second.response?.headers.get("RateLimit-Limit")).toBe("1");
+    expect(second.response?.headers.get("Retry-After")).toBeTruthy();
+  });
+
   it("sanitizes text and email fields during input validation", () => {
     const manager = new SecurityManager(
       makeConfig({ validation: { maxFieldLength: 200 } }),
@@ -176,6 +204,7 @@ describe("SecurityManager", () => {
   });
 
   it("applies security headers, csrf cookie, and production HSTS", () => {
+  it("applies security headers, rate-limit headers, csrf cookie, and production HSTS", () => {
     (process.env as Record<string, string | undefined>)["NODE_ENV"] =
       "production";
     process.env["NEXT_PUBLIC_SITE_URL"] = "https://www.mhc-gc.com";
@@ -183,6 +212,7 @@ describe("SecurityManager", () => {
     const manager = new SecurityManager(makeConfig());
     const response = manager.applyResponseSecurity(
       NextResponse.json({ ok: true }),
+      { remaining: 4, resetTime: Date.now() + 1000, retryAfter: 10 },
       "csrf-cookie-token",
     );
 
@@ -193,6 +223,8 @@ describe("SecurityManager", () => {
       "max-age=31536000",
     );
     expect(response.headers.get("X-Frame-Options")).toBe("DENY");
+    expect(response.headers.get("RateLimit-Remaining")).toBe("4");
+    expect(response.headers.get("X-RateLimit-Remaining")).toBe("4");
     expect(response.headers.get("Set-Cookie")).toContain(
       "_csrf=csrf-cookie-token",
     );
@@ -217,6 +249,28 @@ describe("SecurityManager", () => {
     expect(result.isValid).toBe(true);
     expect(result.sanitizedData["email"]).toBe("clearly-not-an-email");
     expect(result.errors).not.toHaveProperty("email");
+  });
+
+  it("uses x-real-ip header for rate-limit key when x-forwarded-for is absent", async () => {
+    const manager = new SecurityManager(
+      makeConfig({ rateLimit: { maxRequests: 1, windowMs: 60_000 } }),
+    );
+
+    const req1 = new NextRequest("http://localhost/api/test", {
+      method: "GET",
+      headers: { "x-real-ip": "192.168.1.1" },
+    });
+    const req2 = new NextRequest("http://localhost/api/test", {
+      method: "GET",
+      headers: { "x-real-ip": "192.168.1.1" },
+    });
+
+    await expect(manager.processRequest(req1)).resolves.toEqual(
+      expect.objectContaining({ allowed: true }),
+    );
+    const second = await manager.processRequest(req2);
+    expect(second.allowed).toBe(false);
+    expect(second.response?.status).toBe(429);
   });
 
   it("validates a file via the internal InputValidator (valid file)", () => {
@@ -275,5 +329,39 @@ describe("SecurityManager", () => {
     };
     expect(result.isValid).toBe(false);
     expect(result.errors[0]).toMatch(/not allowed/);
+  });
+
+  it("cleans up expired rate-limit entries and resets the counter", async () => {
+    jest.useFakeTimers();
+    try {
+      const manager = new SecurityManager(
+        makeConfig({ rateLimit: { maxRequests: 1, windowMs: 1000 } }),
+      );
+      const headers = { "x-forwarded-for": "10.77.77.1" };
+
+      // First request — allowed, creates entry in rateLimitStore
+      const r1 = await manager.processRequest(
+        makeRequest("/test", { headers }),
+      );
+      expect(r1.allowed).toBe(true);
+
+      // Second request — denied (rate limited, entry count = 2 > maxRequests = 1)
+      const r2 = await manager.processRequest(
+        makeRequest("/test", { headers }),
+      );
+      expect(r2.allowed).toBe(false);
+
+      // Advance time past windowMs so the entry's resetTime is in the past
+      jest.advanceTimersByTime(2000);
+
+      // Third request — cleanup() fires, iterates the store, deletes the expired
+      // entry, then creates a fresh one → allowed again
+      const r3 = await manager.processRequest(
+        makeRequest("/test", { headers }),
+      );
+      expect(r3.allowed).toBe(true);
+    } finally {
+      jest.useRealTimers();
+    }
   });
 });

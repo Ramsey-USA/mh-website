@@ -92,6 +92,11 @@ const customJestConfig = {
       lines: 95,
     },
   },
+  // Coverage thresholds
+  // Global thresholds are intentionally not enforced: coverage spans the entire
+  // src/ tree, but only core utilities currently have unit tests (~1% global).
+  // As test coverage grows, re-enable with realistic per-directory thresholds.
+  // coverageThreshold: { global: { branches: 60, functions: 60, lines: 60, statements: 60 } },
 
   // Test file patterns
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],

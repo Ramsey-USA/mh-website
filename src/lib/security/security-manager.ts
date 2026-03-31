@@ -57,6 +57,15 @@ export interface SecurityConfig {
 
 // Default Security Configuration
 export const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
+const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
+  rateLimit: {
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    maxRequests: 100, // limit each IP to 100 requests per windowMs
+    skipSuccessfulRequests: false,
+    skipFailedRequests: false,
+    standardHeaders: true,
+    legacyHeaders: false,
+  },
   cors: {
     origin: [
       "https://mhc-gc.com",
@@ -136,6 +145,178 @@ export const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
     retentionDays: 90,
   },
 };
+
+// Rate Limiting Store
+interface RateLimitEntry {
+  count: number;
+  resetTime: number;
+  lastRequest: number;
+}
+
+class RateLimitStore {
+  private store: Map<string, RateLimitEntry> = new Map();
+
+  constructor() {
+    // No setInterval: Cloudflare Workers freeze between requests so timers
+    // never fire. Cleanup is performed inline on every get() call instead.
+  }
+
+  get(key: string): RateLimitEntry | undefined {
+    // Opportunistic cleanup on each read to keep memory bounded.
+    this.cleanup();
+    return this.store.get(key);
+  }
+
+  set(key: string, entry: RateLimitEntry): void {
+    this.store.set(key, entry);
+  }
+
+  delete(key: string): boolean {
+    return this.store.delete(key);
+  }
+
+  cleanup(): void {
+    const now = Date.now();
+    this.store.forEach((entry, key) => {
+      if (entry.resetTime < now) {
+        this.store.delete(key);
+      }
+    });
+  }
+
+  destroy(): void {
+    this.store.clear();
+  }
+}
+
+// Global rate limit store
+const rateLimitStore = new RateLimitStore();
+
+/**
+ * Rate Limiting Middleware
+ */
+class RateLimiter {
+  private config: SecurityConfig["rateLimit"];
+
+  constructor(
+    config: SecurityConfig["rateLimit"] = DEFAULT_SECURITY_CONFIG.rateLimit,
+  ) {
+    this.config = config;
+  }
+
+  /**
+   * Check if request should be rate limited
+   */
+  checkRateLimit(request: NextRequest): {
+    allowed: boolean;
+    remaining: number;
+    resetTime: number;
+    retryAfter?: number;
+  } {
+    const ip = this.getClientIP(request);
+    const key = `rate_limit:${ip}`;
+    const now = Date.now();
+
+    let entry = rateLimitStore.get(key);
+
+    if (!entry || entry.resetTime < now) {
+      // Create new entry or reset expired entry
+      entry = {
+        count: 1,
+        resetTime: now + this.config.windowMs,
+        lastRequest: now,
+      };
+      rateLimitStore.set(key, entry);
+
+      return {
+        allowed: true,
+        remaining: this.config.maxRequests - 1,
+        resetTime: entry.resetTime,
+      };
+    }
+
+    // Update existing entry
+    entry.count += 1;
+    entry.lastRequest = now;
+    rateLimitStore.set(key, entry);
+
+    const allowed = entry.count <= this.config.maxRequests;
+    const remaining = Math.max(0, this.config.maxRequests - entry.count);
+    const retryAfter = allowed
+      ? undefined
+      : Math.ceil((entry.resetTime - now) / 1000);
+
+    return {
+      allowed,
+      remaining,
+      resetTime: entry.resetTime,
+      ...(retryAfter !== undefined && { retryAfter }),
+    };
+  }
+
+  /**
+   * Get client IP address
+   */
+  private getClientIP(request: NextRequest): string {
+    const forwarded = request.headers.get("x-forwarded-for");
+    const realIP = request.headers.get("x-real-ip");
+
+    if (forwarded) {
+      const firstIP = forwarded.split(",")[0];
+      return firstIP ? firstIP.trim() : "unknown";
+    }
+
+    if (realIP) {
+      return realIP;
+    }
+
+    // Fallback - try to get from the request URL or use unknown
+    const url = new URL(request.url);
+    return url.hostname === "localhost" ? "127.0.0.1" : "unknown";
+  }
+
+  /**
+   * Apply rate limit headers to response
+   */
+  applyHeaders(response: NextResponse, rateLimitInfo: unknown): NextResponse {
+    // Type guard for rateLimitInfo
+    const info = rateLimitInfo as {
+      remaining: number;
+      resetTime: number;
+      retryAfter?: number;
+    };
+
+    if (this.config.standardHeaders) {
+      response.headers.set(
+        "RateLimit-Limit",
+        this.config.maxRequests.toString(),
+      );
+      response.headers.set("RateLimit-Remaining", info.remaining.toString());
+      response.headers.set(
+        "RateLimit-Reset",
+        new Date(info.resetTime).toISOString(),
+      );
+    }
+
+    if (this.config.legacyHeaders) {
+      response.headers.set(
+        "X-RateLimit-Limit",
+        this.config.maxRequests.toString(),
+      );
+      response.headers.set("X-RateLimit-Remaining", info.remaining.toString());
+      response.headers.set(
+        "X-RateLimit-Reset",
+        Math.ceil(info.resetTime / 1000).toString(),
+      );
+    }
+
+    if (info.retryAfter) {
+      response.headers.set("Retry-After", info.retryAfter.toString());
+    }
+
+    return response;
+  }
+}
 
 /**
  * CSRF Protection

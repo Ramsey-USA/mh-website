@@ -99,6 +99,13 @@ describe("useIsMobile()", () => {
       addEventListener: jest.fn(),
       removeEventListener: jest.fn(),
     });
+    window.matchMedia = jest
+      .fn()
+      .mockReturnValue({
+        matches: true,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+      });
   });
 
   it("returns a boolean or null", () => {

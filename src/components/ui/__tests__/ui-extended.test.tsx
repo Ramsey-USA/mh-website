@@ -563,6 +563,13 @@ describe("SkipLink", () => {
         addEventListener: jest.fn(),
         removeEventListener: jest.fn(),
       }),
+      value: jest
+        .fn()
+        .mockReturnValue({
+          matches: false,
+          addEventListener: jest.fn(),
+          removeEventListener: jest.fn(),
+        }),
     });
     const main = document.createElement("main");
     main.setAttribute("tabindex", "-1");
@@ -594,6 +601,13 @@ describe("SkipLink", () => {
         addEventListener: jest.fn(),
         removeEventListener: jest.fn(),
       }),
+      value: jest
+        .fn()
+        .mockReturnValue({
+          matches: true,
+          addEventListener: jest.fn(),
+          removeEventListener: jest.fn(),
+        }),
     });
     const main = document.createElement("main");
     document.body.appendChild(main);

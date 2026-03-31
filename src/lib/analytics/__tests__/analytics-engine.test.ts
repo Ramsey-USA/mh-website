@@ -81,6 +81,12 @@ global.PerformanceObserver = jest.fn().mockImplementation(() => ({
   observe: mockObserve,
   disconnect: mockDisconnect,
 })) as unknown as typeof PerformanceObserver;
+global.PerformanceObserver = jest
+  .fn()
+  .mockImplementation(() => ({
+    observe: mockObserve,
+    disconnect: mockDisconnect,
+  })) as unknown as typeof PerformanceObserver;
 
 // jsdom does not implement PromiseRejectionEvent
 if (typeof global.PromiseRejectionEvent === "undefined") {
