@@ -259,16 +259,3 @@ export function sanitizeFormData(
 
   return sanitized;
 }
-
-/**
- * Rate limit validation - checks if a request should be allowed
- */
-export function validateRateLimit(
-  _identifier: string,
-  _maxRequests: number,
-  _windowMs: number,
-): { allowed: boolean; retryAfter?: number } {
-  // This would typically use a database or KV store
-  // For now, return allowed for all requests
-  return { allowed: true };
-}

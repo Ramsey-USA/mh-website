@@ -5,17 +5,10 @@
  */
 
 import { type NextRequest, NextResponse } from "next/server";
+import { escapeHTML, sanitizeSQL } from "@/lib/security/sanitization";
 
 // Security Configuration
 export interface SecurityConfig {
-  rateLimit: {
-    windowMs: number;
-    maxRequests: number;
-    skipSuccessfulRequests: boolean;
-    skipFailedRequests: boolean;
-    standardHeaders: boolean;
-    legacyHeaders: boolean;
-  };
   cors: {
     origin: string[];
     methods: string[];
@@ -64,14 +57,6 @@ export interface SecurityConfig {
 
 // Default Security Configuration
 export const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
-  rateLimit: {
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    maxRequests: 100, // limit each IP to 100 requests per windowMs
-    skipSuccessfulRequests: false,
-    skipFailedRequests: false,
-    standardHeaders: true,
-    legacyHeaders: false,
-  },
   cors: {
     origin: [
       "https://mhc-gc.com",
@@ -95,7 +80,6 @@ export const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
         "script-src": [
           "'self'",
           "'unsafe-inline'",
-          "'unsafe-eval'",
           "https://www.googletagmanager.com",
           "https://www.google-analytics.com",
         ],
@@ -152,178 +136,6 @@ export const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
     retentionDays: 90,
   },
 };
-
-// Rate Limiting Store
-interface RateLimitEntry {
-  count: number;
-  resetTime: number;
-  lastRequest: number;
-}
-
-class RateLimitStore {
-  private store: Map<string, RateLimitEntry> = new Map();
-
-  constructor() {
-    // No setInterval: Cloudflare Workers freeze between requests so timers
-    // never fire. Cleanup is performed inline on every get() call instead.
-  }
-
-  get(key: string): RateLimitEntry | undefined {
-    // Opportunistic cleanup on each read to keep memory bounded.
-    this.cleanup();
-    return this.store.get(key);
-  }
-
-  set(key: string, entry: RateLimitEntry): void {
-    this.store.set(key, entry);
-  }
-
-  delete(key: string): boolean {
-    return this.store.delete(key);
-  }
-
-  cleanup(): void {
-    const now = Date.now();
-    this.store.forEach((entry, key) => {
-      if (entry.resetTime < now) {
-        this.store.delete(key);
-      }
-    });
-  }
-
-  destroy(): void {
-    this.store.clear();
-  }
-}
-
-// Global rate limit store
-const rateLimitStore = new RateLimitStore();
-
-/**
- * Rate Limiting Middleware
- */
-export class RateLimiter {
-  private config: SecurityConfig["rateLimit"];
-
-  constructor(
-    config: SecurityConfig["rateLimit"] = DEFAULT_SECURITY_CONFIG.rateLimit,
-  ) {
-    this.config = config;
-  }
-
-  /**
-   * Check if request should be rate limited
-   */
-  checkRateLimit(request: NextRequest): {
-    allowed: boolean;
-    remaining: number;
-    resetTime: number;
-    retryAfter?: number;
-  } {
-    const ip = this.getClientIP(request);
-    const key = `rate_limit:${ip}`;
-    const now = Date.now();
-
-    let entry = rateLimitStore.get(key);
-
-    if (!entry || entry.resetTime < now) {
-      // Create new entry or reset expired entry
-      entry = {
-        count: 1,
-        resetTime: now + this.config.windowMs,
-        lastRequest: now,
-      };
-      rateLimitStore.set(key, entry);
-
-      return {
-        allowed: true,
-        remaining: this.config.maxRequests - 1,
-        resetTime: entry.resetTime,
-      };
-    }
-
-    // Update existing entry
-    entry.count += 1;
-    entry.lastRequest = now;
-    rateLimitStore.set(key, entry);
-
-    const allowed = entry.count <= this.config.maxRequests;
-    const remaining = Math.max(0, this.config.maxRequests - entry.count);
-    const retryAfter = allowed
-      ? undefined
-      : Math.ceil((entry.resetTime - now) / 1000);
-
-    return {
-      allowed,
-      remaining,
-      resetTime: entry.resetTime,
-      ...(retryAfter !== undefined && { retryAfter }),
-    };
-  }
-
-  /**
-   * Get client IP address
-   */
-  private getClientIP(request: NextRequest): string {
-    const forwarded = request.headers.get("x-forwarded-for");
-    const realIP = request.headers.get("x-real-ip");
-
-    if (forwarded) {
-      const firstIP = forwarded.split(",")[0];
-      return firstIP ? firstIP.trim() : "unknown";
-    }
-
-    if (realIP) {
-      return realIP;
-    }
-
-    // Fallback - try to get from the request URL or use unknown
-    const url = new URL(request.url);
-    return url.hostname === "localhost" ? "127.0.0.1" : "unknown";
-  }
-
-  /**
-   * Apply rate limit headers to response
-   */
-  applyHeaders(response: NextResponse, rateLimitInfo: unknown): NextResponse {
-    // Type guard for rateLimitInfo
-    const info = rateLimitInfo as {
-      remaining: number;
-      resetTime: number;
-      retryAfter?: number;
-    };
-
-    if (this.config.standardHeaders) {
-      response.headers.set(
-        "RateLimit-Limit",
-        this.config.maxRequests.toString(),
-      );
-      response.headers.set("RateLimit-Remaining", info.remaining.toString());
-      response.headers.set(
-        "RateLimit-Reset",
-        new Date(info.resetTime).toISOString(),
-      );
-    }
-
-    if (this.config.legacyHeaders) {
-      response.headers.set(
-        "X-RateLimit-Limit",
-        this.config.maxRequests.toString(),
-      );
-      response.headers.set("X-RateLimit-Remaining", info.remaining.toString());
-      response.headers.set(
-        "X-RateLimit-Reset",
-        Math.ceil(info.resetTime / 1000).toString(),
-      );
-    }
-
-    if (info.retryAfter) {
-      response.headers.set("Retry-After", info.retryAfter.toString());
-    }
-
-    return response;
-  }
-}
 
 /**
  * CSRF Protection
@@ -429,7 +241,7 @@ export class InputValidator {
     }
 
     // SQL injection protection
-    sanitizedValue = this.preventSQLInjection(sanitizedValue);
+    sanitizedValue = sanitizeSQL(sanitizedValue);
 
     return {
       isValid: errors.length === 0,
@@ -496,43 +308,10 @@ export class InputValidator {
   }
 
   /**
-   * Sanitize HTML to prevent XSS
+   * Sanitize HTML to prevent XSS — delegates to canonical escapeHTML utility
    */
   private sanitizeHtml(input: string): string {
-    return input
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#x27;")
-      .replace(/\//g, "&#x2F;");
-  }
-
-  /**
-   * Prevent SQL injection
-   */
-  private preventSQLInjection(input: string): string {
-    const sqlKeywords = [
-      "SELECT",
-      "INSERT",
-      "UPDATE",
-      "DELETE",
-      "DROP",
-      "CREATE",
-      "ALTER",
-      "EXEC",
-      "EXECUTE",
-      "UNION",
-      "SCRIPT",
-      "JAVASCRIPT",
-    ];
-
-    let sanitized = input;
-    sqlKeywords.forEach((keyword) => {
-      const regex = new RegExp(keyword, "gi");
-      sanitized = sanitized.replace(regex, "");
-    });
-
-    return sanitized;
+    return escapeHTML(input);
   }
 }
 
@@ -626,7 +405,6 @@ export class SecurityHeaders {
  * Main Security Manager
  */
 export class SecurityManager {
-  private rateLimiter: RateLimiter;
   private csrfProtection: CSRFProtection;
   private inputValidator: InputValidator;
   private securityHeaders: SecurityHeaders;
@@ -634,29 +412,21 @@ export class SecurityManager {
 
   constructor(config: SecurityConfig = DEFAULT_SECURITY_CONFIG) {
     this.config = config;
-    this.rateLimiter = new RateLimiter(config.rateLimit);
     this.csrfProtection = new CSRFProtection(config.csrf);
     this.inputValidator = new InputValidator(config.validation);
     this.securityHeaders = new SecurityHeaders(config.helmet);
   }
 
   /**
-   * Process security middleware for request
+   * Process security middleware for request.
+   * Rate limiting is enforced per-route via the rateLimit() middleware in
+   * src/lib/security/rate-limiter.ts (uses Cloudflare KV — fleet-wide).
    */
   async processRequest(request: NextRequest): Promise<{
     allowed: boolean;
     response?: NextResponse;
     csrfToken?: string;
   }> {
-    // Check rate limiting
-    const rateLimitInfo = await this.rateLimiter.checkRateLimit(request);
-
-    if (!rateLimitInfo.allowed) {
-      const response = new NextResponse("Too Many Requests", { status: 429 });
-      this.rateLimiter.applyHeaders(response, rateLimitInfo);
-      return { allowed: false, response };
-    }
-
     // CSRF protection for state-changing requests
     if (["POST", "PUT", "DELETE", "PATCH"].includes(request.method)) {
       const csrfToken = request.headers.get("X-CSRF-Token");
@@ -685,16 +455,10 @@ export class SecurityManager {
    */
   applyResponseSecurity(
     response: NextResponse,
-    rateLimitInfo?: unknown,
     csrfToken?: string,
   ): NextResponse {
     // Apply security headers
     this.securityHeaders.applyHeaders(response);
-
-    // Apply rate limit headers
-    if (rateLimitInfo) {
-      this.rateLimiter.applyHeaders(response, rateLimitInfo);
-    }
 
     // Set CSRF token
     if (csrfToken) {
@@ -751,6 +515,3 @@ export class SecurityManager {
 
 // Export singleton instance
 export const securityManager = new SecurityManager();
-
-// Types for external use
-export type { RateLimitEntry };

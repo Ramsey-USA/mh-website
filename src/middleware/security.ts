@@ -121,7 +121,6 @@ export async function securityMiddleware(
     // Apply security headers and configurations
     const securedResponse = securityManager.applyResponseSecurity(
       response,
-      securityResult,
       securityResult.csrfToken,
     );
 
@@ -265,7 +264,6 @@ export function withSecurity<
       // Apply security to response
       const securedResponse = securityManager.applyResponseSecurity(
         nextResponse,
-        securityResult,
         securityResult.csrfToken,
       );
 
