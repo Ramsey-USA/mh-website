@@ -558,13 +558,11 @@ describe("SkipLink", () => {
     // matchMedia and scrollIntoView are not implemented in JSDOM
     Object.defineProperty(window, "matchMedia", {
       writable: true,
-      value: jest
-        .fn()
-        .mockReturnValue({
-          matches: false,
-          addEventListener: jest.fn(),
-          removeEventListener: jest.fn(),
-        }),
+      value: jest.fn().mockReturnValue({
+        matches: false,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+      }),
     });
     const main = document.createElement("main");
     main.setAttribute("tabindex", "-1");
@@ -591,13 +589,11 @@ describe("SkipLink", () => {
   it("removes tabindex on main blur", () => {
     Object.defineProperty(window, "matchMedia", {
       writable: true,
-      value: jest
-        .fn()
-        .mockReturnValue({
-          matches: true,
-          addEventListener: jest.fn(),
-          removeEventListener: jest.fn(),
-        }),
+      value: jest.fn().mockReturnValue({
+        matches: true,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+      }),
     });
     const main = document.createElement("main");
     document.body.appendChild(main);
