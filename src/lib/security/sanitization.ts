@@ -204,9 +204,9 @@ export function sanitizeJSON(input: string): unknown | null {
     // Additional validation: check for prototype pollution
     if (parsed && typeof parsed === "object") {
       if (
-        "__proto__" in parsed ||
-        "constructor" in parsed ||
-        "prototype" in parsed
+        Object.prototype.hasOwnProperty.call(parsed, "__proto__") ||
+        Object.prototype.hasOwnProperty.call(parsed, "constructor") ||
+        Object.prototype.hasOwnProperty.call(parsed, "prototype")
       ) {
         logger.warn("Potential prototype pollution attempt detected");
         return null;

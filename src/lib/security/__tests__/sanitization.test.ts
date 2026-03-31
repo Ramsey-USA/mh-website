@@ -374,6 +374,14 @@ describe("sanitizeJSON", () => {
     expect(sanitizeJSON("true")).toBe(true);
   });
 
+  it("parses a valid plain object", () => {
+    expect(sanitizeJSON('{"key":"value"}')).toEqual({ key: "value" });
+  });
+
+  it("parses a valid JSON array", () => {
+    expect(sanitizeJSON("[1,2,3]")).toEqual([1, 2, 3]);
+  });
+
   it("returns null for invalid JSON", () => {
     expect(sanitizeJSON("{not valid json}")).toBeNull();
   });
@@ -386,28 +394,17 @@ describe("sanitizeJSON", () => {
     expect(sanitizeJSON(null as unknown as string)).toBeNull();
   });
 
-  it("returns null if object contains __proto__ key (prototype pollution)", () => {
-    // __proto__ is in the prototype chain of all objects, so the in-check always blocks objects
+  it("returns null if object contains own __proto__ key (prototype pollution)", () => {
+    // JSON.parse can create objects with __proto__ as an own property
     expect(sanitizeJSON('{"__proto__":{"isAdmin":true}}')).toBeNull();
   });
 
-  it("returns null if object contains constructor key", () => {
-    // constructor is inherited by all plain objects — in-check always returns null for objects
+  it("returns null if object contains own constructor key (prototype pollution)", () => {
     expect(sanitizeJSON('{"constructor":{"name":"evil"}}')).toBeNull();
   });
 
-  it("returns null if object contains prototype key", () => {
+  it("returns null if object contains own prototype key (prototype pollution)", () => {
     expect(sanitizeJSON('{"prototype":{}}')).toBeNull();
-  });
-
-  it("returns null for any plain object due to inherited constructor property", () => {
-    // The `in` operator traverses the prototype chain, so "constructor" in {} is true.
-    // This means sanitizeJSON returns null for all plain objects (known implementation behaviour).
-    expect(sanitizeJSON('{"key":"value"}')).toBeNull();
-  });
-
-  it("returns null for JSON arrays (arrays also inherit constructor)", () => {
-    expect(sanitizeJSON("[1,2,3]")).toBeNull();
   });
 });
 
