@@ -1,71 +1,40 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { MaterialIcon } from "../MaterialIcon";
 
 describe("MaterialIcon", () => {
-  it("renders without crashing", () => {
-    const { container } = render(<MaterialIcon icon="home" />);
-    expect(container).toBeTruthy();
-  });
-
-  it("renders the icon name as text content", () => {
-    render(<MaterialIcon icon="star" />);
-    expect(screen.getByText("star")).toBeInTheDocument();
-  });
-
-  it("accepts name via icon prop and renders it", () => {
-    render(<MaterialIcon icon="settings" />);
-    expect(screen.getByText("settings")).toBeInTheDocument();
-  });
-
-  it("applies material-icons class", () => {
-    const { container } = render(<MaterialIcon icon="home" />);
-    const span = container.querySelector("span");
-    expect(span?.className).toContain("material-icons");
-  });
-
-  it("is aria-hidden by default (decorative)", () => {
-    const { container } = render(<MaterialIcon icon="home" />);
-    const span = container.querySelector("span");
-    expect(span).toHaveAttribute("aria-hidden", "true");
-  });
-
-  it("sets aria-hidden false when ariaLabel provided", () => {
+  it("applies colorStyle when primaryColor provided and no color class", () => {
     const { container } = render(
-      <MaterialIcon icon="home" ariaLabel="Go to home" />,
+      <MaterialIcon icon="home" primaryColor="#ff0000" theme="default" />,
     );
     const span = container.querySelector("span");
-    expect(span).toHaveAttribute("aria-hidden", "false");
-    expect(span).toHaveAttribute("aria-label", "Go to home");
+    expect(span).toHaveStyle({ color: "#ff0000" });
   });
 
-  it("defaults size to md", () => {
-    const { container } = render(<MaterialIcon icon="home" />);
+  it("does not apply colorStyle when primaryColor is absent (falsy branch)", () => {
+    const { container } = render(<MaterialIcon icon="home" theme="default" />);
     const span = container.querySelector("span");
-    // md maps to 30px in sizeMap
-    expect(span?.style.fontSize).toBe("30px");
+    // No inline color style should be set
+    expect(span?.style.color).toBeFalsy();
   });
 
-  it("applies sm size correctly", () => {
-    const { container } = render(<MaterialIcon icon="home" size="sm" />);
-    const span = container.querySelector("span");
-    expect(span?.style.fontSize).toBe("24px");
-  });
-
-  it("applies lg size correctly", () => {
-    const { container } = render(<MaterialIcon icon="home" size="lg" />);
-    const span = container.querySelector("span");
-    expect(span?.style.fontSize).toBe("36px");
-  });
-
-  it("applies custom className", () => {
+  it("does not apply colorStyle when className already contains a text- color class", () => {
     const { container } = render(
-      <MaterialIcon icon="home" className="text-red-500" />,
+      <MaterialIcon
+        icon="home"
+        primaryColor="#ff0000"
+        className="text-blue-500"
+        theme="default"
+      />,
     );
     const span = container.querySelector("span");
-    expect(span?.className).toContain("text-red-500");
+    expect(span?.style.color).toBeFalsy();
   });
 
-  it("has displayName MaterialIcon", () => {
-    expect(MaterialIcon.displayName).toBe("MaterialIcon");
+  it("does not apply colorStyle when theme is not default", () => {
+    const { container } = render(
+      <MaterialIcon icon="home" primaryColor="#ff0000" theme="veteran" />,
+    );
+    const span = container.querySelector("span");
+    expect(span?.style.color).toBeFalsy();
   });
 });

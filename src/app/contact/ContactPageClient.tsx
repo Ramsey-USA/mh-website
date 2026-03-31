@@ -23,6 +23,7 @@ const quickContact = [
     value: COMPANY_INFO.phone.display,
     link: `tel:${COMPANY_INFO.phone.tel}`,
     color: "brand-primary",
+    actionLabel: "Call Now",
     ariaLabel: `Call MH Construction at ${COMPANY_INFO.phone.display}`,
   },
   {
@@ -31,6 +32,7 @@ const quickContact = [
     value: COMPANY_INFO.email.main,
     link: `mailto:${COMPANY_INFO.email.main}`,
     color: "brand-primary",
+    actionLabel: "Send Email",
     ariaLabel: "Send email to MH Construction",
   },
   {
@@ -39,6 +41,7 @@ const quickContact = [
     value: COMPANY_INFO.address.full,
     link: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY_INFO.address.full)}`,
     color: "brand-primary",
+    actionLabel: "Get Directions",
     ariaLabel: "Get directions to MH Construction office in Pasco, WA",
   },
 ];
@@ -246,11 +249,7 @@ export default function ContactPageClient() {
                           aria-hidden="true"
                         >
                           <span className="font-medium text-sm">
-                            {contact.icon === "phone"
-                              ? "Call Now"
-                              : contact.icon === "email"
-                                ? "Send Email"
-                                : "Get Directions"}
+                            {contact.actionLabel}
                           </span>
                           <MaterialIcon
                             icon="arrow_forward"

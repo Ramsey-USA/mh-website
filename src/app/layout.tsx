@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/contexts/theme-context";
 import { WebVitalsReporter } from "@/components/performance/WebVitalsReporter";
 import { MobilePerformanceMonitor } from "@/components/performance/MobilePerformanceMonitor";
 import { ErrorBoundary } from "@/components/error";
-import { ChatWidget } from "@/components/chatbot";
+import ChatWidgetLazy from "@/components/chatbot/ChatWidgetLazy";
 import {
   StructuredData,
   generateEnhancedOrganizationSchema,
@@ -217,7 +217,7 @@ export default function RootLayout({
                 </main>
                 <Footer />
               </div>
-              <ChatWidget />
+              <ChatWidgetLazy />
             </ErrorBoundary>
           </AuthProvider>
         </ThemeProvider>

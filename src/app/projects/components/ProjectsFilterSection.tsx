@@ -49,6 +49,7 @@ export function ProjectsFilterSection({
               <input
                 type="text"
                 placeholder="Search partnerships by title, description, or location..."
+                aria-label="Search projects"
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
                 className="bg-white dark:bg-gray-700 py-4 pr-4 pl-12 border border-gray-300 dark:border-gray-600 focus:border-brand-primary dark:focus:border-brand-primary rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary/20 w-full text-gray-900 dark:text-white"

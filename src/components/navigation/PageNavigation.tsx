@@ -45,8 +45,7 @@ interface PageNavigationProps {
  * @param {NavigationItem[]} props.items - Navigation items from navigationConfigs
  * @param {string} [props.className] - Additional CSS classes
  *
- * @see /docs/technical/NAVIGATION_ARCHITECTURE.md - Complete navigation system documentation
- * @see /docs/technical/NAVIGATION_TECHNICAL_GUIDE.md - Implementation guide
+ * @see /docs/project/architecture.md - Project architecture documentation
  * @see /src/components/navigation/navigationConfigs.ts - Navigation configurations
  */
 export function PageNavigation({ items, className = "" }: PageNavigationProps) {

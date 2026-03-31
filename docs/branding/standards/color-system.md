@@ -1,10 +1,9 @@
 # MH Construction Color System
 
-**Date:** December 25, 2025  
-**Status:** ✅ Current  
 **Category:** Business - Brand Guidelines  
 **Last Updated:** December 25, 2025  
-**Version:** 5.2.0 - Accessibility Color Variants
+**Version:** 5.2.0 - Accessibility Color Variants  
+**Status:** ✅ Current
 
 ## Quick Navigation
 
@@ -673,11 +672,11 @@ Homepage descriptions use colored text highlights for visual interest and emphas
 4. **Dark Mode:** Use lighter variants (`-light`, `400`) for contrast
 5. **Avoid:** Don't highlight every other word - be selective
 
-### **Special Emphasis Patterns - NEW**
+### Special Emphasis Patterns - NEW
 
 **Version:** 5.1.0 | **Date:** December 24, 2025
 
-#### **"NOT" Emphasis Pattern**
+#### "NOT" Emphasis Pattern
 
 Used to strongly emphasize negation or contrast in key messaging:
 
@@ -699,7 +698,7 @@ Used to strongly emphasize negation or contrast in key messaging:
 - Apply to words like: NOT, NEVER, ZERO, NO
 - Creates maximum visual impact for key negations
 
-#### **Dynamic Subtitle Rendering**
+#### Dynamic Subtitle Rendering
 
 For dynamically styling specific words within strings:
 
@@ -734,7 +733,7 @@ function renderSubtitle(subtitle: string) {
 - Headlines emphasizing what you don't do
 - Core value statements
 
-#### **Semantic Color Mixing in Descriptions**
+#### Semantic Color Mixing in Descriptions
 
 Combine multiple highlight colors within a single paragraph for visual richness:
 
@@ -954,22 +953,22 @@ Combine multiple highlight colors within a single paragraph for visual richness:
 
 ### CSS Custom Properties
 
-````css
+```css
 :root {
   /* Brand Colors */
-  --color-brand-primary: #386851;        /* Hunter Green */
-  --color-brand-primary-light: #628F79;  /* Lighter Hunter Green */
-  --color-brand-primary-dark: #1E392C;   /* Darker Hunter Green */
-  --color-brand-secondary: #BD9264;      /* Leather Tan */
-  --color-brand-secondary-light: #D9BD93; /* Lighter Tan */
-  --color-brand-secondary-dark: #8A6B49;  /* Darker Tan */
+  --color-brand-primary: #386851; /* Hunter Green */
+  --color-brand-primary-light: #628f79; /* Lighter Hunter Green */
+  --color-brand-primary-dark: #1e392c; /* Darker Hunter Green */
+  --color-brand-secondary: #bd9264; /* Leather Tan */
+  --color-brand-secondary-light: #d9bd93; /* Lighter Tan */
+  --color-brand-secondary-dark: #8a6b49; /* Darker Tan */
 
   /* Light Mode */
   --color-text-primary: #212121;
   --color-text-secondary: #757575;
-  --color-background: #FFFFFF;
-  --color-surface: #F5F5F5;
-  --color-border: #E0E0E0;
+  --color-background: #ffffff;
+  --color-surface: #f5f5f5;
+  --color-border: #e0e0e0;
 
   /* Semantic Colors */
   --color-success: #10b981;
@@ -980,10 +979,10 @@ Combine multiple highlight colors within a single paragraph for visual richness:
 
 [data-theme="dark"] {
   /* Dark Mode Overrides */
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #B0B0B0;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b0b0b0;
   --color-background: #121212;
-  --color-surface: #1E1E1E;
+  --color-surface: #1e1e1e;
   --color-border: #424242;
 
   /* Dark Mode Semantic */
@@ -992,7 +991,7 @@ Combine multiple highlight colors within a single paragraph for visual richness:
   --color-error: #f87171;
   --color-info: #60a5fa;
 }
-```text
+```
 
 ### Tailwind Configuration
 
@@ -1002,36 +1001,36 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          primary: '#386851',         // Hunter Green
-          'primary-light': '#628F79', // Lighter Hunter Green
-          'primary-dark': '#1E392C',  // Darker Hunter Green
-          secondary: '#BD9264',       // Leather Tan
-          'secondary-light': '#D9BD93', // Lighter Tan
-          'secondary-dark': '#8A6B49'   // Darker Tan
+          primary: "#386851", // Hunter Green
+          "primary-light": "#628F79", // Lighter Hunter Green
+          "primary-dark": "#1E392C", // Darker Hunter Green
+          secondary: "#BD9264", // Leather Tan
+          "secondary-light": "#D9BD93", // Lighter Tan
+          "secondary-dark": "#8A6B49", // Darker Tan
         },
         gray: {
-          50: '#FAFAFA',
-          100: '#F5F5F5',
-          200: '#EEEEEE',
-          300: '#E0E0E0',
-          400: '#BDBDBD',
-          500: '#9E9E9E',
-          600: '#757575',
-          700: '#424242',
-          800: '#303030',
-          900: '#212121'
+          50: "#FAFAFA",
+          100: "#F5F5F5",
+          200: "#EEEEEE",
+          300: "#E0E0E0",
+          400: "#BDBDBD",
+          500: "#9E9E9E",
+          600: "#757575",
+          700: "#424242",
+          800: "#303030",
+          900: "#212121",
         },
         semantic: {
-          success: '#10b981',
-          warning: '#f59e0b',
-          error: '#ef4444',
-          info: '#3b82f6'
-        }
-      }
-    }
-  }
-}
-```text
+          success: "#10b981",
+          warning: "#f59e0b",
+          error: "#ef4444",
+          info: "#3b82f6",
+        },
+      },
+    },
+  },
+};
+```
 
 ## Brand Color Consistency
 
@@ -1108,28 +1107,28 @@ module.exports = {
 
 ### Brand Colors
 
-| Color | Hex | Usage |
-|-------|-----|-------|
-| **Hunter Green** | `#386851` | Primary buttons, main CTAs, IRL consultations |
-| **Hunter Green Light** | `#628F79` | Hover states, lighter accents |
-| **Hunter Green Dark** | `#1E392C` | Active states, pressed buttons |
-| **Leather Tan** | `#BD9264` | Secondary buttons, Automated Estimator, trade partnerships |
-| **Leather Tan Light** | `#D9BD93` | Hover states, lighter accents |
-| **Leather Tan Dark** | `#8A6B49` | Active states, pressed buttons |
+| Color                  | Hex       | Usage                                                      |
+| ---------------------- | --------- | ---------------------------------------------------------- |
+| **Hunter Green**       | `#386851` | Primary buttons, main CTAs, IRL consultations              |
+| **Hunter Green Light** | `#628F79` | Hover states, lighter accents                              |
+| **Hunter Green Dark**  | `#1E392C` | Active states, pressed buttons                             |
+| **Leather Tan**        | `#BD9264` | Secondary buttons, Automated Estimator, trade partnerships |
+| **Leather Tan Light**  | `#D9BD93` | Hover states, lighter accents                              |
+| **Leather Tan Dark**   | `#8A6B49` | Active states, pressed buttons                             |
 
 ### Service/Partnership Color Associations
 
-| Service/Partnership | Button Color | Icon | Example CTA |
-|---------------------|--------------|------|-------------|
-| **IRL Consultation** | Hunter Green (Primary) | `event` | "Schedule Free Consultation" |
-| **Client Partnership** | Hunter Green (Primary) | `handshake` | "Begin Partnership" |
-| **Trade Partnership** | Leather Tan (Secondary) | `construction` | "Join Trade Network" |
-| **Government/Federal** | Grayscale Gradient | `account_balance` | "Request Grant Support" |
+| Service/Partnership    | Button Color            | Icon              | Example CTA                  |
+| ---------------------- | ----------------------- | ----------------- | ---------------------------- |
+| **IRL Consultation**   | Hunter Green (Primary)  | `event`           | "Schedule Free Consultation" |
+| **Client Partnership** | Hunter Green (Primary)  | `handshake`       | "Begin Partnership"          |
+| **Trade Partnership**  | Leather Tan (Secondary) | `construction`    | "Join Trade Network"         |
+| **Government/Federal** | Grayscale Gradient      | `account_balance` | "Request Grant Support"      |
 
 ### Contact Information Color Coding
 
-- **Client Partnerships:** Hunter Green theme (, office@mhc-gc.com)
-- **Trade Partnerships:** Leather Tan theme (, office@mhc-gc.com)
+- **Client Partnerships:** Hunter Green theme (, <office@mhc-gc.com>)
+- **Trade Partnerships:** Leather Tan theme (, <office@mhc-gc.com>)
 
 ---
 
@@ -1142,11 +1141,11 @@ module.exports = {
   <MaterialIcon icon="event" size="lg" className="mr-3" />
   <span className="font-medium">Schedule Free Consultation</span>
 </Button>
-````
+```
 
 ### Secondary Button (Leather Tan)
 
-````tsx
+```tsx
 <Button variant="secondary" size="lg">
   <MaterialIcon icon="construction" size="lg" className="mr-3" />
   <span className="font-medium">Join Trade Network</span>
@@ -1177,5 +1176,4 @@ module.exports = {
 <button className="text-brand-primary hover:bg-brand-primary hover:text-white">
   Interactive Element
 </button>
-```text
-````
+```

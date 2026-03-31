@@ -1,3 +1,16 @@
+# ============================================================================
+# wrangler-example.toml — LEGACY REFERENCE (Cloudflare Pages model)
+# ============================================================================
+#
+# ⚠️  This file is NOT used in production. It is a reference for the
+#     legacy Cloudflare Pages deployment model.
+#
+#     The ACTUAL production config is:  /wrangler.toml  (root of repo)
+#     This project uses Cloudflare WORKERS via the OpenNext adapter.
+#
+#     See: docs/deployment/cloudflare-guide.md
+# ============================================================================
+
 name = "mh-construction-website"
 main = "src/index.js"
 compatibility_date = "2024-01-15"
@@ -12,35 +25,19 @@ name = "mh-construction-staging"
 account_id = "YOUR_CLOUDFLARE_ACCOUNT_ID"
 zone_id = "YOUR_CLOUDFLARE_ZONE_ID"
 
-# Custom domain configuration
 route = "mhc-gc.com/*"
 
-# Environment variables
 [vars]
 ENVIRONMENT = "production"
 API_BASE_URL = "https://api.mhc-gc.com"
 
-# KV Namespaces for caching
 [[kv_namespaces]]
 binding = "CACHE"
 id = "your-kv-namespace-id"
 preview_id = "your-preview-kv-namespace-id"
 
-# Security headers
-[wrangler]
-send_metrics = false
-
-# Build configuration
 [build]
 command = "npm run build"
 cwd = "."
 watch_dir = "src"
-
-# Rules configuration
-[rules]
-# Security rule for admin paths
-[[rules]]
-type = "redirect"
-from = "/admin/*"
-to = "/login"
 status = 302

@@ -25,6 +25,8 @@ npx wrangler d1 execute mh-construction-db --local --file=./migrations/0002_crea
 npx wrangler d1 execute mh-construction-db --local --file=./migrations/0003_create_contact_submissions.sql
 npx wrangler d1 execute mh-construction-db --local --file=./migrations/0004_create_users.sql
 npx wrangler d1 execute mh-construction-db --local --file=./migrations/0005_create_sessions.sql
+npx wrangler d1 execute mh-construction-db --local --file=./migrations/0006_create_newsletter_subscribers.sql
+npx wrangler d1 execute mh-construction-db --local --file=./migrations/0007_add_created_at_indexes.sql
 
 # apply-to-production-after-testing
 npx wrangler d1 execute mh-construction-db --remote --file=./migrations/0001_create_consultations.sql
@@ -43,13 +45,15 @@ npx wrangler d1 execute mh-construction-db --remote --command="SELECT name FROM 
 
 ## Migration Files
 
-| File                                  | Table               | Purpose                                |
-| ------------------------------------- | ------------------- | -------------------------------------- |
-| `0001_create_consultations.sql`       | consultations       | Store consultation booking requests    |
-| `0002_create_job_applications.sql`    | job_applications    | Store career/job applications          |
-| `0003_create_contact_submissions.sql` | contact_submissions | Store general contact form submissions |
-| `0004_create_users.sql`               | users               | Store user accounts for authentication |
-| `0005_create_sessions.sql`            | sessions            | Store JWT session tokens               |
+| File                                     | Table                  | Purpose                                    |
+| ---------------------------------------- | ---------------------- | ------------------------------------------ |
+| `0001_create_consultations.sql`          | consultations          | Store consultation booking requests        |
+| `0002_create_job_applications.sql`       | job_applications       | Store career/job applications              |
+| `0003_create_contact_submissions.sql`    | contact_submissions    | Store general contact form submissions     |
+| `0004_create_users.sql`                  | users                  | Store user accounts for authentication     |
+| `0005_create_sessions.sql`               | sessions               | Store JWT session tokens                   |
+| `0006_create_newsletter_subscribers.sql` | newsletter_subscribers | Store newsletter opt-in subscriber records |
+| `0007_add_created_at_indexes.sql`        | (multiple)             | Indexes on `created_at` for faster queries |
 
 ## Schema Overview
 
@@ -82,6 +86,12 @@ npx wrangler d1 execute mh-construction-db --remote --command="SELECT name FROM 
 - JWT token management
 - Session expiration tracking
 - IP and user agent logging for security
+
+### newsletter_subscribers
+
+- Stores newsletter opt-in subscriber email records
+- Tracks subscription date and confirmation status
+- Supports unsubscribe workflow
 
 ## Development Workflow
 

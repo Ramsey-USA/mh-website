@@ -44,7 +44,7 @@ type Vendor = {
   portfolio: string[];
   /**
    * Path relative to /public once logo is uploaded.
-   * e.g. "/images/vendors/mustang-signs-logo.webp"
+   * e.g. "/images/vendors/mustang_signs.svg"
    */
   logo: string;
   brandColors: VendorBrandColors | null;
@@ -107,7 +107,7 @@ const vendors: Vendor[] = [
       "MH Construction office front signage",
       "MH Construction job site signage",
     ],
-    logo: "/images/vendors/mustang_signs.png",
+    logo: "/images/vendors/mustang_signs.svg",
     brandColors: { primary: "#0089CF", secondary: "#F68E2D" },
     address: "10379 W Clearwater Ave, Kennewick, WA 99336",
     phone: "(509) 735-4607",
@@ -149,7 +149,7 @@ const vendors: Vendor[] = [
       "Snow & Ice — Plowing, Sidewalk Removal & De-icing",
     ],
     portfolio: [],
-    logo: "/images/vendors/bagley_landscape.png",
+    logo: "/images/vendors/bagley_landscape.svg",
     brandColors: { primary: "#409416", secondary: "#262626" },
     address: "1418 E St Helens St, Pasco, WA 99301",
     phone: "(509) 546-2449",
@@ -179,7 +179,7 @@ const vendors: Vendor[] = [
       "Interior Partitions",
     ],
     portfolio: [],
-    logo: "/images/vendors/mckinney_glass.png",
+    logo: "/images/vendors/mckinney_glass.svg",
     brandColors: null,
     address: "2220 Goodman Rd, Union Gap, WA 98903",
     phone: "(509) 248-2770",
@@ -214,7 +214,7 @@ const vendors: Vendor[] = [
       "Div 12 — Floor Mats & Window Shades",
     ],
     portfolio: [],
-    logo: "/images/vendors/dupree_building.png",
+    logo: "/images/vendors/dupree_building.svg",
     brandColors: { primary: "#384884", secondary: "#384884" },
     address: "1035 E. Cataldo, Spokane, WA 99202",
     phone: "509.484.2000",
@@ -253,7 +253,7 @@ const vendors: Vendor[] = [
       "Gates & Automated Gates",
     ],
     portfolio: [],
-    logo: "/images/vendors/d_fence_fencing.png",
+    logo: "/images/vendors/d_fence_fencing.svg",
     brandColors: { primary: "#CC2020", secondary: "#333333" },
     address: "P.O. Box 881, Selah, WA 98942",
     phone: "(509) 731-8836",
@@ -291,7 +291,7 @@ const vendors: Vendor[] = [
       "Window Blinds & Paint",
     ],
     portfolio: [],
-    logo: "/images/vendors/iwi_insulation.png",
+    logo: "/images/vendors/iwi_insulation.svg",
     brandColors: { primary: "#CE2027", secondary: "#262626" },
     address: "9304 W. Clearwater Dr. Suite A, Kennewick, WA 99336",
     phone: "509.735.8411",
@@ -326,7 +326,7 @@ const vendors: Vendor[] = [
       "Plumbing System Maintenance & Inspections",
     ],
     portfolio: [],
-    logo: "/images/vendors/viking_plumbing_logo.png",
+    logo: "/images/vendors/viking_plumbing_logo.svg",
     brandColors: { primary: "#F5C645", secondary: "#2F2E2E" },
     address: "2805 Ahtanum Rd, Yakima, WA 98942",
     phone: "(509) 450-0485",
@@ -365,7 +365,7 @@ const vendors: Vendor[] = [
       "Commercial Offices",
     ],
     portfolio: [],
-    logo: "/images/vendors/core_cabinet.png",
+    logo: "/images/vendors/core_cabinet.svg",
     brandColors: { primary: "#E35724", secondary: "#444444" },
     address: "2573 Robertson Drive, Richland, WA 99354",
     phone: "(509) 375-7900",

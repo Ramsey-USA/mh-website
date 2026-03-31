@@ -204,13 +204,20 @@ Safety record: 0.64 EMR (40% better than industry average), multiple AGC-WA Top 
 Stats: 650+ completed projects, 70% referral rate, 150+ years combined team expertise. Licensed in WA, OR, and ID.
 
 ## SERVICES
-- Commercial Construction (full-service, design through completion)
-- Industrial Projects (facility expansions, renovations, new builds)
-- Pre-Engineered Metal Buildings (PEMB) — warehouses, manufacturing, agricultural
-- Government & Public Sector Construction (federal compliance, grant support)
-- Design-Build Services, General Contracting, Construction Management
-- Master Planning & Preconstruction, Tenant Improvements
-- Site Development, Feasibility Studies, Construction Cost Analysis
+Core Services:
+- Commercial Construction Management (full-service, design through completion)
+- Master Planning / Pre-Construction (site development, feasibility studies, cost analysis)
+- Procurement & Trade Partnership Management
+- Constructability & Budget Control
+- Modularization & Subproject Management
+
+Specialty Services:
+- Markets We Serve (commercial, industrial, government, religious, veteran)
+- Tenant Improvements
+- Commercial New Build-Outs
+- Light Industrial Construction (including Pre-Engineered Metal Buildings)
+- Religious Facilities
+- Design-Build Services
 
 ## SERVICE AREA
 Primary: Tri-Cities WA (Pasco HQ, Kennewick, Richland, West Richland), Benton & Franklin Counties.

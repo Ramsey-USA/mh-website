@@ -445,7 +445,7 @@ export function generateNewsletterAcknowledgment(data: NewsletterEmailData): {
     <!-- Header with Logo -->
     <tr>
       <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 40px 30px; text-align: center;">
-        <img src="https://mhc-gc.com/images/logo/mh-logo.png" alt="MH Construction Logo" style="max-width: 240px; height: auto; margin-bottom: 20px;" />
+        <img src="https://www.mhc-gc.com/images/logo/mh-logo.png" alt="MH Construction Logo" style="max-width: 240px; height: auto; margin-bottom: 20px;" />
         <h1 style="color: #ffffff; margin: 0; font-size: 26px; font-weight: 700;">Welcome to Our Community!</h1>
         <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Building Excellence Together</p>
       </td>
@@ -489,7 +489,7 @@ export function generateNewsletterAcknowledgment(data: NewsletterEmailData): {
         
         <div style="background-color: #386851; padding: 25px; margin: 25px 0; border-radius: 8px; text-align: center;">
           <h3 style="color: #ffffff; margin: 0 0 15px 0; font-size: 18px;">Ready to Start Your Project?</h3>
-          <a href="https://mhc-gc.com/contact" style="display: inline-block; background-color: #d4af37; color: #212121; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 16px; margin-top: 10px;">Get Your Free Consultation</a>
+          <a href="https://www.mhc-gc.com/contact" style="display: inline-block; background-color: #d4af37; color: #212121; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 16px; margin-top: 10px;">Get Your Free Consultation</a>
         </div>
         
         <p style="margin: 25px 0 0 0; font-size: 16px; line-height: 1.6;">
@@ -524,7 +524,7 @@ export function generateNewsletterAcknowledgment(data: NewsletterEmailData): {
         
         <p style="margin: 15px 0 0 0; font-size: 12px; color: #666;">
           Licensed in WA, OR, ID | Veteran-Owned & Operated<br>
-          <a href="https://mhc-gc.com" style="color: #d4af37; text-decoration: none;">www.mhc-gc.com</a>
+          <a href="https://www.mhc-gc.com" style="color: #d4af37; text-decoration: none;">www.mhc-gc.com</a>
         </p>
         
         <p style="margin: 15px 0 0 0; font-size: 11px; color: #666;">
@@ -557,7 +557,7 @@ VETERAN-OWNED. RELATIONSHIP-FIRST.
 As a veteran-owned company, we bring disciplined execution, follow-through, and integrity to every project. We're proud to serve the Tri-Cities community and the Pacific Northwest with the same dedication we showed in service to our country.
 
 READY TO START YOUR PROJECT?
-Get your free consultation: https://mhc-gc.com/contact
+Get your free consultation: https://www.mhc-gc.com/contact
 
 Questions or need assistance? Our team is always here to help. Reply to this email or call us at (509) 308-6489.
 

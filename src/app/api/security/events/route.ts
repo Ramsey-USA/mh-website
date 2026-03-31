@@ -42,8 +42,14 @@ async function handler(request: NextRequest) {
         | "failure"
         | "warning"
         | undefined;
-      const limit = parseInt(searchParams.get("limit") || "50");
-      const offset = parseInt(searchParams.get("offset") || "0");
+      const limit = Math.max(
+        1,
+        parseInt(searchParams.get("limit") || "50") || 50,
+      );
+      const offset = Math.max(
+        0,
+        parseInt(searchParams.get("offset") || "0") || 0,
+      );
       const format = searchParams.get("format") || "json";
 
       // Build query with proper types - only include defined properties

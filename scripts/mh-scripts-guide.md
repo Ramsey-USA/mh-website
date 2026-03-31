@@ -15,8 +15,6 @@ Organized automation scripts for the MH Construction website development workflo
 ### 📁 `/cleanup/` - Codebase Maintenance
 
 - `cleanup.sh` - General codebase cleanup
-- `post-optimization-cleanup.js` - Post-optimization cleanup tasks
-- `review-backups.sh` - Backup file review and cleanup
 
 ### 📁 `/markdown/` - Documentation Processing
 
@@ -37,6 +35,9 @@ Organized automation scripts for the MH Construction website development workflo
 
 - `add-cspell-word.sh` - Add words to cspell dictionary
 - `check-domain-setup.sh` - Verify domain configuration
+- `check-md-consistency.sh` - Check markdown consistency
+- `check-pages.sh` - Page analysis utility
+- `cleanup-check.sh` - Cleanup verification
 - `fix-markdown-code-blocks.sh` - Fix markdown code block issues
 - `fix-markdown-lists.sh` - Fix markdown list formatting
 
@@ -49,16 +50,25 @@ Organized automation scripts for the MH Construction website development workflo
 
 - `generate-qr-codes.js` - Generate QR codes (color & B&W variants with labels)
 - `add-team-qr-codes.js` - Add QR code references to team data
+- `add-team-skills.js` - Add skills to team data
+- `analyze-components.js` - Component analysis
+- `check-qr-codes.sh` - Verify QR code presence
 - `extract-team-data.js` - Extract team member data
-- `test-api-endpoints.sh` - Test API endpoint functionality
-- `test-d1-integration.sh` - Test Cloudflare D1 database integration
+- `fix-code-issues.js` - Fix common code issues
+- `lighthouse-guide.js` - Lighthouse testing guide
+- `seo-audit.js` - SEO audit tool
+- `setup-ffmpeg.sh` - FFmpeg setup for video processing
+- `test-basic-performance.js` - Basic performance testing
 - `test-database.js` - Database testing utilities
+- `test-lighthouse-quick.js` - Quick Lighthouse tests
+- `test-lighthouse.js` - Full Lighthouse tests
+- `test-pwa.js` - PWA testing
 
 ## Usage Examples
 
 ```bash
 # run-analysis
-npm run analyze:content
+node scripts/analysis/analyze-content-quality.sh
 
 # cleanup-operations
 npm run clean
@@ -70,10 +80,10 @@ npm run lint:markdown:fix
 npm run optimize:images
 
 # domain-setup-check
-npm run domain:check
+bash scripts/utilities/check-domain-setup.sh
 
 # validation
-./scripts/validation/health-check-final.sh
+bash scripts/validation/health-check-final.sh
 ```
 
 ## Package.json Scripts
@@ -81,16 +91,22 @@ npm run domain:check
 Access these scripts via npm:
 
 - `npm run qr:generate` - Generate all QR codes (color & B&W variants)
-- `npm run qr:team` - Add QR code references to team data
+- `npm run qr:test` - Test QR code output
+- `npm run qr:check` - Verify QR code presence
 - `npm run clean` - Run cleanup script
 - `npm run optimize:images` - Optimize images
+- `npm run optimize:videos` - Optimize videos
+- `npm run audit:images` - Audit image optimization opportunities
 - `npm run lint:markdown` - Lint markdown files
 - `npm run lint:markdown:fix` - Auto-fix markdown issues
-- `npm run lint:devdocs` - Lint only development docs (`docs/development/**/*.md`)
-- `npm run validate:links` - Validate markdown links
-- `npm run analyze:content` - Run content quality analysis
-- `npm run review:backups` - Review backup files
-- `npm run domain:check` - Check domain setup
+- `npm run quality:check` - Run full quality scan
+
+Scripts without npm aliases (run directly):
+
+- `node scripts/add-team-qr-codes.js` - Add QR code references to team data
+- `bash scripts/analysis/analyze-content-quality.sh` - Content quality analysis
+- `bash scripts/utilities/check-domain-setup.sh` - Check domain setup
+- `bash scripts/markdown/validate-markdown-links.sh` - Validate markdown links
 
 ---
 

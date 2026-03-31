@@ -48,6 +48,21 @@ async function handleGET(
   }
 }
 
+// Only these columns may be modified via the public PUT endpoint.
+const UPDATABLE_FIELDS = new Set([
+  "client_name",
+  "email",
+  "phone",
+  "project_type",
+  "project_description",
+  "location",
+  "budget",
+  "selected_date",
+  "selected_time",
+  "additional_notes",
+  "status",
+]);
+
 async function handlePUT(
   request: NextRequest,
   _user: JWTUser,
@@ -55,7 +70,19 @@ async function handlePUT(
 ) {
   try {
     const { id } = await (context as RouteParams).params;
-    const updates = await request.json();
+    const body = await request.json();
+
+    // Filter to only allowed fields — reject unknown/dangerous columns
+    const updates: Record<string, unknown> = {};
+    for (const key of Object.keys(body)) {
+      if (UPDATABLE_FIELDS.has(key)) {
+        updates[key] = body[key];
+      }
+    }
+
+    if (Object.keys(updates).length === 0) {
+      return notFound("No valid fields to update");
+    }
 
     // Update consultation in D1 database
     const DB = getD1Database();

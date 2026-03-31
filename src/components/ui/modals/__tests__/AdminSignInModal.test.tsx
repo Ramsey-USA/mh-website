@@ -105,4 +105,74 @@ describe("AdminSignInModal", () => {
     expect(pushMock).toHaveBeenCalledWith("/dashboard");
     expect(onClose).toHaveBeenCalledTimes(1);
   });
+
+  it("shows server error message when response is not ok (covers else branch)", async () => {
+    const user = userEvent.setup();
+    const onClose = jest.fn();
+    const mockFetch = global.fetch as jest.MockedFunction<typeof fetch>;
+
+    mockFetch.mockResolvedValue({
+      ok: false,
+      json: async () => ({ error: "Account locked" }),
+    } as Response);
+
+    render(<AdminSignInModal isOpen onClose={onClose} />);
+
+    await user.type(
+      screen.getByLabelText(/Email Address/i),
+      "admin@mhc-gc.com",
+    );
+    await user.type(screen.getByLabelText(/Password/i), "wrongpass");
+    await user.click(screen.getByRole("button", { name: /Sign In/i }));
+
+    await waitFor(() => {
+      expect(screen.getByText("Account locked")).toBeInTheDocument();
+    });
+    expect(pushMock).not.toHaveBeenCalled();
+  });
+
+  it("shows fallback error when response.ok is false and no error field", async () => {
+    const user = userEvent.setup();
+    const mockFetch = global.fetch as jest.MockedFunction<typeof fetch>;
+
+    mockFetch.mockResolvedValue({
+      ok: false,
+      json: async () => ({}),
+    } as Response);
+
+    render(<AdminSignInModal isOpen onClose={jest.fn()} />);
+
+    await user.type(
+      screen.getByLabelText(/Email Address/i),
+      "admin@mhc-gc.com",
+    );
+    await user.type(screen.getByLabelText(/Password/i), "wrongpass");
+    await user.click(screen.getByRole("button", { name: /Sign In/i }));
+
+    await waitFor(() => {
+      expect(screen.getByText("Invalid credentials")).toBeInTheDocument();
+    });
+  });
+
+  it("shows generic error message when fetch throws (covers catch block)", async () => {
+    const user = userEvent.setup();
+    const mockFetch = global.fetch as jest.MockedFunction<typeof fetch>;
+
+    mockFetch.mockRejectedValue(new Error("Network error"));
+
+    render(<AdminSignInModal isOpen onClose={jest.fn()} />);
+
+    await user.type(
+      screen.getByLabelText(/Email Address/i),
+      "admin@mhc-gc.com",
+    );
+    await user.type(screen.getByLabelText(/Password/i), "secret");
+    await user.click(screen.getByRole("button", { name: /Sign In/i }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByText("Authentication failed. Please try again."),
+      ).toBeInTheDocument();
+    });
+  });
 });

@@ -1,5 +1,6 @@
 export const revalidate = 86400; // 24 h ISR
 
+import dynamic from "next/dynamic";
 import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
 import {
@@ -14,12 +15,20 @@ import {
   generateReviewSchema,
 } from "@/lib/seo/review-schema";
 import { getClientTestimonials } from "@/lib/data/testimonials";
-import { TestimonialsSection } from "@/components/shared-sections/TestimonialsSection";
-import { StrategicCTABanner } from "@/components/ui/cta";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+const TestimonialsSection = dynamic(() =>
+  import("@/components/shared-sections/TestimonialsSection").then((m) => ({
+    default: m.TestimonialsSection,
+  })),
+);
+const StrategicCTABanner = dynamic(() =>
+  import("@/components/ui/cta").then((m) => ({
+    default: m.StrategicCTABanner,
+  })),
+);
 
 const testimonials = getClientTestimonials();
 

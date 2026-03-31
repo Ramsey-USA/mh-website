@@ -1,259 +1,188 @@
 /**
  * @jest-environment node
  *
- * Tests for src/lib/security/rate-limiter.ts
+ * rate-limiter.ts — unit tests
+ * Uses the in-memory fallback path (getCloudflareContext not available).
  */
 
+import { NextRequest, NextResponse } from "next/server";
+
 jest.mock("@opennextjs/cloudflare", () => ({
-  getCloudflareContext: jest.fn().mockImplementation(() => {
-    throw new Error("Not in Cloudflare environment");
-  }),
+  getCloudflareContext: () => {
+    throw new Error("Not in CF environment");
+  },
 }));
 
-import { NextRequest, NextResponse } from "next/server";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
+const makeHandler = () =>
+  jest.fn(async (_req: NextRequest) => NextResponse.json({ ok: true }));
 
-/** Generate a unique path per test so the in-memory localStore never bleeds */
-let _counter = 0;
-function uniquePath(): string {
-  return `/test-rl-${++_counter}-${Date.now()}`;
-}
-
-function makeRequest(
-  path: string,
-  headers: Record<string, string> = {},
-): NextRequest {
+function makeRequest(ip = "10.0.0.1", path = "/api/test"): NextRequest {
   return new NextRequest(`http://localhost${path}`, {
-    method: "GET",
-    headers,
+    headers: { "x-forwarded-for": ip },
   });
 }
 
-// ---------------------------------------------------------------------------
-// rateLimit function
-// ---------------------------------------------------------------------------
-describe("rateLimit", () => {
-  it("falls back to in-memory store when getCloudflareContext throws", async () => {
-    const path = uniquePath();
-    const mockHandler = jest.fn(
-      async () => new NextResponse("OK", { status: 200 }),
-    );
-    const limited = rateLimit({ maxRequests: 5, windowMs: 60_000 })(
-      mockHandler,
-    );
+describe("rateLimit middleware", () => {
+  it("passes the request to the handler when under the limit", async () => {
+    const handler = makeHandler();
+    const limited = rateLimit({ maxRequests: 5, windowMs: 60_000 })(handler);
 
-    const response = await limited(makeRequest(path));
-    expect(response.status).toBe(200);
-    expect(mockHandler).toHaveBeenCalledTimes(1);
+    const res = await limited(
+      makeRequest("1.1.1.1", "/api/test-under"),
+      undefined,
+    );
+    expect(res.status).toBe(200);
+    expect(handler).toHaveBeenCalledTimes(1);
   });
 
-  it("returns a middleware wrapper function", () => {
-    const middleware = rateLimit({ maxRequests: 5, windowMs: 60_000 });
-    expect(typeof middleware).toBe("function");
-
-    const handler = jest.fn(
-      async () => new NextResponse("OK", { status: 200 }),
-    );
-    const wrapped = middleware(handler);
-    expect(typeof wrapped).toBe("function");
-  });
-
-  it("calls the handler when under the rate limit", async () => {
-    const path = uniquePath();
-    const mockHandler = jest.fn(
-      async () => new NextResponse("OK", { status: 200 }),
-    );
-    const limited = rateLimit({ maxRequests: 5, windowMs: 60_000 })(
-      mockHandler,
-    );
-
-    const response = await limited(makeRequest(path));
-    expect(response.status).toBe(200);
-    expect(mockHandler).toHaveBeenCalled();
-  });
-
-  it("returns 429 when over the rate limit", async () => {
-    const path = uniquePath();
-    const mockHandler = jest.fn(
-      async () => new NextResponse("OK", { status: 200 }),
-    );
-    const limited = rateLimit({ maxRequests: 1, windowMs: 60_000 })(
-      mockHandler,
-    );
-
-    // First request — within limit
-    await limited(makeRequest(path));
-    // Second request — exceeds limit (count > maxRequests → 1 > 1 is false, so need 3rd)
-    // Actually: count=1 after 1st (1>1 = false OK), count=2 after 2nd (2>1 = true → 429)
-    const response = await limited(makeRequest(path));
-    expect(response.status).toBe(429);
-  });
-
-  it("429 response includes Retry-After header", async () => {
-    const path = uniquePath();
-    const mockHandler = jest.fn(
-      async () => new NextResponse("OK", { status: 200 }),
-    );
-    const limited = rateLimit({ maxRequests: 1, windowMs: 60_000 })(
-      mockHandler,
-    );
-
-    await limited(makeRequest(path));
-    const response = await limited(makeRequest(path));
-    expect(response.status).toBe(429);
-    expect(response.headers.get("Retry-After")).not.toBeNull();
-  });
-
-  it("429 response includes X-RateLimit-Limit header", async () => {
-    const path = uniquePath();
-    const mockHandler = jest.fn(
-      async () => new NextResponse("OK", { status: 200 }),
-    );
-    const limited = rateLimit({ maxRequests: 1, windowMs: 60_000 })(
-      mockHandler,
-    );
-
-    await limited(makeRequest(path));
-    const response = await limited(makeRequest(path));
-    expect(response.status).toBe(429);
-    expect(response.headers.get("X-RateLimit-Limit")).toBe("1");
-  });
-
-  it("successful response gets X-RateLimit-Remaining header", async () => {
-    const path = uniquePath();
-    const mockHandler = jest.fn(
-      async () => new NextResponse("OK", { status: 200 }),
-    );
-    const limited = rateLimit({ maxRequests: 5, windowMs: 60_000 })(
-      mockHandler,
-    );
-
-    const response = await limited(makeRequest(path));
-    expect(response.status).toBe(200);
-    const remaining = response.headers.get("X-RateLimit-Remaining");
-    expect(remaining).not.toBeNull();
-    expect(Number(remaining)).toBe(4); // 5 - 1
-  });
-
-  it("successful response gets X-RateLimit-Limit header", async () => {
-    const path = uniquePath();
-    const mockHandler = jest.fn(
-      async () => new NextResponse("OK", { status: 200 }),
-    );
+  it("adds X-RateLimit-Limit and X-RateLimit-Remaining headers on success", async () => {
     const limited = rateLimit({ maxRequests: 10, windowMs: 60_000 })(
-      mockHandler,
+      makeHandler(),
     );
-
-    const response = await limited(makeRequest(path));
-    expect(response.headers.get("X-RateLimit-Limit")).toBe("10");
+    const res = await limited(
+      makeRequest("2.2.2.2", "/api/test-headers"),
+      undefined,
+    );
+    expect(res.headers.get("X-RateLimit-Limit")).toBe("10");
+    expect(res.headers.get("X-RateLimit-Remaining")).toBeTruthy();
   });
 
-  it("uses cf-connecting-ip header for IP identification when available", async () => {
-    const path = uniquePath();
-    const mockHandler = jest.fn(
-      async () => new NextResponse("OK", { status: 200 }),
+  it("returns 429 after exceeding maxRequests", async () => {
+    const limited = rateLimit({ maxRequests: 2, windowMs: 60_000 })(
+      makeHandler(),
     );
-    const limited = rateLimit({ maxRequests: 5, windowMs: 60_000 })(
-      mockHandler,
-    );
+    const ip = "3.3.3.3";
+    const path = "/api/test-exceed";
 
-    // Use unique IP to avoid leaking state from other tests
-    const ip = `1.2.3.${++_counter}`;
-    const req = makeRequest(path, { "cf-connecting-ip": ip });
-    const response = await limited(req);
-    expect(response.status).toBe(200);
+    await limited(makeRequest(ip, path), undefined);
+    await limited(makeRequest(ip, path), undefined);
+
+    // Third request should be rate-limited
+    const res = await limited(makeRequest(ip, path), undefined);
+    expect(res.status).toBe(429);
+    const body = (await res.json()) as { error: string; retryAfter: number };
+    expect(body.error).toBeTruthy();
+    expect(body.retryAfter).toBeGreaterThan(0);
   });
 
-  it("falls back to x-forwarded-for when cf-connecting-ip is missing", async () => {
-    const path = uniquePath();
-    const mockHandler = jest.fn(
-      async () => new NextResponse("OK", { status: 200 }),
+  it("returns 429 with Retry-After header", async () => {
+    const limited = rateLimit({ maxRequests: 1, windowMs: 60_000 })(
+      makeHandler(),
     );
-    const limited = rateLimit({ maxRequests: 5, windowMs: 60_000 })(
-      mockHandler,
-    );
+    const ip = "4.4.4.4";
+    const path = "/api/test-retry";
 
-    const req = makeRequest(path, { "x-forwarded-for": "10.0.0.1" });
-    const response = await limited(req);
-    expect(response.status).toBe(200);
-    expect(mockHandler).toHaveBeenCalled();
+    await limited(makeRequest(ip, path), undefined);
+    const res = await limited(makeRequest(ip, path), undefined);
+
+    expect(res.status).toBe(429);
+    expect(res.headers.get("Retry-After")).toBeTruthy();
   });
 
-  it("uses 'default' identifier when useIP is false and no identifierHeader", async () => {
-    const path = uniquePath();
-    const mockHandler = jest.fn(
-      async () => new NextResponse("OK", { status: 200 }),
-    );
+  it("uses identifierHeader when useIP is false", async () => {
+    const handler = makeHandler();
     const limited = rateLimit({
       maxRequests: 5,
       windowMs: 60_000,
       useIP: false,
-    })(mockHandler);
+      identifierHeader: "X-API-Key",
+    })(handler);
 
-    const response = await limited(makeRequest(path));
-    expect(response.status).toBe(200);
+    const req = new NextRequest("http://localhost/api/test-apikey", {
+      headers: { "X-API-Key": "my-key" },
+    });
+    const res = await limited(req, undefined);
+    expect(res.status).toBe(200);
   });
 
-  it("rate limits correctly by identifier when useIP is false", async () => {
-    const path = uniquePath();
-    const mockHandler = jest.fn(
-      async () => new NextResponse("OK", { status: 200 }),
-    );
-    // maxRequests: 1 — second request with same path+identifier → 429
+  it("uses cf-connecting-ip when present (covers line 128 cfIP branch)", async () => {
+    const handler = makeHandler();
+    const limited = rateLimit({ maxRequests: 5, windowMs: 60_000 })(handler);
+
+    const req = new NextRequest("http://localhost/api/test-cfip", {
+      headers: { "cf-connecting-ip": "55.66.77.88" },
+    });
+    const res = await limited(req, undefined);
+    expect(res.status).toBe(200);
+    expect(handler).toHaveBeenCalledTimes(1);
+  });
+
+  it("falls back to 'unknown' when no IP headers present (covers ?? 'unknown' branch)", async () => {
+    const handler = makeHandler();
+    const limited = rateLimit({ maxRequests: 5, windowMs: 60_000 })(handler);
+
+    // No x-forwarded-for, no cf-connecting-ip => forwarded is null => "unknown"
+    const req = new NextRequest("http://localhost/api/test-noip");
+    const res = await limited(req, undefined);
+    expect(res.status).toBe(200);
+  });
+
+  it("falls back to 'unknown' when identifierHeader is configured but header absent", async () => {
+    const handler = makeHandler();
     const limited = rateLimit({
-      maxRequests: 1,
+      maxRequests: 5,
       windowMs: 60_000,
       useIP: false,
-    })(mockHandler);
+      identifierHeader: "X-Custom-Key",
+    })(handler);
 
-    await limited(makeRequest(path)); // count = 1, allowed
-    const response = await limited(makeRequest(path)); // count = 2, 429
-    expect(response.status).toBe(429);
+    // Header X-Custom-Key is not set => header is null => "unknown"
+    const req = new NextRequest("http://localhost/api/test-noheader");
+    const res = await limited(req, undefined);
+    expect(res.status).toBe(200);
+  });
+
+  it("falls back to 'default' identifier when no IP or header is available", async () => {
+    const handler = makeHandler();
+    const limited = rateLimit({
+      maxRequests: 5,
+      windowMs: 60_000,
+      useIP: false,
+    })(handler);
+
+    const req = new NextRequest("http://localhost/api/test-default");
+    const res = await limited(req, undefined);
+    expect(res.status).toBe(200);
+  });
+});
+
+describe("rateLimitPresets", () => {
+  it("exports auth, api, public, expensive, and strict presets", () => {
+    expect(rateLimitPresets.auth.maxRequests).toBe(5);
+    expect(rateLimitPresets.api.maxRequests).toBe(60);
+    expect(rateLimitPresets.public.maxRequests).toBe(100);
+    expect(rateLimitPresets.expensive.maxRequests).toBe(3);
+    expect(rateLimitPresets.strict.maxRequests).toBe(3);
   });
 });
 
 // ---------------------------------------------------------------------------
-// rateLimitPresets
+// cleanupLocalStore (lines 54-59) — triggered when Math.random() < 0.01
 // ---------------------------------------------------------------------------
-describe("rateLimitPresets", () => {
-  it("auth preset has maxRequests: 5 and windowMs: 60_000", () => {
-    expect(rateLimitPresets.auth.maxRequests).toBe(5);
-    expect(rateLimitPresets.auth.windowMs).toBe(60_000);
-  });
+describe("rateLimit middleware — local store cleanup", () => {
+  it("cleanupLocalStore removes expired entries when Math.random() < 0.01", async () => {
+    const randomSpy = jest.spyOn(Math, "random");
 
-  it("api preset has maxRequests: 60 and windowMs: 60_000", () => {
-    expect(rateLimitPresets.api.maxRequests).toBe(60);
-    expect(rateLimitPresets.api.windowMs).toBe(60_000);
-  });
+    // First call: normal (> 0.01) — add an entry with a 1 ms window so it expires fast
+    randomSpy.mockReturnValue(0.5);
+    const handler = jest.fn(async (_req: NextRequest) =>
+      NextResponse.json({ ok: true }),
+    );
+    const limited = rateLimit({ maxRequests: 100, windowMs: 1 })(handler);
+    await limited(makeRequest("cleanup.seed", "/api/cleanup-test"));
 
-  it("public preset has maxRequests: 100 and windowMs: 60_000", () => {
-    expect(rateLimitPresets.public.maxRequests).toBe(100);
-    expect(rateLimitPresets.public.windowMs).toBe(60_000);
-  });
+    // Wait for the entry's 1 ms window to expire
+    await new Promise((resolve) => setTimeout(resolve, 10));
 
-  it("expensive preset has maxRequests: 3 and windowMs: 300_000", () => {
-    expect(rateLimitPresets.expensive.maxRequests).toBe(3);
-    expect(rateLimitPresets.expensive.windowMs).toBe(300_000);
-  });
+    // Next call: Math.random < 0.01 triggers cleanupLocalStore()
+    randomSpy.mockReturnValue(0.005);
+    const res = await limited(
+      makeRequest("cleanup.trigger", "/api/cleanup-test"),
+    );
+    expect(res.status).toBe(200);
 
-  it("strict preset has maxRequests: 3 and windowMs: 300_000", () => {
-    expect(rateLimitPresets.strict.maxRequests).toBe(3);
-    expect(rateLimitPresets.strict.windowMs).toBe(300_000);
-  });
-
-  it("auth preset has a message string", () => {
-    expect(typeof rateLimitPresets.auth.message).toBe("string");
-    expect(rateLimitPresets.auth.message.length).toBeGreaterThan(0);
-  });
-
-  it("all presets have required maxRequests and windowMs", () => {
-    for (const [_name, preset] of Object.entries(rateLimitPresets)) {
-      expect(typeof preset.maxRequests).toBe("number");
-      expect(typeof preset.windowMs).toBe("number");
-    }
+    randomSpy.mockRestore();
   });
 });

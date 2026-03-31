@@ -10,6 +10,7 @@ import {
 import { generateNewsletterAcknowledgment } from "@/lib/email/templates";
 import { createDbClient } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
+import { escapeHtml } from "@/lib/utils/escape-html";
 
 export const dynamic = "force-dynamic";
 
@@ -37,6 +38,12 @@ async function handlePOST(request: NextRequest) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
       return badRequest("Invalid email address");
+    }
+
+    // Input length limits
+    if (data.email.length > 254) return badRequest("Email is too long");
+    if (data.name && data.name.length > 200) {
+      return badRequest("Name is too long");
     }
 
     // Persist subscription to D1 (upsert — idempotent if already subscribed)
@@ -86,14 +93,14 @@ async function handlePOST(request: NextRequest) {
         <table style="width: 100%; border-collapse: collapse;">
           <tr>
             <td style="padding: 10px; border-bottom: 1px solid #e0e0e0; font-weight: 600; color: #666;">Email:</td>
-            <td style="padding: 10px; border-bottom: 1px solid #e0e0e0;">${data.email}</td>
+            <td style="padding: 10px; border-bottom: 1px solid #e0e0e0;">${escapeHtml(data.email)}</td>
           </tr>
           ${
             data.name
               ? `
           <tr>
             <td style="padding: 10px; border-bottom: 1px solid #e0e0e0; font-weight: 600; color: #666;">Name:</td>
-            <td style="padding: 10px; border-bottom: 1px solid #e0e0e0;">${data.name}</td>
+            <td style="padding: 10px; border-bottom: 1px solid #e0e0e0;">${escapeHtml(data.name)}</td>
           </tr>
           `
               : ""

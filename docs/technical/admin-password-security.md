@@ -161,7 +161,7 @@ Fields:
   - Matt's Password: [secure password]
   - Jeremy's Email: jeremy@mhc-gc.com
   - Jeremy's Password: [secure password]
-  - Dashboard URL: https://mhc-gc.com/dashboard
+  - Dashboard URL: https://www.mhc-gc.com/dashboard
    - Access Method: `Ctrl/Cmd + Shift + A` on any site page
 ```
 
@@ -483,7 +483,7 @@ rateLimitPresets.strict = {
 **Current Configuration:**
 
 ```typescript
-// src/app/api/auth/login/route.ts
+// src/app/api/auth/admin-login/route.ts
 if (email === "demo@mhc-gc.com" && password === "demo123") {
   return demoUser; // ⚠️ REMOVE IN PRODUCTION
 }
@@ -567,7 +567,7 @@ wrangler deploy --env production
 
 ### Access Method
 
-1. Go to: <https://mhc-gc.com>
+1. Go to: <https://www.mhc-gc.com>
 2. Press `Ctrl + Shift + A` on Windows/Linux or `Cmd + Shift + A` on macOS
 3. Enter admin credentials
 4. Access analytics dashboard

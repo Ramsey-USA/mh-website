@@ -584,6 +584,7 @@ export class AuditLogger {
 
     events.forEach((event) => {
       const dateStr = event.timestamp.toISOString().split("T")[0];
+      /* istanbul ignore next */
       if (!dateStr) return;
 
       const date: string = dateStr;

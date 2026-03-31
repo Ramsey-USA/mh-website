@@ -1,7 +1,5 @@
 # PWA Quick Reference Guide
 
-**⭐ UPDATED (Dec 27, 2025):** PWA manifest now includes dual-label military/construction terminology!
-
 **Related Documentation:**
 
 - [PWA Full Documentation](./pwa-documentation.md) - Complete guide
@@ -16,7 +14,7 @@
 npm run test:pwa
 
 # Run Lighthouse PWA audit
-npm run lighthouse
+npm run lighthouse:guide
 
 # Check service worker status
 # Open DevTools → Application → Service Workers
@@ -51,7 +49,7 @@ Install → Activate → Fetch → Update → Repeat
 ### Update Service Worker Version
 
 ```javascript
-// public/sw.js (Line 13-18)
+// public/sw.js (Line 32-37)
 const _CACHE_NAME = "mh-construction-v5.0.0"; // ← Change this
 const STATIC_CACHE_NAME = "mh-construction-static-v5.0.0";
 const DYNAMIC_CACHE_NAME = "mh-construction-dynamic-v5.0.0";
@@ -61,20 +59,20 @@ const DYNAMIC_CACHE_NAME = "mh-construction-dynamic-v5.0.0";
 ### Add Page to Offline Cache
 
 ```javascript
-// public/sw.js (Line 38-68)
+// public/sw.js (Line 56-67)
 const STATIC_ASSETS = [
   ...CRITICAL_ASSETS,
-  // Main pages
   "/new-page", // ← Add here
-  "/about",
-  // ...
+  "/contact",
+  "/projects",
+  "/services",
 ];
 ```
 
 ### Modify Cache Duration
 
 ```javascript
-// public/sw.js (Line 20-26)
+// public/sw.js (Line 40-48)
 const CACHE_DURATION = {
   STATIC: 60 * 24 * 60 * 60 * 1000, // Change: 60 days
   IMAGES: 180 * 24 * 60 * 60 * 1000, // Change: 180 days
@@ -169,13 +167,13 @@ docs/technical/
 
 ## Key Metrics
 
-| Metric         | Target | Current                         |
-| -------------- | ------ | ------------------------------- |
-| PWA Test Score | 90%+   | **98%** ✅                      |
-| Lighthouse PWA | 90+    | Check with `npm run lighthouse` |
-| Offline Pages  | 20+    | **24** ✅                       |
-| Cache Layers   | 3+     | **5** ✅                        |
-| Icon Sizes     | 8+     | **8** ✅                        |
+| Metric         | Target | Current                               |
+| -------------- | ------ | ------------------------------------- |
+| PWA Test Score | 90%+   | **98%** ✅                            |
+| Lighthouse PWA | 90+    | Check with `npm run lighthouse:guide` |
+| Offline Pages  | 5+     | **8** ✅                              |
+| Cache Layers   | 3+     | **5** ✅                              |
+| Icon Sizes     | 8+     | **8** ✅                              |
 
 ## Support Matrix
 

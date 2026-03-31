@@ -69,7 +69,7 @@ export function getNewPageSEO(): Metadata & { schemas: object[] } {
 **Step 4:** Run audit
 
 ```bash
-npm run seo:audit
+node scripts/seo-audit.js
 ```
 
 ---
@@ -94,7 +94,7 @@ npm run seo:audit
 
 #### 3. Automated Auditing
 
-- Run `npm run seo:audit` to check all pages
+- Run `node scripts/seo-audit.js` to check all pages
 - Automated reports in JSON and text format
 - CI/CD integration ready
 - Score tracking over time
@@ -741,16 +741,10 @@ export default function ServicesPage() {
 
 ```bash
 # Run full SEO audit
-npm run seo:audit
-
-# Quick SEO check
-npm run seo:check
-
-# Generate detailed report
-npm run seo:report
+node scripts/seo-audit.js
 
 # Build and check SEO
-npm run build && npm run seo:audit
+npm run build && node scripts/seo-audit.js
 ```
 
 ### SEO Utility Functions
@@ -791,21 +785,21 @@ const validation = validateSEO(seoConfig);
 **When Adding New Pages:**
 
 1. Add to `ACTIVE_PAGES` in sitemap.ts
-2. Run `npm run seo:audit`
+2. Run `node scripts/seo-audit.js`
 3. Fix any issues reported
 4. Commit changes
 
 **Weekly Reviews:**
 
 ```bash
-npm run seo:audit
+node scripts/seo-audit.js
 # Address any scores below 80
 ```
 
 **Monthly Audits:**
 
 ```bash
-npm run seo:report > monthly-seo-report.txt
+node scripts/seo-audit.js > monthly-seo-report.txt
 # Review trends and update as needed
 ```
 
@@ -814,7 +808,7 @@ npm run seo:report > monthly-seo-report.txt
 Before deploying changes:
 
 - [ ] Run `npm run build` (must succeed)
-- [ ] Run `npm run seo:audit` (all pages >70 score)
+- [ ] Run `node scripts/seo-audit.js` (all pages >70 score)
 - [ ] Check sitemap includes all new pages
 - [ ] Verify metadata on new pages
 - [ ] Test important pages in browser
@@ -999,7 +993,7 @@ export default function YourPage() {
 
 ```bash
 # Verbose output
-DEBUG=true npm run seo:audit
+DEBUG=true node scripts/seo-audit.js
 
 # Check specific page
 node scripts/seo-audit.js /your-page
@@ -1146,7 +1140,7 @@ This comprehensive SEO system provides:
 **Quick Actions:**
 
 - **Add new page:** One line in sitemap array
-- **Check SEO:** Run `npm run seo:audit`
+- **Check SEO:** Run `node scripts/seo-audit.js`
 - **Monitor performance:** Monthly report reviews
 - **Optimize content:** Follow section ordering guide
 - **Ensure accessibility:** Built-in WCAG compliance

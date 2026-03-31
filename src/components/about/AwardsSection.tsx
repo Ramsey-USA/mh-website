@@ -4,6 +4,7 @@
  * Reusable across About, Team, and other credibility-building pages
  */
 
+import type { CSSProperties } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
 
@@ -186,7 +187,7 @@ export function AwardsSection() {
             <div
               key={item.year}
               className="group scroll-reveal"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              style={{ "--delay": `${index * 0.1}s` } as CSSProperties}
             >
               <div className="relative bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:border-brand-primary dark:hover:border-brand-primary-light h-full overflow-hidden">
                 {/* Trophy Icon Background Watermark */}

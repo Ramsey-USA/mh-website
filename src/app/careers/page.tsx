@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { usePageTracking } from "@/lib/analytics/hooks";
 import Link from "next/link";
@@ -956,7 +956,9 @@ export default function CareersPage() {
                       <div
                         key={step.num}
                         className="relative group scroll-reveal"
-                        style={{ animationDelay: `${index * 0.1}s` }}
+                        style={
+                          { "--delay": `${index * 0.1}s` } as CSSProperties
+                        }
                       >
                         {/* Desktop Layout */}
                         <div className="hidden lg:flex items-center gap-8">

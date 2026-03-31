@@ -1,104 +1,85 @@
 import { render, screen } from "@testing-library/react";
 import { Breadcrumb } from "../Breadcrumb";
 
+jest.mock("next/link", () => ({
+  __esModule: true,
+  default: ({
+    children,
+    href,
+  }: {
+    children: React.ReactNode;
+    href: string;
+  }) => <a href={href}>{children}</a>,
+}));
+
 jest.mock("@/components/icons/MaterialIcon", () => ({
-  MaterialIcon: ({ icon, className }: { icon: string; className?: string }) => (
-    <span data-testid="material-icon" className={className}>
-      {icon}
-    </span>
-  ),
+  MaterialIcon: () => <span data-testid="chevron" />,
 }));
 
 describe("Breadcrumb", () => {
-  it("renders without crashing with empty items array", () => {
-    const { container } = render(<Breadcrumb items={[]} />);
-    expect(container).toBeTruthy();
+  const items = [
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/services" },
+    { label: "Roofing" },
+  ];
+
+  it("renders a nav landmark with accessible label", () => {
+    render(<Breadcrumb items={items} />);
+    expect(
+      screen.getByRole("navigation", { name: /breadcrumb/i }),
+    ).toBeInTheDocument();
   });
 
-  it("renders a nav element with aria-label", () => {
-    render(<Breadcrumb items={[{ label: "Home", href: "/" }]} />);
-    const nav = screen.getByRole("navigation");
-    expect(nav).toBeInTheDocument();
-    expect(nav).toHaveAttribute("aria-label", "Breadcrumb navigation");
-  });
-
-  it("renders breadcrumb item labels", () => {
-    render(
-      <Breadcrumb
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Services", href: "/services" },
-          { label: "Current Page" },
-        ]}
-      />,
+  it("renders linked labels for non-last items", () => {
+    render(<Breadcrumb items={items} />);
+    expect(screen.getByRole("link", { name: "Home" })).toHaveAttribute(
+      "href",
+      "/",
     );
-    expect(screen.getByText("Home")).toBeInTheDocument();
-    expect(screen.getByText("Services")).toBeInTheDocument();
-    expect(screen.getByText("Current Page")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Services" })).toHaveAttribute(
+      "href",
+      "/services",
+    );
   });
 
-  it("renders last item as plain text (aria-current=page)", () => {
-    render(
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About" }]} />,
-    );
-    const current = screen.getByText("About");
+  it("renders the last item as non-linked with aria-current", () => {
+    render(<Breadcrumb items={items} />);
+    const current = screen.getByText("Roofing");
     expect(current.tagName).toBe("SPAN");
     expect(current).toHaveAttribute("aria-current", "page");
   });
 
-  it("renders middle items as links with correct href", () => {
-    render(
-      <Breadcrumb
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Services", href: "/services" },
-          { label: "Current" },
-        ]}
-      />,
-    );
-    const homeLink = screen.getByRole("link", { name: "Home" });
-    expect(homeLink).toHaveAttribute("href", "/");
-    const servicesLink = screen.getByRole("link", { name: "Services" });
-    expect(servicesLink).toHaveAttribute("href", "/services");
+  it("renders separator chevrons between items", () => {
+    render(<Breadcrumb items={items} />);
+    // Two chevrons for three items (between 1-2 and 2-3)
+    expect(screen.getAllByTestId("chevron")).toHaveLength(2);
   });
 
-  it("last item is NOT a link", () => {
-    render(
-      <Breadcrumb
-        items={[{ label: "Home", href: "/" }, { label: "Last Item" }]}
-      />,
+  it("applies custom className", () => {
+    render(<Breadcrumb items={items} className="my-nav" />);
+    expect(screen.getByRole("navigation", { name: /breadcrumb/i })).toHaveClass(
+      "my-nav",
     );
-    const links = screen.queryAllByRole("link");
-    const lastLink = links.find((l) => l.textContent === "Last Item");
-    expect(lastLink).toBeUndefined();
   });
 
-  it("renders separators between items", () => {
-    render(
-      <Breadcrumb
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Services", href: "/services" },
-          { label: "Current" },
-        ]}
-      />,
-    );
-    const separators = screen.getAllByTestId("material-icon");
-    // One separator per item after the first
-    expect(separators).toHaveLength(2);
+  it("handles single item without chevron", () => {
+    render(<Breadcrumb items={[{ label: "Home" }]} />);
+    expect(screen.queryByTestId("chevron")).not.toBeInTheDocument();
+    expect(screen.getByText("Home")).toHaveAttribute("aria-current", "page");
   });
 
-  it("renders correct number of list items", () => {
-    const { container } = render(
+  it("renders item with href as last item without link", () => {
+    // Items where last has href — still shown as non-clickable current
+    render(
       <Breadcrumb
         items={[
           { label: "Home", href: "/" },
           { label: "About", href: "/about" },
-          { label: "Team" },
         ]}
       />,
     );
-    const listItems = container.querySelectorAll("li");
-    expect(listItems).toHaveLength(3);
+    // Last item "About" should be non-linked (isLast = true)
+    const about = screen.getByText("About");
+    expect(about.tagName).toBe("SPAN");
   });
 });

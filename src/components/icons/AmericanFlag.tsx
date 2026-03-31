@@ -54,6 +54,7 @@ export function AmericanFlag({
     >
       <svg
         viewBox="0 0 190 100"
+        aria-hidden="true"
         className={`w-full h-full drop-shadow-lg ${
           animated && isHovered ? "animate-wave" : ""
         }`}

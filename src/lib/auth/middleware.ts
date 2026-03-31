@@ -75,12 +75,7 @@ export function requireRole(
         requiredRoles: allowedRoles,
       });
 
-      return Promise.resolve(
-        forbidden(
-          "Insufficient permissions",
-          `Required role: ${allowedRoles.join(" or ")}`,
-        ),
-      );
+      return Promise.resolve(forbidden("Insufficient permissions"));
     }
 
     return handler(request, user, context);

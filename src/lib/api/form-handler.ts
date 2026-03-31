@@ -28,6 +28,7 @@ import {
   createPaginatedResponse,
   internalServerError,
 } from "@/lib/api/responses";
+import { escapeHtml } from "@/lib/utils/escape-html";
 
 export interface FormSubmissionConfig<T = unknown> {
   tableName: string;
@@ -121,6 +122,10 @@ export async function handleFormSubmission<T = unknown>(
     const emailSubject = config.emailSubject(data as T);
     const emailMessage = config.emailMessage(data as T);
 
+    // The emailMessage callback returns plain text. When used as the HTML
+    // body, escape it to prevent injection and wrap in <pre> for formatting.
+    const safeHtml = `<pre style="font-family:sans-serif;white-space:pre-wrap;">${escapeHtml(emailMessage)}</pre>`;
+
     // Check if this is a job application with a resume that's small enough to attach
     let attachments: EmailAttachment[] | undefined;
     if (
@@ -165,7 +170,7 @@ export async function handleFormSubmission<T = unknown>(
     const includeArnold = config.submissionType === "Job Application";
     const emailResult = await sendToOffice(
       emailSubject,
-      { html: emailMessage, text: emailMessage },
+      { html: safeHtml, text: emailMessage },
       includeArnold,
       attachments,
     );

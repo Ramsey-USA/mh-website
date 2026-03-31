@@ -245,10 +245,5 @@ log("6. ✅ QR codes could use SVG format for smaller size", "yellow");
 log("\n🚀 Next Steps", "cyan");
 log("Run optimization commands:", "blue");
 log("  npm run optimize:images      # Auto-optimize all images", "blue");
-log("  npm run convert:webp         # Convert to WebP format", "blue");
-log(
-  "  npm run audit:images:usage   # Check which images are actually used",
-  "blue",
-);
 
 log("\n" + "=".repeat(50), "cyan");

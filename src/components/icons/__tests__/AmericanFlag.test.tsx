@@ -1,52 +1,52 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { AmericanFlag } from "../AmericanFlag";
 
 describe("AmericanFlag", () => {
-  it("renders without crashing", () => {
-    const { container } = render(<AmericanFlag />);
-    expect(container).toBeTruthy();
+  it("renders with default props and accessible label", () => {
+    render(<AmericanFlag />);
+    expect(
+      screen.getByRole("img", { name: /american flag/i }),
+    ).toBeInTheDocument();
   });
 
-  it("renders an SVG element", () => {
+  it("applies size class from sizeMap", () => {
+    render(<AmericanFlag size="sm" />);
+    const wrapper = screen.getByRole("img", { name: /american flag/i });
+    expect(wrapper).toHaveClass("w-8", "h-6");
+  });
+
+  it("applies xl size class", () => {
+    render(<AmericanFlag size="xl" />);
+    const wrapper = screen.getByRole("img", { name: /american flag/i });
+    expect(wrapper).toHaveClass("w-20");
+  });
+
+  it("applies custom className", () => {
+    render(<AmericanFlag className="my-flag" />);
+    const wrapper = screen.getByRole("img", { name: /american flag/i });
+    expect(wrapper).toHaveClass("my-flag");
+  });
+
+  it("SVG is hidden from screen readers", () => {
     const { container } = render(<AmericanFlag />);
     const svg = container.querySelector("svg");
-    expect(svg).toBeInTheDocument();
+    expect(svg).toHaveAttribute("aria-hidden", "true");
   });
 
-  it("SVG has viewBox attribute", () => {
-    const { container } = render(<AmericanFlag />);
-    const svg = container.querySelector("svg");
-    expect(svg).toHaveAttribute("viewBox");
-  });
-
-  it("has role=img on wrapper", () => {
-    const { container } = render(<AmericanFlag />);
-    const wrapper = container.querySelector('[role="img"]');
+  it("triggers hover state on mouse enter and leave", async () => {
+    const user = userEvent.setup();
+    render(<AmericanFlag animated={true} />);
+    const wrapper = screen.getByRole("img", { name: /american flag/i });
+    await user.hover(wrapper);
+    await user.unhover(wrapper);
+    // No error thrown — state toggle works
     expect(wrapper).toBeInTheDocument();
   });
 
-  it("has accessible aria-label", () => {
-    render(<AmericanFlag />);
-    const flag = screen.getByRole("img");
-    expect(flag).toHaveAttribute("aria-label");
-    expect(flag.getAttribute("aria-label")).toContain("American Flag");
-  });
-
-  it("renders 13 stripes (rect elements for stripes)", () => {
-    const { container } = render(<AmericanFlag animated={false} />);
-    // 13 stripe rects + 1 blue canton rect = 14 rects
-    const rects = container.querySelectorAll("svg rect");
-    expect(rects.length).toBeGreaterThanOrEqual(13);
-  });
-
-  it("accepts size prop without crashing", () => {
-    const { container } = render(<AmericanFlag size="sm" />);
-    expect(container).toBeTruthy();
-  });
-
-  it("accepts animated=false prop", () => {
+  it("renders without animation when animated=false", () => {
     const { container } = render(<AmericanFlag animated={false} />);
     const svg = container.querySelector("svg");
-    expect(svg).toBeInTheDocument();
+    expect(svg).not.toHaveClass("animate-wave");
   });
 });

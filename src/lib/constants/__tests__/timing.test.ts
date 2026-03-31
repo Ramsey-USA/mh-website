@@ -1,23 +1,15 @@
-import { TIMING } from "@/lib/constants/timing";
+/**
+ * Tests for lib/constants/timing.ts
+ */
 
-describe("TIMING", () => {
-  describe("ANIMATION", () => {
-    it("COUNTER is 2000", () => {
-      expect(TIMING.ANIMATION.COUNTER).toBe(2000);
-    });
+import { TIMING } from "../timing";
 
-    it("COUNTER is a positive number", () => {
-      expect(TIMING.ANIMATION.COUNTER).toBeGreaterThan(0);
-    });
+describe("TIMING constants", () => {
+  it("exports TIMING.ANIMATION.COUNTER as 2000", () => {
+    expect(TIMING.ANIMATION.COUNTER).toBe(2000);
   });
 
-  describe("PERFORMANCE", () => {
-    it("VISIBILITY_CHECK is 100", () => {
-      expect(TIMING.PERFORMANCE.VISIBILITY_CHECK).toBe(100);
-    });
-
-    it("VISIBILITY_CHECK is a positive number", () => {
-      expect(TIMING.PERFORMANCE.VISIBILITY_CHECK).toBeGreaterThan(0);
-    });
+  it("exports TIMING.PERFORMANCE.VISIBILITY_CHECK as 100", () => {
+    expect(TIMING.PERFORMANCE.VISIBILITY_CHECK).toBe(100);
   });
 });

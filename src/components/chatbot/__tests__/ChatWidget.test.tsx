@@ -1,7 +1,13 @@
 /**
  * @jest-environment jsdom
  */
-import { render, screen, waitFor } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitFor,
+  fireEvent,
+  act,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ChatWidget } from "../ChatWidget";
 
@@ -246,5 +252,204 @@ describe("ChatWidget", () => {
     expect(
       screen.getByRole("button", { name: /send message/i }),
     ).toBeDisabled();
+  });
+
+  it("locks body scroll on mobile when chat opens and restores on close", async () => {
+    // Override matchMedia to simulate a mobile viewport (max-width: 639px matches)
+    (window.matchMedia as jest.Mock).mockImplementation((query: string) => ({
+      matches: query.includes("639px"), // mobile breakpoint
+      media: query,
+      onchange: null,
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn(),
+    }));
+
+    const user = userEvent.setup();
+    render(<ChatWidget />);
+
+    await user.click(
+      screen.getByRole("button", { name: /open partnership guide chat/i }),
+    );
+
+    // Scroll lock should be applied on mobile
+    expect(document.body.style.overflow).toBe("hidden");
+
+    // Close chat — cleanup function restores overflow
+    const closeButtons = screen.getAllByRole("button", { name: /close chat/i });
+    await user.click(closeButtons[0]!);
+
+    expect(document.body.style.overflow).not.toBe("hidden");
+
+    // Restore default matchMedia mock for subsequent tests
+    (window.matchMedia as jest.Mock).mockImplementation((query: string) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn(),
+    }));
+  });
+
+  it("displays fallback message when API response has no 'response' field", async () => {
+    const user = userEvent.setup();
+    // Return an ok response but with no `response` field
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({}),
+    });
+
+    render(<ChatWidget />);
+    await user.click(
+      screen.getByRole("button", { name: /open partnership guide chat/i }),
+    );
+
+    const input = screen.getByRole("textbox", { name: /type your message/i });
+    await user.type(input, "Help");
+    await user.click(screen.getByRole("button", { name: /send message/i }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(/I wasn't able to process that/i),
+      ).toBeInTheDocument();
+    });
+  });
+
+  it("shows error message when fetch returns a non-ok HTTP status", async () => {
+    const user = userEvent.setup();
+    mockFetch.mockResolvedValueOnce({
+      ok: false,
+      status: 503,
+    });
+
+    render(<ChatWidget />);
+    await user.click(
+      screen.getByRole("button", { name: /open partnership guide chat/i }),
+    );
+
+    const input = screen.getByRole("textbox", { name: /type your message/i });
+    await user.type(input, "Hello");
+    await user.click(screen.getByRole("button", { name: /send message/i }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(/having trouble connecting/i),
+      ).toBeInTheDocument();
+    });
+  });
+
+  it("sendMessage ignores empty/whitespace input (covers !trimmed branch)", async () => {
+    render(<ChatWidget />);
+    const user = userEvent.setup();
+
+    await user.click(
+      screen.getByRole("button", { name: /open partnership guide chat/i }),
+    );
+
+    const input = screen.getByRole("textbox", { name: /type your message/i });
+    // Press Enter with empty input → sendMessage("") → !trimmed=true → early return
+    fireEvent.keyDown(input, { key: "Enter", code: "Enter", shiftKey: false });
+
+    // No fetch should be triggered
+    expect(mockFetch).not.toHaveBeenCalled();
+  });
+
+  it("sendMessage ignores call when isLoading is true (covers isLoading branch)", async () => {
+    const user = userEvent.setup();
+    // A fetch that hangs indefinitely to keep isLoading=true
+    let resolveFetch!: (v: unknown) => void;
+    mockFetch.mockImplementationOnce(
+      () =>
+        new Promise((resolve) => {
+          resolveFetch = resolve;
+        }),
+    );
+
+    render(<ChatWidget />);
+    await user.click(
+      screen.getByRole("button", { name: /open partnership guide chat/i }),
+    );
+
+    const input = screen.getByRole("textbox", { name: /type your message/i });
+    await user.type(input, "First message");
+    await user.click(screen.getByRole("button", { name: /send message/i }));
+
+    // isLoading is now true; set a non-empty value via fireEvent.change (bypasses disabled)
+    fireEvent.change(input, { target: { value: "Second message" } });
+
+    // Submit the form while loading — sendMessage should return early
+    const form = input.closest("form")!;
+    fireEvent.submit(form);
+
+    // Only the initial fetch should have fired (not a second one)
+    expect(mockFetch).toHaveBeenCalledTimes(1);
+
+    // Clean up hanging fetch
+    await act(async () => {
+      resolveFetch({ ok: true, json: async () => ({ response: "Done" }) });
+    });
+  });
+
+  it("Shift+Enter does not send the message (covers !e.shiftKey branch)", async () => {
+    const user = userEvent.setup();
+    render(<ChatWidget />);
+
+    await user.click(
+      screen.getByRole("button", { name: /open partnership guide chat/i }),
+    );
+
+    const input = screen.getByRole("textbox", { name: /type your message/i });
+    await user.type(input, "Hello");
+
+    // Shift+Enter should insert a newline, NOT send
+    fireEvent.keyDown(input, { key: "Enter", code: "Enter", shiftKey: true });
+
+    // No fetch should be triggered
+    expect(mockFetch).not.toHaveBeenCalled();
+  });
+
+  it("desktop X close button closes the panel", async () => {
+    const user = userEvent.setup();
+    render(<ChatWidget />);
+
+    await user.click(
+      screen.getByRole("button", { name: /open partnership guide chat/i }),
+    );
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+
+    // closeButtons[0] is the mobile arrow-back, closeButtons[1] is the desktop X
+    const closeButtons = screen.getAllByRole("button", { name: /close chat/i });
+    expect(closeButtons.length).toBeGreaterThanOrEqual(2);
+    await user.click(closeButtons[1]!);
+
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+
+  it("setTimeout focus-cleanup fires when panel closes before 150 ms", async () => {
+    jest.useFakeTimers();
+    const user = userEvent.setup({ delay: null });
+    render(<ChatWidget />);
+
+    // Open panel — starts the 150 ms focus timer
+    await user.click(
+      screen.getByRole("button", { name: /open partnership guide chat/i }),
+    );
+
+    // Close panel immediately — cleanup cancels the pending timer
+    const closeButtons = screen.getAllByRole("button", { name: /close chat/i });
+    await user.click(closeButtons[0]!);
+
+    // Advance past 150 ms — confirm nothing throws after cleanup
+    act(() => {
+      jest.advanceTimersByTime(200);
+    });
+
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    jest.useRealTimers();
   });
 });

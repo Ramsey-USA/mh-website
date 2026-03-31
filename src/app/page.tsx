@@ -1,22 +1,43 @@
 import { type Metadata } from "next";
+import dynamic from "next/dynamic";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { PageTrackingClient } from "@/components/analytics";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
-import {
-  HeroSection,
-  CoreValuesSection,
-  ServicesShowcase,
-  WhyPartnerSection,
-} from "@/components/home";
-import {
-  TestimonialsSection,
-  NextStepsSection,
-} from "@/components/shared-sections";
-import { CompanyStats } from "@/components/about/CompanyStats";
-import { Timeline, type TimelineStep } from "@/components/ui/Timeline";
+// Above-fold sections: static imports for instant LCP
+import { HeroSection, CoreValuesSection } from "@/components/home";
 import { PWAInstallCTA } from "@/components/pwa";
-import { StrategicCTABanner } from "@/components/ui/cta";
+// Below-fold sections: lazy-loaded to keep initial JS bundle lean
+import { type TimelineStep } from "@/components/ui/Timeline";
+const ServicesShowcase = dynamic(() =>
+  import("@/components/home").then((m) => ({ default: m.ServicesShowcase })),
+);
+const WhyPartnerSection = dynamic(() =>
+  import("@/components/home").then((m) => ({ default: m.WhyPartnerSection })),
+);
+const CompanyStats = dynamic(() =>
+  import("@/components/about/CompanyStats").then((m) => ({
+    default: m.CompanyStats,
+  })),
+);
+const Timeline = dynamic(() =>
+  import("@/components/ui/Timeline").then((m) => ({ default: m.Timeline })),
+);
+const TestimonialsSection = dynamic(() =>
+  import("@/components/shared-sections").then((m) => ({
+    default: m.TestimonialsSection,
+  })),
+);
+const NextStepsSection = dynamic(() =>
+  import("@/components/shared-sections").then((m) => ({
+    default: m.NextStepsSection,
+  })),
+);
+const StrategicCTABanner = dynamic(() =>
+  import("@/components/ui/cta").then((m) => ({
+    default: m.StrategicCTABanner,
+  })),
+);
 
 const SITE_URL = "https://www.mhc-gc.com";
 

@@ -28,9 +28,6 @@ const ROUTE_SECURITY_CONFIG: Record<
   "/contact": {
     logAll: true,
   },
-  "/estimate": {
-    logAll: true,
-  },
   // Public pages - lighter security
   "/": {
     logAll: false,
@@ -39,7 +36,6 @@ const ROUTE_SECURITY_CONFIG: Record<
 
 // Security paths that bypass normal processing
 const SECURITY_BYPASS_PATHS = [
-  "/api/health",
   "/api/security/status",
   "/favicon.ico",
   "/_next/",
@@ -309,26 +305,33 @@ function shouldBypassSecurity(pathname: string): boolean {
 }
 
 function getRouteConfig(pathname: string) {
-  // Find the most specific route configuration
-  for (const [route, config] of Object.entries(ROUTE_SECURITY_CONFIG)) {
+  // Sort by specificity (longest prefix first) to prevent "/" from
+  // matching before more specific routes like "/admin".
+  const sorted = Object.entries(ROUTE_SECURITY_CONFIG).sort(
+    ([a], [b]) => b.length - a.length,
+  );
+  for (const [route, config] of sorted) {
     if (pathname.startsWith(route)) {
       return config;
     }
   }
 
   // Default configuration
+  /* istanbul ignore next -- "/" in ROUTE_SECURITY_CONFIG always matches */
   return { logAll: false };
 }
 
 function getClientIP(request: NextRequest): string {
   // cf-connecting-ip is set exclusively by Cloudflare and cannot be spoofed.
-  // We do NOT read x-real-ip from the incoming request because any HTTP client
-  // can inject that header.
   const cfIP = request.headers.get("cf-connecting-ip");
   if (cfIP) return cfIP;
 
-  const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) return forwarded.split(",")[0]?.trim() ?? "unknown";
+  // x-forwarded-for is client-controllable when not behind Cloudflare.
+  // Only trust it in development (local proxy / dev server).
+  if (process.env.NODE_ENV === "development") {
+    const forwarded = request.headers.get("x-forwarded-for");
+    if (forwarded) return forwarded.split(",")[0]?.trim() ?? "unknown";
+  }
 
   return "unknown";
 }

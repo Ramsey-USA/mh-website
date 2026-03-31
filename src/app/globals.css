@@ -883,6 +883,8 @@ main {
 .scroll-reveal {
   opacity: 1;
   animation: fadeInUp 0.6s cubic-bezier(0.25, 0.25, 0, 1) both;
+  /* Uses --delay CSS custom property when set via inline style; falls back to 0s */
+  animation-delay: var(--delay, 0s);
 }
 
 /* When ScrollReveal JS component is present, use JS-controlled reveal */
@@ -900,24 +902,24 @@ main {
   transform: translateY(0);
 }
 
-/* Stagger delay for CSS-only animation */
+/* Stagger fallbacks for CSS-only animation (when no --delay prop is set inline) */
 .scroll-reveal:not(.js-controlled):nth-child(1) {
-  animation-delay: 0s;
+  animation-delay: var(--delay, 0s);
 }
 .scroll-reveal:not(.js-controlled):nth-child(2) {
-  animation-delay: 0.1s;
+  animation-delay: var(--delay, 0.1s);
 }
 .scroll-reveal:not(.js-controlled):nth-child(3) {
-  animation-delay: 0.2s;
+  animation-delay: var(--delay, 0.2s);
 }
 .scroll-reveal:not(.js-controlled):nth-child(4) {
-  animation-delay: 0.3s;
+  animation-delay: var(--delay, 0.3s);
 }
 .scroll-reveal:not(.js-controlled):nth-child(5) {
-  animation-delay: 0.4s;
+  animation-delay: var(--delay, 0.4s);
 }
 .scroll-reveal:not(.js-controlled):nth-child(6) {
-  animation-delay: 0.5s;
+  animation-delay: var(--delay, 0.5s);
 }
 
 /* Respect reduced motion preference */

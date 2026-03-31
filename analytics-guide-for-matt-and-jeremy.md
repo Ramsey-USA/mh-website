@@ -1,6 +1,6 @@
-# 🎯 **MH Construction Analytics System - Complete Guide**
+# 🎯 MH Construction Analytics System - Complete Guide
 
-## **For Matt & Jeremy - Marketing Intelligence Dashboard**
+## For Matt & Jeremy - Marketing Intelligence Dashboard
 
 **Last Updated:** March 26, 2026  
 **Status:** ✅ 100% Active - All pages tracking, server-side KV pipeline live, military dashboard live
@@ -14,9 +14,9 @@ scoring (0-100), device intelligence, traffic attribution, 100+ data points
 
 ---
 
-## **📊 What Data You're Now Collecting**
+## 📊 What Data You're Now Collecting
 
-### **1. Geographic Intelligence** 🗺️
+### 1. Geographic Intelligence 🗺️
 
 #### Question: "Where are our visitors coming from?"
 
@@ -40,7 +40,7 @@ scoring (0-100), device intelligence, traffic attribution, 100+ data points
 
 ---
 
-### **2. Service Interest Tracking** 🏗️
+### 2. Service Interest Tracking 🏗️
 
 #### Question: "What services attract the most attention?"
 
@@ -64,7 +64,7 @@ scoring (0-100), device intelligence, traffic attribution, 100+ data points
 
 ---
 
-### **3. Project Portfolio Engagement** 📂
+### 3. Project Portfolio Engagement 📂
 
 #### Question: "What project types generate interest?"
 
@@ -89,7 +89,7 @@ scoring (0-100), device intelligence, traffic attribution, 100+ data points
 
 ---
 
-### **4. User Journey Tracking** 🛤️
+### 4. User Journey Tracking 🛤️
 
 #### Question: "What path do users take before contacting us?"
 
@@ -131,7 +131,7 @@ scoring (0-100), device intelligence, traffic attribution, 100+ data points
 
 ---
 
-### **5. CTA Performance** 🎯
+### 5. CTA Performance 🎯
 
 #### Question: "Which calls-to-action work best?"
 
@@ -166,7 +166,7 @@ scoring (0-100), device intelligence, traffic attribution, 100+ data points
 
 ---
 
-### **6. Device & Browser Intelligence** 📱💻
+### 6. Device & Browser Intelligence 📱💻
 
 #### Question: "What devices are visitors using?"
 
@@ -191,7 +191,7 @@ scoring (0-100), device intelligence, traffic attribution, 100+ data points
 
 ---
 
-### **7. Traffic Source Attribution** 🚦
+### 7. Traffic Source Attribution 🚦
 
 #### Question: "How are people finding us?"
 
@@ -217,7 +217,7 @@ scoring (0-100), device intelligence, traffic attribution, 100+ data points
 
 ---
 
-### **8. Veterans Marketing Effectiveness** 🎖️
+### 8. Veterans Marketing Effectiveness 🎖️
 
 #### Question: "Is our veteran-focused marketing working?"
 
@@ -242,7 +242,7 @@ scoring (0-100), device intelligence, traffic attribution, 100+ data points
 
 ---
 
-### **9. Content Engagement Depth** 📖
+### 9. Content Engagement Depth 📖
 
 #### Question: "What content resonates most?"
 
@@ -267,7 +267,7 @@ scoring (0-100), device intelligence, traffic attribution, 100+ data points
 
 ---
 
-### **10. Form Analytics** 📝
+### 10. Form Analytics 📝
 
 #### Question: "How do users interact with forms?"
 
@@ -293,7 +293,7 @@ scoring (0-100), device intelligence, traffic attribution, 100+ data points
 
 ---
 
-## **🎖️ Military-Themed Dashboard**
+## 🎖️ Military-Themed Dashboard
 
 Your analytics dashboard uses **mission-ready language** familiar to veterans:
 
@@ -310,23 +310,23 @@ Your analytics dashboard uses **mission-ready language** familiar to veterans:
 
 ---
 
-## **🚀 Quick Access Guide**
+## 🚀 Quick Access Guide
 
-### **Daily Check (5 minutes):**
+### Daily Check (5 minutes)
 
 1. Open Dashboard at `/dashboard`
 2. Check "Field Operations Map" → Today's geographic activity
 3. Review "Contact Engagement" → Phone/email clicks today
 4. Check "Recent Conversions" → Forms submitted
 
-### **Weekly Review (15 minutes):**
+### Weekly Review (15 minutes)
 
 1. "Service Interest Analysis" → Which services trending?
 2. "Project Portfolio Metrics" → Which projects attracting clicks?
 3. "Conversion Funnel" → Where are drop-offs?
 4. "CTA Performance" → Which buttons working best?
 
-### **Monthly Strategy (30 minutes):**
+### Monthly Strategy (30 minutes)
 
 1. "Geographic Intelligence" → Expand to new cities?
 2. "Traffic Sources" → Which channels ROI positive?
@@ -335,37 +335,37 @@ Your analytics dashboard uses **mission-ready language** familiar to veterans:
 
 ---
 
-## **💡 Marketing Actions You Can Take**
+## 💡 Marketing Actions You Can Take
 
-### **Based on Geographic Data:**
+### Based on Geographic Data
 
 - ✅ Run targeted Google Ads in high-interest cities
 - ✅ Partner with local organizations in emerging markets
 - ✅ Create location-specific landing pages
 - ✅ Attend trade shows in high-engagement regions
 
-### **Based on Service Interest:**
+### Based on Service Interest
 
 - ✅ Feature popular services more prominently
 - ✅ Create targeted campaigns for high-interest services
 - ✅ Develop case studies for top services
 - ✅ Adjust pricing/positioning for underperforming services
 
-### **Based on User Journey:**
+### Based on User Journey
 
 - ✅ Optimize pages with high drop-off rates
 - ✅ Add CTAs at critical decision points
 - ✅ Simplify conversion path (reduce steps)
 - ✅ Create retargeting campaigns for partial journeys
 
-### **Based on Device Data:**
+### Based on Device Data
 
 - ✅ Optimize mobile experience if mobile traffic high
 - ✅ Add click-to-call buttons for mobile users
 - ✅ Test different layouts for device types
 - ✅ Ensure fast load times on all devices
 
-### **Based on Veteran Engagement:**
+### Based on Veteran Engagement
 
 - ✅ Expand veteran-focused content if high engagement
 - ✅ Create veteran success stories
@@ -374,7 +374,7 @@ Your analytics dashboard uses **mission-ready language** familiar to veterans:
 
 ---
 
-## **📈 Success Metrics**
+## 📈 Success Metrics
 
 **Baseline (Week 1):** Establish current performance
 **Growth Targets:**
@@ -387,7 +387,7 @@ Your analytics dashboard uses **mission-ready language** familiar to veterans:
 
 ---
 
-## **🔒 Security & Privacy**
+## 🔒 Security & Privacy
 
 - Client-side events are batched and sent to the server via `navigator.sendBeacon`
 - Server-side data is aggregated in **Cloudflare KV** (cross-visitor metrics)
@@ -412,7 +412,7 @@ Cloudflare KV, so the dashboard shows data from **all visitors** across all devi
 
 ---
 
-## **⚡ System Status**
+## ⚡ System Status
 
 ✅ **Geographic Tracking:** Active (3-tier fallback)
 ✅ **Page Tracking:** 22/22 pages (100%)
@@ -429,7 +429,7 @@ Cloudflare KV, so the dashboard shows data from **all visitors** across all devi
 
 ---
 
-## **🎯 Next-Level Enhancements (Optional)**
+## 🎯 Next-Level Enhancements (Optional)
 
 1. **A/B Testing:** Test different CTAs/layouts
 2. **Heat Maps:** Visual click density maps

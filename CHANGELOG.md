@@ -6,6 +6,18 @@ All notable changes to the MH Construction website are documented here.
 
 ## March 2026
 
+- **Mar 28:** Test coverage campaign (phase 2) — added 26 new tests across 4 new/updated suites,
+  bringing totals to **77 suites / 840 tests** (was 75/820); branch coverage improved from 79.07%
+  → **80.19%**; new suites: `src/components/ui/forms/__tests__/Input.test.tsx` (7 tests — covers
+  `error`/`helperText` branch pairs for both `Input` and `Textarea`),
+  `src/components/icons/__tests__/MaterialIcon.test.tsx` (4 tests — covers `primaryColor`
+  `colorStyle` truthy/falsy branches including `hasColorClass` and non-default theme paths);
+  updated `AdminSignInModal.test.tsx` (+3 tests — covers `response.ok=false` else branch,
+  `data.error || "Invalid credentials"` fallback, and fetch `catch` block);
+  updated `audit-logger.test.ts` (+6 tests — covers `&&` spread conditional branches for
+  `userAgent`/`sessionId`/`resource`/`action`, the `outcome || "success"` default, and
+  `logAuthEvent`/`logSecurityViolation` optional-arg presence/absence paths); zero failures
+
 - **Mar 26:** Build hygiene — removed stray `ReactDOM.preload()` call from `veterans/page.tsx`
   (preloading `mh-veteran-bg.webp` at the RSC layer caused the browser to inject a `<link
 rel="preload">` into every page that prefetched `/veterans` via `<Link>`, resulting in

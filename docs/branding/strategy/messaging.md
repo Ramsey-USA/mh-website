@@ -5,47 +5,31 @@
 **Version:** 7.0.0  
 **Status:** ✅ Active
 
-**⭐ MAJOR UPDATE (Dec 13, 2025)**: **Veteran-Owned Excellence Transformation** - Complete shift from
-AI/tech-focused messaging to veteran values and honest relationships:
-
-**Transformation Summary:**
-
-- Removed 50+ instances of "AI-powered", "cutting-edge", "innovative" language
-- Updated to emphasize "veteran-owned", "proven craftsmanship", "honest communication"
-- Team bios rewritten: veteran leadership over technology innovation
-- SEO keywords: transparent pricing, face-to-face consultation, military precision
-- All tools/automation removed in favor of direct human consultation
-
-**Current Focus:**
+**Current messaging focus:**
 
 - **Veteran Values:** Military discipline, proven methods, traditional excellence
 - **Honest Relationships:** Face-to-face meetings, transparent pricing, direct communication
 - **Traditional Business:** Handshakes matter, promises kept, relationships last
 - **Personal Consultation:** All CTAs direct to `/contact` for human interaction
 
-**⚠️ REMOVED FEATURES (Dec 13, 2025)**: Booking, AI Estimator, and 3D Explorer pages have been removed
-as part of our shift to veteran-owned values and direct human consultation. All CTAs now direct to
-`/contact` for personal communication focused on honest relationships and transparent pricing.
+> **Note:** Booking, AI Estimator, and 3D Explorer pages have been removed. All CTAs now
+> direct to `/contact` for personal communication focused on honest relationships and
+> transparent pricing.
 
-**⭐ IMPORTANT UPDATE (Dec 2, 2025)**: SEO-optimized messaging integrated throughout.
-provides systematic implementation of local SEO keywords across all website content using centralized content
-fragments and reusable patterns.
+All messaging is built upon the **four-value professional foundation system** from
+[core-values.md](../../business/core-values.md): Honesty, Integrity, Professionalism,
+Thoroughness—culminating in **Trust** as the ultimate goal.
 
-**⭐ IMPORTANT UPDATE (Nov 2025)**: This document integrates our **four-value professional foundation
-system** from [core-values.md](../../business/core-values.md). All messaging is built upon our core values:
-Honesty, Integrity, Professionalism, and Thoroughness—culminating in
-**Trust** as our ultimate goal.
-
-For page-specific messaging strategies, see the comprehensive
-**[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** which defines 5 Core Page Groups
+For page-specific messaging strategies, see
+**[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** — 5 Core Page Groups
 with unique voices, tones, and keyword priorities.
 
 ## Quick Navigation
 
 - [🏠 Brand Documentation](../)
 - [📋 Brand Overview](./brand-overview.md)
-- [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Four-value professional system
-- [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 5 Core Page Groups strategy
+- [💼 Core Values](../../business/core-values.md) - Four-value professional system (foundation)
+- [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - 5 Core Page Groups strategy
 - [🎨 Color System](../standards/color-system.md)
 - [📝 Unified Component Standards](../standards/unified-component-standards.md)
 
@@ -924,11 +908,12 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 ---
 
 **Messaging Authority**: MH Construction Leadership Team
-**Last Update**: November 20, 2025 (v5.0.0 - Core Values Integration)
+**Last Update**: December 28, 2025 (v7.0.0 - Veteran-Owned Excellence Transformation)
 **Next Review**: Quarterly brand compliance assessment
 
 **Version History**:
 
+- v7.0.0 (Dec 28, 2025): Veteran-owned excellence transformation, dual-label integration
 - v5.0.0 (Nov 20, 2025): Integrated four-value professional foundation system from core-values.md
 - v4.0.2 (Nov 15, 2025): Page-specific messaging references
 - v4.0.0 (Nov 4, 2025): Initial comprehensive messaging guidelines

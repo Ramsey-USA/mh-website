@@ -1,6 +1,8 @@
 # MH Construction, Inc. - Robots Configuration
 # Website: https://www.mhc-gc.com
-# Optimized for AI Search Engines (GEO)
+# NOTE: src/app/robots.ts generates /robots.txt dynamically and takes
+# precedence in production. This static file is a fallback only.
+# Keep both files in sync. Last synced: 2026-03-26.
 
 # AI Crawlers - Explicitly Allow for Retrieval & Indexing
 User-agent: GPTBot
@@ -43,14 +45,17 @@ Allow: /
 # General Crawlers
 User-agent: *
 Allow: /
-Disallow: /api/private/
-Disallow: /api/chat
+Disallow: /api/
 Disallow: /admin/
 Disallow: /dashboard/
-Disallow: /_next/static/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /security/
+Disallow: *.json
+Disallow: /logs/
+Disallow: /monitoring/
 Crawl-delay: 1
 
 # Sitemaps
-Sitemap: https://www.mhc-gc.com/sitemap-index.xml
 Sitemap: https://www.mhc-gc.com/sitemap.xml
 

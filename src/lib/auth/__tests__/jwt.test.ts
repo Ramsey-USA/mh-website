@@ -1,7 +1,10 @@
 /**
  * @jest-environment node
  *
- * Tests for src/lib/auth/jwt.ts
+ * Tests for lib/auth/jwt.ts
+ *
+ * NODE_ENV=test triggers the dev-secret fallback in getSecretKey(), so no
+ * JWT_SECRET env var is required.
  */
 
 import {
@@ -13,228 +16,111 @@ import {
   refreshAccessToken,
   extractTokenFromHeader,
   type JWTUser,
-} from "@/lib/auth/jwt";
+} from "../jwt";
 
-beforeAll(() => {
-  process.env["JWT_SECRET"] = "test-secret-for-jest";
-});
+// ── extractTokenFromHeader (sync) ─────────────────────────────────────────────
 
-const testUser: JWTUser = {
-  uid: "user-123",
-  email: "test@example.com",
-  role: "user",
-  name: "Test User",
-};
-
-// ---------------------------------------------------------------------------
-// generateAccessToken
-// ---------------------------------------------------------------------------
-describe("generateAccessToken", () => {
-  it("returns a non-empty string", async () => {
-    const token = await generateAccessToken(testUser);
-    expect(typeof token).toBe("string");
-    expect(token.length).toBeGreaterThan(0);
-  });
-
-  it("returns a JWT-formatted string (three dot-separated parts)", async () => {
-    const token = await generateAccessToken(testUser);
-    expect(token.split(".")).toHaveLength(3);
-  });
-});
-
-// ---------------------------------------------------------------------------
-// generateRefreshToken
-// ---------------------------------------------------------------------------
-describe("generateRefreshToken", () => {
-  it("returns a non-empty string", async () => {
-    const token = await generateRefreshToken("user-123");
-    expect(typeof token).toBe("string");
-    expect(token.length).toBeGreaterThan(0);
-  });
-
-  it("returns a JWT-formatted string", async () => {
-    const token = await generateRefreshToken("user-123");
-    expect(token.split(".")).toHaveLength(3);
-  });
-});
-
-// ---------------------------------------------------------------------------
-// generateTokenPair
-// ---------------------------------------------------------------------------
-describe("generateTokenPair", () => {
-  it("returns an object with accessToken, refreshToken, and expiresIn", async () => {
-    const pair = await generateTokenPair(testUser);
-    expect(typeof pair.accessToken).toBe("string");
-    expect(typeof pair.refreshToken).toBe("string");
-    expect(pair.expiresIn).toBe(900);
-  });
-
-  it("accessToken and refreshToken are different strings", async () => {
-    const pair = await generateTokenPair(testUser);
-    expect(pair.accessToken).not.toBe(pair.refreshToken);
-  });
-});
-
-// ---------------------------------------------------------------------------
-// verifyToken
-// ---------------------------------------------------------------------------
-describe("verifyToken", () => {
-  it("with valid access token returns user payload with uid", async () => {
-    const token = await generateAccessToken(testUser);
-    const payload = await verifyToken(token);
-    expect(payload).not.toBeNull();
-    expect(payload!.uid).toBe("user-123");
-  });
-
-  it("with valid access token returns payload with email", async () => {
-    const token = await generateAccessToken(testUser);
-    const payload = await verifyToken(token);
-    expect(payload!.email).toBe("test@example.com");
-  });
-
-  it("with valid access token returns payload with role", async () => {
-    const token = await generateAccessToken(testUser);
-    const payload = await verifyToken(token);
-    expect(payload!.role).toBe("user");
-  });
-
-  it("with invalid token returns null", async () => {
-    const result = await verifyToken("this.is.not.a.valid.jwt");
-    expect(result).toBeNull();
-  });
-
-  it("with empty string returns null", async () => {
-    const result = await verifyToken("");
-    expect(result).toBeNull();
-  });
-
-  it("with tampered token returns null", async () => {
-    const token = await generateAccessToken(testUser);
-    const tampered = token.slice(0, -5) + "XXXXX";
-    const result = await verifyToken(tampered);
-    expect(result).toBeNull();
-  });
-});
-
-// ---------------------------------------------------------------------------
-// verifyRefreshToken
-// ---------------------------------------------------------------------------
-describe("verifyRefreshToken", () => {
-  it("with valid refresh token returns the userId string", async () => {
-    const token = await generateRefreshToken("user-456");
-    const userId = await verifyRefreshToken(token);
-    expect(userId).toBe("user-456");
-  });
-
-  it("with access token (type !== 'refresh') returns null", async () => {
-    const accessToken = await generateAccessToken(testUser);
-    const result = await verifyRefreshToken(accessToken);
-    expect(result).toBeNull();
-  });
-
-  it("with invalid token returns null", async () => {
-    const result = await verifyRefreshToken("invalid.token.here");
-    expect(result).toBeNull();
-  });
-
-  it("with empty string returns null", async () => {
-    const result = await verifyRefreshToken("");
-    expect(result).toBeNull();
-  });
-});
-
-// ---------------------------------------------------------------------------
-// refreshAccessToken
-// ---------------------------------------------------------------------------
-describe("refreshAccessToken", () => {
-  it("with valid refresh token calls getUserById and returns new access token", async () => {
-    const refreshToken = await generateRefreshToken("user-789");
-    const getUserById = jest.fn(
-      async (_id: string): Promise<JWTUser | null> => ({
-        uid: "user-789",
-        email: "refreshed@example.com",
-        role: "user",
-      }),
-    );
-
-    const newToken = await refreshAccessToken(refreshToken, getUserById);
-    expect(getUserById).toHaveBeenCalledWith("user-789");
-    expect(typeof newToken).toBe("string");
-    expect(newToken!.length).toBeGreaterThan(0);
-  });
-
-  it("returns a verifiable access token", async () => {
-    const refreshToken = await generateRefreshToken("user-789");
-    const getUserById = jest.fn(
-      async (_id: string): Promise<JWTUser | null> => ({
-        uid: "user-789",
-        email: "refreshed@example.com",
-        role: "admin",
-      }),
-    );
-
-    const newToken = await refreshAccessToken(refreshToken, getUserById);
-    const payload = await verifyToken(newToken!);
-    expect(payload).not.toBeNull();
-    expect(payload!.uid).toBe("user-789");
-  });
-
-  it("when getUserById returns null returns null", async () => {
-    const refreshToken = await generateRefreshToken("user-999");
-    const getUserById = jest.fn(async (): Promise<JWTUser | null> => null);
-
-    const result = await refreshAccessToken(refreshToken, getUserById);
-    expect(result).toBeNull();
-  });
-
-  it("with invalid refresh token returns null", async () => {
-    const getUserById = jest.fn(async (): Promise<JWTUser | null> => testUser);
-    const result = await refreshAccessToken("not-a-valid-token", getUserById);
-    expect(result).toBeNull();
-    expect(getUserById).not.toHaveBeenCalled();
-  });
-
-  it("with access token instead of refresh token returns null", async () => {
-    const accessToken = await generateAccessToken(testUser);
-    const getUserById = jest.fn(async (): Promise<JWTUser | null> => testUser);
-    const result = await refreshAccessToken(accessToken, getUserById);
-    expect(result).toBeNull();
-  });
-});
-
-// ---------------------------------------------------------------------------
-// extractTokenFromHeader
-// ---------------------------------------------------------------------------
-describe("extractTokenFromHeader", () => {
-  it("with 'Bearer mytoken' returns 'mytoken'", () => {
-    expect(extractTokenFromHeader("Bearer mytoken")).toBe("mytoken");
-  });
-
-  it("with a real JWT Bearer value extracts the token", async () => {
-    const token = await generateAccessToken(testUser);
-    const extracted = extractTokenFromHeader(`Bearer ${token}`);
-    expect(extracted).toBe(token);
-  });
-
-  it("with null returns null", () => {
+describe("extractTokenFromHeader()", () => {
+  it("returns null for a null header", () => {
     expect(extractTokenFromHeader(null)).toBeNull();
   });
 
-  it("with 'Basic mytoken' returns null (not Bearer)", () => {
-    expect(extractTokenFromHeader("Basic mytoken")).toBeNull();
+  it("returns null when header does not start with 'Bearer '", () => {
+    expect(extractTokenFromHeader("Basic abc123")).toBeNull();
+    expect(extractTokenFromHeader("token-without-prefix")).toBeNull();
   });
 
-  it("with empty string returns null", () => {
-    expect(extractTokenFromHeader("")).toBeNull();
+  it("returns the token value after the 'Bearer ' prefix", () => {
+    expect(extractTokenFromHeader("Bearer my-jwt-token")).toBe("my-jwt-token");
+  });
+});
+
+// ── generateAccessToken / verifyToken ────────────────────────────────────────
+
+describe("generateAccessToken() + verifyToken()", () => {
+  const user: JWTUser = {
+    uid: "user-1",
+    email: "test@example.com",
+    role: "user",
+  };
+
+  it("generates a non-empty JWT string", async () => {
+    const token = await generateAccessToken(user);
+    expect(typeof token).toBe("string");
+    expect(token.split(".")).toHaveLength(3); // header.payload.signature
   });
 
-  it("with just 'Bearer' (no token) returns empty string", () => {
-    // "Bearer " prefix is stripped — what's left is ""
-    const result = extractTokenFromHeader("Bearer ");
-    expect(result).toBe("");
+  it("verifies a valid token and returns the payload", async () => {
+    const token = await generateAccessToken(user);
+    const payload = await verifyToken(token);
+    expect(payload).not.toBeNull();
+    expect(payload?.uid).toBe("user-1");
+    expect(payload?.email).toBe("test@example.com");
   });
 
-  it("with random non-bearer string returns null", () => {
-    expect(extractTokenFromHeader("Token abc123")).toBeNull();
+  it("returns null for a tampered / invalid token", async () => {
+    const result = await verifyToken("not.a.valid.jwt");
+    expect(result).toBeNull();
+  });
+
+  it("defaults role to 'user' when not provided", async () => {
+    const token = await generateAccessToken({ uid: "u2" });
+    const payload = await verifyToken(token);
+    expect(payload?.["role"]).toBe("user");
+  });
+});
+
+// ── generateRefreshToken / verifyRefreshToken ─────────────────────────────────
+
+describe("generateRefreshToken() + verifyRefreshToken()", () => {
+  it("generates a valid refresh token and returns the userId on verification", async () => {
+    const token = await generateRefreshToken("user-42");
+    const userId = await verifyRefreshToken(token);
+    expect(userId).toBe("user-42");
+  });
+
+  it("returns null for an invalid refresh token", async () => {
+    const result = await verifyRefreshToken("bad.token");
+    expect(result).toBeNull();
+  });
+
+  it("returns null when verifying an access token as a refresh token", async () => {
+    const accessToken = await generateAccessToken({ uid: "u3" });
+    const result = await verifyRefreshToken(accessToken);
+    expect(result).toBeNull();
+  });
+});
+
+// ── generateTokenPair ─────────────────────────────────────────────────────────
+
+describe("generateTokenPair()", () => {
+  it("returns both accessToken and refreshToken with expiresIn=900", async () => {
+    const pair = await generateTokenPair({ uid: "user-99", email: "a@b.com" });
+    expect(pair.accessToken).toBeTruthy();
+    expect(pair.refreshToken).toBeTruthy();
+    expect(pair.expiresIn).toBe(900);
+  });
+});
+
+// ── refreshAccessToken ────────────────────────────────────────────────────────
+
+describe("refreshAccessToken()", () => {
+  it("returns null for an invalid refresh token", async () => {
+    const result = await refreshAccessToken("bad-token", async () => null);
+    expect(result).toBeNull();
+  });
+
+  it("returns null when getUserById returns null", async () => {
+    const refreshToken = await generateRefreshToken("user-5");
+    const result = await refreshAccessToken(refreshToken, async () => null);
+    expect(result).toBeNull();
+  });
+
+  it("returns a new access token when getUserById returns a user", async () => {
+    const user: JWTUser = { uid: "user-5", email: "user5@example.com" };
+    const refreshToken = await generateRefreshToken("user-5");
+    const result = await refreshAccessToken(refreshToken, async () => user);
+    expect(typeof result).toBe("string");
+    expect(result?.split(".")).toHaveLength(3);
   });
 });

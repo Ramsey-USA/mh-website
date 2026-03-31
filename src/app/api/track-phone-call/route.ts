@@ -8,6 +8,7 @@ import {
   createSuccessResponse,
   internalServerError,
 } from "@/lib/api/responses";
+import { escapeHtml, sanitizeUrl } from "@/lib/utils/escape-html";
 
 export const dynamic = "force-dynamic";
 
@@ -24,7 +25,6 @@ interface PhoneCallTrackingRequest {
   userAgent?: string;
   referrer?: string;
   page?: string;
-  [key: string]: unknown;
 }
 
 async function handlePOST(request: NextRequest) {
@@ -34,6 +34,12 @@ async function handlePOST(request: NextRequest) {
     // Validate required fields
     if (!data.source || !data.phoneNumber) {
       return badRequest("Missing required fields: source and phoneNumber");
+    }
+
+    // Input length limits
+    if (data.source.length > 200) return badRequest("Source is too long");
+    if (data.phoneNumber.length > 30) {
+      return badRequest("Phone number is too long");
     }
 
     // Send email notification
@@ -108,11 +114,11 @@ function generatePhoneTrackingEmailHTML(
         <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse; margin-bottom: 20px;">
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>Phone Number:</strong></td>
-            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><a href="tel:${data.phoneNumber}" style="color: #386851; text-decoration: none; font-weight: 600;">${data.phoneNumber}</a></td>
+            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><a href="tel:${escapeHtml(data.phoneNumber)}" style="color: #386851; text-decoration: none; font-weight: 600;">${escapeHtml(data.phoneNumber)}</a></td>
           </tr>
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>Click Source:</strong></td>
-            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;">${data.source}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;">${escapeHtml(data.source)}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>Time:</strong></td>
@@ -123,7 +129,7 @@ function generatePhoneTrackingEmailHTML(
               ? `
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>Page:</strong></td>
-            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><a href="${data.page}" style="color: #386851; text-decoration: none;">${data.page}</a></td>
+            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><a href="${sanitizeUrl(data.page)}" style="color: #386851; text-decoration: none;">${escapeHtml(data.page)}</a></td>
           </tr>
           `
               : ""
@@ -133,7 +139,7 @@ function generatePhoneTrackingEmailHTML(
               ? `
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>Referrer:</strong></td>
-            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;">${data.referrer}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;">${escapeHtml(data.referrer)}</td>
           </tr>
           `
               : ""
@@ -143,7 +149,7 @@ function generatePhoneTrackingEmailHTML(
               ? `
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>Device:</strong></td>
-            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5; font-size: 12px; color: #666;">${data.userAgent}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5; font-size: 12px; color: #666;">${escapeHtml(data.userAgent)}</td>
           </tr>
           `
               : ""
@@ -153,7 +159,7 @@ function generatePhoneTrackingEmailHTML(
         <div style="background-color: #fff9e6; border-left: 4px solid #d4af37; padding: 15px; margin: 20px 0;">
           <p style="margin: 0; font-size: 14px; color: #856404;">
             <strong>Action Required:</strong> This is a hot lead! The visitor is actively trying to contact you. 
-            Be prepared for an incoming call to <strong>${data.phoneNumber}</strong>.
+            Be prepared for an incoming call to <strong>${escapeHtml(data.phoneNumber)}</strong>.
           </p>
         </div>
       </td>

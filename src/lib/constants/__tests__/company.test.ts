@@ -29,9 +29,9 @@ describe("COMPANY_INFO", () => {
       expect(emailRegex.test(COMPANY_INFO.email.main)).toBe(true);
     });
 
-    it("owner is a valid email address", () => {
+    it("admin is a valid email address", () => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      expect(emailRegex.test(COMPANY_INFO.email.owner)).toBe(true);
+      expect(emailRegex.test(COMPANY_INFO.email.admin)).toBe(true);
     });
   });
 

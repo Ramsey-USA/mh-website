@@ -97,7 +97,7 @@ console.log('🔧 Debug message')
 
 ---
 
-## � Analytics Tracking Standards
+## 📊 Analytics Tracking Standards
 
 **Effective Date:** December 26, 2025  
 **Status:** ✅ Active
@@ -142,7 +142,8 @@ import { trackClick, trackFormSubmit } from "@/lib/analytics/tracking";
 ### Documentation
 
 - **[Analytics Tracking Guide](../../technical/analytics-tracking-guide.md)** - Complete implementation
-- **[Analytics Tracking Guide](../../technical/analytics-tracking-guide.md)** - Implementation guide, quick reference cheatsheet, and dashboard access
+- **[Analytics Tracking Guide](../../technical/analytics-tracking-guide.md)** -
+  Implementation guide, quick reference cheatsheet, and dashboard access
 
 ### Best Practices
 
@@ -162,15 +163,15 @@ import { trackClick, trackFormSubmit } from "@/lib/analytics/tracking";
 
 ---
 
-## �📦 Import Standards
+## 📦 Import Standards
 
-### **MANDATORY: Use `@/` Absolute Imports**
+### MANDATORY: Use `@/` Absolute Imports
 
 **Rule**: All imports from `src/` must use the `@/` prefix.
 
 #### ✅ CORRECT
 
-`````tsx
+```tsx
 import { Button, Card } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
@@ -178,7 +179,7 @@ import { useAnalytics } from "@/hooks/useAnalytics";
 import { formatPhone } from "@/lib/utils";
 import { User } from "@/types/user";
 import { AuthContext } from "@/contexts/AuthContext";
-```text
+```
 
 #### ❌ INCORRECT
 
@@ -187,16 +188,16 @@ import { AuthContext } from "@/contexts/AuthContext";
 import { Button } from "../../components/ui";
 import { MaterialIcon } from "../../../components/icons/MaterialIcon";
 import { useAnalytics } from "../hooks/useAnalytics";
-```text
+```
 
-### **Why `@/` Imports?**
+### Why `@/` Imports?
 
 1. **Consistent** - Same path regardless of file depth
 2. **Refactor-safe** - Moving files doesn't break imports
 3. **Clear** - Instantly know it's from `src/`
 4. **Standard** - Industry best practice for Next.js
 
-### **ESLint Enforcement**
+### ESLint Enforcement
 
 ```json
 {
@@ -212,7 +213,7 @@ import { useAnalytics } from "../hooks/useAnalytics";
     }
   ]
 }
-```text
+```
 
 **Error Message**: "Use @/components/\* instead of relative imports"
 
@@ -220,7 +221,7 @@ import { useAnalytics } from "../hooks/useAnalytics";
 
 ## 🎨 Animation Standards
 
-### **MANDATORY: Use FramerMotionComponents Only**
+### MANDATORY: Use FramerMotionComponents Only
 
 **Rule**: All animations MUST import from `@/components/animations/FramerMotionComponents`.
 
@@ -233,7 +234,7 @@ import {
   HoverScale,
   ParallaxScroll,
 } from "@/components/animations/FramerMotionComponents";
-```text
+```
 
 #### ❌ INCORRECT - WILL FAIL BUILD
 
@@ -243,9 +244,9 @@ import { FadeInWhenVisible } from "@/components/animations/DynamicAnimations";
 
 // Don't create new dynamic wrappers
 const FadeIn = dynamic(() => import("./FadeInWhenVisible"), { ssr: false });
-```text
+```
 
-### **Critical Content Visibility Rule**
+### Critical Content Visibility Rule
 
 **Rule**: Never wrap critical page content in animations that could cause it to disappear.
 
@@ -266,7 +267,7 @@ export default function Page() {
     </>
   );
 }
-```text
+```
 
 #### ❌ INCORRECT - Critical Content Can Disappear
 
@@ -280,9 +281,9 @@ export default function Page() {
     </FadeInWhenVisible>
   );
 }
-```text
+```
 
-### **Animation Best Practices**
+### Animation Best Practices
 
 1. **Progressive Enhancement** - Page works without animations
 2. **Performance** - Use `HoverScale` for interactive elements only
@@ -293,7 +294,7 @@ export default function Page() {
 
 ## 🔧 Component Export Standards
 
-### **Next.js Pages & Special Files**
+### Next.js Pages & Special Files
 
 **Rule**: Must use default exports (Next.js requirement).
 
@@ -307,9 +308,9 @@ export default function PageName() {
 export default function sitemap() {
   return [...];
 }
-```text
+```
 
-### **Regular Components**
+### Regular Components
 
 **Preferred**: Named exports for better IDE support and tree-shaking.
 
@@ -327,7 +328,7 @@ function Button({ children, ...props }: ButtonProps) {
 }
 
 export { Button };
-```text
+```
 
 #### ⚠️ ACCEPTABLE (Existing Code)
 
@@ -336,7 +337,7 @@ export { Button };
 export default function Button({ children, ...props }: ButtonProps) {
   return <button {...props}>{children}</button>;
 }
-```text
+```
 
 **Note**: New components should prefer named exports. Existing components can remain with default exports but should
 be gradually migrated during refactoring.
@@ -345,15 +346,14 @@ be gradually migrated during refactoring.
 
 ## 🎨 Styling Standards
 
-### **Primary: Tailwind Utility Classes**
+### Primary: Tailwind Utility Classes
 
 **Rule**: Use Tailwind for all styling.
 
-```tsx
+````tsx
 ## 🎨 Styling Standards
 
-### **MANDATORY: Use Centralized Style Utilities**
-
+### MANDATORY: Use Centralized Style Utilities
 **Rule**: Use style utilities from `/src/lib/styles/` instead of repeating className strings.
 
 **See**: Centralized style utilities for complete documentation.
@@ -387,7 +387,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
     {/* content */}
   </div>
 </section>
-```
+````
 
 #### ❌ INCORRECT - Don't Repeat className Strings
 
@@ -425,7 +425,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 **Why**: The `.container` class has `overflow-x: hidden` which creates a scroll container,
 causing sections to capture scroll events. Use `max-w-7xl` for proper page-level scrolling.
 
-### **Available Style Utilities**
+### Available Style Utilities
 
 1. **Card Variants** (`@/lib/styles/card-variants`)
    - 5 predefined card styles (default, primary, secondary, accent, static)
@@ -444,7 +444,7 @@ causing sections to capture scroll events. Use `max-w-7xl` for proper page-level
 
 **Full Documentation**: See consistency guide for style standards
 
-### **Primary: Tailwind Utility Classes**
+### Primary Styling: Tailwind Utility Classes
 
 **Rule**: Use Tailwind for custom styling not covered by utilities.
 
@@ -454,33 +454,31 @@ causing sections to capture scroll events. Use `max-w-7xl` for proper page-level
 </div>
 ```
 
-### **Responsive Design**
+### Responsive Design
 
 Use Tailwind's responsive prefixes:
 
 ```tsx
-<div className="text-base md:text-lg lg:text-xl">
-  Responsive text size
-</div>
+<div className="text-base md:text-lg lg:text-xl">Responsive text size</div>
 ```
 
-### **Avoid**
+### Avoid
 
 - ❌ Inline styles (`style={{}}`) - Use only for dynamic values
 - ❌ CSS Modules - Not used in this project
 - ❌ styled-components - Not used in this project
 - ❌ Repeated className strings - Use style utilities instead
-```text
 
-### **Responsive Design**
+````text
 
+### Responsive Design
 Use Tailwind's responsive prefixes:
 
 ```tsx
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-```text
+````
 
-### **Avoid**
+### Additional Styling Patterns to Avoid
 
 - ❌ Inline styles (`style={{}}`) - Use only for dynamic values
 - ❌ CSS Modules - Not used in this project
@@ -490,13 +488,13 @@ Use Tailwind's responsive prefixes:
 
 ## 📝 TypeScript Standards
 
-### **Type Imports**
+### Type Imports
 
 ```tsx
 import type { User, UserProfile } from "@/types/user";
-```text
+```
 
-### **Props Interfaces**
+### Props Interfaces
 
 ```tsx
 interface ButtonProps {
@@ -512,9 +510,9 @@ export function Button({
 }: ButtonProps) {
   // ...
 }
-```text
+```
 
-### **Avoid `any`**
+### Avoid `any`
 
 ```tsx
 // ❌ AVOID
@@ -532,13 +530,13 @@ interface ProcessData {
 }
 
 function process(data: ProcessData) {}
-```text
+```
 
 ---
 
 ## 🗂️ File Organization
 
-### **Directory Structure**
+### Directory Structure
 
 ```text
 src/
@@ -554,9 +552,9 @@ src/
 ├── contexts/           # React contexts
 ├── middleware/         # Next.js middleware
 └── styles/             # Global styles
-```text
+```
 
-### **File Naming**
+### File Naming
 
 - **Components**: `PascalCase.tsx` - `Button.tsx`, `PageHero.tsx`
 - **Utilities**: `camelCase.ts` - `formatDate.ts`, `apiClient.ts`
@@ -567,7 +565,7 @@ src/
 
 ## 🧪 Testing Standards
 
-### **Component Tests**
+### Component Tests
 
 ```tsx
 import { render, screen } from "@testing-library/react";
@@ -579,13 +577,13 @@ describe("Button", () => {
     expect(screen.getByText("Click me")).toBeInTheDocument();
   });
 });
-```text
+```
 
 ---
 
 ## 🚀 Performance Standards
 
-### **Image Optimization**
+### Image Optimization
 
 ```tsx
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
@@ -597,9 +595,9 @@ import { OptimizedImage } from "@/components/ui/OptimizedImage";
   height={600}
   priority={true} // Above the fold
 />;
-```text
+```
 
-### **Code Splitting**
+### Code Splitting
 
 ```tsx
 // For heavy components not needed immediately
@@ -609,13 +607,13 @@ const HeavyChart = dynamic(() => import("@/components/charts/HeavyChart"), {
   loading: () => <div>Loading chart...</div>,
   ssr: false, // Only if needed
 });
-```text
+```
 
 ---
 
 ## 📚 Documentation Standards
 
-### **Component Documentation**
+### Component Documentation
 
 ````tsx
 /**
@@ -635,24 +633,24 @@ export function Button({
 }: ButtonProps) {
   // ...
 }
-`````
+````
 
-### **Complex Logic Documentation**
+### Complex Logic Documentation
 
-````tsx
+```tsx
 // WHY: Cache phone tracking to prevent duplicate analytics events
 // HOW: Store timestamp in localStorage, check on subsequent calls
 // WHEN: 2025-12-15 - Fix for duplicate tracking issue
 function trackPhoneClick(source: string): void {
-  const lastTracked = localStorage.getItem('phone_track_' + source);
+  const lastTracked = localStorage.getItem("phone_track_" + source);
   const now = Date.now();
 
   if (!lastTracked || now - parseInt(lastTracked) > 3600000) {
-    analytics.track('phone_click', { source });
-    localStorage.setItem('phone_track_' + source, now.toString());
+    analytics.track("phone_click", { source });
+    localStorage.setItem("phone_track_" + source, now.toString());
   }
 }
-```text
+```
 
 ---
 
@@ -703,4 +701,3 @@ Before committing code, ensure:
 
 **Questions or Suggestions?**
 Update this document via pull request or discuss with the team.
-````

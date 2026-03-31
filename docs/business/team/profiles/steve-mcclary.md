@@ -6,32 +6,32 @@
 
 > **Card #69** | **Site & Field Operations** | **Civilian Professional**
 
-## Quick Facts
+## 📋 Quick Facts
 
 - **Role**: Superintendent
 - **Years with Company**: 20
 - **Hometown**: Washington
 - **Education**: Construction Technology
 
-## 2025 Performance Statistics
+## 📊 2025 Performance Statistics
 
 - **Projects Completed**: 22
 - **Client Satisfaction**: 97%
 - **Safety Record**: PERFECT
 - **Team Collaborations**: 30
 
-## Career Statistics
+## 🏆 Career Statistics
 
 - **Total Projects**: 400
 - **Years Experience**: 20
 - **Specialty Areas**: 7
 - **Mentorships**: 25
 
-## Awards & Recognition
+## 🎖️ Awards & Recognition
 
 Perfect Safety Record Award, Field Leadership Excellence
 
-## Biography
+## 👤 Biography
 
 Steven began his career in construction as a teenager, starting on a residential crew clearing
 debris before swapping into a leadership position when they were short handed. Over the years he
@@ -43,30 +43,30 @@ As Senior Superintendent, Steve oversees all on-site construction operations - e
 are safe, efficient, and on-plan. He coordinates Ally teams, mentors newcomers, manages
 resources, and serves as a key liaison between clients and design teams.
 
-## Career Highlights
+## ⭐ Career Highlights
 
 - Zero safety incidents in 2025
 - Led complex multi-phase projects
 - Implemented comprehensive safety protocols
 - Achieved perfect safety record over 5 years
 
-## Professional Specialties
+## 🔧 Professional Specialties
 
 - Field Leadership & Crew Management
 - Multi-Phase Project Oversight
 - Safety Management & OSHA Compliance
 - Quality Assurance & Standards Enforcement
 
-## Certifications
+## 📜 Certifications
 
 OSHA 30, CPR
 
-## Personal Interests
+## 🎯 Personal Interests
 
 - **Hobbies**: Safety Training, Hiking
 - **Special Interests**: Safety Excellence
 
-## Fun Fact
+## 💡 Fun Fact
 
 Steve has worked on construction sites for over 20 years without a single recordable safety incident.
 

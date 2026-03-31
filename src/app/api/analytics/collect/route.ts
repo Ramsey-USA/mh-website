@@ -9,6 +9,7 @@
  */
 
 import { type NextRequest, NextResponse } from "next/server";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { rateLimit } from "@/lib/security/rate-limiter";
 import { logger } from "@/lib/utils/logger";
 import {
@@ -160,11 +161,23 @@ async function handler(request: NextRequest): Promise<NextResponse> {
     }
   }
 
+  // Fire KV writes in the background via ctx.waitUntil() so the Worker can
+  // return 200 immediately without burning CPU-ms waiting for KV round-trips.
+  // Falls back to awaiting directly when running outside Cloudflare (local dev).
   try {
-    await Promise.all(promises);
-  } catch (err) {
-    logger.error("Analytics collect error:", err);
-    // Return 200 anyway — analytics failures should not surface to users
+    const cfCtx = getCloudflareContext();
+    cfCtx.ctx.waitUntil(
+      Promise.all(promises).catch((err) => {
+        logger.error("Analytics collect error:", err);
+      }),
+    );
+  } catch {
+    // Not in a Cloudflare Workers context (local dev / test) — await normally
+    try {
+      await Promise.all(promises);
+    } catch (err) {
+      logger.error("Analytics collect error:", err);
+    }
   }
 
   return NextResponse.json({ ok: true }, { status: 200 });

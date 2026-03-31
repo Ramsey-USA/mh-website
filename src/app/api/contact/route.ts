@@ -13,6 +13,7 @@ import {
   createPaginatedResponse,
   internalServerError,
 } from "@/lib/api/responses";
+import { escapeHtml } from "@/lib/utils/escape-html";
 
 export const dynamic = "force-dynamic";
 
@@ -57,6 +58,14 @@ async function handlePOST(request: NextRequest) {
       return badRequest(
         "Missing required fields: name, email, and message are required",
       );
+    }
+
+    // Input length limits
+    if (data.name.length > 200) return badRequest("Name is too long");
+    if (data.email.length > 254) return badRequest("Email is too long");
+    if (data.message.length > 5000) return badRequest("Message is too long");
+    if (data.phone && data.phone.length > 30) {
+      return badRequest("Phone number is too long");
     }
 
     // Email validation
@@ -202,7 +211,7 @@ function generateEmailHTML(data: ContactRequest): string {
     ? Object.entries(data.metadata)
         .map(
           ([key, value]) =>
-            `<tr><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>${formatFieldName(key)}:</strong></td><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;">${value}</td></tr>`,
+            `<tr><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>${escapeHtml(formatFieldName(key))}:</strong></td><td style="padding: 8px; border-bottom: 1px solid #e5e5e5;">${escapeHtml(value)}</td></tr>`,
         )
         .join("")
     : "";
@@ -213,7 +222,7 @@ function generateEmailHTML(data: ContactRequest): string {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${data.subject || "New Form Submission"}</title>
+  <title>${escapeHtml(data.subject || "New Form Submission")}</title>
 </head>
 <body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #212121; margin: 0; padding: 0; background-color: #f5f5f5;">
   <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
@@ -228,23 +237,23 @@ function generateEmailHTML(data: ContactRequest): string {
     <!-- Content -->
     <tr>
       <td style="padding: 30px;">
-        <h2 style="color: #386851; margin: 0 0 20px 0; font-size: 20px;">New ${data.type || "Contact"} Form Submission</h2>
+        <h2 style="color: #386851; margin: 0 0 20px 0; font-size: 20px;">New ${escapeHtml(data.type || "Contact")} Form Submission</h2>
         
         <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse; margin-bottom: 20px;">
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>Name:</strong></td>
-            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;">${data.name}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;">${escapeHtml(data.name)}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>Email:</strong></td>
-            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><a href="mailto:${data.email}" style="color: #386851; text-decoration: none;">${data.email}</a></td>
+            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><a href="mailto:${escapeHtml(data.email)}" style="color: #386851; text-decoration: none;">${escapeHtml(data.email)}</a></td>
           </tr>
           ${
             data.phone
               ? `
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><strong>Phone:</strong></td>
-            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><a href="tel:${data.phone}" style="color: #386851; text-decoration: none;">${data.phone}</a></td>
+            <td style="padding: 8px; border-bottom: 1px solid #e5e5e5;"><a href="tel:${escapeHtml(data.phone)}" style="color: #386851; text-decoration: none;">${escapeHtml(data.phone)}</a></td>
           </tr>
           `
               : ""
@@ -254,7 +263,7 @@ function generateEmailHTML(data: ContactRequest): string {
         
         <div style="background-color: #f9f9f9; border-left: 4px solid #386851; padding: 15px; margin: 20px 0;">
           <h3 style="margin: 0 0 10px 0; color: #386851; font-size: 16px;">Message:</h3>
-          <p style="margin: 0; white-space: pre-wrap;">${data.message}</p>
+          <p style="margin: 0; white-space: pre-wrap;">${escapeHtml(data.message)}</p>
         </div>
         
         <p style="color: #666; font-size: 12px; margin: 20px 0 0 0;">

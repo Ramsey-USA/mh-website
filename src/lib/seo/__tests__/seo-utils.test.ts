@@ -124,8 +124,8 @@ describe("location-metadata: generateLocationMetadata()", () => {
   it("returns openGraph with title and description", () => {
     const meta = generateLocationMetadata(MOCK_LOCATION);
     const og = meta.openGraph as Record<string, unknown>;
-    expect(og?.title).toBe(MOCK_LOCATION.seo.title);
-    expect(og?.description).toBe(MOCK_LOCATION.seo.openGraphDescription);
+    expect(og?.["title"]).toBe(MOCK_LOCATION.seo.title);
+    expect(og?.["description"]).toBe(MOCK_LOCATION.seo.openGraphDescription);
   });
 
   it("returns canonical URL containing location slug", () => {

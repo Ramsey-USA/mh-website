@@ -48,10 +48,20 @@ jest.mock("@/components/ui", () => ({
   JobApplicationModal: ({
     isOpen,
     entryPoint,
+    onClose,
   }: {
     isOpen: boolean;
     entryPoint?: string;
-  }) => (isOpen ? <div>Modal entry: {entryPoint ?? "none"}</div> : null),
+    onClose?: () => void;
+  }) =>
+    isOpen ? (
+      <div>
+        Modal entry: {entryPoint ?? "none"}
+        <button type="button" onClick={onClose}>
+          Close Modal
+        </button>
+      </div>
+    ) : null,
   AlternatingShowcase: () => null,
 }));
 
@@ -175,5 +185,48 @@ describe("CareersPage application CTAs", () => {
     expect(
       await screen.findByText("Modal entry: Footer Application"),
     ).toBeInTheDocument();
+  });
+
+  it("closes the modal without cleaning URL when no apply params", async () => {
+    const user = userEvent.setup();
+
+    render(<CareersPage />);
+
+    // Open it first
+    await user.click(screen.getByRole("button", { name: /Apply as Veteran/i }));
+    expect(screen.getByText(/Modal entry:/)).toBeInTheDocument();
+
+    // Close it
+    await user.click(screen.getByRole("button", { name: /Close Modal/i }));
+    expect(screen.queryByText(/Modal entry:/)).not.toBeInTheDocument();
+    expect(replaceMock).not.toHaveBeenCalled();
+  });
+
+  it("closes the modal and cleans apply params from URL", async () => {
+    const user = userEvent.setup();
+    mockSearchParams = new URLSearchParams("apply=true&entryPoint=Test");
+
+    render(<CareersPage />);
+
+    // Modal auto-opens due to query params
+    expect(await screen.findByText("Modal entry: Test")).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: /Close Modal/i }));
+
+    expect(replaceMock).toHaveBeenCalledWith("/careers", { scroll: false });
+  });
+
+  it("sends mailto when the email inquiry button is clicked", async () => {
+    const user = userEvent.setup();
+
+    render(<CareersPage />);
+
+    // The email button near the veteran section (contains the mark_email_read icon text)
+    const emailButtons = screen
+      .getAllByRole("button")
+      .filter((btn) => btn.textContent?.includes("mark_email_read"));
+
+    // Just clicking should exercise the window.location.href assignment without throwing
+    await expect(user.click(emailButtons[0]!)).resolves.toBeUndefined();
   });
 });

@@ -23,16 +23,10 @@
 - [ ] 🧹 No commented-out code
 - [ ] 🚫 No console.log statements
 - [ ] 🚫 No unused imports
-- [ ] 📱 Mobile responsive (if UI changes)
-- [ ] ♿ Accessibility considered (if UI changes)
-
----
-
-**Note:** Pre-commit hooks and CI/CD automatically verify code quality. If checks fail,
-ask AI: _"Run quality check and fix issues"_
-
 - [ ] 📦 No unnecessary dependencies added
 - [ ] 🎯 No duplicate code (DRY principle followed)
+- [ ] 📱 Mobile responsive (if UI changes)
+- [ ] ♿ Accessibility considered (if UI changes)
 
 ### Component Standards
 

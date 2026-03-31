@@ -5,9 +5,9 @@
  * Unit and integration testing with coverage tracking
  *
  * @see https://nextjs.org/docs/app/building-your-application/testing/jest
- * @see docs/testing/mh-testing-guide.md
- * @version 3.0.0
- * @lastUpdated 2026-03-31
+ * @see testing/mh-testing-guide.md
+ * @version 2.0.0
+ * @lastUpdated 2026-03-26
  */
 
 const nextJest = require("next/jest");
@@ -54,7 +54,18 @@ const customJestConfig = {
     "!src/app/not-found.tsx",
     "!src/app/error.tsx",
     "!src/app/global-error.tsx",
+    // Barrel re-export files — no executable logic, just re-exports
+    "!src/**/index.ts",
+    "!src/**/index.tsx",
+    // Pure TypeScript type declaration files — no executable code
+    "!src/types/**",
   ],
+
+  // Use V8 coverage provider instead of the default babel/istanbul provider.
+  // babel-plugin-istanbul depends on test-exclude which calls promisify() on
+  // an Object under Node ≥20, crashing the coverage worker. V8 coverage is
+  // built into the runtime, faster, and more accurate for ESM + dynamic imports.
+  coverageProvider: "v8",
 
   // Coverage thresholds — enforced against the filtered file list above.
   // Security-critical and core-utility modules are fully tested (80–100%).
@@ -67,16 +78,10 @@ const customJestConfig = {
       functions: 20,
       lines: 20,
     },
-    // Security modules must maintain high coverage
-    "src/lib/security/sanitization.ts": {
-      statements: 90,
-      branches: 80,
-      functions: 90,
-      lines: 90,
-    },
+    // Security and utility modules must maintain high coverage
     "src/lib/security/security-manager.ts": {
       statements: 80,
-      branches: 70,
+      branches: 80,
       functions: 80,
       lines: 80,
     },

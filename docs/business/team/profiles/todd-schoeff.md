@@ -6,32 +6,32 @@
 
 > **Card #7** | **Logistics & Support** | **Civilian Professional**
 
-## Quick Facts
+## 📋 Quick Facts
 
 - **Role**: Lead Estimator
 - **Years with Company**: 20
 - **Hometown**: Washington State
 - **Education**: Construction Engineering
 
-## 2025 Performance Statistics
+## 📊 2025 Performance Statistics
 
 - **Projects Completed**: 85
 - **Client Satisfaction**: 98%
 - **Safety Record**: PERFECT
 - **Team Collaborations**: 35
 
-## Career Statistics
+## 🏆 Career Statistics
 
 - **Total Projects**: 750
 - **Years Experience**: 20
 - **Specialty Areas**: 6
 - **Mentorships**: 20
 
-## Awards & Recognition
+## 🎖️ Awards & Recognition
 
 Estimating Excellence Award, 20-Year Service Recognition
 
-## Biography
+## 👤 Biography
 
 Todd Schoeff serves as an Estimator for MH Construction, bringing over a decade of technical and field experience
 across commercial, government, and specialized infrastructure projects. With a background as a project foreman and
@@ -42,30 +42,30 @@ and ensure constructability from the earliest estimating stages. Todd's hands-on
 systems, network infrastructure, and project team dynamics strengthens MH Construction's ability to deliver
 reliable, precise, and compliant results across diverse project types.
 
-## Career Highlights
+## ⭐ Career Highlights
 
 - Achieved 98% estimating accuracy rate
 - Led major commercial project bids
 - Developed cost control protocols
 - Mentored estimating team members
 
-## Professional Specialties
+## 🔧 Professional Specialties
 
 - Cost Estimation & Budget Development
 - Commercial Project Bidding
 - Medical Facility Specialization
 - Specialty Systems & Complex Projects
 
-## Certifications
+## 📜 Certifications
 
 CCE, ASPE
 
-## Personal Interests
+## 🎯 Personal Interests
 
 - **Hobbies**: Golf, Analytics
 - **Special Interests**: Cost Engineering
 
-## Fun Fact
+## 💡 Fun Fact
 
 Todd's estimates are so accurate that actual costs typically vary by less than 2% from his initial projections.
 

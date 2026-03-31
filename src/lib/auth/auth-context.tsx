@@ -50,9 +50,17 @@ interface User {
   photoURL: string | null;
 }
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
+export function AuthProvider({
+  children,
+  initialProfile = null,
+}: {
+  children: React.ReactNode;
+  initialProfile?: UserProfile | null;
+}) {
   const [user, setUser] = useState<User | null>(null);
-  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(
+    initialProfile,
+  );
   const [loading] = useState(false);
 
   // Stub implementations - Authentication system not yet configured

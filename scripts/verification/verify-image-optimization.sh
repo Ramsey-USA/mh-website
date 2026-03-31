@@ -51,6 +51,6 @@ fi
 echo ""
 echo "🚀 Next Steps:"
 echo "  1. Run: npm run build"
-echo "  2. Test: npm run lighthouse"
+echo "  2. Test: npm run lighthouse:guide"
 echo "  3. Deploy to production"
 echo "  4. Monitor Core Web Vitals"

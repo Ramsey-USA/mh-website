@@ -6,7 +6,7 @@ import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
-import type { ReactNode } from "react";
+import type { ReactNode, CSSProperties } from "react";
 
 export interface TimelineStep {
   num: number;
@@ -133,7 +133,7 @@ export function Timeline({
               <div
                 key={step.num}
                 className="relative group scroll-reveal"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                style={{ "--delay": `${index * 0.1}s` } as CSSProperties}
               >
                 {/* Desktop Layout - Alternating */}
                 <div className="hidden lg:flex items-center gap-8">

@@ -1,6 +1,6 @@
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import Image from "next/image";
-import { type ReactNode } from "react";
+import { type ReactNode, type CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
 
@@ -91,7 +91,7 @@ export function AlternatingShowcase({
             <div
               key={item.id}
               className="scroll-reveal group"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              style={{ "--delay": `${index * 0.1}s` } as CSSProperties}
             >
               <div className="flex flex-col lg:grid lg:grid-cols-2 bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300">
                 {/* Image Side */}

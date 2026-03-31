@@ -107,7 +107,7 @@ referring to subcontractors creates confusion.
 
 ---
 
-#### **Partnership Process & Collaboration**
+#### Partnership Process & Collaboration
 
 **PREFERRED Phrases:**
 
@@ -138,7 +138,7 @@ referring to subcontractors creates confusion.
 
 ### 2. VETERAN & MILITARY LANGUAGE
 
-#### **Veteran Status (CONSISTENT STANDARD)**
+#### Veteran Status (CONSISTENT STANDARD)
 
 **PREFERRED Standard Phrasing:**
 
@@ -180,7 +180,7 @@ referring to subcontractors creates confusion.
 
 ---
 
-#### **Military Precision Language**
+#### Military Precision Language
 
 **PREFERRED Phrases:**
 
@@ -215,7 +215,7 @@ referring to subcontractors creates confusion.
 
 ### 3. LOCATION & GEOGRAPHIC TERMS
 
-#### **Service Areas (STANDARD ORDER)**
+#### Service Areas (STANDARD ORDER)
 
 **Primary Standard Format:**
 
@@ -263,7 +263,7 @@ Pasco, WA 99301
 
 ### 4. TRUST & INTEGRITY LANGUAGE
 
-#### **Core Values Terminology**
+#### Core Values Terminology
 
 **PREFERRED Standard Phrases:**
 
@@ -317,7 +317,7 @@ Pasco, WA 99301
 
 ### 5. QUALITY & EXCELLENCE LANGUAGE
 
-#### **Quality Standards**
+#### Quality Standards
 
 **PREFERRED Terms:**
 
@@ -359,7 +359,7 @@ Pasco, WA 99301
 
 ### 6. SAFETY LANGUAGE
 
-#### **Safety Record (EXACT STANDARDS)**
+#### Safety Record (EXACT STANDARDS)
 
 **Official Safety Record Statements:**
 
@@ -406,7 +406,7 @@ Pasco, WA 99301
 
 ### 7. TECHNOLOGY & DIGITAL PRESENCE
 
-#### **Website & Digital Tools**
+#### Website & Digital Tools
 
 **Online Presence:**
 
@@ -447,7 +447,7 @@ Technology serves human connection, not replaces it:
 
 ### 8. PROJECT & CONTROL LANGUAGE
 
-#### **Client Control & Management**
+#### Client Control & Management
 
 **SIGNATURE PHRASE (Use consistently):**
 
@@ -498,7 +498,7 @@ Always emphasize client is in control, we're supporting their success:
 
 ### 9. CONTACT & COMMUNICATION
 
-#### **Contact Information (STANDARD FORMAT)**
+#### Contact Information (STANDARD FORMAT)
 
 **Phone:**
 
@@ -530,7 +530,7 @@ Pasco, WA 99301
 
 ### 10. COMPANY TAGLINES & SLOGANS
 
-#### **Primary Slogan (UNIVERSAL - USE EVERYWHERE)**
+#### Primary Slogan (UNIVERSAL - USE EVERYWHERE)
 
 ```text
 "Building projects for the client, NOT the dollar"
@@ -554,7 +554,7 @@ Pasco, WA 99301
 
 ---
 
-#### **Secondary Slogan (SPECIFIC USAGE)**
+#### Secondary Slogan (SPECIFIC USAGE)
 
 ```text
 "THE ROI IS THE RELATIONSHIP"
@@ -581,7 +581,7 @@ Pasco, WA 99301
 
 ---
 
-#### **Supporting Taglines (CONTEXT-APPROPRIATE)**
+#### Supporting Taglines (CONTEXT-APPROPRIATE)
 
 Use these based on page context and messaging group:
 

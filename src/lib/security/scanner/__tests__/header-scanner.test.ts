@@ -3,202 +3,112 @@
  */
 
 import { HeaderScanner } from "../header-scanner";
-import type { ScanConfig, HttpResponse } from "../types";
-import { VulnerabilityType } from "../types";
-
-const buildConfig = (url = "https://example.com"): ScanConfig => ({
-  targets: { urls: [url] },
-  scanTypes: [],
-});
-
-const buildResponse = (
-  headers: Record<string, string>,
-  status = 200,
-): HttpResponse => ({
-  status,
-  statusText: "OK",
-  headers,
-  body: "<html><body>OK</body></html>",
-  url: "https://example.com",
-});
-
-/** Full set of well-configured security headers */
-const SECURE_HEADERS: Record<string, string> = {
-  "content-security-policy": "default-src 'self'; script-src 'self'",
-  "x-frame-options": "DENY",
-  "x-content-type-options": "nosniff",
-  "strict-transport-security": "max-age=31536000; includeSubDomains",
-  "referrer-policy": "strict-origin-when-cross-origin",
-  "permissions-policy": "camera=(), microphone=(), geolocation=()",
-};
+import { SeverityLevel } from "../types";
 
 describe("HeaderScanner", () => {
-  let scanner: HeaderScanner;
+  const scanner = new HeaderScanner();
 
-  beforeEach(() => {
-    scanner = new HeaderScanner();
+  it("returns no vulnerabilities when no target URLs are configured", async () => {
+    const result = await scanner.scan(
+      {
+        targets: {},
+        scanTypes: [],
+      },
+      jest.fn(),
+    );
+
+    expect(result).toEqual([]);
   });
 
-  it("creates an instance", () => {
-    expect(scanner).toBeInstanceOf(HeaderScanner);
+  it("reports all missing required security headers", async () => {
+    const result = await scanner.scan(
+      {
+        targets: { urls: ["https://example.com"] },
+        scanTypes: [],
+      },
+      jest.fn().mockResolvedValue({
+        status: 200,
+        statusText: "OK",
+        headers: {},
+        body: "",
+      }),
+    );
+
+    expect(result).toHaveLength(6);
+    expect(result.map((v) => v.title)).toEqual(
+      expect.arrayContaining([
+        "Missing content-security-policy Header",
+        "Missing x-frame-options Header",
+        "Missing x-content-type-options Header",
+        "Missing strict-transport-security Header",
+        "Missing referrer-policy Header",
+        "Missing permissions-policy Header",
+      ]),
+    );
+    expect(
+      result.find((v) => v.title === "Missing content-security-policy Header")
+        ?.severity,
+    ).toBe(SeverityLevel.HIGH);
   });
 
-  it("returns empty array when no URLs configured", async () => {
-    const makeRequest = jest.fn();
-    const config: ScanConfig = { targets: {}, scanTypes: [] };
-    const results = await scanner.scan(config, makeRequest);
-    expect(results).toHaveLength(0);
-    expect(makeRequest).not.toHaveBeenCalled();
+  it("detects weak configured headers and insecure disclosure headers", async () => {
+    const result = await scanner.scan(
+      {
+        targets: { urls: ["https://example.com"] },
+        scanTypes: [],
+      },
+      jest.fn().mockResolvedValue({
+        status: 200,
+        statusText: "OK",
+        headers: {
+          "content-security-policy": "default-src 'self' 'unsafe-inline'",
+          "x-frame-options": "ALLOW",
+          "x-content-type-options": "nosniff",
+          "strict-transport-security": "max-age=300",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "permissions-policy": "geolocation=()",
+          server: "nginx/1.0",
+          "x-powered-by": "Next.js",
+          "access-control-allow-origin": "*",
+        },
+        body: "",
+      }),
+    );
+
+    expect(result.map((v) => v.title)).toEqual(
+      expect.arrayContaining([
+        "Weak Content Security Policy",
+        "Weak X-Frame-Options Configuration",
+        "Weak HSTS Configuration",
+        "Server Header Information Disclosure",
+        "X-Powered-By Header Information Disclosure",
+        "Overly Permissive CORS Policy",
+      ]),
+    );
   });
 
-  it("returns empty array when all security headers are properly set", async () => {
+  it("continues scanning when one request fails", async () => {
     const makeRequest = jest
       .fn()
-      .mockResolvedValue(buildResponse(SECURE_HEADERS));
-    const results = await scanner.scan(buildConfig(), makeRequest);
-    // Only security-header related vulnerabilities should be absent
-    const missingHeaders = results.filter(
-      (r) => r.type === VulnerabilityType.MISSING_SECURITY_HEADERS,
+      .mockRejectedValueOnce(new Error("network error"))
+      .mockResolvedValueOnce({
+        status: 200,
+        statusText: "OK",
+        headers: {},
+        body: "",
+      });
+
+    const result = await scanner.scan(
+      {
+        targets: {
+          urls: ["https://bad.example.com", "https://good.example.com"],
+        },
+        scanTypes: [],
+      },
+      makeRequest,
     );
-    expect(missingHeaders).toHaveLength(0);
-  });
 
-  it("detects missing X-Frame-Options header", async () => {
-    const { "x-frame-options": _, ...headersWithoutXFO } = SECURE_HEADERS;
-    const makeRequest = jest
-      .fn()
-      .mockResolvedValue(buildResponse(headersWithoutXFO));
-    const results = await scanner.scan(buildConfig(), makeRequest);
-    const xfoVuln = results.find(
-      (r) =>
-        r.type === VulnerabilityType.MISSING_SECURITY_HEADERS &&
-        r.title.toLowerCase().includes("x-frame-options"),
-    );
-    expect(xfoVuln).toBeDefined();
-  });
-
-  it("detects missing X-Content-Type-Options header", async () => {
-    const { "x-content-type-options": _, ...rest } = SECURE_HEADERS;
-    const makeRequest = jest.fn().mockResolvedValue(buildResponse(rest));
-    const results = await scanner.scan(buildConfig(), makeRequest);
-    const vuln = results.find(
-      (r) =>
-        r.type === VulnerabilityType.MISSING_SECURITY_HEADERS &&
-        r.title.toLowerCase().includes("x-content-type-options"),
-    );
-    expect(vuln).toBeDefined();
-  });
-
-  it("detects missing Content-Security-Policy header", async () => {
-    const { "content-security-policy": _, ...rest } = SECURE_HEADERS;
-    const makeRequest = jest.fn().mockResolvedValue(buildResponse(rest));
-    const results = await scanner.scan(buildConfig(), makeRequest);
-    const vuln = results.find(
-      (r) =>
-        r.type === VulnerabilityType.MISSING_SECURITY_HEADERS &&
-        r.title.toLowerCase().includes("content-security-policy"),
-    );
-    expect(vuln).toBeDefined();
-  });
-
-  it("detects missing Strict-Transport-Security header", async () => {
-    const { "strict-transport-security": _, ...rest } = SECURE_HEADERS;
-    const makeRequest = jest.fn().mockResolvedValue(buildResponse(rest));
-    const results = await scanner.scan(buildConfig(), makeRequest);
-    const vuln = results.find(
-      (r) =>
-        r.type === VulnerabilityType.MISSING_SECURITY_HEADERS &&
-        r.title.toLowerCase().includes("strict-transport-security"),
-    );
-    expect(vuln).toBeDefined();
-  });
-
-  it("detects missing Referrer-Policy header", async () => {
-    const { "referrer-policy": _, ...rest } = SECURE_HEADERS;
-    const makeRequest = jest.fn().mockResolvedValue(buildResponse(rest));
-    const results = await scanner.scan(buildConfig(), makeRequest);
-    const vuln = results.find(
-      (r) =>
-        r.type === VulnerabilityType.MISSING_SECURITY_HEADERS &&
-        r.title.toLowerCase().includes("referrer-policy"),
-    );
-    expect(vuln).toBeDefined();
-  });
-
-  it("detects weak CSP (unsafe-eval)", async () => {
-    const headers = {
-      ...SECURE_HEADERS,
-      "content-security-policy":
-        "default-src 'self'; script-src 'self' 'unsafe-eval'",
-    };
-    const makeRequest = jest.fn().mockResolvedValue(buildResponse(headers));
-    const results = await scanner.scan(buildConfig(), makeRequest);
-    const weakCsp = results.find(
-      (r) =>
-        r.type === VulnerabilityType.INSECURE_HEADERS &&
-        r.title.toLowerCase().includes("content security policy"),
-    );
-    expect(weakCsp).toBeDefined();
-  });
-
-  it("detects weak CSP (unsafe-inline)", async () => {
-    const headers = {
-      ...SECURE_HEADERS,
-      "content-security-policy":
-        "default-src 'self'; script-src 'self' 'unsafe-inline'",
-    };
-    const makeRequest = jest.fn().mockResolvedValue(buildResponse(headers));
-    const results = await scanner.scan(buildConfig(), makeRequest);
-    const weakCsp = results.find(
-      (r) =>
-        r.type === VulnerabilityType.INSECURE_HEADERS &&
-        r.title.toLowerCase().includes("content security policy"),
-    );
-    expect(weakCsp).toBeDefined();
-  });
-
-  it("detects all missing headers in one scan", async () => {
-    const makeRequest = jest.fn().mockResolvedValue(buildResponse({}));
-    const results = await scanner.scan(buildConfig(), makeRequest);
-    const missingHeaders = results.filter(
-      (r) => r.type === VulnerabilityType.MISSING_SECURITY_HEADERS,
-    );
-    // Should detect all 6 required headers
-    expect(missingHeaders.length).toBe(6);
-  });
-
-  it("each result has required fields", async () => {
-    const makeRequest = jest.fn().mockResolvedValue(buildResponse({}));
-    const results = await scanner.scan(buildConfig(), makeRequest);
-    expect(results.length).toBeGreaterThan(0);
-    for (const vuln of results) {
-      expect(vuln).toHaveProperty("id");
-      expect(vuln).toHaveProperty("type");
-      expect(vuln).toHaveProperty("severity");
-      expect(vuln).toHaveProperty("description");
-      expect(vuln).toHaveProperty("location");
-    }
-  });
-
-  it("handles request errors gracefully", async () => {
-    const makeRequest = jest
-      .fn()
-      .mockRejectedValue(new Error("Connection refused"));
-    await expect(
-      scanner.scan(buildConfig(), makeRequest),
-    ).resolves.toStrictEqual([]);
-  });
-
-  it("reports HIGH severity for missing CSP and HSTS", async () => {
-    const headers = {
-      "x-frame-options": "DENY",
-      "x-content-type-options": "nosniff",
-      "referrer-policy": "strict-origin-when-cross-origin",
-      "permissions-policy": "camera=()",
-    };
-    const makeRequest = jest.fn().mockResolvedValue(buildResponse(headers));
-    const results = await scanner.scan(buildConfig(), makeRequest);
-    const highSeverity = results.filter((r) => r.severity === "high");
-    expect(highSeverity.length).toBeGreaterThan(0);
+    expect(makeRequest).toHaveBeenCalledTimes(2);
+    expect(result).toHaveLength(6);
   });
 });

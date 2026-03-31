@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { PageTrackingClient } from "@/components/analytics";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
@@ -5,28 +6,54 @@ import {
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
-import {
-  TestimonialsSection,
-  NextStepsSection,
-} from "@/components/shared-sections";
-import {
-  AboutHero,
-  PartnershipPhilosophy,
-  CompanyStats,
-  ValuesShowcase,
-  LeadershipTeam,
-  SafetySection,
-  AwardsSection,
-} from "@/components/about";
-import { Timeline } from "@/components/ui/Timeline";
-import { ContentCard } from "@/components/ui/ContentCard";
-import { aboutTimelineSteps } from "@/lib/data/about-timeline";
-import { gridPresets } from "@/lib/styles/layout-variants";
+// Above-fold: static
+import { AboutHero } from "@/components/about";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+import { aboutTimelineSteps } from "@/lib/data/about-timeline";
+import { gridPresets } from "@/lib/styles/layout-variants";
+// Below-fold: lazy-loaded to reduce initial JS
+const PartnershipPhilosophy = dynamic(() =>
+  import("@/components/about").then((m) => ({
+    default: m.PartnershipPhilosophy,
+  })),
+);
+const CompanyStats = dynamic(() =>
+  import("@/components/about").then((m) => ({ default: m.CompanyStats })),
+);
+const ValuesShowcase = dynamic(() =>
+  import("@/components/about").then((m) => ({ default: m.ValuesShowcase })),
+);
+const LeadershipTeam = dynamic(() =>
+  import("@/components/about").then((m) => ({ default: m.LeadershipTeam })),
+);
+const SafetySection = dynamic(() =>
+  import("@/components/about").then((m) => ({ default: m.SafetySection })),
+);
+const AwardsSection = dynamic(() =>
+  import("@/components/about").then((m) => ({ default: m.AwardsSection })),
+);
+const Timeline = dynamic(() =>
+  import("@/components/ui/Timeline").then((m) => ({ default: m.Timeline })),
+);
+const ContentCard = dynamic(() =>
+  import("@/components/ui/ContentCard").then((m) => ({
+    default: m.ContentCard,
+  })),
+);
+const TestimonialsSection = dynamic(() =>
+  import("@/components/shared-sections").then((m) => ({
+    default: m.TestimonialsSection,
+  })),
+);
+const NextStepsSection = dynamic(() =>
+  import("@/components/shared-sections").then((m) => ({
+    default: m.NextStepsSection,
+  })),
+);
 
 export default function AboutPage() {
   return (

@@ -39,14 +39,23 @@ export interface TokenPair {
  */
 function getSecretKey(): Uint8Array {
   const secret = process.env["JWT_SECRET"];
-  if (!secret && process.env.NODE_ENV === "production") {
+  if (!secret) {
+    if (
+      process.env.NODE_ENV === "development" ||
+      process.env.NODE_ENV === "test"
+    ) {
+      return new TextEncoder().encode("dev-only-secret-not-for-production");
+    }
     throw new Error(
-      "JWT_SECRET environment variable is required in production",
+      "JWT_SECRET environment variable is required outside development",
     );
   }
-  return new TextEncoder().encode(
-    secret ?? "dev-only-secret-not-for-production",
-  );
+  if (secret.length < 32) {
+    throw new Error(
+      "JWT_SECRET must be at least 32 characters for HMAC-SHA256 security",
+    );
+  }
+  return new TextEncoder().encode(secret);
 }
 
 /**

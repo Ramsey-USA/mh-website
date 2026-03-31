@@ -5,7 +5,7 @@
  */
 
 import { type NextRequest, NextResponse } from "next/server";
-import { escapeHTML, sanitizeSQL } from "@/lib/security/sanitization";
+import { escapeHtml } from "@/lib/utils/escape-html";
 
 // Security Configuration
 export interface SecurityConfig {
@@ -140,7 +140,7 @@ export const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
 /**
  * CSRF Protection
  */
-export class CSRFProtection {
+class CSRFProtection {
   private config: SecurityConfig["csrf"];
 
   constructor(config: SecurityConfig["csrf"] = DEFAULT_SECURITY_CONFIG.csrf) {
@@ -205,7 +205,7 @@ export class CSRFProtection {
 /**
  * Input Validation and Sanitization
  */
-export class InputValidator {
+class InputValidator {
   private config: SecurityConfig["validation"];
 
   constructor(
@@ -241,7 +241,7 @@ export class InputValidator {
     }
 
     // SQL injection protection
-    sanitizedValue = sanitizeSQL(sanitizedValue);
+    sanitizedValue = this.preventSQLInjection(sanitizedValue);
 
     return {
       isValid: errors.length === 0,
@@ -308,17 +308,43 @@ export class InputValidator {
   }
 
   /**
-   * Sanitize HTML to prevent XSS — delegates to canonical escapeHTML utility
+   * Sanitize HTML to prevent XSS — delegates to canonical escapeHtml utility
    */
   private sanitizeHtml(input: string): string {
-    return escapeHTML(input);
+    return escapeHtml(input);
+  }
+
+  /**
+   * Prevent SQL injection via keyword removal
+   */
+  private preventSQLInjection(input: string): string {
+    const sqlKeywords = [
+      "SELECT",
+      "INSERT",
+      "UPDATE",
+      "DELETE",
+      "DROP",
+      "CREATE",
+      "ALTER",
+      "EXEC",
+      "EXECUTE",
+      "UNION",
+      "SCRIPT",
+      "JAVASCRIPT",
+    ];
+    let sanitized = input;
+    sqlKeywords.forEach((keyword) => {
+      const regex = new RegExp(keyword, "gi");
+      sanitized = sanitized.replace(regex, "");
+    });
+    return sanitized;
   }
 }
 
 /**
  * Security Headers Manager
  */
-export class SecurityHeaders {
+class SecurityHeaders {
   private config: SecurityConfig["helmet"];
 
   constructor(
