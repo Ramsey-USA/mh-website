@@ -107,7 +107,11 @@ const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
           "https://api.cloudflare.com",
           "https://www.google-analytics.com",
         ],
-        "frame-src": ["'self'", "https://www.google.com"],
+        "frame-src": [
+          "'self'",
+          "https://www.google.com",
+          "https://maps.google.com",
+        ],
         "frame-ancestors": ["'none'"],
         "worker-src": ["'self'", "blob:"],
       },

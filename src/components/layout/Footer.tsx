@@ -357,7 +357,7 @@ function FooterBadge({
 function LicenseBadge() {
   return (
     <div className="rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-3 py-2 text-sm transition-all duration-300 hover:border-brand-primary/40 hover:bg-brand-primary/15 dark:border-brand-primary/30 dark:bg-brand-primary/10 dark:hover:border-brand-primary/50 dark:hover:bg-brand-primary/20">
-      <div className="mb-1.5 flex items-center gap-1.5">
+      <div className="mb-1.5 flex items-center justify-center gap-1.5">
         <MaterialIcon
           icon="verified"
           size="sm"
@@ -537,6 +537,34 @@ export default function Footer() {
                     }
                   />
                 </a>
+
+                {/* Service Areas */}
+                <nav
+                  aria-label="Service areas"
+                  className="mt-4 rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-3 py-2.5"
+                >
+                  <div className="mb-2 flex items-center gap-1.5">
+                    <MaterialIcon
+                      icon="location_on"
+                      size="sm"
+                      className="text-brand-secondary dark:text-brand-secondary-light"
+                    />
+                    <span className="text-xs font-bold uppercase tracking-wide text-brand-primary">
+                      Service Areas
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {linkedCities.map((city) => (
+                      <Link
+                        key={city.href}
+                        href={city.href}
+                        className="rounded-md bg-brand-primary/10 px-2 py-0.5 text-xs text-gray-300 transition-colors hover:bg-brand-primary/25 hover:text-brand-primary dark:bg-brand-primary/15 dark:hover:bg-brand-primary/30"
+                      >
+                        {city.name}
+                      </Link>
+                    ))}
+                  </div>
+                </nav>
               </div>
             </div>
 

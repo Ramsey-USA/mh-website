@@ -107,7 +107,7 @@ const vendors: Vendor[] = [
       "MH Construction office front signage",
       "MH Construction job site signage",
     ],
-    logo: "/images/vendors/mustang_signs.svg",
+    logo: "/images/vendors/mustang_signs.webp",
     brandColors: { primary: "#0089CF", secondary: "#F68E2D" },
     address: "10379 W Clearwater Ave, Kennewick, WA 99336",
     phone: "(509) 735-4607",
@@ -149,7 +149,7 @@ const vendors: Vendor[] = [
       "Snow & Ice — Plowing, Sidewalk Removal & De-icing",
     ],
     portfolio: [],
-    logo: "/images/vendors/bagley_landscape.svg",
+    logo: "/images/vendors/bagley_landscape.webp",
     brandColors: { primary: "#409416", secondary: "#262626" },
     address: "1418 E St Helens St, Pasco, WA 99301",
     phone: "(509) 546-2449",
@@ -179,7 +179,7 @@ const vendors: Vendor[] = [
       "Interior Partitions",
     ],
     portfolio: [],
-    logo: "/images/vendors/mckinney_glass.svg",
+    logo: "/images/vendors/mckinney_glass.webp",
     brandColors: null,
     address: "2220 Goodman Rd, Union Gap, WA 98903",
     phone: "(509) 248-2770",
@@ -214,7 +214,7 @@ const vendors: Vendor[] = [
       "Div 12 — Floor Mats & Window Shades",
     ],
     portfolio: [],
-    logo: "/images/vendors/dupree_building.svg",
+    logo: "/images/vendors/dupree_building.webp",
     brandColors: { primary: "#384884", secondary: "#384884" },
     address: "1035 E. Cataldo, Spokane, WA 99202",
     phone: "509.484.2000",
@@ -253,7 +253,7 @@ const vendors: Vendor[] = [
       "Gates & Automated Gates",
     ],
     portfolio: [],
-    logo: "/images/vendors/d_fence_fencing.svg",
+    logo: "/images/vendors/d_fence_fencing.webp",
     brandColors: { primary: "#CC2020", secondary: "#333333" },
     address: "P.O. Box 881, Selah, WA 98942",
     phone: "(509) 731-8836",
@@ -291,7 +291,7 @@ const vendors: Vendor[] = [
       "Window Blinds & Paint",
     ],
     portfolio: [],
-    logo: "/images/vendors/iwi_insulation.svg",
+    logo: "/images/vendors/iwi_insulation.webp",
     brandColors: { primary: "#CE2027", secondary: "#262626" },
     address: "9304 W. Clearwater Dr. Suite A, Kennewick, WA 99336",
     phone: "509.735.8411",
@@ -326,7 +326,7 @@ const vendors: Vendor[] = [
       "Plumbing System Maintenance & Inspections",
     ],
     portfolio: [],
-    logo: "/images/vendors/viking_plumbing_logo.svg",
+    logo: "/images/vendors/viking_plumbing_logo.webp",
     brandColors: { primary: "#F5C645", secondary: "#2F2E2E" },
     address: "2805 Ahtanum Rd, Yakima, WA 98942",
     phone: "(509) 450-0485",
@@ -365,7 +365,7 @@ const vendors: Vendor[] = [
       "Commercial Offices",
     ],
     portfolio: [],
-    logo: "/images/vendors/core_cabinet.svg",
+    logo: "/images/vendors/core_cabinet.webp",
     brandColors: { primary: "#E35724", secondary: "#444444" },
     address: "2573 Robertson Drive, Richland, WA 99354",
     phone: "(509) 375-7900",
@@ -607,6 +607,52 @@ export default function AlliesPage() {
               </div>
             </FadeInWhenVisible>
 
+            {/* Logo Parade */}
+            <FadeInWhenVisible>
+              <div className="mb-14 flex flex-wrap items-center justify-center gap-4">
+                {vendors.map((vendor, index) => (
+                  <div
+                    key={index}
+                    className="group flex items-center justify-center rounded-xl border-2 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                    style={{
+                      borderColor: vendor.brandColors
+                        ? `${vendor.brandColors.primary}60`
+                        : "#e5e7eb",
+                      width: 120,
+                      height: 72,
+                    }}
+                    title={vendor.name}
+                  >
+                    {vendor.logo ? (
+                      <Image
+                        src={vendor.logo}
+                        alt={`${vendor.name} logo`}
+                        width={100}
+                        height={52}
+                        className="object-contain max-h-12 w-auto px-2"
+                      />
+                    ) : (
+                      <div
+                        className="flex h-full w-full items-center justify-center rounded-xl"
+                        style={
+                          vendor.brandColors
+                            ? { background: vendor.brandColors.primary }
+                            : { background: "#374151" }
+                        }
+                      >
+                        <MaterialIcon
+                          icon={vendor.icon}
+                          size="lg"
+                          className="text-white"
+                          ariaLabel={vendor.name}
+                        />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </FadeInWhenVisible>
+
             <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {vendors.map((vendor, index) => (
                 <div
@@ -635,14 +681,13 @@ export default function AlliesPage() {
                       {/* Logo — hero element */}
                       <div className="flex-1 flex flex-col items-center justify-center gap-5 px-6 pt-6 pb-4">
                         <div
-                          className="relative flex justify-center items-center rounded-2xl w-48 h-48 shadow-2xl overflow-hidden border-4"
+                          className="relative flex justify-center items-center rounded-2xl w-48 h-48 shadow-2xl overflow-hidden border-4 bg-white"
                           style={
                             vendor.brandColors
                               ? {
-                                  borderColor: `${vendor.brandColors.primary}60`,
-                                  background: `linear-gradient(145deg, ${vendor.brandColors.primary}22, ${vendor.brandColors.secondary ?? vendor.brandColors.primary}44)`,
+                                  borderColor: `${vendor.brandColors.primary}80`,
                                 }
-                              : { borderColor: "transparent" }
+                              : { borderColor: "#e5e7eb" }
                           }
                         >
                           {vendor.logo ? (
@@ -651,7 +696,7 @@ export default function AlliesPage() {
                               alt={`${vendor.name} logo`}
                               fill
                               sizes="192px"
-                              className="object-contain p-2"
+                              className="object-contain p-4"
                             />
                           ) : (
                             <div
