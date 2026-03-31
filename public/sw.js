@@ -676,11 +676,6 @@ self.addEventListener("sync", (event) => {
 
   if (event.tag === "contact-form-sync") {
     event.waitUntil(syncContactForms());
-    return;
-  }
-
-  if (event.tag === "testimonial-sync") {
-    event.waitUntil(syncTestimonials());
   }
 });
 
@@ -711,33 +706,6 @@ async function syncContactForms() {
   }
 }
 
-// Sync pending testimonials
-async function syncTestimonials() {
-  try {
-    const db = await openIndexedDB();
-    const pendingTestimonials = await getAllPendingForms(db, "testimonials");
-
-    for (const testimonial of pendingTestimonials) {
-      try {
-        const response = await fetch("/api/testimonials", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(testimonial.data),
-        });
-
-        if (response.ok) {
-          await deletePendingForm(db, "testimonials", testimonial.id);
-          console.info("[SW] Synced testimonial:", testimonial.id);
-        }
-      } catch (_error) {
-        console.info("[SW] Failed to sync testimonial:", testimonial.id);
-      }
-    }
-  } catch (_error) {
-    console.info("[SW] Testimonial sync failed");
-  }
-}
-
 // IndexedDB utilities for offline form storage
 function openIndexedDB() {
   return new Promise((resolve, reject) => {
@@ -752,13 +720,6 @@ function openIndexedDB() {
       // Create object stores for offline form data
       if (!db.objectStoreNames.contains("contact-forms")) {
         db.createObjectStore("contact-forms", {
-          keyPath: "id",
-          autoIncrement: true,
-        });
-      }
-
-      if (!db.objectStoreNames.contains("testimonials")) {
-        db.createObjectStore("testimonials", {
           keyPath: "id",
           autoIncrement: true,
         });

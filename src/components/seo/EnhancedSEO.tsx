@@ -358,7 +358,7 @@ export function generateServiceSchema(service: {
       "@type": "State",
       name: "Washington",
     },
-    priceRange: service.priceRange || "$$",
+    priceRange: service.priceRange || "$$$$",
     duration: service.duration,
     serviceType: service.category,
     hasOfferCatalog: {

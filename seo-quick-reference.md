@@ -1,14 +1,8 @@
 # SEO Quick Reference Card
 
-**🚀 Your website now has ULTIMATE SEO optimization + AI Search (GEO)!**
-
-**⭐ NEW (Dec 27, 2025):** Dual-label military/construction titles across all pages!
-
-**⭐ NEW (Mar 11, 2026):** City-priority GEO service targeting + canonical host
-standardization + media sitemap discovery.
-
-**⭐ NEW (Mar 11, 2026):** GEO-proof completed-project content — named projects
-now embedded in location data, metadata keywords, and `LocalBusiness` schema.
+**Current implementation:** Full GEO optimization — dual-label titles, city-priority service
+targeting, canonical host standardization, media sitemap discovery, and named project content
+embedded in location data, metadata keywords, and `LocalBusiness` schema.
 
 **Related Documentation:**
 
@@ -94,13 +88,10 @@ These values automatically propagate into:
 
 ```bash
 # Quick audit of all pages
-npm run seo:audit
-
-# Generate detailed report
-npm run seo:report
+node scripts/seo-audit.js
 
 # Before deploying
-npm run build && npm run seo:audit
+npm run build && node scripts/seo-audit.js
 ```
 
 ---
@@ -156,9 +147,7 @@ npm run build && npm run seo:audit
 
 ```bash
 # SEO Commands
-npm run seo:audit          # Run full audit
-npm run seo:check          # Quick check
-npm run seo:report         # Generate report
+node scripts/seo-audit.js     # Run full audit + generate report
 
 # Build & Test
 npm run build              # Production build
@@ -189,7 +178,7 @@ npm run type-check         # TypeScript check
 **Low SEO score?**
 → Check title length (30-60 chars)
 → Check description length (120-160 chars)
-→ Run `npm run seo:audit` for details
+→ Run `node scripts/seo-audit.js` for details
 
 **Page not in sitemap?**
 → Add to ACTIVE_PAGES in `src/app/sitemap.ts`

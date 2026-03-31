@@ -56,30 +56,35 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ---
 
-## Project Status (March 26, 2026)
+## Project Status (April 1, 2026)
 
 ### Production-Ready Platform
 
-| Metric            | Status    | Details                                   |
-| ----------------- | --------- | ----------------------------------------- |
-| **Build**         | Passing   | ~33s compilation, zero errors             |
-| **Deployed**      | Live      | Cloudflare Workers — mhc-gc.com           |
-| **TypeScript**    | Strict    | Zero type errors                          |
-| **ESLint**        | Clean     | Zero lint warnings, zero errors           |
-| **Tests**         | Passing   | 95/95 passing                             |
-| **SEO**           | 100/100   | Perfect scores across all pages           |
-| **Lighthouse**    | 94+       | Performance optimized                     |
-| **Bundle Size**   | 211 kB    | Production optimized                      |
-| **Dark Mode**     | Complete  | Full theme support                        |
-| **PWA**           | Ready     | Offline-ready, 5-layer caching            |
-| **Analytics**     | Live      | 100% page coverage, dashboard active      |
-| **Documentation** | Optimized | 62 docs + 12 supporting files, zero bloat |
+| Metric            | Status    | Details                                    |
+| ----------------- | --------- | ------------------------------------------ |
+| **Build**         | Passing   | ~33s compilation, zero errors              |
+| **Deployed**      | Live      | Cloudflare Workers — mhc-gc.com            |
+| **TypeScript**    | Strict    | Zero type errors                           |
+| **ESLint**        | Clean     | Zero lint warnings, zero errors            |
+| **Tests**         | Passing   | 1734/1734 passing, 138 suites              |
+| **Coverage**      | Strong    | 97.32% stmts, 91.23% branches, 99.03% fns  |
+| **SEO**           | 100/100   | Perfect scores across all pages            |
+| **Lighthouse**    | 94+       | Performance optimized                      |
+| **Bundle Size**   | 211 kB    | Production optimized                       |
+| **Dark Mode**     | Complete  | Full theme support                         |
+| **PWA**           | Ready     | Offline-ready, 5-layer caching             |
+| **Analytics**     | Live      | 100% page coverage, dashboard active       |
+| **Documentation** | Optimized | 60 docs + 10 supporting guides, zero bloat |
 
 ### Recent Changes
 
 See [CHANGELOG.md](CHANGELOG.md) for the full history of changes.
 
-**Mar 26 highlights:** Build hygiene (`veterans/page.tsx` preload fix), Partnership Guide chatbot (Cloudflare Workers AI), Cloudflare edge optimizations (Early Hints, HSTS, middleware cleanup), Analytics KV pipeline (cross-visitor metrics), Footer accessibility refactor, Careers UX improvements.
+**Mar 26 highlights:** Build hygiene (`veterans/page.tsx` preload fix),
+Partnership Guide chatbot (Cloudflare Workers AI), Cloudflare edge
+optimizations (Early Hints, HSTS, middleware cleanup), Analytics KV pipeline
+(cross-visitor metrics), Footer accessibility refactor, Careers UX
+improvements.
 
 ---
 
@@ -215,10 +220,10 @@ RESEND_API_KEY=re_xxxxx
 # Optional (Cloudflare deployment)
 CLOUDFLARE_ACCOUNT_ID=your_account_id
 CLOUDFLARE_API_TOKEN=your_api_token
-CLOUDFLARE_D1_DATABASE_ID=your_d1_id
+D1_DATABASE_ID=your_d1_id
 
 # Optional (Google Analytics)
-NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
 ---
@@ -235,26 +240,26 @@ npm run start            # Start production server
 npm run type-check       # TypeScript validation
 npm run lint             # ESLint check
 npm run lint:fix         # Fix linting issues
+npm run format           # Prettier format all files
 ```
 
 ### Testing
 
 ```bash
 npm run test             # Run test suite
+npm run test:watch       # Run tests in watch mode
+npm run test:coverage    # Run tests with coverage report
 npm run test:pwa         # PWA functionality tests
 ```
 
-### Media Optimization
+### Quality & Maintenance
 
 ```bash
+npm run quality:check    # Run full quality scan
+npm run lint:markdown    # Lint markdown files
 npm run optimize:images  # Convert images to WebP
 npm run optimize:videos  # Convert videos to WebM/MP4
 npm run audit:images     # Analyze optimization opportunities
-```
-
-### Utilities
-
-```bash
 npm run clean            # Clean build artifacts
 ```
 
@@ -271,22 +276,26 @@ All documentation is organized in `/docs/` by category:
 ```text
 docs/
 ├── branding/                     # Brand guidelines
-│   ├── standards/               # unified-component-standards.md (v7.0.0), color-system.md, etc.
-│   └── strategy/                # messaging.md, brand-overview.md, terminology
+│   ├── standards/               # unified-component-standards.md (v7.0.0), color-system.md, +3 more
+│   └── strategy/                # messaging.md, brand-overview.md, terminology, page-specific messaging
 ├── business/                     # Business documentation
-│   ├── services.md, core-values.md
+│   ├── services.md, core-values.md, project-specializations.md, testimonials.md
 │   └── team/profiles/           # 14 team member profiles
 ├── development/                  # Development guides
 │   ├── quick-reference/         # component-cheatsheet.md
-│   ├── standards/               # page-compliance-checklist.md, page-template-guide.md, common-mistakes.md
+│   ├── standards/               # development-standards.md, consistency-guide.md, common-mistakes.md,
+│   │                            # page-compliance-checklist.md, page-template-guide.md, ai-development-guidelines.md
 │   └── components/              # template-components.md (StandardSection docs)
-├── technical/                    # Technical implementation
+├── technical/                    # Technical implementation (14 files + 3 subdirs)
 │   ├── design-system/           # buttons-ctas-complete-guide.md, icon-system-complete.md
 │   ├── seo/                     # seo-complete-guide.md
-│   ├── dark-mode-quick-reference.md
-│   └── pwa-quick-reference.md
+│   ├── patterns/                # component-pattern-strategy.md, +2 component patterns
+│   ├── analytics-tracking-guide.md, homepage.md, secrets-management.md
+│   ├── dark-mode-quick-reference.md, admin-password-security.md
+│   └── pwa-quick-reference.md, automatic-media-optimization.md, +3 more
 ├── marketing/                    # Marketing resources
-│   └── gbp-post-templates.md
+│   ├── gbp-post-templates.md
+│   └── google-business-profile-guide.md
 ├── deployment/                   # Deployment guides
 │   └── cloudflare-guide.md
 └── project/                      # Project documentation
@@ -317,11 +326,14 @@ config/cloudflare/edge-optimization.md  # Cloudflare edge optimization reference
 
 ## Project Architecture
 
-See [docs/project/architecture.md](docs/project/architecture.md) for the full directory tree, page inventory, and component map.
+See [docs/project/architecture.md](docs/project/architecture.md) for the full
+directory tree, page inventory, and component map.
 
 ## Design System
 
-Colors, typography, icons, and component patterns are fully documented in [Unified Component Standards](docs/branding/standards/unified-component-standards.md) v7.0.0.
+Colors, typography, icons, and component patterns are fully documented in
+[Unified Component Standards](docs/branding/standards/unified-component-standards.md)
+v7.0.0.
 
 ## Deployment
 
@@ -388,7 +400,8 @@ This keeps the admin entry point off the visible footer UI while preserving quic
 ### Documentation
 
 - **[Analytics Guide for Matt & Jeremy](analytics-guide-for-matt-and-jeremy.md)** - Complete guide
-- **[Analytics Tracking Guide](docs/technical/analytics-tracking-guide.md)** - Developer guide, quick reference cheatsheet, and dashboard access
+- **[Analytics Tracking Guide](docs/technical/analytics-tracking-guide.md)** -
+  Developer guide, quick reference cheatsheet, and dashboard access
 
 ---
 
@@ -527,7 +540,7 @@ npm run lint
 
 - **Phone:** (509) 308-6489
 - **Email:** <office@mhc-gc.com>
-- **Website:** <https://mhc-gc.com>
+- **Website:** <https://www.mhc-gc.com>
 - **Address:** 3111 N Capitol Ave, Pasco, WA 99301
 
 ### Repository
@@ -550,7 +563,7 @@ All rights reserved. This software and associated documentation files are propri
 ## About the Veteran Transition
 
 **January 2025** - MH Construction transitioned from founder Mike Holstein to Army veteran
-Jeremy Thamert, continuing 15 years of construction excellence with renewed veteran commitment.
+Jeremy Thamert, continuing 16 years of construction excellence with renewed veteran commitment.
 
 **Core Values Unchanged:**
 
@@ -563,5 +576,5 @@ Jeremy Thamert, continuing 15 years of construction excellence with renewed vete
 
 ---
 
-**Last Updated:** March 26, 2026  
+**Last Updated:** March 31, 2026  
 **Documentation Version:** 4.0 (README + CHANGELOG split)

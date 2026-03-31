@@ -5,15 +5,9 @@
 **Version:** 6.0.0  
 **Status:** ✅ Active
 
-**⭐ MAJOR UPDATE (Dec 2025)**: Complete shift from AI/tech-focused messaging to veteran-owned values
-and honest relationships. This document integrates our **four-value professional foundation system**
-from [core-values.md](../../business/core-values.md). All brand identity is built upon our 4 core values
-in hierarchical order: **Honesty, Integrity, Professionalism, Thoroughness**—culminating in **Trust** as
-our ultimate goal. These 4 values create 6 measurable differences clients experience.
-
-**Transformation Summary**: Removed 50+ instances of "AI-powered", "cutting-edge", "innovative" language.
-Replaced with emphasis on veteran values, proven craftsmanship, honest communication, and face-to-face
-consultation. All tools and automation removed in favor of direct human relationships.
+All brand identity is built upon the four-value foundation system from
+[core-values.md](../../business/core-values.md): **Honesty, Integrity, Professionalism,
+Thorough­ness**—culminating in **Trust** as the ultimate goal.
 
 For page-specific messaging and voice variations, see the comprehensive
 **[Page-Specific Messaging Guide](./page-specific-messaging-guide.md)** which defines 5 Core Page Groups
@@ -24,7 +18,7 @@ aligned with our veteran-owned, honesty-first brand identity.
 - [🏠 Brand Documentation](../)
 - [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Four-value professional system
 - [📝 Messaging Guidelines](./messaging.md) - Built on core values
-- [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - ⭐ **NEW** - 5 Core Page Groups strategy
+- [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - 5 Core Page Groups strategy
 - [🎨 Color System](../standards/color-system.md)
 - [📝 Unified Component Standards](../standards/unified-component-standards.md)
 

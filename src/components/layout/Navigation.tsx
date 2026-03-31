@@ -44,8 +44,8 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
  * }
  * ```
  *
- * @see {@link /docs/technical/NAVIGATION_ARCHITECTURE.md} - Complete navigation system documentation
- * @see {@link /docs/technical/NAVIGATION_TECHNICAL_GUIDE.md} - Implementation guide
+ * @see {@link /src/components/navigation/navigationConfigs.ts} - Navigation configurations
+ * @see {@link /docs/project/architecture.md} - Project architecture documentation
  */
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

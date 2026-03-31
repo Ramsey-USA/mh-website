@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, type CSSProperties } from "react";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
@@ -227,7 +227,7 @@ export function ServicesShowcase() {
           <div
             key={service.title}
             className="scroll-reveal cursor-pointer"
-            style={{ animationDelay: `${index * 0.1}s` }}
+            style={{ "--delay": `${index * 0.1}s` } as CSSProperties}
             onClick={() => {
               trackServiceInterest(service.title, "click", {
                 location: "homepage-showcase",

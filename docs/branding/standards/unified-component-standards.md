@@ -29,7 +29,7 @@ The gradient text in section headers, as implemented across all pages, is the co
 
 ## 🎨 **Core Brand Principles**
 
-### **Official MH Brand Colors**
+### Official MH Brand Colors
 
 **Primary (Hunter Green):** `#386851` - Trust, integrity, primary actions, safety
 
@@ -51,7 +51,7 @@ The gradient text in section headers, as implemented across all pages, is the co
 - Use for: Outline CTA borders, Featured Project badges, premium UI accents
 - Contrast (Dark `#6B4E2E`): 7.32:1 on white (WCAG AAA compliant)
 
-### **Contextual Color Schemes**
+### Contextual Color Schemes
 
 **Government/Public Sector (Grayscale):** Used ONLY on `/public-sector` page
 
@@ -61,7 +61,7 @@ The gradient text in section headers, as implemented across all pages, is the co
 
 **Key Rule:** Emergency and government schemes are additions for specific contexts, not replacements for core brand colors.
 
-### **Material Icons Only**
+### Material Icons Only
 
 - **STRICT POLICY:** NO EMOJIS in source code (.tsx, .jsx, .ts, .js files)
 - **Approved:** Material Icons exclusively
@@ -72,7 +72,7 @@ The gradient text in section headers, as implemented across all pages, is the co
 
 ## 📝 **Typography System**
 
-### **Primary Typeface: System UI**
+### Primary Typeface: System UI
 
 **Font Family Stack:**
 
@@ -97,7 +97,7 @@ font-family:
 - Excellent accessibility
 - Wide language support
 
-### **Font Weights**
+### Font Weights
 
 - **Light (300):** Subtle headings, decorative text, section descriptions
 - **Regular (400):** Body text, default weight
@@ -106,9 +106,9 @@ font-family:
 - **Bold (700):** H1 headings, card titles, call-to-action text
 - **Black (900):** Hero titles, maximum impact headlines
 
-### **Responsive Typography Scale**
+### Responsive Typography Scale
 
-#### **H1 - Hero Section Headlines (Photo/Video Backgrounds)**
+#### H1 - Hero Section Headlines (Photo/Video Backgrounds)
 
 **Mobile-First Responsive Scaling:**
 
@@ -132,7 +132,7 @@ font-family:
 </h1>
 ```
 
-#### **H2 - Section Headers (Two-Line Gradient Pattern)**
+#### H2 - Section Headers (Two-Line Gradient Pattern)
 
 **OFFICIAL STANDARD:** Section headers use gradient text for visual impact.
 
@@ -184,7 +184,7 @@ font-family:
 - **Container:** `leading-relaxed` - Base comfortable spacing
 - **Main Title:** `leading-normal` - Override to tighter spacing for gradient impact
 
-#### **H3 - Subsection Headers**
+#### H3 - Subsection Headers
 
 **Mobile-First Responsive Scaling:**
 
@@ -203,7 +203,7 @@ font-family:
 </h3>
 ```
 
-#### **H4 - Card Titles**
+#### H4 - Card Titles
 
 **Mobile-First Responsive Scaling:**
 
@@ -220,9 +220,9 @@ font-family:
 </h4>
 ```
 
-### **Body Text Styles**
+### Body Text Styles
 
-#### **Body Large (Section Introductions)**
+#### Body Large (Section Introductions)
 
 **Mobile-First Responsive Scaling:**
 
@@ -239,7 +239,7 @@ font-family:
 </p>
 ```
 
-#### **Body Default (Cards, Lists, Paragraphs)**
+#### Body Default (Cards, Lists, Paragraphs)
 
 **Mobile-First Responsive Scaling:**
 
@@ -256,7 +256,7 @@ font-family:
 </p>
 ```
 
-#### **Body Small (Fine Print, Secondary Content)**
+#### Body Small (Fine Print, Secondary Content)
 
 **Mobile-First Responsive Scaling:**
 
@@ -273,14 +273,14 @@ font-family:
 </span>
 ```
 
-### **Heading Best Practices**
+### Heading Best Practices
 
 - Use semantic heading order (H1 → H2 → H3)
 - Don't skip heading levels
 - Only one H1 per page
 - Maximum lengths: H1 (60 chars), H2 (50 chars), H3 (40 chars)
 
-### **Line Length & Spacing**
+### Line Length & Spacing
 
 - **Optimal:** 45-75 characters per line
 - **Maximum:** 90 characters per line
@@ -292,7 +292,7 @@ font-family:
 
 ## 🏗️ **Section Component Standards**
 
-### **Section Background Pattern (REQUIRED)**
+### Section Background Pattern (REQUIRED)
 
 All page sections MUST follow this standardized background:
 
@@ -341,7 +341,7 @@ All page sections MUST follow this standardized background:
 - Small animated blobs with pulse
 - Inconsistent padding values
 
-### **Section Header Pattern (Custom)**
+### Section Header Pattern (Custom)
 
 **OFFICIAL STANDARD:** Custom header with icon, decorative lines, two-line gradient heading:
 
@@ -386,7 +386,7 @@ All page sections MUST follow this standardized background:
 - **Bronze theme:** `from-brand-secondary via-bronze-700 to-bronze-800`
 - **Tan theme:** `from-brand-secondary via-brand-secondary-dark to-bronze-700`
 
-### **Hero Section Standards**
+### Hero Section Standards
 
 **Modern Requirements:**
 
@@ -431,7 +431,7 @@ All page sections MUST follow this standardized background:
 
 ## 🎴 **Card Component Standards**
 
-### **Modern Card Structure (v6.0.0)**
+### Modern Card Structure (v6.0.0)
 
 **Current Standard:** Custom div structure with animated border glows, top accent bars, and enhanced icons.
 
@@ -480,7 +480,7 @@ All page sections MUST follow this standardized background:
 </div>
 ```
 
-### **Card Animation Effects**
+### Card Animation Effects
 
 - **Border glow:** `opacity-20` default, `opacity-100` on hover with `animate-pulse`
 - **Card lift:** `group-hover:-translate-y-1` for subtle elevation
@@ -488,7 +488,7 @@ All page sections MUST follow this standardized background:
 - **Shadow enhancement:** `shadow-lg` to `shadow-2xl` on hover
 - **Icon scale:** `group-hover:scale-110` for icon emphasis
 
-### **Card Color Themes**
+### Card Color Themes
 
 **Primary (Green) Cards:**
 
@@ -511,7 +511,7 @@ All page sections MUST follow this standardized background:
 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600"></div>
 ```
 
-### **Card Grid Layout Standards**
+### Card Grid Layout Standards
 
 - **Large Screens (lg):** 3 cards per row optimal
 - **Extra Large (xl):** Use `xl:grid-cols-4` for 6+ card sets
@@ -531,7 +531,7 @@ All page sections MUST follow this standardized background:
 
 ## 🔘 **Button Standards**
 
-### **Button Variants**
+### Button Variants
 
 **Primary (Green):**
 
@@ -567,7 +567,7 @@ All page sections MUST follow this standardized background:
 </Button>
 ```
 
-### **Touch Accessibility**
+### Touch Accessibility
 
 - **Minimum Height:** 44px (WCAG compliant)
 - **Interactive States:** hover, focus, active
@@ -578,7 +578,7 @@ All page sections MUST follow this standardized background:
 
 ## 📝 **Form Component Standards**
 
-### **Input Field Pattern**
+### Input Field Pattern
 
 ```tsx
 <div className="space-y-2">
@@ -600,15 +600,15 @@ All page sections MUST follow this standardized background:
 
 ## ♿ **Accessibility Standards**
 
-### **WCAG Compliance**
+### WCAG Compliance
 
-#### **Text Contrast Requirements**
+#### Text Contrast Requirements
 
 - **Normal Text:** Minimum 4.5:1 contrast ratio
 - **Large Text:** Minimum 3:1 contrast ratio (18pt+ or 14pt+ bold)
 - **Enhanced:** Target 7:1 for important content
 
-#### **MH Brand Color Compliance**
+#### MH Brand Color Compliance
 
 | Color Combination | Ratio  | WCAG AA                       | Use Case              |
 | ----------------- | ------ | ----------------------------- | --------------------- |
@@ -618,20 +618,20 @@ All page sections MUST follow this standardized background:
 | #386851 on white  | 6.43:1 | ✅ All sizes                  | Primary elements      |
 | #6B4E2E on white  | 7.32:1 | ✅ AAA — all sizes            | Bronze text, labels   |
 
-#### **Font Size Requirements**
+#### Font Size Requirements
 
 - **Minimum Body Size:** 16px (never smaller)
 - **Scalability:** Support up to 200% zoom
 - **Relative Units:** Use rem/em for scalable text
 
-### **Required Attributes**
+### Required Attributes
 
 - **ARIA Labels:** Descriptive labels for screen readers
 - **Focus Management:** Visible focus indicators
 - **Keyboard Navigation:** Tab order and Enter/Space activation
 - **Semantic HTML:** Use proper heading hierarchy
 
-### **Implementation Example**
+### Implementation Example
 
 ```tsx
 <Button
@@ -648,14 +648,14 @@ All page sections MUST follow this standardized background:
 
 ## 🚀 **Animation & Interaction Standards**
 
-### **Standard Transitions**
+### Standard Transitions
 
 - **Duration:** `duration-300` (consistent across all components)
 - **Easing:** `ease-out` for natural feel
 - **Hover Effects:** `hover:scale-105`, `hover:shadow-2xl`
 - **Focus States:** `focus:ring-2 focus:ring-brand-primary`
 
-### **Group Interactions**
+### Group Interactions
 
 ```tsx
 className = "group";
@@ -669,7 +669,7 @@ className = "group-hover:text-brand-primary transition-colors duration-300";
 
 ## 📱 **Responsive Standards**
 
-### **Mobile-First Breakpoints**
+### Mobile-First Breakpoints
 
 - **Base:** Mobile (320px+)
 - **sm:** Small screens (640px+)
@@ -677,13 +677,13 @@ className = "group-hover:text-brand-primary transition-colors duration-300";
 - **lg:** Desktop (1024px+)
 - **xl:** Large desktop (1280px+)
 
-### **Touch Optimization**
+### Touch Optimization
 
 - **Minimum Touch Targets:** 44px height
 - **Touch Class:** `touch-manipulation` on all interactive elements
 - **Tap Feedback:** Visual feedback on touch interactions
 
-### **Grid Responsiveness**
+### Grid Responsiveness
 
 ```tsx
 className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
@@ -693,7 +693,7 @@ className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
 
 ## 🔍 **Quality Checklist**
 
-### **Component Review Criteria**
+### Component Review Criteria
 
 - [ ] Uses approved brand colors only (Hunter Green, Leather Tan, grays)
 - [ ] Material Icons instead of emojis
@@ -721,7 +721,7 @@ className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
 
 ## 🔄 **Migration from Previous Standards**
 
-### **From typography.md v5.0.0**
+### From typography.md v5.0.0
 
 **RESOLVED CONFLICTS:**
 
@@ -736,7 +736,7 @@ className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
 - `overflow-visible` is critical to prevent gradient clipping
 - Hero sections can include modern components (CTAs, badges, stats) when appropriate
 
-### **From component-standards.md v6.0.0**
+### From component-standards.md v6.0.0
 
 **What Stays:**
 

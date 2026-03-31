@@ -101,6 +101,9 @@ binding = "ASSETS"
 | `JWT_SECRET`              | Secret | 48-byte hex string   | Signs admin JWTs — **required before first admin login** |
 | `ADMIN_MATT_PASSWORD`     | Secret | strong password      | Admin dashboard login for Matt                           |
 | `ADMIN_JEREMY_PASSWORD`   | Secret | strong password      | Admin dashboard login for Jeremy                         |
+| `TWILIO_ACCOUNT_SID`      | Secret | `ACxxxxxxxx`         | Twilio account SID for SMS notifications                 |
+| `TWILIO_AUTH_TOKEN`       | Secret | token string         | Twilio auth token for SMS notifications                  |
+| `TWILIO_FROM_NUMBER`      | Secret | `+15093086489`       | Twilio sender phone number                               |
 
 > **`CI=true` is essential.** Without it, `npm install` triggers the `prepare` script which
 > runs husky and fails in the Cloudflare build environment.
@@ -115,12 +118,12 @@ binding = "ASSETS"
 
 ### Optional Environment Variables
 
-| Variable                          | Value             | Notes                       |
-| --------------------------------- | ----------------- | --------------------------- |
-| `CLOUDFLARE_ACCOUNT_ID`           | `your_account_id` | For manual Wrangler deploys |
-| `CLOUDFLARE_API_TOKEN`            | `your_api_token`  | For manual Wrangler deploys |
-| `CLOUDFLARE_D1_DATABASE_ID`       | `your_d1_id`      | D1 database access          |
-| `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID` | `G-XXXXXXXXXX`    | Google Analytics (optional) |
+| Variable                        | Value             | Notes                       |
+| ------------------------------- | ----------------- | --------------------------- |
+| `CLOUDFLARE_ACCOUNT_ID`         | `your_account_id` | For manual Wrangler deploys |
+| `CLOUDFLARE_API_TOKEN`          | `your_api_token`  | For manual Wrangler deploys |
+| `CLOUDFLARE_D1_DATABASE_ID`     | `your_d1_id`      | D1 database access          |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-XXXXXXXXXX`    | Google Analytics (optional) |
 
 ---
 
@@ -313,11 +316,13 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 - [ ] Add `RESEND_API_KEY`, `EMAIL_FROM=noreply@mhc-gc.com`
 - [ ] Set `NEXT_PUBLIC_SITE_URL=https://www.mhc-gc.com` and `NEXT_TELEMETRY_DISABLED=1` in dashboard
 - [ ] Bind D1 database (`DB` → `mh-construction-db`) in dashboard
-- [ ] Bind R2 buckets (`FILE_ASSETS`, `RESUMES`) in dashboard
+- [ ] Create R2 buckets: `mh-construction-assets` and `mh-construction-resumes`
+- [ ] Bind R2 buckets (`FILE_ASSETS` → `mh-construction-assets`, `RESUMES` → `mh-construction-resumes`) in dashboard
+- [ ] Bind KV namespaces: `CACHE` (fleet-wide rate limiting) and `ANALYTICS` (server-side analytics)
 - [ ] Connect custom domain `www.mhc-gc.com` under Workers & Pages → mhc-v2-website → Custom Domains
 - [ ] Verify SSL certificate is active (**Full strict** — not Flexible)
 - [ ] Enable **Always Use HTTPS** (Security → Settings)
-- [ ] Add Cloudflare Page Rule: `mhc-gc.com/*` → 301 redirect to `https://www.mhc-gc.com/$1`
+- [ ] Add Cloudflare Redirect Rule: hostname = `mhc-gc.com` → 301 to `https://www.mhc-gc.com` + concat path
 - [ ] **Disable Rocket Loader** (Speed → Optimization → Rocket Loader = OFF) — breaks Next.js hydration
 - [ ] **Disable HTML Minify** (Speed → Optimization → Auto Minify → HTML = OFF) — can break CSP
 - [ ] **Enable Early Hints** (Speed → Optimization → Content Optimization → Early Hints = ON)
@@ -325,9 +330,6 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 - [ ] **Enable 0-RTT** (Speed → Optimization → Protocol Optimization → 0-RTT = ON)
 - [ ] **Enable Smart Tiered Cache** (Caching → Tiered Cache → Smart Tiered Cache = ON)
 - [ ] Verify no Cloudflare Cache Rules are caching HTML pages (HTML must not be CDN-cached)
-- [ ] Create R2 buckets: `mh-construction-assets` and `mh-construction-resumes`
-- [ ] Bind R2 buckets under Settings → Bindings: `FILE_ASSETS` and `RESUMES`
-- [ ] Bind KV namespaces: `CACHE` (fleet-wide rate limiting) and `ANALYTICS` (server-side analytics aggregation)
 - [ ] Apply D1 migrations (see D1 Migrations section below)
 - [ ] Verify Resend domain: add SPF + DKIM DNS records for `mhc-gc.com` in Resend dashboard
 

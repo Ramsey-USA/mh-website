@@ -20,7 +20,7 @@ This document covers the PWA implementation, features, and maintenance.
 - ✅ Navigation preload for faster page loads
 - ✅ 5-layer cache strategy
 - ✅ IndexedDB for offline form storage
-- ✅ 35 pages precached for instant offline access
+- ✅ 8 critical assets precached, remaining pages cached at runtime
 
 ## Architecture
 
@@ -65,15 +65,17 @@ NETWORK_ONLY; // Always fetch from network
 CACHE_ONLY; // Only use cache
 ```
 
-#### Precached Assets (35 total)
+#### Precached Assets (8 total)
 
-Critical pages available offline:
+Critical assets available offline immediately:
 
-- Home page (/)
-- All service pages
-- All location pages (Tri-Cities)
-- Contact, Team, Careers, FAQ
-- Legal pages (Privacy, Terms, Accessibility)
+- Home page (`/`)
+- Offline fallback (`/offline`)
+- PWA manifest (`/manifest.json`)
+- App icons (192x192, 512x512)
+- Contact, Projects, Services pages
+
+All other pages are cached dynamically on first visit via fetch handlers.
 
 ### 2. PWA Components (`src/components/pwa/`)
 
@@ -162,7 +164,7 @@ PWA store listing images:
 
 ### What Works Offline
 
-1. **Pages**: All 24 precached pages fully functional
+1. **Pages**: Precached pages (/, /offline, /contact, /projects, /services) plus dynamically cached pages
 2. **Images**: Cached images display normally
 3. **Forms**: Submitted forms queue for sync
 4. **Navigation**: Full site navigation available
@@ -192,8 +194,6 @@ Form submissions are queued offline and automatically synced when connection is 
 ### Supported Forms
 
 1. Contact forms → `/api/contact`
-2. Testimonials → `/api/testimonials`
-3. ~~Bookings~~ (deprecated, kept for compatibility)
 
 ### IndexedDB Storage
 
@@ -202,8 +202,6 @@ Database: `MHConstructionDB` (version 1)
 Object Stores:
 
 - `contact-forms`: Pending contact submissions
-- `testimonials`: Pending testimonial submissions
-- `bookings`: Legacy (no-op)
 
 ## Push Notifications
 
@@ -304,7 +302,7 @@ Test categories:
 ### Lighthouse Audit
 
 ```bash
-npm run lighthouse
+npm run lighthouse:guide
 ```
 
 PWA score should be **90+** with:

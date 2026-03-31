@@ -5,9 +5,9 @@
  * Production-ready configuration with performance optimizations
  *
  * @see https://nextjs.org/docs/app/api-reference/next-config-js
- * @see docs/technical/configuration-guide.md
+ * @see docs/project/architecture.md
  * @version 2.1.0
- * @lastUpdated 2025-12-25
+ * @lastUpdated 2026-03-26
  */
 
 // Disable telemetry during CI/production builds
@@ -85,7 +85,10 @@ const nextConfig = {
 
   // === BUILD CONFIGURATION ===
   compiler: {
-    removeConsole: process.env.NODE_ENV === "production",
+    // Preserve console.error in production so runtime errors remain visible
+    // in Cloudflare Workers logs. Only strip debug/info/warn logs.
+    removeConsole:
+      process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
   },
 
   // ESLint configuration - disable during builds, use npm run lint instead
@@ -266,6 +269,22 @@ const nextConfig = {
             key: "Cache-Control",
             value:
               "public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      // Service worker must never be cached — browsers check for updates on
+      // every navigation. A stale sw.js blocks PWA version updates for users.
+      // This rule comes AFTER the broad /:path*.js rule so it takes precedence.
+      {
+        source: "/sw.js",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-cache, no-store, must-revalidate",
+          },
+          {
+            key: "Service-Worker-Allowed",
+            value: "/",
           },
         ],
       },

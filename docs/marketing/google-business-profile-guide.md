@@ -20,7 +20,7 @@
 
 ## 🎯 **Weekly Action Plan (20 Minutes/Week)**
 
-### **Monday (5 minutes) - Weekly Post**
+### Monday (5 minutes) - Weekly Post
 
 Create a Google Post about this week's focus:
 
@@ -40,7 +40,7 @@ Create a Google Post about this week's focus:
 #TriCitiesConstruction #CommercialConstruction #VeteranOwned
 ```
 
-### **Wednesday (5 minutes) - Photo Upload**
+### Wednesday (5 minutes) - Photo Upload
 
 Upload 2-3 new photos:
 
@@ -56,7 +56,7 @@ Upload 2-3 new photos:
 - Show people working (adds authenticity)
 - Avoid photos with sensitive client info visible
 
-### **Friday (10 minutes) - Engagement Check**
+### Friday (10 minutes) - Engagement Check
 
 - **Check for new reviews** → Respond within 24-48 hours
 - **Answer any questions** in Q&A section
@@ -67,14 +67,14 @@ Upload 2-3 new photos:
 
 ## 📝 **Monthly Tasks (1 Hour/Month)**
 
-### **Week 1: Content Audit**
+### Week 1: Content Audit
 
 - Review all business information for accuracy
 - Update photos if any are outdated
 - Check that hours are current (especially around holidays)
 - Verify service areas are listed correctly
 
-### **Week 2: Q&A Proactive Management**
+### Week 2: Q&A Proactive Management
 
 Add 5-10 common questions with answers:
 
@@ -84,14 +84,14 @@ Add 5-10 common questions with answers:
 - "What types of projects do you handle?"
 - "Do you work with government contracts?"
 
-### **Week 3: Attributes & Services Update**
+### Week 3: Attributes & Services Update
 
 - Verify all services are listed
 - Update any certifications or credentials
 - Add seasonal service offerings
 - Check veteran-owned business attribute is displayed
 
-### **Week 4: Competitor Analysis**
+### Week 4: Competitor Analysis
 
 - Check 3-5 competitor profiles
 - Note what they're doing well
@@ -102,7 +102,7 @@ Add 5-10 common questions with answers:
 
 ## 🌟 **Review Response Templates**
 
-### **5-Star Review Response**
+### 5-Star Review Response
 
 ```text
 Thank you so much for the kind words, [Name]! We're thrilled that you're happy with [specific project detail]. Our veteran-owned team takes pride in building projects for the client, not the dollar. We appreciate your trust and look forward to serving you again in the future!
@@ -110,7 +110,7 @@ Thank you so much for the kind words, [Name]! We're thrilled that you're happy w
 - MH Construction Team
 ```
 
-### **4-Star Review Response**
+### 4-Star Review Response
 
 ```text
 Thank you for your feedback, [Name]! We're glad we could help with [project]. We noticed you gave us 4 stars - is there anything we could have done better? We're always looking to improve our service. Feel free to reach out at (509) 308-6489.
@@ -118,7 +118,7 @@ Thank you for your feedback, [Name]! We're glad we could help with [project]. We
 - MH Construction Team
 ```
 
-### **3-Star or Below Response**
+### 3-Star or Below Response
 
 ```text
 Thank you for taking the time to share your experience, [Name]. We take all feedback seriously and would like to make this right. Please contact us directly at (509) 308-6489 so we can discuss your concerns and find a solution.
@@ -138,35 +138,35 @@ Thank you for taking the time to share your experience, [Name]. We take all feed
 
 ## 📸 **Content Calendar & Post Ideas**
 
-### **Project Updates (Weekly)**
+### Project Updates (Weekly)
 
 - "Breaking ground on..."
 - "Making progress on..."
 - "Proud to complete..."
 - Before/After project showcases
 
-### **Company News (Monthly)**
+### Company News (Monthly)
 
 - New equipment acquisitions
 - Team member spotlights
 - Industry certifications earned
 - Community involvement
 
-### **Educational Content (Bi-weekly)**
+### Educational Content (Bi-weekly)
 
 - Construction tips for business owners
 - "What to expect when..." guides
 - Industry trends and insights
 - Seasonal preparation advice
 
-### **Service Highlights (Monthly)**
+### Service Highlights (Monthly)
 
 - Feature one service in depth
 - Show capabilities and examples
 - Highlight unique advantages
 - Include call-to-action
 
-### **Veteran-Owned Focus (Monthly)**
+### Veteran-Owned Focus (Monthly)
 
 - Highlight veteran team members
 - Government contracting capabilities
@@ -177,7 +177,7 @@ Thank you for taking the time to share your experience, [Name]. We take all feed
 
 ## 📊 **Key Performance Indicators**
 
-### **Track Monthly:**
+### Track Monthly
 
 - **Profile Views:** Target 500+ views/month
 - **Search Queries:** Monitor what people search for
@@ -186,7 +186,7 @@ Thank you for taking the time to share your experience, [Name]. We take all feed
 - **Direction Requests:** People finding your location
 - **Photo Views:** Engagement with visual content
 
-### **Goals (6 Months):**
+### Goals (6 Months)
 
 - 10+ positive reviews (4+ stars average)
 - 1,000+ profile views/month
@@ -198,7 +198,7 @@ Thank you for taking the time to share your experience, [Name]. We take all feed
 
 ## 🚀 **Optimization Checklist**
 
-### **Profile Completeness (Do Once)**
+### Profile Completeness (Do Once)
 
 - [x] Business name accurate
 - [x] Address correct
@@ -214,7 +214,7 @@ Thank you for taking the time to share your experience, [Name]. We take all feed
 - [ ] Payment methods listed
 - [ ] Service area cities added
 
-### **Visual Content**
+### Visual Content
 
 - [ ] Logo uploaded (square, high-res)
 - [ ] Cover photo uploaded (landscape, professional)
@@ -223,7 +223,7 @@ Thank you for taking the time to share your experience, [Name]. We take all feed
 - [ ] Photos organized by categories
 - [ ] 360° virtual tour (if applicable)
 
-### **Engagement**
+### Engagement
 
 - [ ] Posts published weekly (minimum)
 - [ ] All reviews responded to
@@ -235,7 +235,7 @@ Thank you for taking the time to share your experience, [Name]. We take all feed
 
 ## 💡 **Pro Tips**
 
-### **Posting Best Practices:**
+### Posting Best Practices
 
 1. **Post on Monday mornings** (highest engagement)
 2. **Include a call-to-action** in every post
@@ -244,7 +244,7 @@ Thank you for taking the time to share your experience, [Name]. We take all feed
 5. **Keep text concise** (100-300 words ideal)
 6. **Link to specific website pages** when relevant
 
-### **Photo Best Practices:**
+### Photo Best Practices
 
 1. **Upload at least 3 photos per week**
 2. **Variety is key** (projects, team, equipment, office)
@@ -253,7 +253,7 @@ Thank you for taking the time to share your experience, [Name]. We take all feed
 5. **Include people when possible** (team at work)
 6. **Professional quality** (no blurry or poorly lit photos)
 
-### **Review Generation:**
+### Review Generation
 
 1. **Ask satisfied clients** (within 1 week of completion)
 2. **Make it easy** (provide direct link)
@@ -273,7 +273,7 @@ https://g.page/r/[YOUR_PLACE_ID]/review
 
 ## 📅 **90-Day Implementation Plan**
 
-### **Days 1-7: Foundation**
+### Days 1-7: Foundation
 
 - Complete all profile information
 - Upload 20+ photos
@@ -281,7 +281,7 @@ https://g.page/r/[YOUR_PLACE_ID]/review
 - Set up post schedule
 - Create content bank (10 posts ready)
 
-### **Days 8-30: Consistency**
+### Days 8-30: Consistency
 
 - Post 2x per week
 - Add 10 photos per week
@@ -289,7 +289,7 @@ https://g.page/r/[YOUR_PLACE_ID]/review
 - Answer 10 Q&A questions proactively
 - Monitor insights weekly
 
-### **Days 31-60: Optimization**
+### Days 31-60: Optimization
 
 - Analyze what content performs best
 - Adjust posting frequency based on insights
@@ -297,7 +297,7 @@ https://g.page/r/[YOUR_PLACE_ID]/review
 - Add video content
 - Expand photo gallery to 50+ photos
 
-### **Days 61-90: Scale**
+### Days 61-90: Scale
 
 - Post 3x per week
 - Host Q&A about construction services
@@ -309,25 +309,25 @@ https://g.page/r/[YOUR_PLACE_ID]/review
 
 ## 🛠️ **Tools & Resources**
 
-### **Scheduling Tools:**
+### Scheduling Tools
 
 - **Google's built-in scheduler** (free, within Business Profile)
 - **Buffer** (for multi-platform posting)
 - **Hootsuite** (enterprise option)
 
-### **Photo Editing:**
+### Photo Editing
 
 - **Canva** (free tier available)
 - **Adobe Express** (free tier available)
 - **Snapseed** (free mobile app)
 
-### **Analytics:**
+### Analytics
 
 - Google Business Profile Insights (built-in)
 - Google Analytics (track website traffic from GBP)
 - Call tracking software (track phone calls from GBP)
 
-### **Monitoring:**
+### Monitoring
 
 - Set up Google Alerts for company name
 - Enable notifications for new reviews

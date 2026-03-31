@@ -146,28 +146,6 @@ export function trackFormSubmit(
 }
 
 /**
- * Track form field interactions
- * Use this to see which fields users interact with
- *
- * @example
- * <input onFocus={() => trackFormField('email-field', 'focus')} />
- */
-export function trackFormField(
-  fieldId: string,
-  action: "focus" | "blur" | "change",
-  properties?: Record<string, unknown>,
-): void {
-  analyticsEngine.track("user_interaction", {
-    element: fieldId,
-    action,
-    type: "form_field",
-    timestamp: new Date().toISOString(),
-    page: typeof window !== "undefined" ? window.location.pathname : "",
-    ...properties,
-  });
-}
-
-/**
  * Track scroll depth
  * Automatically called by usePageTracking hook
  */
@@ -230,82 +208,6 @@ export function trackPageDuration(page: string, duration: number): void {
     }
     beaconSessionEnd(duration);
   }
-}
-
-/**
- * Track CTA (Call-to-Action) button clicks
- * Specialized tracking for conversion-focused buttons
- *
- * @example
- * <button onClick={() => trackCTA('get-quote', { variant: 'primary' })}>
- *   Get a Quote
- * </button>
- */
-export function trackCTA(
-  ctaId: string,
-  properties?: Record<string, unknown>,
-): void {
-  trackClick(`cta-${ctaId}`, { ...properties, type: "cta" });
-}
-
-/**
- * Track navigation events
- * Use when users navigate between sections
- *
- * @example
- * trackNavigation('services-menu', { destination: '/services' });
- */
-export function trackNavigation(
-  navigationId: string,
-  properties?: Record<string, unknown>,
-): void {
-  analyticsEngine.track("user_interaction", {
-    element: navigationId,
-    action: "navigate",
-    timestamp: new Date().toISOString(),
-    ...properties,
-  });
-}
-
-/**
- * Track video interactions
- * Use for tracking video plays, pauses, completion
- *
- * @example
- * <video onPlay={() => trackVideo('intro-video', 'play')} />
- */
-export function trackVideo(
-  videoId: string,
-  action: "play" | "pause" | "complete",
-  properties?: Record<string, unknown>,
-): void {
-  analyticsEngine.track("user_interaction", {
-    element: videoId,
-    action: `video_${action}`,
-    type: "video",
-    timestamp: new Date().toISOString(),
-    ...properties,
-  });
-}
-
-/**
- * Track downloads
- * Use when users download files
- *
- * @example
- * <a onClick={() => trackDownload('brochure.pdf')}>Download Brochure</a>
- */
-export function trackDownload(
-  fileName: string,
-  properties?: Record<string, unknown>,
-): void {
-  analyticsEngine.track("user_interaction", {
-    element: fileName,
-    action: "download",
-    type: "download",
-    timestamp: new Date().toISOString(),
-    ...properties,
-  });
 }
 
 // Helper functions to get stored data

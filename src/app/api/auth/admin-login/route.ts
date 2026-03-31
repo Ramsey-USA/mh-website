@@ -73,7 +73,12 @@ async function handler(request: NextRequest) {
   try {
     const { email, password } = await request.json();
 
-    if (!email || !password) {
+    if (
+      typeof email !== "string" ||
+      typeof password !== "string" ||
+      !email ||
+      !password
+    ) {
       return NextResponse.json(
         { error: "Email and password are required" },
         { status: 400 },

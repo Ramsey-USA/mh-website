@@ -3,6 +3,8 @@
  * For testimonials and client reviews
  */
 
+import { COMPANY_INFO } from "@/lib/constants/company";
+
 export interface ReviewSchemaProps {
   author: string;
   datePublished: string;
@@ -32,14 +34,14 @@ export function generateReviewSchema(review: ReviewSchemaProps) {
       "@type": "LocalBusiness",
       name: "MH Construction",
       image: "https://www.mhc-gc.com/images/logo/mh-logo.png",
-      priceRange: "$$-$$$",
-      telephone: "(509) 308-6489",
+      priceRange: "$$$$",
+      telephone: COMPANY_INFO.phone.display,
       address: {
         "@type": "PostalAddress",
-        streetAddress: "3111 N. Capitol Ave.",
-        addressLocality: "Pasco",
-        addressRegion: "WA",
-        postalCode: "99301",
+        streetAddress: COMPANY_INFO.address.street,
+        addressLocality: COMPANY_INFO.address.city,
+        addressRegion: COMPANY_INFO.address.state,
+        postalCode: COMPANY_INFO.address.zip,
         addressCountry: "US",
       },
     },

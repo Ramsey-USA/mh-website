@@ -30,8 +30,17 @@ cp .env.local.example .env.local
 ```bash
 # Set via Cloudflare dashboard or wrangler CLI
 wrangler secret put RESEND_API_KEY
-wrangler secret put D1_DATABASE_ID
+wrangler secret put EMAIL_FROM
+wrangler secret put JWT_SECRET
+wrangler secret put ADMIN_MATT_PASSWORD
+wrangler secret put ADMIN_JEREMY_PASSWORD
+wrangler secret put TWILIO_ACCOUNT_SID
+wrangler secret put TWILIO_AUTH_TOKEN
+wrangler secret put TWILIO_FROM_NUMBER
 ```
+
+> **Note:** D1 database IDs are configured as `[[d1_databases]]` bindings in
+> `wrangler.toml`, not as runtime secrets.
 
 ---
 
@@ -41,18 +50,14 @@ wrangler secret put D1_DATABASE_ID
 
 These can be in public code:
 
-- Firebase API keys (protected by security rules)
-- Google Analytics IDs
+- Google Analytics measurement IDs
 - Public endpoints
 - Feature flags
 
 ```typescript
 // OK in public code
-const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-
-  projectId: "mhc-gc-website",
-};
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 ```
 
 ### Private Secrets (NEVER Expose)
@@ -99,9 +104,11 @@ npm run dev
 wrangler secret put RESEND_API_KEY
 # Enter your production API key when prompted
 
-wrangler secret put D1_DATABASE_ID
-# Enter your database ID
+wrangler secret put JWT_SECRET
+# Enter a 48-byte hex string (generate: node -e "console.log(require('crypto').randomBytes(48).toString('hex'))")
 
+wrangler secret put ADMIN_MATT_PASSWORD
+wrangler secret put ADMIN_JEREMY_PASSWORD
 
 # List all secrets (without values)
 wrangler secret list
@@ -127,30 +134,35 @@ EMAIL_FROM=noreply@mhc-gc.com
 
 ### Cloudflare D1 Database
 
-```bash
-D1_DATABASE_ID=your-production-database-id
-D1_PREVIEW_DATABASE_ID=your-preview-database-id
+D1 database IDs are **not** runtime secrets — they are configured as
+`[[d1_databases]]` bindings in `wrangler.toml`:
+
+```toml
+[[d1_databases]]
+binding = "DB"
+database_name = "mh-construction-db"
+database_id = "98ad144a-cfe2-4f19-a55c-c43140279840"
 ```
 
 **Where to get:**
 
 - Cloudflare Dashboard → Workers & Pages → D1
-- Create databases for production and preview
-- Copy database IDs from dashboard
+- Database IDs are visible in the dashboard after creation
 
-### Firebase (Google Analytics)
+### Google Analytics (Optional)
 
 ```bash
-NEXT_PUBLIC_FIREBASE_API_KEY=AIzaSy...
-
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=mhc-gc-website
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-...
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
 **Where to get:**
 
-- Firebase Console: <https://console.firebase.google.com>
-- Project Settings → General → Your apps
+- Google Analytics: <https://analytics.google.com>
+- Admin → Data Streams → Measurement ID
+
+> **Note:** This project primarily uses a custom analytics pipeline
+> (localStorage client-side + Cloudflare KV server-side). Google Analytics
+> is optional and only needed if dual-tracking is desired.
 
 ---
 
@@ -180,13 +192,13 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-...
 
 ## Rotation Schedule
 
-| Secret Type          | Rotation Frequency | Responsible    |
-| -------------------- | ------------------ | -------------- |
-| Resend API Key       | Every 90 days      | DevOps Team    |
-| Admin Passwords      | Every 60 days      | Security Team  |
-| JWT Signing Keys     | Every 180 days     | Backend Team   |
-| Database Credentials | Every 90 days      | Database Admin |
-| Firebase Tokens      | As needed          | DevOps Team    |
+| Secret Type          | Rotation Frequency | Responsible   |
+| -------------------- | ------------------ | ------------- |
+| Resend API Key       | Every 90 days      | DevOps Team   |
+| Admin Passwords      | Every 60 days      | Security Team |
+| JWT Signing Key      | Every 180 days     | Backend Team  |
+| Twilio Auth Token    | Every 90 days      | DevOps Team   |
+| Cloudflare API Token | As needed          | DevOps Team   |
 
 ---
 
@@ -250,8 +262,10 @@ wrangler login
 
 # Set secrets
 wrangler secret put RESEND_API_KEY
-wrangler secret put D1_DATABASE_ID
 wrangler secret put EMAIL_FROM
+wrangler secret put JWT_SECRET
+wrangler secret put ADMIN_MATT_PASSWORD
+wrangler secret put ADMIN_JEREMY_PASSWORD
 ```
 
 ### Viewing Secrets
@@ -300,8 +314,6 @@ wrangler dev
 
 # Deploy to preview
 wrangler deploy --env preview
-
-
 
 # Verify secrets are accessible
 # Check logs for any errors

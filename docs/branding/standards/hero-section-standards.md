@@ -1,20 +1,10 @@
 # MH Construction Hero Section Standards
 
-**Version:** 6.0.0  
-**Date:** December 14, 2025  
-**Status:** ✅ Official Standard  
 **Category:** Brand Standards - Hero Sections  
+**Last Updated:** December 14, 2025  
+**Version:** 6.0.0  
+**Status:** ✅ Official Standard  
 **Methodology:** Military/Construction Terminology Blend
-
-**⭐ UPDATE (Dec 2025)**: Hero sections use **bottom-right text positioning** to allow photos/videos
-to be the primary visual focal point. Text complements imagery rather than competing with it.
-
-**⭐ MAJOR UPDATE (Dec 14, 2025)**: All hero taglines updated with military-construction terminology
-blend to honor veteran leadership while maintaining construction expertise focus.
-
-**⭐ DUAL NAMING SYSTEM (Dec 2025)**: Each hero section now includes dual naming format with
-**Military Designation → Civilian Label** (e.g., "Base HQ → Home", "Our Oath → About Us") to
-honor veteran identity while maintaining accessibility for all visitors.
 
 ---
 

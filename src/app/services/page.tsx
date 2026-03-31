@@ -1,4 +1,5 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { PageTrackingClient } from "@/components/analytics";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { Button, IconContainer } from "@/components/ui";
@@ -8,32 +9,68 @@ import {
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
-import { StrategicCTABanner } from "@/components/ui/cta";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import {
-  TestimonialsSection,
-  NextStepsSection,
-} from "@/components/shared-sections";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
-
-// Import data separately (not lazy loaded)
+// Above-fold: static — hero needs to paint immediately for LCP
 import {
   ServicesHero,
-  CoreServicesSection,
-  SpecialtyServicesSection,
-  GovernmentProjectsSection,
-  ServiceAreasSection,
-  WhyChooseUs,
-  ConstructionProcessSection,
-  ConstructionExpertiseSection,
   coreServices,
   specialtyServices,
   serviceAreas,
 } from "@/components/services";
+// Below-fold: lazy-loaded to reduce initial JS bundle
+const CoreServicesSection = dynamic(() =>
+  import("@/components/services").then((m) => ({
+    default: m.CoreServicesSection,
+  })),
+);
+const SpecialtyServicesSection = dynamic(() =>
+  import("@/components/services").then((m) => ({
+    default: m.SpecialtyServicesSection,
+  })),
+);
+const GovernmentProjectsSection = dynamic(() =>
+  import("@/components/services").then((m) => ({
+    default: m.GovernmentProjectsSection,
+  })),
+);
+const ServiceAreasSection = dynamic(() =>
+  import("@/components/services").then((m) => ({
+    default: m.ServiceAreasSection,
+  })),
+);
+const WhyChooseUs = dynamic(() =>
+  import("@/components/services").then((m) => ({ default: m.WhyChooseUs })),
+);
+const ConstructionProcessSection = dynamic(() =>
+  import("@/components/services").then((m) => ({
+    default: m.ConstructionProcessSection,
+  })),
+);
+const ConstructionExpertiseSection = dynamic(() =>
+  import("@/components/services").then((m) => ({
+    default: m.ConstructionExpertiseSection,
+  })),
+);
+const StrategicCTABanner = dynamic(() =>
+  import("@/components/ui/cta").then((m) => ({
+    default: m.StrategicCTABanner,
+  })),
+);
+const TestimonialsSection = dynamic(() =>
+  import("@/components/shared-sections").then((m) => ({
+    default: m.TestimonialsSection,
+  })),
+);
+const NextStepsSection = dynamic(() =>
+  import("@/components/shared-sections").then((m) => ({
+    default: m.NextStepsSection,
+  })),
+);
 
 export default function ServicesPage() {
   return (
@@ -474,7 +511,7 @@ export default function ServicesPage() {
           id="next-steps"
           className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary py-12 sm:py-16 lg:py-20 xl:py-24"
         >
-          <div className="absolute inset-0 bg-[url('/images/textures/construction-pattern.png')] opacity-5"></div>
+          <div className="absolute inset-0 bg-[url('/images/textures/construction-pattern.svg')] opacity-5"></div>
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="mb-16 sm:mb-20 text-center">
               {/* Icon with decorative lines */}

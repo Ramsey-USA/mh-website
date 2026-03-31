@@ -9,8 +9,7 @@
 
 This directory contains **only deployment and environment-specific configurations** for Cloudflare, Docker, and CI/CD.
 
-**For complete configuration documentation, see:**
-**For full documentation:** See [Main README](../README.md)
+See [Main README](../README.md) for full documentation.
 
 ---
 
@@ -18,8 +17,11 @@ This directory contains **only deployment and environment-specific configuration
 
 ### Cloudflare Configuration
 
-- **`cloudflare/wrangler.toml`** - Cloudflare Workers/Pages deployment config
-- **`cloudflare/wrangler-example.toml`** - Example template for new environments
+- **`cloudflare/edge-optimization.md`** - Cloudflare edge caching and optimization reference
+- **`cloudflare/wrangler-example.toml`** - Legacy reference template (Pages model)
+- **`cloudflare/wrangler-workers-example.toml`** - Reference template showing all Workers bindings
+
+> **Note:** The production `wrangler.toml` is in the **project root** (not in this directory).
 
 ### Deployment Configuration
 
@@ -37,16 +39,18 @@ This directory contains **only deployment and environment-specific configuration
 
 All framework and build tool configurations are in the **project root** for better discoverability:
 
-| File                 | Purpose                    | Location |
-| -------------------- | -------------------------- | -------- |
-| `eslint.config.mjs`  | ESLint 9 flat config       | Root     |
-| `tsconfig.json`      | TypeScript strict mode     | Root     |
-| `next.config.js`     | Next.js 15 framework       | Root     |
-| `tailwind.config.ts` | Tailwind CSS design system | Root     |
-| `jest.config.js`     | Jest testing framework     | Root     |
-| `postcss.config.js`  | PostCSS CSS processing     | Root     |
-| `cspell.json`        | CSpell spell checking      | Root     |
-| `package.json`       | Dependencies & scripts     | Root     |
+| File                  | Purpose                         | Location |
+| --------------------- | ------------------------------- | -------- |
+| `wrangler.toml`       | Cloudflare Workers deployment   | Root     |
+| `open-next.config.ts` | OpenNext adapter for Cloudflare | Root     |
+| `eslint.config.mjs`   | ESLint 9 flat config            | Root     |
+| `tsconfig.json`       | TypeScript strict mode          | Root     |
+| `next.config.js`      | Next.js 15 framework            | Root     |
+| `tailwind.config.ts`  | Tailwind CSS design system      | Root     |
+| `jest.config.js`      | Jest testing framework          | Root     |
+| `postcss.config.js`   | PostCSS CSS processing          | Root     |
+| `cspell.json`         | CSpell spell checking           | Root     |
+| `package.json`        | Dependencies & scripts          | Root     |
 
 ---
 
@@ -56,9 +60,10 @@ All framework and build tool configurations are in the **project root** for bett
 
 ```text
 config/
-├── cloudflare/         # Cloudflare deployment configs
-│   ├── wrangler.toml
-│   └── wrangler-example.toml
+├── cloudflare/         # Cloudflare edge optimization & reference templates
+│   ├── edge-optimization.md
+│   ├── wrangler-example.toml
+│   └── wrangler-workers-example.toml
 ├── deployment/         # Docker deployment configs
 │   ├── Dockerfile
 │   └── docker-compose.yml

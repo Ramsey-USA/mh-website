@@ -6,32 +6,32 @@
 
 > **Card #2** | **Executive Leadership** | **Civilian Leadership**
 
-## Quick Facts
+## 📋 Quick Facts
 
 - **Role**: Vice President (1 year) | Former General Manager (10 years)
 - **Years with Company**: 15
 - **Hometown**: Washington State
 - **Education**: Business Operations
 
-## 2025 Performance Statistics
+## 📊 2025 Performance Statistics
 
 - **Projects Completed**: 38
 - **Client Satisfaction**: 97%
 - **Safety Record**: EXCELLENT
 - **Team Collaborations**: 22
 
-## Career Statistics
+## 🏆 Career Statistics
 
 - **Total Projects**: 425
 - **Years Experience**: 15
 - **Specialty Areas**: 6
 - **Mentorships**: 18
 
-## Awards & Recognition
+## 🎖️ Awards & Recognition
 
 Excellence in Client Relations Award, Outstanding VP Achievement
 
-## Biography
+## 👤 Biography
 
 Arnold was promoted to Vice President in January 2025 when Jeremy Thamert assumed ownership.
 Prior to this, he served as General Manager for 10 years, building the foundation of MH
@@ -40,30 +40,30 @@ relationship building and serves as primary client liaison for major commercial 
 projects. Arnold embodies the "We Work With You" philosophy that defines MH Construction's
 approach to partnership-driven construction.
 
-## Career Highlights
+## ⭐ Career Highlights
 
 - Developed client relationship protocols
 - Expanded commercial project portfolio
 - Implemented quality assurance systems
 - Built strategic partnerships
 
-## Professional Specialties
+## 🔧 Professional Specialties
 
 - Client Relationships & Partnership Development
 - Strategic Operations & Business Growth
 - Service Excellence & Quality Assurance
 - Project Oversight & Risk Management
 
-## Certifications
+## 📜 Certifications
 
 PMP, CPSM
 
-## Personal Interests
+## 🎯 Personal Interests
 
 - **Hobbies**: Baseball, Cooking
 - **Special Interests**: Client Relations
 
-## Fun Fact
+## 💡 Fun Fact
 
 Arnold has personally overseen projects worth over $50 million in total value.
 

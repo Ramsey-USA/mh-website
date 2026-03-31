@@ -11,47 +11,26 @@ Cloudflare Email Address Obfuscation settings:
 2. Under **Content Optimization**, locate **Email Address Obfuscation**
 3. Ensure it's enabled but add the following to your page rules or Workers:
 
-### Option 1: Using Cloudflare Page Rules
+### Option 1: Using Cloudflare Cache Rules (replaces legacy Page Rules)
 
-Create a page rule for your domain:
+Create cache rules in the Cloudflare dashboard (Caching → Cache Rules):
 
-- **URL Pattern**: `*mhc-gc.com/*`
-- **Settings**:
-  - Cache Level: Standard
-  - Browser Cache TTL: 1 year
-  - Edge Cache TTL: 30 days
+- **Rule name**: `Static Asset Cache`
+- **When**: URI path ends with `.js`, `.css`, `.woff`, `.woff2`, `.jpg`, `.png`, `.webp`, `.svg`
+- **Then**: Set Edge Cache TTL: 30 days, Browser Cache TTL: 1 year
 
-### Option 2: Using Cloudflare Workers (Recommended)
+### Option 2: Using HTMLRewriter in a Worker (Advanced)
 
-Add this to your Cloudflare Worker to defer email-decode.min.js:
+> **Note:** This project uses the OpenNext adapter (`@opennextjs/cloudflare`), not a
+> custom Worker. The email-decode deferral below would need to be applied as a Worker
+> middleware or Cloudflare Transform Rule rather than a standalone Worker.
 
-```javascript
-addEventListener("fetch", (event) => {
-  event.respondWith(handleRequest(event.request));
-});
+If Cloudflare's Email Address Obfuscation injects a render-blocking script, use a
+Transform Rule (Rules → Transform Rules → Modify Response Header) to add
+`defer` to the injected `<script>` tag, or disable Email Obfuscation entirely
+if the site has no cleartext email addresses in the HTML.
 
-async function handleRequest(request) {
-  const response = await fetch(request);
-  const contentType = response.headers.get("content-type");
-
-  // Only modify HTML responses
-  if (contentType && contentType.includes("text/html")) {
-    let html = await response.text();
-
-    // Add defer attribute to email-decode script
-    html = html.replace(
-      /<script[^>]*src="[^"]*email-decode\.min\.js"[^>]*>/gi,
-      (match) => match.replace("<script", "<script defer"),
-    );
-
-    return new Response(html, {
-      headers: response.headers,
-    });
-  }
-
-  return response;
-}
-```
+````text
 
 ### Option 3: Add meta tag (Already implemented in layout.tsx)
 
@@ -63,13 +42,16 @@ The `data-cfasync="false"` script in our layout prevents the email-decode script
     window.CloudFlare.emailDecode = window.CloudFlare.emailDecode || function() {};
   }
 </script>
-```
+````
 
 ## Cache Configuration for Static Assets
 
-### Cloudflare Page Rules for Long Cache Lifetimes
+### Cloudflare Cache Rules for Long Cache Lifetimes
 
-Add these page rules in order of priority:
+> **Note:** Cloudflare Page Rules are deprecated. Use **Cache Rules** (Caching → Cache Rules)
+> for new configurations. The rules below are ordered by priority.
+
+Create these cache rules in the Cloudflare dashboard:
 
 1. **Static Assets** (`*mhc-gc.com/*.{js,css,woff,woff2,jpg,png,webp,svg}`)
    - Cache Level: Cache Everything
@@ -131,14 +113,18 @@ Track these metrics in Cloudflare Analytics:
 
 ## Additional Recommendations
 
-1. **Enable Auto Minify** in Cloudflare (HTML, CSS, JS)
-2. **Enable Brotli Compression** (higher than gzip)
-3. **Enable HTTP/3** for faster connection establishment
-4. **Enable Early Hints** for resource preloading
-5. **Enable Rocket Loader** (optional, test carefully as it can interfere with some JS)
+1. **Auto Minify** — **OFF** for HTML, CSS, and JS
+   (Next.js already minifies; double-minify can corrupt JSX output and break CSP)
+2. **Rocket Loader** — **OFF** (breaks Next.js hydration — do NOT enable)
+3. **Enable Brotli Compression** (default on for proxied zones; higher ratio than gzip)
+4. **Enable HTTP/3 with QUIC** — better mobile performance on lossy networks
+5. **Enable Early Hints** — sends 103 response with `Link: preload` headers from `public/_headers`
+6. **Enable 0-RTT Connection Resumption** — returning visitors skip TLS round-trip
+
+> See the full dashboard settings table in [Cloudflare Deployment Guide](../../docs/deployment/cloudflare-guide.md#cloudflare-dashboard-performance-settings).
 
 ## References
 
-- [Cloudflare Caching Documentation](https://developers.cloudflare.com/cache/)
-- [Cloudflare Page Rules](https://developers.cloudflare.com/rules/page-rules/)
+- [Cloudflare Cache Documentation](https://developers.cloudflare.com/cache/)
 - [Cloudflare Workers](https://developers.cloudflare.com/workers/)
+- [Cloudflare Cache Rules](https://developers.cloudflare.com/cache/how-to/cache-rules/) (replaces legacy Page Rules)

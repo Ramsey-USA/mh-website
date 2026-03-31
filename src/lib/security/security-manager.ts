@@ -63,7 +63,7 @@ export interface SecurityConfig {
 }
 
 // Default Security Configuration
-export const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
+const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
   rateLimit: {
     windowMs: 15 * 60 * 1000, // 15 minutes
     maxRequests: 100, // limit each IP to 100 requests per windowMs
@@ -202,7 +202,7 @@ const rateLimitStore = new RateLimitStore();
 /**
  * Rate Limiting Middleware
  */
-export class RateLimiter {
+class RateLimiter {
   private config: SecurityConfig["rateLimit"];
 
   constructor(
@@ -328,7 +328,7 @@ export class RateLimiter {
 /**
  * CSRF Protection
  */
-export class CSRFProtection {
+class CSRFProtection {
   private config: SecurityConfig["csrf"];
 
   constructor(config: SecurityConfig["csrf"] = DEFAULT_SECURITY_CONFIG.csrf) {
@@ -393,7 +393,7 @@ export class CSRFProtection {
 /**
  * Input Validation and Sanitization
  */
-export class InputValidator {
+class InputValidator {
   private config: SecurityConfig["validation"];
 
   constructor(
@@ -539,7 +539,7 @@ export class InputValidator {
 /**
  * Security Headers Manager
  */
-export class SecurityHeaders {
+class SecurityHeaders {
   private config: SecurityConfig["helmet"];
 
   constructor(

@@ -6,7 +6,7 @@
 -- 2. Click on "mh-construction-db" 
 -- 3. Click the "Console" tab
 -- 4. Copy SECTION 1 below, paste into console, click "Execute"
--- 5. Repeat for SECTION 2, 3, 4, and 5
+-- 5. Repeat for SECTION 2, 3, 4, 5, 6, and 7
 -- ============================================================================
 
 -- ============================================================================
@@ -137,10 +137,44 @@ CREATE INDEX idx_sessions_user_id ON sessions(user_id);
 CREATE INDEX idx_sessions_expires_at ON sessions(expires_at);
 
 -- ============================================================================
+-- SECTION 6: NEWSLETTER SUBSCRIBERS TABLE
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS newsletter_subscribers (
+  id           TEXT PRIMARY KEY DEFAULT (lower(hex(randomblob(16)))),
+  email        TEXT NOT NULL UNIQUE,
+  name         TEXT,
+  unsubscribe_token TEXT NOT NULL UNIQUE,
+  subscribed   INTEGER NOT NULL DEFAULT 1,  -- 1 = active, 0 = unsubscribed
+  created_at   TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at   TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE INDEX IF NOT EXISTS idx_newsletter_email
+  ON newsletter_subscribers (email);
+
+CREATE INDEX IF NOT EXISTS idx_newsletter_token
+  ON newsletter_subscribers (unsubscribe_token);
+
+-- ============================================================================
+-- SECTION 7: CREATED_AT INDEXES FOR ADMIN QUERIES
+-- ============================================================================
+
+CREATE INDEX IF NOT EXISTS idx_contact_submissions_created_at
+  ON contact_submissions (created_at);
+
+CREATE INDEX IF NOT EXISTS idx_consultations_created_at
+  ON consultations (created_at);
+
+CREATE INDEX IF NOT EXISTS idx_job_applications_created_at
+  ON job_applications (created_at);
+
+-- ============================================================================
 -- VERIFICATION QUERY - Run this last to confirm all tables exist
 -- ============================================================================
 
 SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;
 
--- You should see 5 tables:
--- consultations, contact_submissions, job_applications, sessions, users
+-- You should see 6 tables:
+-- consultations, contact_submissions, job_applications,
+-- newsletter_subscribers, sessions, users

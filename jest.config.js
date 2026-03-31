@@ -5,9 +5,9 @@
  * Unit and integration testing with coverage tracking
  *
  * @see https://nextjs.org/docs/app/building-your-application/testing/jest
- * @see docs/testing/mh-testing-guide.md
+ * @see testing/mh-testing-guide.md
  * @version 2.0.0
- * @lastUpdated 2025-11-08
+ * @lastUpdated 2026-03-26
  */
 
 const nextJest = require("next/jest");
@@ -38,7 +38,18 @@ const customJestConfig = {
     "!src/**/__tests__/**",
     "!src/app/layout.tsx",
     "!src/app/**/layout.tsx",
+    // Barrel re-export files — no executable logic, just re-exports
+    "!src/**/index.ts",
+    "!src/**/index.tsx",
+    // Pure TypeScript type declaration files — no executable code
+    "!src/types/**",
   ],
+
+  // Use V8 coverage provider instead of the default babel/istanbul provider.
+  // babel-plugin-istanbul depends on test-exclude which calls promisify() on
+  // an Object under Node ≥20, crashing the coverage worker. V8 coverage is
+  // built into the runtime, faster, and more accurate for ESM + dynamic imports.
+  coverageProvider: "v8",
 
   // Coverage thresholds
   // Global thresholds are intentionally not enforced: coverage spans the entire

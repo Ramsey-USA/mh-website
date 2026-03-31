@@ -105,6 +105,10 @@ const linkedCities = [
   { href: "/locations/spokane", name: "Spokane" },
   { href: "/locations/yakima", name: "Yakima" },
   { href: "/locations/walla-walla", name: "Walla Walla" },
+  { href: "/locations/hermiston", name: "Hermiston" },
+  { href: "/locations/pendleton", name: "Pendleton" },
+  { href: "/locations/coeur-d-alene", name: "Coeur d'Alene" },
+  { href: "/locations/omak", name: "Omak" },
 ];
 
 const regionalAreas = [

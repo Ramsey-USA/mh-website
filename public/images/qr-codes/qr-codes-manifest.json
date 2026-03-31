@@ -167,6 +167,8 @@
       "variant": "color",
       "url": "https://mhc-gc.com/booking",
       "description": "Schedule Consultation",
+      "deprecated": true,
+      "deprecatedRedirect": "/contact",
       "success": true,
       "error": null
     },
@@ -176,6 +178,8 @@
       "variant": "bw",
       "url": "https://mhc-gc.com/booking",
       "description": "Schedule Consultation",
+      "deprecated": true,
+      "deprecatedRedirect": "/contact",
       "success": true,
       "error": null
     },
@@ -185,6 +189,8 @@
       "variant": "color",
       "url": "https://mhc-gc.com/estimator",
       "description": "AI Project Estimator",
+      "deprecated": true,
+      "deprecatedRedirect": "/contact",
       "success": true,
       "error": null
     },
@@ -194,6 +200,8 @@
       "variant": "bw",
       "url": "https://mhc-gc.com/estimator",
       "description": "AI Project Estimator",
+      "deprecated": true,
+      "deprecatedRedirect": "/contact",
       "success": true,
       "error": null
     },

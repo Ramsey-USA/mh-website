@@ -14,8 +14,20 @@ import {
   createSuccessResponse,
   internalServerError,
 } from "@/lib/api/responses";
-
 export const dynamic = "force-dynamic";
+
+/**
+ * Sanitize a user-supplied filename: strip path separators, control chars,
+ * limit to 200 chars, and collapse runs of dots / spaces.
+ */
+function sanitizeFilename(name: string): string {
+  return name
+    .replace(/[/\\:*?"<>|\x00-\x1f\x7f]/g, "_") // strip dangerous chars
+    .replace(/\.{2,}/g, ".") // collapse sequential dots
+    .replace(/\s+/g, " ") // collapse whitespace
+    .trim()
+    .slice(0, 200);
+}
 
 /**
  * Resume Upload API - Handles file uploads to R2
@@ -54,10 +66,13 @@ async function handlePOST(request: NextRequest) {
     const r2Bucket = getR2Bucket("RESUMES");
     const r2Service = new R2StorageService(r2Bucket, "mh-construction-resumes");
 
+    // Sanitize filename before storing
+    const safeName = sanitizeFilename(file.name);
+
     // Generate unique key
     const fileKey = generateFileKey(
       "resumes",
-      file.name,
+      safeName,
       applicantEmail || undefined,
     );
 
@@ -65,7 +80,7 @@ async function handlePOST(request: NextRequest) {
     const uploadResult = await r2Service.uploadFile(file, fileKey, file.type, {
       applicantEmail: applicantEmail || "unknown",
       uploadedAt: new Date().toISOString(),
-      originalFilename: file.name,
+      originalFilename: safeName,
     });
 
     if (!uploadResult.success) {
@@ -86,7 +101,7 @@ async function handlePOST(request: NextRequest) {
         key: uploadResult.key,
         url: uploadResult.url,
         size: uploadResult.size,
-        filename: file.name,
+        filename: safeName,
       },
       "Resume uploaded successfully",
     );
@@ -108,6 +123,16 @@ async function handleGET(request: NextRequest) {
       return NextResponse.json({ error: "No key provided" }, { status: 400 });
     }
 
+    // Validate key format — must start with "resumes/" and contain no
+    // path-traversal sequences like ".." or null bytes
+    if (
+      !key.startsWith("resumes/") ||
+      key.includes("..") ||
+      key.includes("\0")
+    ) {
+      return NextResponse.json({ error: "Invalid file key" }, { status: 400 });
+    }
+
     const r2Bucket = getR2Bucket("RESUMES");
     const r2Service = new R2StorageService(r2Bucket, "mh-construction-resumes");
 
@@ -120,10 +145,13 @@ async function handleGET(request: NextRequest) {
       );
     }
 
+    // Sanitize the filename for Content-Disposition header
+    const downloadName = sanitizeFilename(key.split("/").pop() || "resume");
+
     return new NextResponse(result.data, {
       headers: {
         "Content-Type": result.contentType || "application/octet-stream",
-        "Content-Disposition": `attachment; filename="${key.split("/").pop()}"`,
+        "Content-Disposition": `attachment; filename="${downloadName}"`,
       },
     });
   } catch (error) {

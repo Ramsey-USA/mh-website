@@ -15,9 +15,9 @@ const compat = new FlatCompat({
  * Modern flat config (ESLint 9+) optimized for Next.js 15 with TypeScript
  * Production-ready rules ensuring code quality and consistency
  *
- * @see docs/technical/configuration-guide.md
+ * @see docs/project/architecture.md
  * @version 2.1.0
- * @lastUpdated 2025-12-29
+ * @lastUpdated 2026-03-26
  */
 const eslintConfig = [
   // === IGNORE PATTERNS ===

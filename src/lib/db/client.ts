@@ -244,6 +244,10 @@ export class DbClient {
    * Delete a record by ID
    */
   async delete(table: string, id: string): Promise<boolean> {
+    const SAFE_COLUMN = /^[a-zA-Z_][a-zA-Z0-9_]*$/;
+    if (!SAFE_COLUMN.test(table)) {
+      throw new Error(`Invalid table name: ${table}`);
+    }
     const sql = `DELETE FROM ${table} WHERE id = ?`;
     const result = await this.execute(sql, id);
     return result.rowsAffected > 0;
@@ -253,6 +257,10 @@ export class DbClient {
    * Check if a record exists by ID
    */
   async exists(table: string, id: string): Promise<boolean> {
+    const SAFE_COLUMN = /^[a-zA-Z_][a-zA-Z0-9_]*$/;
+    if (!SAFE_COLUMN.test(table)) {
+      throw new Error(`Invalid table name: ${table}`);
+    }
     const sql = `SELECT 1 FROM ${table} WHERE id = ? LIMIT 1`;
     const result = await this.queryOne(sql, id);
     return result !== null;
@@ -265,10 +273,19 @@ export class DbClient {
     table: string,
     where?: { column: string; value: unknown },
   ): Promise<number> {
+    const SAFE_COLUMN = /^[a-zA-Z_][a-zA-Z0-9_]*$/;
+
+    if (!SAFE_COLUMN.test(table)) {
+      throw new Error(`Invalid table name: ${table}`);
+    }
+
     let sql = `SELECT COUNT(*) as count FROM ${table}`;
     const params: unknown[] = [];
 
     if (where) {
+      if (!SAFE_COLUMN.test(where.column)) {
+        throw new Error(`Invalid column name: ${where.column}`);
+      }
       sql += ` WHERE ${where.column} = ?`;
       params.push(where.value);
     }

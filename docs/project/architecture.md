@@ -7,7 +7,7 @@
 
 ## 🎯 **CURRENT STATE: Complete Production Platform**
 
-### **Live Production Pages**
+### Live Production Pages
 
 - ✅ **Homepage** (`/src/app/page.tsx`) - Partnership-focused landing with core
   values, SEO optimized (100/100), performance optimized with lazy loading
@@ -42,7 +42,7 @@
 - ✅ **Omak** (`/src/app/locations/omak/page.tsx`)
 - ✅ **Pendleton** (`/src/app/locations/pendleton/page.tsx`)
 
-### **Advanced Platform Features**
+### Advanced Platform Features
 
 - ✅ **SEO Optimization** - Complete sitemap, meta tags, and structured data
 - ✅ **Navigation System** - Responsive navigation with adaptive grid layout
@@ -55,7 +55,7 @@
 
 ## 🏗️ **Complete Production Architecture**
 
-### **Core Technologies**
+### Core Technologies
 
 - **Framework**: Next.js 15.5.12 (App Router)
 - **Language**: TypeScript 5.9.2
@@ -71,7 +71,7 @@
 - **Media Optimization**: Automatic WebP/WebM conversion via GitHub Actions
 - **Performance**: 94+ Lighthouse score, 100% PWA test score
 
-### **Complete Component Architecture**
+### Complete Component Architecture
 
 ```text
 src/
@@ -121,13 +121,16 @@ src/
 │   ├── error.tsx                   # Error boundary
 │   ├── global-error.tsx            # Global error boundary
 │   ├── not-found.tsx               # 404 page
-│   ├── sitemap.ts                  # Primary SEO sitemap
-│   ├── sitemap-dynamic.ts          # Dynamic sitemap entries
+│   ├── sitemap.ts                  # SEO sitemap
 │   └── robots.ts                   # SEO robots.txt
 ├── components/
 │   ├── about/                      # About page components
 │   ├── analytics/
-│   │   └── TrackedComponents.tsx   # Tracked button/link/form components
+│   │   ├── EnhancedAnalytics.tsx    # Enhanced analytics wrapper
+│   │   ├── GoogleAnalytics.tsx      # Google Analytics integration
+│   │   ├── PageTrackingClient.tsx   # Client-side page tracking
+│   │   ├── TrackedContactLinks.tsx  # Analytics-tracked contact links
+│   │   └── index.ts                # Barrel export
 │   ├── animations/                 # Framer Motion animation components
 │   ├── chatbot/
 │   │   ├── ChatWidget.tsx          # Floating Partnership Guide widget (all pages)
@@ -142,7 +145,6 @@ src/
 │   │   ├── Navigation.tsx          # Responsive navigation
 │   │   └── Footer.tsx              # Footer UI, analytics links, and private admin shortcut listener
 │   ├── locations/                  # Location page components
-│   ├── map/                        # Map/geography components
 │   ├── navigation/                 # Navigation config & utilities
 │   ├── performance/                # Performance optimization components
 │   ├── projects/                   # Projects/portfolio components
@@ -152,7 +154,6 @@ src/
 │   ├── services/                   # Services page components
 │   ├── shared/                     # Miscellaneous shared components
 │   ├── shared-sections/            # Reusable full-page sections
-│   ├── slider/                     # Carousel/slider components
 │   ├── team/                       # Team page components
 │   ├── templates/                  # BrandedContentSection & page templates
 │   ├── testimonials/               # Testimonials section components
@@ -195,7 +196,7 @@ src/
 - **Brand-Safe System Prompt**: Forbids fabrication, cost estimates; enforces MH terminology
   (Client Partners, Trade Partners, Veteran-Owned)
 - **Responsive Widget**: Floating button on desktop → fullscreen drawer on mobile with iOS safe-area padding
-- **Security**: Input sanitized (max 500 chars), rate-limited to 10 req/min/IP, history capped at 10 turns
+- **Security**: Input sanitized (max 500 chars), rate-limited to 60 req/min/IP (API preset), history capped at 10 turns
 - **SEO/GEO**: `contactPoint` in Organization schema, FAQ structured data, `public/llms.txt` updated
 - **Test Coverage**: 19 tests (10 UI assertions, 9 knowledge-base assertions)
 
@@ -225,7 +226,7 @@ src/
 
 - **Enhanced SEO Schema**: Organization (with AI assistant `contactPoint`), LocalBusiness, Service, Project markup
 - **Dynamic Sitemap**: Auto-generated from active pages
-- **Robots.txt**: Optimized for AI crawlers, excludes admin and API-only endpoints (`/api/chat`)
+- **Robots.txt**: Optimized for AI crawlers, excludes all `/api/`, `/admin/`, `/dashboard/`, and internal paths
 - **llms.txt**: Machine-readable company overview including Partnership Guide description
 
 ### 🎛️ **Content Management System** - ✅ COMPLETE
@@ -264,7 +265,7 @@ src/
 
 ## 🔮 **Future Architecture Considerations**
 
-### **Planned Enhancements**
+### Planned Enhancements
 
 - **Micro-Frontend Architecture**: Modular, independently deployable features
 - **Enhanced Analytics**: Heat mapping, user journey tracking, A/B testing
@@ -272,7 +273,7 @@ src/
 - **Video Streaming**: Adaptive bitrate streaming for large video content
 - **Performance Monitoring**: Real User Monitoring (RUM) and synthetic testing
 
-### **Scalability Preparations**
+### Scalability Preparations
 
 - **Component Library**: Reusable, documented components for rapid development
 - **Design System**: Comprehensive style guide with Figma integration

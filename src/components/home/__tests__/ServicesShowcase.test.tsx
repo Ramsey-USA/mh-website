@@ -110,4 +110,37 @@ describe("ServicesShowcase", () => {
 
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
+
+  it("opens modal via keyboard Enter key on a service card", async () => {
+    const user = userEvent.setup();
+    render(<ServicesShowcase />);
+
+    const card = screen.getByRole("button", {
+      name: /View details for Construction Management/i,
+    });
+    card.focus();
+    await user.keyboard("{Enter}");
+
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+    expect(trackServiceInterest).toHaveBeenCalledWith(
+      "Construction Management",
+      "click",
+      expect.objectContaining({ method: "keyboard" }),
+    );
+  });
+
+  it("renders the styled NOT in the Owner's Representative subtitle", () => {
+    render(<ServicesShowcase />);
+    // The subtitle "Built projects for the Client, NOT the Dollar" should
+    // split "NOT" into its own italicized span
+    const notSpan = screen.getByText("NOT");
+    expect(notSpan.tagName).toBe("SPAN");
+    expect(notSpan.className).toContain("italic");
+  });
+
+  it("renders all six service cards", () => {
+    render(<ServicesShowcase />);
+    const cards = screen.getAllByRole("button", { name: /View details for/i });
+    expect(cards).toHaveLength(6);
+  });
 });

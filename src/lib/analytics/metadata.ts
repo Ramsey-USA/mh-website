@@ -7,7 +7,6 @@
  */
 
 import type { DeviceInfo, LocationInfo, EventMetadata } from "./types";
-import { getGeographicLocation, type GeographicLocation } from "./geolocation";
 
 /**
  * Get comprehensive device information
@@ -255,14 +254,6 @@ export function getEventMetadata(): EventMetadata {
 }
 
 /**
- * Get battery status (if available)
- */
-export function getBatteryInfo(): Record<string, unknown> {
-  // Battery Status API is experimental and may not be available
-  return {}; // Will be populated if battery API is available
-}
-
-/**
  * Get memory information (if available)
  */
 export function getMemoryInfo(): Record<string, unknown> {
@@ -359,55 +350,6 @@ export function getPagePerformance(): Record<string, unknown> {
     domLoadTime:
       timing.domContentLoadedEventEnd - timing.domContentLoadedEventStart,
     pageLoadTime: timing.loadEventEnd - navigationStart,
-  };
-}
-
-/**
- * Get enhanced tracking properties
- * Returns all available context for an analytics event
- * Now includes geographic location data
- */
-export async function getEnhancedTrackingProperties(): Promise<
-  Record<string, unknown>
-> {
-  // Get geographic location asynchronously
-  let geographicLocation: GeographicLocation | undefined;
-  try {
-    geographicLocation = await getGeographicLocation();
-  } catch (_error) {
-    // Silently fail if geolocation unavailable
-    geographicLocation = undefined;
-  }
-
-  return {
-    ...getSessionInfo(),
-    ...getTrafficSource(),
-    connection: getConnectionInfo(),
-    preferences: getUserPreferences(),
-    orientation: getOrientationInfo(),
-    security: getSecurityInfo(),
-    memory: getMemoryInfo(),
-    performance: getPagePerformance(),
-    // Geographic location data
-    ...(geographicLocation && {
-      geographic: {
-        country: geographicLocation.country,
-        countryCode: geographicLocation.countryCode,
-        state: geographicLocation.state,
-        city: geographicLocation.city,
-        zip: geographicLocation.zip,
-        region: geographicLocation.region,
-        timezone: geographicLocation.timezone,
-        latitude: geographicLocation.latitude,
-        longitude: geographicLocation.longitude,
-        source: geographicLocation.source,
-      },
-    }),
-    timestamp: new Date().toISOString(),
-    url: typeof window !== "undefined" ? window.location.href : "",
-    path: typeof window !== "undefined" ? window.location.pathname : "",
-    search: typeof window !== "undefined" ? window.location.search : "",
-    hash: typeof window !== "undefined" ? window.location.hash : "",
   };
 }
 

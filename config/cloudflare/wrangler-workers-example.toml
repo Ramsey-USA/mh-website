@@ -1,6 +1,25 @@
+# ============================================================================
+# wrangler-workers-example.toml — REFERENCE TEMPLATE (Workers model)
+# ============================================================================
+#
+# ⚠️  This file is NOT used in production. It shows the full range of
+#     Cloudflare Workers bindings as a reference template.
+#
+#     The ACTUAL production config is:  /wrangler.toml  (root of repo)
+#     That file uses the OpenNext adapter with these active bindings:
+#       - Workers AI ([ai])       — Partnership Guide chatbot
+#       - Workers Assets ([assets]) — static file serving
+#       - D1 (DB)                 — SQLite database
+#       - KV (CACHE, ANALYTICS)   — rate limiting + analytics
+#       - R2 (FILE_ASSETS, RESUMES) — file storage
+#
+#     See: docs/deployment/cloudflare-guide.md
+# ============================================================================
+
 name = "mh-construction-website"
-main = "src/index.js"
-compatibility_date = "2024-10-16"
+main = ".open-next/worker.js"
+compatibility_date = "2026-03-25"
+compatibility_flags = ["nodejs_compat"]
 
 [env.production]
 name = "mh-construction-prod"

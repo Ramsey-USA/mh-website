@@ -54,4 +54,36 @@ describe("ValuesShowcase", () => {
 
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
+
+  it("opens modal via card div click (not just Learn More button)", async () => {
+    const user = userEvent.setup();
+    render(<ValuesShowcase />);
+
+    // Click the card wrapper div instead of the Learn More button
+    const card = screen.getByRole("button", {
+      name: /Learn more about For Our Partners/i,
+    });
+    await user.click(card);
+
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+  });
+
+  it("opens modal via keyboard Enter key on card", async () => {
+    const user = userEvent.setup();
+    render(<ValuesShowcase />);
+
+    const card = screen.getByRole("button", {
+      name: /Learn more about For Our Partners/i,
+    });
+    card.focus();
+    await user.keyboard("{Enter}");
+
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+  });
+
+  it("renders all three value category cards", () => {
+    render(<ValuesShowcase />);
+    const cards = screen.getAllByRole("button", { name: /Learn more about/i });
+    expect(cards).toHaveLength(3);
+  });
 });

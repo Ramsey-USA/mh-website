@@ -96,9 +96,9 @@ analyze_page() {
     # 5. Import analysis
     echo ""
     echo "📚 Key Imports:"
-    if grep -q "TestimonialGrid\|ChatbotCTASection\|InteractiveTimeline" "$page_file"; then
+    if grep -q "TestimonialGrid\|ChatWidget" "$page_file"; then
         echo -e "${BLUE}  →${NC} Heavy components detected:"
-        grep "TestimonialGrid\|ChatbotCTASection\|InteractiveTimeline" "$page_file" | head -3 | sed 's/^/    /'
+        grep "TestimonialGrid\|ChatWidget" "$page_file" | head -3 | sed 's/^/    /'
     fi
     
     # 6. Performance considerations

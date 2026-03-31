@@ -44,7 +44,7 @@ git push origin feature/feature-name
 
 ### Commit Message Convention
 
-```
+```text
 feat:     new feature
 fix:      bug fix
 docs:     documentation only

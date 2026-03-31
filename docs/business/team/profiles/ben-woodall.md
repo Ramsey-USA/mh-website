@@ -13,55 +13,55 @@
 - **Hometown**: Oregon
 - **Education**: Construction Management
 
-## 2025 Performance Statistics
+## 📊 2025 Performance Statistics
 
 - **Projects Completed**: 28
 - **Client Satisfaction**: 95%
 - **Safety Record**: EXCELLENT
 - **Team Collaborations**: 24
 
-## Career Statistics
+## 🏆 Career Statistics
 
 - **Total Projects**: 220
 - **Years Experience**: 10
 - **Specialty Areas**: 5
 - **Mentorships**: 15
 
-## Awards & Recognition
+## 🎖️ Awards & Recognition
 
 Budget Excellence Award, Project Efficiency Recognition
 
-## Biography
+## 👤 Biography
 
 Ben is a dedicated Project Manager with a focus on project efficiency and budget management. His
 strength lies in balancing project scope, timeline, and budget constraints while ensuring projects
 deliver maximum value. Ben exemplifies MH Construction's commitment to delivering exceptional
 results on time and within budget.
 
-## Career Highlights
+## ⭐ Career Highlights
 
 - Managed $25M+ in project value
 - Implemented budget tracking systems
 - Led resource optimization initiatives
 - Trained junior project managers
 
-## Professional Specialties
+## 🔧 Professional Specialties
 
 - Project Efficiency & Process Optimization
 - Budget Management & Cost Control
 - Resource Planning & Allocation
 - Client Alignment & Expectation Management
 
-## Certifications
+## 📜 Certifications
 
 CAPM, CSM
 
-## Personal Interests
+## 🎯 Personal Interests
 
 - **Hobbies**: Cycling, Budgeting
 - **Special Interests**: Cost Optimization
 
-## Fun Fact
+## 💡 Fun Fact
 
 Ben once completed a complex commercial project 3 weeks ahead of schedule and 5% under budget.
 

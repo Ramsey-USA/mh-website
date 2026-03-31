@@ -19,7 +19,7 @@ construction expertise.
 
 ## 🏗️ Our Construction Expertise
 
-### **Commercial Construction Management**
+### Commercial Construction Management
 
 Put your commercial building project in the right hands. MH Construction delivers full
 Construction Management (CM) services throughout the Tri-Cities area, including Pasco,
@@ -30,7 +30,7 @@ from concept through completion.
 critical to streamlining the process in later stages, which is why we minimize
 "on-the-fly" decisions.
 
-### **Service Philosophy**
+### Service Philosophy
 
 Trust our experienced team to manage the intricate details, allowing you to focus on your vision's success.
 
@@ -49,7 +49,7 @@ delivering an exceptional Client experience from start to finish. Our commitment
 thorough communication and upfront planning is critical to streamlining the process,
 preventing costly on-the-fly decisions later on.
 
-#### **Make Your Vision a Reality**
+#### Make Your Vision a Reality
 
 MH Construction has proven experience with construction management for all types of
 commercial, industrial, and specialty businesses, including:
@@ -78,7 +78,7 @@ construction from concept through the finishing touches. Our team works closely 
 to create a comprehensive plan designed to prevent last-minute changes and scope creep
 in later stages of construction.
 
-#### **Navigating the Intricacies of Your Project**
+#### Navigating the Intricacies of Your Project
 
 Our skilled team ensures zero gaps in scope coverage during your construction planning.
 We meticulously consider:
@@ -108,7 +108,7 @@ multiple relationships - we work with our established network of quality profess
 _For Allies: Join our approved vendor network for consistent project opportunities
 and professional partnership growth in the Pacific Northwest construction market._
 
-#### **What Our Service Provides**
+#### What Our Service Provides
 
 We pay meticulous attention to detail throughout the entire procurement process. Count on us to manage:
 
@@ -131,7 +131,7 @@ of construction feasibility and cost considerations. We offer these critical
 Constructability and Budget Control Services to Clients throughout Washington, Oregon,
 and Idaho.
 
-#### **Partnership-Driven Process**
+#### Partnership-Driven Process
 
 Our proactive approach involves partnering closely with our network of approved Allies. This
 collaborative relationship eliminates guesswork and allows us to determine:
@@ -158,7 +158,7 @@ MH Construction focuses on Subproject Management to help Clients complete large,
 projects more efficiently and consistently meet schedules across the Tri-Cities and the
 Northwest.
 
-#### **Ushering in a New Era of Project Management**
+#### Ushering in a New Era of Project Management
 
 Replacing a single project manager with a team of phase specialists is the smartest
 decision you can make. Our subproject management services help to:
@@ -171,7 +171,7 @@ decision you can make. Our subproject management services help to:
 
 ## 🏢 Specialty Services
 
-### **Markets**
+### Markets
 
 #### Explore the Diverse Businesses We Work With | Tri-Cities, WA, OR, ID
 
@@ -180,7 +180,7 @@ Tri-Cities (Kennewick, Richland, Pasco) and the wider region. With over 150 year
 construction experience, you can trust us to bring your unique vision to life—from
 specialty religious facilities to complex industrial centers.
 
-#### **What Businesses Can We Work With?**
+#### What Businesses Can We Work With?
 
 We serve a wide range of markets across Washington, Idaho, and Oregon, including:
 
@@ -193,7 +193,7 @@ We serve a wide range of markets across Washington, Idaho, and Oregon, including
 
 ---
 
-### **Tenant Improvements**
+### Tenant Improvements
 
 #### Transform Your Commercial Space with Expert Tenant Improvement Services in the Tri-Cities
 
@@ -212,7 +212,7 @@ quickly and efficiently.
 
 ---
 
-### **Commercial New Build-Outs**
+### Commercial New Build-Outs
 
 #### Build Your Business Right: New Commercial Construction in the Tri-Cities
 
@@ -222,7 +222,7 @@ and the entire Tri-Cities area. Whether you need a small office or a large deale
 we construct a space where your business can thrive, using top-grade materials and
 partnering with the best architects.
 
-#### **What We Build**
+#### What We Build
 
 With over 150 years of combined experience, our crew provides a range of commercial
 construction services, including:
@@ -235,7 +235,7 @@ construction services, including:
 
 ---
 
-### **Light Industrial**
+### Light Industrial
 
 #### Functional & Safe Light Industrial Construction Services | Tri-Cities, WA
 
@@ -245,7 +245,7 @@ factor. MH Construction has been providing Light Industrial Construction Service
 Count on us to create a safe and functional building—from warehouses to processing
 plants—all built to your precise specifications.
 
-#### **Equipping Your Building with High-Quality Materials**
+#### Equipping Your Building with High-Quality Materials
 
 Light industrial facilities demand durability, accessibility, and reliability. We use
 industry-leading materials for all critical features, including:
@@ -258,7 +258,7 @@ industry-leading materials for all critical features, including:
 
 ---
 
-### **Religious Facilities**
+### Religious Facilities
 
 #### Specialized Construction for Religious Facilities | WA, OR, ID
 
@@ -270,7 +270,7 @@ or new construction project.
 
 ---
 
-### **Design-Build Services**
+### Design-Build Services
 
 #### Integrated Design & Construction Excellence
 
@@ -294,13 +294,13 @@ design-bid-build projects.
 
 ## 📍 Service Areas
 
-### **Primary Service Area**
+### Primary Service Area
 
 - **Tri-Cities, WA**: Richland, Pasco, Kennewick
 - **Benton County, WA**
 - **Franklin County, WA**
 
-### **Extended Service Area**
+### Extended Service Area
 
 - **Washington State**: Yakima, Spokane, Walla Walla, Eastern Washington
 - **Oregon**: Hermiston and licensed for commercial construction statewide
@@ -310,7 +310,7 @@ design-bid-build projects.
 "Pasco general contractor", "general contractor Kennewick"). MH Construction is a licensed general contractor
 serving all these communities.
 
-### **Project Size Range**
+### Project Size Range
 
 - **Small Projects**: Tenant improvements, small offices
 - **Medium Projects**: Retail centers, medical clinics
@@ -321,27 +321,27 @@ serving all these communities.
 
 ## 🎖️ Why Choose MH Construction
 
-### **150+ Years Combined Experience**
+### 150+ Years Combined Experience
 
 Our team brings deep expertise across all construction disciplines, refined through decades
 of successful projects.
 
-### **Veteran-Owned Excellence**
+### Veteran-Owned Excellence
 
 Military precision and discipline applied to civilian construction projects, ensuring
 attention to detail and reliable execution.
 
-### **Community Partnership**
+### Community Partnership
 
 We're not just contractors - we're community partners invested in the success of the
 Pacific Northwest region.
 
-### **Licensed & Insured**
+### Licensed & Insured
 
 Fully licensed across Washington, Oregon, and Idaho with comprehensive insurance coverage
 for your protection.
 
-### **Quality Assurance**
+### Quality Assurance
 
 Meticulous quality control processes at every project phase, ensuring work meets our high
 standards and your expectations.
@@ -350,7 +350,7 @@ standards and your expectations.
 
 ## 📞 Get Started
 
-### **Two Pathways to Begin Your Project**
+### Two Pathways to Begin Your Project
 
 #### Professional Consultation (Recommended)
 
@@ -361,7 +361,7 @@ Schedule a personalized consultation with our experienced team for expert guidan
 
 **Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
-### **Service Request Process**
+### Service Request Process
 
 1. **Initial Consultation**: Understanding your vision and requirements
 2. **Site Assessment**: Evaluating location and project feasibility
@@ -373,7 +373,7 @@ Schedule a personalized consultation with our experienced team for expert guidan
 
 ## Get Started Today
 
-### **For Clients**
+### For Clients
 
 Ready to begin your construction partnership? We're here to listen, collaborate, and
 bring your vision to life through professional construction management.
@@ -391,7 +391,7 @@ Schedule a personalized consultation with our experienced team for detailed prof
 
 **Contact:** [(509) 308-6489](tel:+15093086489) | [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
-### **For Allies**
+### For Allies
 
 #### Building Relationships with Professional Construction Partners
 
@@ -419,7 +419,7 @@ Schedule a personalized consultation with our experienced team for detailed prof
 **Email:** [office@mhc-gc.com](mailto:office@mhc-gc.com)
 **For:** Vendor applications, Ally relationships, and business opportunities
 
-### **General Information**
+### General Information
 
 **Address:** 3111 N. Capitol Ave., Pasco, WA 99301
 **Website:** [www.mhc-gc.com](https://www.mhc-gc.com)
