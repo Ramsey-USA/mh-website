@@ -5,6 +5,7 @@
  */
 
 import { type NextRequest, NextResponse } from "next/server";
+import { escapeHtml } from "@/lib/utils/escape-html";
 
 // Security Configuration
 export interface SecurityConfig {
@@ -63,7 +64,7 @@ export interface SecurityConfig {
 }
 
 // Default Security Configuration
-const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
+export const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
   rateLimit: {
     windowMs: 15 * 60 * 1000, // 15 minutes
     maxRequests: 100, // limit each IP to 100 requests per windowMs
@@ -95,7 +96,6 @@ const DEFAULT_SECURITY_CONFIG: SecurityConfig = {
         "script-src": [
           "'self'",
           "'unsafe-inline'",
-          "'unsafe-eval'",
           "https://www.googletagmanager.com",
           "https://www.google-analytics.com",
         ],
@@ -496,15 +496,10 @@ class InputValidator {
   }
 
   /**
-   * Sanitize HTML to prevent XSS
+   * Sanitize HTML to prevent XSS — delegates to canonical escapeHtml utility
    */
   private sanitizeHtml(input: string): string {
-    return input
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#x27;")
-      .replace(/\//g, "&#x2F;");
+    return escapeHtml(input);
   }
 
   /**
