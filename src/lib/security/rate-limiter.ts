@@ -13,6 +13,7 @@
 
 import { type NextRequest, NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { logger } from "@/lib/utils/logger";
 
 interface RateLimitConfig {
   /** Maximum number of requests allowed in the time window */
@@ -81,21 +82,30 @@ async function incrementCounter(
   const kv = getCacheKV();
 
   if (kv) {
-    const raw = await kv.get(`rl:${key}`);
-    let entry: RateLimitEntry = raw
-      ? (JSON.parse(raw) as RateLimitEntry)
-      : { count: 0, resetTime: now + windowMs };
+    try {
+      const raw = await kv.get(`rl:${key}`);
+      let entry: RateLimitEntry = raw
+        ? (JSON.parse(raw) as RateLimitEntry)
+        : { count: 0, resetTime: now + windowMs };
 
-    if (entry.resetTime < now) {
-      entry = { count: 0, resetTime: now + windowMs };
+      if (entry.resetTime < now) {
+        entry = { count: 0, resetTime: now + windowMs };
+      }
+      entry.count += 1;
+
+      // Cloudflare KV requires expirationTtl >= 60 seconds
+      const ttlSeconds = Math.max(
+        60,
+        Math.ceil((entry.resetTime - now) / 1000),
+      );
+      await kv.put(`rl:${key}`, JSON.stringify(entry), {
+        expirationTtl: ttlSeconds,
+      });
+      return entry;
+    } catch (err) {
+      // KV failure should not block the request — fall through to local store
+      logger.error("Rate limiter KV error:", err);
     }
-    entry.count += 1;
-
-    const ttlSeconds = Math.ceil((entry.resetTime - now) / 1000);
-    await kv.put(`rl:${key}`, JSON.stringify(entry), {
-      expirationTtl: ttlSeconds,
-    });
-    return entry;
   }
 
   // Local dev fallback
