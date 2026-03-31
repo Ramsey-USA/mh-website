@@ -216,10 +216,10 @@ export const navigationConfigs = {
       icon: "shield",
     },
     {
-      href: "#technology",
-      label: "Communication & Tech",
-      mobileLabel: "Tech",
-      icon: "devices",
+      href: "#communication",
+      label: "Communication & Support",
+      mobileLabel: "Support",
+      icon: "campaign",
     },
     {
       href: "#veterans",

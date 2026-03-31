@@ -1198,7 +1198,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/faq`,
     name: "Intel Brief → FAQ | MH Construction",
     description:
-      "Veteran-owned Tri-Cities construction FAQ. Open-book pricing, 0.64 EMR safety, Design-Build, PEMB metal buildings, and free consultation. Pasco, WA.",
+      "Veteran-owned Pacific Northwest construction FAQ. Open-book pricing, 0.64 EMR safety, Design-Build, PEMB metal buildings, and free consultation. Serving Tri-Cities, Yakima, Spokane, Walla Walla, and more.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -1216,7 +1216,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
     title:
       "Intel Brief → FAQ | Direct Answers. Clear Guidance. Mission-Ready Information.",
     description:
-      "Veteran-owned Tri-Cities construction FAQ. Open-book pricing, 0.64 EMR safety, Design-Build, PEMB metal buildings, and free consultation. Pasco, WA.",
+      "Veteran-owned Pacific Northwest construction FAQ. Open-book pricing, 0.64 EMR safety, Design-Build, PEMB metal buildings, and free consultation. Serving Tri-Cities, Yakima, Spokane, Walla Walla, and more.",
     keywords: [
       "Intel Brief FAQ mission intelligence",
       "direct answers construction guidance",
@@ -1237,6 +1237,11 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
       "Pre-Engineered Metal Buildings PEMB",
       "Pasco WA building permits",
       "Tri-Cities construction",
+      "Yakima construction",
+      "Spokane construction",
+      "Walla Walla construction",
+      "Hermiston Oregon contractor",
+      "Coeur d'Alene Idaho contractor",
       "Procore construction management",
       "change orders construction",
       "site feasibility studies",

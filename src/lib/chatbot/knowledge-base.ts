@@ -212,10 +212,14 @@ Core Services:
 - Modularization & Subproject Management
 
 Specialty Services:
-- Markets We Serve (commercial, industrial, government, religious, veteran)
+- Markets We Serve (commercial, industrial, healthcare, government, education, civic/nonprofit, religious, veteran)
 - Tenant Improvements
 - Commercial New Build-Outs
 - Light Industrial Construction (including Pre-Engineered Metal Buildings)
+- Healthcare & Medical Facilities
+- Public Safety (fire stations, emergency operations centers)
+- Education (K-12 school construction and modernization)
+- Civic & Nonprofit (libraries, performing arts, senior centers)
 - Religious Facilities
 - Design-Build Services
 

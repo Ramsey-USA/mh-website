@@ -168,7 +168,7 @@ function generateFallbackResponse(message: string): string {
     lower.includes("what can you") ||
     lower.includes("what type")
   ) {
-    return "MH Construction provides commercial construction, industrial projects, pre-engineered metal buildings (PEMB), government & public sector construction, design-build, tenant improvements, master planning, and more. Visit mhc-gc.com/services for the full list, or call (509) 308-6489 to discuss your project.";
+    return "MH Construction provides commercial construction, industrial projects, healthcare & medical facilities, public safety, education, civic/nonprofit, pre-engineered metal buildings (PEMB), government & public sector construction, design-build, tenant improvements, master planning, and more. Visit mhc-gc.com/services for the full list, or call (509) 308-6489 to discuss your project.";
   }
 
   // Location / service area
@@ -181,7 +181,7 @@ function generateFallbackResponse(message: string): string {
     lower.includes("kennewick") ||
     lower.includes("richland")
   ) {
-    return "We're headquartered at 3111 N. Capitol Ave., Pasco, WA 99301. Our primary service area is the Tri-Cities (Pasco, Kennewick, Richland, West Richland), and we also serve Yakima, Spokane, Walla Walla, and parts of Oregon and Idaho. Licensed in WA, OR, and ID.";
+    return "We're headquartered at 3111 N. Capitol Ave., Pasco, WA 99301. Our primary service area is the Tri-Cities (Pasco, Kennewick, Richland, West Richland). We also serve Yakima, Spokane, Walla Walla, Hermiston (OR), Pendleton (OR), Coeur d'Alene (ID), and Omak. Licensed in WA, OR, and ID.";
   }
 
   // Allies / partners
