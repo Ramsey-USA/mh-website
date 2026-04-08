@@ -36,10 +36,19 @@ interface MySubmission {
   created_at: string;
 }
 
-type FormType = "toolbox-talk" | "jha" | "site-safety-inspection" | "incident-report";
+type FormType =
+  | "toolbox-talk"
+  | "jha"
+  | "site-safety-inspection"
+  | "incident-report";
 type HubSection = "downloads" | "forms" | "history";
 
-const FORM_TABS: { id: FormType; label: string; icon: string; description: string }[] = [
+const FORM_TABS: {
+  id: FormType;
+  label: string;
+  icon: string;
+  description: string;
+}[] = [
   {
     id: "toolbox-talk",
     label: "Toolbox Talk",
@@ -116,7 +125,9 @@ function PasscodeGate({ onLogin }: LoginFormProps) {
         body: JSON.stringify({ name: name.trim(), passcode }),
       });
       const json = await res.json();
-      if (!res.ok) throw new Error((json as { error?: string }).error ?? "Login failed.");
+      if (!res.ok) {
+        throw new Error((json as { error?: string }).error ?? "Login failed.");
+      }
       const { accessToken, user } = json as {
         accessToken: string;
         user: { name: string; role: string };
@@ -126,7 +137,9 @@ function PasscodeGate({ onLogin }: LoginFormProps) {
       onLogin(accessToken, user);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "Login failed. Check your passcode and try again.",
+        err instanceof Error
+          ? err.message
+          : "Login failed. Check your passcode and try again.",
       );
     } finally {
       setLoading(false);
@@ -203,9 +216,14 @@ function PasscodeGate({ onLogin }: LoginFormProps) {
                     type="button"
                     onClick={() => setShowPasscode((v) => !v)}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
-                    aria-label={showPasscode ? "Hide passcode" : "Show passcode"}
+                    aria-label={
+                      showPasscode ? "Hide passcode" : "Show passcode"
+                    }
                   >
-                    <MaterialIcon icon={showPasscode ? "visibility_off" : "visibility"} size="sm" />
+                    <MaterialIcon
+                      icon={showPasscode ? "visibility_off" : "visibility"}
+                      size="sm"
+                    />
                   </button>
                 </div>
               </div>
@@ -325,10 +343,18 @@ function StatCard({
 
   return (
     <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 px-4 py-3 flex items-center gap-3">
-      <MaterialIcon icon={icon} size="md" className={`shrink-0 ${accentClass}`} />
+      <MaterialIcon
+        icon={icon}
+        size="md"
+        className={`shrink-0 ${accentClass}`}
+      />
       <div className="min-w-0">
-        <p className={`text-xl font-black leading-none ${accentClass}`}>{value}</p>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 truncate">{label}</p>
+        <p className={`text-xl font-black leading-none ${accentClass}`}>
+          {value}
+        </p>
+        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 truncate">
+          {label}
+        </p>
       </div>
     </div>
   );
@@ -348,7 +374,8 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
   const [selectedJobId, setSelectedJobId] = useState<string>("");
   const [jobsLoading, setJobsLoading] = useState(true);
   const [activeSection, setActiveSection] = useState<HubSection>("downloads");
-  const [activeFormType, setActiveFormType] = useState<FormType>("toolbox-talk");
+  const [activeFormType, setActiveFormType] =
+    useState<FormType>("toolbox-talk");
   const [submissionId, setSubmissionId] = useState<string | null>(null);
 
   // My History state
@@ -369,7 +396,7 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
         const list = (json as { data: Job[] }).data;
         setJobs(list);
         // Functional update avoids taking selectedJobId as a dep
-        setSelectedJobId((prev) => (prev || list[0]?.id || ""));
+        setSelectedJobId((prev) => prev || list[0]?.id || "");
       }
     } finally {
       setJobsLoading(false);
@@ -410,10 +437,16 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
 
   // ── Summary calculations ───────────────────────────────────────────────────
 
-  const weekAgo = useMemo(() => new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), []);
+  const weekAgo = useMemo(
+    () => new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
+    [],
+  );
 
   const weekSubmissions = useMemo(
-    () => myHistory.filter((s) => new Date(s.submitted_at || s.created_at) >= weekAgo),
+    () =>
+      myHistory.filter(
+        (s) => new Date(s.submitted_at || s.created_at) >= weekAgo,
+      ),
     [myHistory, weekAgo],
   );
 
@@ -439,7 +472,11 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
   // ── Download tracking ──────────────────────────────────────────────────────
 
   const logDownload = useCallback(
-    (sectionKey: string, sectionTitle: string, downloadType: "section" | "form") => {
+    (
+      sectionKey: string,
+      sectionTitle: string,
+      downloadType: "section" | "form",
+    ) => {
       void fetch("/api/safety/downloads", {
         method: "POST",
         headers: {
@@ -465,7 +502,9 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
   );
 
   const selectedJob = jobs.find((j) => j.id === selectedJobId);
-  const jobLabel = selectedJob ? `${selectedJob.job_number} — ${selectedJob.job_name}` : "";
+  const jobLabel = selectedJob
+    ? `${selectedJob.job_number} — ${selectedJob.job_name}`
+    : "";
   const activeFormTab = FORM_TABS.find((t) => t.id === activeFormType)!;
 
   return (
@@ -476,11 +515,19 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
           {/* Brand + user */}
           <div className="flex items-center gap-3 min-w-0">
             <div className="w-8 h-8 bg-brand-primary rounded-lg flex items-center justify-center shrink-0">
-              <MaterialIcon icon="safety_check" size="sm" className="text-white" />
+              <MaterialIcon
+                icon="safety_check"
+                size="sm"
+                className="text-white"
+              />
             </div>
             <div className="min-w-0">
-              <p className="text-xs text-gray-500 dark:text-gray-400 leading-none">Field Safety Hub</p>
-              <p className="text-sm font-bold text-gray-900 dark:text-white truncate">{user.name}</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-none">
+                Field Safety Hub
+              </p>
+              <p className="text-sm font-bold text-gray-900 dark:text-white truncate">
+                {user.name}
+              </p>
             </div>
           </div>
 
@@ -508,7 +555,11 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
                     : "text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
                 }`}
               >
-                <MaterialIcon icon={s.icon} size="sm" className="hidden sm:block" />
+                <MaterialIcon
+                  icon={s.icon}
+                  size="sm"
+                  className="hidden sm:block"
+                />
                 {s.label}
               </button>
             ))}
@@ -526,9 +577,15 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
         {/* Job selector strip */}
         <div className="border-t border-gray-100 dark:border-gray-800 bg-gray-50/80 dark:bg-gray-900/80 backdrop-blur-sm">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 h-11 flex items-center gap-3">
-            <MaterialIcon icon="work_outline" size="sm" className="text-gray-400 shrink-0" />
+            <MaterialIcon
+              icon="work_outline"
+              size="sm"
+              className="text-gray-400 shrink-0"
+            />
             {jobsLoading ? (
-              <span className="text-xs text-gray-400 animate-pulse">Loading jobs…</span>
+              <span className="text-xs text-gray-400 animate-pulse">
+                Loading jobs…
+              </span>
             ) : jobs.length === 0 ? (
               <span className="text-xs text-gray-400 italic">
                 No active jobs. Contact your PM to add a job.
@@ -589,7 +646,8 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
             />
             <p className="text-xs text-amber-800 dark:text-amber-300">
               <span className="font-bold">Missing weekly toolbox talk</span> on{" "}
-              {outstandingJobs.map((j) => j.job_number).join(", ")}. Submit one under{" "}
+              {outstandingJobs.map((j) => j.job_number).join(", ")}. Submit one
+              under{" "}
               <button
                 className="underline font-semibold"
                 onClick={() => {
@@ -616,7 +674,8 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
                   Safety Documents
                 </h2>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Browse and download sections from the MH Construction Safety Manual.
+                  Browse and download sections from the MH Construction Safety
+                  Manual.
                 </p>
               </div>
 
@@ -670,7 +729,9 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
                       <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-brand-primary transition-colors">
                         {f.label}
                       </p>
-                      <p className="text-xs text-gray-400 dark:text-gray-500">{f.desc}</p>
+                      <p className="text-xs text-gray-400 dark:text-gray-500">
+                        {f.desc}
+                      </p>
                     </div>
                     <MaterialIcon
                       icon="download"
@@ -688,6 +749,39 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
                 </span>
                 <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
               </div>
+
+              {/* Download complete manual */}
+              <a
+                href="/docs/safety-manual-complete.pdf"
+                download
+                onClick={() =>
+                  logDownload(
+                    "complete-manual",
+                    "Safety Manual — Complete",
+                    "section",
+                  )
+                }
+                className="flex items-center gap-4 bg-gradient-to-r from-brand-primary-dark to-brand-primary hover:from-brand-primary hover:to-brand-primary-light text-white rounded-xl px-5 py-4 mb-6 transition-all group shadow-md"
+              >
+                <div className="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center group-hover:bg-white/25 transition-colors shrink-0">
+                  <MaterialIcon
+                    icon="menu_book"
+                    size="md"
+                    className="text-white"
+                  />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-bold">Download Complete Manual</p>
+                  <p className="text-xs text-white/70">
+                    Cover + tab dividers + all 44 sections in one PDF
+                  </p>
+                </div>
+                <MaterialIcon
+                  icon="download"
+                  size="md"
+                  className="text-white/60 group-hover:text-white transition-colors shrink-0"
+                />
+              </a>
 
               <SectionBrowser
                 sections={sections}
@@ -707,8 +801,8 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
                   Fill a Safety Form
                 </h2>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Complete and submit forms digitally. Submissions are tracked and can be printed for your
-                  records.
+                  Complete and submit forms digitally. Submissions are tracked
+                  and can be printed for your records.
                 </p>
               </div>
 
@@ -736,7 +830,8 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
               {!selectedJobId && (
                 <div className="mb-4 flex items-center gap-2 text-sm text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl px-4 py-3">
                   <MaterialIcon icon="work_outline" size="sm" />
-                  Select an active job in the bar above before submitting a form.
+                  Select an active job in the bar above before submitting a
+                  form.
                 </div>
               )}
 
@@ -850,13 +945,23 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
 
               {historyLoading ? (
                 <div className="py-16 text-center text-gray-400">
-                  <MaterialIcon icon="hourglass_empty" size="xl" className="animate-pulse mb-2" />
+                  <MaterialIcon
+                    icon="hourglass_empty"
+                    size="xl"
+                    className="animate-pulse mb-2"
+                  />
                   <p className="text-sm">Loading your history…</p>
                 </div>
               ) : myHistory.length === 0 ? (
                 <div className="py-16 text-center text-gray-400">
-                  <MaterialIcon icon="assignment_late" size="xl" className="mb-2" />
-                  <p className="text-sm font-semibold mb-1">No submissions yet</p>
+                  <MaterialIcon
+                    icon="assignment_late"
+                    size="xl"
+                    className="mb-2"
+                  />
+                  <p className="text-sm font-semibold mb-1">
+                    No submissions yet
+                  </p>
                   <p className="text-xs">
                     Submit a form from the{" "}
                     <button
@@ -874,7 +979,13 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
                     <table className="w-full text-sm">
                       <thead>
                         <tr className="border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/80">
-                          {["Date", "Job", "Form Type", "Status", "Actions"].map((h) => (
+                          {[
+                            "Date",
+                            "Job",
+                            "Form Type",
+                            "Status",
+                            "Actions",
+                          ].map((h) => (
                             <th
                               key={h}
                               className="text-left px-4 py-3 text-xs font-black text-gray-500 dark:text-gray-400 uppercase tracking-wider"
@@ -910,13 +1021,15 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
                                 </span>
                               </td>
                               <td className="px-4 py-3 text-gray-700 dark:text-gray-300">
-                                {FORM_TYPE_LABELS[sub.form_type] ?? sub.form_type}
+                                {FORM_TYPE_LABELS[sub.form_type] ??
+                                  sub.form_type}
                               </td>
                               <td className="px-4 py-3">
                                 <span
                                   className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold ${STATUS_STYLES[sub.status] ?? ""}`}
                                 >
-                                  {sub.status.charAt(0).toUpperCase() + sub.status.slice(1)}
+                                  {sub.status.charAt(0).toUpperCase() +
+                                    sub.status.slice(1)}
                                 </span>
                               </td>
                               <td className="px-4 py-3">
@@ -927,7 +1040,9 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
                                   className="inline-flex items-center gap-1 text-xs font-semibold text-brand-primary hover:text-brand-primary-dark transition-colors"
                                 >
                                   <MaterialIcon icon="print" size="sm" />
-                                  <span className="hidden sm:inline">Print</span>
+                                  <span className="hidden sm:inline">
+                                    Print
+                                  </span>
                                 </a>
                               </td>
                             </tr>
@@ -937,7 +1052,8 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
                     </table>
                   </div>
                   <div className="px-4 py-3 border-t border-gray-100 dark:border-gray-800 text-xs text-gray-400 dark:text-gray-500">
-                    {myHistory.length} submission{myHistory.length !== 1 ? "s" : ""} —{" "}
+                    {myHistory.length} submission
+                    {myHistory.length !== 1 ? "s" : ""} —{" "}
                     {weekSubmissions.length} this week
                   </div>
                 </div>
@@ -974,7 +1090,10 @@ export function SafetyHubClient({ sections }: SafetyHubClientProps) {
     }
   }, []);
 
-  const handleLogin = (accessToken: string, userData: { name: string; role: string }) => {
+  const handleLogin = (
+    accessToken: string,
+    userData: { name: string; role: string },
+  ) => {
     setToken(accessToken);
     setUser(userData);
   };
@@ -991,6 +1110,11 @@ export function SafetyHubClient({ sections }: SafetyHubClientProps) {
   }
 
   return (
-    <SafetyHub sections={sections} token={token} user={user} onLogout={handleLogout} />
+    <SafetyHub
+      sections={sections}
+      token={token}
+      user={user}
+      onLogout={handleLogout}
+    />
   );
 }

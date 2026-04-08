@@ -4,7 +4,11 @@ import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
-import { FadeInWhenVisible, StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import {
+  FadeInWhenVisible,
+  StaggeredFadeIn,
+} from "@/components/animations/FramerMotionComponents";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -19,6 +23,11 @@ import { PageTrackingClient } from "@/components/analytics";
 const SafetySection = dynamic(() =>
   import("@/components/about").then((m) => ({ default: m.SafetySection })),
 );
+const NextStepsSection = dynamic(() =>
+  import("@/components/shared-sections").then((m) => ({
+    default: m.NextStepsSection,
+  })),
+);
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", url: "https://www.mhc-gc.com" },
@@ -26,37 +35,58 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ]);
 
 const CREDENTIAL_STATS = [
-  { value: "0.64", label: "EMR Rating", sub: "40% below industry avg", icon: "trending_down" },
-  { value: "44", label: "OSHA Sections", sub: "29 CFR 1926", icon: "menu_book" },
-  { value: "AGC-WA", label: "Top EMR Awards", sub: "Multiple consecutive", icon: "workspace_premium" },
-  { value: "100%", label: "Compliant", sub: "All regulatory standards", icon: "verified" },
-  { value: "Rev 2", label: "Written Program", sub: "Updated 04/07/2026", icon: "shield" },
+  {
+    value: "0.64",
+    label: "EMR Rating",
+    sub: "40% below industry avg",
+    icon: "trending_down",
+  },
+  {
+    value: "44",
+    label: "OSHA Sections",
+    sub: "29 CFR 1926",
+    icon: "menu_book",
+  },
+  {
+    value: "AGC-WA",
+    label: "Top EMR Awards",
+    sub: "Multiple consecutive",
+    icon: "workspace_premium",
+  },
+  {
+    value: "100%",
+    label: "Compliant",
+    sub: "All regulatory standards",
+    icon: "verified",
+  },
+  {
+    value: "Rev 2",
+    label: "Written Program",
+    sub: "Updated 04/07/2026",
+    icon: "shield",
+  },
 ] as const;
 
 const EVIDENCE_CARDS = [
   {
     icon: "record_voice_over",
     title: "Daily Toolbox Talks",
-    body:
-      "Pre-shift safety briefings recorded and logged on every active jobsite. Digital submission via the Field Safety Hub — timestamped, superintendent-attributed, and archived.",
+    body: "Pre-shift safety briefings recorded and logged on every active jobsite. Digital submission via the Field Safety Hub — timestamped, superintendent-attributed, and archived.",
   },
   {
     icon: "playlist_add_check",
     title: "Job Hazard Analysis",
-    body:
-      "Task-level hazard identification completed before work begins on critical activities. JHAs are site-specific, supervisor-signed, and stored for owner/bonding review.",
+    body: "Task-level hazard identification completed before work begins on critical activities. JHAs are site-specific, supervisor-signed, and stored for owner/bonding review.",
   },
   {
     icon: "search",
     title: "Scheduled Site Inspections",
-    body:
-      "Regular structured site walks with documented findings and corrective actions. Photo-supported, digitally submitted, and tracked to completion.",
+    body: "Regular structured site walks with documented findings and corrective actions. Photo-supported, digitally submitted, and tracked to completion.",
   },
   {
     icon: "report_problem",
     title: "Incident Reporting",
-    body:
-      "Near-miss and incident forms submitted same-day. Root-cause analysis required before work resumes. OSHA 300-series records maintained current and available.",
+    body: "Near-miss and incident forms submitted same-day. Root-cause analysis required before work resumes. OSHA 300-series records maintained current and available.",
   },
 ] as const;
 
@@ -87,7 +117,7 @@ export default function SafetyPage() {
           />
           {/* Dark overlay for readability */}
           <div
-            className="absolute inset-0 bg-gradient-to-br from-brand-primary/60 via-gray-900/60 to-gray-900/80"
+            className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"
             aria-hidden="true"
           />
 
@@ -108,7 +138,7 @@ export default function SafetyPage() {
               className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed"
             >
               <span className="block text-brand-secondary-text text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                Force Protection → Safety Program
+                Zero-Incident Culture
               </span>
               <span className="block text-brand-secondary">
                 Documented. Proven. Award-Winning.
@@ -118,7 +148,9 @@ export default function SafetyPage() {
               </span>
               <span className="block text-white/90">
                 Building safely for the client,{" "}
-                <span className="font-black italic text-brand-secondary">every day</span>
+                <span className="font-black italic text-brand-secondary">
+                  every day
+                </span>
               </span>
             </h1>
           </div>
@@ -130,10 +162,15 @@ export default function SafetyPage() {
           />
         </section>
 
+        {/* Breadcrumb */}
+        <Breadcrumb
+          items={[{ label: "Home", href: "/" }, { label: "Safety Program" }]}
+        />
+
         {/* ── Credentials — stats strip ───────────────────────────────────── */}
         <section
           id="credentials"
-          className="relative bg-brand-primary py-12 sm:py-16 overflow-hidden"
+          className="relative bg-brand-primary py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
           aria-labelledby="credentials-heading"
         >
           <div className="absolute inset-0 opacity-10">
@@ -142,23 +179,26 @@ export default function SafetyPage() {
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <FadeInWhenVisible>
-              <h2
-                id="credentials-heading"
-                className="sr-only"
-              >
+              <h2 id="credentials-heading" className="sr-only">
                 Safety Credentials and Performance Metrics
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                 {CREDENTIAL_STATS.map(({ value, label, sub, icon }) => (
                   <div
                     key={label}
-                    className="flex flex-col items-center text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-5"
+                    className="group flex flex-col items-center text-center bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-3xl p-5 sm:p-6 lg:p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
                   >
-                    <MaterialIcon icon={icon} size="lg" className="text-brand-secondary mb-2" />
+                    <MaterialIcon
+                      icon={icon}
+                      size="lg"
+                      className="text-brand-secondary mb-2 group-hover:scale-110 transition-transform duration-300"
+                    />
                     <span className="text-2xl sm:text-3xl font-black text-white leading-none">
                       {value}
                     </span>
-                    <span className="text-sm font-bold text-brand-secondary mt-1">{label}</span>
+                    <span className="text-sm font-bold text-brand-secondary mt-1">
+                      {label}
+                    </span>
                     <span className="text-xs text-white/60 mt-0.5">{sub}</span>
                   </div>
                 ))}
@@ -170,7 +210,7 @@ export default function SafetyPage() {
         {/* ── Written Program — program section ──────────────────────────── */}
         <section
           id="program"
-          className="relative bg-white dark:bg-gray-900 py-16 sm:py-20 lg:py-24 overflow-hidden"
+          className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
           aria-labelledby="program-heading"
         >
           <DiagonalStripePattern />
@@ -182,7 +222,11 @@ export default function SafetyPage() {
                 {/* Text */}
                 <div>
                   <div className="inline-flex items-center gap-2 bg-brand-primary/10 dark:bg-brand-primary/20 border border-brand-primary/20 rounded-full px-4 py-1.5 mb-5">
-                    <MaterialIcon icon="menu_book" size="sm" className="text-brand-primary" />
+                    <MaterialIcon
+                      icon="menu_book"
+                      size="sm"
+                      className="text-brand-primary"
+                    />
                     <span className="text-brand-primary dark:text-brand-secondary text-sm font-semibold uppercase tracking-wide">
                       Written Safety Program
                     </span>
@@ -190,10 +234,10 @@ export default function SafetyPage() {
 
                   <h2
                     id="program-heading"
-                    className="font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl leading-tight mb-6 overflow-visible"
+                    className="font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 overflow-visible"
                   >
-                    <span className="block mb-2 text-gray-700 dark:text-gray-300 text-xl sm:text-2xl font-semibold overflow-visible py-1">
-                      AISH Program
+                    <span className="block mb-3 sm:mb-4 text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight overflow-visible py-1">
+                      MISH Program
                     </span>
                     <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent overflow-visible py-1 pb-2">
                       44 Sections. Fully Documented.
@@ -203,16 +247,20 @@ export default function SafetyPage() {
                   <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
                     The MH Construction{" "}
                     <strong className="text-gray-900 dark:text-white">
-                      Accident, Injury, Safety, and Health (AISH) Program
+                      Industrial Safety and Health (MISH) Program
                     </strong>{" "}
-                    is a fully authored, actively enforced, 44-section written safety manual
-                    aligned with OSHA 29&nbsp;CFR&nbsp;1926 construction standards and
-                    AGC-WA Contractor Safety Evaluation criteria.
+                    — formally the Accident Prevention Program (APP) — is a
+                    fully authored, actively enforced, 44-section written safety
+                    manual aligned with OSHA 29&nbsp;CFR&nbsp;1926 construction
+                    standards and AGC-WA Contractor Safety Evaluation criteria.
                   </p>
 
                   <div className="flex flex-wrap gap-3 mb-8 text-sm">
                     {[
-                      { icon: "calendar_today", label: `Revision ${revisionNumber} — ${revisionDate}` },
+                      {
+                        icon: "calendar_today",
+                        label: `Revision ${revisionNumber} — ${revisionDate}`,
+                      },
                       { icon: "gpp_good", label: "OSHA 29 CFR 1926 Aligned" },
                       { icon: "verified", label: "AGC CSEA Compliant" },
                       { icon: "schema", label: "PMBOK Structured" },
@@ -221,7 +269,11 @@ export default function SafetyPage() {
                         key={label}
                         className="inline-flex items-center gap-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 rounded-full px-3 py-1 font-medium"
                       >
-                        <MaterialIcon icon={icon} size="sm" className="text-brand-primary" />
+                        <MaterialIcon
+                          icon={icon}
+                          size="sm"
+                          className="text-brand-primary"
+                        />
                         {label}
                       </span>
                     ))}
@@ -250,7 +302,11 @@ export default function SafetyPage() {
                   <div className="bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-3xl p-8 text-white shadow-2xl">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
-                        <MaterialIcon icon="shield_lock" size="md" className="text-white" />
+                        <MaterialIcon
+                          icon="shield_lock"
+                          size="md"
+                          className="text-white"
+                        />
                       </div>
                       <div>
                         <p className="text-sm text-brand-secondary font-semibold uppercase tracking-wider">
@@ -260,15 +316,35 @@ export default function SafetyPage() {
                     </div>
                     <dl className="space-y-4">
                       {[
-                        { term: "Total Sections", def: "44 (including all OSHA-required)" },
-                        { term: "Current Revision", def: `Rev ${revisionNumber} — ${revisionDate}` },
-                        { term: "Standards Alignment", def: "OSHA 29 CFR 1926, AGC CSEA, WISHA" },
-                        { term: "Annual Review Cycle", def: "Full revision + field validation" },
-                        { term: "Distribution", def: "All superintendents — Field Safety Hub" },
+                        {
+                          term: "Total Sections",
+                          def: "44 (including all OSHA-required)",
+                        },
+                        {
+                          term: "Current Revision",
+                          def: `Rev ${revisionNumber} — ${revisionDate}`,
+                        },
+                        {
+                          term: "Standards Alignment",
+                          def: "OSHA 29 CFR 1926, AGC CSEA, WISHA",
+                        },
+                        {
+                          term: "Annual Review Cycle",
+                          def: "Full revision + field validation",
+                        },
+                        {
+                          term: "Distribution",
+                          def: "All superintendents — Field Safety Hub",
+                        },
                       ].map(({ term, def }) => (
-                        <div key={term} className="flex justify-between gap-4 border-b border-white/10 pb-3 last:border-0 last:pb-0">
+                        <div
+                          key={term}
+                          className="flex justify-between gap-4 border-b border-white/10 pb-3 last:border-0 last:pb-0"
+                        >
                           <dt className="text-sm text-white/70">{term}</dt>
-                          <dd className="text-sm font-semibold text-right">{def}</dd>
+                          <dd className="text-sm font-semibold text-right">
+                            {def}
+                          </dd>
                         </div>
                       ))}
                     </dl>
@@ -287,25 +363,30 @@ export default function SafetyPage() {
         {/* ── Evidence — Active program use cards ────────────────────────── */}
         <section
           id="evidence"
-          className="relative bg-gray-50 dark:bg-gray-800 py-16 sm:py-20 lg:py-24 overflow-hidden"
+          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
           aria-labelledby="evidence-heading"
         >
           <DiagonalStripePattern />
+          <BrandColorBlobs />
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <FadeInWhenVisible>
               <div className="text-center mb-12">
                 <div className="inline-flex items-center gap-2 bg-brand-primary/10 dark:bg-brand-primary/20 border border-brand-primary/20 rounded-full px-4 py-1.5 mb-4">
-                  <MaterialIcon icon="fact_check" size="sm" className="text-brand-primary" />
+                  <MaterialIcon
+                    icon="fact_check"
+                    size="sm"
+                    className="text-brand-primary"
+                  />
                   <span className="text-brand-primary dark:text-brand-secondary text-sm font-semibold uppercase tracking-wide">
                     Active Daily Use
                   </span>
                 </div>
                 <h2
                   id="evidence-heading"
-                  className="font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl leading-tight mb-4 overflow-visible"
+                  className="font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 overflow-visible"
                 >
-                  <span className="block mb-2 text-gray-700 dark:text-gray-300 text-xl sm:text-2xl font-semibold overflow-visible py-1">
+                  <span className="block mb-3 sm:mb-4 text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight overflow-visible py-1">
                     Not a Shelf Document
                   </span>
                   <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent overflow-visible py-1 pb-2">
@@ -313,23 +394,43 @@ export default function SafetyPage() {
                   </span>
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-                  Every section of the safety manual is actively referenced and enforced on our
-                  jobsites — daily. Field submissions are digital, timestamped, and reviewable.
+                  Every section of the safety manual is actively referenced and
+                  enforced on our jobsites — daily. Field submissions are
+                  digital, timestamped, and reviewable.
                 </p>
               </div>
             </FadeInWhenVisible>
 
             <StaggeredFadeIn className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {EVIDENCE_CARDS.map(({ icon, title, body }) => (
-                <div
-                  key={title}
-                  className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <div className="w-10 h-10 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex items-center justify-center mb-4">
-                    <MaterialIcon icon={icon} size="md" className="text-brand-primary" />
+                <div key={title} className="group relative flex h-full">
+                  {/* Animated Border Glow */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-secondary/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+
+                  <div className="relative bg-white dark:bg-gray-900 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
+                    {/* Top Accent Bar */}
+                    <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-secondary to-bronze-700"></div>
+
+                    <div className="p-6 flex flex-col flex-1">
+                      <div className="relative inline-block mb-4">
+                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-secondary/40 opacity-30 blur-lg rounded-xl"></div>
+                        <div className="relative rounded-xl bg-gradient-to-br from-brand-primary via-brand-secondary to-bronze-700 p-3 shadow-xl group-hover:scale-110 transition-all duration-300">
+                          <MaterialIcon
+                            icon={icon}
+                            size="xl"
+                            className="text-white drop-shadow-lg"
+                            ariaLabel={title}
+                          />
+                        </div>
+                      </div>
+                      <h3 className="font-bold text-gray-900 dark:text-white mb-2">
+                        {title}
+                      </h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        {body}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-2">{title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{body}</p>
                 </div>
               ))}
             </StaggeredFadeIn>
@@ -339,9 +440,10 @@ export default function SafetyPage() {
         {/* ── Compliance — badge grid ─────────────────────────────────────── */}
         <section
           id="compliance"
-          className="relative bg-white dark:bg-gray-900 py-16 sm:py-20 lg:py-24 overflow-hidden"
+          className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
           aria-labelledby="compliance-heading"
         >
+          <DiagonalStripePattern />
           <BrandColorBlobs />
 
           <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -349,9 +451,9 @@ export default function SafetyPage() {
               <div className="text-center mb-10">
                 <h2
                   id="compliance-heading"
-                  className="font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl leading-tight mb-4 overflow-visible"
+                  className="font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 overflow-visible"
                 >
-                  <span className="block mb-2 text-gray-700 dark:text-gray-300 text-xl sm:text-2xl font-semibold overflow-visible py-1">
+                  <span className="block mb-3 sm:mb-4 text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight overflow-visible py-1">
                     Standards We Meet
                   </span>
                   <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent overflow-visible py-1 pb-2">
@@ -359,17 +461,75 @@ export default function SafetyPage() {
                   </span>
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                  Full compliance with every standard relevant to public-sector, commercial, and
-                  federal construction — with documentation available for bonding agency review.
+                  Full compliance with every standard relevant to public-sector,
+                  commercial, and federal construction — with documentation
+                  available for bonding agency review.
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-3">
+              <div className="flex flex-wrap justify-center gap-3 mb-12">
                 <SafetyComplianceBadge variant="osha" />
                 <SafetyComplianceBadge variant="agc" />
                 <SafetyComplianceBadge variant="wisha" />
                 <SafetyComplianceBadge variant="dot" />
                 <SafetyComplianceBadge variant="pmbok" />
                 <SafetyComplianceBadge variant="veteran" />
+              </div>
+
+              {/* Supporting compliance detail cards */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  {
+                    icon: "gpp_good",
+                    title: "OSHA 29 CFR 1926",
+                    body: "Full written program aligned to all applicable construction standards. Annual review cycle with field validation.",
+                  },
+                  {
+                    icon: "verified",
+                    title: "AGC CSEA Criteria",
+                    body: "Meets every evaluation threshold for the AGC Contractor Safety Evaluation. Multiple consecutive Top EMR Awards.",
+                  },
+                  {
+                    icon: "shield",
+                    title: "WISHA / L&I Compliance",
+                    body: "Washington Industrial Safety and Health Act alignment. All sections current with state-specific requirements.",
+                  },
+                  {
+                    icon: "local_shipping",
+                    title: "DOT 49 CFR 382",
+                    body: "Drug and alcohol testing program exceeds federal motor carrier requirements. Random testing pool maintained.",
+                  },
+                  {
+                    icon: "schema",
+                    title: "PMBOK Structured",
+                    body: "Safety program management follows Project Management Body of Knowledge methodology — scope, schedule, risk controls.",
+                  },
+                  {
+                    icon: "military_tech",
+                    title: "Veteran-Owned Accountability",
+                    body: "Military-grade discipline applied to every safety protocol. Chain-of-command accountability from field to executive.",
+                  },
+                ].map(({ icon, title, body }) => (
+                  <div
+                    key={title}
+                    className="group flex items-start gap-4 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:shadow-lg hover:border-brand-primary/30 transition-all duration-300"
+                  >
+                    <div className="shrink-0 rounded-lg bg-gradient-to-br from-brand-primary to-brand-primary-dark p-2.5 shadow-md group-hover:scale-110 transition-transform duration-300">
+                      <MaterialIcon
+                        icon={icon}
+                        size="md"
+                        className="text-white"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 dark:text-white text-sm mb-1">
+                        {title}
+                      </h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        {body}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </FadeInWhenVisible>
           </div>
@@ -392,8 +552,9 @@ export default function SafetyPage() {
                 Access the Field Safety Hub
               </h2>
               <p className="text-white/80 max-w-md">
-                Download manual sections, submit Toolbox Talks, JHAs, and Site Inspections —
-                all in one place. Your submission history, tracked and printable.
+                Download manual sections, submit Toolbox Talks, JHAs, and Site
+                Inspections — all in one place. Your submission history, tracked
+                and printable.
               </p>
             </div>
             <Link
@@ -405,6 +566,9 @@ export default function SafetyPage() {
             </Link>
           </div>
         </section>
+
+        {/* Next Steps Section */}
+        <NextStepsSection />
       </div>
     </>
   );
