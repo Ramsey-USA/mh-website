@@ -163,7 +163,7 @@ npm run type-check         # TypeScript check
 ## 📈 Current Status
 
 ✅ **13 pages** - All active  
-✅ **90-100 scores** - All pages optimized  
+✅ **External validation** - Run audits to verify current page scores  
 ✅ **Auto-sitemap** - Updates automatically  
 ✅ **Smart defaults** - Page types detected  
 ✅ **Best practices** - Auto-enforced  
@@ -203,7 +203,7 @@ npm run type-check         # TypeScript check
 ## 🎉 What This Gives You
 
 ✨ **Zero-maintenance sitemap** - Just add pages, system updates  
-✨ **Automatic scoring** - Know your SEO health instantly  
+✨ **Audit-ready workflow** - Validate SEO health with current reports  
 ✨ **Built-in validation** - Catch issues before deployment  
 ✨ **Smart defaults** - Best practices automatically applied  
 ✨ **Scale friendly** - Works with 10 pages or 1000

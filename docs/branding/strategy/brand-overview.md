@@ -271,7 +271,7 @@ See [Core Values](../../business/core-values.md) for complete details on our fou
 - Light/dark mode support throughout (three modes)
 - PWA-ready with Service Worker v4.0.0, offline support
 - Zero-error production build, 54/54 tests passing
-- 100/100 SEO scores across all pages
+- Strong SEO implementation across all pages (verify current scores via external audits)
 
 ## Brand Implementation Guidelines
 

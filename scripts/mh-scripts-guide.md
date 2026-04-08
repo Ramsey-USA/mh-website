@@ -55,13 +55,13 @@ Organized automation scripts for the MH Construction website development workflo
 - `check-qr-codes.sh` - Verify QR code presence
 - `extract-team-data.js` - Extract team member data
 - `fix-code-issues.js` - Fix common code issues
-- `lighthouse-guide.js` - Lighthouse testing guide
+- `lighthouse-guide.js` - Lighthouse workflow guide (use PageSpeed/DevTools for authoritative scores)
 - `seo-audit.js` - SEO audit tool
 - `setup-ffmpeg.sh` - FFmpeg setup for video processing
 - `test-basic-performance.js` - Basic performance testing
 - `test-database.js` - Database testing utilities
-- `test-lighthouse-quick.js` - Quick Lighthouse tests
-- `test-lighthouse.js` - Full Lighthouse tests
+- `test-lighthouse-quick.js` - Quick local Lighthouse checks (fails when audits are invalid)
+- `test-lighthouse.js` - Full local Lighthouse checks (fails when audits are invalid)
 - `test-pwa.js` - PWA testing
 
 ## Usage Examples

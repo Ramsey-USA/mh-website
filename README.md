@@ -68,8 +68,8 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **ESLint**        | Clean     | Zero lint warnings, zero errors            |
 | **Tests**         | Passing   | 1734/1734 passing, 138 suites              |
 | **Coverage**      | Strong    | 97.32% stmts, 91.23% branches, 99.03% fns  |
-| **SEO**           | 100/100   | Perfect scores across all pages            |
-| **Lighthouse**    | 94+       | Performance optimized                      |
+| **SEO**           | External  | Audit via external tools                   |
+| **Lighthouse**    | External  | Audit via PageSpeed/DevTools               |
 | **Bundle Size**   | 211 kB    | Production optimized                       |
 | **Dark Mode**     | Complete  | Full theme support                         |
 | **PWA**           | Ready     | Offline-ready, 5-layer caching             |
@@ -167,7 +167,7 @@ improvements.
 
 - **PWA:** Service Worker v4.0.0, offline support, installable
 - **Dark Mode:** Full theme system with persistence
-- **SEO:** Dual-label titles, structured data, 100/100 scores
+- **SEO:** Dual-label titles, structured data, and external audit validation workflow
 - **Analytics:** Geographic tracking, CTA effectiveness, lead scoring (0-100)
 - **Media:** Auto-optimization to WebP/WebM via GitHub Actions
 - **Icons:** Google Material Icons (font-based, 400/500/600 weights)
@@ -421,9 +421,9 @@ Use veteran identity where it is factual and differentiating, but avoid militari
 slogan-heavy phrasing in titles, labels, and SEO copy. Current brand direction favors
 relationship-first language, disciplined execution, and direct communication.
 
-### SEO Scores
+### SEO Validation
 
-- **All pages:** 100/100
+- **All pages:** Validate with external audits (PageSpeed Insights, Search Console, and rich result tools)
 - **Structured data:** Organization, Service, Breadcrumb schemas
 - **Sitemap:** Auto-generated pages + media discovery (`public/images`, `public/videos`)
 - **Robots.txt:** AI crawler permissions (ChatGPT, Claude, Perplexity)

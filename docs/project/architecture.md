@@ -10,7 +10,7 @@
 ### Live Production Pages
 
 - ✅ **Homepage** (`/src/app/page.tsx`) - Partnership-focused landing with core
-  values, SEO optimized (100/100), performance optimized with lazy loading
+  values, SEO-focused metadata and structured data, performance optimized with lazy loading
   - Full documentation: [Homepage Documentation](../technical/homepage.md)
 - ✅ **About Page** (`/src/app/about/page.tsx`) - Company story and 4-value foundation
 - ✅ **Services Page** (`/src/app/services/page.tsx`) - Construction capabilities and expertise
@@ -72,7 +72,7 @@
 - **Theme**: Dark/Light mode support
 - **PWA**: Service Worker v4.0.0, offline-ready, installable
 - **Media Optimization**: Automatic WebP/WebM conversion via GitHub Actions
-- **Performance**: 94+ Lighthouse score, 100% PWA test score
+- **Performance**: Optimized build/caching strategy; validate Lighthouse via PageSpeed or browser DevTools
 
 ### Complete Component Architecture
 
@@ -247,7 +247,7 @@ src/
 - **Video Optimization**: Automatic WebM/MP4 conversion with poster generation
 - **Lazy Loading**: Intersection Observer for below-the-fold content
 - **Caching Strategy**: 5-layer service worker caching (static, dynamic, images, API, CDN)
-- **PWA**: 100% test score (50/50), offline support, installable
+- **PWA**: Historical baseline: 100% test score (50/50) in Dec 2025; offline support and installability remain active
 
 ### 📱 **Progressive Web App** - ✅ COMPLETE (Dec 2025)
 
@@ -255,7 +255,7 @@ src/
 - **Offline Support**: Cached pages, assets, and custom offline page
 - **Installable**: Install button in footer, PWA manifest configured
 - **Background Sync**: Automatic updates and cache management
-- **Test Coverage**: 50 automated tests, 100% passing
+- **Test Coverage**: Historical baseline: 50 automated tests, 100% passing (Dec 2025 run)
 
 ### 🌙 **Theme System**
 

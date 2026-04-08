@@ -84,15 +84,38 @@ async function runLighthouse(url, name) {
 
   try {
     const runnerResult = await lighthouse(url, options, config);
-    await chrome.kill();
+    const { lhr } = runnerResult;
+
+    if (lhr.runtimeError) {
+      return {
+        name,
+        url,
+        error: `${lhr.runtimeError.code}: ${lhr.runtimeError.message}`,
+        success: false,
+      };
+    }
+
+    const categories = lhr.categories ?? {};
+    if (
+      categories.performance?.score == null ||
+      categories.accessibility?.score == null ||
+      categories["best-practices"]?.score == null ||
+      categories.seo?.score == null
+    ) {
+      return {
+        name,
+        url,
+        error: "Missing Lighthouse category scores in report",
+        success: false,
+      };
+    }
 
     // Extract scores
-    const { lhr } = runnerResult;
     const scores = {
-      performance: Math.round(lhr.categories.performance.score * 100),
-      accessibility: Math.round(lhr.categories.accessibility.score * 100),
-      bestPractices: Math.round(lhr.categories["best-practices"].score * 100),
-      seo: Math.round(lhr.categories.seo.score * 100),
+      performance: Math.round(categories.performance.score * 100),
+      accessibility: Math.round(categories.accessibility.score * 100),
+      bestPractices: Math.round(categories["best-practices"].score * 100),
+      seo: Math.round(categories.seo.score * 100),
     };
 
     // Save detailed report
@@ -104,8 +127,9 @@ async function runLighthouse(url, name) {
 
     return { name, url, scores, success: true };
   } catch (error) {
-    await chrome.kill();
     return { name, url, error: error.message, success: false };
+  } finally {
+    await chrome.kill();
   }
 }
 
@@ -241,15 +265,35 @@ async function main() {
     );
   }
 
+  const failedResults = results.filter((r) => !r.success);
+  const successfulCount = totalTests - failedResults.length;
+
   console.log(
-    `\n✅ Completed: ${passedTests}/${totalTests} pages with 80+ average score`,
+    `\n✅ Completed: ${successfulCount}/${totalTests} successful audits`,
   );
+  console.log(`❌ Failed audits: ${failedResults.length}`);
+  console.log(`⭐ Pages with 80+ average score: ${passedTests}/${totalTests}`);
   console.log(`📁 Detailed reports saved to: ${resultsDir}`);
 
   // Save summary to file
   const summaryPath = path.join(resultsDir, "summary.json");
-  fs.writeFileSync(summaryPath, JSON.stringify(results, null, 2));
+  const summaryPayload = {
+    generatedAt: new Date().toISOString(),
+    baseUrl,
+    totalPages: totalTests,
+    successfulAudits: successfulCount,
+    failedAudits: failedResults.length,
+    results,
+  };
+  fs.writeFileSync(summaryPath, JSON.stringify(summaryPayload, null, 2));
   console.log(`📄 Summary saved to: ${summaryPath}\n`);
+
+  if (failedResults.length > 0) {
+    console.error(
+      "❌ Lighthouse completed with failed audits. Fix failures before trusting summary metrics.",
+    );
+    process.exitCode = 1;
+  }
 }
 
 main().catch(console.error);

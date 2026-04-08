@@ -8,7 +8,7 @@ This document covers the PWA implementation, features, and maintenance.
 
 ## Current Status
 
-✅ **Test Score: 100%** (50/50 tests passing)
+✅ **Historical Baseline:** 100% test score (50/50 tests passing in Dec 2025)
 
 ### Key Features
 
@@ -305,7 +305,9 @@ Test categories:
 npm run lighthouse:guide
 ```
 
-PWA score should be **90+** with:
+Use PageSpeed Insights or Chrome DevTools Lighthouse for authoritative scoring.
+
+PWA targets:
 
 - ✅ Installable
 - ✅ Fast and reliable

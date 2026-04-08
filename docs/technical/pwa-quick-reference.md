@@ -13,7 +13,7 @@
 # Test PWA functionality
 npm run test:pwa
 
-# Run Lighthouse PWA audit
+# Open Lighthouse PWA audit guidance
 npm run lighthouse:guide
 
 # Check service worker status
@@ -98,7 +98,7 @@ Then check browser console for `[SW]` prefixed logs.
 - [ ] Test offline mode (DevTools → Network → Offline)
 - [ ] Test installation prompt
 - [ ] Test update notification
-- [ ] Run Lighthouse audit (PWA score 90+)
+- [ ] Run Lighthouse audit from PageSpeed Insights or Chrome DevTools
 
 ### Post-Deployment
 
@@ -167,13 +167,13 @@ docs/technical/
 
 ## Key Metrics
 
-| Metric         | Target | Current                               |
-| -------------- | ------ | ------------------------------------- |
-| PWA Test Score | 90%+   | **98%** ✅                            |
-| Lighthouse PWA | 90+    | Check with `npm run lighthouse:guide` |
-| Offline Pages  | 5+     | **8** ✅                              |
-| Cache Layers   | 3+     | **5** ✅                              |
-| Icon Sizes     | 8+     | **8** ✅                              |
+| Metric         | Target | Current                |
+| -------------- | ------ | ---------------------- |
+| PWA Test Score | 90%+   | Baseline: **98%** ✅   |
+| Lighthouse PWA | 90+    | See PageSpeed/DevTools |
+| Offline Pages  | 5+     | **8** ✅               |
+| Cache Layers   | 3+     | **5** ✅               |
+| Icon Sizes     | 8+     | **8** ✅               |
 
 ## Support Matrix
 

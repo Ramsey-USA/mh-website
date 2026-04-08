@@ -6,6 +6,17 @@ All notable changes to the MH Construction website are documented here.
 
 ## April 2026
 
+- **Apr 8:** Performance evidence hardening and documentation normalization — hardened
+  `scripts/test-lighthouse.js` and `scripts/test-lighthouse-quick.js` to treat runtime errors
+  and missing category scores as failed audits, emit non-zero exit codes on failed pages, and
+  write structured summary metadata (`generatedAt`, `successfulAudits`, `failedAudits`) to
+  `lighthouse-results/summary.json`; updated `scripts/lighthouse-guide.js` to remove stale VS
+  Code extension guidance and direct teams to authoritative audits via PageSpeed Insights /
+  Chrome DevTools; normalized first-party docs (README, project/technical/branding/pwa/seo
+  guides, scripts guide, Cloudflare edge optimization docs, and SEO quick reference) to replace
+  hardcoded Lighthouse/SEO score claims with external-validation wording and explicit
+  historical/baseline labels where numeric values are retained
+
 - **Apr 8:** Documentation audit — corrected `docs/technical/dark-mode-implementation-guide.md`
   file path (`ThemeContext.tsx` → `theme-context.tsx`); updated
   `docs/technical/admin-password-security.md` to reflect demo account removed, production auth

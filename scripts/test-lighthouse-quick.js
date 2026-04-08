@@ -56,7 +56,6 @@ async function runLighthouse(url, name) {
   try {
     console.log(`  Running Lighthouse on ${url}...`);
     const runnerResult = await lighthouse(url, options, config);
-    await chrome.kill();
 
     const { lhr } = runnerResult;
 
@@ -65,18 +64,34 @@ async function runLighthouse(url, name) {
       return { name, url, error: lhr.runtimeError.message, success: false };
     }
 
+    const categories = lhr.categories ?? {};
+    if (
+      categories.performance?.score == null ||
+      categories.accessibility?.score == null ||
+      categories["best-practices"]?.score == null ||
+      categories.seo?.score == null
+    ) {
+      return {
+        name,
+        url,
+        error: "Missing Lighthouse category scores in report",
+        success: false,
+      };
+    }
+
     const scores = {
-      performance: Math.round(lhr.categories.performance.score * 100),
-      accessibility: Math.round(lhr.categories.accessibility.score * 100),
-      bestPractices: Math.round(lhr.categories["best-practices"].score * 100),
-      seo: Math.round(lhr.categories.seo.score * 100),
+      performance: Math.round(categories.performance.score * 100),
+      accessibility: Math.round(categories.accessibility.score * 100),
+      bestPractices: Math.round(categories["best-practices"].score * 100),
+      seo: Math.round(categories.seo.score * 100),
     };
 
     return { name, url, scores, success: true };
   } catch (error) {
-    await chrome.kill();
     console.log(`  ❌ Error: ${error.message}`);
     return { name, url, error: error.message, success: false };
+  } finally {
+    await chrome.kill();
   }
 }
 
@@ -89,6 +104,8 @@ function getScoreEmoji(score) {
 async function main() {
   console.log("🚀 Quick Lighthouse Test\n");
   console.log(`Testing ${pages.length} pages at ${baseUrl}\n`);
+
+  let failedCount = 0;
 
   for (const page of pages) {
     const fullUrl = `${baseUrl}${page.url}`;
@@ -120,6 +137,7 @@ async function main() {
       console.log(`  ⭐ Average: ${avgScore}`);
     } else {
       console.log(`  ❌ Failed: ${result.error}`);
+      failedCount++;
     }
 
     // Wait between tests
@@ -127,6 +145,13 @@ async function main() {
   }
 
   console.log("\n✅ Quick test complete!\n");
+
+  if (failedCount > 0) {
+    console.error(
+      `❌ ${failedCount} audit(s) failed. Do not use these results as optimization proof.`,
+    );
+    process.exitCode = 1;
+  }
 }
 
 main().catch(console.error);

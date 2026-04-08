@@ -95,8 +95,10 @@ After deployment, verify with:
 # Check caching headers
 curl -I https://www.mhc-gc.com/_next/static/chunks/main.js
 
-# Run Lighthouse
+# Open Lighthouse audit guidance
 npm run lighthouse:guide
+
+# Run authoritative audits in PageSpeed Insights or Chrome DevTools
 
 # Check browser cache
 # Open DevTools → Network → Reload → Check Cache-Control headers

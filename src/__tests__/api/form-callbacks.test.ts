@@ -62,6 +62,10 @@ jest.mock("@/lib/security/rate-limiter", () => ({
   rateLimitPresets: { api: {} },
 }));
 
+jest.mock("@/middleware/security", () => ({
+  withSecurity: (handler: unknown) => handler,
+}));
+
 // Job-applications also uses R2 — mock it away
 jest.mock("@/lib/cloudflare/r2", () => ({
   getR2Bucket: jest.fn().mockReturnValue(null),

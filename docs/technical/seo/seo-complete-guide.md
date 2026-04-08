@@ -164,7 +164,7 @@ rankings by **15-25%** without changing any content.
 
 ### Homepage (Already Optimized) ✅
 
-#### Current Structure - SEO Score: 100/100
+#### Current Structure - SEO Validation Required
 
 **Full Documentation:** [Homepage Documentation](../homepage.md)
 
@@ -252,9 +252,9 @@ rankings by **15-25%** without changing any content.
 
 ### Other Pages (Already Optimized)
 
-**Contact Page:** ✅ SEO Score 90/100 - Good structure  
-**Projects Page:** ✅ SEO Score 85/100 - Good for portfolio context  
-**Team Page:** ✅ SEO Score 80/100 - Reasonable structure
+**Contact Page:** ✅ Structured for strong SEO performance; validate with current audits  
+**Projects Page:** ✅ Portfolio-focused structure; validate with current audits  
+**Team Page:** ✅ Reasonable content hierarchy; validate with current audits
 
 ---
 
@@ -826,7 +826,7 @@ Before deploying changes:
 
 **Priority: CRITICAL** | **Time: 2-3 days** | **Impact: 15-25% ranking improvement** 🏗️
 
-✅ **Homepage** - Already optimized (100/100)  
+✅ **Homepage** - Already optimized; verify score in current external audits  
 ⚠️ **Services Page** - Move testimonials to 25-30% position  
 ⚠️ **About Page** - Restructure: testimonials earlier, leadership before awards  
 ⚠️ **Careers Page** - Move employee testimonials to 25-30%
@@ -1030,7 +1030,7 @@ node scripts/seo-audit.js /your-page
 ### Current Performance Metrics
 
 - **Build Time:** ~33s
-- **Lighthouse SEO:** 100/100
+- **Lighthouse SEO:** Validate via external audit reports
 - **Total Routes:** 35 static pages + API routes
 - **Bundle Size:** 211 kB shared JS
 - **TypeScript Coverage:** 100%

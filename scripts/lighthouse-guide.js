@@ -42,12 +42,11 @@ console.log(`   ${chalk.cyan("lhci collect --url=http://localhost:3000/")}`);
 console.log("   Or:");
 console.log(`   ${chalk.cyan("lighthouse http://localhost:3000/ --view\n")}`);
 
-console.log(chalk.bold.green("4. Use VS Code Extension:"));
+console.log(chalk.bold.green("4. Use a Trusted VS Code Workflow:"));
+console.log("   • Use Chrome DevTools Lighthouse from a local browser session");
 console.log(
-  `   Install: ${chalk.cyan("Kanmi Levers Guard - SEO & Performance Linter")}`,
+  "   • Treat container-generated Lighthouse JSON as invalid if runtimeError appears\n",
 );
-console.log("   • Provides real-time performance diagnostics");
-console.log("   • Catches SEO & performance issues while coding\n");
 
 console.log(chalk.bold.green("5. Online Tools (For Deployed Sites):"));
 console.log(`   • GTmetrix: ${chalk.cyan("https://gtmetrix.com/")}`);
