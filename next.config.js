@@ -96,6 +96,12 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
 
+  // Type checking is handled by ci:gate (npm run type-check) — skip during
+  // next build to save ~22s. Errors still caught pre-merge.
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+
   // Build directories
   distDir: ".next",
   cleanDistDir: true,
