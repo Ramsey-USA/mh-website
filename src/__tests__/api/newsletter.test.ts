@@ -34,6 +34,10 @@ jest.mock("@/lib/security/rate-limiter", () => ({
   rateLimitPresets: { contact: {} },
 }));
 
+jest.mock("@/middleware/security", () => ({
+  withSecurity: (handler: unknown) => handler,
+}));
+
 // Lazy import after mocks
 let POST: typeof import("@/app/api/newsletter/route").POST;
 let DELETE: typeof import("@/app/api/newsletter/route").DELETE;

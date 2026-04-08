@@ -8,9 +8,11 @@ import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { createDbClient } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
-import { requireAuth, requireRole } from "@/lib/auth/middleware";
+import { requireRole } from "@/lib/auth/middleware";
 import { type JWTUser } from "@/lib/auth/jwt";
 import { type SafetyFormSubmission } from "../route";
+import { withSecurity } from "@/middleware/security";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 
 export const dynamic = "force-dynamic";
 
@@ -20,7 +22,7 @@ interface RouteParams {
 
 async function handleGET(
   _request: NextRequest,
-  _user: JWTUser,
+  user: JWTUser,
   context?: unknown,
 ) {
   try {
@@ -35,15 +37,22 @@ async function handleGET(
     }
 
     const db = createDbClient({ DB });
+    const scopedSubmittedBy = user.name ?? user.uid;
+    const sql =
+      user.role === "admin"
+        ? `SELECT sfs.*, j.job_number, j.job_name
+           FROM safety_form_submissions sfs
+           LEFT JOIN jobs j ON j.id = sfs.job_id
+           WHERE sfs.id = ?`
+        : `SELECT sfs.*, j.job_number, j.job_name
+           FROM safety_form_submissions sfs
+           LEFT JOIN jobs j ON j.id = sfs.job_id
+           WHERE sfs.id = ? AND sfs.submitted_by = ?`;
+    const params = user.role === "admin" ? [id] : [id, scopedSubmittedBy];
+
     const submission = await db.queryOne<
       SafetyFormSubmission & { job_number: string; job_name: string }
-    >(
-      `SELECT sfs.*, j.job_number, j.job_name
-       FROM safety_form_submissions sfs
-       LEFT JOIN jobs j ON j.id = sfs.job_id
-       WHERE sfs.id = ?`,
-      id,
-    );
+    >(sql, ...params);
 
     if (!submission) {
       return NextResponse.json(
@@ -92,7 +101,7 @@ async function handlePATCH(
           { status: 400 },
         );
       }
-      updates['status'] = body.status;
+      updates["status"] = body.status;
     }
 
     if (body.increment_print === true) {
@@ -112,11 +121,7 @@ async function handlePATCH(
     }
 
     if (Object.keys(updates).length > 0) {
-      const updated = await db.update(
-        "safety_form_submissions",
-        id,
-        updates,
-      );
+      const updated = await db.update("safety_form_submissions", id, updates);
       if (!updated) {
         return NextResponse.json(
           { error: "Submission not found" },
@@ -140,5 +145,10 @@ async function handlePATCH(
   }
 }
 
-export const GET = requireAuth(handleGET);
-export const PATCH = requireRole(["admin"], handlePATCH);
+export const GET = requireRole(
+  ["admin", "superintendent"],
+  withSecurity(handleGET),
+);
+export const PATCH = rateLimit(rateLimitPresets.api)(
+  requireRole(["admin"], withSecurity(handlePATCH)),
+);

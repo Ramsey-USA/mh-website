@@ -160,9 +160,9 @@ async function handleGET(request: NextRequest) {
   }
 }
 
-// Require admin role to download resumes; rate-limit uploads (3 per minute)
+// Require admin role to download resumes; rate-limit + security-audit uploads (3 per minute)
 export const GET = requireRole(["admin"], withSecurity(handleGET));
 export const POST = rateLimit({
   maxRequests: 3,
   windowMs: 60000,
-})(handlePOST);
+})(withSecurity(handlePOST));

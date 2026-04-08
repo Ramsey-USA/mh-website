@@ -269,6 +269,27 @@ describe("POST /api/contact", () => {
     const res = await POST(req);
     expect(res.status).toBe(500);
   });
+
+  it("returns 400 when metadata has more than 15 keys", async () => {
+    const metadata: Record<string, string> = {};
+    for (let i = 0; i < 16; i++) metadata[`key${i}`] = "value";
+    const res = await POST(makePostRequest({ ...validBody, metadata }));
+    expect(res.status).toBe(400);
+    const body = await res.json();
+    expect(body.error ?? body.message).toMatch(/too many metadata/i);
+  });
+
+  it("returns 400 when a metadata value exceeds 500 chars", async () => {
+    const res = await POST(
+      makePostRequest({
+        ...validBody,
+        metadata: { projectType: "x".repeat(501) },
+      }),
+    );
+    expect(res.status).toBe(400);
+    const body = await res.json();
+    expect(body.error ?? body.message).toMatch(/metadata value is too long/i);
+  });
 });
 
 describe("GET /api/contact", () => {

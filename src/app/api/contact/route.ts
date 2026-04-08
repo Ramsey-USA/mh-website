@@ -74,6 +74,18 @@ async function handlePOST(request: NextRequest) {
       return badRequest("Invalid email address");
     }
 
+    // Metadata size limits — prevent log/storage inflation
+    if (data.metadata) {
+      if (Object.keys(data.metadata).length > 15) {
+        return badRequest("Too many metadata fields");
+      }
+      for (const val of Object.values(data.metadata)) {
+        if (typeof val === "string" && val.length > 500) {
+          return badRequest("Metadata value is too long");
+        }
+      }
+    }
+
     // Prepare email recipients — only accept known internal addresses to
     // prevent open email relay.
     const recipientEmail =
@@ -378,4 +390,4 @@ async function handleGET() {
 
 // Require admin role to list submissions; apply rate limiting to POST
 export const GET = requireRole(["admin"], withSecurity(handleGET));
-export const POST = rateLimit(rateLimitPresets.api)(handlePOST);
+export const POST = rateLimit(rateLimitPresets.api)(withSecurity(handlePOST));

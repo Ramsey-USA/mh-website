@@ -42,6 +42,15 @@
 - [ ] 📝 Code comments added for complex logic
 - [ ] 🎓 Examples provided (if new pattern/utility)
 
+### Post-Deploy Verification
+
+- [ ] 🚀 Deploy completed successfully in production
+- [ ] 🩺 Safety Smoke Tests workflow executed after deploy
+- [ ] 🔐 `run_authenticated_checks=true` used for release verification
+- [ ] 📄 Smoke run summary captured in PR comments (link or run ID)
+- [ ] ✅ Safety routes/APIs verified (`/safety`, `/safety/hub`, `/api/safety/*`)
+- [ ] ⚠️ If smoke checks failed, issue/ticket link added before merge
+
 ---
 
 **Note:** Pre-commit hooks and CI/CD automatically verify code quality. If checks fail,

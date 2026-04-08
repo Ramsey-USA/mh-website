@@ -1,0 +1,142 @@
+name: Safety Smoke Tests
+
+on:
+  workflow_run:
+    workflows: ["CI/CD Pipeline"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: Optional base URL override for smoke tests
+        required: false
+        type: string
+      strict_public_200:
+        description: Require public safety pages to return 200/3xx (no 403 allowance)
+        required: false
+        default: false
+        type: boolean
+      run_authenticated_checks:
+        description: Enable authenticated probes using configured smoke auth secrets
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: safety-smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  baseline-smoke-tests:
+    name: Run Safety Smoke Tests (Baseline)
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    env:
+      SAFETY_SMOKE_BASE_URL: ${{ inputs.base_url || 'https://www.mhc-gc.com' }}
+      SAFETY_SMOKE_STRICT_PUBLIC_200: ${{ inputs.strict_public_200 || 'false' }}
+      SAFETY_SMOKE_REQUIRE_AUTH_CHECKS: 'false'
+      SAFETY_SMOKE_FIELD_PASSCODE: ''
+      SAFETY_SMOKE_ADMIN_EMAIL: ''
+      SAFETY_SMOKE_ADMIN_PASSWORD: ''
+      SAFETY_SMOKE_USER_BEARER_TOKEN: ''
+      SAFETY_SMOKE_ADMIN_BEARER_TOKEN: ''
+      SAFETY_SMOKE_JWT_SECRET: ''
+      SAFETY_SMOKE_JWT_ISSUER: ${{ inputs.base_url || 'https://www.mhc-gc.com' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Wait for production endpoint readiness
+        shell: bash
+        run: |
+          set -euo pipefail
+          base_url="${SAFETY_SMOKE_BASE_URL%/}"
+          strict_public="${SAFETY_SMOKE_STRICT_PUBLIC_200,,}"
+          echo "Checking availability for ${base_url}/safety"
+
+          for attempt in {1..20}; do
+            status="$(curl -s -o /dev/null -w "%{http_code}" "${base_url}/safety" || true)"
+            if [[ "$strict_public" == "true" ]]; then
+              if [[ "$status" == "200" || "$status" == "301" || "$status" == "302" || "$status" == "307" || "$status" == "308" ]]; then
+                echo "Endpoint ready on attempt $attempt"
+                exit 0
+              fi
+            elif [[ "$status" == "200" || "$status" == "403" || "$status" == "301" || "$status" == "302" || "$status" == "307" || "$status" == "308" ]]; then
+              echo "Endpoint ready on attempt $attempt"
+              exit 0
+            fi
+
+            echo "Attempt $attempt/20 not ready yet (status: ${status:-none})"
+            sleep 15
+          done
+
+          echo "Timed out waiting for production deployment readiness"
+          exit 1
+
+      - name: Run Safety smoke checks
+        run: node scripts/validation/smoke-safety-system.js
+
+  authenticated-smoke-tests:
+    name: Run Safety Smoke Tests (Authenticated)
+    needs: baseline-smoke-tests
+    if: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' || (github.event_name == 'workflow_dispatch' && inputs.run_authenticated_checks) }}
+    runs-on: ubuntu-latest
+    env:
+      SAFETY_SMOKE_BASE_URL: ${{ inputs.base_url || 'https://www.mhc-gc.com' }}
+      SAFETY_SMOKE_STRICT_PUBLIC_200: ${{ inputs.strict_public_200 || 'false' }}
+      SAFETY_SMOKE_REQUIRE_AUTH_CHECKS: 'true'
+      SAFETY_SMOKE_FIELD_PASSCODE: ${{ (github.event_name == 'workflow_run' && secrets.SAFETY_SMOKE_FIELD_PASSCODE) || (inputs.run_authenticated_checks && secrets.SAFETY_SMOKE_FIELD_PASSCODE) || '' }}
+      SAFETY_SMOKE_ADMIN_EMAIL: ${{ (github.event_name == 'workflow_run' && secrets.SAFETY_SMOKE_ADMIN_EMAIL) || (inputs.run_authenticated_checks && secrets.SAFETY_SMOKE_ADMIN_EMAIL) || '' }}
+      SAFETY_SMOKE_ADMIN_PASSWORD: ${{ (github.event_name == 'workflow_run' && secrets.SAFETY_SMOKE_ADMIN_PASSWORD) || (inputs.run_authenticated_checks && secrets.SAFETY_SMOKE_ADMIN_PASSWORD) || '' }}
+      SAFETY_SMOKE_USER_BEARER_TOKEN: ${{ (github.event_name == 'workflow_run' && secrets.SAFETY_SMOKE_USER_BEARER_TOKEN) || (inputs.run_authenticated_checks && secrets.SAFETY_SMOKE_USER_BEARER_TOKEN) || '' }}
+      SAFETY_SMOKE_ADMIN_BEARER_TOKEN: ${{ (github.event_name == 'workflow_run' && secrets.SAFETY_SMOKE_ADMIN_BEARER_TOKEN) || (inputs.run_authenticated_checks && secrets.SAFETY_SMOKE_ADMIN_BEARER_TOKEN) || '' }}
+      SAFETY_SMOKE_JWT_SECRET: ${{ (github.event_name == 'workflow_run' && secrets.SAFETY_SMOKE_JWT_SECRET) || (inputs.run_authenticated_checks && secrets.SAFETY_SMOKE_JWT_SECRET) || '' }}
+      SAFETY_SMOKE_JWT_ISSUER: ${{ inputs.base_url || 'https://www.mhc-gc.com' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Wait for production endpoint readiness
+        shell: bash
+        run: |
+          set -euo pipefail
+          base_url="${SAFETY_SMOKE_BASE_URL%/}"
+          strict_public="${SAFETY_SMOKE_STRICT_PUBLIC_200,,}"
+          echo "Checking availability for ${base_url}/safety"
+
+          for attempt in {1..20}; do
+            status="$(curl -s -o /dev/null -w "%{http_code}" "${base_url}/safety" || true)"
+            if [[ "$strict_public" == "true" ]]; then
+              if [[ "$status" == "200" || "$status" == "301" || "$status" == "302" || "$status" == "307" || "$status" == "308" ]]; then
+                echo "Endpoint ready on attempt $attempt"
+                exit 0
+              fi
+            elif [[ "$status" == "200" || "$status" == "403" || "$status" == "301" || "$status" == "302" || "$status" == "307" || "$status" == "308" ]]; then
+              echo "Endpoint ready on attempt $attempt"
+              exit 0
+            fi
+
+            echo "Attempt $attempt/20 not ready yet (status: ${status:-none})"
+            sleep 15
+          done
+
+          echo "Timed out waiting for production deployment readiness"
+          exit 1
+
+      - name: Run Safety smoke checks
+        run: node scripts/validation/smoke-safety-system.js

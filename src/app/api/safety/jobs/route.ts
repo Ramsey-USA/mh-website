@@ -8,8 +8,10 @@ import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { createDbClient } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
-import { requireAuth, requireRole } from "@/lib/auth/middleware";
+import { requireRole } from "@/lib/auth/middleware";
 import { type JWTUser } from "@/lib/auth/jwt";
+import { withSecurity } from "@/middleware/security";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 
 export const dynamic = "force-dynamic";
 
@@ -99,7 +101,12 @@ async function handlePOST(request: NextRequest, _user: JWTUser) {
   }
 }
 
-// GET: any authenticated user (superintendent or admin)
-export const GET = requireAuth(handleGET);
+// GET: superintendent/admin only
+export const GET = requireRole(
+  ["admin", "superintendent"],
+  withSecurity(handleGET),
+);
 // POST: admin only
-export const POST = requireRole(["admin"], handlePOST);
+export const POST = rateLimit(rateLimitPresets.api)(
+  requireRole(["admin"], withSecurity(handlePOST)),
+);

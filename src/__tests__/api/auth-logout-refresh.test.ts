@@ -10,6 +10,7 @@ import { NextRequest } from "next/server";
 
 jest.mock("@/lib/auth/jwt", () => ({
   refreshAccessToken: jest.fn(),
+  verifyRefreshToken: jest.fn(),
 }));
 
 jest.mock("@/lib/security/rate-limiter", () => ({
@@ -19,15 +20,46 @@ jest.mock("@/lib/security/rate-limiter", () => ({
 
 import { POST as logoutPOST } from "@/app/api/auth/logout/route";
 import { POST as refreshPOST } from "@/app/api/auth/refresh/route";
-import { refreshAccessToken } from "@/lib/auth/jwt";
+import { refreshAccessToken, verifyRefreshToken } from "@/lib/auth/jwt";
 
 // ── /api/auth/logout ──────────────────────────────────────────────────────────
 
 describe("POST /api/auth/logout", () => {
-  it("returns 200 with success:true", async () => {
+  beforeEach(() => jest.clearAllMocks());
+
+  it("returns 401 when no refresh token cookie is present", async () => {
     const req = new NextRequest("http://localhost/api/auth/logout", {
       method: "POST",
     });
+    const res = await logoutPOST(req);
+    expect(res.status).toBe(401);
+    const body = await res.json();
+    expect(body.error).toMatch(/authentication required/i);
+  });
+
+  it("returns 401 and clears cookie when refresh token is invalid", async () => {
+    (verifyRefreshToken as jest.Mock).mockResolvedValueOnce(null);
+
+    const req = new NextRequest("http://localhost/api/auth/logout", {
+      method: "POST",
+    });
+    req.cookies.set("mh_refresh_token", "bad-token");
+
+    const res = await logoutPOST(req);
+    expect(res.status).toBe(401);
+    const setCookie = res.headers.get("set-cookie") ?? "";
+    expect(setCookie).toMatch(/mh_refresh_token/);
+    expect(setCookie).toMatch(/Max-Age=0/i);
+  });
+
+  it("returns 200 with success:true for valid refresh token", async () => {
+    (verifyRefreshToken as jest.Mock).mockResolvedValueOnce("admin-matt");
+
+    const req = new NextRequest("http://localhost/api/auth/logout", {
+      method: "POST",
+    });
+    req.cookies.set("mh_refresh_token", "valid-token");
+
     const res = await logoutPOST(req);
     expect(res.status).toBe(200);
     const body = await res.json();
@@ -35,9 +67,13 @@ describe("POST /api/auth/logout", () => {
   });
 
   it("sets mh_refresh_token cookie to empty with maxAge 0", async () => {
+    (verifyRefreshToken as jest.Mock).mockResolvedValueOnce("admin-matt");
+
     const req = new NextRequest("http://localhost/api/auth/logout", {
       method: "POST",
     });
+    req.cookies.set("mh_refresh_token", "valid-token");
+
     const res = await logoutPOST(req);
     const setCookie = res.headers.get("set-cookie") ?? "";
     // Cookie value is cleared (empty string) and maxAge is 0

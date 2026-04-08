@@ -46,6 +46,10 @@ jest.mock("@/lib/security/rate-limiter", () => ({
   rateLimitPresets: { api: {} },
 }));
 
+jest.mock("@/middleware/security", () => ({
+  withSecurity: (handler: unknown) => handler,
+}));
+
 let POST: typeof import("@/app/api/consultations/route").POST;
 let GET: typeof import("@/app/api/consultations/route").GET;
 

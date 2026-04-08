@@ -8,9 +8,11 @@ import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { createDbClient } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
-import { requireAuth, requireRole } from "@/lib/auth/middleware";
+import { requireRole } from "@/lib/auth/middleware";
 import { type JWTUser } from "@/lib/auth/jwt";
 import { type Job } from "../route";
+import { withSecurity } from "@/middleware/security";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 
 export const dynamic = "force-dynamic";
 
@@ -20,7 +22,7 @@ interface RouteParams {
 
 async function handleGET(
   _request: NextRequest,
-  _user: JWTUser,
+  user: JWTUser,
   context?: unknown,
 ) {
   try {
@@ -35,7 +37,11 @@ async function handleGET(
     }
 
     const db = createDbClient({ DB });
-    const job = await db.queryOne<Job>(`SELECT * FROM jobs WHERE id = ?`, id);
+    const sql =
+      user.role === "admin"
+        ? `SELECT * FROM jobs WHERE id = ?`
+        : `SELECT * FROM jobs WHERE id = ? AND status = 'active'`;
+    const job = await db.queryOne<Job>(sql, id);
 
     if (!job) {
       return NextResponse.json({ error: "Job not found" }, { status: 404 });
@@ -44,10 +50,7 @@ async function handleGET(
     return NextResponse.json({ success: true, data: job });
   } catch (error) {
     logger.error("Error fetching job:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch job" },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: "Failed to fetch job" }, { status: 500 });
   }
 }
 
@@ -96,5 +99,10 @@ async function handlePATCH(
   }
 }
 
-export const GET = requireAuth(handleGET);
-export const PATCH = requireRole(["admin"], handlePATCH);
+export const GET = requireRole(
+  ["admin", "superintendent"],
+  withSecurity(handleGET),
+);
+export const PATCH = rateLimit(rateLimitPresets.api)(
+  requireRole(["admin"], withSecurity(handlePATCH)),
+);

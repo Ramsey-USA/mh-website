@@ -8,8 +8,10 @@ import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { createDbClient } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
-import { requireAuth } from "@/lib/auth/middleware";
+import { requireRole } from "@/lib/auth/middleware";
 import { type JWTUser } from "@/lib/auth/jwt";
+import { withSecurity } from "@/middleware/security";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 
 export const dynamic = "force-dynamic";
 
@@ -46,7 +48,9 @@ async function handleGET(request: NextRequest, user: JWTUser) {
     // submitted_by: admin may pass any value; superintendent is locked to their own name
     const submittedByParam = searchParams.get("submitted_by");
     const submittedBy =
-      user.role === "superintendent" ? (user.name ?? user.uid) : submittedByParam;
+      user.role === "superintendent"
+        ? (user.name ?? user.uid)
+        : submittedByParam;
 
     const DB = getD1Database();
     if (!DB) {
@@ -182,7 +186,12 @@ async function handlePOST(request: NextRequest, user: JWTUser) {
   }
 }
 
-// GET: any authenticated user — supers see only their own submissions (enforced above)
-export const GET = requireAuth(handleGET);
-// POST: any authenticated user (superintendent submits)
-export const POST = requireAuth(handlePOST);
+// GET: admin/superintendent only — supers see only their own submissions (enforced above)
+export const GET = requireRole(
+  ["admin", "superintendent"],
+  withSecurity(handleGET),
+);
+// POST: admin/superintendent only (superintendent submits)
+export const POST = rateLimit(rateLimitPresets.api)(
+  requireRole(["admin", "superintendent"], withSecurity(handlePOST)),
+);

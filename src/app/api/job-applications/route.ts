@@ -5,6 +5,7 @@ import {
 } from "@/lib/api/form-handler";
 import { requireRole } from "@/lib/auth/middleware";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
+import { withSecurity } from "@/middleware/security";
 import { getR2Bucket, R2StorageService } from "@/lib/cloudflare/r2";
 
 export const dynamic = "force-dynamic";
@@ -32,9 +33,7 @@ interface JobApplicationData {
   referralSource?: string;
 }
 
-export const POST = rateLimit(rateLimitPresets.api)(async (
-  request: NextRequest,
-) => {
+async function handlePOST(request: NextRequest): Promise<NextResponse> {
   // Parse the body once so we can validate resumeKey before handing off
   let body: JobApplicationData;
   try {
@@ -147,7 +146,9 @@ Submitted: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles
     `.trim(),
     },
   );
-});
+}
+
+export const POST = rateLimit(rateLimitPresets.api)(withSecurity(handlePOST));
 
 export const GET = requireRole(["admin"], () =>
   handleFormRetrieval("job_applications"),

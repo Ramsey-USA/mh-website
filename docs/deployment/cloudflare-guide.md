@@ -19,6 +19,7 @@
 - [How It Works](#how-it-works)
 - [Cloudflare Dashboard Setup — REQUIRED](#cloudflare-dashboard-setup--required)
 - [Environment Variables](#environment-variables)
+- [Security Notes](#security-notes)
 - [Local Development & Manual Deploy](#local-development--manual-deploy)
 - [Build Output Explained](#build-output-explained)
 - [Custom Domain & DNS](#custom-domain--dns)
@@ -124,6 +125,29 @@ binding = "ASSETS"
 | `CLOUDFLARE_API_TOKEN`          | `your_api_token`  | For manual Wrangler deploys |
 | `CLOUDFLARE_D1_DATABASE_ID`     | `your_d1_id`      | D1 database access          |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-XXXXXXXXXX`    | Google Analytics (optional) |
+
+---
+
+## Security Notes
+
+Safety smoke checks run in GitHub Actions and require GitHub repository
+secrets, not Cloudflare dashboard secrets.
+
+- Cloudflare secrets secure runtime behavior for the live Worker.
+- GitHub secrets secure CI automation that validates production.
+
+For Safety smoke setup and policy details, see:
+
+- `docs/deployment/safety-ci-gate-policy.md`
+- `docs/deployment/safety-smoke-setup.md`
+
+Recommended authenticated smoke strategy is login-based credentials in GitHub:
+
+- `SAFETY_SMOKE_FIELD_PASSCODE`
+- `SAFETY_SMOKE_ADMIN_EMAIL`
+- `SAFETY_SMOKE_ADMIN_PASSWORD`
+
+Use bearer-token or JWT-signing-secret options only as fallback.
 
 ---
 

@@ -2,6 +2,7 @@ import { type NextRequest, type NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { sendEmail } from "@/lib/email/email-service";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
+import { withSecurity } from "@/middleware/security";
 import {
   badRequest,
   createSuccessResponse,
@@ -181,7 +182,9 @@ async function handlePOST(request: NextRequest) {
   }
 }
 
-export const POST = rateLimit(rateLimitPresets.public)(handlePOST);
+export const POST = rateLimit(rateLimitPresets.public)(
+  withSecurity(handlePOST),
+);
 
 /**
  * DELETE /api/newsletter?token=<unsubscribe_token>
@@ -231,4 +234,6 @@ async function handleDELETE(request: NextRequest): Promise<NextResponse> {
   }
 }
 
-export const DELETE = rateLimit(rateLimitPresets.public)(handleDELETE);
+export const DELETE = rateLimit(rateLimitPresets.public)(
+  withSecurity(handleDELETE),
+);

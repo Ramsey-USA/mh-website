@@ -29,6 +29,147 @@ interface UserDataRequest {
   fields?: string[];
 }
 
+type ValidationResult<T> =
+  | { valid: true; data: T }
+  | { valid: false; error: string };
+
+interface FunctionPolicy {
+  requiresAuth: boolean;
+  allowedRoles?: string[];
+}
+
+const FUNCTION_POLICIES: Record<string, FunctionPolicy> = {
+  sendNotification: {
+    requiresAuth: true,
+    allowedRoles: ["admin"],
+  },
+  getUserData: {
+    requiresAuth: true,
+    allowedRoles: ["admin", "superintendent"],
+  },
+};
+
+const MAX_RECIPIENT_LENGTH = 254;
+const MAX_MESSAGE_LENGTH = 2000;
+const MAX_METADATA_KEYS = 20;
+const MAX_FIELD_COUNT = 10;
+const ALLOWED_USER_FIELDS = new Set(["uid", "email", "role", "name"]);
+
+function sanitizeString(value: unknown, maxLen: number): string {
+  if (typeof value !== "string") return "";
+  return value
+    .replace(/[\x00-\x1F\x7F]/g, "")
+    .trim()
+    .slice(0, maxLen);
+}
+
+function isPlainRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function validateNotificationData(
+  body: unknown,
+): ValidationResult<NotificationData> {
+  if (!isPlainRecord(body)) {
+    return { valid: false, error: "Invalid payload" };
+  }
+
+  const recipient = sanitizeString(body["recipient"], MAX_RECIPIENT_LENGTH);
+  const message = sanitizeString(body["message"], MAX_MESSAGE_LENGTH);
+
+  if (!recipient) {
+    return { valid: false, error: "recipient is required" };
+  }
+
+  if (!message) {
+    return { valid: false, error: "message is required" };
+  }
+
+  let type: NotificationData["type"];
+  if (body["type"] !== undefined) {
+    if (
+      body["type"] !== "email" &&
+      body["type"] !== "push" &&
+      body["type"] !== "sms"
+    ) {
+      return { valid: false, error: "Invalid notification type" };
+    }
+    type = body["type"];
+  }
+
+  let metadata: Record<string, unknown> | undefined;
+  if (body["metadata"] !== undefined) {
+    if (!isPlainRecord(body["metadata"])) {
+      return { valid: false, error: "metadata must be an object" };
+    }
+    const keys = Object.keys(body["metadata"]);
+    if (keys.length > MAX_METADATA_KEYS) {
+      return { valid: false, error: "metadata has too many keys" };
+    }
+    metadata = body["metadata"];
+  }
+
+  return {
+    valid: true,
+    data: {
+      recipient,
+      message,
+      ...(type ? { type } : {}),
+      ...(metadata ? { metadata } : {}),
+    },
+  };
+}
+
+function validateUserDataRequest(
+  body: unknown,
+): ValidationResult<UserDataRequest> {
+  if (!isPlainRecord(body)) {
+    return { valid: false, error: "Invalid payload" };
+  }
+
+  const userId =
+    body["userId"] !== undefined
+      ? sanitizeString(body["userId"], 128)
+      : undefined;
+
+  let fields: string[] | undefined;
+  if (body["fields"] !== undefined) {
+    if (!Array.isArray(body["fields"])) {
+      return { valid: false, error: "fields must be an array" };
+    }
+
+    if (body["fields"].length > MAX_FIELD_COUNT) {
+      return { valid: false, error: "too many fields requested" };
+    }
+
+    const sanitizedFields = body["fields"]
+      .map((field) => sanitizeString(field, 32))
+      .filter(Boolean);
+
+    if (sanitizedFields.length !== body["fields"].length) {
+      return { valid: false, error: "fields must be non-empty strings" };
+    }
+
+    const hasDisallowedField = sanitizedFields.some(
+      (field) => !ALLOWED_USER_FIELDS.has(field),
+    );
+
+    if (hasDisallowedField) {
+      return { valid: false, error: "Unsupported fields requested" };
+    }
+
+    fields = sanitizedFields;
+  }
+
+  return {
+    valid: true,
+    data: {
+      ...(userId ? { userId } : {}),
+      ...(fields ? { fields } : {}),
+    },
+  };
+}
+
 export const POST = rateLimit(rateLimitPresets.api)(async (
   request: NextRequest,
   context: unknown,
@@ -45,7 +186,24 @@ export const POST = rateLimit(rateLimitPresets.api)(async (
       );
     }
 
-    const body = await request.json();
+    let body: unknown;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json(
+        { error: "Invalid JSON payload" },
+        { status: 400 },
+      );
+    }
+
+    const policy = FUNCTION_POLICIES[functionName];
+    if (!policy) {
+      return NextResponse.json(
+        { error: "Function not found" },
+        { status: 404 },
+      );
+    }
+
     const authHeader = request.headers.get("authorization");
 
     // JWT authentication
@@ -57,12 +215,45 @@ export const POST = rateLimit(rateLimitPresets.api)(async (
       }
     }
 
+    if (policy.requiresAuth && !user) {
+      return NextResponse.json(
+        { error: "Authentication required" },
+        { status: 401 },
+      );
+    }
+
+    if (
+      policy.allowedRoles &&
+      (!user?.role || !policy.allowedRoles.includes(user.role))
+    ) {
+      return NextResponse.json(
+        { error: "Insufficient permissions" },
+        { status: 403 },
+      );
+    }
+
     // Route to specific functions
     switch (functionName) {
-      case "sendNotification":
-        return await handleSendNotification(body as NotificationData, user);
-      case "getUserData":
-        return await handleGetUserData(body as UserDataRequest, user);
+      case "sendNotification": {
+        const validation = validateNotificationData(body);
+        if (!validation.valid) {
+          return NextResponse.json(
+            { error: validation.error },
+            { status: 400 },
+          );
+        }
+        return await handleSendNotification(validation.data, user!);
+      }
+      case "getUserData": {
+        const validation = validateUserDataRequest(body);
+        if (!validation.valid) {
+          return NextResponse.json(
+            { error: validation.error },
+            { status: 400 },
+          );
+        }
+        return await handleGetUserData(validation.data, user!);
+      }
       default:
         return NextResponse.json(
           { error: "Function not found" },
@@ -78,17 +269,7 @@ export const POST = rateLimit(rateLimitPresets.api)(async (
   }
 });
 
-async function handleSendNotification(
-  data: NotificationData,
-  user: JWTUser | null,
-) {
-  if (!user) {
-    return NextResponse.json(
-      { error: "Authentication required" },
-      { status: 401 },
-    );
-  }
-
+async function handleSendNotification(data: NotificationData, user: JWTUser) {
   // Send notification using notification service
   const result = await sendNotification({
     recipient: data.recipient,
@@ -131,14 +312,7 @@ async function handleSendNotification(
   });
 }
 
-function handleGetUserData(data: UserDataRequest, user: JWTUser | null) {
-  if (!user) {
-    return NextResponse.json(
-      { error: "Authentication required" },
-      { status: 401 },
-    );
-  }
-
+function handleGetUserData(data: UserDataRequest, user: JWTUser) {
   try {
     // For now, return user data from JWT token
     const userData = {

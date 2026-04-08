@@ -163,12 +163,10 @@ export async function securityMiddleware(
  * API route security wrapper
  */
 export function withSecurity<
-  T extends (
-    request: NextRequest,
-    ...args: unknown[]
-  ) => Promise<Response> | Response,
->(handler: T) {
-  return async (request: NextRequest, ..._args: unknown[]) => {
+  TArgs extends unknown[],
+  TReturn extends Promise<Response> | Response,
+>(handler: (request: NextRequest, ...args: TArgs) => TReturn) {
+  return async (request: NextRequest, ...args: TArgs) => {
     const pathname = new URL(request.url).pathname;
     const userAgent = request.headers.get("user-agent") || "Unknown";
     const ipAddress = getClientIP(request);
@@ -246,7 +244,7 @@ export function withSecurity<
       }
 
       // Call the actual API handler
-      const response = await handler(request);
+      const response = await handler(request, ...args);
 
       // Convert Response to NextResponse if needed
       const nextResponse =

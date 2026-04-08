@@ -70,6 +70,13 @@ const mockUser = {
   name: "Matt",
 };
 
+const mockSuperUser = {
+  uid: "field-1",
+  email: "field@mhc-gc.com",
+  role: "superintendent",
+  name: "Field Lead",
+};
+
 // ── Tests ─────────────────────────────────────────────────────────────────────
 
 describe("POST /api/functions/[functionName]", () => {
@@ -102,6 +109,18 @@ describe("POST /api/functions/[functionName]", () => {
     expect(res.status).toBe(401);
   });
 
+  it("returns 400 for sendNotification with invalid payload", async () => {
+    mockVerifyToken.mockResolvedValue(mockUser);
+
+    const res = await POST(
+      makeRequest({ recipient: "", message: "Hello" }, true),
+      makeContext("sendNotification"),
+    );
+    expect(res.status).toBe(400);
+    const body = await res.json();
+    expect(body.error).toMatch(/recipient is required/i);
+  });
+
   it("returns 200 for sendNotification with valid auth", async () => {
     mockVerifyToken.mockResolvedValue(mockUser);
     mockSendNotification.mockResolvedValue({
@@ -120,6 +139,18 @@ describe("POST /api/functions/[functionName]", () => {
     const body = await res.json();
     expect(body.success).toBe(true);
     expect(body.data.recipient).toBe("test@example.com");
+  });
+
+  it("returns 403 for sendNotification when role is not admin", async () => {
+    mockVerifyToken.mockResolvedValue(mockSuperUser);
+
+    const res = await POST(
+      makeRequest({ recipient: "test@example.com", message: "Hello" }, true),
+      makeContext("sendNotification"),
+    );
+    expect(res.status).toBe(403);
+    const body = await res.json();
+    expect(body.error).toMatch(/insufficient permissions/i);
   });
 
   it("returns 500 when sendNotification service fails", async () => {
@@ -157,6 +188,18 @@ describe("POST /api/functions/[functionName]", () => {
     expect(body.data.email).toBe("matt@mhc-gc.com");
   });
 
+  it("returns 200 for getUserData with superintendent role", async () => {
+    mockVerifyToken.mockResolvedValue(mockSuperUser);
+
+    const res = await POST(
+      makeRequest({ userId: "u1" }, true),
+      makeContext("getUserData"),
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.data.role).toBe("superintendent");
+  });
+
   it("returns filtered fields when getUserData includes a fields array", async () => {
     mockVerifyToken.mockResolvedValue(mockUser);
 
@@ -170,7 +213,19 @@ describe("POST /api/functions/[functionName]", () => {
     expect(body.data.uid).toBeUndefined();
   });
 
-  it("returns 500 when request body is malformed JSON", async () => {
+  it("returns 400 for getUserData when fields include unsupported values", async () => {
+    mockVerifyToken.mockResolvedValue(mockUser);
+
+    const res = await POST(
+      makeRequest({ fields: ["email", "passwordHash"] }, true),
+      makeContext("getUserData"),
+    );
+    expect(res.status).toBe(400);
+    const body = await res.json();
+    expect(body.error).toMatch(/unsupported fields requested/i);
+  });
+
+  it("returns 400 when request body is malformed JSON", async () => {
     const req = new NextRequest(
       "http://localhost/api/functions/sendNotification",
       {
@@ -180,6 +235,6 @@ describe("POST /api/functions/[functionName]", () => {
       },
     );
     const res = await POST(req, makeContext("sendNotification"));
-    expect(res.status).toBe(500);
+    expect(res.status).toBe(400);
   });
 });

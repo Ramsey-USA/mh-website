@@ -5,6 +5,7 @@ import {
 } from "@/lib/api/form-handler";
 import { requireRole } from "@/lib/auth/middleware";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
+import { withSecurity } from "@/middleware/security";
 
 export const dynamic = "force-dynamic";
 
@@ -24,7 +25,7 @@ interface ConsultationData {
   notes?: string;
 }
 
-export const POST = rateLimit(rateLimitPresets.api)((request: NextRequest) => {
+function handlePOST(request: NextRequest) {
   return handleFormSubmission<ConsultationData>(request, {
     tableName: "consultations",
     submissionType: "Consultation",
@@ -83,7 +84,9 @@ ${data.notes || "No additional notes"}
 Submitted: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })} PST
     `.trim(),
   });
-});
+}
+
+export const POST = rateLimit(rateLimitPresets.api)(withSecurity(handlePOST));
 
 export const GET = requireRole(["admin"], () =>
   handleFormRetrieval("consultations"),

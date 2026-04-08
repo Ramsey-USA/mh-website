@@ -7,17 +7,46 @@
 
 import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
+import { verifyRefreshToken } from "@/lib/auth/jwt";
+import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 
 export const dynamic = "force-dynamic";
 
-export function POST(request: NextRequest): NextResponse {
+async function handlePOST(request: NextRequest): Promise<NextResponse> {
   // Identify the caller (best-effort, for audit logging only)
   const ip =
     request.headers.get("CF-Connecting-IP") ??
     request.headers.get("x-forwarded-for") ??
     "unknown";
 
-  logger.info("Admin logout", { ip });
+  const refreshToken = request.cookies.get("mh_refresh_token")?.value;
+
+  if (!refreshToken) {
+    logger.warn("Logout requested without refresh token", { ip });
+    return NextResponse.json(
+      { error: "Authentication required" },
+      { status: 401 },
+    );
+  }
+
+  const refreshUserId = await verifyRefreshToken(refreshToken);
+  if (!refreshUserId) {
+    logger.warn("Logout requested with invalid refresh token", { ip });
+    const invalidResponse = NextResponse.json(
+      { error: "Authentication required" },
+      { status: 401 },
+    );
+    invalidResponse.cookies.set("mh_refresh_token", "", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      path: "/api/auth",
+      maxAge: 0,
+    });
+    return invalidResponse;
+  }
+
+  logger.info("Admin logout", { ip, userId: refreshUserId });
 
   const response = NextResponse.json({ success: true });
 
@@ -32,3 +61,5 @@ export function POST(request: NextRequest): NextResponse {
 
   return response;
 }
+
+export const POST = rateLimit(rateLimitPresets.auth)(handlePOST);
