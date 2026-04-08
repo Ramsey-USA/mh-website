@@ -267,8 +267,17 @@ class RateLimiter {
 
   /**
    * Get client IP address
+   *
+   * cf-connecting-ip is set exclusively by Cloudflare and cannot be spoofed
+   * by callers, so it is always checked first when behind Cloudflare.
+   * x-forwarded-for and x-real-ip are client-controllable and only used
+   * as a fallback for local development without Cloudflare in front.
    */
   private getClientIP(request: NextRequest): string {
+    // Authoritative when behind Cloudflare — cannot be spoofed
+    const cfIP = request.headers.get("cf-connecting-ip");
+    if (cfIP) return cfIP;
+
     const forwarded = request.headers.get("x-forwarded-for");
     const realIP = request.headers.get("x-real-ip");
 
@@ -570,9 +579,11 @@ class SecurityHeaders {
       response.headers.set("Strict-Transport-Security", hstsValue);
     }
 
-    // X-XSS-Protection
+    // X-XSS-Protection — disable the legacy browser XSS auditor.
+    // Setting to "0" prevents IE/Chrome XSS-filter bypass attacks.
+    // Modern browsers rely on CSP (above) instead of this header.
     if (this.config.xssFilter) {
-      response.headers.set("X-XSS-Protection", "1; mode=block");
+      response.headers.set("X-XSS-Protection", "0");
     }
 
     // X-Content-Type-Options

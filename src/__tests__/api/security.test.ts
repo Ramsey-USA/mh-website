@@ -3,12 +3,19 @@
  *
  * Security API routes — unit tests
  *
- * Covers: /api/security/cloudflare (GET + POST + unsupported method),
+ * Covers: /api/security/cloudflare (GET + unsupported method),
  * /api/security/events (GET auth guard + 200 with events),
  * /api/security/status (GET auth guard + 200 with metrics).
  */
 
 import { NextRequest } from "next/server";
+
+// ── Mock @opennextjs/cloudflare before any route imports ──────────────────────
+// The module uses ES Module syntax (export *) which Jest's CommonJS transformer
+// cannot parse. Mock it at the top level so the cloudflare route can import it.
+jest.mock("@opennextjs/cloudflare", () => ({
+  getCloudflareContext: jest.fn(() => ({ env: {} })),
+}));
 
 // ── Shared mock: requireRole ──────────────────────────────────────────────────
 
@@ -90,10 +97,9 @@ const makeRequest = (
 
 describe("/api/security/cloudflare", () => {
   let GET: typeof import("@/app/api/security/cloudflare/route").GET;
-  let POST: typeof import("@/app/api/security/cloudflare/route").POST;
 
   beforeAll(async () => {
-    ({ GET, POST } = await import("@/app/api/security/cloudflare/route"));
+    ({ GET } = await import("@/app/api/security/cloudflare/route"));
   });
 
   beforeEach(() => jest.clearAllMocks());
@@ -105,30 +111,36 @@ describe("/api/security/cloudflare", () => {
     expect(res.status).toBe(401);
   });
 
-  it("GET returns 200 with status object", async () => {
+  it("GET returns 200 with Cloudflare status object", async () => {
     const res = await GET(
       makeRequest("http://localhost/api/security/cloudflare"),
     );
     expect(res.status).toBe(200);
     const body = await res.json();
-    expect(body.data.status).toBe("not_connected");
+    // In test env there is no cf-connecting-ip header, so status is "local_dev"
+    expect(body.data.status).toBe("local_dev");
     expect(body.data.features).toBeDefined();
+    expect(typeof body.data.features.waf).toBe("boolean");
+    expect(typeof body.data.features.ddos_protection).toBe("boolean");
+    expect(typeof body.data.features.ssl_encryption).toBe("boolean");
+    expect(typeof body.data.features.rate_limiting).toBe("boolean");
   });
 
-  it("POST returns 401 without auth", async () => {
-    const res = await POST(
-      makeRequest("http://localhost/api/security/cloudflare", "POST", false),
-    );
-    expect(res.status).toBe(401);
-  });
-
-  it("POST returns 200 with pending message", async () => {
-    const res = await POST(
-      makeRequest("http://localhost/api/security/cloudflare", "POST"),
-    );
+  it("GET returns 200 with active status when cf-connecting-ip is present", async () => {
+    const req = new NextRequest("http://localhost/api/security/cloudflare", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer token",
+        "cf-connecting-ip": "203.0.113.5",
+      },
+    });
+    const res = await GET(req);
     expect(res.status).toBe(200);
     const body = await res.json();
-    expect(body.data.status).toBe("pending");
+    expect(body.data.status).toBe("active");
+    expect(body.data.features.waf).toBe(true);
+    expect(body.data.features.ddos_protection).toBe(true);
+    expect(body.data.features.ssl_encryption).toBe(true);
   });
 });
 

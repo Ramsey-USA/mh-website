@@ -250,6 +250,37 @@ describe("SecurityManager", () => {
     expect(result.errors).not.toHaveProperty("email");
   });
 
+  it("prefers cf-connecting-ip over x-forwarded-for for rate-limit key (spoof protection)", async () => {
+    const manager = new SecurityManager(
+      makeConfig({ rateLimit: { maxRequests: 1, windowMs: 60_000 } }),
+    );
+
+    // req1 and req2 share the same cf-connecting-ip; req2 spoofs a different
+    // x-forwarded-for to try to bypass the rate limit.
+    const req1 = new NextRequest("http://localhost/api/test", {
+      method: "GET",
+      headers: {
+        "cf-connecting-ip": "203.0.113.1",
+        "x-forwarded-for": "203.0.113.1",
+      },
+    });
+    const req2 = new NextRequest("http://localhost/api/test", {
+      method: "GET",
+      headers: {
+        "cf-connecting-ip": "203.0.113.1",
+        "x-forwarded-for": "10.0.0.99", // spoofed — must not change the key
+      },
+    });
+
+    await expect(manager.processRequest(req1)).resolves.toEqual(
+      expect.objectContaining({ allowed: true }),
+    );
+    const second = await manager.processRequest(req2);
+    // Rate limit triggered on cf-connecting-ip identity, not the spoofed XFF
+    expect(second.allowed).toBe(false);
+    expect(second.response?.status).toBe(429);
+  });
+
   it("uses x-real-ip header for rate-limit key when x-forwarded-for is absent", async () => {
     const manager = new SecurityManager(
       makeConfig({ rateLimit: { maxRequests: 1, windowMs: 60_000 } }),
