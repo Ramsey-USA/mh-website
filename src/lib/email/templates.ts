@@ -587,7 +587,7 @@ export interface DriverAlertEmailData {
   employee_name: string;
   license_number: string;
   license_state: string;
-  license_class?: string;
+  license_class?: string | undefined;
   license_expiration_date: string;
 }
 

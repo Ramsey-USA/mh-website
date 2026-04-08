@@ -25,7 +25,7 @@ fi
 for file in $(git diff --cached --name-only); do
   # Skip package lock files, generated files, and large template files with inline assets
   case "$file" in
-    package-lock.json|yarn.lock|pnpm-lock.yaml|.next/*|node_modules/*|documents/manuals/*.html)
+    package-lock.json|yarn.lock|pnpm-lock.yaml|.next/*|node_modules/*|documents/manuals/*.html|public/docs/*.pdf)
       continue
       ;;
   esac

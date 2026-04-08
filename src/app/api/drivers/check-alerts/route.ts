@@ -116,9 +116,7 @@ export async function GET(request: NextRequest) {
         employee_name: driver.employee_name,
         license_number: driver.license_number,
         license_state: driver.license_state,
-        ...(driver.license_class
-          ? { license_class: driver.license_class }
-          : {}),
+        license_class: driver.license_class,
         license_expiration_date: driver.license_expiration_date,
       };
       const email = generateLicenseExpiringAlert(alertData, days);
@@ -132,17 +130,14 @@ export async function GET(request: NextRequest) {
 
     // 5. Send individual alerts for overdue MVR checks
     for (const driver of overdueMvr) {
-      const alertData: DriverAlertEmailData & { next_mvr_check_date: string } =
-        {
-          employee_name: driver.employee_name,
-          license_number: driver.license_number,
-          license_state: driver.license_state,
-          ...(driver.license_class
-            ? { license_class: driver.license_class }
-            : {}),
-          license_expiration_date: driver.license_expiration_date,
-          next_mvr_check_date: driver.next_mvr_check_date!,
-        };
+      const alertData = {
+        employee_name: driver.employee_name,
+        license_number: driver.license_number,
+        license_state: driver.license_state,
+        license_class: driver.license_class,
+        license_expiration_date: driver.license_expiration_date,
+        next_mvr_check_date: driver.next_mvr_check_date!,
+      };
       const email = generateMvrReviewDueAlert(alertData);
       await emailService.sendEmail({
         to: EMAIL_RECIPIENTS.general,
@@ -158,7 +153,7 @@ export async function GET(request: NextRequest) {
         employee_name: d.employee_name,
         license_number: d.license_number,
         license_state: d.license_state,
-        ...(d.license_class ? { license_class: d.license_class } : {}),
+        license_class: d.license_class,
         license_expiration_date: d.license_expiration_date,
         days_until: daysUntil(d.license_expiration_date),
       })),
@@ -166,7 +161,7 @@ export async function GET(request: NextRequest) {
         employee_name: d.employee_name,
         license_number: d.license_number,
         license_state: d.license_state,
-        ...(d.license_class ? { license_class: d.license_class } : {}),
+        license_class: d.license_class,
         license_expiration_date: d.license_expiration_date,
         next_mvr_check_date: d.next_mvr_check_date!,
       })),

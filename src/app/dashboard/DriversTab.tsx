@@ -325,7 +325,7 @@ function DriverForm({ token, driver, onSaved, onCancel }: DriverFormProps) {
             onChange={(e) =>
               setFields((f) => ({
                 ...f,
-                mvr_status: e.target.value as AuthorizedDriver["mvr_status"],
+                mvr_status: e.target.value as typeof f.mvr_status,
               }))
             }
             className={selectClass}
@@ -351,7 +351,7 @@ function DriverForm({ token, driver, onSaved, onCancel }: DriverFormProps) {
               setFields((f) => ({
                 ...f,
                 authorization_status: e.target
-                  .value as AuthorizedDriver["authorization_status"],
+                  .value as typeof f.authorization_status,
               }))
             }
             className={selectClass}
