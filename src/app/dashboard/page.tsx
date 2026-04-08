@@ -6,6 +6,7 @@ import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { usePageTracking } from "@/lib/analytics/hooks";
 import { SafetyTab } from "./SafetyTab";
+import { DriversTab } from "./DriversTab";
 
 interface DashboardData {
   pageviews: {
@@ -51,7 +52,9 @@ export default function AnalyticsDashboardPage() {
     null,
   );
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<"analytics" | "safety">("analytics");
+  const [activeTab, setActiveTab] = useState<
+    "analytics" | "safety" | "drivers"
+  >("analytics");
 
   useEffect(() => {
     const token = localStorage.getItem("admin_token");
@@ -142,7 +145,7 @@ export default function AnalyticsDashboardPage() {
       <div className="bg-gray-900/80 border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-1 py-2">
-            {(["analytics", "safety"] as const).map((tab) => (
+            {(["analytics", "safety", "drivers"] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -153,9 +156,20 @@ export default function AnalyticsDashboardPage() {
                 }`}
               >
                 {tab === "analytics" ? (
-                  <span className="flex items-center gap-2"><MaterialIcon icon="dashboard" size="sm" />Analytics</span>
+                  <span className="flex items-center gap-2">
+                    <MaterialIcon icon="dashboard" size="sm" />
+                    Analytics
+                  </span>
+                ) : tab === "safety" ? (
+                  <span className="flex items-center gap-2">
+                    <MaterialIcon icon="safety_check" size="sm" />
+                    Safety
+                  </span>
                 ) : (
-                  <span className="flex items-center gap-2"><MaterialIcon icon="safety_check" size="sm" />Safety</span>
+                  <span className="flex items-center gap-2">
+                    <MaterialIcon icon="directions_car" size="sm" />
+                    Drivers
+                  </span>
                 )}
               </button>
             ))}
@@ -166,6 +180,8 @@ export default function AnalyticsDashboardPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === "safety" ? (
           <SafetyTab token={localStorage.getItem("admin_token") ?? ""} />
+        ) : activeTab === "drivers" ? (
+          <DriversTab token={localStorage.getItem("admin_token") ?? ""} />
         ) : isLoading ? (
           <div className="flex items-center justify-center py-20">
             <div className="text-center">

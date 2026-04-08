@@ -40,6 +40,7 @@
     "agcStacked": "../assets/nwagc-logo-stacked.png"
   },
   "qrCodes": {
-    "dashboard": "../assets/qr-safety-dashboard.png"
+    "dashboard": "../assets/qr-safety-dashboard.png",
+    "digitalManual": "https://www.mhc-gc.com/docs/safety-manual-digital.pdf"
   }
 }

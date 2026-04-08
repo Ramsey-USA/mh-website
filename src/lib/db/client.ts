@@ -393,3 +393,25 @@ export interface Session {
   ip_address?: string;
   user_agent?: string;
 }
+
+export interface AuthorizedDriver {
+  id: string;
+  employee_name: string;
+  email?: string;
+  phone?: string;
+  license_number: string;
+  license_state: string;
+  license_class?: string;
+  cdl_endorsements?: string;
+  license_expiration_date: string;
+  last_mvr_check_date?: string;
+  next_mvr_check_date?: string;
+  mvr_status: "clear" | "flagged" | "suspended" | "revoked" | "pending";
+  authorization_status: "authorized" | "suspended" | "revoked" | "pending";
+  authorized_by?: string;
+  authorization_date?: string;
+  consent_on_file: number; // 0 or 1 (SQLite boolean)
+  notes?: string;
+  created_at: string;
+  updated_at: string;
+}

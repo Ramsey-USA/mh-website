@@ -580,3 +580,279 @@ To unsubscribe, reply to this email with "Unsubscribe" in the subject line.
 
   return { subject, html, text };
 }
+
+// ─── Driver Alert Email Templates ─────────────────────────────────────────────
+
+export interface DriverAlertEmailData {
+  employee_name: string;
+  license_number: string;
+  license_state: string;
+  license_class?: string;
+  license_expiration_date: string;
+}
+
+/**
+ * Generate HTML email for license expiration alert
+ * Sent to admins at 90, 60, 30, 14, 7 days before expiration
+ */
+export function generateLicenseExpiringAlert(
+  driver: DriverAlertEmailData,
+  daysUntilExpiry: number,
+): { subject: string; html: string; text: string } {
+  const urgency =
+    daysUntilExpiry <= 7
+      ? "URGENT"
+      : daysUntilExpiry <= 30
+        ? "WARNING"
+        : "NOTICE";
+  const subject = `[${urgency}] Driver License Expiring in ${daysUntilExpiry} Days - ${driver.employee_name} | MH Construction`;
+
+  const urgencyColor =
+    daysUntilExpiry <= 7
+      ? "#dc2626"
+      : daysUntilExpiry <= 30
+        ? "#d97706"
+        : "#2563eb";
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${subject}</title>
+</head>
+<body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #212121; margin: 0; padding: 0; background-color: #f5f5f5;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <tr>
+      <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
+        <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Driver License Monitoring Alert</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 40px 30px;">
+        <div style="background-color: ${urgencyColor}; color: #ffffff; padding: 12px 20px; border-radius: 6px; margin-bottom: 20px; text-align: center;">
+          <strong style="font-size: 16px;">${urgency}: License Expires in ${daysUntilExpiry} Day${daysUntilExpiry !== 1 ? "s" : ""}</strong>
+        </div>
+
+        <table width="100%" cellpadding="8" cellspacing="0" style="background-color: #f9fafb; border-radius: 6px; margin-bottom: 20px;">
+          <tr><td style="font-weight: 600; color: #6b7280; width: 160px;">Employee:</td><td style="color: #111827; font-weight: 700;">${driver.employee_name}</td></tr>
+          <tr><td style="font-weight: 600; color: #6b7280;">License Number:</td><td style="color: #111827;">${driver.license_number}</td></tr>
+          <tr><td style="font-weight: 600; color: #6b7280;">State:</td><td style="color: #111827;">${driver.license_state}</td></tr>
+          ${driver.license_class ? `<tr><td style="font-weight: 600; color: #6b7280;">License Class:</td><td style="color: #111827;">${driver.license_class}</td></tr>` : ""}
+          <tr><td style="font-weight: 600; color: #6b7280;">Expiration Date:</td><td style="color: ${urgencyColor}; font-weight: 700;">${driver.license_expiration_date}</td></tr>
+        </table>
+
+        <p style="margin: 0 0 15px 0; font-size: 14px; color: #4b5563;">
+          <strong>Required Action:</strong> Verify that the employee has renewed or is in the process of renewing their driver's license. Update the driver record in the MH Construction dashboard once renewal is confirmed.
+        </p>
+
+        <p style="margin: 0; font-size: 12px; color: #9ca3af;">
+          Per MISH 18 Motor Vehicle Safety Program, all authorized drivers must maintain a valid driver's license.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: #f3f4f6; padding: 20px 30px; text-align: center;">
+        <p style="margin: 0; font-size: 12px; color: #6b7280;">MH Construction, Inc. | ${COMPANY_INFO.phone.display} | ${COMPANY_INFO.email.main}</p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
+  const text = `[${urgency}] Driver License Expiring in ${daysUntilExpiry} Days
+
+Employee: ${driver.employee_name}
+License: ${driver.license_number} (${driver.license_state})
+${driver.license_class ? `Class: ${driver.license_class}\n` : ""}Expiration: ${driver.license_expiration_date}
+
+Required Action: Verify license renewal status and update the driver record.
+
+Per MISH 18 Motor Vehicle Safety Program, all authorized drivers must maintain a valid driver's license.
+
+MH Construction, Inc. | ${COMPANY_INFO.phone.display}`;
+
+  return { subject, html, text };
+}
+
+/**
+ * Generate HTML email for MVR review due alert
+ */
+export function generateMvrReviewDueAlert(
+  driver: DriverAlertEmailData & { next_mvr_check_date: string },
+): { subject: string; html: string; text: string } {
+  const subject = `MVR Review Due - ${driver.employee_name} | MH Construction`;
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${subject}</title>
+</head>
+<body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #212121; margin: 0; padding: 0; background-color: #f5f5f5;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <tr>
+      <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
+        <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">MVR Review Reminder</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 40px 30px;">
+        <div style="background-color: #d97706; color: #ffffff; padding: 12px 20px; border-radius: 6px; margin-bottom: 20px; text-align: center;">
+          <strong style="font-size: 16px;">Motor Vehicle Record Review Due</strong>
+        </div>
+
+        <table width="100%" cellpadding="8" cellspacing="0" style="background-color: #f9fafb; border-radius: 6px; margin-bottom: 20px;">
+          <tr><td style="font-weight: 600; color: #6b7280; width: 160px;">Employee:</td><td style="color: #111827; font-weight: 700;">${driver.employee_name}</td></tr>
+          <tr><td style="font-weight: 600; color: #6b7280;">License Number:</td><td style="color: #111827;">${driver.license_number}</td></tr>
+          <tr><td style="font-weight: 600; color: #6b7280;">State:</td><td style="color: #111827;">${driver.license_state}</td></tr>
+          <tr><td style="font-weight: 600; color: #6b7280;">MVR Check Due:</td><td style="color: #d97706; font-weight: 700;">${driver.next_mvr_check_date}</td></tr>
+        </table>
+
+        <p style="margin: 0 0 15px 0; font-size: 14px; color: #4b5563;">
+          <strong>Required Action:</strong> Pull the employee's Motor Vehicle Record through your MVR monitoring vendor and update the driver record in the dashboard with the results.
+        </p>
+
+        <p style="margin: 0; font-size: 12px; color: #9ca3af;">
+          Per MISH 18, MVR checks should be conducted at least quarterly (every 90 days) for all authorized drivers.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: #f3f4f6; padding: 20px 30px; text-align: center;">
+        <p style="margin: 0; font-size: 12px; color: #6b7280;">MH Construction, Inc. | ${COMPANY_INFO.phone.display} | ${COMPANY_INFO.email.main}</p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
+  const text = `MVR Review Due - ${driver.employee_name}
+
+Employee: ${driver.employee_name}
+License: ${driver.license_number} (${driver.license_state})
+MVR Check Due: ${driver.next_mvr_check_date}
+
+Required Action: Pull the employee's Motor Vehicle Record and update the dashboard.
+
+Per MISH 18, MVR checks should be conducted at least quarterly (every 90 days).
+
+MH Construction, Inc. | ${COMPANY_INFO.phone.display}`;
+
+  return { subject, html, text };
+}
+
+/**
+ * Generate daily summary email of all driver alerts
+ */
+export function generateDriverAlertSummary(alerts: {
+  expiringLicenses: Array<DriverAlertEmailData & { days_until: number }>;
+  overdueMvr: Array<DriverAlertEmailData & { next_mvr_check_date: string }>;
+  pendingCount: number;
+  missingConsentCount: number;
+}): { subject: string; html: string; text: string } {
+  const totalIssues =
+    alerts.expiringLicenses.length +
+    alerts.overdueMvr.length +
+    alerts.pendingCount +
+    alerts.missingConsentCount;
+
+  const subject = `Driver Monitoring Daily Report - ${totalIssues} Item${totalIssues !== 1 ? "s" : ""} Need Attention | MH Construction`;
+
+  const expiringRows = alerts.expiringLicenses
+    .map(
+      (d) =>
+        `<tr><td style="padding: 6px 12px; border-bottom: 1px solid #e5e7eb;">${d.employee_name}</td><td style="padding: 6px 12px; border-bottom: 1px solid #e5e7eb;">${d.license_expiration_date}</td><td style="padding: 6px 12px; border-bottom: 1px solid #e5e7eb; color: ${d.days_until <= 7 ? "#dc2626" : d.days_until <= 30 ? "#d97706" : "#2563eb"}; font-weight: 700;">${d.days_until} days</td></tr>`,
+    )
+    .join("");
+
+  const mvrRows = alerts.overdueMvr
+    .map(
+      (d) =>
+        `<tr><td style="padding: 6px 12px; border-bottom: 1px solid #e5e7eb;">${d.employee_name}</td><td style="padding: 6px 12px; border-bottom: 1px solid #e5e7eb;">${d.next_mvr_check_date}</td></tr>`,
+    )
+    .join("");
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${subject}</title>
+</head>
+<body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #212121; margin: 0; padding: 0; background-color: #f5f5f5;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <tr>
+      <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
+        <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Daily Driver Monitoring Report</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 40px 30px;">
+        <h2 style="color: #386851; margin: 0 0 20px 0; font-size: 18px;">Summary: ${totalIssues} Item${totalIssues !== 1 ? "s" : ""} Need Attention</h2>
+
+        ${
+          alerts.expiringLicenses.length > 0
+            ? `
+        <h3 style="color: #d97706; margin: 20px 0 10px 0; font-size: 15px;">&#9888;&#65039; Expiring Licenses (${alerts.expiringLicenses.length})</h3>
+        <table width="100%" cellpadding="0" cellspacing="0" style="border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; margin-bottom: 20px; font-size: 13px;">
+          <tr style="background-color: #f3f4f6;"><th style="padding: 8px 12px; text-align: left;">Employee</th><th style="padding: 8px 12px; text-align: left;">Expires</th><th style="padding: 8px 12px; text-align: left;">Days Left</th></tr>
+          ${expiringRows}
+        </table>`
+            : ""
+        }
+
+        ${
+          alerts.overdueMvr.length > 0
+            ? `
+        <h3 style="color: #d97706; margin: 20px 0 10px 0; font-size: 15px;">&#128203; Overdue MVR Checks (${alerts.overdueMvr.length})</h3>
+        <table width="100%" cellpadding="0" cellspacing="0" style="border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; margin-bottom: 20px; font-size: 13px;">
+          <tr style="background-color: #f3f4f6;"><th style="padding: 8px 12px; text-align: left;">Employee</th><th style="padding: 8px 12px; text-align: left;">MVR Due Date</th></tr>
+          ${mvrRows}
+        </table>`
+            : ""
+        }
+
+        ${alerts.pendingCount > 0 ? `<p style="margin: 0 0 10px 0; font-size: 14px; color: #4b5563;">&#128260; <strong>${alerts.pendingCount}</strong> driver(s) with pending authorization</p>` : ""}
+        ${alerts.missingConsentCount > 0 ? `<p style="margin: 0 0 10px 0; font-size: 14px; color: #4b5563;">&#128221; <strong>${alerts.missingConsentCount}</strong> driver(s) missing consent on file</p>` : ""}
+
+        <p style="margin: 20px 0 0 0; font-size: 12px; color: #9ca3af;">
+          Log in to the MH Construction dashboard to take action on these items.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: #f3f4f6; padding: 20px 30px; text-align: center;">
+        <p style="margin: 0; font-size: 12px; color: #6b7280;">MH Construction, Inc. | ${COMPANY_INFO.phone.display} | ${COMPANY_INFO.email.main}</p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
+  const expiringText = alerts.expiringLicenses
+    .map(
+      (d) =>
+        `  - ${d.employee_name}: expires ${d.license_expiration_date} (${d.days_until} days)`,
+    )
+    .join("\n");
+  const mvrText = alerts.overdueMvr
+    .map((d) => `  - ${d.employee_name}: due ${d.next_mvr_check_date}`)
+    .join("\n");
+
+  const text = `Driver Monitoring Daily Report - ${totalIssues} Items Need Attention
+
+${alerts.expiringLicenses.length > 0 ? `EXPIRING LICENSES (${alerts.expiringLicenses.length}):\n${expiringText}\n\n` : ""}${alerts.overdueMvr.length > 0 ? `OVERDUE MVR CHECKS (${alerts.overdueMvr.length}):\n${mvrText}\n\n` : ""}${alerts.pendingCount > 0 ? `PENDING AUTHORIZATIONS: ${alerts.pendingCount}\n` : ""}${alerts.missingConsentCount > 0 ? `MISSING CONSENT: ${alerts.missingConsentCount}\n` : ""}
+Log in to the MH Construction dashboard to take action.
+
+MH Construction, Inc. | ${COMPANY_INFO.phone.display}`;
+
+  return { subject, html, text };
+}

@@ -26,9 +26,20 @@ const ROOT       = resolve(__dirname, '../..');
 const OUTPUT_DIR = join(ROOT, 'documents/output');
 const SECTIONS   = join(OUTPUT_DIR, 'sections');
 const OUT_FILE   = join(OUTPUT_DIR, 'safety-manual-complete.pdf');
+const OUT_FILE_DIGITAL = join(OUTPUT_DIR, 'safety-manual-digital.pdf');
 
-async function main() {
-  console.log('📦 MH Construction — Safety Manual Merge');
+// ── CLI flags ─────────────────────────────────────────────────────────────
+const noTabs = process.argv.includes('--no-tabs');
+
+/**
+ * Merge safety manual PDFs into a single downloadable file.
+ * @param {object} opts
+ * @param {boolean} opts.includeTabs  Whether to include tab divider pages
+ * @param {string}  opts.outFile      Absolute path for the output PDF
+ * @param {string}  opts.title        Document metadata title
+ */
+async function merge({ includeTabs, outFile, title }) {
+  console.log(`📦 MH Construction — Safety Manual Merge${includeTabs ? '' : ' (Digital — no tabs)'}`);
   console.log('==========================================\n');
 
   // ── Validate required inputs exist ──────────────────────────────────────
@@ -39,7 +50,7 @@ async function main() {
     console.error('❌  Cover PDF not found. Run `npm run docs:generate` first.');
     process.exit(1);
   }
-  if (!existsSync(tabsPath)) {
+  if (includeTabs && !existsSync(tabsPath)) {
     console.error('❌  Tabs PDF not found. Run `npm run docs:generate` first.');
     process.exit(1);
   }
@@ -64,14 +75,16 @@ async function main() {
   }
 
   console.log(`  Cover:    safety-manual-cover.pdf`);
-  console.log(`  Tabs:     safety-manual-tabs.pdf`);
+  if (includeTabs) {
+    console.log(`  Tabs:     safety-manual-tabs.pdf`);
+  }
   console.log(`  Sections: ${sectionFiles.length} PDFs (${sectionFiles[0]} … ${sectionFiles.at(-1)})\n`);
 
   // ── Create merged document ──────────────────────────────────────────────
   const merged = await PDFDocument.create();
 
   // Set document metadata
-  merged.setTitle('MH Construction Safety Manual — Complete');
+  merged.setTitle(title);
   merged.setSubject('Accident · Injury · Safety · Health Program');
   merged.setAuthor('MH Construction, Inc.');
   merged.setCreator('MH Construction Document Pipeline');
@@ -95,8 +108,10 @@ async function main() {
   // 1. Cover page
   await appendPdf('Cover', coverPath);
 
-  // 2. Tab dividers
-  await appendPdf('Tab Dividers', tabsPath);
+  // 2. Tab dividers (skip for digital/no-tabs variant)
+  if (includeTabs) {
+    await appendPdf('Tab Dividers', tabsPath);
+  }
 
   // 3. All section PDFs in order (00–44)
   for (const file of sectionFiles) {
@@ -106,14 +121,32 @@ async function main() {
 
   // ── Write merged PDF ───────────────────────────────────────────────────
   const mergedBytes = await merged.save();
-  await writeFile(OUT_FILE, mergedBytes);
+  await writeFile(outFile, mergedBytes);
 
   const sizeMB = (mergedBytes.length / (1024 * 1024)).toFixed(1);
   const totalPages = merged.getPageCount();
-  const rel = OUT_FILE.replace(ROOT + '/', '');
+  const rel = outFile.replace(ROOT + '/', '');
 
   console.log(`\n✅  Merged PDF: ${rel}`);
   console.log(`    ${totalPages} pages · ${sizeMB} MB`);
+}
+
+async function main() {
+  if (noTabs) {
+    // Digital variant: cover + sections only (no tabs, no spine)
+    await merge({
+      includeTabs: false,
+      outFile: OUT_FILE_DIGITAL,
+      title: 'MH Construction Safety Manual — Digital',
+    });
+  } else {
+    // Default: complete binder version (cover + tabs + sections)
+    await merge({
+      includeTabs: true,
+      outFile: OUT_FILE,
+      title: 'MH Construction Safety Manual — Complete',
+    });
+  }
 }
 
 main().catch(err => {

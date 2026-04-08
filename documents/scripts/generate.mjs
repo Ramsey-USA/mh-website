@@ -356,7 +356,8 @@ async function generateCover() {
   console.log('\n📄 Generating cover…');
   await ensureDir(OUTPUT_DIR);
   const raw     = await readFile(join(DOCS_DIR, 'manuals/safety-manual-cover.html'), 'utf-8');
-  const html    = applyBrandTokens(raw);
+  const qrDataUrl = await buildQrDataUrl(BRAND.qrCodes.digitalManual);
+  const html    = applyBrandTokens(raw).replace('{{QR_DIGITAL_MANUAL}}', qrDataUrl);
   const pdfPath = join(OUTPUT_DIR, 'safety-manual-cover.pdf');
   await renderHtmlToPdf(html, pdfPath, { margin: { top: 0, right: 0, bottom: 0, left: 0 } }, '_tmp_cover.html');
 }
