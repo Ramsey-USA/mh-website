@@ -339,7 +339,9 @@ function getClientIP(request: NextRequest): string {
 function applyBasicSecurityHeaders(response: NextResponse): NextResponse {
   response.headers.set("X-Frame-Options", "DENY");
   response.headers.set("X-Content-Type-Options", "nosniff");
-  response.headers.set("X-XSS-Protection", "1; mode=block");
+  // "0" disables the legacy XSS auditor; modern browsers use CSP instead.
+  // "1; mode=block" can introduce filter-bypass vulnerabilities in older browsers.
+  response.headers.set("X-XSS-Protection", "0");
   response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
 
   return response;
