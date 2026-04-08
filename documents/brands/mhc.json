@@ -1,0 +1,42 @@
+{
+  "id": "mhc",
+  "companyName": "MH Construction, Inc.",
+  "companyShort": "MH Construction",
+  "tagline": "Veteran-Owned General Contractor",
+  "veteranOwned": true,
+  "address": "3111 N. Capitol Ave., Pasco, WA 99301",
+  "addressStreet": "3111 N. Capitol Ave.",
+  "addressCityStateZip": "Pasco, WA 99301",
+  "phone": "(509) 308-6489",
+  "website": "www.mhc-gc.com",
+  "email": "office@mhc-gc.com",
+  "revisionYear":   "2026",
+  "revisionNumber": "2",
+  "revisionDate":   "04/07/2026",
+  "licenses": {
+    "WA": "MHCONCI907R7",
+    "OR": "765043-99",
+    "ID": "RCE-49250"
+  },
+  "colors": {
+    "primary":        "#386851",
+    "primaryDark":    "#1E392C",
+    "primaryDarker":  "#12231b",
+    "primaryLight":   "#628F79",
+    "secondary":      "#BD9264",
+    "secondaryLight": "#D9BD93",
+    "secondaryText":  "#8A6B49",
+    "bronze":         "#A87948",
+    "bronzeLight":    "#CD9B6D",
+    "bronzeDark":     "#6B4E2E"
+  },
+  "logo": {
+    "white":  "../assets/logo-white.png",
+    "color":  "../assets/logo-color.png",
+    "darkBg": "../assets/logo-dark-bg.png"
+  },
+  "partnerLogos": {
+    "agcHorizontal": "../assets/nwagc-logo.png",
+    "agcStacked":    "../assets/nwagc-logo-stacked.png"
+  }
+}

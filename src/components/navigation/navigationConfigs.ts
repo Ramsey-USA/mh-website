@@ -480,6 +480,45 @@ export const navigationConfigs = {
       icon: "groups",
     },
   ],
+
+  safety: [
+    {
+      href: "#credentials",
+      label: "Credentials",
+      mobileLabel: "Creds",
+      icon: "workspace_premium",
+    },
+    {
+      href: "#program",
+      label: "Written Program",
+      mobileLabel: "Program",
+      icon: "menu_book",
+    },
+    {
+      href: "#performance",
+      label: "Safety Record",
+      mobileLabel: "Record",
+      icon: "shield",
+    },
+    {
+      href: "#evidence",
+      label: "Active Use",
+      mobileLabel: "Active",
+      icon: "fact_check",
+    },
+    {
+      href: "#compliance",
+      label: "Compliance",
+      mobileLabel: "Comply",
+      icon: "verified",
+    },
+    {
+      href: "/safety/hub",
+      label: "Staff Access",
+      mobileLabel: "Staff",
+      icon: "lock",
+    },
+  ],
 };
 
 export type PageType = keyof typeof navigationConfigs;

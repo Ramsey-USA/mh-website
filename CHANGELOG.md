@@ -4,6 +4,22 @@ All notable changes to the MH Construction website are documented here.
 
 ---
 
+## April 2026
+
+- **Apr 8:** Documentation audit — corrected `docs/technical/dark-mode-implementation-guide.md`
+  file path (`ThemeContext.tsx` → `theme-context.tsx`); updated
+  `docs/technical/admin-password-security.md` to reflect demo account removed, production auth
+  uses `ADMIN_EMAILS` dict with constant-time HMAC comparison, and priority changed from CRITICAL
+  to informational; added `/resources`, `/resources/safety-manual`, and `/resources/safety-program`
+  pages to `docs/project/architecture.md` and `docs/technical/browser-tab-titles-inventory.md`;
+  updated stale `Last Updated` headers in `docs/technical/analytics-tracking-guide.md`; fixed
+  failing sitemap test (`getMediaPriority returns 0.7 for all known important keywords`) — inlined
+  the keyword array in the jest mock factory to eliminate a closure/hoisting ambiguity; bumped
+  Next.js version reference in README (15.5.12 → 15.5.14); updated README project status date to
+  April 8, 2026
+
+---
+
 ## March 2026
 
 - **Mar 28:** Test coverage campaign (phase 2) — added 26 new tests across 4 new/updated suites,

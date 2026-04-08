@@ -85,6 +85,11 @@ const ACTIVE_PAGES = [
   { path: "/careers", priority: 0.7, changeFreq: "weekly" as const },
   { path: "/allies", priority: 0.7, changeFreq: "monthly" as const },
 
+  // Priority 0.75 - Resources hub and key documentation
+  { path: "/resources", priority: 0.75, changeFreq: "monthly" as const },
+  { path: "/resources/safety-manual", priority: 0.75, changeFreq: "monthly" as const },
+  { path: "/resources/safety-program", priority: 0.75, changeFreq: "monthly" as const },
+
   // Priority 0.5 - Legal & informational pages
   { path: "/accessibility", priority: 0.5, changeFreq: "yearly" as const },
   { path: "/privacy", priority: 0.5, changeFreq: "yearly" as const },

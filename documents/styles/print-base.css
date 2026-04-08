@@ -1,0 +1,150 @@
+/**
+ * Print Base Styles
+ * @page rules, margins, page counters, running headers/footers.
+ * Import AFTER brand.css in every document template.
+ */
+
+@import url('brand.css');
+
+/* ── Page Setup ─────────────────────────────────────────── */
+@page {
+  size: letter portrait;
+  margin: var(--margin-top) var(--margin-right) var(--margin-bottom) var(--margin-left);
+
+  /* Running header */
+  @top-left {
+    content: string(document-title);
+    font-family: var(--font-heading);
+    font-size: 8pt;
+    color: var(--color-primary-dark);
+    vertical-align: bottom;
+    padding-bottom: 4pt;
+    border-bottom: 0.5pt solid var(--color-secondary);
+  }
+  @top-right {
+    content: string(section-title);
+    font-family: var(--font-heading);
+    font-size: 8pt;
+    color: var(--color-secondary-text);
+    vertical-align: bottom;
+    padding-bottom: 4pt;
+    border-bottom: 0.5pt solid var(--color-secondary);
+  }
+
+  /* Running footer */
+  @bottom-left {
+    content: "MH Construction, Inc.  |  Pasco, WA  |  Veteran Owned  |  Aligned with AGC CSEA & OSHA 29 CFR 1926";
+    font-family: var(--font-body);
+    font-size: 6.5pt;
+    color: var(--color-secondary-text);
+    vertical-align: top;
+    padding-top: 4pt;
+    border-top: 0.5pt solid var(--color-secondary);
+  }
+  @bottom-right {
+    content: "Page " counter(page) " of " counter(pages);
+    font-family: var(--font-body);
+    font-size: 7pt;
+    color: var(--color-secondary-text);
+    vertical-align: top;
+    padding-top: 4pt;
+    border-top: 0.5pt solid var(--color-secondary);
+  }
+}
+
+/* Cover pages — no header/footer, no margin offset */
+@page cover {
+  margin: 0;
+  @top-left    { content: none; border: none; }
+  @top-right   { content: none; border: none; }
+  @bottom-left { content: none; border: none; }
+  @bottom-right{ content: none; border: none; }
+}
+
+/* Spine page */
+@page spine {
+  margin: 0;
+  @top-left    { content: none; border: none; }
+  @top-right   { content: none; border: none; }
+  @bottom-left { content: none; border: none; }
+  @bottom-right{ content: none; border: none; }
+}
+
+/* Tab divider pages */
+@page tab {
+  margin: 0.5in 0.75in 0.5in 1.25in;
+  @top-left    { content: none; border: none; }
+  @top-right   { content: none; border: none; }
+  @bottom-left { content: none; border: none; }
+  @bottom-right{ content: none; border: none; }
+}
+
+/* ── Base Reset ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 10pt;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: white;
+}
+
+/* Page break helpers */
+.page-break-before { page-break-before: always; break-before: page; }
+.page-break-after  { page-break-after:  always; break-after:  page; }
+.no-break          { page-break-inside: avoid; break-inside: avoid; }
+.keep-together     { page-break-inside: avoid; break-inside: avoid; }
+
+/* Named string definitions (picked up by @page running headers) */
+.document-title-string { string-set: document-title content(); }
+.section-title-string  { string-set: section-title content(); }
+
+/* ── Typography Scale ───────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+h1 { font-size: 22pt; color: var(--color-primary-dark); margin: 0 0 12pt; }
+h2 { font-size: 16pt; color: var(--color-primary);      margin: 16pt 0 8pt; }
+h3 { font-size: 13pt; color: var(--color-primary-dark); margin: 12pt 0 6pt; }
+h4 { font-size: 11pt; color: var(--color-bronze-dark);  margin: 10pt 0 4pt; }
+h5 { font-size: 10pt; color: #333;                      margin: 8pt  0 4pt; }
+h6 { font-size: 9pt;  color: #555;                      margin: 6pt  0 3pt; }
+
+p  { margin: 0 0 8pt; orphans: 3; widows: 3; }
+ul, ol { margin: 0 0 8pt 18pt; padding: 0; }
+li { margin-bottom: 3pt; }
+
+a  { color: var(--color-primary); text-decoration: none; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10pt;
+  font-size: 9.5pt;
+}
+th {
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: bold;
+  padding: 5pt 7pt;
+  text-align: left;
+  border: 0.5pt solid var(--color-primary-dark);
+}
+td {
+  padding: 4pt 7pt;
+  border: 0.5pt solid #ccc;
+  vertical-align: top;
+}
+tr:nth-child(even) td {
+  background-color: #f7f7f7;
+}

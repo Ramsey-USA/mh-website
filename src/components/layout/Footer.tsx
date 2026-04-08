@@ -11,6 +11,7 @@ import {
   TrackedLocationLink,
 } from "@/components/analytics/TrackedContactLinks";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { DASHBOARD_ACCESS_CODE } from "@/lib/constants/dashboard-access";
 import { trackFormSubmit } from "@/lib/analytics/tracking";
 
 type FooterNavItem = {
@@ -90,7 +91,7 @@ const navCol2Links: FooterNavItem[] = [
     sub: "Commendations",
   },
   {
-    href: "/about",
+    href: "/safety",
     icon: "verified_user",
     label: "Safety",
     sub: "Force Protection",
@@ -386,6 +387,8 @@ function LicenseBadge() {
 
 export default function Footer() {
   const [showAdminModal, setShowAdminModal] = useState(false);
+  const [accessCode, setAccessCode] = useState("");
+  const [accessCodeError, setAccessCodeError] = useState("");
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterStatus, setNewsletterStatus] = useState<
     "idle" | "submitting" | "success" | "error"
@@ -425,6 +428,18 @@ export default function Footer() {
       window.clearTimeout(timeoutId);
     };
   }, [newsletterStatus]);
+
+  const handleAccessCodeSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (accessCode.trim().toUpperCase() === DASHBOARD_ACCESS_CODE.toUpperCase()) {
+      setAccessCode("");
+      setAccessCodeError("");
+      setShowAdminModal(true);
+    } else {
+      setAccessCodeError("Invalid access code");
+      setAccessCode("");
+    }
+  };
 
   const handleNewsletterSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -538,33 +553,60 @@ export default function Footer() {
                   />
                 </a>
 
-                {/* Service Areas */}
-                <nav
-                  aria-label="Service areas"
-                  className="mt-4 rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-3 py-2.5"
-                >
+                {/* Staff Portal Access */}
+                <div className="mt-4 rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-3 py-2.5">
                   <div className="mb-2 flex items-center gap-1.5">
                     <MaterialIcon
-                      icon="location_on"
+                      icon="lock"
                       size="sm"
                       className="text-brand-secondary dark:text-brand-secondary-light"
                     />
                     <span className="text-xs font-bold uppercase tracking-wide text-brand-primary">
-                      Service Areas
+                      Staff Portal
                     </span>
                   </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {linkedCities.map((city) => (
-                      <Link
-                        key={city.href}
-                        href={city.href}
-                        className="rounded-md bg-brand-primary/10 px-2 py-0.5 text-xs text-gray-300 transition-colors hover:bg-brand-primary/25 hover:text-brand-primary dark:bg-brand-primary/15 dark:hover:bg-brand-primary/30"
-                      >
-                        {city.name}
-                      </Link>
-                    ))}
-                  </div>
-                </nav>
+                  <form
+                    onSubmit={handleAccessCodeSubmit}
+                    className="flex gap-1.5"
+                    aria-label="Dashboard access"
+                  >
+                    <label
+                      htmlFor="footer-access-code"
+                      className="sr-only"
+                    >
+                      Access code
+                    </label>
+                    <input
+                      id="footer-access-code"
+                      type="password"
+                      placeholder="Access code"
+                      value={accessCode}
+                      onChange={(e) => setAccessCode(e.target.value)}
+                      autoComplete="off"
+                      className="min-w-0 flex-1 rounded bg-gray-900/60 border border-gray-700 px-2 py-1.5 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-brand-primary transition-colors"
+                    />
+                    <button
+                      type="submit"
+                      aria-label="Submit access code"
+                      className="flex flex-shrink-0 items-center justify-center rounded border border-brand-secondary/50 bg-brand-primary hover:bg-brand-primary-dark px-2 py-1.5 transition-colors touch-manipulation"
+                    >
+                      <MaterialIcon
+                        icon="arrow_forward"
+                        size="sm"
+                        className="text-brand-secondary"
+                      />
+                    </button>
+                  </form>
+                  {accessCodeError && (
+                    <p
+                      role="alert"
+                      aria-live="assertive"
+                      className="mt-1.5 text-[10px] text-red-400"
+                    >
+                      {accessCodeError}
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
 

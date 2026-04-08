@@ -91,3 +91,5 @@ seo-audit-report.json
 # package-lock.json
 # yarn.lock
 # pnpm-lock.yaml
+documents/output/
+documents/content/safety-manual.json

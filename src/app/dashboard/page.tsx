@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { usePageTracking } from "@/lib/analytics/hooks";
+import { SafetyTab } from "./SafetyTab";
 
 interface DashboardData {
   pageviews: {
@@ -50,6 +51,7 @@ export default function AnalyticsDashboardPage() {
     null,
   );
   const [error, setError] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<"analytics" | "safety">("analytics");
 
   useEffect(() => {
     const token = localStorage.getItem("admin_token");
@@ -136,8 +138,35 @@ export default function AnalyticsDashboardPage() {
         </div>
       </header>
 
+      {/* Tab bar */}
+      <div className="bg-gray-900/80 border-b border-gray-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex gap-1 py-2">
+            {(["analytics", "safety"] as const).map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-5 py-2 rounded-lg text-sm font-black uppercase tracking-wider transition-colors ${
+                  activeTab === tab
+                    ? "bg-brand-primary text-white"
+                    : "text-gray-400 hover:text-white hover:bg-gray-700"
+                }`}
+              >
+                {tab === "analytics" ? (
+                  <span className="flex items-center gap-2"><MaterialIcon icon="dashboard" size="sm" />Analytics</span>
+                ) : (
+                  <span className="flex items-center gap-2"><MaterialIcon icon="safety_check" size="sm" />Safety</span>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {isLoading ? (
+        {activeTab === "safety" ? (
+          <SafetyTab token={localStorage.getItem("admin_token") ?? ""} />
+        ) : isLoading ? (
           <div className="flex items-center justify-center py-20">
             <div className="text-center">
               <MaterialIcon
@@ -417,6 +446,7 @@ export default function AnalyticsDashboardPage() {
             </div>
           </div>
         )}
+        )
       </main>
     </div>
   );

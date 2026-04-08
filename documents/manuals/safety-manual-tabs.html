@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MH Construction — Safety Manual Tab Dividers</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    @page {
+      size: letter portrait;
+      margin: 0;
+    }
+    html, body {
+      margin: 0; padding: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: white;
+    }
+
+    /* Each tab divider is a full page */
+    .tab-page {
+      width: 8.5in;
+      height: 11in;
+      page-break-after: always;
+      break-after: page;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .tab-page:last-child {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    /* Bronze left accent bar */
+    .tab-accent {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 0.18in;
+      background: linear-gradient(180deg, #A87948, #BD9264, #A87948);
+      z-index: 10;
+    }
+
+    /* Full bleed hero */
+    .tab-hero {
+      flex: 1;
+      background: linear-gradient(155deg, #1E392C 0%, #386851 55%, #628F79 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1.2in;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Subtle diagonal stripe overlay */
+    .tab-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(255,255,255,0.015) 0px,
+        rgba(255,255,255,0.015) 1px,
+        transparent 1px,
+        transparent 10px
+      );
+    }
+
+    .tab-logo {
+      height: 0.7in;
+      width: auto;
+      margin-bottom: 0.25in;
+      position: relative;
+      z-index: 1;
+      filter: brightness(0) invert(1);
+      opacity: 0.75;
+    }
+
+    .tab-rule {
+      width: 2in;
+      height: 2pt;
+      background: linear-gradient(90deg, transparent, #BD9264, transparent);
+      border-radius: 1pt;
+      margin-bottom: 0.2in;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tab-section-number {
+      font-size: 88pt;
+      font-weight: 900;
+      color: rgba(255,255,255,0.12);
+      line-height: 1;
+      margin-bottom: 0.06in;
+      position: relative;
+      z-index: 1;
+      letter-spacing: -2pt;
+    }
+
+    .tab-section-label {
+      font-size: 8pt;
+      color: #D9BD93;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.06in;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tab-section-title {
+      font-size: 24pt;
+      font-weight: 800;
+      color: white;
+      line-height: 1.15;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    /* Bottom bar */
+    .tab-footer {
+      background: #12231b;
+      padding: 0.14in 0.6in 0.14in 0.4in;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tab-footer-company {
+      color: #BD9264;
+      font-size: 8pt;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+    .tab-footer-right {
+      color: #6B4E2E;
+      font-size: 7.5pt;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Section 00: Table of Contents -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">00</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Table of Contents</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 01 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">01</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Injury-Free Workplace Plan</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 02 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">02</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Drug-Free Workplace</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 03 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">03</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Program Policy and Requirements</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 04 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">04</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Safety and Health Orientation</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 05 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">05</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Pre-Job Safety Planning</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 06 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">06</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Emergency Response</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 07 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">07</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Safety Bulletin Boards</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 08 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">08</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Event Reporting of Incidents, Accidents &amp; Near Misses</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 09 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">09</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Safety and Health Meetings / Inspections</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 10 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">10</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Personal Protective Equipment (PPE)</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 11 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">11</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Fall Protection</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 12 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">12</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Flammable and Combustible Liquids</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 13 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">13</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Fire Prevention</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 14 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">14</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Welding, Cutting, and Heating Operations</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 15 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">15</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Lockout / Tagout (LOTO)</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 16 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">16</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Confined Space Entry</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 17 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">17</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Use and Care of Ladders</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 18 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">18</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Motor Vehicle Safety Program</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 19 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">19</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Equipment Maintenance and Inspection</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 20 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">20</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Aerial Lifts and Elevating Work Platforms</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 21 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">21</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Crane-Suspended Work Platforms</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 22 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">22</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Use and Handling of Scaffolds</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 23 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">23</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Industrial Hygiene Program</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 24 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">24</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Contractor Hazard Communication Program</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 25 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">25</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Heat-Related Illness Prevention</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 26 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">26</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Excavation, Trenching, and Shoring</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 27 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">27</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Construction Equipment Modifications and Fabrications</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 28 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">28</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Housekeeping</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 29 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">29</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Electrical Safety</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 30 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">30</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Signs, Signals, and Barricades</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 31 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">31</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Miscellaneous Construction Requirements</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 32 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">32</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Respiratory Protection</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 33 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">33</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Floor Openings, Open-Sided Surfaces, and Ramps</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 34 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">34</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Compressed Gas / Compressed Air</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 35 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">35</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Rigging</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 36 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">36</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Hand and Portable Power Tools</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 37 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">37</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Concrete and Masonry Construction</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 38 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">38</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Commercial Drivers Drug and Alcohol Program</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 39 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">39</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Subcontractor Management Plan</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 40 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">40</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Waste Management Plan</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 41 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">41</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Short Service Employee Program</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 42 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">42</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Forklift / Truck Safety</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 43 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">43</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Bloodborne Pathogens</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+  <!-- Section 44 -->
+  <div class="tab-page">
+    <div class="tab-accent"></div>
+    <div class="tab-hero">
+      <img class="tab-logo" src="../assets/logo-white.png" alt="MH Construction" />
+      <div class="tab-rule"></div>
+      <div class="tab-section-number">44</div>
+      <div class="tab-section-label">Section</div>
+      <div class="tab-section-title">Silica Exposure Control</div>
+    </div>
+    <div class="tab-footer">
+      <span class="tab-footer-company">MH Construction, Inc. — Safety Manual 2026</span>
+      <span class="tab-footer-right">www.mhc-gc.com</span>
+    </div>
+  </div>
+
+</body>
+</html>

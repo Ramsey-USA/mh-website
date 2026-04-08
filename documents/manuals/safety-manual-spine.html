@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{BRAND_COMPANY_NAME}} — Safety Manual Spine</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    @page {
+      size: letter portrait;
+      margin: 0;
+    }
+    html, body {
+      margin: 0; padding: 0;
+      width: 8.5in; height: 11in;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: white;
+    }
+
+    /* Full page centered layout */
+    .page {
+      width: 8.5in;
+      height: 11in;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8f5f0;
+    }
+
+    /* Crop mark helpers */
+    .crop-area {
+      position: relative;
+      /* 1.5in wide × 10.75in tall — standard 1.5" binder spine pocket */
+      width: 1.5in !important;
+      height: 10.75in !important;
+    }
+
+    /* Dashed crop marks outside the spine strip */
+    .crop-area::before,
+    .crop-area::after {
+      content: '';
+      position: absolute;
+      top: -0.15in;
+      bottom: -0.15in;
+      width: 0;
+      border-left: 0.5pt dashed #aaa;
+    }
+    .crop-area::before { left: -0.12in; }
+    .crop-area::after  { right: -0.12in; }
+
+    /* Horizontal crop marks */
+    .crop-h-top,
+    .crop-h-bottom {
+      position: absolute;
+      left: -0.15in;
+      right: -0.15in;
+      height: 0;
+      border-top: 0.5pt dashed #aaa;
+    }
+    .crop-h-top    { top: -0.12in; }
+    .crop-h-bottom { bottom: -0.12in; }
+
+    /* The spine strip itself */
+    .spine {
+      width: 100%;
+      height: 100%;
+      background: {{BRAND_COLOR_PRIMARY}};
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.15in 0;
+      overflow: hidden;
+    }
+
+    /* Everything reads bottom-to-top when binder is on shelf */
+    .spine-content {
+      /* Rotate so text reads upward from the bottom of the binder spine */
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0.15in 0;
+    }
+
+    .spine-logo {
+      height: 0.65in;
+      width: auto;
+      flex-shrink: 0;
+      filter: brightness(0) invert(1);
+    }
+
+    .spine-rule {
+      width: 1.5pt;
+      flex: 0 0 0.12in;
+      background: rgba(189,146,100,0.6);
+      align-self: stretch;
+      margin: 0 auto;
+    }
+
+    .spine-title {
+      color: white;
+      font-size: 13pt;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    }
+
+    .spine-rule2 {
+      width: 1.5pt;
+      flex: 0 0 0.05in;
+      background: rgba(189,146,100,0.4);
+      align-self: stretch;
+      margin: 0 auto;
+    }
+
+    .spine-company {
+      color: {{BRAND_COLOR_SECONDARY}};
+      font-size: 7.5pt;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .spine-year {
+      color: rgba(255,255,255,0.45);
+      font-size: 7pt;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+
+    /* Trim instructions label */
+    .trim-label {
+      position: absolute;
+      top: 50%;
+      left: -1.1in;
+      transform: translateY(-50%) rotate(-90deg);
+      font-size: 6.5pt;
+      color: #888;
+      white-space: nowrap;
+      letter-spacing: 0.08em;
+    }
+
+    .instructions {
+      position: absolute;
+      bottom: 0.1in;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 6pt;
+      color: #999;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="crop-area">
+      <div class="crop-h-top"></div>
+      <div class="crop-h-bottom"></div>
+
+      <div class="spine">
+        <div class="spine-content">
+          <img class="spine-logo" src="{{BRAND_LOGO_WHITE}}" alt="{{BRAND_COMPANY_SHORT}}" />
+          <div class="spine-rule"></div>
+          <span class="spine-title">Safety Manual</span>
+          <div class="spine-rule2"></div>
+          <span class="spine-company">{{BRAND_COMPANY_NAME}}</span>
+          <div class="spine-rule2"></div>
+          <span class="spine-year">{{BRAND_REVISION_YEAR}}</span>
+        </div>
+      </div>
+
+      <span class="trim-label">Trim on dashed lines — insert into 1.5" binder spine pocket</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -36,7 +36,7 @@ MH Construction website. All implementation follows the branding guidelines spec
 
 The website uses a custom ThemeProvider built on React Context:
 
-**Location:** `src/contexts/ThemeContext.tsx`
+**Location:** `src/contexts/theme-context.tsx`
 
 **Features:**
 

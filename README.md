@@ -56,7 +56,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ---
 
-## Project Status (April 1, 2026)
+## Project Status (April 8, 2026)
 
 ### Production-Ready Platform
 
@@ -79,6 +79,10 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 ### Recent Changes
 
 See [CHANGELOG.md](CHANGELOG.md) for the full history of changes.
+
+**Apr 8 highlights:** Documentation audit — corrected stale file paths, resolved
+demo-account security status, added /resources pages to architecture inventory,
+fixed failing sitemap test (mock closure issue).
 
 **Mar 26 highlights:** Build hygiene (`veterans/page.tsx` preload fix),
 Partnership Guide chatbot (Cloudflare Workers AI), Cloudflare edge
@@ -138,7 +142,7 @@ improvements.
 
 ### Core Framework
 
-- **Next.js** 15.5.12 (App Router)
+- **Next.js** 15.5.14 (App Router)
 - **React** 19.x (^19.0.0)
 - **TypeScript** 5.9.2 (strict mode)
 - **Tailwind CSS** 3.4.19
@@ -576,5 +580,5 @@ Jeremy Thamert, continuing 16 years of construction excellence with renewed vete
 
 ---
 
-**Last Updated:** March 31, 2026  
+**Last Updated:** April 8, 2026  
 **Documentation Version:** 4.0 (README + CHANGELOG split)

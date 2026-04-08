@@ -2,8 +2,8 @@
 
 ## Rotating Default Credentials for Production
 
-**Last Updated:** December 26, 2025  
-**Priority:** 🔴 CRITICAL - Required before production deployment
+**Last Updated:** April 8, 2026  
+**Priority:** ℹ️ Informational — production credentials are in place
 
 ---
 
@@ -37,10 +37,8 @@ deployment.**
 
 #### Issue 3: Demo Account Exposure
 
-- **Status:** ⚠️ DOCUMENTED (must remove before production)
-- **Current:** `demo@mhc-gc.com` / `demo123` hardcoded in code
-- **Risk:** Anyone can access demo features
-- **Action Required:** Remove demo account or add IP whitelist before production
+- **Status:** ✅ RESOLVED — demo account removed
+- **Fix:** `admin-login/route.ts` now uses `ADMIN_EMAILS` dict (matt@ / jeremy@ only); all passwords resolved at request-time from env vars; throws in production if vars are missing
 
 ---
 
@@ -360,19 +358,21 @@ The admin authentication is implemented in:
    - File: [`src/app/dashboard/page.tsx`](../../src/app/dashboard/page.tsx)
    - Protected route with authentication check
 
-**Default password logic:**
+**Current auth pattern:**
 
 ```typescript
 // src/app/api/auth/admin-login/route.ts
-const ADMIN_USERS = [
-  {
-    email: "matt@mhc-gc.com",
-    name: "Matt",
-    // Falls back to "admin123" if not set
-    passwordHash: process.env.ADMIN_MATT_PASSWORD || "admin123",
-  },
-  // ...
-];
+const ADMIN_EMAILS: Record<string, string> = {
+  "matt@mhc-gc.com": "Matt",
+  "jeremy@mhc-gc.com": "Jeremy",
+};
+
+const ADMIN_ENV_KEYS: Record<string, string> = {
+  "matt@mhc-gc.com": "ADMIN_MATT_PASSWORD",
+  "jeremy@mhc-gc.com": "ADMIN_JEREMY_PASSWORD",
+};
+// resolveAdminPassword() throws in production if the env var is missing.
+// In local dev it returns a non-matching placeholder — no hardcoded fallback.
 ```
 
 ---
@@ -414,13 +414,12 @@ const ADMIN_USERS = [
 
 ### Password Hashing Roadmap
 
-**Current State (Phase 1 - Development):**
+**Current State (Phase 1 - Production):**
 
 ```typescript
-// Plain text comparison (NOT production-ready)
-if (adminUser.passwordHash !== password) {
-  return unauthorized();
-}
+// Constant-time HMAC comparison (timing-safe, Edge Runtime compatible)
+const passwordMatch = await timingSafeEqual(storedPassword, password);
+if (!adminName || !passwordMatch) { return unauthorized(); }
 ```
 
 **Future Implementation (Phase 2 - Production):**

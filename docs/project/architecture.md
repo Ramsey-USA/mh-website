@@ -1,7 +1,7 @@
 # MH Construction - Architecture Documentation
 
 **Category:** Project - Architecture  
-**Last Updated:** March 26, 2026  
+**Last Updated:** April 8, 2026  
 **Version:** 1.0.0  
 **Status:** ✅ Active
 
@@ -27,6 +27,9 @@
 - ✅ **Terms of Service** (`/src/app/terms/page.tsx`) - Terms of service
 - ✅ **Accessibility Statement** (`/src/app/accessibility/page.tsx`) - WCAG accessibility info
 - ✅ **Offline Page** (`/src/app/offline/page.tsx`) - PWA offline fallback
+- ✅ **Resources Hub** (`/src/app/resources/page.tsx`) - Field resources and documentation index
+- ✅ **Safety Manual** (`/src/app/resources/safety-manual/page.tsx`) - Interactive safety manual viewer
+- ✅ **Safety Program** (`/src/app/resources/safety-program/page.tsx`) - Safety program documentation
 
 ### **Location Pages** (Service Area)
 

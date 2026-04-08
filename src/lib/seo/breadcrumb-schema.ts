@@ -78,6 +78,10 @@ export const breadcrumbPatterns = {
     { name: "Home", url: "https://www.mhc-gc.com" },
     { name: "FAQ", url: "https://www.mhc-gc.com/faq" },
   ],
+  safety: [
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Safety Hub", url: "https://www.mhc-gc.com/safety" },
+  ],
   accessibility: [
     { name: "Home", url: "https://www.mhc-gc.com" },
     { name: "Accessibility", url: "https://www.mhc-gc.com/accessibility" },

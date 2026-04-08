@@ -1,0 +1,133 @@
+name: Generate Safety Manual PDFs
+
+# Triggered automatically when document source files change on main,
+# OR manually via the GitHub UI with an optional single-section override.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'documents/**'
+      - 'package.json'
+  workflow_dispatch:
+    inputs:
+      section:
+        description: 'Single MISH section number to regenerate (leave blank for all)'
+        required: false
+        default: ''
+      brand:
+        description: 'Brand ID to generate (mhc | hdd)'
+        required: false
+        default: 'mhc'
+
+permissions:
+  contents: write   # Needed to push generated PDFs back to the repo
+
+env:
+  NODE_VERSION: '22'
+
+jobs:
+  generate-pdfs:
+    name: Generate & Publish PDFs
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Checkout (full history for accurate revision counting) ─────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ── 2. Node.js setup ─────────────────────────────────────────────────
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      # ── 3. Chromium system dependencies (required by Puppeteer) ──────────
+      - name: Install Chromium system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            libatk-bridge2.0-0 libatk1.0-0 libcups2 libdbus-1-3 \
+            libgbm1 libgtk-3-0 libnss3 libx11-6 libx11-xcb1 \
+            libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 \
+            libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 \
+            xdg-utils ca-certificates fonts-liberation libappindicator3-1 \
+            libasound2 libpango-1.0-0 libpangocairo-1.0-0
+
+      # ── 4. Install npm dependencies ───────────────────────────────────────
+      - name: Install dependencies
+        run: npm ci
+
+      # ── 5. Resolve commit revision metadata ──────────────────────────────
+      - name: Resolve revision metadata from git log
+        id: rev
+        run: |
+          REV_DATE=$(git log -1 --format="%cd" --date=format:"%m/%d/%Y")
+          REV_NUM=$(git log --oneline | wc -l | tr -d ' ')
+          echo "date=$REV_DATE"   >> "$GITHUB_OUTPUT"
+          echo "number=$REV_NUM" >> "$GITHUB_OUTPUT"
+          echo "📅 Revision: $REV_NUM  |  Effective: $REV_DATE"
+
+      # ── 6. Generate cover, spine, tabs ───────────────────────────────────
+      - name: Generate cover, spine, and tab dividers
+        if: ${{ github.event.inputs.section == '' || github.event.inputs.section == null }}
+        run: |
+          BRAND="${{ github.event.inputs.brand || 'mhc' }}"
+          npm run docs:generate -- --template cover --brand "$BRAND" \
+            --rev-date "${{ steps.rev.outputs.date }}" \
+            --rev-number "${{ steps.rev.outputs.number }}"
+          npm run docs:generate -- --template spine --brand "$BRAND" \
+            --rev-date "${{ steps.rev.outputs.date }}" \
+            --rev-number "${{ steps.rev.outputs.number }}"
+          npm run docs:generate -- --template tabs  --brand "$BRAND" \
+            --rev-date "${{ steps.rev.outputs.date }}" \
+            --rev-number "${{ steps.rev.outputs.number }}"
+
+      # ── 7a. Generate ALL 45 section PDFs ─────────────────────────────────
+      - name: Generate all section PDFs
+        if: ${{ github.event.inputs.section == '' || github.event.inputs.section == null }}
+        run: |
+          BRAND="${{ github.event.inputs.brand || 'mhc' }}"
+          npm run docs:generate -- --template sections --brand "$BRAND" \
+            --rev-date "${{ steps.rev.outputs.date }}" \
+            --rev-number "${{ steps.rev.outputs.number }}"
+
+      # ── 7b. Generate a SINGLE section (manual dispatch only) ─────────────
+      - name: Generate single section PDF
+        if: ${{ github.event.inputs.section != '' && github.event.inputs.section != null }}
+        run: |
+          BRAND="${{ github.event.inputs.brand || 'mhc' }}"
+          npm run docs:generate -- --template section \
+            --section "${{ github.event.inputs.section }}" \
+            --brand "$BRAND" \
+            --rev-date "${{ steps.rev.outputs.date }}" \
+            --rev-number "${{ steps.rev.outputs.number }}"
+
+      # ── 8. Generate standalone forms ─────────────────────────────────────
+      - name: Generate standalone forms
+        if: ${{ github.event.inputs.section == '' || github.event.inputs.section == null }}
+        run: |
+          BRAND="${{ github.event.inputs.brand || 'mhc' }}"
+          npm run docs:generate -- --template toolbox-talk --brand "$BRAND" \
+            --rev-date "${{ steps.rev.outputs.date }}" \
+            --rev-number "${{ steps.rev.outputs.number }}"
+
+      # ── 9. Publish PDFs to public/docs ───────────────────────────────────
+      - name: Publish PDFs to public/docs
+        run: npm run docs:publish
+
+      # ── 10. Commit generated PDFs back to main ───────────────────────────
+      - name: Commit generated PDFs
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/docs/
+          if git diff --cached --quiet; then
+            echo "ℹ️  No PDF changes to commit."
+          else
+            git commit -m "ci(docs): regenerate PDFs — Rev ${{ steps.rev.outputs.number }} (${{ steps.rev.outputs.date }}) [skip ci]"
+            git push
+          fi

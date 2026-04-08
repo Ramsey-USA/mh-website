@@ -165,6 +165,9 @@ describe("sitemap() with media files", () => {
   });
 
   it("getMediaPriority returns 0.7 for all known important keywords", () => {
+    // Keywords defined here for the assertion loop only.
+    // The factory below inlines the same list to avoid jest.mock hoisting
+    // issues with closure references to locally-declared variables.
     const importantKeywords = [
       "zoom",
       "boom",
@@ -178,7 +181,15 @@ describe("sitemap() with media files", () => {
       existsSync: jest.fn(() => true),
       readdirSync: jest.fn((dir: string) => {
         if (dir.endsWith("images")) {
-          return importantKeywords.map((k) => ({
+          return [
+            "zoom",
+            "boom",
+            "forklift",
+            "safety",
+            "job-site",
+            "jobsite",
+            "industrial",
+          ].map((k) => ({
             name: `${k}-image.jpg`,
             isDirectory: () => false,
           }));
@@ -191,7 +202,13 @@ describe("sitemap() with media files", () => {
     };
     const entries = sitemap() as Array<{ url: string; priority: number }>;
     for (const kw of importantKeywords) {
-      const found = entries.find((e) => e.url.includes(kw));
+      // Search only within media entries to avoid matching static page URLs
+      // (e.g. /resources/safety-manual also contains "safety" at priority 0.75)
+      const found = entries.find(
+        (e) =>
+          (e.url.includes("/images/") || e.url.includes("/videos/")) &&
+          e.url.includes(kw),
+      );
       expect(found?.priority).toBe(0.7);
     }
   });

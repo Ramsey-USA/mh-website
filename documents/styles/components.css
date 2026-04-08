@@ -1,0 +1,797 @@
+/**
+ * Document Components
+ * Reusable layout blocks: callout boxes, sign-off tables,
+ * signature lines, section headers, form fields, QR placeholder.
+ * Import AFTER print-base.css.
+ */
+
+/* ── Callout Boxes ──────────────────────────────────────── */
+.callout {
+  display: flex;
+  gap: 8pt;
+  padding: 8pt 10pt;
+  border-left: 4pt solid;
+  border-radius: 2pt;
+  margin: 10pt 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.callout-icon {
+  font-size: 14pt;
+  font-weight: 900;
+  flex-shrink: 0;
+  min-width: 16pt;
+  line-height: 1.4;
+}
+.callout-body { flex: 1; }
+.callout-title {
+  font-weight: 700;
+  font-size: 9pt;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2pt;
+}
+.callout p { margin: 0; font-size: 9pt; }
+
+.callout-danger {
+  background-color: var(--color-danger-bg);
+  border-color: var(--color-danger-border);
+  color: var(--color-danger-text);
+}
+.callout-danger .callout-icon { color: var(--color-danger-icon); }
+
+.callout-warning {
+  background-color: var(--color-warning-bg);
+  border-color: var(--color-warning-border);
+  color: var(--color-warning-text);
+}
+.callout-warning .callout-icon { color: var(--color-warning-icon); }
+
+.callout-caution {
+  background-color: var(--color-caution-bg);
+  border-color: var(--color-caution-border);
+  color: var(--color-caution-text);
+}
+.callout-caution .callout-icon { color: var(--color-caution-icon); }
+
+.callout-note {
+  background-color: var(--color-note-bg);
+  border-color: var(--color-note-border);
+  color: var(--color-note-text);
+}
+.callout-note .callout-icon { color: var(--color-note-icon); }
+
+/* ── Section Number Badge ───────────────────────────────── */
+.section-badge {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 9pt;
+  font-weight: 700;
+  padding: 2pt 7pt;
+  border-radius: 2pt;
+  margin-bottom: 4pt;
+  letter-spacing: 0.05em;
+}
+
+/* ── Section Header Block ───────────────────────────────── */
+.section-header {
+  border-bottom: 2pt solid var(--color-secondary);
+  padding-bottom: 6pt;
+  margin-bottom: 10pt;
+}
+.section-header h2 {
+  margin: 0;
+  color: var(--color-primary-dark);
+}
+
+/* ── Revision History Table ─────────────────────────────── */
+.revision-table th { background-color: var(--color-primary-dark); }
+
+/* ── Signature / Sign-off Lines ─────────────────────────── */
+.signature-block {
+  margin-top: 14pt;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.signature-line {
+  display: flex;
+  gap: 12pt;
+  margin-bottom: 10pt;
+  align-items: flex-end;
+}
+.signature-field {
+  flex: 2;
+  border-bottom: 0.75pt solid #333;
+  min-height: 20pt;
+  font-size: 8pt;
+  color: #555;
+  padding-bottom: 2pt;
+}
+.signature-date {
+  flex: 1;
+  border-bottom: 0.75pt solid #333;
+  min-height: 20pt;
+  font-size: 8pt;
+  color: #555;
+  padding-bottom: 2pt;
+}
+.signature-label {
+  font-size: 7.5pt;
+  color: #666;
+  margin-top: 2pt;
+}
+
+/* ── Attendance Table ───────────────────────────────────── */
+.attendance-table {
+  margin-top: 12pt;
+}
+.attendance-table th {
+  background-color: var(--color-primary);
+  font-size: 8.5pt;
+}
+.attendance-table td {
+  height: 22pt;
+  font-size: 9pt;
+}
+.attendance-table td:first-child { width: 40%; }
+.attendance-table td:nth-child(2) { width: 40%; }
+.attendance-table td:last-child  { width: 20%; }
+
+/* ── Form Field Boxes ───────────────────────────────────── */
+.form-grid {
+  display: grid;
+  gap: 8pt;
+  margin-bottom: 10pt;
+}
+.form-grid-2 { grid-template-columns: 1fr 1fr; }
+.form-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3pt;
+}
+.form-label {
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.form-input {
+  border: 0.75pt solid #aaa;
+  border-radius: 2pt;
+  min-height: 18pt;
+  padding: 2pt 5pt;
+  background: white;
+  font-size: 9.5pt;
+}
+
+/* ── QR Code Block ──────────────────────────────────────── */
+.qr-block {
+  display: flex;
+  align-items: center;
+  gap: 10pt;
+  border: 1pt solid var(--color-secondary);
+  border-radius: 3pt;
+  padding: 8pt 10pt;
+  background: #fdf9f5;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.qr-block-inline {
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 0.9in;
+  padding: 6pt 8pt;
+}
+.qr-img {
+  width: 0.85in;
+  height: 0.85in;
+  display: block;
+}
+.qr-label {
+  display: flex;
+  flex-direction: column;
+  gap: 1pt;
+  margin-top: 4pt;
+}
+.qr-label-title {
+  font-size: 7pt;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.qr-label-url {
+  font-size: 6pt;
+  color: var(--color-secondary-text);
+  line-height: 1.3;
+}
+
+/* ── QR Footer (last page of each section) ──────────────── */
+.qr-footer {
+  margin-top: 24pt;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  border-top: 1.5pt solid var(--color-primary);
+  padding-top: 10pt;
+}
+.qr-footer-inner {
+  display: flex;
+  align-items: center;
+  gap: 12pt;
+  background: linear-gradient(135deg, #f0f7f4 0%, #fdf9f5 100%);
+  border: 1pt solid var(--color-secondary);
+  border-radius: 3pt;
+  padding: 10pt 12pt;
+}
+.qr-footer-img {
+  width: 1in;
+  height: 1in;
+  flex-shrink: 0;
+}
+.qr-footer-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3pt;
+}
+.qr-footer-title {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  line-height: 1.25;
+}
+.qr-footer-sub {
+  font-size: 7.5pt;
+  color: #555;
+  line-height: 1.4;
+}
+.qr-footer-url {
+  font-size: 7pt;
+  color: var(--color-primary);
+  font-weight: 600;
+  word-break: break-all;
+}
+.qr-footer-logo {
+  height: 0.45in;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+  break-inside: avoid;
+}
+.qr-placeholder {
+  width: 54pt;
+  height: 54pt;
+  border: 1.5pt dashed var(--color-bronze);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7pt;
+  color: var(--color-bronze);
+  text-align: center;
+  flex-shrink: 0;
+  border-radius: 2pt;
+}
+.qr-text {
+  font-size: 8pt;
+  color: var(--color-primary-dark);
+}
+.qr-text strong { display: block; font-size: 8.5pt; margin-bottom: 2pt; }
+.qr-url { font-size: 7.5pt; color: var(--color-primary); }
+
+/* ── Document Header Bar (interior pages) ───────────────── */
+.doc-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 6pt 10pt;
+  margin-bottom: 14pt;
+  border-radius: 2pt;
+}
+.doc-header-bar img { height: 28pt; }
+.doc-header-bar .doc-title {
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.doc-header-bar .doc-meta {
+  font-size: 7.5pt;
+  opacity: 0.85;
+  text-align: right;
+}
+
+/* ── TOC Entry ──────────────────────────────────────────── */
+/*
+ * NUMBER column is wide enough for "MISH 44" at 9.5pt.
+ * 0.25" gap between NUMBER and TITLE prevents section names overrunning numbers.
+ */
+.toc-entry {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25in;               /* ← 0.25" gutter between number and title */
+  padding: 3pt 0;
+  border-bottom: 0.3pt dotted #ccc;
+  font-size: 9.5pt;
+}
+.toc-entry:hover { background: transparent; }
+.toc-number {
+  min-width: 52pt;           /* ← wide enough for "MISH 44" */
+  font-weight: 700;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.toc-title { flex: 1; color: #1a1a1a; }
+.toc-dots  {
+  flex: 1;
+  border-bottom: 0.5pt dotted #999;
+  margin: 0 4pt;
+  align-self: center;
+}
+.toc-page  { min-width: 18pt; text-align: right; color: #555; flex-shrink: 0; }
+
+/* ── Tab Divider ────────────────────────────────────────── */
+.tab-divider-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, var(--color-primary-light) 100%);
+  color: white;
+  text-align: center;
+  padding: 40pt;
+}
+.tab-section-number {
+  font-size: 72pt;
+  font-weight: 900;
+  color: rgba(255,255,255,0.2);
+  line-height: 1;
+  margin-bottom: 8pt;
+}
+.tab-section-title {
+  font-size: 22pt;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10pt;
+  line-height: 1.2;
+}
+.tab-section-subtitle {
+  font-size: 10pt;
+  color: var(--color-secondary-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.tab-logo { height: 50pt; margin-bottom: 20pt; opacity: 0.85; }
+.tab-rule {
+  width: 60pt;
+  height: 2pt;
+  background: var(--color-secondary);
+  margin: 12pt auto;
+  border-radius: 1pt;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MISH MASTER-OPERATOR STANDARD COMPONENTS
+   Added per "Master-Operator" refinement spec.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Section Number Rows (flush-left numbers, hanging indent) ──────────── */
+/*
+ * PRECISION FIX 1 — Left-Margin Anchor
+ * sec-num-row has NO left margin — numbers always lock to the 0.0" gutter.
+ *
+ * PRECISION FIX 2 — Universal Hanging Indent
+ * sec-num-text starts at exactly 0.5" from the left margin anchor.
+ */
+.sec-num-row {
+  display: flex;
+  gap: 0;
+  margin: 7pt 0 4pt;
+  margin-left: 0;            /* ← absolute left anchor */
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.sec-num {
+  min-width: 0.5in;          /* ← gutter column: numbers occupy [0.0", 0.5") */
+  flex-shrink: 0;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  font-size: 10pt;
+  line-height: 1.5;
+}
+.sec-num-text {
+  flex: 1;
+  font-size: 10pt;
+  line-height: 1.5;
+  padding-left: 0;           /* text starts right after the 0.5in number column */
+}
+.sec-subhead {
+  font-size: 11pt;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 10pt 0 4pt;
+  margin-left: 0;            /* ← flush left */
+  page-break-after: avoid;
+  break-after: avoid;
+  letter-spacing: 0.02em;
+}
+
+/* ── Section List Bullets (multi-tier) ──────────────────────────────────── */
+/*
+ * PRECISION FIX 3 — Multi-Tier Bullet Alignment
+ * First-level list items: indented to 0.75" from the left anchor.
+ * Nested sub-bullets:     indented to 1.0".
+ */
+.sec-list {
+  margin-left: 0.75in;       /* first-level bullets at 0.75" */
+  padding-left: 0;
+  margin-bottom: 8pt;
+  list-style-position: outside;
+}
+.sec-list li.sec-bullet {
+  margin-bottom: 4pt;
+  line-height: 1.45;
+  padding-left: 0.15in;
+}
+/* Second and deeper levels */
+.sec-list .sec-list,
+.sec-list ul,
+.sec-list ol {
+  margin-left: 0.25in;       /* +0.25" from parent = total 1.0" for sub-bullets */
+  padding-left: 0;
+}
+
+/* ── 3-Hour Rule Callout Box ────────────────────────────────────────────── */
+.three-hour-rule-box {
+  background: #f2f2f2;
+  border: 2pt solid #386851;   /* MHC Green — matches brand primary */
+  border-radius: 3pt;
+  margin: 12pt 0;
+  padding: 10pt 12pt;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.thr-header {
+  font-size: 11pt;
+  font-weight: 900;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  gap: 6pt;
+  margin-bottom: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1pt solid #aaaaaa;
+  padding-bottom: 6pt;
+}
+.thr-icon { font-size: 16pt; color: #cc0000; line-height: 1; }
+.thr-warning {
+  font-size: 12pt;           /* PRECISION OVERRIDE 2: Bold Warning — 12pt per spec */
+  font-weight: 900;
+  color: #cc0000;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 0 0 6pt;
+  line-height: 1.3;
+}
+.thr-detail {
+  font-size: 9pt;
+  color: #333;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Addendum Threshold Tables ──────────────────────────────────────────── */
+/*
+ * PRECISION FIX 4 — Table Gutter Alignment
+ * Threshold tables (and all section-body tables) are inset 0.5" on each side
+ * so borders never reach the page edge.
+ */
+.addendum-section { margin-top: 14pt; }
+.addendum-note {
+  font-size: 8pt;
+  color: #555;
+  margin: 0 0 8pt;
+  line-height: 1.45;
+}
+.threshold-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+  margin: 0 0 10pt;
+  table-layout: fixed;         /* ← locks column widths so data never overlaps */
+}
+/*
+ * Column width distribution across the 4 data columns.
+ * Applied via :nth-child so no <col> elements are needed in the HTML.
+ * Total = 100% of the inset table width (calc(100% - 1in) from section template).
+ */
+.threshold-table th:nth-child(1),
+.threshold-table td:nth-child(1) { width: 40%; }
+.threshold-table th:nth-child(2),
+.threshold-table td:nth-child(2) { width: 19%; text-align: right; }
+.threshold-table th:nth-child(3),
+.threshold-table td:nth-child(3) { width: 19%; text-align: right; }
+.threshold-table th:nth-child(4),
+.threshold-table td:nth-child(4) { width: 22%; }
+.threshold-table th {
+  background: var(--color-primary-dark);
+  color: white;
+  padding: 5pt 7pt;
+  font-size: 8.5pt;
+  text-align: left;
+  border: 1pt solid var(--color-primary-darker);
+}
+.threshold-table td {
+  padding: 4pt 7pt;
+  border: 0.75pt solid #cccccc;
+  vertical-align: middle;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.threshold-table tr:nth-child(even) td  { background: #f2f2f2; }
+.threshold-table tr.alert-row td        { background: #fff0f0 !important; }
+.alert-cell { color: #cc0000; font-weight: 700; }
+
+/* ── Standalone Form Page Headers ───────────────────────────────────────── */
+.form-standalone-header {
+  display: flex;
+  align-items: center;
+  gap: 10pt;
+  background: var(--color-primary-dark);
+  color: white;
+  padding: 7pt 10pt;
+  margin-bottom: 10pt;
+  border-radius: 2pt;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+.form-badge {
+  display: inline-block;
+  background: white;
+  color: var(--color-primary-dark);
+  font-size: 9pt;
+  font-weight: 900;
+  padding: 2pt 8pt;
+  border-radius: 2pt;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+.form-badge-title {
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+/* ── Signature Tables (FORM 02-A, 02-B) ────────────────────────────────── */
+/*
+ * PRECISION OVERRIDE 3: Bordered table ensures signature/date lines never
+ * break across pages and remain perfectly column-aligned.
+ */
+.signature-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14pt 0;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.signature-table td {
+  border: 1pt solid #444;
+  padding: 5pt 8pt;
+  height: 28pt;
+  vertical-align: bottom;
+}
+.signature-table td.sig-label {
+  font-weight: 700;
+  font-size: 8pt;
+  color: #1E392C;
+  background-color: #f0f7f4;
+  white-space: nowrap;
+  width: 2in;
+  letter-spacing: 0.03em;
+  vertical-align: middle;
+}
+.signature-table td.sig-fill {
+  min-width: 1.5in;
+  background-color: #ffffff;
+}
+.signature-table td.sig-narrow {
+  width: 1.2in;
+  min-width: 1.2in;
+  background-color: #ffffff;
+}
+
+/* ── Signature Lines (non-breaking continuous underscores) ──────────────── */
+.sig-line-underline {
+  display: inline-block;
+  border-bottom: 1pt solid #333333;
+  min-width: 2.5in;
+  height: 14pt;
+  vertical-align: bottom;
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MISH 03 — Zero-Tolerance Violations Box
+   1pt MHC Primary Dark border; signals zero-tolerance to bonding agents.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.zero-tolerance-box {
+  border: 1.5pt solid #1E392C;
+  border-radius: 2pt;
+  padding: 8pt 12pt;
+  margin: 10pt 0;
+  background: #f8f8f8;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.zero-tolerance-header {
+  display: flex;
+  align-items: center;
+  gap: 6pt;
+  font-size: 9pt;
+  font-weight: 900;
+  color: #1E392C;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 0.75pt solid #386851;
+  padding-bottom: 5pt;
+  margin-bottom: 7pt;
+}
+.zero-tolerance-icon { font-size: 12pt; color: #cc0000; line-height: 1; }
+.zero-tolerance-intro {
+  font-size: 8.5pt;
+  color: #555;
+  margin: 0 0 7pt;
+  font-style: italic;
+}
+/* The ul inside the box resets its own indent so it sits flush to the box padding */
+.zero-tolerance-box ul.sec-list {
+  margin-left: 0.25in;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MISH 04 — Orientation Record Form (FORM 04-A)
+   ═══════════════════════════════════════════════════════════════════════════ */
+.form04a-header {
+  font-size: 14pt;
+  font-weight: 700;
+  color: #1E392C;
+  text-align: center;
+  margin: 0 0 10pt;
+  padding: 0;
+  letter-spacing: 0.02em;
+}
+.orientation-record-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+  table-layout: fixed;
+}
+.orientation-record-table th {
+  background: #1E392C;
+  color: white;
+  padding: 5pt 8pt;
+  font-size: 8.5pt;
+  text-align: left;
+  border: 1pt solid #12231b;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.orientation-record-table td {
+  border: 1pt solid #888;
+  padding: 5pt 6pt;
+  height: 22pt;
+  vertical-align: middle;
+}
+.orientation-record-table td.cell-label {
+  font-weight: 700;
+  background: #f0f4f2;
+  color: #1E392C;
+  white-space: nowrap;
+}
+.orientation-record-table td.cell-value {
+  color: #333;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MISH 05 — Pre-Task Plan Form
+   ═══════════════════════════════════════════════════════════════════════════ */
+.ptp-form {
+  border: 1.5pt solid #1E392C;
+  border-radius: 2pt;
+  overflow: hidden;
+  margin: 10pt 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  font-size: 8.5pt;
+}
+.ptp-form-header {
+  background: #1E392C;
+  color: white;
+  padding: 5pt 10pt;
+  font-size: 11pt;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.ptp-meta-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.ptp-meta-table td {
+  border: 0.75pt solid #aaa;
+  padding: 4pt 6pt;
+  vertical-align: middle;
+}
+.ptp-meta-table td.ptp-label {
+  font-weight: 700;
+  background: #f0f4f2;
+  color: #1E392C;
+  white-space: nowrap;
+  width: 16%;
+}
+.ptp-meta-table td.ptp-value {
+  width: 34%;
+}
+.ptp-section-label {
+  background: #386851;
+  color: white;
+  font-weight: 700;
+  font-size: 7.5pt;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3pt 8pt;
+  border-top: 0.75pt solid #1E392C;
+}
+.ptp-hazards-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.ptp-hazards-table td {
+  border: 0.75pt solid #aaa;
+  padding: 3pt 6pt;
+  vertical-align: middle;
+  font-size: 8pt;
+}
+.ptp-hazards-table td.ptp-cb { width: 28pt; text-align: center; }
+.ptp-injured-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8pt;
+  page-break-inside: auto;
+}
+.ptp-injured-table th {
+  background: #1E392C;
+  color: white;
+  padding: 4pt 6pt;
+  font-size: 7.5pt;
+  text-align: left;
+  border: 0.75pt solid #12231b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.ptp-injured-table td {
+  border: 0.75pt solid #aaa;
+  padding: 3pt 6pt;
+  height: 18pt;
+  vertical-align: middle;
+}
+.ptp-injured-table td.ptp-yn {
+  text-align: center;
+  width: 60pt;
+  white-space: nowrap;
+}
+.ptp-injured-table tr:nth-child(even) td { background: #f8f8f8; }

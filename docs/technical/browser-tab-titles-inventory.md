@@ -1,6 +1,6 @@
 # Browser Tab Titles - Dual Military/Construction Messaging
 
-## Complete Site Title Inventory - Updated December 27, 2025
+## Complete Site Title Inventory - Updated April 8, 2026
 
 All browser tab titles now consistently use the dual military → construction
 messaging format, honoring our veteran heritage while maintaining civilian
@@ -73,6 +73,26 @@ accessibility.
 **Title:** `Allies → Partners | Strategic Partnerships Built on Trust, Performance, and Mutual Success | MH Construction`
 **Format:** Military term → Civilian term | Partnership values | Company
 **Location:** `/src/app/allies/metadata.ts`
+
+---
+
+## 📚 Resources Pages
+
+### Resources Hub
+
+**Title:** `Field Resources | MH Construction`
+**Format:** Plain-language label | Company
+**Location:** `/src/app/resources/page.tsx`
+
+### Safety Manual
+
+**Title:** (inherits Resources Hub metadata)
+**Location:** `/src/app/resources/safety-manual/page.tsx`
+
+### Safety Program
+
+**Title:** (inherits Resources Hub metadata)
+**Location:** `/src/app/resources/safety-program/page.tsx`
 
 ---
 

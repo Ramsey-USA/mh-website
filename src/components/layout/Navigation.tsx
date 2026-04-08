@@ -233,10 +233,22 @@ export function Navigation() {
                       icon: "workspace_premium",
                     },
                     {
+                      href: "/resources",
+                      label: "Resources",
+                      subLabel: "Field Intel",
+                      icon: "folder_open",
+                    },
+                    {
                       href: "/faq",
                       label: "Help/FAQ",
                       subLabel: "Intel Brief",
                       icon: "help",
+                    },
+                    {
+                      href: "/safety",
+                      label: "Safety",
+                      subLabel: "Force Protection",
+                      icon: "verified_user",
                     },
                   ].map((item) => (
                     <Link
