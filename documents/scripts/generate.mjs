@@ -77,6 +77,14 @@ try {
   LOGO_COLOR_B64 = `data:image/png;base64,${_logoBuf.toString('base64')}`;
 } catch { /* logo file not found — header will render without image */ }
 
+// ── AGC partner logo base64 (used in Puppeteer footer template) ────────────
+const _agcPath = join(DOCS_DIR, 'assets/nwagc-logo.png');
+let AGC_LOGO_B64 = '';
+try {
+  const _agcBuf = await readFile(_agcPath);
+  AGC_LOGO_B64 = `data:image/png;base64,${_agcBuf.toString('base64')}`;
+} catch { /* AGC logo not found — footer will render without it */ }
+
 /**
  * Build a flat token map from the brand config.
  * Every key becomes {{BRAND_KEY}} in templates.
@@ -153,21 +161,50 @@ function applyBrandTokens(html) {
   return out;
 }
 
+// ── Physical Tab + Tier mapping ────────────────────────────────────────────
+/**
+ * Map a MISH section number to a physical binder tab reference.
+ * MISH 01–33 → numeric tabs "1"–"33"
+ * MISH 34–44 → alpha tabs "A"–"K"
+ * Section 00 (TOC) returns "TOC".
+ */
+function sectionToTab(sectionNumber) {
+  const n = Number(sectionNumber);
+  if (n === 0) return 'TOC';
+  if (n >= 1 && n <= 33) return String(n);
+  // 34→A, 35→B, … 44→K
+  return String.fromCharCode(65 + (n - 34));
+}
+
+/**
+ * Four-tier structural classification.
+ * Tier 1 (Admin Anchor):      MISH 01–03  — Senior Management Ownership
+ * Tier 2 (Field Cadence):     MISH 04–09  — Planning & Orientation
+ * Tier 3 (Engineering):       MISH 10–37  — OSHA 1926/WAC 296-155 Technical Standards
+ * Tier 4 (Specialized Risk):  MISH 38–44  — Subcontractors, CDL & Specific Exposures
+ */
+function sectionToTier(sectionNumber) {
+  const n = Number(sectionNumber);
+  if (n === 0) return null;  // TOC has no tier
+  if (n <= 3)  return { num: 1, label: 'Admin Anchor',     desc: 'Senior Management Ownership' };
+  if (n <= 9)  return { num: 2, label: 'Field Cadence',    desc: 'Planning & Orientation' };
+  if (n <= 37) return { num: 3, label: 'Engineering',      desc: 'OSHA 1926/WAC 296-155' };
+  return             { num: 4, label: 'Specialized Risk', desc: 'Subcontractors, CDL & Exposures' };
+}
+
 // ── Puppeteer header / footer templates ────────────────────────────────────
 /**
  * Build the per-section running header HTML.
  * Puppeteer injects this into the physical top margin of EVERY printed page.
  * Logo must be a data URL since the header renders in an isolated context.
- */
-/**
- * PRECISION OVERRIDE 4 — Branding: single centered high-resolution MHC logo.
- * Layout: 3-column flex — MISH designator+title (left) | LOGO (center) | rev (right).
- * Puppeteer requires all assets as data URLs in header/footer templates.
+ *
+ * Layout: LEFT (MISH + title) | CENTER (logo) | RIGHT (tab location + rev).
  */
 function buildSectionHeaderHtml(sectionNum, sectionTitle, revNum, revDate) {
   const titleShort = sectionTitle.length > 40
     ? sectionTitle.slice(0, 37) + '…'
     : sectionTitle;
+  const tabRef = sectionToTab(sectionNum);
   const font = '\'Helvetica Neue\',Arial,sans-serif';
   const pad  = 'padding:0 0.75in 0 1.25in';
   return [
@@ -189,9 +226,10 @@ function buildSectionHeaderHtml(sectionNum, sectionTitle, revNum, revDate) {
       : `<span style="font-size:13pt;font-weight:900;color:#386851;letter-spacing:0.04em;">MHC</span>`,
     `</div>`,
 
-    // RIGHT — revision metadata
-    `<div style="flex:1;text-align:right;font-size:7.5pt;color:#8A6B49;white-space:nowrap;">`,
-    `Rev. ${revNum}&nbsp;|&nbsp;${revDate}`,
+    // RIGHT — binder tab location + revision metadata
+    `<div style="flex:1;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;">`,
+    `<span style="font-size:7pt;font-weight:700;color:#BD9264;line-height:1.2;letter-spacing:0.04em;">BINDER LOCATION: TAB ${tabRef}</span>`,
+    `<span style="font-size:7.5pt;color:#8A6B49;white-space:nowrap;line-height:1.3;">Rev. ${revNum}&nbsp;|&nbsp;${revDate}</span>`,
     `</div>`,
 
     `</div>`,
@@ -202,19 +240,32 @@ function buildSectionHeaderHtml(sectionNum, sectionTitle, revNum, revDate) {
  * Standard footer HTML for all section PDFs.
  * Uses Puppeteer's native <span class="pageNumber"> / <span class="totalPages"> injection.
  */
-// PRECISION OVERRIDE 4 — Universal single-line footer per spec:
-// "MH Construction, Inc. | Pasco, WA | Veteran Owned | Aligned with AGC CSEA & OSHA 29 CFR 1926"
+// PRECISION OVERRIDE 4 — Universal footer per cover page match:
+// Left: Company + contact  |  Center: MHC-APP identifier + Veteran Owned + compliance  |  Right: Page
 const SECTION_FOOTER_HTML = [
+  // Outer container — matches cover-bottom layout (light variant)
   `<div style="width:100%;border-top:0.75pt solid #BD9264;`,
   `padding:0 0.75in 0 1.25in;height:0.65in;display:flex;align-items:center;`,
-  `justify-content:space-between;font-family:'Helvetica Neue',Arial,sans-serif;`,
-  `font-size:6.5pt;color:#8A6B49;-webkit-print-color-adjust:exact;`,
-  `print-color-adjust:exact;box-sizing:border-box;">`,
-  `<span style="line-height:1.65;"><strong>MH Construction, Inc.</strong><br>`,
-  `(509) 308-6489&nbsp;&middot;&nbsp;3111 N. Capitol Ave., Pasco, WA 99301<br>`,
-  `www.mhc-gc.com</span>`,
-  `<span style="color:#555;white-space:nowrap;">Page `,
-  `<span class="pageNumber"></span> of <span class="totalPages"></span></span>`,
+  `justify-content:space-between;gap:0.2in;font-family:'Helvetica Neue',Arial,sans-serif;`,
+  `-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box;">`,
+
+  // LEFT — Company contact (mirrors cover-bottom-left)
+  `<div style="flex:1;min-width:0;color:#8A6B49;font-size:8pt;line-height:1.65;">`,
+  `<strong style="color:#386851;">MH Construction, Inc.</strong>`,
+  `<span style="color:#8A6B49;margin:0 5pt;">|</span>(509) 308-6489<br>`,
+  `3111 N. Capitol Ave., Pasco, WA 99301<br>`,
+  `www.mhc-gc.com</div>`,
+
+  // RIGHT — Licenses + AGC logo (mirrors cover-bottom-right)
+  `<div style="flex-shrink:0;display:flex;align-items:center;gap:0.18in;">`,
+  `<div style="text-align:right;font-size:7pt;color:#8A6B49;white-space:nowrap;line-height:1.65;">`,
+  `WA Lic: MHCONCI907R7&nbsp;&middot;&nbsp;OR Lic: 765043-99&nbsp;&middot;&nbsp;ID Lic: RCE-49250<br>`,
+  `<span style="color:#BD9264;font-weight:700;">Revision 2026</span></div>`,
+  AGC_LOGO_B64
+    ? `<img src="${AGC_LOGO_B64}" style="height:0.38in;width:auto;display:block;flex-shrink:0;" alt="AGC Member" />`
+    : '',
+  `</div>`,
+
   `</div>`,
 ].join('');
 
@@ -389,9 +440,9 @@ async function generateSections(filter = null) {
       headerTemplate:      headerHtml,
       footerTemplate:      SECTION_FOOTER_HTML,
       margin: {
-        top:    '0.85in',   // accommodates 0.65in header + gap
+        top:    '1.0in',    // accommodates 0.65in header + 0.35in gap
         right:  '0.75in',
-        bottom: '0.65in',   // accommodates 0.5in footer + gap
+        bottom: '0.9in',    // accommodates 0.65in footer + 0.25in gap
         left:   '1.25in',
       },
     }, `manuals/_tmp_section_${section.numberStr}.html`);
@@ -455,6 +506,7 @@ function textToTocHtml(text) {
   const lines  = text.split('\n');
   const parts  = [];
   let   inToc  = false;
+  let   lastTier = null;
 
   for (const raw of lines) {
     const line = raw.trim();
@@ -475,10 +527,26 @@ function textToTocHtml(text) {
     const tocMatch = line.match(/^MISH\s+(\d+)\s+(.+)$/);
     if (tocMatch) {
       const num   = tocMatch[1].padStart(2, '0');
+      const numInt = Number(tocMatch[1]);
       // Strip trailing " 2 04/07/2026" style revision/date suffix
       const title = tocMatch[2].replace(/\s+\d+\s+\d{2}\/\d{2}\/\d{4}\s*$/, '').trim();
+      const tabRef = sectionToTab(numInt);
+      const tier   = sectionToTier(numInt);
+
+      // Insert tier heading when entering a new tier
+      if (tier && (!lastTier || lastTier !== tier.num)) {
+        parts.push(
+          `<div class="toc-tier-heading">` +
+          `<span class="toc-tier-label">TIER ${tier.num}</span>` +
+          `<span class="toc-tier-desc">${tier.label} — ${tier.desc}</span>` +
+          `</div>`
+        );
+        lastTier = tier.num;
+      }
+
       parts.push(
         `<div class="toc-entry">` +
+        `<span class="toc-tab">TAB ${tabRef}</span>` +
         `<span class="toc-number">MISH\u00a0${num}</span>` +
         `<span class="toc-title">${escapeHtml(title)}</span>` +
         `<span class="toc-dots"></span>` +
@@ -662,22 +730,25 @@ function textToHtml(text) {
 // ── Section-specific post-processing ─────────────────────────────────────────
 
 /**
- * Inject a 3-Hour Rule callout box.  Applied to MISH 01 and MISH 02.
+ * Inject a 3-Hour Rule callout box.  Applied to MISH 01, MISH 02, and MISH 38.
  *
  * MISH 02 — anchors after the paragraph that explicitly mentions "3 hours to
  *            provide a sample / collection".
  * MISH 01 — that detail lives in MISH 02; anchor after the Drug Free Workplace
  *            paragraph that references "post accident/incident … testing" to
  *            plant a forward-reference callout.
+ * MISH 38 — Commercial Drivers Drug and Alcohol Program; anchor after the
+ *            random testing paragraph to enforce the 3-hour compliance window
+ *            for DOT-regulated commercial driver testing.
  *
  * @param {string} html         — section body HTML
- * @param {number} sectionNumber — 1 or 2
+ * @param {number} sectionNumber — 1, 2, or 38
  */
 function injectThreeHourCallout(html, sectionNumber) {
-  // ── Generic callout used for MISH 01 (and as MISH 02 last-resort fallback) ──
+  // ── Generic callout used for MISH 01, MISH 38 (and as MISH 02 last-resort fallback) ──
   const callout = [
     `<div class="three-hour-rule-box no-break">`,
-    `<div class="thr-header"><span class="thr-icon">&#9888;</span>&nbsp;3-HOUR RULE &#x2014; MANDATORY COMPLIANCE</div>`,
+    `<div class="thr-header"><span class="thr-icon">&#9888;</span>&nbsp;3-HOUR RULE &#x2014; TIME-CRITICAL FIELD ACTION</div>`,
     `<div class="thr-body">`,
     `<p class="thr-warning">FAILURE TO COMPLY WITHIN THE 3-HOUR WINDOW = DEEMED POSITIVE</p>`,
     `<p class="thr-detail">Upon notification, the employee must report to the designated collection facility `,
@@ -732,6 +803,26 @@ function injectThreeHourCallout(html, sectionNumber) {
       `$1${callout}`
     );
     if (result !== html) return result;
+  }
+
+  if (sectionNumber === 38) {
+    // MISH 38 — Commercial Drivers Drug and Alcohol Program
+    // Anchor after the random testing paragraph or any testing-related paragraph
+    let result = html.replace(
+      /(<p>[^<]*random[^<]*test[^<]*<\/p>)/i,
+      `$1${callout}`
+    );
+    if (result !== html) return result;
+
+    // Fallback: anchor after post-accident testing paragraph
+    result = html.replace(
+      /(<p>[^<]*post.accident[^<]*test[^<]*<\/p>)/i,
+      `$1${callout}`
+    );
+    if (result !== html) return result;
+
+    // Last-resort: insert before the first sec-subhead
+    return html.replace(/(<h4 class="sec-subhead">)/, `${callout}$1`);
   }
 
   // MISH 01 (or MISH 02 final fallback): anchor after the Drug Free Workplace / testing paragraph
@@ -1130,7 +1221,7 @@ function injectPtpForm(html) {
  * Apply all section-specific post-processing rules based on section number.
  */
 function postProcessSectionHtml(html, sectionNumber) {
-  if (sectionNumber === 1 || sectionNumber === 2) {
+  if (sectionNumber === 1 || sectionNumber === 2 || sectionNumber === 38) {
     html = injectThreeHourCallout(html, sectionNumber);
   }
   if (sectionNumber === 2) {
