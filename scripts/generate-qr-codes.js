@@ -272,6 +272,14 @@ const QR_CODES = [
     description: "Jennifer Tene - Payroll & HR Coordinator",
     label: "JENNIFER TENE",
   },
+
+  // Safety Program & Dashboard
+  {
+    name: "safety-dashboard",
+    url: `${BASE_URL}/dashboard`,
+    description: "Safety Program Dashboard",
+    label: "DASHBOARD",
+  },
 ];
 
 /**

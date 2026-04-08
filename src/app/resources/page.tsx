@@ -2,11 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageTrackingClient } from "@/components/analytics";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { FadeInWhenVisible, StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
+import {
+  FadeInWhenVisible,
+  StaggeredFadeIn,
+} from "@/components/animations/FramerMotionComponents";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { NextStepsSection } from "@/components/shared-sections";
 import { StructuredData } from "@/components/seo/SeoMeta";
-import { DiagonalStripePattern, BrandColorBlobs } from "@/components/ui/backgrounds";
+import {
+  DiagonalStripePattern,
+  BrandColorBlobs,
+} from "@/components/ui/backgrounds";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { SafetyComplianceBadge } from "@/components/resources/SafetyComplianceBadge";
 import { manuals, forms } from "@/lib/data/documents";
@@ -39,17 +45,22 @@ export default function ResourcesPage() {
         <BrandColorBlobs />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-
-          <Breadcrumb items={[
-            { label: "Home", href: "/" },
-            { label: "Resources", href: "/resources" },
-          ]} />
+          <Breadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Resources", href: "/resources" },
+            ]}
+          />
 
           {/* Hero */}
           <FadeInWhenVisible>
             <div className="text-center mb-14">
               <div className="inline-flex items-center gap-2 bg-brand-primary/10 dark:bg-brand-primary/20 border border-brand-primary/20 rounded-full px-4 py-1.5 mb-5">
-                <MaterialIcon icon="folder_open" size="sm" className="text-brand-primary" />
+                <MaterialIcon
+                  icon="folder_open"
+                  size="sm"
+                  className="text-brand-primary"
+                />
                 <span className="text-brand-primary dark:text-brand-secondary text-sm font-semibold tracking-wide uppercase">
                   Field Intel
                 </span>
@@ -74,7 +85,11 @@ export default function ResourcesPage() {
               className="group flex items-start sm:items-center gap-5 bg-gradient-to-r from-brand-primary/8 to-brand-primary/4 dark:from-brand-primary/20 dark:to-brand-primary/10 border border-brand-primary/25 dark:border-brand-primary/40 rounded-2xl p-5 sm:p-6 mb-10 hover:border-brand-primary hover:shadow-lg transition-all duration-300"
             >
               <div className="flex-shrink-0 w-12 h-12 bg-brand-primary rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
-                <MaterialIcon icon="shield_lock" size="md" className="text-white" />
+                <MaterialIcon
+                  icon="shield_lock"
+                  size="md"
+                  className="text-white"
+                />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap mb-1">
@@ -86,9 +101,10 @@ export default function ResourcesPage() {
                   </span>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                  View our OSHA 29 CFR 1926-compliant, AGC CSEA–aligned, PMBOK-structured safety
-                  program overview — with compliance credentials, section mapping, and direct PDF
-                  access for owner pre-qualification and surety review.
+                  View our OSHA 29 CFR 1926-compliant, AGC CSEA–aligned,
+                  PMBOK-structured safety program overview — with compliance
+                  credentials, section mapping, and direct PDF access for owner
+                  pre-qualification and surety review.
                 </p>
                 <div className="flex flex-wrap gap-2 mt-3">
                   <SafetyComplianceBadge variant="osha" />
@@ -110,7 +126,11 @@ export default function ResourcesPage() {
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-8 bg-brand-primary rounded-lg flex items-center justify-center">
-                  <MaterialIcon icon="menu_book" size="sm" className="text-white" />
+                  <MaterialIcon
+                    icon="menu_book"
+                    size="sm"
+                    className="text-white"
+                  />
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                   Safety &amp; Program Manuals
@@ -122,7 +142,11 @@ export default function ResourcesPage() {
                   {manuals.map((doc) => (
                     <Link
                       key={doc.id}
-                      href={`/resources/${doc.id}`}
+                      href={
+                        doc.id === "safety-manual"
+                          ? "/safety"
+                          : `/resources/${doc.id}`
+                      }
                       className="group flex items-start gap-5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 sm:p-6 hover:border-brand-primary dark:hover:border-brand-secondary hover:shadow-lg transition-all duration-300"
                     >
                       <div className="flex-shrink-0 w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
@@ -165,7 +189,11 @@ export default function ResourcesPage() {
                         </p>
                         <div className="flex items-center gap-1.5 mt-3 text-brand-primary dark:text-brand-secondary text-sm font-semibold">
                           <span>View all sections</span>
-                          <MaterialIcon icon="arrow_forward" size="sm" className="group-hover:translate-x-1 transition-transform duration-200" />
+                          <MaterialIcon
+                            icon="arrow_forward"
+                            size="sm"
+                            className="group-hover:translate-x-1 transition-transform duration-200"
+                          />
                         </div>
                       </div>
                     </Link>
@@ -180,7 +208,11 @@ export default function ResourcesPage() {
             <div className="mb-16">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-8 bg-brand-bronze rounded-lg flex items-center justify-center">
-                  <MaterialIcon icon="description" size="sm" className="text-white" />
+                  <MaterialIcon
+                    icon="description"
+                    size="sm"
+                    className="text-white"
+                  />
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                   Field Forms
@@ -196,7 +228,11 @@ export default function ResourcesPage() {
                     >
                       <div className="flex items-center gap-3 mb-3">
                         <div className="w-10 h-10 bg-brand-bronze/10 dark:bg-brand-bronze/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <MaterialIcon icon={doc.icon} size="sm" className="text-brand-bronze dark:text-brand-secondary" />
+                          <MaterialIcon
+                            icon={doc.icon}
+                            size="sm"
+                            className="text-brand-bronze dark:text-brand-secondary"
+                          />
                         </div>
                         <div>
                           <h3 className="text-base font-bold text-gray-900 dark:text-white leading-tight">

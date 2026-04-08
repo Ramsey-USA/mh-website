@@ -12,7 +12,11 @@ interface Submission {
   job_id: string;
   job_number: string;
   job_name: string;
-  form_type: "toolbox-talk" | "jha" | "site-safety-inspection" | "incident-report";
+  form_type:
+    | "toolbox-talk"
+    | "jha"
+    | "site-safety-inspection"
+    | "incident-report";
   submitted_by: string;
   data: unknown;
   print_count: number;
@@ -22,7 +26,13 @@ interface Submission {
 
 // ─── Render helpers ───────────────────────────────────────────────────────────
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="mb-6 print:mb-4">
       <h3 className="text-xs font-black uppercase tracking-widest text-gray-500 border-b border-gray-200 pb-1 mb-3 print:text-gray-600">
@@ -33,7 +43,13 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   );
 }
 
-function Field({ label, value }: { label: string; value?: string | null | undefined }) {
+function Field({
+  label,
+  value,
+}: {
+  label: string;
+  value?: string | null | undefined;
+}) {
   return (
     <div className="mb-2">
       <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider leading-none mb-0.5">
@@ -119,17 +135,23 @@ function ToolboxTalkPrint({ data }: { data: Record<string, unknown> }) {
       </Section>
       {d.hazardsDiscussed && (
         <Section title="Hazards Discussed">
-          <p className="text-sm text-gray-800 whitespace-pre-line">{d.hazardsDiscussed}</p>
+          <p className="text-sm text-gray-800 whitespace-pre-line">
+            {d.hazardsDiscussed}
+          </p>
         </Section>
       )}
       {d.safetyObservations && (
         <Section title="Safety Observations">
-          <p className="text-sm text-gray-800 whitespace-pre-line">{d.safetyObservations}</p>
+          <p className="text-sm text-gray-800 whitespace-pre-line">
+            {d.safetyObservations}
+          </p>
         </Section>
       )}
       {d.actionItems && (
         <Section title="Action Items">
-          <p className="text-sm text-gray-800 whitespace-pre-line">{d.actionItems}</p>
+          <p className="text-sm text-gray-800 whitespace-pre-line">
+            {d.actionItems}
+          </p>
         </Section>
       )}
       {attendees.length > 0 && (
@@ -137,15 +159,23 @@ function ToolboxTalkPrint({ data }: { data: Record<string, unknown> }) {
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-gray-50">
-                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200 w-1/2">Name</th>
-                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200">Signature / Initials</th>
+                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200 w-1/2">
+                  Name
+                </th>
+                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200">
+                  Signature / Initials
+                </th>
               </tr>
             </thead>
             <tbody>
               {attendees.map((a, i) => (
                 <tr key={i} className={i % 2 === 0 ? "" : "bg-gray-50"}>
-                  <td className="px-3 py-2 border border-gray-200">{a.name || "—"}</td>
-                  <td className="px-3 py-2 border border-gray-200">{a.signature || "—"}</td>
+                  <td className="px-3 py-2 border border-gray-200">
+                    {a.name || "—"}
+                  </td>
+                  <td className="px-3 py-2 border border-gray-200">
+                    {a.signature || "—"}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -176,15 +206,23 @@ function JHAPrint({ data }: { data: Record<string, unknown> }) {
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-gray-50">
-                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200">Name</th>
-                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200">Role / Trade</th>
+                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200">
+                  Name
+                </th>
+                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200">
+                  Role / Trade
+                </th>
               </tr>
             </thead>
             <tbody>
               {crew.map((c, i) => (
                 <tr key={i} className={i % 2 === 0 ? "" : "bg-gray-50"}>
-                  <td className="px-3 py-2 border border-gray-200">{c.name || "—"}</td>
-                  <td className="px-3 py-2 border border-gray-200">{c.role || "—"}</td>
+                  <td className="px-3 py-2 border border-gray-200">
+                    {c.name || "—"}
+                  </td>
+                  <td className="px-3 py-2 border border-gray-200">
+                    {c.role || "—"}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -196,17 +234,29 @@ function JHAPrint({ data }: { data: Record<string, unknown> }) {
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-gray-50">
-                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200 w-1/3">Step / Task</th>
-                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200 w-1/3">Potential Hazard</th>
-                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200">Control / Mitigation</th>
+                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200 w-1/3">
+                  Step / Task
+                </th>
+                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200 w-1/3">
+                  Potential Hazard
+                </th>
+                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200">
+                  Control / Mitigation
+                </th>
               </tr>
             </thead>
             <tbody>
               {steps.map((s, i) => (
                 <tr key={i} className={i % 2 === 0 ? "" : "bg-gray-50"}>
-                  <td className="px-3 py-2 border border-gray-200 align-top">{s.step || "—"}</td>
-                  <td className="px-3 py-2 border border-gray-200 align-top">{s.hazard || "—"}</td>
-                  <td className="px-3 py-2 border border-gray-200 align-top">{s.control || "—"}</td>
+                  <td className="px-3 py-2 border border-gray-200 align-top">
+                    {s.step || "—"}
+                  </td>
+                  <td className="px-3 py-2 border border-gray-200 align-top">
+                    {s.hazard || "—"}
+                  </td>
+                  <td className="px-3 py-2 border border-gray-200 align-top">
+                    {s.control || "—"}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -246,19 +296,31 @@ function SiteInspectionPrint({ data }: { data: Record<string, unknown> }) {
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-gray-50">
-                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200">Item</th>
-                <th className="text-center px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200 w-16">Result</th>
-                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200 w-1/3">Notes</th>
+                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200">
+                  Item
+                </th>
+                <th className="text-center px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200 w-16">
+                  Result
+                </th>
+                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200 w-1/3">
+                  Notes
+                </th>
               </tr>
             </thead>
             <tbody>
               {zone.items.map((item, i) => (
                 <tr key={item.id} className={i % 2 === 0 ? "" : "bg-gray-50"}>
-                  <td className="px-3 py-2 border border-gray-200">{item.label}</td>
-                  <td className={`px-3 py-2 border border-gray-200 text-center uppercase text-xs ${RESULT_STYLES[item.result] ?? ""}`}>
+                  <td className="px-3 py-2 border border-gray-200">
+                    {item.label}
+                  </td>
+                  <td
+                    className={`px-3 py-2 border border-gray-200 text-center uppercase text-xs ${RESULT_STYLES[item.result] ?? ""}`}
+                  >
                     {item.result}
                   </td>
-                  <td className="px-3 py-2 border border-gray-200 text-xs text-gray-600">{item.notes || "—"}</td>
+                  <td className="px-3 py-2 border border-gray-200 text-xs text-gray-600">
+                    {item.notes || "—"}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -267,7 +329,9 @@ function SiteInspectionPrint({ data }: { data: Record<string, unknown> }) {
       ))}
       {d.overallNotes && (
         <Section title="Overall Notes">
-          <p className="text-sm text-gray-800 whitespace-pre-line">{d.overallNotes}</p>
+          <p className="text-sm text-gray-800 whitespace-pre-line">
+            {d.overallNotes}
+          </p>
         </Section>
       )}
     </>
@@ -289,24 +353,37 @@ function IncidentReportPrint({ data }: { data: Record<string, unknown> }) {
           <Field label="Person(s) Involved" value={d.personInvolved} />
         </FieldGrid>
         <div className="flex gap-4 mt-2 text-sm">
-          <span>Injury occurred: <strong>{d.injuryOccurred ? "Yes" : "No"}</strong></span>
-          <span>Medical attention: <strong>{d.medicalAttentionRequired ? "Yes" : "No"}</strong></span>
+          <span>
+            Injury occurred: <strong>{d.injuryOccurred ? "Yes" : "No"}</strong>
+          </span>
+          <span>
+            Medical attention:{" "}
+            <strong>{d.medicalAttentionRequired ? "Yes" : "No"}</strong>
+          </span>
         </div>
       </Section>
       <Section title="Incident Description">
-        <p className="text-sm text-gray-800 whitespace-pre-line">{d.description}</p>
+        <p className="text-sm text-gray-800 whitespace-pre-line">
+          {d.description}
+        </p>
       </Section>
       {d.immediateAction && (
         <Section title="Immediate Action Taken">
-          <p className="text-sm text-gray-800 whitespace-pre-line">{d.immediateAction}</p>
+          <p className="text-sm text-gray-800 whitespace-pre-line">
+            {d.immediateAction}
+          </p>
         </Section>
       )}
       <Section title="Root Cause Analysis">
-        <p className="text-sm text-gray-800 whitespace-pre-line">{d.rootCause}</p>
+        <p className="text-sm text-gray-800 whitespace-pre-line">
+          {d.rootCause}
+        </p>
       </Section>
       {d.correctiveAction && (
         <Section title="Corrective Action Plan">
-          <p className="text-sm text-gray-800 whitespace-pre-line">{d.correctiveAction}</p>
+          <p className="text-sm text-gray-800 whitespace-pre-line">
+            {d.correctiveAction}
+          </p>
         </Section>
       )}
       {witnesses.length > 0 && (
@@ -314,15 +391,23 @@ function IncidentReportPrint({ data }: { data: Record<string, unknown> }) {
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-gray-50">
-                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200">Name</th>
-                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200">Statement</th>
+                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200">
+                  Name
+                </th>
+                <th className="text-left px-3 py-2 text-xs font-bold text-gray-600 border border-gray-200">
+                  Statement
+                </th>
               </tr>
             </thead>
             <tbody>
               {witnesses.map((w, i) => (
                 <tr key={i} className={i % 2 === 0 ? "" : "bg-gray-50"}>
-                  <td className="px-3 py-2 border border-gray-200">{w.name || "—"}</td>
-                  <td className="px-3 py-2 border border-gray-200">{w.statement || "—"}</td>
+                  <td className="px-3 py-2 border border-gray-200">
+                    {w.name || "—"}
+                  </td>
+                  <td className="px-3 py-2 border border-gray-200">
+                    {w.statement || "—"}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -388,7 +473,11 @@ export default function PrintPageClient() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen text-gray-500">
-        <MaterialIcon icon="hourglass_empty" size="xl" className="animate-pulse" />
+        <MaterialIcon
+          icon="hourglass_empty"
+          size="xl"
+          className="animate-pulse"
+        />
       </div>
     );
   }
@@ -397,8 +486,13 @@ export default function PrintPageClient() {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-4 text-center px-6">
         <MaterialIcon icon="error_outline" size="xl" className="text-red-400" />
-        <p className="text-gray-700 font-semibold">{error ?? "Submission not found."}</p>
-        <a href="/safety" className="text-brand-primary hover:underline text-sm">
+        <p className="text-gray-700 font-semibold">
+          {error ?? "Submission not found."}
+        </p>
+        <a
+          href="/safety/hub"
+          className="text-brand-primary hover:underline text-sm"
+        >
           Return to Safety Hub
         </a>
       </div>
@@ -406,18 +500,24 @@ export default function PrintPageClient() {
   }
 
   const formLabel = FORM_LABELS[submission.form_type] ?? submission.form_type;
-  const submittedDate = new Date(submission.created_at).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  const submittedDate = new Date(submission.created_at).toLocaleDateString(
+    "en-US",
+    {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    },
+  );
 
   return (
     <>
       {/* Print toolbar — hidden when printing */}
       <div className="print:hidden sticky top-0 z-10 bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-3xl mx-auto px-4 h-12 flex items-center justify-between gap-4">
-          <a href="/safety" className="inline-flex items-center gap-1.5 text-sm text-gray-600 hover:text-gray-900">
+          <a
+            href="/safety/hub"
+            className="inline-flex items-center gap-1.5 text-sm text-gray-600 hover:text-gray-900"
+          >
             <MaterialIcon icon="arrow_back" size="sm" />
             Back to Hub
           </a>
@@ -444,8 +544,12 @@ export default function PrintPageClient() {
               className="rounded-lg"
             />
             <div>
-              <p className="font-black text-lg text-gray-900 leading-none">MH Construction</p>
-              <p className="text-xs text-gray-500 mt-0.5">Safety Management System</p>
+              <p className="font-black text-lg text-gray-900 leading-none">
+                MH Construction
+              </p>
+              <p className="text-xs text-gray-500 mt-0.5">
+                Safety Management System
+              </p>
             </div>
           </div>
           <div className="text-right">
@@ -456,7 +560,9 @@ export default function PrintPageClient() {
             <p className="text-xs text-gray-500">
               Job: {submission.job_number} — {submission.job_name}
             </p>
-            <p className="text-xs text-gray-400 font-mono mt-1">ID: {submission.id}</p>
+            <p className="text-xs text-gray-400 font-mono mt-1">
+              ID: {submission.id}
+            </p>
           </div>
         </div>
 
@@ -468,10 +574,14 @@ export default function PrintPageClient() {
           <JHAPrint data={submission.data as Record<string, unknown>} />
         )}
         {submission.form_type === "site-safety-inspection" && (
-          <SiteInspectionPrint data={submission.data as Record<string, unknown>} />
+          <SiteInspectionPrint
+            data={submission.data as Record<string, unknown>}
+          />
         )}
         {submission.form_type === "incident-report" && (
-          <IncidentReportPrint data={submission.data as Record<string, unknown>} />
+          <IncidentReportPrint
+            data={submission.data as Record<string, unknown>}
+          />
         )}
 
         {/* Footer */}

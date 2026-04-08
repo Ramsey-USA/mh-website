@@ -6,7 +6,10 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { StructuredData } from "@/components/seo/SeoMeta";
-import { DiagonalStripePattern, BrandColorBlobs } from "@/components/ui/backgrounds";
+import {
+  DiagonalStripePattern,
+  BrandColorBlobs,
+} from "@/components/ui/backgrounds";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { getDocumentById } from "@/lib/data/documents";
 
@@ -48,21 +51,29 @@ export default async function SectionPage({ params }: Props) {
   const allSections = doc.sections ?? [];
   const currentIndex = allSections.findIndex((s) => s.slug === slug);
   const prev = currentIndex > 0 ? allSections[currentIndex - 1] : null;
-  const next = currentIndex < allSections.length - 1 ? allSections[currentIndex + 1] : null;
+  const next =
+    currentIndex < allSections.length - 1
+      ? allSections[currentIndex + 1]
+      : null;
 
   const pdfFileName = `${section.number}-${slug}.pdf`;
   const pdfPath = `/docs/sections/${pdfFileName}`;
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home",          url: "https://www.mhc-gc.com" },
-    { name: "Resources",     url: "https://www.mhc-gc.com/resources" },
-    { name: "Safety Manual", url: "https://www.mhc-gc.com/resources/safety-manual" },
-    { name: `Section ${section.number}`, url: `https://www.mhc-gc.com/resources/safety-manual/section/${slug}` },
+    { name: "Home", url: "https://www.mhc-gc.com" },
+    { name: "Resources", url: "https://www.mhc-gc.com/resources" },
+    { name: "Safety Program", url: "https://www.mhc-gc.com/safety" },
+    {
+      name: `Section ${section.number}`,
+      url: `https://www.mhc-gc.com/resources/safety-manual/section/${slug}`,
+    },
   ]);
 
   return (
     <>
-      <PageTrackingClient pageName={`resources-safety-manual-section-${section.number}`} />
+      <PageTrackingClient
+        pageName={`resources-safety-manual-section-${section.number}`}
+      />
       <StructuredData data={breadcrumbSchema} />
 
       <div className="relative min-h-screen bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -70,28 +81,34 @@ export default async function SectionPage({ params }: Props) {
         <BrandColorBlobs />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-
-          <Breadcrumb items={[
-            { label: "Home",          href: "/" },
-            { label: "Resources",     href: "/resources" },
-            { label: "Safety Manual", href: "/resources/safety-manual" },
-            { label: `Section ${section.number}`, href: `/resources/safety-manual/section/${slug}` },
-          ]} />
+          <Breadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Resources", href: "/resources" },
+              { label: "Safety Program", href: "/safety" },
+              {
+                label: `Section ${section.number}`,
+                href: `/resources/safety-manual/section/${slug}`,
+              },
+            ]}
+          />
 
           <FadeInWhenVisible>
             {/* Back link */}
             <Link
-              href="/resources/safety-manual"
+              href="/safety"
               className="inline-flex items-center gap-1.5 text-sm text-brand-primary dark:text-brand-secondary hover:underline mb-8"
             >
               <MaterialIcon icon="arrow_back" size="sm" />
-              Back to Safety Manual
+              Back to Safety Program
             </Link>
 
             {/* Section header */}
             <div className="flex items-start gap-5 flex-wrap mb-8">
               <div className="w-16 h-16 bg-brand-primary rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
-                <span className="text-white font-black text-xl">{section.number}</span>
+                <span className="text-white font-black text-xl">
+                  {section.number}
+                </span>
               </div>
               <div className="flex-1">
                 <p className="text-sm font-semibold text-brand-secondary dark:text-brand-secondary-light uppercase tracking-wider mb-1">
@@ -105,8 +122,14 @@ export default async function SectionPage({ params }: Props) {
                 </p>
                 {section.pages && (
                   <div className="flex items-center gap-1.5 mt-3">
-                    <MaterialIcon icon="menu_book" size="sm" className="text-gray-400" />
-                    <span className="text-sm text-gray-500 dark:text-gray-400">{section.pages} pages</span>
+                    <MaterialIcon
+                      icon="menu_book"
+                      size="sm"
+                      className="text-gray-400"
+                    />
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                      {section.pages} pages
+                    </span>
                   </div>
                 )}
               </div>
@@ -121,7 +144,8 @@ export default async function SectionPage({ params }: Props) {
                     Print This Section
                   </h2>
                   <p className="text-brand-secondary-light text-sm opacity-90">
-                    Branded PDF · Ready for 3-ring binder · Scan QR to return here
+                    Branded PDF · Ready for 3-ring binder · Scan QR to return
+                    here
                   </p>
                 </div>
                 <a
@@ -137,15 +161,20 @@ export default async function SectionPage({ params }: Props) {
 
             {/* How to use the QR code callout */}
             <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5 mb-10 flex items-start gap-4">
-              <MaterialIcon icon="qr_code_scanner" size="lg" className="text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+              <MaterialIcon
+                icon="qr_code_scanner"
+                size="lg"
+                className="text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5"
+              />
               <div>
                 <p className="text-sm font-bold text-amber-800 dark:text-amber-300 mb-1">
                   QR Code on Every Printed Page
                 </p>
                 <p className="text-sm text-amber-700 dark:text-amber-400 leading-relaxed">
-                  The printed version of this section includes a QR code on the first and last page.
-                  Scanning it brings you directly here — so field workers can download a fresh copy,
-                  check for updates, or share this section with their crew.
+                  The printed version of this section includes a QR code on the
+                  first and last page. Scanning it brings you directly here — so
+                  field workers can download a fresh copy, check for updates, or
+                  share this section with their crew.
                 </p>
               </div>
             </div>
@@ -159,17 +188,21 @@ export default async function SectionPage({ params }: Props) {
                 >
                   <MaterialIcon icon="arrow_back" size="sm" />
                   <span>
-                    <span className="block text-xs text-gray-400 font-normal">Previous</span>
+                    <span className="block text-xs text-gray-400 font-normal">
+                      Previous
+                    </span>
                     Section {prev.number}: {prev.title}
                   </span>
                 </Link>
-              ) : <div />}
+              ) : (
+                <div />
+              )}
 
               <Link
-                href="/resources/safety-manual"
+                href="/safety"
                 className="text-xs text-gray-400 hover:text-brand-primary dark:hover:text-brand-secondary transition-colors"
               >
-                All Sections
+                Safety Program
               </Link>
 
               {next ? (
@@ -178,12 +211,16 @@ export default async function SectionPage({ params }: Props) {
                   className="flex items-center gap-2 text-sm text-brand-primary dark:text-brand-secondary hover:underline font-semibold text-right"
                 >
                   <span>
-                    <span className="block text-xs text-gray-400 font-normal">Next</span>
+                    <span className="block text-xs text-gray-400 font-normal">
+                      Next
+                    </span>
                     Section {next.number}: {next.title}
                   </span>
                   <MaterialIcon icon="arrow_forward" size="sm" />
                 </Link>
-              ) : <div />}
+              ) : (
+                <div />
+              )}
             </div>
           </FadeInWhenVisible>
         </div>

@@ -15,12 +15,12 @@ const ALL_CATEGORIES: SectionCategory[] = [
 ];
 
 const CATEGORY_ICONS: Record<SectionCategory, string> = {
-  "Personnel & Policy":          "badge",
-  "Planning & Administration":   "event_note",
-  "Physical Hazards":            "warning",
-  "Equipment & Operations":      "precision_manufacturing",
+  "Personnel & Policy": "badge",
+  "Planning & Administration": "event_note",
+  "Physical Hazards": "warning",
+  "Equipment & Operations": "precision_manufacturing",
   "Health & Industrial Hygiene": "medical_services",
-  "Site Control & Environment":  "traffic",
+  "Site Control & Environment": "traffic",
 };
 
 interface Props {
@@ -31,17 +31,31 @@ interface Props {
   onSectionDownload?: (section: DocumentSection) => void;
 }
 
-export function SectionBrowser({ sections, mode = "browse", onSectionDownload }: Props) {
+export function SectionBrowser({
+  sections,
+  mode = "browse",
+  onSectionDownload,
+}: Props) {
   const [query, setQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState<SectionCategory | null>(null);
+  const [activeCategory, setActiveCategory] = useState<SectionCategory | null>(
+    null,
+  );
   const [requiredOnly, setRequiredOnly] = useState(false);
+
+  const hasActiveFilters = Boolean(query || activeCategory || requiredOnly);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return sections.filter((s) => {
       if (requiredOnly && s.priority !== "required") return false;
       if (activeCategory && s.category !== activeCategory) return false;
-      if (q && !s.title.toLowerCase().includes(q) && !s.summary.toLowerCase().includes(q) && !s.number.includes(q)) return false;
+      if (
+        q &&
+        !s.title.toLowerCase().includes(q) &&
+        !s.summary.toLowerCase().includes(q) &&
+        !s.number.includes(q)
+      )
+        return false;
       return true;
     });
   }, [sections, query, activeCategory, requiredOnly]);
@@ -91,6 +105,7 @@ export function SectionBrowser({ sections, mode = "browse", onSectionDownload }:
         <div className="flex items-start gap-2 flex-wrap">
           <button
             onClick={() => setActiveCategory(null)}
+            aria-pressed={activeCategory === null}
             className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors ${
               activeCategory === null
                 ? "bg-brand-primary text-white border-brand-primary"
@@ -102,24 +117,34 @@ export function SectionBrowser({ sections, mode = "browse", onSectionDownload }:
           {ALL_CATEGORIES.map((cat) => (
             <button
               key={cat}
-              onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
+              onClick={() =>
+                setActiveCategory(activeCategory === cat ? null : cat)
+              }
+              aria-pressed={activeCategory === cat}
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors ${
                 activeCategory === cat
                   ? "bg-brand-primary text-white border-brand-primary"
                   : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-brand-primary hover:text-brand-primary"
               }`}
             >
-              <MaterialIcon icon={CATEGORY_ICONS[cat]} size="xs" className="shrink-0" />
+              <MaterialIcon
+                icon={CATEGORY_ICONS[cat]}
+                size="xs"
+                className="shrink-0"
+              />
               {cat}
             </button>
           ))}
 
           {/* Divider */}
-          <span className="self-center text-gray-300 dark:text-gray-600 select-none">|</span>
+          <span className="self-center text-gray-300 dark:text-gray-600 select-none">
+            |
+          </span>
 
           {/* Required toggle */}
           <button
             onClick={() => setRequiredOnly(!requiredOnly)}
+            aria-pressed={requiredOnly}
             className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors ${
               requiredOnly
                 ? "bg-red-600 text-white border-red-600"
@@ -131,12 +156,26 @@ export function SectionBrowser({ sections, mode = "browse", onSectionDownload }:
           </button>
         </div>
 
-        {/* Result count */}
-        {(query || activeCategory || requiredOnly) && (
-          <p className="text-xs text-gray-400 dark:text-gray-500">
-            {filtered.length} section{filtered.length !== 1 ? "s" : ""} match
-            {filtered.length !== 1 ? "" : "es"}
-          </p>
+        {/* Result count + reset */}
+        {hasActiveFilters && (
+          <div className="flex items-center justify-between gap-3 flex-wrap">
+            <p className="text-xs text-gray-400 dark:text-gray-500">
+              {filtered.length} section{filtered.length !== 1 ? "s" : ""}{" "}
+              {filtered.length === 1 ? "match" : "matches"}
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setQuery("");
+                setActiveCategory(null);
+                setRequiredOnly(false);
+              }}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-500 dark:text-gray-400 hover:text-brand-primary dark:hover:text-brand-secondary"
+            >
+              <MaterialIcon icon="filter_alt_off" size="xs" />
+              Clear filters
+            </button>
+          </div>
         )}
       </div>
 
@@ -154,7 +193,11 @@ export function SectionBrowser({ sections, mode = "browse", onSectionDownload }:
             return (
               <div key={cat}>
                 <div className="flex items-center gap-2 mb-3">
-                  <MaterialIcon icon={CATEGORY_ICONS[cat]} size="sm" className="text-brand-primary" />
+                  <MaterialIcon
+                    icon={CATEGORY_ICONS[cat]}
+                    size="sm"
+                    className="text-brand-primary"
+                  />
                   <h3 className="text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wide">
                     {cat}
                   </h3>
@@ -166,75 +209,81 @@ export function SectionBrowser({ sections, mode = "browse", onSectionDownload }:
                 <div className="space-y-2">
                   {items.map((section) => {
                     const pdfHref = `/docs/sections/${section.number}-${section.slug}.pdf`;
-                    const Wrapper = mode === "hub"
-                      ? ({ children }: { children: React.ReactNode }) => (
-                          <div className="group flex items-start gap-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3.5 hover:border-brand-primary dark:hover:border-brand-secondary hover:shadow-sm transition-all duration-200">
-                            {children}
-                          </div>
-                        )
-                      : ({ children }: { children: React.ReactNode }) => (
-                          <Link
-                            href={`/resources/safety-manual/section/${section.slug}`}
-                            className="group flex items-start gap-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3.5 hover:border-brand-primary dark:hover:border-brand-secondary hover:shadow-sm transition-all duration-200"
-                          >
-                            {children}
-                          </Link>
-                        );
                     return (
-                    <Wrapper key={section.slug}>
-                      {/* Section number badge */}
-                      <div className="flex-shrink-0 w-10 h-10 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors duration-200">
-                        <span className="text-brand-primary group-hover:text-white font-black text-sm transition-colors duration-200">
-                          {section.number}
-                        </span>
-                      </div>
+                      <div
+                        key={section.slug}
+                        className="group flex items-start gap-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3.5 hover:border-brand-primary dark:hover:border-brand-secondary hover:shadow-sm transition-all duration-200"
+                      >
+                        {/* Section number badge */}
+                        <div className="flex-shrink-0 w-10 h-10 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors duration-200">
+                          <span className="text-brand-primary group-hover:text-white font-black text-sm transition-colors duration-200">
+                            {section.number}
+                          </span>
+                        </div>
 
-                      {/* Content */}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <h4 className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-brand-primary dark:group-hover:text-brand-secondary transition-colors leading-snug">
-                            {section.title}
-                          </h4>
-                          {section.priority === "required" && (
-                            <span className="text-xs font-semibold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-full px-2 py-0.5 leading-none">
-                              OSHA Required
-                            </span>
+                        {/* Content */}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            {mode === "browse" ? (
+                              <Link
+                                href={`/resources/safety-manual/section/${section.slug}`}
+                                className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-brand-primary dark:group-hover:text-brand-secondary transition-colors leading-snug hover:underline"
+                              >
+                                {section.title}
+                              </Link>
+                            ) : (
+                              <h4 className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-brand-primary dark:group-hover:text-brand-secondary transition-colors leading-snug">
+                                {section.title}
+                              </h4>
+                            )}
+                            {section.priority === "required" && (
+                              <span className="text-xs font-semibold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-full px-2 py-0.5 leading-none">
+                                OSHA Required
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-relaxed line-clamp-2">
+                            {section.summary}
+                          </p>
+                          {section.oshaRef && (
+                            <p className="text-xs text-gray-400 dark:text-gray-500 mt-1 font-mono">
+                              {section.oshaRef}
+                            </p>
+                          )}
+                          {mode === "browse" && (
+                            <Link
+                              href={`/resources/safety-manual/section/${section.slug}`}
+                              className="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-brand-primary dark:text-brand-secondary hover:underline"
+                            >
+                              Open section
+                              <MaterialIcon icon="arrow_forward" size="xs" />
+                            </Link>
                           )}
                         </div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-relaxed line-clamp-2">
-                          {section.summary}
-                        </p>
-                        {section.oshaRef && (
-                          <p className="text-xs text-gray-400 dark:text-gray-500 mt-1 font-mono">
-                            {section.oshaRef}
-                          </p>
-                        )}
-                      </div>
 
-                      {/* Meta + download */}
-                      <div className="flex-shrink-0 flex items-center gap-2">
-                        {section.pages && (
-                          <span className="hidden sm:inline text-xs text-gray-400 dark:text-gray-500">
-                            {section.pages}p
-                          </span>
-                        )}
-                        <a
-                          href={pdfHref}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            if (mode === "hub") onSectionDownload?.(section);
-                          }}
-                          download={mode === "hub"}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-xs text-brand-primary dark:text-brand-secondary hover:text-brand-primary-dark font-semibold transition-colors rounded-lg px-2.5 py-1.5 hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20"
-                          title={`Download Section ${section.number} PDF`}
-                        >
-                          <MaterialIcon icon="download" size="sm" />
-                          <span className="hidden sm:inline">PDF</span>
-                        </a>
+                        {/* Meta + download */}
+                        <div className="flex-shrink-0 flex items-center gap-2">
+                          {section.pages && (
+                            <span className="hidden sm:inline text-xs text-gray-400 dark:text-gray-500">
+                              {section.pages}p
+                            </span>
+                          )}
+                          <a
+                            href={pdfHref}
+                            onClick={() => {
+                              if (mode === "hub") onSectionDownload?.(section);
+                            }}
+                            download={mode === "hub"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-xs text-brand-primary dark:text-brand-secondary hover:text-brand-primary-dark font-semibold transition-colors rounded-lg px-2.5 py-1.5 hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20"
+                            title={`Download Section ${section.number} PDF`}
+                          >
+                            <MaterialIcon icon="download" size="sm" />
+                            <span className="hidden sm:inline">PDF</span>
+                          </a>
+                        </div>
                       </div>
-                    </Wrapper>
                     );
                   })}
                 </div>

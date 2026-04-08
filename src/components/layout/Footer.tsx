@@ -431,7 +431,9 @@ export default function Footer() {
 
   const handleAccessCodeSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (accessCode.trim().toUpperCase() === DASHBOARD_ACCESS_CODE.toUpperCase()) {
+    if (
+      accessCode.trim().toUpperCase() === DASHBOARD_ACCESS_CODE.toUpperCase()
+    ) {
       setAccessCode("");
       setAccessCodeError("");
       setShowAdminModal(true);
@@ -570,10 +572,7 @@ export default function Footer() {
                     className="flex gap-1.5"
                     aria-label="Dashboard access"
                   >
-                    <label
-                      htmlFor="footer-access-code"
-                      className="sr-only"
-                    >
+                    <label htmlFor="footer-access-code" className="sr-only">
                       Access code
                     </label>
                     <input
@@ -903,6 +902,20 @@ export default function Footer() {
                   emphasis
                 />
                 <LicenseBadge />
+                <Link
+                  href="/dashboard"
+                  title="Safety Program Dashboard"
+                  className="group flex items-center gap-1.5 rounded-lg border border-brand-secondary/40 bg-gradient-to-r from-brand-secondary/15 to-brand-primary/15 px-3 py-2 text-sm font-semibold transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:from-brand-secondary/25 hover:to-brand-primary/25 dark:border-brand-secondary/50 dark:from-brand-secondary/20 dark:to-brand-primary/20 dark:hover:border-brand-secondary dark:hover:from-brand-secondary/30 dark:hover:to-brand-primary/30"
+                >
+                  <MaterialIcon
+                    icon="dashboard"
+                    size="sm"
+                    className="text-brand-secondary dark:text-brand-secondary-light group-hover:scale-110 transition-all duration-300"
+                  />
+                  <span className="text-brand-secondary dark:text-brand-secondary-light">
+                    Safety Dashboard
+                  </span>
+                </Link>
                 <FooterBadge icon="military_tech" label="Veteran-Owned" />
               </div>
 

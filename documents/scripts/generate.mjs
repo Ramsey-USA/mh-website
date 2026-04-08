@@ -29,7 +29,8 @@
 import puppeteer from 'puppeteer';
 import QRCode from 'qrcode';
 import { readFile, writeFile, mkdir } from 'fs/promises';
-import { join, resolve, dirname } from 'path';
+import { readFileSync } from 'fs';
+import { join, resolve, dirname, extname } from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
 import { existsSync } from 'fs';
 
@@ -79,12 +80,29 @@ try {
 /**
  * Build a flat token map from the brand config.
  * Every key becomes {{BRAND_KEY}} in templates.
+ * Image paths are converted to absolute file:// URLs for Puppeteer.
  */
 function buildBrandTokens(brand) {
   const licStr = Object.entries(brand.licenses || {})
     .filter(([, v]) => v)
     .map(([state, num]) => `${state} Lic: ${num}`)
     .join('  ·  ');
+
+  // Helper: convert relative doc paths to base64 data URIs for self-contained HTML.
+  // Brand JSON paths are relative to the brands/ directory.
+  const resolvePath = (relPath) => {
+    if (!relPath) return '';
+    const absPath = resolve(BRAND_DIR, relPath);
+    try {
+      const buf = readFileSync(absPath);
+      const ext = extname(absPath).slice(1).toLowerCase();
+      const mime = ext === 'svg' ? 'image/svg+xml' : `image/${ext === 'jpg' ? 'jpeg' : ext}`;
+      return `data:${mime};base64,${buf.toString('base64')}`;
+    } catch {
+      // Fallback to file:// URL if file cannot be read
+      return pathToFileURL(absPath).href;
+    }
+  };
 
   return {
     '{{BRAND_ID}}':                   brand.id,
@@ -115,11 +133,12 @@ function buildBrandTokens(brand) {
     '{{BRAND_COLOR_BRONZE}}':         brand.colors.bronze,
     '{{BRAND_COLOR_BRONZE_LIGHT}}':   brand.colors.bronzeLight,
     '{{BRAND_COLOR_BRONZE_DARK}}':    brand.colors.bronzeDark,
-    '{{BRAND_LOGO_WHITE}}':           brand.logo.white,
-    '{{BRAND_LOGO_COLOR}}':           brand.logo.color,
-    '{{BRAND_LOGO_DARKBG}}':          brand.logo.darkBg,
-    '{{BRAND_AGC_HORIZONTAL}}':       brand.partnerLogos?.agcHorizontal || '',
-    '{{BRAND_AGC_STACKED}}':          brand.partnerLogos?.agcStacked    || '',
+    '{{BRAND_LOGO_WHITE}}':           resolvePath(brand.logo.white),
+    '{{BRAND_LOGO_COLOR}}':           LOGO_COLOR_B64 || resolvePath(brand.logo.color),
+    '{{BRAND_LOGO_DARKBG}}':          resolvePath(brand.logo.darkBg),
+    '{{BRAND_AGC_HORIZONTAL}}':       resolvePath(brand.partnerLogos?.agcHorizontal || ''),
+    '{{BRAND_AGC_STACKED}}':          resolvePath(brand.partnerLogos?.agcStacked    || ''),
+    '{{BRAND_QR_DASHBOARD}}':         resolvePath(brand.qrCodes?.dashboard          || ''),
   };
 }
 
@@ -187,12 +206,13 @@ function buildSectionHeaderHtml(sectionNum, sectionTitle, revNum, revDate) {
 // "MH Construction, Inc. | Pasco, WA | Veteran Owned | Aligned with AGC CSEA & OSHA 29 CFR 1926"
 const SECTION_FOOTER_HTML = [
   `<div style="width:100%;border-top:0.75pt solid #BD9264;`,
-  `padding:0 0.75in 0 1.25in;height:0.5in;display:flex;align-items:center;`,
+  `padding:0 0.75in 0 1.25in;height:0.65in;display:flex;align-items:center;`,
   `justify-content:space-between;font-family:'Helvetica Neue',Arial,sans-serif;`,
   `font-size:6.5pt;color:#8A6B49;-webkit-print-color-adjust:exact;`,
   `print-color-adjust:exact;box-sizing:border-box;">`,
-  `<span>MH Construction, Inc.&nbsp;|&nbsp;Pasco, WA&nbsp;|&nbsp;Veteran Owned&nbsp;|&nbsp;`,
-  `Aligned with AGC CSEA &amp; OSHA 29 CFR 1926</span>`,
+  `<span style="line-height:1.65;"><strong>MH Construction, Inc.</strong><br>`,
+  `(509) 308-6489&nbsp;&middot;&nbsp;3111 N. Capitol Ave., Pasco, WA 99301<br>`,
+  `www.mhc-gc.com</span>`,
   `<span style="color:#555;white-space:nowrap;">Page `,
   `<span class="pageNumber"></span> of <span class="totalPages"></span></span>`,
   `</div>`,
@@ -287,7 +307,7 @@ async function generateCover() {
   const raw     = await readFile(join(DOCS_DIR, 'manuals/safety-manual-cover.html'), 'utf-8');
   const html    = applyBrandTokens(raw);
   const pdfPath = join(OUTPUT_DIR, 'safety-manual-cover.pdf');
-  await renderHtmlToPdf(html, pdfPath, { margin: { top: 0, right: 0, bottom: 0, left: 0 } }, 'cover');
+  await renderHtmlToPdf(html, pdfPath, { margin: { top: 0, right: 0, bottom: 0, left: 0 } }, '_tmp_cover.html');
 }
 
 // ── Template: Spine ───────────────────────────────────────────────────────────
@@ -297,7 +317,7 @@ async function generateSpine() {
   const raw     = await readFile(join(DOCS_DIR, 'manuals/safety-manual-spine.html'), 'utf-8');
   const html    = applyBrandTokens(raw);
   const pdfPath = join(OUTPUT_DIR, 'safety-manual-spine.pdf');
-  await renderHtmlToPdf(html, pdfPath, { margin: { top: 0, right: 0, bottom: 0, left: 0 } }, 'spine');
+  await renderHtmlToPdf(html, pdfPath, { margin: { top: 0, right: 0, bottom: 0, left: 0 } }, '_tmp_spine.html');
 }
 
 // ── Template: Tab Dividers ────────────────────────────────────────────────────
@@ -307,7 +327,7 @@ async function generateTabs() {
   const raw     = await readFile(join(DOCS_DIR, 'manuals/safety-manual-tabs.html'), 'utf-8');
   const html    = applyBrandTokens(raw);
   const pdfPath = join(OUTPUT_DIR, 'safety-manual-tabs.pdf');
-  await renderHtmlToPdf(html, pdfPath, { margin: { top: 0, right: 0, bottom: 0, left: 0 } }, 'tabs');
+  await renderHtmlToPdf(html, pdfPath, { margin: { top: 0, right: 0, bottom: 0, left: 0 } }, '_tmp_tabs.html');
 }
 
 // ── Template: Section PDFs ────────────────────────────────────────────────────
