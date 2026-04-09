@@ -21,7 +21,7 @@ on:
         default: 'mhc'
 
 permissions:
-  contents: write   # Needed to push generated PDFs back to the repo
+  contents: read
 
 env:
   NODE_VERSION: '22'
@@ -115,19 +115,26 @@ jobs:
             --rev-date "${{ steps.rev.outputs.date }}" \
             --rev-number "${{ steps.rev.outputs.number }}"
 
-      # ── 9. Publish PDFs to public/docs ───────────────────────────────────
-      - name: Publish PDFs to public/docs
-        run: npm run docs:publish
-
-      # ── 10. Commit generated PDFs back to main ───────────────────────────
-      - name: Commit generated PDFs
+      # ── 9. Upload PDFs to Cloudflare R2 ──────────────────────────────────
+      - name: Upload PDFs to Cloudflare R2
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/docs/
-          if git diff --cached --quiet; then
-            echo "ℹ️  No PDF changes to commit."
-          else
-            git commit -m "ci(docs): regenerate PDFs — Rev ${{ steps.rev.outputs.number }} (${{ steps.rev.outputs.date }}) [skip ci]"
-            git push
-          fi
+          npm install -g wrangler
+          BUCKET="mh-construction-assets"
+          SRC="documents/output"
+
+          echo "📤 Uploading PDFs to R2 bucket: $BUCKET (prefix: docs/)"
+
+          find "$SRC" -type f | while read -r file; do
+            REL="${file#$SRC/}"
+            KEY="docs/$REL"
+            echo "  ↑ $KEY"
+            wrangler r2 object put "$BUCKET/$KEY" \
+              --file "$file" \
+              --content-type "application/pdf" \
+              --remote
+          done
+
+          echo "✅ All PDFs uploaded to R2"

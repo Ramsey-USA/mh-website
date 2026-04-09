@@ -241,7 +241,7 @@ export class R2StorageService {
  * `getCloudflareContext().env` to access them.
  */
 export function getR2Bucket(
-  bucketName: "RESUMES" | "FILE_ASSETS",
+  bucketName: "RESUMES" | "FILE_ASSETS" | "SAFETY_INTAKE",
 ): R2Bucket | null {
   try {
     const { env } = getCloudflareContext();

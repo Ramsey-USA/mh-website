@@ -2,7 +2,7 @@
 
 ## Secure Handling of API Keys and Credentials
 
-**Last Updated:** December 26, 2025
+**Last Updated:** April 8, 2026
 
 ---
 
@@ -163,6 +163,39 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 > **Note:** This project primarily uses a custom analytics pipeline
 > (localStorage client-side + Cloudflare KV server-side). Google Analytics
 > is optional and only needed if dual-tracking is desired.
+
+---
+
+## GitHub Actions Repository Secrets
+
+GitHub Actions workflows use **repository secrets** — these are separate from
+Cloudflare dashboard secrets and `wrangler.toml` bindings.
+
+### Active Secrets (Used in Workflows)
+
+| Secret                  | Workflow            | Purpose                               |
+| ----------------------- | ------------------- | ------------------------------------- |
+| `CLOUDFLARE_ACCOUNT_ID` | `generate-pdfs.yml` | Authenticates wrangler for R2 uploads |
+| `CLOUDFLARE_API_TOKEN`  | `generate-pdfs.yml` | Authenticates wrangler for R2 uploads |
+
+### Safety Smoke Secrets (Optional)
+
+The `safety-smoke.yml` workflow supports authenticated smoke tests against
+production. These secrets are optional — the workflow defaults to empty strings
+and the authenticated job only runs when explicitly triggered.
+
+| Secret                            | Purpose                              |
+| --------------------------------- | ------------------------------------ |
+| `SAFETY_SMOKE_FIELD_PASSCODE`     | Field/worker portal authentication   |
+| `SAFETY_SMOKE_ADMIN_EMAIL`        | Admin login for authenticated probes |
+| `SAFETY_SMOKE_ADMIN_PASSWORD`     | Admin login for authenticated probes |
+| `SAFETY_SMOKE_USER_BEARER_TOKEN`  | User-level bearer token (fallback)   |
+| `SAFETY_SMOKE_ADMIN_BEARER_TOKEN` | Admin-level bearer token (fallback)  |
+| `SAFETY_SMOKE_JWT_SECRET`         | JWT signing/verification (fallback)  |
+
+> **Note:** Cloudflare resource IDs (D1 database, KV namespaces, R2 buckets)
+> are configured as bindings in `wrangler.toml`, not as GitHub secrets.
+> Do not duplicate these IDs into repository secrets.
 
 ---
 

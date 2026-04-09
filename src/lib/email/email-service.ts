@@ -165,22 +165,19 @@ export class EmailService {
   }
 
   /**
-   * Send email to office team (office@, matt@, and optionally arnold@ for job applications)
+   * Send email to office team (office@, matt@, and arnold@)
    * @param subject Email subject
    * @param content Email content (html and text)
-   * @param includeArnold Whether to include arnold@mhc-gc.com (for job applications)
+   * @param _includeArnold Deprecated — Arnold is now always included via EMAIL_RECIPIENTS
    * @param attachments Optional attachments
    */
   sendToOffice(
     subject: string,
     content: { html: string; text: string },
-    includeArnold = false,
+    _includeArnold = false,
     attachments?: EmailAttachment[],
   ): Promise<EmailResult> {
     const recipients = [...EMAIL_RECIPIENTS.general];
-    if (includeArnold) {
-      recipients.push("arnold@mhc-gc.com");
-    }
 
     return this.sendEmail({
       to: recipients,

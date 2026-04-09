@@ -47,6 +47,10 @@ homepage - same visual weight, spacing, animations, and polish.
 - **Adding icons?** → [Icon System Complete](docs/technical/design-system/icon-system-complete.md)
 - **Optimizing images/videos?** → [Automatic Media Optimization](docs/technical/automatic-media-optimization.md)
 - **Adding SEO metadata?** → [SEO Complete Guide](docs/technical/seo/seo-complete-guide.md) + [SEO Quick Reference](seo-quick-reference.md)
+- **Working on the Safety Program?** →
+  [Safety Program Guide](docs/technical/safety-program-guide.md) +
+  [Safety CI Gate Policy](docs/deployment/safety-ci-gate-policy.md) +
+  [Safety Smoke Setup](docs/deployment/safety-smoke-setup.md)
 - **Making page installable (PWA)?** → [PWA Quick Reference](docs/technical/pwa-quick-reference.md)
 - **Using reusable components?** → [StandardSection Template](docs/development/components/template-components.md)
 - **Deploying to Cloudflare?** → [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md)
@@ -172,6 +176,8 @@ improvements.
 - **Media:** Auto-optimization to WebP/WebM via GitHub Actions
 - **Icons:** Google Material Icons (font-based, 400/500/600 weights)
 - **Forms:** Contact, consultations, and a streamlined job application flow with email notifications
+- **Safety Program:** Cloudflare R2-backed section PDFs with field QR access,
+  complete bonding manual delivery, and controlled public intake planning
 - **Partnership Guide:** Cloudflare Workers AI chatbot — answers questions about services,
   Allies, and veteran benefits; guides all visitors toward direct human contact
 
@@ -224,7 +230,8 @@ RESEND_API_KEY=re_xxxxx
 # Optional (Cloudflare deployment)
 CLOUDFLARE_ACCOUNT_ID=your_account_id
 CLOUDFLARE_API_TOKEN=your_api_token
-D1_DATABASE_ID=your_d1_id
+
+# Note: D1, KV, and R2 IDs are bindings in wrangler.toml, not env vars.
 
 # Optional (Google Analytics)
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX

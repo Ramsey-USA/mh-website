@@ -54,8 +54,9 @@ export function SectionBrowser({
         !s.title.toLowerCase().includes(q) &&
         !s.summary.toLowerCase().includes(q) &&
         !s.number.includes(q)
-      )
+      ) {
         return false;
+      }
       return true;
     });
   }, [sections, query, activeCategory, requiredOnly]);

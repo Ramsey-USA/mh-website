@@ -496,7 +496,7 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
 
   const handleSectionDownload = useCallback(
     (section: DocumentSection) => {
-      logDownload(`AISH_${section.number}`, section.title, "section");
+      logDownload(`SAFETY_PROGRAM_${section.number}`, section.title, "section");
     },
     [logDownload],
   );

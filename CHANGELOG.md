@@ -6,6 +6,28 @@ All notable changes to the MH Construction website are documented here.
 
 ## April 2026
 
+- **Apr 9:** Safety Program system implementation — canonical naming: renamed from "MISH/AISH"
+  to **"MH Construction Safety Program"** across all public pages, download keys, and docs; added
+  dedicated **`SAFETY_INTAKE` Cloudflare R2 bucket** (`mh-construction-safety-intake`) declared
+  in `wrangler.toml`; extended `getR2Bucket()` type union; new reusable **Cloudflare Turnstile
+  verifier** (`src/lib/security/turnstile.ts`) with development-safe skip; new public **Safety
+  intake API** (`POST /api/safety/intake`) — Turnstile-gated, rate-limited (3 req/60s),
+  multipart upload to `SAFETY_INTAKE` R2, D1 metadata write; new **admin review endpoints**
+  (`GET/PATCH /api/safety/intake/[id]` + `GET /api/safety/intake/[id]/file`) — all
+  `requireRole(["admin"])` gated, file proxy streams from R2 without exposing raw object URLs;
+  new public **Safety intake UI page** (`/safety/intake`) with Turnstile widget, file upload,
+  category select, and success state; D1 migration `0012_create_safety_intake_submissions.sql`;
+  `MAX_SAFETY_INTAKE_SIZE` constant (25 MB); new `docs:publish:safety` npm script and
+  `scripts/r2-publish-safety-pdfs.sh` to upload generated PDFs to `FILE_ASSETS` R2 under
+  `docs/safety/`; new combined `docs:release` npm script (`docs:all` + `docs:publish:safety`);
+  `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and `TURNSTILE_SECRET_KEY` added to `.env.local.example`;
+  `docs/technical/safety-program-guide.md` expanded with canonical naming, standards alignment
+  table, Cloudflare storage model, and required deliverables; `docs/deployment/cloudflare-guide.md`
+  updated with Turnstile secret entry and `SAFETY_INTAKE` bucket checklist item; fixed preexisting
+  `isJobApplication` unused-variable error in `src/app/api/contact/route.ts`; fixed preexisting
+  duplicate `fs` import in `documents/scripts/generate.mjs`; fixed preexisting `curly` lint
+  error in `src/components/safety/SectionBrowser.tsx`; type-check and lint now clean (0 errors)
+
 - **Apr 8:** Performance evidence hardening and documentation normalization — hardened
   `scripts/test-lighthouse.js` and `scripts/test-lighthouse-quick.js` to treat runtime errors
   and missing category scores as failed audits, emit non-zero exit codes on failed pages, and

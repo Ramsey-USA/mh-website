@@ -93,3 +93,8 @@ seo-audit-report.json
 # pnpm-lock.yaml
 documents/output/
 documents/content/safety-manual.json
+scripts/output/
+
+# PDFs served from Cloudflare R2 — no longer committed to the repo
+public/docs/
+.wrangler/

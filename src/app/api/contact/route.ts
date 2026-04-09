@@ -6,7 +6,7 @@ import { sendEmail, type EmailAttachment } from "@/lib/email/email-service";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import { requireRole } from "@/lib/auth/middleware";
 import { withSecurity } from "@/middleware/security";
-import { COMPANY_INFO } from "@/lib/constants/company";
+import { COMPANY_INFO, EMAIL_RECIPIENTS } from "@/lib/constants/company";
 import {
   badRequest,
   createSuccessResponse,
@@ -98,19 +98,15 @@ async function handlePOST(request: NextRequest) {
     // Determine recipients based on type
     const isAcknowledgment =
       data.type === "acknowledgment" || data.metadata?.["isAcknowledgment"];
-    const isJobApplication = data.type === "job-application";
 
     let emailRecipients: string[];
     if (isAcknowledgment) {
       emailRecipients = [recipientEmail];
-    } else if (isJobApplication) {
-      emailRecipients = [
-        recipientEmail,
-        "matt@mhc-gc.com",
-        "arnold@mhc-gc.com",
-      ];
     } else {
-      emailRecipients = [recipientEmail, "matt@mhc-gc.com"];
+      // All non-acknowledgment submissions go to office, Matt, and Arnold
+      emailRecipients = [
+        ...new Set([recipientEmail, ...EMAIL_RECIPIENTS.contact]),
+      ];
     }
 
     // Generate email content from structured data only — no caller-supplied HTML.

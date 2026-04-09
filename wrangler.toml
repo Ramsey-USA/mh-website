@@ -163,6 +163,10 @@ binding = "FILE_ASSETS"
 bucket_name = "mh-construction-assets"
 
 [[r2_buckets]]
+binding = "SAFETY_INTAKE"
+bucket_name = "mh-construction-safety-intake"
+
+[[r2_buckets]]
 binding = "RESUMES"
 bucket_name = "mh-construction-resumes"
 

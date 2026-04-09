@@ -25,6 +25,7 @@ export const COMPANY_INFO = {
   email: {
     main: "office@mhc-gc.com",
     admin: "matt@mhc-gc.com",
+    superintendent: "arnold@mhc-gc.com",
   },
 
   // Physical Address
@@ -100,7 +101,19 @@ export const EMAIL_RECIPIENTS: {
   contact: string[];
   careers: string[];
 } = {
-  general: [COMPANY_INFO.email.main, COMPANY_INFO.email.admin],
-  contact: [COMPANY_INFO.email.main, COMPANY_INFO.email.admin],
-  careers: [COMPANY_INFO.email.main, COMPANY_INFO.email.admin],
+  general: [
+    COMPANY_INFO.email.main,
+    COMPANY_INFO.email.admin,
+    COMPANY_INFO.email.superintendent,
+  ],
+  contact: [
+    COMPANY_INFO.email.main,
+    COMPANY_INFO.email.admin,
+    COMPANY_INFO.email.superintendent,
+  ],
+  careers: [
+    COMPANY_INFO.email.main,
+    COMPANY_INFO.email.admin,
+    COMPANY_INFO.email.superintendent,
+  ],
 };

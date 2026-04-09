@@ -237,7 +237,7 @@ export default function SafetyPage() {
                     className="font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 overflow-visible"
                   >
                     <span className="block mb-3 sm:mb-4 text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight overflow-visible py-1">
-                      MISH Program
+                      MH Construction Safety Program
                     </span>
                     <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent overflow-visible py-1 pb-2">
                       44 Sections. Fully Documented.
@@ -245,14 +245,16 @@ export default function SafetyPage() {
                   </h2>
 
                   <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
-                    The MH Construction{" "}
+                    The{" "}
                     <strong className="text-gray-900 dark:text-white">
-                      Industrial Safety and Health (MISH) Program
+                      MH Construction Safety Program
                     </strong>{" "}
-                    — formally the Accident Prevention Program (APP) — is a
-                    fully authored, actively enforced, 44-section written safety
-                    manual aligned with OSHA 29&nbsp;CFR&nbsp;1926 construction
-                    standards and AGC-WA Contractor Safety Evaluation criteria.
+                    is a fully authored, actively enforced, 44-section written
+                    safety manual aligned with OSHA 29&nbsp;CFR&nbsp;1926
+                    construction standards, AGC-WA Contractor Safety Evaluation
+                    criteria, and applicable Washington, Oregon, and Idaho state
+                    requirements. Legacy references may still use Accident
+                    Prevention Program (APP) terminology.
                   </p>
 
                   <div className="flex flex-wrap gap-3 mb-8 text-sm">
@@ -263,7 +265,7 @@ export default function SafetyPage() {
                       },
                       { icon: "gpp_good", label: "OSHA 29 CFR 1926 Aligned" },
                       { icon: "verified", label: "AGC CSEA Compliant" },
-                      { icon: "schema", label: "PMBOK Structured" },
+                      { icon: "map", label: "WA · OR · ID State Reviewed" },
                     ].map(({ icon, label }) => (
                       <span
                         key={label}

@@ -29,10 +29,9 @@
 import puppeteer from 'puppeteer';
 import QRCode from 'qrcode';
 import { readFile, writeFile, mkdir } from 'fs/promises';
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { join, resolve, dirname, extname } from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
-import { existsSync } from 'fs';
 
 const SITE_URL   = 'https://www.mhc-gc.com';
 const __dirname  = dirname(fileURLToPath(import.meta.url));

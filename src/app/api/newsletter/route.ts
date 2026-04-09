@@ -1,6 +1,7 @@
 import { type NextRequest, type NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { sendEmail } from "@/lib/email/email-service";
+import { EMAIL_RECIPIENTS } from "@/lib/constants/company";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import { withSecurity } from "@/middleware/security";
 import {
@@ -17,7 +18,7 @@ export const dynamic = "force-dynamic";
 
 /**
  * Newsletter Signup API
- * Sends newsletter signups to matt@mhc-gc.com
+ * Sends newsletter signups to office, Matt, and Arnold
  * Sends confirmation email to subscriber with MH logo
  */
 
@@ -127,9 +128,9 @@ async function handlePOST(request: NextRequest) {
 </html>
     `;
 
-    // Send notification to Matt
+    // Send notification to office, Matt, and Arnold
     const notificationResult = await sendEmail({
-      to: "matt@mhc-gc.com",
+      to: EMAIL_RECIPIENTS.general,
       subject: "New Newsletter Signup",
       html: notificationHtml,
       text: `New newsletter signup:\n\nEmail: ${data.email}${data.name ? `\nName: ${data.name}` : ""}\n\nSignup Date: ${new Date().toLocaleString()}`,
@@ -153,7 +154,7 @@ async function handlePOST(request: NextRequest) {
       subject: acknowledgment.subject,
       html: acknowledgment.html,
       text: acknowledgment.text,
-      replyTo: "matt@mhc-gc.com",
+      replyTo: "office@mhc-gc.com",
     });
 
     if (!acknowledgmentResult.success) {

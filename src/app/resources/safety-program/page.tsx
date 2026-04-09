@@ -19,11 +19,11 @@ import { getDocumentById } from "@/lib/data/documents";
 export const metadata: Metadata = {
   title: "Safety Program Overview | MH Construction",
   description:
-    "MH Construction's OSHA 29 CFR 1926-compliant Industrial Safety and Health (MISH) Program — 44 sections, AGC CSEA aligned, and PMBOK-structured. Ideal for bonding agency review and bid qualification.",
+    "MH Construction's Safety Program is a 44-section written program aligned with OSHA 29 CFR 1926, AGC CSEA criteria, and applicable Washington, Oregon, and Idaho state requirements. Ideal for bonding agency review and bid qualification.",
   openGraph: {
     title: "Safety Program Overview | MH Construction",
     description:
-      "44-section OSHA-compliant safety program with AGC CSEA alignment, PMBOK integration, and full documentation — for bonding agencies, SURETYs, and owner pre-qualification.",
+      "44-section safety program with OSHA, AGC CSEA, and state-regulation alignment, plus full documentation for bonding agencies, sureties, and owner pre-qualification.",
     url: "https://www.mhc-gc.com/resources/safety-program",
   },
 };
@@ -180,12 +180,12 @@ export default function SafetyProgramPage() {
                 </span>
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed mb-6">
-                MH Construction&apos;s comprehensive Industrial Safety and
-                Health (MISH) Program — formally the Accident Prevention Program
-                (APP) — is fully documented, actively enforced, and updated
-                annually. All 44 sections align with OSHA 29 CFR 1926
-                construction standards, AGC CSEA criteria, and PMBOK project
-                management knowledge areas.
+                MH Construction&apos;s Safety Program is fully documented,
+                actively enforced, and updated annually. All 44 sections align
+                with OSHA 29 CFR 1926 construction standards, AGC CSEA criteria,
+                and applicable Washington, Oregon, and Idaho state requirements.
+                Legacy references may still use Accident Prevention Program
+                (APP) terminology.
               </p>
 
               {/* Compliance badge strip */}

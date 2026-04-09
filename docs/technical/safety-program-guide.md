@@ -10,11 +10,12 @@
 
 ## Overview
 
-MH Construction's **Accident · Injury · Safety · Health (AISH) Program** is a comprehensive
-45-section written safety program (Section 00 = Table of Contents, Sections 01–44 = content)
-covering all OSHA-required construction safety standards.
+MH Construction's **Safety Program** is a comprehensive 45-section written safety
+program (Section 00 = Table of Contents, Sections 01–44 = content) covering all
+OSHA-required construction safety standards.
 
 This guide documents:
+
 - System architecture and file pipeline
 - Step-by-step version update workflow
 - Complete section inventory
@@ -25,21 +26,42 @@ This guide documents:
 **Total Sections:** 45 (00–44) | **Total Pages:** ~350 (formatted output)
 **Source Files:** 44 PDFs + 44 Word (.docx) documents
 
+### Canonical Naming
+
+- **Canonical name:** MH Construction Safety Program
+- **Descriptive phrase:** written safety program aligned with OSHA, AGC, and applicable state requirements
+- **Legacy term:** Accident Prevention Program (APP) may still appear in
+  historic source material and should only be referenced when clarifying
+  continuity
+
+### Standards Alignment
+
+| Standard Layer | Scope                                                                               |
+| -------------- | ----------------------------------------------------------------------------------- |
+| OSHA           | Federal construction-safety baseline, primarily 29 CFR 1926                         |
+| AGC CSEA       | Contractor Safety Evaluation alignment used for prequalification and bonding review |
+| Washington     | WISHA and related Washington state construction-safety requirements                 |
+| Oregon         | Oregon OSHA requirements applicable to project location and work type               |
+| Idaho          | Idaho state and project-specific safety obligations applicable to the work          |
+
+Claims of Washington, Oregon, and Idaho alignment should only be made after the current
+revision has been reviewed against the applicable state rules.
+
 ---
 
 ## System Architecture
 
 ### Two Audiences, Three Entry Points
 
-| Audience | URL | Access |
-|----------|-----|--------|
-| Bonding agents, insurers, clients | `/safety` | Public — no login required |
-| Superintendents / Field staff | `/safety/hub` | Passcode (`FIELD_STAFF_PASSWORD` env var) |
-| Admins (Matt & Jeremy) | `/dashboard` | Email + password |
+| Audience                          | URL           | Access                                    |
+| --------------------------------- | ------------- | ----------------------------------------- |
+| Bonding agents, insurers, clients | `/safety`     | Public — no login required                |
+| Superintendents / Field staff     | `/safety/hub` | Passcode (`FIELD_STAFF_PASSWORD` env var) |
+| Admins (Matt & Jeremy)            | `/dashboard`  | Email + password                          |
 
 ### Document Pipeline
 
-```
+```text
 documents/content/MHC_Safety_Program_XXXX/          ← Drop new PDFs here
 documents/content/MHC_Safety_Program_XXXX_Word/     ← Drop new .docx files here
            │
@@ -50,15 +72,33 @@ documents/content/safety-manual.json                ← Auto-generated manifest 
 documents/output/sections/                          ← 44 generated PDFs served to field staff
 documents/output/forms/                             ← Generated form PDFs
            │
+           ▼  npm run docs:merge + R2 publish
+documents/output/safety-manual-complete.pdf         ← Complete bonding-company manual
+           │
            ▼  Manual update
 src/lib/data/documents.ts                           ← Web registry (revisionDate, section list)
 ```
+
+### Cloudflare Storage Model
+
+Published Safety artifacts should be stored in Cloudflare R2 whenever possible.
+
+- **Published assets:** `FILE_ASSETS` bucket via `/docs/**` delivery for section PDFs, forms, and the complete manual
+- **Public intake:** dedicated `SAFETY_INTAKE` bucket for unreviewed uploads
+- **Rule:** public intake files never publish directly to live Safety docs without admin review and revision processing
+
+### Required Deliverables Per Revision
+
+Every Safety revision must produce both of these outputs:
+
+1. **QR-enabled section PDFs** for field use, with each section resolving back to its digital section route.
+2. **Complete bonding manual PDF** for surety, insurer, and prequalification review.
 
 ---
 
 ## Directory Map
 
-```
+```text
 documents/
 ├── assets/
 │   ├── logo-color.png
@@ -100,55 +140,56 @@ documents/
 
 ## 45-Section Inventory
 
-| # | Title | Pages | Category | OSHA Reference | Priority |
-|---|-------|-------|----------|----------------|----------|
-| 00 | Table of Contents | 2 | Planning & Administration | — | Reference |
-| 01 | Injury-Free Workplace Plan | 8 | Personnel & Policy | 29 CFR 1926.20 | Required |
-| 02 | Drug-Free Workplace | 6 | Personnel & Policy | 29 CFR 1926.23 | Required |
-| 03 | Program Policy and Requirements | 5 | Personnel & Policy | 29 CFR 1926.20 | Required |
-| 04 | Safety and Health Orientation | 7 | Personnel & Policy | 29 CFR 1926.21 | Required |
-| 05 | Pre-Job Safety Planning | 6 | Planning & Administration | 29 CFR 1926.20 | Required |
-| 06 | Emergency Response | 9 | Planning & Administration | 29 CFR 1926.35 | Required |
-| 07 | Safety Bulletin Boards | 3 | Planning & Administration | 29 CFR 1903.2 | Required |
-| 08 | Event Reporting of Incidents, Accidents & Near Misses | 8 | Planning & Administration | 29 CFR 1904 | Required |
-| 09 | Safety and Health Meetings / Inspections | 5 | Planning & Administration | 29 CFR 1926.20 | Required |
-| 10 | Personal Protective Equipment (PPE) | 10 | Equipment & Operations | 29 CFR 1926.95 | Field |
-| 11 | Fall Protection | 12 | Physical Hazards | 29 CFR 1926.502 | Required |
-| 12 | Flammable and Combustible Liquids | 7 | Physical Hazards | 29 CFR 1926.152 | Field |
-| 13 | Fire Prevention | 8 | Physical Hazards | 29 CFR 1926.150 | Required |
-| 14 | Welding, Cutting, and Heating Operations | 9 | Equipment & Operations | 29 CFR 1926.350 | Field |
-| 15 | Lockout / Tagout (LOTO) | 11 | Equipment & Operations | 29 CFR 1910.147 | Required |
-| 16 | Confined Space Entry | 10 | Physical Hazards | 29 CFR 1926.1200 | Required |
-| 17 | Use and Care of Ladders | 6 | Equipment & Operations | 29 CFR 1926.1053 | Field |
-| 18 | Motor Vehicle Safety Program | 7 | Site Control & Environment | 29 CFR 1926.600 | Required |
-| 19 | Equipment Maintenance and Inspection | 8 | Equipment & Operations | 29 CFR 1926.20 | Field |
-| 20 | Aerial Lifts and Elevating Work Platforms | 9 | Equipment & Operations | 29 CFR 1926.453 | Field |
-| 21 | Crane-Suspended Work Platforms | 7 | Equipment & Operations | 29 CFR 1926.1431 | Field |
-| 22 | Use and Handling of Scaffolds | 11 | Equipment & Operations | 29 CFR 1926.451 | Field |
-| 23 | Industrial Hygiene Program | 8 | Health & Industrial Hygiene | 29 CFR 1926.55 | Required |
-| 24 | Contractor Hazard Communication Program | 9 | Health & Industrial Hygiene | 29 CFR 1926.59 | Required |
-| 25 | Heat-Related Illness Prevention | 7 | Physical Hazards | 29 CFR 1926.51 | Field |
-| 26 | Excavation, Trenching, and Shoring | 10 | Physical Hazards | 29 CFR 1926.652 | Field |
-| 27 | Construction Equipment Modifications and Fabrications | 5 | Equipment & Operations | 29 CFR 1926.20 | Reference |
-| 28 | Housekeeping | 4 | Site Control & Environment | 29 CFR 1926.25 | Field |
-| 29 | Electrical Safety | 10 | Physical Hazards | 29 CFR 1926.400 | Required |
-| 30 | Signs, Signals, and Barricades | 6 | Site Control & Environment | 29 CFR 1926.200 | Field |
-| 31 | Miscellaneous Construction Requirements | 8 | Health & Industrial Hygiene | 29 CFR 1926 | Reference |
-| 32 | Respiratory Protection | 9 | Health & Industrial Hygiene | 29 CFR 1926.103 | Required |
-| 33 | Floor Openings, Open-Sided Surfaces, and Ramps | 7 | Physical Hazards | 29 CFR 1926.502 | Field |
-| 34 | Compressed Gas / Compressed Air | 6 | Equipment & Operations | 29 CFR 1926.350 | Field |
-| 35 | Rigging | 10 | Equipment & Operations | 29 CFR 1926.251 | Field |
-| 36 | Hand and Portable Power Tools | 7 | Equipment & Operations | 29 CFR 1926.300 | Field |
-| 37 | Concrete and Masonry Construction | 8 | Equipment & Operations | 29 CFR 1926.701 | Field |
-| 38 | Commercial Drivers Drug and Alcohol Program | 9 | Personnel & Policy | 49 CFR Part 382 | Required |
-| 39 | Subcontractor Management Plan | 7 | Planning & Administration | 29 CFR 1926.20 | Required |
-| 40 | Waste Management Plan | 5 | Planning & Administration | 29 CFR 1926.25 | Required |
-| 41 | Short Service Employee Program | 6 | Personnel & Policy | 29 CFR 1926.21 | Required |
-| 42 | Forklift / Truck Safety | 8 | Equipment & Operations | 29 CFR 1910.178 | Field |
-| 43 | Bloodborne Pathogens | 7 | Health & Industrial Hygiene | 29 CFR 1910.1030 | Required |
-| 44 | Silica Exposure Control | 9 | Health & Industrial Hygiene | 29 CFR 1926.1153 | Required |
+| #   | Title                                                 | Pages | Category                    | OSHA Reference   | Priority  |
+| --- | ----------------------------------------------------- | ----- | --------------------------- | ---------------- | --------- |
+| 00  | Table of Contents                                     | 2     | Planning & Administration   | —                | Reference |
+| 01  | Injury-Free Workplace Plan                            | 8     | Personnel & Policy          | 29 CFR 1926.20   | Required  |
+| 02  | Drug-Free Workplace                                   | 6     | Personnel & Policy          | 29 CFR 1926.23   | Required  |
+| 03  | Program Policy and Requirements                       | 5     | Personnel & Policy          | 29 CFR 1926.20   | Required  |
+| 04  | Safety and Health Orientation                         | 7     | Personnel & Policy          | 29 CFR 1926.21   | Required  |
+| 05  | Pre-Job Safety Planning                               | 6     | Planning & Administration   | 29 CFR 1926.20   | Required  |
+| 06  | Emergency Response                                    | 9     | Planning & Administration   | 29 CFR 1926.35   | Required  |
+| 07  | Safety Bulletin Boards                                | 3     | Planning & Administration   | 29 CFR 1903.2    | Required  |
+| 08  | Event Reporting of Incidents, Accidents & Near Misses | 8     | Planning & Administration   | 29 CFR 1904      | Required  |
+| 09  | Safety and Health Meetings / Inspections              | 5     | Planning & Administration   | 29 CFR 1926.20   | Required  |
+| 10  | Personal Protective Equipment (PPE)                   | 10    | Equipment & Operations      | 29 CFR 1926.95   | Field     |
+| 11  | Fall Protection                                       | 12    | Physical Hazards            | 29 CFR 1926.502  | Required  |
+| 12  | Flammable and Combustible Liquids                     | 7     | Physical Hazards            | 29 CFR 1926.152  | Field     |
+| 13  | Fire Prevention                                       | 8     | Physical Hazards            | 29 CFR 1926.150  | Required  |
+| 14  | Welding, Cutting, and Heating Operations              | 9     | Equipment & Operations      | 29 CFR 1926.350  | Field     |
+| 15  | Lockout / Tagout (LOTO)                               | 11    | Equipment & Operations      | 29 CFR 1910.147  | Required  |
+| 16  | Confined Space Entry                                  | 10    | Physical Hazards            | 29 CFR 1926.1200 | Required  |
+| 17  | Use and Care of Ladders                               | 6     | Equipment & Operations      | 29 CFR 1926.1053 | Field     |
+| 18  | Motor Vehicle Safety Program                          | 7     | Site Control & Environment  | 29 CFR 1926.600  | Required  |
+| 19  | Equipment Maintenance and Inspection                  | 8     | Equipment & Operations      | 29 CFR 1926.20   | Field     |
+| 20  | Aerial Lifts and Elevating Work Platforms             | 9     | Equipment & Operations      | 29 CFR 1926.453  | Field     |
+| 21  | Crane-Suspended Work Platforms                        | 7     | Equipment & Operations      | 29 CFR 1926.1431 | Field     |
+| 22  | Use and Handling of Scaffolds                         | 11    | Equipment & Operations      | 29 CFR 1926.451  | Field     |
+| 23  | Industrial Hygiene Program                            | 8     | Health & Industrial Hygiene | 29 CFR 1926.55   | Required  |
+| 24  | Contractor Hazard Communication Program               | 9     | Health & Industrial Hygiene | 29 CFR 1926.59   | Required  |
+| 25  | Heat-Related Illness Prevention                       | 7     | Physical Hazards            | 29 CFR 1926.51   | Field     |
+| 26  | Excavation, Trenching, and Shoring                    | 10    | Physical Hazards            | 29 CFR 1926.652  | Field     |
+| 27  | Construction Equipment Modifications and Fabrications | 5     | Equipment & Operations      | 29 CFR 1926.20   | Reference |
+| 28  | Housekeeping                                          | 4     | Site Control & Environment  | 29 CFR 1926.25   | Field     |
+| 29  | Electrical Safety                                     | 10    | Physical Hazards            | 29 CFR 1926.400  | Required  |
+| 30  | Signs, Signals, and Barricades                        | 6     | Site Control & Environment  | 29 CFR 1926.200  | Field     |
+| 31  | Miscellaneous Construction Requirements               | 8     | Health & Industrial Hygiene | 29 CFR 1926      | Reference |
+| 32  | Respiratory Protection                                | 9     | Health & Industrial Hygiene | 29 CFR 1926.103  | Required  |
+| 33  | Floor Openings, Open-Sided Surfaces, and Ramps        | 7     | Physical Hazards            | 29 CFR 1926.502  | Field     |
+| 34  | Compressed Gas / Compressed Air                       | 6     | Equipment & Operations      | 29 CFR 1926.350  | Field     |
+| 35  | Rigging                                               | 10    | Equipment & Operations      | 29 CFR 1926.251  | Field     |
+| 36  | Hand and Portable Power Tools                         | 7     | Equipment & Operations      | 29 CFR 1926.300  | Field     |
+| 37  | Concrete and Masonry Construction                     | 8     | Equipment & Operations      | 29 CFR 1926.701  | Field     |
+| 38  | Commercial Drivers Drug and Alcohol Program           | 9     | Personnel & Policy          | 49 CFR Part 382  | Required  |
+| 39  | Subcontractor Management Plan                         | 7     | Planning & Administration   | 29 CFR 1926.20   | Required  |
+| 40  | Waste Management Plan                                 | 5     | Planning & Administration   | 29 CFR 1926.25   | Required  |
+| 41  | Short Service Employee Program                        | 6     | Personnel & Policy          | 29 CFR 1926.21   | Required  |
+| 42  | Forklift / Truck Safety                               | 8     | Equipment & Operations      | 29 CFR 1910.178  | Field     |
+| 43  | Bloodborne Pathogens                                  | 7     | Health & Industrial Hygiene | 29 CFR 1910.1030 | Required  |
+| 44  | Silica Exposure Control                               | 9     | Health & Industrial Hygiene | 29 CFR 1926.1153 | Required  |
 
 **Priority Legend:**
+
 - **Required** — Mandatory for all projects; field staff must be familiar with these sections
 - **Field** — Required on applicable projects and tasks
 - **Reference** — Administrative reference; superintendent awareness only
@@ -197,6 +238,8 @@ npm run docs:generate
 
 This rebuilds all section PDFs and forms into `documents/output/`.
 
+Each section PDF is expected to include QR access back to its digital route for field use.
+
 To regenerate a **single section** (faster, e.g., after a section-level edit):
 
 ```bash
@@ -210,6 +253,20 @@ To regenerate the **cover and spine only**:
 node documents/scripts/generate.mjs --template cover --rev-date "MM/DD/YYYY" --rev-number "3"
 node documents/scripts/generate.mjs --template spine --rev-date "MM/DD/YYYY" --rev-number "3"
 ```
+
+### Step 4b — Rebuild the complete bonding manual
+
+```bash
+npm run docs:merge
+```
+
+This assembles the complete manual PDF used for bonding-company and insurer review.
+
+### Step 4c — Publish approved artifacts to Cloudflare R2
+
+Publish approved section PDFs, forms, and the complete manual to the `FILE_ASSETS`
+bucket so they can be served through the `/docs/**` route. Keep unreviewed public
+uploads in `SAFETY_INTAKE` until admin review is complete.
 
 ### Step 5 — Update the web registry
 
@@ -232,12 +289,12 @@ If sections were **added, removed, or renamed**, also update the `sections: [...
 
 If any form's content changed (new checklist items, renamed fields, changed inputs), update:
 
-| Component | Form |
-|-----------|------|
-| `src/components/safety/forms/ToolboxTalkForm.tsx` | Toolbox Talk |
-| `src/components/safety/forms/JHAForm.tsx` | Job Hazard Analysis |
+| Component                                            | Form                   |
+| ---------------------------------------------------- | ---------------------- |
+| `src/components/safety/forms/ToolboxTalkForm.tsx`    | Toolbox Talk           |
+| `src/components/safety/forms/JHAForm.tsx`            | Job Hazard Analysis    |
 | `src/components/safety/forms/SiteInspectionForm.tsx` | Site Safety Inspection |
-| `src/components/safety/forms/IncidentReportForm.tsx` | Incident Report |
+| `src/components/safety/forms/IncidentReportForm.tsx` | Incident Report        |
 
 ### Step 7 — Log the version update
 
@@ -254,17 +311,17 @@ npm run type-check && npm run lint && npm run build
 
 ## Available npm Commands
 
-| Command | Description |
-|---------|-------------|
-| `npm run docs:extract` | Extract PDF text → `safety-manual.json` (PDF source) |
-| `npm run docs:extract-word` | Extract Word docs → `safety-manual.json` (**preferred** — cleaner output) |
-| `npm run docs:generate` | Generate ALL PDFs (cover, spine, tabs, all 44 sections, all forms) |
-| `node documents/scripts/generate.mjs --template cover` | Cover page only |
-| `node documents/scripts/generate.mjs --template spine` | Spine label only |
-| `node documents/scripts/generate.mjs --template tabs` | All 44 tab dividers |
-| `node documents/scripts/generate.mjs --template sections` | All 44 section PDFs |
-| `node documents/scripts/generate.mjs --template section --section N` | Single section N |
-| `node documents/scripts/generate.mjs --template toolbox-talk` | Toolbox talk form PDF |
+| Command                                                              | Description                                                               |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `npm run docs:extract`                                               | Extract PDF text → `safety-manual.json` (PDF source)                      |
+| `npm run docs:extract-word`                                          | Extract Word docs → `safety-manual.json` (**preferred** — cleaner output) |
+| `npm run docs:generate`                                              | Generate ALL PDFs (cover, spine, tabs, all 44 sections, all forms)        |
+| `node documents/scripts/generate.mjs --template cover`               | Cover page only                                                           |
+| `node documents/scripts/generate.mjs --template spine`               | Spine label only                                                          |
+| `node documents/scripts/generate.mjs --template tabs`                | All 44 tab dividers                                                       |
+| `node documents/scripts/generate.mjs --template sections`            | All 44 section PDFs                                                       |
+| `node documents/scripts/generate.mjs --template section --section N` | Single section N                                                          |
+| `node documents/scripts/generate.mjs --template toolbox-talk`        | Toolbox talk form PDF                                                     |
 
 ---
 
@@ -272,46 +329,47 @@ npm run type-check && npm run lint && npm run build
 
 ### URL Structure
 
-```
+```text
 /safety              ← Public showcase (bonding agents, insurers, clients) — SEO indexed
 /safety/hub          ← Field staff dashboard (passcode required) — noindex
 /safety/print/[id]   ← Print/PDF view for submitted forms — noindex
+/api/safety/intake   ← Public upload intake (Turnstile + rate limiting + review queue)
 /dashboard           ← Admin management (email + password) — noindex
 ```
 
 ### Key Source Files
 
-| File | Purpose |
-|------|---------|
-| `src/app/safety/page.tsx` | Public safety showcase page |
-| `src/app/safety/layout.tsx` | Public SEO metadata (indexed) |
-| `src/app/safety/hub/page.tsx` | Field hub server entry |
-| `src/app/safety/hub/layout.tsx` | Hub metadata (noindex) |
-| `src/app/safety/hub/SafetyHubClient.tsx` | Field hub UI (passcode gate + superintendent dashboard) |
-| `src/app/safety/print/[id]/page.tsx` | Print view entry |
-| `src/app/dashboard/SafetyTab.tsx` | Admin safety management tab |
-| `src/lib/data/documents.ts` | Web document registry — update `revisionDate`/`revisionNumber` here |
-| `src/components/safety/SectionBrowser.tsx` | Section browser used in field hub |
-| `src/components/safety/forms/` | Digital form components |
-| `src/app/api/safety/forms/route.ts` | Form submission API |
-| `src/app/api/safety/jobs/route.ts` | Jobs API |
-| `src/app/api/safety/downloads/route.ts` | PDF download tracking API |
+| File                                       | Purpose                                                             |
+| ------------------------------------------ | ------------------------------------------------------------------- |
+| `src/app/safety/page.tsx`                  | Public safety showcase page                                         |
+| `src/app/safety/layout.tsx`                | Public SEO metadata (indexed)                                       |
+| `src/app/safety/hub/page.tsx`              | Field hub server entry                                              |
+| `src/app/safety/hub/layout.tsx`            | Hub metadata (noindex)                                              |
+| `src/app/safety/hub/SafetyHubClient.tsx`   | Field hub UI (passcode gate + superintendent dashboard)             |
+| `src/app/safety/print/[id]/page.tsx`       | Print view entry                                                    |
+| `src/app/dashboard/SafetyTab.tsx`          | Admin safety management tab                                         |
+| `src/lib/data/documents.ts`                | Web document registry — update `revisionDate`/`revisionNumber` here |
+| `src/components/safety/SectionBrowser.tsx` | Section browser used in field hub                                   |
+| `src/components/safety/forms/`             | Digital form components                                             |
+| `src/app/api/safety/forms/route.ts`        | Form submission API                                                 |
+| `src/app/api/safety/jobs/route.ts`         | Jobs API                                                            |
+| `src/app/api/safety/downloads/route.ts`    | PDF download tracking API                                           |
 
 ### Database Tables
 
-| Table | Purpose |
-|-------|---------|
-| `jobs` | Active/closed/archived construction jobs |
-| `safety_form_submissions` | Digital form submissions per job |
-| `safety_download_log` | PDF section download tracking per superintendent |
+| Table                     | Purpose                                          |
+| ------------------------- | ------------------------------------------------ |
+| `jobs`                    | Active/closed/archived construction jobs         |
+| `safety_form_submissions` | Digital form submissions per job                 |
+| `safety_download_log`     | PDF section download tracking per superintendent |
 
 ### Auth Architecture
 
-| Role | Login Method | Access |
-|------|-------------|--------|
-| `admin` | Email + password via `POST /api/auth/admin-login` | Full dashboard, all API routes |
-| `superintendent` | Shared passcode via `POST /api/auth/field-login` | Field hub, own submissions only |
-| Anonymous | N/A | Public `/safety` page only |
+| Role             | Login Method                                      | Access                          |
+| ---------------- | ------------------------------------------------- | ------------------------------- |
+| `admin`          | Email + password via `POST /api/auth/admin-login` | Full dashboard, all API routes  |
+| `superintendent` | Shared passcode via `POST /api/auth/field-login`  | Field hub, own submissions only |
+| Anonymous        | N/A                                               | Public `/safety` page only      |
 
 ---
 
@@ -332,6 +390,6 @@ Do **not** reuse or delete old folders — they serve as historical archives.
 
 ## Version History
 
-| Revision | Effective Date | Sections | Description | Updated By |
-|----------|---------------|----------|-------------|------------|
-| Rev 2 | 04/07/2026 | 44 (00–44) | Initial digital program; 44 sections extracted from PDF/Word sources; field hub, digital forms, and download tracking deployed | Jeremy |
+| Revision | Effective Date | Sections   | Description                                                                                                                    | Updated By |
+| -------- | -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| Rev 2    | 04/07/2026     | 44 (00–44) | Initial digital program; 44 sections extracted from PDF/Word sources; field hub, digital forms, and download tracking deployed | Jeremy     |

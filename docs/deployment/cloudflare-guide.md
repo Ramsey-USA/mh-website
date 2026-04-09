@@ -85,37 +85,32 @@ binding = "ASSETS"
 
 ### Currently Set ✅
 
-| Variable               | Type      | Value                    | Notes                           |
-| ---------------------- | --------- | ------------------------ | ------------------------------- |
-| `NEXT_PUBLIC_SITE_URL` | Plaintext | `https://www.mhc-gc.com` | Canonical URL                   |
-| `NODE_VERSION`         | Plaintext | `22.22.2`                | Pins Node.js version for builds |
-| `YARN_VERSION`         | Plaintext | `1.22.19`                | Pins Yarn version for builds    |
+| Variable                | Type      | Value                    | Notes                                 |
+| ----------------------- | --------- | ------------------------ | ------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`  | Plaintext | `https://www.mhc-gc.com` | Canonical URL                         |
+| `CI`                    | Plaintext | `true`                   | Skips husky hooks during builds       |
+| `RESEND_API_KEY`        | Secret    | `re_xxxxx`               | Email notifications (contact forms)   |
+| `EMAIL_FROM`            | Secret    | `noreply@mhc-gc.com`     | Resend sender address                 |
+| `JWT_SECRET`            | Secret    | 48-byte hex string       | Signs admin JWTs                      |
+| `ADMIN_MATT_PASSWORD`   | Secret    | strong password          | Admin dashboard login for Matt        |
+| `ADMIN_JEREMY_PASSWORD` | Secret    | strong password          | Admin dashboard login for Jeremy      |
+| `FIELD_STAFF_PASSWORD`  | Secret    | strong passcode          | Safety Hub superintendent login       |
+| `TURNSTILE_SECRET_KEY`  | Secret    | Cloudflare Turnstile key | Verifies public Safety intake uploads |
 
-### Still to Add ❌
+### Optional (Not Yet Added)
 
-| Variable                  | Type   | Value                | Notes                                                    |
-| ------------------------- | ------ | -------------------- | -------------------------------------------------------- |
-| `CI`                      | Secret | `true`               | Skips husky hooks during build — **add first**           |
-| `NEXT_TELEMETRY_DISABLED` | Secret | `1`                  | Disable Next.js telemetry                                |
-| `RESEND_API_KEY`          | Secret | `re_xxxxx`           | Email notifications (contact forms)                      |
-| `EMAIL_FROM`              | Secret | `noreply@mhc-gc.com` | Resend sender address (must be verified domain)          |
-| `JWT_SECRET`              | Secret | 48-byte hex string   | Signs admin JWTs — **required before first admin login** |
-| `ADMIN_MATT_PASSWORD`     | Secret | strong password      | Admin dashboard login for Matt                           |
-| `ADMIN_JEREMY_PASSWORD`   | Secret | strong password      | Admin dashboard login for Jeremy                         |
-| `TWILIO_ACCOUNT_SID`      | Secret | `ACxxxxxxxx`         | Twilio account SID for SMS notifications                 |
-| `TWILIO_AUTH_TOKEN`       | Secret | token string         | Twilio auth token for SMS notifications                  |
-| `TWILIO_FROM_NUMBER`      | Secret | `+15093086489`       | Twilio sender phone number                               |
+| Variable             | Type   | Value          | Notes                                    |
+| -------------------- | ------ | -------------- | ---------------------------------------- |
+| `TWILIO_ACCOUNT_SID` | Secret | `ACxxxxxxxx`   | Twilio account SID for SMS notifications |
+| `TWILIO_AUTH_TOKEN`  | Secret | token string   | Twilio auth token for SMS notifications  |
+| `TWILIO_FROM_NUMBER` | Secret | `+15093086489` | Twilio sender phone number               |
 
-> **`CI=true` is essential.** Without it, `npm install` triggers the `prepare` script which
-> runs husky and fails in the Cloudflare build environment.
-> The `prepare` script already handles this: `node -e "if (process.env.CI) process.exit(0)" && husky`
->
-> **`JWT_SECRET` must be set before the first admin login attempt.** The route throws a 500
-> in production if missing. Generate with: `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`
->
 > **Resend domain verification:** `mhc-gc.com` must be a verified sender domain in the
 > Resend dashboard (SPF + DKIM DNS records required). Without this all contact form emails
 > are silently dropped.
+>
+> **Twilio secrets are optional.** SMS notifications degrade gracefully — the notification
+> service logs a warning and skips SMS when credentials are missing.
 
 ### Optional Environment Variables
 
@@ -123,8 +118,12 @@ binding = "ASSETS"
 | ------------------------------- | ----------------- | --------------------------- |
 | `CLOUDFLARE_ACCOUNT_ID`         | `your_account_id` | For manual Wrangler deploys |
 | `CLOUDFLARE_API_TOKEN`          | `your_api_token`  | For manual Wrangler deploys |
-| `CLOUDFLARE_D1_DATABASE_ID`     | `your_d1_id`      | D1 database access          |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-XXXXXXXXXX`    | Google Analytics (optional) |
+
+> **Note:** D1, KV, and R2 resource IDs are configured as bindings in
+> `wrangler.toml`, not as dashboard environment variables. Do not add
+> `CLOUDFLARE_D1_DATABASE_ID`, `MH_CONSTRUCTION_ANALYTICS`, or
+> `MH_CONSTRUCTION_CACHE` here — they have no effect at runtime.
 
 ---
 
@@ -138,8 +137,8 @@ secrets, not Cloudflare dashboard secrets.
 
 For Safety smoke setup and policy details, see:
 
-- `docs/deployment/safety-ci-gate-policy.md`
-- `docs/deployment/safety-smoke-setup.md`
+- [docs/deployment/safety-ci-gate-policy.md](docs/deployment/safety-ci-gate-policy.md)
+- [docs/deployment/safety-smoke-setup.md](docs/deployment/safety-smoke-setup.md)
 
 Recommended authenticated smoke strategy is login-based credentials in GitHub:
 
@@ -148,6 +147,10 @@ Recommended authenticated smoke strategy is login-based credentials in GitHub:
 - `SAFETY_SMOKE_ADMIN_PASSWORD`
 
 Use bearer-token or JWT-signing-secret options only as fallback.
+
+Published Safety PDFs should be delivered through the existing `FILE_ASSETS` R2
+binding and `/docs/**` proxy path. Public Safety uploads should use a dedicated
+`SAFETY_INTAKE` bucket so unreviewed files stay isolated from published assets.
 
 ---
 
@@ -340,8 +343,8 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 - [ ] Add `RESEND_API_KEY`, `EMAIL_FROM=noreply@mhc-gc.com`
 - [ ] Set `NEXT_PUBLIC_SITE_URL=https://www.mhc-gc.com` and `NEXT_TELEMETRY_DISABLED=1` in dashboard
 - [ ] Bind D1 database (`DB` → `mh-construction-db`) in dashboard
-- [ ] Create R2 buckets: `mh-construction-assets` and `mh-construction-resumes`
-- [ ] Bind R2 buckets (`FILE_ASSETS` → `mh-construction-assets`, `RESUMES` → `mh-construction-resumes`) in dashboard
+- [ ] Create R2 buckets: `mh-construction-assets`, `mh-construction-safety-intake`, and `mh-construction-resumes`
+- [ ] Bind R2 buckets (`FILE_ASSETS` → `mh-construction-assets`, `SAFETY_INTAKE` → `mh-construction-safety-intake`, `RESUMES` → `mh-construction-resumes`) in dashboard
 - [ ] Bind KV namespaces: `CACHE` (fleet-wide rate limiting) and `ANALYTICS` (server-side analytics)
 - [ ] Connect custom domain `www.mhc-gc.com` under Workers & Pages → mhc-v2-website → Custom Domains
 - [ ] Verify SSL certificate is active (**Full strict** — not Flexible)
