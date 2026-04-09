@@ -32,10 +32,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const section = getSection(slug);
   if (!section) return { title: "Section Not Found | MH Construction" };
   return {
-    title: `Section ${section.number}: ${section.title} | MH Construction Safety Manual`,
+    title: `MISH Section ${section.number}: ${section.title} | MH Construction`,
     description: section.summary,
     openGraph: {
-      title: `Section ${section.number}: ${section.title} | MH Construction`,
+      title: `MISH Section ${section.number}: ${section.title} | MH Construction`,
       description: section.summary,
       url: `https://www.mhc-gc.com/resources/safety-manual/section/${slug}`,
     },
@@ -57,7 +57,7 @@ export default async function SectionPage({ params }: Props) {
       : null;
 
   const pdfFileName = `${section.number}-${slug}.pdf`;
-  const pdfPath = `/docs/sections/${pdfFileName}`;
+  const pdfPath = `/docs/safety/sections/${pdfFileName}`;
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: "Home", url: "https://www.mhc-gc.com" },
@@ -112,7 +112,7 @@ export default async function SectionPage({ params }: Props) {
               </div>
               <div className="flex-1">
                 <p className="text-sm font-semibold text-brand-secondary dark:text-brand-secondary-light uppercase tracking-wider mb-1">
-                  Safety Manual · Section {section.number}
+                  MISH · Section {section.number}
                 </p>
                 <h1 className="text-3xl sm:text-4xl font-black text-gray-900 dark:text-white leading-tight mb-3">
                   {section.title}

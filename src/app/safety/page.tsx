@@ -34,15 +34,17 @@ const NextStepsSection = dynamic(() =>
 const SITE_URL = "https://www.mhc-gc.com";
 
 export const metadata: Metadata = withGeoMetadata({
-  title: "Safety Program | Zero-Incident Culture | MH Construction",
+  title: "MISH Safety Program | Zero-Incident Culture | MH Construction",
   description:
-    "MH Construction's award-winning safety program: 0.64 EMR rating (40% below industry average), 44-section OSHA 29 CFR 1926 written program, AGC-WA Top EMR Award winner. Daily toolbox talks, JHA documentation, and incident reporting. Veteran-owned general contractor serving Tri-Cities WA.",
+    "MH Construction's MISH Industrial Safety & Health Program: 0.64 EMR rating (40% below industry average), 44-section program built on the AGC Accident Prevention Program (APP) framework, compliant with OSHA 29 CFR 1926, WISHA/L&I (WA), OAR (OR), and IDAPA (ID). AGC-WA Top EMR Award winner. Daily toolbox talks, JHA, incident reporting.",
   keywords: [
-    "construction safety program",
+    "MISH industrial safety health program",
+    "MH Construction safety program",
     "zero incident safety culture",
     "OSHA 29 CFR 1926 compliance",
     "construction EMR rating",
     "experience modification rate 0.64",
+    "AGC accident prevention program",
     "AGC safety award winner",
     "daily toolbox talks",
     "job hazard analysis JHA",
@@ -83,9 +85,9 @@ export const metadata: Metadata = withGeoMetadata({
     card: "summary_large_image",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: "Safety Program | MH Construction",
+    title: "MISH Safety Program | MH Construction",
     description:
-      "0.64 EMR rating. 44-section OSHA program. AGC-WA Top EMR Award winner. Zero-incident culture.",
+      "0.64 EMR rating. 44-section MISH program (AGC APP framework). OSHA + WA/OR/ID compliant. AGC-WA Top EMR Award winner.",
     images: [`${SITE_URL}/images/safety/safety-culture.webp`],
   },
   robots: {
@@ -111,9 +113,9 @@ const safetySchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${SITE_URL}/safety#service`,
-  name: "MH Construction Safety Program",
+  name: "MISH — MH Construction Industrial Safety & Health Program",
   description:
-    "Award-winning construction safety program with 0.64 EMR rating. 44-section OSHA 29 CFR 1926 written program with daily toolbox talks, job hazard analysis, site inspections, and incident reporting. AGC-WA Top EMR Award winner.",
+    "MH Construction's 44-section MISH Industrial Safety & Health Program (MISH) — built on the AGC Accident Prevention Program (APP) framework. 0.64 EMR rating, OSHA 29 CFR 1926 aligned, WISHA/L&I (WA), OAR (OR), and IDAPA (ID) compliant. AGC-WA Top EMR Award winner.",
   provider: {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
@@ -386,24 +388,28 @@ export default function SafetyPage() {
                     className="font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter mb-6 overflow-visible"
                   >
                     <span className="block mb-3 sm:mb-4 text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight overflow-visible py-1">
-                      MH Construction Safety Program
+                      MISH — MH Construction
                     </span>
                     <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                      44 Sections. Fully Documented.
+                      Industrial Safety &amp; Health Program
                     </span>
                   </h2>
 
                   <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
                     The{" "}
                     <strong className="text-gray-900 dark:text-white">
-                      MH Construction Safety Program
+                      MH Construction Industrial Safety &amp; Health Program
+                      (MISH)
                     </strong>{" "}
                     is a fully authored, actively enforced, 44-section written
-                    safety manual aligned with OSHA 29&nbsp;CFR&nbsp;1926
-                    construction standards, AGC-WA Contractor Safety Evaluation
-                    criteria, and applicable Washington, Oregon, and Idaho state
-                    requirements. Legacy references may still use Accident
-                    Prevention Program (APP) terminology.
+                    safety program built on the{" "}
+                    <strong className="text-gray-900 dark:text-white">
+                      AGC Accident Prevention Program (APP)
+                    </strong>{" "}
+                    framework. MISH ensures MHC standards meet and exceed
+                    OSHA&nbsp;29&nbsp;CFR&nbsp;1926, WISHA/L&amp;I (WA), OAR
+                    (OR), and IDAPA (ID) state regulations. Aligned with
+                    AGC-WA&nbsp;Contractor Safety Evaluation (CSEA) criteria.
                   </p>
 
                   <div className="flex flex-wrap gap-3 mb-8 text-sm">
@@ -413,8 +419,11 @@ export default function SafetyPage() {
                         label: `Revision ${revisionNumber} — ${revisionDate}`,
                       },
                       { icon: "gpp_good", label: "OSHA 29 CFR 1926 Aligned" },
-                      { icon: "verified", label: "AGC CSEA Compliant" },
-                      { icon: "map", label: "WA · OR · ID State Reviewed" },
+                      { icon: "verified", label: "AGC APP Framework" },
+                      {
+                        icon: "map",
+                        label: "WISHA (WA) · OAR (OR) · IDAPA (ID)",
+                      },
                     ].map(({ icon, label }) => (
                       <span
                         key={label}
@@ -476,16 +485,16 @@ export default function SafetyPage() {
                           def: `Rev ${revisionNumber} — ${revisionDate}`,
                         },
                         {
-                          term: "Standards Alignment",
-                          def: "OSHA 29 CFR 1926, AGC CSEA, WISHA",
+                          term: "Framework",
+                          def: "AGC Accident Prevention Program (APP)",
                         },
                         {
-                          term: "Annual Review Cycle",
-                          def: "Full revision + field validation",
+                          term: "Standards",
+                          def: "OSHA 29 CFR 1926, WISHA, OAR, IDAPA",
                         },
                         {
                           term: "Distribution",
-                          def: "All superintendents — Field Safety Hub",
+                          def: "All superintendents — MISH Field Hub",
                         },
                       ].map(({ term, def }) => (
                         <div
