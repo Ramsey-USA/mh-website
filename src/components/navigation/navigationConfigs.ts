@@ -490,7 +490,7 @@ export const navigationConfigs = {
     },
     {
       href: "#program",
-      label: "Written Program",
+      label: "MISH Program",
       mobileLabel: "Program",
       icon: "menu_book",
     },
@@ -511,6 +511,12 @@ export const navigationConfigs = {
       label: "Compliance",
       mobileLabel: "Comply",
       icon: "verified",
+    },
+    {
+      href: "/resources/safety-program",
+      label: "Bonding Docs",
+      mobileLabel: "Bonding",
+      icon: "policy",
     },
     {
       href: "/safety/hub",
