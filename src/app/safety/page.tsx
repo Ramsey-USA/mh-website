@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,6 +19,7 @@ import { StructuredData } from "@/components/seo/SeoMeta";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { getDocumentById } from "@/lib/data/documents";
 import { PageTrackingClient } from "@/components/analytics";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 // Below-fold components: lazy-loaded for performance
 const SafetySection = dynamic(() =>
@@ -29,10 +31,156 @@ const NextStepsSection = dynamic(() =>
   })),
 );
 
+const SITE_URL = "https://www.mhc-gc.com";
+
+export const metadata: Metadata = withGeoMetadata({
+  title: "Safety Program | Zero-Incident Culture | MH Construction",
+  description:
+    "MH Construction's award-winning safety program: 0.64 EMR rating (40% below industry average), 44-section OSHA 29 CFR 1926 written program, AGC-WA Top EMR Award winner. Daily toolbox talks, JHA documentation, and incident reporting. Veteran-owned general contractor serving Tri-Cities WA.",
+  keywords: [
+    "construction safety program",
+    "zero incident safety culture",
+    "OSHA 29 CFR 1926 compliance",
+    "construction EMR rating",
+    "experience modification rate 0.64",
+    "AGC safety award winner",
+    "daily toolbox talks",
+    "job hazard analysis JHA",
+    "site safety inspection",
+    "incident reporting construction",
+    "construction accident prevention",
+    "safety documentation construction",
+    "field safety hub",
+    "superintendent safety forms",
+    "construction safety Tri-Cities WA",
+    "veteran-owned contractor safety",
+    "Washington contractor safety program",
+    "WISHA compliant contractor",
+    "AGC CSEA safety evaluation",
+    "bonding safety requirements",
+  ],
+  alternates: {
+    canonical: `${SITE_URL}/safety`,
+  },
+  openGraph: {
+    title: "Safety Program | Zero-Incident Culture | MH Construction",
+    description:
+      "Award-winning safety: 0.64 EMR rating, 44-section OSHA program, AGC-WA Top EMR Award. Daily toolbox talks, JHA, inspections. Veteran-owned contractor.",
+    url: `${SITE_URL}/safety`,
+    siteName: "MH Construction",
+    type: "website",
+    images: [
+      {
+        url: `${SITE_URL}/images/safety/safety-culture.webp`,
+        width: 1200,
+        height: 630,
+        alt: "MH Construction Safety Briefing - Zero-Incident Culture",
+      },
+    ],
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@mhc_gc",
+    creator: "@mhc_gc",
+    title: "Safety Program | MH Construction",
+    description:
+      "0.64 EMR rating. 44-section OSHA program. AGC-WA Top EMR Award winner. Zero-incident culture.",
+    images: [`${SITE_URL}/images/safety/safety-culture.webp`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+});
+
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", url: "https://www.mhc-gc.com" },
   { name: "Safety Program", url: "https://www.mhc-gc.com/safety" },
 ]);
+
+// Safety Program Schema for rich results
+const safetySchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${SITE_URL}/safety#service`,
+  name: "MH Construction Safety Program",
+  description:
+    "Award-winning construction safety program with 0.64 EMR rating. 44-section OSHA 29 CFR 1926 written program with daily toolbox talks, job hazard analysis, site inspections, and incident reporting. AGC-WA Top EMR Award winner.",
+  provider: {
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
+    name: "MH Construction",
+    url: SITE_URL,
+  },
+  serviceType: "Construction Safety Management",
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Richland",
+      containedInPlace: { "@type": "State", name: "Washington" },
+    },
+    {
+      "@type": "City",
+      name: "Kennewick",
+      containedInPlace: { "@type": "State", name: "Washington" },
+    },
+    {
+      "@type": "City",
+      name: "Pasco",
+      containedInPlace: { "@type": "State", name: "Washington" },
+    },
+    { "@type": "State", name: "Washington" },
+    { "@type": "State", name: "Oregon" },
+    { "@type": "State", name: "Idaho" },
+  ],
+  award: ["AGC-WA Top EMR Award", "0.64 Experience Modification Rate"],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Safety Program Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Daily Toolbox Talks",
+          description: "Pre-shift safety briefings recorded and logged",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Job Hazard Analysis",
+          description: "Task-level hazard identification before critical work",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Site Safety Inspections",
+          description: "Regular structured site walks with documented findings",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Incident Reporting",
+          description: "Same-day near-miss and incident documentation",
+        },
+      },
+    ],
+  },
+};
 
 const CREDENTIAL_STATS = [
   {
@@ -99,6 +247,7 @@ export default function SafetyPage() {
     <>
       <PageTrackingClient pageName="Safety" />
       <StructuredData data={breadcrumbSchema} />
+      <StructuredData data={safetySchema} />
 
       <div className="bg-white dark:bg-gray-900 min-h-screen">
         {/* ── Hero ───────────────────────────────────────────────────────────── */}
