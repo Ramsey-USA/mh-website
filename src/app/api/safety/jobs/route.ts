@@ -4,7 +4,7 @@
  * POST /api/safety/jobs  – create a new job (admin only)
  */
 
-import { type NextRequest, NextResponse } from "next/server";
+import { type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { createDbClient } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
@@ -12,6 +12,13 @@ import { requireRole } from "@/lib/auth/middleware";
 import { type JWTUser } from "@/lib/auth/jwt";
 import { withSecurity } from "@/middleware/security";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
+import {
+  createSuccessResponse,
+  badRequest,
+  internalServerError,
+  serviceUnavailable,
+} from "@/lib/api/responses";
+import { HttpStatus } from "@/lib/types/api";
 
 export const dynamic = "force-dynamic";
 
@@ -31,10 +38,7 @@ async function handleGET(_request: NextRequest, _user: JWTUser) {
   try {
     const DB = getD1Database();
     if (!DB) {
-      return NextResponse.json(
-        { error: "Database not available" },
-        { status: 503 },
-      );
+      return serviceUnavailable("Database not available");
     }
 
     const db = createDbClient({ DB });
@@ -42,13 +46,10 @@ async function handleGET(_request: NextRequest, _user: JWTUser) {
       `SELECT * FROM jobs WHERE status = 'active' ORDER BY job_number ASC`,
     );
 
-    return NextResponse.json({ success: true, data: jobs });
+    return createSuccessResponse(jobs);
   } catch (error) {
     logger.error("Error fetching jobs:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch jobs" },
-      { status: 500 },
-    );
+    return internalServerError("Failed to fetch jobs");
   }
 }
 
@@ -63,18 +64,12 @@ async function handlePOST(request: NextRequest, _user: JWTUser) {
       typeof job_name !== "string" ||
       !job_name.trim()
     ) {
-      return NextResponse.json(
-        { error: "job_number and job_name are required" },
-        { status: 400 },
-      );
+      return badRequest("job_number and job_name are required");
     }
 
     const DB = getD1Database();
     if (!DB) {
-      return NextResponse.json(
-        { error: "Database not available" },
-        { status: 503 },
-      );
+      return serviceUnavailable("Database not available");
     }
 
     const db = createDbClient({ DB });
@@ -91,13 +86,10 @@ async function handlePOST(request: NextRequest, _user: JWTUser) {
     const job = await db.queryOne<Job>(`SELECT * FROM jobs WHERE id = ?`, id);
 
     logger.info(`Created job: ${job_number} – ${job_name}`);
-    return NextResponse.json({ success: true, data: job }, { status: 201 });
+    return createSuccessResponse(job, undefined, HttpStatus.CREATED);
   } catch (error) {
     logger.error("Error creating job:", error);
-    return NextResponse.json(
-      { error: "Failed to create job" },
-      { status: 500 },
-    );
+    return internalServerError("Failed to create job");
   }
 }
 

@@ -4,7 +4,7 @@
  * POST /api/drivers  – create a new driver record (admin only)
  */
 
-import { type NextRequest, NextResponse } from "next/server";
+import { type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { createDbClient, type AuthorizedDriver } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
@@ -12,32 +12,26 @@ import { requireRole } from "@/lib/auth/middleware";
 import { type JWTUser } from "@/lib/auth/jwt";
 import { withSecurity } from "@/middleware/security";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
+import {
+  VALID_AUTHORIZATION_STATUSES,
+  VALID_MVR_STATUSES,
+  VALID_LICENSE_CLASSES,
+} from "@/lib/constants/drivers";
+import {
+  createSuccessResponse,
+  badRequest,
+  internalServerError,
+  serviceUnavailable,
+} from "@/lib/api/responses";
+import { HttpStatus } from "@/lib/types/api";
 
 export const dynamic = "force-dynamic";
-
-const VALID_AUTHORIZATION_STATUSES = [
-  "authorized",
-  "suspended",
-  "revoked",
-  "pending",
-];
-const VALID_MVR_STATUSES = [
-  "clear",
-  "flagged",
-  "suspended",
-  "revoked",
-  "pending",
-];
-const VALID_LICENSE_CLASSES = ["standard", "CDL-A", "CDL-B", "CDL-C"];
 
 async function handleGET(request: NextRequest, _user: JWTUser) {
   try {
     const DB = getD1Database();
     if (!DB) {
-      return NextResponse.json(
-        { error: "Database not available" },
-        { status: 503 },
-      );
+      return serviceUnavailable("Database not available");
     }
 
     const db = createDbClient({ DB });
@@ -48,7 +42,10 @@ async function handleGET(request: NextRequest, _user: JWTUser) {
     let sql = "SELECT * FROM authorized_drivers";
     const params: string[] = [];
 
-    if (status && VALID_AUTHORIZATION_STATUSES.includes(status)) {
+    if (
+      status &&
+      (VALID_AUTHORIZATION_STATUSES as readonly string[]).includes(status)
+    ) {
       sql += " WHERE authorization_status = ?";
       params.push(status);
     }
@@ -57,13 +54,10 @@ async function handleGET(request: NextRequest, _user: JWTUser) {
 
     const drivers = await db.query<AuthorizedDriver>(sql, ...params);
 
-    return NextResponse.json({ success: true, data: drivers });
+    return createSuccessResponse(drivers);
   } catch (error) {
     logger.error("Error fetching drivers:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch drivers" },
-      { status: 500 },
-    );
+    return internalServerError("Failed to fetch drivers");
   }
 }
 
@@ -98,50 +92,34 @@ async function handlePOST(request: NextRequest, _user: JWTUser) {
       typeof license_expiration_date !== "string" ||
       !license_expiration_date.trim()
     ) {
-      return NextResponse.json(
-        {
-          error:
-            "employee_name, license_number, and license_expiration_date are required",
-        },
-        { status: 400 },
+      return badRequest(
+        "employee_name, license_number, and license_expiration_date are required",
       );
     }
 
     // Validate enum fields if provided
     if (mvr_status && !VALID_MVR_STATUSES.includes(mvr_status)) {
-      return NextResponse.json(
-        {
-          error: `mvr_status must be one of: ${VALID_MVR_STATUSES.join(", ")}`,
-        },
-        { status: 400 },
+      return badRequest(
+        `mvr_status must be one of: ${VALID_MVR_STATUSES.join(", ")}`,
       );
     }
     if (
       authorization_status &&
       !VALID_AUTHORIZATION_STATUSES.includes(authorization_status)
     ) {
-      return NextResponse.json(
-        {
-          error: `authorization_status must be one of: ${VALID_AUTHORIZATION_STATUSES.join(", ")}`,
-        },
-        { status: 400 },
+      return badRequest(
+        `authorization_status must be one of: ${VALID_AUTHORIZATION_STATUSES.join(", ")}`,
       );
     }
     if (license_class && !VALID_LICENSE_CLASSES.includes(license_class)) {
-      return NextResponse.json(
-        {
-          error: `license_class must be one of: ${VALID_LICENSE_CLASSES.join(", ")}`,
-        },
-        { status: 400 },
+      return badRequest(
+        `license_class must be one of: ${VALID_LICENSE_CLASSES.join(", ")}`,
       );
     }
 
     const DB = getD1Database();
     if (!DB) {
-      return NextResponse.json(
-        { error: "Database not available" },
-        { status: 503 },
-      );
+      return serviceUnavailable("Database not available");
     }
 
     const db = createDbClient({ DB });
@@ -194,13 +172,10 @@ async function handlePOST(request: NextRequest, _user: JWTUser) {
     );
 
     logger.info(`Created authorized driver: ${employee_name}`);
-    return NextResponse.json({ success: true, data: driver }, { status: 201 });
+    return createSuccessResponse(driver, undefined, HttpStatus.CREATED);
   } catch (error) {
     logger.error("Error creating driver:", error);
-    return NextResponse.json(
-      { error: "Failed to create driver" },
-      { status: 500 },
-    );
+    return internalServerError("Failed to create driver");
   }
 }
 

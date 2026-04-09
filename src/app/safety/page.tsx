@@ -234,17 +234,17 @@ export default function SafetyPage() {
 
                   <h2
                     id="program-heading"
-                    className="font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 overflow-visible"
+                    className="font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter mb-6 overflow-visible"
                   >
                     <span className="block mb-3 sm:mb-4 text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight overflow-visible py-1">
                       MH Construction Safety Program
                     </span>
-                    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent overflow-visible py-1 pb-2">
+                    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                       44 Sections. Fully Documented.
                     </span>
                   </h2>
 
-                  <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
+                  <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
                     The{" "}
                     <strong className="text-gray-900 dark:text-white">
                       MH Construction Safety Program
@@ -365,7 +365,7 @@ export default function SafetyPage() {
         {/* ── Evidence — Active program use cards ────────────────────────── */}
         <section
           id="evidence"
-          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+          className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
           aria-labelledby="evidence-heading"
         >
           <DiagonalStripePattern />
@@ -373,29 +373,38 @@ export default function SafetyPage() {
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <FadeInWhenVisible>
-              <div className="text-center mb-12">
-                <div className="inline-flex items-center gap-2 bg-brand-primary/10 dark:bg-brand-primary/20 border border-brand-primary/20 rounded-full px-4 py-1.5 mb-4">
-                  <MaterialIcon
-                    icon="fact_check"
-                    size="sm"
-                    className="text-brand-primary"
-                  />
-                  <span className="text-brand-primary dark:text-brand-secondary text-sm font-semibold uppercase tracking-wide">
-                    Active Daily Use
-                  </span>
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="fact_check"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
+
+                {/* Two-line gradient heading */}
                 <h2
                   id="evidence-heading"
-                  className="font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 overflow-visible"
+                  className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"
                 >
-                  <span className="block mb-3 sm:mb-4 text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight overflow-visible py-1">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Not a Shelf Document
                   </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent overflow-visible py-1 pb-2">
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     A Living Safety System
                   </span>
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+
+                {/* Description */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   Every section of the safety manual is actively referenced and
                   enforced on our jobsites — daily. Field submissions are
                   digital, timestamped, and reviewable.
@@ -425,10 +434,10 @@ export default function SafetyPage() {
                           />
                         </div>
                       </div>
-                      <h3 className="font-bold text-gray-900 dark:text-white mb-2">
+                      <h3 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl mb-2">
                         {title}
                       </h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                         {body}
                       </p>
                     </div>
@@ -450,19 +459,38 @@ export default function SafetyPage() {
 
           <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <FadeInWhenVisible>
-              <div className="text-center mb-10">
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="verified"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                {/* Two-line gradient heading */}
                 <h2
                   id="compliance-heading"
-                  className="font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 overflow-visible"
+                  className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"
                 >
-                  <span className="block mb-3 sm:mb-4 text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight overflow-visible py-1">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                     Standards We Meet
                   </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent overflow-visible py-1 pb-2">
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                     Every Requirement. Every Project.
                   </span>
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+
+                {/* Description */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   Full compliance with every standard relevant to public-sector,
                   commercial, and federal construction — with documentation
                   available for bonding agency review.
@@ -523,10 +551,10 @@ export default function SafetyPage() {
                       />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-white text-sm mb-1">
+                      <h3 className="font-bold text-gray-900 dark:text-white text-base mb-1">
                         {title}
                       </h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                      <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                         {body}
                       </p>
                     </div>

@@ -5,30 +5,27 @@
  * DELETE /api/drivers/[id]  – revoke driver authorization (admin only)
  */
 
-import { type NextRequest, NextResponse } from "next/server";
+import { type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { createDbClient, type AuthorizedDriver } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
 import { requireRole } from "@/lib/auth/middleware";
 import { type JWTUser } from "@/lib/auth/jwt";
 import { withSecurity } from "@/middleware/security";
+import {
+  VALID_AUTHORIZATION_STATUSES,
+  VALID_MVR_STATUSES,
+  VALID_LICENSE_CLASSES,
+} from "@/lib/constants/drivers";
+import {
+  createSuccessResponse,
+  badRequest,
+  notFound,
+  internalServerError,
+  serviceUnavailable,
+} from "@/lib/api/responses";
 
 export const dynamic = "force-dynamic";
-
-const VALID_AUTHORIZATION_STATUSES = [
-  "authorized",
-  "suspended",
-  "revoked",
-  "pending",
-];
-const VALID_MVR_STATUSES = [
-  "clear",
-  "flagged",
-  "suspended",
-  "revoked",
-  "pending",
-];
-const VALID_LICENSE_CLASSES = ["standard", "CDL-A", "CDL-B", "CDL-C"];
 
 type RouteContext = { params: Promise<{ id: string }> };
 
@@ -42,10 +39,7 @@ async function handleGET(
 
     const DB = getD1Database();
     if (!DB) {
-      return NextResponse.json(
-        { error: "Database not available" },
-        { status: 503 },
-      );
+      return serviceUnavailable("Database not available");
     }
 
     const db = createDbClient({ DB });
@@ -55,16 +49,13 @@ async function handleGET(
     );
 
     if (!driver) {
-      return NextResponse.json({ error: "Driver not found" }, { status: 404 });
+      return notFound("Driver not found");
     }
 
-    return NextResponse.json({ success: true, data: driver });
+    return createSuccessResponse(driver);
   } catch (error) {
     logger.error("Error fetching driver:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch driver" },
-      { status: 500 },
-    );
+    return internalServerError("Failed to fetch driver");
   }
 }
 
@@ -79,10 +70,7 @@ async function handlePUT(
 
     const DB = getD1Database();
     if (!DB) {
-      return NextResponse.json(
-        { error: "Database not available" },
-        { status: 503 },
-      );
+      return serviceUnavailable("Database not available");
     }
 
     const db = createDbClient({ DB });
@@ -93,38 +81,29 @@ async function handlePUT(
       id,
     );
     if (!existing) {
-      return NextResponse.json({ error: "Driver not found" }, { status: 404 });
+      return notFound("Driver not found");
     }
 
     // Validate enum fields if provided
     if (body.mvr_status && !VALID_MVR_STATUSES.includes(body.mvr_status)) {
-      return NextResponse.json(
-        {
-          error: `mvr_status must be one of: ${VALID_MVR_STATUSES.join(", ")}`,
-        },
-        { status: 400 },
+      return badRequest(
+        `mvr_status must be one of: ${VALID_MVR_STATUSES.join(", ")}`,
       );
     }
     if (
       body.authorization_status &&
       !VALID_AUTHORIZATION_STATUSES.includes(body.authorization_status)
     ) {
-      return NextResponse.json(
-        {
-          error: `authorization_status must be one of: ${VALID_AUTHORIZATION_STATUSES.join(", ")}`,
-        },
-        { status: 400 },
+      return badRequest(
+        `authorization_status must be one of: ${VALID_AUTHORIZATION_STATUSES.join(", ")}`,
       );
     }
     if (
       body.license_class &&
       !VALID_LICENSE_CLASSES.includes(body.license_class)
     ) {
-      return NextResponse.json(
-        {
-          error: `license_class must be one of: ${VALID_LICENSE_CLASSES.join(", ")}`,
-        },
-        { status: 400 },
+      return badRequest(
+        `license_class must be one of: ${VALID_LICENSE_CLASSES.join(", ")}`,
       );
     }
 
@@ -162,10 +141,7 @@ async function handlePUT(
     }
 
     if (Object.keys(updateData).length === 0) {
-      return NextResponse.json(
-        { error: "No valid fields to update" },
-        { status: 400 },
-      );
+      return badRequest("No valid fields to update");
     }
 
     await db.update("authorized_drivers", id, updateData);
@@ -176,13 +152,10 @@ async function handlePUT(
     );
 
     logger.info(`Updated authorized driver: ${id}`);
-    return NextResponse.json({ success: true, data: updated });
+    return createSuccessResponse(updated);
   } catch (error) {
     logger.error("Error updating driver:", error);
-    return NextResponse.json(
-      { error: "Failed to update driver" },
-      { status: 500 },
-    );
+    return internalServerError("Failed to update driver");
   }
 }
 
@@ -196,10 +169,7 @@ async function handleDELETE(
 
     const DB = getD1Database();
     if (!DB) {
-      return NextResponse.json(
-        { error: "Database not available" },
-        { status: 503 },
-      );
+      return serviceUnavailable("Database not available");
     }
 
     const db = createDbClient({ DB });
@@ -210,7 +180,7 @@ async function handleDELETE(
       id,
     );
     if (!existing) {
-      return NextResponse.json({ error: "Driver not found" }, { status: 404 });
+      return notFound("Driver not found");
     }
 
     // Soft delete: set authorization_status to 'revoked'
@@ -221,16 +191,13 @@ async function handleDELETE(
     logger.info(
       `Revoked driver authorization: ${id} (${existing.employee_name})`,
     );
-    return NextResponse.json({
-      success: true,
-      message: `Authorization revoked for ${existing.employee_name}`,
-    });
+    return createSuccessResponse(
+      undefined,
+      `Authorization revoked for ${existing.employee_name}`,
+    );
   } catch (error) {
     logger.error("Error revoking driver:", error);
-    return NextResponse.json(
-      { error: "Failed to revoke driver authorization" },
-      { status: 500 },
-    );
+    return internalServerError("Failed to revoke driver authorization");
   }
 }
 

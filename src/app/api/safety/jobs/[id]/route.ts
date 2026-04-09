@@ -4,7 +4,7 @@
  * PATCH /api/safety/jobs/[id]  – update job status (admin only)
  */
 
-import { type NextRequest, NextResponse } from "next/server";
+import { type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { createDbClient } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
@@ -13,6 +13,13 @@ import { type JWTUser } from "@/lib/auth/jwt";
 import { type Job } from "../route";
 import { withSecurity } from "@/middleware/security";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
+import {
+  createSuccessResponse,
+  badRequest,
+  notFound,
+  internalServerError,
+  serviceUnavailable,
+} from "@/lib/api/responses";
 
 export const dynamic = "force-dynamic";
 
@@ -30,10 +37,7 @@ async function handleGET(
 
     const DB = getD1Database();
     if (!DB) {
-      return NextResponse.json(
-        { error: "Database not available" },
-        { status: 503 },
-      );
+      return serviceUnavailable("Database not available");
     }
 
     const db = createDbClient({ DB });
@@ -44,13 +48,13 @@ async function handleGET(
     const job = await db.queryOne<Job>(sql, id);
 
     if (!job) {
-      return NextResponse.json({ error: "Job not found" }, { status: 404 });
+      return notFound("Job not found");
     }
 
-    return NextResponse.json({ success: true, data: job });
+    return createSuccessResponse(job);
   } catch (error) {
     logger.error("Error fetching job:", error);
-    return NextResponse.json({ error: "Failed to fetch job" }, { status: 500 });
+    return internalServerError("Failed to fetch job");
   }
 }
 
@@ -67,35 +71,26 @@ async function handlePATCH(
     const { status } = body ?? {};
 
     if (typeof status !== "string" || !ALLOWED_STATUS.has(status)) {
-      return NextResponse.json(
-        { error: "status must be one of: active, closed, archived" },
-        { status: 400 },
-      );
+      return badRequest("status must be one of: active, closed, archived");
     }
 
     const DB = getD1Database();
     if (!DB) {
-      return NextResponse.json(
-        { error: "Database not available" },
-        { status: 503 },
-      );
+      return serviceUnavailable("Database not available");
     }
 
     const db = createDbClient({ DB });
     const updated = await db.update("jobs", id, { status });
 
     if (!updated) {
-      return NextResponse.json({ error: "Job not found" }, { status: 404 });
+      return notFound("Job not found");
     }
 
     const job = await db.queryOne<Job>(`SELECT * FROM jobs WHERE id = ?`, id);
-    return NextResponse.json({ success: true, data: job });
+    return createSuccessResponse(job);
   } catch (error) {
     logger.error("Error updating job:", error);
-    return NextResponse.json(
-      { error: "Failed to update job" },
-      { status: 500 },
-    );
+    return internalServerError("Failed to update job");
   }
 }
 
