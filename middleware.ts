@@ -82,13 +82,14 @@ export const config = {
      *   - images/             Optimised WebP/AVIF images
      *
      * Cloudflare-native / internal endpoints
-     *   - api/security/status Health/status probe — skip auth & rate-limit overhead
+     *   - api/health          Service health check — skip auth & rate-limit overhead
+     *   - api/security/status Security status probe — skip auth & rate-limit overhead
      *   - api/cf-*            Cloudflare-managed API endpoints
      *
      * Cloudflare Workers config files (not real HTTP paths)
      *   - _headers            Custom response headers file
      *   - _redirects          Redirect rules file
      */
-    "/((?!api/security/status|api/cf-|_next|favicon\\.ico|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|sitemap-index\\.xml|llms\\.txt|_headers|_redirects|fonts|icons|images).*)",
+    "/((?!api/health|api/security/status|api/cf-|_next|favicon\\.ico|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|sitemap-index\\.xml|llms\\.txt|_headers|_redirects|fonts|icons|images).*)",
   ],
 };

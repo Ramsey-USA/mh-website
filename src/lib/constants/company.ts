@@ -81,6 +81,42 @@ export const COMPANY_INFO = {
     licenses: ["WA", "OR", "ID"],
     serviceArea: "Pacific Northwest",
     primaryRegion: "Tri-Cities",
+    bbbAccredited: true,
+    bbbAccreditedSince: "2026-04-07", // April 7, 2026
+    bbbRating: "A+",
+  },
+
+  // Better Business Bureau
+  bbb: {
+    profileUrl:
+      "https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036",
+    sealClickUrl:
+      "https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036/#sealclick",
+    // Horizontal seals (200x42)
+    sealHorizontal:
+      "https://seal-alaskaoregonwesternwashington.bbb.org/seals/blue-seal-200-42-bbb-1000191036.png",
+    sealHorizontalWhite:
+      "https://seal-alaskaoregonwesternwashington.bbb.org/seals/blue-seal-200-42-whitetxt-bbb-1000191036.png",
+    // Vertical seals (187x130)
+    sealVertical:
+      "https://seal-alaskaoregonwesternwashington.bbb.org/seals/blue-seal-187-130-bbb-1000191036.png",
+    sealVerticalWhite:
+      "https://seal-alaskaoregonwesternwashington.bbb.org/seals/blue-seal-187-130-whitetxt-bbb-1000191036.png",
+    rating: "A+",
+    accreditedSince: "April 7, 2026",
+  },
+
+  // Travelers Insurance Partner
+  travelers: {
+    name: "Travelers Insurance",
+    description: "Auto & Bonding Insurance Partner",
+    website: "https://www.travelers.com",
+    // Full logo with TRAVELERS text (black text - use on light backgrounds)
+    logo: "/images/logo/travelers-logo.png",
+    // Full logo with TRAVELERS text (white text - use on dark backgrounds)
+    logoWhite: "/images/logo/travelers-logo-white.png",
+    // Red umbrella only (icon-only contexts, works on any background)
+    umbrellaLogo: "/images/logo/travelers-umbrella.png",
   },
 
   // Website URLs

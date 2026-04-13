@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -584,10 +585,40 @@ export default function PrintPageClient() {
           />
         )}
 
-        {/* Footer */}
-        <div className="mt-8 pt-4 border-t border-gray-200 flex items-center justify-between text-xs text-gray-400">
-          <span>MH Construction — Superintendent Safety Hub</span>
-          <span>Printed {new Date().toLocaleDateString("en-US")}</span>
+        {/* Footer with credentials */}
+        <div className="mt-8 pt-4 border-t border-gray-200">
+          <div className="flex items-center justify-between">
+            <div className="text-xs text-gray-400">
+              <span className="font-semibold text-gray-600">
+                MH Construction, Inc.
+              </span>
+              <span className="mx-2">|</span>
+              <span>(509) 308-6489</span>
+              <span className="mx-2">·</span>
+              <span>www.mhc-gc.com</span>
+            </div>
+            <div className="flex items-center gap-3">
+              {/* BBB Seal */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={COMPANY_INFO.bbb.sealHorizontal}
+                alt="BBB Accredited A+"
+                className="h-6 w-auto print:h-5"
+              />
+              {/* AGC Logo */}
+              <Image
+                src="/images/logo/agc-member.png"
+                alt="AGC Member"
+                width={60}
+                height={24}
+                className="h-6 w-auto print:h-5"
+              />
+            </div>
+          </div>
+          <div className="flex items-center justify-between mt-2 text-xs text-gray-400">
+            <span>WA: MHCONCI907R7 · OR: 765043-99 · ID: RCE-49250</span>
+            <span>Printed {new Date().toLocaleDateString("en-US")}</span>
+          </div>
         </div>
       </div>
     </>

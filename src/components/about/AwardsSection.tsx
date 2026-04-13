@@ -65,6 +65,20 @@ const recognitionCards = [
     iconVia: "via-brand-primary-dark",
     iconTo: "to-brand-primary-darker",
   },
+  {
+    title: "BBB Accredited Business",
+    badge: "A+ Rating",
+    detail: "Better Business Bureau since April 2026",
+    icon: "verified",
+    glowFrom: "from-brand-secondary/40",
+    glowTo: "to-bronze-600/40",
+    barFrom: "from-brand-secondary",
+    barVia: "via-bronze-700",
+    barTo: "to-bronze-800",
+    iconFrom: "from-brand-secondary",
+    iconVia: "via-bronze-700",
+    iconTo: "to-bronze-800",
+  },
 ];
 
 const emrTimeline = [
@@ -125,12 +139,12 @@ export function AwardsSection() {
         ),
       }}
     >
-      {/* Industry Recognition Cards - 4 Key Awards */}
+      {/* Industry Recognition Cards - 5 Key Awards */}
       <div className="mb-20">
         <h3 className="mb-8 font-bold text-center text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl">
           Industry Recognition
         </h3>
-        <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto max-w-7xl">
+        <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 mx-auto max-w-7xl">
           {recognitionCards.map((card) => (
             <div key={card.title} className="group relative flex h-full">
               {/* Animated Border Glow */}

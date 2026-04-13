@@ -661,6 +661,7 @@ export default function SafetyPage() {
                 <SafetyComplianceBadge variant="dot" />
                 <SafetyComplianceBadge variant="pmbok" />
                 <SafetyComplianceBadge variant="veteran" />
+                <SafetyComplianceBadge variant="bbb" />
               </div>
 
               {/* Supporting compliance detail cards */}

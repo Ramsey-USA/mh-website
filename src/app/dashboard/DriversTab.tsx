@@ -507,6 +507,7 @@ export function DriversTab({ token }: DriversTabProps) {
   }, [fetchDrivers, fetchAlerts]);
 
   const handleRevoke = async (driver: AuthorizedDriver) => {
+    // eslint-disable-next-line no-alert
     if (!confirm(`Revoke authorization for ${driver.employee_name}?`)) return;
     setRevokingId(driver.id);
     try {

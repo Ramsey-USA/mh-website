@@ -262,6 +262,77 @@ export default function ContactPageClient() {
                   </a>
                 ))}
               </div>
+
+              {/* Trust Credentials */}
+              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  Accredited & Certified:
+                </span>
+                <a
+                  href={COMPANY_INFO.bbb.sealClickUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="BBB Accredited Business - A+ Rating"
+                  className="transition-transform hover:scale-105"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={COMPANY_INFO.bbb.sealHorizontal}
+                    alt="BBB Accredited A+ Rating"
+                    className="h-10 w-auto dark:hidden"
+                  />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={COMPANY_INFO.bbb.sealHorizontalWhite}
+                    alt="BBB Accredited A+ Rating"
+                    className="h-10 w-auto hidden dark:block"
+                  />
+                </a>
+                <a
+                  href="https://agcwa.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="AGC of Washington Member"
+                  className="transition-transform hover:scale-105"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/logo/agc-member.png"
+                    alt="AGC of Washington Member"
+                    className="h-10 w-auto"
+                  />
+                </a>
+                <a
+                  href={COMPANY_INFO.travelers.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Travelers Insurance - Auto & Bonding Partner"
+                  className="transition-transform hover:scale-105"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={COMPANY_INFO.travelers.logo}
+                    alt="Travelers Insurance - Auto & Bonding Partner"
+                    className="h-8 w-auto dark:hidden"
+                  />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={COMPANY_INFO.travelers.logoWhite}
+                    alt="Travelers Insurance - Auto & Bonding Partner"
+                    className="h-8 w-auto hidden dark:block"
+                  />
+                </a>
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-full">
+                  <MaterialIcon
+                    icon="military_tech"
+                    size="sm"
+                    className="text-brand-primary"
+                  />
+                  <span className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light">
+                    Veteran-Owned
+                  </span>
+                </div>
+              </div>
             </FadeInWhenVisible>
           </div>
         </section>

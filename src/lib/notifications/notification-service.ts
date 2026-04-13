@@ -121,20 +121,42 @@ function sendPush(options: NotificationOptions): NotificationResult {
 }
 
 /**
+ * Twilio client cache for edge runtime compatibility.
+ * Credentials are read lazily to support Cloudflare Workers cold starts.
+ */
+let twilioConfig: {
+  accountSid: string;
+  authToken: string;
+  fromNumber: string;
+} | null = null;
+
+function getTwilioConfig(): typeof twilioConfig {
+  if (!twilioConfig) {
+    const accountSid = process.env["TWILIO_ACCOUNT_SID"];
+    const authToken = process.env["TWILIO_AUTH_TOKEN"];
+    const fromNumber = process.env["TWILIO_FROM_NUMBER"];
+
+    if (accountSid && authToken && fromNumber) {
+      twilioConfig = { accountSid, authToken, fromNumber };
+    }
+  }
+  return twilioConfig;
+}
+
+/**
  * Send SMS notification via Twilio.
  * Set TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, and TWILIO_FROM_NUMBER
  * environment variables to enable SMS delivery.
+ *
+ * Uses fetch API for Cloudflare Workers edge runtime compatibility.
  */
 async function sendSMS(
   options: NotificationOptions,
 ): Promise<NotificationResult> {
   const { recipient, message } = options;
 
-  const accountSid = process.env["TWILIO_ACCOUNT_SID"];
-  const authToken = process.env["TWILIO_AUTH_TOKEN"];
-  const fromNumber = process.env["TWILIO_FROM_NUMBER"];
-
-  if (!accountSid || !authToken || !fromNumber) {
+  const config = getTwilioConfig();
+  if (!config) {
     logger.warn("Twilio credentials not configured, skipping SMS", {
       recipient,
     });
@@ -143,6 +165,8 @@ async function sendSMS(
       error: "SMS service not configured",
     };
   }
+
+  const { accountSid, authToken, fromNumber } = config;
 
   try {
     const url = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;

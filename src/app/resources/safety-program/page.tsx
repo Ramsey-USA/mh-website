@@ -427,6 +427,7 @@ export default function SafetyProgramPage() {
                     <SafetyComplianceBadge variant="pmbok" />
                     <SafetyComplianceBadge variant="dot" />
                     <SafetyComplianceBadge variant="veteran" />
+                    <SafetyComplianceBadge variant="bbb" />
                   </div>
                 </div>
               </div>

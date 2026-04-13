@@ -67,7 +67,7 @@ async function handleGET(
     const contentType =
       result.contentType ?? row.content_type ?? "application/octet-stream";
     const safeFilename = row.original_filename
-      .replace(/[^\w.\-]/g, "_")
+      .replace(/[^\w.-]/g, "_")
       .slice(0, 200);
 
     return new NextResponse(result.data, {

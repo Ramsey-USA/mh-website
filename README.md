@@ -1,5 +1,7 @@
 # MH Construction – Founded 2010, Veteran-Owned Since January 2025
 
+**BBB Accredited A+** | **Veteran-Owned** | **Trusted Since 2010**
+
 **START HERE** - This is your single source of truth for the entire project.
 
 **Building projects for the Client, NOT the Dollar** — Founded by Mike Holstein in 2010,
@@ -54,6 +56,7 @@ homepage - same visual weight, spacing, animations, and polish.
 - **Making page installable (PWA)?** → [PWA Quick Reference](docs/technical/pwa-quick-reference.md)
 - **Using reusable components?** → [StandardSection Template](docs/development/components/template-components.md)
 - **Deploying to Cloudflare?** → [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md)
+- **Configuring external services (email, SMS)?** → [Services Integration Guide](docs/technical/services-integration-guide.md)
 - **Understanding project structure?** → [Project Architecture](docs/project/architecture.md)
 
 That's it. Everything else is organized in `/docs/` by category (branding, technical, business, etc.).
@@ -112,6 +115,7 @@ improvements.
 - **Approach:** Face-to-face consultation, transparent pricing, veteran priority scheduling
 - **Service Area:** Tri-Cities WA (Richland, Kennewick, Pasco, West Richland), Yakima, Spokane, Walla Walla
 - **Specialties:** Commercial construction, residential, public sector, master planning
+- **BBB Accredited:** A+ Rating since April 7, 2026 — [View BBB Profile](https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036)
 
 ### Business Philosophy
 
@@ -160,10 +164,18 @@ improvements.
 ### Deployment & Infrastructure
 
 - **Hosting:** Cloudflare Workers — `mhc-v2-website` (via OpenNext adapter)
+- **Domain:** Hostinger (registrar) → Cloudflare (DNS/CDN)
 - **Database:** Cloudflare D1 (SQLite)
-- **Email:** Resend API
+- **Storage:** Cloudflare R2 (resumes, safety intake, assets)
+- **Cache:** Cloudflare KV (rate limiting, analytics, ISR)
+- **AI:** Cloudflare Workers AI — `@cf/meta/llama-3.1-8b-instruct`
+- **Email:** Resend API (transactional emails)
+- **SMS:** Twilio (admin alerts — optional)
+- **Bot Protection:** Cloudflare Turnstile
 - **Analytics:** Custom system — localStorage client-side + Cloudflare KV server-side pipeline
 - **CI/CD:** GitHub Actions
+
+See [Services Integration Guide](docs/technical/services-integration-guide.md) for full configuration details.
 
 ### Quality Control
 
@@ -302,10 +314,11 @@ docs/
 │   ├── standards/               # development-standards.md, consistency-guide.md, common-mistakes.md,
 │   │                            # page-compliance-checklist.md, page-template-guide.md, ai-development-guidelines.md
 │   └── components/              # template-components.md (StandardSection docs)
-├── technical/                    # Technical implementation (9 files + 3 subdirs)
+├── technical/                    # Technical implementation (10 files + 3 subdirs)
 │   ├── design-system/           # buttons-ctas-complete-guide.md, icon-system-complete.md
 │   ├── seo/                     # seo-complete-guide.md
 │   ├── patterns/                # component-pattern-strategy.md, +2 component patterns
+│   ├── services-integration-guide.md  # Cloudflare, Hostinger, Resend, Twilio setup
 │   ├── analytics-tracking-guide.md, homepage.md, secrets-management.md
 │   ├── dark-mode-quick-reference.md, admin-password-security.md
 │   └── pwa-quick-reference.md, automatic-media-optimization.md, +3 more
@@ -336,6 +349,9 @@ config/cloudflare/edge-optimization.md  # Cloudflare edge optimization reference
 - **Design System:**
   [Unified Component Standards](docs/branding/standards/unified-component-standards.md) v7.0.0
   (consolidated typography & components)
+- **Infrastructure:**
+  [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md) |
+  [Services Integration Guide](docs/technical/services-integration-guide.md)
 - **Marketing:** [Analytics Guide for Matt & Jeremy](analytics-guide-for-matt-and-jeremy.md) | [SEO Quick Reference](seo-quick-reference.md)
 
 ---
@@ -580,6 +596,9 @@ All rights reserved. This software and associated documentation files are propri
 
 **January 2025** - MH Construction transitioned from founder Mike Holstein to Army veteran
 Jeremy Thamert, continuing 16 years of construction excellence with renewed veteran commitment.
+
+**April 2026** - Achieved BBB Accreditation with an A+ rating, recognizing MH Construction's
+commitment to trust, transparency, and ethical business practices.
 
 **Core Values Unchanged:**
 

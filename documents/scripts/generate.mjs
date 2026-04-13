@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console, prefer-template */
 /**
  * documents/scripts/generate.mjs
  *
@@ -84,6 +85,22 @@ try {
   AGC_LOGO_B64 = `data:image/png;base64,${_agcBuf.toString('base64')}`;
 } catch { /* AGC logo not found — footer will render without it */ }
 
+// ── BBB Accredited Business seal base64 (used in Puppeteer footer template) ────
+const _bbbPath = join(DOCS_DIR, 'assets/bbb/bbb-accredited-seal.png');
+let BBB_LOGO_B64 = '';
+try {
+  const _bbbBuf = await readFile(_bbbPath);
+  BBB_LOGO_B64 = `data:image/png;base64,${_bbbBuf.toString('base64')}`;
+} catch { /* BBB logo not found — footer will render without it */ }
+
+// ── Travelers Insurance logo base64 (used in Puppeteer footer template) ────
+const _travelersPath = join(DOCS_DIR, 'assets/Travelers-logo-2color-Small-600px.png');
+let TRAVELERS_LOGO_B64 = '';
+try {
+  const _travelersBuf = await readFile(_travelersPath);
+  TRAVELERS_LOGO_B64 = `data:image/png;base64,${_travelersBuf.toString('base64')}`;
+} catch { /* Travelers logo not found — footer will render without it */ }
+
 /**
  * Build a flat token map from the brand config.
  * Every key becomes {{BRAND_KEY}} in templates.
@@ -145,6 +162,9 @@ function buildBrandTokens(brand) {
     '{{BRAND_LOGO_DARKBG}}':          resolvePath(brand.logo.darkBg),
     '{{BRAND_AGC_HORIZONTAL}}':       resolvePath(brand.partnerLogos?.agcHorizontal || ''),
     '{{BRAND_AGC_STACKED}}':          resolvePath(brand.partnerLogos?.agcStacked    || ''),
+    '{{BRAND_BBB_HORIZONTAL}}':       BBB_LOGO_B64 || resolvePath(brand.partnerLogos?.bbbHorizontal || ''),
+    '{{BRAND_BBB_VERTICAL}}':         resolvePath(brand.partnerLogos?.bbbVertical   || ''),
+    '{{BRAND_BBB_SEAL}}':             BBB_LOGO_B64 || resolvePath(brand.partnerLogos?.bbbSeal       || ''),
     '{{BRAND_QR_DASHBOARD}}':         resolvePath(brand.qrCodes?.dashboard          || ''),
   };
 }
@@ -255,13 +275,19 @@ const SECTION_FOOTER_HTML = [
   `3111 N. Capitol Ave., Pasco, WA 99301<br>`,
   `www.mhc-gc.com</div>`,
 
-  // RIGHT — Licenses + AGC logo (mirrors cover-bottom-right)
-  `<div style="flex-shrink:0;display:flex;align-items:center;gap:0.18in;">`,
+  // RIGHT — Licenses + BBB + AGC logos (mirrors cover-bottom-right)
+  `<div style="flex-shrink:0;display:flex;align-items:center;gap:0.12in;">`,
   `<div style="text-align:right;font-size:7pt;color:#8A6B49;white-space:nowrap;line-height:1.65;">`,
   `WA Lic: MHCONCI907R7&nbsp;&middot;&nbsp;OR Lic: 765043-99&nbsp;&middot;&nbsp;ID Lic: RCE-49250<br>`,
   `<span style="color:#BD9264;font-weight:700;">Revision 2026</span></div>`,
+  BBB_LOGO_B64
+    ? `<img src="${BBB_LOGO_B64}" style="height:0.34in;width:auto;display:block;flex-shrink:0;" alt="BBB Accredited A+" />`
+    : '',
   AGC_LOGO_B64
-    ? `<img src="${AGC_LOGO_B64}" style="height:0.38in;width:auto;display:block;flex-shrink:0;" alt="AGC Member" />`
+    ? `<img src="${AGC_LOGO_B64}" style="height:0.34in;width:auto;display:block;flex-shrink:0;" alt="AGC Member" />`
+    : '',
+  TRAVELERS_LOGO_B64
+    ? `<img src="${TRAVELERS_LOGO_B64}" style="height:0.28in;width:auto;display:block;flex-shrink:0;" alt="Travelers Insurance Partner" />`
     : '',
   `</div>`,
 
@@ -272,7 +298,7 @@ const SECTION_FOOTER_HTML = [
  * Generate a QR code as a base64 PNG data URL for embedding in HTML.
  * Uses the brand primary color for the dark modules.
  */
-async function buildQrDataUrl(url) {
+function buildQrDataUrl(url) {
   return QRCode.toDataURL(url, {
     type:   'image/png',
     width:  180,
@@ -1046,7 +1072,7 @@ function injectZeroToleranceBox(html) {
  */
 function injectOrientationForm(html) {
   // Build the 12-row sign-in table
-  const rows = Array.from({ length: 12 }, (_, i) => `
+  const rows = Array.from({ length: 12 }, () => `
     <tr>
       <td class="cell-value" style="width:25%">&nbsp;</td>
       <td class="cell-value" style="width:30%">&nbsp;</td>

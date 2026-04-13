@@ -1,8 +1,8 @@
 # Cloudflare Workers Deployment Guide
 
 **Category:** Deployment - Cloudflare
-**Last Updated:** March 26, 2026
-**Version:** 3.1.0
+**Last Updated:** April 13, 2026
+**Version:** 3.2.0
 **Status:** ✅ Active - Production Deployed at `https://www.mhc-gc.com`
 
 > **Adapter:** `@opennextjs/cloudflare` (OpenNext) — **NOT** `@cloudflare/next-on-pages`.
@@ -11,6 +11,9 @@
 > **Platform:** Cloudflare **Workers** (`mhc-v2-website`) — **NOT** Cloudflare Pages.
 > Workers URL: `mhc-v2-website.twelthmann.workers.dev`
 > Preview URLs: `*-mhc-v2-website.twelthmann.workers.dev`
+>
+> **Related:** For external service configuration (Hostinger, Resend, Twilio), see
+> [Services Integration Guide](../technical/services-integration-guide.md).
 
 ---
 
@@ -383,3 +386,11 @@ npm run lint         # zero lint warnings/errors
 npm test             # all tests passing
 npm run build        # local build succeeds
 ```
+
+---
+
+## See Also
+
+- [Services Integration Guide](../technical/services-integration-guide.md) — Cloudflare, Hostinger, Resend, Twilio configuration
+- [Secrets Management](../technical/secrets-management.md) — API key rotation and security policies
+- [Edge Optimization](../../config/cloudflare/edge-optimization.md) — Cache rules and performance settings

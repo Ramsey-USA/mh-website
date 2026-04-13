@@ -207,6 +207,21 @@ export default function AboutPage() {
 
               <FadeInWhenVisible>
                 <ContentCard
+                  variant="news"
+                  icon="verified"
+                  category="Accreditation"
+                  categoryColor="primary"
+                  title="BBB Accredited with A+ Rating"
+                  description="MH Construction has earned Better Business Bureau accreditation with an A+ rating — recognizing our commitment to trust, transparency, and ethical business practices in every client partnership."
+                  date="Apr 2026"
+                  href="https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036"
+                  linkText="View BBB Profile"
+                  external
+                />
+              </FadeInWhenVisible>
+
+              <FadeInWhenVisible>
+                <ContentCard
                   variant="feature"
                   icon="rocket_launch"
                   category="New Technology"

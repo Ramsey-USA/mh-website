@@ -111,6 +111,7 @@ export default function ResourcesPage() {
                   <SafetyComplianceBadge variant="agc" />
                   <SafetyComplianceBadge variant="pmbok" />
                   <SafetyComplianceBadge variant="veteran" />
+                  <SafetyComplianceBadge variant="bbb" />
                 </div>
               </div>
               <MaterialIcon

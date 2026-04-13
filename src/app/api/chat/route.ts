@@ -149,7 +149,16 @@ function generateFallbackResponse(message: string): string {
     lower.includes("va ") ||
     lower.includes("dd-214")
   ) {
-    return "MH Construction is veteran-owned since January 2025 by Army veteran Jeremy Thamert. We offer a Combat Veteran Discount and priority scheduling for all veterans. Bring your DD-214 or VA card to your consultation. Learn more at mhc-gc.com/veterans.";
+    return "MH Construction is veteran-owned since January 2025 by Army veteran Jeremy Thamert. We're BBB Accredited with an A+ rating. We offer a Combat Veteran Discount and priority scheduling for all veterans. Bring your DD-214 or VA card to your consultation. Learn more at mhc-gc.com/veterans.";
+  }
+
+  // BBB / Better Business Bureau
+  if (
+    lower.includes("bbb") ||
+    lower.includes("better business") ||
+    lower.includes("accredit")
+  ) {
+    return "MH Construction is BBB Accredited with an A+ rating since April 2026. This recognizes our commitment to trust, transparency, and ethical business practices. View our profile at bbb.org or call (509) 308-6489 to discuss your project.";
   }
 
   // Safety
@@ -195,8 +204,18 @@ function generateFallbackResponse(message: string): string {
     return `Our Allies are trusted Trade Partners we work alongside — THE ROI IS THE RELATIONSHIP. Our current Allies include: ${names}. Visit mhc-gc.com/allies to learn more about each partner.`;
   }
 
+  // Trust / credibility / ratings
+  if (
+    lower.includes("trust") ||
+    lower.includes("credib") ||
+    lower.includes("rating") ||
+    lower.includes("review")
+  ) {
+    return "MH Construction is BBB Accredited with an A+ rating, veteran-owned since January 2025, and licensed in WA, OR, and ID. We've completed 650+ successful projects with a 0.64 EMR safety rating. Check our Google reviews or BBB profile for client feedback.";
+  }
+
   // Default
-  return "Thanks for reaching out! I can help with information about MH Construction's services, our Trade Partner network (Allies), veteran benefits, safety record, and more. For project-specific questions, the best step is a free consultation — call (509) 308-6489 or visit mhc-gc.com/contact.";
+  return "Thanks for reaching out! I can help with information about MH Construction's services, our Trade Partner network (Allies), veteran benefits, BBB accreditation, safety record, and more. For project-specific questions, the best step is a free consultation — call (509) 308-6489 or visit mhc-gc.com/contact.";
 }
 
 // ── Cloudflare Workers AI interface ──────────────────────────────────────────

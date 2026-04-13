@@ -11,6 +11,7 @@ project context, then follow this guide for Git workflow and contribution proces
 - [Page Compliance Checklist](./docs/development/standards/page-compliance-checklist.md) — 150+ items to verify before PR
 - [Common Mistakes](./docs/development/standards/common-mistakes.md) — 22 errors to avoid
 - [Cloudflare Deployment Guide](./docs/deployment/cloudflare-guide.md) — deploy process
+- [Services Integration Guide](./docs/technical/services-integration-guide.md) — Cloudflare, Hostinger, Resend, Twilio
 
 ---
 

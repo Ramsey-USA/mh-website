@@ -1,6 +1,13 @@
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
-export type BadgeVariant = "osha" | "agc" | "wisha" | "pmbok" | "dot" | "veteran";
+export type BadgeVariant =
+  | "osha"
+  | "agc"
+  | "wisha"
+  | "pmbok"
+  | "dot"
+  | "veteran"
+  | "bbb";
 
 interface Props {
   variant: BadgeVariant;
@@ -10,7 +17,13 @@ interface Props {
 
 const BADGE_CONFIG: Record<
   BadgeVariant,
-  { icon: string; defaultLabel: string; colorClass: string; bgClass: string; borderClass: string }
+  {
+    icon: string;
+    defaultLabel: string;
+    colorClass: string;
+    bgClass: string;
+    borderClass: string;
+  }
 > = {
   osha: {
     icon: "gpp_good",
@@ -54,6 +67,13 @@ const BADGE_CONFIG: Record<
     bgClass: "bg-gray-50 dark:bg-gray-800",
     borderClass: "border-gray-200 dark:border-gray-600",
   },
+  bbb: {
+    icon: "verified",
+    defaultLabel: "BBB Accredited A+",
+    colorClass: "text-blue-700 dark:text-blue-400",
+    bgClass: "bg-blue-50 dark:bg-blue-900/20",
+    borderClass: "border-blue-200 dark:border-blue-800",
+  },
 };
 
 export function SafetyComplianceBadge({ variant, label, citation }: Props) {
@@ -66,9 +86,7 @@ export function SafetyComplianceBadge({ variant, label, citation }: Props) {
     >
       <MaterialIcon icon={cfg.icon} size="xs" className="shrink-0" />
       <span>{displayLabel}</span>
-      {citation && (
-        <span className="opacity-70 font-normal">· {citation}</span>
-      )}
+      {citation && <span className="opacity-70 font-normal">· {citation}</span>}
     </span>
   );
 }

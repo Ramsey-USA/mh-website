@@ -300,8 +300,20 @@ export function generateEnhancedOrganizationSchema() {
           name: "U.S. Small Business Administration - Veteran Owned Small Business",
         },
       },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "Accreditation",
+        recognizedBy: {
+          "@type": "Organization",
+          name: "Better Business Bureau",
+          url: "https://www.bbb.org",
+        },
+        dateCreated: "2026-04-07",
+        description: "BBB Accredited Business with A+ Rating",
+      },
     ],
     award: [
+      "BBB Accredited Business - A+ Rating 2026",
       "AGC-WA Top EMR Award 2019 - .64 EMR Rating",
       "AGC-WA Top EMR Award 2020 - .64 EMR Rating",
       "AGC-WA Top EMR Award 2021 - .64 EMR Rating",
@@ -712,6 +724,22 @@ export function generateLocalBusinessSchema() {
       "Financing Available",
     ],
     currenciesAccepted: "USD",
+    memberOf: {
+      "@type": "Organization",
+      name: "Better Business Bureau",
+      url: "https://www.bbb.org",
+    },
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Accreditation",
+      recognizedBy: {
+        "@type": "Organization",
+        name: "Better Business Bureau",
+        url: "https://www.bbb.org",
+      },
+      dateCreated: "2026-04-07",
+      description: "BBB Accredited Business with A+ Rating",
+    },
   };
 }
 

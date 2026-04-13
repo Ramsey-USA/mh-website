@@ -26,6 +26,8 @@ export interface ContentCardProps {
   href?: string;
   /** Link text */
   linkText?: string;
+  /** Whether the link is external (opens in new tab) */
+  external?: boolean;
   /** Accent gradient for top bar */
   accentGradient?: string;
   /** Border glow gradient for hover effect */
@@ -97,6 +99,7 @@ export function ContentCard({
   date,
   href,
   linkText = "Learn More",
+  external = false,
   accentGradient,
   glowGradient,
   enhancedIcon = false,
@@ -211,9 +214,17 @@ export function ContentCard({
             <Link
               href={href}
               className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors mt-auto"
+              {...(external && {
+                target: "_blank",
+                rel: "noopener noreferrer",
+              })}
             >
               <span className="font-medium text-xs sm:text-sm">{linkText}</span>
-              <MaterialIcon icon="arrow_forward" size="sm" className="ml-1" />
+              <MaterialIcon
+                icon={external ? "open_in_new" : "arrow_forward"}
+                size="sm"
+                className="ml-1"
+              />
             </Link>
           )}
         </div>

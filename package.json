@@ -88,7 +88,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "jose": "^5.10.0",
-    "next": "^15.5.14",
+    "next": "^15.5.15",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-is": "^19.2.4",
@@ -131,7 +131,7 @@
     "postcss": "^8.5.8",
     "prettier": "^3.8.1",
     "typescript": "^5.9.2",
-    "wrangler": "^4.77.0"
+    "wrangler": "^4.81.1"
   },
   "optionalDependencies": {
     "chrome-launcher": "^1.2.1",
@@ -163,6 +163,7 @@
     "glob": ">=11.0.0",
     "picomatch": ">=4.0.4",
     "yaml": ">=2.8.3",
-    "fast-xml-parser": "^5.5.9"
+    "fast-xml-parser": "^5.5.9",
+    "basic-ftp": ">=5.2.2"
   }
 }

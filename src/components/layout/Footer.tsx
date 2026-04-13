@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+import {
+  useEffect,
+  useState,
+  useRef,
+  type FormEvent,
+  type ReactNode,
+} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -118,20 +124,14 @@ const regionalAreas = [
   "Southern Idaho",
 ];
 
-const areaItemClass =
-  "bg-gray-700/50 dark:bg-gray-600/50 hover:bg-brand-primary/20 dark:hover:bg-brand-primary/20 px-3 xs:px-4 py-2 rounded-lg text-gray-300 dark:text-gray-200 text-xs xs:text-sm transition-all duration-300 hover:scale-105 border border-gray-600/50 dark:border-gray-500/50 font-medium";
-
 const socialLinkBaseClass =
-  "group flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-gray-600 bg-gradient-to-br from-gray-700 to-gray-800 p-2.5 shadow-md transition-all duration-300 touch-manipulation hover:scale-105 dark:border-gray-500 dark:from-gray-600 dark:to-gray-700";
+  "group flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg border border-gray-600 bg-gradient-to-br from-gray-700 to-gray-800 p-2.5 shadow-md transition-all duration-300 touch-manipulation hover:scale-105 dark:border-gray-500 dark:from-gray-600 dark:to-gray-700";
 
 const primaryActionCardClassName =
   "group flex items-center gap-3 rounded-lg border border-brand-primary/30 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 p-3 transition-all duration-300 hover:scale-105 hover:border-brand-primary hover:from-brand-primary/20 hover:to-brand-secondary/20 touch-manipulation";
 
 const secondaryActionCardClassName =
   "group flex items-center gap-3 rounded-lg border border-brand-secondary/40 bg-gradient-to-r from-brand-secondary/15 to-brand-primary/15 p-3 transition-all duration-300 hover:scale-105 hover:border-brand-secondary hover:from-brand-secondary/25 hover:to-brand-primary/25 touch-manipulation";
-
-const footerBadgeBaseClassName =
-  "flex items-center gap-1.5 rounded-lg border px-3 py-2 text-sm font-semibold transition-all duration-300 touch-manipulation hover:scale-105";
 
 const socialLinks: SocialLinkItem[] = [
   {
@@ -320,41 +320,6 @@ function FooterActionCardContent({
   );
 }
 
-function FooterBadge({
-  icon,
-  label,
-  emphasis = false,
-}: {
-  icon: string;
-  label: string;
-  emphasis?: boolean;
-}) {
-  const className = emphasis
-    ? "border-brand-primary/40 bg-gradient-to-r from-brand-primary/15 to-brand-secondary/15 text-brand-secondary hover:border-brand-secondary/60 hover:from-brand-primary/25 hover:to-brand-secondary/25 dark:border-brand-primary/50 dark:from-brand-primary/20 dark:to-brand-secondary/20 dark:text-brand-secondary-light dark:hover:border-brand-secondary/70 dark:hover:from-brand-primary/30 dark:hover:to-brand-secondary/30"
-    : "border-brand-primary/20 bg-brand-primary/5 text-gray-300 hover:border-brand-primary/40 hover:bg-brand-primary/15 dark:border-brand-primary/30 dark:bg-brand-primary/10 dark:text-gray-200 dark:hover:border-brand-primary/50 dark:hover:bg-brand-primary/20";
-
-  const iconClassName = emphasis
-    ? "text-brand-secondary group-hover:scale-110 dark:text-brand-secondary-light"
-    : "text-brand-secondary dark:text-brand-secondary-light";
-
-  const textClassName = emphasis
-    ? "text-brand-secondary dark:text-brand-secondary-light"
-    : "text-gray-300 dark:text-gray-200";
-
-  return (
-    <div className={`group ${footerBadgeBaseClassName} ${className}`}>
-      <MaterialIcon
-        icon={icon}
-        size="sm"
-        className={`${iconClassName} transition-all duration-300`}
-      />
-      <span className={`${textClassName} transition-colors duration-300`}>
-        {label}
-      </span>
-    </div>
-  );
-}
-
 function LicenseBadge() {
   return (
     <div className="rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-3 py-2 text-sm transition-all duration-300 hover:border-brand-primary/40 hover:bg-brand-primary/15 dark:border-brand-primary/30 dark:bg-brand-primary/10 dark:hover:border-brand-primary/50 dark:hover:bg-brand-primary/20">
@@ -385,6 +350,93 @@ function LicenseBadge() {
   );
 }
 
+function ServiceAreasDropdown({
+  isOpen,
+  onToggle,
+}: {
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        if (isOpen) onToggle();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen, onToggle]);
+
+  return (
+    <div ref={dropdownRef} className="relative">
+      <button
+        onClick={onToggle}
+        className="group flex items-center gap-1.5 rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-3 py-2 text-sm font-semibold transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-primary/40 hover:bg-brand-primary/15 dark:border-brand-primary/30 dark:bg-brand-primary/10"
+        aria-expanded={isOpen}
+        aria-haspopup="listbox"
+      >
+        <MaterialIcon
+          icon="map"
+          size="sm"
+          className="text-brand-secondary dark:text-brand-secondary-light"
+        />
+        <span className="text-gray-300 dark:text-gray-200">Areas Served</span>
+        <MaterialIcon
+          icon={isOpen ? "expand_less" : "expand_more"}
+          size="sm"
+          className="text-brand-secondary dark:text-brand-secondary-light transition-transform"
+        />
+      </button>
+      {isOpen && (
+        <div
+          className="absolute bottom-full left-0 mb-2 w-64 rounded-lg border border-brand-primary/30 bg-gray-800 dark:bg-gray-900 p-3 shadow-xl z-50"
+          role="listbox"
+          aria-label="Service areas"
+        >
+          <div className="text-xs font-bold uppercase tracking-wide text-brand-primary mb-2">
+            Pacific Northwest
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            {linkedCities.map((city) => (
+              <Link
+                key={city.href}
+                href={city.href}
+                className="bg-gray-700/50 hover:bg-brand-primary/20 px-2 py-1 rounded text-gray-300 text-xs transition-colors hover:text-brand-secondary"
+                itemProp="areaServed"
+                itemScope
+                itemType="https://schema.org/City"
+              >
+                <span itemProp="name">{city.name}</span>
+              </Link>
+            ))}
+          </div>
+          <div className="border-t border-gray-700 mt-2 pt-2">
+            <div className="flex flex-wrap gap-1.5">
+              {regionalAreas.map((area) => (
+                <span
+                  key={area}
+                  className="bg-gray-700/30 px-2 py-1 rounded text-gray-400 text-xs"
+                  itemProp="areaServed"
+                  itemScope
+                  itemType="https://schema.org/State"
+                >
+                  <span itemProp="name">{area}</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Footer() {
   const [showAdminModal, setShowAdminModal] = useState(false);
   const [accessCode, setAccessCode] = useState("");
@@ -394,6 +446,7 @@ export default function Footer() {
     "idle" | "submitting" | "success" | "error"
   >("idle");
   const [newsletterMessage, setNewsletterMessage] = useState("");
+  const [areasDropdownOpen, setAreasDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleAdminShortcut = (event: KeyboardEvent) => {
@@ -554,58 +607,6 @@ export default function Footer() {
                     }
                   />
                 </a>
-
-                {/* Staff Portal Access */}
-                <div className="mt-4 rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-3 py-2.5">
-                  <div className="mb-2 flex items-center gap-1.5">
-                    <MaterialIcon
-                      icon="lock"
-                      size="sm"
-                      className="text-brand-secondary dark:text-brand-secondary-light"
-                    />
-                    <span className="text-xs font-bold uppercase tracking-wide text-brand-primary">
-                      Staff Portal
-                    </span>
-                  </div>
-                  <form
-                    onSubmit={handleAccessCodeSubmit}
-                    className="flex gap-1.5"
-                    aria-label="Dashboard access"
-                  >
-                    <label htmlFor="footer-access-code" className="sr-only">
-                      Access code
-                    </label>
-                    <input
-                      id="footer-access-code"
-                      type="password"
-                      placeholder="Access code"
-                      value={accessCode}
-                      onChange={(e) => setAccessCode(e.target.value)}
-                      autoComplete="off"
-                      className="min-w-0 flex-1 rounded bg-gray-900/60 border border-gray-700 px-2 py-1.5 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-brand-primary transition-colors"
-                    />
-                    <button
-                      type="submit"
-                      aria-label="Submit access code"
-                      className="flex flex-shrink-0 items-center justify-center rounded border border-brand-secondary/50 bg-brand-primary hover:bg-brand-primary-dark px-2 py-1.5 transition-colors touch-manipulation"
-                    >
-                      <MaterialIcon
-                        icon="arrow_forward"
-                        size="sm"
-                        className="text-brand-secondary"
-                      />
-                    </button>
-                  </form>
-                  {accessCodeError && (
-                    <p
-                      role="alert"
-                      aria-live="assertive"
-                      className="mt-1.5 text-[10px] text-red-400"
-                    >
-                      {accessCodeError}
-                    </p>
-                  )}
-                </div>
               </div>
             </div>
 
@@ -832,58 +833,86 @@ export default function Footer() {
             </section>
           </div>
 
-          {/* Service Areas - Full Width Row */}
-          <section className="py-3" aria-labelledby="service-areas-heading">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <MaterialIcon
-                icon="map"
-                size="md"
-                className="text-brand-primary"
-              />
-              <h3
-                id="service-areas-heading"
-                className="text-brand-primary font-semibold text-sm xs:text-base uppercase tracking-wide"
-              >
-                Proudly Serving the Pacific Northwest
-              </h3>
-            </div>
-            <div
-              className="flex flex-wrap justify-center gap-2 xs:gap-3"
-              role="list"
-              aria-label="Service area cities"
+          {/* Accreditations Row */}
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-6 pb-2 border-t border-gray-700/50">
+            {/* AGC Northwest */}
+            <a
+              href="https://agcnw.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="AGC Northwest Washington Member"
+              className="group flex items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-3 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
             >
-              {linkedCities.map((city) => (
-                <Link
-                  key={city.href}
-                  href={city.href}
-                  className={areaItemClass}
-                  role="listitem"
-                  itemProp="areaServed"
-                  itemScope
-                  itemType="https://schema.org/City"
-                >
-                  <span itemProp="name">{city.name}</span>
-                </Link>
-              ))}
-              {regionalAreas.map((area) => (
-                <span
-                  key={area}
-                  className={`${areaItemClass} cursor-default`}
-                  role="listitem"
-                  itemProp="areaServed"
-                  itemScope
-                  itemType="https://schema.org/State"
-                >
-                  <span itemProp="name">{area}</span>
-                </span>
-              ))}
-            </div>
-          </section>
+              <Image
+                src="/images/logo/nwagc-logo.png"
+                alt="AGC Northwest Washington Member"
+                width={795}
+                height={291}
+                className="h-12 w-auto object-contain"
+                loading="lazy"
+              />
+            </a>
+
+            {/* BBB */}
+            <a
+              href={COMPANY_INFO.bbb.sealClickUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="BBB Accredited Business - A+ Rating"
+              className="group flex items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-3 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={COMPANY_INFO.bbb.sealHorizontal}
+                alt="MH Construction, Inc. BBB Business Review"
+                width={220}
+                height={50}
+                className="h-12 w-auto object-contain dark:hidden"
+                loading="lazy"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={COMPANY_INFO.bbb.sealHorizontalWhite}
+                alt="MH Construction, Inc. BBB Business Review"
+                width={220}
+                height={50}
+                className="h-12 w-auto object-contain hidden dark:block"
+                loading="lazy"
+              />
+            </a>
+
+            {/* Travelers */}
+            <a
+              href={COMPANY_INFO.travelers.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Travelers Insurance Partner - Auto & Bonding"
+              className="group flex items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-3 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+            >
+              <Image
+                src={COMPANY_INFO.travelers.logo}
+                alt="Travelers Insurance - Auto & Bonding Partner"
+                width={200}
+                height={56}
+                className="h-12 w-auto object-contain dark:hidden"
+                loading="lazy"
+              />
+              <Image
+                src={COMPANY_INFO.travelers.logoWhite}
+                alt="Travelers Insurance - Auto & Bonding Partner"
+                width={200}
+                height={56}
+                className="h-12 w-auto object-contain hidden dark:block"
+                loading="lazy"
+              />
+            </a>
+          </div>
 
           {/* Clean Bottom Bar - Streamlined Design */}
           <div className="pt-6 pb-6 border-gray-700 dark:border-gray-600 border-t">
-            <div className="flex lg:flex-row flex-col justify-between items-center gap-4 lg:gap-6">
-              <div className="flex items-center gap-2 rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-4 py-2 dark:border-brand-primary/30 dark:bg-brand-primary/10">
+            <div className="flex flex-wrap items-center justify-center gap-3 xs:gap-4">
+              {/* Copyright */}
+              <div className="flex items-center gap-2 rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-3 py-2 dark:border-brand-primary/30 dark:bg-brand-primary/10">
                 <MaterialIcon
                   icon="copyright"
                   size="sm"
@@ -894,44 +923,75 @@ export default function Footer() {
                 </span>
               </div>
 
-              {/* Badges & Credentials */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-end gap-2 xs:gap-3">
-                <FooterBadge
-                  icon="celebration"
-                  label={`${new Date().getFullYear() - COMPANY_INFO.details.foundingYear}+ Years`}
-                  emphasis
-                />
-                <LicenseBadge />
-                <Link
-                  href="/dashboard"
-                  title="Safety Program Dashboard"
-                  className="group flex items-center gap-1.5 rounded-lg border border-brand-secondary/40 bg-gradient-to-r from-brand-secondary/15 to-brand-primary/15 px-3 py-2 text-sm font-semibold transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:from-brand-secondary/25 hover:to-brand-primary/25 dark:border-brand-secondary/50 dark:from-brand-secondary/20 dark:to-brand-primary/20 dark:hover:border-brand-secondary dark:hover:from-brand-secondary/30 dark:hover:to-brand-primary/30"
+              {/* Areas Served */}
+              <ServiceAreasDropdown
+                isOpen={areasDropdownOpen}
+                onToggle={() => setAreasDropdownOpen(!areasDropdownOpen)}
+              />
+
+              {/* Licensed */}
+              <LicenseBadge />
+
+              {/* Staff Portal */}
+              <div className="rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-3 py-2 dark:border-brand-primary/30 dark:bg-brand-primary/10">
+                <form
+                  onSubmit={handleAccessCodeSubmit}
+                  className="flex items-center gap-2"
+                  aria-label="Staff portal access"
                 >
                   <MaterialIcon
-                    icon="dashboard"
+                    icon="lock"
                     size="sm"
-                    className="text-brand-secondary dark:text-brand-secondary-light group-hover:scale-110 transition-all duration-300"
+                    className="text-brand-secondary dark:text-brand-secondary-light flex-shrink-0"
                   />
-                  <span className="text-brand-secondary dark:text-brand-secondary-light">
-                    Safety Dashboard
-                  </span>
-                </Link>
-                <FooterBadge icon="military_tech" label="Veteran-Owned" />
+                  <label htmlFor="footer-access-code" className="sr-only">
+                    Access code
+                  </label>
+                  <input
+                    id="footer-access-code"
+                    type="password"
+                    placeholder="Staff code"
+                    value={accessCode}
+                    onChange={(e) => setAccessCode(e.target.value)}
+                    autoComplete="off"
+                    className="w-20 rounded bg-gray-900/60 border border-gray-700 px-2 py-1 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-brand-primary transition-colors"
+                  />
+                  <button
+                    type="submit"
+                    aria-label="Submit access code"
+                    className="flex flex-shrink-0 items-center justify-center rounded border border-brand-secondary/50 bg-brand-primary hover:bg-brand-primary-dark px-2 py-1 transition-colors touch-manipulation"
+                  >
+                    <MaterialIcon
+                      icon="arrow_forward"
+                      size="sm"
+                      className="text-brand-secondary"
+                    />
+                  </button>
+                </form>
+                {accessCodeError && (
+                  <p
+                    role="alert"
+                    aria-live="assertive"
+                    className="mt-1 text-[10px] text-red-400"
+                  >
+                    {accessCodeError}
+                  </p>
+                )}
               </div>
 
               {/* Back to Top Button */}
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="group relative flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-brand-secondary-light px-5 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 touch-manipulation border-2 border-brand-secondary hover:border-brand-secondary-light outline outline-2 outline-offset-2 outline-brand-secondary/50 hover:outline-brand-secondary"
+                className="group flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-brand-secondary-light px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 touch-manipulation border border-brand-secondary/50 hover:border-brand-secondary"
                 aria-label="Back to top"
               >
                 <MaterialIcon
                   icon="arrow_upward"
-                  size="md"
-                  className="text-brand-secondary group-hover:text-brand-secondary-light group-hover:-translate-y-1 transition-all duration-300"
+                  size="sm"
+                  className="text-brand-secondary group-hover:text-brand-secondary-light group-hover:-translate-y-0.5 transition-all duration-300"
                 />
-                <span className="font-bold text-sm text-brand-secondary group-hover:text-brand-secondary-light transition-colors duration-300 hidden sm:inline">
-                  Back to Top
+                <span className="font-bold text-sm text-brand-secondary group-hover:text-brand-secondary-light transition-colors duration-300">
+                  Top
                 </span>
               </button>
             </div>

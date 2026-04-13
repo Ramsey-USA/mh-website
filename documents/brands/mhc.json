@@ -37,7 +37,10 @@
   },
   "partnerLogos": {
     "agcHorizontal": "../assets/nwagc-logo.png",
-    "agcStacked": "../assets/nwagc-logo-stacked.png"
+    "agcStacked": "../assets/nwagc-logo-stacked.png",
+    "bbbHorizontal": "../assets/bbb/bbb-logo-horizontal.png",
+    "bbbVertical": "../assets/bbb/bbb-accredited-seal-vertical.png",
+    "bbbSeal": "../assets/bbb/bbb-accredited-seal.png"
   },
   "qrCodes": {
     "dashboard": "../assets/qr-safety-dashboard.png",

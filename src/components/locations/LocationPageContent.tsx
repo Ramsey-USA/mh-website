@@ -11,6 +11,7 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import { type LocationData } from "@/lib/data/locations";
 
 const coreValues = [
@@ -540,6 +541,98 @@ export function LocationPageContent({ location }: LocationPageProps) {
                       </p>
                     ))}
                   </div>
+                </div>
+              </div>
+            </div>
+          </SectionContainer>
+        </section>
+
+        {/* Accreditations Section */}
+        <section className="py-12 sm:py-16 bg-white dark:bg-gray-900">
+          <SectionContainer padding="compact">
+            <div className="text-center">
+              <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
+                Accredited & Certified
+              </p>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                Trusted Throughout {location.city}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-8">
+                Our credentials reflect our commitment to quality, ethics, and
+                safety
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+                {/* BBB Accredited A+ */}
+                <a
+                  href={COMPANY_INFO.bbb.sealClickUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity"
+                  title="BBB Accredited Business - A+ Rating"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={COMPANY_INFO.bbb.sealHorizontal}
+                    alt="BBB Accredited Business A+ Rating"
+                    className="h-10 sm:h-12 w-auto dark:hidden"
+                  />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={COMPANY_INFO.bbb.sealHorizontalWhite}
+                    alt="BBB Accredited Business A+ Rating"
+                    className="h-10 sm:h-12 w-auto hidden dark:block"
+                  />
+                </a>
+
+                {/* AGC Member */}
+                <a
+                  href="https://agcwa.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity"
+                  title="AGC of Washington Member"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/logo/agc-member.png"
+                    alt="AGC of Washington Member"
+                    className="h-10 sm:h-12 w-auto"
+                  />
+                </a>
+
+                {/* Travelers Insurance Partner */}
+                <a
+                  href={COMPANY_INFO.travelers.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity"
+                  title="Travelers Insurance - Auto & Bonding Partner"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={COMPANY_INFO.travelers.logo}
+                    alt="Travelers Insurance - Auto & Bonding Partner"
+                    className="h-10 sm:h-12 w-auto dark:hidden"
+                  />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={COMPANY_INFO.travelers.logoWhite}
+                    alt="Travelers Insurance - Auto & Bonding Partner"
+                    className="h-10 sm:h-12 w-auto hidden dark:block"
+                  />
+                </a>
+
+                {/* Veteran-Owned Badge */}
+                <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-primary/10 dark:bg-brand-primary/20">
+                  <MaterialIcon
+                    icon="military_tech"
+                    size="lg"
+                    className="text-brand-primary dark:text-brand-primary-light"
+                    ariaLabel="Veteran-Owned"
+                  />
+                  <span className="font-semibold text-gray-900 dark:text-white text-sm">
+                    Veteran-Owned Business
+                  </span>
                 </div>
               </div>
             </div>

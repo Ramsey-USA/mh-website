@@ -19,6 +19,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { COMPANY_INFO } from "@/lib/constants/company";
 const TestimonialsSection = dynamic(() =>
   import("@/components/shared-sections/TestimonialsSection").then((m) => ({
     default: m.TestimonialsSection,
@@ -1097,7 +1098,7 @@ export default function TestimonialsPage() {
               </div>
 
               {/* Trust Badges Grid */}
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
                 {/* Veteran-Owned Badge */}
                 <div className="group relative">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
@@ -1177,6 +1178,42 @@ export default function TestimonialsPage() {
                     </p>
                   </div>
                 </div>
+
+                {/* BBB Accredited - A+ Rating */}
+                <a
+                  href={COMPANY_INFO.bbb.sealClickUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative"
+                >
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl opacity-30 group-hover:opacity-60 blur transition-all duration-300"></div>
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300 text-center h-full flex flex-col justify-center">
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
+                    {/* Dark text seal for light mode */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={COMPANY_INFO.bbb.sealVertical}
+                      alt="MH Construction, Inc. BBB Business Review"
+                      width={187}
+                      height={130}
+                      className="mx-auto mb-2 dark:hidden"
+                      loading="lazy"
+                    />
+                    {/* White text seal for dark mode */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={COMPANY_INFO.bbb.sealVerticalWhite}
+                      alt="MH Construction, Inc. BBB Business Review"
+                      width={187}
+                      height={130}
+                      className="mx-auto mb-2 hidden dark:block"
+                      loading="lazy"
+                    />
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                      Accredited Since April 2026
+                    </p>
+                  </div>
+                </a>
               </div>
 
               {/* Additional Trust Indicators */}

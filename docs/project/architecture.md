@@ -65,14 +65,26 @@
 - **Styling**: Tailwind CSS 3.4.19
 - **Icons**: Google Material Icons (font-based)
 - **Animations**: Framer Motion 12.35.2
-- **Deployment**: Cloudflare Workers
-- **Database**: Cloudflare D1 (SQLite)
-- **Analytics**: Custom tracking system with admin dashboard (Matt & Jeremy only)
-- **AI**: Cloudflare Workers AI — `@cf/meta/llama-3.1-8b-instruct` (Partnership Guide chatbot)
 - **Theme**: Dark/Light mode support
 - **PWA**: Service Worker v4.0.0, offline-ready, installable
 - **Media Optimization**: Automatic WebP/WebM conversion via GitHub Actions
 - **Performance**: Optimized build/caching strategy; validate Lighthouse via PageSpeed or browser DevTools
+
+### External Services
+
+- **Hosting**: Cloudflare Workers — `mhc-v2-website` (via OpenNext adapter)
+- **Domain**: Hostinger (registrar) → Cloudflare (DNS/CDN)
+- **Database**: Cloudflare D1 (SQLite)
+- **Storage**: Cloudflare R2 (FILE_ASSETS, SAFETY_INTAKE, RESUMES buckets)
+- **Cache**: Cloudflare KV (CACHE, ANALYTICS namespaces)
+- **AI**: Cloudflare Workers AI — `@cf/meta/llama-3.1-8b-instruct` (Partnership Guide chatbot)
+- **Email**: Resend API (transactional emails, form notifications)
+- **SMS**: Twilio (admin alerts — optional, degrades gracefully)
+- **Bot Protection**: Cloudflare Turnstile (form verification)
+- **Analytics**: Custom system — localStorage client-side + Cloudflare KV server-side pipeline
+- **CI/CD**: GitHub Actions
+
+See [Services Integration Guide](../technical/services-integration-guide.md) for full configuration.
 
 ### Complete Component Architecture
 
