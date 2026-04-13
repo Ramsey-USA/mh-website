@@ -5,8 +5,8 @@
 
 ## Overview
 
-This directory contains business-related documentation for MH Construction, including core values, service
-offerings, team profiles, and client testimonials.
+This directory contains business-related documentation for MH Construction, including core values and service
+offerings.
 
 ## Available Resources
 
@@ -15,33 +15,10 @@ offerings, team profiles, and client testimonials.
 - **[Core Values](./core-values.md)** - Four pillars: Honesty, Integrity, Professionalism, Thoroughness
 - **[Services](./services.md)** - Complete service offerings and capabilities
 - **[Project Specializations](./project-specializations.md)** - Specialized project types and capabilities
-- **[Testimonials](./testimonials.md)** - Client feedback and project success stories
 
-### Team
+### Team Data
 
-- **[Team Profiles](./team/profiles/)** - 14 employee profiles including executives, project managers, and field team
-
-#### Team Members
-
-The Upper Brass (Executive Leadership):
-
-- Jeremy Thamert (Owner & President) | Arnold Garcia (VP) | Mike Holstein (Founder - Retired)
-
-Mission Commanders (Project Management):
-
-- Ben Woodall (PM), Jennifer Tene (Project Engineer/Admin), Lisa Kandle (Project Engineer/Marketing)
-
-Special Operations (Marketing, Safety & Strategic Initiatives):
-
-- Matt Ramsey (PM Assistant/Marketing Mgr/Safety Officer), Todd Schoeff (Lead Estimator)
-
-Field Officers (Site & Field Operations):
-
-- Steve McClary (Sr. Superintendent), Porter Cline (Superintendent), Reagan Massey (Superintendent), Derek Parks (Superintendent)
-
-Logistics Command (Administration & Support):
-
-- Brooks Morris (Finance & Operations Manager), Brittney Holstein (HR Manager)
+Team member data is maintained in `src/lib/data/vintage-team.ts` (source of truth).
 
 ## Quick Links
 

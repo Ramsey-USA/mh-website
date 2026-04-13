@@ -259,9 +259,21 @@ export default function ResourcesPage() {
                             </span>
                           ))}
                         </div>
-                        <span className="text-xs text-gray-400 dark:text-gray-500">
-                          Coming soon
-                        </span>
+                        {doc.pdfPath ? (
+                          <a
+                            href={doc.pdfPath}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary dark:text-brand-secondary hover:text-brand-primary-dark dark:hover:text-brand-secondary-light transition-colors"
+                          >
+                            <MaterialIcon icon="download" size="sm" />
+                            Download PDF
+                          </a>
+                        ) : (
+                          <span className="text-xs text-gray-400 dark:text-gray-500">
+                            Coming soon
+                          </span>
+                        )}
                       </div>
                     </div>
                   ))}

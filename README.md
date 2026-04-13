@@ -60,29 +60,34 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ---
 
-## Project Status (April 8, 2026)
+## Project Status (April 9, 2026)
 
 ### Production-Ready Platform
 
-| Metric            | Status    | Details                                    |
-| ----------------- | --------- | ------------------------------------------ |
-| **Build**         | Passing   | ~33s compilation, zero errors              |
-| **Deployed**      | Live      | Cloudflare Workers — mhc-gc.com            |
-| **TypeScript**    | Strict    | Zero type errors                           |
-| **ESLint**        | Clean     | Zero lint warnings, zero errors            |
-| **Tests**         | Passing   | 1734/1734 passing, 138 suites              |
-| **Coverage**      | Strong    | 97.32% stmts, 91.23% branches, 99.03% fns  |
-| **SEO**           | External  | Audit via external tools                   |
-| **Lighthouse**    | External  | Audit via PageSpeed/DevTools               |
-| **Bundle Size**   | 211 kB    | Production optimized                       |
-| **Dark Mode**     | Complete  | Full theme support                         |
-| **PWA**           | Ready     | Offline-ready, 5-layer caching             |
-| **Analytics**     | Live      | 100% page coverage, dashboard active       |
-| **Documentation** | Optimized | 60 docs + 10 supporting guides, zero bloat |
+| Metric            | Status    | Details                                   |
+| ----------------- | --------- | ----------------------------------------- |
+| **Build**         | Passing   | ~33s compilation, zero errors             |
+| **Deployed**      | Live      | Cloudflare Workers — mhc-gc.com           |
+| **TypeScript**    | Strict    | Zero type errors                          |
+| **ESLint**        | Clean     | Zero lint warnings, zero errors           |
+| **Tests**         | Passing   | 1734/1734 passing, 138 suites             |
+| **Coverage**      | Strong    | 97.32% stmts, 91.23% branches, 99.03% fns |
+| **SEO**           | External  | Audit via external tools                  |
+| **Lighthouse**    | External  | Audit via PageSpeed/DevTools              |
+| **Bundle Size**   | 211 kB    | Production optimized                      |
+| **Dark Mode**     | Complete  | Full theme support                        |
+| **PWA**           | Ready     | Offline-ready, 5-layer caching            |
+| **Analytics**     | Live      | 100% page coverage, dashboard active      |
+| **Documentation** | Optimized | 45 docs + 7 supporting guides, zero bloat |
 
 ### Recent Changes
 
 See [CHANGELOG.md](CHANGELOG.md) for the full history of changes.
+
+**Apr 9 highlights:** Safety Program implementation — canonical naming ("MH Construction
+Safety Program"), Cloudflare Turnstile verification, public Safety intake API/UI
+(`/safety/intake`), dedicated `SAFETY_INTAKE` R2 bucket, admin review endpoints,
+D1 migration `0012_create_safety_intake_submissions.sql`.
 
 **Apr 8 highlights:** Documentation audit — corrected stale file paths, resolved
 demo-account security status, added /resources pages to architecture inventory,
@@ -290,14 +295,14 @@ docs/
 │   ├── standards/               # unified-component-standards.md (v7.0.0), color-system.md, +3 more
 │   └── strategy/                # messaging.md, brand-overview.md, terminology, page-specific messaging
 ├── business/                     # Business documentation
-│   ├── services.md, core-values.md, project-specializations.md, testimonials.md
-│   └── team/profiles/           # 14 team member profiles
+│   ├── services.md, core-values.md, project-specializations.md
+│   └── (team data in src/lib/data/vintage-team.ts)
 ├── development/                  # Development guides
 │   ├── quick-reference/         # component-cheatsheet.md
 │   ├── standards/               # development-standards.md, consistency-guide.md, common-mistakes.md,
 │   │                            # page-compliance-checklist.md, page-template-guide.md, ai-development-guidelines.md
 │   └── components/              # template-components.md (StandardSection docs)
-├── technical/                    # Technical implementation (14 files + 3 subdirs)
+├── technical/                    # Technical implementation (9 files + 3 subdirs)
 │   ├── design-system/           # buttons-ctas-complete-guide.md, icon-system-complete.md
 │   ├── seo/                     # seo-complete-guide.md
 │   ├── patterns/                # component-pattern-strategy.md, +2 component patterns
@@ -587,5 +592,5 @@ Jeremy Thamert, continuing 16 years of construction excellence with renewed vete
 
 ---
 
-**Last Updated:** April 8, 2026  
+**Last Updated:** April 9, 2026  
 **Documentation Version:** 4.0 (README + CHANGELOG split)

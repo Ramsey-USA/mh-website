@@ -2,7 +2,6 @@
 
 **Related Documentation:**
 
-- [PWA Full Documentation](./pwa-documentation.md) - Complete guide
 - [Browser Titles](./browser-tab-titles-inventory.md) - Title system used in PWA
 
 ---
@@ -160,9 +159,6 @@ src/
 
 scripts/
 └── test-pwa.js              ← PWA test suite
-
-docs/technical/
-└── pwa-documentation.md     ← Full documentation
 ```
 
 ## Key Metrics
@@ -248,11 +244,10 @@ Caution: Only use for critical issues!
 
 ## Resources
 
-- 📖 Full docs: `docs/technical/pwa-documentation.md`
 - 🧪 Test script: `scripts/test-pwa.js`
 - 🔧 Service worker: `public/sw.js`
 - 📱 Manifest: `public/manifest.json`
 
 ---
 
-**Need Help?** Check the full [PWA Documentation](./pwa-documentation.md)
+**Need Help?** Check the service worker at `public/sw.js` or run `npm run test:pwa`

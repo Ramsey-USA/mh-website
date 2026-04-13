@@ -249,10 +249,6 @@ import { ThemeToggle } from "@/components/ui/layout/ThemeToggle";
 <ThemeToggle showLabel size="lg" />
 ```
 
-## 📚 Full Documentation
-
-See [Dark Mode Implementation Guide](./dark-mode-implementation-guide.md) for complete details.
-
 ---
 
 **MH Construction** - Founded 2010, Veteran-Owned Since 2025

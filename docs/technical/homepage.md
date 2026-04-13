@@ -680,7 +680,7 @@ className = "bg-white dark:bg-gray-900 text-gray-900 dark:text-white";
 - **[SEO Complete Guide](./seo/seo-complete-guide.md)** - SEO strategy & implementation
 - **[Unified Component Standards](../branding/standards/unified-component-standards.md)** - UI component patterns
 - **[Analytics Guide](../../analytics-guide-for-matt-and-jeremy.md)** - Marketing analytics
-- **[PWA Documentation](./pwa-documentation.md)** - Progressive Web App details
+- **[PWA Quick Reference](./pwa-quick-reference.md)** - Progressive Web App details
 - **[Architecture](../project/architecture.md)** - Overall platform architecture
 - **[Lighthouse Results](../../lighthouse-results/summary.json)** - Local artifact (only trustworthy when all audits succeed)
 
