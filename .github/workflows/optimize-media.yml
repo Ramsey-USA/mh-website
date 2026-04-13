@@ -82,8 +82,6 @@ jobs:
           git config --local user.name "github-actions[bot]"
 
           # Add all optimized files
-          git add public/images-optimized/ || true
-          git add public/videos-optimized/ || true
           git add public/images/**/*.webp || true
           git add public/videos/**/*.webm || true
           git add public/videos/**/*.mp4 || true
@@ -117,9 +115,9 @@ jobs:
           echo "## 📊 Media Optimization Report" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Images Optimized" >> $GITHUB_STEP_SUMMARY
-          find public/images-optimized -type f -name "*.webp" 2>/dev/null | wc -l >> $GITHUB_STEP_SUMMARY || echo "0" >> $GITHUB_STEP_SUMMARY
+          find public/images -type f -name "*.webp" 2>/dev/null | wc -l >> $GITHUB_STEP_SUMMARY || echo "0" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Videos Optimized" >> $GITHUB_STEP_SUMMARY
-          find public/videos-optimized -type f -name "*.webm" 2>/dev/null | wc -l >> $GITHUB_STEP_SUMMARY || echo "0" >> $GITHUB_STEP_SUMMARY
+          find public/videos -type f -name "*.webm" 2>/dev/null | wc -l >> $GITHUB_STEP_SUMMARY || echo "0" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "✅ All media assets optimized for web delivery" >> $GITHUB_STEP_SUMMARY

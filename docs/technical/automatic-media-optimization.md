@@ -131,20 +131,17 @@ The optimization workflow runs when:
 
 ## Output Locations
 
-Optimized files are saved to:
+Optimized files are saved alongside originals:
 
 ```text
 public/
 ├── images/
-│   └── my-photo.jpg          # Original
-├── images-optimized/
-│   └── my-photo.webp         # Optimized (auto-copied)
+│   ├── my-photo.jpg          # Original
+│   └── my-photo.webp         # Optimized WebP version
 ├── videos/
-│   └── my-video.mp4          # Original
-└── videos-optimized/
-    ├── my-video.webm         # WebM version
-    ├── my-video.mp4          # Optimized MP4
-    └── my-video-poster.jpg   # Poster image
+│   ├── my-video.mp4          # Optimized MP4
+│   ├── my-video.webm         # WebM version
+│   └── my-video-poster.jpg   # Poster image
 ```
 
 ## Optimization Reports

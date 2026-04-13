@@ -1,100 +1,79 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-*.bak
-*.backup
-*.backup.*
-*.old
-*.orig
-backups/
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-*.log
-
-# local env files
-.env*.local
-.env
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
 
 # Additional build artifacts
+# Backup directories (created by scripts)
+# IDE
+# OS
+# PDFs served from Cloudflare R2 — no longer committed to the repo
+# Package manager locks (consider excluding to prevent bloat)
+# Prevent backup files from being committed
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Temporary files
+# Test files in wrong locations
+# Test results and reports
+# Uncomment if you want to exclude lock files from version control
+# debug
+# dependencies
+# local env files
+# misc
+# next.js
+# package-lock.json
+# pnpm-lock.yaml
+# production
+# testing
+# typescript
+# vercel
+# yarn.lock
+*.backup
+*.backup.*
+*.bak
+*.lcov
+*.log
+*.old
+*.orig
+*.pem
+*.swo
+*.swp
+*.temp
+*.tmp
+*.tsbuildinfo
+.DS_Store
+.cache/
+.env
+.env*.local
+.idea/
+.lighthouseci/
 .next/cache/
 .open-next/
-dist/
-build/
-out/
-
-# IDE
+.pnp.js
+.vercel
 .vscode/
-.idea/
-*.swp
-*.swo
-
-# Backup directories (created by scripts)
+.wrangler/
+/.next/
+/.pnp
+/build
+/coverage
+/node_modules
+/out/
+/public/test-*.html
+Thumbs.db
 backups/
+build/
+coverage/
+dist/
 docs/.markdown-lint-backup-*/
 docs/.naming-backup-*/
-
-# Prevent backup files from being committed
-*.backup
-*.bak
-*.old
-
-# Test files in wrong locations
+documents/content/safety-manual.json
+documents/output/
+lighthouse-results/
+next-env.d.ts
+npm-debug.log*
+out/
+playwright-report/
+public/docs/
+scripts/output/
+seo-audit-report.json
 test-*.html
 test-*.sh
-/public/test-*.html
-
-# OS
-Thumbs.db
-
-# Test results and reports
 test-results/
-playwright-report/
-coverage/
-*.lcov
-lighthouse-results/
-seo-audit-report.json
-
-# Temporary files
-*.tmp
-*.temp
-.cache/
-
-# Package manager locks (consider excluding to prevent bloat)
-# Uncomment if you want to exclude lock files from version control
-# package-lock.json
-# yarn.lock
-# pnpm-lock.yaml
-documents/output/
-documents/content/safety-manual.json
-scripts/output/
-
-# PDFs served from Cloudflare R2 — no longer committed to the repo
-public/docs/
-.wrangler/
+yarn-debug.log*
+yarn-error.log*
