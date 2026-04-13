@@ -2,8 +2,10 @@
  * @jest-environment node
  *
  * db/env.ts — unit tests
- * Covers getD1Database, getKVNamespace, getR2Bucket, isCloudflareWorkers
+ * Covers getD1Database, getKVNamespace, isCloudflareWorkers
  * in both the error-catch (non-CF) path and the success (CF env) path.
+ *
+ * NOTE: R2 bucket access is handled via @/lib/cloudflare/r2.ts — see r2.test.ts
  */
 
 const mockGetCloudflareContext = jest.fn();
@@ -25,7 +27,6 @@ jest.mock("@/lib/utils/logger", () => ({
 describe("db/env — non-Cloudflare environment (getCloudflareContext throws)", () => {
   let getD1Database: () => unknown;
   let getKVNamespace: (b: string) => unknown;
-  let getR2Bucket: (b: string) => unknown;
   let isCloudflareWorkers: () => boolean;
 
   beforeAll(async () => {
@@ -34,7 +35,7 @@ describe("db/env — non-Cloudflare environment (getCloudflareContext throws)", 
     });
 
     jest.isolateModules(() => {
-      ({ getD1Database, getKVNamespace, getR2Bucket, isCloudflareWorkers } =
+      ({ getD1Database, getKVNamespace, isCloudflareWorkers } =
         // eslint-disable-next-line @typescript-eslint/no-require-imports
         require("@/lib/db/env") as typeof import("@/lib/db/env"));
     });
@@ -48,10 +49,6 @@ describe("db/env — non-Cloudflare environment (getCloudflareContext throws)", 
     expect(getKVNamespace("CACHE")).toBeNull();
   });
 
-  it("getR2Bucket returns null", () => {
-    expect(getR2Bucket("BUCKET")).toBeNull();
-  });
-
   it("isCloudflareWorkers returns false", () => {
     expect(isCloudflareWorkers()).toBe(false);
   });
@@ -60,20 +57,18 @@ describe("db/env — non-Cloudflare environment (getCloudflareContext throws)", 
 describe("db/env — Cloudflare environment (getCloudflareContext succeeds)", () => {
   const mockDB = { prepare: jest.fn() };
   const mockKV = { get: jest.fn() };
-  const mockR2 = { put: jest.fn() };
 
   let getD1Database: () => unknown;
   let getKVNamespace: (b: string) => unknown;
-  let getR2Bucket: (b: string) => unknown;
   let isCloudflareWorkers: () => boolean;
 
   beforeAll(async () => {
     mockGetCloudflareContext.mockReturnValue({
-      env: { DB: mockDB, CACHE: mockKV, BUCKET: mockR2 },
+      env: { DB: mockDB, CACHE: mockKV },
     });
 
     jest.isolateModules(() => {
-      ({ getD1Database, getKVNamespace, getR2Bucket, isCloudflareWorkers } =
+      ({ getD1Database, getKVNamespace, isCloudflareWorkers } =
         // eslint-disable-next-line @typescript-eslint/no-require-imports
         require("@/lib/db/env") as typeof import("@/lib/db/env"));
     });
@@ -85,10 +80,6 @@ describe("db/env — Cloudflare environment (getCloudflareContext succeeds)", ()
 
   it("getKVNamespace returns the named KV binding", () => {
     expect(getKVNamespace("CACHE")).toBe(mockKV);
-  });
-
-  it("getR2Bucket returns the named R2 binding", () => {
-    expect(getR2Bucket("BUCKET")).toBe(mockR2);
   });
 
   it("isCloudflareWorkers returns true", () => {

@@ -13,6 +13,7 @@ import { generateNewsletterAcknowledgment } from "@/lib/email/templates";
 import { createDbClient } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
 import { escapeHtml } from "@/lib/utils/escape-html";
+import { isValidEmail } from "@/lib/utils/validation";
 
 export const dynamic = "force-dynamic";
 
@@ -36,9 +37,8 @@ async function handlePOST(request: NextRequest) {
       return badRequest("Email address is required");
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(data.email)) {
+    // Email validation - using centralized utility
+    if (!isValidEmail(data.email)) {
       return badRequest("Invalid email address");
     }
 

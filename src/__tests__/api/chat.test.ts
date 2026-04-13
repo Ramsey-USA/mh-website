@@ -216,4 +216,121 @@ describe("POST /api/chat", () => {
     const res = await POST(req);
     expect(res.status).toBe(500);
   });
+
+  // ── Additional coverage for BBB/trust/credibility paths ──────────────────
+
+  it("returns BBB info for 'are you BBB accredited'", async () => {
+    const res = await POST(makeRequest({ message: "are you BBB accredited" }));
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("BBB Accredited");
+    expect(body.response).toContain("A+");
+  });
+
+  it("returns BBB info for 'better business bureau'", async () => {
+    const res = await POST(
+      makeRequest({ message: "are you with the better business bureau" }),
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("BBB");
+  });
+
+  it("returns trust/credibility info for 'can I trust you'", async () => {
+    const res = await POST(makeRequest({ message: "can I trust you" }));
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("BBB Accredited");
+    expect(body.response).toContain("veteran-owned");
+  });
+
+  it("returns trust info for 'what are your ratings'", async () => {
+    const res = await POST(
+      makeRequest({ message: "what are your ratings and reviews" }),
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("Google reviews");
+  });
+
+  it("returns services info for 'what do you do'", async () => {
+    const res = await POST(makeRequest({ message: "what do you do" }));
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("commercial construction");
+  });
+
+  it("returns services info for 'what can you build'", async () => {
+    const res = await POST(makeRequest({ message: "what can you build" }));
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("mhc-gc.com/services");
+  });
+
+  // ── Trade keyword coverage for website fallback branch ────────────────────
+
+  it("returns trade info for electrical work", async () => {
+    const res = await POST(
+      makeRequest({ message: "I need electrical work done" }),
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("Diamond Electric");
+  });
+
+  it("returns trade info for signage", async () => {
+    const res = await POST(makeRequest({ message: "can you do signage" }));
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("Mustang Signs");
+  });
+
+  it("returns trade info for landscaping", async () => {
+    const res = await POST(
+      makeRequest({ message: "do you handle landscaping" }),
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("Bagley");
+  });
+
+  it("returns trade info for glass/glazing", async () => {
+    const res = await POST(makeRequest({ message: "I need glass installed" }));
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("McKinney Glass");
+  });
+
+  it("returns trade info for fencing", async () => {
+    const res = await POST(makeRequest({ message: "can you build a fence" }));
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("D-Fence");
+  });
+
+  it("returns trade info for insulation", async () => {
+    const res = await POST(
+      makeRequest({ message: "do you do insulation work" }),
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("Intermountain West");
+  });
+
+  it("returns trade info for cabinetry", async () => {
+    const res = await POST(makeRequest({ message: "I need custom cabinetry" }));
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("Core Cabinet");
+  });
+
+  it("returns default fallback for unrecognized queries", async () => {
+    const res = await POST(
+      makeRequest({ message: "tell me something random" }),
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("Thanks for reaching out");
+    expect(body.response).toContain("(509) 308-6489");
+  });
 });

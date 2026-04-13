@@ -274,31 +274,33 @@ export default function SafetyPage() {
 
           {/* Bottom-right hero text */}
           <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
-            <div className="flex justify-end mb-4">
-              <div className="relative p-4 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
-                <MaterialIcon
-                  icon="shield"
-                  size="4xl"
-                  className="text-white drop-shadow-lg"
-                  ariaLabel="Safety Program — Zero-incident culture"
-                />
-              </div>
-            </div>
             <h1
               id="safety-hero-heading"
-              className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed"
+              className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black text-white drop-shadow-2xl leading-tight tracking-tight"
             >
-              <span className="block text-brand-secondary-text text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                Zero-Incident Culture
+              {/* Dual Naming Format - Required per branding standards */}
+              <span className="block text-brand-secondary/80 text-sm sm:text-base md:text-lg lg:text-xl font-normal mb-2">
+                Safety HQ → Safety Program
               </span>
+              {/* Page-specific mantra */}
+              <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4 font-black">
+                Award-Winning Safety: 0.64 EMR, Zero Compromises
+              </span>
+              {/* Tagline with separators */}
               <span className="block text-brand-secondary">
-                Documented. Proven. Award-Winning.
+                Zero-Incident Operations
               </span>
-              <span className="block text-brand-primary">
-                0.64 EMR · 44-Section OSHA Written Program
+              <span className="block text-white/60">|</span>
+              <span className="block text-white/95">
+                Mission-Critical Safety Culture
               </span>
+              <span className="block text-white/60">|</span>
+              <span className="block text-brand-primary-light">
+                0.64 EMR · 44-Section OSHA Program
+              </span>
+              <span className="block text-white/60">|</span>
               <span className="block text-white/90">
-                Building safely for the client,{" "}
+                Building safely for the Client Partner,{" "}
                 <span className="font-black italic text-brand-secondary">
                   every day
                 </span>
@@ -662,6 +664,7 @@ export default function SafetyPage() {
                 <SafetyComplianceBadge variant="pmbok" />
                 <SafetyComplianceBadge variant="veteran" />
                 <SafetyComplianceBadge variant="bbb" />
+                <SafetyComplianceBadge variant="travelers" />
               </div>
 
               {/* Supporting compliance detail cards */}
@@ -696,6 +699,16 @@ export default function SafetyPage() {
                     icon: "military_tech",
                     title: "Veteran-Owned Accountability",
                     body: "Military-grade discipline applied to every safety protocol. Chain-of-command accountability from field to executive.",
+                  },
+                  {
+                    icon: "umbrella",
+                    title: "Travelers Auto & Bonding",
+                    body: "Comprehensive auto and bonding coverage through Travelers Insurance. Performance bonds, bid bonds, and payment bonds available for projects of all sizes.",
+                  },
+                  {
+                    icon: "verified",
+                    title: "BBB Accredited A+",
+                    body: "Better Business Bureau A+ rating with accreditation since April 2026. Commitment to transparent business practices and Client Partner satisfaction.",
                   },
                 ].map(({ icon, title, body }) => (
                   <div

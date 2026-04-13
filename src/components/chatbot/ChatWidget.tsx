@@ -10,6 +10,14 @@ interface ChatMessage {
   content: string;
 }
 
+// ── Constants ────────────────────────────────────────────────────────────────
+
+/** Time in ms before showing proactive prompt (default: 30 seconds) */
+const PROACTIVE_PROMPT_DELAY = 30_000;
+
+/** Session storage key to track if prompt was already shown */
+const PROACTIVE_PROMPT_KEY = "mhc-chat-prompted";
+
 // ── Quick-action suggestions ─────────────────────────────────────────────────
 
 const QUICK_ACTIONS = [
@@ -32,6 +40,7 @@ export function ChatWidget() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showPrompt, setShowPrompt] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -73,6 +82,43 @@ export function ChatWidget() {
       document.body.style.overflow = prev;
     };
   }, [isOpen]);
+
+  // Proactive prompt: show after delay if user hasn't interacted
+  useEffect(() => {
+    // Don't show if chat is already open or was already prompted this session
+    if (isOpen) {
+      setShowPrompt(false);
+      return;
+    }
+
+    try {
+      if (sessionStorage.getItem(PROACTIVE_PROMPT_KEY)) return;
+    } catch {
+      // sessionStorage not available (e.g., private browsing)
+    }
+
+    const timer = setTimeout(() => {
+      setShowPrompt(true);
+      try {
+        sessionStorage.setItem(PROACTIVE_PROMPT_KEY, "1");
+      } catch {
+        // Ignore storage errors
+      }
+    }, PROACTIVE_PROMPT_DELAY);
+
+    return () => clearTimeout(timer);
+  }, [isOpen]);
+
+  // Dismiss prompt when user opens chat
+  const handleOpenChat = useCallback(() => {
+    setShowPrompt(false);
+    setIsOpen(true);
+  }, []);
+
+  // Dismiss prompt without opening chat
+  const dismissPrompt = useCallback(() => {
+    setShowPrompt(false);
+  }, []);
 
   const sendMessage = useCallback(
     async (text: string) => {
@@ -139,14 +185,48 @@ export function ChatWidget() {
     <>
       {/* ── Floating trigger button ─────────────────────────────────────── */}
       {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-brand-primary to-brand-primary-dark text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900"
-          aria-label="Open partnership guide chat"
-          title="Partnership Guide"
-        >
-          <MaterialIcon icon="chat" size="lg" className="text-white" />
-        </button>
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+          {/* Proactive prompt bubble */}
+          {showPrompt && (
+            <div
+              role="status"
+              aria-live="polite"
+              className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-3 max-w-[260px] animate-fadeSlideIn"
+            >
+              <button
+                onClick={dismissPrompt}
+                className="absolute -top-2 -right-2 flex items-center justify-center w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
+                aria-label="Dismiss prompt"
+              >
+                <MaterialIcon
+                  icon="close"
+                  size="xs"
+                  className="text-gray-500 dark:text-gray-400"
+                />
+              </button>
+              <p className="text-sm text-gray-700 dark:text-gray-200 leading-snug mb-2">
+                👋 Need help finding what you&apos;re looking for?
+              </p>
+              <button
+                onClick={handleOpenChat}
+                className="text-xs font-medium text-brand-primary dark:text-brand-primary-light hover:underline focus:outline-none focus:ring-2 focus:ring-brand-primary/50 rounded"
+              >
+                Chat with us →
+              </button>
+              {/* Tail pointing to button */}
+              <div className="absolute -bottom-2 right-6 w-4 h-4 bg-white dark:bg-gray-800 border-r border-b border-gray-200 dark:border-gray-700 rotate-45" />
+            </div>
+          )}
+
+          <button
+            onClick={handleOpenChat}
+            className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-brand-primary to-brand-primary-dark text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+            aria-label="Open partnership guide chat"
+            title="Partnership Guide"
+          >
+            <MaterialIcon icon="chat" size="lg" className="text-white" />
+          </button>
+        </div>
       )}
 
       {/* ── Chat panel ──────────────────────────────────────────────────── */}
@@ -345,6 +425,19 @@ export function ChatWidget() {
             opacity: 1;
             transform: translateY(0) scale(1);
           }
+        }
+        @keyframes fadeSlideIn {
+          from {
+            opacity: 0;
+            transform: translateY(0.5rem);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeSlideIn {
+          animation: fadeSlideIn 300ms ease-out;
         }
       `}</style>
     </>

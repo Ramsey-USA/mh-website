@@ -168,11 +168,15 @@ function PasscodeGate({ onLogin }: LoginFormProps) {
 
           <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 px-8 py-8">
             <div className="text-center mb-6">
+              {/* Dual Naming Format - Required per branding standards */}
+              <span className="block text-xs text-brand-secondary font-medium uppercase tracking-wider mb-1">
+                Field Ops → Safety Hub
+              </span>
               <h1 className="text-xl font-black text-gray-900 dark:text-white mb-1">
                 Field Safety Hub
               </h1>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                MH Construction — Field Staff Access
+                MH Construction — Field Operations Access
               </p>
             </div>
 

@@ -1,12 +1,19 @@
 /**
  * Form validation utility tests
- * Tests email and phone validation logic used across contact forms
+ * Tests email and phone validation using centralized utilities
  */
+
+import {
+  isValidEmail,
+  isValidPhone,
+  cleanPhone,
+  isRequired,
+  EMAIL_REGEX,
+  PHONE_REGEX,
+} from "@/lib/utils/validation";
 
 describe("Form Validation", () => {
   describe("Email Validation", () => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
     it("should accept valid email addresses", () => {
       const validEmails = [
         "user@example.com",
@@ -16,7 +23,7 @@ describe("Form Validation", () => {
       ];
 
       validEmails.forEach((email) => {
-        expect(emailRegex.test(email)).toBe(true);
+        expect(isValidEmail(email)).toBe(true);
       });
     });
 
@@ -31,16 +38,18 @@ describe("Form Validation", () => {
       ];
 
       invalidEmails.forEach((email) => {
-        expect(emailRegex.test(email)).toBe(false);
+        expect(isValidEmail(email)).toBe(false);
       });
+    });
+
+    it("EMAIL_REGEX should match centralized pattern", () => {
+      // Ensure the regex is the expected pattern
+      expect(EMAIL_REGEX.test("user@example.com")).toBe(true);
+      expect(EMAIL_REGEX.test("invalid")).toBe(false);
     });
   });
 
   describe("Phone Validation", () => {
-    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-
-    const cleanPhone = (phone: string) => phone.replace(/[\s\-\(\)]/g, "");
-
     it("should accept valid phone numbers", () => {
       const validPhones = [
         "5093086489",
@@ -51,7 +60,7 @@ describe("Form Validation", () => {
       ];
 
       validPhones.forEach((phone) => {
-        expect(phoneRegex.test(cleanPhone(phone))).toBe(true);
+        expect(isValidPhone(phone)).toBe(true);
       });
     });
 
@@ -64,8 +73,19 @@ describe("Form Validation", () => {
       ];
 
       invalidPhones.forEach((phone) => {
-        expect(phoneRegex.test(cleanPhone(phone))).toBe(false);
+        expect(isValidPhone(phone)).toBe(false);
       });
+    });
+
+    it("cleanPhone should remove formatting characters", () => {
+      expect(cleanPhone("(509) 308-6489")).toBe("5093086489");
+      expect(cleanPhone("509-308-6489")).toBe("5093086489");
+      expect(cleanPhone("+1 509 308 6489")).toBe("+15093086489");
+    });
+
+    it("PHONE_REGEX should match centralized pattern", () => {
+      expect(PHONE_REGEX.test("5093086489")).toBe(true);
+      expect(PHONE_REGEX.test("0123456789")).toBe(false); // starts with 0
     });
   });
 
@@ -78,11 +98,11 @@ describe("Form Validation", () => {
         message: "Test message",
       };
 
-      // All fields present
-      expect(requiredFields.firstName.trim()).toBeTruthy();
-      expect(requiredFields.lastName.trim()).toBeTruthy();
-      expect(requiredFields.email.trim()).toBeTruthy();
-      expect(requiredFields.message.trim()).toBeTruthy();
+      // All fields present - using centralized isRequired
+      expect(isRequired(requiredFields.firstName)).toBe(true);
+      expect(isRequired(requiredFields.lastName)).toBe(true);
+      expect(isRequired(requiredFields.email)).toBe(true);
+      expect(isRequired(requiredFields.message)).toBe(true);
     });
 
     it("should fail when required fields are empty", () => {
@@ -93,10 +113,10 @@ describe("Form Validation", () => {
         message: "",
       };
 
-      expect(invalidData.firstName.trim()).toBeFalsy();
-      expect(invalidData.lastName.trim()).toBeFalsy();
-      expect(invalidData.email.trim()).toBeFalsy();
-      expect(invalidData.message.trim()).toBeFalsy();
+      expect(isRequired(invalidData.firstName)).toBe(false);
+      expect(isRequired(invalidData.lastName)).toBe(false);
+      expect(isRequired(invalidData.email)).toBe(false);
+      expect(isRequired(invalidData.message)).toBe(false);
     });
 
     it("should validate project-specific required fields", () => {
@@ -105,8 +125,8 @@ describe("Form Validation", () => {
         projectLocation: "Seattle, WA",
       };
 
-      expect(projectData.projectType).toBeTruthy();
-      expect(projectData.projectLocation.trim()).toBeTruthy();
+      expect(isRequired(projectData.projectType)).toBe(true);
+      expect(isRequired(projectData.projectLocation)).toBe(true);
     });
   });
 });

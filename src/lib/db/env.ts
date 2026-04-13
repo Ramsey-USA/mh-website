@@ -40,18 +40,8 @@ export function getKVNamespace(binding: string): unknown | null {
   }
 }
 
-/**
- * Get Cloudflare R2 bucket binding
- */
-export function getR2Bucket(binding: string): unknown | null {
-  try {
-    const { env } = getCloudflareContext();
-    return (env as Record<string, unknown>)[binding] ?? null;
-  } catch (_error) {
-    logger.error("Error getting R2 bucket:", { binding, _error });
-    return null;
-  }
-}
+// NOTE: R2 bucket access is handled via the type-safe getR2Bucket() function
+// in @/lib/cloudflare/r2.ts — use that module for all R2 operations.
 
 /**
  * Check if running in Cloudflare Workers environment

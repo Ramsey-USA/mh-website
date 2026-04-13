@@ -26,6 +26,7 @@ export const COMPANY_INFO = {
     main: "office@mhc-gc.com",
     admin: "matt@mhc-gc.com",
     superintendent: "arnold@mhc-gc.com",
+    hr: "brittney@mhc-gc.com",
   },
 
   // Physical Address
@@ -151,5 +152,6 @@ export const EMAIL_RECIPIENTS: {
     COMPANY_INFO.email.main,
     COMPANY_INFO.email.admin,
     COMPANY_INFO.email.superintendent,
+    COMPANY_INFO.email.hr, // Brittney handles HR/hiring coordination
   ],
 };

@@ -51,13 +51,22 @@ const CRITICAL_ASSETS = [
   "/manifest.json",
   "/icons/icon-192x192.png",
   "/icons/icon-512x512.png",
+  "/images/logo/mh-logo-dark-bg.webp",
 ];
 
 const STATIC_ASSETS = [
   ...CRITICAL_ASSETS,
+  "/about",
   "/contact",
   "/projects",
   "/services",
+  "/team",
+  "/testimonials",
+  "/faq",
+  "/careers",
+  "/veterans",
+  "/privacy",
+  "/terms",
   // Note: Next.js CSS chunks use content-hash filenames (e.g. /_next/static/css/4a8b2c.css)
   // and cannot be reliably precached here. They are cached at runtime by fetch handlers below.
 ];

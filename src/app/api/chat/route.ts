@@ -14,6 +14,7 @@ import { withSecurity } from "@/middleware/security";
 import { rateLimit } from "@/lib/security/rate-limiter";
 import { logger } from "@/lib/utils/logger";
 import { buildSystemPrompt, ALLIES } from "@/lib/chatbot/knowledge-base";
+import { badRequest, internalServerError } from "@/lib/api/responses";
 
 export const dynamic = "force-dynamic";
 
@@ -242,9 +243,8 @@ async function handler(request: NextRequest): Promise<Response> {
     const body = await request.json();
     const payload = validatePayload(body);
     if (!payload) {
-      return NextResponse.json(
-        { error: "Invalid request. Send a JSON body with a 'message' string." },
-        { status: 400 },
+      return badRequest(
+        "Invalid request. Send a JSON body with a 'message' string.",
       );
     }
 
@@ -290,11 +290,8 @@ async function handler(request: NextRequest): Promise<Response> {
     logger.error("Chat API error", {
       error: error instanceof Error ? error.message : "unknown",
     });
-    return NextResponse.json(
-      {
-        error: "Something went wrong. Please try again or call (509) 308-6489.",
-      },
-      { status: 500 },
+    return internalServerError(
+      "Something went wrong. Please try again or call (509) 308-6489.",
     );
   }
 }

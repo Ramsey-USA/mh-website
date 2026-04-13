@@ -42,7 +42,7 @@ const safetyFeatures: AlternatingShowcaseItem[] = [
     description:
       "Full compliance with OSHA, L&I, EPA, and all regulatory requirements. Comprehensive documentation, regular audits, and systematic compliance verification ensure we meet—and exceed—every standard. Prevailing wage compliance, certified payroll processes, and complete regulatory adherence provide peace of mind on public sector projects. Our commitment to compliance protects your project from violations, fines, and work stoppages.",
     image: "/images/safety/compliance.webp",
-    iconBg: "bg-green-700",
+    iconBg: "bg-brand-primary-dark",
     stats: "100% Compliant",
     statsLabel: "All Regulatory Standards",
   },
@@ -54,7 +54,7 @@ const safetyFeatures: AlternatingShowcaseItem[] = [
     description:
       "Multi-point inspection processes at every construction phase ensure first-time-right execution. Detailed quality checklists built around disciplined execution, material verification and testing, third-party inspections for critical systems, and comprehensive photo documentation. Our systematic approach to quality prevents costly rework, maintains project schedules, and delivers construction that stands the test of time.",
     image: "/images/safety/quality-control.webp",
-    iconBg: "bg-blue-700",
+    iconBg: "bg-bronze-700",
     stats: "Multi-Point Inspections",
     statsLabel: "Every Construction Phase",
   },

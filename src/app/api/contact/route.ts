@@ -14,6 +14,7 @@ import {
   internalServerError,
 } from "@/lib/api/responses";
 import { escapeHtml } from "@/lib/utils/escape-html";
+import { isValidEmail } from "@/lib/utils/validation";
 
 export const dynamic = "force-dynamic";
 
@@ -68,9 +69,8 @@ async function handlePOST(request: NextRequest) {
       return badRequest("Phone number is too long");
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(data.email)) {
+    // Email validation - using centralized utility
+    if (!isValidEmail(data.email)) {
       return badRequest("Invalid email address");
     }
 

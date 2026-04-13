@@ -5,6 +5,7 @@
  */
 
 import { type NextRequest, NextResponse } from "next/server";
+import { isValidEmail } from "@/lib/utils/validation";
 
 // Security Configuration
 export interface SecurityConfig {
@@ -460,7 +461,6 @@ class InputValidator {
     errors: string[];
   } {
     const errors: string[] = [];
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!this.config.validateEmails) {
       return {
@@ -470,7 +470,8 @@ class InputValidator {
       };
     }
 
-    if (!emailRegex.test(email)) {
+    // Use centralized email validation
+    if (!isValidEmail(email)) {
       errors.push("Invalid email format");
     }
 

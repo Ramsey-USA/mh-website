@@ -11,6 +11,12 @@ import { type NextRequest, NextResponse } from "next/server";
 import { generateTokenPair } from "@/lib/auth/jwt";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import { logger } from "@/lib/utils/logger";
+import {
+  badRequest,
+  unauthorized,
+  methodNotAllowed,
+  internalServerError,
+} from "@/lib/api/responses";
 
 export const dynamic = "force-dynamic";
 
@@ -67,7 +73,7 @@ async function timingSafeEqual(a: string, b: string): Promise<boolean> {
 
 async function handler(request: NextRequest) {
   if (request.method !== "POST") {
-    return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
+    return methodNotAllowed();
   }
 
   try {
@@ -79,10 +85,7 @@ async function handler(request: NextRequest) {
       !email ||
       !password
     ) {
-      return NextResponse.json(
-        { error: "Email and password are required" },
-        { status: 400 },
-      );
+      return badRequest("Email and password are required");
     }
 
     // Find admin user — always run the password check even when the user is not
@@ -99,10 +102,7 @@ async function handler(request: NextRequest) {
 
     if (!adminName || !passwordMatch) {
       logger.warn(`Failed admin login attempt for: ${email}`);
-      return NextResponse.json(
-        { error: "Invalid credentials" },
-        { status: 401 },
-      );
+      return unauthorized("Invalid credentials");
     }
 
     // Generate JWT token pair (access + refresh)
@@ -139,10 +139,7 @@ async function handler(request: NextRequest) {
     return response;
   } catch (error) {
     logger.error("Admin login error:", error);
-    return NextResponse.json(
-      { error: "Authentication failed" },
-      { status: 500 },
-    );
+    return internalServerError("Authentication failed");
   }
 }
 

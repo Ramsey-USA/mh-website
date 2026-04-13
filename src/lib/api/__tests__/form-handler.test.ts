@@ -90,12 +90,18 @@ jest.mock("@/lib/email/templates", () => ({
 const mockSendToOffice = jest.fn(() =>
   Promise.resolve({ success: true, messageId: "msg-1" }),
 );
+const mockSendToCareers = jest.fn(() =>
+  Promise.resolve({ success: true, messageId: "msg-careers-1" }),
+);
 const mockSendAcknowledgment = jest.fn(() =>
   Promise.resolve({ success: true }),
 );
 jest.mock("@/lib/email/email-service", () => ({
   get sendToOffice() {
     return mockSendToOffice;
+  },
+  get sendToCareers() {
+    return mockSendToCareers;
   },
   get sendAcknowledgment() {
     return mockSendAcknowledgment;
@@ -160,6 +166,10 @@ beforeEach(() => {
   mockInsert.mockResolvedValue(undefined);
   mockQuery.mockResolvedValue([]);
   mockSendToOffice.mockResolvedValue({ success: true, messageId: "msg-1" });
+  mockSendToCareers.mockResolvedValue({
+    success: true,
+    messageId: "msg-careers-1",
+  });
   mockSendAcknowledgment.mockResolvedValue({ success: true });
   mockIsSmallEnoughForEmail.mockReturnValue(false);
 });
@@ -438,10 +448,10 @@ describe("handleFormSubmission()", () => {
     await handleFormSubmission(req, config);
 
     expect(mockGetFile).toHaveBeenCalledWith("resumes/abc.pdf");
-    expect(mockSendToOffice).toHaveBeenCalledWith(
+    // Job applications use sendToCareers (office, matt, arnold, brittney)
+    expect(mockSendToCareers).toHaveBeenCalledWith(
       expect.any(String),
       expect.any(Object),
-      true, // includeArnold
       expect.arrayContaining([
         expect.objectContaining({
           content: "base64pdf==",
@@ -470,10 +480,10 @@ describe("handleFormSubmission()", () => {
 
     await handleFormSubmission(req, config);
 
-    expect(mockSendToOffice).toHaveBeenCalledWith(
+    // Job applications use sendToCareers
+    expect(mockSendToCareers).toHaveBeenCalledWith(
       expect.any(String),
       expect.any(Object),
-      true,
       expect.arrayContaining([
         expect.objectContaining({
           filename: "resume.pdf",
@@ -496,11 +506,10 @@ describe("handleFormSubmission()", () => {
 
     await handleFormSubmission(req, config);
 
-    // attachments is undefined → sendToOffice called with undefined
-    expect(mockSendToOffice).toHaveBeenCalledWith(
+    // attachments is undefined → sendToCareers called with undefined
+    expect(mockSendToCareers).toHaveBeenCalledWith(
       expect.any(String),
       expect.any(Object),
-      true,
       undefined,
     );
   });
@@ -550,18 +559,37 @@ describe("handleFormSubmission()", () => {
     );
   });
 
-  it("sets includeArnold=false for non-Job Application submissions", async () => {
+  it("uses sendToOffice for non-Job Application submissions", async () => {
     const req = makeRequest({ name: "Carol" });
     const config = makeConfig({ submissionType: "Contact" });
 
     await handleFormSubmission(req, config);
 
+    // Non-job submissions go to general office team
     expect(mockSendToOffice).toHaveBeenCalledWith(
       expect.any(String),
       expect.any(Object),
-      false, // includeArnold = false
+      false,
       undefined,
     );
+    // sendToCareers should NOT be called for non-job submissions
+    expect(mockSendToCareers).not.toHaveBeenCalled();
+  });
+
+  it("uses sendToCareers for Job Application submissions", async () => {
+    const req = makeRequest({ email: "applicant@example.com" });
+    const config = makeConfig({ submissionType: "Job Application" });
+
+    await handleFormSubmission(req, config);
+
+    // Job applications go to careers team (includes brittney@)
+    expect(mockSendToCareers).toHaveBeenCalledWith(
+      expect.any(String),
+      expect.any(Object),
+      undefined, // no attachments in this test
+    );
+    // sendToOffice should NOT be called for job applications
+    expect(mockSendToOffice).not.toHaveBeenCalled();
   });
 });
 

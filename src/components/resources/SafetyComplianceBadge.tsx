@@ -7,7 +7,8 @@ export type BadgeVariant =
   | "pmbok"
   | "dot"
   | "veteran"
-  | "bbb";
+  | "bbb"
+  | "travelers";
 
 interface Props {
   variant: BadgeVariant;
@@ -73,6 +74,13 @@ const BADGE_CONFIG: Record<
     colorClass: "text-blue-700 dark:text-blue-400",
     bgClass: "bg-blue-50 dark:bg-blue-900/20",
     borderClass: "border-blue-200 dark:border-blue-800",
+  },
+  travelers: {
+    icon: "umbrella",
+    defaultLabel: "Travelers Bonded",
+    colorClass: "text-red-700 dark:text-red-400",
+    bgClass: "bg-red-50 dark:bg-red-900/20",
+    borderClass: "border-red-200 dark:border-red-800",
   },
 };
 

@@ -10,14 +10,22 @@ import { type NextRequest, NextResponse } from "next/server";
 import { generateTokenPair } from "@/lib/auth/jwt";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import { logger } from "@/lib/utils/logger";
+import {
+  badRequest,
+  unauthorized,
+  methodNotAllowed,
+  internalServerError,
+} from "@/lib/api/responses";
 
 export const dynamic = "force-dynamic";
 
 function resolveFieldPassword(): string {
-  const value = process.env['FIELD_STAFF_PASSWORD'];
+  const value = process.env["FIELD_STAFF_PASSWORD"];
   if (!value) {
     if (process.env.NODE_ENV === "production") {
-      throw new Error("Required environment variable FIELD_STAFF_PASSWORD is not set");
+      throw new Error(
+        "Required environment variable FIELD_STAFF_PASSWORD is not set",
+      );
     }
     return "dev-placeholder-field-password";
   }
@@ -49,7 +57,7 @@ async function timingSafeEqual(a: string, b: string): Promise<boolean> {
 
 async function handler(request: NextRequest) {
   if (request.method !== "POST") {
-    return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
+    return methodNotAllowed();
   }
 
   try {
@@ -57,10 +65,7 @@ async function handler(request: NextRequest) {
     const { passcode, name } = body ?? {};
 
     if (typeof passcode !== "string" || !passcode) {
-      return NextResponse.json(
-        { error: "Passcode is required" },
-        { status: 400 },
-      );
+      return badRequest("Passcode is required");
     }
 
     const storedPassword = resolveFieldPassword();
@@ -68,10 +73,7 @@ async function handler(request: NextRequest) {
 
     if (!passcodeMatch) {
       logger.warn("Failed field-login attempt");
-      return NextResponse.json(
-        { error: "Invalid passcode" },
-        { status: 401 },
-      );
+      return unauthorized("Invalid passcode");
     }
 
     const superintendentName =
@@ -109,10 +111,7 @@ async function handler(request: NextRequest) {
     return response;
   } catch (error) {
     logger.error("Field login error:", error);
-    return NextResponse.json(
-      { error: "Authentication failed" },
-      { status: 500 },
-    );
+    return internalServerError("Authentication failed");
   }
 }
 

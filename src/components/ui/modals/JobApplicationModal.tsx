@@ -9,6 +9,7 @@ import {
   type ChangeEvent,
   type FormEvent,
 } from "react";
+import Link from "next/link";
 import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Button } from "@/components/ui/base/button";
@@ -112,9 +113,9 @@ function getApplicationContext(entryPoint?: string): ApplicationContext {
   if (normalizedEntryPoint.includes("veteran")) {
     return {
       badge: "Veteran Application",
-      title: "Start Your Application",
+      title: "Enlist With Us",
       description:
-        "Share the basics and we will follow up directly. Veterans receive priority consideration, and a resume is helpful but not required to begin.",
+        "Service recognizes service. Veterans receive priority consideration—your military experience matters here. Share the basics and we will follow up directly.",
     };
   }
 
@@ -123,15 +124,15 @@ function getApplicationContext(entryPoint?: string): ApplicationContext {
       badge: "Career Inquiry",
       title: "Start the Conversation",
       description:
-        "Send your name, email, and the role or trade you want to discuss. Add background or a resume if you have it ready.",
+        "THE ROI IS THE RELATIONSHIP. Send your name, email, and the role you want to discuss. Build your career with a company that keeps its word.",
     };
   }
 
   return {
-    badge: entryPoint || "General Application",
-    title: "Start Your Application",
+    badge: entryPoint || "Join Our Team",
+    title: "Build Your Career With Us",
     description:
-      "Name, email, and the role you want are enough to begin. Add supporting detail now or bring it to the next conversation.",
+      "Join a veteran-owned team where your word matters as much as ours. Name, email, and the role you want are enough to begin.",
   };
 }
 
@@ -309,6 +310,15 @@ export function JobApplicationModal({
             aria-labelledby="job-application-success-title"
             className="relative bg-white dark:bg-gray-800 p-8 sm:p-12 rounded-2xl w-full max-w-2xl text-center shadow-2xl border-2 border-brand-primary/30"
           >
+            {/* Close button */}
+            <button
+              onClick={handleClose}
+              className="absolute top-4 right-4 p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200"
+              aria-label="Close"
+            >
+              <MaterialIcon icon="close" size="md" />
+            </button>
+
             <div className="mb-6 text-brand-primary">
               <MaterialIcon icon="check_circle" size="4xl" />
             </div>
@@ -321,7 +331,8 @@ export function JobApplicationModal({
             <p className="mb-6 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
               Thank you for reaching out to MH Construction. Our team has your
               information and will review it against current hiring needs and
-              upcoming work.
+              upcoming work. We believe THE ROI IS THE RELATIONSHIP—and that
+              starts here.
             </p>
             <div className="bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-4 rounded-xl border border-brand-primary/30 dark:border-brand-primary/40 inline-block">
               <div className="flex items-center gap-2">
@@ -331,7 +342,7 @@ export function JobApplicationModal({
                   className="text-bronze-300"
                 />
                 <span className="font-semibold text-bronze-300">
-                  Veteran-owned. Relationship-first.
+                  Veteran-owned. Your word matters as much as ours.
                 </span>
               </div>
             </div>
@@ -345,6 +356,18 @@ export function JobApplicationModal({
                 office@mhc-gc.com
               </a>
             </p>
+
+            <div className="mt-8">
+              <Button
+                type="button"
+                onClick={handleClose}
+                variant="primary"
+                size="lg"
+              >
+                <MaterialIcon icon="check" size="md" className="mr-2" />
+                Done
+              </Button>
+            </div>
           </div>
         </div>
       </div>
@@ -473,6 +496,20 @@ export function JobApplicationModal({
                       We start with the essentials. If we need more detail, we
                       will ask in a direct follow-up conversation.
                     </p>
+                    <div className="mt-3 pt-3 border-t border-brand-primary/20">
+                      <Link
+                        href="/careers/print"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-brand-primary hover:text-brand-secondary transition-colors"
+                        onClick={handleClose}
+                      >
+                        <MaterialIcon icon="print" size="sm" />
+                        <span>
+                          Prefer paper? Print a blank application (English /
+                          Spanish)
+                        </span>
+                        <MaterialIcon icon="arrow_forward" size="sm" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>

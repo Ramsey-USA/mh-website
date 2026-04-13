@@ -12,6 +12,7 @@ import {
   R2StorageService,
   isSmallEnoughForEmail,
   fileToBase64,
+  generateFileKey,
 } from "@/lib/cloudflare/r2";
 import {
   generateJobApplicationAcknowledgment,
@@ -20,6 +21,7 @@ import {
 } from "@/lib/email/templates";
 import {
   sendToOffice,
+  sendToCareers,
   sendAcknowledgment,
   type EmailAttachment,
 } from "@/lib/email/email-service";
@@ -115,6 +117,63 @@ export async function handleFormSubmission<T = unknown>(
       // Continue to send email even if DB fails (best-effort pattern)
     }
 
+    // Store JSON backup in R2 for job applications (redundant backup)
+    let r2BackupStored = false;
+    if (config.submissionType === "Job Application") {
+      try {
+        const bucket = getR2Bucket("FILE_ASSETS");
+        if (bucket) {
+          const r2Service = new R2StorageService(
+            bucket,
+            "mh-construction-assets",
+          );
+          const backupKey = generateFileKey(
+            "job-applications",
+            `${submissionId}.json`,
+          );
+          const backupData = JSON.stringify(
+            {
+              ...dbRecord,
+              originalData: data,
+              backupCreatedAt: new Date().toISOString(),
+            },
+            null,
+            2,
+          );
+
+          const encoded = new TextEncoder().encode(backupData);
+          const backupResult = await r2Service.uploadFile(
+            encoded.buffer.slice(
+              encoded.byteOffset,
+              encoded.byteOffset + encoded.byteLength,
+            ) as ArrayBuffer,
+            backupKey,
+            "application/json",
+            {
+              submissionId,
+              type: "job-application-backup",
+            },
+          );
+
+          if (backupResult.success) {
+            r2BackupStored = true;
+            logger.info("Job application backed up to R2", {
+              id: submissionId,
+              key: backupKey,
+            });
+          }
+        }
+      } catch (error: unknown) {
+        const normalizedError =
+          error instanceof Error ? error : new Error(String(error));
+        logger.error(
+          "Failed to backup job application to R2:",
+          normalizedError,
+        );
+        // Continue - this is a supplementary backup (best-effort pattern)
+      }
+    }
+
     // Convert data to Record format for email processing
     const formData = data as unknown as Record<string, unknown>;
 
@@ -166,14 +225,22 @@ export async function handleFormSubmission<T = unknown>(
       }
     }
 
-    // Send email to office team (includes arnold@ for job applications)
-    const includeArnold = config.submissionType === "Job Application";
-    const emailResult = await sendToOffice(
-      emailSubject,
-      { html: safeHtml, text: emailMessage },
-      includeArnold,
-      attachments,
-    );
+    // Send email to appropriate team based on submission type
+    // Job applications go to careers team (office, matt, arnold, brittney)
+    // Other submissions go to general office team
+    const isJobApplication = config.submissionType === "Job Application";
+    const emailResult = isJobApplication
+      ? await sendToCareers(
+          emailSubject,
+          { html: safeHtml, text: emailMessage },
+          attachments,
+        )
+      : await sendToOffice(
+          emailSubject,
+          { html: safeHtml, text: emailMessage },
+          false,
+          attachments,
+        );
 
     const emailSent = emailResult.success;
 
@@ -266,6 +333,16 @@ export async function handleFormSubmission<T = unknown>(
         }
         // Don't fail the request if acknowledgment fails (best-effort pattern)
       }
+    }
+
+    // Log storage status summary for job applications
+    if (config.submissionType === "Job Application") {
+      logger.info("Job application storage summary", {
+        id: submissionId,
+        d1Stored: dbStored,
+        r2Backup: r2BackupStored,
+        emailSent,
+      });
     }
 
     return createFormSubmissionResponse(

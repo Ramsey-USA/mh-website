@@ -73,6 +73,7 @@ recognition and accessibility.
 | Veterans       | Service First → Veterans    | "Honoring Those Who Served - All Branches, All Values"                          | Supporting Those Who Served - One Community, One Mission (Updated Dec 2025: Comprehensive foundation with combat veteran discount, year-round support programs, strategic partnerships) |
 | Testimonials   | Commendations → Reviews     | "After-Action Reports from Real Client Missions"                                | Verified Success Stories from Completed Missions                                                                                                                                        |
 | FAQ            | Intel Brief → FAQ           | "Mission Intelligence - Your Construction Questions Answered"                   | Direct Answers. Clear Guidance. Mission-Ready Information.                                                                                                                              |
+| Safety         | Safety HQ → Safety Program  | "Zero-Incident Operations \| Mission-Critical Safety Culture"                   | Award-Winning Safety: 0.64 EMR, Zero Compromises                                                                                                                                        |
 
 ---
 

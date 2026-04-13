@@ -189,6 +189,29 @@ export class EmailService {
   }
 
   /**
+   * Send email to careers/HR team (office@, matt@, arnold@, and brittney@)
+   * Used for job applications and hiring-related notifications
+   * @param subject Email subject
+   * @param content Email content (html and text)
+   * @param attachments Optional attachments (e.g., resume)
+   */
+  sendToCareers(
+    subject: string,
+    content: { html: string; text: string },
+    attachments?: EmailAttachment[],
+  ): Promise<EmailResult> {
+    const recipients = [...EMAIL_RECIPIENTS.careers];
+
+    return this.sendEmail({
+      to: recipients,
+      subject,
+      html: content.html,
+      text: content.text,
+      ...(attachments && attachments.length > 0 && { attachments }),
+    });
+  }
+
+  /**
    * Send acknowledgment email to a user
    * @param recipientEmail User's email address
    * @param subject Email subject
@@ -235,6 +258,14 @@ export function sendToOffice(
     includeArnold,
     attachments,
   );
+}
+
+export function sendToCareers(
+  subject: string,
+  content: { html: string; text: string },
+  attachments?: EmailAttachment[],
+): Promise<EmailResult> {
+  return emailService.sendToCareers(subject, content, attachments);
 }
 
 export function sendAcknowledgment(

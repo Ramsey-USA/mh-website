@@ -162,13 +162,17 @@ export default function SafetyIntakePage() {
               className="mb-6 justify-center text-gray-400"
             />
             <FadeInWhenVisible>
+              {/* Dual Naming Format - Required per branding standards */}
               <div className="mb-4 flex justify-center">
-                <span className="rounded-full border border-brand-primary/40 bg-brand-primary/10 px-4 py-1.5 text-sm font-medium text-brand-primary">
-                  Safety Program
+                <span className="rounded-full border border-brand-secondary/40 bg-brand-secondary/10 px-4 py-1.5 text-sm font-medium text-brand-secondary">
+                  Logistics → Document Intake
                 </span>
               </div>
-              <h1 className="mb-4 text-4xl font-bold tracking-tight lg:text-5xl">
-                Safety Document Intake
+              <h1 className="mb-4 text-3xl xs:text-4xl sm:text-5xl font-black tracking-tight lg:text-5xl">
+                <span className="block text-brand-secondary mb-2">
+                  Mission-Critical Documentation
+                </span>
+                <span className="block text-white">Safety Document Intake</span>
               </h1>
               <p className="mx-auto max-w-2xl text-lg text-gray-300">
                 Submit bonding documents, completed field forms, certificates,

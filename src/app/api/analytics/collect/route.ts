@@ -19,6 +19,7 @@ import {
   recordSession,
   type KVClickEvent,
 } from "@/lib/analytics/kv-store";
+import { badRequest, methodNotAllowed } from "@/lib/api/responses";
 
 export const dynamic = "force-dynamic";
 
@@ -103,19 +104,19 @@ function validatePayload(body: unknown): CollectPayload | null {
 
 async function handler(request: NextRequest): Promise<NextResponse> {
   if (request.method !== "POST") {
-    return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
+    return methodNotAllowed();
   }
 
   let body: unknown;
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+    return badRequest("Invalid JSON");
   }
 
   const payload = validatePayload(body);
   if (!payload) {
-    return NextResponse.json({ error: "Invalid payload" }, { status: 400 });
+    return badRequest("Invalid payload");
   }
 
   // Process events in parallel — KV writes are independent
