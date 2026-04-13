@@ -85,10 +85,21 @@ const ACTIVE_PAGES = [
   { path: "/careers", priority: 0.7, changeFreq: "weekly" as const },
   { path: "/allies", priority: 0.7, changeFreq: "monthly" as const },
 
-  // Priority 0.75 - Resources hub and key documentation
+  // Priority 0.75 - Resources hub
   { path: "/resources", priority: 0.75, changeFreq: "monthly" as const },
-  { path: "/resources/safety-manual", priority: 0.75, changeFreq: "monthly" as const },
-  { path: "/resources/safety-program", priority: 0.75, changeFreq: "monthly" as const },
+
+  // Priority 0.8 - Safety pages (MISH program documentation)
+  { path: "/safety", priority: 0.8, changeFreq: "monthly" as const },
+  {
+    path: "/resources/safety-manual",
+    priority: 0.8,
+    changeFreq: "monthly" as const,
+  },
+  {
+    path: "/resources/safety-program",
+    priority: 0.8,
+    changeFreq: "monthly" as const,
+  },
 
   // Priority 0.5 - Legal & informational pages
   { path: "/accessibility", priority: 0.5, changeFreq: "yearly" as const },

@@ -523,7 +523,7 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
             </div>
             <div className="min-w-0">
               <p className="text-xs text-gray-500 dark:text-gray-400 leading-none">
-                Field Safety Hub
+                MISH Field Safety Hub
               </p>
               <p className="text-sm font-bold text-gray-900 dark:text-white truncate">
                 {user.name}
@@ -674,8 +674,14 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
                   Safety Documents
                 </h2>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Browse and download sections from the MH Construction Safety
-                  Manual.
+                  Browse and download sections from the{" "}
+                  <span className="font-semibold text-gray-700 dark:text-gray-300">
+                    MISH — MH Construction Industrial Safety &amp; Health
+                    Program
+                  </span>
+                  . Built on the AGC Accident Prevention Program (APP) framework
+                  — OSHA 29 CFR 1926, WISHA (WA), OAR (OR), and IDAPA (ID)
+                  compliant.
                 </p>
               </div>
 
@@ -683,32 +689,46 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
               <div className="mb-8 grid sm:grid-cols-2 gap-3">
                 {[
                   {
-                    href: "/docs/forms/toolbox-talk.pdf",
+                    href: "/docs/safety/forms/toolbox-talk.pdf",
                     icon: "record_voice_over",
                     label: "Toolbox Talk (Blank)",
                     desc: "Printable blank form",
                     key: "toolbox-talk",
                   },
                   {
-                    href: "/docs/forms/jha.pdf",
-                    icon: "playlist_add_check",
-                    label: "JHA (Blank)",
-                    desc: "Job Hazard Analysis form",
+                    href: "/docs/safety/forms/jha.pdf",
+                    icon: "fact_check",
+                    label: "JHA — Job Hazard Analysis",
+                    desc: "MISH Section 05 pre-task form",
                     key: "jha",
                   },
                   {
-                    href: "/docs/forms/site-inspection.pdf",
-                    icon: "search",
-                    label: "Site Inspection (Blank)",
-                    desc: "Field inspection checklist",
-                    key: "site-inspection",
-                  },
-                  {
-                    href: "/docs/forms/incident-report.pdf",
+                    href: "/docs/safety/forms/incident-report.pdf",
                     icon: "report",
                     label: "Incident Report (Blank)",
-                    desc: "Near miss / incident form",
+                    desc: "MISH Section 08 — near miss / incident",
                     key: "incident-report",
+                  },
+                  {
+                    href: "/docs/safety/forms/equipment-checklist.pdf",
+                    icon: "checklist",
+                    label: "Equipment Inspection",
+                    desc: "MISH Sections 19 / 20 / 42 — pre-use",
+                    key: "equipment-checklist",
+                  },
+                  {
+                    href: "/docs/safety/forms/signin-log.pdf",
+                    icon: "assignment_ind",
+                    label: "Sign-In / Visitor Log",
+                    desc: "MISH Sections 04 & 07 — site access",
+                    key: "signin-log",
+                  },
+                  {
+                    href: "/docs/safety/forms/sub-prequal.pdf",
+                    icon: "verified",
+                    label: "Subcontractor Pre-Qual",
+                    desc: "MISH Section 39 — vetting form",
+                    key: "sub-prequal",
                   },
                 ].map((f) => (
                   <a
@@ -752,12 +772,12 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
 
               {/* Download complete manual */}
               <a
-                href="/docs/safety-manual-complete.pdf"
+                href="/docs/safety/safety-manual-complete.pdf"
                 download
                 onClick={() =>
                   logDownload(
                     "complete-manual",
-                    "Safety Manual — Complete",
+                    "MISH — Safety & Health Program (Complete Manual)",
                     "section",
                   )
                 }
@@ -771,9 +791,11 @@ function SafetyHub({ sections, token, user, onLogout }: HubProps) {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-bold">Download Complete Manual</p>
+                  <p className="text-sm font-bold">
+                    Download Complete MISH Manual
+                  </p>
                   <p className="text-xs text-white/70">
-                    Cover + tab dividers + all 44 sections in one PDF
+                    Cover + tab dividers + all 44 sections · Rev 2 — 04/07/2026
                   </p>
                 </div>
                 <MaterialIcon

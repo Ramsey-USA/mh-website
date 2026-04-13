@@ -71,6 +71,25 @@ else
   echo "⚠️   No sections/ directory found. Run 'npm run docs:generate:sections' first."
 fi
 
+# ── 3. Form PDFs ─────────────────────────────────────────────────────────────
+FORMS_DIR="$OUTPUT_DIR/forms"
+if [ -d "$FORMS_DIR" ]; then
+  FORM_COUNT=$(find "$FORMS_DIR" -name "*.pdf" -type f | wc -l | tr -d ' ')
+  echo ""
+  echo "📤  Uploading $FORM_COUNT form PDFs to R2 ($R2_PREFIX/forms/) …"
+  find "$FORMS_DIR" -name "*.pdf" -type f | sort | while read -r pdf_path; do
+    pdf_name="$(basename "$pdf_path")"
+    KEY="$R2_PREFIX/forms/$pdf_name"
+    echo "  ↑ $KEY"
+    wrangler r2 object put "$BUCKET/$KEY" \
+      --file "$pdf_path" \
+      --content-type "application/pdf"
+    TOTAL=$((TOTAL + 1))
+  done
+else
+  echo "⚠️   No forms/ directory found. Run 'npm run docs:generate:forms' first."
+fi
+
 echo ""
 echo "✅  Safety PDFs published to R2."
 echo "    Bucket  : $BUCKET"
