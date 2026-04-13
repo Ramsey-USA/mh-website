@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MISH 11 — Fall Protection</title>
+  <link rel="stylesheet" href="../styles/brand.css" />
+  <link rel="stylesheet" href="../styles/print-base.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+  <style>
+    /* ── Suppress @page running headers/footers ────────────────────────────
+       Header & footer are fully managed by Puppeteer displayHeaderFooter;
+       CSS @page margin-area rules are disabled to prevent double-rendering. */
+    @page {
+      margin: 1.0in 0.75in 0.9in 1.25in;
+      @top-left    { content: none; border: none; padding: 0; }
+      @top-right   { content: none; border: none; padding: 0; }
+      @bottom-left  { content: none; border: none; padding: 0; }
+      @bottom-right { content: none; border: none; padding: 0; }
+    }
+
+    /* ── MISH designator + section title — bold 18pt MHC Green ─────────── */
+    .mish-designator {
+      font-size: 18pt;
+      font-weight: 900;
+      color: #386851;
+      margin: 8pt 0 2pt;
+      line-height: 1.1;
+      letter-spacing: 0.04em;
+    }
+    .mish-section-title {
+      font-size: 18pt;
+      font-weight: 700;
+      color: #386851;
+      margin: 0 0 10pt;
+      line-height: 1.15;
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════
+     * FRONT PAGE HEADER WITH PROMINENT QR CODE
+     * ══════════════════════════════════════════════════════════════════════ */
+    .front-page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14pt;
+      padding-bottom: 12pt;
+      border-bottom: 2pt solid #386851;
+    }
+    
+    .front-page-header__text {
+      flex: 1;
+    }
+    
+    .front-page-header__qr {
+      flex-shrink: 0;
+      margin-left: 16pt;
+      text-align: center;
+    }
+    
+    .front-page-header__qr-img {
+      width: 1.0in !important;
+      height: 1.0in !important;
+    }
+    
+    .front-page-header__qr-label {
+      font-size: 7pt;
+      color: #386851;
+      font-weight: 600;
+      margin-top: 4pt;
+    }
+
+    /* ── Revision info + QR row ─────────────────────────────────────────── */
+    /*
+     * PRECISION FIX 5 — Full-text-column revision block
+     * QR floats right (must appear first in DOM order).
+     * Revision table is block-level and fills the full 6.5" text column.
+     * overflow: hidden on the container acts as a clearfix.
+     */
+    .section-info-row {
+      display: block;
+      overflow: hidden;      /* clearfix for the floated QR block */
+      margin-bottom: 14pt;
+      padding-bottom: 10pt;
+      border-bottom: 1.5pt solid #BD9264;
+    }
+    .section-info-row .qr-block-inline {
+      float: right;
+      margin-left: 12pt;
+      margin-bottom: 4pt;
+    }
+    .revision-info-table {
+      width: 100%;           /* spans the full text column */
+      table-layout: auto;
+      border-collapse: collapse;
+      font-size: 8.5pt;
+    }
+    .revision-info-table .rit-label {
+      font-weight: 700;
+      color: #1E392C;
+      text-transform: uppercase;
+      font-size: 7.5pt;
+      letter-spacing: 0.04em;
+      padding: 3pt 10pt 3pt 0;
+      white-space: nowrap;
+      vertical-align: middle;  /* ← sync with spec: all cells vertically centred */
+    }
+    .revision-info-table .rit-value {
+      color: #333;
+      padding: 3pt 0;
+      vertical-align: middle;  /* ← sync with spec */
+    }
+    .revision-info-table tr { border-bottom: 0.3pt dotted #ddd; }
+    .revision-info-table tr:last-child { border-bottom: none; }
+
+    /* ══════════════════════════════════════════════════════════════════════
+     * WBS-STYLE HIERARCHICAL NUMBERING SYSTEM
+     * ══════════════════════════════════════════════════════════════════════
+     * Implements proper Work Breakdown Structure indentation:
+     *   Level 1 (1.0, 2.0)      → Left margin: 0"
+     *   Level 2 (1.1, 2.1)      → Left margin: 0.25"
+     *   Level 3 (1.1.1, 2.1.1)  → Left margin: 0.50"
+     *   Level 4 (1.1.1.1)       → Left margin: 0.75"
+     * 
+     * Typography is unified across all sections:
+     *   - Font: Helvetica Neue / Arial (var(--font-body))
+     *   - Base size: 10pt for body text
+     *   - Section numbers: Bold, same size as body
+     *   - Headings use the typography scale from print-base.css
+     * ══════════════════════════════════════════════════════════════════════ */
+    
+    .section-body {
+      margin-top: 4pt;
+      font-family: var(--font-body);
+      font-size: 10pt;
+      line-height: 1.5;
+      color: #1a1a1a;
+    }
+
+    /* ── Flush-left elements — anchored to 0.0" ────────────────────────────── */
+    .section-body .sec-num-row,
+    .section-body .sec-subhead,
+    .section-body h4,
+    .section-body .form-standalone-header,
+    .section-body .form-badge-header,
+    .section-body .addendum-section,
+    .section-body .three-hour-rule-box { margin-left: 0; }
+
+    /* ── Base paragraph style ──────────────────────────────────────────────── */
+    .section-body p {
+      margin-left: 0.5in;
+      margin-bottom: 7pt;
+      text-indent: 0;
+    }
+
+    /* ── WBS Level 1: X.0 format (e.g., 1.0, 2.0, 3.0) ─────────────────────── */
+    /* Primary section headings - flush left with hanging indent */
+    .section-body p:has(> strong:first-child) {
+      margin-left: 0.5in;
+      text-indent: -0.5in;
+      margin-top: 14pt;
+      margin-bottom: 8pt;
+    }
+    .section-body p > strong:first-child {
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      min-width: 0.45in;
+      display: inline-block;
+    }
+
+    /* ── WBS Level 2: X.X format (e.g., 1.1, 2.3) ──────────────────────────── */
+    /* Second-level subsections - indented 0.25" from Level 1 */
+    .section-body p:has(> strong:first-child:not(:empty)) {
+      /* Default for all numbered paragraphs */
+    }
+
+    /* ── Bullet/numbered lists follow paragraph indent ─────────────────────── */
+    .section-body > ul,
+    .section-body > ol {
+      margin-left: 0.75in;
+      padding-left: 0;
+      margin-bottom: 8pt;
+    }
+    .section-body ul,
+    .section-body ol {
+      font-size: 10pt;
+      line-height: 1.5;
+    }
+    .section-body li {
+      margin-bottom: 4pt;
+    }
+    /* Nested lists add 0.25" per level */
+    .section-body ul ul,
+    .section-body ol ol,
+    .section-body ul ol,
+    .section-body ol ul {
+      margin-left: 0.25in;
+      margin-top: 4pt;
+    }
+
+    /* ── Special formatting for major section headers ──────────────────────── */
+    /* PURPOSE, RESPONSIBILITY, DEFINITIONS, etc. get extra visual weight */
+    .section-body p > strong:first-child:only-child {
+      display: block;
+      font-size: 14pt !important;
+      font-weight: 800 !important;
+      color: #386851 !important;
+      margin-top: 18pt !important;
+      margin-bottom: 10pt !important;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border-bottom: 2pt solid #386851;
+      padding-bottom: 4pt;
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════
+     * WBS LEVEL-SPECIFIC INDENTATION 
+     * ══════════════════════════════════════════════════════════════════════
+     * These classes are added by generate.mjs based on numbering depth:
+     *   wbs-level-1: Major sections (1.0, 2.0) - flush left, 12pt space above
+     *   wbs-level-2: Subsections (1.1, 2.3) - 0.5" indent
+     *   wbs-level-3: Sub-subsections (1.1.1, 2.3.1) - 1.0" indent
+     *   wbs-level-4: Deeper nesting (1.1.1.1) - 1.5" indent
+     * ══════════════════════════════════════════════════════════════════════ */
+
+    /* WBS Level 1: Major section headers (1.0, 2.0, 3.0, etc.) */
+    /* 12pt space before acts as visual "reset" for the reader */
+    .section-body p.wbs-level-1 {
+      margin-left: 0 !important;
+      margin-top: 12pt !important;
+      margin-bottom: 8pt !important;
+      text-indent: 0 !important;
+      page-break-after: avoid;
+    }
+    .section-body p.wbs-level-1 > strong:first-child {
+      display: inline-block !important;
+      min-width: 0.55in;
+      font-size: 12pt;
+      font-weight: 900;
+      color: #386851;
+      letter-spacing: 0.02em;
+    }
+
+    /* WBS Level 2: Subsections (1.1, 2.1, 2.2, etc.) - 0.5" indent */
+    .section-body p.wbs-level-2 {
+      margin-left: 0.5in !important;
+      margin-top: 8pt !important;
+      margin-bottom: 6pt !important;
+      text-indent: -0.45in !important;
+      page-break-after: avoid;
+    }
+    .section-body p.wbs-level-2 > strong:first-child {
+      display: inline-block !important;
+      min-width: 0.5in;
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #1E392C;
+    }
+
+    /* WBS Level 3: Sub-subsections (1.1.1, 2.1.1, 2.3.2, etc.) - 1.0" indent */
+    .section-body p.wbs-level-3 {
+      margin-left: 1.0in !important;
+      margin-top: 6pt !important;
+      margin-bottom: 5pt !important;
+      text-indent: -0.55in !important;
+    }
+    .section-body p.wbs-level-3 > strong:first-child {
+      display: inline-block !important;
+      min-width: 0.5in;
+      font-size: 10pt;
+      font-weight: 600;
+      color: #6B4E2E;
+    }
+
+    /* WBS Level 4: Deep nesting (1.1.1.1, etc.) - 1.5" indent */
+    .section-body p.wbs-level-4 {
+      margin-left: 1.5in !important;
+      margin-top: 5pt !important;
+      margin-bottom: 4pt !important;
+      text-indent: -0.6in !important;
+    }
+    .section-body p.wbs-level-4 > strong:first-child {
+      display: inline-block !important;
+      min-width: 0.55in;
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: #555;
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════
+     * CRITICAL THRESHOLD HIGHLIGHTING
+     * ══════════════════════════════════════════════════════════════════════
+     * <span class="critical-threshold critical-threshold--osha">6 ft</span> (OSHA) and <span class="critical-threshold critical-threshold--wisha">10 ft</span> (WISHA) thresholds in Safety Orange/Red for visibility
+     * ══════════════════════════════════════════════════════════════════════ */
+    
+    .critical-threshold {
+      font-weight: 700 !important;
+      padding: 1pt 4pt !important;
+      border-radius: 3pt !important;
+      white-space: nowrap !important;
+    }
+    
+    .critical-threshold--osha {
+      background-color: #FF6600 !important;  /* Safety Orange */
+      color: #fff !important;
+    }
+    
+    .critical-threshold--wisha {
+      background-color: #CC0000 !important;  /* Safety Red */
+      color: #fff !important;
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════
+     * WARNING CALLOUT BOXES
+     * ══════════════════════════════════════════════════════════════════════
+     * Bordered boxes for critical prohibitions and safety warnings
+     * ══════════════════════════════════════════════════════════════════════ */
+    
+    .warning-callout {
+      display: block !important;
+      margin: 14pt 0 !important;
+      padding: 10pt 14pt !important;
+      border: 2pt solid #CC0000 !important;
+      border-left: 6pt solid #CC0000 !important;
+      background-color: #FFF5F5 !important;
+      border-radius: 0 4pt 4pt 0 !important;
+    }
+    
+    .warning-callout__label {
+      display: block !important;
+      font-size: 9pt !important;
+      font-weight: 800 !important;
+      color: #CC0000 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.1em !important;
+      margin-bottom: 4pt !important;
+    }
+    
+    .warning-callout__text {
+      display: block !important;
+      font-size: 10pt !important;
+      font-weight: 700 !important;
+      color: #1a1a1a !important;
+    }
+
+    /* ── Standard numbered paragraph structure ─────────────────────────────── */
+    /* Handle various WBS depths with progressive indentation */
+    
+    /* Level 1 headers (1.0, 2.0, etc.) - Major sections */
+    .section-body p:has(> strong:first-child) {
+      position: relative;
+    }
+
+    /* ── Table typography consistency ──────────────────────────────────────── */
+    .section-body table {
+      font-family: var(--font-body);
+      font-size: 9.5pt;
+      line-height: 1.4;
+    }
+    .section-body table th {
+      font-size: 9pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .section-body table td {
+      font-size: 9.5pt;
+    }
+
+    /* ── Callout box typography ────────────────────────────────────────────── */
+    .section-body .callout {
+      font-size: 9pt;
+    }
+    .section-body .callout-title {
+      font-size: 9pt;
+      font-weight: 700;
+    }
+
+    /* ── Form field labels ─────────────────────────────────────────────────── */
+    .section-body .form-label {
+      font-family: var(--font-body);
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Addendum note paragraphs follow body indent */
+    .section-body .addendum-note { margin-left: 0.5in; }
+
+    /* PRECISION FIX 4 — Table gutter: 0.5" padding each side inside text block */
+    .section-body table:not(.revision-info-table):not(.threshold-table):not(.signature-table) {
+      margin-left: 0.5in;
+      margin-right: 0.5in;
+      width: calc(100% - 1in);
+      box-sizing: border-box;
+    }
+
+    /* Signature table: full content-lane width with 0.5in gutter (matches body text lane) */
+    .section-body .signature-table {
+      margin-left: 0.5in;
+      margin-right: 0.5in;
+      width: calc(100% - 1in);
+      box-sizing: border-box;
+    }
+
+    /* Threshold table gets its own 0.5" gutter treatment */
+    .section-body .threshold-table {
+      margin-left: 0.5in;
+      margin-right: 0.5in;
+      width: calc(100% - 1in);
+      box-sizing: border-box;
+    }
+
+    /* Fix 5 layout handled above in .section-info-row block */
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       FRONT PAGE HEADER — MISH title with prominent QR code
+       ══════════════════════════════════════════════════════════════════════ -->
+  <div class="front-page-header">
+    <div class="front-page-header__text">
+      <div class="mish-designator">MISH 11</div>
+      <div class="mish-section-title">Fall Protection</div>
+    </div>
+    <div class="front-page-header__qr">
+      <img src="data:image/png;base64,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" alt="QR — MISH 11" class="front-page-header__qr-img" />
+      <div class="front-page-header__qr-label">Scan for Digital Access</div>
+    </div>
+  </div>
+
+  <!-- ── Revision info table ─────────────────────────────────────────────── -->
+  <div class="section-info-row" style="border-bottom: 1.5pt solid #BD9264;">
+    <table class="revision-info-table">
+      <tr>
+        <td class="rit-label">Document</td>
+        <td class="rit-value">MISH 11</td>
+        <td class="rit-label">&nbsp;&nbsp;Revision</td>
+        <td class="rit-value">2</td>
+        <td class="rit-label">&nbsp;&nbsp;Effective</td>
+        <td class="rit-value">04/07/2026</td>
+      </tr>
+      <tr>
+        <td class="rit-label">Program</td>
+        <td class="rit-value" colspan="5">MH Construction Industrial Safety &amp; Health Program (MISH)</td>
+      </tr>
+      <tr>
+        <td class="rit-label">Licenses</td>
+        <td class="rit-value" colspan="5">
+          WA: MHCONCI907R7 &nbsp;&middot;&nbsp;
+          OR: 765043-99 &nbsp;&middot;&nbsp;
+          ID: RCE-49250
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ── Section body content (injected by generate.mjs) ─────────────── -->
+  <div class="section-body">
+    <p><strong>Fall Protection Requirements</strong></p><table><tr><td><p><strong>DOCUMENT</strong></p></td><td><p><strong>REVISION</strong></p></td><td><p><strong>EFFECTIVE DATE</strong></p></td><td><p><strong>APPROVED BY</strong></p></td></tr><tr><td></td><td><p>2</p></td><td><p>04/07/2026</p></td><td><p>Jeremy Thamert</p></td></tr></table><p><strong>﻿		MH CONSTRUCTION INDUSTRIAL SAFETY AND HEALTH PROGRAM</strong></p><p><strong>Title</strong></p><p><strong>FALL PROTECTION</strong></p><p><strong>Number</strong></p><p>Revision 1 Approved By Jeremy Thamert                                              03/01/2025 Name                                                      Date Effective Date 3/1/2025 Page 1 of 12</p><p class="wbs-level-1"><strong>1.0  </strong>PURPOSE</p><p>To establish the requirements, responsibilities, and procedures for the selection, assembly, use, maintenance, and disassembly of fall restraint/arrest systems and equipment.  Further, to ensure compliance with the OSHA/Washington Industrial Safety and Health Act (WISHA) standards.</p><p class="wbs-level-1"><strong>2.0  </strong>RESPONSIBILITY</p><p>The provisions of this procedure apply to all of MH Construction’s personnel and lower-tier contractors performing work efforts at construction work locations where fall hazards of <span class="critical-threshold critical-threshold--osha">6 ft</span> (OSHA) / <span class="critical-threshold critical-threshold--wisha">10 ft</span> (WISHA ) are known or anticipated.  This procedure does not limit the application of more stringent fall protection requirements, including less than <span class="critical-threshold critical-threshold--osha">6 ft</span> / <span class="critical-threshold critical-threshold--wisha">10 ft</span>, where certain situations warrant.</p><p class="wbs-level-2"><strong>2.1  </strong>MH Construction Safety Department shall be responsible for the following:</p><p class="wbs-level-3"><strong>2.1.1  </strong>Providing technical consultation and advice regarding the selection of fall restraint/arrest systems and equipment.</p><p class="wbs-level-2"><strong>2.2  </strong>The Key Supervisor shall be responsible for implementing and ensuring compliance with this procedure, developing and implementing fall protection work plans.</p><p class="wbs-level-2"><strong>2.3  </strong>Employees shall be responsible for complying with the provisions of this procedure.</p><p class="wbs-level-1"><strong>3.0  </strong>DEFINITIONS</p><p>Anchorage:  A secure point of attachment for lifelines, lanyards, or deceleration devises which is capable of withstanding the forces specified in the applicable sections of this procedure and Washington Industrial Safety and Health Act (OSHA/WISHA) standards.</p><p>Approved:  Tested and certified by the manufacturer, or any recognized national testing laboratory, to possess the strength requirements specified.</p><p>Body Belt (Safety Belt):  A Type 1 safety belt used in conjunction with a lanyard or lifeline for fall RESTRAINT only.</p><p><strong>Catenary Line:  See “Horizontal Lifeline.”</strong></p><p>Competent Person:  An individual knowledgeable of fall protection equipment, including the manufacturer’s recommendations and instructions for the proper use, inspection, and maintenance; who is capable of identifying existing and potential fall hazards; who has the authority to take prompt corrective action to eliminate those hazards; and who is knowledgeable of the rules contained in this section regarding the erection, use, inspection, and maintenance of fall protection equipment and systems.</p><p>Continuous Fall Protection:  The design and use of a fall protection system such that no exposures to an elevated fall hazard occurs.  This may require more than one fall protection system or a combination of preventative or protective measures.</p><p>Deceleration Device:  Any mechanism (such as a rope grab, rip stitch lanyard, specifically woven lanyard, and automatic self-retracting lifeline) which serves to dissipate more energy during fall arrest than does a standard line or strap webbing lanyard.</p><p>Fall Arrest System:  The use of multiple, approved safety equipment components (such as body harnesses, lanyards, deceleration devices, drop lines, horizontal and/or vertical lifelines, and anchorages) interconnected and rigged as to arrest a free fall.</p><p>Fall Protection Work Plan:  A written planning document which identifies all areas on the jobsite where a fall hazard of <span class="critical-threshold critical-threshold--osha">6 ft</span> / <span class="critical-threshold critical-threshold--wisha">10 ft</span> or greater exists.  The plan describes the method(s) of fall protection to be utilized to protect employees, and includes the procedures governing the installation, use, inspection and removal of the fall protection method(s) selected.</p><p>Fall Restraint System:  An approved device and any necessary components that function together to RESTRAIN an employee in such a manner as to prevent that employee from falling to a lower level.  (Examples:  Standard guardrails or harness attached to securely rigged restraint lines or anchorage points.)</p><p>Full Body Harness (Class III):  A configuration of connected straps to distribute a fall arresting force over at least the thighs, shoulders, and pelvis, with provisions for attaching a lanyard, lifeline, or deceleration device.</p><p>Full Body Harness System:  A Class III full body harness and lanyard which is attached to an anchorage meeting the requirements of Part C-1, WAC 296-155, or attached to a horizontal or vertical lifeline which is properly secured to an anchorage capable of withstanding the forces specified in the applicable sections of chapter WAC 296-155 and this procedure.</p><p>Horizontal Lifeline (Catenary Line):  A horizontal rope, wire rope, rail, or synthetic cable that is installed on a horizontal plane between two anchorages and used for attachment of a worker’s lanyard, either by tying or by means of a sliding connection.</p><p>Lanyard:  A rope, suitable for supporting one person, with one end fastened to a safety belt or harness and the other end secured to an anchorage point or a lifeline.</p><p>Snap Hook:  A self-closing connecting device with a gatekeeper latch or similar arrangement that will remain closed until manually opened.  This includes single action snap hooks that require a second action on a gatekeeper before the gate can be opened.</p><p>Static Line:  See “horizontal lifeline.” Vertical Lifeline (Dropline):  A vertical rope from a fixed anchorage, independent of the work surface, to which the lanyard is affixed or tied.</p><p>Warning Line System:  A barrier erected on a walking and working surface or a low pitch roof (4 in 12 or less), to warn employees that they are approaching an unprotected fall hazard(s).</p><p class="wbs-level-1"><strong>4.0  </strong>GENERAL REQUIREMENTS</p><p class="wbs-level-2"><strong>4.1  </strong>FALL PROTECTION:  Each employee subject to a fall hazard of <span class="critical-threshold critical-threshold--osha">6 ft</span> (OSHA) or <span class="critical-threshold critical-threshold--wisha">10 ft</span> (WISHA) or more shall be protected by a fall arrest or fall restraint system 100 percent of the time (except as defined in paragraph 4.1.5.).</p><p class="wbs-level-3"><strong>4.1.1  </strong>Fall arrest/restraint shall be provided, maintained, and documented in accordance with the requirements of Washington administrative Code (WAC) 296-155, part C-1.</p><p class="wbs-level-3"><strong>4.1.2  </strong>The employer shall provide for prompt rescue of employees in the event of a fall or shall assure the employees are able to rescue themselves.</p><p class="wbs-level-3"><strong>4.1.3  </strong>Prior to the start of activities, a Fall Protection Work Plan (attachment MISH 11-A) shall be developed and implemented for areas where employees may be exposed to fall hazards of <span class="critical-threshold critical-threshold--osha">6 ft</span> / <span class="critical-threshold critical-threshold--wisha">10 ft</span> or more.  The plan is a supplement to the Job Hazard Analysis (JHA) and shall be maintained at the jobsite until activities have been completed.</p><p class="wbs-level-3"><strong>4.1.4  </strong>If a fall hazard of <span class="critical-threshold critical-threshold--osha">6 ft</span> / <span class="critical-threshold critical-threshold--wisha">10 ft</span> or more is recognized after activities have begun, the work in that area shall be stopped, and a Fall Protection Work Plan shall be written and implemented (or the existing plan modified) prior to allowing activities to restart in the area of the hazard.</p><p class="wbs-level-3"><strong>4.1.5  </strong>Fall arrest/restraint shall be provided during the erection of scaffolding whenever feasible.</p><p class="wbs-level-3"><strong>4.1.6  </strong>No type of work shall be performed on a ladder over 25 ft from the ground or floor unless a safety harness is worn and the safety lanyard is secured to an adequate fall arrest or fall restraint attachment point (See also MISH 17).</p><p class="wbs-level-3"><strong>4.1.7  </strong>Whenever feasible, fall arrest/restraint shall be provided when employees are establishing fall protection anchorage points on roofs.</p><p class="wbs-level-3"><strong>4.1.8  </strong>Fall arrest/restraint shall be provided when employees are working within <span class="critical-threshold critical-threshold--osha">6 ft</span> of a leading edge, outer edge, or other unprotected perimeter where the fall hazard is <span class="critical-threshold critical-threshold--osha">6 ft</span> / <span class="critical-threshold critical-threshold--wisha">10 ft</span> or more.</p><p class="wbs-level-3"><strong>4.1.9  </strong>The use of safety monitors (as defined in paragraph 4.4.7) shall be permitted as follows:</p><p>	During inspection, investigation, and estimating of roof level conditions where the workers will not be within <span class="critical-threshold critical-threshold--osha">6 ft</span> of an unguarded perimeter edge, leading edge, or open hole. 	During maintenance and construction activities where the workers will not be within <span class="critical-threshold critical-threshold--osha">6 ft</span> of an unguarded perimeter edge, leading edge, or open holes.</p><p class="wbs-level-3"><strong>4.1.10  </strong>The use of warning line systems (as defined in paragraph 4.4.8) shall be permitted for roof activities taking place no closer than <span class="critical-threshold critical-threshold--osha">6 ft</span> of an unguarded perimeter edge, leading edge, or open holes.  When used, warning line systems shall be deployed in accordance with the applicable OSHA/WISHA requirements.</p><p class="wbs-level-3"><strong>4.1.11  </strong>Where employees must work within <span class="critical-threshold critical-threshold--osha">6 ft</span> of an unguarded perimeter edge, leading edge, or open holes, the appropriate fall arrest/fall restraint systems shall be required.</p><p class="wbs-level-3"><strong>4.1.12  </strong>Fall restraint protection shall consist of standard guardrails or harnesses attached to securely rigged restraint lines or other appropriate anchorage points.  Rope grab devices may be used only for fall restraint applications where they are part of a fall restraint system designed specifically for the purpose by the manufacturer, and are used in strict accordance with the manufacturer’s recommendations and instructions.</p><p class="wbs-level-3"><strong>4.1.13  </strong>Anchorage points for fall restraint shall be capable of supporting four times the maximum intended load.</p><p class="wbs-level-3"><strong>4.1.14  </strong>Fall restraint protection shall be rigged to allow employees to move only as far as the edges of the unprotected walking/working surface(s).</p><p class="wbs-level-3"><strong>4.1.15  </strong>Fall arrest protection shall consist of a Class III full body harness.  <span class="warning-callout"><span class="warning-callout__label">⚠ WARNING</span><span class="warning-callout__text">SAFETY BELTS SHALL NOT BE USED</span></span>.  The body harness system shall be rigged to minimize free fall distance to a maximum of <span class="critical-threshold critical-threshold--osha">6 ft</span> and such that the employee will not contact any lower level.</p><p class="wbs-level-3"><strong>4.1.16  </strong>Lifelines, harnesses, and lanyards shall be used only for employee safeguarding.  Any of these devices subjected to an actual fall-arrest load situation (as distinguished from static load testing) shall be immediately removed from service and destroyed to preclude their inadvertent continued use.</p><p class="wbs-level-3"><strong>4.1.17  </strong>Vertical lifelines (droplines) shall be secured above the point of operation to an anchorage or structural member capable of supporting a minimum dead weight of 5,400 pounds.  Vertical lifelines shall extend below the operation a sufficient distance to permit a safe landing, but shall not touch the ground, walking surface, or safe landing area.  Only one employee shall be attached to any one vertical lifeline.</p><p class="wbs-level-3"><strong>4.1.18  </strong>When self-retracting lifelines or other deceleration devices are used which limit free fall to 2 ft, anchorages shall be capable of withstanding 3,000 pounds.</p><p class="wbs-level-3"><strong>4.1.19  </strong>Horizontal lifelines used for fall arrest shall have a tensile strength capable of supporting a fall impact load of at least 5,000 pounds per employee, applied anywhere along the lifeline.</p><p class="wbs-level-3"><strong>4.1.20  </strong>Where lifelines may be subjected to cutting or abrasion, they shall be a minimum of 7/8-in. wire core manila rope.  For all other lifeline applications, a minimum of ¾in. manila or equivalent, with a minimum breaking strength of 5,400 pounds, shall be used.</p><p class="wbs-level-3"><strong>4.1.21  </strong>Lanyards shall be a minimum of ½-in. nylon or equivalent with a maximum length to provide for a fall of no greater than <span class="critical-threshold critical-threshold--osha">6 ft</span>.  The lanyard shall have a nominal breaking strength of 5,400 pounds and have deceleration device as part of the lanyard.  The anchor end of the lanyard shall be secured at a level not lower than the workman’s waist and at a horizontal distance not to exceed <span class="critical-threshold critical-threshold--osha">6 ft</span>.</p><p class="wbs-level-3"><strong>4.1.22  </strong>For lifelines, lanyards, droplines, etc., suitability for service (including tensile strength) shall be determined based on the manufacturer’s data and visual inspection of the equipment.</p><p class="wbs-level-3"><strong>4.1.23  </strong>For lifeline and lanyard attachment points, suitability for use (including breaking strength meeting the requirements of applicable Occupational Safety and Health Administration/Washington Industrial Safety and Health Act (OSHA/WISHA) standards shall be determined by at least one of the following:</p><p>	Manufacturer’s data. 	Existing engineering/design documents. 	Evaluation by a qualified engineer. 	A “good faith” assessment conducted by a team consisting of the Key Supervisor and the MH Construction safety representative.</p><p>NOTE: Good faith assessments shall address the integrity of the  attachment point and the structure.</p><p>The means by which attachment points have been determined to be suitable for use shall be documented on the fall protection work plan.</p><p class="wbs-level-3"><strong>4.1.24  </strong>Exceptions to fall protection requirements (including those situations where providing fall protection is not feasible) shall be justified on the Fall Protection Work Plan and approved by the Division manager prior to the start of activities.</p><p class="wbs-level-3"><strong>4.1.25  </strong>Snap hooks shall not be connected to loops made in webbing-type lanyards unless designed by the manufacture..</p><p class="wbs-level-3"><strong>4.1.26  </strong>Snap hooks shall not be connected to each other.</p><p class="wbs-level-2"><strong>4.2  </strong>TRAINING REQUIREMENTS</p><p class="wbs-level-3"><strong>4.2.1  </strong>Employees shall be trained, prior to starting work, to the requirements of the job-specific Fall Protection Work Plan and the manufacturer’s instructions for inspection, maintenance, and use of equipment.</p><p class="wbs-level-3"><strong>4.2.2  </strong>Training shall be documented on the Fall Protection Work Plan Signoff Log (attachment MISH 11-B).</p><p class="wbs-level-3"><strong>4.2.3  </strong>Re-training should be provided when there are deficiencies in training, when work practices are changed or when fall protection equipment is modified.</p><p class="wbs-level-2"><strong>4.3  </strong>FALL PROTECTION PLAN</p><p class="wbs-level-3"><strong>4.3.1  </strong>The Fall Protection Work Plan consists of the following mandatory elements:</p><p>	Identification of all fall hazards in the work area. 	A description of the method of fall arrest or fall restraint to be provided.</p><p>	A description of the correct procedures for the assembly, maintenance, inspection, and disassembly of the fall protection system to be used.</p><p>	A description of the correct procedures for handling, storing, and securing tools and materials.</p><p>	A description of the method of providing overhead protection for workers who may be in or pass through the area below the worksite.</p><p>	A description of the methods for prompt, safe removal of injured employees.</p><p>	A description of the method used to determine the adequacy of attachment points.</p><p class="wbs-level-3"><strong>4.3.2  </strong>Incident investigations shall be conducted to evaluate the fall protection plan for potential updates to practices, procedures or training in order to prevent reoccurrence.</p><p class="wbs-level-2"><strong>4.4  </strong>FALL PROTECTION EQUIPMENT/SYSTEMS</p><p class="wbs-level-3"><strong>4.4.1  </strong>Fall restraint/arrest systems shall be used to eliminate employee exposure to fall hazards at elevations of <span class="critical-threshold critical-threshold--osha">6 ft</span> / <span class="critical-threshold critical-threshold--wisha">10 ft</span> or more above the ground, water, or floor levels.</p><p class="wbs-level-3"><strong>4.4.2  </strong>Fall restraint/arrest systems shall be selected based on evaluation of the following:</p><p>	The nature of the work to be performed. 	The duration of the work to be performed. 	The number of affected personnel. 	The degree of mobility necessary for personnel to accomplish the work.</p><p>	Limitations dictated by facility/worksite layout. 	Physical or environmental factors affecting the integrity of the fall protection equipment.</p><p>	The proximity of acceptable attachment/anchorage points.</p><p class="wbs-level-3"><strong>4.4.3  </strong>Fall restraint/arrest equipment shall be protected against damage and maintained in a clean, dry condition.  Fall protection equipment damaged by cuts, abrasions, burns, excessive moisture, etc. (when such damage affects the integrity of the equipment) shall be destroyed to preclude its inadvertent continued use.</p><p class="wbs-level-3"><strong>4.4.4  </strong>Self-retracting lifelines shall be functionally inspected prior to use, and returned to the manufacturer for inspection as specified by the manufacturer’s recommendations.</p><p class="wbs-level-3"><strong>4.4.5  </strong>Catch platforms, when used, shall be installed within 6 or 10 vertical feet of the work area. The catch platform’s width shall equal the distance of the fall but shall be a minimum of 45 inches wide and shall be equipped with standard guardrails on all open sides.</p><p class="wbs-level-3"><strong>4.4.6  </strong>A person acting in the capacity of safety monitor shall be trained in the function of both the safety monitor and warning lines system, and shall:</p><p>	Be a competent person. 	Have control authority over the work as it relates to fall protection 	Be instantly distinguishable over members of the work crew. 	Engage in no other duties while acting as safety monitor. 	Be positioned in relation to the workers under their protection, so as to have a clear, unobstructed view and be able to maintain normal voice communication.</p><p>	Not supervise more than eight exposed workers at one time.</p><p class="wbs-level-3"><strong>4.4.7  </strong>Warning line(s) shall consist of a rope, wire, or chain and supporting stanchions erected as follows:</p><p>	The rope, wire, or chain shall be flagged at not more than six foot intervals with high-visibility material.</p><p>	The rope, wire, or chain shall be rigged and supported in such a way that its lowest point (including sag) is no less than 39 inches from the roof surface and its highest point is no more than 45 inches from the roof surface.</p><p>	After being erected, with the rope, wire, or chain attached, stanchions shall be capable of resisting, without tipping over, a force of at least 16 pounds (71 Newtons) applied horizontal against the stanchion, 30 inches (0.76 meters) above the roof surface, perpendicular to the warning line, and in the direction of the roof edge.</p><p>	The rope, wire, or chain shall have a minimum tensile strength of 500 pounds (227 kilograms), and after being attached to the stanchions, shall be capable of supporting, without breaking, the loads applied to the stanchions.</p><p>	The line shall be attached at each stanchion in such a way that pulling on the section of the line between stanchions will not result in slack being taken up in adjacent sections before the stanchion tips over.</p><p class="wbs-level-3"><strong>4.4.8  </strong>Handset Wood Forms</p><p>•  Jahn Brackets shall not be used as a tie-off point.</p><p>•  All dummy Jahn brackets shall be uniquely identified.</p><p>•  Climbing walls shall be avoided.</p><p>•  Strong backs may be used as a tie-off point.</p><p>•  Scaffolding shall be used for building and stripping forms.</p><p>•  Attachment points shall be identified on the Fall Protection Plan.</p><p class="wbs-level-3"><strong>4.4.9  </strong>Access paths shall be erected as follows:</p><p>	Points of access, materials handling areas, and storage areas shall be connected to the work area by a clear access path formed by two warning lines.</p><p>	When the path to a point of access is not in use, a rope, wire, or chain, equal in strength and height to the warning line, shall be placed across the path at the point where the path intersects the warning line erected around the work area.</p><p class="wbs-level-1"><strong>5.0  </strong>PROCEDURE</p><p><strong>Not Applicable</strong></p><p class="wbs-level-1"><strong>6.0  </strong>RECORDS</p><p>Document Record Submittal Responsibility Record Retention Responsibility Fall Protection Work Plan</p><p>Contractor Job Site Fall Protection Work Plan Signoff Log</p><p>Contractor Job Site</p><p class="wbs-level-1"><strong>7.0  </strong>REFERENCES OSHA</p><p><strong>WISHA</strong></p><p class="wbs-level-1"><strong>8.0  </strong>ATTACHMENTS</p><p>MISH 11-A	Fall Protection Work Plan (Form) MISH 11-B	Fall Protection Work Plan Signoff Log</p><p><strong>MH CONSTRUCTION FALL PROTECTION WORK PLAN</strong></p><p>NOTE: Worker’s/Supervisor’s shall review the requirements of this fall protection work plan prior to starting work. This plan shall be available at the jobsite during work activities. Also, Worker’s will be trained to MH Construction’s Fall Protection Program.</p><p><strong>FPWP-1: JOB LOCATION/DESCRIPTION:_______________________________________</strong></p><p>________________________________________________________________________________________________________________________________________________ FPWP-2: Identify fall hazards more than <span class="critical-threshold critical-threshold--wisha">10 feet</span> (Washington) or <span class="critical-threshold critical-threshold--osha">6 feet</span> (Oregon-OSHA): (  )  Leading edge      (  )  Perimeter edge      (  )  floor opening(s)      (  )  Ladders (  )  Scaffold erection/disassembly    (  )  stairways    (  )______________________ FPWP-3: Method of fall protection to be provided: (  )  Guardrails        (  )  Fall restraint        (  )  Fall arrest        (  )  Warning line (  )  Safety Monitor    (  )  Catch platform    (  )  Safety net    (  )________________ Describe:____________________________________________________________ _____________________________________________________________________ _____________________________________________________________________ FPWP-4: Describe the correct procedures for the assembly, maintenance, inspection and disassembly of the fall protection system to be used:________________________ _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ FPWP-5:   Describe the procedures for the handling, storage &amp; securing of tools/materials: _____________________________________________________________________ _____________________________________________________________________ _____________________________________________________________________ _____________________________________________________________________ FPWP-6:  Describe overhead protection for workers who may pass under overhead work: (  )  barricading                 (  )  warning signs                 (  )  hardhats required (  )  Toeboards on guardrails/floor openings    (  )  Orange fencing on guardrails (  )________________________________(  )________________________________ Describe:____________________________________________________________ _____________________________________________________________________ _____________________________________________________________________ FPWP-7:  Describe method for prompt, safe removal of injured worker(s): (  )  Initiate emergency response (91FPWP-1:                   (  )  Utilize lift truck/ manlift (  )  Utilize ladders        (  )  Utilize scaffolds     (  ) Use droplines/retrieval devices (  )_________________________________(  )_______________________________ FPWP-1: Describe method used to determine adequate strength of attachment points: (  )  Manufacturer’s Data                      (  )  Evaluation by qualified engineer (  )  Existing engineering/design documents    (  )  Good faith assessment</p><p><strong>SUPERVISOR/COMPETENT PERSON:____________________________________ (SIGN)</strong></p><p><strong>MH CONSTRUCTION FALL PROTECTION WORK PLAN SIGN-OFF LOG</strong></p><p>NAME (print)                   SIGNATURE                 SOCIAL SECURITY #        DATE __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________</p>
+  </div>
+
+  <!-- ── QR footer (bottom of last page) ─────────────────────────────── -->
+  <div class="qr-footer">
+    <div class="qr-footer-inner">
+      <img src="data:image/png;base64,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" alt="QR code" class="qr-footer-img" />
+      <div class="qr-footer-text">
+        <span class="qr-footer-title">MISH 11 &mdash; Fall Protection</span>
+        <span class="qr-footer-sub">Scan to view this section online, download the PDF, or access the full MH Construction Safety Manual.</span>
+        <span class="qr-footer-url">https://www.mhc-gc.com/resources/safety-manual/section/fall-protection</span>
+      </div>
+      <img src="data:image/png;base64,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PvCBD3zgI/jAR/CBj+ADH8EHPvCBD3zgI/jAR/CBj+ADH8EHPvARfOAj+MBH8IGP4AMf+MAHPvARfOAj+MBH8IGP4AMf+MAHPvARfOAj+MBH8IGP4AMf+Ag+8BF84CP4wEfwgQ98BB/4CD7wEXzgI/jABz7wgQ98BB/4CD7wEXzgI/jABz7wgQ98BB/4CD7wEXzgI/jABz6CD3wEH/gIPvARfOADH/jABz6CD3wEH/gIPvARfOADH/jABz6CD3wEH/gIPvARfOADH8EHPoIPfAQf+Ag+8IGP4AMfwQc+gg98BB/4wAc+8IGP4AMfwQc+gg98BB/4wAc+8IGP4AMfwQc+gg98BB/4wEfwgY/gAx/BBz6CD3zgAx/4wEfwgY/gAx/BBz6CD3zgAx/4wEfwgY/gAx/BBz6CD3zgI/jAR/CBj+ADH8EHPvARfOAj+MBH8IGP4AMf+MAHPvARfOAj+MBH8IGP4AMf+MAHPvARfOAj+MBH8IGP4AMf+Ag+8BF84CP4wEfwgQ984AMf+Ag+8BF84CP4wAc+8IEPfOADH/gIPvARfOAj+MAHPvCBD3wEH/gIPvARfOAj+MAHPoIPfAQf+Ag+8BF84AMf+MAHPoIPfAQf+Ag+8BF84AMf+MAHPoIPfAQf+Ag+8BF84AMfwQc+gg98BB/4CD7wgQ984AMfwQc+gg98BB/4wAc+8IEPfOADH8EHPoIPfAQf+MAHPvCBj+ADH8EHPoIPfAQf+MBH8IGP4AMfwQc+gg984AMf+MBH8IGP4AMfwQc+gg984AMf+MBH8IGP4AMfwQc+gg984CP4wEfwgY/gAx/BBz7wgQ984CP4wEfwgY/gAx/4wAc+8IEPfOAj+MBH8IGP4AMf+MAHPvARfOAj+MBH8IGP4AMf+Ag+8BF84CP4wEfwgQ984AMf+Ag+8BF84CP4wEfwgQ984AMf+Ag+8BF84CP4wEfwgQ98BB/4CD7wEXzgI/jABz6CD3wEH/gIPvARfOADH/jABz6CD3wEH/gIPvARfOADH/jABz6CD3wEH/gIPvARfOADH8EHPoIPfAQf+Ag+8IEPfOADH8EHPoIPfAQf+Ag+8IEPfOADH8EHPoIPfAQf+Ag+8IGP4AMfwQc+gg98BB/4wEfwgY/gAx/BBz6CD3zgAx/4wEfwgY/gAx/BBz6CD3zgAx/4wEfwgY/gAx/BBz6C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" alt="MH Construction" class="qr-footer-logo" />
+    </div>
+  </div>
+
+</body>
+</html>

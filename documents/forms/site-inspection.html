@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{BRAND_COMPANY_NAME}} — Site Safety Inspection</title>
+  <link rel="stylesheet" href="../styles/brand.css" />
+  <link rel="stylesheet" href="../styles/print-base.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+  <style>
+    @page {
+      size: letter portrait;
+      margin: 0.5in 0.6in 0.5in 1.0in;
+      @top-left    { content: none; border: none; }
+      @top-right   { content: none; border: none; }
+      @bottom-left {
+        content: "{{BRAND_COMPANY_NAME}}  ·  {{BRAND_PHONE}}  ·  {{BRAND_WEBSITE}}";
+        font-size: 7pt;
+        color: var(--color-secondary-text);
+        border-top: 0.5pt solid var(--color-secondary);
+        padding-top: 3pt;
+      }
+      @bottom-right {
+        content: "Page " counter(page) " of " counter(pages);
+        font-size: 7pt;
+        color: var(--color-secondary-text);
+        border-top: 0.5pt solid var(--color-secondary);
+        padding-top: 3pt;
+      }
+    }
+
+    /* ── Header bar ─────────────────────────────────── */
+    .si-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--color-primary);
+      color: white;
+      padding: 6pt 10pt;
+      border-radius: 3pt 3pt 0 0;
+      margin-bottom: 0;
+    }
+    .si-header img { height: 26pt; }
+    .si-header-center {
+      text-align: center;
+      flex: 1;
+      padding: 0 10pt;
+    }
+    .si-header-title {
+      font-size: 13pt;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .si-header-sub {
+      font-size: 7pt;
+      color: var(--color-secondary-light);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      margin-top: 2pt;
+    }
+    .si-header-right {
+      text-align: right;
+      font-size: 7pt;
+      color: var(--color-secondary-light);
+      line-height: 1.5;
+    }
+
+    /* Accent bar */
+    .si-accent-bar {
+      height: 2.5pt;
+      background: linear-gradient(90deg, var(--color-bronze), var(--color-secondary), var(--color-bronze));
+      margin-bottom: 6pt;
+    }
+
+    /* ── Info grids ─────────────────────────────────── */
+    .si-info-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 6pt;
+      margin-bottom: 6pt;
+    }
+    .form-field-sm {
+      display: flex;
+      flex-direction: column;
+      gap: 1pt;
+    }
+    .form-field-sm .form-label {
+      font-size: 6.5pt;
+    }
+    .form-field-sm .form-input {
+      min-height: 15pt;
+    }
+
+    /* ── Zone section ───────────────────────────────── */
+    .zone-header {
+      font-size: 8pt;
+      font-weight: 700;
+      color: white;
+      background: var(--color-primary);
+      padding: 3pt 6pt;
+      margin-top: 6pt;
+      margin-bottom: 0;
+    }
+
+    /* ── Inspection table ───────────────────────────── */
+    .insp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8pt;
+      margin-bottom: 0;
+    }
+    .insp-table th {
+      background: var(--color-secondary);
+      color: var(--color-primary-dark);
+      padding: 3pt 4pt;
+      border: 0.5pt solid var(--color-secondary);
+      text-align: center;
+      font-size: 7pt;
+      font-weight: 700;
+    }
+    .insp-table th:first-child { text-align: left; width: 50%; }
+    .insp-table th:nth-child(2),
+    .insp-table th:nth-child(3),
+    .insp-table th:nth-child(4) { width: 8%; }
+    .insp-table th:last-child { width: 26%; text-align: left; }
+    .insp-table td {
+      border: 0.5pt solid #ccc;
+      padding: 2pt 4pt;
+      vertical-align: middle;
+    }
+    .insp-table td:first-child { font-size: 7.5pt; }
+    .insp-table td:nth-child(2),
+    .insp-table td:nth-child(3),
+    .insp-table td:nth-child(4) { text-align: center; }
+    .insp-table tr:nth-child(even) td { background: #f9f7f5; }
+
+    .check-box {
+      width: 10pt;
+      height: 10pt;
+      border: 1pt solid var(--color-primary);
+      border-radius: 2pt;
+      display: inline-block;
+    }
+    .check-pass { border-color: #059669; }
+    .check-fail { border-color: #dc2626; }
+
+    /* ── Notes section ──────────────────────────────── */
+    .notes-section {
+      margin-top: 8pt;
+    }
+    .notes-label {
+      font-size: 7pt;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 0.5pt solid var(--color-secondary);
+      padding-bottom: 2pt;
+      margin-bottom: 4pt;
+    }
+    .notes-box {
+      min-height: 40pt;
+      border: 0.75pt solid #ccc;
+      border-radius: 2pt;
+      padding: 4pt 6pt;
+      background: #fafafa;
+    }
+
+    /* ── Summary ────────────────────────────────────── */
+    .summary-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8pt;
+      margin-top: 8pt;
+      padding: 5pt 6pt;
+      border: 1pt solid var(--color-secondary);
+      border-radius: 2pt;
+      background: #fdf9f5;
+    }
+    .summary-item {
+      text-align: center;
+    }
+    .summary-label {
+      font-size: 6.5pt;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      text-transform: uppercase;
+    }
+    .summary-value {
+      font-size: 12pt;
+      font-weight: 900;
+      color: var(--color-primary);
+      margin-top: 2pt;
+    }
+    .summary-value-box {
+      width: 28pt;
+      height: 18pt;
+      border: 1pt solid var(--color-primary);
+      display: inline-block;
+      margin-top: 2pt;
+    }
+
+    /* ── Signature block ────────────────────────────── */
+    .sig-block {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 8pt;
+      margin-top: 10pt;
+      padding-top: 6pt;
+      border-top: 1pt solid var(--color-secondary);
+    }
+    .sig-field {
+      display: flex;
+      flex-direction: column;
+      gap: 2pt;
+    }
+    .sig-label {
+      font-size: 6.5pt;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .sig-line {
+      border-bottom: 0.75pt solid #333;
+      min-height: 15pt;
+    }
+
+    /* ── Legend ─────────────────────────────────────── */
+    .legend {
+      display: flex;
+      gap: 12pt;
+      margin-top: 6pt;
+      font-size: 7pt;
+      color: var(--color-primary-dark);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 3pt;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="si-header">
+    <img src="{{BRAND_LOGO_WHITE}}" alt="{{BRAND_COMPANY_SHORT}}" />
+    <div class="si-header-center">
+      <div class="si-header-title">Site Safety Inspection</div>
+      <div class="si-header-sub">Weekly Inspection Checklist (MISH Section 09)</div>
+    </div>
+    <div class="si-header-right">
+      {{BRAND_COMPANY_NAME}}<br>
+      {{BRAND_PHONE}}<br>
+      {{BRAND_WEBSITE}}
+    </div>
+  </div>
+  <div class="si-accent-bar"></div>
+
+  <!-- Site Info -->
+  <div class="si-info-grid">
+    <div class="form-field-sm">
+      <span class="form-label">Project / Job Site</span>
+      <div class="form-input"></div>
+    </div>
+    <div class="form-field-sm">
+      <span class="form-label">Date</span>
+      <div class="form-input"></div>
+    </div>
+    <div class="form-field-sm">
+      <span class="form-label">Weather</span>
+      <div class="form-input"></div>
+    </div>
+    <div class="form-field-sm">
+      <span class="form-label">Inspector</span>
+      <div class="form-input"></div>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="legend-item"><div class="check-box check-pass"></div> P = Pass</div>
+    <div class="legend-item"><div class="check-box check-fail"></div> F = Fail (requires corrective action)</div>
+    <div class="legend-item"><div class="check-box"></div> N/A = Not Applicable</div>
+  </div>
+
+  <!-- Zone 1: Housekeeping -->
+  <div class="zone-header">1. Housekeeping & General Site</div>
+  <table class="insp-table">
+    <thead>
+      <tr>
+        <th>Inspection Item</th>
+        <th>P</th>
+        <th>F</th>
+        <th>N/A</th>
+        <th>Notes / Corrective Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Walkways clear of debris and trip hazards</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Materials stacked and stored properly</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Waste disposal areas maintained</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Emergency exits accessible and unobstructed</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <!-- Zone 2: PPE -->
+  <div class="zone-header">2. Personal Protective Equipment (PPE)</div>
+  <table class="insp-table">
+    <tbody>
+      <tr><td>Hard hats worn by all personnel</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Hi-Vis vests / safety apparel in use</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Eye protection available and worn where required</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Hearing protection available where required</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Foot protection (steel-toed boots) in use</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <!-- Zone 3: Electrical -->
+  <div class="zone-header">3. Electrical Safety</div>
+  <table class="insp-table">
+    <tbody>
+      <tr><td>Temporary power cords in good condition (no fraying)</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>GFCIs in use on all temporary power</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Lockout/Tagout procedures followed</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Overhead power line safe distances maintained</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <!-- Zone 4: Fall Protection -->
+  <div class="zone-header">4. Fall Protection</div>
+  <table class="insp-table">
+    <tbody>
+      <tr><td>Guardrails installed at all open-sided edges ≥6 ft</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Personal fall arrest systems in use where required</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Harnesses and lanyards inspected and in good condition</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Ladders secured and set at correct angle (4:1)</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Scaffold inspected by competent person</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <!-- Zone 5: Equipment -->
+  <div class="zone-header">5. Equipment & Tools</div>
+  <table class="insp-table">
+    <tbody>
+      <tr><td>Heavy equipment pre-use inspection completed</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Hand and power tools in safe operating condition</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Rigging and lifting gear inspected before use</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+      <tr><td>Equipment operators qualified and authorized</td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td><div class="check-box"></div></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <!-- Summary -->
+  <div class="summary-row">
+    <div class="summary-item">
+      <div class="summary-label">Total Pass</div>
+      <div class="summary-value-box"></div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">Total Fail</div>
+      <div class="summary-value-box"></div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">Total N/A</div>
+      <div class="summary-value-box"></div>
+    </div>
+  </div>
+
+  <!-- Notes -->
+  <div class="notes-section">
+    <div class="notes-label">Additional Observations / Follow-Up Required</div>
+    <div class="notes-box"></div>
+  </div>
+
+  <!-- Signatures -->
+  <div class="sig-block">
+    <div class="sig-field">
+      <span class="sig-label">Inspector Signature</span>
+      <div class="sig-line"></div>
+    </div>
+    <div class="sig-field">
+      <span class="sig-label">Print Name</span>
+      <div class="sig-line"></div>
+    </div>
+    <div class="sig-field">
+      <span class="sig-label">Date</span>
+      <div class="sig-line"></div>
+    </div>
+  </div>
+
+</body>
+</html>
