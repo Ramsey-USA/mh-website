@@ -25,7 +25,7 @@ export const PAGE_ICONS = {
   // Company Information
   about: "military_tech",
   team: "groups",
-  allies: "group", // Partners page
+  allies: "handshake", // Partners page
   publicSector: "account_balance",
   veterans: "workspace_premium",
   careers: "work",
@@ -41,6 +41,22 @@ export const PAGE_ICONS = {
 /**
  * Semantic icons for use within page content (not for navigation links)
  * These represent concepts, not pages.
+ *
+ * ICON STANDARDS:
+ *
+ * PEOPLE:
+ * - `handshake` = Allies/Partners (two hands shaking)
+ * - `group` = Clients (two people)
+ * - `groups` = Team/Staff (three people)
+ *
+ * INFORMATION:
+ * - `military_tech` = About/Company (veteran-themed company identity)
+ * - `info` = General informational content within pages
+ *
+ * WORK:
+ * - `work` = Careers/Jobs (briefcase)
+ * - `badge` = Credentials/Personnel policy (name badge)
+ * - `business_center` = Business/Corporate
  */
 export const SEMANTIC_ICONS = {
   // Trust & Quality
@@ -48,29 +64,97 @@ export const SEMANTIC_ICONS = {
   certified: "verified_user",
   quality: "verified",
 
-  // Collaboration
-  partnership: "handshake",
-  teamwork: "groups",
+  // People Icons (STANDARDIZED)
+  partnership: "handshake", // Allies, partners, vendors
+  allies: "handshake", // Alias for partnership
+  clients: "group", // Clients, customers (two people)
+  team: "groups", // Team, staff (three people)
+  teamwork: "groups", // Alias for team
+  forces: "groups", // Military-themed team reference
 
   // Military/Veteran
   veteran: "military_tech",
   award: "workspace_premium",
   medal: "workspace_premium",
+  serviceFirst: "workspace_premium", // Veterans program
 
   // Work & Construction
   construction: "construction",
   building: "build",
   tools: "build",
+  work: "work",
+  careers: "work",
+  personnel: "badge", // Personnel/HR
+  credentials: "badge",
 
-  // Ratings
+  // Ratings & Reviews
   rating: "star",
   review: "star",
+  testimonial: "star",
+  rate: "rate_review", // Footer review prompt
 
   // Communication
   phone: "call",
   email: "mail",
   location: "place",
+  contact: "contact_phone",
+
+  // Social Media Platforms
+  facebook: "thumb_up",
+  instagram: "photo_camera",
+  twitter: "alternate_email",
+  youtube: "smart_display",
+  linkedin: "business_center",
+
+  // UI Actions
+  arrow: "arrow_forward",
+  expand: "expand_more",
+  collapse: "expand_less",
+  close: "close",
+  check: "check_circle",
+  info: "info",
+  warning: "warning",
+  error: "error_outline",
+  add: "add",
+  edit: "edit",
+  remove: "delete",
+
+  // Navigation/Discovery
+  explore: "explore",
+  search: "search",
+  map: "map",
+  share: "share",
+
+  // Notifications
+  notification: "notifications_active",
+  subscribe: "notifications_active",
+
+  // Government/Public
+  government: "account_balance",
+  publicSector: "account_balance",
+} as const;
+
+/**
+ * Social Media Icons - Consistent icons for external platforms
+ */
+export const SOCIAL_ICONS = {
+  facebook: "thumb_up",
+  instagram: "photo_camera",
+  twitter: "alternate_email",
+  youtube: "smart_display",
+  linkedin: "business_center",
+} as const;
+
+/**
+ * Section Header Icons - Icons for footer/page section headers
+ */
+export const SECTION_ICONS = {
+  explore: "explore", // Discovery/Navigation sections
+  ourForces: "groups", // Team/Company sections
+  connect: "share", // Social/Connect sections
 } as const;
 
 export type PageIconKey = keyof typeof PAGE_ICONS;
 export type SemanticIconKey = keyof typeof SEMANTIC_ICONS;
+export type SocialIconKey = keyof typeof SOCIAL_ICONS;
+export type SectionIconKey = keyof typeof SECTION_ICONS;

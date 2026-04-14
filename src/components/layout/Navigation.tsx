@@ -225,7 +225,7 @@ export function Navigation() {
                       href: "/allies",
                       label: "Partners",
                       subLabel: "Allies",
-                      icon: "group",
+                      icon: "handshake",
                     },
                     {
                       href: "/veterans",

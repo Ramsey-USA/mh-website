@@ -196,7 +196,7 @@ export default function AnalyticsDashboardPage() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === "leads" ? (
-          <LeadsTab token={adminToken ?? ""} userName={userData?.name} />
+          <LeadsTab token={adminToken ?? ""} />
         ) : activeTab === "safety" ? (
           <SafetyTab token={adminToken ?? ""} />
         ) : activeTab === "drivers" ? (

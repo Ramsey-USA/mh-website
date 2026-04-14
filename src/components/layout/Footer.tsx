@@ -82,7 +82,7 @@ const navCol1Links: FooterNavItem[] = [
 const navCol2Links: FooterNavItem[] = [
   { href: "/about", icon: "military_tech", label: "About Us", sub: "Our Oath" },
   { href: "/team", icon: "groups", label: "Our Team", sub: "Chain of Command" },
-  { href: "/allies", icon: "group", label: "Partners", sub: "Allies" },
+  { href: "/allies", icon: "handshake", label: "Partners", sub: "Allies" },
   {
     href: "/public-sector",
     icon: "account_balance",
@@ -121,7 +121,7 @@ const linkedCities = [
 const regionalAreas = [
   "Eastern Washington",
   "Eastern Oregon",
-  "Southern Idaho",
+  "Northern Idaho",
 ];
 
 const socialLinkBaseClass =
@@ -607,6 +607,20 @@ export default function Footer() {
                     }
                   />
                 </a>
+
+                {/* Service Area Map */}
+                <div className="mt-4 flex justify-center sm:justify-start">
+                  <div className="rounded-lg border border-brand-primary/20 bg-brand-primary/5 p-3 transition-all duration-300 hover:border-brand-primary/40 hover:bg-brand-primary/15 dark:border-brand-primary/30 dark:bg-brand-primary/10">
+                    <PNWStatesMap
+                      width={160}
+                      height={112}
+                      className="drop-shadow-md"
+                    />
+                    <div className="mt-2 text-center text-xs font-semibold text-brand-secondary dark:text-brand-secondary-light">
+                      Serving the Pacific Northwest
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -630,20 +644,6 @@ export default function Footer() {
                   <FooterNavLink key={`${link.href}-${link.label}`} {...link} />
                 ))}
               </div>
-
-              {/* Service Area Map */}
-              <div className="mt-4 flex justify-center sm:justify-start">
-                <div className="rounded-lg border border-brand-primary/20 bg-brand-primary/5 p-3 transition-all duration-300 hover:border-brand-primary/40 hover:bg-brand-primary/15 dark:border-brand-primary/30 dark:bg-brand-primary/10">
-                  <PNWStatesMap
-                    width={160}
-                    height={112}
-                    className="drop-shadow-md"
-                  />
-                  <div className="mt-2 text-center text-xs font-semibold text-brand-secondary dark:text-brand-secondary-light">
-                    Serving the Pacific Northwest
-                  </div>
-                </div>
-              </div>
             </nav>
 
             {/* Column 3: Company & Partnerships */}
@@ -653,7 +653,7 @@ export default function Footer() {
             >
               <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
                 <MaterialIcon
-                  icon="people"
+                  icon="groups"
                   size="sm"
                   className="text-brand-primary"
                 />
@@ -849,12 +849,12 @@ export default function Footer() {
 
           {/* Accreditations Row */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-6 pb-2 border-t border-gray-700/50">
-            {/* AGC Northwest */}
+            {/* AGC Washington */}
             <a
-              href="https://agcnw.com/"
+              href="https://www.agcwa.com/"
               target="_blank"
               rel="noopener noreferrer"
-              title="AGC Northwest Washington Member"
+              title="AGC of Washington Member"
               className="group flex items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-3 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
             >
               <Image

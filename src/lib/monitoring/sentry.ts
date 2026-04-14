@@ -72,7 +72,7 @@ export function initSentry(): void {
     beforeSend(event) {
       // Optionally scrub sensitive data
       if (event.request?.cookies) {
-        event.request.cookies = "[Filtered]";
+        event.request.cookies = {} as Record<string, string>;
       }
       return event;
     },
@@ -110,9 +110,7 @@ export function captureException(
     return;
   }
 
-  Sentry.captureException(error, {
-    extra: context,
-  });
+  Sentry.captureException(error, context ? { extra: context } : undefined);
 }
 
 /**
@@ -127,17 +125,16 @@ export function captureMessage(
     return;
   }
 
-  Sentry.captureMessage(message, {
-    level,
-    extra: context,
-  });
+  Sentry.captureMessage(message, context ? { level, extra: context } : level);
 }
 
 /**
  * Set user context for error tracking
  * Call this after user authentication
  */
-export function setUser(user: { id: string; email?: string; name?: string } | null): void {
+export function setUser(
+  user: { id: string; email?: string; name?: string } | null,
+): void {
   if (!isInitialized) {
     return;
   }
@@ -161,7 +158,7 @@ export function addBreadcrumb(
   Sentry.addBreadcrumb({
     category,
     message,
-    data,
+    ...(data && { data }),
     level: "info",
   });
 }

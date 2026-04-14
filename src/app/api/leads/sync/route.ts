@@ -185,7 +185,7 @@ function parseBudget(budget: string | null): number | null {
 
   // Try to extract the first number
   const match = cleaned.match(/(\d+(?:\.\d+)?)(k|m)?/);
-  if (!match) return null;
+  if (!match || !match[1]) return null;
 
   let value = parseFloat(match[1]);
   if (match[2] === "k") value *= 1000;

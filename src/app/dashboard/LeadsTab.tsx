@@ -201,11 +201,11 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
     };
 
     if (editValues.estimated_value) {
-      updates.estimated_value = parseInt(editValues.estimated_value, 10);
+      updates["estimated_value"] = parseInt(editValues.estimated_value, 10);
     }
 
     if (editValues.status === "lost" && editValues.lost_reason) {
-      updates.lost_reason = editValues.lost_reason;
+      updates["lost_reason"] = editValues.lost_reason;
     }
 
     await handleUpdate(updates);
@@ -497,10 +497,9 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
 
 interface LeadsTabProps {
   token: string;
-  userName?: string;
 }
 
-export function LeadsTab({ token, userName }: LeadsTabProps) {
+export function LeadsTab({ token }: LeadsTabProps) {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);

@@ -25,6 +25,7 @@ import {
   sendAcknowledgment,
   type EmailAttachment,
 } from "@/lib/email/email-service";
+import { sendToN8nAsync, type FormType } from "@/lib/notifications/n8n-webhook";
 import {
   createFormSubmissionResponse,
   createPaginatedResponse,
@@ -344,6 +345,22 @@ export async function handleFormSubmission<T = unknown>(
         emailSent,
       });
     }
+
+    // Send to n8n for backup notification (fire-and-forget)
+    const n8nFormType: FormType =
+      config.submissionType === "Job Application"
+        ? "job-application"
+        : config.submissionType === "Consultation"
+          ? "consultation"
+          : "contact";
+
+    sendToN8nAsync({
+      type: n8nFormType,
+      data: {
+        id: submissionId,
+        ...formData,
+      },
+    });
 
     return createFormSubmissionResponse(
       submissionId,

@@ -1415,7 +1415,7 @@ export default function CareersPage() {
 
                 {/* AGC Member */}
                 <a
-                  href="https://agcwa.com"
+                  href="https://www.agcwa.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-80 transition-opacity"

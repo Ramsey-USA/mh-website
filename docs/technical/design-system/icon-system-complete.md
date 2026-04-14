@@ -26,6 +26,12 @@
 5. [Hover Effects & Animations](#hover-effects--animations)
 6. [Accessibility](#accessibility)
 7. [Site-Wide Icon Inventory](#site-wide-icon-inventory)
+   - [People Icon Standard](#-people-icon-standard-critical)
+   - [Work & Career Icons](#-work--career-icons)
+   - [Social Media Icons](#-social-media-icons)
+   - [Information Context Icons](#ℹ️-information-context-icons)
+   - [Core Brand Icons](#core-brand-icons)
+   - [Navigation & UI Icons](#navigation--ui-icons)
 8. [Troubleshooting](#troubleshooting)
 
 ---
@@ -521,6 +527,78 @@ style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
 
 ## 📊 Site-Wide Icon Inventory
 
+### 👥 People Icon Standard (CRITICAL)
+
+> **📁 Source of Truth:** `/src/lib/constants/navigation-icons.ts` → `SEMANTIC_ICONS`
+
+**MH Construction uses a strict standard for people-related icons:**
+
+| Icon    | Material Icon | Visual       | Represents                        |
+| ------- | ------------- | ------------ | --------------------------------- |
+| Allies  | `handshake`   | Two hands    | Partners, vendors, subcontractors |
+| Clients | `group`       | Two people   | Customers, project owners         |
+| Team    | `groups`      | Three people | Our staff, crew, employees        |
+
+**Mental Model:**
+
+- 🤝 **Handshake** = Allies (partnerships, working together)
+- 👥 **Two People** = Clients (the customer relationship)
+- 👥👤 **Three People** = Team (our internal crew)
+
+**Usage Examples:**
+
+```tsx
+import { SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
+
+// Allies/Partners context
+<MaterialIcon icon={SEMANTIC_ICONS.allies} />      // "handshake"
+<MaterialIcon icon={SEMANTIC_ICONS.partnership} /> // "handshake"
+
+// Client context
+<MaterialIcon icon={SEMANTIC_ICONS.clients} />     // "group"
+
+// Team context
+<MaterialIcon icon={SEMANTIC_ICONS.team} />        // "groups"
+<MaterialIcon icon={SEMANTIC_ICONS.teamwork} />    // "groups"
+```
+
+**Why This Matters:**
+
+- Provides instant visual recognition across the site
+- Users learn the icon language: handshake = partners, two people = clients, three people = team
+- Maintains brand consistency and reduces cognitive load
+
+---
+
+### 💼 Work & Career Icons
+
+| Context   | Icon              | Visual     | Use Case                        |
+| --------- | ----------------- | ---------- | ------------------------------- |
+| Careers   | `work`            | Briefcase  | Jobs page, career links         |
+| Personnel | `badge`           | Name badge | HR, credentials, personnel docs |
+| Business  | `business_center` | Briefcase  | Business/corporate contexts     |
+
+### 📢 Social Media Icons
+
+| Platform  | Icon              | Rationale               |
+| --------- | ----------------- | ----------------------- |
+| Facebook  | `thumb_up`        | "Like" concept          |
+| Instagram | `photo_camera`    | Photo-focused platform  |
+| Twitter   | `alternate_email` | @ mentions              |
+| YouTube   | `smart_display`   | Video content           |
+| LinkedIn  | `business_center` | Professional networking |
+
+### ℹ️ Information Context Icons
+
+| Context      | Icon            | When to Use                            |
+| ------------ | --------------- | -------------------------------------- |
+| About (page) | `military_tech` | Company identity, veteran-owned status |
+| General info | `info`          | Informational content within pages     |
+| Review/Rate  | `rate_review`   | Prompting user reviews                 |
+| Rating       | `star`          | Displaying ratings/reviews             |
+
+---
+
 ### Core Brand Icons
 
 > **Note:** These are _semantic/conceptual_ icons representing brand values and concepts. For page navigation icons, see the "Navigation & UI Icons" section above.
@@ -529,7 +607,7 @@ style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
 
 - `engineering` - Engineering expertise, core services
 - `verified` - Quality assurance, certifications
-- `handshake` - Partnerships, client relationships (conceptual use)
+- `handshake` - Allies, partners, vendors (see People Icon Standard above)
 - `military_tech` - Veteran-owned status, military precision
 
 **Service Icons (Conceptual):**
@@ -547,26 +625,26 @@ style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
 
 **Standardized Page Icons:**
 
-| Page          | Icon                | Usage                      |
-| ------------- | ------------------- | -------------------------- |
-| Home          | `home`              | Homepage navigation        |
-| Contact       | `contact_phone`     | Contact page links         |
-| Services      | `build`             | Services page navigation   |
-| Projects      | `photo_library`     | Project portfolio links    |
-| Resources     | `folder_open`       | Resources/downloads page   |
-| Safety        | `verified_user`     | Safety information page    |
-| FAQ           | `help`              | FAQ/help page              |
-| About         | `military_tech`     | About page (veteran-owned) |
-| Team          | `groups`            | Team/staff page            |
-| Allies        | `group`             | Partner vendors page       |
-| Public Sector | `account_balance`   | Government services page   |
-| Veterans      | `workspace_premium` | Veterans services page     |
-| Careers       | `work`              | Careers/jobs page          |
-| Testimonials  | `star`              | Customer reviews page      |
-| Privacy       | `shield`            | Privacy policy             |
-| Terms         | `gavel`             | Terms of service           |
-| Accessibility | `accessibility`     | Accessibility statement    |
-| Sitemap       | `account_tree`      | Site map page              |
+| Page          | Icon                | Usage                       |
+| ------------- | ------------------- | --------------------------- |
+| Home          | `home`              | Homepage navigation         |
+| Contact       | `contact_phone`     | Contact page links          |
+| Services      | `build`             | Services page navigation    |
+| Projects      | `photo_library`     | Project portfolio links     |
+| Resources     | `folder_open`       | Resources/downloads page    |
+| Safety        | `verified_user`     | Safety information page     |
+| FAQ           | `help`              | FAQ/help page               |
+| About         | `military_tech`     | About page (veteran-owned)  |
+| Team          | `groups`            | Team/staff page (3 people)  |
+| Allies        | `handshake`         | Partner vendors (handshake) |
+| Public Sector | `account_balance`   | Government services page    |
+| Veterans      | `workspace_premium` | Veterans services page      |
+| Careers       | `work`              | Careers/jobs page           |
+| Testimonials  | `star`              | Customer reviews page       |
+| Privacy       | `shield`            | Privacy policy              |
+| Terms         | `gavel`             | Terms of service            |
+| Accessibility | `accessibility`     | Accessibility statement     |
+| Sitemap       | `account_tree`      | Site map page               |
 
 **Usage Example:**
 

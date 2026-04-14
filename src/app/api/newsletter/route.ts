@@ -1,6 +1,7 @@
 import { type NextRequest, type NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { sendEmail } from "@/lib/email/email-service";
+import { sendToN8nAsync } from "@/lib/notifications/n8n-webhook";
 import { EMAIL_RECIPIENTS } from "@/lib/constants/company";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import { withSecurity } from "@/middleware/security";
@@ -169,6 +170,15 @@ async function handlePOST(request: NextRequest) {
       name: data.name,
       notificationSent: notificationResult.success,
       acknowledgmentSent: acknowledgmentResult.success,
+    });
+
+    // Send to n8n for backup notification (fire-and-forget)
+    sendToN8nAsync({
+      type: "newsletter",
+      data: {
+        email: data.email,
+        name: data.name,
+      },
     });
 
     return createSuccessResponse({

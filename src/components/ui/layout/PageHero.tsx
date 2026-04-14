@@ -18,13 +18,13 @@ interface HeroNavItem {
 const heroNavItems: HeroNavItem[] = [
   { href: "/contact", label: "Start Partnership", icon: "handshake" },
   { href: "/", label: "Home", icon: "home" },
-  { href: "/about", label: "Our Story", icon: "info" },
+  { href: "/about", label: "Our Story", icon: "military_tech" },
   { href: "/services", label: "Partnership Approach", icon: "build" },
   { href: "/projects", label: "Success Stories", icon: "photo_library" },
-  { href: "/team", label: "Our Team", icon: "people" },
+  { href: "/team", label: "Our Team", icon: "groups" },
   { href: "/public-sector", label: "Public Sector", icon: "account_balance" },
-  { href: "/allies", label: "Allies", icon: "business" },
-  { href: "/careers", label: "Join Our Team", icon: "badge" },
+  { href: "/allies", label: "Allies", icon: "handshake" },
+  { href: "/careers", label: "Join Our Team", icon: "work" },
   { href: "/contact", label: "Connect With Us", icon: "contact_phone" },
 ];
 

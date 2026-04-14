@@ -1282,7 +1282,7 @@ export default function VeteransPage() {
                   />
                 </a>
                 <a
-                  href="https://agcwa.com"
+                  href="https://www.agcwa.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   title="AGC of Washington Member"

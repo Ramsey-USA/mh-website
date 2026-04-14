@@ -3,6 +3,7 @@ import { logger } from "@/lib/utils/logger";
 import { createDbClient, type ContactSubmission } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
 import { sendEmail, type EmailAttachment } from "@/lib/email/email-service";
+import { sendToN8nAsync } from "@/lib/notifications/n8n-webhook";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import { requireRole } from "@/lib/auth/middleware";
 import { withSecurity } from "@/middleware/security";
@@ -194,6 +195,20 @@ async function handlePOST(request: NextRequest) {
         // Continue even if DB fails (best-effort pattern)
       }
     }
+
+    // Send to n8n for backup notification (fire-and-forget)
+    sendToN8nAsync({
+      type: (data.type as "contact" | "consultation") || "contact",
+      data: {
+        id: submissionId,
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        subject: data.subject,
+        message: data.message,
+        ...data.metadata,
+      },
+    });
 
     return createSuccessResponse(
       {

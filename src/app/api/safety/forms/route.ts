@@ -12,6 +12,7 @@ import { requireRole } from "@/lib/auth/middleware";
 import { type JWTUser } from "@/lib/auth/jwt";
 import { withSecurity } from "@/middleware/security";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
+import { sendToN8nAsync } from "@/lib/notifications/n8n-webhook";
 
 export const dynamic = "force-dynamic";
 
@@ -171,6 +172,18 @@ async function handlePOST(request: NextRequest, user: JWTUser) {
       `SELECT * FROM safety_form_submissions WHERE id = ?`,
       id,
     );
+
+    // Send to n8n for notification (fire-and-forget)
+    sendToN8nAsync({
+      type: "safety-form",
+      data: {
+        id,
+        formType: form_type,
+        jobId: job_id,
+        submittedBy: user.name ?? user.uid,
+        ...data,
+      },
+    });
 
     logger.info(`Safety form submitted: ${form_type} for job ${job_id}`);
     return NextResponse.json(
