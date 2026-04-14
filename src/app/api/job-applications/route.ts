@@ -7,6 +7,7 @@ import { requireRole } from "@/lib/auth/middleware";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import { withSecurity } from "@/middleware/security";
 import { getR2Bucket, R2StorageService } from "@/lib/cloudflare/r2";
+import { verifyTurnstileToken } from "@/lib/security/turnstile";
 
 export const dynamic = "force-dynamic";
 
@@ -31,6 +32,7 @@ interface JobApplicationData {
   resumeFileSize?: number;
   veteranStatus?: string;
   referralSource?: string;
+  turnstileToken?: string;
 }
 
 async function handlePOST(request: NextRequest): Promise<NextResponse> {
@@ -41,6 +43,31 @@ async function handlePOST(request: NextRequest): Promise<NextResponse> {
   } catch {
     return NextResponse.json(
       { error: "Invalid request body" },
+      { status: 400 },
+    );
+  }
+
+  // Verify Turnstile token if provided (required in production)
+  if (body.turnstileToken) {
+    const clientIp = request.headers.get("cf-connecting-ip") ?? undefined;
+    const verification = await verifyTurnstileToken(
+      body.turnstileToken,
+      clientIp,
+    );
+
+    if (!verification.success && !verification.skipped) {
+      return NextResponse.json(
+        { error: "Security verification failed. Please try again." },
+        { status: 400 },
+      );
+    }
+  } else if (
+    process.env.NODE_ENV === "production" &&
+    process.env["TURNSTILE_SECRET_KEY"]
+  ) {
+    // In production with Turnstile configured, require the token
+    return NextResponse.json(
+      { error: "Security verification is required." },
       { status: 400 },
     );
   }

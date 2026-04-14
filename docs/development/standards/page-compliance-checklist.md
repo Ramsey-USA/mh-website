@@ -244,6 +244,50 @@
 
 ---
 
+## 🔐 Form Security (Pages with Forms)
+
+### Cloudflare Turnstile Integration
+
+- [ ] Turnstile script loaded via `next/script`
+- [ ] Turnstile widget rendered in form (`cf-turnstile` div)
+- [ ] Token state managed via useState
+- [ ] Token included in form submission data
+- [ ] Token reset on submission error
+- [ ] Widget re-renders on error for retry
+
+### Trust Indicators
+
+- [ ] Visible security badge in form (shield icon)
+- [ ] Security text: "Protected by Cloudflare"
+- [ ] Styled appropriately for brand (brand-primary icon color)
+- [ ] Dark mode compatible
+
+### Server-Side Verification
+
+- [ ] API route imports `verifyTurnstileToken` from `@/lib/security`
+- [ ] Token verified before processing form data
+- [ ] Verification enforced in production (graceful skip in dev without secret)
+- [ ] Error returned if verification fails
+
+### Rate Limiting
+
+- [ ] Rate limiter applied to form API endpoint
+- [ ] Uses sliding window rate limiter from `@/lib/security/rate-limiter`
+- [ ] Sensible limits set (e.g., 5 submissions per minute)
+- [ ] 429 response returned when limit exceeded
+
+### Testing Requirements
+
+- [ ] Turnstile widget renders correctly
+- [ ] Form submission includes token
+- [ ] API rejects missing/invalid tokens
+- [ ] Rate limiting prevents spam
+- [ ] Error states show retry option
+
+**Reference:** [Form Security Standards](../../technical/form-security-standards.md)
+
+---
+
 ## ⚡ Performance
 
 ### Dynamic Imports

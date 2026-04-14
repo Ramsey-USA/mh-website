@@ -26,6 +26,18 @@ const ADMIN_USERS: Record<string, JWTUser> = {
     role: "admin",
     name: "Jeremy",
   },
+  "admin-arnold": {
+    uid: "admin-arnold",
+    email: "arnold@mhc-gc.com",
+    role: "admin",
+    name: "Arnold",
+  },
+  "admin-brittney": {
+    uid: "admin-brittney",
+    email: "brittney@mhc-gc.com",
+    role: "admin",
+    name: "Brittney",
+  },
 };
 
 async function handleRefresh(request: NextRequest): Promise<NextResponse> {

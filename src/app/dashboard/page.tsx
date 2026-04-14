@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -55,6 +55,14 @@ export default function AnalyticsDashboardPage() {
   const [activeTab, setActiveTab] = useState<
     "analytics" | "safety" | "drivers"
   >("analytics");
+  const [adminToken, setAdminToken] = useState<string | null>(null);
+
+  // Memoize veteran page views calculation
+  const veteranPageViews = useMemo(() => {
+    return Object.entries(dashboardData?.pageviews?.pages ?? {})
+      .filter(([page]) => page.includes("veteran"))
+      .reduce((sum, [, v]) => sum + v, 0);
+  }, [dashboardData?.pageviews?.pages]);
 
   useEffect(() => {
     const token = localStorage.getItem("admin_token");
@@ -68,6 +76,7 @@ export default function AnalyticsDashboardPage() {
     try {
       const parsedUser = JSON.parse(user);
       setUserData(parsedUser);
+      setAdminToken(token);
       setIsAuthenticated(true);
       fetchAnalyticsData(token);
     } catch (err) {
@@ -179,9 +188,9 @@ export default function AnalyticsDashboardPage() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === "safety" ? (
-          <SafetyTab token={localStorage.getItem("admin_token") ?? ""} />
+          <SafetyTab token={adminToken ?? ""} />
         ) : activeTab === "drivers" ? (
-          <DriversTab token={localStorage.getItem("admin_token") ?? ""} />
+          <DriversTab token={adminToken ?? ""} />
         ) : isLoading ? (
           <div className="flex items-center justify-center py-20">
             <div className="text-center">
@@ -366,10 +375,7 @@ export default function AnalyticsDashboardPage() {
                       className="text-bronze-300 mx-auto mb-3"
                     />
                     <div className="text-4xl font-black text-white mb-2">
-                      {Object.entries(dashboardData?.pageviews?.pages ?? {})
-                        .filter(([page]) => page.includes("veteran"))
-                        .reduce((sum, [, v]) => sum + v, 0)
-                        .toString()}
+                      {veteranPageViews.toString()}
                     </div>
                     <div className="text-bronze-300 font-bold uppercase tracking-wide text-sm">
                       Veteran Page Views

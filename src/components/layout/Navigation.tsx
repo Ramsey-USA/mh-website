@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "@/components/ui/layout/ThemeToggle";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 /**
  * Global Hamburger Navigation Component
@@ -75,7 +76,7 @@ export function Navigation() {
             <div className="flex-shrink-0 pointer-events-auto">
               <Link
                 href="/"
-                className="flex items-center hover:scale-105 transition-all duration-300 bg-gradient-to-r from-brand-primary/80 via-brand-primary/60 to-transparent px-3 xs:px-4 py-2 rounded-lg backdrop-blur-sm"
+                className="flex items-center hover:scale-105 transition-all duration-300 bg-brand-primary shadow-lg hover:shadow-xl px-4 xs:px-5 sm:px-6 py-2.5 xs:py-3 sm:py-4 rounded-xl border-2 border-brand-secondary/30 hover:border-brand-secondary/50"
               >
                 <Image
                   src="/images/logo/mh-logo.webp"
@@ -224,7 +225,7 @@ export function Navigation() {
                       href: "/allies",
                       label: "Partners",
                       subLabel: "Allies",
-                      icon: "handshake",
+                      icon: "group",
                     },
                     {
                       href: "/veterans",
@@ -288,11 +289,11 @@ export function Navigation() {
               </div>
               <div className="flex justify-center gap-2 sm:gap-2.5">
                 <a
-                  href="https://www.facebook.com/profile.php?id=61575511773974"
+                  href={COMPANY_INFO.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#1877F2] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#1877F2]/40"
-                  aria-label="Facebook"
+                  aria-label="Follow MH Construction on Facebook"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
@@ -302,11 +303,11 @@ export function Navigation() {
                   />
                 </a>
                 <a
-                  href="https://www.instagram.com/mh_construction_inc/reels/"
+                  href={COMPANY_INFO.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#E4405F] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#E4405F]/40"
-                  aria-label="Instagram"
+                  aria-label="View MH Construction on Instagram"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
@@ -316,47 +317,109 @@ export function Navigation() {
                   />
                 </a>
                 <a
-                  href="https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#0A66C2] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#0A66C2]/40"
-                  aria-label="LinkedIn"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <MaterialIcon
-                    icon="work"
-                    size="md"
-                    className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.8)]"
-                  />
-                </a>
-                <a
-                  href="https://x.com/mhc_gc"
+                  href={COMPANY_INFO.social.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#1D9BF0] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-black/40"
-                  aria-label="X (Twitter)"
+                  aria-label="Follow MH Construction on X (Twitter)"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
-                    icon="close"
+                    icon="alternate_email"
                     size="md"
                     className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(29,155,240,0.8)]"
                   />
                 </a>
                 <a
-                  href="https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j"
+                  href={COMPANY_INFO.social.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#FF0000] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#FF0000]/40"
-                  aria-label="YouTube"
+                  aria-label="Watch MH Construction on YouTube"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
-                    icon="play_circle"
+                    icon="smart_display"
                     size="md"
                     className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(255,0,0,0.8)]"
                   />
                 </a>
+                <a
+                  href={COMPANY_INFO.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#0A66C2] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#0A66C2]/40"
+                  aria-label="Connect with MH Construction on LinkedIn"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <MaterialIcon
+                    icon="business_center"
+                    size="md"
+                    className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.8)]"
+                  />
+                </a>
+              </div>
+
+              {/* Legal Links Row */}
+              <div className="flex flex-wrap justify-center items-center gap-1.5 sm:gap-2 mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-200 dark:border-gray-700">
+                <Link
+                  href="/privacy"
+                  className="group flex items-center gap-1 px-2 py-1 rounded-full border border-gray-300 dark:border-gray-600 bg-gradient-to-r from-gray-100 dark:from-gray-800 to-gray-50 dark:to-gray-700 hover:from-brand-primary/10 hover:to-brand-secondary/10 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <MaterialIcon
+                    icon="shield"
+                    size="sm"
+                    className="text-gray-400 group-hover:text-brand-secondary transition-colors"
+                    style={{ fontSize: "12px" }}
+                  />
+                  <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-white transition-colors">
+                    Privacy
+                  </span>
+                </Link>
+                <Link
+                  href="/terms"
+                  className="group flex items-center gap-1 px-2 py-1 rounded-full border border-gray-300 dark:border-gray-600 bg-gradient-to-r from-gray-100 dark:from-gray-800 to-gray-50 dark:to-gray-700 hover:from-brand-primary/10 hover:to-brand-secondary/10 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <MaterialIcon
+                    icon="gavel"
+                    size="sm"
+                    className="text-gray-400 group-hover:text-brand-secondary transition-colors"
+                    style={{ fontSize: "12px" }}
+                  />
+                  <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-white transition-colors">
+                    Terms
+                  </span>
+                </Link>
+                <Link
+                  href="/accessibility"
+                  className="group flex items-center gap-1 px-2 py-1 rounded-full border border-gray-300 dark:border-gray-600 bg-gradient-to-r from-gray-100 dark:from-gray-800 to-gray-50 dark:to-gray-700 hover:from-brand-primary/10 hover:to-brand-secondary/10 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <MaterialIcon
+                    icon="accessibility"
+                    size="sm"
+                    className="text-gray-400 group-hover:text-brand-secondary transition-colors"
+                    style={{ fontSize: "12px" }}
+                  />
+                  <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-white transition-colors">
+                    Accessibility
+                  </span>
+                </Link>
+              </div>
+
+              {/* Veteran-Owned Badge */}
+              <div className="flex justify-center items-center gap-2 mt-3 text-gray-400 dark:text-gray-500">
+                <MaterialIcon
+                  icon="military_tech"
+                  size="sm"
+                  className="text-brand-secondary/60"
+                  style={{ fontSize: "14px" }}
+                />
+                <span className="text-[10px] font-medium">
+                  Veteran-Owned • Licensed WA OR ID
+                </span>
               </div>
             </div>
           </div>

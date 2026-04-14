@@ -680,7 +680,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
                 >
                   <Link href="/services">
                     <MaterialIcon
-                      icon="construction"
+                      icon="build"
                       size="md"
                       className="group-hover:scale-110 transition-transform"
                     />

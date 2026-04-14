@@ -31,7 +31,7 @@ describe("JobApplicationModal", () => {
     );
 
     expect(screen.getByText("Veteran Application")).toBeInTheDocument();
-    expect(screen.getByText("Start Your Application")).toBeInTheDocument();
+    expect(screen.getByText("Enlist With Us")).toBeInTheDocument();
     expect(screen.getByLabelText(/Veteran Status/i)).toHaveValue("veteran");
   });
 

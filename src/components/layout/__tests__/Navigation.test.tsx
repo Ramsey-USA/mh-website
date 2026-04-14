@@ -115,11 +115,11 @@ describe("Navigation", () => {
     render(<Navigation />);
 
     for (const label of [
-      "Facebook",
-      "Instagram",
-      "LinkedIn",
-      "X (Twitter)",
-      "YouTube",
+      /follow mh construction on facebook/i,
+      /view mh construction on instagram/i,
+      /follow mh construction on x/i,
+      /watch mh construction on youtube/i,
+      /connect with mh construction on linkedin/i,
     ]) {
       // Open the menu
       await user.click(screen.getByRole("button", { name: /open menu/i }));

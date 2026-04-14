@@ -1,9 +1,10 @@
 # Cloudflare Workers Deployment Guide
 
 **Category:** Deployment - Cloudflare
-**Last Updated:** April 13, 2026
-**Version:** 3.2.0
+**Last Updated:** April 14, 2026
+**Version:** 3.2.1
 **Status:** ✅ Active - Production Deployed at `https://www.mhc-gc.com`
+**Plan:** Cloudflare Pro (activated April 14, 2026)
 
 > **Adapter:** `@opennextjs/cloudflare` (OpenNext) — **NOT** `@cloudflare/next-on-pages`.
 > These two adapters are mutually exclusive. Only OpenNext is used in this project.

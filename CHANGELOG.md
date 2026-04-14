@@ -4,7 +4,22 @@ All notable changes to the MH Construction website are documented here.
 
 ---
 
+## January 2025
+
+- **Jan:** Navigation icon standardization — created centralized `/src/lib/constants/navigation-icons.ts`
+  with `PAGE_ICONS` and `SEMANTIC_ICONS` maps for consistent icon usage across all page links;
+  standardized Footer.tsx and Navigation.tsx to use matching icons for same pages (e.g., `contact_phone`
+  for Contact, `build` for Services, `military_tech` for About); fixed Allies page icon divergence
+  (Navigation used `handshake`, Footer used `construction` → both now use `group` for page links);
+  updated `docs/technical/design-system/icon-system-complete.md` with new "Standardized Page Icons"
+  table, source-of-truth reference, and usage examples
+
+---
+
 ## April 2026
+
+- **Apr 14:** Cloudflare Pro plan activated — upgraded from Free tier to Pro for enhanced
+  performance, security features, and increased limits
 
 - **Apr 9:** Safety Program system implementation — canonical naming: renamed from "MISH/AISH"
   to **"MH Construction Safety Program"** across all public pages, download keys, and docs; added

@@ -10,12 +10,36 @@ import {
   type FormEvent,
 } from "react";
 import Link from "next/link";
+import Script from "next/script";
 import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Button } from "@/components/ui/base/button";
 import { Input, Textarea } from "@/components/ui/forms/Input";
 import { useDialogBehavior } from "@/hooks/useDialogBehavior";
 import { trackFormSubmit } from "@/lib/analytics/tracking";
+
+// Turnstile configuration
+const TURNSTILE_SITE_KEY = process.env["NEXT_PUBLIC_TURNSTILE_SITE_KEY"] ?? "";
+
+// Minimal Turnstile global type
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (
+        container: HTMLElement,
+        options: {
+          sitekey: string;
+          theme?: "light" | "dark" | "auto";
+          callback?: (token: string) => void;
+          "expired-callback"?: () => void;
+          "error-callback"?: () => void;
+        },
+      ) => string;
+      remove: (widgetId: string) => void;
+      reset: (widgetId: string) => void;
+    };
+  }
+}
 
 const POSITIONS = [
   "Construction Laborer",
@@ -48,7 +72,7 @@ const AVAILABILITY_OPTIONS = [
 const MAX_RESUME_SIZE_BYTES = 10 * 1024 * 1024;
 
 const SELECT_FIELD_CLASS =
-  "w-full min-h-[44px] rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all duration-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-brand-secondary dark:focus:ring-brand-secondary";
+  "w-full min-h-[48px] rounded-xl border-2 border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all duration-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30 focus:ring-offset-2 hover:border-gray-400 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-brand-secondary dark:focus:ring-brand-secondary/30 dark:hover:border-gray-500 cursor-pointer shadow-sm focus:shadow-md";
 
 interface JobApplicationModalProps {
   isOpen: boolean;
@@ -152,12 +176,49 @@ export function JobApplicationModal({
   const [submitError, setSubmitError] = useState("");
   const applicationContext = getApplicationContext(entryPoint);
 
+  // Turnstile state
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileReady, setTurnstileReady] = useState(false);
+
+  const mountTurnstile = useCallback(() => {
+    if (!turnstileRef.current || !window.turnstile || !TURNSTILE_SITE_KEY) {
+      return;
+    }
+    if (widgetIdRef.current) {
+      window.turnstile.remove(widgetIdRef.current);
+    }
+    widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
+      sitekey: TURNSTILE_SITE_KEY,
+      theme: "auto",
+      callback: (token) => {
+        setTurnstileToken(token);
+      },
+      "expired-callback": () => {
+        setTurnstileToken("");
+      },
+      "error-callback": () => {
+        setTurnstileToken("");
+      },
+    });
+    setTurnstileReady(true);
+  }, []);
+
+  const resetTurnstile = useCallback(() => {
+    setTurnstileToken("");
+    if (widgetIdRef.current && window.turnstile) {
+      window.turnstile.reset(widgetIdRef.current);
+    }
+  }, []);
+
   const handleClose = useCallback(() => {
     setSubmitError("");
     setSubmitSuccess(false);
     setFormData(createInitialFormData(entryPoint));
+    resetTurnstile();
     onClose();
-  }, [entryPoint, onClose]);
+  }, [entryPoint, onClose, resetTurnstile]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -165,7 +226,14 @@ export function JobApplicationModal({
     setSubmitError("");
     setSubmitSuccess(false);
     setFormData(createInitialFormData(entryPoint));
-  }, [isOpen, entryPoint]);
+    resetTurnstile();
+
+    // Mount Turnstile when modal opens if script already loaded
+    if (window.turnstile && TURNSTILE_SITE_KEY) {
+      // Small delay to ensure DOM is ready
+      setTimeout(mountTurnstile, 100);
+    }
+  }, [isOpen, entryPoint, resetTurnstile, mountTurnstile]);
 
   const successRef = useRef<HTMLDivElement>(null);
 
@@ -211,6 +279,15 @@ export function JobApplicationModal({
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    // Verify Turnstile token if configured
+    if (TURNSTILE_SITE_KEY && !turnstileToken) {
+      setSubmitError(
+        "Please complete the security verification before submitting.",
+      );
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitError("");
 
@@ -242,9 +319,10 @@ export function JobApplicationModal({
         resumeKey = uploadResult.data.key;
       }
 
-      // Submit application with resume URL
+      // Submit application with resume URL and Turnstile token
       const applicationData = {
         ...formData,
+        turnstileToken,
         resumeFileName: formData.resumeFile?.name || "",
         resumeFileSize: formData.resumeFile?.size || 0,
         resumeUrl: resumeUrl,
@@ -286,6 +364,7 @@ export function JobApplicationModal({
           ? error.message
           : "Could not submit your application. Please try again.",
       );
+      resetTurnstile();
     } finally {
       setIsSubmitting(false);
     }
@@ -328,11 +407,14 @@ export function JobApplicationModal({
             >
               Application Received
             </h3>
-            <p className="mb-6 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="mb-6 text-base sm:text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
               Thank you for reaching out to MH Construction. Our team has your
               information and will review it against current hiring needs and
-              upcoming work. We believe THE ROI IS THE RELATIONSHIP—and that
-              starts here.
+              upcoming work. We believe{" "}
+              <span className="font-semibold text-brand-primary dark:text-brand-secondary">
+                THE ROI IS THE RELATIONSHIP
+              </span>
+              —and that starts here.
             </p>
             <div className="bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-4 rounded-xl border border-brand-primary/30 dark:border-brand-primary/40 inline-block">
               <div className="flex items-center gap-2">
@@ -481,18 +563,20 @@ export function JobApplicationModal({
 
           <div className="p-6 max-h-[calc(90vh-200px)] overflow-y-auto">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="rounded-2xl border border-brand-primary/15 bg-brand-primary/5 p-4 sm:p-5 dark:border-brand-primary/25 dark:bg-brand-primary/10">
+              <div className="rounded-2xl border-2 border-brand-primary/20 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 p-4 sm:p-5 dark:border-brand-primary/30 dark:from-brand-primary/10 dark:to-brand-secondary/10 shadow-sm">
                 <div className="flex items-start gap-3">
-                  <MaterialIcon
-                    icon="info"
-                    size="md"
-                    className="mt-0.5 text-brand-primary"
-                  />
+                  <div className="flex-shrink-0 p-2 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl">
+                    <MaterialIcon
+                      icon="info"
+                      size="md"
+                      className="text-brand-primary"
+                    />
+                  </div>
                   <div>
                     <h3 className="font-bold text-gray-900 dark:text-white text-lg">
                       Direct and simple by design
                     </h3>
-                    <p className="mt-1 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                    <p className="mt-1 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
                       We start with the essentials. If we need more detail, we
                       will ask in a direct follow-up conversation.
                     </p>
@@ -516,12 +600,17 @@ export function JobApplicationModal({
 
               <div>
                 <h3 className="flex items-center mb-4 font-bold text-gray-900 dark:text-white text-xl">
-                  <MaterialIcon
-                    icon="person"
-                    size="md"
-                    className="mr-3 text-brand-primary"
-                  />
+                  <span className="flex items-center justify-center w-8 h-8 mr-3 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg">
+                    <MaterialIcon
+                      icon="person"
+                      size="md"
+                      className="text-brand-primary"
+                    />
+                  </span>
                   Essentials
+                  <span className="ml-2 text-xs font-medium text-brand-secondary-text dark:text-brand-secondary bg-brand-secondary/10 px-2 py-0.5 rounded-full">
+                    Required
+                  </span>
                 </h3>
                 <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                   <Input
@@ -563,11 +652,13 @@ export function JobApplicationModal({
 
               <div>
                 <h3 className="flex items-center mb-4 font-bold text-gray-900 dark:text-white text-xl">
-                  <MaterialIcon
-                    icon="work"
-                    size="md"
-                    className="mr-3 text-brand-primary"
-                  />
+                  <span className="flex items-center justify-center w-8 h-8 mr-3 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg">
+                    <MaterialIcon
+                      icon="work"
+                      size="md"
+                      className="text-brand-primary"
+                    />
+                  </span>
                   Role and Availability
                 </h3>
                 <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
@@ -691,13 +782,15 @@ export function JobApplicationModal({
                   Optional. If you do not have a resume ready, send the
                   application anyway.
                 </p>
-                <div className="flex justify-center mt-1 px-6 pt-6 pb-6 border-2 border-gray-300 hover:border-brand-primary dark:border-gray-600 border-dashed rounded-xl transition-all hover:bg-brand-primary/5">
+                <div className="flex justify-center mt-1 px-6 pt-8 pb-8 border-2 border-gray-300 hover:border-brand-primary dark:border-gray-600 border-dashed rounded-xl transition-all duration-300 hover:bg-gradient-to-br hover:from-brand-primary/5 hover:to-brand-secondary/5 dark:hover:from-brand-primary/10 dark:hover:to-brand-secondary/10 group cursor-pointer">
                   <div className="space-y-2 text-center">
-                    <MaterialIcon
-                      icon="upload"
-                      size="3xl"
-                      className="mx-auto text-brand-primary/60"
-                    />
+                    <div className="mx-auto w-16 h-16 flex items-center justify-center bg-brand-primary/10 dark:bg-brand-primary/20 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                      <MaterialIcon
+                        icon="upload"
+                        size="2xl"
+                        className="text-brand-primary"
+                      />
+                    </div>
                     <div className="flex flex-wrap justify-center text-gray-600 dark:text-gray-300 text-sm">
                       <label className="relative bg-white dark:bg-gray-700 rounded-md font-semibold text-brand-primary hover:text-brand-secondary cursor-pointer transition-colors">
                         <span>Choose a file</span>
@@ -729,17 +822,69 @@ export function JobApplicationModal({
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-brand-secondary/20 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/10 p-4 sm:p-5 dark:border-brand-secondary/30 dark:from-brand-primary/10 dark:to-brand-secondary/15">
-                <p className="text-sm leading-relaxed text-gray-800 dark:text-gray-200">
-                  <MaterialIcon
-                    icon="handshake"
-                    size="sm"
-                    className="mr-2 inline text-brand-primary"
-                  />
-                  The goal is a direct conversation, not a long intake process.
-                  Start with what you have. We will handle the rest in
-                  follow-up.
-                </p>
+              <div className="rounded-2xl border-2 border-brand-secondary/25 bg-gradient-to-r from-brand-primary/5 via-transparent to-brand-secondary/10 p-4 sm:p-5 dark:border-brand-secondary/35 dark:from-brand-primary/10 dark:to-brand-secondary/15 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 p-2 bg-brand-secondary/15 dark:bg-brand-secondary/25 rounded-xl">
+                    <MaterialIcon
+                      icon="handshake"
+                      size="md"
+                      className="text-brand-secondary-text dark:text-brand-secondary"
+                    />
+                  </div>
+                  <p className="text-sm leading-relaxed text-gray-800 dark:text-gray-100">
+                    <span className="font-semibold">
+                      The goal is a direct conversation
+                    </span>
+                    , not a long intake process. Start with what you have. We
+                    will handle the rest in follow-up.
+                  </p>
+                </div>
+              </div>
+
+              {/* Security Trust Indicator & Turnstile */}
+              <div className="rounded-2xl border-2 border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-brand-primary/10 p-4 dark:border-brand-primary/30 dark:from-brand-primary/10 dark:to-brand-primary/15">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex-shrink-0 p-2 bg-brand-primary/15 dark:bg-brand-primary/25 rounded-xl">
+                      <MaterialIcon
+                        icon="verified_user"
+                        size="md"
+                        className="text-brand-primary"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                        Your data is protected
+                      </p>
+                      <p className="text-xs text-gray-600 dark:text-gray-300">
+                        SSL encrypted • Rate limited • Bot protected
+                      </p>
+                    </div>
+                  </div>
+                  {TURNSTILE_SITE_KEY && (
+                    <div
+                      ref={turnstileRef}
+                      className="cf-turnstile flex-shrink-0"
+                      data-sitekey={TURNSTILE_SITE_KEY}
+                    />
+                  )}
+                </div>
+                {TURNSTILE_SITE_KEY && !turnstileReady && (
+                  <p className="mt-2 text-xs text-gray-500 dark:text-gray-400 text-center sm:text-right">
+                    Loading security verification...
+                  </p>
+                )}
+                {TURNSTILE_SITE_KEY && turnstileReady && !turnstileToken && (
+                  <p className="mt-2 text-xs text-amber-600 dark:text-amber-400 text-center sm:text-right">
+                    Please complete the security check above
+                  </p>
+                )}
+                {turnstileToken && (
+                  <p className="mt-2 text-xs text-brand-primary dark:text-brand-secondary text-center sm:text-right flex items-center justify-center sm:justify-end gap-1">
+                    <MaterialIcon icon="check_circle" size="sm" />
+                    Verified
+                  </p>
+                )}
               </div>
 
               {submitError && (
@@ -793,6 +938,15 @@ export function JobApplicationModal({
           </div>
         </div>
       </div>
+
+      {/* Load Cloudflare Turnstile script */}
+      {TURNSTILE_SITE_KEY && (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          strategy="lazyOnload"
+          onLoad={mountTurnstile}
+        />
+      )}
     </div>
   );
 }

@@ -523,29 +523,68 @@ style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
 
 ### Core Brand Icons
 
+> **Note:** These are _semantic/conceptual_ icons representing brand values and concepts. For page navigation icons, see the "Navigation & UI Icons" section above.
+
 **Primary Identity:**
 
 - `engineering` - Engineering expertise, core services
 - `verified` - Quality assurance, certifications
-- `handshake` - Partnerships, client relationships
+- `handshake` - Partnerships, client relationships (conceptual use)
 - `military_tech` - Veteran-owned status, military precision
 
-**Service Icons:**
+**Service Icons (Conceptual):**
 
-- `construction` - Allies, vendor services
+- `construction` - Construction work, vendor services (concept)
 - `business` - Commercial projects, business services
 - `home` - Residential projects, homeowner services
 - `factory` - Industrial projects, manufacturing facilities
 
 ### Navigation & UI Icons
 
-**Primary Navigation:**
+> **📁 Source of Truth:** `/src/lib/constants/navigation-icons.ts`
+>
+> All page navigation icons are centralized in this file. Import `PAGE_ICONS` or `SEMANTIC_ICONS` from this module to ensure consistency.
 
-- `home` - Homepage
-- `info` - About page
-- `build` - Services page
-- `contact_mail` - Contact page
-- `work` - Projects/portfolio
+**Standardized Page Icons:**
+
+| Page          | Icon                | Usage                      |
+| ------------- | ------------------- | -------------------------- |
+| Home          | `home`              | Homepage navigation        |
+| Contact       | `contact_phone`     | Contact page links         |
+| Services      | `build`             | Services page navigation   |
+| Projects      | `photo_library`     | Project portfolio links    |
+| Resources     | `folder_open`       | Resources/downloads page   |
+| Safety        | `verified_user`     | Safety information page    |
+| FAQ           | `help`              | FAQ/help page              |
+| About         | `military_tech`     | About page (veteran-owned) |
+| Team          | `groups`            | Team/staff page            |
+| Allies        | `group`             | Partner vendors page       |
+| Public Sector | `account_balance`   | Government services page   |
+| Veterans      | `workspace_premium` | Veterans services page     |
+| Careers       | `work`              | Careers/jobs page          |
+| Testimonials  | `star`              | Customer reviews page      |
+| Privacy       | `shield`            | Privacy policy             |
+| Terms         | `gavel`             | Terms of service           |
+| Accessibility | `accessibility`     | Accessibility statement    |
+| Sitemap       | `account_tree`      | Site map page              |
+
+**Usage Example:**
+
+```tsx
+import { PAGE_ICONS, SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
+
+// Direct lookup
+<MaterialIcon icon={PAGE_ICONS.services} /> // "build"
+
+// In a link component
+<Link href="/services">
+  <MaterialIcon icon={PAGE_ICONS.services} />
+  Services
+</Link>
+
+// Semantic/contextual icons (can differ from page icons)
+<MaterialIcon icon={SEMANTIC_ICONS.partnership} /> // "handshake"
+```
 
 **User Actions:**
 
@@ -890,9 +929,9 @@ import { MaterialIcon } from '@/components/icons/MaterialIcon';
 ---
 
 **Document Maintained By:** MH Construction Development Team  
-**Last Major Update:** November 17, 2025 (Consolidation)  
-**Next Review Date:** March 15, 2026  
-**Version:** 2.0.0 (Consolidated from 5 source files)
+**Last Major Update:** January 2025 (Navigation icon standardization)  
+**Next Review Date:** April 2025  
+**Version:** 2.1.0 (Added centralized navigation icons)
 
 ---
 

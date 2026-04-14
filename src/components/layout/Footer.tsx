@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { PNWStatesMap } from "@/components/icons/PNWStatesMap";
 import { AdminSignInModal } from "@/components/ui/modals/AdminSignInModal";
 import {
   TrackedPhoneLink,
@@ -45,10 +46,15 @@ type LicenseDetail = {
 
 const navCol1Links: FooterNavItem[] = [
   { href: "/", icon: "home", label: "Home", sub: "Base HQ" },
-  { href: "/contact", icon: "handshake", label: "Contact", sub: "Rally Point" },
+  {
+    href: "/contact",
+    icon: "contact_phone",
+    label: "Contact",
+    sub: "Rally Point",
+  },
   {
     href: "/services",
-    icon: "construction",
+    icon: "build",
     label: "Services",
     sub: "Operations",
   },
@@ -59,23 +65,23 @@ const navCol1Links: FooterNavItem[] = [
     sub: "Missions",
   },
   {
-    href: "/services",
-    icon: "fact_check",
-    label: "Inspections",
-    sub: "Quality Assurance",
+    href: "/resources",
+    icon: "folder_open",
+    label: "Resources",
+    sub: "Field Intel",
+  },
+  {
+    href: "/safety",
+    icon: "verified_user",
+    label: "Safety",
+    sub: "Force Protection",
   },
   { href: "/faq", icon: "help", label: "Help/FAQ", sub: "Intel Brief" },
-  {
-    href: "/services",
-    icon: "home_repair_service",
-    label: "Maintenance",
-    sub: "Field Service",
-  },
 ];
 
 const navCol2Links: FooterNavItem[] = [
-  { href: "/about", icon: "foundation", label: "About Us", sub: "Our Oath" },
-  { href: "/team", icon: "people", label: "Our Team", sub: "Chain of Command" },
+  { href: "/about", icon: "military_tech", label: "About Us", sub: "Our Oath" },
+  { href: "/team", icon: "groups", label: "Our Team", sub: "Chain of Command" },
   { href: "/allies", icon: "group", label: "Partners", sub: "Allies" },
   {
     href: "/public-sector",
@@ -85,22 +91,16 @@ const navCol2Links: FooterNavItem[] = [
   },
   {
     href: "/veterans",
-    icon: "military_tech",
+    icon: "workspace_premium",
     label: "Veterans",
     sub: "Service First",
   },
-  { href: "/careers", icon: "handshake", label: "Careers", sub: "Enlist" },
+  { href: "/careers", icon: "work", label: "Careers", sub: "Enlist" },
   {
     href: "/testimonials",
-    icon: "verified",
+    icon: "star",
     label: "Reviews",
     sub: "Commendations",
-  },
-  {
-    href: "/safety",
-    icon: "verified_user",
-    label: "Safety",
-    sub: "Force Protection",
   },
 ];
 
@@ -630,6 +630,20 @@ export default function Footer() {
                   <FooterNavLink key={`${link.href}-${link.label}`} {...link} />
                 ))}
               </div>
+
+              {/* Service Area Map */}
+              <div className="mt-4 flex justify-center sm:justify-start">
+                <div className="rounded-lg border border-brand-primary/20 bg-brand-primary/5 p-3 transition-all duration-300 hover:border-brand-primary/40 hover:bg-brand-primary/15 dark:border-brand-primary/30 dark:bg-brand-primary/10">
+                  <PNWStatesMap
+                    width={160}
+                    height={112}
+                    className="drop-shadow-md"
+                  />
+                  <div className="mt-2 text-center text-xs font-semibold text-brand-secondary dark:text-brand-secondary-light">
+                    Serving the Pacific Northwest
+                  </div>
+                </div>
+              </div>
             </nav>
 
             {/* Column 3: Company & Partnerships */}
@@ -908,21 +922,69 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Clean Bottom Bar - Streamlined Design */}
-          <div className="pt-6 pb-6 border-gray-700 dark:border-gray-600 border-t">
-            <div className="flex flex-wrap items-center justify-center gap-3 xs:gap-4">
-              {/* Copyright */}
-              <div className="flex items-center gap-2 rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-3 py-2 dark:border-brand-primary/30 dark:bg-brand-primary/10">
+          {/* Bottom Bar - Enhanced Design */}
+          <div className="pt-8 pb-6 border-t border-gray-700/50 dark:border-gray-600/50">
+            {/* Primary Row: Legal Links as Icon Pills */}
+            <nav
+              className="flex flex-wrap justify-center items-center gap-2 xs:gap-3 mb-6"
+              aria-label="Legal and utility links"
+            >
+              <Link
+                href="/privacy"
+                className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 hover:from-brand-primary/15 hover:to-brand-secondary/15 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
+              >
                 <MaterialIcon
-                  icon="copyright"
+                  icon="shield"
                   size="sm"
-                  className="text-brand-secondary dark:text-brand-secondary-light"
+                  className="text-brand-secondary/70 group-hover:text-brand-secondary transition-colors"
                 />
-                <span className="text-sm text-gray-300 dark:text-gray-200 font-semibold">
-                  2026 {COMPANY_INFO.name}, Inc.
+                <span className="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors">
+                  Privacy
                 </span>
-              </div>
+              </Link>
+              <Link
+                href="/terms"
+                className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 hover:from-brand-primary/15 hover:to-brand-secondary/15 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
+              >
+                <MaterialIcon
+                  icon="gavel"
+                  size="sm"
+                  className="text-brand-secondary/70 group-hover:text-brand-secondary transition-colors"
+                />
+                <span className="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors">
+                  Terms
+                </span>
+              </Link>
+              <Link
+                href="/accessibility"
+                className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 hover:from-brand-primary/15 hover:to-brand-secondary/15 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
+              >
+                <MaterialIcon
+                  icon="accessibility"
+                  size="sm"
+                  className="text-brand-secondary/70 group-hover:text-brand-secondary transition-colors"
+                />
+                <span className="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors">
+                  Accessibility
+                </span>
+              </Link>
+              <Link
+                href="/sitemap.xml"
+                className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 hover:from-brand-primary/15 hover:to-brand-secondary/15 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
+              >
+                <MaterialIcon
+                  icon="account_tree"
+                  size="sm"
+                  className="text-brand-secondary/70 group-hover:text-brand-secondary transition-colors"
+                />
+                <span className="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors">
+                  Sitemap
+                </span>
+              </Link>
+            </nav>
 
+            {/* Secondary Row: Company Info & Actions */}
+            <div className="flex flex-wrap items-center justify-center gap-3 xs:gap-4 pb-4 mb-4 border-b border-gray-700/30">
               {/* Areas Served */}
               <ServiceAreasDropdown
                 isOpen={areasDropdownOpen}
@@ -932,57 +994,10 @@ export default function Footer() {
               {/* Licensed */}
               <LicenseBadge />
 
-              {/* Staff Portal */}
-              <div className="rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-3 py-2 dark:border-brand-primary/30 dark:bg-brand-primary/10">
-                <form
-                  onSubmit={handleAccessCodeSubmit}
-                  className="flex items-center gap-2"
-                  aria-label="Staff portal access"
-                >
-                  <MaterialIcon
-                    icon="lock"
-                    size="sm"
-                    className="text-brand-secondary dark:text-brand-secondary-light flex-shrink-0"
-                  />
-                  <label htmlFor="footer-access-code" className="sr-only">
-                    Access code
-                  </label>
-                  <input
-                    id="footer-access-code"
-                    type="password"
-                    placeholder="Staff code"
-                    value={accessCode}
-                    onChange={(e) => setAccessCode(e.target.value)}
-                    autoComplete="off"
-                    className="w-20 rounded bg-gray-900/60 border border-gray-700 px-2 py-1 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-brand-primary transition-colors"
-                  />
-                  <button
-                    type="submit"
-                    aria-label="Submit access code"
-                    className="flex flex-shrink-0 items-center justify-center rounded border border-brand-secondary/50 bg-brand-primary hover:bg-brand-primary-dark px-2 py-1 transition-colors touch-manipulation"
-                  >
-                    <MaterialIcon
-                      icon="arrow_forward"
-                      size="sm"
-                      className="text-brand-secondary"
-                    />
-                  </button>
-                </form>
-                {accessCodeError && (
-                  <p
-                    role="alert"
-                    aria-live="assertive"
-                    className="mt-1 text-[10px] text-red-400"
-                  >
-                    {accessCodeError}
-                  </p>
-                )}
-              </div>
-
               {/* Back to Top Button */}
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="group flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-brand-secondary-light px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 touch-manipulation border border-brand-secondary/50 hover:border-brand-secondary"
+                className="group flex items-center gap-2 bg-gradient-to-r from-brand-primary to-brand-primary-dark hover:from-brand-primary-dark hover:to-brand-primary text-brand-secondary-light px-4 py-2 rounded-lg shadow-md hover:shadow-lg hover:shadow-brand-primary/20 transition-all duration-300 hover:scale-105 touch-manipulation border border-brand-secondary/30 hover:border-brand-secondary"
                 aria-label="Back to top"
               >
                 <MaterialIcon
@@ -996,55 +1011,69 @@ export default function Footer() {
               </button>
             </div>
 
-            {/* Legal Links Row */}
-            <nav
-              className="flex flex-wrap justify-center items-center gap-3 mt-6 pt-6 border-t-2 border-brand-primary/20 dark:border-brand-primary/30"
-              aria-label="Legal and utility links"
-            >
-              <Link
-                href="/privacy"
-                className="text-xs text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 font-semibold hover:underline decoration-brand-secondary dark:decoration-brand-secondary-light"
-                aria-label="Privacy Policy"
-              >
-                Privacy
-              </Link>
-              <span className="text-brand-primary/40 dark:text-brand-primary/50 text-xs">
-                •
-              </span>
-              <Link
-                href="/terms"
-                className="text-xs text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 font-semibold hover:underline decoration-brand-secondary dark:decoration-brand-secondary-light"
-                aria-label="Terms of Service"
-              >
-                Terms
-              </Link>
-              <span
-                className="text-brand-primary/40 dark:text-brand-primary/50 text-xs"
-                aria-hidden="true"
-              >
-                •
-              </span>
-              <Link
-                href="/accessibility"
-                className="text-xs text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 font-semibold hover:underline decoration-brand-secondary dark:decoration-brand-secondary-light"
-                aria-label="Accessibility Statement"
-              >
-                Accessibility
-              </Link>
-              <span
-                className="text-brand-primary/40 dark:text-brand-primary/50 text-xs"
-                aria-hidden="true"
-              >
-                •
-              </span>
-              <Link
-                href="/sitemap.xml"
-                className="text-xs text-gray-300 dark:text-gray-200 hover:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors duration-300 font-semibold hover:underline decoration-brand-secondary dark:decoration-brand-secondary-light"
-                aria-label="XML Sitemap for search engines"
-              >
-                Sitemap
-              </Link>
-            </nav>
+            {/* Final Row: Copyright & Staff Portal */}
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              {/* Copyright */}
+              <div className="flex items-center gap-2 text-gray-400 dark:text-gray-500">
+                <MaterialIcon
+                  icon="copyright"
+                  size="sm"
+                  className="text-brand-secondary/50"
+                />
+                <span className="text-sm font-medium">
+                  2026 {COMPANY_INFO.name}, Inc.
+                </span>
+                <span className="text-brand-secondary/50">•</span>
+                <span className="text-xs">Veteran-Owned</span>
+              </div>
+
+              {/* Staff Portal - Subtle */}
+              <div className="flex items-center">
+                <form
+                  onSubmit={handleAccessCodeSubmit}
+                  className="flex items-center gap-1.5 opacity-50 hover:opacity-100 transition-opacity duration-300"
+                  aria-label="Staff portal access"
+                >
+                  <MaterialIcon
+                    icon="lock"
+                    size="sm"
+                    className="text-gray-500 dark:text-gray-600"
+                  />
+                  <label htmlFor="footer-access-code" className="sr-only">
+                    Access code
+                  </label>
+                  <input
+                    id="footer-access-code"
+                    type="password"
+                    placeholder="Staff"
+                    value={accessCode}
+                    onChange={(e) => setAccessCode(e.target.value)}
+                    autoComplete="off"
+                    className="w-14 rounded bg-gray-800/50 border border-gray-700/50 px-2 py-0.5 text-[10px] text-gray-400 placeholder-gray-600 focus:outline-none focus:border-brand-primary/50 focus:bg-gray-800 transition-all"
+                  />
+                  <button
+                    type="submit"
+                    aria-label="Submit access code"
+                    className="flex items-center justify-center rounded bg-gray-700/50 hover:bg-brand-primary/50 p-1 transition-colors touch-manipulation"
+                  >
+                    <MaterialIcon
+                      icon="arrow_forward"
+                      size="sm"
+                      className="text-gray-500 hover:text-brand-secondary text-xs"
+                    />
+                  </button>
+                </form>
+                {accessCodeError && (
+                  <p
+                    role="alert"
+                    aria-live="assertive"
+                    className="ml-2 text-[10px] text-red-400"
+                  >
+                    {accessCodeError}
+                  </p>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </footer>

@@ -230,17 +230,18 @@ const translations = {
 function FormField({ label, wide = false }: { label: string; wide?: boolean }) {
   return (
     <div className={wide ? "col-span-2" : ""}>
-      <label className="block text-xs font-semibold text-gray-600 mb-1 print:text-gray-700">
+      <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-1.5 print:text-gray-700 uppercase tracking-wide">
         {label}
       </label>
-      <div className="h-8 border-b-2 border-gray-300 print:border-gray-400" />
+      <div className="h-10 border-b-2 border-gray-300 dark:border-gray-600 hover:border-brand-primary dark:hover:border-brand-secondary transition-colors print:border-gray-400" />
     </div>
   );
 }
 
 function SectionHeader({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="text-sm font-black uppercase tracking-widest text-brand-primary border-b-2 border-brand-primary pb-1 mb-4 mt-8 first:mt-0 print:text-gray-800 print:border-gray-800">
+    <h2 className="flex items-center gap-3 text-base font-black uppercase tracking-wider text-brand-primary dark:text-brand-secondary border-b-2 border-brand-primary dark:border-brand-secondary pb-2 mb-5 mt-10 first:mt-0 print:text-gray-800 print:border-gray-800">
+      <span className="flex-shrink-0 w-1 h-6 bg-brand-primary dark:bg-brand-secondary rounded-full print:hidden" />
       {children}
     </h2>
   );
@@ -248,29 +249,31 @@ function SectionHeader({ children }: { children: React.ReactNode }) {
 
 function CheckboxOption({ label }: { label: string }) {
   return (
-    <div className="flex items-center gap-2">
-      <div className="w-4 h-4 border-2 border-gray-400 rounded-sm print:border-gray-500" />
-      <span className="text-sm text-gray-700">{label}</span>
+    <div className="flex items-center gap-2 group">
+      <div className="w-4 h-4 border-2 border-gray-400 dark:border-gray-500 rounded group-hover:border-brand-primary dark:group-hover:border-brand-secondary transition-colors print:border-gray-500" />
+      <span className="text-sm text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-secondary transition-colors">
+        {label}
+      </span>
     </div>
   );
 }
 
 function WorkHistoryBlock({ t }: { t: (typeof translations)["en"] }) {
   return (
-    <div className="border border-gray-200 rounded-lg p-4 mb-4 print:border-gray-300 print:break-inside-avoid">
-      <div className="grid grid-cols-2 gap-4 mb-3">
+    <div className="border-2 border-gray-200 dark:border-gray-700 rounded-xl p-5 mb-4 bg-gray-50/50 dark:bg-gray-800/50 print:border-gray-300 print:break-inside-avoid print:bg-white shadow-sm">
+      <div className="grid grid-cols-2 gap-4 mb-4">
         <FormField label={t.employer} />
         <FormField label={t.jobTitle} />
       </div>
-      <div className="grid grid-cols-2 gap-4 mb-3">
+      <div className="grid grid-cols-2 gap-4 mb-4">
         <FormField label={t.dates} />
         <FormField label={t.reasonLeaving} />
       </div>
       <div>
-        <label className="block text-xs font-semibold text-gray-600 mb-1">
+        <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-1.5 uppercase tracking-wide">
           {t.duties}
         </label>
-        <div className="h-16 border-2 border-gray-300 rounded print:border-gray-400" />
+        <div className="h-20 border-2 border-gray-300 dark:border-gray-600 rounded-lg print:border-gray-400" />
       </div>
     </div>
   );
@@ -284,12 +287,15 @@ export default function PrintableApplicationClient() {
 
   return (
     <>
+      {/* Spacer for fixed navigation header */}
+      <div className="print:hidden h-[90px] xs:h-[100px] sm:h-[120px] md:h-[150px] lg:h-[180px]" />
+
       {/* Print toolbar — hidden when printing */}
-      <div className="print:hidden sticky top-0 z-10 bg-white border-b border-gray-200 shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
+      <div className="print:hidden sticky top-[90px] xs:top-[100px] sm:top-[120px] md:top-[150px] lg:top-[180px] z-10 bg-white dark:bg-gray-900 border-b-2 border-brand-primary/20 dark:border-brand-primary/30 shadow-lg">
+        <div className="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
           <Link
             href="/careers"
-            className="inline-flex items-center gap-1.5 text-sm text-gray-600 hover:text-gray-900"
+            className="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-gray-200 hover:text-brand-primary dark:hover:text-brand-secondary font-medium transition-colors"
           >
             <MaterialIcon icon="arrow_back" size="sm" />
             {t.backToCareers}
@@ -297,7 +303,7 @@ export default function PrintableApplicationClient() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setLang(lang === "en" ? "es" : "en")}
-              className="inline-flex items-center gap-2 border border-gray-300 hover:border-brand-primary text-gray-700 hover:text-brand-primary text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 border-2 border-gray-300 dark:border-gray-600 hover:border-brand-primary dark:hover:border-brand-secondary bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:text-brand-primary dark:hover:text-brand-secondary text-sm font-semibold px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md"
               aria-label={`Switch to ${lang === "en" ? "Spanish" : "English"}`}
             >
               <MaterialIcon icon="translate" size="sm" />
@@ -305,7 +311,7 @@ export default function PrintableApplicationClient() {
             </button>
             <button
               onClick={() => window.print()}
-              className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white text-sm font-bold px-5 py-2 rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white text-sm font-bold px-6 py-2.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-xl"
             >
               <MaterialIcon icon="print" size="sm" />
               {t.printButton}
@@ -346,32 +352,36 @@ export default function PrintableApplicationClient() {
         </div>
 
         {/* Brand Messaging Banner */}
-        <div className="mb-6 p-3 bg-brand-primary/5 border border-brand-primary/20 rounded-lg text-center print:bg-gray-50 print:border-gray-300">
-          <p className="text-sm font-bold text-brand-primary print:text-gray-800">
+        <div className="mb-6 p-4 bg-gradient-to-r from-brand-primary/10 via-brand-primary/5 to-brand-secondary/10 border-2 border-brand-primary/25 rounded-xl text-center print:bg-gray-50 print:border-gray-300 shadow-sm">
+          <p className="text-base font-black text-brand-primary print:text-gray-800">
             &ldquo;{t.brandSlogan}&rdquo;
           </p>
-          <p className="text-xs text-brand-secondary-text mt-1 font-semibold print:text-gray-600">
+          <p className="text-sm text-brand-secondary-text mt-2 font-bold tracking-wide print:text-gray-600">
             {t.roiMessage}
           </p>
         </div>
 
         {/* Instructions Box */}
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6 print:bg-white print:border-gray-300 print:break-inside-avoid">
-          <div className="flex gap-4">
+        <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 border-2 border-gray-200 dark:border-gray-700 rounded-xl p-5 mb-6 print:bg-white print:border-gray-300 print:break-inside-avoid shadow-sm">
+          <div className="flex gap-6">
             <div className="flex-1">
-              <h3 className="font-bold text-gray-900 text-sm mb-2 flex items-center gap-2">
-                <MaterialIcon
-                  icon="info"
-                  size="sm"
-                  className="text-brand-primary print:hidden"
-                />
+              <h3 className="font-bold text-gray-900 dark:text-white text-base mb-3 flex items-center gap-2">
+                <span className="flex items-center justify-center w-7 h-7 bg-brand-primary/15 dark:bg-brand-primary/25 rounded-lg print:hidden">
+                  <MaterialIcon
+                    icon="info"
+                    size="sm"
+                    className="text-brand-primary"
+                  />
+                </span>
                 {t.instructions}
               </h3>
-              <ul className="text-sm text-gray-600 space-y-1 print:text-xs">
+              <ul className="text-sm text-gray-700 dark:text-gray-200 space-y-2 print:text-xs">
                 {t.instructionsList.map((item, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <span className="text-brand-primary font-bold">•</span>
-                    {item}
+                    <span className="flex-shrink-0 w-5 h-5 flex items-center justify-center bg-brand-primary/15 text-brand-primary font-bold text-xs rounded-full mt-0.5">
+                      {i + 1}
+                    </span>
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>

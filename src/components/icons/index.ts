@@ -10,3 +10,4 @@
 // Base icon components
 export { MaterialIcon } from "./MaterialIcon";
 export { AmericanFlag } from "./AmericanFlag";
+export { PNWStatesMap } from "./PNWStatesMap";

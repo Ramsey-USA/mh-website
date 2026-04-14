@@ -163,7 +163,69 @@ import { trackClick, trackFormSubmit } from "@/lib/analytics/tracking";
 
 ---
 
-## 📦 Import Standards
+## � Form Security Standards
+
+**Effective Date:** April 14, 2026  
+**Status:** ✅ Mandatory
+
+### Core Requirement
+
+**All public-facing forms MUST implement Cloudflare Turnstile bot protection.**
+
+This includes:
+
+- Job applications
+- Contact forms
+- Newsletter signups
+- Consultation requests
+- Any form submitting user data to an API
+
+### Implementation Requirements
+
+| Requirement        | Client-Side | Server-Side |
+| ------------------ | ----------- | ----------- |
+| Turnstile Widget   | ✅ Required | —           |
+| Trust Indicator    | ✅ Required | —           |
+| Token Submission   | ✅ Required | —           |
+| Token Verification | —           | ✅ Required |
+| Rate Limiting      | —           | ✅ Required |
+
+### Quick Implementation
+
+**Client-side**: Include Turnstile widget + trust indicator in form  
+**Server-side**: Verify token with `verifyTurnstileToken()` before processing
+
+### Documentation
+
+- **[Form Security Standards](../../technical/form-security-standards.md)** - Complete implementation guide
+- **[Secrets Management](../../technical/secrets-management.md)** - Environment variable handling
+
+### Environment Variables Required
+
+```env
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=your_site_key  # Client-side
+TURNSTILE_SECRET_KEY=your_secret_key          # Server-side
+```
+
+### Best Practices
+
+✅ **DO:**
+
+- Add Turnstile to all public forms
+- Display visible trust indicators
+- Reset token on submission errors
+- Test both success and failure paths
+
+❌ **DON'T:**
+
+- Skip Turnstile for "simple" forms
+- Store tokens in localStorage
+- Expose secret keys in client code
+- Bypass verification in production
+
+---
+
+## �📦 Import Standards
 
 ### MANDATORY: Use `@/` Absolute Imports
 

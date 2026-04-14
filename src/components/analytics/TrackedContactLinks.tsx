@@ -80,17 +80,17 @@ export function TrackedEmailLink({
   const handleClick = () => {
     trackClick(trackId, {
       contactType: "email",
-      emailAddress: COMPANY_INFO.email,
+      emailAddress: COMPANY_INFO.email.main,
       ...trackProperties,
     });
   };
 
   return (
     <a
-      href={`mailto:${COMPANY_INFO.email}`}
+      href={`mailto:${COMPANY_INFO.email.main}`}
       onClick={handleClick}
       className={className}
-      aria-label={`Email us at ${COMPANY_INFO.email}`}
+      aria-label={`Email us at ${COMPANY_INFO.email.main}`}
     >
       {children}
     </a>
