@@ -32,7 +32,7 @@ export interface R2Bucket {
 interface UploadResult {
   success: boolean;
   key?: string;
-  url?: string | undefined;
+  url?: string;
   size?: number;
   error?: string;
 }
@@ -112,8 +112,8 @@ export class R2StorageService {
       return {
         success: true,
         key,
-        url,
         size: buffer.byteLength,
+        ...(url !== undefined && { url }),
       };
     } catch (error) {
       logger.error("R2 upload error:", error);

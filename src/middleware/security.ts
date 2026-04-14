@@ -164,7 +164,7 @@ export async function securityMiddleware(
  *
  * Provides per-request input validation (XSS sanitisation) and audit logging.
  * Rate limiting and security headers are applied by the global middleware
- * (securityMiddleware) so we deliberately do NOT call processRequest here a
+ * (securityMiddleware) so we deliberately do NOT call processRequest here
  * second time — that would double-charge every API request for both the rate
  * limiter and CSRF checks that the middleware already ran.
  */
