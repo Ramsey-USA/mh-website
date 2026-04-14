@@ -9,6 +9,7 @@ import {
   internalServerError,
 } from "@/lib/api/responses";
 import { escapeHtml, sanitizeUrl } from "@/lib/utils/escape-html";
+import { sendToN8nAsync } from "@/lib/notifications/n8n-webhook";
 
 export const dynamic = "force-dynamic";
 
@@ -62,6 +63,20 @@ async function handlePOST(request: NextRequest) {
     } else {
       logger.error("Failed to send phone tracking email:", emailResult.error);
     }
+
+    // Also send via n8n for workflow visibility
+    sendToN8nAsync({
+      type: "contact",
+      data: {
+        formType: "phone-call-tracking",
+        phoneNumber: data.phoneNumber,
+        source: data.source,
+        page: data.page || "Unknown",
+        userAgent: data.userAgent || "Unknown",
+        referrer: data.referrer || "Direct",
+        timestamp: data.timestamp,
+      },
+    });
 
     return createSuccessResponse(
       {

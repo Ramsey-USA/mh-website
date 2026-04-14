@@ -3,6 +3,7 @@
  * Error tracking and performance monitoring
  */
 
+// Client-side Sentry (browser)
 export {
   initSentry,
   captureException,
@@ -11,3 +12,11 @@ export {
   addBreadcrumb,
   Sentry,
 } from "./sentry";
+
+// Server-side Sentry (Cloudflare Workers/Pages)
+export {
+  createServerSentry,
+  captureServerException,
+  captureServerMessage,
+  withServerSentry,
+} from "./sentry-server";

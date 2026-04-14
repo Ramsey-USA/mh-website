@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { LIMITS } from "@/lib/constants/limits";
+import { sendToN8nAsync } from "@/lib/notifications/n8n-webhook";
 import {
   createSuccessResponse,
   badRequest,
@@ -214,6 +215,21 @@ async function handlePOST(request: NextRequest) {
       submissionId,
       category,
       fileKey,
+    });
+
+    // Send n8n notification for safety document upload
+    sendToN8nAsync({
+      type: "safety-form",
+      data: {
+        formType: "safety-intake",
+        submissionId,
+        submitterName,
+        submitterEmail,
+        companyName: companyName || "N/A",
+        category,
+        filename: safeName,
+        notes: notes || "None",
+      },
     });
 
     return createSuccessResponse(

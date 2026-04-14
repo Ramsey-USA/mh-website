@@ -5,6 +5,7 @@
 
 import { NextResponse, type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
+import { captureServerException } from "@/lib/monitoring/sentry-server";
 import { createDbClient } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
 import {
@@ -372,6 +373,10 @@ export async function handleFormSubmission<T = unknown>(
     const normalizedError =
       error instanceof Error ? error : new Error(String(error));
     logger.error(`Error processing ${config.submissionType}:`, normalizedError);
+    captureServerException(normalizedError, {
+      route: `form-handler/${config.submissionType}`,
+      extra: { submissionType: config.submissionType },
+    });
     return internalServerError(`Failed to process ${config.submissionType}`);
   }
 }
@@ -428,6 +433,10 @@ export async function handleFormRetrieval(
     const normalizedError =
       error instanceof Error ? error : new Error(String(error));
     logger.error(`Error fetching from ${tableName}:`, normalizedError);
+    captureServerException(normalizedError, {
+      route: `form-handler/retrieval`,
+      extra: { tableName },
+    });
     // Return error response using helper (best-effort pattern)
     return internalServerError("Failed to fetch submissions");
   }

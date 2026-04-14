@@ -1,5 +1,6 @@
 import { type NextRequest } from "next/server";
 import { logger } from "@/lib/utils/logger";
+import { captureServerException } from "@/lib/monitoring/sentry-server";
 import { createDbClient, type ContactSubmission } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
 import { sendEmail, type EmailAttachment } from "@/lib/email/email-service";
@@ -222,6 +223,7 @@ async function handlePOST(request: NextRequest) {
     );
   } catch (error) {
     logger.error("Error processing contact form:", error);
+    captureServerException(error, { request, route: "/api/contact" });
     return internalServerError("Failed to process contact form submission");
   }
 }
@@ -395,6 +397,7 @@ async function handleGET() {
     );
   } catch (error) {
     logger.error("Error fetching contact submissions:", error);
+    captureServerException(error, { route: "/api/contact GET" });
     return internalServerError("Failed to fetch contact submissions");
   }
 }

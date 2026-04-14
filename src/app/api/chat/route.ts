@@ -13,6 +13,7 @@ import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { withSecurity } from "@/middleware/security";
 import { rateLimit } from "@/lib/security/rate-limiter";
 import { logger } from "@/lib/utils/logger";
+import { captureServerException } from "@/lib/monitoring/sentry-server";
 import { buildSystemPrompt, ALLIES } from "@/lib/chatbot/knowledge-base";
 import { badRequest, internalServerError } from "@/lib/api/responses";
 
@@ -290,6 +291,7 @@ async function handler(request: NextRequest): Promise<Response> {
     logger.error("Chat API error", {
       error: error instanceof Error ? error.message : "unknown",
     });
+    captureServerException(error, { request, route: "/api/chat" });
     return internalServerError(
       "Something went wrong. Please try again or call (509) 308-6489.",
     );

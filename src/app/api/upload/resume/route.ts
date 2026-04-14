@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { logger } from "@/lib/utils/logger";
 import { LIMITS } from "@/lib/constants/limits";
+import { sendToN8nAsync } from "@/lib/notifications/n8n-webhook";
 import {
   getR2Bucket,
   R2StorageService,
@@ -94,6 +95,19 @@ async function handlePOST(request: NextRequest) {
       key: uploadResult.key,
       size: uploadResult.size,
       email: applicantEmail,
+    });
+
+    // Send n8n notification for new resume upload
+    sendToN8nAsync({
+      type: "job-application",
+      data: {
+        formType: "resume-upload",
+        applicantEmail: applicantEmail || "Not provided",
+        filename: safeName,
+        fileSize: `${Math.round(file.size / 1024)} KB`,
+        fileType: file.type,
+        storageKey: uploadResult.key,
+      },
     });
 
     return createSuccessResponse(

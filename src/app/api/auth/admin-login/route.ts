@@ -11,6 +11,7 @@ import { type NextRequest, NextResponse } from "next/server";
 import { generateTokenPair } from "@/lib/auth/jwt";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import { logger } from "@/lib/utils/logger";
+import { captureServerException } from "@/lib/monitoring/sentry-server";
 import {
   badRequest,
   unauthorized,
@@ -143,6 +144,7 @@ async function handler(request: NextRequest) {
     return response;
   } catch (error) {
     logger.error("Admin login error:", error);
+    captureServerException(error, { request, route: "/api/auth/admin-login" });
     return internalServerError("Authentication failed");
   }
 }

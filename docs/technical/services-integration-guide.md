@@ -24,6 +24,7 @@ Email notifications route through **n8n + Resend SMTP**.
 | **Portainer**        | ✅ Running         | `https://docker.mhc-gc.com:9443`  |
 | **Uptime Kuma**      | ✅ Monitoring      | `http://status.mhc-gc.com:3001`   |
 | **Resend**           | ✅ Domain verified | `mhc-gc.com`                      |
+| **Sentry**           | ✅ Client + Server | Error tracking (toucan-js)        |
 | **PostHog**          | ⏸️ Deferred        | Using Cloudflare Web Analytics ✅ |
 | **Twilio**           | ⏳ Not configured  | SMS integration pending           |
 
@@ -36,7 +37,8 @@ Email notifications route through **n8n + Resend SMTP**.
 5. ✅ TCP monitoring for website (bypasses Cloudflare bot protection)
 6. ✅ Internal monitors configured (n8n Health, Portainer Health)
 7. ✅ DNS subdomains configured (n8n, status, docker)
-8. ⏸️ PostHog deferred - using Cloudflare Web Analytics instead
+8. ✅ Server-side Sentry via toucan-js for API route errors
+9. ⏸️ PostHog deferred - using Cloudflare Web Analytics instead
 
 ---
 

@@ -4,6 +4,7 @@
  */
 
 import { logger } from "@/lib/utils/logger";
+import { captureException } from "@/lib/monitoring/sentry";
 import { dataCollector } from "./data-collector";
 import { MetricsCalculator } from "./metrics-calculator";
 import { getEventMetadata } from "./metadata";
@@ -211,6 +212,10 @@ export class AdvancedAnalyticsEngine {
    * Track error events
    */
   trackError(error: Error, context: Record<string, unknown> = {}): void {
+    // Send to Sentry for error tracking
+    captureException(error, context);
+
+    // Also track locally for analytics dashboard
     this.track("error_event", {
       error: error.message,
       stack: error.stack,
