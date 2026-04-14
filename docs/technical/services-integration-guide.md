@@ -89,16 +89,17 @@ Cloudflare Workers provides the application runtime, CDN, and edge services.
 
 ### Bindings Configured
 
-| Binding         | Type   | Purpose                      |
-| --------------- | ------ | ---------------------------- |
-| `AI`            | AI     | Workers AI for chatbot       |
-| `CACHE`         | KV     | Rate limiting, session cache |
-| `ANALYTICS`     | KV     | Server-side analytics        |
-| `DB`            | D1     | Primary database             |
-| `FILE_ASSETS`   | R2     | Static file storage          |
-| `SAFETY_INTAKE` | R2     | Safety form uploads          |
-| `RESUMES`       | R2     | Job application resumes      |
-| `ASSETS`        | Assets | Static Next.js assets        |
+| Binding                 | Type   | Purpose                         |
+| ----------------------- | ------ | ------------------------------- |
+| `AI`                    | AI     | Workers AI for chatbot          |
+| `CACHE`                 | KV     | Rate limiting, session cache    |
+| `ANALYTICS`             | KV     | Server-side analytics           |
+| `NEXT_CACHE_WORKERS_KV` | KV     | ISR caching (page revalidation) |
+| `DB`                    | D1     | Primary database                |
+| `FILE_ASSETS`           | R2     | Static file storage             |
+| `SAFETY_INTAKE`         | R2     | Safety form uploads             |
+| `RESUMES`               | R2     | Job application resumes         |
+| `ASSETS`                | Assets | Static Next.js assets           |
 
 ### Required Dashboard Settings
 

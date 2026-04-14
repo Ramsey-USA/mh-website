@@ -474,7 +474,7 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 - [ ] Bind D1 database (`DB` → `mh-construction-db`) in dashboard
 - [ ] Create R2 buckets: `mh-construction-assets`, `mh-construction-safety-intake`, and `mh-construction-resumes`
 - [ ] Bind R2 buckets (`FILE_ASSETS` → `mh-construction-assets`, `SAFETY_INTAKE` → `mh-construction-safety-intake`, `RESUMES` → `mh-construction-resumes`) in dashboard
-- [ ] Bind KV namespaces: `CACHE` (fleet-wide rate limiting) and `ANALYTICS` (server-side analytics)
+- [ ] Bind KV namespaces: `CACHE` (rate limiting), `ANALYTICS` (server-side analytics), `NEXT_CACHE_WORKERS_KV` (ISR caching)
 - [ ] Connect custom domain `www.mhc-gc.com` under Workers & Pages → mhc-v2-website → Custom Domains
 - [ ] Verify SSL certificate is active (**Full strict** — not Flexible)
 - [ ] Enable **Always Use HTTPS** (Security → Settings)
