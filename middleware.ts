@@ -3,19 +3,13 @@
  * Enhanced middleware with Cloudflare optimization and security features
  */
 
-import { type NextRequest, NextResponse } from "next/server";
+import { type NextRequest } from "next/server";
 import { securityMiddleware } from "./src/middleware/security";
 
 export async function middleware(request: NextRequest) {
-  // Apex → www canonical redirect (mhc-gc.com → www.mhc-gc.com).
-  // Future upgrade: replace with a Cloudflare Redirect Rule (dashboard →
-  // Rules → Redirect Rules → "apex-to-www") to resolve at the CDN edge
-  // before the Worker starts, saving ~10-20 ms of Worker CPU per redirect.
-  const url = new URL(request.url);
-  if (url.hostname === "mhc-gc.com") {
-    url.hostname = "www.mhc-gc.com";
-    return NextResponse.redirect(url.toString(), { status: 301 });
-  }
+  // Apex → www redirect is handled by Cloudflare Redirect Rule "apex-to-www"
+  // at the CDN edge (~10-20 ms faster than handling in Worker).
+  // Rule: https://mhc-gc.com/* → https://www.mhc-gc.com/${1}
 
   // Apply security middleware
   const response = await securityMiddleware(request);

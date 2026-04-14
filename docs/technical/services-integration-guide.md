@@ -127,6 +127,54 @@ Cloudflare Workers provides the application runtime, CDN, and edge services.
 
 For detailed Cloudflare configuration, see [cloudflare-guide.md](../deployment/cloudflare-guide.md).
 
+### Cloudflare Pro Features (Activated April 14, 2026)
+
+The Pro plan ($20/month) unlocks significant performance and security features:
+
+**Speed → Optimization → Image Optimization:**
+
+| Setting    | Value     | Impact                                        |
+| ---------- | --------- | --------------------------------------------- |
+| **Polish** | **Lossy** | Auto-compress images at edge; ~30-50% smaller |
+| **Mirage** | **ON**    | Lazy-load + responsive images for mobile/slow |
+
+> **Polish modes:** `Lossless` keeps quality identical; `Lossy` provides better
+> compression with imperceptible quality loss. For a construction company website
+> with hero photos and project images, `Lossy` is recommended.
+
+**Speed → Optimization → Image Resizing:**
+
+- Image Resizing: **ON**
+- Enables `cdn-cgi/image/` URLs for on-demand responsive images
+- Use via `format=auto,width=800,quality=85` parameters
+
+**Rules → Redirect Rules (Pro: 50 rules vs Free: 3):**
+
+Move the apex→www redirect from `middleware.ts` to edge:
+
+| Rule Name     | When                         | Then                                                                 | Status |
+| ------------- | ---------------------------- | -------------------------------------------------------------------- | ------ |
+| `apex-to-www` | hostname equals `mhc-gc.com` | Dynamic redirect to `https://www.mhc-gc.com${http.request.uri.path}` | 301    |
+
+> After creating this rule, remove the redirect block from `middleware.ts` to save
+> ~10-20 ms of Worker CPU per redirect request.
+
+**Security → WAF → Custom Rules (Pro: 5 rules):**
+
+| Rule Name          | Expression                                                                                             | Action                  |
+| ------------------ | ------------------------------------------------------------------------------------------------------ | ----------------------- |
+| `block-empty-ua`   | `http.request.uri.path contains "/api/" and len(http.user_agent) eq 0`                                 | Block                   |
+| `rate-limit-forms` | `http.request.uri.path contains "/api/contact" or http.request.uri.path contains "/api/consultations"` | Rate limit (10 req/min) |
+
+**Caching → Cache Analytics (Pro):**
+
+- View cache hit ratio, bandwidth savings, and asset performance
+- Target: >90% edge cache hit ratio for static assets
+
+**Speed → Optimization → Mobile Redirect:**
+
+- **OFF** — responsive design handles all viewports; no separate mobile site
+
 ---
 
 ## Hostinger (Domain Registration)

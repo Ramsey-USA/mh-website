@@ -125,6 +125,74 @@ Track these metrics in Cloudflare Analytics:
 
 > See the full dashboard settings table in [Cloudflare Deployment Guide](../../docs/deployment/cloudflare-guide.md#cloudflare-dashboard-performance-settings).
 
+---
+
+## Cloudflare Pro Features (Activated April 2026)
+
+The Pro plan unlocks additional performance optimizations:
+
+### Image Optimization (Pro)
+
+| Setting    | Value     | Impact                                           |
+| ---------- | --------- | ------------------------------------------------ |
+| **Polish** | **Lossy** | Auto-compress images at CDN edge; 30-50% smaller |
+| **Mirage** | **ON**    | Lazy-load + responsive images for mobile         |
+
+**Polish** compresses JPG/PNG/GIF files on the fly without code changes. **Lossy** mode
+provides the best compression for construction photos and hero images.
+
+**Mirage** detects slow connections and:
+
+- Lazy-loads below-the-fold images
+- Serves appropriately-sized images based on screen size
+- Streams low-quality placeholder → full image
+
+### Image Resizing (Pro)
+
+Enable on-demand image transformation via `cdn-cgi/image/` URLs:
+
+```text
+https://www.mhc-gc.com/cdn-cgi/image/width=800,quality=85,format=auto/images/hero.jpg
+```
+
+**Parameters:**
+
+- `width=800` — target width
+- `quality=85` — compression level (1-100)
+- `format=auto` — serve WebP/AVIF when supported
+- `fit=cover` — maintain aspect ratio
+
+### Edge Redirect Rules (Pro: 50 rules)
+
+Move redirects from Workers to the CDN edge for ~10-20ms savings:
+
+```
+Rule: apex-to-www
+When: hostname equals "mhc-gc.com"
+Then: Dynamic redirect to concat("https://www.mhc-gc.com", http.request.uri.path)
+Status: 301
+```
+
+### WAF Custom Rules (Pro: 5 rules)
+
+Block malicious traffic before it reaches Workers:
+
+```
+Rule: block-empty-ua
+Expression: (http.request.uri.path contains "/api/") and (len(http.user_agent) eq 0)
+Action: Block
+```
+
+### Pro Optimization Checklist
+
+- [ ] Speed → Optimization → Polish = **Lossy**
+- [ ] Speed → Optimization → Mirage = **ON**
+- [ ] Speed → Optimization → Image Resizing = **ON**
+- [ ] Rules → Redirect Rules → Create `apex-to-www`
+- [ ] Security → WAF → Create `block-empty-ua`
+
+---
+
 ## References
 
 - [Cloudflare Cache Documentation](https://developers.cloudflare.com/cache/)

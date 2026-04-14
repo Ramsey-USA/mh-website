@@ -16,6 +16,11 @@ remote = true
 # Cloudflare Dashboard Settings (not configurable via wrangler.toml)
 # ========================================================================
 #
+# PLAN: Cloudflare Pro (activated April 14, 2026)
+
+
+# --- FREE TIER SETTINGS (already configured) ---
+#
 # Speed → Optimization → Content Optimization:
 #   Early Hints ................. ON  — sends 103 with Link: preload headers
 #                                       (font + hero image defined in _headers)
@@ -35,13 +40,30 @@ remote = true
 #   HSTS ....................... Enable (managed via _headers in code;
 #                                       dashboard toggle provides defence-in-depth)
 #
-# Rules → Redirect Rules (future — currently handled in middleware.ts):
-#   "apex-to-www" rule: When hostname = mhc-gc.com → 301 to www.mhc-gc.com
-#   Moving this to a Redirect Rule saves ~10-20 ms Worker CPU per redirect.
-#
 # Caching → Tiered Cache:
 #   Smart Tiered Cache ......... ON  (free) — reduces origin hits by routing
 #                                       through regional upper-tier caches
+#
+# --- PRO TIER SETTINGS (configure in dashboard) ---
+#
+# Speed → Optimization → Image Optimization:
+#   Polish ..................... Lossy — auto-compress images at edge (30-50% smaller)
+#   Mirage ..................... ON    — lazy-load + responsive images for mobile
+#
+# Speed → Optimization → Image Resizing:
+#   Image Resizing ............. ON    — enables cdn-cgi/image/ URLs
+#
+# Rules → Redirect Rules (Pro: 50 rules):
+#   "apex-to-www" rule ......... hostname = mhc-gc.com → 301 to www.mhc-gc.com
+#                                After creating, remove redirect from middleware.ts
+#
+# Security → WAF → Custom Rules (Pro: 5 rules):
+#   "block-empty-ua" ........... Block API requests with empty User-Agent
+#   "rate-limit-forms" ......... Rate limit POST to /api/contact, /api/consultations
+#
+# Caching → Cache Analytics:
+#   Monitor cache hit ratio .... Target >90% for static assets
+#
 # ========================================================================
 
 # Workers Assets — serves the static output from opennextjs-cloudflare

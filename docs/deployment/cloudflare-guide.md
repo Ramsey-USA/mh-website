@@ -281,6 +281,131 @@ Status 301. After verifying the rule works, remove the redirect block from `midd
 
 ---
 
+## Cloudflare Pro Configuration (Activated April 14, 2026)
+
+The Pro plan ($20/month) unlocks significant performance and security features beyond
+the free tier. All settings below are configured in the Cloudflare Dashboard for the
+`mhc-gc.com` zone.
+
+### Speed → Optimization → Image Optimization (Pro)
+
+| Setting    | Value     | Impact                                                   |
+| ---------- | --------- | -------------------------------------------------------- |
+| **Polish** | **Lossy** | Auto-compress JPG/PNG/GIF at edge; 30-50% file reduction |
+| **Mirage** | **ON**    | Lazy-load images + serve responsive sizes on mobile/slow |
+
+> **Polish modes:**
+>
+> - `Lossless`: Strips metadata, no quality loss
+> - `Lossy`: Additional compression with imperceptible quality loss (recommended)
+> - `WebP`: Convert supported images to WebP format (best compression)
+>
+> For a construction company with hero photos and project galleries, **Lossy** provides
+> the best balance of quality and performance.
+
+**How Mirage works:**
+
+1. Detects visitor's network speed and screen size
+2. Lazy-loads below-the-fold images
+3. Serves appropriately-sized images to mobile devices
+4. Streams placeholder → full image for perceived performance
+
+### Speed → Optimization → Image Resizing (Pro)
+
+| Setting            | Value  | Impact                                 |
+| ------------------ | ------ | -------------------------------------- |
+| **Image Resizing** | **ON** | Enables on-demand image transformation |
+
+Once enabled, use the `cdn-cgi/image/` URL format for responsive images:
+
+```text
+https://www.mhc-gc.com/cdn-cgi/image/width=800,quality=85,format=auto/images/hero.jpg
+```
+
+**Recommended parameters:**
+
+- `width=800` — resize to 800px wide
+- `quality=85` — balance compression and quality
+- `format=auto` — serve WebP/AVIF when browser supports it
+- `fit=cover` — maintain aspect ratio, crop if needed
+
+### Rules → Redirect Rules (Pro: 50 vs Free: 3)
+
+Create these redirect rules to move logic from Workers to the edge:
+
+| Priority | Rule Name     | When                         | Then                                                                  | Status |
+| -------- | ------------- | ---------------------------- | --------------------------------------------------------------------- | ------ |
+| 1        | `apex-to-www` | hostname equals `mhc-gc.com` | Redirect to `concat("https://www.mhc-gc.com", http.request.uri.path)` | 301    |
+
+**To create the apex-to-www rule:**
+
+1. Dashboard → Rules → Redirect Rules → Create Rule
+2. Rule name: `apex-to-www`
+3. Field: `Hostname`, Operator: `equals`, Value: `mhc-gc.com`
+4. Type: `Dynamic`, Expression: `concat("https://www.mhc-gc.com", http.request.uri.path)`
+5. Status code: `301`
+6. Deploy and verify `curl -I http://mhc-gc.com` returns 301
+7. Remove redirect block from `middleware.ts` (see code change below)
+
+### Security → WAF → Custom Rules (Pro: 5 rules)
+
+| Rule Name          | Expression                                                                                                                                   | Action             |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `block-empty-ua`   | `(http.request.uri.path contains "/api/") and (len(http.user_agent) eq 0)`                                                                   | Block              |
+| `rate-limit-forms` | `(http.request.method eq "POST") and (http.request.uri.path contains "/api/contact" or http.request.uri.path contains "/api/consultations")` | Rate limit: 10/min |
+| `block-bad-bots`   | `(cf.client.bot) and not (cf.bot_management.verified_bot)`                                                                                   | Managed Challenge  |
+
+**To create the block-empty-ua rule:**
+
+1. Dashboard → Security → WAF → Custom rules → Create rule
+2. Rule name: `block-empty-ua`
+3. Expression: `(http.request.uri.path contains "/api/") and (len(http.user_agent) eq 0)`
+4. Action: Block
+5. Deploy
+
+### Caching → Cache Analytics (Pro)
+
+Pro unlocks detailed cache analytics:
+
+- **Cache hit ratio** — target >90% for static assets
+- **Bandwidth savings** — measure CDN offload
+- **Request breakdown** — by cache status (HIT/MISS/EXPIRED/DYNAMIC)
+- **Top cached URLs** — identify optimization opportunities
+
+Monitor weekly in Dashboard → Analytics → Cache.
+
+### Speed → Optimization → Mobile Redirect (Pro)
+
+| Setting             | Value   | Reason                                        |
+| ------------------- | ------- | --------------------------------------------- |
+| **Mobile Redirect** | **OFF** | Site uses responsive design; no separate `m.` |
+
+### Pro Plan — Feature Summary
+
+| Feature                    | Free Tier      | Pro Tier                | Status    |
+| -------------------------- | -------------- | ----------------------- | --------- |
+| Polish (image compression) | ❌             | ✅ Lossless/Lossy/WebP  | Configure |
+| Mirage (mobile images)     | ❌             | ✅                      | Configure |
+| Image Resizing             | ❌             | ✅ cdn-cgi/image URLs   | Configure |
+| Redirect Rules             | 3 rules        | 50 rules                | Configure |
+| WAF Custom Rules           | 1 rule         | 5 rules                 | Configure |
+| Cache Analytics            | Basic          | Advanced                | Available |
+| Always Online              | 5% of requests | Unlimited               | Default   |
+| Argo Smart Routing         | ❌             | Add-on ($5/mo + per-GB) | Optional  |
+
+### Pro Activation Checklist
+
+- [ ] **Polish:** Speed → Optimization → Image Optimization → Polish = Lossy
+- [ ] **Mirage:** Speed → Optimization → Image Optimization → Mirage = ON
+- [ ] **Image Resizing:** Speed → Optimization → Image Resizing = ON
+- [ ] **Redirect Rule:** Rules → Redirect Rules → Create `apex-to-www`
+- [ ] **WAF Rule 1:** Security → WAF → Create `block-empty-ua`
+- [ ] **WAF Rule 2:** Security → WAF → Create `rate-limit-forms` (optional)
+- [ ] **Remove middleware redirect:** Update `middleware.ts` after redirect rule works
+- [ ] **Verify Cache Analytics:** Analytics → Cache shows data
+
+---
+
 ## Troubleshooting
 
 ### ❌ "No build command specified. Skipping build step." / "Output directory not found"
