@@ -25,7 +25,7 @@ export interface SmsOptions {
 
 // Phone numbers to notify for urgent submissions
 export const ALERT_RECIPIENTS = {
-  matt: "+15093086489",
+  matt: "+15094912494",
   // Add more recipients as needed
 } as const;
 

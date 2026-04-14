@@ -212,15 +212,10 @@ async function handlePOST(request: NextRequest) {
       },
     });
 
-    // SMS alert for consultations or urgent contacts
-    const isUrgent =
-      data.type === "consultation" ||
-      data.subject?.toLowerCase().includes("urgent") ||
-      data.subject?.toLowerCase().includes("emergency");
-
-    if (isUrgent) {
+    // SMS alert for consultation requests only
+    if (data.type === "consultation") {
       alertMatt(
-        `${data.type === "consultation" ? "Consultation" : "Urgent"} from ${data.name}: ${data.subject || data.message.slice(0, 50)}`,
+        `New Consultation from ${data.name}: ${data.subject || data.message.slice(0, 50)}`,
       );
     }
 
