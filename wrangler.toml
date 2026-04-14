@@ -149,17 +149,11 @@ id = "b6ecda1ca7a7463db0f8a3b5d9681131"
 # NEXT_CACHE_WORKERS_KV — required for ISR (Incremental Static Regeneration).
 # 13 pages declare `export const revalidate = 86400` (location pages, team,
 # testimonials). Without this binding, those pages are built once at deploy time
-# and never re-rendered — `revalidate` has no effect. For now the content is
-# purely static local data so this is functionally acceptable.
+# and never re-rendered — `revalidate` has no effect.
 #
-# To activate ISR revalidation:
-#   1. wrangler kv namespace create NEXT_CACHE_WORKERS_KV
-#   2. wrangler kv namespace create NEXT_CACHE_WORKERS_KV --preview
-#   3. Uncomment and fill in:
-# [[kv_namespaces]]
-# binding = "NEXT_CACHE_WORKERS_KV"
-# id = "YOUR_NEXT_CACHE_KV_ID"
-# preview_id = "YOUR_NEXT_CACHE_KV_PREVIEW_ID"
+[[kv_namespaces]]
+binding = "NEXT_CACHE_WORKERS_KV"
+id = "c7473e6da0dc44d5874f3bd58032b43d"
 #
 # ANALYTICS — server-side analytics aggregation (pageviews, conversions, clicks).
 # Provision with:
