@@ -5,6 +5,7 @@ import { createDbClient, type ContactSubmission } from "@/lib/db/client";
 import { getD1Database } from "@/lib/db/env";
 import { sendEmail, type EmailAttachment } from "@/lib/email/email-service";
 import { sendToN8nAsync } from "@/lib/notifications/n8n-webhook";
+import { alertMatt } from "@/lib/notifications/twilio-sms";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import { requireRole } from "@/lib/auth/middleware";
 import { withSecurity } from "@/middleware/security";
@@ -210,6 +211,18 @@ async function handlePOST(request: NextRequest) {
         ...data.metadata,
       },
     });
+
+    // SMS alert for consultations or urgent contacts
+    const isUrgent =
+      data.type === "consultation" ||
+      data.subject?.toLowerCase().includes("urgent") ||
+      data.subject?.toLowerCase().includes("emergency");
+
+    if (isUrgent) {
+      alertMatt(
+        `${data.type === "consultation" ? "Consultation" : "Urgent"} from ${data.name}: ${data.subject || data.message.slice(0, 50)}`,
+      );
+    }
 
     return createSuccessResponse(
       {

@@ -25,8 +25,8 @@ Email notifications route through **n8n + Resend SMTP**.
 | **Uptime Kuma**      | ✅ Monitoring      | `http://status.mhc-gc.com:3001`   |
 | **Resend**           | ✅ Domain verified | `mhc-gc.com`                      |
 | **Sentry**           | ✅ Client + Server | Error tracking (toucan-js)        |
+| **Twilio**           | ✅ Configured      | SMS alerts for urgent submissions |
 | **PostHog**          | ⏸️ Deferred        | Using Cloudflare Web Analytics ✅ |
-| **Twilio**           | ⏳ Not configured  | SMS integration pending           |
 
 ### Recent Updates (April 14, 2026)
 
@@ -38,7 +38,8 @@ Email notifications route through **n8n + Resend SMTP**.
 6. ✅ Internal monitors configured (n8n Health, Portainer Health)
 7. ✅ DNS subdomains configured (n8n, status, docker)
 8. ✅ Server-side Sentry via toucan-js for API route errors
-9. ⏸️ PostHog deferred - using Cloudflare Web Analytics instead
+9. ✅ Twilio SMS alerts for consultations and urgent contacts
+10. ⏸️ PostHog deferred - using Cloudflare Web Analytics instead
 
 ---
 

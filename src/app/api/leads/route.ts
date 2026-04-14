@@ -8,7 +8,7 @@
  * Protected route: Requires admin role
  */
 
-import { type NextRequest, NextResponse } from "next/server";
+import { type NextRequest } from "next/server";
 import { requireRole } from "@/lib/auth/middleware";
 import { withSecurity } from "@/middleware/security";
 import { logger } from "@/lib/utils/logger";
