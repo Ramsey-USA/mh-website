@@ -725,24 +725,39 @@ If more advanced CRM features (email sequences, marketing automation) are needed
 
 ### 🟡 Medium Priority
 
-#### Sentry (Error Tracking)
+#### Sentry (Error Tracking) ✅ Code Ready
 
 **Why:** Know when production breaks before users complain. Stack traces, user context, release tracking.
 
-**Setup:**
+**Status:** Code integrated — just needs DSN from Sentry dashboard.
 
+**Setup:**
 1. Create account at `sentry.io`
-2. Install: `npm install @sentry/nextjs`
-3. Run: `npx @sentry/wizard@latest -i nextjs`
-4. Add `SENTRY_DSN` to Cloudflare secrets
+2. Create new project → Browser JavaScript
+3. Copy the DSN (looks like `https://xxx@xxx.ingest.sentry.io/xxx`)
+4. Add to Cloudflare Dashboard → Workers & Pages → Settings → Environment Variables:
+   ```
+   NEXT_PUBLIC_SENTRY_DSN=https://xxx@xxx.ingest.sentry.io/xxx
+   ```
+5. Redeploy
+
+**Code Implementation:**
+- `src/lib/monitoring/sentry.ts` — Sentry initialization and helpers
+- `src/components/monitoring/SentryInit.tsx` — Client-side init component
+- `src/components/error/ErrorBoundary.tsx` — Auto-captures React errors
+- `src/app/layout.tsx` — SentryInit rendered on every page
 
 **Cost:** Free tier = 5K errors/month (plenty for this traffic)
 
-**Code Integration:**
-
+**Usage:**
 ```typescript
-// Already have error boundaries — Sentry captures automatically
-Sentry.captureException(error);
+import { captureException, captureMessage } from "@/lib/monitoring/sentry";
+
+// Capture errors manually
+captureException(error, { context: "checkout flow" });
+
+// Capture messages/events
+captureMessage("User completed onboarding", "info");
 ```
 
 #### VPS Backup Strategy
@@ -850,7 +865,7 @@ Thank you for trusting MH Construction!
 | ----------------- | ----------------------- | --------- | ------------------------------ | ------ |
 | SEO Visibility    | Google Search Console   | 🔴 High   | ✅ Verified — submit sitemap   | Free   |
 | Local SEO         | Google Business Profile | 🔴 High   | Schema ready — needs GBP claim | Free   |
-| Error Tracking    | Sentry                  | 🟡 Medium | Not started                    | Free   |
+| Error Tracking    | Sentry                  | 🟡 Medium | ✅ Code ready — needs DSN      | Free   |
 | Disaster Recovery | VPS Backups to R2       | 🟡 Medium | Not started                    | ~$1/mo |
 | Reputation        | Review Collection       | 🟡 Medium | Not started                    | Free   |
 | Paid Ads          | Google Analytics 4      | 🟢 Low    | Optional                       | Free   |

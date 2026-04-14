@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Component, type ReactNode } from "react";
 import { logger } from "@/lib/utils/logger";
+import { captureException } from "@/lib/monitoring/sentry";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
@@ -45,6 +46,11 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, State> {
     if (this.props.onError) {
       this.props.onError(error, errorInfo);
     }
+
+    // Track error in Sentry
+    captureException(error, {
+      componentStack: errorInfo.componentStack,
+    });
 
     // Track error in analytics if available
     if (typeof window !== "undefined" && window.gtag) {

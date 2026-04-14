@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/contexts/theme-context";
 import { WebVitalsReporter } from "@/components/performance/WebVitalsReporter";
 import { MobilePerformanceMonitor } from "@/components/performance/MobilePerformanceMonitor";
 import { ErrorBoundary } from "@/components/error";
+import { SentryInit } from "@/components/monitoring/SentryInit";
 import ChatWidgetLazy from "@/components/chatbot/ChatWidgetLazy";
 import {
   StructuredData,
@@ -207,6 +208,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans">
+        <SentryInit />
         <WebVitalsReporter />
         <MobilePerformanceMonitor />
         <SkipLink />
