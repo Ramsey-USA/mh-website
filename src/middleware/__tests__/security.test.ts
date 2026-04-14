@@ -261,7 +261,9 @@ describe("withSecurity", () => {
     );
   });
 
-  it("returns the denied security response before calling the handler", async () => {
+  it("calls the handler regardless of processRequest result (gating is now middleware-only)", async () => {
+    // withSecurity no longer calls processRequest; security gating is the
+    // responsibility of the global middleware.  The handler is always reached.
     mockProcessRequest.mockResolvedValue({
       allowed: false,
       response: NextResponse.json({ error: "denied" }, { status: 403 }),
@@ -271,8 +273,9 @@ describe("withSecurity", () => {
     const wrapped = withSecurity(handler);
     const response = await wrapped(makeRequest("/api/contact"));
 
-    expect(response.status).toBe(403);
-    expect(handler).not.toHaveBeenCalled();
+    expect(response.status).toBe(200);
+    expect(handler).toHaveBeenCalled();
+    expect(mockProcessRequest).not.toHaveBeenCalled();
   });
 
   it("returns 500 when the wrapped handler throws", async () => {

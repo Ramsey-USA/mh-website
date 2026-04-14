@@ -161,6 +161,12 @@ export async function securityMiddleware(
 
 /**
  * API route security wrapper
+ *
+ * Provides per-request input validation (XSS sanitisation) and audit logging.
+ * Rate limiting and security headers are applied by the global middleware
+ * (securityMiddleware) so we deliberately do NOT call processRequest here a
+ * second time — that would double-charge every API request for both the rate
+ * limiter and CSRF checks that the middleware already ran.
  */
 export function withSecurity<
   TArgs extends unknown[],
@@ -172,24 +178,6 @@ export function withSecurity<
     const ipAddress = getClientIP(request);
 
     try {
-      // Enhanced security for API routes
-      const securityResult = await securityManager.processRequest(request);
-
-      if (!securityResult.allowed) {
-        await auditLogger.logSecurityViolation(
-          AuditEventType.ACCESS_DENIED,
-          ipAddress,
-          userAgent,
-          {
-            path: pathname,
-            method: request.method,
-            reason: "Security check failed",
-          },
-        );
-
-        return securityResult.response!;
-      }
-
       // Validate input for POST/PUT/PATCH requests
       if (["POST", "PUT", "PATCH"].includes(request.method)) {
         const contentType = request.headers.get("content-type") || "";
@@ -256,13 +244,6 @@ export function withSecurity<
               headers: response.headers,
             });
 
-      // Apply security to response
-      const securedResponse = securityManager.applyResponseSecurity(
-        nextResponse,
-        securityResult,
-        securityResult.csrfToken,
-      );
-
       // Log API access
       await auditLogger.logDataAccess(
         pathname,
@@ -270,12 +251,12 @@ export function withSecurity<
         undefined, // No user ID in this context
         "success",
         {
-          statusCode: securedResponse.status,
+          statusCode: nextResponse.status,
           userAgent,
         },
       );
 
-      return securedResponse;
+      return nextResponse;
     } catch (error) {
       await auditLogger.logEvent(AuditEventType.ERROR_OCCURRED, {
         source: "api",

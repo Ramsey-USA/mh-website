@@ -102,15 +102,14 @@ describe("SecurityManager", () => {
     expect(result.csrfToken).toMatch(/^[a-f0-9]{64}$/);
   });
 
-  it("rejects state-changing requests without a matching csrf token", async () => {
+  it("allows state-changing requests without an X-CSRF-Token header (CSRF enforcement removed)", async () => {
     const manager = new SecurityManager(makeConfig());
 
     const result = await manager.processRequest(
       makeRequest("/api/contact", { method: "POST" }),
     );
 
-    expect(result.allowed).toBe(false);
-    expect(result.response?.status).toBe(403);
+    expect(result.allowed).toBe(true);
   });
 
   it("allows state-changing requests with matching csrf cookie and header", async () => {

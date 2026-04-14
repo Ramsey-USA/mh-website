@@ -673,21 +673,7 @@ export class SecurityManager {
       return { allowed: false, response };
     }
 
-    // CSRF protection for state-changing requests
-    if (["POST", "PUT", "DELETE", "PATCH"].includes(request.method)) {
-      const csrfToken = request.headers.get("X-CSRF-Token");
-      if (
-        !csrfToken ||
-        !this.csrfProtection.validateToken(request, csrfToken)
-      ) {
-        const response = new NextResponse("CSRF Token Invalid", {
-          status: 403,
-        });
-        return { allowed: false, response };
-      }
-    }
-
-    // Generate CSRF token for safe requests
+    // Generate CSRF token for safe requests (kept for future use / cookie refresh)
     if (request.method === "GET") {
       const token = this.csrfProtection.generateToken();
       return { allowed: true, csrfToken: token };

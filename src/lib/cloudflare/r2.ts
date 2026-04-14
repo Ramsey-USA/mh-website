@@ -32,7 +32,7 @@ export interface R2Bucket {
 interface UploadResult {
   success: boolean;
   key?: string;
-  url?: string;
+  url?: string | undefined;
   size?: number;
   error?: string;
 }
@@ -42,11 +42,9 @@ interface UploadResult {
  */
 export class R2StorageService {
   private bucket: R2Bucket | null = null;
-  private bucketName: string;
 
-  constructor(bucket: R2Bucket | null, bucketName: string) {
+  constructor(bucket: R2Bucket | null, _bucketName: string) {
     this.bucket = bucket;
-    this.bucketName = bucketName;
   }
 
   /**
@@ -103,12 +101,11 @@ export class R2StorageService {
       await this.bucket.put(key, buffer, putOptions);
 
       // Generate public URL.
-      // IMPORTANT: R2 public bucket domains follow the format
-      //   pub-<account-hash>.r2.dev/<key>
-      // NOT pub-<bucket-name>.r2.dev.
-      // Replace the hostname below with the actual value from:
+      // Set R2_PUBLIC_BASE_URL in your environment to the value shown in:
       //   Cloudflare Dashboard → R2 → <bucket> → Settings → Public Access
-      const url = `https://pub-${this.bucketName}.r2.dev/${key}`;
+      // e.g. https://pub-<account-hash>.r2.dev  (note: account-hash, NOT bucket name)
+      const publicBase = process.env["R2_PUBLIC_BASE_URL"]?.replace(/\/$/, "");
+      const url = publicBase ? `${publicBase}/${key}` : undefined;
 
       logger.info("File uploaded to R2", { key, size: buffer.byteLength });
 

@@ -49,6 +49,20 @@ function makeBucket(overrides: Partial<R2Bucket> = {}): R2Bucket {
 // ─── R2StorageService.uploadFile ─────────────────────────────────────────────
 
 describe("R2StorageService.uploadFile", () => {
+  const ORIGINAL_R2_BASE = process.env["R2_PUBLIC_BASE_URL"];
+
+  beforeEach(() => {
+    process.env["R2_PUBLIC_BASE_URL"] = "https://pub-abc123.r2.dev";
+  });
+
+  afterEach(() => {
+    if (ORIGINAL_R2_BASE === undefined) {
+      delete process.env["R2_PUBLIC_BASE_URL"];
+    } else {
+      process.env["R2_PUBLIC_BASE_URL"] = ORIGINAL_R2_BASE;
+    }
+  });
+
   it("returns error when bucket is null", async () => {
     const svc = new R2StorageService(null, "test-bucket");
     const result = await svc.uploadFile(new ArrayBuffer(4), "key.bin");
@@ -63,8 +77,25 @@ describe("R2StorageService.uploadFile", () => {
     const result = await svc.uploadFile(file, "uploads/test.txt");
     expect(result.success).toBe(true);
     expect(result.key).toBe("uploads/test.txt");
-    expect(result.url).toContain("test.txt");
+    expect(result.url).toBe("https://pub-abc123.r2.dev/uploads/test.txt");
     expect(bucket.put).toHaveBeenCalled();
+  });
+
+  it("returns undefined url when R2_PUBLIC_BASE_URL is not set", async () => {
+    delete process.env["R2_PUBLIC_BASE_URL"];
+    const bucket = makeBucket();
+    const svc = new R2StorageService(bucket, "test-bucket");
+    const result = await svc.uploadFile(new ArrayBuffer(4), "key.bin");
+    expect(result.success).toBe(true);
+    expect(result.url).toBeUndefined();
+  });
+
+  it("strips trailing slash from R2_PUBLIC_BASE_URL", async () => {
+    process.env["R2_PUBLIC_BASE_URL"] = "https://pub-abc123.r2.dev/";
+    const bucket = makeBucket();
+    const svc = new R2StorageService(bucket, "test-bucket");
+    const result = await svc.uploadFile(new ArrayBuffer(4), "folder/file.pdf");
+    expect(result.url).toBe("https://pub-abc123.r2.dev/folder/file.pdf");
   });
 
   it("uses explicit contentType over File.type", async () => {
