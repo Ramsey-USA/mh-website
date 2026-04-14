@@ -7,6 +7,7 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { usePageTracking } from "@/lib/analytics/hooks";
 import { SafetyTab } from "./SafetyTab";
 import { DriversTab } from "./DriversTab";
+import { LeadsTab } from "./LeadsTab";
 
 interface DashboardData {
   pageviews: {
@@ -53,7 +54,7 @@ export default function AnalyticsDashboardPage() {
   );
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<
-    "analytics" | "safety" | "drivers"
+    "analytics" | "leads" | "safety" | "drivers"
   >("analytics");
   const [adminToken, setAdminToken] = useState<string | null>(null);
 
@@ -154,40 +155,49 @@ export default function AnalyticsDashboardPage() {
       <div className="bg-gray-900/80 border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-1 py-2">
-            {(["analytics", "safety", "drivers"] as const).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-5 py-2 rounded-lg text-sm font-black uppercase tracking-wider transition-colors ${
-                  activeTab === tab
-                    ? "bg-brand-primary text-white"
-                    : "text-gray-400 hover:text-white hover:bg-gray-700"
-                }`}
-              >
-                {tab === "analytics" ? (
-                  <span className="flex items-center gap-2">
-                    <MaterialIcon icon="dashboard" size="sm" />
-                    Analytics
-                  </span>
-                ) : tab === "safety" ? (
-                  <span className="flex items-center gap-2">
-                    <MaterialIcon icon="safety_check" size="sm" />
-                    Safety
-                  </span>
-                ) : (
-                  <span className="flex items-center gap-2">
-                    <MaterialIcon icon="directions_car" size="sm" />
-                    Drivers
-                  </span>
-                )}
-              </button>
-            ))}
+            {(["analytics", "leads", "safety", "drivers"] as const).map(
+              (tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-5 py-2 rounded-lg text-sm font-black uppercase tracking-wider transition-colors ${
+                    activeTab === tab
+                      ? "bg-brand-primary text-white"
+                      : "text-gray-400 hover:text-white hover:bg-gray-700"
+                  }`}
+                >
+                  {tab === "analytics" ? (
+                    <span className="flex items-center gap-2">
+                      <MaterialIcon icon="dashboard" size="sm" />
+                      Analytics
+                    </span>
+                  ) : tab === "leads" ? (
+                    <span className="flex items-center gap-2">
+                      <MaterialIcon icon="person_search" size="sm" />
+                      Leads CRM
+                    </span>
+                  ) : tab === "safety" ? (
+                    <span className="flex items-center gap-2">
+                      <MaterialIcon icon="safety_check" size="sm" />
+                      Safety
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <MaterialIcon icon="directions_car" size="sm" />
+                      Drivers
+                    </span>
+                  )}
+                </button>
+              ),
+            )}
           </div>
         </div>
       </div>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {activeTab === "safety" ? (
+        {activeTab === "leads" ? (
+          <LeadsTab token={adminToken ?? ""} userName={userData?.name} />
+        ) : activeTab === "safety" ? (
           <SafetyTab token={adminToken ?? ""} />
         ) : activeTab === "drivers" ? (
           <DriversTab token={adminToken ?? ""} />

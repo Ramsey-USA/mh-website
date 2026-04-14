@@ -6,18 +6,25 @@
 **Status:** ✅ Active
 
 This guide documents the integration of all external services used by the MH Construction
-website: **Cloudflare** (hosting/CDN), **Hostinger** (domain), **Twilio** (SMS), and
-**Resend** (email).
+website: **GitHub** (code repository), **Cloudflare Pages** (hosting/CDN/WAF), **NameCheap** (domain),
+**Microsoft 365** (email hosting), **Hostinger VPS** (automation & monitoring), **Resend** (email engine),
+**Twilio** (communications), **PostHog** (analytics), and **Semrush Pro** (SEO).
+
+**Tech Stack:** Next.js 15 + Tailwind CSS + TypeScript — high-performance, mobile-responsive, tactical professional tone.
 
 ---
 
 ## Table of Contents
 
 - [Architecture Overview](#architecture-overview)
-- [Cloudflare (Hosting & CDN)](#cloudflare-hosting--cdn)
-- [Hostinger (Domain Registration)](#hostinger-domain-registration)
-- [Resend (Email Service)](#resend-email-service)
-- [Twilio (SMS Notifications)](#twilio-sms-notifications)
+- [GitHub (Code Repository)](#github-code-repository)
+- [Cloudflare Pages (Hosting & CDN)](#cloudflare-pages-hosting--cdn)
+- [NameCheap (Domain Registration)](#namecheap-domain-registration)
+- [Microsoft 365 (Email Hosting)](#microsoft-365-email-hosting)
+- [Hostinger VPS (Automation & Monitoring)](#hostinger-vps-automation--monitoring)
+- [Resend (Email Engine)](#resend-email-engine)
+- [Twilio (Communications)](#twilio-communications)
+- [Semrush Pro (SEO Intelligence)](#semrush-pro-seo-intelligence)
 - [Service Health Monitoring](#service-health-monitoring)
 - [Environment Variables](#environment-variables)
 - [Troubleshooting](#troubleshooting)
@@ -33,10 +40,18 @@ website: **Cloudflare** (hosting/CDN), **Hostinger** (domain), **Twilio** (SMS),
                                     │
                                     ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  HOSTINGER (Domain Registrar)                                               │
+│  GITHUB (Code Repository)                                                   │
+│  ├── Repo: Ramsey-USA/mh-website                                            │
+│  ├── Branch: main (production)                                              │
+│  ├── CI/CD: Auto-deploy to Cloudflare on push                               │
+│  └── Backups: n8n workflow exports stored here                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  NAMECHEAP (Domain Registrar)                                               │
 │  ├── Domain: mhc-gc.com                                                     │
-│  ├── DNS: Delegated to Cloudflare nameservers                               │
-│  └── MX Records: Configured for email hosting                               │
+│  └── DNS: Delegated to Cloudflare nameservers                               │
 └─────────────────────────────────────────────────────────────────────────────┘
                                     │
                                     ▼
@@ -51,12 +66,14 @@ website: **Cloudflare** (hosting/CDN), **Hostinger** (domain), **Twilio** (SMS),
                                     │
                                     ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  CLOUDFLARE WORKERS (Application Runtime)                                   │
+│  CLOUDFLARE PAGES (Application Runtime + WAF)                               │
 │  ├── Worker: mhc-v2-website                                                 │
 │  ├── Runtime: @opennextjs/cloudflare (Next.js 15)                           │
+│  ├── Framework: Tailwind CSS + TypeScript                                   │
+│  ├── Security: Enterprise WAF, Bot Protection, Turnstile (CAPTCHA)          │
 │  ├── Bindings:                                                              │
 │  │   ├── AI: Workers AI (chatbot)                                           │
-│  │   ├── KV: CACHE (rate limiting), ANALYTICS                               │
+│  │   ├── KV: CACHE (rate limiting), ANALYTICS, NEXT_CACHE_WORKERS_KV (ISR)  │
 │  │   ├── D1: Database (forms, users, sessions)                              │
 │  │   └── R2: FILE_ASSETS, SAFETY_INTAKE, RESUMES                            │
 │  └── Secrets: JWT_SECRET, passwords, API keys                               │
@@ -65,17 +82,70 @@ website: **Cloudflare** (hosting/CDN), **Hostinger** (domain), **Twilio** (SMS),
             ┌───────────────────────┴───────────────────────┐
             ▼                                               ▼
 ┌─────────────────────────────┐             ┌─────────────────────────────┐
-│  RESEND (Email Service)     │             │  TWILIO (SMS Service)       │
+│  RESEND (Email Engine)      │             │  TWILIO (Communications)    │
 │  ├── API: api.resend.com    │             │  ├── API: api.twilio.com    │
-│  ├── Domain: mhc-gc.com     │             │  ├── Number: +1-509-xxx     │
-│  ├── SPF/DKIM: Required     │             │  └── Use: Admin alerts      │
-│  └── Use: Form submissions  │             └─────────────────────────────┘
-└─────────────────────────────┘
+│  ├── Domain: mhc-gc.com     │             │  ├── Local 509 numbers      │
+│  ├── Transactional emails   │             │  ├── SMS notifications      │
+│  └── Marketing newsletters  │             │  └── WhatsApp Business API  │
+└─────────────────────────────┘             └─────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  MICROSOFT 365 (Email Hosting)                                              │
+│  ├── Provider: Outlook/Exchange Online                                      │
+│  ├── Domain: @mhc-gc.com mailboxes                                          │
+│  └── MX/SPF/DKIM: Configured in Cloudflare DNS                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  HOSTINGER VPS (KVM 2) - Internal Operations ("The Sentry")                 │
+│  ├── OS: Ubuntu 24.04 LTS + Docker                                          │
+│  ├── Management: Portainer (visual Docker dashboard)                        │
+│  ├── Automation: n8n (workflow automation)                                  │
+│  ├── Analytics: PostHog (self-hosted heatmaps & session recordings)         │
+│  └── Monitoring: Uptime Kuma (downtime alerts to phone)                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  SEMRUSH PRO (SEO Intelligence - Strategic)                                 │
+│  └── Periodic reconnaissance: keyword audits & competitor analysis          │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Cloudflare (Hosting & CDN)
+## GitHub (Code Repository)
+
+GitHub serves as the central code repository and backup location for automation workflows.
+
+### Repository
+
+- **URL:** `github.com/Ramsey-USA/mh-website`
+- **Branch:** `main` (production)
+- **Visibility:** Private
+
+### CI/CD Pipeline
+
+1. **Push to main** → GitHub triggers Cloudflare Pages deployment
+2. **Pre-commit hooks:** Type checking, linting, tests run locally
+3. **Auto-deploy:** Cloudflare builds and deploys on every push
+
+### Backup Strategy
+
+| Item            | Location                | Frequency        |
+| --------------- | ----------------------- | ---------------- |
+| Website code    | GitHub repo             | Every commit     |
+| n8n workflows   | `/backups/n8n/` in repo | Weekly export    |
+| Database schema | `/migrations/` in repo  | With each change |
+
+### Access
+
+- **Dashboard:** `github.com/Ramsey-USA/mh-website`
+- **Clone:** `git clone git@github.com:Ramsey-USA/mh-website.git`
+- **Codespaces:** Development environment in browser
+
+---
+
+## Cloudflare Pages (Hosting & CDN)
 
 Cloudflare Workers provides the application runtime, CDN, and edge services.
 
@@ -178,42 +248,133 @@ Move the apex→www redirect from `middleware.ts` to edge:
 
 ---
 
-## Hostinger (Domain Registration)
+## NameCheap (Domain Registration)
 
-Hostinger serves as the domain registrar for `mhc-gc.com`. DNS is delegated to Cloudflare
+NameCheap serves as the domain registrar for `mhc-gc.com`. DNS is delegated to Cloudflare
 for performance, security, and integration with Workers.
 
 ### Configuration Steps
 
-1. **Domain Registered:** `mhc-gc.com` registered with Hostinger
+1. **Domain Registered:** `mhc-gc.com` registered with NameCheap
 2. **Nameserver Delegation:** Point to Cloudflare nameservers:
    - `ann.ns.cloudflare.com`
    - `isaac.ns.cloudflare.com`
 3. **DNSSEC:** Enable after nameserver delegation (managed by Cloudflare)
 
-### Hostinger Dashboard
+### NameCheap Dashboard
 
-- **Domain Management:** `hpanel.hostinger.com` → Domains → mhc-gc.com
-- **Nameservers:** Custom → Cloudflare nameservers
+- **Domain Management:** `ap.www.namecheap.com` → Domain List → mhc-gc.com
+- **Nameservers:** Custom DNS → Cloudflare nameservers
 - **Auto-Renew:** Enable to prevent accidental expiration
-- **WHOIS Privacy:** Enable to protect registrant information
-
-### Email Configuration
-
-If using Hostinger email hosting alongside Cloudflare:
-
-1. In Cloudflare DNS, add MX records pointing to Hostinger mail servers
-2. Add SPF record: `v=spf1 include:_spf.hostinger.com ~all`
-3. Configure DKIM via Hostinger email dashboard
-
-> **Note:** Email sending (transactional) uses Resend, not Hostinger SMTP.
-> Hostinger email is for receiving mail at `@mhc-gc.com` addresses.
+- **WHOIS Privacy:** WhoisGuard enabled (free with NameCheap)
 
 ---
 
-## Resend (Email Service)
+## Microsoft 365 (Email Hosting)
 
-Resend provides transactional email delivery for form submissions and notifications.
+Microsoft 365 (Outlook/Exchange Online) provides email hosting for `@mhc-gc.com` mailboxes.
+
+### Configuration
+
+With DNS managed by Cloudflare, add these Microsoft 365 records:
+
+1. **MX Record:** `mhc-gc-com.mail.protection.outlook.com` (priority 0)
+2. **SPF Record:** `v=spf1 include:spf.protection.outlook.com ~all`
+3. **DKIM:** Configure CNAME records via Microsoft 365 admin center
+4. **Autodiscover:** CNAME → `autodiscover.outlook.com`
+
+### Microsoft 365 Admin Center
+
+- **Admin Portal:** `admin.microsoft.com`
+- **Exchange Admin:** `admin.exchange.microsoft.com`
+- **Mailboxes:** Create/manage `@mhc-gc.com` addresses
+- **Outlook Access:** `outlook.office.com` or desktop/mobile apps
+
+> **Note:** Transactional email (form submissions) uses Resend API, not Outlook SMTP.
+> Microsoft 365 is for employee mailboxes and receiving mail at `@mhc-gc.com`.
+
+---
+
+## Hostinger VPS (Automation & Monitoring)
+
+Hostinger VPS (KVM 2) serves as the primary server for internal operations, hosting
+automation workflows and monitoring tools.
+
+### Server Specifications
+
+| Component  | Details                         |
+| ---------- | ------------------------------- |
+| Plan       | Hostinger VPS KVM 2             |
+| OS         | Ubuntu 24.04 LTS                |
+| Engine     | Docker (containerized services) |
+| Management | Portainer (visual dashboard)    |
+
+### Services Running
+
+#### n8n (Workflow Automation)
+
+- **Purpose:** The "brain" of operations — automates workflows between services
+- **Access:** Via Portainer or direct container access
+- **Use Cases:**
+  - Form submission processing
+  - Notification routing
+  - Data synchronization
+  - Scheduled tasks
+
+#### Portainer (Container Management)
+
+- **Purpose:** Visual dashboard to manage Docker containers without CLI
+- **Port:** Typically `9443` (HTTPS) or `9000` (HTTP)
+- **Features:**
+  - Start/stop/restart containers
+  - View container logs
+  - Manage Docker networks and volumes
+  - Deploy new containers via UI
+
+#### PostHog (Self-Hosted Analytics)
+
+- **Purpose:** Replaces Hotjar — heatmaps and session recordings to see exactly how users interact with the site
+- **Features:**
+  - Session recordings
+  - Heatmaps (click, scroll, move)
+  - User journey funnels
+  - Feature flags
+  - A/B testing
+- **Privacy:** Self-hosted means full data ownership, no third-party data sharing
+- **Integration:** JavaScript snippet or `posthog-js` library
+
+#### Uptime Kuma (Downtime Monitor)
+
+- **Purpose:** Simple monitor that pings your phone if any site goes down
+- **Port:** Typically `3001`
+- **Monitored Sites:**
+  - `www.mhc-gc.com` (main site)
+  - Other internal services as needed
+- **Alerts:** Push notifications, SMS (via Twilio), email, Discord, Slack
+- **Dashboard:** Status page showing uptime history
+
+### VPS Access
+
+- **Hostinger Panel:** `hpanel.hostinger.com` → VPS → KVM 2
+- **SSH Access:** `ssh root@<vps-ip>` (use SSH keys, not passwords)
+- **Portainer:** `https://<vps-ip>:9443`
+
+### Docker Best Practices
+
+1. **Isolation:** Each service runs in its own container
+2. **Fail-safe:** Containers auto-restart on failure (`--restart=unless-stopped`)
+3. **Updates:** Use Portainer or `docker compose pull && docker compose up -d`
+4. **Backups:** Regularly backup Docker volumes and n8n workflows
+
+> **Note:** The VPS handles internal automation only. Public-facing website traffic
+> routes through Cloudflare Workers, not the VPS.
+
+---
+
+## Resend (Email Engine)
+
+Resend is the high-deliverability email engine for both **transactional follow-ups** and
+**marketing newsletters**.
 
 ### Configuration
 
@@ -262,21 +423,50 @@ await emailService.sendAcknowledgment(
 - **Pro Tier:** 50,000 emails/month, unlimited domains
 - **Contact Forms:** ~10-50 emails/day expected
 
+### Use Cases
+
+| Type              | Purpose                            | Example                                    |
+| ----------------- | ---------------------------------- | ------------------------------------------ |
+| **Transactional** | Form acknowledgments, admin alerts | "Thank you for your consultation request"  |
+| **Marketing**     | Newsletters, announcements         | Monthly company updates, project showcases |
+
 ---
 
-## Twilio (SMS Notifications)
+## Twilio (Communications)
 
-Twilio provides SMS notifications for admin alerts and urgent form submissions.
+Twilio powers SMS notifications, local 509 phone numbers, and WhatsApp Business API
+integration for multi-channel customer communication.
 
 ### Configuration
 
 **Dashboard:** `console.twilio.com`
 
-| Setting          | Value                |
-| ---------------- | -------------------- |
-| **Account SID**  | `ACxxxx...` (secret) |
-| **Auth Token**   | `xxxx...` (secret)   |
-| **Phone Number** | `+15093086489`       |
+| Setting            | Value                |
+| ------------------ | -------------------- |
+| **Account SID**    | `ACxxxx...` (secret) |
+| **Auth Token**     | `xxxx...` (secret)   |
+| **Primary Number** | `+15093086489`       |
+| **Region**         | 509 (Tri-Cities)     |
+
+### Services
+
+#### SMS Notifications
+
+- Admin alerts for urgent form submissions
+- Appointment reminders
+- Status updates
+
+#### Local 509 Numbers
+
+- Professional local presence for Tri-Cities area
+- Call forwarding to office lines
+- SMS-enabled for two-way communication
+
+#### WhatsApp Business API
+
+- Customer support channel
+- Rich media messaging (project photos, documents)
+- Template messages for common responses
 
 ### Code Integration
 
@@ -311,9 +501,38 @@ await sendNotificationWithRetry(
 
 ### Best Practices
 
-1. **Admin-only:** Only use SMS for admin notifications, not user confirmations
+1. **Admin-only SMS:** Only use SMS for admin notifications, not user confirmations
 2. **Batch carefully:** Use `sendBulkNotifications` for multiple alerts
 3. **Graceful degradation:** Code handles missing credentials without errors
+4. **WhatsApp templates:** Pre-approve message templates for business messages
+
+---
+
+## Semrush Pro (SEO Intelligence)
+
+Semrush Pro is used for periodic "reconnaissance" missions — strategic keyword audits
+and competitor analysis to inform content and SEO decisions.
+
+### Use Cases
+
+| Task                    | Frequency | Purpose                                     |
+| ----------------------- | --------- | ------------------------------------------- |
+| **Keyword Audit**       | Quarterly | Identify new ranking opportunities          |
+| **Competitor Analysis** | Monthly   | Track competitor moves and strategies       |
+| **Backlink Audit**      | Quarterly | Monitor link profile health                 |
+| **Position Tracking**   | Weekly    | Monitor ranking changes for target keywords |
+| **Site Audit**          | Monthly   | Identify technical SEO issues               |
+
+### Dashboard
+
+**Access:** `semrush.com` → Projects → MH Construction
+
+### Integration with Workflow
+
+1. **Research phase:** Use Semrush to identify target keywords
+2. **Content creation:** Optimize pages based on Semrush recommendations
+3. **Monitoring:** Track rankings and adjust strategy
+4. **Reports:** Export data for quarterly SEO reviews
 
 ---
 
@@ -407,9 +626,235 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX  # Optional
 
 ### DNS Resolution Issues
 
-1. Verify Hostinger nameservers point to Cloudflare
-2. Check DNSSEC status in both Hostinger and Cloudflare
+1. Verify NameCheap nameservers point to Cloudflare
+2. Check DNSSEC status in both NameCheap and Cloudflare
 3. Wait for DNS propagation (up to 48 hours)
+
+---
+
+## Recommended Additions
+
+The following services are recommended to complete the "monster engine" tech stack:
+
+### 🔴 High Priority
+
+#### Google Search Console (Free) ✅ Verified
+
+**Why:** See what keywords actually bring traffic, monitor index status, identify crawl errors.
+
+**Status:** Verification file deployed at `public/google362c2769be0feebe.html`
+
+**Post-Verification Steps:**
+
+1. Go to `search.google.com/search-console`
+2. Click "Verify" to complete verification
+3. Submit sitemap: `https://www.mhc-gc.com/sitemap.xml`
+4. Check URL inspection for any crawl issues
+
+**Integration:** Pairs with Semrush for complete SEO visibility.
+
+#### Google Business Profile (Free) ✅ Schema Ready
+
+**Why:** Critical for local SEO — "general contractor Tri-Cities" searches. Drives phone calls and direction requests.
+
+**Schema Support:** The website already emits `LocalBusiness` and `GeneralContractor` structured data
+on every page via `src/components/seo/SeoMeta.tsx`. This enables rich results in Google Search.
+
+**Setup:**
+
+1. Go to `business.google.com`
+2. Search for "MH Construction" or "MH Construction, Inc."
+3. If found, claim the listing; if not, create new
+4. Verify via postcard (most reliable), phone, or email
+5. Complete all profile fields to match website
+
+**Optimization Checklist:**
+
+- [ ] Business name: `MH Construction, Inc.` (exact match to website)
+- [ ] Primary category: `General Contractor`
+- [ ] Secondary categories: `Construction Company`, `Commercial Construction`, `Building Contractor`
+- [ ] Address: 2545 N Steptoe St, Kennewick, WA 99336
+- [ ] Phone: (509) 308-6489 (must match website)
+- [ ] Website: `https://www.mhc-gc.com`
+- [ ] Hours: Mon-Fri 7:00 AM - 5:00 PM
+- [ ] Service areas: Add all 11 location pages (Richland, Kennewick, Pasco, West Richland, Yakima, Spokane, Walla Walla, Hermiston, Pendleton, Coeur d'Alene, Omak)
+- [ ] Services: List all from `/services` page
+- [ ] Description: Use homepage meta description
+- [ ] Photos: 10+ project photos (label with project type and location)
+- [ ] Logo: Upload official logo
+- [ ] Cover photo: Hero image of team or flagship project
+
+**Ongoing Tasks:**
+
+- Respond to all reviews within 24 hours
+- Post weekly updates (project completions, team news)
+- Add Q&A entries matching `/faq` page
+
+#### CRM System ✅ Built-In
+
+**Status:** Custom CRM is implemented in the admin dashboard.
+
+**Features:**
+
+- Lead tracking from form submission → estimate → won/lost
+- Sources: Contact form, consultation requests, phone calls, referrals, walk-ins
+- Statuses: New → Contacted → Estimate Sent → Negotiating → Won/Lost
+- Assignment to Matt or Jeremy
+- Follow-up date tracking with overdue alerts
+- Notes history with timestamps
+- Estimated project values and win probability
+- Lost reason tracking for pipeline analysis
+
+**Access:** `/dashboard` → Leads tab (requires admin login)
+
+**Database:** `migrations/0013_create_leads.sql`
+
+**API:** `/api/leads` (GET, POST, PATCH) + `/api/leads/sync` (auto-import from forms)
+
+**No external CRM needed** — all lead tracking is integrated into the admin dashboard.
+
+**Optional External Integration:**
+If more advanced CRM features (email sequences, marketing automation) are needed later:
+
+| Option          | Cost   | Best For                              |
+| --------------- | ------ | ------------------------------------- |
+| **HubSpot CRM** | Free   | Marketing automation, email sequences |
+| **Pipedrive**   | $15/mo | Sales-focused, visual pipeline        |
+
+---
+
+### 🟡 Medium Priority
+
+#### Sentry (Error Tracking)
+
+**Why:** Know when production breaks before users complain. Stack traces, user context, release tracking.
+
+**Setup:**
+
+1. Create account at `sentry.io`
+2. Install: `npm install @sentry/nextjs`
+3. Run: `npx @sentry/wizard@latest -i nextjs`
+4. Add `SENTRY_DSN` to Cloudflare secrets
+
+**Cost:** Free tier = 5K errors/month (plenty for this traffic)
+
+**Code Integration:**
+
+```typescript
+// Already have error boundaries — Sentry captures automatically
+Sentry.captureException(error);
+```
+
+#### VPS Backup Strategy
+
+**Why:** If VPS dies, n8n workflows and PostHog data are gone. Automate backups.
+
+**n8n Backup Workflow:**
+
+1. Weekly trigger → Export all n8n workflows as JSON
+2. Compress → Upload to R2 bucket or GitHub repo
+3. Notify on success/failure
+
+**Docker Volume Backup Script:**
+
+```bash
+#!/bin/bash
+# /root/backup.sh - run via cron weekly
+BACKUP_DIR="/backups/$(date +%Y-%m-%d)"
+mkdir -p $BACKUP_DIR
+
+# n8n data
+docker run --rm -v n8n_data:/data -v $BACKUP_DIR:/backup \
+  alpine tar czf /backup/n8n-data.tar.gz -C /data .
+
+# PostHog data
+docker run --rm -v posthog_data:/data -v $BACKUP_DIR:/backup \
+  alpine tar czf /backup/posthog-data.tar.gz -C /data .
+
+# Upload to R2 (via rclone or aws cli)
+rclone copy $BACKUP_DIR r2:mh-backups/vps/
+```
+
+**Cron:** `0 3 * * 0 /root/backup.sh` (Sundays at 3am)
+
+#### Review Collection System
+
+**Why:** Social proof drives construction decisions. 5-star reviews = more leads.
+
+**Strategy:**
+
+1. After project completion → n8n triggers review request email
+2. Direct link to Google Business Profile review form
+3. Track review count and rating over time
+
+**Email Template:**
+
+```
+Subject: How did we do on your project?
+
+Hi {customer_name},
+
+We just wrapped up {project_type} at {address} and would love to hear how it went.
+
+If you have 2 minutes, a Google review helps other homeowners find quality contractors:
+→ [Leave a Review](https://g.page/r/...)
+
+Thank you for trusting MH Construction!
+```
+
+---
+
+### 🟢 Lower Priority (When Ready)
+
+#### Google Analytics 4
+
+**Why:** Ties directly to Google Ads if you run paid campaigns. More detailed acquisition data.
+
+**Note:** PostHog already covers most analytics needs. Only add GA4 if running Google Ads.
+
+**Setup:** Add `NEXT_PUBLIC_GA_MEASUREMENT_ID` and integrate with `next/script`.
+
+#### Calendly/Cal.com (Scheduling)
+
+**Why:** Let customers book estimate appointments directly. Reduces phone tag.
+
+**Recommendation:** Cal.com (open source, self-hostable on VPS if desired)
+
+---
+
+## Service Stack Summary
+
+### Current Stack (Implemented)
+
+| Category              | Service          | Status    |
+| --------------------- | ---------------- | --------- |
+| Code Repository       | GitHub           | ✅ Active |
+| Hosting/CDN/WAF       | Cloudflare Pages | ✅ Active |
+| Domain                | NameCheap        | ✅ Active |
+| Email (Team)          | Microsoft 365    | ✅ Active |
+| Email (Transactional) | Resend           | ✅ Active |
+| Communications        | Twilio           | ✅ Active |
+| Automation            | n8n              | ✅ Active |
+| Analytics             | PostHog          | ✅ Active |
+| Uptime                | Uptime Kuma      | ✅ Active |
+| SEO Research          | Semrush Pro      | ✅ Active |
+| AI Chatbot            | Workers AI       | ✅ Active |
+| Database              | Cloudflare D1    | ✅ Active |
+| Storage               | Cloudflare R2    | ✅ Active |
+| Bot Protection        | Turnstile        | ✅ Active |
+| Lead Tracking         | Built-in CRM     | ✅ Active |
+
+### Recommended Additions
+
+| Category          | Service                 | Priority  | Status                         | Cost   |
+| ----------------- | ----------------------- | --------- | ------------------------------ | ------ |
+| SEO Visibility    | Google Search Console   | 🔴 High   | ✅ Verified — submit sitemap   | Free   |
+| Local SEO         | Google Business Profile | 🔴 High   | Schema ready — needs GBP claim | Free   |
+| Error Tracking    | Sentry                  | 🟡 Medium | Not started                    | Free   |
+| Disaster Recovery | VPS Backups to R2       | 🟡 Medium | Not started                    | ~$1/mo |
+| Reputation        | Review Collection       | 🟡 Medium | Not started                    | Free   |
+| Paid Ads          | Google Analytics 4      | 🟢 Low    | Optional                       | Free   |
+| Scheduling        | Cal.com                 | 🟢 Low    | Optional                       | Free   |
 
 ---
 

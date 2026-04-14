@@ -69,6 +69,7 @@ export const config = {
      *   - sitemap.xml
      *   - sitemap-index.xml   Root sitemap index (public/sitemap-index.xml)
      *   - llms.txt            LLM discovery file (public/llms.txt)
+     *   - google*.html        Google Search Console verification files
      *
      * Static asset directories (cache headers already set in next.config.js)
      *   - fonts/              Self-hosted woff2 files
@@ -84,6 +85,6 @@ export const config = {
      *   - _headers            Custom response headers file
      *   - _redirects          Redirect rules file
      */
-    "/((?!api/health|api/security/status|api/cf-|_next|favicon\\.ico|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|sitemap-index\\.xml|llms\\.txt|_headers|_redirects|fonts|icons|images).*)",
+    "/((?!api/health|api/security/status|api/cf-|_next|favicon\\.ico|sw\\.js|manifest\\.json|robots\\.txt|sitemap\\.xml|sitemap-index\\.xml|llms\\.txt|google[a-z0-9]+\\.html|_headers|_redirects|fonts|icons|images).*)",
   ],
 };

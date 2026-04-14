@@ -151,6 +151,11 @@ export const metadata: Metadata = withGeoMetadata({
       { url: "/icons/icon-180x180.png", sizes: "180x180", type: "image/png" },
     ],
   },
+  // Google Search Console verification
+  // Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Cloudflare dashboard after completing GSC setup
+  verification: {
+    google: process.env["NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION"],
+  },
 });
 
 export const viewport: Viewport = {
