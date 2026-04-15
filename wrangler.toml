@@ -214,7 +214,9 @@ bucket_name = "mh-construction-resumes"
 binding = "DB"
 database_name = "mh-construction-db"
 database_id = "98ad144a-cfe2-4f19-a55c-c43140279840"
-preview_database_id = "6c6c5bd7-41b8-4968-8421-3cca5f97b160"
+# preview_database_id is intentionally omitted — Cloudflare's Build system uses it
+# over database_id, routing live traffic to the wrong database. Local dev can use
+# wrangler dev --local (no remote D1 needed) or set it in .dev.vars instead.
 
 # Cron Triggers — daily driver license monitoring alerts at 7:00 AM Pacific (14:00 UTC)
 [triggers]
