@@ -70,7 +70,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Coverage**      | Strong    | 97.32% stmts, 91.23% branches, 99.03% fns  |
 | **SEO**           | External  | Audit via external tools                   |
 | **Lighthouse**    | External  | Audit via PageSpeed/DevTools               |
-| **Bundle Size**   | 211 kB    | Production optimized                       |
+| **Bundle Size**   | 240 kB    | Production optimized                       |
 | **Dark Mode**     | Complete  | Full theme support                         |
 | **PWA**           | Ready     | Offline-ready, 5-layer caching             |
 | **Analytics**     | Live      | 100% page coverage, dashboard active       |
@@ -80,10 +80,13 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 See [CHANGELOG.md](CHANGELOG.md) for the full history of changes.
 
-**Apr 15 highlights:** Phase 1 documentation audit complete — brand consistency
-fixes across all markdown files (slogan capitalization, address format, BBB
-accreditation added to messaging/core-values docs, stale dates updated,
-Next.js version corrected in architecture.md).
+**Apr 15 highlights:** Infrastructure buildout — Cloudflare Workers CI/CD wired to
+GitHub (auto-deploy on push); all bindings live (KV ×3, D1, R2 ×3, AI, Assets);
+Twilio SMS configured and env var mismatch fixed; Uptime Kuma expanded to 7
+monitors (Health API, Twilio, Resend, Cloudflare Status); D1 preview database
+routing bug fixed; tj-actions CVE remediated (v44 → v46.0.1); observability
+(logs + traces, 100% sampling) enabled. Documentation audit (earlier): brand
+consistency fixes across all markdown files.
 
 **Apr 8 highlights:** Documentation audit — corrected stale file paths, resolved
 demo-account security status, added /resources pages to architecture inventory,
@@ -147,7 +150,7 @@ improvements.
 
 ### Core Framework
 
-- **Next.js** 15.5.14 (App Router)
+- **Next.js** 15.5.15 (App Router)
 - **React** 19.x (^19.0.0)
 - **TypeScript** 5.9.2 (strict mode)
 - **Tailwind CSS** 3.4.19
@@ -156,10 +159,12 @@ improvements.
 ### Deployment & Infrastructure
 
 - **Hosting:** Cloudflare Workers — `mhc-v2-website` (via OpenNext adapter)
-- **Database:** Cloudflare D1 (SQLite)
+- **Database:** Cloudflare D1 (SQLite) + KV (cache, ISR, analytics) + R2 (files, resumes, safety intake)
 - **Email:** Resend API
+- **SMS:** Twilio (admin alerts for urgent form submissions)
 - **Analytics:** Custom system — localStorage client-side + Cloudflare KV server-side pipeline
-- **CI/CD:** GitHub Actions
+- **Monitoring:** Uptime Kuma (self-hosted) — website, n8n, Portainer, Twilio, Resend, Cloudflare
+- **CI/CD:** GitHub Actions + Cloudflare Workers CI (auto-deploy on push to main)
 
 ### Quality Control
 
