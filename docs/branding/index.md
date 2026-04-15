@@ -1,12 +1,16 @@
 # Branding Documentation
 
 **Category:** Branding - Overview  
-**Last Updated:** December 24, 2025
+**Last Updated:** April 15, 2026
 
 ## Overview
 
 This directory contains all branding documentation for MH Construction, including design standards, strategic messaging,
 and brand identity guidelines.
+
+## 📌 Single Source of Truth
+
+- **[Brand Constants](./brand-constants.md)** - ⭐ **START HERE** - Canonical values for all brand elements
 
 ## Directory Structure
 
@@ -16,7 +20,7 @@ Design and visual standards for consistent brand implementation.
 
 - **[Color System](./standards/color-system.md)** - Brand colors (Hunter Green #386851, Leather Tan #BD9264)
 - **[Hero Section Standards](./standards/hero-section-standards.md)** - Page header guidelines
-- **[Unified Component Standards](./standards/unified-component-standards.md)** - UI component patterns
+- **[Unified Component Standards](./standards/unified-component-standards.md)** - UI component patterns (v7.0.0)
 - **[Team Badge System](./standards/team-badge-system.md)** - Veteran and role badge guidelines
 - **[Team Profile Radar Chart](./standards/team-profile-radar-chart.md)** - Skill visualization standards
 
@@ -41,4 +45,4 @@ Messaging, voice, and brand positioning guidelines.
 
 ---
 
-**MH Construction** - Founded 2010, Veteran-Owned Since 2025
+**MH Construction** — Founded 2010, Veteran-Owned Since January 2025

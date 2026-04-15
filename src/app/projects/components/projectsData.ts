@@ -112,13 +112,13 @@ export const whyChooseReasons = [
     iconName: "diversity_3",
     title: "Partnership-Driven Trust",
     description:
-      "We're not just contractors—we're community partners invested in the long-term success of the Pacific Northwest region. Excellence through experience—we build lasting partnerships that extend well beyond project completion. Building projects for the client, NOT the dollar is more than a slogan—it's our proven commitment to you.",
+      "We're not just contractors—we're community partners invested in the long-term success of the Pacific Northwest region. Excellence through experience—we build lasting partnerships that extend well beyond project completion. Building projects for the Client, NOT the Dollar is more than a slogan—it's our proven commitment to you.",
   },
   {
     iconName: "military_tech",
     title: "650+ Successful Projects - Reliability",
     description:
-      "Over 650 successfully completed projects demonstrate our veteran-trained reliability. Founded 2010, veteran-owned since January 2025 when Army veteran Jeremy Thamert purchased the company. We apply disciplined execution, attention to detail, and steady follow-through to every construction project, ensuring reliable delivery and dependable results. Our veteran-fueled reliability means staying calm and precise under pressure-delivering results when it matters most.",
+      "Over 650 successfully completed projects demonstrate our veteran-trained reliability. Founded 2010, Veteran-Owned Since January 2025 when Army veteran Jeremy Thamert purchased the company. We apply disciplined execution, attention to detail, and steady follow-through to every construction project, ensuring reliable delivery and dependable results. Our veteran-fueled reliability means staying calm and precise under pressure-delivering results when it matters most.",
   },
   {
     iconName: "verified",

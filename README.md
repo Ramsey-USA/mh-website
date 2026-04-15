@@ -1,7 +1,5 @@
 # MH Construction – Founded 2010, Veteran-Owned Since January 2025
 
-**BBB Accredited A+** | **Veteran-Owned** | **Trusted Since 2010**
-
 **START HERE** - This is your single source of truth for the entire project.
 
 **Building projects for the Client, NOT the Dollar** — Founded by Mike Holstein in 2010,
@@ -49,48 +47,43 @@ homepage - same visual weight, spacing, animations, and polish.
 - **Adding icons?** → [Icon System Complete](docs/technical/design-system/icon-system-complete.md)
 - **Optimizing images/videos?** → [Automatic Media Optimization](docs/technical/automatic-media-optimization.md)
 - **Adding SEO metadata?** → [SEO Complete Guide](docs/technical/seo/seo-complete-guide.md) + [SEO Quick Reference](seo-quick-reference.md)
-- **Working on the Safety Program?** →
-  [Safety Program Guide](docs/technical/safety-program-guide.md) +
-  [Safety CI Gate Policy](docs/deployment/safety-ci-gate-policy.md) +
-  [Safety Smoke Setup](docs/deployment/safety-smoke-setup.md)
 - **Making page installable (PWA)?** → [PWA Quick Reference](docs/technical/pwa-quick-reference.md)
 - **Using reusable components?** → [StandardSection Template](docs/development/components/template-components.md)
 - **Deploying to Cloudflare?** → [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md)
-- **Configuring external services (email, SMS)?** → [Services Integration Guide](docs/technical/services-integration-guide.md)
 - **Understanding project structure?** → [Project Architecture](docs/project/architecture.md)
 
 That's it. Everything else is organized in `/docs/` by category (branding, technical, business, etc.).
 
 ---
 
-## Project Status (April 9, 2026)
+## Project Status (April 15, 2026)
 
 ### Production-Ready Platform
 
-| Metric            | Status    | Details                                   |
-| ----------------- | --------- | ----------------------------------------- |
-| **Build**         | Passing   | ~33s compilation, zero errors             |
-| **Deployed**      | Live      | Cloudflare Workers — mhc-gc.com           |
-| **TypeScript**    | Strict    | Zero type errors                          |
-| **ESLint**        | Clean     | Zero lint warnings, zero errors           |
-| **Tests**         | Passing   | 1734/1734 passing, 138 suites             |
-| **Coverage**      | Strong    | 97.32% stmts, 91.23% branches, 99.03% fns |
-| **SEO**           | External  | Audit via external tools                  |
-| **Lighthouse**    | External  | Audit via PageSpeed/DevTools              |
-| **Bundle Size**   | 211 kB    | Production optimized                      |
-| **Dark Mode**     | Complete  | Full theme support                        |
-| **PWA**           | Ready     | Offline-ready, 5-layer caching            |
-| **Analytics**     | Live      | 100% page coverage, dashboard active      |
-| **Documentation** | Optimized | 45 docs + 7 supporting guides, zero bloat |
+| Metric            | Status    | Details                                    |
+| ----------------- | --------- | ------------------------------------------ |
+| **Build**         | Passing   | ~33s compilation, zero errors              |
+| **Deployed**      | Live      | Cloudflare Workers — mhc-gc.com            |
+| **TypeScript**    | Strict    | Zero type errors                           |
+| **ESLint**        | Clean     | Zero lint warnings, zero errors            |
+| **Tests**         | Passing   | 1734/1734 passing, 138 suites              |
+| **Coverage**      | Strong    | 97.32% stmts, 91.23% branches, 99.03% fns  |
+| **SEO**           | External  | Audit via external tools                   |
+| **Lighthouse**    | External  | Audit via PageSpeed/DevTools               |
+| **Bundle Size**   | 211 kB    | Production optimized                       |
+| **Dark Mode**     | Complete  | Full theme support                         |
+| **PWA**           | Ready     | Offline-ready, 5-layer caching             |
+| **Analytics**     | Live      | 100% page coverage, dashboard active       |
+| **Documentation** | Optimized | 60 docs + 10 supporting guides, zero bloat |
 
 ### Recent Changes
 
 See [CHANGELOG.md](CHANGELOG.md) for the full history of changes.
 
-**Apr 9 highlights:** Safety Program implementation — canonical naming ("MH Construction
-Safety Program"), Cloudflare Turnstile verification, public Safety intake API/UI
-(`/safety/intake`), dedicated `SAFETY_INTAKE` R2 bucket, admin review endpoints,
-D1 migration `0012_create_safety_intake_submissions.sql`.
+**Apr 15 highlights:** Phase 1 documentation audit complete — brand consistency
+fixes across all markdown files (slogan capitalization, address format, BBB
+accreditation added to messaging/core-values docs, stale dates updated,
+Next.js version corrected in architecture.md).
 
 **Apr 8 highlights:** Documentation audit — corrected stale file paths, resolved
 demo-account security status, added /resources pages to architecture inventory,
@@ -115,7 +108,6 @@ improvements.
 - **Approach:** Face-to-face consultation, transparent pricing, veteran priority scheduling
 - **Service Area:** Tri-Cities WA (Richland, Kennewick, Pasco, West Richland), Yakima, Spokane, Walla Walla
 - **Specialties:** Commercial construction, residential, public sector, master planning
-- **BBB Accredited:** A+ Rating since April 7, 2026 — [View BBB Profile](https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036)
 
 ### Business Philosophy
 
@@ -164,18 +156,10 @@ improvements.
 ### Deployment & Infrastructure
 
 - **Hosting:** Cloudflare Workers — `mhc-v2-website` (via OpenNext adapter)
-- **Domain:** Hostinger (registrar) → Cloudflare (DNS/CDN)
 - **Database:** Cloudflare D1 (SQLite)
-- **Storage:** Cloudflare R2 (resumes, safety intake, assets)
-- **Cache:** Cloudflare KV (rate limiting, analytics, ISR)
-- **AI:** Cloudflare Workers AI — `@cf/meta/llama-3.1-8b-instruct`
-- **Email:** Resend API (transactional emails)
-- **SMS:** Twilio (admin alerts — optional)
-- **Bot Protection:** Cloudflare Turnstile
+- **Email:** Resend API
 - **Analytics:** Custom system — localStorage client-side + Cloudflare KV server-side pipeline
 - **CI/CD:** GitHub Actions
-
-See [Services Integration Guide](docs/technical/services-integration-guide.md) for full configuration details.
 
 ### Quality Control
 
@@ -193,8 +177,6 @@ See [Services Integration Guide](docs/technical/services-integration-guide.md) f
 - **Media:** Auto-optimization to WebP/WebM via GitHub Actions
 - **Icons:** Google Material Icons (font-based, 400/500/600 weights)
 - **Forms:** Contact, consultations, and a streamlined job application flow with email notifications
-- **Safety Program:** Cloudflare R2-backed section PDFs with field QR access,
-  complete bonding manual delivery, and controlled public intake planning
 - **Partnership Guide:** Cloudflare Workers AI chatbot — answers questions about services,
   Allies, and veteran benefits; guides all visitors toward direct human contact
 
@@ -247,8 +229,7 @@ RESEND_API_KEY=re_xxxxx
 # Optional (Cloudflare deployment)
 CLOUDFLARE_ACCOUNT_ID=your_account_id
 CLOUDFLARE_API_TOKEN=your_api_token
-
-# Note: D1, KV, and R2 IDs are bindings in wrangler.toml, not env vars.
+D1_DATABASE_ID=your_d1_id
 
 # Optional (Google Analytics)
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
@@ -307,18 +288,17 @@ docs/
 │   ├── standards/               # unified-component-standards.md (v7.0.0), color-system.md, +3 more
 │   └── strategy/                # messaging.md, brand-overview.md, terminology, page-specific messaging
 ├── business/                     # Business documentation
-│   ├── services.md, core-values.md, project-specializations.md
-│   └── (team data in src/lib/data/vintage-team.ts)
+│   ├── services.md, core-values.md, project-specializations.md, testimonials.md
+│   └── team/profiles/           # 14 team member profiles
 ├── development/                  # Development guides
 │   ├── quick-reference/         # component-cheatsheet.md
 │   ├── standards/               # development-standards.md, consistency-guide.md, common-mistakes.md,
 │   │                            # page-compliance-checklist.md, page-template-guide.md, ai-development-guidelines.md
 │   └── components/              # template-components.md (StandardSection docs)
-├── technical/                    # Technical implementation (10 files + 3 subdirs)
+├── technical/                    # Technical implementation (14 files + 3 subdirs)
 │   ├── design-system/           # buttons-ctas-complete-guide.md, icon-system-complete.md
 │   ├── seo/                     # seo-complete-guide.md
 │   ├── patterns/                # component-pattern-strategy.md, +2 component patterns
-│   ├── services-integration-guide.md  # Cloudflare, Hostinger, Resend, Twilio setup
 │   ├── analytics-tracking-guide.md, homepage.md, secrets-management.md
 │   ├── dark-mode-quick-reference.md, admin-password-security.md
 │   └── pwa-quick-reference.md, automatic-media-optimization.md, +3 more
@@ -349,9 +329,6 @@ config/cloudflare/edge-optimization.md  # Cloudflare edge optimization reference
 - **Design System:**
   [Unified Component Standards](docs/branding/standards/unified-component-standards.md) v7.0.0
   (consolidated typography & components)
-- **Infrastructure:**
-  [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md) |
-  [Services Integration Guide](docs/technical/services-integration-guide.md)
 - **Marketing:** [Analytics Guide for Matt & Jeremy](analytics-guide-for-matt-and-jeremy.md) | [SEO Quick Reference](seo-quick-reference.md)
 
 ---
@@ -597,9 +574,6 @@ All rights reserved. This software and associated documentation files are propri
 **January 2025** - MH Construction transitioned from founder Mike Holstein to Army veteran
 Jeremy Thamert, continuing 16 years of construction excellence with renewed veteran commitment.
 
-**April 2026** - Achieved BBB Accreditation with an A+ rating, recognizing MH Construction's
-commitment to trust, transparency, and ethical business practices.
-
 **Core Values Unchanged:**
 
 - Honesty in every interaction
@@ -607,9 +581,9 @@ commitment to trust, transparency, and ethical business practices.
 - Professionalism in every project
 - Thoroughness in every detail
 
-**Building projects for the client, NOT the dollar.**
+**Building projects for the Client, NOT the Dollar.**
 
 ---
 
-**Last Updated:** April 9, 2026  
+**Last Updated:** April 15, 2026  
 **Documentation Version:** 4.0 (README + CHANGELOG split)

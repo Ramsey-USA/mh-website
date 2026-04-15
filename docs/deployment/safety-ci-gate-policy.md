@@ -159,3 +159,8 @@ If a gate fails in CI:
 2. Fix root cause in branch.
 3. Re-run full gate (`npm run ci:gate`).
 4. Merge only after all gates pass.
+
+---
+
+**MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
+[← Back to README](../../README.md)

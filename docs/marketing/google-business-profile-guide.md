@@ -1,18 +1,21 @@
 # Google Business Profile Optimization Guide
 
 **Category:** Marketing - Google Business Profile  
-**Last Updated:** March 15, 2026  
-**Version:** 1.0.0  
+**Last Updated:** April 15, 2026  
+**Version:** 1.1.0  
 **Status:** ✅ Active
+
+> **Brand Reference:** See [Brand Constants](../branding/brand-constants.md) for exact brand values.
 
 ---
 
 ## 📍 **Your Google Business Profile**
 
-**Primary Location:** 3111 N. Capitol Ave., Pasco, WA 99301  
+**Primary Location:** 3111 N Capitol Ave, Pasco, WA 99301  
 **Phone:** (509) 308-6489  
 **Hours:** 7:00 AM - 4:00 PM, Monday - Friday  
-**Website:** <https://www.mhc-gc.com>
+**Website:** <https://www.mhc-gc.com>  
+**BBB:** A+ Rating since April 7, 2026
 
 **Access:** <https://business.google.com/dashboard>
 
@@ -105,7 +108,7 @@ Add 5-10 common questions with answers:
 ### 5-Star Review Response
 
 ```text
-Thank you so much for the kind words, [Name]! We're thrilled that you're happy with [specific project detail]. Our veteran-owned team takes pride in building projects for the client, not the dollar. We appreciate your trust and look forward to serving you again in the future!
+Thank you so much for the kind words, [Name]! We're thrilled that you're happy with [specific project detail]. Our veteran-owned team takes pride in Building projects for the Client, NOT the Dollar. We appreciate your trust and look forward to serving you again in the future!
 
 - MH Construction Team
 ```

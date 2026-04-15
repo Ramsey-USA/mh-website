@@ -7,7 +7,7 @@ const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 export const metadata: Metadata = withGeoMetadata({
   title: "Safety Program | MH Construction",
   description:
-    "MH Construction's award-winning safety program — veteran-owned general contractor serving Tri-Cities WA. 0.64 EMR (40% below industry avg), 44-section OSHA 29 CFR 1926 written program, AGC-WA Top EMR Award winner. Documentation available for bonding agency review.",
+    "MH Construction's award-winning safety program — Veteran-Owned general contractor serving Tri-Cities WA. 0.64 EMR (40% below industry avg), 44-section OSHA 29 CFR 1926 written program, AGC-WA Top EMR Award winner. Documentation available for bonding agency review.",
   alternates: {
     canonical: `${siteUrl}/safety`,
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = withGeoMetadata({
   openGraph: {
     title: "Safety Program | MH Construction",
     description:
-      "Veteran-owned general contractor | 0.64 EMR · 44-section OSHA written program · AGC-WA award winner. Documented safety credentials for bonding agencies and surety underwriters.",
+      "Veteran-Owned general contractor | 0.64 EMR · 44-section OSHA written program · AGC-WA award winner. Documented safety credentials for bonding agencies and surety underwriters.",
     type: "website",
     locale: "en_US",
     url: `${siteUrl}/safety`,

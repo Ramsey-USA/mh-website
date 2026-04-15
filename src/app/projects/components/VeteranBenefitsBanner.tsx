@@ -1,6 +1,6 @@
 /**
  * Veteran Benefits Banner
- * Highlights veteran-owned credentials and certifications
+ * Highlights Veteran-Owned credentials and certifications
  */
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -13,7 +13,7 @@ import {
 export function VeteranBenefitsBanner() {
   return (
     <section
-      id="veteran-owned"
+      id="Veteran-Owned"
       className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 overflow-hidden"
     >
       <DiagonalStripePattern />
@@ -39,7 +39,7 @@ export function VeteranBenefitsBanner() {
                         icon="military_tech"
                         size="2xl"
                         className="text-white drop-shadow-lg"
-                        ariaLabel="Veteran-owned"
+                        ariaLabel="Veteran-Owned"
                       />
                     </div>
                   </div>

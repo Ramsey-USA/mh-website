@@ -51,7 +51,7 @@ export function CapabilitiesSection() {
 
           {/* Description with colored keyword highlighting */}
           <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-            Veteran-owned{" "}
+            Veteran-Owned{" "}
             <span className="font-bold text-brand-primary dark:text-brand-primary-light">
               collaborative expertise across multiple construction markets
             </span>

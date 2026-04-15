@@ -161,7 +161,7 @@ jest.mock("@/lib/constants/company", () => ({
       logoWhite: "/images/travelers-logo-white.png",
     },
     address: {
-      street: "3111 N. Capitol Ave.",
+      street: "3111 N Capitol Ave",
       city: "Pasco",
       stateCode: "WA",
       zip: "99301",

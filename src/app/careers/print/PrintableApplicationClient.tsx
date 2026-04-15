@@ -15,7 +15,7 @@ const translations = {
     title: "Employment Application",
     subtitle: "MH Construction, Inc.",
     tagline: "Veteran-Owned General Contractor",
-    brandSlogan: "Building projects for the client, NOT the dollar",
+    brandSlogan: "Building projects for the Client, NOT the Dollar",
     roiMessage: "THE ROI IS THE RELATIONSHIP",
     instructions: "Instructions",
     instructionsList: [

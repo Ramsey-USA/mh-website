@@ -1,16 +1,19 @@
 # MH Construction Color System
 
-**Category:** Business - Brand Guidelines  
-**Last Updated:** December 25, 2025  
-**Version:** 5.2.0 - Accessibility Color Variants  
-**Status:** ✅ Current
+**Category:** Branding - Standards  
+**Last Updated:** April 15, 2026  
+**Version:** 7.0.0  
+**Status:** ✅ Active
+
+> **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
 ## Quick Navigation
 
 - [🏠 Brand Documentation](../)
+- [📌 Brand Constants](../brand-constants.md) - ⭐ **SINGLE SOURCE OF TRUTH**
 - [📋 Brand Overview](../strategy/brand-overview.md)
 - [📝 Unified Component Standards](./unified-component-standards.md)
-- [🎯 Hero Section Standards](./hero-section-standards.md) ⭐ **UPDATED Dec 14, 2025**
+- [🎯 Hero Section Standards](./hero-section-standards.md)
 
 ---
 

@@ -83,7 +83,7 @@ export const locations: Record<string, LocationData> = {
     militaryTitle: "Operations Base → Richland",
     tagline: "Strategic Construction Operations in Benton County",
     description:
-      "Founded 2010, veteran-owned since January 2025. Construction excellence serving Richland with honesty, integrity, professionalism, and thoroughness.",
+      "Founded 2010, Veteran-Owned Since January 2025. Construction excellence serving Richland with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
     coordinates: {
       latitude: 46.2769,
@@ -93,7 +93,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Operations Base → Richland | General Contractor Richland WA | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Richland WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-Owned GC serving Richland WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Operations Base Richland strategic construction",
         "dual-label military construction Richland",
@@ -103,7 +103,7 @@ export const locations: Record<string, LocationData> = {
         "construction company Richland",
         "commercial contractor Richland Washington",
         "Richland construction services",
-        "veteran-owned contractor Richland",
+        "Veteran-Owned contractor Richland",
         "Benton County general contractor",
         "Richland WA builder",
         "construction management Richland",
@@ -111,9 +111,9 @@ export const locations: Record<string, LocationData> = {
         "proven construction excellence Richland",
       ],
       openGraphDescription:
-        "Operations Base → Richland: Strategic Construction Operations. Professional veteran-owned construction services with service-earned values, disciplined execution, and 150+ years combined expertise. Dual-label approach. Commercial, industrial & government projects.",
+        "Operations Base → Richland: Strategic Construction Operations. Professional Veteran-Owned construction services with service-earned values, disciplined execution, and 150+ years combined expertise. Dual-label approach. Commercial, industrial & government projects.",
       twitterDescription:
-        "Professional construction services in Richland, WA. Veteran-owned, partnership-driven approach.",
+        "Professional construction services in Richland, WA. Veteran-Owned, partnership-driven approach.",
     },
     breadcrumbKey: "locationRichland",
     localExpertise: {
@@ -162,7 +162,7 @@ export const locations: Record<string, LocationData> = {
     militaryTitle: "Forward Operating Base → Kennewick",
     tagline: "Tactical Construction Excellence in Benton County",
     description:
-      "Professional veteran-owned construction services with service-earned values and all-branch veteran leadership. SITREP-level communication.",
+      "Professional Veteran-Owned construction services with service-earned values and all-branch veteran leadership. SITREP-level communication.",
     ...LOCATION_CONTACT,
     coordinates: {
       latitude: 46.2112,
@@ -172,7 +172,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Forward Operating Base → Kennewick | General Contractor Kennewick WA | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Kennewick WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-Owned GC serving Kennewick WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Forward Operating Base Kennewick tactical construction",
         "dual-label military construction Kennewick",
@@ -182,7 +182,7 @@ export const locations: Record<string, LocationData> = {
         "construction company Kennewick",
         "commercial contractor Kennewick Washington",
         "Kennewick construction services",
-        "veteran-owned contractor Kennewick",
+        "Veteran-Owned contractor Kennewick",
         "Benton County general contractor",
         "Kennewick WA builder",
         "construction management Kennewick",
@@ -190,9 +190,9 @@ export const locations: Record<string, LocationData> = {
         "SITREP-level communication Kennewick",
       ],
       openGraphDescription:
-        "Forward Operating Base → Kennewick: Tactical Construction Excellence. Professional veteran-owned construction services with service-earned values and all-branch veteran leadership. Dual-label approach. Commercial, industrial & government projects.",
+        "Forward Operating Base → Kennewick: Tactical Construction Excellence. Professional Veteran-Owned construction services with service-earned values and all-branch veteran leadership. Dual-label approach. Commercial, industrial & government projects.",
       twitterDescription:
-        "Professional construction services in Kennewick, WA. Veteran-owned, partnership-driven approach.",
+        "Professional construction services in Kennewick, WA. Veteran-Owned, partnership-driven approach.",
     },
     breadcrumbKey: "locationKennewick",
     localExpertise: {
@@ -241,7 +241,7 @@ export const locations: Record<string, LocationData> = {
     militaryTitle: "Command Center → Pasco",
     tagline: "Home Base Construction Excellence in Franklin County",
     description:
-      "Headquartered in Pasco since 2010, delivering veteran-owned construction excellence with honesty, integrity, professionalism, and thoroughness.",
+      "Headquartered in Pasco since 2010, delivering Veteran-Owned construction excellence with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
     coordinates: {
       latitude: 46.2396,
@@ -251,7 +251,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Command Center → Pasco | General Contractor Pasco WA | MH Construction",
       metaDescription:
-        "Veteran-owned GC headquartered in Pasco WA. Commercial, industrial & government construction since 2010. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-Owned GC headquartered in Pasco WA. Commercial, industrial & government construction since 2010. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Command Center Pasco home base construction",
         "dual-label military construction Pasco",
@@ -261,15 +261,15 @@ export const locations: Record<string, LocationData> = {
         "construction company Pasco",
         "commercial contractor Pasco Washington",
         "Pasco construction services",
-        "veteran-owned contractor Pasco",
+        "Veteran-Owned contractor Pasco",
         "Franklin County general contractor",
         "Pasco WA builder",
         "construction management Pasco",
       ],
       openGraphDescription:
-        "Command Center → Pasco: Home Base Construction Excellence. Professional veteran-owned construction services headquartered in Pasco. Service-earned values. Commercial, industrial & government projects.",
+        "Command Center → Pasco: Home Base Construction Excellence. Professional Veteran-Owned construction services headquartered in Pasco. Service-earned values. Commercial, industrial & government projects.",
       twitterDescription:
-        "Professional construction services in Pasco, WA. Veteran-owned, partnership-driven approach.",
+        "Professional construction services in Pasco, WA. Veteran-Owned, partnership-driven approach.",
     },
     breadcrumbKey: "locationPasco",
     localExpertise: {
@@ -318,7 +318,7 @@ export const locations: Record<string, LocationData> = {
     militaryTitle: "Outpost → Yakima",
     tagline: "Regional Construction Excellence in Yakima County",
     description:
-      "Extending veteran-owned construction services to Yakima with the same honesty, integrity, professionalism, and thoroughness.",
+      "Extending Veteran-Owned construction services to Yakima with the same Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
     coordinates: {
       latitude: 46.6021,
@@ -328,7 +328,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Outpost → Yakima | General Contractor Yakima WA | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Yakima WA. Commercial, industrial & public-safety construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-Owned GC serving Yakima WA. Commercial, industrial & public-safety construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Outpost Yakima regional construction",
         "dual-label military construction Yakima",
@@ -338,22 +338,22 @@ export const locations: Record<string, LocationData> = {
         "construction company Yakima",
         "commercial contractor Yakima Washington",
         "Yakima construction services",
-        "veteran-owned contractor Yakima",
+        "Veteran-Owned contractor Yakima",
         "Yakima County general contractor",
         "Yakima WA builder",
         "construction management Yakima",
       ],
       openGraphDescription:
-        "Outpost → Yakima: Regional Construction Excellence. Professional veteran-owned construction services serving Yakima. Service-earned values. Commercial, industrial & government projects.",
+        "Outpost → Yakima: Regional Construction Excellence. Professional Veteran-Owned construction services serving Yakima. Service-earned values. Commercial, industrial & government projects.",
       twitterDescription:
-        "Professional construction services in Yakima, WA. Veteran-owned, partnership-driven approach.",
+        "Professional construction services in Yakima, WA. Veteran-Owned, partnership-driven approach.",
     },
     breadcrumbKey: "locationYakima",
     localExpertise: {
       title: "Serving Yakima Valley",
       description: [
         "While based in the Tri-Cities, we have extensive experience serving Yakima and the surrounding Yakima Valley. We understand the regional construction requirements and maintain relationships with local trades.",
-        "Our commitment to quality and service excellence extends throughout Central Washington, bringing the same veteran-owned professionalism to every Yakima project.",
+        "Our commitment to quality and service excellence extends throughout Central Washington, bringing the same Veteran-Owned professionalism to every Yakima project.",
       ],
     },
     servicePriorities: [
@@ -388,7 +388,7 @@ export const locations: Record<string, LocationData> = {
     militaryTitle: "Deployment Zone → Spokane",
     tagline: "Eastern Washington Construction Excellence",
     description:
-      "Expanding veteran-owned construction excellence to Spokane with honesty, integrity, professionalism, and thoroughness.",
+      "Expanding Veteran-Owned construction excellence to Spokane with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
     coordinates: {
       latitude: 47.6588,
@@ -398,7 +398,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Deployment Zone → Spokane | General Contractor Spokane WA | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Spokane WA. Commercial, industrial & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-Owned GC serving Spokane WA. Commercial, industrial & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Deployment Zone Spokane construction",
         "dual-label military construction Spokane",
@@ -408,22 +408,22 @@ export const locations: Record<string, LocationData> = {
         "construction company Spokane",
         "commercial contractor Spokane Washington",
         "Spokane construction services",
-        "veteran-owned contractor Spokane",
+        "Veteran-Owned contractor Spokane",
         "Spokane County general contractor",
         "Spokane WA builder",
         "construction management Spokane",
       ],
       openGraphDescription:
-        "Deployment Zone → Spokane: Eastern Washington Construction Excellence. Professional veteran-owned construction services serving Spokane. Service-earned values. Commercial, industrial & government projects.",
+        "Deployment Zone → Spokane: Eastern Washington Construction Excellence. Professional Veteran-Owned construction services serving Spokane. Service-earned values. Commercial, industrial & government projects.",
       twitterDescription:
-        "Professional construction services in Spokane, WA. Veteran-owned, partnership-driven approach.",
+        "Professional construction services in Spokane, WA. Veteran-Owned, partnership-driven approach.",
     },
     breadcrumbKey: "locationSpokane",
     localExpertise: {
       title: "Expanding to Spokane",
       description: [
         "As we expand our services to Spokane and Eastern Washington, we bring the same level of professionalism and expertise that has made us successful in the Tri-Cities area.",
-        "Our veteran-owned values and commitment to excellence travel with us, ensuring Spokane clients receive the same quality service and partnership-driven approach.",
+        "Our Veteran-Owned values and commitment to excellence travel with us, ensuring Spokane clients receive the same quality service and partnership-driven approach.",
       ],
     },
     servicePriorities: [
@@ -450,7 +450,7 @@ export const locations: Record<string, LocationData> = {
     militaryTitle: "Station → West Richland",
     tagline: "Community-Focused Construction in Benton County",
     description:
-      "Serving West Richland with veteran-owned construction services built on honesty, integrity, professionalism, and thoroughness.",
+      "Serving West Richland with Veteran-Owned construction services built on Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
     coordinates: {
       latitude: 46.3043,
@@ -460,7 +460,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Station → West Richland | General Contractor West Richland WA | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving West Richland WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-Owned GC serving West Richland WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Station West Richland community construction",
         "dual-label military construction West Richland",
@@ -470,15 +470,15 @@ export const locations: Record<string, LocationData> = {
         "construction company West Richland",
         "commercial contractor West Richland Washington",
         "West Richland construction services",
-        "veteran-owned contractor West Richland",
+        "Veteran-Owned contractor West Richland",
         "Benton County general contractor",
         "West Richland WA builder",
         "construction management West Richland",
       ],
       openGraphDescription:
-        "Station → West Richland: Community-Focused Construction. Professional veteran-owned construction services serving West Richland. Service-earned values. Commercial, industrial & government projects.",
+        "Station → West Richland: Community-Focused Construction. Professional Veteran-Owned construction services serving West Richland. Service-earned values. Commercial, industrial & government projects.",
       twitterDescription:
-        "Professional construction services in West Richland, WA. Veteran-owned, partnership-driven approach.",
+        "Professional construction services in West Richland, WA. Veteran-Owned, partnership-driven approach.",
     },
     breadcrumbKey: "locationWestRichland",
     localExpertise: {
@@ -504,7 +504,7 @@ export const locations: Record<string, LocationData> = {
     militaryTitle: "Forward Position → Walla Walla",
     tagline: "Historic Valley Construction Excellence",
     description:
-      "Bringing veteran-owned construction expertise to Walla Walla with honesty, integrity, professionalism, and thoroughness.",
+      "Bringing Veteran-Owned construction expertise to Walla Walla with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
     coordinates: {
       latitude: 46.0646,
@@ -514,7 +514,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Forward Position → Walla Walla | General Contractor Walla Walla WA | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Walla Walla WA. Commercial, industrial & specialty construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-Owned GC serving Walla Walla WA. Commercial, industrial & specialty construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Forward Position Walla Walla construction",
         "dual-label military construction Walla Walla",
@@ -524,22 +524,22 @@ export const locations: Record<string, LocationData> = {
         "construction company Walla Walla",
         "commercial contractor Walla Walla Washington",
         "Walla Walla construction services",
-        "veteran-owned contractor Walla Walla",
+        "Veteran-Owned contractor Walla Walla",
         "Walla Walla County general contractor",
         "Walla Walla WA builder",
         "construction management Walla Walla",
       ],
       openGraphDescription:
-        "Forward Position → Walla Walla: Historic Valley Construction Excellence. Professional veteran-owned construction services serving Walla Walla. Service-earned values. Commercial, industrial & government projects.",
+        "Forward Position → Walla Walla: Historic Valley Construction Excellence. Professional Veteran-Owned construction services serving Walla Walla. Service-earned values. Commercial, industrial & government projects.",
       twitterDescription:
-        "Professional construction services in Walla Walla, WA. Veteran-owned, partnership-driven approach.",
+        "Professional construction services in Walla Walla, WA. Veteran-Owned, partnership-driven approach.",
     },
     breadcrumbKey: "locationWallaWalla",
     localExpertise: {
       title: "Serving Walla Walla Valley",
       description: [
         "Extending our services to the historic Walla Walla Valley. We appreciate the area's rich heritage and bring construction services that respect the community's character.",
-        "Our veteran-owned commitment to excellence and partnership-driven approach ensures Walla Walla clients receive the same quality service that has built our reputation throughout Eastern Washington.",
+        "Our Veteran-Owned commitment to excellence and partnership-driven approach ensures Walla Walla clients receive the same quality service that has built our reputation throughout Eastern Washington.",
       ],
     },
     servicePriorities: [
@@ -574,7 +574,7 @@ export const locations: Record<string, LocationData> = {
     militaryTitle: "Forward Base → Hermiston",
     tagline: "Oregon Columbia Basin Construction Excellence",
     description:
-      "Bringing veteran-owned construction expertise to Hermiston and the Oregon Columbia Basin with honesty, integrity, professionalism, and thoroughness.",
+      "Bringing Veteran-Owned construction expertise to Hermiston and the Oregon Columbia Basin with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
     coordinates: {
       latitude: 45.8402,
@@ -584,7 +584,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Forward Base → Hermiston | General Contractor Hermiston OR | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Hermiston OR. Commercial, industrial & agricultural construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-Owned GC serving Hermiston OR. Commercial, industrial & agricultural construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Forward Base Hermiston Oregon construction",
         "general contractor Hermiston OR",
@@ -592,7 +592,7 @@ export const locations: Record<string, LocationData> = {
         "construction company Hermiston OR",
         "commercial contractor Hermiston Oregon",
         "Hermiston construction services",
-        "veteran-owned contractor Hermiston",
+        "Veteran-Owned contractor Hermiston",
         "Umatilla County general contractor",
         "Hermiston OR builder",
         "construction management Hermiston",
@@ -600,15 +600,15 @@ export const locations: Record<string, LocationData> = {
         "agricultural facility contractor Hermiston",
       ],
       openGraphDescription:
-        "Forward Base → Hermiston: Oregon Columbia Basin Construction Excellence. Professional veteran-owned construction services serving Hermiston. Commercial, industrial & agricultural projects.",
+        "Forward Base → Hermiston: Oregon Columbia Basin Construction Excellence. Professional Veteran-Owned construction services serving Hermiston. Commercial, industrial & agricultural projects.",
       twitterDescription:
-        "Professional construction services in Hermiston, OR. Veteran-owned, partnership-driven approach.",
+        "Professional construction services in Hermiston, OR. Veteran-Owned, partnership-driven approach.",
     },
     breadcrumbKey: "locationHermiston",
     localExpertise: {
       title: "Serving the Hermiston Area",
       description: [
-        "Expanding our veteran-owned construction services to Hermiston and the Oregon Columbia Basin. We understand the region's industrial and agricultural development demands and bring the same rigorous standards that have served the Tri-Cities since 2010.",
+        "Expanding our Veteran-Owned construction services to Hermiston and the Oregon Columbia Basin. We understand the region's industrial and agricultural development demands and bring the same rigorous standards that have served the Tri-Cities since 2010.",
         "Licensed in Oregon, Washington, and Idaho, MH Construction is positioned to serve Hermiston clients across commercial, industrial, and government project types — with transparent pricing and dependable delivery.",
       ],
     },
@@ -628,7 +628,7 @@ export const locations: Record<string, LocationData> = {
     militaryTitle: "Tactical Position → Pendleton",
     tagline: "Eastern Oregon Construction Excellence",
     description:
-      "Delivering veteran-owned construction services to Pendleton and Eastern Oregon with honesty, integrity, professionalism, and thoroughness.",
+      "Delivering Veteran-Owned construction services to Pendleton and Eastern Oregon with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
     coordinates: {
       latitude: 45.6721,
@@ -638,7 +638,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Tactical Position → Pendleton | General Contractor Pendleton OR | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Pendleton OR. Commercial, industrial & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-Owned GC serving Pendleton OR. Commercial, industrial & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Tactical Position Pendleton Oregon construction",
         "general contractor Pendleton OR",
@@ -646,22 +646,22 @@ export const locations: Record<string, LocationData> = {
         "construction company Pendleton OR",
         "commercial contractor Pendleton Oregon",
         "Pendleton construction services",
-        "veteran-owned contractor Pendleton",
+        "Veteran-Owned contractor Pendleton",
         "Umatilla County general contractor",
         "Pendleton OR builder",
         "construction management Pendleton",
         "government contractor Pendleton Oregon",
       ],
       openGraphDescription:
-        "Tactical Position → Pendleton: Eastern Oregon Construction Excellence. Professional veteran-owned construction services serving Pendleton. Commercial, industrial & government projects.",
+        "Tactical Position → Pendleton: Eastern Oregon Construction Excellence. Professional Veteran-Owned construction services serving Pendleton. Commercial, industrial & government projects.",
       twitterDescription:
-        "Professional construction services in Pendleton, OR. Veteran-owned, partnership-driven approach.",
+        "Professional construction services in Pendleton, OR. Veteran-Owned, partnership-driven approach.",
     },
     breadcrumbKey: "locationPendleton",
     localExpertise: {
       title: "Serving Eastern Oregon from Pendleton",
       description: [
-        "Pendleton anchors Eastern Oregon's commercial and government construction corridor. Our veteran-owned team brings the same disciplined execution that has served the Tri-Cities for 15+ years to every Pendleton and Umatilla County project.",
+        "Pendleton anchors Eastern Oregon's commercial and government construction corridor. Our Veteran-Owned team brings the same disciplined execution that has served the Tri-Cities for 15+ years to every Pendleton and Umatilla County project.",
         "Licensed in Oregon, Washington, and Idaho, MH Construction delivers commercial, industrial, and public-sector builds across Eastern Oregon with transparent communication and zero-surprise project delivery.",
       ],
     },
@@ -686,7 +686,7 @@ export const locations: Record<string, LocationData> = {
     militaryTitle: "Northern Operations → Coeur d'Alene",
     tagline: "North Idaho Construction Excellence",
     description:
-      "Bringing veteran-owned construction expertise to Coeur d'Alene and North Idaho with honesty, integrity, professionalism, and thoroughness.",
+      "Bringing Veteran-Owned construction expertise to Coeur d'Alene and North Idaho with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
     coordinates: {
       latitude: 47.6777,
@@ -696,7 +696,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Northern Operations → Coeur d'Alene | General Contractor Coeur d'Alene ID | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Coeur d'Alene ID. Commercial, resort & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-Owned GC serving Coeur d'Alene ID. Commercial, resort & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Northern Operations Coeur d'Alene Idaho construction",
         "general contractor Coeur d'Alene ID",
@@ -704,7 +704,7 @@ export const locations: Record<string, LocationData> = {
         "construction company Coeur d'Alene ID",
         "commercial contractor Coeur d'Alene Idaho",
         "Coeur d'Alene construction services",
-        "veteran-owned contractor Coeur d'Alene",
+        "Veteran-Owned contractor Coeur d'Alene",
         "Kootenai County general contractor",
         "Coeur d'Alene ID builder",
         "construction management Coeur d'Alene",
@@ -712,15 +712,15 @@ export const locations: Record<string, LocationData> = {
         "CDA contractor Idaho",
       ],
       openGraphDescription:
-        "Northern Operations → Coeur d'Alene: North Idaho Construction Excellence. Professional veteran-owned construction services serving Coeur d'Alene. Commercial, resort & government projects.",
+        "Northern Operations → Coeur d'Alene: North Idaho Construction Excellence. Professional Veteran-Owned construction services serving Coeur d'Alene. Commercial, resort & government projects.",
       twitterDescription:
-        "Professional construction services in Coeur d'Alene, ID. Veteran-owned, partnership-driven approach.",
+        "Professional construction services in Coeur d'Alene, ID. Veteran-Owned, partnership-driven approach.",
     },
     breadcrumbKey: "locationCoeurDAlene",
     localExpertise: {
       title: "Serving Coeur d'Alene and North Idaho",
       description: [
-        "Coeur d'Alene is one of the Pacific Northwest's fastest-growing markets, with strong demand across commercial, resort hospitality, and public-sector construction. Our veteran-owned team brings licensed Idaho expertise and the same mission-precision that has served Eastern Washington since 2010.",
+        "Coeur d'Alene is one of the Pacific Northwest's fastest-growing markets, with strong demand across commercial, resort hospitality, and public-sector construction. Our Veteran-Owned team brings licensed Idaho expertise and the same mission-precision that has served Eastern Washington since 2010.",
         "Licensed in Idaho, Washington, and Oregon, MH Construction is ready to partner on Coeur d'Alene and Kootenai County projects of any scale — with transparent pricing, honest timelines, and veteran-earned professionalism.",
       ],
     },
@@ -740,7 +740,7 @@ export const locations: Record<string, LocationData> = {
     militaryTitle: "Remote Station → Omak",
     tagline: "Okanogan Valley Construction Excellence",
     description:
-      "Delivering veteran-owned construction services to Omak and the Okanogan Valley with honesty, integrity, professionalism, and thoroughness.",
+      "Delivering Veteran-Owned construction services to Omak and the Okanogan Valley with Honesty, Integrity, Professionalism, and Thoroughness.",
     ...LOCATION_CONTACT,
     coordinates: {
       latitude: 48.4082,
@@ -750,7 +750,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Remote Station → Omak | General Contractor Omak WA | MH Construction",
       metaDescription:
-        "Veteran-owned GC serving Omak WA. Commercial, agricultural & community construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Veteran-Owned GC serving Omak WA. Commercial, agricultural & community construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Remote Station Omak Washington construction",
         "general contractor Omak WA",
@@ -758,22 +758,22 @@ export const locations: Record<string, LocationData> = {
         "construction company Omak WA",
         "commercial contractor Omak Washington",
         "Omak construction services",
-        "veteran-owned contractor Omak",
+        "Veteran-Owned contractor Omak",
         "Okanogan County general contractor",
         "Omak WA builder",
         "construction management Omak",
         "rural commercial contractor Okanogan County",
       ],
       openGraphDescription:
-        "Remote Station → Omak: Okanogan Valley Construction Excellence. Professional veteran-owned construction services serving Omak. Commercial, agricultural & community projects.",
+        "Remote Station → Omak: Okanogan Valley Construction Excellence. Professional Veteran-Owned construction services serving Omak. Commercial, agricultural & community projects.",
       twitterDescription:
-        "Professional construction services in Omak, WA. Veteran-owned, partnership-driven approach.",
+        "Professional construction services in Omak, WA. Veteran-Owned, partnership-driven approach.",
     },
     breadcrumbKey: "locationOmak",
     localExpertise: {
       title: "Serving the Okanogan Valley",
       description: [
-        "Omak and the Okanogan Valley represent a growing market for quality construction services. Our veteran-owned team brings the discipline and transparency that rural communities deserve — no shortcuts, no surprises, and honest communication from first conversation to final inspection.",
+        "Omak and the Okanogan Valley represent a growing market for quality construction services. Our Veteran-Owned team brings the discipline and transparency that rural communities deserve — no shortcuts, no surprises, and honest communication from first conversation to final inspection.",
         "Based in Pasco and licensed throughout Washington, we serve Omak and Okanogan County clients with the same commitment to quality and community partnership that defines every MH Construction project.",
       ],
     },

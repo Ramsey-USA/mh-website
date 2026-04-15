@@ -2,9 +2,11 @@
 
 **Category:** Branding - Standards  
 **Version:** 7.0.0  
-**Last Updated:** December 28, 2025  
+**Last Updated:** April 15, 2026  
 **Status:** ✅ Official Standard - Consolidated Documentation  
 **Previous Versions:** Replaces typography.md v5.0.0 and component-standards.md v6.0.0
+
+> **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
 > **Purpose:** Single source of truth for all component design, typography, and branding standards.
 > This consolidates previous separate documents to eliminate conflicts and provide clear guidance.
@@ -414,7 +416,7 @@ All page sections MUST follow this standardized background:
       </p>
 
       <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
-        "Building projects for the client, NOT the dollar" — Descriptive text
+        "Building projects for the Client, NOT the Dollar" — Descriptive text
         about page content.
       </p>
     </div>

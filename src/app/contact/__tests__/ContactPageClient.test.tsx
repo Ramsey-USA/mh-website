@@ -88,7 +88,7 @@ jest.mock("@/lib/constants/company", () => ({
   COMPANY_INFO: {
     phone: { display: "(509) 555-0100", tel: "+15095550100" },
     email: { main: "office@mhc-gc.com" },
-    address: { full: "3111 N. Capitol Ave., Pasco, WA 99301" },
+    address: { full: "3111 N Capitol Ave, Pasco, WA 99301" },
     bbb: {
       profileUrl: "https://www.bbb.org/test",
       sealClickUrl: "https://www.bbb.org/test#sealclick",
@@ -138,7 +138,7 @@ describe("ContactPageClient", () => {
     ).toHaveAttribute(
       "href",
       expect.stringContaining(
-        "https://www.google.com/maps/search/?api=1&query=3111%20N.%20Capitol%20Ave.%2C%20Pasco%2C%20WA%2099301",
+        "https://www.google.com/maps/search/?api=1&query=3111%20N%20Capitol%20Ave%2C%20Pasco%2C%20WA%2099301",
       ),
     );
 
@@ -199,7 +199,7 @@ describe("ContactPageClient", () => {
     );
     expect(
       screen.getByTitle(
-        "MH Construction Office Location - 3111 N. Capitol Ave., Pasco, WA 99301",
+        "MH Construction Office Location - 3111 N Capitol Ave, Pasco, WA 99301",
       ),
     ).toBeInTheDocument();
   });

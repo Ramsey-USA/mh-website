@@ -1,4 +1,7 @@
-# mh-website-scripts-organization
+# MH Website Scripts Organization
+
+**Last Updated:** April 15, 2026  
+**Status:** ✅ Active
 
 Organized automation scripts for the MH Construction website development workflow.
 
@@ -110,5 +113,5 @@ Scripts without npm aliases (run directly):
 
 ---
 
-**Last Updated:** November 17, 2025
-**Maintainer:** MH Construction Development Team
+**MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
+[← Back to README](../README.md)

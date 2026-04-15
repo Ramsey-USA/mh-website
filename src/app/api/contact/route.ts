@@ -263,7 +263,7 @@ function generateEmailHTML(data: ContactRequest): string {
     <tr>
       <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
         <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
-        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Veteran-owned. Relationship-first.</p>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Veteran-Owned. Relationship-first.</p>
       </td>
     </tr>
     
@@ -338,7 +338,7 @@ function generateEmailText(data: ContactRequest): string {
   return `
 MH Construction, Inc. - New ${data.type || "Contact"} Form Submission
 
-Veteran-owned. Relationship-first.
+Veteran-Owned. Relationship-first.
 
 ---
 

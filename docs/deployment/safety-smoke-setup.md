@@ -103,3 +103,8 @@ In workflow logs, confirm:
 1. Rotate smoke secrets whenever admin or field passwords are rotated.
 2. Re-run Safety Smoke Tests immediately after rotation.
 3. Do not store passwords in source control or documentation files.
+
+---
+
+**MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
+[← Back to README](../../README.md)

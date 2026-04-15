@@ -47,10 +47,10 @@ export const metadata: Metadata = withGeoMetadata({
       "Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction",
   },
   description:
-    "Base HQ → Home: Your Tri-Cities Construction Command Center serving Richland, Pasco, Kennewick, Yakima, Spokane, and Walla Walla. Veteran-owned since 2025. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest. Service-earned values: Honesty, Integrity, Professionalism, Thoroughness. Licensed in WA, OR, ID.",
+    "Base HQ → Home: Your Tri-Cities Construction Command Center serving Richland, Pasco, Kennewick, Yakima, Spokane, and Walla Walla. Veteran-Owned Since January 2025. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest. Service-earned values: Honesty, Integrity, Professionalism, Thoroughness. Licensed in WA, OR, ID.",
   keywords: [
     "general contractor Tri-Cities WA",
-    "veteran-owned contractor Pacific Northwest",
+    "Veteran-Owned contractor Pacific Northwest",
     "Richland general contractor",
     "Pasco general contractor",
     "Kennewick general contractor",
@@ -77,7 +77,7 @@ export const metadata: Metadata = withGeoMetadata({
     title:
       "Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction",
     description:
-      "Your Tri-Cities Construction Command Center. Veteran-owned since 2025. Commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest.",
+      "Your Tri-Cities Construction Command Center. Veteran-Owned Since January 2025. Commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest.",
     url: SITE_URL,
     siteName: "MH Construction",
     type: "website",
@@ -98,7 +98,7 @@ export const metadata: Metadata = withGeoMetadata({
     title:
       "Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction",
     description:
-      "Your Tri-Cities Construction Command Center. Veteran-owned since 2025. Commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest.",
+      "Your Tri-Cities Construction Command Center. Veteran-Owned Since January 2025. Commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest.",
     images: ["/images/og-default.jpg"],
   },
 });
@@ -152,7 +152,7 @@ export default function Home() {
     <>
       <PageTrackingClient pageName="Home" />
 
-      {/* Enhanced SEO structured data for veteran-owned construction excellence */}
+      {/* Enhanced SEO structured data for Veteran-Owned construction excellence */}
       <StructuredData data={homepageSEO.schemas} />
 
       {/* Home Page Hero Section */}
@@ -169,7 +169,7 @@ export default function Home() {
         id="stats"
         subtitle="Disciplined, Proven Results"
         title="Proven Track Record"
-        description="Measurable results from a veteran-owned team committed to disciplined execution, clear communication, and strong client relationships across the Pacific Northwest."
+        description="Measurable results from a Veteran-Owned team committed to disciplined execution, clear communication, and strong client relationships across the Pacific Northwest."
         variant="primary"
       />
 

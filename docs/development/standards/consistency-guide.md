@@ -3,10 +3,13 @@
 ## Comprehensive Standards for Pages, Sections, Components, and Mobile
 
 **Category:** Development - Implementation Standards  
-**Last Updated:** March 15, 2026 | **Version:** 2.0.0 | **Status:** Official Standard
+**Last Updated:** April 15, 2026 | **Version:** 2.1.0 | **Status:** Official Standard
+
+> **Canonical Reference:** For exact brand values, see [Brand Constants](../../branding/brand-constants.md).
 
 ## 🧭 Quick Navigation
 
+- [📌 Brand Constants](../../branding/brand-constants.md) - ⭐ **SINGLE SOURCE OF TRUTH**
 - [🎯 Development Standards](./development-standards.md) - Core standards
 - [🎨 Branding](../../branding/) - Brand guidelines
 - [Main README](../../../README.md) - Central documentation hub
@@ -288,7 +291,7 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
   /* Hero Tagline */
 }
 <p className="max-w-3xl mx-auto text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-snug px-2 font-medium">
-  "Building projects for the client, NOT the dollar"
+  "Building projects for the Client, NOT the Dollar"
 </p>;
 
 {
@@ -456,11 +459,11 @@ pageName: [
       className="text-center mb-8 font-medium"
       style={{ fontSize: "clamp(1.125rem, 3vw, 2.25rem)" }}
     >
-      "Building projects for the client,
+      "Building projects for the Client,
       <span className="text-bronze-300">
         <em>NOT</em>
       </span>{" "}
-      the dollar"
+      the Dollar"
     </p>
   </div>
 </section>
@@ -819,7 +822,7 @@ npm run build
 
 ### Primary Slogan Styling Rule
 
-**CRITICAL STYLING REQUIREMENT**: When displaying the slogan "Building projects for the client, NOT the dollar",
+**CRITICAL STYLING REQUIREMENT**: When displaying the slogan "Building projects for the Client, NOT the Dollar",
 the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the core philosophy.
 
 **Implementation Standards**:
@@ -827,18 +830,18 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 ```tsx
 // ✅ CORRECT - Light backgrounds
 <p>
-  Building projects for the client,{" "}
-  <span className="font-black italic text-bronze-300">NOT</span> the dollar
+  Building projects for the Client,{" "}
+  <span className="font-black italic text-bronze-300">NOT</span> the Dollar
 </p>
 
 // ✅ CORRECT - Dark backgrounds
 <p>
-  Building projects for the client,{" "}
-  <span className="font-black italic text-brand-secondary">NOT</span> the dollar
+  Building projects for the Client,{" "}
+  <span className="font-black italic text-brand-secondary">NOT</span> the Dollar
 </p>
 
 // ❌ INCORRECT - No color distinction
-<p>Building projects for the client, <em>NOT</em> the dollar</p>
+<p>Building projects for the Client, <em>NOT</em> the Dollar</p>
 ```
 
 **Color Choices by Context**:
@@ -862,9 +865,9 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 **Required Elements**:
 
 - Company name: "MH Construction, Inc."
-- Primary tagline: "Building projects for the client, **NOT** the dollar" (NOT in contrasting color)
+- Primary tagline: "Building projects for the Client, **NOT** the Dollar" (NOT in contrasting color)
 - Phone: (509) 308-6489
-- Address: "3111 N. Capitol Ave., Pasco, WA 99301"
+- Address: "3111 N Capitol Ave, Pasco, WA 99301"
 - Email: <office@mhc-gc.com>
 - "Licensed in WA, OR, ID | Veteran-Owned & Operated"
 
@@ -879,7 +882,7 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
   </div>
   <div style="font-weight: 600; margin-bottom: 4px;">MH Construction, Inc.</div>
   <div style="color: #757575; margin-bottom: 8px;">
-    Building projects for the client, NOT the dollar
+    Building projects for the Client, NOT the Dollar
   </div>
   <div style="margin-bottom: 4px;">
     Phone: <a href="tel:+15093086489" style="color: #386851;">(509) 308-6489</a>
@@ -898,17 +901,13 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 
 ### Address Formatting
 
-**Display Format** (business cards, websites, documents):
+**Standard Format** (all contexts — business cards, websites, documents, maps):
 
-- "3111 N. Capitol Ave., Pasco, WA 99301" (with periods)
-
-**Map Link Format** (Google Maps integration):
-
-- "3111 N Capitol Ave, Pasco, WA 99301" (no periods)
+- `3111 N Capitol Ave, Pasco, WA 99301` (no periods)
 
 ```html
-<!-- Professional Display -->
-<p>Visit us at: 3111 N. Capitol Ave., Pasco, WA 99301</p>
+<!-- Display -->
+<p>Visit us at: 3111 N Capitol Ave, Pasco, WA 99301</p>
 
 <!-- Map Link -->
 <a href="https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301">

@@ -103,14 +103,14 @@ export const cultureValues: CultureValue[] = [
     icon: "handshake",
     title: "Integrity & Trust",
     description:
-      "We build relationships based on honesty, transparency, and mutual respect. 'Building projects for the client, NOT the dollar' means transparent communication, open-book pricing, and collaborative problem-solving define every interaction—from apprentice to owner. 70% of our business comes from referrals and repeat client partners.",
+      "We build relationships based on honesty, transparency, and mutual respect. 'Building projects for the Client, NOT the Dollar' means transparent communication, open-book pricing, and collaborative problem-solving define every interaction—from apprentice to owner. 70% of our business comes from referrals and repeat client partners.",
     color: "from-brand-primary to-brand-primary-dark",
   },
   {
     icon: "diversity_3",
     title: "Team Unity & Disciplined Execution",
     description:
-      "Founded in 2010, veteran-owned since January 2025 when Army veteran Jeremy Thamert purchased the company. From veterans to civilians, office to field-we're one team with shared values. Military discipline and structured processes meet proven craftsmanship, combining unwavering attention to detail with reliable execution and dependable follow-through.",
+      "Founded in 2010, Veteran-Owned Since January 2025 when Army veteran Jeremy Thamert purchased the company. From veterans to civilians, office to field-we're one team with shared values. Military discipline and structured processes meet proven craftsmanship, combining unwavering attention to detail with reliable execution and dependable follow-through.",
     color: "from-brand-secondary to-brand-secondary-dark",
   },
   {

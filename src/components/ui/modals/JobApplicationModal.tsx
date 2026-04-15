@@ -156,7 +156,7 @@ function getApplicationContext(entryPoint?: string): ApplicationContext {
     badge: entryPoint || "Join Our Team",
     title: "Build Your Career With Us",
     description:
-      "Join a veteran-owned team where your word matters as much as ours. Name, email, and the role you want are enough to begin.",
+      "Join a Veteran-Owned team where your word matters as much as ours. Name, email, and the role you want are enough to begin.",
   };
 }
 
@@ -424,7 +424,7 @@ export function JobApplicationModal({
                   className="text-bronze-300"
                 />
                 <span className="font-semibold text-bronze-300">
-                  Veteran-owned. Your word matters as much as ours.
+                  Veteran-Owned. Your word matters as much as ours.
                 </span>
               </div>
             </div>

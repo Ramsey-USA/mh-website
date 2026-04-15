@@ -89,7 +89,7 @@ const partnershipValues = [
     accentColor: "brand-primary",
     highlights: [
       "650+ completed projects",
-      "Veteran-owned since Jan 2025",
+      "Veteran-Owned Since January 2025",
       "Disciplined execution",
       "Service-earned values",
     ],
@@ -146,7 +146,7 @@ export function WhyPartnerSection() {
           <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary via-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-75 group-hover:opacity-100 transition duration-500"></div>
           <div className="relative bg-white dark:bg-gray-800 px-8 py-6 rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 shadow-xl">
             <p className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl text-center leading-relaxed">
-              "Building projects for the client,{" "}
+              "Building projects for the Client,{" "}
               <span className="font-black italic text-bronze-700 dark:text-bronze-400 text-xl sm:text-2xl md:text-3xl">
                 NOT
               </span>{" "}

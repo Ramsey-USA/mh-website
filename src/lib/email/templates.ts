@@ -49,7 +49,7 @@ export function generateJobApplicationAcknowledgment(
     <tr>
       <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
         <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
-        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Veteran-owned. Relationship-first.</p>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600;">Veteran-Owned. Relationship-first.</p>
       </td>
     </tr>
     
@@ -63,7 +63,7 @@ export function generateJobApplicationAcknowledgment(
         </p>
         
         <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
-          We're <em>excited</em> to have received your application for the <strong style="color: #386851;">${data.position}</strong> position! Thank you for considering MH Construction as the place to build your career and future. We're thrilled you want to join our veteran-owned family.
+          We're <em>excited</em> to have received your application for the <strong style="color: #386851;">${data.position}</strong> position! Thank you for considering MH Construction as the place to build your career and future. We're thrilled you want to join our Veteran-Owned family.
         </p>
         
         <div style="background-color: #f0f7f4; border-left: 4px solid #386851; padding: 15px; margin: 20px 0;">
@@ -84,7 +84,7 @@ export function generateJobApplicationAcknowledgment(
         <div style="background-color: #fff9f0; border: 1px solid #d4af37; padding: 15px; margin: 20px 0; border-radius: 6px;">
           <p style="margin: 0; font-size: 14px; color: #666; line-height: 1.6;">
             <strong style="color: #BD9264;">🎖️ A Special Welcome to Our Veterans!</strong><br>
-            As a veteran-owned company, we're honored by your service and genuinely excited about the unique strengths you bring. Military discipline, precision, and teamwork translate beautifully into construction careers—and we're here to help you transition and thrive. You have priority consideration, and we can't wait to learn about your journey!
+            As a Veteran-Owned company, we're honored by your service and genuinely excited about the unique strengths you bring. Military discipline, precision, and teamwork translate beautifully into construction careers—and we're here to help you transition and thrive. You have priority consideration, and we can't wait to learn about your journey!
           </p>
         </div>
         
@@ -123,7 +123,7 @@ export function generateJobApplicationAcknowledgment(
 
 Dear ${data.firstName} ${data.lastName},
 
-We're EXCITED to have received your application for the ${data.position} position! Thank you for considering MH Construction as the place to build your career and future. We're thrilled you want to join our veteran-owned family.
+We're EXCITED to have received your application for the ${data.position} position! Thank you for considering MH Construction as the place to build your career and future. We're thrilled you want to join our Veteran-Owned family.
 
 🚀 WHAT HAPPENS NEXT?
 Our team is looking forward to reviewing your application and learning more about YOUR unique talents and aspirations! We're committed to finding the perfect fit for both you and our growing company, so we take time to thoughtfully consider each candidate and the opportunities we can offer.
@@ -133,7 +133,7 @@ You can expect to hear from us within 3-5 business days. If your qualifications 
 At MH Construction, we believe "Your Growth Is Our Mission." We're not just looking for employees—we're seeking future partners, leaders, and family members who will grow with us. We invest in your success because when you thrive, we all thrive together.
 
 🎖️ A SPECIAL WELCOME TO OUR VETERANS!
-As a veteran-owned company, we're honored by your service and genuinely excited about the unique strengths you bring. Military discipline, precision, and teamwork translate beautifully into construction careers—and we're here to help you transition and thrive. You have priority consideration, and we can't wait to learn about your journey!
+As a Veteran-Owned company, we're honored by your service and genuinely excited about the unique strengths you bring. Military discipline, precision, and teamwork translate beautifully into construction careers—and we're here to help you transition and thrive. You have priority consideration, and we can't wait to learn about your journey!
 
 Thank you for taking this exciting first step toward your future with MH Construction. We're genuinely looking forward to getting to know you, your talents, and your dreams. This could be the beginning of something great!
 
@@ -191,7 +191,7 @@ export function generateConsultationAcknowledgment(
     <tr>
       <td style="background: linear-gradient(135deg, #386851 0%, #1E392C 100%); padding: 30px; text-align: center;">
         <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">MH Construction, Inc.</h1>
-        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600; font-style: italic;">Building projects for the client, <em>NOT</em> the dollar</p>
+        <p style="color: #d4af37; margin: 10px 0 0 0; font-size: 14px; font-weight: 600; font-style: italic;">Building projects for the Client, <em>NOT</em> the Dollar</p>
       </td>
     </tr>
     
@@ -406,7 +406,7 @@ The MH Construction Team
 ---
 
 MH Construction, Inc.
-3111 N. Capitol Ave., Pasco, WA 99301
+3111 N Capitol Ave, Pasco, WA 99301
 Phone: (509) 308-6489
 Email: office@mhc-gc.com
 
@@ -469,21 +469,21 @@ export function generateNewsletterAcknowledgment(data: NewsletterEmailData): {
           <ul style="margin: 0; padding-left: 20px; color: #1E392C;">
             <li style="margin-bottom: 10px;"><strong>Project Showcases:</strong> See our latest completed projects and construction updates</li>
             <li style="margin-bottom: 10px;"><strong>Industry Insights:</strong> Expert tips and construction best practices</li>
-            <li style="margin-bottom: 10px;"><strong>Company News:</strong> Updates from our veteran-owned family business</li>
+            <li style="margin-bottom: 10px;"><strong>Company News:</strong> Updates from our Veteran-Owned family business</li>
             <li style="margin-bottom: 10px;"><strong>Exclusive Content:</strong> Special offers and partnership opportunities</li>
           </ul>
         </div>
         
         <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.6;">
-          At MH Construction, we believe in <em>"Building projects for the client, NOT the dollar."</em> This philosophy extends to everything we do, including the content we share with you.
+          At MH Construction, we believe in <em>"Building projects for the Client, NOT the Dollar."</em> This philosophy extends to everything we do, including the content we share with you.
         </p>
         
         <div style="background-color: #fff9f0; border: 1px solid #d4af37; padding: 20px; margin: 25px 0; border-radius: 6px; text-align: center;">
           <p style="margin: 0 0 15px 0; font-size: 16px; color: #666;">
-            <strong style="color: #BD9264;">🎖️ Veteran-owned. Relationship-first.</strong>
+            <strong style="color: #BD9264;">🎖️ Veteran-Owned. Relationship-first.</strong>
           </p>
           <p style="margin: 0; font-size: 14px; color: #666; line-height: 1.6;">
-            As a veteran-owned company, we bring disciplined execution, follow-through, and integrity to every project. We're proud to serve the Tri-Cities community and the Pacific Northwest with the same dedication we showed in service to our country.
+            As a Veteran-Owned company, we bring disciplined execution, follow-through, and integrity to every project. We're proud to serve the Tri-Cities community and the Pacific Northwest with the same dedication we showed in service to our country.
           </p>
         </div>
         
@@ -518,7 +518,7 @@ export function generateNewsletterAcknowledgment(data: NewsletterEmailData): {
         
         <p style="margin: 0 0 10px 0; font-size: 14px; color: #999;">
           <strong style="color: #d4af37;">MH Construction, Inc.</strong><br>
-          3111 N. Capitol Ave., Pasco, WA 99301<br>
+          3111 N Capitol Ave, Pasco, WA 99301<br>
           Phone: (509) 308-6489 | Email: office@mhc-gc.com
         </p>
         
@@ -548,13 +548,13 @@ Thank you for subscribing to the MH Construction Newsletter! We're excited to ha
 WHAT TO EXPECT:
 • Project Showcases: See our latest completed projects and construction updates
 • Industry Insights: Expert tips and construction best practices
-• Company News: Updates from our veteran-owned family business
+• Company News: Updates from our Veteran-Owned family business
 • Exclusive Content: Special offers and partnership opportunities
 
-At MH Construction, we believe in "Building projects for the client, NOT the dollar." This philosophy extends to everything we do, including the content we share with you.
+At MH Construction, we believe in "Building projects for the Client, NOT the Dollar." This philosophy extends to everything we do, including the content we share with you.
 
 VETERAN-OWNED. RELATIONSHIP-FIRST.
-As a veteran-owned company, we bring disciplined execution, follow-through, and integrity to every project. We're proud to serve the Tri-Cities community and the Pacific Northwest with the same dedication we showed in service to our country.
+As a Veteran-Owned company, we bring disciplined execution, follow-through, and integrity to every project. We're proud to serve the Tri-Cities community and the Pacific Northwest with the same dedication we showed in service to our country.
 
 READY TO START YOUR PROJECT?
 Get your free consultation: https://www.mhc-gc.com/contact
@@ -567,7 +567,7 @@ The MH Construction Team
 ---
 
 MH Construction, Inc.
-3111 N. Capitol Ave., Pasco, WA 99301
+3111 N Capitol Ave, Pasco, WA 99301
 Phone: (509) 308-6489
 Email: office@mhc-gc.com
 Website: www.mhc-gc.com

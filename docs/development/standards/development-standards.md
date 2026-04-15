@@ -763,3 +763,8 @@ Before committing code, ensure:
 
 **Questions or Suggestions?**
 Update this document via pull request or discuss with the team.
+
+---
+
+**MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
+[← Back to README](../../README.md)

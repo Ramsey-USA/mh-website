@@ -1,7 +1,7 @@
 {
   "name": "MH Construction - Base HQ → Home | Building Projects for the Client, NOT the Dollar",
   "short_name": "MH Const",
-  "description": "Base HQ → Home: Your Tri-Cities Construction Command Center. Building projects for the client, NOT the dollar. Veteran-owned with dual-label approach (Operations → Services, Missions → Projects). Service-earned values serving the Pacific Northwest since 2010. Enhanced with comprehensive analytics, 100+ data points collected privacy-first.",
+  "description": "Base HQ → Home: Your Tri-Cities Construction Command Center. Building projects for the Client, NOT the Dollar. Veteran-Owned Since January 2025 with dual-label approach (Operations → Services, Missions → Projects). Service-earned values serving the Pacific Northwest since 2010. Enhanced with comprehensive analytics, 100+ data points collected privacy-first.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#1e293b",
@@ -28,7 +28,7 @@
     {
       "name": "Rally Point → Contact",
       "short_name": "Contact",
-      "description": "Connect with our veteran-owned team",
+      "description": "Connect with our Veteran-Owned team",
       "url": "/contact",
       "icons": [
         {

@@ -1,7 +1,10 @@
 # Google Business Profile - Ready-to-Use Post Templates
 
-**Company:** MH Construction, Inc.  
-**Last Updated:** December 22, 2025
+**Company:** MH Construction  
+**Last Updated:** April 15, 2026  
+**BBB:** A+ Rating since April 7, 2026
+
+> **Brand Reference:** See [Brand Constants](../branding/brand-constants.md) for exact brand values.
 
 ---
 
@@ -12,14 +15,14 @@
 ```text
 🏗️ Breaking Ground Alert!
 
-We're excited to start work on a new [PROJECT TYPE] in [CITY], WA this week! Our veteran-owned team is ready to deliver quality construction that puts the client first.
+We're excited to start work on a new [PROJECT TYPE] in [CITY], WA this week! Our veteran-owned team is ready to deliver quality construction that puts the Client first.
 
 📋 Project Details:
 • Type: [Commercial/Industrial/Government]
 • Size: [Square Footage]
 • Timeline: [Duration]
 
-Building projects for the client, NOT the dollar.
+Building projects for the Client, NOT the Dollar.
 
 📞 (509) 308-6489
 🌐 www.mhc-gc.com
@@ -502,5 +505,5 @@ Thank you for trusting us with your construction projects. We're grateful for th
 
 ---
 
-**Last Updated:** March 15, 2026  
+**Last Updated:** April 15, 2026  
 **For questions, contact your marketing team**

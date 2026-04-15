@@ -151,7 +151,7 @@ function generateFallbackResponse(message: string): string {
     lower.includes("va ") ||
     lower.includes("dd-214")
   ) {
-    return "MH Construction is veteran-owned since January 2025 by Army veteran Jeremy Thamert. We're BBB Accredited with an A+ rating. We offer a Combat Veteran Discount and priority scheduling for all veterans. Bring your DD-214 or VA card to your consultation. Learn more at mhc-gc.com/veterans.";
+    return "MH Construction is Veteran-Owned Since January 2025 by Army veteran Jeremy Thamert. We're BBB Accredited with an A+ rating. We offer a Combat Veteran Discount and priority scheduling for all veterans. Bring your DD-214 or VA card to your consultation. Learn more at mhc-gc.com/veterans.";
   }
 
   // BBB / Better Business Bureau
@@ -192,7 +192,7 @@ function generateFallbackResponse(message: string): string {
     lower.includes("kennewick") ||
     lower.includes("richland")
   ) {
-    return "We're headquartered at 3111 N. Capitol Ave., Pasco, WA 99301. Our primary service area is the Tri-Cities (Pasco, Kennewick, Richland, West Richland). We also serve Yakima, Spokane, Walla Walla, Hermiston (OR), Pendleton (OR), Coeur d'Alene (ID), and Omak. Licensed in WA, OR, and ID.";
+    return "We're headquartered at 3111 N Capitol Ave, Pasco, WA 99301. Our primary service area is the Tri-Cities (Pasco, Kennewick, Richland, West Richland). We also serve Yakima, Spokane, Walla Walla, Hermiston (OR), Pendleton (OR), Coeur d'Alene (ID), and Omak. Licensed in WA, OR, and ID.";
   }
 
   // Allies / partners
@@ -213,7 +213,7 @@ function generateFallbackResponse(message: string): string {
     lower.includes("rating") ||
     lower.includes("review")
   ) {
-    return "MH Construction is BBB Accredited with an A+ rating, veteran-owned since January 2025, and licensed in WA, OR, and ID. We've completed 650+ successful projects with a 0.64 EMR safety rating. Check our Google reviews or BBB profile for client feedback.";
+    return "MH Construction is BBB Accredited with an A+ rating, Veteran-Owned Since January 2025, and licensed in WA, OR, and ID. We've completed 650+ successful projects with a 0.64 EMR safety rating. Check our Google reviews or BBB profile for client feedback.";
   }
 
   // Default

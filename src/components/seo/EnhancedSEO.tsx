@@ -7,15 +7,15 @@ import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 export const enhancedSEO = {
   siteName: COMPANY_INFO.name,
   defaultTitle:
-    "Base HQ → Home | Building projects for the client, NOT the dollar | MH Construction",
+    "Base HQ → Home | Building projects for the Client, NOT the Dollar | MH Construction",
   defaultDescription:
-    "Base HQ → Home: Your Tri-Cities Construction Command Center. Construction management services since 2010, veteran-owned since January 2025, with dual-label approach (Military Operations → Construction Services). Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction. Service-earned values—Honesty, Integrity, Professionalism, Thoroughness—building trust through SITREP-level transparency and Chain of Command excellence throughout the Pacific Northwest.",
+    "Base HQ → Home: Your Tri-Cities Construction Command Center. Construction management services since 2010, Veteran-Owned Since January 2025, with dual-label approach (Military Operations → Construction Services). Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction. Service-earned values—Honesty, Integrity, Professionalism, Thoroughness—building trust through SITREP-level transparency and Chain of Command excellence throughout the Pacific Northwest.",
   siteUrl: COMPANY_INFO.urls.getSiteUrl(),
   twitterHandle: COMPANY_INFO.social.twitterHandle,
   defaultKeywords: [
     "Base HQ Home construction command center",
     "dual-label military civilian construction",
-    "veteran-owned contractor",
+    "Veteran-Owned contractor",
     "service-earned construction values",
     "Chain of Command construction approach",
     "military precision construction",
@@ -264,7 +264,7 @@ export function generateEnhancedOrganizationSchema() {
     ],
     veteranOwned: true,
     ownershipType: "Veteran-Owned Small Business",
-    slogan: "Building projects for the client, NOT the dollar",
+    slogan: "Building projects for the Client, NOT the Dollar",
     mission:
       "Building partnerships through traditional values, serving communities with face-to-face trust, creating lasting value in the Pacific Northwest",
     hasCredential: [
@@ -478,7 +478,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "Do you offer veteran benefits and discounts?",
       answer:
-        "Yes! As a veteran-owned business since January 2025, we proudly offer Combat Veteran Discount at the Ready on all projects, plus specialized protocols for veteran recognition and service-specific benefits. Our team provides veteran advisory services for accessibility, energy efficiency, and security guidance. Contact us directly for personalized veteran support.",
+        "Yes! As a Veteran-Owned business since January 2025, we proudly offer Combat Veteran Discount at the Ready on all projects, plus specialized protocols for veteran recognition and service-specific benefits. Our team provides veteran advisory services for accessibility, energy efficiency, and security guidance. Contact us directly for personalized veteran support.",
     },
     {
       question: "What areas do you serve in the Pacific Northwest?",
@@ -488,7 +488,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "What makes MH Construction different from other contractors?",
       answer:
-        "We're a veteran-owned construction company where traditional business values come first: handshakes matter, your word is your bond, and face-to-face trust defines every partnership. Founded in 2010 by Mike Holstein, purchased by Army veteran Jeremy Thamert in January 2025, we combine disciplined execution with transparent communication and authentic community relationships. Our motto: 'Building projects for the client, NOT the dollar.'",
+        "We're a Veteran-Owned construction company where traditional business values come first: handshakes matter, your word is your bond, and face-to-face trust defines every partnership. Founded in 2010 by Mike Holstein, purchased by Army veteran Jeremy Thamert in January 2025, we combine disciplined execution with transparent communication and authentic community relationships. Our motto: 'Building projects for the Client, NOT the Dollar.'",
     },
     {
       question: "What safety record and awards does MH Construction hold?",
@@ -506,9 +506,9 @@ export function generateConstructionFAQSchema() {
         "We recommend starting with a free expert consultation—schedule your on-site evaluation for comprehensive assessment and detailed open-book pricing. This face-to-face meeting is where partnerships begin. Contact us at (509) 308-6489 or visit our Contact page to get started.",
     },
     {
-      question: "Are you a veteran-owned business?",
+      question: "Are you a Veteran-Owned business?",
       answer:
-        "Yes, MH Construction is a proud veteran-owned business certified by the U.S. Small Business Administration. We operate with disciplined execution, serve the veteran community with specialized benefits and recognition, and maintain authentic partnerships that strengthen Pacific Northwest communities.",
+        "Yes, MH Construction is a proud Veteran-Owned business certified by the U.S. Small Business Administration. We operate with disciplined execution, serve the veteran community with specialized benefits and recognition, and maintain authentic partnerships that strengthen Pacific Northwest communities.",
     },
   ];
 

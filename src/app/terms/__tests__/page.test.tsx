@@ -32,7 +32,7 @@ jest.mock("@/lib/seo/breadcrumb-schema", () => ({
 jest.mock("@/lib/constants/company", () => ({
   COMPANY_INFO: {
     address: {
-      street: "3111 N. Capitol Ave.",
+      street: "3111 N Capitol Ave",
       cityStateZip: "Pasco, WA 99301",
     },
     phone: { tel: "+15093086489", display: "(509) 308-6489" },

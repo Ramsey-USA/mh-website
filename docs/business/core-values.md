@@ -1,8 +1,10 @@
 # MH Construction Core Values - Service-Earned Foundation
 
-**Last Updated:** March 15, 2026  
+**Last Updated:** April 15, 2026  
 **Status:** Official Company Values  
-**Methodology:** Military/Construction Terminology Integration
+**Version:** 7.0.0
+
+> **Canonical Reference:** For exact brand values, see [Brand Constants](../branding/brand-constants.md).
 
 ## 4-Value Service-Earned Foundation System
 
@@ -151,6 +153,7 @@ Trust isn't just another value - it's the result when all other values are consi
 - **Community Standing**: Active involvement in Pacific Northwest communities
 - **Repeat Clients**: Many clients return for additional projects
 - **Industry Recognition**: Respected by peers and competitors
+- **BBB Accredited**: A+ Rating since April 7, 2026 — [View BBB Profile](https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036)
 
 ---
 
@@ -319,10 +322,11 @@ Our 4 Core Values aren't abstract concepts—they create 6 measurable difference
 
 ---
 
-**Partnership Philosophy**: "Building projects for the client, NOT the dollar"
+**Partnership Philosophy**: "Building projects for the Client, NOT the Dollar"
 **Core Message**: "THE ROI IS THE RELATIONSHIP"
 **Community Focus**: Serving Pacific Northwest Communities with Excellence
 
 ---
 
-**Last Updated:** March 15, 2026 | MH Construction, Inc.
+**MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
+[← Back to README](../../README.md)

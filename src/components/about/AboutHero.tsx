@@ -20,7 +20,7 @@ export function AboutHero() {
               icon="military_tech"
               size="4xl"
               className="text-white drop-shadow-lg"
-              ariaLabel="Veteran-owned, relationship-first leadership"
+              ariaLabel="Veteran-Owned, relationship-first leadership"
             />
           </div>
         </div>
@@ -35,7 +35,7 @@ export function AboutHero() {
             150+ Years Combined Military-Grade Expertise
           </span>
           <span className="block text-white/90">
-            Building projects for the client,{" "}
+            Building projects for the Client,{" "}
             <span className="font-black italic text-bronze-300">NOT</span> the
             dollar
           </span>

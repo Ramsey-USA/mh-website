@@ -28,12 +28,12 @@ export const faqCategories: FAQCategory[] = [
         question:
           "What makes MH Construction different from other construction companies?",
         answer:
-          "We're built on a four-value professional foundation system: Honesty, Integrity, Professionalism, and Thoroughness-all culminating in Trust as our ultimate goal. Founded in 2010, we became veteran-owned in January 2025 when Army veteran Jeremy Thamert purchased the company, combining our 15-year heritage with disciplined execution and partnership-driven construction management. Our philosophy is simple: Building projects for the client, NOT the dollar. We work WITH you, not FOR you, ensuring your vision guides every decision.",
+          "We're built on a four-value professional foundation system: Honesty, Integrity, Professionalism, and Thoroughness-all culminating in Trust as our ultimate goal. Founded in 2010, we became Veteran-Owned in January 2025 when Army veteran Jeremy Thamert purchased the company, combining our 15-year heritage with disciplined execution and partnership-driven construction management. Our philosophy is simple: Building projects for the Client, NOT the Dollar. We work WITH you, not FOR you, ensuring your vision guides every decision.",
       },
       {
         question: "Where are you licensed and what areas do you serve?",
         answer:
-          "MH Construction is licensed in Washington, Oregon, and Idaho. We're headquartered in Pasco, WA (3111 N. Capitol Ave., Pasco, WA 99301) and serve the broader Pacific Northwest. Our primary service area is the Tri-Cities (Pasco, Kennewick, Richland, and West Richland), with active operations in Yakima, Spokane, Walla Walla, Hermiston, Pendleton, Coeur d'Alene, and Omak.",
+          "MH Construction is licensed in Washington, Oregon, and Idaho. We're headquartered in Pasco, WA (3111 N Capitol Ave, Pasco, WA 99301) and serve the broader Pacific Northwest. Our primary service area is the Tri-Cities (Pasco, Kennewick, Richland, and West Richland), with active operations in Yakima, Spokane, Walla Walla, Hermiston, Pendleton, Coeur d'Alene, and Omak.",
       },
       {
         question: "What types of projects do you specialize in?",
@@ -41,9 +41,9 @@ export const faqCategories: FAQCategory[] = [
           "With 650+ completed projects, we specialize in commercial, industrial, healthcare, public safety, education, and civic/nonprofit construction management. Our core services include Master Planning & Pre-Construction, Procurement & Ally Management, Constructability & Budget Control, and Project Modularization. We also deliver tenant improvements, religious facility construction, government projects, and Pre-Engineered Metal Buildings (PEMB).",
       },
       {
-        question: "Are you really veteran-owned?",
+        question: "Are you really Veteran-Owned?",
         answer:
-          "Yes! MH Construction was founded in 2010 and became veteran-owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our military background brings discipline, attention to detail, and a commitment to follow-through to every project. We understand the value of keeping promises and meeting commitments-values that directly translate to construction excellence.",
+          "Yes! MH Construction was founded in 2010 and became Veteran-Owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our military background brings discipline, attention to detail, and a commitment to follow-through to every project. We understand the value of keeping promises and meeting commitments-values that directly translate to construction excellence.",
       },
     ],
   },
@@ -136,7 +136,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "What veteran benefits do you offer?",
         answer:
-          "We offer a Combat Veteran Discount at the Ready on qualifying projects, priority scheduling for all veterans, and service branch recognition throughout our process. As a veteran-owned company, we understand military values and honor those who served through tangible benefits and respectful service.",
+          "We offer a Combat Veteran Discount at the Ready on qualifying projects, priority scheduling for all veterans, and service branch recognition throughout our process. As a Veteran-Owned company, we understand military values and honor those who served through tangible benefits and respectful service.",
       },
       {
         question: "How do I qualify for veteran discounts?",
@@ -181,12 +181,12 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "What is MH Construction's service area?",
         answer:
-          "We are headquartered in Pasco, WA (3111 N. Capitol Ave) and serve the entire Tri-Cities region—Kennewick, Richland, West Richland, Burbank, and Connell—plus extended areas including Yakima, Spokane, Walla Walla, Hermiston (OR), Pendleton (OR), Coeur d'Alene (ID), and Omak. We are also equipped to handle government and industrial projects near the Hanford Site.",
+          "We are headquartered in Pasco, WA (3111 N Capitol Ave) and serve the entire Tri-Cities region—Kennewick, Richland, West Richland, Burbank, and Connell—plus extended areas including Yakima, Spokane, Walla Walla, Hermiston (OR), Pendleton (OR), Coeur d'Alene (ID), and Omak. We are also equipped to handle government and industrial projects near the Hanford Site.",
       },
       {
         question: "Is MH Construction a certified Veteran-Owned business?",
         answer:
-          "Yes, MH Construction is a Veteran-Owned business. Founded in 2010 by Mike Holstein, the company was purchased in January 2025 by U.S. Army Veteran Jeremy Thamert. We operate with an 'Old School' mentality where your word is your bond, living by the slogan: 'Building projects for the client, NOT the dollar.'",
+          "Yes, MH Construction is a Veteran-Owned business. Founded in 2010 by Mike Holstein, the company was purchased in January 2025 by U.S. Army Veteran Jeremy Thamert. We operate with an 'Old School' mentality where your word is your bond, living by the slogan: 'Building projects for the Client, NOT the Dollar.'",
       },
       {
         question:

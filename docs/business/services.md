@@ -1,13 +1,16 @@
 # MH Construction Services & Capabilities - Veteran-Led Excellence
 
-**Last Updated:** March 15, 2026  
+**Last Updated:** April 15, 2026  
 **Status:** Official Service Offerings  
-**Methodology:** Military/Construction Terminology Integration
+**Version:** 7.0.0
+
+> **Canonical Reference:** For exact brand values, see [Brand Constants](../branding/brand-constants.md).
 
 ## Expert Veteran-Led Construction Management in the Pacific Northwest
 
 **Tri-Cities Headquarters**: Pasco, WA | **Service Area**: Washington, Oregon, Idaho  
-**Veteran-Owned**: All-Branch Military Service Leadership
+**Veteran-Owned**: All-Branch Military Service Leadership  
+**BBB Accredited**: A+ Rating since April 7, 2026
 
 **Primary Service Area**: Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County  
 **Extended Service Areas**: Yakima, Spokane, Walla Walla, Hermiston, Coeur d'Alene, Eastern Washington
@@ -421,7 +424,7 @@ Schedule a personalized consultation with our experienced team for detailed prof
 
 ### General Information
 
-**Address:** 3111 N. Capitol Ave., Pasco, WA 99301
+**Address:** 3111 N Capitol Ave, Pasco, WA 99301
 **Website:** [www.mhc-gc.com](https://www.mhc-gc.com)
 **Email:** [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
@@ -429,4 +432,5 @@ Schedule a personalized consultation with our experienced team for detailed prof
 
 _Building partnerships, serving communities, creating lasting value in the Pacific Northwest._
 
-**Last Updated:** October 2025 | MH Construction, Inc.
+**MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
+[← Back to README](../../README.md)

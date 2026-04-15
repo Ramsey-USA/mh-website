@@ -128,9 +128,9 @@ export default function ContactPageClient() {
                 Schedule Your Free Mission Brief
               </span>
               <span className="block text-white/90">
-                Building projects for the client,{" "}
+                Building projects for the Client,{" "}
                 <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the dollar
+                the Dollar
               </span>
             </h1>
           </div>
@@ -517,7 +517,7 @@ export default function ContactPageClient() {
                   </div>
 
                   <p className="mb-6 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                    Looking to grow your business with a veteran-owned
+                    Looking to grow your business with a Veteran-Owned
                     construction leader? Join our network of quality
                     professionals serving the Pacific Northwest market.
                   </p>
@@ -670,7 +670,7 @@ export default function ContactPageClient() {
                 {/* Description */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   <span itemProp="address">
-                    3111 N. Capitol Ave., Pasco, WA 99301
+                    3111 N Capitol Ave, Pasco, WA 99301
                   </span>
                 </p>
                 <p className="mt-4 text-gray-500 dark:text-gray-300 text-base sm:text-lg">
@@ -691,7 +691,7 @@ export default function ContactPageClient() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="MH Construction Office Location - 3111 N. Capitol Ave., Pasco, WA 99301"
+                  title="MH Construction Office Location - 3111 N Capitol Ave, Pasco, WA 99301"
                   className="absolute inset-0"
                 ></iframe>
               </div>

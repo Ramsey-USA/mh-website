@@ -90,7 +90,7 @@ export function PartnershipPhilosophy() {
             </span>
             . Under{" "}
             <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              veteran-owned leadership
+              Veteran-Owned leadership
             </span>{" "}
             since January 2025, we continue the mission tradition of excellence
             through operational experience.
@@ -138,7 +138,7 @@ export function PartnershipPhilosophy() {
               barTo="to-bronze-800"
             >
               <p className="text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed font-medium italic">
-                "To be the Pacific Northwest's most trusted veteran-owned
+                "To be the Pacific Northwest's most trusted Veteran-Owned
                 construction partner - renowned for proven craftsmanship and
                 service-earned integrity."
               </p>

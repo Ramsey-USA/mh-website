@@ -119,7 +119,7 @@ export default function AboutPage() {
             <>
               From founding father's vision to{" "}
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                veteran-owned, relationship-first leadership
+                Veteran-Owned, relationship-first leadership
               </span>
               —sixteen years of partnership philosophy, safety leadership, and{" "}
               <span className="font-bold text-gray-900 dark:text-white">
@@ -182,7 +182,7 @@ export default function AboutPage() {
                 </span>{" "}
                 —milestones from our{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  veteran-owned team
+                  Veteran-Owned team
                 </span>{" "}
                 where every achievement reflects our commitment to excellence.
               </p>
@@ -242,7 +242,7 @@ export default function AboutPage() {
                   category="Partnership"
                   categoryColor="secondary"
                   title="Expanding Trade Partner Network"
-                  description="We're actively growing our network of skilled trade professionals to better serve clients across the Pacific Northwest. Join our veteran-owned partnership program."
+                  description="We're actively growing our network of skilled trade professionals to better serve clients across the Pacific Northwest. Join our Veteran-Owned partnership program."
                   date="Oct 2025"
                   href="/allies"
                   linkText="Become a Partner"
@@ -257,7 +257,7 @@ export default function AboutPage() {
                   category="Recognition"
                   categoryColor="secondary"
                   title="Award-Winning Safety Record"
-                  description="Our commitment to safety excellence has been recognized by industry organizations. Zero accidents, 100% compliance - that's the veteran-owned difference."
+                  description="Our commitment to safety excellence has been recognized by industry organizations. Zero accidents, 100% compliance - that's the Veteran-Owned difference."
                   date="Sep 2025"
                   href="/about#safety"
                   linkText="Safety Standards"
@@ -287,7 +287,7 @@ export default function AboutPage() {
                   category="Veteran Initiative"
                   categoryColor="bronze"
                   title="Supporting Veteran-Owned Businesses"
-                  description="As a veteran-owned company, we prioritize partnerships with fellow veteran businesses and support programs that help veterans transition to civilian careers."
+                  description="As a Veteran-Owned company, we prioritize partnerships with fellow veteran businesses and support programs that help veterans transition to civilian careers."
                   date="Jul 2025"
                   href="/about"
                   linkText="Our Values"

@@ -14,7 +14,7 @@ const teamSpecialties = [
     icon: "military_tech",
     title: "Mission Leadership",
     description:
-      "Veteran-owned operational discipline meets proven construction excellence",
+      "Veteran-Owned operational discipline meets proven construction excellence",
   },
   {
     icon: "engineering",
@@ -44,7 +44,7 @@ const teamSpecialties = [
     icon: "groups",
     title: "Team Cohesion",
     description:
-      "Individual specialists united under shared mission: building projects for the client, not the dollar",
+      "Individual specialists united under shared mission: Building projects for the Client, NOT the Dollar",
   },
 ];
 

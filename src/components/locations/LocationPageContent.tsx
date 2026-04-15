@@ -79,7 +79,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
       description:
         priorityServices.length > 2
           ? `${priorityServices[2]} solutions supporting public-sector standards and long-term lifecycle value in ${location.state}.`
-          : "Public sector construction with veteran-owned business advantages. Experienced with government compliance and procurement processes.",
+          : "Public sector construction with Veteran-Owned business advantages. Experienced with government compliance and procurement processes.",
     },
     {
       icon: "home_repair_service",
@@ -101,7 +101,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
     "@type": "LocalBusiness",
     "@id": `${enhancedSEO.siteUrl}/locations/${location.slug}#localbusiness`,
     name: `MH Construction - ${location.city}`,
-    description: `Veteran-owned general contractor serving ${location.city}, ${location.state} with commercial, industrial, and government construction services.`,
+    description: `Veteran-Owned general contractor serving ${location.city}, ${location.state} with commercial, industrial, and government construction services.`,
     url: `${enhancedSEO.siteUrl}/locations/${location.slug}`,
     telephone: location.telephone,
     email: location.email,
@@ -151,7 +151,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
       "Financing Available",
     ],
     currenciesAccepted: "USD",
-    slogan: "Building projects for the client, NOT the dollar",
+    slogan: "Building projects for the Client, NOT the Dollar",
     veteranOwned: true,
     serviceType:
       priorityServices.length > 0
@@ -225,7 +225,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
 
               {/* Core Slogan */}
               <p className="text-sm sm:text-base md:text-lg text-white/80 font-medium">
-                "Building projects for the client, NOT the dollar"
+                "Building projects for the Client, NOT the Dollar"
               </p>
 
               {/* CTA Buttons */}
@@ -652,7 +652,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
 
               <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-white/90 leading-relaxed font-light">
                 Let's discuss how MH Construction can bring your vision to life
-                with a veteran-owned, relationship-first approach and
+                with a Veteran-Owned, relationship-first approach and
                 partnership-driven service.
               </p>
 

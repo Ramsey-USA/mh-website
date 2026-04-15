@@ -34,7 +34,7 @@ export function HeroSection() {
             Base HQ → Home
           </span>
           <span className="block text-brand-secondary">
-            Founded 2010, Veteran-Owned Since 2025
+            Founded 2010, Veteran-Owned Since January 2025
           </span>
           <span className="block text-brand-primary">
             Your Tri-Cities Construction Command Center

@@ -393,3 +393,8 @@ Do **not** reuse or delete old folders — they serve as historical archives.
 | Revision | Effective Date | Sections   | Description                                                                                                                    | Updated By |
 | -------- | -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------- |
 | Rev 2    | 04/07/2026     | 44 (00–44) | Initial digital program; 44 sections extracted from PDF/Word sources; field hub, digital forms, and download tracking deployed | Jeremy     |
+
+---
+
+**MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
+[← Back to README](../../README.md)

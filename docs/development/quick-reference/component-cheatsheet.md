@@ -1,11 +1,11 @@
 # MH Construction Component Cheatsheet
 
 **Category:** Development - Quick Reference  
-**Version:** 1.0.0  
-**Last Updated:** December 28, 2025  
+**Version:** 1.1.0  
+**Last Updated:** April 15, 2026  
 **Status:** ✅ Active  
 **Reference Standard:** [Homepage](../../technical/homepage.md) - Your page should match this level of polish  
-**Related:** [Unified Component Standards](../../branding/standards/unified-component-standards.md)
+**Related:** [Unified Component Standards](../../branding/standards/unified-component-standards.md) | [Brand Constants](../../branding/brand-constants.md)
 
 ---
 

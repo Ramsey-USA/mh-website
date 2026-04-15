@@ -23,7 +23,7 @@ const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.veterans);
 
 /**
  * Veterans Initiative Page
- * Showcasing MH Construction's veteran-owned status and community support programs
+ * Showcasing MH Construction's Veteran-Owned status and community support programs
  */
 export default function VeteransPage() {
   return (
@@ -746,7 +746,7 @@ export default function VeteransPage() {
                           </h4>
                           <p className="text-gray-700 dark:text-gray-300">
                             This isn't a marketing gimmick or one-time
-                            promotion. As a veteran-owned company, honoring
+                            promotion. As a Veteran-Owned company, honoring
                             combat service is part of our DNA. Your word is your
                             bond—so is ours. Every combat veteran receives fair
                             consideration, respectful treatment, and meaningful
@@ -776,7 +776,7 @@ export default function VeteransPage() {
                     </span>
                   </Link>
                   <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                    Direct line to veteran-owned leadership. No automated
+                    Direct line to Veteran-Owned leadership. No automated
                     systems, no gatekeepers—just honest conversation with
                     someone who understands.
                   </p>
@@ -823,7 +823,7 @@ export default function VeteransPage() {
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   As a{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    veteran-owned company since January 2025
+                    Veteran-Owned company since January 2025
                   </span>
                   , we're deploying long-term operational programs to support
                   veterans.{" "}
@@ -862,7 +862,7 @@ export default function VeteransPage() {
                     value: "Growing",
                     label: "Veteran Network",
                     description:
-                      "Partnerships with veteran-owned subcontractors",
+                      "Partnerships with Veteran-Owned subcontractors",
                   },
                 ].map((stat, index) => (
                   <FadeInWhenVisible key={index} delay={index * 0.1}>
@@ -970,10 +970,10 @@ export default function VeteransPage() {
                         Veteran Allies
                       </h3>
                       <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed flex-grow">
-                        Recruiting veteran-owned subcontractors for our growing
+                        Recruiting Veteran-Owned subcontractors for our growing
                         network. As we establish company longevity, we're
                         building partnerships with preferential opportunities
-                        for veteran-owned businesses.
+                        for Veteran-Owned businesses.
                       </p>
                       <div className="text-center">
                         <Link
@@ -1322,7 +1322,7 @@ export default function VeteransPage() {
                     className="text-brand-primary"
                   />
                   <span className="text-base font-semibold text-brand-primary dark:text-brand-primary-light">
-                    Veteran-Owned Since 2025
+                    Veteran-Owned Since January 2025
                   </span>
                 </div>
               </div>
@@ -1332,7 +1332,7 @@ export default function VeteransPage() {
           {/* Next Steps Section - Veteran-Specific Messaging */}
           <NextStepsSection
             title="Let's Build Together"
-            subtitle="Partner with a veteran-owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision. Your word is your bond-so is ours."
+            subtitle="Partner with a Veteran-Owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision. Your word is your bond-so is ours."
             noBackground={true}
           />
         </div>

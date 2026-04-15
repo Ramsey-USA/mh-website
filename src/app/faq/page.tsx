@@ -154,11 +154,11 @@ export default function FAQPage() {
                 Our Honest Answers
               </span>
               <span className="block text-white/80 text-xs xs:text-sm sm:text-base md:text-lg">
-                Building projects for the client,{" "}
+                Building projects for the Client,{" "}
                 <span className="font-black italic text-brand-secondary">
                   NOT
                 </span>{" "}
-                the dollar
+                the Dollar
               </span>
             </h1>
           </div>

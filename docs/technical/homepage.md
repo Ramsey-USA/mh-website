@@ -1,9 +1,11 @@
 # Homepage Documentation
 
-**Last Updated:** March 15, 2026  
-**Version:** 2.0  
+**Last Updated:** April 15, 2026  
+**Version:** 2.1.0  
 **Status:** ✅ Active & Optimized  
 **File:** `/src/app/page.tsx`
+
+> **Canonical Reference:** For exact brand values, see [Brand Constants](../branding/brand-constants.md).
 
 > **📐 DESIGN TEMPLATE:** This page serves as the visual and structural
 > template for most site pages. Component patterns (timelines, section

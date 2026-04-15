@@ -87,7 +87,7 @@ export function Modal({
                       className="text-bronze-300"
                     />
                     <span className="font-semibold text-bronze-300 text-sm tracking-wide uppercase">
-                      Veteran-owned. Relationship-first.
+                      Veteran-Owned. Relationship-first.
                     </span>
                   </div>
                 )}

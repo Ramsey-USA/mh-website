@@ -85,7 +85,7 @@ const valueCategories: ValueCategory[] = [
       "Being part of something larger than individual projects",
       "Zero-incident safety culture protecting every team member",
       "OSHA VPP Star certification demonstrates commitment",
-      "Veteran-owned leadership with operational discipline",
+      "Veteran-Owned leadership with operational discipline",
       "Chain of Command structure with unified mission",
     ],
     iconGradient: "from-brand-secondary via-bronze-700 to-bronze-800",

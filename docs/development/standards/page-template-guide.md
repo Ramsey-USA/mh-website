@@ -159,8 +159,8 @@ export default function YourPageName() {
               {/* Hero Description */}
               <p className="max-w-4xl mx-auto text-xs sm:text-sm md:text-base lg:text-lg text-white/80 leading-relaxed px-4">
                 Detailed description about this page. Include the partnership
-                tagline: &quot;Building projects for the client, NOT the
-                dollar&quot; — Additional context about what users will find on
+                tagline: &quot;Building projects for the Client, NOT the
+                Dollar&quot; — Additional context about what users will find on
                 this page.
               </p>
             </div>

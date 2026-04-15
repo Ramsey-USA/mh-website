@@ -9,7 +9,7 @@ jest.mock("@/lib/constants/company", () => ({
     urls: { getSiteUrl: () => "https://mhc-gc.com" },
     social: { twitterHandle: "@mhconstruction" },
     address: {
-      street: "3111 N. Capitol Ave.",
+      street: "3111 N Capitol Ave",
       city: "Pasco",
       stateCode: "WA",
       zip: "99301",

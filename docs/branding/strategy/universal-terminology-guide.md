@@ -1,11 +1,14 @@
 # Universal Terminology & Language Standards
 
-**Last Updated:** December 14, 2025 | **Version:** 1.0.0 | **Status:** Official Brand Standard
+**Last Updated:** April 15, 2026 | **Version:** 1.1.0 | **Status:** Official Brand Standard
+
+> **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
 ---
 
 ## 🧭Quick Navigation
 
+- [📌 Brand Constants](../brand-constants.md) - ⭐ **SINGLE SOURCE OF TRUTH**
 - [📝 Page-Specific Messaging Guide](./page-specific-messaging-guide.md)
 - [Main README](../../../README.md)
 
@@ -144,7 +147,7 @@ referring to subcontractors creates confusion.
 
 - "Veteran-Owned" (capitalized, hyphenated)
 - "Army veteran leadership" (lowercase "veteran" when describing individual)
-- "veteran-owned since January 2025"
+- "Veteran-Owned Since January 2025"
 - "veteran-fueled reliability"
 
 **Approved Variations:**
@@ -158,7 +161,7 @@ referring to subcontractors creates confusion.
 **Examples of Correct Usage:**
 
 ```text
-✅ "Founded 2010, Veteran-Owned since 2025"
+✅ "Founded 2010, Veteran-Owned Since January 2025"
 ✅ "Army veteran leadership brings military precision"
 ✅ "Our veteran-owned team understands discipline"
 ✅ "Purchased by Army veteran Jeremy Thamert in January 2025"
@@ -230,7 +233,7 @@ Licensed in Washington, Oregon, Idaho
 **Headquarters:**
 
 ```text
-3111 N. Capitol Ave.
+3111 N Capitol Ave
 Pasco, WA 99301
 ```
 
@@ -515,7 +518,7 @@ office@mhc-gc.com
 **Address:**
 
 ```text
-3111 N. Capitol Ave.
+3111 N Capitol Ave
 Pasco, WA 99301
 ```
 
@@ -533,7 +536,7 @@ Pasco, WA 99301
 #### Primary Slogan (UNIVERSAL - USE EVERYWHERE)
 
 ```text
-"Building projects for the client, NOT the dollar"
+"Building projects for the Client, NOT the Dollar"
 ```
 
 **Usage Rules:**
@@ -547,9 +550,9 @@ Pasco, WA 99301
 **Examples in Context:**
 
 ```text
-✓ "Building projects for the client, NOT the dollar - Our Core Philosophy"
-✓ "Where talent meets opportunity • Building projects for the client, NOT the dollar"
-✓ "Building projects for the client, NOT the dollar means being available when you need us"
+✓ "Building projects for the Client, NOT the Dollar - Our Core Philosophy"
+✓ "Where talent meets opportunity • Building projects for the Client, NOT the Dollar"
+✓ "Building projects for the Client, NOT the Dollar means being available when you need us"
 ```
 
 ---
@@ -575,9 +578,9 @@ Pasco, WA 99301
 
 **DO NOT use on:**
 
-- ❌ Homepage (use "Building projects for the client")
-- ❌ About page (use "Building projects for the client")
-- ❌ Services page (use "Building projects for the client")
+- ❌ Homepage (use "Building projects for the Client, NOT the Dollar")
+- ❌ About page (use "Building projects for the Client, NOT the Dollar")
+- ❌ Services page (use "Building projects for the Client, NOT the Dollar")
 
 ---
 
@@ -621,7 +624,7 @@ Use these based on page context and messaging group:
 ### Homepage Example (Correct)
 
 ```text
-✓ Hero: "Building projects for the client, NOT the dollar"
+✓ Hero: "Building projects for the Client, NOT the Dollar"
 ✅ Values: "Where handshakes matter and your word is your bond"
 ✅ Testimonials: "What Our Client Partners Say"
 ✅ CTA: "Partner with veteran-owned excellence"
@@ -632,14 +635,14 @@ Use these based on page context and messaging group:
 ```text
 ✅ Hero: "THE ROI IS THE RELATIONSHIP"
 ✅ Benefits: "We treat our Trade Partners with integrity and respect"
-✓ Values: "Building projects for the client, NOT the dollar means treating partners fairly"
+✓ Values: "Building projects for the Client, NOT the Dollar means treating partners fairly"
 ✅ CTA: "Join our Trade Partner network"
 ```
 
 ### Services Page (Correct)
 
 ```text
-✓ Hero: "Your Vision, Our Precision • Building projects for the client, NOT the dollar"
+✓ Hero: "Your Vision, Our Precision • Building projects for the Client, NOT the Dollar"
 ✅ Process: "We work WITH you to achieve your vision"
 ✅ Benefits: "You control it, we manage it—full visibility into every decision"
 ✅ Testimonials: "What Our Client Partners Say About Our Services"
@@ -696,10 +699,10 @@ Use these based on page context and messaging group:
 
 ```text
 ❌ "THE ROI IS THE RELATIONSHIP" on homepage (wrong context)
-✓ "Building projects for the client, NOT the dollar" on homepage
+✓ "Building projects for the Client, NOT the Dollar" on homepage
 
 ❌ "Building for the Trade Partner" (never alter the slogan)
-✓ "Building projects for the client, NOT the dollar" (unchanged, with Trade Partner context explained separately)
+✓ "Building projects for the Client, NOT the Dollar" (unchanged, with Trade Partner context explained separately)
 ```
 
 ---
@@ -712,7 +715,7 @@ Use these based on page context and messaging group:
 - [ ] Veteran status: "Veteran-Owned" (capitalized, hyphenated)?
 - [ ] Location: States listed as WA, OR, ID (in that order)?
 - [ ] Safety: "0.6 EMR" with context (40% better)?
-- [ ] Primary slogan: "Building projects for the client, NOT the dollar" included?
+- [ ] Primary slogan: "Building projects for the Client, NOT the Dollar" included?
 - [ ] "THE ROI IS THE RELATIONSHIP" ONLY on Trade Partners page?
 - [ ] "You control it, we manage it" used for client empowerment?
 - [ ] "Work WITH" (not "work FOR") phrasing?
@@ -775,7 +778,7 @@ These frequencies indicate well-established terminology that should be maintaine
 
 1. "Client Partner" vs "client" distinction
 2. "Trade Partner" vs "Client Partner" distinction
-3. Primary slogan usage ("Building projects for the client, NOT the dollar")
+3. Primary slogan usage ("Building projects for the Client, NOT the Dollar")
 4. "work WITH" vs "work FOR"
 
 ### Phase 2: Brand Identity (High Priority)
@@ -816,6 +819,6 @@ updated to reflect the evolution.
 
 **Remember:** Consistency builds trust. When we all use the same language, we strengthen the brand.
 
-**Primary Slogan:** "Building projects for the client, NOT the dollar"  
+**Primary Slogan:** "Building projects for the Client, NOT the Dollar"  
 **Core Partnership Term:** Client Partner (not "client")  
 **Brand Promise:** Trust Built Through Excellence

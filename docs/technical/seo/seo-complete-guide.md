@@ -1,9 +1,11 @@
 # Complete SEO & Search Optimization Guide
 
 **Category:** Technical - SEO  
-**Version:** 3.1.0  
-**Last Updated:** March 11, 2026  
+**Version:** 3.2.0  
+**Last Updated:** April 15, 2026  
 **Status:** ✅ Active & Comprehensive
+
+> **Canonical Reference:** For exact brand values, see [Brand Constants](../../branding/brand-constants.md).
 
 > **Consolidation Note:** This document consolidates and supersedes:
 >
@@ -1148,7 +1150,7 @@ This comprehensive SEO system provides:
 ---
 
 **Document Version:** 3.0.0  
-**Last Updated:** December 14, 2025  
+**Last Updated:** April 15, 2026  
 **Consolidates:** 5 previous SEO documents  
 **Status:** 🟢 Active & Comprehensive
 

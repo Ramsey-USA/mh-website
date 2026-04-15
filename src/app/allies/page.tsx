@@ -400,7 +400,7 @@ const partnershipValues = [
     icon: "account_balance",
     title: "Fair & Prompt Payment",
     description:
-      "Competitive compensation and reliable payment schedules support the financial health and growth of every trade partner. Building for the client, NOT the dollar, means treating partners with the same fairness.",
+      "Competitive compensation and reliable payment schedules support the financial health and growth of every trade partner. Building for the Client, NOT the Dollar, means treating partners with the same fairness.",
     color: "from-brand-secondary to-brand-secondary-dark",
   },
   {
@@ -446,7 +446,7 @@ export default function AlliesPage() {
               THE ROI IS THE RELATIONSHIP
             </span>
             <span className="block text-white/90">
-              Building projects for the client,{" "}
+              Building projects for the Client,{" "}
               <span className="font-black italic text-bronze-300">NOT</span> the
               dollar
             </span>
@@ -511,7 +511,7 @@ export default function AlliesPage() {
                   <span className="font-bold text-gray-900 dark:text-white">
                     (.64 EMR — 40% safer than industry average)
                   </span>
-                  . Veteran-owned leadership since January 2025 means our
+                  . Veteran-Owned leadership since January 2025 means our
                   partners get the same code of conduct that defines military
                   service: honor, accountability, and follow-through on every
                   commitment.
@@ -971,7 +971,7 @@ export default function AlliesPage() {
                   <p className="mx-auto mb-8 max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                     Ready to grow your business with a{" "}
                     <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                      veteran-owned construction leader
+                      Veteran-Owned construction leader
                     </span>
                     ? We&apos;re actively seeking reliable, skilled trade
                     partners who value quality workmanship, honest

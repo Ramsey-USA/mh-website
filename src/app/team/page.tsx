@@ -105,7 +105,7 @@ const faqSchema = {
       name: "What makes MH Construction's leadership team unique?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "MH Construction's Chain of Command brings together 150+ years combined military-grade expertise from all service branches (Army, Navy, Air Force, Marines, Coast Guard, Space Force). Our veteran-owned leadership combines military discipline with proven construction excellence.",
+        text: "MH Construction's Chain of Command brings together 150+ years combined military-grade expertise from all service branches (Army, Navy, Air Force, Marines, Coast Guard, Space Force). Our Veteran-Owned leadership combines military discipline with proven construction excellence.",
       },
     },
     {
@@ -126,10 +126,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Is MH Construction veteran-owned?",
+      name: "Is MH Construction Veteran-Owned?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, MH Construction became veteran-owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our team honors all service branches with disciplined execution, direct communication, and service-earned values.",
+        text: "Yes, MH Construction became Veteran-Owned in January 2025 when Army veteran Jeremy Thamert purchased the company. Our team honors all service branches with disciplined execution, direct communication, and service-earned values.",
       },
     },
     {
@@ -199,9 +199,9 @@ export default function TeamPage() {
                 150+ Years Combined Military-Grade Expertise
               </span>
               <span className="block text-white/90">
-                Building projects for the client,{" "}
+                Building projects for the Client,{" "}
                 <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the dollar
+                the Dollar
               </span>
             </h1>
           </div>
@@ -715,7 +715,7 @@ export default function TeamPage() {
                             Veteran-Owned Discipline
                           </h4>
                           <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                            Veteran-owned under Army veteran leadership since
+                            Veteran-Owned under Army veteran leadership since
                             January 2025. Structured military processes and
                             unwavering attention to detail meet creative
                             civilian problem-solving—discipline, leadership,
@@ -839,7 +839,7 @@ export default function TeamPage() {
               <div className="mt-8 sm:mt-10 md:mt-12 text-center px-2">
                 <blockquote className="mb-4 font-medium text-brand-primary text-lg sm:text-xl md:text-2xl italic">
                   &ldquo;When you join MH Construction, you&apos;re not just
-                  getting a job—you&apos;re joining a veteran-owned team that
+                  getting a job—you&apos;re joining a Veteran-Owned team that
                   values integrity, transparency, and building relationships
                   that last beyond project completion.&rdquo;
                 </blockquote>
@@ -1280,7 +1280,7 @@ export default function TeamPage() {
                   safety culture (.64 EMR) to veteran hiring initiatives,
                   continuous professional development to competitive benefits.
                   View our current openings and discover the benefits of joining
-                  our veteran-owned team where your growth is our mission and
+                  our Veteran-Owned team where your growth is our mission and
                   every team member's success matters.
                 </p>
                 <Link href="/careers">

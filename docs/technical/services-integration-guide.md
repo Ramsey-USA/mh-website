@@ -1271,7 +1271,7 @@ on every page via `src/components/seo/SeoMeta.tsx`. This enables rich results in
    | Business name | `MH Construction, Inc.` (exact legal name) |
    | Primary category | `General Contractor` |
    | Secondary categories | `Construction Company`, `Commercial Contractor`, `Building Contractor` |
-   | Address | 3111 N. Capitol Ave., Pasco, WA 99301 |
+   | Address | 3111 N Capitol Ave, Pasco, WA 99301 |
    | Phone | (509) 308-6489 |
    | Website | `https://www.mhc-gc.com` |
    | Hours | Mon-Fri 7:00 AM - 4:00 PM |

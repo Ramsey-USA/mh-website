@@ -13,7 +13,14 @@
 export const COMPANY_INFO = {
   // Company Identity
   name: "MH Construction",
-  legalName: "MH Construction Incorporated - Veteran-Owned",
+  legalName: "MH Construction, Inc.",
+
+  // Brand Messaging
+  slogan: {
+    primary: "Building projects for the Client, NOT the Dollar",
+    secondary: "THE ROI IS THE RELATIONSHIP",
+  },
+  tagline: "Founded 2010, Veteran-Owned Since January 2025",
 
   // Contact Information
   phone: {
@@ -31,14 +38,14 @@ export const COMPANY_INFO = {
 
   // Physical Address
   address: {
-    street: "3111 N. Capitol Ave.",
+    street: "3111 N Capitol Ave",
     city: "Pasco",
     state: "WA",
     stateCode: "WA",
     zip: "99301",
     country: "US",
     // Convenience formats
-    full: "3111 N. Capitol Ave., Pasco, WA 99301",
+    full: "3111 N Capitol Ave, Pasco, WA 99301",
     cityState: "Pasco, WA",
     cityStateZip: "Pasco, WA 99301",
   },
@@ -78,7 +85,8 @@ export const COMPANY_INFO = {
   details: {
     foundingYear: 2010,
     veteranOwned: true,
-    veteranOwnedSince: 2025, // January 2025
+    veteranOwnedSince: "January 2025",
+    veteranOwnedSinceYear: 2025,
     licenses: ["WA", "OR", "ID"],
     serviceArea: "Pacific Northwest",
     primaryRegion: "Tri-Cities",

@@ -93,7 +93,7 @@ export const aboutTimelineSteps: TimelineStep[] = [
     num: 12,
     icon: "military_tech",
     title: "Veteran Ownership Transition",
-    desc: "Army veteran Jeremy Thamert purchases MH Construction, bringing the company to veteran-owned status. Operational discipline and dependable execution strengthen MH's established standards. (Jan 2025)",
+    desc: "Army veteran Jeremy Thamert purchases MH Construction, bringing the company to Veteran-Owned status. Operational discipline and dependable execution strengthen MH's established standards. (Jan 2025)",
     position: "right",
   },
   {
@@ -107,7 +107,7 @@ export const aboutTimelineSteps: TimelineStep[] = [
     num: 14,
     icon: "explore",
     title: "Continued Relationship-First Growth",
-    desc: "Building projects for the client, NOT the dollar-where founding father's partnership philosophy meets veteran operational discipline, creating strong construction relationships and dependable results. (2026 & Beyond)",
+    desc: "Building projects for the Client, NOT the Dollar-where founding father's partnership philosophy meets veteran operational discipline, creating strong construction relationships and dependable results. (2026 & Beyond)",
     position: "right",
   },
 ];

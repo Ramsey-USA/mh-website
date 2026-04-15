@@ -300,7 +300,7 @@ const successFactors = [
     icon: "military_tech",
     title: "Veteran-Owned Qualified Contractor",
     description:
-      "Founded 2010, veteran-owned since January 2025 when Army veteran Jeremy Thamert purchased the company, bringing proven federal contracting capabilities and 150+ years combined team experience",
+      "Founded 2010, Veteran-Owned Since January 2025 when Army veteran Jeremy Thamert purchased the company, bringing proven federal contracting capabilities and 150+ years combined team experience",
   },
 ];
 
@@ -353,7 +353,7 @@ export default function PublicSectorPage() {
               Veteran-Owned Precision for Mission-Critical Government Projects
             </span>
             <span className="block text-white/90">
-              Building projects for the client,{" "}
+              Building projects for the Client,{" "}
               <span className="font-black italic text-bronze-300">NOT</span> the
               dollar
             </span>
@@ -408,7 +408,7 @@ export default function PublicSectorPage() {
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  Veteran-owned Army veteran leadership
+                  Veteran-Owned Army veteran leadership
                 </span>{" "}
                 delivers mission-critical construction services with unwavering
                 commitment to federal specifications, operational success,{" "}
@@ -520,8 +520,8 @@ export default function PublicSectorPage() {
             icon: "military_tech",
             tagline: "Service-Earned Values",
             description:
-              "Veteran-owned since January 2025 when Army veteran Jeremy Thamert purchased the company, bringing 15+ years military aviation experience and operational discipline. We actively recruit veterans across all branches, offer veteran hiring initiatives, and maintain veteran preference in all employment decisions. Our veteran ownership and values translate to disciplined execution, transparent communication, and unwavering commitment to federal project success.",
-            image: "/images/compliance/veteran-owned.jpg",
+              "Veteran-Owned Since January 2025 when Army veteran Jeremy Thamert purchased the company, bringing 15+ years military aviation experience and operational discipline. We actively recruit veterans across all branches, offer veteran hiring initiatives, and maintain veteran preference in all employment decisions. Our veteran ownership and values translate to disciplined execution, transparent communication, and unwavering commitment to federal project success.",
+            image: "/images/compliance/Veteran-Owned.jpg",
             iconBg: "bg-brand-primary",
             stats: "2025",
             statsLabel: "Veteran-Owned Since",
@@ -534,7 +534,7 @@ export default function PublicSectorPage() {
           <>
             Navigate complex federal regulations with{" "}
             <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              veteran-owned expertise and disciplined execution
+              Veteran-Owned expertise and disciplined execution
             </span>
             . Our comprehensive compliance programs, award-winning safety
             record, and{" "}
@@ -593,7 +593,7 @@ export default function PublicSectorPage() {
                     award-winning safety protocols (.64 EMR—40% better than
                     industry)
                   </span>
-                  , mission-critical construction protocols, and veteran-owned
+                  , mission-critical construction protocols, and Veteran-Owned
                   reliability since January 2025.
                 </p>
               </div>
@@ -705,7 +705,7 @@ export default function PublicSectorPage() {
                 across federal, state, and mission-critical construction
                 contracts with{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  veteran-owned expertise and award-winning safety record
+                  Veteran-Owned expertise and award-winning safety record
                 </span>
                 .
               </p>
@@ -839,7 +839,7 @@ export default function PublicSectorPage() {
                 </span>{" "}
                 across diverse federal and government facility projects with{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  veteran-owned precision and 150+ years combined team
+                  Veteran-Owned precision and 150+ years combined team
                   experience
                 </span>
                 .
@@ -930,7 +930,7 @@ export default function PublicSectorPage() {
                   </span>{" "}
                   and how we deliver with{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    award-winning safety, veteran-owned leadership, and
+                    award-winning safety, Veteran-Owned leadership, and
                     transparent open-book partnership
                   </span>
                   .

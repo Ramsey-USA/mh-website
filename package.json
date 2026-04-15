@@ -1,7 +1,7 @@
 {
   "name": "mh-website",
-  "version": "4.0.0",
-  "description": "Veteran-owned construction website for MH Construction - Honest Communication, Proven Craftsmanship",
+  "version": "7.0.0",
+  "description": "Veteran-owned construction website for MH Construction - Building Projects for the Client, NOT the Dollar",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -34,6 +34,7 @@
     "maintenance": "npm run clean",
     "lint:markdown": "markdownlint-cli2 --config .markdownlint-cli2.jsonc --ignore-path .markdownlintignore \"**/*.md\"",
     "lint:markdown:fix": "markdownlint-cli2 --fix --config .markdownlint-cli2.jsonc --ignore-path .markdownlintignore \"**/*.md\"",
+    "lint:brand": "bash scripts/brand-lint.sh",
     "cspell:check": "npx cspell \"**/*.{md,js,ts,tsx,json}\" --no-progress --show-context",
     "docs:extract": "node documents/scripts/extract.mjs",
     "docs:extract-word": "node documents/scripts/extract-word.mjs",

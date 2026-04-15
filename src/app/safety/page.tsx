@@ -55,7 +55,7 @@ export const metadata: Metadata = withGeoMetadata({
     "field safety hub",
     "superintendent safety forms",
     "construction safety Tri-Cities WA",
-    "veteran-owned contractor safety",
+    "Veteran-Owned contractor safety",
     "Washington contractor safety program",
     "WISHA compliant contractor",
     "AGC CSEA safety evaluation",
@@ -67,7 +67,7 @@ export const metadata: Metadata = withGeoMetadata({
   openGraph: {
     title: "Safety Program | Zero-Incident Culture | MH Construction",
     description:
-      "Award-winning safety: 0.64 EMR rating, 44-section OSHA program, AGC-WA Top EMR Award. Daily toolbox talks, JHA, inspections. Veteran-owned contractor.",
+      "Award-winning safety: 0.64 EMR rating, 44-section OSHA program, AGC-WA Top EMR Award. Daily toolbox talks, JHA, inspections. Veteran-Owned contractor.",
     url: `${SITE_URL}/safety`,
     siteName: "MH Construction",
     type: "website",

@@ -1,5 +1,8 @@
 # MH Website Testing Suite
 
+**Last Updated:** April 15, 2026  
+**Status:** ✅ Active
+
 Automated testing for the MH Construction website quality assurance.
 
 ## Jest Test Suite (1734 tests)

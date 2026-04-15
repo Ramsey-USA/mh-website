@@ -66,7 +66,7 @@ export const coreServices: CoreService[] = [
       "Expert oversight and intricate detail management",
       "Proven experience across all commercial sectors",
       "Disciplined execution applied to civilian construction",
-      "Building projects for the client, NOT the dollar",
+      "Building projects for the Client, NOT the Dollar",
     ],
     ctaText:
       "Ready to start your commercial construction project? Call (509) 308-6489 or schedule a free consultation to discuss your vision with our partnership-focused team.",
@@ -353,13 +353,13 @@ export const whyChooseUs: WhyChooseUsItem[] = [
     iconName: "diversity_3",
     title: "Partnership-Driven Trust",
     description:
-      "We believe in old school business values—where your word is your bond and trust is earned face-to-face. We build lasting partnerships through genuine commitment, not just contracts. Building projects for the client, NOT the dollar is our promise to you, because real partnerships are built person-to-person and last well beyond project completion through proven excellence.",
+      "We believe in old school business values—where your word is your bond and trust is earned face-to-face. We build lasting partnerships through genuine commitment, not just contracts. Building projects for the Client, NOT the Dollar is our promise to you, because real partnerships are built person-to-person and last well beyond project completion through proven excellence.",
   },
   {
     iconName: "military_tech",
     title: "650+ Successful Projects - Reliability",
     description:
-      "Over 650 successfully completed projects demonstrate our veteran-trained reliability. Founded 2010, veteran-owned since January 2025 when Army veteran Jeremy Thamert purchased the company. We apply disciplined execution, attention to detail, and steady follow-through to every construction project, ensuring reliable delivery and dependable results. Our veteran-fueled reliability means staying calm and precise under pressure-delivering results when it matters most.",
+      "Over 650 successfully completed projects demonstrate our veteran-trained reliability. Founded 2010, Veteran-Owned Since January 2025 when Army veteran Jeremy Thamert purchased the company. We apply disciplined execution, attention to detail, and steady follow-through to every construction project, ensuring reliable delivery and dependable results. Our veteran-fueled reliability means staying calm and precise under pressure-delivering results when it matters most.",
   },
   {
     iconName: "verified",

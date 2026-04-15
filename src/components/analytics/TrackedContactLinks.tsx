@@ -109,7 +109,7 @@ interface TrackedLocationLinkProps {
  *
  * @example
  * <TrackedLocationLink trackId="footer-address">
- *   3111 N. Capitol Ave., Pasco, WA
+ *   3111 N Capitol Ave, Pasco, WA
  * </TrackedLocationLink>
  */
 export function TrackedLocationLink({

@@ -1,11 +1,14 @@
 # Page-Specific Messaging & Language Guide
 
-**Last Updated:** December 14, 2025 | **Version:** 3.0.0 | **Status:** Official Brand Standard - Veteran/Honesty Focus
+**Last Updated:** April 15, 2026 | **Version:** 3.1.0 | **Status:** Official Brand Standard - Veteran/Honesty Focus
+
+> **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
 ---
 
 ## 🧭 Quick Navigation
 
+- [📌 Brand Constants](../brand-constants.md) - ⭐ **SINGLE SOURCE OF TRUTH**
 - [📖 Universal Terminology Guide](./universal-terminology-guide.md)
 - [📝 Messaging Guidelines](./messaging.md)
 - [Main README](../../../README.md)
@@ -20,7 +23,7 @@ act transparently, and prioritize substance over style. While our **four-value p
 (Honesty, Integrity, Professionalism, Thoroughness) remains constant, each page group reflects these values
 in ways that resonate with its specific audience.
 
-**Core Identity:** Veteran-owned since January 2025. Your word is your bond — so is ours.
+**Core Identity:** Veteran-Owned Since January 2025. Your word is your bond — so is ours.
 
 ### Core Foundation
 
@@ -32,7 +35,7 @@ in ways that resonate with its specific audience.
 
 ### Core Principle
 
-**"Building projects for the client, NOT the dollar"** is our PRIMARY SLOGAN and should be prominently
+**"Building projects for the Client, NOT the Dollar"** is our PRIMARY SLOGAN and should be prominently
 featured across the site. However, each page group also has freedom to create and use
 supplementary messaging that speaks to its unique purpose while always reflecting our four core values.
 
@@ -105,7 +108,7 @@ specific terms and phrases.
 
 **Foundation Slogan (Always Featured):**
 
-- "Building projects for the client, NOT the dollar"
+- "Building projects for the Client, NOT the Dollar"
 
 **Dual-Label Slogans (Military / Construction):**
 
@@ -147,7 +150,7 @@ specific terms and phrases.
 ### Key Phrases (Group 1)
 
 - "Your word is your bond — so is ours. Period."
-- "Veteran-owned since January 2025 - **all-branch** military values in every project"
+- "Veteran-Owned Since January 2025 - **all-branch** military values in every project"
 - "Combat Veteran Discount at the Ready - service recognizes service (Army, Navy, Air Force, Marines, Coast Guard,
   Space Force)"
 - "Face-to-face consultation where trust begins (mission briefing, not sales pitch)"
@@ -200,7 +203,7 @@ appropriately.
 
 **Foundation Slogan:**
 
-- "Building projects for the client, NOT the dollar" (always applies)
+- "Building projects for the Client, NOT the Dollar" (always applies)
 
 **Dual-Label Slogans (Military / Construction):**
 
@@ -233,7 +236,7 @@ appropriately.
 
 ### Key Phrases (Group 2)
 
-- "Founded in 2010, veteran-owned since January 2025"
+- "Founded in 2010, Veteran-Owned Since January 2025"
 - "Military-trained attention to detail in every project"
 - "98% client satisfaction rate - proven results"
 - "70% referral rate - clients trust us enough to recommend us"
@@ -280,7 +283,7 @@ appropriately.
 
 **Foundation Slogan:**
 
-- "Building projects for the client, NOT the dollar" (always applies)
+- "Building projects for the Client, NOT the Dollar" (always applies)
 
 **Dual-Label Slogans (Military / Construction):**
 
@@ -360,7 +363,7 @@ appropriately.
 
 **Foundation Slogan:**
 
-- "Building projects for the client, NOT the dollar" (always applies)
+- "Building projects for the Client, NOT the Dollar" (always applies)
 
 **Dual-Label Slogans (Military / Construction):**
 
@@ -415,7 +418,7 @@ appropriately.
 
 1. **Identify the page group** before writing any content
 2. **Lead with the appropriate voice and tone** for that group
-3. **Use "Building projects for the client, NOT the dollar"** as the primary slogan across all pages
+3. **Use "Building projects for the Client, NOT the Dollar"** as the primary slogan across all pages
 4. **Integrate group-specific slogans** as secondary messaging
 5. **Maintain consistency** within each page group
 6. **Test messaging** against the characteristics for that group
@@ -456,7 +459,7 @@ appropriately.
 #### Major Restructuring: Veteran/Honesty Focus
 
 - **RESTRUCTURED:** 7 page groups → 5 core groups aligned with veteran values
-- **NEW IDENTITY:** Veteran-owned since January 2025 - military values in every project
+- **NEW IDENTITY:** Veteran-Owned Since January 2025 - military values in every project
 - **MESSAGING SHIFT:** Removed all tech/automation language, prioritized human consultation
 - **GROUP 1:** Veteran Foundation (Home, About, Veterans) - honesty-first messaging
 - **GROUP 2:** Professional Services (Services, Projects, Government) - proven expertise
@@ -515,7 +518,7 @@ Contact the Marketing & Brand Team with messaging questions or suggestions.
 
 ---
 
-**Primary Slogan:** "Building projects for the client, NOT the dollar"  
+**Primary Slogan:** "Building projects for the Client, NOT the Dollar"  
 **Core Message:** Your word is your bond — so is ours. Period.  
 **Special Message:** THE ROI IS THE RELATIONSHIP (exclusive to Group 3 - Partnership & Team)  
 **Brand Identity:** Veteran-owned. Veteran-operated. Veteran values in every project.  

@@ -18,7 +18,7 @@ const defaultSEO = {
   defaultTitle:
     "MH Construction - Veteran-Owned Construction Excellence in the Pacific Northwest",
   defaultDescription:
-    "MH Construction delivers exceptional residential, commercial, and industrial construction services throughout the Pacific Northwest. Veteran-owned where handshakes matter and your word is your bond.",
+    "MH Construction delivers exceptional residential, commercial, and industrial construction services throughout the Pacific Northwest. Veteran-Owned where handshakes matter and your word is your bond.",
   defaultKeywords: [
     "construction",
     "building",
@@ -188,23 +188,10 @@ export function generateOrganizationStructuredData() {
       "Custom Home Building",
       "Project Management",
     ],
-    // BBB Accreditation (April 7, 2026)
-    hasCredential: {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "Accreditation",
-      name: "BBB Accredited Business - A+ Rating",
-      recognizedBy: {
-        "@type": "Organization",
-        name: "Better Business Bureau",
-        url: "https://www.bbb.org",
-      },
-      url: "https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036",
-    },
     sameAs: [
       "https://www.facebook.com/profile.php?id=61575511773974",
       "https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all",
       "https://www.instagram.com/mh_construction_inc/reels/",
-      "https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036",
     ],
   };
 }

@@ -1,9 +1,11 @@
 # MH Construction - Architecture Documentation
 
 **Category:** Project - Architecture  
-**Last Updated:** April 8, 2026  
-**Version:** 1.0.0  
+**Last Updated:** April 15, 2026  
+**Version:** 1.1.0  
 **Status:** ✅ Active
+
+> **Canonical Reference:** For exact brand values, see [Brand Constants](../branding/brand-constants.md).
 
 ## 🎯 **CURRENT STATE: Complete Production Platform**
 
@@ -60,7 +62,7 @@
 
 ### Core Technologies
 
-- **Framework**: Next.js 15.5.12 (App Router)
+- **Framework**: Next.js 15.5.14 (App Router)
 - **Language**: TypeScript 5.9.2
 - **Styling**: Tailwind CSS 3.4.19
 - **Icons**: Google Material Icons (font-based)

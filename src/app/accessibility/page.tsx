@@ -109,7 +109,7 @@ export default function AccessibilityPage() {
                   office@mhc-gc.com
                 </a>
                 <br />
-                Address: 3111 N. Capitol Ave., Pasco, WA 99301
+                Address: 3111 N Capitol Ave, Pasco, WA 99301
               </p>
             </div>
             <p className="text-gray-700 dark:text-gray-300 mt-4">

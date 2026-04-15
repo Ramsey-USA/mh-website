@@ -74,7 +74,7 @@ const faqSchema = {
       name: "How do I leave a testimonial for MH Construction?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can leave a Google review through our testimonials page link, or contact us directly to share your experience. We appreciate client feedback as it helps us maintain our high standards of Honesty, Integrity, Professionalism, and Thoroughness, and helps other businesses make informed decisions about partnering with our veteran-owned construction team.",
+        text: "You can leave a Google review through our testimonials page link, or contact us directly to share your experience. We appreciate client feedback as it helps us maintain our high standards of Honesty, Integrity, Professionalism, and Thoroughness, and helps other businesses make informed decisions about partnering with our Veteran-Owned construction team.",
       },
     },
     {
@@ -90,7 +90,7 @@ const faqSchema = {
       name: "What makes MH Construction different from other contractors?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "As a veteran-owned business certified by the U.S. Small Business Administration, we bring disciplined execution and four core values—Honesty, Integrity, Professionalism, and Thoroughness—to every project. Our 70% referral rate, 650+ completed projects, .64 EMR safety rating, and 150+ years combined team experience demonstrate our commitment to building for the client, not the dollar.",
+        text: "As a Veteran-Owned business certified by the U.S. Small Business Administration, we bring disciplined execution and four core values—Honesty, Integrity, Professionalism, and Thoroughness—to every project. Our 70% referral rate, 650+ completed projects, .64 EMR safety rating, and 150+ years combined team experience demonstrate our commitment to building for the Client, NOT the Dollar.",
       },
     },
     {
@@ -162,7 +162,7 @@ export default function TestimonialsPage() {
                 </span>{" "}
                 who've experienced our{" "}
                 <span className="text-white font-bold">
-                  veteran-owned, relationship-first service
+                  Veteran-Owned, relationship-first service
                 </span>{" "}
                 in commercial, industrial, and government construction
               </p>
@@ -566,7 +566,7 @@ export default function TestimonialsPage() {
                     <span className="font-bold text-brand-primary">
                       Washington, Oregon, and Idaho
                     </span>
-                    , we bring a veteran-owned, relationship-first approach to
+                    , we bring a Veteran-Owned, relationship-first approach to
                     commercial and industrial projects throughout the region.
                   </p>
                   <div className="space-y-3">
@@ -808,7 +808,7 @@ export default function TestimonialsPage() {
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   As a{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    veteran-owned business
+                    Veteran-Owned business
                   </span>
                   , we bring the same{" "}
                   <span className="font-bold text-gray-900 dark:text-gray-100">
@@ -936,7 +936,7 @@ export default function TestimonialsPage() {
                   <span className="font-bold text-gray-900 dark:text-gray-100">
                     partnership approach
                   </span>{" "}
-                  and what to expect when working with our veteran-owned team.
+                  and what to expect when working with our Veteran-Owned team.
                 </p>
               </div>
 
@@ -1008,12 +1008,12 @@ export default function TestimonialsPage() {
                       </h3>
                     </div>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      As a veteran-owned business, we bring disciplined
+                      As a Veteran-Owned business, we bring disciplined
                       execution, Honesty, Integrity, Professionalism, and
                       Thoroughness to every project. Our 70% referral rate and
                       650+ completed projects speak to our partnership-first
-                      approach and commitment to building for the client, not
-                      the dollar.
+                      approach and commitment to building for the Client, NOT
+                      the Dollar.
                     </p>
                   </div>
                 </div>
@@ -1108,7 +1108,7 @@ export default function TestimonialsPage() {
                       icon="military_tech"
                       size="2xl"
                       className="text-brand-primary mx-auto mb-4"
-                      ariaLabel="Veteran-owned business"
+                      ariaLabel="Veteran-Owned business"
                     />
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                       Veteran-Owned
@@ -1264,7 +1264,7 @@ export default function TestimonialsPage() {
             <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-8">
               We're collecting feedback from our valued Client Partners. Check
               back soon to read about their experiences working with our
-              veteran-owned construction team.
+              Veteran-Owned construction team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

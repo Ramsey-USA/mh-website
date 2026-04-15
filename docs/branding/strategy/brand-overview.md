@@ -1,9 +1,11 @@
 # MH Construction Brand Overview
 
 **Category:** Branding - Strategy  
-**Last Updated:** December 28, 2025  
-**Version:** 6.0.0  
+**Last Updated:** April 15, 2026  
+**Version:** 7.0.0  
 **Status:** ✅ Active
+
+> **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
 All brand identity is built upon the four-value foundation system from
 [core-values.md](../../business/core-values.md): **Honesty, Integrity, Professionalism,
@@ -16,7 +18,8 @@ aligned with our veteran-owned, honesty-first brand identity.
 ## Quick Navigation
 
 - [🏠 Brand Documentation](../)
-- [💼 Core Values](../../business/core-values.md) - ⭐ **FOUNDATION** - Four-value professional system
+- [📌 Brand Constants](../brand-constants.md) - ⭐ **SINGLE SOURCE OF TRUTH**
+- [💼 Core Values](../../business/core-values.md) - Four-value professional system
 - [📝 Messaging Guidelines](./messaging.md) - Built on core values
 - [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - 5 Core Page Groups strategy
 - [🎨 Color System](../standards/color-system.md)
@@ -28,21 +31,23 @@ aligned with our veteran-owned, honesty-first brand identity.
 
 ### Company Information
 
-- **Company Name**: MH Construction, Inc.
+- **Company Name**: MH Construction (legal: MH Construction, Inc.)
 - **Industry**: Commercial Construction Management
 - **Founded**: 2010 by Mike Holstein; Veteran-Owned Since January 2025
+- **BBB Accredited**: A+ Rating since April 7, 2026 — [View BBB Profile](https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036)
 - **Service Area**: Tri-Cities, WA | Licensed in WA, OR, ID
-- **Headquarters**: 3111 N. Capitol Ave., Pasco, WA 99301
+- **Headquarters**: 3111 N Capitol Ave, Pasco, WA 99301
 - **Phone**: [(509) 308-6489](tel:+15093086489)
 - **Client Contact**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
 - **Vendor Contact**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
 
-### Brand Mission
+### Brand Mission & Vision
 
-**Mission**: We deliver high-quality construction rooted in integrity, clear communication, and long-term
-relationships.
+**Mission (Primary Slogan):**
 
-**Vision**: To be the Pacific Northwest's most trusted veteran-led construction partner - renowned for
+> "Building projects for the Client, NOT the Dollar"
+
+**Vision**: To be the Pacific Northwest's most trusted veteran-led construction partner — renowned for
 craftsmanship and character.
 
 ## Core Brand Taglines
@@ -51,7 +56,7 @@ craftsmanship and character.
 
 **Primary Partnership Message:**
 
-> "Building projects for the client, NOT the dollar"
+> "Building projects for the Client, NOT the Dollar"
 
 **Relationship-Focused Message:**
 
@@ -59,7 +64,7 @@ craftsmanship and character.
 
 **Partnership Call-to-Action:**
 
-> "Let's Build More than Just Structures - Partner with a team that puts your vision—and your relationship—first."
+> "Let's Build More than Just Structures — Partner with a team that puts your vision—and your relationship—first."
 
 These companion slogans work together to emphasize our partnership-first, relationship-driven approach.
 
@@ -321,7 +326,8 @@ See [Core Values](../../business/core-values.md) for complete details on our fou
 ---
 
 **Brand Authority**: MH Construction Leadership Team
-**Last Major Update**: December 28, 2025 (v6.0.0 - Veteran-Owned Excellence Transformation)
+**Current Version**: 7.0.0 (April 15, 2026)
+**Last Major Update**: December 28, 2025 (v6.0.0 — Veteran-Owned Excellence Transformation)
 **Next Review**: Quarterly brand compliance assessment
 
 **Version History**:
@@ -329,3 +335,8 @@ See [Core Values](../../business/core-values.md) for complete details on our fou
 - v5.0.0 (Nov 20, 2025): Integrated four-value professional foundation system from core-values.md
 - v4.0.2 (Nov 15, 2025): Page-specific messaging updates
 - v4.0.1 (Nov 3, 2025): Hero section standards finalized
+
+---
+
+**MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
+[← Back to README](../../README.md)

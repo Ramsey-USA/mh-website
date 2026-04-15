@@ -1,9 +1,11 @@
 # MH Construction Messaging Guidelines
 
 **Category:** Branding - Strategy  
-**Last Updated:** December 28, 2025  
+**Last Updated:** April 15, 2026  
 **Version:** 7.0.0  
 **Status:** ✅ Active
+
+> **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
 **Current messaging focus:**
 
@@ -27,6 +29,7 @@ with unique voices, tones, and keyword priorities.
 ## Quick Navigation
 
 - [🏠 Brand Documentation](../)
+- [📌 Brand Constants](../brand-constants.md) - ⭐ **SINGLE SOURCE OF TRUTH**
 - [📋 Brand Overview](./brand-overview.md)
 - [💼 Core Values](../../business/core-values.md) - Four-value professional system (foundation)
 - [🎯 Page-Specific Messaging Guide](./page-specific-messaging-guide.md) - 5 Core Page Groups strategy
@@ -131,7 +134,7 @@ Our voice balances military precision with partnership warmth, creating communic
 
 **Example**:
 
-> "Building projects for the client, NOT the dollar. Our veteran-owned team combines military
+> "Building projects for the Client, NOT the Dollar. Our veteran-owned team combines military
 > precision with traditional business values to deliver exceptional results through honest
 > communication and proven craftsmanship for commercial projects throughout the Pacific Northwest."
 
@@ -181,7 +184,7 @@ Our messaging is structured around five interconnected pillars that flow from ou
 **Messaging Examples**:
 
 - "When we commit to something, we deliver"
-- "Building projects for the client, NOT the dollar"
+- "Building projects for the Client, NOT the Dollar"
 - "70% referral business proves our promise-keeping"
 
 ### 3. Expert Execution (Professionalism)
@@ -191,10 +194,10 @@ Our messaging is structured around five interconnected pillars that flow from ou
 **Key Points**:
 
 - Licensed, insured, certified across 3 states
-
 - Industry-leading .64 EMR safety record
 - 150+ years combined team experience
 - Veteran-owned precision and discipline
+- BBB Accredited: A+ Rating since April 7, 2026
 
 **Messaging Examples**:
 
@@ -326,7 +329,7 @@ every interaction.
 
 ### Core Brand Slogans
 
-#### Primary Slogan: "Building projects for the client, NOT the dollar"
+#### Primary Slogan: "Building projects for the Client, NOT the Dollar"
 
 Our foundational message emphasizing partnership over profit, client success over company gain.
 
@@ -917,3 +920,8 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 - v5.0.0 (Nov 20, 2025): Integrated four-value professional foundation system from core-values.md
 - v4.0.2 (Nov 15, 2025): Page-specific messaging references
 - v4.0.0 (Nov 4, 2025): Initial comprehensive messaging guidelines
+
+---
+
+**MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
+[← Back to README](../../README.md)

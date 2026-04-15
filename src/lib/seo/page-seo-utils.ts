@@ -21,7 +21,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     url: enhancedSEO.siteUrl,
     name: "Base HQ → Home | MH Construction",
     description:
-      "Your Tri-Cities Construction Command Center. Founded 2010, veteran-owned since January 2025. General contractor serving Richland, Pasco, Kennewick, Yakima, Spokane, and Walla Walla.",
+      "Your Tri-Cities Construction Command Center. Founded 2010, Veteran-Owned Since January 2025. General contractor serving Richland, Pasco, Kennewick, Yakima, Spokane, and Walla Walla.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -46,7 +46,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: "Base HQ → Home | Building Projects for the Client, NOT the Dollar",
     description:
-      "Base HQ → Home: Your Tri-Cities Construction Command Center serving Richland, Pasco, Kennewick, Yakima, Spokane, and Walla Walla. Founded 2010, veteran-owned since January 2025. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest. Four core values (Honesty, Integrity, Professionalism, Thoroughness) building trust through transparent communication. Dual-label approach: Military Operations → Construction Services. Licensed in WA, OR, ID.",
+      "Base HQ → Home: Your Tri-Cities Construction Command Center serving Richland, Pasco, Kennewick, Yakima, Spokane, and Walla Walla. Founded 2010, Veteran-Owned Since January 2025. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest. Four core values (Honesty, Integrity, Professionalism, Thoroughness) building trust through transparent communication. Dual-label approach: Military Operations → Construction Services. Licensed in WA, OR, ID.",
     keywords: [
       "Base HQ Home construction command center",
       "veteran-owned contractor Pacific Northwest",
@@ -110,7 +110,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
     url: aboutUrl,
     name: "Our Oath → About Us | MH Construction",
     description:
-      "Founded 2010, veteran-owned since January 2025. 650+ projects, 70% referral rate, AGC-WA Top EMR Awards & OSHA VPP Star. Serving Tri-Cities WA, Yakima, Spokane, Walla Walla, Hermiston OR, Coeur d'Alene ID, Omak WA, and Pendleton OR. Licensed WA, OR, ID.",
+      "Founded 2010, Veteran-Owned Since January 2025. 650+ projects, 70% referral rate, AGC-WA Top EMR Awards & OSHA VPP Star. Serving Tri-Cities WA, Yakima, Spokane, Walla Walla, Hermiston OR, Coeur d'Alene ID, Omak WA, and Pendleton OR. Licensed WA, OR, ID.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     breadcrumb: { "@id": `${aboutUrl}#breadcrumb` },
@@ -159,7 +159,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
         "Chain of Command Approach",
       ],
       slogan: "We Work WITH You, Not FOR You",
-      mission: "Building projects for the client, NOT the dollar",
+      mission: "Building projects for the Client, NOT the Dollar",
       areaServed: [
         {
           "@type": "City",
@@ -259,7 +259,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: "Our Oath → About Us | Service-Earned Values, Honest Relationships",
     description:
-      "Founded 2010, veteran-owned since January 2025. General contractor serving Tri-Cities WA. 650+ projects, 70% referral rate, AGC-WA Top EMR Awards & OSHA VPP Star. Licensed WA, OR, ID. Honesty, Integrity, Professionalism, Thoroughness.",
+      "Founded 2010, Veteran-Owned Since January 2025. General contractor serving Tri-Cities WA. 650+ projects, 70% referral rate, AGC-WA Top EMR Awards & OSHA VPP Star. Licensed WA, OR, ID. Honesty, Integrity, Professionalism, Thoroughness.",
     keywords: [
       "veteran-owned construction company Tri-Cities WA",
       "MH Construction company history",
@@ -1107,7 +1107,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
     title:
       "Missions \u2192 Projects | Mission Success: 650+ Completed Projects",
     description:
-      "650+ completed commercial, industrial & government projects across Tri-Cities WA, Yakima, Spokane, and Walla Walla. Veteran-owned since 2025. 70% referral rate. Licensed WA, OR, ID.",
+      "650+ completed commercial, industrial & government projects across Tri-Cities WA, Yakima, Spokane, and Walla Walla. Veteran-Owned Since January 2025. 70% referral rate. Licensed WA, OR, ID.",
     keywords: [
       "construction portfolio Tri-Cities WA",
       "650 completed construction projects",

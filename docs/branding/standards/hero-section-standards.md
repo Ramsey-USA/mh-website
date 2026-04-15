@@ -1,10 +1,11 @@
 # MH Construction Hero Section Standards
 
-**Category:** Brand Standards - Hero Sections  
-**Last Updated:** December 14, 2025  
-**Version:** 6.0.0  
-**Status:** ✅ Official Standard  
-**Methodology:** Military/Construction Terminology Blend
+**Category:** Branding - Standards  
+**Last Updated:** April 15, 2026  
+**Version:** 7.0.0  
+**Status:** ✅ Active
+
+> **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
 ---
 
@@ -25,7 +26,7 @@ terminology blend** (December 2025 major update). This strategy:
 - **Blends Military Operations Terminology** - Mission brief, SITREP, recon, deployment, tactical operations
 - **Maintains Construction Expertise** - Technical capability, project delivery, quality craftsmanship
 - **Reduces Generic Repetition** - Avoids overuse of single phrases
-- **Reinforces Mission-First Philosophy** - "Building projects for the client, NOT the dollar"
+- **Reinforces Mission-First Philosophy** - "Building projects for the Client, NOT the Dollar"
 - **Improves Message Retention** - Variety helps visitors remember key messages
 - **Appeals to Veteran Clients** - Military-affiliated clients recognize authentic service language
 
@@ -39,7 +40,7 @@ terminology blend** (December 2025 major update). This strategy:
 - Reflect the specific page's purpose with tactical clarity
 - Keep taglines concise (5-12 words typically)
 - Align with service-earned brand values (honesty, integrity, professionalism, thoroughness)
-- Maintain core mission: "Building projects for the client, NOT the dollar"
+- Maintain core mission: "Building projects for the Client, NOT the Dollar"
 - **Include unique page-specific mantra** for enhanced messaging and SEO
 
 **DON'T:**
@@ -208,14 +209,14 @@ Use this checklist when creating or reviewing any page's hero section:
 ```tsx
 <h1>Commercial Construction Excellence</h1>
 <p>Your trusted construction partner in Pasco, Kennewick, and Richland.</p>
-<p>"Building projects for the client, NOT the dollar" — Veteran-owned excellence...</p>
+<p>"Building projects for the Client, NOT the Dollar" — Veteran-owned excellence...</p>
 ```
 
 ### Services Page
 
 ```tsx
 <h1>Construction Excellence</h1>
-<p>"Building projects for the client, NOT the dollar"</p>
+<p>"Building projects for the Client, NOT the Dollar"</p>
 <p>We Work WITH You Every Step. Military Precision. Advanced Technology...</p>
 ```
 
@@ -223,7 +224,7 @@ Use this checklist when creating or reviewing any page's hero section:
 
 ```tsx
 <h1>Partnership Success Stories</h1>
-<p>"Building projects for the client, NOT the dollar"</p>
+<p>"Building projects for the Client, NOT the Dollar"</p>
 <p>Building Excellence Together Across the Pacific Northwest...</p>
 ```
 

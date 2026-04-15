@@ -59,7 +59,7 @@ export function ProjectsStatsSection() {
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                 650+ construction missions completed
               </span>
-              —numbers that reflect our veteran-owned commitment to proven
+              —numbers that reflect our Veteran-Owned commitment to proven
               results and trusted partnerships across the Tri-Cities
             </p>
           </div>

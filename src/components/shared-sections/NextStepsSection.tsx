@@ -20,7 +20,7 @@ interface NextStepsSectionProps {
 export function NextStepsSection({
   title: _title = "Let's Build Your Vision Together",
   subtitle:
-    _subtitle = "Partner with a veteran-owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision.",
+    _subtitle = "Partner with a Veteran-Owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision.",
   className = "",
   noBackground: _noBackground = false,
 }: NextStepsSectionProps) {
@@ -40,7 +40,7 @@ export function NextStepsSection({
             </span>
             , and ours is too. Partner with a{" "}
             <span className="font-bold text-gray-900 dark:text-white">
-              veteran-owned, relationship-first team
+              Veteran-Owned, relationship-first team
             </span>{" "}
             backed by proven values.
           </>

@@ -365,7 +365,7 @@ export default function ServicesPage() {
                         <span className="font-semibold text-brand-secondary dark:text-brand-secondary-light">
                           consistent project opportunities
                         </span>{" "}
-                        with a veteran-owned construction leader in the Pacific
+                        with a Veteran-Owned construction leader in the Pacific
                         Northwest market.
                       </p>
 
@@ -431,7 +431,7 @@ export default function ServicesPage() {
                               />
                             </div>
                             <span className="text-gray-700 dark:text-gray-300">
-                              Partnership with veteran-owned business
+                              Partnership with Veteran-Owned business
                             </span>
                           </li>
                         </ul>
@@ -548,7 +548,7 @@ export default function ServicesPage() {
                 </span>{" "}
                 with transparent pricing, expert guidance, and{" "}
                 <span className="font-bold text-white">
-                  veteran-owned reliability
+                  Veteran-Owned reliability
                 </span>
                 .
               </p>

@@ -160,9 +160,9 @@ export default function CareersPage() {
                 Build Your Future with a Veteran-Owned Team
               </span>
               <span className="block text-white/90">
-                Building projects for the client,{" "}
+                Building projects for the Client,{" "}
                 <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the dollar
+                the Dollar
               </span>
               <span className="block text-brand-secondary-text text-sm xs:text-base sm:text-lg md:text-xl mt-2">
                 THE ROI IS THE RELATIONSHIP
@@ -223,7 +223,7 @@ export default function CareersPage() {
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 This is not a generic hiring funnel. It is a{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  direct path into a veteran-owned team
+                  direct path into a Veteran-Owned team
                 </span>
                 . We invest in people who value honest communication,
                 professionalism, and steady growth through{" "}
@@ -309,7 +309,7 @@ export default function CareersPage() {
                 <>
                   This is not a generic hiring funnel. It is a{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    direct path into a veteran-owned team
+                    direct path into a Veteran-Owned team
                   </span>
                   . We invest in people who value honest communication,
                   professionalism, and steady growth through{" "}
@@ -363,7 +363,7 @@ export default function CareersPage() {
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  Build your future with a veteran-owned team that values
+                  Build your future with a Veteran-Owned team that values
                   loyalty
                 </span>
                 . Your well-being and success matter here—we offer competitive
@@ -519,7 +519,7 @@ export default function CareersPage() {
                   {/* Description with colored keyword highlighting */}
                   <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                     <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                      Veteran-owned, veteran-led, veteran-proud
+                      Veteran-Owned, veteran-led, veteran-proud
                     </span>
                     . Your military experience translates directly to
                     construction excellence: discipline becomes precision,

@@ -261,7 +261,7 @@ export const navigationConfigs = {
       icon: "verified",
     },
     {
-      href: "#veteran-owned",
+      href: "#Veteran-Owned",
       label: "Veteran-Owned",
       mobileLabel: "Veteran",
       icon: "military_tech",

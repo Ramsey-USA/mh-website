@@ -71,11 +71,11 @@ export function TestimonialsSection({ projects }: TestimonialsSectionProps) {
               <span className="font-bold text-gray-900 dark:text-white">
                 four core values
               </span>{" "}
-              in action—building projects for the client,{" "}
+              in action—building projects for the Client,{" "}
               <span className="font-black italic text-bronze-600 dark:text-bronze-400">
                 NOT
               </span>{" "}
-              the dollar.
+              the Dollar.
             </p>
           </div>
 

@@ -56,7 +56,7 @@ export const metadata: Metadata = withGeoMetadata({
     "safety manual construction download",
     "jobsite safety documentation",
     "contractor safety credentials",
-    "veteran-owned contractor safety",
+    "Veteran-Owned contractor safety",
     "Tri-Cities construction safety",
     "safety program Tri-Cities WA",
   ],

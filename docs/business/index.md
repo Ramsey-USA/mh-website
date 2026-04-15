@@ -1,7 +1,7 @@
 # Business Documentation
 
 **Category:** Business - Overview  
-**Last Updated:** March 15, 2026
+**Last Updated:** April 15, 2026
 
 ## Overview
 
@@ -23,10 +23,11 @@ Team member data is maintained in `src/lib/data/vintage-team.ts` (source of trut
 ## Quick Links
 
 - [← Back to Main README](../../README.md)
+- [Brand Constants](../branding/brand-constants.md) - Single source of truth for brand values
 - [Branding Documentation](../branding/)
 - [Marketing Resources](../marketing/)
 
 ---
 
-**Building projects for the client, NOT the dollar**  
-**MH Construction** - Founded 2010, Veteran-Owned Since 2025
+**Building projects for the Client, NOT the Dollar**  
+**MH Construction** — Founded 2010, Veteran-Owned Since January 2025

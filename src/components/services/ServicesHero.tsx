@@ -33,7 +33,7 @@ export function ServicesHero() {
             Strategic Construction Excellence
           </span>
           <span className="block text-white/90">
-            Building projects for the client,{" "}
+            Building projects for the Client,{" "}
             <span className="font-black italic text-bronze-300">NOT</span> the
             dollar
           </span>

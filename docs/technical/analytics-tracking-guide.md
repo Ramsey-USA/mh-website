@@ -695,3 +695,8 @@ if (res.ok) trackFormSubmit("contact-form", { source: "contact-page" });
 - [ ] Use `<TrackedPhoneLink>` / `<TrackedEmailLink>` for contact links
 - [ ] Call `trackFormSubmit()` after successful form submissions
 - [ ] Verify data appears in dashboard (`Ctrl/Cmd + Shift + A`)
+
+---
+
+**MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
+[← Back to README](../../README.md)

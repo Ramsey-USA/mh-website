@@ -38,7 +38,7 @@ const generalContractorSchema = {
     "@type": "State",
     name: "Washington",
   },
-  slogan: "Building projects for the client, NOT the dollar",
+  slogan: "Building projects for the Client, NOT the Dollar",
 };
 
 export default function ContactPage() {
