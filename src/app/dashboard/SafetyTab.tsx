@@ -68,7 +68,11 @@ interface DownloadLogEntry {
   downloaded_at: string;
 }
 
-function LazyBarChart({ data }: { data: Array<{ name: string; count: number }> }) {
+function LazyBarChart({
+  data,
+}: {
+  data: Array<{ name: string; count: number }>;
+}) {
   return (
     <ResponsiveContainer width="100%" height={160}>
       <BarChart data={data} margin={{ top: 4, right: 8, left: -20, bottom: 0 }}>
@@ -156,7 +160,9 @@ function NewJobForm({ token, onCreated, onCancel }: NewJobFormProps) {
             required
             placeholder="e.g. 2025-001"
             value={fields.job_number}
-            onChange={(e) => setFields((f) => ({ ...f, job_number: e.target.value }))}
+            onChange={(e) =>
+              setFields((f) => ({ ...f, job_number: e.target.value }))
+            }
             className={inputClass}
           />
         </div>
@@ -169,37 +175,51 @@ function NewJobForm({ token, onCreated, onCancel }: NewJobFormProps) {
             required
             placeholder="Project name"
             value={fields.job_name}
-            onChange={(e) => setFields((f) => ({ ...f, job_name: e.target.value }))}
+            onChange={(e) =>
+              setFields((f) => ({ ...f, job_name: e.target.value }))
+            }
             className={inputClass}
           />
         </div>
         <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">Location</label>
+          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
+            Location
+          </label>
           <input
             type="text"
             placeholder="City, ST"
             value={fields.location}
-            onChange={(e) => setFields((f) => ({ ...f, location: e.target.value }))}
+            onChange={(e) =>
+              setFields((f) => ({ ...f, location: e.target.value }))
+            }
             className={inputClass}
           />
         </div>
         <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">PM Name</label>
+          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
+            PM Name
+          </label>
           <input
             type="text"
             placeholder="Project manager"
             value={fields.pm_name}
-            onChange={(e) => setFields((f) => ({ ...f, pm_name: e.target.value }))}
+            onChange={(e) =>
+              setFields((f) => ({ ...f, pm_name: e.target.value }))
+            }
             className={inputClass}
           />
         </div>
         <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">Super Name</label>
+          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
+            Super Name
+          </label>
           <input
             type="text"
             placeholder="Superintendent"
             value={fields.super_name}
-            onChange={(e) => setFields((f) => ({ ...f, super_name: e.target.value }))}
+            onChange={(e) =>
+              setFields((f) => ({ ...f, super_name: e.target.value }))
+            }
             className={inputClass}
           />
         </div>
@@ -335,20 +355,30 @@ export function SafetyTab({ token }: SafetyTabProps) {
     [submissions],
   );
 
-  const weekAgo = useMemo(() => new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), []);
+  const weekAgo = useMemo(
+    () => new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
+    [],
+  );
 
   const recentToolboxJobIds = useMemo(
     () =>
       new Set(
         submissions
-          .filter((s) => s.form_type === "toolbox-talk" && new Date(s.created_at) >= weekAgo)
+          .filter(
+            (s) =>
+              s.form_type === "toolbox-talk" &&
+              new Date(s.created_at) >= weekAgo,
+          )
           .map((s) => s.job_id),
       ),
     [submissions, weekAgo],
   );
 
   const outstandingJobs = useMemo(
-    () => jobs.filter((j) => j.status === "active" && !recentToolboxJobIds.has(j.id)),
+    () =>
+      jobs.filter(
+        (j) => j.status === "active" && !recentToolboxJobIds.has(j.id),
+      ),
     [jobs, recentToolboxJobIds],
   );
 
@@ -404,7 +434,11 @@ export function SafetyTab({ token }: SafetyTabProps) {
       <div>
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-black text-white uppercase tracking-wide flex items-center gap-3">
-            <MaterialIcon icon="work_outline" size="lg" className="text-brand-secondary" />
+            <MaterialIcon
+              icon="work_outline"
+              size="lg"
+              className="text-brand-secondary"
+            />
             ACTIVE JOBS
           </h2>
           <button
@@ -430,21 +464,42 @@ export function SafetyTab({ token }: SafetyTabProps) {
         <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary overflow-hidden">
           {jobsLoading ? (
             <div className="py-12 text-center text-gray-500">
-              <MaterialIcon icon="hourglass_empty" size="xl" className="animate-pulse mx-auto mb-2" />
+              <MaterialIcon
+                icon="hourglass_empty"
+                size="xl"
+                className="animate-pulse mx-auto mb-2"
+              />
               <p className="text-sm">Loading jobs…</p>
             </div>
           ) : jobs.length === 0 ? (
             <div className="py-12 text-center text-gray-500">
-              <MaterialIcon icon="work_off" size="xl" className="mx-auto mb-2" />
-              <p className="text-sm">No jobs yet. Create the first job above.</p>
+              <MaterialIcon
+                icon="work_off"
+                size="xl"
+                className="mx-auto mb-2"
+              />
+              <p className="text-sm">
+                No jobs yet. Create the first job above.
+              </p>
             </div>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-gray-700 bg-gray-900/50">
-                    {["Job #", "Name", "Location", "PM", "Super", "Status", "Actions"].map((h) => (
-                      <th key={h} className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider">
+                    {[
+                      "Job #",
+                      "Name",
+                      "Location",
+                      "PM",
+                      "Super",
+                      "Status",
+                      "Actions",
+                    ].map((h) => (
+                      <th
+                        key={h}
+                        className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                      >
                         {h}
                       </th>
                     ))}
@@ -452,14 +507,25 @@ export function SafetyTab({ token }: SafetyTabProps) {
                 </thead>
                 <tbody className="divide-y divide-gray-700/50">
                   {jobs.map((job) => (
-                    <tr key={job.id} className="hover:bg-gray-700/30 transition-colors">
+                    <tr
+                      key={job.id}
+                      className="hover:bg-gray-700/30 transition-colors"
+                    >
                       <td className="px-4 py-3 font-mono text-brand-secondary font-bold">
                         {job.job_number}
                       </td>
-                      <td className="px-4 py-3 text-white font-semibold">{job.job_name}</td>
-                      <td className="px-4 py-3 text-gray-400">{job.location ?? "—"}</td>
-                      <td className="px-4 py-3 text-gray-400">{job.pm_name ?? "—"}</td>
-                      <td className="px-4 py-3 text-gray-400">{job.super_name ?? "—"}</td>
+                      <td className="px-4 py-3 text-white font-semibold">
+                        {job.job_name}
+                      </td>
+                      <td className="px-4 py-3 text-gray-400">
+                        {job.location ?? "—"}
+                      </td>
+                      <td className="px-4 py-3 text-gray-400">
+                        {job.pm_name ?? "—"}
+                      </td>
+                      <td className="px-4 py-3 text-gray-400">
+                        {job.super_name ?? "—"}
+                      </td>
                       <td className="px-4 py-3">
                         <span
                           className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold border uppercase ${JOB_STATUS_COLORS[job.status] ?? ""}`}
@@ -471,7 +537,9 @@ export function SafetyTab({ token }: SafetyTabProps) {
                         <div className="flex items-center gap-1">
                           {job.status !== "closed" && (
                             <button
-                              onClick={() => void patchJobStatus(job.id, "closed")}
+                              onClick={() =>
+                                void patchJobStatus(job.id, "closed")
+                              }
                               disabled={updatingId === job.id}
                               title="Close job"
                               className="p-1.5 rounded-lg text-gray-400 hover:text-yellow-400 hover:bg-yellow-900/30 transition-colors disabled:opacity-40"
@@ -481,7 +549,9 @@ export function SafetyTab({ token }: SafetyTabProps) {
                           )}
                           {job.status !== "active" && (
                             <button
-                              onClick={() => void patchJobStatus(job.id, "active")}
+                              onClick={() =>
+                                void patchJobStatus(job.id, "active")
+                              }
                               disabled={updatingId === job.id}
                               title="Reactivate job"
                               className="p-1.5 rounded-lg text-gray-400 hover:text-green-400 hover:bg-green-900/30 transition-colors disabled:opacity-40"
@@ -491,7 +561,9 @@ export function SafetyTab({ token }: SafetyTabProps) {
                           )}
                           {job.status !== "archived" && (
                             <button
-                              onClick={() => void patchJobStatus(job.id, "archived")}
+                              onClick={() =>
+                                void patchJobStatus(job.id, "archived")
+                              }
                               disabled={updatingId === job.id}
                               title="Archive job"
                               className="p-1.5 rounded-lg text-gray-400 hover:text-red-400 hover:bg-red-900/30 transition-colors disabled:opacity-40"
@@ -514,7 +586,11 @@ export function SafetyTab({ token }: SafetyTabProps) {
       {outstandingJobs.length > 0 && (
         <div>
           <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
-            <MaterialIcon icon="warning_amber" size="lg" className="text-amber-400" />
+            <MaterialIcon
+              icon="warning_amber"
+              size="lg"
+              className="text-amber-400"
+            />
             OUTSTANDING — NO TOOLBOX TALK (7 DAYS)
           </h2>
           <div className="bg-amber-900/20 border-2 border-amber-600/60 rounded-xl p-4">
@@ -524,10 +600,16 @@ export function SafetyTab({ token }: SafetyTabProps) {
                   key={j.id}
                   className="bg-gray-900/60 border border-amber-700/40 rounded-lg px-4 py-3"
                 >
-                  <p className="font-mono text-amber-400 font-bold text-sm">{j.job_number}</p>
-                  <p className="text-white text-sm font-semibold">{j.job_name}</p>
+                  <p className="font-mono text-amber-400 font-bold text-sm">
+                    {j.job_number}
+                  </p>
+                  <p className="text-white text-sm font-semibold">
+                    {j.job_name}
+                  </p>
                   {j.super_name && (
-                    <p className="text-gray-400 text-xs mt-1">Super: {j.super_name}</p>
+                    <p className="text-gray-400 text-xs mt-1">
+                      Super: {j.super_name}
+                    </p>
                   )}
                 </div>
               ))}
@@ -539,23 +621,41 @@ export function SafetyTab({ token }: SafetyTabProps) {
       {/* Submissions section */}
       <div>
         <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
-          <MaterialIcon icon="assignment" size="lg" className="text-brand-secondary" />
+          <MaterialIcon
+            icon="assignment"
+            size="lg"
+            className="text-brand-secondary"
+          />
           FORM SUBMISSIONS
         </h2>
 
         {/* Pipeline counts */}
         <div className="flex flex-wrap gap-3 mb-4">
           {[
-            { label: "Awaiting Review", count: pipelineCounts.submitted, color: "text-yellow-400 border-yellow-600 bg-yellow-900/30" },
-            { label: "Reviewed", count: pipelineCounts.reviewed, color: "text-green-400 border-green-600 bg-green-900/30" },
-            { label: "Archived", count: pipelineCounts.archived, color: "text-gray-400 border-gray-600 bg-gray-700/30" },
+            {
+              label: "Awaiting Review",
+              count: pipelineCounts.submitted,
+              color: "text-yellow-400 border-yellow-600 bg-yellow-900/30",
+            },
+            {
+              label: "Reviewed",
+              count: pipelineCounts.reviewed,
+              color: "text-green-400 border-green-600 bg-green-900/30",
+            },
+            {
+              label: "Archived",
+              count: pipelineCounts.archived,
+              color: "text-gray-400 border-gray-600 bg-gray-700/30",
+            },
           ].map(({ label, count, color }) => (
             <div
               key={label}
               className={`inline-flex items-center gap-2 px-4 py-2 border rounded-xl ${color}`}
             >
               <span className="text-xl font-black leading-none">{count}</span>
-              <span className="text-xs font-semibold uppercase tracking-wide">{label}</span>
+              <span className="text-xs font-semibold uppercase tracking-wide">
+                {label}
+              </span>
             </div>
           ))}
         </div>
@@ -621,12 +721,20 @@ export function SafetyTab({ token }: SafetyTabProps) {
         <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary overflow-hidden">
           {subsLoading ? (
             <div className="py-12 text-center text-gray-500">
-              <MaterialIcon icon="hourglass_empty" size="xl" className="animate-pulse mx-auto mb-2" />
+              <MaterialIcon
+                icon="hourglass_empty"
+                size="xl"
+                className="animate-pulse mx-auto mb-2"
+              />
               <p className="text-sm">Loading submissions…</p>
             </div>
           ) : submissions.length === 0 ? (
             <div className="py-12 text-center text-gray-500">
-              <MaterialIcon icon="assignment_late" size="xl" className="mx-auto mb-2" />
+              <MaterialIcon
+                icon="assignment_late"
+                size="xl"
+                className="mx-auto mb-2"
+              />
               <p className="text-sm">No submissions match your filters.</p>
             </div>
           ) : (
@@ -634,8 +742,19 @@ export function SafetyTab({ token }: SafetyTabProps) {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-gray-700 bg-gray-900/50">
-                    {["Date", "Job", "Form Type", "Submitted By", "Prints", "Status", "Actions"].map((h) => (
-                      <th key={h} className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider">
+                    {[
+                      "Date",
+                      "Job",
+                      "Form Type",
+                      "Submitted By",
+                      "Prints",
+                      "Status",
+                      "Actions",
+                    ].map((h) => (
+                      <th
+                        key={h}
+                        className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                      >
                         {h}
                       </th>
                     ))}
@@ -643,27 +762,45 @@ export function SafetyTab({ token }: SafetyTabProps) {
                 </thead>
                 <tbody className="divide-y divide-gray-700/50">
                   {submissions.map((sub) => {
-                    const date = new Date(sub.created_at).toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "2-digit",
-                    });
+                    const date = new Date(sub.created_at).toLocaleDateString(
+                      "en-US",
+                      {
+                        month: "short",
+                        day: "numeric",
+                        year: "2-digit",
+                      },
+                    );
                     return (
-                      <tr key={sub.id} className="hover:bg-gray-700/30 transition-colors">
-                        <td className="px-4 py-3 text-gray-400 whitespace-nowrap">{date}</td>
+                      <tr
+                        key={sub.id}
+                        className="hover:bg-gray-700/30 transition-colors"
+                      >
+                        <td className="px-4 py-3 text-gray-400 whitespace-nowrap">
+                          {date}
+                        </td>
                         <td className="px-4 py-3">
                           <div>
-                            <p className="text-brand-secondary font-mono font-bold text-xs">{sub.job_number}</p>
-                            <p className="text-gray-400 text-xs">{sub.job_name}</p>
+                            <p className="text-brand-secondary font-mono font-bold text-xs">
+                              {sub.job_number}
+                            </p>
+                            <p className="text-gray-400 text-xs">
+                              {sub.job_name}
+                            </p>
                           </div>
                         </td>
                         <td className="px-4 py-3 text-white font-semibold whitespace-nowrap">
                           {FORM_TYPE_LABELS[sub.form_type] ?? sub.form_type}
                         </td>
-                        <td className="px-4 py-3 text-gray-400">{sub.submitted_by}</td>
-                        <td className="px-4 py-3 text-center text-gray-400">{sub.print_count}</td>
+                        <td className="px-4 py-3 text-gray-400">
+                          {sub.submitted_by}
+                        </td>
+                        <td className="px-4 py-3 text-center text-gray-400">
+                          {sub.print_count}
+                        </td>
                         <td className="px-4 py-3">
-                          <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold border uppercase ${STATUS_COLORS[sub.status] ?? ""}`}>
+                          <span
+                            className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold border uppercase ${STATUS_COLORS[sub.status] ?? ""}`}
+                          >
                             {sub.status}
                           </span>
                         </td>
@@ -683,7 +820,9 @@ export function SafetyTab({ token }: SafetyTabProps) {
                             {/* Mark Reviewed */}
                             {sub.status === "submitted" && (
                               <button
-                                onClick={() => void patchSubmissionStatus(sub.id, "reviewed")}
+                                onClick={() =>
+                                  void patchSubmissionStatus(sub.id, "reviewed")
+                                }
                                 disabled={updatingId === sub.id}
                                 title="Mark Reviewed"
                                 className="p-1.5 rounded-lg text-gray-400 hover:text-green-400 hover:bg-green-900/30 transition-colors disabled:opacity-40"
@@ -695,7 +834,9 @@ export function SafetyTab({ token }: SafetyTabProps) {
                             {/* Archive */}
                             {sub.status !== "archived" && (
                               <button
-                                onClick={() => void patchSubmissionStatus(sub.id, "archived")}
+                                onClick={() =>
+                                  void patchSubmissionStatus(sub.id, "archived")
+                                }
                                 disabled={updatingId === sub.id}
                                 title="Archive"
                                 className="p-1.5 rounded-lg text-gray-400 hover:text-red-400 hover:bg-red-900/30 transition-colors disabled:opacity-40"
@@ -719,7 +860,11 @@ export function SafetyTab({ token }: SafetyTabProps) {
       <div>
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-black text-white uppercase tracking-wide flex items-center gap-3">
-            <MaterialIcon icon="download" size="lg" className="text-brand-secondary" />
+            <MaterialIcon
+              icon="download"
+              size="lg"
+              className="text-brand-secondary"
+            />
             DOWNLOAD LOG
           </h2>
           <button
@@ -733,12 +878,20 @@ export function SafetyTab({ token }: SafetyTabProps) {
         <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary overflow-hidden">
           {downloadLogLoading ? (
             <div className="py-12 text-center text-gray-500">
-              <MaterialIcon icon="hourglass_empty" size="xl" className="animate-pulse mx-auto mb-2" />
+              <MaterialIcon
+                icon="hourglass_empty"
+                size="xl"
+                className="animate-pulse mx-auto mb-2"
+              />
               <p className="text-sm">Loading download log…</p>
             </div>
           ) : downloadLog.length === 0 ? (
             <div className="py-12 text-center text-gray-500">
-              <MaterialIcon icon="info_outline" size="xl" className="mx-auto mb-2" />
+              <MaterialIcon
+                icon="info_outline"
+                size="xl"
+                className="mx-auto mb-2"
+              />
               <p className="text-sm">No downloads recorded yet.</p>
             </div>
           ) : (
@@ -746,36 +899,50 @@ export function SafetyTab({ token }: SafetyTabProps) {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-gray-700 bg-gray-900/50">
-                    {["Date", "Section", "Type", "Downloaded By", "Job"].map((h) => (
-                      <th
-                        key={h}
-                        className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
-                      >
-                        {h}
-                      </th>
-                    ))}
+                    {["Date", "Section", "Type", "Downloaded By", "Job"].map(
+                      (h) => (
+                        <th
+                          key={h}
+                          className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                        >
+                          {h}
+                        </th>
+                      ),
+                    )}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-700/50">
                   {downloadLog.map((entry) => (
-                    <tr key={entry.id} className="hover:bg-gray-700/30 transition-colors">
+                    <tr
+                      key={entry.id}
+                      className="hover:bg-gray-700/30 transition-colors"
+                    >
                       <td className="px-4 py-3 text-gray-400 whitespace-nowrap">
-                        {new Date(entry.downloaded_at).toLocaleDateString("en-US", {
-                          month: "short",
-                          day: "numeric",
-                          year: "2-digit",
-                        })}
+                        {new Date(entry.downloaded_at).toLocaleDateString(
+                          "en-US",
+                          {
+                            month: "short",
+                            day: "numeric",
+                            year: "2-digit",
+                          },
+                        )}
                       </td>
                       <td className="px-4 py-3">
-                        <p className="text-white font-semibold text-xs">{entry.section_title}</p>
-                        <p className="text-gray-500 text-xs font-mono">{entry.section_key}</p>
+                        <p className="text-white font-semibold text-xs">
+                          {entry.section_title}
+                        </p>
+                        <p className="text-gray-500 text-xs font-mono">
+                          {entry.section_key}
+                        </p>
                       </td>
                       <td className="px-4 py-3">
                         <span className="inline-block px-2 py-0.5 bg-gray-700 text-gray-300 rounded text-xs font-mono">
                           {entry.download_type}
                         </span>
                       </td>
-                      <td className="px-4 py-3 text-gray-400">{entry.downloaded_by}</td>
+                      <td className="px-4 py-3 text-gray-400">
+                        {entry.downloaded_by}
+                      </td>
                       <td className="px-4 py-3 text-gray-500 font-mono text-xs">
                         {entry.job_id ?? "—"}
                       </td>
@@ -784,7 +951,8 @@ export function SafetyTab({ token }: SafetyTabProps) {
                 </tbody>
               </table>
               <div className="px-4 py-3 border-t border-gray-700 text-xs text-gray-500">
-                {downloadLog.length} download{downloadLog.length !== 1 ? "s" : ""} recorded
+                {downloadLog.length} download
+                {downloadLog.length !== 1 ? "s" : ""} recorded
               </div>
             </div>
           )}

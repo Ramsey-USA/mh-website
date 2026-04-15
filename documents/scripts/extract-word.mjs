@@ -17,16 +17,16 @@
  * Backward-compatible: sections without a .docx keep their existing body.
  */
 
-import mammoth      from 'mammoth';
-import { readFile, writeFile, readdir, mkdir } from 'fs/promises';
-import { existsSync }                          from 'fs';
-import { join, resolve, dirname }              from 'path';
-import { fileURLToPath }                       from 'url';
+import mammoth from "mammoth";
+import { readFile, writeFile, readdir, mkdir } from "fs/promises";
+import { existsSync } from "fs";
+import { join, resolve, dirname } from "path";
+import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT      = resolve(__dirname, '../..');
-const WORD_DIR  = join(ROOT, 'documents/content/MHC_Safety_Program_2026_Word');
-const MANIFEST  = join(ROOT, 'documents/content/safety-manual.json');
+const ROOT = resolve(__dirname, "../..");
+const WORD_DIR = join(ROOT, "documents/content/MHC_Safety_Program_2026_Word");
+const MANIFEST = join(ROOT, "documents/content/safety-manual.json");
 
 // ── Mammoth style map ─────────────────────────────────────────────────────────
 // Maps common Word heading styles to clean HTML elements.
@@ -47,7 +47,7 @@ const STYLE_MAP = [
   "p[style-name='List Bullet 2'] => li:fresh",
   "p[style-name='List Number'] => li:fresh",
   "p[style-name='List Number 2'] => li:fresh",
-].join('\n');
+].join("\n");
 
 // ── Boilerplate patterns to strip from Word body ──────────────────────────────
 // These are MH Construction header/footer lines that appear on every page in
@@ -90,24 +90,24 @@ const STRIP_PATTERNS = [
  */
 function stripBoilerplate(html) {
   // Remove empty / whitespace-only paragraphs
-  let out = html.replace(/<p>(\s|&nbsp;)*<\/p>/gi, '');
+  let out = html.replace(/<p>(\s|&nbsp;)*<\/p>/gi, "");
 
   // Remove inline style attributes
-  out = out.replace(/\s+style="[^"]*"/gi, '');
+  out = out.replace(/\s+style="[^"]*"/gi, "");
 
   // Strip colour/font spans that add no semantic value (mammoth occasionally emits these)
-  out = out.replace(/<span[^>]*>([^<]*)<\/span>/gi, '$1');
+  out = out.replace(/<span[^>]*>([^<]*)<\/span>/gi, "$1");
 
   // Remove boilerplate <p>…</p> blocks whose plain-text matches a strip pattern
   out = out.replace(/<p>([\s\S]*?)<\/p>/gi, (match, inner) => {
-    const text = inner.replace(/<[^>]+>/g, '').trim();
-    if (!text) return '';
-    if (STRIP_PATTERNS.some(p => p.test(text))) return '';
+    const text = inner.replace(/<[^>]+>/g, "").trim();
+    if (!text) return "";
+    if (STRIP_PATTERNS.some((p) => p.test(text))) return "";
     return match;
   });
 
   // Collapse multiple consecutive newlines introduced by removals
-  out = out.replace(/\n{3,}/g, '\n\n').trim();
+  out = out.replace(/\n{3,}/g, "\n\n").trim();
 
   return out;
 }
@@ -122,8 +122,8 @@ function extractKey(filename) {
 }
 
 async function main() {
-  console.log('📄  MH Construction — Word Document Extractor');
-  console.log('=============================================');
+  console.log("📄  MH Construction — Word Document Extractor");
+  console.log("=============================================");
   console.log(`Input:  ${WORD_DIR}`);
   console.log(`Output: ${MANIFEST}\n`);
 
@@ -131,12 +131,14 @@ async function main() {
   if (!existsSync(WORD_DIR)) {
     await mkdir(WORD_DIR, { recursive: true });
     console.log(`📁  Created: documents/content/MHC_Safety_Program_2026_Word/`);
-    console.log(`    Drop your .docx files there (AISH_XX_*.docx) then re-run.\n`);
+    console.log(
+      `    Drop your .docx files there (AISH_XX_*.docx) then re-run.\n`,
+    );
     return;
   }
 
   // ── Load existing manifest ─────────────────────────────────────────────────
-  const manifest = JSON.parse(await readFile(MANIFEST, 'utf-8'));
+  const manifest = JSON.parse(await readFile(MANIFEST, "utf-8"));
 
   // Build a lookup: AISH_XX → section object (by reference so we can mutate)
   const sectionByKey = {};
@@ -146,11 +148,11 @@ async function main() {
 
   // ── Discover .docx files ───────────────────────────────────────────────────
   const files = (await readdir(WORD_DIR))
-    .filter(f => f.toLowerCase().endsWith('.docx'))
+    .filter((f) => f.toLowerCase().endsWith(".docx"))
     .sort();
 
   if (!files.length) {
-    console.log('⚠️   No .docx files found in the Word folder.');
+    console.log("⚠️   No .docx files found in the Word folder.");
     console.log(`    Drop files named AISH_XX_*.docx into:\n    ${WORD_DIR}\n`);
     return;
   }
@@ -159,13 +161,15 @@ async function main() {
 
   let updated = 0;
   let skipped = 0;
-  let errors  = 0;
+  let errors = 0;
 
   for (const filename of files) {
     const key = extractKey(filename);
 
     if (!key) {
-      console.log(`  [SKIP] ${filename}  — filename doesn't start with AISH_XX`);
+      console.log(
+        `  [SKIP] ${filename}  — filename doesn't start with AISH_XX`,
+      );
       skipped++;
       continue;
     }
@@ -177,21 +181,23 @@ async function main() {
       continue;
     }
 
-    process.stdout.write(`  [${section.numberStr}] ${section.title.padEnd(55)} `);
+    process.stdout.write(
+      `  [${section.numberStr}] ${section.title.padEnd(55)} `,
+    );
 
     try {
       const filePath = join(WORD_DIR, filename);
 
       const result = await mammoth.convertToHtml(
         { path: filePath },
-        { styleMap: STYLE_MAP }
+        { styleMap: STYLE_MAP },
       );
 
       if (result.messages.length) {
         // Print warnings but don't fail
         const warnings = result.messages
-          .filter(m => m.type === 'warning')
-          .map(m => m.message);
+          .filter((m) => m.type === "warning")
+          .map((m) => m.message);
         if (warnings.length) {
           process.stdout.write(`⚠  (${warnings.length} warning(s)) `);
         }
@@ -203,7 +209,7 @@ async function main() {
       section.body = cleanHtml;
 
       // Update word count based on HTML text content
-      const plainText = cleanHtml.replace(/<[^>]+>/g, ' ');
+      const plainText = cleanHtml.replace(/<[^>]+>/g, " ");
       section.wordCount = plainText.split(/\s+/).filter(Boolean).length;
 
       console.log(`✓  (${section.wordCount} words)`);
@@ -217,18 +223,20 @@ async function main() {
   // ── Write updated manifest ─────────────────────────────────────────────────
   if (updated > 0) {
     manifest.document.extractedAt = new Date().toISOString();
-    await writeFile(MANIFEST, JSON.stringify(manifest, null, 2), 'utf-8');
+    await writeFile(MANIFEST, JSON.stringify(manifest, null, 2), "utf-8");
     console.log(`\n✅  Updated ${updated} section(s) in safety-manual.json`);
   } else {
     console.log(`\n⚠️   No sections updated.`);
   }
 
   if (skipped) console.log(`   ${skipped} file(s) skipped`);
-  if (errors)  console.log(`   ${errors} file(s) failed`);
-  console.log(`\n   Next: npm run docs:generate:sections -- --rev-date "04/07/2026" --rev-number "2"`);
+  if (errors) console.log(`   ${errors} file(s) failed`);
+  console.log(
+    `\n   Next: npm run docs:generate:sections -- --rev-date "04/07/2026" --rev-number "2"`,
+  );
 }
 
-main().catch(err => {
-  console.error('\n❌  Fatal error:', err.message);
+main().catch((err) => {
+  console.error("\n❌  Fatal error:", err.message);
   process.exit(1);
 });

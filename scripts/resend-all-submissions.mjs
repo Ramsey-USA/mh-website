@@ -38,23 +38,23 @@ const FROM_EMAIL = "MH Construction <noreply@mhc-gc.com>";
 // ── Validation ──────────────────────────────────────────────────────────────
 if (!CLOUDFLARE_API_TOKEN) {
   console.error(
-    "❌ CLOUDFLARE_API_TOKEN (or CF_API_TOKEN) environment variable is required."
+    "❌ CLOUDFLARE_API_TOKEN (or CF_API_TOKEN) environment variable is required.",
   );
   console.error(
-    "   Get one at: https://dash.cloudflare.com/profile/api-tokens"
+    "   Get one at: https://dash.cloudflare.com/profile/api-tokens",
   );
   process.exit(1);
 }
 if (!CLOUDFLARE_ACCOUNT_ID) {
   console.error("❌ CLOUDFLARE_ACCOUNT_ID environment variable is required.");
   console.error(
-    "   Find it at: https://dash.cloudflare.com → right sidebar → Account ID"
+    "   Find it at: https://dash.cloudflare.com → right sidebar → Account ID",
   );
   process.exit(1);
 }
 if (!RESEND_API_KEY && !DRY_RUN) {
   console.error(
-    "❌ RESEND_API_KEY environment variable is required (or use --dry-run)."
+    "❌ RESEND_API_KEY environment variable is required (or use --dry-run).",
   );
   process.exit(1);
 }
@@ -179,8 +179,8 @@ function buildJobApplicationsHtml(apps) {
           tableRow("Resume URL", a.resume_url),
           tableRow("Status", a.status),
           tableRow("Submitted", formatDate(a.created_at)),
-        ].join("")
-      )
+        ].join(""),
+      ),
     )
     .join("");
 }
@@ -189,20 +189,23 @@ function buildContactSubmissionsHtml(subs) {
   if (!subs.length) return "<p>No contact submissions found.</p>";
   return subs
     .map((s, i) =>
-      submissionBlock(`#${i + 1} — ${s.first_name} ${s.last_name}`, [
-        tableRow("Name", `${s.first_name} ${s.last_name}`),
-        tableRow("Email", s.email),
-        tableRow("Phone", s.phone),
-        tableRow("Project Type", s.project_type),
-        tableRow("Location", s.project_location),
-        tableRow("Budget", s.budget),
-        tableRow("Timeline", s.timeline),
-        tableRow("Urgency", s.urgency),
-        tableRow("Preferred Contact", s.preferred_contact),
-        tableRow("Message", s.message),
-        tableRow("Status", s.status),
-        tableRow("Submitted", formatDate(s.created_at)),
-      ].join(""))
+      submissionBlock(
+        `#${i + 1} — ${s.first_name} ${s.last_name}`,
+        [
+          tableRow("Name", `${s.first_name} ${s.last_name}`),
+          tableRow("Email", s.email),
+          tableRow("Phone", s.phone),
+          tableRow("Project Type", s.project_type),
+          tableRow("Location", s.project_location),
+          tableRow("Budget", s.budget),
+          tableRow("Timeline", s.timeline),
+          tableRow("Urgency", s.urgency),
+          tableRow("Preferred Contact", s.preferred_contact),
+          tableRow("Message", s.message),
+          tableRow("Status", s.status),
+          tableRow("Submitted", formatDate(s.created_at)),
+        ].join(""),
+      ),
     )
     .join("");
 }
@@ -211,20 +214,23 @@ function buildConsultationsHtml(consults) {
   if (!consults.length) return "<p>No consultation requests found.</p>";
   return consults
     .map((c, i) =>
-      submissionBlock(`#${i + 1} — ${c.client_name}`, [
-        tableRow("Client", c.client_name),
-        tableRow("Email", c.email),
-        tableRow("Phone", c.phone),
-        tableRow("Project Type", c.project_type),
-        tableRow("Description", c.project_description),
-        tableRow("Location", c.location),
-        tableRow("Budget", c.budget),
-        tableRow("Requested Date", c.selected_date),
-        tableRow("Requested Time", c.selected_time),
-        tableRow("Notes", c.additional_notes),
-        tableRow("Status", c.status),
-        tableRow("Submitted", formatDate(c.created_at)),
-      ].join(""))
+      submissionBlock(
+        `#${i + 1} — ${c.client_name}`,
+        [
+          tableRow("Client", c.client_name),
+          tableRow("Email", c.email),
+          tableRow("Phone", c.phone),
+          tableRow("Project Type", c.project_type),
+          tableRow("Description", c.project_description),
+          tableRow("Location", c.location),
+          tableRow("Budget", c.budget),
+          tableRow("Requested Date", c.selected_date),
+          tableRow("Requested Time", c.selected_time),
+          tableRow("Notes", c.additional_notes),
+          tableRow("Status", c.status),
+          tableRow("Submitted", formatDate(c.created_at)),
+        ].join(""),
+      ),
     )
     .join("");
 }
@@ -239,7 +245,7 @@ function buildNewsletterHtml(subs) {
       <td style="padding:6px 12px;border-bottom:1px solid #eee;">${escapeHtml(s.name || "—")}</td>
       <td style="padding:6px 12px;border-bottom:1px solid #eee;">${s.subscribed ? "Active" : "Unsubscribed"}</td>
       <td style="padding:6px 12px;border-bottom:1px solid #eee;">${formatDate(s.created_at)}</td>
-    </tr>`
+    </tr>`,
     )
     .join("");
 
@@ -259,7 +265,9 @@ function buildPlainText(apps, contacts, consults, newsletter) {
   const lines = [];
 
   lines.push("=== MH CONSTRUCTION — ALL SUBMISSIONS REPORT ===");
-  lines.push(`Generated: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })}\n`);
+  lines.push(
+    `Generated: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })}\n`,
+  );
 
   lines.push(`--- JOB APPLICATIONS (${apps.length}) ---`);
   apps.forEach((a, i) => {
@@ -268,11 +276,14 @@ function buildPlainText(apps, contacts, consults, newsletter) {
     lines.push(`  Email: ${a.email} | Phone: ${a.phone}`);
     lines.push(`  Experience: ${a.experience}`);
     if (a.availability) lines.push(`  Availability: ${a.availability}`);
-    if (a.city || a.state) lines.push(`  Location: ${[a.city, a.state].filter(Boolean).join(", ")}`);
+    if (a.city || a.state)
+      lines.push(`  Location: ${[a.city, a.state].filter(Boolean).join(", ")}`);
     if (a.veteran_status) lines.push(`  Veteran: ${a.veteran_status}`);
     if (a.cover_letter) lines.push(`  Cover Letter: ${a.cover_letter}`);
     if (a.resume_url) lines.push(`  Resume: ${a.resume_url}`);
-    lines.push(`  Status: ${a.status} | Submitted: ${formatDate(a.created_at)}`);
+    lines.push(
+      `  Status: ${a.status} | Submitted: ${formatDate(a.created_at)}`,
+    );
   });
 
   lines.push(`\n--- CONTACT SUBMISSIONS (${contacts.length}) ---`);
@@ -283,7 +294,9 @@ function buildPlainText(apps, contacts, consults, newsletter) {
     if (s.project_location) lines.push(`  Location: ${s.project_location}`);
     if (s.budget) lines.push(`  Budget: ${s.budget}`);
     lines.push(`  Message: ${s.message}`);
-    lines.push(`  Status: ${s.status} | Submitted: ${formatDate(s.created_at)}`);
+    lines.push(
+      `  Status: ${s.status} | Submitted: ${formatDate(s.created_at)}`,
+    );
   });
 
   lines.push(`\n--- CONSULTATIONS (${consults.length}) ---`);
@@ -291,15 +304,20 @@ function buildPlainText(apps, contacts, consults, newsletter) {
     lines.push(`\n#${i + 1}: ${c.client_name}`);
     lines.push(`  Email: ${c.email} | Phone: ${c.phone || "N/A"}`);
     lines.push(`  Project: ${c.project_type}`);
-    if (c.project_description) lines.push(`  Description: ${c.project_description}`);
+    if (c.project_description)
+      lines.push(`  Description: ${c.project_description}`);
     if (c.location) lines.push(`  Location: ${c.location}`);
     lines.push(`  Requested: ${c.selected_date} at ${c.selected_time}`);
-    lines.push(`  Status: ${c.status} | Submitted: ${formatDate(c.created_at)}`);
+    lines.push(
+      `  Status: ${c.status} | Submitted: ${formatDate(c.created_at)}`,
+    );
   });
 
   lines.push(`\n--- NEWSLETTER SIGNUPS (${newsletter.length}) ---`);
   newsletter.forEach((s) => {
-    lines.push(`  ${s.email} | ${s.name || "—"} | ${s.subscribed ? "Active" : "Unsubscribed"} | ${formatDate(s.created_at)}`);
+    lines.push(
+      `  ${s.email} | ${s.name || "—"} | ${s.subscribed ? "Active" : "Unsubscribed"} | ${formatDate(s.created_at)}`,
+    );
   });
 
   return lines.join("\n");
@@ -335,10 +353,22 @@ async function main() {
     const { mkdirSync, writeFileSync } = await import("node:fs");
     const dir = "scripts/output";
     mkdirSync(dir, { recursive: true });
-    writeFileSync(`${dir}/job-applications.json`, JSON.stringify(jobApps, null, 2));
-    writeFileSync(`${dir}/contact-submissions.json`, JSON.stringify(contacts, null, 2));
-    writeFileSync(`${dir}/consultations.json`, JSON.stringify(consultations, null, 2));
-    writeFileSync(`${dir}/newsletter-subscribers.json`, JSON.stringify(newsletter, null, 2));
+    writeFileSync(
+      `${dir}/job-applications.json`,
+      JSON.stringify(jobApps, null, 2),
+    );
+    writeFileSync(
+      `${dir}/contact-submissions.json`,
+      JSON.stringify(contacts, null, 2),
+    );
+    writeFileSync(
+      `${dir}/consultations.json`,
+      JSON.stringify(consultations, null, 2),
+    );
+    writeFileSync(
+      `${dir}/newsletter-subscribers.json`,
+      JSON.stringify(newsletter, null, 2),
+    );
     console.log(`\n💾 Raw JSON saved to ${dir}/`);
   }
 
@@ -374,25 +404,41 @@ async function main() {
       </ul>
     </td></tr>
 
-    ${jobApps.length ? `<tr><td style="padding:10px 20px;">
+    ${
+      jobApps.length
+        ? `<tr><td style="padding:10px 20px;">
       <h2 style="color:#386851;border-bottom:2px solid #386851;padding-bottom:8px;">💼 Job Applications (${jobApps.length})</h2>
       ${buildJobApplicationsHtml(jobApps)}
-    </td></tr>` : ""}
+    </td></tr>`
+        : ""
+    }
 
-    ${contacts.length ? `<tr><td style="padding:10px 20px;">
+    ${
+      contacts.length
+        ? `<tr><td style="padding:10px 20px;">
       <h2 style="color:#386851;border-bottom:2px solid #386851;padding-bottom:8px;">📬 Contact Submissions (${contacts.length})</h2>
       ${buildContactSubmissionsHtml(contacts)}
-    </td></tr>` : ""}
+    </td></tr>`
+        : ""
+    }
 
-    ${consultations.length ? `<tr><td style="padding:10px 20px;">
+    ${
+      consultations.length
+        ? `<tr><td style="padding:10px 20px;">
       <h2 style="color:#386851;border-bottom:2px solid #386851;padding-bottom:8px;">📅 Consultation Requests (${consultations.length})</h2>
       ${buildConsultationsHtml(consultations)}
-    </td></tr>` : ""}
+    </td></tr>`
+        : ""
+    }
 
-    ${newsletter.length ? `<tr><td style="padding:10px 20px;">
+    ${
+      newsletter.length
+        ? `<tr><td style="padding:10px 20px;">
       <h2 style="color:#386851;border-bottom:2px solid #386851;padding-bottom:8px;">📧 Newsletter Signups (${newsletter.length})</h2>
       ${buildNewsletterHtml(newsletter)}
-    </td></tr>` : ""}
+    </td></tr>`
+        : ""
+    }
 
     <tr>
       <td style="background:#f5f5f5;padding:20px;text-align:center;font-size:12px;color:#666;">

@@ -1,443 +1,576 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>{{BRAND_COMPANY_NAME}} — Job Hazard Analysis (JHA)</title>
-  <link rel="stylesheet" href="../styles/brand.css" />
-  <link rel="stylesheet" href="../styles/print-base.css" />
-  <link rel="stylesheet" href="../styles/components.css" />
-  <style>
-    @page {
-      size: letter portrait;
-      margin: 0.65in 0.75in 0.65in 1.25in;
-      @top-left    { content: none; border: none; }
-      @top-right   { content: none; border: none; }
-      @bottom-left {
-        content: "{{BRAND_COMPANY_NAME}}  ·  MISH — Industrial Safety & Health Program  ·  {{BRAND_WEBSITE}}";
-        font-size: 7pt;
-        color: var(--color-secondary-text);
-        border-top: 0.5pt solid var(--color-secondary);
-        padding-top: 3pt;
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{BRAND_COMPANY_NAME}} — Job Hazard Analysis (JHA)</title>
+    <link rel="stylesheet" href="../styles/brand.css" />
+    <link rel="stylesheet" href="../styles/print-base.css" />
+    <link rel="stylesheet" href="../styles/components.css" />
+    <style>
+      @page {
+        size: letter portrait;
+        margin: 0.65in 0.75in 0.65in 1.25in;
+        @top-left {
+          content: none;
+          border: none;
+        }
+        @top-right {
+          content: none;
+          border: none;
+        }
+        @bottom-left {
+          content: "{{BRAND_COMPANY_NAME}}  ·  MISH — Industrial Safety & Health Program  ·  {{BRAND_WEBSITE}}";
+          font-size: 7pt;
+          color: var(--color-secondary-text);
+          border-top: 0.5pt solid var(--color-secondary);
+          padding-top: 3pt;
+        }
+        @bottom-right {
+          content: "Page " counter(page) " of " counter(pages);
+          font-size: 7pt;
+          color: var(--color-secondary-text);
+          border-top: 0.5pt solid var(--color-secondary);
+          padding-top: 3pt;
+        }
       }
-      @bottom-right {
-        content: "Page " counter(page) " of " counter(pages);
-        font-size: 7pt;
-        color: var(--color-secondary-text);
-        border-top: 0.5pt solid var(--color-secondary);
-        padding-top: 3pt;
+
+      /* ── Header bar ─────────────────────────────────── */
+      .tb-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--color-primary);
+        color: white;
+        padding: 7pt 10pt;
+        border-radius: 3pt 3pt 0 0;
+        margin-bottom: 0;
       }
-    }
+      .tb-header img {
+        height: 30pt;
+      }
+      .tb-header-center {
+        text-align: center;
+        flex: 1;
+        padding: 0 10pt;
+      }
+      .tb-header-title {
+        font-size: 16pt;
+        font-weight: 900;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        line-height: 1;
+      }
+      .tb-header-sub {
+        font-size: 7.5pt;
+        color: var(--color-secondary-light);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-top: 2pt;
+      }
+      .tb-header-right {
+        text-align: right;
+        font-size: 7.5pt;
+        color: var(--color-secondary-light);
+        line-height: 1.6;
+      }
 
-    /* ── Header bar ─────────────────────────────────── */
-    .tb-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--color-primary);
-      color: white;
-      padding: 7pt 10pt;
-      border-radius: 3pt 3pt 0 0;
-      margin-bottom: 0;
-    }
-    .tb-header img { height: 30pt; }
-    .tb-header-center {
-      text-align: center;
-      flex: 1;
-      padding: 0 10pt;
-    }
-    .tb-header-title {
-      font-size: 16pt;
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      line-height: 1;
-    }
-    .tb-header-sub {
-      font-size: 7.5pt;
-      color: var(--color-secondary-light);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-top: 2pt;
-    }
-    .tb-header-right {
-      text-align: right;
-      font-size: 7.5pt;
-      color: var(--color-secondary-light);
-      line-height: 1.6;
-    }
+      .tb-accent-bar {
+        height: 3pt;
+        background: linear-gradient(
+          90deg,
+          var(--color-bronze),
+          var(--color-secondary),
+          var(--color-bronze)
+        );
+        margin-bottom: 10pt;
+      }
 
-    .tb-accent-bar {
-      height: 3pt;
-      background: linear-gradient(90deg, var(--color-bronze), var(--color-secondary), var(--color-bronze));
-      margin-bottom: 10pt;
-    }
+      /* ── Info grid ──────────────────────────────────── */
+      .tb-info-grid-3 {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 8pt;
+        margin-bottom: 8pt;
+      }
+      .tb-info-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8pt;
+        margin-bottom: 8pt;
+      }
+      .tb-info-grid-4 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 8pt;
+        margin-bottom: 8pt;
+      }
 
-    /* ── Info grid ──────────────────────────────────── */
-    .tb-info-grid-3 {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 8pt;
-      margin-bottom: 8pt;
-    }
-    .tb-info-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8pt;
-      margin-bottom: 8pt;
-    }
-    .tb-info-grid-4 {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 8pt;
-      margin-bottom: 8pt;
-    }
+      /* ── Section label ──────────────────────────────── */
+      .tb-section-label {
+        font-size: 7.5pt;
+        font-weight: 700;
+        color: var(--color-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        border-bottom: 0.5pt solid var(--color-secondary);
+        padding-bottom: 2pt;
+        margin-bottom: 6pt;
+      }
 
-    /* ── Section label ──────────────────────────────── */
-    .tb-section-label {
-      font-size: 7.5pt;
-      font-weight: 700;
-      color: var(--color-primary);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      border-bottom: 0.5pt solid var(--color-secondary);
-      padding-bottom: 2pt;
-      margin-bottom: 6pt;
-    }
+      /* ── JHA task table ─────────────────────────────── */
+      .jha-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10pt;
+        font-size: 8.5pt;
+        page-break-inside: auto;
+      }
+      .jha-table th {
+        background: var(--color-primary);
+        color: white;
+        padding: 5pt 6pt;
+        border: 0.5pt solid var(--color-primary-dark);
+        text-align: left;
+        font-size: 8pt;
+        font-weight: 700;
+      }
+      .jha-table th:first-child {
+        width: 8%;
+        text-align: center;
+      }
+      .jha-table th:nth-child(2) {
+        width: 27%;
+      }
+      .jha-table th:nth-child(3) {
+        width: 30%;
+      }
+      .jha-table th:nth-child(4) {
+        width: 27%;
+      }
+      .jha-table th:last-child {
+        width: 8%;
+        text-align: center;
+      }
+      .jha-table td {
+        height: 40pt;
+        border: 0.5pt solid #ccc;
+        padding: 3pt 5pt;
+        vertical-align: top;
+      }
+      .jha-table td:first-child,
+      .jha-table td:last-child {
+        text-align: center;
+        vertical-align: middle;
+        font-size: 8pt;
+        color: #999;
+      }
+      .jha-table tr:nth-child(even) td {
+        background: #f9f7f5;
+      }
+      .jha-table tr:nth-child(odd) td {
+        background: #fff;
+      }
 
-    /* ── JHA task table ─────────────────────────────── */
-    .jha-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 10pt;
-      font-size: 8.5pt;
-      page-break-inside: auto;
-    }
-    .jha-table th {
-      background: var(--color-primary);
-      color: white;
-      padding: 5pt 6pt;
-      border: 0.5pt solid var(--color-primary-dark);
-      text-align: left;
-      font-size: 8pt;
-      font-weight: 700;
-    }
-    .jha-table th:first-child  { width: 8%; text-align: center; }
-    .jha-table th:nth-child(2) { width: 27%; }
-    .jha-table th:nth-child(3) { width: 30%; }
-    .jha-table th:nth-child(4) { width: 27%; }
-    .jha-table th:last-child   { width: 8%; text-align: center; }
-    .jha-table td {
-      height: 40pt;
-      border: 0.5pt solid #ccc;
-      padding: 3pt 5pt;
-      vertical-align: top;
-    }
-    .jha-table td:first-child,
-    .jha-table td:last-child { text-align: center; vertical-align: middle; font-size: 8pt; color: #999; }
-    .jha-table tr:nth-child(even) td { background: #f9f7f5; }
-    .jha-table tr:nth-child(odd)  td { background: #fff; }
+      /* ── PPE Required ───────────────────────────────── */
+      .ppe-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6pt;
+        margin-bottom: 10pt;
+      }
+      .ppe-item {
+        display: flex;
+        align-items: center;
+        gap: 5pt;
+        font-size: 8.5pt;
+      }
+      .ppe-checkbox {
+        width: 11pt;
+        height: 11pt;
+        border: 1pt solid var(--color-primary);
+        border-radius: 1pt;
+        flex-shrink: 0;
+      }
 
-    /* ── PPE Required ───────────────────────────────── */
-    .ppe-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 6pt;
-      margin-bottom: 10pt;
-    }
-    .ppe-item {
-      display: flex;
-      align-items: center;
-      gap: 5pt;
-      font-size: 8.5pt;
-    }
-    .ppe-checkbox {
-      width: 11pt;
-      height: 11pt;
-      border: 1pt solid var(--color-primary);
-      border-radius: 1pt;
-      flex-shrink: 0;
-    }
+      /* ── Emergency info ─────────────────────────────── */
+      .emerg-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 8pt;
+        margin-bottom: 10pt;
+        padding: 7pt 8pt;
+        background: #fff8f0;
+        border: 1pt solid var(--color-secondary);
+        border-radius: 2pt;
+      }
 
-    /* ── Emergency info ─────────────────────────────── */
-    .emerg-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 8pt;
-      margin-bottom: 10pt;
-      padding: 7pt 8pt;
-      background: #fff8f0;
-      border: 1pt solid var(--color-secondary);
-      border-radius: 2pt;
-    }
+      /* ── Signature block ────────────────────────────── */
+      .sig-block {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 10pt;
+        margin-top: 8pt;
+        padding-top: 8pt;
+        border-top: 1pt solid var(--color-secondary);
+      }
+      .sig-block-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10pt;
+        margin-top: 8pt;
+      }
+      .sig-field {
+        display: flex;
+        flex-direction: column;
+        gap: 2pt;
+      }
+      .sig-label {
+        font-size: 7pt;
+        font-weight: 700;
+        color: var(--color-primary-dark);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .sig-line {
+        border-bottom: 0.75pt solid #333;
+        min-height: 18pt;
+      }
 
-    /* ── Signature block ────────────────────────────── */
-    .sig-block {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 10pt;
-      margin-top: 8pt;
-      padding-top: 8pt;
-      border-top: 1pt solid var(--color-secondary);
-    }
-    .sig-block-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10pt;
-      margin-top: 8pt;
-    }
-    .sig-field {
-      display: flex;
-      flex-direction: column;
-      gap: 2pt;
-    }
-    .sig-label {
-      font-size: 7pt;
-      font-weight: 700;
-      color: var(--color-primary-dark);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .sig-line {
-      border-bottom: 0.75pt solid #333;
-      min-height: 18pt;
-    }
+      /* ── QR block ───────────────────────────────────── */
+      .qr-row {
+        display: flex;
+        align-items: center;
+        gap: 10pt;
+        margin-bottom: 10pt;
+        padding: 6pt 8pt;
+        border: 1pt solid var(--color-secondary);
+        border-radius: 2pt;
+        background: #fdf9f5;
+      }
+      .qr-box {
+        width: 48pt;
+        height: 48pt;
+        border: 1.5pt dashed var(--color-bronze);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 6.5pt;
+        color: var(--color-bronze);
+        text-align: center;
+        flex-shrink: 0;
+        border-radius: 2pt;
+        line-height: 1.3;
+      }
+      .qr-text {
+        font-size: 8pt;
+        color: var(--color-primary-dark);
+      }
+      .qr-text strong {
+        display: block;
+        font-size: 8.5pt;
+        margin-bottom: 2pt;
+      }
+      .qr-url {
+        font-size: 7.5pt;
+        color: var(--color-primary);
+      }
 
-    /* ── QR block ───────────────────────────────────── */
-    .qr-row {
-      display: flex;
-      align-items: center;
-      gap: 10pt;
-      margin-bottom: 10pt;
-      padding: 6pt 8pt;
-      border: 1pt solid var(--color-secondary);
-      border-radius: 2pt;
-      background: #fdf9f5;
-    }
-    .qr-box {
-      width: 48pt;
-      height: 48pt;
-      border: 1.5pt dashed var(--color-bronze);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 6.5pt;
-      color: var(--color-bronze);
-      text-align: center;
-      flex-shrink: 0;
-      border-radius: 2pt;
-      line-height: 1.3;
-    }
-    .qr-text {
-      font-size: 8pt;
-      color: var(--color-primary-dark);
-    }
-    .qr-text strong { display: block; font-size: 8.5pt; margin-bottom: 2pt; }
-    .qr-url { font-size: 7.5pt; color: var(--color-primary); }
+      /* ── OSHA callout ───────────────────────────────── */
+      .osha-note {
+        font-size: 7.5pt;
+        color: #555;
+        background: #f5f5f5;
+        border-left: 2.5pt solid var(--color-primary);
+        padding: 5pt 8pt;
+        margin-bottom: 10pt;
+        border-radius: 0 2pt 2pt 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="tb-header">
+      <img src="{{BRAND_LOGO_WHITE}}" alt="{{BRAND_COMPANY_SHORT}}" />
+      <div class="tb-header-center">
+        <div class="tb-header-title">Job Hazard Analysis</div>
+        <div class="tb-header-sub">
+          MISH Pre-Task Planning Form · OSHA 29 CFR 1926.20 / WAC 296-155
+        </div>
+      </div>
+      <div class="tb-header-right">
+        {{BRAND_COMPANY_NAME}}<br />
+        {{BRAND_PHONE}}<br />
+        {{BRAND_WEBSITE}}
+      </div>
+    </div>
+    <div class="tb-accent-bar"></div>
 
-    /* ── OSHA callout ───────────────────────────────── */
-    .osha-note {
-      font-size: 7.5pt;
-      color: #555;
-      background: #f5f5f5;
-      border-left: 2.5pt solid var(--color-primary);
-      padding: 5pt 8pt;
-      margin-bottom: 10pt;
-      border-radius: 0 2pt 2pt 0;
-    }
-  </style>
-</head>
-<body>
+    <!-- OSHA reference note -->
+    <div class="osha-note">
+      Required by OSHA 29 CFR 1926.20 and WAC 296-155-110 (WA) · OAR
+      437-003-0015 (OR) · IDAPA 07.02.01 (ID). Complete before beginning any
+      non-routine, high-risk, or new task. Supervisor must review and sign.
+    </div>
 
-  <!-- Header -->
-  <div class="tb-header">
-    <img src="{{BRAND_LOGO_WHITE}}" alt="{{BRAND_COMPANY_SHORT}}" />
-    <div class="tb-header-center">
-      <div class="tb-header-title">Job Hazard Analysis</div>
-      <div class="tb-header-sub">MISH Pre-Task Planning Form · OSHA 29 CFR 1926.20 / WAC 296-155</div>
+    <!-- Project info row 1 -->
+    <div class="tb-info-grid-3">
+      <div class="form-field">
+        <span class="form-label">Project / Job Site</span>
+        <div class="form-input"></div>
+      </div>
+      <div class="form-field">
+        <span class="form-label">Job Number</span>
+        <div class="form-input"></div>
+      </div>
+      <div class="form-field">
+        <span class="form-label">Date</span>
+        <div class="form-input"></div>
+      </div>
     </div>
-    <div class="tb-header-right">
-      {{BRAND_COMPANY_NAME}}<br>
-      {{BRAND_PHONE}}<br>
-      {{BRAND_WEBSITE}}
-    </div>
-  </div>
-  <div class="tb-accent-bar"></div>
 
-  <!-- OSHA reference note -->
-  <div class="osha-note">
-    Required by OSHA 29 CFR 1926.20 and WAC 296-155-110 (WA) · OAR 437-003-0015 (OR) · IDAPA 07.02.01 (ID).
-    Complete before beginning any non-routine, high-risk, or new task. Supervisor must review and sign.
-  </div>
+    <!-- Project info row 2 -->
+    <div class="tb-info-grid-4">
+      <div class="form-field">
+        <span class="form-label">Foreman / Superintendent</span>
+        <div class="form-input"></div>
+      </div>
+      <div class="form-field">
+        <span class="form-label">Trade / Crew</span>
+        <div class="form-input"></div>
+      </div>
+      <div class="form-field">
+        <span class="form-label">Task Description</span>
+        <div class="form-input"></div>
+      </div>
+      <div class="form-field">
+        <span class="form-label">Estimated Duration</span>
+        <div class="form-input"></div>
+      </div>
+    </div>
 
-  <!-- Project info row 1 -->
-  <div class="tb-info-grid-3">
-    <div class="form-field">
-      <span class="form-label">Project / Job Site</span>
-      <div class="form-input"></div>
+    <!-- QR code block -->
+    <div class="qr-row">
+      <div class="qr-box">QR<br />Code</div>
+      <div class="qr-text">
+        <strong>MISH Field Safety Hub</strong>
+        Submit forms digitally, access all MISH safety manual sections, and view
+        completed JHA records at:
+        <div class="qr-url">{{BRAND_WEBSITE}}/safety/hub</div>
+      </div>
     </div>
-    <div class="form-field">
-      <span class="form-label">Job Number</span>
-      <div class="form-input"></div>
-    </div>
-    <div class="form-field">
-      <span class="form-label">Date</span>
-      <div class="form-input"></div>
-    </div>
-  </div>
 
-  <!-- Project info row 2 -->
-  <div class="tb-info-grid-4">
-    <div class="form-field">
-      <span class="form-label">Foreman / Superintendent</span>
-      <div class="form-input"></div>
+    <!-- PPE Required section -->
+    <div class="tb-section-label">Required PPE for This Task</div>
+    <div class="ppe-grid">
+      <div class="ppe-item">
+        <div class="ppe-checkbox"></div>
+        Hard Hat
+      </div>
+      <div class="ppe-item">
+        <div class="ppe-checkbox"></div>
+        Safety Glasses
+      </div>
+      <div class="ppe-item">
+        <div class="ppe-checkbox"></div>
+        High-Vis Vest
+      </div>
+      <div class="ppe-item">
+        <div class="ppe-checkbox"></div>
+        Steel-Toe Boots
+      </div>
+      <div class="ppe-item">
+        <div class="ppe-checkbox"></div>
+        Work Gloves
+      </div>
+      <div class="ppe-item">
+        <div class="ppe-checkbox"></div>
+        Fall Protection
+      </div>
+      <div class="ppe-item">
+        <div class="ppe-checkbox"></div>
+        Respirator
+      </div>
+      <div class="ppe-item">
+        <div class="ppe-checkbox"></div>
+        Face Shield
+      </div>
+      <div class="ppe-item">
+        <div class="ppe-checkbox"></div>
+        Hearing Protection
+      </div>
+      <div class="ppe-item">
+        <div class="ppe-checkbox"></div>
+        Cut-Resistant Gloves
+      </div>
+      <div class="ppe-item">
+        <div class="ppe-checkbox"></div>
+        Chemical-Resistant PPE
+      </div>
+      <div class="ppe-item">
+        <div class="ppe-checkbox"></div>
+        Other: ___________
+      </div>
     </div>
-    <div class="form-field">
-      <span class="form-label">Trade / Crew</span>
-      <div class="form-input"></div>
-    </div>
-    <div class="form-field">
-      <span class="form-label">Task Description</span>
-      <div class="form-input"></div>
-    </div>
-    <div class="form-field">
-      <span class="form-label">Estimated Duration</span>
-      <div class="form-input"></div>
-    </div>
-  </div>
 
-  <!-- QR code block -->
-  <div class="qr-row">
-    <div class="qr-box">QR<br>Code</div>
-    <div class="qr-text">
-      <strong>MISH Field Safety Hub</strong>
-      Submit forms digitally, access all MISH safety manual sections, and view completed JHA records at:
-      <div class="qr-url">{{BRAND_WEBSITE}}/safety/hub</div>
+    <!-- Emergency info -->
+    <div class="tb-section-label">Emergency Information</div>
+    <div class="emerg-grid">
+      <div class="form-field">
+        <span class="form-label">Nearest Hospital</span>
+        <div class="form-input"></div>
+      </div>
+      <div class="form-field">
+        <span class="form-label">Emergency Contact / Phone</span>
+        <div class="form-input"></div>
+      </div>
+      <div class="form-field">
+        <span class="form-label">First Aid Kit Location</span>
+        <div class="form-input"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- PPE Required section -->
-  <div class="tb-section-label">Required PPE for This Task</div>
-  <div class="ppe-grid">
-    <div class="ppe-item"><div class="ppe-checkbox"></div> Hard Hat</div>
-    <div class="ppe-item"><div class="ppe-checkbox"></div> Safety Glasses</div>
-    <div class="ppe-item"><div class="ppe-checkbox"></div> High-Vis Vest</div>
-    <div class="ppe-item"><div class="ppe-checkbox"></div> Steel-Toe Boots</div>
-    <div class="ppe-item"><div class="ppe-checkbox"></div> Work Gloves</div>
-    <div class="ppe-item"><div class="ppe-checkbox"></div> Fall Protection</div>
-    <div class="ppe-item"><div class="ppe-checkbox"></div> Respirator</div>
-    <div class="ppe-item"><div class="ppe-checkbox"></div> Face Shield</div>
-    <div class="ppe-item"><div class="ppe-checkbox"></div> Hearing Protection</div>
-    <div class="ppe-item"><div class="ppe-checkbox"></div> Cut-Resistant Gloves</div>
-    <div class="ppe-item"><div class="ppe-checkbox"></div> Chemical-Resistant PPE</div>
-    <div class="ppe-item"><div class="ppe-checkbox"></div> Other: ___________</div>
-  </div>
+    <!-- JHA task breakdown table -->
+    <div class="tb-section-label">
+      Task Hazard Analysis — Step-by-Step Breakdown
+    </div>
+    <table class="jha-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Job Step / Task</th>
+          <th>Potential Hazard(s)</th>
+          <th>Control Measure / Corrective Action</th>
+          <th>Risk<br />Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size: 7pt; color: #888; margin-bottom: 8pt">
+      Risk Level key: H = High (immediate action required) · M = Medium · L =
+      Low
+    </p>
 
-  <!-- Emergency info -->
-  <div class="tb-section-label">Emergency Information</div>
-  <div class="emerg-grid">
-    <div class="form-field">
-      <span class="form-label">Nearest Hospital</span>
-      <div class="form-input"></div>
+    <!-- Crew acknowledgment note -->
+    <div class="tb-section-label">Crew Review &amp; Acknowledgment</div>
+    <p style="font-size: 8.5pt; color: #444; margin-bottom: 8pt">
+      By signing below, crew members confirm they have reviewed this JHA,
+      understand the identified hazards and controls, and agree to follow safe
+      work procedures throughout this task.
+    </p>
+    <div class="tb-info-grid-2" style="margin-bottom: 6pt">
+      <div class="form-field">
+        <span class="form-label">Print Name</span>
+        <div class="form-input"></div>
+      </div>
+      <div class="form-field">
+        <span class="form-label">Signature</span>
+        <div class="form-input"></div>
+      </div>
     </div>
-    <div class="form-field">
-      <span class="form-label">Emergency Contact / Phone</span>
-      <div class="form-input"></div>
+    <div class="tb-info-grid-2" style="margin-bottom: 6pt">
+      <div class="form-field">
+        <span class="form-label">Print Name</span>
+        <div class="form-input"></div>
+      </div>
+      <div class="form-field">
+        <span class="form-label">Signature</span>
+        <div class="form-input"></div>
+      </div>
     </div>
-    <div class="form-field">
-      <span class="form-label">First Aid Kit Location</span>
-      <div class="form-input"></div>
+    <div class="tb-info-grid-2" style="margin-bottom: 10pt">
+      <div class="form-field">
+        <span class="form-label">Print Name</span>
+        <div class="form-input"></div>
+      </div>
+      <div class="form-field">
+        <span class="form-label">Signature</span>
+        <div class="form-input"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- JHA task breakdown table -->
-  <div class="tb-section-label">Task Hazard Analysis — Step-by-Step Breakdown</div>
-  <table class="jha-table">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Job Step / Task</th>
-        <th>Potential Hazard(s)</th>
-        <th>Control Measure / Corrective Action</th>
-        <th>Risk<br>Level</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>2</td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>3</td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>4</td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>5</td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>6</td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>7</td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>8</td><td></td><td></td><td></td><td></td></tr>
-    </tbody>
-  </table>
-  <p style="font-size:7pt;color:#888;margin-bottom:8pt;">
-    Risk Level key: H = High (immediate action required) · M = Medium · L = Low
-  </p>
-
-  <!-- Crew acknowledgment note -->
-  <div class="tb-section-label">Crew Review &amp; Acknowledgment</div>
-  <p style="font-size:8.5pt;color:#444;margin-bottom:8pt;">
-    By signing below, crew members confirm they have reviewed this JHA, understand the identified hazards and
-    controls, and agree to follow safe work procedures throughout this task.
-  </p>
-  <div class="tb-info-grid-2" style="margin-bottom:6pt;">
-    <div class="form-field">
-      <span class="form-label">Print Name</span>
-      <div class="form-input"></div>
+    <!-- Approval signatures -->
+    <div class="sig-block">
+      <div class="sig-field">
+        <span class="sig-label">Foreman / Superintendent Signature</span>
+        <div class="sig-line"></div>
+      </div>
+      <div class="sig-field">
+        <span class="sig-label">Print Name</span>
+        <div class="sig-line"></div>
+      </div>
+      <div class="sig-field">
+        <span class="sig-label">Date</span>
+        <div class="sig-line"></div>
+      </div>
     </div>
-    <div class="form-field">
-      <span class="form-label">Signature</span>
-      <div class="form-input"></div>
+    <div class="sig-block-2" style="margin-top: 8pt">
+      <div class="sig-field">
+        <span class="sig-label"
+          >Safety Representative Signature (if required)</span
+        >
+        <div class="sig-line"></div>
+      </div>
+      <div class="sig-field">
+        <span class="sig-label">Date</span>
+        <div class="sig-line"></div>
+      </div>
     </div>
-  </div>
-  <div class="tb-info-grid-2" style="margin-bottom:6pt;">
-    <div class="form-field">
-      <span class="form-label">Print Name</span>
-      <div class="form-input"></div>
-    </div>
-    <div class="form-field">
-      <span class="form-label">Signature</span>
-      <div class="form-input"></div>
-    </div>
-  </div>
-  <div class="tb-info-grid-2" style="margin-bottom:10pt;">
-    <div class="form-field">
-      <span class="form-label">Print Name</span>
-      <div class="form-input"></div>
-    </div>
-    <div class="form-field">
-      <span class="form-label">Signature</span>
-      <div class="form-input"></div>
-    </div>
-  </div>
-
-  <!-- Approval signatures -->
-  <div class="sig-block">
-    <div class="sig-field">
-      <span class="sig-label">Foreman / Superintendent Signature</span>
-      <div class="sig-line"></div>
-    </div>
-    <div class="sig-field">
-      <span class="sig-label">Print Name</span>
-      <div class="sig-line"></div>
-    </div>
-    <div class="sig-field">
-      <span class="sig-label">Date</span>
-      <div class="sig-line"></div>
-    </div>
-  </div>
-  <div class="sig-block-2" style="margin-top:8pt;">
-    <div class="sig-field">
-      <span class="sig-label">Safety Representative Signature (if required)</span>
-      <div class="sig-line"></div>
-    </div>
-    <div class="sig-field">
-      <span class="sig-label">Date</span>
-      <div class="sig-line"></div>
-    </div>
-  </div>
-
-</body>
+  </body>
 </html>

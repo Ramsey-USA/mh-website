@@ -61,7 +61,10 @@ export function JHAForm({
   const addCrew = () =>
     setFormData((d) => ({
       ...d,
-      crewMembers: [...d.crewMembers, { id: crypto.randomUUID(), name: "", role: "" }],
+      crewMembers: [
+        ...d.crewMembers,
+        { id: crypto.randomUUID(), name: "", role: "" },
+      ],
     }));
   const removeCrew = (id: string) =>
     setFormData((d) => ({
@@ -71,21 +74,30 @@ export function JHAForm({
   const updateCrew = (id: string, field: "name" | "role", value: string) =>
     setFormData((d) => ({
       ...d,
-      crewMembers: d.crewMembers.map((c) => (c.id === id ? { ...c, [field]: value } : c)),
+      crewMembers: d.crewMembers.map((c) =>
+        c.id === id ? { ...c, [field]: value } : c,
+      ),
     }));
 
   // Step helpers
   const addStep = () =>
     setFormData((d) => ({
       ...d,
-      steps: [...d.steps, { id: crypto.randomUUID(), step: "", hazard: "", control: "" }],
+      steps: [
+        ...d.steps,
+        { id: crypto.randomUUID(), step: "", hazard: "", control: "" },
+      ],
     }));
   const removeStep = (id: string) =>
     setFormData((d) => ({
       ...d,
       steps: d.steps.filter((s) => s.id !== id),
     }));
-  const updateStep = (id: string, field: "step" | "hazard" | "control", value: string) =>
+  const updateStep = (
+    id: string,
+    field: "step" | "hazard" | "control",
+    value: string,
+  ) =>
     setFormData((d) => ({
       ...d,
       steps: d.steps.map((s) => (s.id === id ? { ...s, [field]: value } : s)),
@@ -106,13 +118,19 @@ export function JHAForm({
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ job_id: jobId, form_type: "jha", data: formData }),
+        body: JSON.stringify({
+          job_id: jobId,
+          form_type: "jha",
+          data: formData,
+        }),
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error ?? "Submit failed");
       onSubmitSuccess(json.data.id as string);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Submit failed. Try again.");
+      setError(
+        err instanceof Error ? err.message : "Submit failed. Try again.",
+      );
     } finally {
       setSubmitting(false);
     }
@@ -135,20 +153,29 @@ export function JHAForm({
             type="date"
             required
             value={formData.date}
-            onChange={(e) => setFormData((d) => ({ ...d, date: e.target.value }))}
+            onChange={(e) =>
+              setFormData((d) => ({ ...d, date: e.target.value }))
+            }
             className={inputClass}
           />
         </div>
         <div>
           <label className={labelClass}>Job</label>
-          <input type="text" readOnly value={jobLabel} className={`${inputClass} bg-gray-50 dark:bg-gray-700`} />
+          <input
+            type="text"
+            readOnly
+            value={jobLabel}
+            className={`${inputClass} bg-gray-50 dark:bg-gray-700`}
+          />
         </div>
         <div>
           <label className={labelClass}>Supervisor</label>
           <input
             type="text"
             value={formData.supervisorName}
-            onChange={(e) => setFormData((d) => ({ ...d, supervisorName: e.target.value }))}
+            onChange={(e) =>
+              setFormData((d) => ({ ...d, supervisorName: e.target.value }))
+            }
             className={inputClass}
           />
         </div>
@@ -165,7 +192,9 @@ export function JHAForm({
             required
             placeholder="e.g. Overhead steel beam installation"
             value={formData.taskDescription}
-            onChange={(e) => setFormData((d) => ({ ...d, taskDescription: e.target.value }))}
+            onChange={(e) =>
+              setFormData((d) => ({ ...d, taskDescription: e.target.value }))
+            }
             className={inputClass}
           />
         </div>
@@ -175,7 +204,9 @@ export function JHAForm({
             type="text"
             placeholder="e.g. East elevation, Level 3"
             value={formData.workLocation}
-            onChange={(e) => setFormData((d) => ({ ...d, workLocation: e.target.value }))}
+            onChange={(e) =>
+              setFormData((d) => ({ ...d, workLocation: e.target.value }))
+            }
             className={inputClass}
           />
         </div>
@@ -188,7 +219,9 @@ export function JHAForm({
           type="text"
           placeholder="e.g. Hard hat, harness, Hi-Vis vest, steel-toed boots"
           value={formData.requiredPPE}
-          onChange={(e) => setFormData((d) => ({ ...d, requiredPPE: e.target.value }))}
+          onChange={(e) =>
+            setFormData((d) => ({ ...d, requiredPPE: e.target.value }))
+          }
           className={inputClass}
         />
       </div>
@@ -254,8 +287,16 @@ export function JHAForm({
 
         {/* Header row */}
         <div className="hidden sm:grid sm:grid-cols-[1fr_1fr_1fr_auto] gap-2 mb-1 px-1">
-          {["Step / Task Sequence", "Potential Hazard", "Control / Mitigation", ""].map((h) => (
-            <span key={h} className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+          {[
+            "Step / Task Sequence",
+            "Potential Hazard",
+            "Control / Mitigation",
+            "",
+          ].map((h) => (
+            <span
+              key={h}
+              className="text-xs font-semibold text-gray-500 uppercase tracking-wider"
+            >
               {h}
             </span>
           ))}
@@ -263,9 +304,14 @@ export function JHAForm({
 
         <div className="space-y-3">
           {formData.steps.map((s, idx) => (
-            <div key={s.id} className="grid sm:grid-cols-[1fr_1fr_1fr_auto] gap-2 items-start bg-gray-50 dark:bg-gray-800/60 rounded-lg p-3 sm:bg-transparent sm:p-0">
+            <div
+              key={s.id}
+              className="grid sm:grid-cols-[1fr_1fr_1fr_auto] gap-2 items-start bg-gray-50 dark:bg-gray-800/60 rounded-lg p-3 sm:bg-transparent sm:p-0"
+            >
               <div>
-                <span className="sm:hidden text-xs font-semibold text-gray-500 uppercase">Step {idx + 1}</span>
+                <span className="sm:hidden text-xs font-semibold text-gray-500 uppercase">
+                  Step {idx + 1}
+                </span>
                 <textarea
                   rows={2}
                   placeholder="Describe the task step…"
@@ -275,7 +321,9 @@ export function JHAForm({
                 />
               </div>
               <div>
-                <span className="sm:hidden text-xs font-semibold text-gray-500 uppercase">Hazard</span>
+                <span className="sm:hidden text-xs font-semibold text-gray-500 uppercase">
+                  Hazard
+                </span>
                 <textarea
                   rows={2}
                   placeholder="What could go wrong?"
@@ -285,7 +333,9 @@ export function JHAForm({
                 />
               </div>
               <div>
-                <span className="sm:hidden text-xs font-semibold text-gray-500 uppercase">Control</span>
+                <span className="sm:hidden text-xs font-semibold text-gray-500 uppercase">
+                  Control
+                </span>
                 <textarea
                   rows={2}
                   placeholder="How will it be controlled?"
@@ -316,7 +366,9 @@ export function JHAForm({
           type="text"
           placeholder="Initials confirming review with crew"
           value={formData.supervisorSignature}
-          onChange={(e) => setFormData((d) => ({ ...d, supervisorSignature: e.target.value }))}
+          onChange={(e) =>
+            setFormData((d) => ({ ...d, supervisorSignature: e.target.value }))
+          }
           className={`${inputClass} max-w-xs`}
         />
       </div>

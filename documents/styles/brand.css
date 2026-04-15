@@ -11,59 +11,59 @@
 
 :root {
   /* ── Primary Palette ─────────────────────────────── */
-  --color-primary:        #386851; /* Hunter Green — primary brand color */
-  --color-primary-light:  #628F79;
-  --color-primary-dark:   #1E392C;
+  --color-primary: #386851; /* Hunter Green — primary brand color */
+  --color-primary-light: #628f79;
+  --color-primary-dark: #1e392c;
   --color-primary-darker: #12231b;
 
   /* ── Secondary Palette ──────────────────────────── */
-  --color-secondary:       #BD9264; /* Leather Tan */
-  --color-secondary-text:  #8A6B49; /* WCAG AA body text (4.71:1) */
-  --color-secondary-light: #D9BD93;
-  --color-secondary-dark:  #8A6B49;
+  --color-secondary: #bd9264; /* Leather Tan */
+  --color-secondary-text: #8a6b49; /* WCAG AA body text (4.71:1) */
+  --color-secondary-light: #d9bd93;
+  --color-secondary-dark: #8a6b49;
 
   /* ── Bronze Accent ──────────────────────────────── */
-  --color-bronze:       #A87948; /* Architectural Bronze */
-  --color-bronze-light: #CD9B6D;
-  --color-bronze-dark:  #6B4E2E; /* WCAG AAA body text (7.32:1) */
+  --color-bronze: #a87948; /* Architectural Bronze */
+  --color-bronze-light: #cd9b6d;
+  --color-bronze-dark: #6b4e2e; /* WCAG AAA body text (7.32:1) */
 
   /* ── Semantic Colors ────────────────────────────── */
   --color-success: #10b981;
   --color-warning: #f59e0b;
-  --color-error:   #ef4444;
-  --color-info:    #3b82f6;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
 
   /* ── Callout Severity Colors ────────────────────── */
-  --color-danger-bg:    #fef2f2;
-  --color-danger-border:#ef4444;
-  --color-danger-text:  #991b1b;
-  --color-danger-icon:  #dc2626;
+  --color-danger-bg: #fef2f2;
+  --color-danger-border: #ef4444;
+  --color-danger-text: #991b1b;
+  --color-danger-icon: #dc2626;
 
-  --color-warning-bg:    #fffbeb;
-  --color-warning-border:#f59e0b;
-  --color-warning-text:  #92400e;
-  --color-warning-icon:  #d97706;
+  --color-warning-bg: #fffbeb;
+  --color-warning-border: #f59e0b;
+  --color-warning-text: #92400e;
+  --color-warning-icon: #d97706;
 
-  --color-caution-bg:    #fff7ed;
-  --color-caution-border:#ea580c;
-  --color-caution-text:  #7c2d12;
-  --color-caution-icon:  #c2410c;
+  --color-caution-bg: #fff7ed;
+  --color-caution-border: #ea580c;
+  --color-caution-text: #7c2d12;
+  --color-caution-icon: #c2410c;
 
-  --color-note-bg:    #f0f7f4;
-  --color-note-border:#386851;
-  --color-note-text:  #1E392C;
-  --color-note-icon:  #386851;
+  --color-note-bg: #f0f7f4;
+  --color-note-border: #386851;
+  --color-note-text: #1e392c;
+  --color-note-icon: #386851;
 
   /* ── Typography ─────────────────────────────────── */
-  --font-body:    'Helvetica Neue', Arial, 'Liberation Sans', sans-serif;
-  --font-heading: 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif;
-  --font-mono:    'Courier New', Courier, monospace;
+  --font-body: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+  --font-heading: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
 
   /* ── Sizing ─────────────────────────────────────── */
-  --page-width:        8.5in;
-  --page-height:       11in;
-  --margin-top:        0.75in;
-  --margin-right:      0.75in;
-  --margin-bottom:     0.75in;
-  --margin-left:       1.25in; /* Extra for 3-ring binder punch */
+  --page-width: 8.5in;
+  --page-height: 11in;
+  --margin-top: 0.75in;
+  --margin-right: 0.75in;
+  --margin-bottom: 0.75in;
+  --margin-left: 1.25in; /* Extra for 3-ring binder punch */
 }

@@ -51,7 +51,10 @@ export function ToolboxTalkForm({
   const addAttendee = () =>
     setFormData((d) => ({
       ...d,
-      attendees: [...d.attendees, { id: crypto.randomUUID(), name: "", signature: "" }],
+      attendees: [
+        ...d.attendees,
+        { id: crypto.randomUUID(), name: "", signature: "" },
+      ],
     }));
 
   const removeAttendee = (id: string) =>
@@ -60,10 +63,16 @@ export function ToolboxTalkForm({
       attendees: d.attendees.filter((a) => a.id !== id),
     }));
 
-  const updateAttendee = (id: string, field: "name" | "signature", value: string) =>
+  const updateAttendee = (
+    id: string,
+    field: "name" | "signature",
+    value: string,
+  ) =>
     setFormData((d) => ({
       ...d,
-      attendees: d.attendees.map((a) => (a.id === id ? { ...a, [field]: value } : a)),
+      attendees: d.attendees.map((a) =>
+        a.id === id ? { ...a, [field]: value } : a,
+      ),
     }));
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -95,7 +104,9 @@ export function ToolboxTalkForm({
 
       onSubmitSuccess(json.data.id as string);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Submit failed. Try again.");
+      setError(
+        err instanceof Error ? err.message : "Submit failed. Try again.",
+      );
     } finally {
       setSubmitting(false);
     }
@@ -113,7 +124,9 @@ export function ToolboxTalkForm({
             type="date"
             required
             value={formData.date}
-            onChange={(e) => setFormData((d) => ({ ...d, date: e.target.value }))}
+            onChange={(e) =>
+              setFormData((d) => ({ ...d, date: e.target.value }))
+            }
             className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
           />
         </div>
@@ -135,7 +148,9 @@ export function ToolboxTalkForm({
           <input
             type="text"
             value={formData.conductedBy}
-            onChange={(e) => setFormData((d) => ({ ...d, conductedBy: e.target.value }))}
+            onChange={(e) =>
+              setFormData((d) => ({ ...d, conductedBy: e.target.value }))
+            }
             className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
           />
         </div>
@@ -151,7 +166,9 @@ export function ToolboxTalkForm({
           required
           placeholder="e.g. Fall Protection — Ladder Safety Review"
           value={formData.topic}
-          onChange={(e) => setFormData((d) => ({ ...d, topic: e.target.value }))}
+          onChange={(e) =>
+            setFormData((d) => ({ ...d, topic: e.target.value }))
+          }
           className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
         />
       </div>
@@ -165,7 +182,9 @@ export function ToolboxTalkForm({
           rows={3}
           placeholder="List specific hazards reviewed during this meeting…"
           value={formData.hazardsDiscussed}
-          onChange={(e) => setFormData((d) => ({ ...d, hazardsDiscussed: e.target.value }))}
+          onChange={(e) =>
+            setFormData((d) => ({ ...d, hazardsDiscussed: e.target.value }))
+          }
           className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50 resize-none"
         />
       </div>
@@ -179,7 +198,9 @@ export function ToolboxTalkForm({
           rows={3}
           placeholder="Note any positive observations or areas for improvement…"
           value={formData.safetyObservations}
-          onChange={(e) => setFormData((d) => ({ ...d, safetyObservations: e.target.value }))}
+          onChange={(e) =>
+            setFormData((d) => ({ ...d, safetyObservations: e.target.value }))
+          }
           className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50 resize-none"
         />
       </div>
@@ -193,7 +214,9 @@ export function ToolboxTalkForm({
           rows={2}
           placeholder="List any corrective actions or follow-up tasks assigned…"
           value={formData.actionItems}
-          onChange={(e) => setFormData((d) => ({ ...d, actionItems: e.target.value }))}
+          onChange={(e) =>
+            setFormData((d) => ({ ...d, actionItems: e.target.value }))
+          }
           className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50 resize-none"
         />
       </div>
@@ -227,7 +250,9 @@ export function ToolboxTalkForm({
                 type="text"
                 placeholder="Initials / signature"
                 value={a.signature}
-                onChange={(e) => updateAttendee(a.id, "signature", e.target.value)}
+                onChange={(e) =>
+                  updateAttendee(a.id, "signature", e.target.value)
+                }
                 className="w-32 px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
               />
               {formData.attendees.length > 1 && (
