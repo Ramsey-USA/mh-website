@@ -67,6 +67,21 @@ Before submitting a PR, confirm:
 - [ ] Docs updated if the change affects documented behavior
 - [ ] No `.env` secrets, `*.bak`, or generated output committed
 - [ ] Page-level changes pass the [Page Compliance Checklist](./docs/development/standards/page-compliance-checklist.md)
+- [ ] **Smoke test mocks updated** if you modified `COMPANY_INFO` or shared constants (see below)
+
+### ⚠️ Smoke Test Maintenance
+
+When modifying `src/lib/constants/company.ts` (e.g., adding `bbb`, `travelers`, or other company properties), **you must update the mock objects** in these test files:
+
+| Test File                              | Location                     | What to Update          |
+| -------------------------------------- | ---------------------------- | ----------------------- |
+| `pages-smoke.test.tsx`                 | `src/app/__tests__/`         | `COMPANY_INFO` mock     |
+| `page.test.tsx`                        | `src/app/careers/__tests__/` | `COMPANY_INFO` mock     |
+| `ContactPageClient.test.tsx`           | `src/app/contact/__tests__/` | `COMPANY_INFO` mock     |
+| `safety-navigation-contracts.test.tsx` | `src/app/__tests__/`         | Any shared mocks        |
+| `email-service.test.ts`                | `src/lib/email/__tests__/`   | `EMAIL_RECIPIENTS` mock |
+
+**Why?** These tests mock `@/lib/constants/company` to avoid loading the full module. If you add a new property (like `COMPANY_INFO.bbb.sealClickUrl`) and a page uses it, tests will fail with `Cannot read properties of undefined`.
 
 ### PR Description Template
 
