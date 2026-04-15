@@ -1,8 +1,8 @@
 # External Services Integration Guide
 
 **Category:** Technical - Infrastructure
-**Last Updated:** April 14, 2026
-**Version:** 1.1.0
+**Last Updated:** April 15, 2026
+**Version:** 1.2.0
 **Status:** ✅ Active
 
 This guide documents the integration of all external services used by the MH Construction
@@ -17,18 +17,18 @@ Email notifications route through **n8n + Resend SMTP**.
 
 ## Current Status Summary
 
-| Service              | Status             | URL / Details                     |
-| -------------------- | ------------------ | --------------------------------- |
-| **Cloudflare Pages** | ✅ Live            | `mhc-gc.com`                      |
-| **n8n**              | ✅ Running         | `http://n8n.mhc-gc.com:5678`      |
-| **Portainer**        | ✅ Running         | `https://docker.mhc-gc.com:9443`  |
-| **Uptime Kuma**      | ✅ Monitoring      | `http://status.mhc-gc.com:3001`   |
-| **Resend**           | ✅ Domain verified | `mhc-gc.com`                      |
-| **Sentry**           | ✅ Client + Server | Error tracking (toucan-js)        |
-| **Twilio**           | ✅ Configured      | SMS alerts for urgent submissions |
-| **PostHog**          | ⏸️ Deferred        | Using Cloudflare Web Analytics ✅ |
+| Service              | Status             | URL / Details                             |
+| -------------------- | ------------------ | ----------------------------------------- |
+| **Cloudflare Pages** | ✅ Live            | `mhc-gc.com`                              |
+| **n8n**              | ✅ Running         | `http://n8n.mhc-gc.com:5678`              |
+| **Portainer**        | ✅ Running         | `https://docker.mhc-gc.com:9443`          |
+| **Uptime Kuma**      | ✅ Monitoring      | `http://status.mhc-gc.com:3001`           |
+| **Resend**           | ✅ Domain verified | `mhc-gc.com`                              |
+| **Sentry**           | ✅ Client + Server | `@sentry/browser` + `toucan-js` (DSN set) |
+| **Twilio**           | ✅ Configured      | SMS alerts for urgent submissions         |
+| **PostHog**          | ⏸️ Deferred        | Using Cloudflare Web Analytics ✅         |
 
-### Recent Updates (April 14, 2026)
+### Recent Updates (April 15, 2026)
 
 1. ✅ Deployed n8n, Portainer, Uptime Kuma on Hostinger VPS
 2. ✅ Configured Resend SMTP in n8n (domain verified)
@@ -40,6 +40,7 @@ Email notifications route through **n8n + Resend SMTP**.
 8. ✅ Server-side Sentry via toucan-js for API route errors
 9. ✅ Twilio SMS alerts for consultations and urgent contacts
 10. ⏸️ PostHog deferred - using Cloudflare Web Analytics instead
+11. ✅ **Client-side Sentry configured** — `@sentry/browser` with DSN, `sendDefaultPii: true`, session replay enabled
 
 ---
 
@@ -1370,42 +1371,66 @@ If more advanced CRM features (email sequences, marketing automation) are needed
 
 ### 🟡 Medium Priority
 
-#### Sentry (Error Tracking) ✅ Code Ready
+#### Sentry (Error Tracking) ✅ Configured
 
 **Why:** Know when production breaks before users complain. Stack traces, user context, release tracking.
 
-**Status:** Code integrated — just needs DSN from Sentry dashboard.
+**Status:** ✅ Fully configured — client-side (`@sentry/browser`) and server-side (`toucan-js`) error tracking active.
 
-**Setup:**
+**DSN:** `https://4bcf174e0a1db00489a4d0cde0b290de@o4511220420050944.ingest.us.sentry.io/4511220427980800`
 
-1. Create account at `sentry.io`
-2. Create new project → Browser JavaScript
-3. Copy the DSN (looks like `https://xxx@xxx.ingest.sentry.io/xxx`)
-4. Add to Cloudflare Dashboard → Workers & Pages → Settings → Environment Variables:
-   ```
-   NEXT_PUBLIC_SENTRY_DSN=https://xxx@xxx.ingest.sentry.io/xxx
-   ```
-5. Redeploy
+**Setup (Already Complete):**
+
+1. ✅ Created account at `sentry.io`
+2. ✅ Created new project → Browser JavaScript
+3. ✅ DSN configured in environment variables
+4. ✅ Code integrated with `sendDefaultPii: true` for automatic IP collection
+
+**Environment Variables (add to Cloudflare Dashboard):**
+
+```bash
+# Client-side error tracking (browser)
+NEXT_PUBLIC_SENTRY_DSN=https://4bcf174e0a1db00489a4d0cde0b290de@o4511220420050944.ingest.us.sentry.io/4511220427980800
+
+# Server-side error tracking (API routes) - uses toucan-js
+SENTRY_DSN=https://4bcf174e0a1db00489a4d0cde0b290de@o4511220420050944.ingest.us.sentry.io/4511220427980800
+```
 
 **Code Implementation:**
 
-- `src/lib/monitoring/sentry.ts` — Sentry initialization and helpers
+- `src/lib/monitoring/sentry.ts` — Client-side Sentry using `@sentry/browser`
+- `src/lib/monitoring/sentry-server.ts` — Server-side Sentry using `toucan-js` (Cloudflare Workers compatible)
 - `src/components/monitoring/SentryInit.tsx` — Client-side init component
 - `src/components/error/ErrorBoundary.tsx` — Auto-captures React errors
 - `src/app/layout.tsx` — SentryInit rendered on every page
+
+**Features Enabled:**
+
+- `sendDefaultPii: true` — Automatic IP address collection
+- `browserTracingIntegration()` — Performance monitoring
+- `replayIntegration()` — Session replay (10% sessions, 100% on error)
+- ResizeObserver errors filtered out (noisy, harmless)
 
 **Cost:** Free tier = 5K errors/month (plenty for this traffic)
 
 **Usage:**
 
 ```typescript
+// Client-side (components, pages)
 import { captureException, captureMessage } from "@/lib/monitoring/sentry";
 
-// Capture errors manually
 captureException(error, { context: "checkout flow" });
-
-// Capture messages/events
 captureMessage("User completed onboarding", "info");
+
+// Server-side (API routes)
+import {
+  captureServerException,
+  withServerSentry,
+} from "@/lib/monitoring/sentry-server";
+
+export const POST = withServerSentry(async (request) => {
+  // Your handler - errors auto-captured
+});
 ```
 
 #### VPS Backup Strategy
@@ -1513,7 +1538,7 @@ Thank you for trusting MH Construction!
 | ----------------- | ----------------------- | --------- | ----------------------------------- | ------ |
 | SEO Visibility    | Google Search Console   | 🔴 High   | ✅ Ready — verify & submit sitemap  | Free   |
 | Local SEO         | Google Business Profile | 🔴 High   | ✅ Ready — claim & complete profile | Free   |
-| Error Tracking    | Sentry                  | 🟡 Medium | ✅ Code ready — add DSN to secrets  | Free   |
+| Error Tracking    | Sentry                  | 🟡 Medium | ✅ Configured — DSN active          | Free   |
 | Disaster Recovery | VPS Backups to R2       | 🟡 Medium | Script ready — configure cron       | ~$1/mo |
 | Reputation        | Review Collection       | 🟡 Medium | Template ready — create n8n flow    | Free   |
 | Paid Ads          | Google Analytics 4      | 🟢 Low    | Optional                            | Free   |

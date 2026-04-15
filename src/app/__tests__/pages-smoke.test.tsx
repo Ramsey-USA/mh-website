@@ -146,22 +146,6 @@ jest.mock("@/lib/constants/company", () => ({
       getSiteUrl: () => "https://mhc-gc.com",
     },
     bbb: {
-      sealClickUrl: "https://example.com/#sealclick",
-      sealHorizontal: "https://example.com/seal-horizontal.png",
-      sealHorizontalWhite: "https://example.com/seal-horizontal-white.png",
-    },
-    travelers: {
-      website: "https://example.com/travelers",
-      logo: "/images/logo/travelers-logo.png",
-      logoWhite: "/images/logo/travelers-logo-white.png",
-    },
-    address: {
-      street: "3111 N. Capitol Ave.",
-      city: "Pasco",
-      stateCode: "WA",
-      zip: "99301",
-    },
-    bbb: {
       profileUrl: "https://www.bbb.org/test",
       sealClickUrl: "https://www.bbb.org/test#sealclick",
       sealHorizontal: "/images/bbb-seal.png",
@@ -175,6 +159,12 @@ jest.mock("@/lib/constants/company", () => ({
       website: "https://www.travelers.com",
       logo: "/images/travelers-logo.png",
       logoWhite: "/images/travelers-logo-white.png",
+    },
+    address: {
+      street: "3111 N. Capitol Ave.",
+      city: "Pasco",
+      stateCode: "WA",
+      zip: "99301",
     },
   },
 }));

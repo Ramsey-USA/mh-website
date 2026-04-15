@@ -2,7 +2,7 @@
 
 ## Secure Handling of API Keys and Credentials
 
-**Last Updated:** April 8, 2026
+**Last Updated:** April 15, 2026
 
 ---
 
@@ -37,6 +37,10 @@ wrangler secret put ADMIN_JEREMY_PASSWORD
 wrangler secret put TWILIO_ACCOUNT_SID
 wrangler secret put TWILIO_AUTH_TOKEN
 wrangler secret put TWILIO_FROM_NUMBER
+
+# Error Tracking (Sentry)
+wrangler secret put NEXT_PUBLIC_SENTRY_DSN  # Client-side (browser)
+wrangler secret put SENTRY_DSN              # Server-side (API routes)
 ```
 
 > **Note:** D1 database IDs are configured as `[[d1_databases]]` bindings in
