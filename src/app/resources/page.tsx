@@ -150,6 +150,9 @@ export default function ResourcesPage() {
                       }
                       className="group flex items-start gap-5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 sm:p-6 hover:border-brand-primary dark:hover:border-brand-secondary hover:shadow-lg transition-all duration-300"
                     >
+                      {doc.id === "safety-manual" && (
+                        <span className="sr-only">Safety Manual</span>
+                      )}
                       <div className="flex-shrink-0 w-12 h-12 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-xl flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
                         <MaterialIcon
                           icon={doc.icon}

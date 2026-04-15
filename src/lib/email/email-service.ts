@@ -174,10 +174,13 @@ export class EmailService {
   sendToOffice(
     subject: string,
     content: { html: string; text: string },
-    _includeArnold = false,
+    includeArnold = false,
     attachments?: EmailAttachment[],
   ): Promise<EmailResult> {
     const recipients = [...EMAIL_RECIPIENTS.general];
+    if (includeArnold && !recipients.includes("arnold@mhc-gc.com")) {
+      recipients.push("arnold@mhc-gc.com");
+    }
 
     return this.sendEmail({
       to: recipients,
