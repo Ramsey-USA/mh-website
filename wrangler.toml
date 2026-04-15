@@ -71,38 +71,6 @@ remote = true
 directory = ".open-next/assets"
 binding = "ASSETS"
 
-# KV Namespaces
-[[kv_namespaces]]
-binding = "ANALYTICS"
-id = "969e74f0815b47ce9e75ae5acfe2a70d"           # mh-construction-analytics
-
-[[kv_namespaces]]
-binding = "CACHE"
-id = "b6ecda1ca7a7463db0f8a3b5d9681131"           # mh-construction-cache
-
-[[kv_namespaces]]
-binding = "NEXT_CACHE_WORKERS_KV"
-id = "c7473e6da0dc44d5874f3bd58032b43d"           # NEXT_CACHE_WORKERS_KV
-
-# D1 Database
-[[d1_databases]]
-binding = "DB"
-database_name = "mh-construction-db"
-database_id = "98ad144a-cfe2-4f19-a55c-c43140279840"
-
-# R2 Buckets
-[[r2_buckets]]
-binding = "FILE_ASSETS"
-bucket_name = "mh-construction-assets"
-
-[[r2_buckets]]
-binding = "RESUMES"
-bucket_name = "mh-construction-resumes"
-
-[[r2_buckets]]
-binding = "SAFETY_INTAKE"
-bucket_name = "mh-construction-safety-intake"
-
 # Build-time / runtime environment variables
 # These are committed to version control — DO NOT put secrets here.
 # NEXT_PUBLIC_SITE_URL is baked into the Next.js client bundle at build time.
@@ -146,9 +114,9 @@ custom_domain = true
 #   FIELD_STAFF_PASSWORD     — Login password for field staff portal
 #   RESEND_API_KEY           — Resend API key (re_xxxx) for outbound email
 #   EMAIL_FROM               — Sender address (e.g. office@mhc-gc.com)
-#   TWILIO_ACCOUNT_SID       — Twilio account SID for SMS notifications (⚠ missing from dashboard — add it)
+#   TWILIO_ACCOUNT_SID       — Twilio account SID for SMS notifications
 #   TWILIO_AUTH_TOKEN        — Twilio auth token for SMS notifications
-#   TWILIO_FROM_NUMBER       — Twilio phone number (+18556839792) (⚠ missing from dashboard — add it)
+#   TWILIO_FROM_NUMBER       — Twilio phone number (+18556839792)
 #   N8N_WEBHOOK_URL          — n8n automation webhook endpoint
 #   TURNSTILE_SECRET_KEY     — Cloudflare Turnstile secret for form bot protection
 #   SENTRY_DSN               — Sentry DSN for server-side error tracking
@@ -251,18 +219,3 @@ preview_database_id = "6c6c5bd7-41b8-4968-8421-3cca5f97b160"
 # Cron Triggers — daily driver license monitoring alerts at 7:00 AM Pacific (14:00 UTC)
 [triggers]
 crons = ["0 14 * * *"]
-
-[observability]
-enabled = false
-head_sampling_rate = 1
-
-[observability.logs]
-enabled = true
-head_sampling_rate = 1
-persist = true
-invocation_logs = true
-
-[observability.traces]
-enabled = false
-persist = true
-head_sampling_rate = 1
