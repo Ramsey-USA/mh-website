@@ -7,7 +7,7 @@
  * Required env vars:
  * - TWILIO_ACCOUNT_SID
  * - TWILIO_AUTH_TOKEN
- * - TWILIO_PHONE_NUMBER
+ * - TWILIO_FROM_NUMBER
  */
 
 import { logger } from "@/lib/utils/logger";
@@ -35,7 +35,7 @@ export const ALERT_RECIPIENTS = {
 export async function sendSms(options: SmsOptions): Promise<SmsResult> {
   const accountSid = process.env["TWILIO_ACCOUNT_SID"];
   const authToken = process.env["TWILIO_AUTH_TOKEN"];
-  const fromNumber = process.env["TWILIO_PHONE_NUMBER"];
+  const fromNumber = process.env["TWILIO_FROM_NUMBER"];
 
   if (!accountSid || !authToken || !fromNumber) {
     logger.warn("Twilio credentials not configured, skipping SMS");

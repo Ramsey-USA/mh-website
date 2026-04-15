@@ -74,13 +74,13 @@ This file documents the monitors configured in Uptime Kuma.
 
 > \*Update to `notifications@mhc-gc.com` now that domain is verified.
 
-### Twilio SMS (Optional)
+### Twilio SMS
 
 - **Type:** Twilio
-- **Account SID:** (from Twilio console)
-- **Auth Token:** (from Twilio console)
-- **From Number:** (your Twilio number)
-- **To Number:** Matt's phone
+- **Account SID:** (set as Cloudflare secret `TWILIO_ACCOUNT_SID`)
+- **Auth Token:** (set as Cloudflare secret `TWILIO_AUTH_TOKEN`)
+- **From Number:** `+18556839792`
+- **To Number:** Matt's phone (`+15094912494`)
 
 ### Push Notification (Recommended)
 

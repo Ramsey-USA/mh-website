@@ -101,20 +101,13 @@ binding = "ASSETS"
 | `FIELD_STAFF_PASSWORD`  | Secret    | strong passcode          | Safety Hub superintendent login       |
 | `TURNSTILE_SECRET_KEY`  | Secret    | Cloudflare Turnstile key | Verifies public Safety intake uploads |
 
-### Optional (Not Yet Added)
-
-| Variable             | Type   | Value          | Notes                                    |
-| -------------------- | ------ | -------------- | ---------------------------------------- |
-| `TWILIO_ACCOUNT_SID` | Secret | `ACxxxxxxxx`   | Twilio account SID for SMS notifications |
-| `TWILIO_AUTH_TOKEN`  | Secret | token string   | Twilio auth token for SMS notifications  |
-| `TWILIO_FROM_NUMBER` | Secret | `+15093086489` | Twilio sender phone number               |
+| `TWILIO_ACCOUNT_SID` | Secret | `AC75affdd6...` | Twilio account SID for SMS notifications |
+| `TWILIO_AUTH_TOKEN` | Secret | token string | Twilio auth token for SMS notifications |
+| `TWILIO_FROM_NUMBER` | Secret | `+18556839792` | Twilio sender phone number |
 
 > **Resend domain verification:** `mhc-gc.com` must be a verified sender domain in the
 > Resend dashboard (SPF + DKIM DNS records required). Without this all contact form emails
 > are silently dropped.
->
-> **Twilio secrets are optional.** SMS notifications degrade gracefully — the notification
-> service logs a warning and skips SMS when credentials are missing.
 
 ### Optional Environment Variables
 

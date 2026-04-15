@@ -71,6 +71,38 @@ remote = true
 directory = ".open-next/assets"
 binding = "ASSETS"
 
+# KV Namespaces
+[[kv_namespaces]]
+binding = "ANALYTICS"
+id = "969e74f0815b47ce9e75ae5acfe2a70d"           # mh-construction-analytics
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "b6ecda1ca7a7463db0f8a3b5d9681131"           # mh-construction-cache
+
+[[kv_namespaces]]
+binding = "NEXT_CACHE_WORKERS_KV"
+id = "c7473e6da0dc44d5874f3bd58032b43d"           # NEXT_CACHE_WORKERS_KV
+
+# D1 Database
+[[d1_databases]]
+binding = "DB"
+database_name = "mh-construction-db"
+database_id = "98ad144a-cfe2-4f19-a55c-c43140279840"
+
+# R2 Buckets
+[[r2_buckets]]
+binding = "FILE_ASSETS"
+bucket_name = "mh-construction-assets"
+
+[[r2_buckets]]
+binding = "RESUMES"
+bucket_name = "mh-construction-resumes"
+
+[[r2_buckets]]
+binding = "SAFETY_INTAKE"
+bucket_name = "mh-construction-safety-intake"
+
 # Build-time / runtime environment variables
 # These are committed to version control — DO NOT put secrets here.
 # NEXT_PUBLIC_SITE_URL is baked into the Next.js client bundle at build time.
@@ -111,11 +143,34 @@ custom_domain = true
 #   JWT_SECRET               — HMAC key for session tokens (min 32 chars)
 #   ADMIN_MATT_PASSWORD      — Login password for Matt
 #   ADMIN_JEREMY_PASSWORD    — Login password for Jeremy
+#   FIELD_STAFF_PASSWORD     — Login password for field staff portal
 #   RESEND_API_KEY           — Resend API key (re_xxxx) for outbound email
 #   EMAIL_FROM               — Sender address (e.g. office@mhc-gc.com)
-#   TWILIO_ACCOUNT_SID       — Twilio account SID for SMS notifications
+#   TWILIO_ACCOUNT_SID       — Twilio account SID for SMS notifications (⚠ missing from dashboard — add it)
 #   TWILIO_AUTH_TOKEN        — Twilio auth token for SMS notifications
-#   TWILIO_FROM_NUMBER       — Twilio phone number (e.g. +15093086489)
+#   TWILIO_FROM_NUMBER       — Twilio phone number (+18556839792) (⚠ missing from dashboard — add it)
+#   N8N_WEBHOOK_URL          — n8n automation webhook endpoint
+#   TURNSTILE_SECRET_KEY     — Cloudflare Turnstile secret for form bot protection
+#   SENTRY_DSN               — Sentry DSN for server-side error tracking
+#   NEXT_PUBLIC_SENTRY_DSN   — Sentry DSN baked into the client bundle at build time
+
+# Observability — Workers Logs & Traces (available on all plans)
+# Captures invocation logs and traces in the Cloudflare dashboard under
+# Workers & Pages → mhc-v2-website → Observability.
+[observability]
+enabled = false
+head_sampling_rate = 1
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+persist = true
+invocation_logs = true
+
+[observability.traces]
+enabled = true
+persist = true
+head_sampling_rate = 1
 
 # Deployment is triggered by `wrangler deploy` after `opennextjs-cloudflare build`.
 # The CI pipeline (.github/workflows/ci-cd.yml) is a quality gate only —
@@ -199,3 +254,15 @@ crons = ["0 14 * * *"]
 
 [observability]
 enabled = false
+head_sampling_rate = 1
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+persist = true
+invocation_logs = true
+
+[observability.traces]
+enabled = false
+persist = true
+head_sampling_rate = 1
