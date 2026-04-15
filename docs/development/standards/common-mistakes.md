@@ -1,8 +1,8 @@
 # Common Development Mistakes & Solutions
 
 **Purpose:** Learn from common errors to avoid repeated issues  
-**Version:** 1.0.0  
-**Last Updated:** March 15, 2026  
+**Version:** 1.1.0  
+**Last Updated:** April 15, 2026  
 **Use Case:** Reference before starting work to avoid known pitfalls
 
 ---
@@ -723,6 +723,66 @@ export default function MyPage() {
 
 ---
 
+---
+
+## 🧪 Test Maintenance Mistakes
+
+### ❌ Mistake #23: Forgetting to Update Smoke Test Mocks
+
+**Problem:** Adding new properties to `COMPANY_INFO` breaks smoke tests because mocks are incomplete
+
+**Symptom:**
+
+```text
+TypeError: Cannot read properties of undefined (reading 'sealClickUrl')
+  at src/app/veterans/page.tsx:1265:42
+```
+
+**Cause:** The page accesses `COMPANY_INFO.bbb.sealClickUrl`, but the test mocks `COMPANY_INFO` without the `bbb` property.
+
+**Wrong (missing mock properties):**
+
+```tsx
+jest.mock("@/lib/constants/company", () => ({
+  COMPANY_INFO: {
+    email: { main: "office@mhc-gc.com" },
+    phone: { display: "(509) 308-6489" },
+  },
+}));
+```
+
+**Correct (include all properties pages use):**
+
+```tsx
+jest.mock("@/lib/constants/company", () => ({
+  COMPANY_INFO: {
+    email: { main: "office@mhc-gc.com" },
+    phone: { display: "(509) 308-6489", tel: "+15093086489" },
+    bbb: {
+      profileUrl: "https://www.bbb.org/test",
+      sealClickUrl: "https://www.bbb.org/test#sealclick",
+      sealHorizontal: "/images/bbb-seal.png",
+      rating: "A+",
+    },
+    travelers: {
+      website: "https://www.travelers.com",
+      logo: "/images/travelers-logo.png",
+    },
+  },
+}));
+```
+
+**Files to update when adding COMPANY_INFO properties:**
+
+- `src/app/__tests__/pages-smoke.test.tsx`
+- `src/app/careers/__tests__/page.test.tsx`
+- `src/app/contact/__tests__/ContactPageClient.test.tsx`
+- `src/lib/email/__tests__/email-service.test.ts` (for `EMAIL_RECIPIENTS`)
+
+**Why:** Smoke tests mock modules to isolate rendering. If the actual module gains new properties, mocks must match.
+
+---
+
 ## 🔗 Quick Reference
 
 **Most Common Mistakes (Fix These First):**
@@ -737,6 +797,7 @@ export default function MyPage() {
 8. Missing section IDs
 9. Text-brand-secondary on body text
 10. Missing dark mode variants
+11. **Forgetting to update smoke test mocks when modifying COMPANY_INFO**
 
 ---
 
@@ -749,6 +810,6 @@ export default function MyPage() {
 
 ---
 
-**Last Updated:** March 15, 2026  
+**Last Updated:** April 15, 2026  
 **Maintained by:** MH Construction Development Team  
 **Have a mistake to add?** Submit a PR or notify the team

@@ -34,6 +34,10 @@ jest.mock("@/lib/utils/logger", () => ({
   logger: { error: jest.fn() },
 }));
 
+jest.mock("@/lib/monitoring/sentry", () => ({
+  captureException: jest.fn(),
+}));
+
 // ── Test helpers ──────────────────────────────────────────────────────────────
 
 /** A component that throws during render when `shouldThrow` is true. */

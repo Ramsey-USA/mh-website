@@ -16,6 +16,10 @@ jest.mock("@/lib/utils/logger", () => ({
   logger: { log: jest.fn(), error: jest.fn(), warn: jest.fn() },
 }));
 
+jest.mock("@/lib/monitoring/sentry", () => ({
+  captureException: jest.fn(),
+}));
+
 jest.mock("../data-collector", () => ({
   dataCollector: {
     trackPageView: jest.fn(),

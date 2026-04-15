@@ -1,8 +1,8 @@
 # Page Compliance Checklist
 
 **Purpose:** Systematic audit tool to verify page compliance with MH standards  
-**Version:** 1.0.0  
-**Last Updated:** March 15, 2026  
+**Version:** 1.1.0  
+**Last Updated:** April 15, 2026  
 **Use Case:** Run this checklist on any page to ensure consistency
 
 ---
@@ -349,6 +349,16 @@
 - [ ] No unused imports
 - [ ] Proper formatting (Prettier)
 
+### Test Coverage
+
+- [ ] `npm test` passes (all tests green)
+- [ ] Smoke tests updated if using new `COMPANY_INFO` properties
+- [ ] Test mocks in these files match actual module exports:
+  - `src/app/__tests__/pages-smoke.test.tsx`
+  - `src/app/careers/__tests__/page.test.tsx`
+  - `src/app/contact/__tests__/ContactPageClient.test.tsx`
+  - `src/lib/email/__tests__/email-service.test.ts`
+
 ### Browser Testing
 
 - [ ] Tested in Chrome
@@ -393,5 +403,5 @@
 
 ---
 
-**Last Updated:** March 15, 2026  
+**Last Updated:** April 15, 2026  
 **Maintained by:** MH Construction Development Team

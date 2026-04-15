@@ -1,6 +1,6 @@
 # Test Coverage Audit — Next Steps
 
-**Last updated:** March 28, 2026
+**Last updated:** April 15, 2026
 **Session baseline:** 77 suites · 840 tests · 49.02% statements · 80.19% branches · 73.51% functions
 **Current state:** 118 suites · 1225 tests · 82.87% statements · 84.50% branches · 86.78% functions
 
@@ -144,3 +144,69 @@ npx jest --coverage --forceExit --collectCoverageFrom='src/components/team/**' s
 # Run a single test file quickly
 npx jest --no-coverage src/path/to/file.test.ts
 ```
+
+---
+
+## 🔧 Smoke Test Maintenance
+
+**IMPORTANT:** When modifying shared constants, you must update test mocks to match.
+
+### Files that mock `@/lib/constants/company`
+
+| Test File                                              | Mock Used For             |
+| ------------------------------------------------------ | ------------------------- |
+| `src/app/__tests__/pages-smoke.test.tsx`               | RSC page smoke tests      |
+| `src/app/careers/__tests__/page.test.tsx`              | Careers page interactions |
+| `src/app/contact/__tests__/ContactPageClient.test.tsx` | Contact page              |
+| `src/lib/email/__tests__/email-service.test.ts`        | `EMAIL_RECIPIENTS`        |
+
+### When to update mocks
+
+Update these mocks when you:
+
+1. Add new properties to `COMPANY_INFO` (e.g., `bbb`, `travelers`, new social links)
+2. Add new email recipient lists to `EMAIL_RECIPIENTS`
+3. Change the structure of existing company constants
+
+### Example: Adding a new partner
+
+If you add `COMPANY_INFO.newPartner` and use it in a page:
+
+```tsx
+// In src/lib/constants/company.ts
+export const COMPANY_INFO = {
+  // ... existing props
+  newPartner: {
+    name: "Partner Inc",
+    website: "https://partner.com",
+    logo: "/images/partner-logo.png",
+  },
+};
+```
+
+Then add to all relevant test mocks:
+
+```tsx
+// In test files with COMPANY_INFO mocks
+jest.mock("@/lib/constants/company", () => ({
+  COMPANY_INFO: {
+    // ... existing mock props
+    newPartner: {
+      name: "Partner Inc",
+      website: "https://partner.com",
+      logo: "/images/partner-logo.png",
+    },
+  },
+}));
+```
+
+**Failure to update mocks causes:**
+
+```text
+TypeError: Cannot read properties of undefined (reading 'website')
+```
+
+---
+
+**Last Updated:** April 15, 2026  
+**Maintained by:** MH Construction Development Team
