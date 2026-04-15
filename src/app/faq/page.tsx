@@ -191,46 +191,44 @@ export default function FAQPage() {
               </FadeInWhenVisible>
 
               {/* Trust Stat Badges */}
-              <FadeInWhenVisible delay={0.2}>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-                  <div className="group text-center p-6 bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
-                    <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
-                      {faqCategories.reduce(
-                        (sum, cat) => sum + cat.questions.length,
-                        0,
-                      )}
-                      +
-                    </div>
-                    <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-                      Questions Answered
-                    </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                <div className="group text-center p-6 bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
+                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
+                    {faqCategories.reduce(
+                      (sum, cat) => sum + cat.questions.length,
+                      0,
+                    )}
+                    +
                   </div>
-                  <div className="group text-center p-6 bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
-                    <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
-                      {faqCategories.length}
-                    </div>
-                    <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-                      Topic Categories
-                    </div>
-                  </div>
-                  <div className="group text-center p-6 bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
-                    <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
-                      0.64
-                    </div>
-                    <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-                      EMR Safety Record
-                    </div>
-                  </div>
-                  <div className="group text-center p-6 bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
-                    <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
-                      3
-                    </div>
-                    <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-                      States Licensed
-                    </div>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                    Questions Answered
                   </div>
                 </div>
-              </FadeInWhenVisible>
+                <div className="group text-center p-6 bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
+                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
+                    {faqCategories.length}
+                  </div>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                    Topic Categories
+                  </div>
+                </div>
+                <div className="group text-center p-6 bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
+                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
+                    0.64
+                  </div>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                    EMR Safety Record
+                  </div>
+                </div>
+                <div className="group text-center p-6 bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 dark:from-brand-primary/10 dark:to-brand-primary/20 rounded-xl border border-brand-primary/20 hover:border-brand-primary transition-all duration-300 hover:scale-105">
+                  <div className="text-3xl sm:text-4xl font-black text-brand-primary dark:text-brand-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
+                    3
+                  </div>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                    States Licensed
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -246,8 +244,6 @@ export default function FAQPage() {
                 : "bg-gray-50 dark:bg-gray-800"
             }`}
           >
-            <DiagonalStripePattern />
-            <BrandColorBlobs />
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-5xl mx-auto">
                 {/* Section Header */}
@@ -297,75 +293,70 @@ export default function FAQPage() {
 
         {/* Still Have Questions CTA */}
         <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
-          <DiagonalStripePattern />
-          <BrandColorBlobs />
-
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <FadeInWhenVisible>
-              <div className="max-w-4xl mx-auto text-center">
-                {/* Icon with decorative lines */}
-                <div className="flex items-center justify-center mb-6 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                  <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                      <MaterialIcon
-                        icon="support_agent"
-                        size="2xl"
-                        className="text-white drop-shadow-lg"
-                      />
-                    </div>
+            <div className="max-w-4xl mx-auto text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-6 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="support_agent"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
-
-                {/* Two-line gradient heading */}
-                <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Still Have
-                  </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Questions?
-                  </span>
-                </h2>
-                <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-                  We're here to help. Our team is available for face-to-face
-                  consultation where we can discuss your specific needs, answer
-                  any questions, and start building a partnership based on trust
-                  and transparency.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <Link href="/contact">
-                    <Button
-                      size="lg"
-                      className="bg-brand-primary hover:bg-brand-primary-dark text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
-                    >
-                      <MaterialIcon
-                        icon="diversity_3"
-                        className="mr-2"
-                        theme="military"
-                        ariaLabel="Schedule Face-to-Face Consultation"
-                      />
-                      Schedule Face-to-Face Consultation
-                    </Button>
-                  </Link>
-                  <a href="tel:+15093086489">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary/10 dark:border-brand-primary-light dark:text-brand-primary-light dark:hover:bg-brand-primary-light/10 font-bold transition-all duration-300"
-                    >
-                      <MaterialIcon
-                        icon="phone"
-                        className="mr-2"
-                        ariaLabel="Call Us"
-                      />
-                      (509) 308-6489
-                    </Button>
-                  </a>
-                </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
-            </FadeInWhenVisible>
+
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Still Have
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  Questions?
+                </span>
+              </h2>
+              <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                We're here to help. Our team is available for face-to-face
+                consultation where we can discuss your specific needs, answer
+                any questions, and start building a partnership based on trust
+                and transparency.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Link href="/contact">
+                  <Button
+                    size="lg"
+                    className="bg-brand-primary hover:bg-brand-primary-dark text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    <MaterialIcon
+                      icon="diversity_3"
+                      className="mr-2"
+                      theme="military"
+                      ariaLabel="Schedule Face-to-Face Consultation"
+                    />
+                    Schedule Face-to-Face Consultation
+                  </Button>
+                </Link>
+                <a href="tel:+15093086489">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary/10 dark:border-brand-primary-light dark:text-brand-primary-light dark:hover:bg-brand-primary-light/10 font-bold transition-all duration-300"
+                  >
+                    <MaterialIcon
+                      icon="phone"
+                      className="mr-2"
+                      ariaLabel="Call Us"
+                    />
+                    (509) 308-6489
+                  </Button>
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 

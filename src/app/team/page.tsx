@@ -366,9 +366,6 @@ export default function TeamPage() {
           id="employee-testimonials"
           className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
         >
-          <DiagonalStripePattern />
-          <BrandColorBlobs />
-
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             {/* Section Header - Military Construction Standard */}
             <div className="mb-16 sm:mb-20 text-center">
@@ -425,9 +422,6 @@ export default function TeamPage() {
 
         {/* Remaining Departments - Field Officers and Logistics Command */}
         <section className="relative bg-gray-50 dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
-          <DiagonalStripePattern />
-          <BrandColorBlobs />
-
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             {/* Remaining Team Members by Department */}
             <div className="space-y-16 sm:space-y-24 md:space-y-32">

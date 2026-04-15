@@ -11,10 +11,7 @@ import {
 } from "@/components/ui";
 import { DiagonalStripePattern } from "@/components/ui/backgrounds";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import {
-  FadeInWhenVisible,
-  StaggeredFadeIn,
-} from "@/components/animations/FramerMotionComponents";
+import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
@@ -376,55 +373,52 @@ export default function PublicSectorPage() {
       {/* Grant Support Services */}
       <section className="bg-white dark:bg-gray-900 py-20">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible>
-            {/* Section Header - Military Construction Standard */}
-            <div className="mb-16 sm:mb-20 text-center">
-              {/* Icon with decorative lines */}
-              <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                    <MaterialIcon
-                      icon="account_balance"
-                      size="2xl"
-                      className="text-white drop-shadow-lg"
-                    />
-                  </div>
+          {/* Section Header - Military Construction Standard */}
+          <div className="mb-16 sm:mb-20 text-center">
+            {/* Icon with decorative lines */}
+            <div className="flex items-center justify-center mb-8 gap-4">
+              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <MaterialIcon
+                    icon="account_balance"
+                    size="2xl"
+                    className="text-white drop-shadow-lg"
+                  />
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
-
-              {/* Two-line gradient heading */}
-              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Federal Contracting
-                </span>
-                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Support Services
-                </span>
-              </h2>
-
-              {/* Description with colored keyword highlighting */}
-              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  Veteran-Owned Army veteran leadership
-                </span>{" "}
-                delivers mission-critical construction services with unwavering
-                commitment to federal specifications, operational success,{" "}
-                <span className="font-bold text-gray-900 dark:text-white">
-                  award-winning safety (.64 EMR)
-                </span>
-                , and transparent open-book partnership throughout the
-                application and execution process—Building projects for the
-                client,{" "}
-                <span className="font-black italic text-bronze-600 dark:text-bronze-400">
-                  NOT
-                </span>{" "}
-                the dollar with 150+ years combined experience.
-              </p>
+              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
             </div>
-          </FadeInWhenVisible>
+
+            {/* Two-line gradient heading */}
+            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                Federal Contracting
+              </span>
+              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                Support Services
+              </span>
+            </h2>
+
+            {/* Description with colored keyword highlighting */}
+            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                Veteran-Owned Army veteran leadership
+              </span>{" "}
+              delivers mission-critical construction services with unwavering
+              commitment to federal specifications, operational success,{" "}
+              <span className="font-bold text-gray-900 dark:text-white">
+                award-winning safety (.64 EMR)
+              </span>
+              , and transparent open-book partnership throughout the application
+              and execution process—Building projects for the client,{" "}
+              <span className="font-black italic text-bronze-600 dark:text-bronze-400">
+                NOT
+              </span>{" "}
+              the dollar with 150+ years combined experience.
+            </p>
+          </div>
 
           <StaggeredFadeIn
             className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
@@ -551,134 +545,179 @@ export default function PublicSectorPage() {
       {/* Hanford & DOE Section */}
       <section className="bg-gradient-to-br from-gray-900 to-black py-20 text-white">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible>
-            <div className="mx-auto max-w-6xl">
-              {/* Section Header - Military Construction Standard */}
-              <div className="mb-16 sm:mb-20 text-center">
-                {/* Icon with decorative lines */}
-                <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-500 rounded-full"></div>
-                  <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50">
-                      <MaterialIcon
-                        icon="science"
-                        size="2xl"
-                        className="text-white drop-shadow-lg"
-                      />
-                    </div>
+          <div className="mx-auto max-w-6xl">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-500 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50">
+                    <MaterialIcon
+                      icon="science"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-500 rounded-full"></div>
                 </div>
-
-                {/* Two-line gradient heading */}
-                <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Hanford & Department of
-                  </span>
-                  <span className="block bg-gradient-to-r from-brand-primary-light via-white to-brand-primary-light bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Energy Expertise
-                  </span>
-                </h2>
-
-                {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  <span className="font-bold text-brand-primary-light">
-                    Proven operational excellence
-                  </span>{" "}
-                  in high-security DOE and Hanford environments with
-                  comprehensive understanding of federal compliance
-                  requirements,{" "}
-                  <span className="font-bold text-white">
-                    award-winning safety protocols (.64 EMR—40% better than
-                    industry)
-                  </span>
-                  , mission-critical construction protocols, and Veteran-Owned
-                  reliability since January 2025.
-                </p>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-500 rounded-full"></div>
               </div>
 
-              <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
-                {hanfordCapabilities.map((capability, index) => (
-                  <Card
-                    key={index}
-                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border-white/20 transition-all"
-                  >
-                    <CardContent className="p-6">
-                      <MaterialIcon
-                        icon={capability.icon}
-                        size="2xl"
-                        className="mb-4 text-gray-300"
-                      />
-                      <h3 className="mb-2 font-bold text-white text-lg">
-                        {capability.title}
-                      </h3>
-                      <p className="text-gray-200 text-sm">
-                        {capability.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </StaggeredFadeIn>
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Hanford & Department of
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary-light via-white to-brand-primary-light bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  Energy Expertise
+                </span>
+              </h2>
 
-              <Card className="bg-gray-800 border-gray-600">
-                <CardContent className="p-8">
-                  <div className="flex items-start">
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                <span className="font-bold text-brand-primary-light">
+                  Proven operational excellence
+                </span>{" "}
+                in high-security DOE and Hanford environments with comprehensive
+                understanding of federal compliance requirements,{" "}
+                <span className="font-bold text-white">
+                  award-winning safety protocols (.64 EMR—40% better than
+                  industry)
+                </span>
+                , mission-critical construction protocols, and Veteran-Owned
+                reliability since January 2025.
+              </p>
+            </div>
+
+            <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
+              {hanfordCapabilities.map((capability, index) => (
+                <Card
+                  key={index}
+                  className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border-white/20 transition-all"
+                >
+                  <CardContent className="p-6">
                     <MaterialIcon
-                      icon="construction"
-                      size="3xl"
-                      theme="military"
-                      ariaLabel="Federal Project Capabilities"
-                      className="flex-shrink-0 mr-6 text-gray-300"
+                      icon={capability.icon}
+                      size="2xl"
+                      className="mb-4 text-gray-300"
                     />
-                    <div>
-                      <h3 className="mb-4 font-bold text-white text-2xl">
-                        Federal Project Capabilities
-                      </h3>
-                      <div className="gap-4 grid md:grid-cols-2">
-                        {[
-                          "Mission-critical facility construction",
-                          "Administrative facility security upgrades",
-                          "Training facility operational development",
-                          "Infrastructure tactical improvements",
-                          "Safety system mission installations",
-                          "Emergency rapid response construction",
-                        ].map((item, idx) => (
-                          <div
-                            key={idx}
-                            className="flex items-center text-gray-200"
-                          >
-                            <MaterialIcon
-                              icon="arrow_right"
-                              className="mr-2 text-gray-600 dark:text-gray-300"
-                              size="sm"
-                            />
-                            <span>{item}</span>
-                          </div>
-                        ))}
-                      </div>
+                    <h3 className="mb-2 font-bold text-white text-lg">
+                      {capability.title}
+                    </h3>
+                    <p className="text-gray-200 text-sm">
+                      {capability.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </StaggeredFadeIn>
+
+            <Card className="bg-gray-800 border-gray-600">
+              <CardContent className="p-8">
+                <div className="flex items-start">
+                  <MaterialIcon
+                    icon="construction"
+                    size="3xl"
+                    theme="military"
+                    ariaLabel="Federal Project Capabilities"
+                    className="flex-shrink-0 mr-6 text-gray-300"
+                  />
+                  <div>
+                    <h3 className="mb-4 font-bold text-white text-2xl">
+                      Federal Project Capabilities
+                    </h3>
+                    <div className="gap-4 grid md:grid-cols-2">
+                      {[
+                        "Mission-critical facility construction",
+                        "Administrative facility security upgrades",
+                        "Training facility operational development",
+                        "Infrastructure tactical improvements",
+                        "Safety system mission installations",
+                        "Emergency rapid response construction",
+                      ].map((item, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-center text-gray-200"
+                        >
+                          <MaterialIcon
+                            icon="arrow_right"
+                            className="mr-2 text-gray-600 dark:text-gray-300"
+                            size="sm"
+                          />
+                          <span>{item}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
-          </FadeInWhenVisible>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
       {/* Grant Types Section */}
       <section className="bg-gray-50 dark:bg-gray-800 py-20">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible>
+          {/* Section Header - Military Construction Standard */}
+          <div className="mb-16 sm:mb-20 text-center">
+            {/* Icon with decorative lines */}
+            <div className="flex items-center justify-center mb-8 gap-4">
+              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <MaterialIcon
+                    icon="gavel"
+                    size="2xl"
+                    className="text-white drop-shadow-lg"
+                  />
+                </div>
+              </div>
+              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+            </div>
+
+            {/* Two-line gradient heading */}
+            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                Federal Contract
+              </span>
+              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                Categories
+              </span>
+            </h2>
+
+            {/* Description with colored keyword highlighting */}
+            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                Proven execution
+              </span>{" "}
+              across federal, state, and mission-critical construction contracts
+              with{" "}
+              <span className="font-bold text-gray-900 dark:text-white">
+                Veteran-Owned expertise and award-winning safety record
+              </span>
+              .
+            </p>
+          </div>
+
+          <InteractiveGrantSelector grantTypes={grantTypes} />
+        </div>
+      </section>{" "}
+      {/* Process Steps */}
+      <section className="bg-white dark:bg-gray-900 py-20">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="mx-auto max-w-5xl">
             {/* Section Header - Military Construction Standard */}
             <div className="mb-16 sm:mb-20 text-center">
               {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
                 <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-600/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-bronze-700 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
-                      icon="gavel"
+                      icon="timeline"
                       size="2xl"
                       className="text-white drop-shadow-lg"
                     />
@@ -693,159 +732,104 @@ export default function PublicSectorPage() {
                   Federal Contract
                 </span>
                 <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Categories
+                  Execution Process
                 </span>
               </h2>
 
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  Proven execution
+                  Five-phase military approach
                 </span>{" "}
-                across federal, state, and mission-critical construction
-                contracts with{" "}
+                to federal contract success backed by{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  Veteran-Owned expertise and award-winning safety record
+                  Army veteran leadership and award-winning execution
                 </span>
                 .
               </p>
             </div>
-          </FadeInWhenVisible>
 
-          <InteractiveGrantSelector grantTypes={grantTypes} />
-        </div>
-      </section>{" "}
-      {/* Process Steps */}
-      <section className="bg-white dark:bg-gray-900 py-20">
-        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible>
-            <div className="mx-auto max-w-5xl">
-              {/* Section Header - Military Construction Standard */}
-              <div className="mb-16 sm:mb-20 text-center">
-                {/* Icon with decorative lines */}
-                <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                  <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 to-brand-secondary/20 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-secondary to-bronze-700 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                      <MaterialIcon
-                        icon="timeline"
-                        size="2xl"
-                        className="text-white drop-shadow-lg"
-                      />
-                    </div>
-                  </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                </div>
-
-                {/* Two-line gradient heading */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Federal Contract
-                  </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Execution Process
-                  </span>
-                </h2>
-
-                {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    Five-phase military approach
-                  </span>{" "}
-                  to federal contract success backed by{" "}
-                  <span className="font-bold text-gray-900 dark:text-white">
-                    Army veteran leadership and award-winning execution
-                  </span>
-                  .
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                {processSteps.map((process, index) => (
-                  <Card
-                    key={index}
-                    className="dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border-gray-800 dark:border-gray-600 border-l-4 transition-shadow"
-                  >
-                    <CardContent className="p-8">
-                      <div className="flex items-start">
-                        <div className="flex-shrink-0 mr-6">
-                          <div className="flex justify-center items-center bg-gray-800 dark:bg-gray-600 shadow-lg rounded-full w-16 h-16 font-bold text-white text-2xl">
-                            {process.step}
-                          </div>
-                        </div>
-                        <div className="flex-grow">
-                          <div className="flex justify-between items-start">
-                            <div className="flex-grow">
-                              <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-2xl">
-                                {process.title}
-                              </h3>
-                              <p className="text-gray-700 dark:text-gray-300 text-lg">
-                                {process.description}
-                              </p>
-                            </div>
-                            <MaterialIcon
-                              icon={process.icon}
-                              size="2xl"
-                              className="ml-6 text-gray-700 dark:text-gray-300"
-                            />
-                          </div>
+            <div className="space-y-6">
+              {processSteps.map((process, index) => (
+                <Card
+                  key={index}
+                  className="dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border-gray-800 dark:border-gray-600 border-l-4 transition-shadow"
+                >
+                  <CardContent className="p-8">
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0 mr-6">
+                        <div className="flex justify-center items-center bg-gray-800 dark:bg-gray-600 shadow-lg rounded-full w-16 h-16 font-bold text-white text-2xl">
+                          {process.step}
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+                      <div className="flex-grow">
+                        <div className="flex justify-between items-start">
+                          <div className="flex-grow">
+                            <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-2xl">
+                              {process.title}
+                            </h3>
+                            <p className="text-gray-700 dark:text-gray-300 text-lg">
+                              {process.description}
+                            </p>
+                          </div>
+                          <MaterialIcon
+                            icon={process.icon}
+                            size="2xl"
+                            className="ml-6 text-gray-700 dark:text-gray-300"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
-          </FadeInWhenVisible>
+          </div>
         </div>
       </section>
       {/* Government Project Types */}
       <section className="bg-gray-50 dark:bg-gray-800 py-20">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible>
-            {/* Section Header - Military Construction Standard */}
-            <div className="mb-16 sm:mb-20 text-center">
-              {/* Icon with decorative lines */}
-              <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                    <MaterialIcon
-                      icon="domain"
-                      size="2xl"
-                      className="text-white drop-shadow-lg"
-                    />
-                  </div>
+          {/* Section Header - Military Construction Standard */}
+          <div className="mb-16 sm:mb-20 text-center">
+            {/* Icon with decorative lines */}
+            <div className="flex items-center justify-center mb-8 gap-4">
+              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                  <MaterialIcon
+                    icon="domain"
+                    size="2xl"
+                    className="text-white drop-shadow-lg"
+                  />
                 </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
-
-              {/* Two-line gradient heading */}
-              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Federal Facility
-                </span>
-                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Classifications
-                </span>
-              </h2>
-
-              {/* Description with colored keyword highlighting */}
-              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  Licensed and mission-ready
-                </span>{" "}
-                across diverse federal and government facility projects with{" "}
-                <span className="font-bold text-gray-900 dark:text-white">
-                  Veteran-Owned precision and 150+ years combined team
-                  experience
-                </span>
-                .
-              </p>
+              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
             </div>
-          </FadeInWhenVisible>
+
+            {/* Two-line gradient heading */}
+            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                Federal Facility
+              </span>
+              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                Classifications
+              </span>
+            </h2>
+
+            {/* Description with colored keyword highlighting */}
+            <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+              <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                Licensed and mission-ready
+              </span>{" "}
+              across diverse federal and government facility projects with{" "}
+              <span className="font-bold text-gray-900 dark:text-white">
+                Veteran-Owned precision and 150+ years combined team experience
+              </span>
+              .
+            </p>
+          </div>
 
           <StaggeredFadeIn
             className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
@@ -892,81 +876,79 @@ export default function PublicSectorPage() {
       {/* Success Factors */}
       <section className="bg-white dark:bg-gray-900 py-20">
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible>
-            <div className="mx-auto max-w-6xl">
-              {/* Section Header - Military Construction Standard */}
-              <div className="mb-16 sm:mb-20 text-center">
-                {/* Icon with decorative lines */}
-                <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                  <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                      <MaterialIcon
-                        icon="emoji_events"
-                        size="2xl"
-                        className="text-white drop-shadow-lg"
-                      />
-                    </div>
+          <div className="mx-auto max-w-6xl">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                    <MaterialIcon
+                      icon="emoji_events"
+                      size="2xl"
+                      className="text-white drop-shadow-lg"
+                    />
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 </div>
-
-                {/* Two-line gradient heading */}
-                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Mission Success
-                  </span>
-                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Factors
-                  </span>
-                </h2>
-
-                {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  What ensures{" "}
-                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    federal contract success
-                  </span>{" "}
-                  and how we deliver with{" "}
-                  <span className="font-bold text-gray-900 dark:text-white">
-                    award-winning safety, Veteran-Owned leadership, and
-                    transparent open-book partnership
-                  </span>
-                  .
-                </p>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
 
-              <div className="gap-6 grid md:grid-cols-2">
-                {successFactors.map((factor, index) => (
-                  <Card
-                    key={index}
-                    className="dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 transition-shadow"
-                  >
-                    <CardContent className="p-8">
-                      <div className="flex items-start">
-                        <div className="flex flex-shrink-0 justify-center items-center bg-gray-200 dark:bg-gray-700 mr-6 rounded-full w-14 h-14">
-                          <MaterialIcon
-                            icon={factor.icon}
-                            size="lg"
-                            className="text-gray-700 dark:text-gray-300"
-                          />
-                        </div>
-                        <div>
-                          <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl">
-                            {factor.title}
-                          </h3>
-                          <p className="text-gray-700 dark:text-gray-300">
-                            {factor.description}
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Mission Success
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  Factors
+                </span>
+              </h2>
+
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                What ensures{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  federal contract success
+                </span>{" "}
+                and how we deliver with{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  award-winning safety, Veteran-Owned leadership, and
+                  transparent open-book partnership
+                </span>
+                .
+              </p>
             </div>
-          </FadeInWhenVisible>
+
+            <div className="gap-6 grid md:grid-cols-2">
+              {successFactors.map((factor, index) => (
+                <Card
+                  key={index}
+                  className="dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 transition-shadow"
+                >
+                  <CardContent className="p-8">
+                    <div className="flex items-start">
+                      <div className="flex flex-shrink-0 justify-center items-center bg-gray-200 dark:bg-gray-700 mr-6 rounded-full w-14 h-14">
+                        <MaterialIcon
+                          icon={factor.icon}
+                          size="lg"
+                          className="text-gray-700 dark:text-gray-300"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl">
+                          {factor.title}
+                        </h3>
+                        <p className="text-gray-700 dark:text-gray-300">
+                          {factor.description}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
       {/* CTA Section - Strong Government Theme */}
@@ -977,262 +959,258 @@ export default function PublicSectorPage() {
           color="rgba(255,255,255,0.1)"
         />
         <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <FadeInWhenVisible>
-            <div className="mx-auto max-w-4xl text-center">
-              {/* Section Header - Military Construction Standard */}
-              <div className="mb-16 sm:mb-20 text-center">
-                {/* Icon with decorative lines */}
-                <div className="flex items-center justify-center mb-8 gap-4">
-                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-500 rounded-full"></div>
-                  <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50">
-                      <MaterialIcon
-                        icon="flag"
-                        size="2xl"
-                        className="text-white drop-shadow-lg"
-                      />
-                    </div>
-                  </div>
-                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-500 rounded-full"></div>
-                </div>
-
-                {/* Two-line gradient heading */}
-                <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Ready to Execute Your
-                  </span>
-                  <span className="block bg-gradient-to-r from-brand-primary-light via-white to-brand-primary-light bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Federal Mission?
-                  </span>
-                </h2>
-
-                {/* Description with colored keyword highlighting */}
-                <p className="mx-auto max-w-5xl mb-8 font-light text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  Deploy with{" "}
-                  <span className="font-bold text-brand-primary-light">
-                    Army veteran leadership
-                  </span>{" "}
-                  that delivers{" "}
-                  <span className="font-bold text-white">
-                    mission-critical results
-                  </span>
-                  . Contact our command center to discuss your federal
-                  construction requirements and begin mission planning for
-                  successful execution.
-                </p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm mb-8 p-8 border-2 border-gray-600 rounded-lg">
-                <div className="gap-6 grid md:grid-cols-3 text-center">
-                  <div>
+          <div className="mx-auto max-w-4xl text-center">
+            {/* Section Header - Military Construction Standard */}
+            <div className="mb-16 sm:mb-20 text-center">
+              {/* Icon with decorative lines */}
+              <div className="flex items-center justify-center mb-8 gap-4">
+                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-500 rounded-full"></div>
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-primary-dark/30 blur-2xl rounded-full"></div>
+                  <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-primary-darker p-5 rounded-2xl shadow-2xl border-2 border-white/50">
                     <MaterialIcon
-                      icon="call"
+                      icon="flag"
                       size="2xl"
-                      theme="military"
-                      ariaLabel="Call Us"
-                      className="mb-3 text-gray-300"
+                      className="text-white drop-shadow-lg"
                     />
-                    <p className="mb-1 text-gray-600 dark:text-gray-300 text-sm">
-                      Call Us
-                    </p>
-                    <a
-                      href={`tel:${COMPANY_INFO.phone.tel}`}
-                      className="font-bold text-white hover:text-gray-300 text-2xl"
-                    >
-                      {COMPANY_INFO.phone.display}
-                    </a>
-                  </div>
-                  <div>
-                    <MaterialIcon
-                      icon="mark_email_read"
-                      size="2xl"
-                      theme="military"
-                      ariaLabel="Email Us"
-                      className="mb-3 text-gray-300"
-                    />
-                    <p className="mb-1 text-gray-600 dark:text-gray-300 text-sm">
-                      Email Us
-                    </p>
-                    <a
-                      href={`mailto:${COMPANY_INFO.email.main}`}
-                      className="font-bold text-white hover:text-gray-300 text-lg"
-                    >
-                      {COMPANY_INFO.email.main}
-                    </a>
-                  </div>
-                  <div>
-                    <MaterialIcon
-                      icon="location_on"
-                      size="2xl"
-                      theme="military"
-                      ariaLabel="Visit Us"
-                      className="mb-3 text-gray-300"
-                    />
-                    <p className="mb-1 text-gray-600 dark:text-gray-300 text-sm">
-                      Visit Us
-                    </p>
-                    <p className="font-bold text-white text-lg">
-                      {COMPANY_INFO.address.street}
-                      <br />
-                      {COMPANY_INFO.address.city}, {COMPANY_INFO.address.state}{" "}
-                      {COMPANY_INFO.address.zip}
-                    </p>
                   </div>
                 </div>
+                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-500 rounded-full"></div>
               </div>
 
-              {/* Strategic CTA Banner - Conversion Optimization */}
-              <div className="mb-12">
-                <StrategicCTABanner variant="combo" className="my-0" />
-              </div>
+              {/* Two-line gradient heading */}
+              <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-3 sm:mb-4 font-semibold text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Ready to Execute Your
+                </span>
+                <span className="block bg-gradient-to-r from-brand-primary-light via-white to-brand-primary-light bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                  Federal Mission?
+                </span>
+              </h2>
 
-              <div className="flex sm:flex-row flex-col justify-center gap-4">
-                <Link href="/contact">
-                  <Button
-                    size="lg"
-                    className="bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-800 px-10 py-7 text-white text-xl"
+              {/* Description with colored keyword highlighting */}
+              <p className="mx-auto max-w-5xl mb-8 font-light text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                Deploy with{" "}
+                <span className="font-bold text-brand-primary-light">
+                  Army veteran leadership
+                </span>{" "}
+                that delivers{" "}
+                <span className="font-bold text-white">
+                  mission-critical results
+                </span>
+                . Contact our command center to discuss your federal
+                construction requirements and begin mission planning for
+                successful execution.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm mb-8 p-8 border-2 border-gray-600 rounded-lg">
+              <div className="gap-6 grid md:grid-cols-3 text-center">
+                <div>
+                  <MaterialIcon
+                    icon="call"
+                    size="2xl"
+                    theme="military"
+                    ariaLabel="Call Us"
+                    className="mb-3 text-gray-300"
+                  />
+                  <p className="mb-1 text-gray-600 dark:text-gray-300 text-sm">
+                    Call Us
+                  </p>
+                  <a
+                    href={`tel:${COMPANY_INFO.phone.tel}`}
+                    className="font-bold text-white hover:text-gray-300 text-2xl"
                   >
-                    <MaterialIcon
-                      icon="campaign"
-                      className="mr-3"
-                      size="lg"
-                      theme="military"
-                      ariaLabel="Request Mission Brief"
-                    />
-                    Request Mission Brief
-                  </Button>
-                </Link>
+                    {COMPANY_INFO.phone.display}
+                  </a>
+                </div>
+                <div>
+                  <MaterialIcon
+                    icon="mark_email_read"
+                    size="2xl"
+                    theme="military"
+                    ariaLabel="Email Us"
+                    className="mb-3 text-gray-300"
+                  />
+                  <p className="mb-1 text-gray-600 dark:text-gray-300 text-sm">
+                    Email Us
+                  </p>
+                  <a
+                    href={`mailto:${COMPANY_INFO.email.main}`}
+                    className="font-bold text-white hover:text-gray-300 text-lg"
+                  >
+                    {COMPANY_INFO.email.main}
+                  </a>
+                </div>
+                <div>
+                  <MaterialIcon
+                    icon="location_on"
+                    size="2xl"
+                    theme="military"
+                    ariaLabel="Visit Us"
+                    className="mb-3 text-gray-300"
+                  />
+                  <p className="mb-1 text-gray-600 dark:text-gray-300 text-sm">
+                    Visit Us
+                  </p>
+                  <p className="font-bold text-white text-lg">
+                    {COMPANY_INFO.address.street}
+                    <br />
+                    {COMPANY_INFO.address.city}, {COMPANY_INFO.address.state}{" "}
+                    {COMPANY_INFO.address.zip}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Strategic CTA Banner - Conversion Optimization */}
+            <div className="mb-12">
+              <StrategicCTABanner variant="combo" className="my-0" />
+            </div>
+
+            <div className="flex sm:flex-row flex-col justify-center gap-4">
+              <Link href="/contact">
                 <Button
                   size="lg"
-                  className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-500 dark:hover:bg-gray-600 px-10 py-7 text-white dark:text-white text-xl"
+                  className="bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-800 px-10 py-7 text-white text-xl"
                 >
                   <MaterialIcon
-                    icon="download"
+                    icon="campaign"
                     className="mr-3"
                     size="lg"
                     theme="military"
-                    ariaLabel="Federal Capabilities Brief"
+                    ariaLabel="Request Mission Brief"
                   />
-                  Federal Capabilities Brief
+                  Request Mission Brief
                 </Button>
-              </div>
-
-              <p className="mt-8 text-gray-600 dark:text-gray-300 text-sm">
+              </Link>
+              <Button
+                size="lg"
+                className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-500 dark:hover:bg-gray-600 px-10 py-7 text-white dark:text-white text-xl"
+              >
                 <MaterialIcon
-                  icon="schedule"
-                  className="inline mr-2"
-                  size="sm"
+                  icon="download"
+                  className="mr-3"
+                  size="lg"
                   theme="military"
-                  ariaLabel="Business Hours"
+                  ariaLabel="Federal Capabilities Brief"
                 />
-                Monday - Friday: 0700 - 1600 PST
-              </p>
+                Federal Capabilities Brief
+              </Button>
             </div>
-          </FadeInWhenVisible>
+
+            <p className="mt-8 text-gray-600 dark:text-gray-300 text-sm">
+              <MaterialIcon
+                icon="schedule"
+                className="inline mr-2"
+                size="sm"
+                theme="military"
+                ariaLabel="Business Hours"
+              />
+              Monday - Friday: 0700 - 1600 PST
+            </p>
+          </div>
         </div>
       </section>
       {/* Federal Accreditations & Certifications */}
       <section className="relative py-12 sm:py-16 bg-gray-50 dark:bg-gray-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <FadeInWhenVisible>
-            <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
-              Mission-Ready Credentials
-            </p>
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-8">
-              Accredited & Certified for Federal Contracts
-            </h3>
-            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-              {/* BBB Accredited A+ */}
-              {}
-              <a
-                href={COMPANY_INFO.bbb.sealClickUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
-                title="BBB Accredited Business - A+ Rating"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={COMPANY_INFO.bbb.sealHorizontal}
-                  alt="BBB Accredited Business A+ Rating"
-                  className="h-10 sm:h-12 w-auto dark:hidden"
-                />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={COMPANY_INFO.bbb.sealHorizontalWhite}
-                  alt="BBB Accredited Business A+ Rating"
-                  className="h-10 sm:h-12 w-auto hidden dark:block"
-                />
-              </a>
+          <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
+            Mission-Ready Credentials
+          </p>
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-8">
+            Accredited & Certified for Federal Contracts
+          </h3>
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+            {/* BBB Accredited A+ */}
+            {}
+            <a
+              href={COMPANY_INFO.bbb.sealClickUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity"
+              title="BBB Accredited Business - A+ Rating"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={COMPANY_INFO.bbb.sealHorizontal}
+                alt="BBB Accredited Business A+ Rating"
+                className="h-10 sm:h-12 w-auto dark:hidden"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={COMPANY_INFO.bbb.sealHorizontalWhite}
+                alt="BBB Accredited Business A+ Rating"
+                className="h-10 sm:h-12 w-auto hidden dark:block"
+              />
+            </a>
 
-              {/* AGC Member */}
-              <a
-                href="https://www.agcwa.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
-                title="AGC of Washington Member"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/logo/agc-member.png"
-                  alt="AGC of Washington Member"
-                  className="h-10 sm:h-12 w-auto"
-                />
-              </a>
+            {/* AGC Member */}
+            <a
+              href="https://www.agcwa.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity"
+              title="AGC of Washington Member"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/logo/agc-member.png"
+                alt="AGC of Washington Member"
+                className="h-10 sm:h-12 w-auto"
+              />
+            </a>
 
-              {/* Travelers Insurance Partner */}
-              <a
-                href={COMPANY_INFO.travelers.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
-                title="Travelers Insurance - Auto & Bonding Partner"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={COMPANY_INFO.travelers.logo}
-                  alt="Travelers Insurance - Auto & Bonding Partner"
-                  className="h-10 sm:h-12 w-auto dark:hidden"
-                />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={COMPANY_INFO.travelers.logoWhite}
-                  alt="Travelers Insurance - Auto & Bonding Partner"
-                  className="h-10 sm:h-12 w-auto hidden dark:block"
-                />
-              </a>
+            {/* Travelers Insurance Partner */}
+            <a
+              href={COMPANY_INFO.travelers.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity"
+              title="Travelers Insurance - Auto & Bonding Partner"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={COMPANY_INFO.travelers.logo}
+                alt="Travelers Insurance - Auto & Bonding Partner"
+                className="h-10 sm:h-12 w-auto dark:hidden"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={COMPANY_INFO.travelers.logoWhite}
+                alt="Travelers Insurance - Auto & Bonding Partner"
+                className="h-10 sm:h-12 w-auto hidden dark:block"
+              />
+            </a>
 
-              {/* Veteran-Owned Badge */}
-              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-primary/10 dark:bg-brand-primary/20">
-                <MaterialIcon
-                  icon="military_tech"
-                  size="lg"
-                  theme="military"
-                  className="text-brand-primary dark:text-brand-primary-light"
-                  ariaLabel="Veteran-Owned"
-                />
-                <span className="font-semibold text-gray-900 dark:text-white text-sm">
-                  Veteran-Owned
-                </span>
-              </div>
-
-              {/* SDVOSB Badge */}
-              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700">
-                <MaterialIcon
-                  icon="verified"
-                  size="lg"
-                  theme="military"
-                  className="text-brand-primary dark:text-brand-primary-light"
-                  ariaLabel="Service-Disabled Veteran"
-                />
-                <span className="font-semibold text-gray-900 dark:text-white text-sm">
-                  SDVOSB
-                </span>
-              </div>
+            {/* Veteran-Owned Badge */}
+            <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-primary/10 dark:bg-brand-primary/20">
+              <MaterialIcon
+                icon="military_tech"
+                size="lg"
+                theme="military"
+                className="text-brand-primary dark:text-brand-primary-light"
+                ariaLabel="Veteran-Owned"
+              />
+              <span className="font-semibold text-gray-900 dark:text-white text-sm">
+                Veteran-Owned
+              </span>
             </div>
-          </FadeInWhenVisible>
+
+            {/* SDVOSB Badge */}
+            <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700">
+              <MaterialIcon
+                icon="verified"
+                size="lg"
+                theme="military"
+                className="text-brand-primary dark:text-brand-primary-light"
+                ariaLabel="Service-Disabled Veteran"
+              />
+              <span className="font-semibold text-gray-900 dark:text-white text-sm">
+                SDVOSB
+              </span>
+            </div>
+          </div>
         </div>
       </section>
       {/* Next Steps Section - Standardized Final CTA */}

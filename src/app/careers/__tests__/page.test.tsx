@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import CareersPage from "../page";
+import CareersPageClient from "../CareersPageClient";
 
 const replaceMock = jest.fn();
 let mockSearchParams = new URLSearchParams();
@@ -16,11 +16,30 @@ jest.mock("next/link", () => ({
   }) => <a href={href}>{children}</a>,
 }));
 
-jest.mock("next/dynamic", () => () => {
-  return function MockDynamicComponent() {
-    return null;
-  };
-});
+jest.mock(
+  "next/dynamic",
+  () =>
+    (
+      importFn: () => Promise<{
+        default: React.ComponentType<Record<string, unknown>>;
+      }>,
+    ) => {
+      // Synchronously resolve by running the import path through jest's module mock registry
+      const resolved = {
+        component: null as React.ComponentType<Record<string, unknown>> | null,
+      };
+      importFn()
+        .then((mod) => {
+          resolved.component = mod.default;
+        })
+        .catch(() => {});
+      return function DynamicWrapper(props: Record<string, unknown>) {
+        if (!resolved.component) return null;
+        const Comp = resolved.component;
+        return <Comp {...props} />;
+      };
+    },
+);
 
 jest.mock("next/navigation", () => ({
   useRouter: () => ({
@@ -63,6 +82,26 @@ jest.mock("@/components/ui", () => ({
       </div>
     ) : null,
   AlternatingShowcase: () => null,
+}));
+
+jest.mock("@/components/ui/modals/JobApplicationModal", () => ({
+  JobApplicationModal: ({
+    isOpen,
+    entryPoint,
+    onClose,
+  }: {
+    isOpen: boolean;
+    entryPoint?: string;
+    onClose?: () => void;
+  }) =>
+    isOpen ? (
+      <div>
+        Modal entry: {entryPoint ?? "none"}
+        <button type="button" onClick={onClose}>
+          Close Modal
+        </button>
+      </div>
+    ) : null,
 }));
 
 jest.mock("@/components/icons/MaterialIcon", () => ({
@@ -153,7 +192,7 @@ describe("CareersPage application CTAs", () => {
   it("opens the modal with veteran application context", async () => {
     const user = userEvent.setup();
 
-    render(<CareersPage />);
+    render(<CareersPageClient />);
 
     await user.click(screen.getByRole("button", { name: /Apply as Veteran/i }));
 
@@ -165,7 +204,7 @@ describe("CareersPage application CTAs", () => {
   it("opens the modal with general application context", async () => {
     const user = userEvent.setup();
 
-    render(<CareersPage />);
+    render(<CareersPageClient />);
 
     await user.click(
       screen.getByRole("button", { name: /Submit Application/i }),
@@ -179,7 +218,7 @@ describe("CareersPage application CTAs", () => {
   it("opens the modal with general inquiry context from the primary start button", async () => {
     const user = userEvent.setup();
 
-    render(<CareersPage />);
+    render(<CareersPageClient />);
 
     await user.click(
       screen.getAllByRole("button", { name: /Start Application/i })[0]!,
@@ -195,7 +234,7 @@ describe("CareersPage application CTAs", () => {
       "apply=true&entryPoint=Footer%20Application",
     );
 
-    render(<CareersPage />);
+    render(<CareersPageClient />);
 
     expect(
       await screen.findByText("Modal entry: Footer Application"),
@@ -205,7 +244,7 @@ describe("CareersPage application CTAs", () => {
   it("closes the modal without cleaning URL when no apply params", async () => {
     const user = userEvent.setup();
 
-    render(<CareersPage />);
+    render(<CareersPageClient />);
 
     // Open it first
     await user.click(screen.getByRole("button", { name: /Apply as Veteran/i }));
@@ -221,7 +260,7 @@ describe("CareersPage application CTAs", () => {
     const user = userEvent.setup();
     mockSearchParams = new URLSearchParams("apply=true&entryPoint=Test");
 
-    render(<CareersPage />);
+    render(<CareersPageClient />);
 
     // Modal auto-opens due to query params
     expect(await screen.findByText("Modal entry: Test")).toBeInTheDocument();
@@ -234,7 +273,7 @@ describe("CareersPage application CTAs", () => {
   it("sends mailto when the email inquiry button is clicked", async () => {
     const user = userEvent.setup();
 
-    render(<CareersPage />);
+    render(<CareersPageClient />);
 
     // The email button near the veteran section (contains the mark_email_read icon text)
     const emailButtons = screen

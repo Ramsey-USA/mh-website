@@ -66,7 +66,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Deployed**      | Live      | Cloudflare Workers — mhc-gc.com            |
 | **TypeScript**    | Strict    | Zero type errors                           |
 | **ESLint**        | Clean     | Zero lint warnings, zero errors            |
-| **Tests**         | Passing   | 1734/1734 passing, 138 suites              |
+| **Tests**         | Passing   | 1795/1795 passing, 141 suites              |
 | **Coverage**      | Strong    | 97.32% stmts, 91.23% branches, 99.03% fns  |
 | **SEO**           | External  | Audit via external tools                   |
 | **Lighthouse**    | External  | Audit via PageSpeed/DevTools               |

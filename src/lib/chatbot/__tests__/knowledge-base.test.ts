@@ -38,7 +38,7 @@ describe("Chatbot Knowledge Base", () => {
       expect(prompt).toContain("Veteran-Owned");
       expect(prompt).toContain("THE ROI IS THE RELATIONSHIP");
       expect(prompt).toContain(
-        "Building projects for the client, NOT the dollar",
+        "Building projects for the Client, NOT the Dollar",
       );
     });
 

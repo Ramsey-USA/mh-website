@@ -16,7 +16,7 @@ import {
 } from "@/lib/seo/review-schema";
 import { getClientTestimonials } from "@/lib/data/testimonials";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
+
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { COMPANY_INFO } from "@/lib/constants/company";
@@ -125,127 +125,125 @@ export default function TestimonialsPage() {
 
         {/* Content - Centered for standard pages */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
-          <FadeInWhenVisible>
-            <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-              {/* Icon with decorative lines */}
-              <div className="flex items-center justify-center mb-8 gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent to-white/30 rounded-full"></div>
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/50 to-bronze-600/50 blur-2xl rounded-full"></div>
-                  <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50">
-                    <MaterialIcon
-                      icon="forum"
-                      size="2xl"
-                      className="text-white drop-shadow-lg"
-                      ariaLabel="Client testimonials"
-                    />
-                  </div>
-                </div>
-                <div className="h-1 w-16 bg-gradient-to-l from-transparent to-white/30 rounded-full"></div>
-              </div>
-
-              {/* Two-line gradient heading */}
-              <h1 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter overflow-visible">
-                <span className="block mb-3 sm:mb-4 font-semibold text-white/90 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Service-Earned Commendations
-                </span>
-                <span className="block bg-gradient-to-r from-brand-secondary via-brand-secondary-light to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  From Client Partners
-                </span>
-              </h1>
-
-              {/* Subtitle */}
-              <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed px-2 font-light tracking-wide">
-                Authentic feedback from{" "}
-                <span className="text-brand-secondary font-bold">
-                  Client Partners
-                </span>{" "}
-                who've experienced our{" "}
-                <span className="text-white font-bold">
-                  Veteran-Owned, relationship-first service
-                </span>{" "}
-                in commercial, industrial, and government construction
-              </p>
-
-              {/* Stats Display */}
-              {aggregateRating && (
-                <div className="flex flex-wrap justify-center gap-8 sm:gap-12 pt-8">
-                  <div className="flex flex-col items-center">
-                    <div className="flex items-center gap-2 mb-2">
-                      {[...Array(5)].map((_, i) => (
-                        <MaterialIcon
-                          key={i}
-                          icon="star"
-                          size="md"
-                          className={
-                            i < Math.round(aggregateRating.ratingValue)
-                              ? "text-brand-secondary"
-                              : "text-gray-500"
-                          }
-                          ariaLabel={
-                            i < Math.round(aggregateRating.ratingValue)
-                              ? "Filled star"
-                              : "Empty star"
-                          }
-                        />
-                      ))}
-                    </div>
-                    <p className="text-base sm:text-lg text-white/90 font-medium">
-                      {aggregateRating.ratingValue.toFixed(1)} Average Rating
-                    </p>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <p className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-secondary drop-shadow-lg">
-                      {aggregateRating.reviewCount}+
-                    </p>
-                    <p className="text-base sm:text-lg text-white/90 font-medium">
-                      Client Reviews
-                    </p>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <p className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-secondary drop-shadow-lg">
-                      20+
-                    </p>
-                    <p className="text-base sm:text-lg text-white/90 font-medium">
-                      Years Experience
-                    </p>
-                  </div>
-                </div>
-              )}
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-10">
-                <Link
-                  href="https://search.google.com/local/writereview?placeid=234677025037995169"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-3 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-2xl font-bold text-lg"
-                  aria-label="Leave a Google review for MH Construction"
-                >
+          <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+            {/* Icon with decorative lines */}
+            <div className="flex items-center justify-center mb-8 gap-4">
+              <div className="h-1 w-16 bg-gradient-to-r from-transparent to-white/30 rounded-full"></div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/50 to-bronze-600/50 blur-2xl rounded-full"></div>
+                <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50">
                   <MaterialIcon
-                    icon="star"
-                    size="md"
-                    className="group-hover:scale-110 transition-transform"
-                    ariaLabel=""
+                    icon="forum"
+                    size="2xl"
+                    className="text-white drop-shadow-lg"
+                    ariaLabel="Client testimonials"
                   />
-                  <span>Leave a Google Review</span>
-                </Link>
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-white/50 hover:border-white shadow-2xl font-bold text-lg"
-                  aria-label="Start your construction project"
-                >
-                  <MaterialIcon
-                    icon="contact_page"
-                    size="md"
-                    className="group-hover:scale-110 transition-transform"
-                    ariaLabel=""
-                  />
-                  <span>Start Your Project</span>
-                </Link>
+                </div>
               </div>
+              <div className="h-1 w-16 bg-gradient-to-l from-transparent to-white/30 rounded-full"></div>
             </div>
-          </FadeInWhenVisible>
+
+            {/* Two-line gradient heading */}
+            <h1 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter overflow-visible">
+              <span className="block mb-3 sm:mb-4 font-semibold text-white/90 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                Service-Earned Commendations
+              </span>
+              <span className="block bg-gradient-to-r from-brand-secondary via-brand-secondary-light to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                From Client Partners
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed px-2 font-light tracking-wide">
+              Authentic feedback from{" "}
+              <span className="text-brand-secondary font-bold">
+                Client Partners
+              </span>{" "}
+              who've experienced our{" "}
+              <span className="text-white font-bold">
+                Veteran-Owned, relationship-first service
+              </span>{" "}
+              in commercial, industrial, and government construction
+            </p>
+
+            {/* Stats Display */}
+            {aggregateRating && (
+              <div className="flex flex-wrap justify-center gap-8 sm:gap-12 pt-8">
+                <div className="flex flex-col items-center">
+                  <div className="flex items-center gap-2 mb-2">
+                    {[...Array(5)].map((_, i) => (
+                      <MaterialIcon
+                        key={i}
+                        icon="star"
+                        size="md"
+                        className={
+                          i < Math.round(aggregateRating.ratingValue)
+                            ? "text-brand-secondary"
+                            : "text-gray-500"
+                        }
+                        ariaLabel={
+                          i < Math.round(aggregateRating.ratingValue)
+                            ? "Filled star"
+                            : "Empty star"
+                        }
+                      />
+                    ))}
+                  </div>
+                  <p className="text-base sm:text-lg text-white/90 font-medium">
+                    {aggregateRating.ratingValue.toFixed(1)} Average Rating
+                  </p>
+                </div>
+                <div className="flex flex-col items-center">
+                  <p className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-secondary drop-shadow-lg">
+                    {aggregateRating.reviewCount}+
+                  </p>
+                  <p className="text-base sm:text-lg text-white/90 font-medium">
+                    Client Reviews
+                  </p>
+                </div>
+                <div className="flex flex-col items-center">
+                  <p className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-secondary drop-shadow-lg">
+                    20+
+                  </p>
+                  <p className="text-base sm:text-lg text-white/90 font-medium">
+                    Years Experience
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-10">
+              <Link
+                href="https://search.google.com/local/writereview?placeid=234677025037995169"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-3 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-2xl font-bold text-lg"
+                aria-label="Leave a Google review for MH Construction"
+              >
+                <MaterialIcon
+                  icon="star"
+                  size="md"
+                  className="group-hover:scale-110 transition-transform"
+                  ariaLabel=""
+                />
+                <span>Leave a Google Review</span>
+              </Link>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-white/50 hover:border-white shadow-2xl font-bold text-lg"
+                aria-label="Start your construction project"
+              >
+                <MaterialIcon
+                  icon="contact_page"
+                  size="md"
+                  className="group-hover:scale-110 transition-transform"
+                  ariaLabel=""
+                />
+                <span>Start Your Project</span>
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Page-Specific Navigation Bar */}
@@ -896,9 +894,6 @@ export default function TestimonialsPage() {
             id="testimonials-faq"
             className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
           >
-            <DiagonalStripePattern />
-            <BrandColorBlobs />
-
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               {/* Section Header */}
               <div className="mb-16 sm:mb-20 text-center">
@@ -1308,8 +1303,6 @@ export default function TestimonialsPage() {
         id="leave-review"
         className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-gray-900 py-16 sm:py-20 lg:py-24 text-white overflow-hidden"
       >
-        <DiagonalStripePattern />
-        <BrandColorBlobs />
         {/* Placeholder for any additional blobs */}
         <div className="absolute top-10 right-[20%] w-96 h-96 bg-gradient-to-br from-brand-secondary/20 to-transparent blur-3xl rounded-full"></div>
         <div className="absolute bottom-10 left-[20%] w-96 h-96 bg-gradient-to-tr from-brand-primary-darker/30 to-transparent blur-3xl rounded-full"></div>

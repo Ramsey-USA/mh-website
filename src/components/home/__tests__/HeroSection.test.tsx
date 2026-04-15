@@ -26,7 +26,7 @@ describe("HeroSection", () => {
   it("renders the main heading text", () => {
     render(<HeroSection />);
     expect(
-      screen.getAllByText(/Founded 2010, Veteran-Owned Since 2025/i)[0],
+      screen.getAllByText(/Founded 2010, Veteran-Owned Since January 2025/i)[0],
     ).toBeInTheDocument();
   });
 

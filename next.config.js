@@ -54,6 +54,7 @@ const nextConfig = {
       "@radix-ui/react-slot",
       "@radix-ui/react-tabs",
       "@radix-ui/react-progress",
+      "recharts",
     ],
     // CSS optimization - cssChunking defaults to true for better splitting
   },

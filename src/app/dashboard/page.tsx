@@ -2,12 +2,20 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
 import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { usePageTracking } from "@/lib/analytics/hooks";
-import { SafetyTab } from "./SafetyTab";
-import { DriversTab } from "./DriversTab";
-import { LeadsTab } from "./LeadsTab";
+
+const SafetyTab = dynamic(() =>
+  import("./SafetyTab").then((m) => ({ default: m.SafetyTab })),
+);
+const DriversTab = dynamic(() =>
+  import("./DriversTab").then((m) => ({ default: m.DriversTab })),
+);
+const LeadsTab = dynamic(() =>
+  import("./LeadsTab").then((m) => ({ default: m.LeadsTab })),
+);
 
 interface DashboardData {
   pageviews: {

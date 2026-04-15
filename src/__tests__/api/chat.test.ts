@@ -241,7 +241,7 @@ describe("POST /api/chat", () => {
     expect(res.status).toBe(200);
     const body = await res.json();
     expect(body.response).toContain("BBB Accredited");
-    expect(body.response).toContain("veteran-owned");
+    expect(body.response).toContain("Veteran-Owned");
   });
 
   it("returns trust info for 'what are your ratings'", async () => {

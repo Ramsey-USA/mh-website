@@ -1,6 +1,5 @@
 import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
-import Image from "next/image";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { AmericanFlag } from "@/components/icons/AmericanFlag";
 import {
@@ -86,7 +85,6 @@ export default function VeteransPage() {
           className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-30 dark:opacity-25 pointer-events-none"
           style={{
             backgroundImage: "url('/images/logo/mh-veteran-bg.webp')",
-            backgroundAttachment: "fixed",
           }}
         ></div>
 
@@ -435,353 +433,349 @@ export default function VeteransPage() {
             className="relative py-20 lg:py-32 xl:py-40"
           >
             <div className="relative z-10 mx-auto px-4 container">
-              <FadeInWhenVisible>
-                {/* Section Header - Military Construction Standard */}
-                <div className="mb-16 sm:mb-20 text-center">
-                  {/* Icon with decorative lines */}
-                  <div className="flex items-center justify-center mb-8 gap-4">
-                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
-                    <div className="relative">
-                      <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
-                      <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
-                        <MaterialIcon
-                          icon="military_tech"
-                          size="2xl"
-                          className="text-white drop-shadow-lg"
-                        />
-                      </div>
+              {/* Section Header - Military Construction Standard */}
+              <div className="mb-16 sm:mb-20 text-center">
+                {/* Icon with decorative lines */}
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="military_tech"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
                     </div>
-                    <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                   </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
 
-                  {/* Two-line gradient heading */}
-                  <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
-                    <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                      Service Recognizes Service
-                    </span>
-                    <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                      Combat Veteran Discount at the Ready
-                    </span>
-                  </h2>
+                {/* Two-line gradient heading */}
+                <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Service Recognizes Service
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Combat Veteran Discount at the Ready
+                  </span>
+                </h2>
 
-                  {/* Description with colored keyword highlighting */}
-                  <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                    <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                      All branches, all ranks, all eras
-                    </span>
-                    —Army, Navy, Air Force, Marines, Coast Guard, and Space
-                    Force. If you served in combat, we honor that service with{" "}
-                    <span className="font-bold text-gray-900 dark:text-white">
-                      preferential pricing on all construction services
-                    </span>
-                    . Each discount is determined through our screening process
-                    based on your project scope, service record, and specific
-                    needs. No fine print. No gimmicks. Your service matters.
+                {/* Description with colored keyword highlighting */}
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                    All branches, all ranks, all eras
+                  </span>
+                  —Army, Navy, Air Force, Marines, Coast Guard, and Space Force.
+                  If you served in combat, we honor that service with{" "}
+                  <span className="font-bold text-gray-900 dark:text-white">
+                    preferential pricing on all construction services
+                  </span>
+                  . Each discount is determined through our screening process
+                  based on your project scope, service record, and specific
+                  needs. No fine print. No gimmicks. Your service matters.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
+                {/* All Branches */}
+                <div className="group relative flex h-full">
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-secondary/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                    <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary"></div>
+                    <div className="p-6 sm:p-8 text-center flex flex-col flex-1">
+                      <div className="relative inline-block mb-4 mx-auto">
+                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-secondary/40 opacity-30 blur-lg rounded-full"></div>
+                        <div className="relative">
+                          <MaterialIcon
+                            icon="shield"
+                            size="4xl"
+                            theme="military"
+                            ariaLabel="All Military Branches"
+                            className="text-brand-primary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
+                          />
+                        </div>
+                      </div>
+                      <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4">
+                        All Branches Welcome
+                      </h3>
+                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed flex-grow">
+                        Army, Navy, Air Force, Marines, Coast Guard, Space
+                        Force—we honor every branch that defended our nation in
+                        combat zones. All combat veterans qualify for
+                        consideration.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Case-by-Case Evaluation */}
+                <div className="group relative flex h-full">
+                  <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+                  <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                    <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+                    <div className="p-6 sm:p-8 text-center flex flex-col flex-1">
+                      <div className="relative inline-block mb-4 mx-auto">
+                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
+                        <div className="relative">
+                          <MaterialIcon
+                            icon="balance"
+                            size="4xl"
+                            theme="veteran"
+                            ariaLabel="Case-by-Case Evaluation"
+                            className="text-brand-secondary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
+                          />
+                        </div>
+                      </div>
+                      <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4">
+                        Tailored to Your Service
+                      </h3>
+                      <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed flex-grow">
+                        Every veteran's situation is unique. Discount amounts
+                        are determined case-by-case through our screening
+                        process, considering project scope, service record, and
+                        individual circumstances.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Screening Process Timeline Section */}
+              <div className="relative max-w-6xl mx-auto mt-16">
+                {/* Vertical Connecting Line - Desktop */}
+                <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-brand-primary/30 via-brand-secondary to-brand-primary/30"></div>
+
+                {/* Timeline Header */}
+                <div className="mb-12 text-center">
+                  <h3 className="text-gray-900 dark:text-white text-2xl sm:text-3xl font-bold mb-4">
+                    Combat Veteran Discount Screening Process
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto">
+                    Our straightforward screening process ensures fair and
+                    respectful evaluation of every combat veteran application.
                   </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
-                  {/* All Branches */}
-                  <div className="group relative flex h-full">
-                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-secondary/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
-                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
-                      <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary"></div>
-                      <div className="p-6 sm:p-8 text-center flex flex-col flex-1">
-                        <div className="relative inline-block mb-4 mx-auto">
-                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-secondary/40 opacity-30 blur-lg rounded-full"></div>
-                          <div className="relative">
-                            <MaterialIcon
-                              icon="shield"
-                              size="4xl"
-                              theme="military"
-                              ariaLabel="All Military Branches"
-                              className="text-brand-primary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
-                            />
-                          </div>
-                        </div>
-                        <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4">
-                          All Branches Welcome
-                        </h3>
-                        <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed flex-grow">
-                          Army, Navy, Air Force, Marines, Coast Guard, Space
-                          Force—we honor every branch that defended our nation
-                          in combat zones. All combat veterans qualify for
-                          consideration.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Case-by-Case Evaluation */}
-                  <div className="group relative flex h-full">
-                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
-                    <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
-                      <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
-                      <div className="p-6 sm:p-8 text-center flex flex-col flex-1">
-                        <div className="relative inline-block mb-4 mx-auto">
-                          <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 opacity-30 blur-lg rounded-full"></div>
-                          <div className="relative">
-                            <MaterialIcon
-                              icon="balance"
-                              size="4xl"
-                              theme="veteran"
-                              ariaLabel="Case-by-Case Evaluation"
-                              className="text-brand-secondary drop-shadow-lg group-hover:scale-110 transition-all duration-300"
-                            />
-                          </div>
-                        </div>
-                        <h3 className="text-gray-900 dark:text-white text-xl sm:text-2xl font-bold mb-4">
-                          Tailored to Your Service
-                        </h3>
-                        <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed flex-grow">
-                          Every veteran's situation is unique. Discount amounts
-                          are determined case-by-case through our screening
-                          process, considering project scope, service record,
-                          and individual circumstances.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Screening Process Timeline Section */}
-                <div className="relative max-w-6xl mx-auto mt-16">
-                  {/* Vertical Connecting Line - Desktop */}
-                  <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-brand-primary/30 via-brand-secondary to-brand-primary/30"></div>
-
-                  {/* Timeline Header */}
-                  <div className="mb-12 text-center">
-                    <h3 className="text-gray-900 dark:text-white text-2xl sm:text-3xl font-bold mb-4">
-                      Combat Veteran Discount Screening Process
-                    </h3>
-                    <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto">
-                      Our straightforward screening process ensures fair and
-                      respectful evaluation of every combat veteran application.
-                    </p>
-                  </div>
-
-                  {/* Timeline Steps */}
-                  <div className="space-y-12 lg:space-y-20">
-                    {[
-                      {
-                        num: 1,
-                        icon: "phone",
-                        title: "Initial Consultation",
-                        desc: `Contact us at ${COMPANY_INFO.phone.display} or through our contact page. Mention your military service during the initial discussion. We'll schedule a face-to-face or virtual consultation to discuss your project scope and requirements.`,
-                        position: "left",
-                      },
-                      {
-                        num: 2,
-                        icon: "verified_user",
-                        title: "Service Verification",
-                        desc: "Provide proof of combat service (DD-214, VA card, or military ID showing combat deployment). We handle all documentation with military-grade confidentiality and respect. Your privacy is our priority.",
-                        position: "right",
-                      },
-                      {
-                        num: 3,
-                        icon: "assessment",
-                        title: "Project Assessment",
-                        desc: "We evaluate your project scope, timeline, and specific construction needs. Factors include project size, complexity, materials required, labor intensity, and your budget constraints.",
-                        position: "left",
-                      },
-                      {
-                        num: 4,
-                        icon: "balance",
-                        title: "Discount Determination",
-                        desc: "Based on your service record and project details, we determine an appropriate discount. Considerations include combat service duration, decorations received, current financial situation, and project urgency. Every case is unique.",
-                        position: "right",
-                      },
-                      {
-                        num: 5,
-                        icon: "description",
-                        title: "Transparent Proposal",
-                        desc: "Receive a detailed, transparent proposal showing standard pricing, your veteran discount applied, and final project cost. No hidden fees. No surprises. No expiration on your discount—it applies to every project you do with us.",
-                        position: "left",
-                      },
-                    ].map((step, index) => (
-                      <FadeInWhenVisible
-                        key={step.num}
-                        className="relative group"
-                        delay={index * 0.1}
-                      >
-                        {/* Desktop Layout */}
-                        <div className="hidden lg:flex items-center gap-8">
-                          {step.position === "left" ? (
-                            <>
-                              {/* Content Left */}
-                              <div className="flex-1 text-right">
-                                <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-primary dark:group-hover:border-brand-primary-light">
-                                  <div className="flex items-center justify-end gap-4 mb-4">
-                                    <div>
-                                      <h4 className="font-black text-gray-900 dark:text-white text-xl mb-1">
-                                        {step.title}
-                                      </h4>
-                                    </div>
-                                    <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
-                                      <MaterialIcon
-                                        icon={step.icon}
-                                        size="lg"
-                                        className="text-white"
-                                      />
-                                    </div>
+                {/* Timeline Steps */}
+                <div className="space-y-12 lg:space-y-20">
+                  {[
+                    {
+                      num: 1,
+                      icon: "phone",
+                      title: "Initial Consultation",
+                      desc: `Contact us at ${COMPANY_INFO.phone.display} or through our contact page. Mention your military service during the initial discussion. We'll schedule a face-to-face or virtual consultation to discuss your project scope and requirements.`,
+                      position: "left",
+                    },
+                    {
+                      num: 2,
+                      icon: "verified_user",
+                      title: "Service Verification",
+                      desc: "Provide proof of combat service (DD-214, VA card, or military ID showing combat deployment). We handle all documentation with military-grade confidentiality and respect. Your privacy is our priority.",
+                      position: "right",
+                    },
+                    {
+                      num: 3,
+                      icon: "assessment",
+                      title: "Project Assessment",
+                      desc: "We evaluate your project scope, timeline, and specific construction needs. Factors include project size, complexity, materials required, labor intensity, and your budget constraints.",
+                      position: "left",
+                    },
+                    {
+                      num: 4,
+                      icon: "balance",
+                      title: "Discount Determination",
+                      desc: "Based on your service record and project details, we determine an appropriate discount. Considerations include combat service duration, decorations received, current financial situation, and project urgency. Every case is unique.",
+                      position: "right",
+                    },
+                    {
+                      num: 5,
+                      icon: "description",
+                      title: "Transparent Proposal",
+                      desc: "Receive a detailed, transparent proposal showing standard pricing, your veteran discount applied, and final project cost. No hidden fees. No surprises. No expiration on your discount—it applies to every project you do with us.",
+                      position: "left",
+                    },
+                  ].map((step, index) => (
+                    <div
+                      key={step.num}
+                      className="relative group scroll-reveal"
+                    >
+                      {/* Desktop Layout */}
+                      <div className="hidden lg:flex items-center gap-8">
+                        {step.position === "left" ? (
+                          <>
+                            {/* Content Left */}
+                            <div className="flex-1 text-right">
+                              <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-primary dark:group-hover:border-brand-primary-light">
+                                <div className="flex items-center justify-end gap-4 mb-4">
+                                  <div>
+                                    <h4 className="font-black text-gray-900 dark:text-white text-xl mb-1">
+                                      {step.title}
+                                    </h4>
                                   </div>
-                                  <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
-                                    {step.desc}
-                                  </p>
-                                </div>
-                              </div>
-
-                              {/* Center Circle */}
-                              <div className="flex-shrink-0 relative z-10">
-                                <div className="w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
-                                  {step.num}
-                                </div>
-                              </div>
-
-                              {/* Empty Right */}
-                              <div className="flex-1"></div>
-                            </>
-                          ) : (
-                            <>
-                              {/* Empty Left */}
-                              <div className="flex-1"></div>
-
-                              {/* Center Circle */}
-                              <div className="flex-shrink-0 relative z-10">
-                                <div className="w-16 h-16 bg-gradient-to-br from-brand-secondary to-bronze-700 rounded-full flex items-center justify-center text-white font-black text-xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
-                                  {step.num}
-                                </div>
-                              </div>
-
-                              {/* Content Right */}
-                              <div className="flex-1 text-left">
-                                <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-secondary dark:group-hover:border-brand-secondary-light">
-                                  <div className="flex items-center gap-4 mb-4">
-                                    <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-brand-secondary to-bronze-700 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
-                                      <MaterialIcon
-                                        icon={step.icon}
-                                        size="lg"
-                                        className="text-white"
-                                      />
-                                    </div>
-                                    <div>
-                                      <h4 className="font-black text-gray-900 dark:text-white text-xl mb-1">
-                                        {step.title}
-                                      </h4>
-                                    </div>
+                                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                                    <MaterialIcon
+                                      icon={step.icon}
+                                      size="lg"
+                                      className="text-white"
+                                    />
                                   </div>
-                                  <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
-                                    {step.desc}
-                                  </p>
                                 </div>
+                                <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                                  {step.desc}
+                                </p>
                               </div>
-                            </>
+                            </div>
+
+                            {/* Center Circle */}
+                            <div className="flex-shrink-0 relative z-10">
+                              <div className="w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-primary-dark rounded-full flex items-center justify-center text-white font-black text-xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                                {step.num}
+                              </div>
+                            </div>
+
+                            {/* Empty Right */}
+                            <div className="flex-1"></div>
+                          </>
+                        ) : (
+                          <>
+                            {/* Empty Left */}
+                            <div className="flex-1"></div>
+
+                            {/* Center Circle */}
+                            <div className="flex-shrink-0 relative z-10">
+                              <div className="w-16 h-16 bg-gradient-to-br from-brand-secondary to-bronze-700 rounded-full flex items-center justify-center text-white font-black text-xl shadow-2xl border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                                {step.num}
+                              </div>
+                            </div>
+
+                            {/* Content Right */}
+                            <div className="flex-1 text-left">
+                              <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group-hover:border-brand-secondary dark:group-hover:border-brand-secondary-light">
+                                <div className="flex items-center gap-4 mb-4">
+                                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-brand-secondary to-bronze-700 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
+                                    <MaterialIcon
+                                      icon={step.icon}
+                                      size="lg"
+                                      className="text-white"
+                                    />
+                                  </div>
+                                  <div>
+                                    <h4 className="font-black text-gray-900 dark:text-white text-xl mb-1">
+                                      {step.title}
+                                    </h4>
+                                  </div>
+                                </div>
+                                <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                                  {step.desc}
+                                </p>
+                              </div>
+                            </div>
+                          </>
+                        )}
+                      </div>
+
+                      {/* Mobile Layout */}
+                      <div className="lg:hidden flex gap-4">
+                        {/* Left Side - Number and Line */}
+                        <div className="flex flex-col items-center flex-shrink-0">
+                          <div
+                            className={`w-14 h-14 ${
+                              step.num % 2 === 0
+                                ? "bg-gradient-to-br from-brand-secondary to-bronze-700"
+                                : "bg-gradient-to-br from-brand-primary to-brand-primary-dark"
+                            } rounded-full flex items-center justify-center text-white font-black text-lg shadow-xl border-4 border-white dark:border-gray-900 relative z-10`}
+                          >
+                            {step.num}
+                          </div>
+                          {index < 4 && (
+                            <div className="w-1 flex-1 bg-gradient-to-b from-brand-primary to-brand-secondary mt-2 min-h-[60px]"></div>
                           )}
                         </div>
 
-                        {/* Mobile Layout */}
-                        <div className="lg:hidden flex gap-4">
-                          {/* Left Side - Number and Line */}
-                          <div className="flex flex-col items-center flex-shrink-0">
-                            <div
-                              className={`w-14 h-14 ${
-                                step.num % 2 === 0
-                                  ? "bg-gradient-to-br from-brand-secondary to-bronze-700"
-                                  : "bg-gradient-to-br from-brand-primary to-brand-primary-dark"
-                              } rounded-full flex items-center justify-center text-white font-black text-lg shadow-xl border-4 border-white dark:border-gray-900 relative z-10`}
-                            >
-                              {step.num}
-                            </div>
-                            {index < 4 && (
-                              <div className="w-1 flex-1 bg-gradient-to-b from-brand-primary to-brand-secondary mt-2 min-h-[60px]"></div>
-                            )}
-                          </div>
-
-                          {/* Right Side - Card */}
-                          <div className="flex-1 pb-8">
-                            <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-brand-primary dark:hover:border-brand-primary-light">
-                              <div className="flex items-center gap-3 mb-4">
-                                <div
-                                  className={`flex-shrink-0 w-12 h-12 ${
-                                    step.num % 2 === 0
-                                      ? "bg-gradient-to-br from-brand-secondary to-bronze-700"
-                                      : "bg-gradient-to-br from-brand-primary to-brand-primary-dark"
-                                  } rounded-xl flex items-center justify-center shadow-lg`}
-                                >
-                                  <MaterialIcon
-                                    icon={step.icon}
-                                    size="md"
-                                    className="text-white"
-                                  />
-                                </div>
-                                <h4 className="font-black text-gray-900 dark:text-white text-lg">
-                                  {step.title}
-                                </h4>
+                        {/* Right Side - Card */}
+                        <div className="flex-1 pb-8">
+                          <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-brand-primary dark:hover:border-brand-primary-light">
+                            <div className="flex items-center gap-3 mb-4">
+                              <div
+                                className={`flex-shrink-0 w-12 h-12 ${
+                                  step.num % 2 === 0
+                                    ? "bg-gradient-to-br from-brand-secondary to-bronze-700"
+                                    : "bg-gradient-to-br from-brand-primary to-brand-primary-dark"
+                                } rounded-xl flex items-center justify-center shadow-lg`}
+                              >
+                                <MaterialIcon
+                                  icon={step.icon}
+                                  size="md"
+                                  className="text-white"
+                                />
                               </div>
-                              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                                {step.desc}
-                              </p>
+                              <h4 className="font-black text-gray-900 dark:text-white text-lg">
+                                {step.title}
+                              </h4>
                             </div>
+                            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                              {step.desc}
+                            </p>
                           </div>
-                        </div>
-                      </FadeInWhenVisible>
-                    ))}
-                  </div>
-
-                  {/* Commitment Card */}
-                  <FadeInWhenVisible
-                    className="mt-16 max-w-3xl mx-auto"
-                    delay={0.5}
-                  >
-                    <div className="bg-brand-primary/10 dark:bg-brand-primary/20 rounded-2xl p-8 border-2 border-brand-primary/30">
-                      <div className="flex items-start gap-4">
-                        <MaterialIcon
-                          icon="verified_user"
-                          size="2xl"
-                          className="text-brand-primary flex-shrink-0"
-                        />
-                        <div>
-                          <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-2">
-                            Our Commitment
-                          </h4>
-                          <p className="text-gray-700 dark:text-gray-300">
-                            This isn't a marketing gimmick or one-time
-                            promotion. As a Veteran-Owned company, honoring
-                            combat service is part of our DNA. Your word is your
-                            bond—so is ours. Every combat veteran receives fair
-                            consideration, respectful treatment, and meaningful
-                            pricing that reflects the sacrifice made for our
-                            nation.
-                          </p>
                         </div>
                       </div>
                     </div>
-                  </FadeInWhenVisible>
+                  ))}
                 </div>
 
-                {/* CTA */}
-                <div className="mt-12 text-center">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 px-10 py-5 bg-brand-primary hover:bg-brand-primary/90 text-white transition-all duration-300 rounded-lg font-bold text-lg sm:text-xl shadow-lg hover:shadow-xl"
-                  >
-                    <MaterialIcon
-                      icon="phone"
-                      size="lg"
-                      theme="military"
-                      ariaLabel="Contact Now"
-                    />
-                    <span>
-                      Call {COMPANY_INFO.phone.display} - Mention Your Service
-                    </span>
-                  </Link>
-                  <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                    Direct line to Veteran-Owned leadership. No automated
-                    systems, no gatekeepers—just honest conversation with
-                    someone who understands.
-                  </p>
-                </div>
-              </FadeInWhenVisible>
+                {/* Commitment Card */}
+                <FadeInWhenVisible
+                  className="mt-16 max-w-3xl mx-auto"
+                  delay={0.5}
+                >
+                  <div className="bg-brand-primary/10 dark:bg-brand-primary/20 rounded-2xl p-8 border-2 border-brand-primary/30">
+                    <div className="flex items-start gap-4">
+                      <MaterialIcon
+                        icon="verified_user"
+                        size="2xl"
+                        className="text-brand-primary flex-shrink-0"
+                      />
+                      <div>
+                        <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-2">
+                          Our Commitment
+                        </h4>
+                        <p className="text-gray-700 dark:text-gray-300">
+                          This isn't a marketing gimmick or one-time promotion.
+                          As a Veteran-Owned company, honoring combat service is
+                          part of our DNA. Your word is your bond—so is ours.
+                          Every combat veteran receives fair consideration,
+                          respectful treatment, and meaningful pricing that
+                          reflects the sacrifice made for our nation.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </FadeInWhenVisible>
+              </div>
+
+              {/* CTA */}
+              <div className="mt-12 text-center">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-10 py-5 bg-brand-primary hover:bg-brand-primary/90 text-white transition-all duration-300 rounded-lg font-bold text-lg sm:text-xl shadow-lg hover:shadow-xl"
+                >
+                  <MaterialIcon
+                    icon="phone"
+                    size="lg"
+                    theme="military"
+                    ariaLabel="Contact Now"
+                  />
+                  <span>
+                    Call {COMPANY_INFO.phone.display} - Mention Your Service
+                  </span>
+                </Link>
+                <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                  Direct line to Veteran-Owned leadership. No automated systems,
+                  no gatekeepers—just honest conversation with someone who
+                  understands.
+                </p>
+              </div>
             </div>
           </section>
 
@@ -865,30 +859,31 @@ export default function VeteransPage() {
                       "Partnerships with Veteran-Owned subcontractors",
                   },
                 ].map((stat, index) => (
-                  <FadeInWhenVisible key={index} delay={index * 0.1}>
-                    <div className="h-full flex flex-col text-center p-6 sm:p-8 bg-white dark:bg-gray-800 rounded-3xl border-2 border-gray-200 dark:border-gray-700 hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 group shadow-lg hover:-translate-y-2">
-                      <div className="relative inline-block mb-4 mx-auto">
-                        <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 opacity-20 blur-lg rounded-full group-hover:opacity-40 transition-opacity"></div>
-                        <div className="relative">
-                          <MaterialIcon
-                            icon={stat.icon}
-                            className="text-brand-primary group-hover:scale-110 transition-transform"
-                            size="2xl"
-                            theme="veteran"
-                          />
-                        </div>
-                      </div>
-                      <div className="mb-3 font-black text-4xl sm:text-5xl text-brand-primary dark:text-brand-primary-light drop-shadow-sm">
-                        {stat.value}
-                      </div>
-                      <div className="text-gray-900 dark:text-white font-bold text-base sm:text-lg mb-3">
-                        {stat.label}
-                      </div>
-                      <div className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mt-auto">
-                        {stat.description}
+                  <div
+                    key={index}
+                    className="h-full flex flex-col text-center p-6 sm:p-8 bg-white dark:bg-gray-800 rounded-3xl border-2 border-gray-200 dark:border-gray-700 hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 group shadow-lg hover:-translate-y-2 scroll-reveal"
+                  >
+                    <div className="relative inline-block mb-4 mx-auto">
+                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 opacity-20 blur-lg rounded-full group-hover:opacity-40 transition-opacity"></div>
+                      <div className="relative">
+                        <MaterialIcon
+                          icon={stat.icon}
+                          className="text-brand-primary group-hover:scale-110 transition-transform"
+                          size="2xl"
+                          theme="veteran"
+                        />
                       </div>
                     </div>
-                  </FadeInWhenVisible>
+                    <div className="mb-3 font-black text-4xl sm:text-5xl text-brand-primary dark:text-brand-primary-light drop-shadow-sm">
+                      {stat.value}
+                    </div>
+                    <div className="text-gray-900 dark:text-white font-bold text-base sm:text-lg mb-3">
+                      {stat.label}
+                    </div>
+                    <div className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mt-auto">
+                      {stat.description}
+                    </div>
+                  </div>
                 ))}
               </div>
 
@@ -1133,31 +1128,23 @@ export default function VeteransPage() {
                     stats: "Long-Term Relationships",
                     position: "right",
                   },
-                ].map((item, index) => {
+                ].map((item) => {
                   const isLeft = item.position === "left";
                   return (
-                    <FadeInWhenVisible
-                      key={item.title}
-                      className="scroll-reveal group"
-                      delay={index * 0.1}
-                    >
+                    <div key={item.title} className="scroll-reveal group">
                       <div className="flex flex-col lg:grid lg:grid-cols-2 bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl dark:hover:shadow-brand-primary/20 overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300">
                         {/* Image Side */}
                         <div
-                          className={`relative h-64 sm:h-80 lg:h-full lg:min-h-[500px] overflow-hidden ${
+                          role="img"
+                          aria-label={`${item.title} - ${item.tagline}`}
+                          className={`relative h-64 sm:h-80 lg:h-full lg:min-h-[500px] overflow-hidden bg-cover bg-center ${
                             isLeft ? "lg:order-1" : "lg:order-2"
                           }`}
+                          style={{
+                            backgroundImage:
+                              "url('/images/logo/mh-veteran-bg.webp')",
+                          }}
                         >
-                          <Image
-                            src="/images/logo/mh-veteran-bg.webp"
-                            alt={`${item.title} - ${item.tagline}`}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                            loading="lazy"
-                            quality={75}
-                            priority={false}
-                          />
                           {/* Overlay gradient for better icon visibility */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent lg:bg-gradient-to-r lg:from-black/60 lg:via-black/20 lg:to-transparent"></div>
 
@@ -1216,7 +1203,7 @@ export default function VeteransPage() {
                           </div>
                         </div>
                       </div>
-                    </FadeInWhenVisible>
+                    </div>
                   );
                 })}
               </div>

@@ -1,3 +1,4 @@
+import { MapFacade } from "./MapFacade";
 import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
@@ -678,22 +679,12 @@ export default function ContactPageClient() {
                 </p>
               </div>
 
-              {/* Interactive Map - Google Maps Embed */}
+              {/* Interactive Map - loads on click (facade pattern) */}
               <div
                 className="relative mb-12 rounded-2xl shadow-2xl overflow-hidden border-4 border-brand-primary/20"
                 style={{ height: "600px" }}
               >
-                <iframe
-                  src="https://maps.google.com/maps?q=3111+N+Capitol+Ave,+Pasco,+WA+99301&z=15&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="MH Construction Office Location - 3111 N Capitol Ave, Pasco, WA 99301"
-                  className="absolute inset-0"
-                ></iframe>
+                <MapFacade />
               </div>
 
               {/* Map CTA */}

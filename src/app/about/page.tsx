@@ -191,7 +191,7 @@ export default function AboutPage() {
             {/* Combined grid with best content from both sections - 6 items total */}
             <div className={gridPresets.cards3("md", "mx-auto max-w-7xl")}>
               {/* Company Milestone */}
-              <FadeInWhenVisible>
+              <div className="scroll-reveal">
                 <ContentCard
                   variant="news"
                   icon="celebration"
@@ -203,9 +203,9 @@ export default function AboutPage() {
                   href="/projects"
                   linkText="View Our Work"
                 />
-              </FadeInWhenVisible>
+              </div>
 
-              <FadeInWhenVisible>
+              <div className="scroll-reveal">
                 <ContentCard
                   variant="news"
                   icon="verified"
@@ -218,9 +218,9 @@ export default function AboutPage() {
                   linkText="View BBB Profile"
                   external
                 />
-              </FadeInWhenVisible>
+              </div>
 
-              <FadeInWhenVisible>
+              <div className="scroll-reveal">
                 <ContentCard
                   variant="feature"
                   icon="rocket_launch"
@@ -233,9 +233,9 @@ export default function AboutPage() {
                   linkText="Learn More"
                   enhancedIcon
                 />
-              </FadeInWhenVisible>
+              </div>
 
-              <FadeInWhenVisible>
+              <div className="scroll-reveal">
                 <ContentCard
                   variant="feature"
                   icon="handshake"
@@ -248,9 +248,9 @@ export default function AboutPage() {
                   linkText="Become a Partner"
                   enhancedIcon
                 />
-              </FadeInWhenVisible>
+              </div>
 
-              <FadeInWhenVisible>
+              <div className="scroll-reveal">
                 <ContentCard
                   variant="feature"
                   icon="workspace_premium"
@@ -263,9 +263,9 @@ export default function AboutPage() {
                   linkText="Safety Standards"
                   enhancedIcon
                 />
-              </FadeInWhenVisible>
+              </div>
 
-              <FadeInWhenVisible>
+              <div className="scroll-reveal">
                 <ContentCard
                   variant="feature"
                   icon="lightbulb"
@@ -278,9 +278,9 @@ export default function AboutPage() {
                   linkText="Our Services"
                   enhancedIcon
                 />
-              </FadeInWhenVisible>
+              </div>
 
-              <FadeInWhenVisible>
+              <div className="scroll-reveal">
                 <ContentCard
                   variant="feature"
                   icon="military_tech"
@@ -295,7 +295,7 @@ export default function AboutPage() {
                   glowGradient="bg-gradient-to-br from-bronze-700/40 to-bronze-800/40"
                   enhancedIcon
                 />
-              </FadeInWhenVisible>
+              </div>
             </div>
 
             {/* Footer note about future blog */}

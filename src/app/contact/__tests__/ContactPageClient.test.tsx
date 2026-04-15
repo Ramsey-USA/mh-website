@@ -84,6 +84,15 @@ jest.mock("@/lib/styles/layout-variants", () => ({
   },
 }));
 
+jest.mock("../MapFacade", () => ({
+  MapFacade: () => (
+    <iframe
+      title="MH Construction Office Location - 3111 N Capitol Ave, Pasco, WA 99301"
+      data-testid="map-facade"
+    />
+  ),
+}));
+
 jest.mock("@/lib/constants/company", () => ({
   COMPANY_INFO: {
     phone: { display: "(509) 555-0100", tel: "+15095550100" },
