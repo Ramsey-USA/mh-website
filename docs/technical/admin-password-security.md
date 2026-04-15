@@ -419,7 +419,9 @@ const ADMIN_ENV_KEYS: Record<string, string> = {
 ```typescript
 // Constant-time HMAC comparison (timing-safe, Edge Runtime compatible)
 const passwordMatch = await timingSafeEqual(storedPassword, password);
-if (!adminName || !passwordMatch) { return unauthorized(); }
+if (!adminName || !passwordMatch) {
+  return unauthorized();
+}
 ```
 
 **Future Implementation (Phase 2 - Production):**

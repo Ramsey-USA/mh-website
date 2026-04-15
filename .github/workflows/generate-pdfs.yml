@@ -7,24 +7,24 @@ on:
   push:
     branches: [main]
     paths:
-      - 'documents/**'
-      - 'package.json'
+      - "documents/**"
+      - "package.json"
   workflow_dispatch:
     inputs:
       section:
-        description: 'Single MISH section number to regenerate (leave blank for all)'
+        description: "Single MISH section number to regenerate (leave blank for all)"
         required: false
-        default: ''
+        default: ""
       brand:
-        description: 'Brand ID to generate (mhc | hdd)'
+        description: "Brand ID to generate (mhc | hdd)"
         required: false
-        default: 'mhc'
+        default: "mhc"
 
 permissions:
   contents: read
 
 env:
-  NODE_VERSION: '22'
+  NODE_VERSION: "22"
 
 jobs:
   generate-pdfs:
@@ -43,7 +43,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
+          cache: "npm"
 
       # ── 3. Chromium system dependencies (required by Puppeteer) ──────────
       - name: Install Chromium system dependencies

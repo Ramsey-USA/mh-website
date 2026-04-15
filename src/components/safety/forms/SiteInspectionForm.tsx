@@ -51,7 +51,9 @@ function buildDefaultZones(): InspectionZone[] {
       items: [
         makeItem("Temporary power/cords in good condition (no fraying)"),
         makeItem("GFCIs in use on all temporary power"),
-        makeItem("Lockout/Tagout procedures followed for de-energized equipment"),
+        makeItem(
+          "Lockout/Tagout procedures followed for de-energized equipment",
+        ),
         makeItem("Overhead power line safe distances maintained"),
       ],
     },
@@ -126,7 +128,11 @@ export function SiteInspectionForm({
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const setItemResult = (zoneId: string, itemId: string, result: InspectionResult) =>
+  const setItemResult = (
+    zoneId: string,
+    itemId: string,
+    result: InspectionResult,
+  ) =>
     setFormData((d) => ({
       ...d,
       zones: d.zones.map((z) =>
@@ -134,10 +140,10 @@ export function SiteInspectionForm({
           ? {
               ...z,
               items: z.items.map((it) =>
-                it.id === itemId ? { ...it, result } : it
+                it.id === itemId ? { ...it, result } : it,
               ),
             }
-          : z
+          : z,
       ),
     }));
 
@@ -149,10 +155,10 @@ export function SiteInspectionForm({
           ? {
               ...z,
               items: z.items.map((it) =>
-                it.id === itemId ? { ...it, notes } : it
+                it.id === itemId ? { ...it, notes } : it,
               ),
             }
-          : z
+          : z,
       ),
     }));
 
@@ -177,7 +183,9 @@ export function SiteInspectionForm({
       if (!res.ok) throw new Error(json.error ?? "Submit failed");
       onSubmitSuccess(json.data.id as string);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Submit failed. Try again.");
+      setError(
+        err instanceof Error ? err.message : "Submit failed. Try again.",
+      );
     } finally {
       setSubmitting(false);
     }
@@ -200,7 +208,9 @@ export function SiteInspectionForm({
             type="date"
             required
             value={formData.date}
-            onChange={(e) => setFormData((d) => ({ ...d, date: e.target.value }))}
+            onChange={(e) =>
+              setFormData((d) => ({ ...d, date: e.target.value }))
+            }
             className={inputClass}
           />
         </div>
@@ -218,7 +228,9 @@ export function SiteInspectionForm({
           <input
             type="text"
             value={formData.inspectorName}
-            onChange={(e) => setFormData((d) => ({ ...d, inspectorName: e.target.value }))}
+            onChange={(e) =>
+              setFormData((d) => ({ ...d, inspectorName: e.target.value }))
+            }
             className={inputClass}
           />
         </div>
@@ -230,16 +242,23 @@ export function SiteInspectionForm({
           type="text"
           placeholder="e.g. Clear, 72°F; wet ground in NW corner"
           value={formData.weatherConditions}
-          onChange={(e) => setFormData((d) => ({ ...d, weatherConditions: e.target.value }))}
+          onChange={(e) =>
+            setFormData((d) => ({ ...d, weatherConditions: e.target.value }))
+          }
           className={inputClass}
         />
       </div>
 
       {/* Checklist zones */}
       {formData.zones.map((zone) => {
-        const failCount = zone.items.filter((it) => it.result === "fail").length;
+        const failCount = zone.items.filter(
+          (it) => it.result === "fail",
+        ).length;
         return (
-          <div key={zone.id} className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
+          <div
+            key={zone.id}
+            className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden"
+          >
             <div className="flex items-center justify-between bg-gray-50 dark:bg-gray-800 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
               <h4 className="font-semibold text-sm text-gray-800 dark:text-gray-200">
                 {zone.name}
@@ -259,20 +278,22 @@ export function SiteInspectionForm({
                       {item.label}
                     </p>
                     <div className="flex gap-1 shrink-0">
-                      {(["pass", "fail", "na"] as InspectionResult[]).map((r) => (
-                        <button
-                          key={r}
-                          type="button"
-                          onClick={() => setItemResult(zone.id, item.id, r)}
-                          className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ring-1 ring-inset ${
-                            item.result === r
-                              ? RESULT_COLORS[r]
-                              : "ring-gray-200 dark:ring-gray-700 text-gray-400 hover:ring-gray-400"
-                          }`}
-                        >
-                          {RESULT_LABELS[r]}
-                        </button>
-                      ))}
+                      {(["pass", "fail", "na"] as InspectionResult[]).map(
+                        (r) => (
+                          <button
+                            key={r}
+                            type="button"
+                            onClick={() => setItemResult(zone.id, item.id, r)}
+                            className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ring-1 ring-inset ${
+                              item.result === r
+                                ? RESULT_COLORS[r]
+                                : "ring-gray-200 dark:ring-gray-700 text-gray-400 hover:ring-gray-400"
+                            }`}
+                          >
+                            {RESULT_LABELS[r]}
+                          </button>
+                        ),
+                      )}
                     </div>
                   </div>
                   {item.result === "fail" && (
@@ -281,7 +302,9 @@ export function SiteInspectionForm({
                         type="text"
                         placeholder="Describe the issue and corrective action required…"
                         value={item.notes}
-                        onChange={(e) => setItemNotes(zone.id, item.id, e.target.value)}
+                        onChange={(e) =>
+                          setItemNotes(zone.id, item.id, e.target.value)
+                        }
                         className="w-full px-3 py-1.5 bg-white dark:bg-gray-800 border border-red-300 dark:border-red-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-400/50"
                       />
                     </div>
@@ -300,7 +323,9 @@ export function SiteInspectionForm({
           rows={3}
           placeholder="Any additional observations, commendations, or follow-up requirements…"
           value={formData.overallNotes}
-          onChange={(e) => setFormData((d) => ({ ...d, overallNotes: e.target.value }))}
+          onChange={(e) =>
+            setFormData((d) => ({ ...d, overallNotes: e.target.value }))
+          }
           className={`${inputClass} resize-none`}
         />
       </div>

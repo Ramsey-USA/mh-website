@@ -37,13 +37,13 @@ jobs:
     env:
       SAFETY_SMOKE_BASE_URL: ${{ inputs.base_url || 'https://www.mhc-gc.com' }}
       SAFETY_SMOKE_STRICT_PUBLIC_200: ${{ inputs.strict_public_200 || 'false' }}
-      SAFETY_SMOKE_REQUIRE_AUTH_CHECKS: 'false'
-      SAFETY_SMOKE_FIELD_PASSCODE: ''
-      SAFETY_SMOKE_ADMIN_EMAIL: ''
-      SAFETY_SMOKE_ADMIN_PASSWORD: ''
-      SAFETY_SMOKE_USER_BEARER_TOKEN: ''
-      SAFETY_SMOKE_ADMIN_BEARER_TOKEN: ''
-      SAFETY_SMOKE_JWT_SECRET: ''
+      SAFETY_SMOKE_REQUIRE_AUTH_CHECKS: "false"
+      SAFETY_SMOKE_FIELD_PASSCODE: ""
+      SAFETY_SMOKE_ADMIN_EMAIL: ""
+      SAFETY_SMOKE_ADMIN_PASSWORD: ""
+      SAFETY_SMOKE_USER_BEARER_TOKEN: ""
+      SAFETY_SMOKE_ADMIN_BEARER_TOKEN: ""
+      SAFETY_SMOKE_JWT_SECRET: ""
       SAFETY_SMOKE_JWT_ISSUER: ${{ inputs.base_url || 'https://www.mhc-gc.com' }}
 
     steps:
@@ -93,7 +93,7 @@ jobs:
     env:
       SAFETY_SMOKE_BASE_URL: ${{ inputs.base_url || 'https://www.mhc-gc.com' }}
       SAFETY_SMOKE_STRICT_PUBLIC_200: ${{ inputs.strict_public_200 || 'false' }}
-      SAFETY_SMOKE_REQUIRE_AUTH_CHECKS: 'true'
+      SAFETY_SMOKE_REQUIRE_AUTH_CHECKS: "true"
       SAFETY_SMOKE_FIELD_PASSCODE: ${{ (github.event_name == 'workflow_run' && secrets.SAFETY_SMOKE_FIELD_PASSCODE) || (inputs.run_authenticated_checks && secrets.SAFETY_SMOKE_FIELD_PASSCODE) || '' }}
       SAFETY_SMOKE_ADMIN_EMAIL: ${{ (github.event_name == 'workflow_run' && secrets.SAFETY_SMOKE_ADMIN_EMAIL) || (inputs.run_authenticated_checks && secrets.SAFETY_SMOKE_ADMIN_EMAIL) || '' }}
       SAFETY_SMOKE_ADMIN_PASSWORD: ${{ (github.event_name == 'workflow_run' && secrets.SAFETY_SMOKE_ADMIN_PASSWORD) || (inputs.run_authenticated_checks && secrets.SAFETY_SMOKE_ADMIN_PASSWORD) || '' }}

@@ -88,7 +88,7 @@ describe("Safety navigation contracts", () => {
     render(<ResourcesPage />);
 
     const safetyManualLink = screen.getByRole("link", {
-      name: /Safety Manual/i,
+      name: /MISH — Safety & Health Program/i,
     });
     expect(safetyManualLink).toHaveAttribute("href", "/safety");
   });

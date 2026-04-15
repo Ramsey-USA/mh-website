@@ -89,6 +89,21 @@ jest.mock("@/lib/constants/company", () => ({
     phone: { display: "(509) 555-0100", tel: "+15095550100" },
     email: { main: "office@mhc-gc.com" },
     address: { full: "3111 N. Capitol Ave., Pasco, WA 99301" },
+    bbb: {
+      profileUrl: "https://www.bbb.org/test",
+      sealClickUrl: "https://www.bbb.org/test#sealclick",
+      sealHorizontal: "/images/bbb-seal.png",
+      sealHorizontalWhite: "/images/bbb-seal-white.png",
+      sealVertical: "/images/bbb-seal-vertical.png",
+      sealVerticalWhite: "/images/bbb-seal-vertical-white.png",
+      rating: "A+",
+      accreditedSince: "April 7, 2026",
+    },
+    travelers: {
+      website: "https://www.travelers.com",
+      logo: "/images/travelers-logo.png",
+      logoWhite: "/images/travelers-logo-white.png",
+    },
   },
 }));
 

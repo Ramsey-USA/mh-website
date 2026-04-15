@@ -230,7 +230,7 @@ describe("EmailService.sendToOffice()", () => {
     delete process.env["EMAIL_FROM"];
   });
 
-  it("sends to general recipients only by default", async () => {
+  it("sends to all general recipients configured in EMAIL_RECIPIENTS", async () => {
     mockSend.mockResolvedValue({ data: { id: "x" }, error: null });
 
     const svc = new EmailService();
@@ -238,20 +238,24 @@ describe("EmailService.sendToOffice()", () => {
 
     const payload = mockSend.mock.calls[0]![0] as Record<string, unknown>;
     const to = payload["to"] as string[];
+    // Uses EMAIL_RECIPIENTS.general from mock
     expect(to).toContain("office@mhc-gc.com");
-    expect(to).not.toContain("arnold@mhc-gc.com");
+    expect(to).toContain("admin@mhc-gc.com");
+    expect(to).toHaveLength(2);
   });
 
-  it("adds arnold@mhc-gc.com when includeArnold=true", async () => {
+  it("ignores deprecated includeArnold parameter (recipients determined by EMAIL_RECIPIENTS)", async () => {
     mockSend.mockResolvedValue({ data: { id: "x" }, error: null });
 
     const svc = new EmailService();
+    // The includeArnold param is deprecated; recipients come from EMAIL_RECIPIENTS.general
     await svc.sendToOffice("Job App", { html: "<p>hi</p>", text: "hi" }, true);
 
     const payload = mockSend.mock.calls[0]![0] as Record<string, unknown>;
-    expect((payload["to"] as string[]).includes("arnold@mhc-gc.com")).toBe(
-      true,
-    );
+    const to = payload["to"] as string[];
+    // Should use EMAIL_RECIPIENTS.general regardless of includeArnold value
+    expect(to).toContain("office@mhc-gc.com");
+    expect(to).toContain("admin@mhc-gc.com");
   });
 
   it("passes attachments through to sendEmail", async () => {

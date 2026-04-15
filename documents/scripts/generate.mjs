@@ -27,35 +27,40 @@
  *     toolbox-talk.pdf
  */
 
-import puppeteer from 'puppeteer';
-import QRCode from 'qrcode';
-import { readFile, writeFile, mkdir } from 'fs/promises';
-import { readFileSync, existsSync } from 'fs';
-import { join, resolve, dirname, extname } from 'path';
-import { fileURLToPath, pathToFileURL } from 'url';
+import puppeteer from "puppeteer";
+import QRCode from "qrcode";
+import { readFile, writeFile, mkdir } from "fs/promises";
+import { readFileSync, existsSync } from "fs";
+import { join, resolve, dirname, extname } from "path";
+import { fileURLToPath, pathToFileURL } from "url";
 
-const SITE_URL   = 'https://www.mhc-gc.com';
-const __dirname  = dirname(fileURLToPath(import.meta.url));
-const ROOT       = resolve(__dirname, '../..');
-const DOCS_DIR   = join(ROOT, 'documents');
-const OUTPUT_DIR = join(DOCS_DIR, 'output');
-const MANIFEST   = join(DOCS_DIR, 'content/safety-manual.json');
+const SITE_URL = "https://www.mhc-gc.com";
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = resolve(__dirname, "../..");
+const DOCS_DIR = join(ROOT, "documents");
+const OUTPUT_DIR = join(DOCS_DIR, "output");
+const MANIFEST = join(DOCS_DIR, "content/safety-manual.json");
 
 // ── Argument parsing ──────────────────────────────────────────────────────────
-const args      = process.argv.slice(2);
-const getArg    = (flag) => { const i = args.indexOf(flag); return i !== -1 ? args[i + 1] : null; };
-const template    = getArg('--template') || 'all';
-const sectionNo   = getArg('--section');
-const revDateArg  = getArg('--rev-date');    // e.g. "04/07/2026"
-const revNumArg   = getArg('--rev-number');  // e.g. "2"
+const args = process.argv.slice(2);
+const getArg = (flag) => {
+  const i = args.indexOf(flag);
+  return i !== -1 ? args[i + 1] : null;
+};
+const template = getArg("--template") || "all";
+const sectionNo = getArg("--section");
+const revDateArg = getArg("--rev-date"); // e.g. "04/07/2026"
+const revNumArg = getArg("--rev-number"); // e.g. "2"
 
 // ── Brand loader ──────────────────────────────────────────────────────────────
-const brandId   = getArg('--brand') || 'mhc';
-const BRAND_DIR = join(DOCS_DIR, 'brands');
+const brandId = getArg("--brand") || "mhc";
+const BRAND_DIR = join(DOCS_DIR, "brands");
 
 let BRAND;
 try {
-  BRAND = JSON.parse(await readFile(join(BRAND_DIR, `${brandId}.json`), 'utf-8'));
+  BRAND = JSON.parse(
+    await readFile(join(BRAND_DIR, `${brandId}.json`), "utf-8"),
+  );
 } catch {
   console.error(`❌  Brand config not found: documents/brands/${brandId}.json`);
   process.exit(1);
@@ -64,42 +69,53 @@ try {
 // ── Runtime revision overrides (from CLI args or git metadata) ───────────────
 const _today = () => {
   const d = new Date();
-  return `${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}/${d.getFullYear()}`;
+  return `${String(d.getMonth() + 1).padStart(2, "0")}/${String(d.getDate()).padStart(2, "0")}/${d.getFullYear()}`;
 };
-BRAND.revisionDate   = revDateArg   || BRAND.revisionDate   || _today();
-BRAND.revisionNumber = revNumArg    || BRAND.revisionNumber || '1';
+BRAND.revisionDate = revDateArg || BRAND.revisionDate || _today();
+BRAND.revisionNumber = revNumArg || BRAND.revisionNumber || "1";
 
 // ── Logo base64 (used in Puppeteer header templates which need data URLs) ──────
-const _logoPath = join(DOCS_DIR, BRAND.logo.color.replace(/^\.\.\//, ''));
-let LOGO_COLOR_B64 = '';
+const _logoPath = join(DOCS_DIR, BRAND.logo.color.replace(/^\.\.\//, ""));
+let LOGO_COLOR_B64 = "";
 try {
   const _logoBuf = await readFile(_logoPath);
-  LOGO_COLOR_B64 = `data:image/png;base64,${_logoBuf.toString('base64')}`;
-} catch { /* logo file not found — header will render without image */ }
+  LOGO_COLOR_B64 = `data:image/png;base64,${_logoBuf.toString("base64")}`;
+} catch {
+  /* logo file not found — header will render without image */
+}
 
 // ── AGC partner logo base64 (used in Puppeteer footer template) ────────────
-const _agcPath = join(DOCS_DIR, 'assets/nwagc-logo.png');
-let AGC_LOGO_B64 = '';
+const _agcPath = join(DOCS_DIR, "assets/nwagc-logo.png");
+let AGC_LOGO_B64 = "";
 try {
   const _agcBuf = await readFile(_agcPath);
-  AGC_LOGO_B64 = `data:image/png;base64,${_agcBuf.toString('base64')}`;
-} catch { /* AGC logo not found — footer will render without it */ }
+  AGC_LOGO_B64 = `data:image/png;base64,${_agcBuf.toString("base64")}`;
+} catch {
+  /* AGC logo not found — footer will render without it */
+}
 
 // ── BBB Accredited Business seal base64 (used in Puppeteer footer template) ────
-const _bbbPath = join(DOCS_DIR, 'assets/bbb/bbb-accredited-seal.png');
-let BBB_LOGO_B64 = '';
+const _bbbPath = join(DOCS_DIR, "assets/bbb/bbb-accredited-seal.png");
+let BBB_LOGO_B64 = "";
 try {
   const _bbbBuf = await readFile(_bbbPath);
-  BBB_LOGO_B64 = `data:image/png;base64,${_bbbBuf.toString('base64')}`;
-} catch { /* BBB logo not found — footer will render without it */ }
+  BBB_LOGO_B64 = `data:image/png;base64,${_bbbBuf.toString("base64")}`;
+} catch {
+  /* BBB logo not found — footer will render without it */
+}
 
 // ── Travelers Insurance logo base64 (used in Puppeteer footer template) ────
-const _travelersPath = join(DOCS_DIR, 'assets/Travelers-logo-2color-Small-600px.png');
-let TRAVELERS_LOGO_B64 = '';
+const _travelersPath = join(
+  DOCS_DIR,
+  "assets/Travelers-logo-2color-Small-600px.png",
+);
+let TRAVELERS_LOGO_B64 = "";
 try {
   const _travelersBuf = await readFile(_travelersPath);
-  TRAVELERS_LOGO_B64 = `data:image/png;base64,${_travelersBuf.toString('base64')}`;
-} catch { /* Travelers logo not found — footer will render without it */ }
+  TRAVELERS_LOGO_B64 = `data:image/png;base64,${_travelersBuf.toString("base64")}`;
+} catch {
+  /* Travelers logo not found — footer will render without it */
+}
 
 /**
  * Build a flat token map from the brand config.
@@ -110,18 +126,21 @@ function buildBrandTokens(brand) {
   const licStr = Object.entries(brand.licenses || {})
     .filter(([, v]) => v)
     .map(([state, num]) => `${state} Lic: ${num}`)
-    .join('  ·  ');
+    .join("  ·  ");
 
   // Helper: convert relative doc paths to base64 data URIs for self-contained HTML.
   // Brand JSON paths are relative to the brands/ directory.
   const resolvePath = (relPath) => {
-    if (!relPath) return '';
+    if (!relPath) return "";
     const absPath = resolve(BRAND_DIR, relPath);
     try {
       const buf = readFileSync(absPath);
       const ext = extname(absPath).slice(1).toLowerCase();
-      const mime = ext === 'svg' ? 'image/svg+xml' : `image/${ext === 'jpg' ? 'jpeg' : ext}`;
-      return `data:${mime};base64,${buf.toString('base64')}`;
+      const mime =
+        ext === "svg"
+          ? "image/svg+xml"
+          : `image/${ext === "jpg" ? "jpeg" : ext}`;
+      return `data:${mime};base64,${buf.toString("base64")}`;
     } catch {
       // Fallback to file:// URL if file cannot be read
       return pathToFileURL(absPath).href;
@@ -129,43 +148,49 @@ function buildBrandTokens(brand) {
   };
 
   return {
-    '{{BRAND_ID}}':                   brand.id,
-    '{{BRAND_COMPANY_NAME}}':         brand.companyName,
-    '{{BRAND_COMPANY_SHORT}}':        brand.companyShort,
-    '{{BRAND_TAGLINE}}':              brand.tagline,
-    '{{BRAND_VETERAN}}':              brand.veteranOwned ? 'Veteran-Owned' : '',
-    '{{BRAND_ADDRESS}}':              brand.address,
-    '{{BRAND_ADDRESS_STREET}}':       brand.addressStreet,
-    '{{BRAND_ADDRESS_CITYSTATEZIP}}': brand.addressCityStateZip,
-    '{{BRAND_PHONE}}':                brand.phone,
-    '{{BRAND_WEBSITE}}':              brand.website,
-    '{{BRAND_EMAIL}}':                brand.email,
-    '{{BRAND_REVISION_YEAR}}':        brand.revisionYear,
-    '{{BRAND_REVISION_DATE}}':         brand.revisionDate   || '',
-    '{{BRAND_REVISION_NUMBER}}':       brand.revisionNumber || '1',
-    '{{BRAND_LICENSE_WA}}':           brand.licenses?.WA  || '',
-    '{{BRAND_LICENSE_OR}}':           brand.licenses?.OR  || '',
-    '{{BRAND_LICENSE_ID}}':           brand.licenses?.ID  || '',
-    '{{BRAND_LICENSES_INLINE}}':      licStr,
-    '{{BRAND_COLOR_PRIMARY}}':        brand.colors.primary,
-    '{{BRAND_COLOR_PRIMARY_DARK}}':   brand.colors.primaryDark,
-    '{{BRAND_COLOR_PRIMARY_DARKER}}': brand.colors.primaryDarker,
-    '{{BRAND_COLOR_PRIMARY_LIGHT}}':  brand.colors.primaryLight,
-    '{{BRAND_COLOR_SECONDARY}}':      brand.colors.secondary,
-    '{{BRAND_COLOR_SECONDARY_LIGHT}}':brand.colors.secondaryLight,
-    '{{BRAND_COLOR_SECONDARY_TEXT}}': brand.colors.secondaryText,
-    '{{BRAND_COLOR_BRONZE}}':         brand.colors.bronze,
-    '{{BRAND_COLOR_BRONZE_LIGHT}}':   brand.colors.bronzeLight,
-    '{{BRAND_COLOR_BRONZE_DARK}}':    brand.colors.bronzeDark,
-    '{{BRAND_LOGO_WHITE}}':           resolvePath(brand.logo.white),
-    '{{BRAND_LOGO_COLOR}}':           LOGO_COLOR_B64 || resolvePath(brand.logo.color),
-    '{{BRAND_LOGO_DARKBG}}':          resolvePath(brand.logo.darkBg),
-    '{{BRAND_AGC_HORIZONTAL}}':       resolvePath(brand.partnerLogos?.agcHorizontal || ''),
-    '{{BRAND_AGC_STACKED}}':          resolvePath(brand.partnerLogos?.agcStacked    || ''),
-    '{{BRAND_BBB_HORIZONTAL}}':       BBB_LOGO_B64 || resolvePath(brand.partnerLogos?.bbbHorizontal || ''),
-    '{{BRAND_BBB_VERTICAL}}':         resolvePath(brand.partnerLogos?.bbbVertical   || ''),
-    '{{BRAND_BBB_SEAL}}':             BBB_LOGO_B64 || resolvePath(brand.partnerLogos?.bbbSeal       || ''),
-    '{{BRAND_QR_DASHBOARD}}':         resolvePath(brand.qrCodes?.dashboard          || ''),
+    "{{BRAND_ID}}": brand.id,
+    "{{BRAND_COMPANY_NAME}}": brand.companyName,
+    "{{BRAND_COMPANY_SHORT}}": brand.companyShort,
+    "{{BRAND_TAGLINE}}": brand.tagline,
+    "{{BRAND_VETERAN}}": brand.veteranOwned ? "Veteran-Owned" : "",
+    "{{BRAND_ADDRESS}}": brand.address,
+    "{{BRAND_ADDRESS_STREET}}": brand.addressStreet,
+    "{{BRAND_ADDRESS_CITYSTATEZIP}}": brand.addressCityStateZip,
+    "{{BRAND_PHONE}}": brand.phone,
+    "{{BRAND_WEBSITE}}": brand.website,
+    "{{BRAND_EMAIL}}": brand.email,
+    "{{BRAND_REVISION_YEAR}}": brand.revisionYear,
+    "{{BRAND_REVISION_DATE}}": brand.revisionDate || "",
+    "{{BRAND_REVISION_NUMBER}}": brand.revisionNumber || "1",
+    "{{BRAND_LICENSE_WA}}": brand.licenses?.WA || "",
+    "{{BRAND_LICENSE_OR}}": brand.licenses?.OR || "",
+    "{{BRAND_LICENSE_ID}}": brand.licenses?.ID || "",
+    "{{BRAND_LICENSES_INLINE}}": licStr,
+    "{{BRAND_COLOR_PRIMARY}}": brand.colors.primary,
+    "{{BRAND_COLOR_PRIMARY_DARK}}": brand.colors.primaryDark,
+    "{{BRAND_COLOR_PRIMARY_DARKER}}": brand.colors.primaryDarker,
+    "{{BRAND_COLOR_PRIMARY_LIGHT}}": brand.colors.primaryLight,
+    "{{BRAND_COLOR_SECONDARY}}": brand.colors.secondary,
+    "{{BRAND_COLOR_SECONDARY_LIGHT}}": brand.colors.secondaryLight,
+    "{{BRAND_COLOR_SECONDARY_TEXT}}": brand.colors.secondaryText,
+    "{{BRAND_COLOR_BRONZE}}": brand.colors.bronze,
+    "{{BRAND_COLOR_BRONZE_LIGHT}}": brand.colors.bronzeLight,
+    "{{BRAND_COLOR_BRONZE_DARK}}": brand.colors.bronzeDark,
+    "{{BRAND_LOGO_WHITE}}": resolvePath(brand.logo.white),
+    "{{BRAND_LOGO_COLOR}}": LOGO_COLOR_B64 || resolvePath(brand.logo.color),
+    "{{BRAND_LOGO_DARKBG}}": resolvePath(brand.logo.darkBg),
+    "{{BRAND_AGC_HORIZONTAL}}": resolvePath(
+      brand.partnerLogos?.agcHorizontal || "",
+    ),
+    "{{BRAND_AGC_STACKED}}": resolvePath(brand.partnerLogos?.agcStacked || ""),
+    "{{BRAND_BBB_HORIZONTAL}}":
+      BBB_LOGO_B64 || resolvePath(brand.partnerLogos?.bbbHorizontal || ""),
+    "{{BRAND_BBB_VERTICAL}}": resolvePath(
+      brand.partnerLogos?.bbbVertical || "",
+    ),
+    "{{BRAND_BBB_SEAL}}":
+      BBB_LOGO_B64 || resolvePath(brand.partnerLogos?.bbbSeal || ""),
+    "{{BRAND_QR_DASHBOARD}}": resolvePath(brand.qrCodes?.dashboard || ""),
   };
 }
 
@@ -189,7 +214,7 @@ function applyBrandTokens(html) {
  */
 function sectionToTab(sectionNumber) {
   const n = Number(sectionNumber);
-  if (n === 0) return 'TOC';
+  if (n === 0) return "TOC";
   if (n >= 1 && n <= 33) return String(n);
   // 34→A, 35→B, … 44→K
   return String.fromCharCode(65 + (n - 34));
@@ -204,11 +229,25 @@ function sectionToTab(sectionNumber) {
  */
 function sectionToTier(sectionNumber) {
   const n = Number(sectionNumber);
-  if (n === 0) return null;  // TOC has no tier
-  if (n <= 3)  return { num: 1, label: 'Admin Anchor',     desc: 'Senior Management Ownership' };
-  if (n <= 9)  return { num: 2, label: 'Field Cadence',    desc: 'Planning & Orientation' };
-  if (n <= 37) return { num: 3, label: 'Engineering',      desc: 'OSHA 1926/WAC 296-155' };
-  return             { num: 4, label: 'Specialized Risk', desc: 'Subcontractors, CDL & Exposures' };
+  if (n === 0) return null; // TOC has no tier
+  if (n <= 3) {
+    return {
+      num: 1,
+      label: "Admin Anchor",
+      desc: "Senior Management Ownership",
+    };
+  }
+  if (n <= 9) {
+    return { num: 2, label: "Field Cadence", desc: "Planning & Orientation" };
+  }
+  if (n <= 37) {
+    return { num: 3, label: "Engineering", desc: "OSHA 1926/WAC 296-155" };
+  }
+  return {
+    num: 4,
+    label: "Specialized Risk",
+    desc: "Subcontractors, CDL & Exposures",
+  };
 }
 
 // ── Puppeteer header / footer templates ────────────────────────────────────
@@ -220,12 +259,11 @@ function sectionToTier(sectionNumber) {
  * Layout: LEFT (MISH + title) | CENTER (logo) | RIGHT (tab location + rev).
  */
 function buildSectionHeaderHtml(sectionNum, sectionTitle, revNum, revDate) {
-  const titleShort = sectionTitle.length > 40
-    ? sectionTitle.slice(0, 37) + '…'
-    : sectionTitle;
+  const titleShort =
+    sectionTitle.length > 40 ? sectionTitle.slice(0, 37) + "…" : sectionTitle;
   const tabRef = sectionToTab(sectionNum);
-  const font = '\'Helvetica Neue\',Arial,sans-serif';
-  const pad  = 'padding:0 0.75in 0 1.25in';
+  const font = "'Helvetica Neue',Arial,sans-serif";
+  const pad = "padding:0 0.75in 0 1.25in";
   return [
     `<div style="width:100%;background:white;border-bottom:1.5pt solid #BD9264;`,
     `${pad};height:0.65in;display:flex;align-items:center;`,
@@ -252,7 +290,7 @@ function buildSectionHeaderHtml(sectionNum, sectionTitle, revNum, revDate) {
     `</div>`,
 
     `</div>`,
-  ].join('');
+  ].join("");
 }
 
 /**
@@ -282,17 +320,17 @@ const SECTION_FOOTER_HTML = [
   `<span style="color:#BD9264;font-weight:700;">Revision 2026</span></div>`,
   BBB_LOGO_B64
     ? `<img src="${BBB_LOGO_B64}" style="height:0.34in;width:auto;display:block;flex-shrink:0;" alt="BBB Accredited A+" />`
-    : '',
+    : "",
   AGC_LOGO_B64
     ? `<img src="${AGC_LOGO_B64}" style="height:0.34in;width:auto;display:block;flex-shrink:0;" alt="AGC Member" />`
-    : '',
+    : "",
   TRAVELERS_LOGO_B64
     ? `<img src="${TRAVELERS_LOGO_B64}" style="height:0.28in;width:auto;display:block;flex-shrink:0;" alt="Travelers Insurance Partner" />`
-    : '',
+    : "",
   `</div>`,
 
   `</div>`,
-].join('');
+].join("");
 
 /**
  * Generate a QR code as a base64 PNG data URL for embedding in HTML.
@@ -300,14 +338,14 @@ const SECTION_FOOTER_HTML = [
  */
 function buildQrDataUrl(url) {
   return QRCode.toDataURL(url, {
-    type:   'image/png',
-    width:  180,
+    type: "image/png",
+    width: 180,
     margin: 1,
     color: {
-      dark:  BRAND.colors.primary,
-      light: '#ffffff',
+      dark: BRAND.colors.primary,
+      light: "#ffffff",
     },
-    errorCorrectionLevel: 'M',
+    errorCorrectionLevel: "M",
   });
 }
 
@@ -323,11 +361,16 @@ async function ensureDir(dir) {
  * @param {object} pageOpts  — Puppeteer PDF options override
  * @param {string} [tmpName] — optional explicit temp file name
  */
-async function renderHtmlToPdf(html, pdfPath, pageOpts = {}, tmpName = '_tmp_render.html') {
+async function renderHtmlToPdf(
+  html,
+  pdfPath,
+  pageOpts = {},
+  tmpName = "_tmp_render.html",
+) {
   const tmpHtml = join(DOCS_DIR, tmpName);
-  await writeFile(tmpHtml, html, 'utf-8');
+  await writeFile(tmpHtml, html, "utf-8");
   await renderPdf(tmpHtml, pdfPath, pageOpts);
-  await import('fs').then(fs => fs.default.unlinkSync(tmpHtml));
+  await import("fs").then((fs) => fs.default.unlinkSync(tmpHtml));
 }
 
 /**
@@ -338,7 +381,7 @@ async function getBrowser() {
   if (!_browser) {
     _browser = await puppeteer.launch({
       headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
   }
   return _browser;
@@ -352,100 +395,138 @@ async function getBrowser() {
  */
 async function renderPdf(htmlPath, pdfPath, pageOpts = {}) {
   const browser = await getBrowser();
-  const page    = await browser.newPage();
+  const page = await browser.newPage();
 
   // Load the HTML file via file:// protocol so relative CSS paths resolve
-  await page.goto(pathToFileURL(htmlPath).toString(), { waitUntil: 'networkidle0' });
+  await page.goto(pathToFileURL(htmlPath).toString(), {
+    waitUntil: "networkidle0",
+  });
 
   const defaultOpts = {
-    format:             'Letter',
-    printBackground:    true,
-    preferCSSPageSize:  false,
+    format: "Letter",
+    printBackground: true,
+    preferCSSPageSize: false,
     margin: {
-      top:    '0.75in',
-      right:  '0.75in',
-      bottom: '0.75in',
-      left:   '1.25in',
+      top: "0.75in",
+      right: "0.75in",
+      bottom: "0.75in",
+      left: "1.25in",
     },
   };
 
   await page.pdf({ path: pdfPath, ...defaultOpts, ...pageOpts });
   await page.close();
 
-  const rel = pdfPath.replace(ROOT + '/', '');
+  const rel = pdfPath.replace(ROOT + "/", "");
   console.log(`  ✓  ${rel}`);
 }
 
 // ── Template: Cover ───────────────────────────────────────────────────────────
 async function generateCover() {
-  console.log('\n📄 Generating cover…');
+  console.log("\n📄 Generating cover…");
   await ensureDir(OUTPUT_DIR);
-  const raw     = await readFile(join(DOCS_DIR, 'manuals/safety-manual-cover.html'), 'utf-8');
+  const raw = await readFile(
+    join(DOCS_DIR, "manuals/safety-manual-cover.html"),
+    "utf-8",
+  );
   const qrDataUrl = await buildQrDataUrl(BRAND.qrCodes.digitalManual);
-  const html    = applyBrandTokens(raw).replace('{{QR_DIGITAL_MANUAL}}', qrDataUrl);
-  const pdfPath = join(OUTPUT_DIR, 'safety-manual-cover.pdf');
-  await renderHtmlToPdf(html, pdfPath, { margin: { top: 0, right: 0, bottom: 0, left: 0 } }, '_tmp_cover.html');
+  const html = applyBrandTokens(raw).replace(
+    "{{QR_DIGITAL_MANUAL}}",
+    qrDataUrl,
+  );
+  const pdfPath = join(OUTPUT_DIR, "safety-manual-cover.pdf");
+  await renderHtmlToPdf(
+    html,
+    pdfPath,
+    { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
+    "_tmp_cover.html",
+  );
 }
 
 // ── Template: Spine ───────────────────────────────────────────────────────────
 async function generateSpine() {
-  console.log('\n📐 Generating spine…');
+  console.log("\n📐 Generating spine…");
   await ensureDir(OUTPUT_DIR);
-  const raw     = await readFile(join(DOCS_DIR, 'manuals/safety-manual-spine.html'), 'utf-8');
-  const html    = applyBrandTokens(raw);
-  const pdfPath = join(OUTPUT_DIR, 'safety-manual-spine.pdf');
-  await renderHtmlToPdf(html, pdfPath, { margin: { top: 0, right: 0, bottom: 0, left: 0 } }, '_tmp_spine.html');
+  const raw = await readFile(
+    join(DOCS_DIR, "manuals/safety-manual-spine.html"),
+    "utf-8",
+  );
+  const html = applyBrandTokens(raw);
+  const pdfPath = join(OUTPUT_DIR, "safety-manual-spine.pdf");
+  await renderHtmlToPdf(
+    html,
+    pdfPath,
+    { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
+    "_tmp_spine.html",
+  );
 }
 
 // ── Template: Tab Dividers ────────────────────────────────────────────────────
 async function generateTabs() {
-  console.log('\n🗂  Generating tab dividers…');
+  console.log("\n🗂  Generating tab dividers…");
   await ensureDir(OUTPUT_DIR);
-  const raw     = await readFile(join(DOCS_DIR, 'manuals/safety-manual-tabs.html'), 'utf-8');
-  const html    = applyBrandTokens(raw);
-  const pdfPath = join(OUTPUT_DIR, 'safety-manual-tabs.pdf');
-  await renderHtmlToPdf(html, pdfPath, { margin: { top: 0, right: 0, bottom: 0, left: 0 } }, '_tmp_tabs.html');
+  const raw = await readFile(
+    join(DOCS_DIR, "manuals/safety-manual-tabs.html"),
+    "utf-8",
+  );
+  const html = applyBrandTokens(raw);
+  const pdfPath = join(OUTPUT_DIR, "safety-manual-tabs.pdf");
+  await renderHtmlToPdf(
+    html,
+    pdfPath,
+    { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
+    "_tmp_tabs.html",
+  );
 }
 
 // ── Template: Section PDFs ────────────────────────────────────────────────────
 async function generateSections(filter = null) {
   if (!existsSync(MANIFEST)) {
-    console.error('\n❌  safety-manual.json not found. Run `npm run docs:extract` first.');
+    console.error(
+      "\n❌  safety-manual.json not found. Run `npm run docs:extract` first.",
+    );
     process.exit(1);
   }
 
-  const { sections } = JSON.parse(await readFile(MANIFEST, 'utf-8'));
-  const sectionsDir  = join(OUTPUT_DIR, 'sections');
+  const { sections } = JSON.parse(await readFile(MANIFEST, "utf-8"));
+  const sectionsDir = join(OUTPUT_DIR, "sections");
   await ensureDir(sectionsDir);
 
   // Optional: render only a single section
-  const targets = filter !== null
-    ? sections.filter(s => String(s.number) === String(filter))
-    : sections;
+  const targets =
+    filter !== null
+      ? sections.filter((s) => String(s.number) === String(filter))
+      : sections;
 
   console.log(`\n📑 Generating ${targets.length} section PDF(s)…`);
 
-  const templateHtml = await readFile(join(DOCS_DIR, 'manuals/safety-manual-section.html'), 'utf-8');
+  const templateHtml = await readFile(
+    join(DOCS_DIR, "manuals/safety-manual-section.html"),
+    "utf-8",
+  );
 
   for (const section of targets) {
     // Generate branded QR code pointing to the section's web page
-    const sectionUrl   = `${SITE_URL}/resources/safety-manual/section/${section.slug}`;
-    const qrDataUrl    = await buildQrDataUrl(sectionUrl);
+    const sectionUrl = `${SITE_URL}/resources/safety-manual/section/${section.slug}`;
+    const qrDataUrl = await buildQrDataUrl(sectionUrl);
 
     // Inject section data + brand tokens; run section-specific post-processing
     let html = applyBrandTokens(
       templateHtml
-        .replace(/\{\{SECTION_NUMBER\}\}/g,  section.numberStr)
-        .replace(/\{\{SECTION_TITLE\}\}/g,   escapeHtml(section.title))
-        .replace(/\{\{SECTION_BODY\}\}/g,    section.number === 0
+        .replace(/\{\{SECTION_NUMBER\}\}/g, section.numberStr)
+        .replace(/\{\{SECTION_TITLE\}\}/g, escapeHtml(section.title))
+        .replace(
+          /\{\{SECTION_BODY\}\}/g,
+          section.number === 0
             ? textToTocHtml(section.body)
-            : section.body.trimStart().startsWith('<')
+            : section.body.trimStart().startsWith("<")
               ? cleanWordHtml(section.body)
-              : textToHtml(section.body))
-        .replace(/\{\{REVISION_YEAR\}\}/g,   BRAND.revisionYear || '2026')
-        .replace(/\{\{TOTAL_SECTIONS\}\}/g,  String(sections.length))
+              : textToHtml(section.body),
+        )
+        .replace(/\{\{REVISION_YEAR\}\}/g, BRAND.revisionYear || "2026")
+        .replace(/\{\{TOTAL_SECTIONS\}\}/g, String(sections.length))
         .replace(/\{\{QR_CODE_DATA_URL\}\}/g, qrDataUrl)
-        .replace(/\{\{SECTION_URL\}\}/g,     escapeHtml(sectionUrl))
+        .replace(/\{\{SECTION_URL\}\}/g, escapeHtml(sectionUrl)),
     );
 
     // Post-process: 3-Hour Rule callout, Addendum A table, form page breaks
@@ -456,28 +537,33 @@ async function generateSections(filter = null) {
       section.numberStr,
       section.title,
       BRAND.revisionNumber,
-      BRAND.revisionDate
+      BRAND.revisionDate,
     );
 
     const pdfName = `${section.numberStr}-${section.slug}.pdf`;
     const pdfPath = join(sectionsDir, pdfName);
-    await renderHtmlToPdf(html, pdfPath, {
-      displayHeaderFooter: true,
-      headerTemplate:      headerHtml,
-      footerTemplate:      SECTION_FOOTER_HTML,
-      margin: {
-        top:    '1.0in',    // accommodates 0.65in header + 0.35in gap
-        right:  '0.75in',
-        bottom: '0.9in',    // accommodates 0.65in footer + 0.25in gap
-        left:   '1.25in',
+    await renderHtmlToPdf(
+      html,
+      pdfPath,
+      {
+        displayHeaderFooter: true,
+        headerTemplate: headerHtml,
+        footerTemplate: SECTION_FOOTER_HTML,
+        margin: {
+          top: "1.0in", // accommodates 0.65in header + 0.35in gap
+          right: "0.75in",
+          bottom: "0.9in", // accommodates 0.65in footer + 0.25in gap
+          left: "1.25in",
+        },
       },
-    }, `manuals/_tmp_section_${section.numberStr}.html`);
+      `manuals/_tmp_section_${section.numberStr}.html`,
+    );
   }
 }
 
 // ── Template: Standalone Forms ────────────────────────────────────────────────
 async function generateForm(name) {
-  const formsDir = join(OUTPUT_DIR, 'forms');
+  const formsDir = join(OUTPUT_DIR, "forms");
   await ensureDir(formsDir);
 
   const htmlPath = join(DOCS_DIR, `forms/${name}.html`);
@@ -487,8 +573,8 @@ async function generateForm(name) {
   }
 
   console.log(`\n📋 Generating form: ${name}…`);
-  const raw     = await readFile(htmlPath, 'utf-8');
-  const html    = applyBrandTokens(raw);
+  const raw = await readFile(htmlPath, "utf-8");
+  const html = applyBrandTokens(raw);
   const pdfPath = join(formsDir, `${name}.pdf`);
   await renderHtmlToPdf(html, pdfPath, {}, `forms/_tmp_${name}.html`);
 }
@@ -496,10 +582,10 @@ async function generateForm(name) {
 // ── Utilities ─────────────────────────────────────────────────────────────────
 function escapeHtml(str) {
   return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 /**
@@ -516,7 +602,7 @@ function escapeHtml(str) {
  *  - Strips per-page artifact banners (company header repeated on each page)
  */
 function textToTocHtml(text) {
-  if (!text) return '';
+  if (!text) return "";
 
   const TOC_ARTIFACT = [
     /^--\s*\d+\s*of\s*\d+\s*--$/,
@@ -529,10 +615,10 @@ function textToTocHtml(text) {
     /^NUMBER\s+TITLE\s+REV/i,
   ];
 
-  const lines  = text.split('\n');
-  const parts  = [];
-  let   inToc  = false;
-  let   lastTier = null;
+  const lines = text.split("\n");
+  const parts = [];
+  let inToc = false;
+  let lastTier = null;
 
   for (const raw of lines) {
     const line = raw.trim();
@@ -547,47 +633,54 @@ function textToTocHtml(text) {
     if (!inToc) continue;
 
     // Suppress per-page artifact lines
-    if (TOC_ARTIFACT.some(p => p.test(line))) continue;
+    if (TOC_ARTIFACT.some((p) => p.test(line))) continue;
 
     // "MISH ## Section Title [Rev Date]" — the core TOC entry
     const tocMatch = line.match(/^MISH\s+(\d+)\s+(.+)$/);
     if (tocMatch) {
-      const num   = tocMatch[1].padStart(2, '0');
+      const num = tocMatch[1].padStart(2, "0");
       const numInt = Number(tocMatch[1]);
       // Strip trailing " 2 04/07/2026" style revision/date suffix
-      const title = tocMatch[2].replace(/\s+\d+\s+\d{2}\/\d{2}\/\d{4}\s*$/, '').trim();
+      const title = tocMatch[2]
+        .replace(/\s+\d+\s+\d{2}\/\d{2}\/\d{4}\s*$/, "")
+        .trim();
       const tabRef = sectionToTab(numInt);
-      const tier   = sectionToTier(numInt);
+      const tier = sectionToTier(numInt);
 
       // Insert tier heading when entering a new tier
       if (tier && (!lastTier || lastTier !== tier.num)) {
         parts.push(
           `<div class="toc-tier-heading">` +
-          `<span class="toc-tier-label">TIER ${tier.num}</span>` +
-          `<span class="toc-tier-desc">${tier.label} — ${tier.desc}</span>` +
-          `</div>`
+            `<span class="toc-tier-label">TIER ${tier.num}</span>` +
+            `<span class="toc-tier-desc">${tier.label} — ${tier.desc}</span>` +
+            `</div>`,
         );
         lastTier = tier.num;
       }
 
       parts.push(
         `<div class="toc-entry">` +
-        `<span class="toc-tab">TAB ${tabRef}</span>` +
-        `<span class="toc-number">MISH\u00a0${num}</span>` +
-        `<span class="toc-title">${escapeHtml(title)}</span>` +
-        `<span class="toc-dots"></span>` +
-        `</div>`
+          `<span class="toc-tab">TAB ${tabRef}</span>` +
+          `<span class="toc-number">MISH\u00a0${num}</span>` +
+          `<span class="toc-title">${escapeHtml(title)}</span>` +
+          `<span class="toc-dots"></span>` +
+          `</div>`,
       );
       continue;
     }
 
     // All-caps short lines after the heading become sub-section markers
-    if (line.length < 90 && line === line.toUpperCase() && /[A-Z]{2}/.test(line) && !/^\d/.test(line)) {
+    if (
+      line.length < 90 &&
+      line === line.toUpperCase() &&
+      /[A-Z]{2}/.test(line) &&
+      !/^\d/.test(line)
+    ) {
       parts.push(`<h4 class="sec-subhead">${escapeHtml(line)}</h4>`);
     }
   }
 
-  return parts.join('\n');
+  return parts.join("\n");
 }
 
 /**
@@ -601,7 +694,7 @@ function textToTocHtml(text) {
  * @returns {string} Clean HTML ready for {{SECTION_BODY}}
  */
 function cleanWordHtml(html) {
-  if (!html) return '<p><em>No content provided.</em></p>';
+  if (!html) return "<p><em>No content provided.</em></p>";
 
   const STRIP = [
     /^MH CONSTRUCTION\s*$/i,
@@ -633,25 +726,27 @@ function cleanWordHtml(html) {
   let out = html;
 
   // Strip inline style attributes
-  out = out.replace(/\s+style="[^"]*"/gi, '');
+  out = out.replace(/\s+style="[^"]*"/gi, "");
 
   // Strip colour/font spans that add no semantic value
-  out = out.replace(/<span[^>]*>([^<]*)<\/span>/gi, '$1');
+  out = out.replace(/<span[^>]*>([^<]*)<\/span>/gi, "$1");
 
   // Remove empty / whitespace-only paragraphs
-  out = out.replace(/<p>(\s|&nbsp;)*<\/p>/gi, '');
+  out = out.replace(/<p>(\s|&nbsp;)*<\/p>/gi, "");
 
   // Remove boilerplate <p> blocks
   out = out.replace(/<p>([\s\S]*?)<\/p>/gi, (match, inner) => {
-    const text = inner.replace(/<[^>]+>/g, '').trim();
-    if (!text) return '';
-    if (STRIP.some(p => p.test(text))) return '';
+    const text = inner.replace(/<[^>]+>/g, "").trim();
+    if (!text) return "";
+    if (STRIP.some((p) => p.test(text))) return "";
     return match;
   });
 
   // Remap heading levels to sec-subhead style
-  out = out.replace(/<h[123](\s[^>]*)?>([\s\S]*?)<\/h[123]>/gi,
-    (_, attrs, content) => `<h4 class="sec-subhead">${content}</h4>`);
+  out = out.replace(
+    /<h[123](\s[^>]*)?>([\s\S]*?)<\/h[123]>/gi,
+    (_, attrs, content) => `<h4 class="sec-subhead">${content}</h4>`,
+  );
 
   // Add sec-list class to lists
   out = out.replace(/<(ul|ol)(\s[^>]*)?>/gi, '<$1 class="sec-list">');
@@ -672,7 +767,7 @@ function cleanWordHtml(html) {
  * @returns {string} HTML
  */
 function textToHtml(text) {
-  if (!text) return '<p><em>No content extracted. See source PDF.</em></p>';
+  if (!text) return "<p><em>No content extracted. See source PDF.</em></p>";
 
   // Source-PDF artifacts that should be stripped from every section body
   const STRIP = [
@@ -696,20 +791,23 @@ function textToHtml(text) {
     /^AGC Safety Standards Compliant\s*$/i,
   ];
 
-  const lines = text.split('\n');
+  const lines = text.split("\n");
   const parts = [];
   let para = [];
 
   const flush = () => {
     if (!para.length) return;
-    parts.push(`<p>${para.join(' ')}</p>`);
+    parts.push(`<p>${para.join(" ")}</p>`);
     para = [];
   };
 
   for (const raw of lines) {
     const line = raw.trim();
-    if (!line) { flush(); continue; }
-    if (STRIP.some(p => p.test(line))) continue;
+    if (!line) {
+      flush();
+      continue;
+    }
+    if (STRIP.some((p) => p.test(line))) continue;
 
     // Dotted section number: "2.3", "2.3.1", "2.3.1.1" — flush-left heading
     const numMatch = line.match(/^(\d+\.\d+(?:\.\d+)*)\s+(.+)$/);
@@ -717,17 +815,19 @@ function textToHtml(text) {
       flush();
       parts.push(
         `<div class="sec-num-row">` +
-        `<span class="sec-num">${escapeHtml(numMatch[1])}</span>` +
-        `<span class="sec-num-text">${escapeHtml(numMatch[2].trim())}</span>` +
-        `</div>`
+          `<span class="sec-num">${escapeHtml(numMatch[1])}</span>` +
+          `<span class="sec-num-text">${escapeHtml(numMatch[2].trim())}</span>` +
+          `</div>`,
       );
       continue;
     }
 
     // Bullet point (• character)
-    if (line.startsWith('\u2022')) {
+    if (line.startsWith("\u2022")) {
       flush();
-      parts.push(`<li class="sec-bullet">${escapeHtml(line.slice(1).trim())}</li>`);
+      parts.push(
+        `<li class="sec-bullet">${escapeHtml(line.slice(1).trim())}</li>`,
+      );
       continue;
     }
 
@@ -748,8 +848,11 @@ function textToHtml(text) {
   flush();
 
   // Wrap orphaned <li> elements in <ul>
-  let html = parts.join('\n');
-  html = html.replace(/(<li[\s\S]*?<\/li>\n?)+/g, m => `<ul class="sec-list">${m}</ul>`);
+  let html = parts.join("\n");
+  html = html.replace(
+    /(<li[\s\S]*?<\/li>\n?)+/g,
+    (m) => `<ul class="sec-list">${m}</ul>`,
+  );
   return html;
 }
 
@@ -781,7 +884,7 @@ function injectThreeHourCallout(html, sectionNumber) {
     `within 3 hours. Failure to appear, refusal, or no-show at the collection site constitutes an `,
     `automatic positive result and is subject to full disciplinary action per Section 2.6.</p>`,
     `</div></div>`,
-  ].join('');
+  ].join("");
 
   if (sectionNumber === 2) {
     // PRECISION OVERRIDE 2 — Visual Field Triggers (MISH 02)
@@ -805,7 +908,7 @@ function injectThreeHourCallout(html, sectionNumber) {
             `<p class="thr-warning">IF TESTING IS NOT COMPLETE WITHIN THE 3-HOUR WINDOW = DEEMED POSITIVE</p>`,
             `<p class="thr-detail">Supervisors: Document the exact notification time. Escort the employee to the collection facility. Do not allow the window to expire.</p>`,
             `</div></div>`,
-          ].join('');
+          ].join("");
         } else {
           return [
             `<div class="three-hour-rule-box no-break">`,
@@ -815,9 +918,9 @@ function injectThreeHourCallout(html, sectionNumber) {
             `<p class="thr-warning">FAILURE TO COMPLY WITHIN THE 3-HOUR WINDOW = DEEMED POSITIVE</p>`,
             `<p class="thr-detail">Failure to appear at the testing location within 3 hours shall be treated as a positive test result &mdash; subject to immediate disciplinary action (&sect;2.6).</p>`,
             `</div></div>`,
-          ].join('');
+          ].join("");
         }
-      }
+      },
     );
 
     // If table-based replacement succeeded, skip paragraph-based injection
@@ -826,7 +929,7 @@ function injectThreeHourCallout(html, sectionNumber) {
     // Fallback: inject after the 3-hours/sample paragraph if table was not found
     const result = html.replace(
       /(<p>[^<]*3[\s-]*hours?[^<]*(sample|provide|collection)[^<]*<\/p>)/i,
-      `$1${callout}`
+      `$1${callout}`,
     );
     if (result !== html) return result;
   }
@@ -836,14 +939,14 @@ function injectThreeHourCallout(html, sectionNumber) {
     // Anchor after the random testing paragraph or any testing-related paragraph
     let result = html.replace(
       /(<p>[^<]*random[^<]*test[^<]*<\/p>)/i,
-      `$1${callout}`
+      `$1${callout}`,
     );
     if (result !== html) return result;
 
     // Fallback: anchor after post-accident testing paragraph
     result = html.replace(
       /(<p>[^<]*post.accident[^<]*test[^<]*<\/p>)/i,
-      `$1${callout}`
+      `$1${callout}`,
     );
     if (result !== html) return result;
 
@@ -854,7 +957,7 @@ function injectThreeHourCallout(html, sectionNumber) {
   // MISH 01 (or MISH 02 final fallback): anchor after the Drug Free Workplace / testing paragraph
   const result = html.replace(
     /(<p>[^<]*Drug Free Workplace[^<]*testing[^<]*<\/p>)/i,
-    `$1${callout}`
+    `$1${callout}`,
   );
   // Last-resort: append before the first sec-subhead (section is short — better than nothing)
   if (result === html) {
@@ -901,13 +1004,13 @@ function injectAddendumATable(html) {
     `confirmed by GC/MS analysis. A confirmed positive triggers disciplinary action per Section 2.6. `,
     `Zero tolerance applies to 6-AM (heroin metabolite).</p>`,
     `</div>`,
-  ].join('');
+  ].join("");
 
   // Insert before the ADDENDUM B heading if present; else append
   if (/ADDENDUM[^<]{0,10}B/i.test(html)) {
     return html.replace(
       /(<h4[^>]*>[^<]*ADDENDUM[^<]*B[^<]*<\/h4>)/i,
-      `${table}$1`
+      `${table}$1`,
     );
   }
   return html + table;
@@ -925,24 +1028,25 @@ function injectAddendumATable(html) {
  * form titles (not <h4> elements), so regexes target that pattern.
  */
 function injectFormPageBreaks(html) {
-  const makeHeader = (formId, formName) => [
-    `<div class="page-break-before"></div>`,
-    `<div class="form-standalone-header">`,
-    `<span class="form-badge">FORM ${formId}</span>`,
-    `<span class="form-badge-title">${formName}</span>`,
-    `</div>`,
-  ].join('');
+  const makeHeader = (formId, formName) =>
+    [
+      `<div class="page-break-before"></div>`,
+      `<div class="form-standalone-header">`,
+      `<span class="form-badge">FORM ${formId}</span>`,
+      `<span class="form-badge-title">${formName}</span>`,
+      `</div>`,
+    ].join("");
 
   // FORM 02-A — replace the <p><strong>FORM 02-A…</strong></p> paragraph
   html = html.replace(
     /<p><strong>FORM\s+02-A[^<]*<\/strong><\/p>/i,
-    makeHeader('02-A', 'Applicant Consent to Drug &amp; Alcohol Testing')
+    makeHeader("02-A", "Applicant Consent to Drug &amp; Alcohol Testing"),
   );
 
   // FORM 02-B — replace the <p><strong>FORM 02-B…</strong></p> paragraph
   html = html.replace(
     /<p><strong>FORM\s+02-B[^<]*<\/strong><\/p>/i,
-    makeHeader('02-B', 'Return-to-Work Agreement')
+    makeHeader("02-B", "Return-to-Work Agreement"),
   );
 
   return html;
@@ -952,10 +1056,7 @@ function injectFormPageBreaks(html) {
  * Replace long underscore sequences with styled non-breaking signature lines.
  */
 function injectSignatureLines(html) {
-  return html.replace(
-    /_{8,}/g,
-    '<span class="sig-line-underline"></span>'
-  );
+  return html.replace(/_{8,}/g, '<span class="sig-line-underline"></span>');
 }
 
 /**
@@ -977,7 +1078,7 @@ function injectSignatureTables(html) {
     `<td><p><strong>Today's Date:</strong></p></td><td></td></tr></table>`,
     `<table><tr><td><p><strong>Applicant SSN (Last 4):</strong></p></td><td></td>`,
     `<td><p><strong>Employer:</strong></p></td><td></td></tr></table>`,
-  ].join('');
+  ].join("");
 
   const form02aTable = [
     `<table class="signature-table no-break">`,
@@ -992,7 +1093,7 @@ function injectSignatureTables(html) {
     `<td class="sig-label">Employer:</td><td class="sig-fill"></td>`,
     `</tr>`,
     `</table>`,
-  ].join('');
+  ].join("");
 
   html = html.replace(form02aBlock, form02aTable);
 
@@ -1004,7 +1105,7 @@ function injectSignatureTables(html) {
     `<td><p><strong>Today's Date:</strong></p></td><td></td></tr></table>`,
     `<table><tr><td><p><strong>Witness Signature:</strong></p></td><td></td>`,
     `<td><p><strong>HR Representative:</strong></p></td><td></td></tr></table>`,
-  ].join('');
+  ].join("");
 
   const form02bTable = [
     `<table class="signature-table no-break">`,
@@ -1019,7 +1120,7 @@ function injectSignatureTables(html) {
     `<td class="sig-label">HR Representative:</td><td class="sig-fill"></td>`,
     `</tr>`,
     `</table>`,
-  ].join('');
+  ].join("");
 
   return html.replace(form02bBlock, form02bTable);
 }
@@ -1053,9 +1154,9 @@ function injectZeroToleranceBox(html) {
         `</p>`,
         list,
         `</div>`,
-      ].join('');
+      ].join("");
       return introPara + boxHtml;
-    }
+    },
   );
 }
 
@@ -1072,7 +1173,9 @@ function injectZeroToleranceBox(html) {
  */
 function injectOrientationForm(html) {
   // Build the 12-row sign-in table
-  const rows = Array.from({ length: 12 }, () => `
+  const rows = Array.from(
+    { length: 12 },
+    () => `
     <tr>
       <td class="cell-value" style="width:25%">&nbsp;</td>
       <td class="cell-value" style="width:30%">&nbsp;</td>
@@ -1080,7 +1183,8 @@ function injectOrientationForm(html) {
       <td class="cell-value" style="width:20%">&nbsp;</td>
       <td class="cell-value" style="width:10%">&nbsp;</td>
     </tr>
-  `).join('');
+  `,
+  ).join("");
 
   const form = [
     `<div class="page-break-before"></div>`,
@@ -1105,19 +1209,19 @@ function injectOrientationForm(html) {
     rows,
     `</tbody>`,
     `</table>`,
-  ].join('');
+  ].join("");
 
   // Replace from the heading to end of section-body but STOP at the qr-footer div
   // so that the QR footer block and closing </body></html> are preserved.
   const replaced = html.replace(
     /(<h4[^>]*>[^<]*ORIENTATION CHECKLIST SIGN.OFF SHEET[^<]*<\/h4>)[\s\S]*?(?=<div class="qr-footer"|<\/body>)/i,
-    form
+    form,
   );
   // Fallback: the heading might be a paragraph
   if (replaced === html) {
     return html.replace(
       /(<p>[^<]*ORIENTATION CHECKLIST SIGN.OFF SHEET[^<]*<\/p>)[\s\S]*?(?=<div class="qr-footer"|<\/body>)/i,
-      form
+      form,
     );
   }
   return replaced;
@@ -1136,35 +1240,38 @@ function injectOrientationForm(html) {
  */
 function injectPtpForm(html) {
   const HAZARDS = [
-    'Falls over 6 ft (OR) / 10 ft (WA)',
-    'Excavations / Trenching',
-    'Confined Space Entry',
-    'Hoisting and Rigging',
-    'Welding / Cutting',
-    'Hazardous Material (SDS Available)',
-    'Ladders',
-    'Electrical Hazard',
-    'Heat / Cold Stress',
-    'Other (describe below)',
+    "Falls over 6 ft (OR) / 10 ft (WA)",
+    "Excavations / Trenching",
+    "Confined Space Entry",
+    "Hoisting and Rigging",
+    "Welding / Cutting",
+    "Hazardous Material (SDS Available)",
+    "Ladders",
+    "Electrical Hazard",
+    "Heat / Cold Stress",
+    "Other (describe below)",
   ];
 
-  const hazardRows = HAZARDS.map(h =>
-    `<tr>` +
-    `<td class="ptp-cb">&#9744;</td>` +
-    `<td>${escapeHtml(h)}</td>` +
-    `<td style="width:55%"></td>` +
-    `</tr>`
-  ).join('');
+  const hazardRows = HAZARDS.map(
+    (h) =>
+      `<tr>` +
+      `<td class="ptp-cb">&#9744;</td>` +
+      `<td>${escapeHtml(h)}</td>` +
+      `<td style="width:55%"></td>` +
+      `</tr>`,
+  ).join("");
 
   // 24 employee rows; two columns per rendered row (12 rows × 2 cols = 24 slots)
-  const injuredRows = Array.from({ length: 12 }, () =>
-    `<tr>` +
-    `<td style="width:30%">&nbsp;</td>` +
-    `<td class="ptp-yn">&#9744;&nbsp;Yes &nbsp; &#9744;&nbsp;No</td>` +
-    `<td style="width:30%">&nbsp;</td>` +
-    `<td class="ptp-yn">&#9744;&nbsp;Yes &nbsp; &#9744;&nbsp;No</td>` +
-    `</tr>`
-  ).join('');
+  const injuredRows = Array.from(
+    { length: 12 },
+    () =>
+      `<tr>` +
+      `<td style="width:30%">&nbsp;</td>` +
+      `<td class="ptp-yn">&#9744;&nbsp;Yes &nbsp; &#9744;&nbsp;No</td>` +
+      `<td style="width:30%">&nbsp;</td>` +
+      `<td class="ptp-yn">&#9744;&nbsp;Yes &nbsp; &#9744;&nbsp;No</td>` +
+      `</tr>`,
+  ).join("");
 
   const ptpHtml = [
     `<div class="page-break-before"></div>`,
@@ -1207,9 +1314,19 @@ function injectPtpForm(html) {
     `<table class="ptp-meta-table">`,
     `<tr>`,
     [
-      'Hard Hat', 'Safety Glasses', 'Fall Harness + Lanyard',
-      'Face Shield', 'Hi-Vis Vest', 'Hearing Protection', 'Other',
-    ].map(p => `<td style="text-align:center;padding:4pt 6pt;border:0.75pt solid #aaa;">&#9744; ${escapeHtml(p)}</td>`).join(''),
+      "Hard Hat",
+      "Safety Glasses",
+      "Fall Harness + Lanyard",
+      "Face Shield",
+      "Hi-Vis Vest",
+      "Hearing Protection",
+      "Other",
+    ]
+      .map(
+        (p) =>
+          `<td style="text-align:center;padding:4pt 6pt;border:0.75pt solid #aaa;">&#9744; ${escapeHtml(p)}</td>`,
+      )
+      .join(""),
     `</tr>`,
     `</table>`,
 
@@ -1226,20 +1343,20 @@ function injectPtpForm(html) {
     `</table>`,
 
     `</div>`, // .ptp-form
-  ].join('');
+  ].join("");
 
   // Anchor: the ALL-CAPS heading "MH CONSTRUCTION PRE-TASK PLAN" becomes a sec-subhead
   // Stop before the qr-footer div to preserve closing structure.
   const replaced = html.replace(
     /(<h4[^>]*>[^<]*MH CONSTRUCTION PRE.TASK PLAN[^<]*<\/h4>)[\s\S]*?(?=<div class="qr-footer"|<\/body>)/i,
-    ptpHtml
+    ptpHtml,
   );
   if (replaced !== html) return replaced;
 
   // Fallback: look for it as a paragraph
   return html.replace(
     /(<p>[^<]*MH CONSTRUCTION PRE.TASK PLAN[^<]*<\/p>)[\s\S]*?(?=<div class="qr-footer"|<\/body>)/i,
-    ptpHtml
+    ptpHtml,
   );
 }
 
@@ -1253,7 +1370,7 @@ function postProcessSectionHtml(html, sectionNumber) {
   if (sectionNumber === 2) {
     html = injectAddendumATable(html);
     html = injectFormPageBreaks(html);
-    html = injectSignatureTables(html);   // consolidate individual sig tables → unified bordered table
+    html = injectSignatureTables(html); // consolidate individual sig tables → unified bordered table
     html = injectSignatureLines(html);
   }
   if (sectionNumber === 3) {
@@ -1272,32 +1389,34 @@ function postProcessSectionHtml(html, sectionNumber) {
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 async function main() {
-  console.log('🏗  MH Construction — Document Generator');
-  console.log('==========================================');
+  console.log("🏗  MH Construction — Document Generator");
+  console.log("==========================================");
 
   try {
     switch (template) {
-      case 'all':
+      case "all":
         await generateCover();
         await generateSpine();
         await generateTabs();
         await generateSections();
         break;
-      case 'cover':
+      case "cover":
         await generateCover();
         break;
-      case 'spine':
+      case "spine":
         await generateSpine();
         break;
-      case 'tabs':
+      case "tabs":
         await generateTabs();
         break;
-      case 'sections':
+      case "sections":
         await generateSections();
         break;
-      case 'section':
+      case "section":
         if (!sectionNo) {
-          console.error('❌  --section <number> required when --template section');
+          console.error(
+            "❌  --section <number> required when --template section",
+          );
           process.exit(1);
         }
         await generateSections(sectionNo);
@@ -1314,8 +1433,8 @@ async function main() {
   }
 }
 
-main().catch(err => {
-  console.error('\n❌ Fatal error:', err);
+main().catch((err) => {
+  console.error("\n❌ Fatal error:", err);
   if (_browser) _browser.close();
   process.exit(1);
 });

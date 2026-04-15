@@ -17,20 +17,20 @@
     "ID": ""
   },
   "colors": {
-    "primary":        "#1a3a5c",
-    "primaryDark":    "#0d1f33",
-    "primaryDarker":  "#070f1a",
-    "primaryLight":   "#2d5a8e",
-    "secondary":      "#c8a04a",
+    "primary": "#1a3a5c",
+    "primaryDark": "#0d1f33",
+    "primaryDarker": "#070f1a",
+    "primaryLight": "#2d5a8e",
+    "secondary": "#c8a04a",
     "secondaryLight": "#e0c47a",
-    "secondaryText":  "#9a7a35",
-    "bronze":         "#a07830",
-    "bronzeLight":    "#c09850",
-    "bronzeDark":     "#705520"
+    "secondaryText": "#9a7a35",
+    "bronze": "#a07830",
+    "bronzeLight": "#c09850",
+    "bronzeDark": "#705520"
   },
   "logo": {
-    "white":  "../assets/hdd-logo-white.png",
-    "color":  "../assets/hdd-logo-color.png",
+    "white": "../assets/hdd-logo-white.png",
+    "color": "../assets/hdd-logo-color.png",
     "darkBg": "../assets/hdd-logo-dark-bg.png"
   },
   "partnerLogos": {}

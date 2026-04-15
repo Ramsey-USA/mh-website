@@ -77,14 +77,26 @@ export function IncidentReportForm({
   const addWitness = () =>
     setFormData((d) => ({
       ...d,
-      witnesses: [...d.witnesses, { id: crypto.randomUUID(), name: "", statement: "" }],
+      witnesses: [
+        ...d.witnesses,
+        { id: crypto.randomUUID(), name: "", statement: "" },
+      ],
     }));
   const removeWitness = (id: string) =>
-    setFormData((d) => ({ ...d, witnesses: d.witnesses.filter((w) => w.id !== id) }));
-  const updateWitness = (id: string, field: "name" | "statement", value: string) =>
     setFormData((d) => ({
       ...d,
-      witnesses: d.witnesses.map((w) => (w.id === id ? { ...w, [field]: value } : w)),
+      witnesses: d.witnesses.filter((w) => w.id !== id),
+    }));
+  const updateWitness = (
+    id: string,
+    field: "name" | "statement",
+    value: string,
+  ) =>
+    setFormData((d) => ({
+      ...d,
+      witnesses: d.witnesses.map((w) =>
+        w.id === id ? { ...w, [field]: value } : w,
+      ),
     }));
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -118,7 +130,9 @@ export function IncidentReportForm({
       if (!res.ok) throw new Error(json.error ?? "Submit failed");
       onSubmitSuccess(json.data.id as string);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Submit failed. Try again.");
+      setError(
+        err instanceof Error ? err.message : "Submit failed. Try again.",
+      );
     } finally {
       setSubmitting(false);
     }
@@ -134,10 +148,15 @@ export function IncidentReportForm({
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Severity warning banner */}
       <div className="flex items-start gap-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-300 dark:border-amber-700 rounded-xl px-4 py-3">
-        <MaterialIcon icon="warning_amber" size="md" className="text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+        <MaterialIcon
+          icon="warning_amber"
+          size="md"
+          className="text-amber-600 dark:text-amber-400 shrink-0 mt-0.5"
+        />
         <p className="text-sm text-amber-800 dark:text-amber-200">
-          For life-threatening emergencies, call <strong>911</strong> immediately.
-          Notify your PM and safety officer as soon as safe to do so.
+          For life-threatening emergencies, call <strong>911</strong>{" "}
+          immediately. Notify your PM and safety officer as soon as safe to do
+          so.
         </p>
       </div>
 
@@ -151,7 +170,9 @@ export function IncidentReportForm({
             type="date"
             required
             value={formData.date}
-            onChange={(e) => setFormData((d) => ({ ...d, date: e.target.value }))}
+            onChange={(e) =>
+              setFormData((d) => ({ ...d, date: e.target.value }))
+            }
             className={inputClass}
           />
         </div>
@@ -160,7 +181,9 @@ export function IncidentReportForm({
           <input
             type="time"
             value={formData.time}
-            onChange={(e) => setFormData((d) => ({ ...d, time: e.target.value }))}
+            onChange={(e) =>
+              setFormData((d) => ({ ...d, time: e.target.value }))
+            }
             className={inputClass}
           />
         </div>
@@ -178,7 +201,9 @@ export function IncidentReportForm({
           <input
             type="text"
             value={formData.reporterName}
-            onChange={(e) => setFormData((d) => ({ ...d, reporterName: e.target.value }))}
+            onChange={(e) =>
+              setFormData((d) => ({ ...d, reporterName: e.target.value }))
+            }
             className={inputClass}
           />
         </div>
@@ -190,7 +215,9 @@ export function IncidentReportForm({
           <label className={labelClass}>Incident Type</label>
           <select
             value={formData.incidentType}
-            onChange={(e) => setFormData((d) => ({ ...d, incidentType: e.target.value }))}
+            onChange={(e) =>
+              setFormData((d) => ({ ...d, incidentType: e.target.value }))
+            }
             className={inputClass}
           >
             <option value="">— Select type —</option>
@@ -207,7 +234,9 @@ export function IncidentReportForm({
             type="text"
             placeholder="e.g. Main entry, East elevation Level 2"
             value={formData.location}
-            onChange={(e) => setFormData((d) => ({ ...d, location: e.target.value }))}
+            onChange={(e) =>
+              setFormData((d) => ({ ...d, location: e.target.value }))
+            }
             className={inputClass}
           />
         </div>
@@ -220,7 +249,9 @@ export function IncidentReportForm({
           type="text"
           placeholder="Full name and trade / role"
           value={formData.personInvolved}
-          onChange={(e) => setFormData((d) => ({ ...d, personInvolved: e.target.value }))}
+          onChange={(e) =>
+            setFormData((d) => ({ ...d, personInvolved: e.target.value }))
+          }
           className={inputClass}
         />
       </div>
@@ -228,13 +259,21 @@ export function IncidentReportForm({
       <div className="flex gap-6">
         {[
           { field: "injuryOccurred" as const, label: "Injury occurred" },
-          { field: "medicalAttentionRequired" as const, label: "Medical attention required" },
+          {
+            field: "medicalAttentionRequired" as const,
+            label: "Medical attention required",
+          },
         ].map(({ field, label }) => (
-          <label key={field} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
+          <label
+            key={field}
+            className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer"
+          >
             <input
               type="checkbox"
               checked={formData[field]}
-              onChange={(e) => setFormData((d) => ({ ...d, [field]: e.target.checked }))}
+              onChange={(e) =>
+                setFormData((d) => ({ ...d, [field]: e.target.checked }))
+              }
               className="w-4 h-4 rounded text-brand-primary focus:ring-brand-primary/50 border-gray-300"
             />
             {label}
@@ -252,7 +291,9 @@ export function IncidentReportForm({
           rows={4}
           placeholder="Describe exactly what happened — include sequence of events, equipment involved, and conditions at the time of the incident…"
           value={formData.description}
-          onChange={(e) => setFormData((d) => ({ ...d, description: e.target.value }))}
+          onChange={(e) =>
+            setFormData((d) => ({ ...d, description: e.target.value }))
+          }
           className={textareaClass}
         />
       </div>
@@ -264,7 +305,9 @@ export function IncidentReportForm({
           rows={2}
           placeholder="What was done immediately to respond to and contain the incident?"
           value={formData.immediateAction}
-          onChange={(e) => setFormData((d) => ({ ...d, immediateAction: e.target.value }))}
+          onChange={(e) =>
+            setFormData((d) => ({ ...d, immediateAction: e.target.value }))
+          }
           className={textareaClass}
         />
       </div>
@@ -279,7 +322,9 @@ export function IncidentReportForm({
           rows={3}
           placeholder="Identify the underlying root cause(s) — not just the immediate cause. Ask 'why' until you find the systemic issue."
           value={formData.rootCause}
-          onChange={(e) => setFormData((d) => ({ ...d, rootCause: e.target.value }))}
+          onChange={(e) =>
+            setFormData((d) => ({ ...d, rootCause: e.target.value }))
+          }
           className={textareaClass}
         />
       </div>
@@ -291,7 +336,9 @@ export function IncidentReportForm({
           rows={3}
           placeholder="What changes will be made to prevent recurrence? Who is responsible and by when?"
           value={formData.correctiveAction}
-          onChange={(e) => setFormData((d) => ({ ...d, correctiveAction: e.target.value }))}
+          onChange={(e) =>
+            setFormData((d) => ({ ...d, correctiveAction: e.target.value }))
+          }
           className={textareaClass}
         />
       </div>
@@ -327,7 +374,9 @@ export function IncidentReportForm({
                   type="text"
                   placeholder="Brief statement"
                   value={w.statement}
-                  onChange={(e) => updateWitness(w.id, "statement", e.target.value)}
+                  onChange={(e) =>
+                    updateWitness(w.id, "statement", e.target.value)
+                  }
                   className="px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
                 />
               </div>
@@ -351,7 +400,9 @@ export function IncidentReportForm({
           type="text"
           placeholder="Initials confirming report accuracy"
           value={formData.supervisorSignature}
-          onChange={(e) => setFormData((d) => ({ ...d, supervisorSignature: e.target.value }))}
+          onChange={(e) =>
+            setFormData((d) => ({ ...d, supervisorSignature: e.target.value }))
+          }
           className={`${inputClass} max-w-xs`}
         />
       </div>

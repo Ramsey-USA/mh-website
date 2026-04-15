@@ -15,12 +15,12 @@ const ALL_CATEGORIES: SectionCategory[] = [
 ];
 
 const CATEGORY_ICONS: Record<SectionCategory, string> = {
-  "Personnel & Policy":          "badge",
-  "Planning & Administration":   "event_note",
-  "Physical Hazards":            "warning",
-  "Equipment & Operations":      "precision_manufacturing",
+  "Personnel & Policy": "badge",
+  "Planning & Administration": "event_note",
+  "Physical Hazards": "warning",
+  "Equipment & Operations": "precision_manufacturing",
   "Health & Industrial Hygiene": "medical_services",
-  "Site Control & Environment":  "traffic",
+  "Site Control & Environment": "traffic",
 };
 
 interface Props {
@@ -29,7 +29,9 @@ interface Props {
 
 export function SectionBrowser({ sections }: Props) {
   const [query, setQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState<SectionCategory | null>(null);
+  const [activeCategory, setActiveCategory] = useState<SectionCategory | null>(
+    null,
+  );
   const [requiredOnly, setRequiredOnly] = useState(false);
 
   const filtered = useMemo(() => {
@@ -37,7 +39,14 @@ export function SectionBrowser({ sections }: Props) {
     return sections.filter((s) => {
       if (requiredOnly && s.priority !== "required") return false;
       if (activeCategory && s.category !== activeCategory) return false;
-      if (q && !s.title.toLowerCase().includes(q) && !s.summary.toLowerCase().includes(q) && !s.number.includes(q)) return false;
+      if (
+        q &&
+        !s.title.toLowerCase().includes(q) &&
+        !s.summary.toLowerCase().includes(q) &&
+        !s.number.includes(q)
+      ) {
+        return false;
+      }
       return true;
     });
   }, [sections, query, activeCategory, requiredOnly]);
@@ -98,20 +107,28 @@ export function SectionBrowser({ sections }: Props) {
           {ALL_CATEGORIES.map((cat) => (
             <button
               key={cat}
-              onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
+              onClick={() =>
+                setActiveCategory(activeCategory === cat ? null : cat)
+              }
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors ${
                 activeCategory === cat
                   ? "bg-brand-primary text-white border-brand-primary"
                   : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-brand-primary hover:text-brand-primary"
               }`}
             >
-              <MaterialIcon icon={CATEGORY_ICONS[cat]} size="xs" className="shrink-0" />
+              <MaterialIcon
+                icon={CATEGORY_ICONS[cat]}
+                size="xs"
+                className="shrink-0"
+              />
               {cat}
             </button>
           ))}
 
           {/* Divider */}
-          <span className="self-center text-gray-300 dark:text-gray-600 select-none">|</span>
+          <span className="self-center text-gray-300 dark:text-gray-600 select-none">
+            |
+          </span>
 
           {/* Required toggle */}
           <button
@@ -150,7 +167,11 @@ export function SectionBrowser({ sections }: Props) {
             return (
               <div key={cat}>
                 <div className="flex items-center gap-2 mb-3">
-                  <MaterialIcon icon={CATEGORY_ICONS[cat]} size="sm" className="text-brand-primary" />
+                  <MaterialIcon
+                    icon={CATEGORY_ICONS[cat]}
+                    size="sm"
+                    className="text-brand-primary"
+                  />
                   <h3 className="text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wide">
                     {cat}
                   </h3>
