@@ -290,7 +290,7 @@ export default function FAQPage() {
                         key={qIndex}
                         question={q.question}
                         answer={q.answer}
-                        link={q.link}
+                        {...(q.link ? { link: q.link } : {})}
                       />
                     ))}
                   </StaggeredFadeIn>

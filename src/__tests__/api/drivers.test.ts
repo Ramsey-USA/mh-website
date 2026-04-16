@@ -191,8 +191,8 @@ describe("GET /api/drivers", () => {
     const mod = await import("@/app/api/drivers/route");
     expect(mod.GET).toBeDefined();
     expect(mod.POST).toBeDefined();
-    expect((mod as Record<string, unknown>).PUT).toBeUndefined();
-    expect((mod as Record<string, unknown>).DELETE).toBeUndefined();
+    expect((mod as Record<string, unknown>)["PUT"]).toBeUndefined();
+    expect((mod as Record<string, unknown>)["DELETE"]).toBeUndefined();
   });
 });
 
@@ -574,8 +574,8 @@ describe("DELETE /api/drivers/[id]", () => {
     expect(mod.GET).toBeDefined();
     expect(mod.PUT).toBeDefined();
     expect(mod.DELETE).toBeDefined();
-    expect((mod as Record<string, unknown>).POST).toBeUndefined();
-    expect((mod as Record<string, unknown>).PATCH).toBeUndefined();
+    expect((mod as Record<string, unknown>)["POST"]).toBeUndefined();
+    expect((mod as Record<string, unknown>)["PATCH"]).toBeUndefined();
   });
 });
 
@@ -640,9 +640,9 @@ describe("GET /api/drivers/alerts", () => {
   it("only exports GET on alerts route (no POST/PUT/DELETE)", async () => {
     const mod = await import("@/app/api/drivers/alerts/route");
     expect(mod.GET).toBeDefined();
-    expect((mod as Record<string, unknown>).POST).toBeUndefined();
-    expect((mod as Record<string, unknown>).PUT).toBeUndefined();
-    expect((mod as Record<string, unknown>).DELETE).toBeUndefined();
+    expect((mod as Record<string, unknown>)["POST"]).toBeUndefined();
+    expect((mod as Record<string, unknown>)["PUT"]).toBeUndefined();
+    expect((mod as Record<string, unknown>)["DELETE"]).toBeUndefined();
   });
 });
 

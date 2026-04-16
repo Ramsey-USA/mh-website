@@ -19,19 +19,6 @@ import { makeRequest, authedHeaders } from "../helpers/api-test-utils";
 
 // ── Mock shared data ──────────────────────────────────────────────────────────
 
-const mockUser = {
-  uid: "user-1",
-  role: "admin",
-  name: "Admin",
-  email: "admin@test.com",
-};
-const mockSuperUser = {
-  uid: "super-1",
-  role: "superintendent",
-  name: "Bob Super",
-  email: "bob@test.com",
-};
-
 const mockJob = {
   id: "job-1",
   job_number: "2024-001",
@@ -245,8 +232,8 @@ describe("Safety Downloads API", () => {
       const mod = await import("@/app/api/safety/downloads/route");
       expect(mod.GET).toBeDefined();
       expect(mod.POST).toBeDefined();
-      expect((mod as Record<string, unknown>).PUT).toBeUndefined();
-      expect((mod as Record<string, unknown>).DELETE).toBeUndefined();
+      expect((mod as Record<string, unknown>)["PUT"]).toBeUndefined();
+      expect((mod as Record<string, unknown>)["DELETE"]).toBeUndefined();
     });
   });
 });
@@ -408,8 +395,8 @@ describe("Safety Forms API", () => {
       const mod = await import("@/app/api/safety/forms/route");
       expect(mod.GET).toBeDefined();
       expect(mod.POST).toBeDefined();
-      expect((mod as Record<string, unknown>).PUT).toBeUndefined();
-      expect((mod as Record<string, unknown>).DELETE).toBeUndefined();
+      expect((mod as Record<string, unknown>)["PUT"]).toBeUndefined();
+      expect((mod as Record<string, unknown>)["DELETE"]).toBeUndefined();
     });
   });
 });
@@ -520,9 +507,9 @@ describe("Safety Forms [id] API", () => {
       const mod = await import("@/app/api/safety/forms/[id]/route");
       expect(mod.GET).toBeDefined();
       expect(mod.PATCH).toBeDefined();
-      expect((mod as Record<string, unknown>).POST).toBeUndefined();
-      expect((mod as Record<string, unknown>).PUT).toBeUndefined();
-      expect((mod as Record<string, unknown>).DELETE).toBeUndefined();
+      expect((mod as Record<string, unknown>)["POST"]).toBeUndefined();
+      expect((mod as Record<string, unknown>)["PUT"]).toBeUndefined();
+      expect((mod as Record<string, unknown>)["DELETE"]).toBeUndefined();
     });
   });
 });
@@ -673,8 +660,8 @@ describe("Safety Jobs API", () => {
       const mod = await import("@/app/api/safety/jobs/route");
       expect(mod.GET).toBeDefined();
       expect(mod.POST).toBeDefined();
-      expect((mod as Record<string, unknown>).PUT).toBeUndefined();
-      expect((mod as Record<string, unknown>).DELETE).toBeUndefined();
+      expect((mod as Record<string, unknown>)["PUT"]).toBeUndefined();
+      expect((mod as Record<string, unknown>)["DELETE"]).toBeUndefined();
     });
   });
 });

@@ -114,7 +114,10 @@ describe("POST /api/auth/field-login", () => {
   });
 
   it("uses dev placeholder when FIELD_STAFF_PASSWORD is unset in non-production", async () => {
-    process.env.NODE_ENV = "test";
+    Object.defineProperty(process.env, "NODE_ENV", {
+      value: "test",
+      configurable: true,
+    });
     const res = await POST(
       makeRequest({ passcode: "dev-placeholder-field-password" }),
     );
@@ -134,8 +137,8 @@ describe("POST /api/auth/field-login", () => {
   it("only exports POST on field-login route (no GET/PUT/DELETE)", async () => {
     const mod = await import("@/app/api/auth/field-login/route");
     expect(mod.POST).toBeDefined();
-    expect((mod as Record<string, unknown>).GET).toBeUndefined();
-    expect((mod as Record<string, unknown>).PUT).toBeUndefined();
-    expect((mod as Record<string, unknown>).DELETE).toBeUndefined();
+    expect((mod as Record<string, unknown>)["GET"]).toBeUndefined();
+    expect((mod as Record<string, unknown>)["PUT"]).toBeUndefined();
+    expect((mod as Record<string, unknown>)["DELETE"]).toBeUndefined();
   });
 });

@@ -186,8 +186,8 @@ describe("GET /api/leads", () => {
     expect(mod.GET).toBeDefined();
     expect(mod.POST).toBeDefined();
     expect(mod.PATCH).toBeDefined();
-    expect((mod as Record<string, unknown>).PUT).toBeUndefined();
-    expect((mod as Record<string, unknown>).DELETE).toBeUndefined();
+    expect((mod as Record<string, unknown>)["PUT"]).toBeUndefined();
+    expect((mod as Record<string, unknown>)["DELETE"]).toBeUndefined();
   });
 });
 

@@ -8,7 +8,6 @@
  */
 
 import { NextRequest } from "next/server";
-import { authedHeaders } from "../helpers/api-test-utils";
 
 // ── Mocks ─────────────────────────────────────────────────────────────────────
 
@@ -212,8 +211,8 @@ describe("POST /api/testimonials/publish", () => {
   it("only exports POST on publish route (no GET/PUT/DELETE)", async () => {
     const mod = await import("@/app/api/testimonials/publish/route");
     expect(mod.POST).toBeDefined();
-    expect((mod as Record<string, unknown>).GET).toBeUndefined();
-    expect((mod as Record<string, unknown>).PUT).toBeUndefined();
-    expect((mod as Record<string, unknown>).DELETE).toBeUndefined();
+    expect((mod as Record<string, unknown>)["GET"]).toBeUndefined();
+    expect((mod as Record<string, unknown>)["PUT"]).toBeUndefined();
+    expect((mod as Record<string, unknown>)["DELETE"]).toBeUndefined();
   });
 });

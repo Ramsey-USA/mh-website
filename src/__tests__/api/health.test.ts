@@ -8,8 +8,6 @@
  *   GET /api/health?full=true — full async check
  */
 
-import { NextRequest } from "next/server";
-
 // ── Mocks ─────────────────────────────────────────────────────────────────────
 
 jest.mock("@/lib/services/health-check", () => ({
@@ -101,8 +99,8 @@ describe("GET /api/health", () => {
   it("only exports GET on health route (no POST/PUT/DELETE)", async () => {
     const mod = await import("@/app/api/health/route");
     expect(mod.GET).toBeDefined();
-    expect((mod as Record<string, unknown>).POST).toBeUndefined();
-    expect((mod as Record<string, unknown>).PUT).toBeUndefined();
-    expect((mod as Record<string, unknown>).DELETE).toBeUndefined();
+    expect((mod as Record<string, unknown>)["POST"]).toBeUndefined();
+    expect((mod as Record<string, unknown>)["PUT"]).toBeUndefined();
+    expect((mod as Record<string, unknown>)["DELETE"]).toBeUndefined();
   });
 });
