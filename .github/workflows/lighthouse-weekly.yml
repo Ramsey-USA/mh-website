@@ -12,6 +12,7 @@ permissions:
 env:
   NODE_VERSION: "22"
   BASE_URL: "https://www.mhc-gc.com"
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   lighthouse:
