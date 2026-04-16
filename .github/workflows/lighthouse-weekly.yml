@@ -42,10 +42,11 @@ jobs:
         run: node scripts/test-lighthouse.js
         env:
           BASE_URL: ${{ env.BASE_URL }}
+          LIGHTHOUSE_AUDIT_KEY: ${{ secrets.LIGHTHOUSE_AUDIT_KEY }}
           LH_SKIP_WARMUP: "false"
           LH_RETRY_ON_TRANSIENT: "true"
-          LH_INTER_PAGE_DELAY_MS: "4000"
-          LH_AUDIT_TIMEOUT_MS: "120000"
+          LH_INTER_PAGE_DELAY_MS: "2500"
+          LH_AUDIT_TIMEOUT_MS: "300000"
 
       - name: Send email report
         if: always()

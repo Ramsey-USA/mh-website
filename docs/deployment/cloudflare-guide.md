@@ -145,6 +145,30 @@ Recommended authenticated smoke strategy is login-based credentials in GitHub:
 
 Use bearer-token or JWT-signing-secret options only as fallback.
 
+### GitHub Actions Repository Secrets
+
+**GitHub → Ramsey-USA/mh-website → Settings → Secrets and variables → Actions**
+
+| Secret                    | Type      | Workflow                             | Purpose                                           |
+| ------------------------- | --------- | ------------------------------------ | ------------------------------------------------- |
+| `ADMIN_JEREMY_PASSWORD`   | Secret    | deployment                           | Admin dashboard login for Jeremy                  |
+| `ADMIN_MATT_PASSWORD`     | Secret    | deployment                           | Admin dashboard login for Matt                    |
+| `CLOUDFLARE_ACCOUNT_ID`   | Secret    | `generate-pdfs.yml`                  | Authenticates wrangler for R2 uploads             |
+| `CLOUDFLARE_API_TOKEN`    | Secret    | `generate-pdfs.yml`                  | Authenticates wrangler for R2 uploads             |
+| `EMAIL_FROM`              | Secret    | deployment                           | Resend sender address                             |
+| `FIELD_STAFF_PASSWORD`    | Secret    | `safety-smoke.yml` / deployment      | Safety Hub superintendent login                   |
+| `JWT_SECRET`              | Secret    | deployment                           | HMAC key for signing admin session tokens         |
+| `LIGHTHOUSE_REPORT_EMAIL` | Secret    | `lighthouse-weekly.yml`              | Recipient address for weekly Lighthouse reports   |
+| `N8N_WEBHOOK_URL`         | Secret    | deployment                           | n8n automation webhook endpoint                   |
+| `NEXT_PUBLIC_SENTRY_DSN`  | Secret    | `ci-cd.yml` (build) / deployment     | Sentry DSN baked into client bundle at build time |
+| `NEXT_PUBLIC_SITE_URL`    | Plaintext | `ci-cd.yml`                          | Canonical site URL (`https://www.mhc-gc.com`)     |
+| `RESEND_API_KEY`          | Secret    | `lighthouse-weekly.yml` / deployment | Resend API key for outbound email                 |
+| `SENTRY_DSN`              | Secret    | deployment                           | Sentry DSN for server-side API route tracking     |
+| `SNYK_TOKEN`              | Secret    | `snyk.yml`                           | Authenticates Snyk vulnerability scanner          |
+| `TURNSTILE_SECRET_KEY`    | Secret    | deployment                           | Cloudflare Turnstile secret for bot protection    |
+| `TWILIO_AUTH_TOKEN`       | Secret    | deployment                           | Twilio auth token for SMS notifications           |
+| `TWILIO_FROM_NUMBER`      | Secret    | deployment                           | Twilio sender phone number                        |
+
 Published Safety PDFs should be delivered through the existing `FILE_ASSETS` R2
 binding and `/docs/**` proxy path. Public Safety uploads should use a dedicated
 `SAFETY_INTAKE` bucket so unreviewed files stay isolated from published assets.

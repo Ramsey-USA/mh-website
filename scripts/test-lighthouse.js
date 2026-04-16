@@ -46,11 +46,15 @@ const auditTimeoutMs = Number(process.env.LH_AUDIT_TIMEOUT_MS || 120000);
 const retryOnTransient = process.env.LH_RETRY_ON_TRANSIENT !== "false";
 const skipWarmup = process.env.LH_SKIP_WARMUP === "true";
 const interPageDelayMs = Number(process.env.LH_INTER_PAGE_DELAY_MS || 3000);
+const lighthouseAuditKey = process.env.LIGHTHOUSE_AUDIT_KEY || "";
 const emulatedUserAgent =
   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36";
 const transientFailurePatterns = [
   /TARGET_CRASHED/i,
   /unexpectedly crashed/i,
+  /PROTOCOL_TIMEOUT/i,
+  /Target closed/i,
+  /Page\.navigate/i,
   /chrome[- ]error/i,
   /execution context was destroyed/i,
   /navigating frame was detached/i,
@@ -70,6 +74,7 @@ const config = {
   settings: {
     onlyCategories: ["performance", "accessibility", "best-practices", "seo"],
     formFactor: "desktop",
+    emulatedUserAgent,
     throttling: {
       rttMs: 40,
       throughputKbps: 10240,
@@ -104,27 +109,53 @@ async function runLighthouse(url, name) {
       "--no-sandbox",
       "--disable-dev-shm-usage",
       "--disable-gpu",
+      `--user-agent=${emulatedUserAgent}`,
     ],
   });
   const options = {
     logLevel: "error",
     output: "json",
     port: chrome.port,
+    ...(lighthouseAuditKey
+      ? { extraHeaders: { "x-mh-lighthouse-key": lighthouseAuditKey } }
+      : {}),
   };
 
   try {
+    const timeoutToken = Symbol("lh-timeout");
+    const timeoutPromise = new Promise((resolve) => {
+      setTimeout(() => resolve(timeoutToken), auditTimeoutMs);
+    });
+
+    const lighthousePromise = lighthouse(url, options, config).catch(
+      (error) => {
+        return { __lighthouseError: error };
+      },
+    );
+
     const runnerResult = await Promise.race([
-      lighthouse(url, options, config),
-      new Promise((_, reject) => {
-        setTimeout(() => {
-          reject(
-            new Error(
-              `Lighthouse timed out after ${auditTimeoutMs}ms for ${url}`,
-            ),
-          );
-        }, auditTimeoutMs);
-      }),
+      lighthousePromise,
+      timeoutPromise,
     ]);
+
+    if (runnerResult === timeoutToken) {
+      return {
+        name,
+        url,
+        error: `Lighthouse timed out after ${auditTimeoutMs}ms for ${url}`,
+        success: false,
+      };
+    }
+
+    if (runnerResult && runnerResult.__lighthouseError) {
+      return {
+        name,
+        url,
+        error: runnerResult.__lighthouseError.message,
+        success: false,
+      };
+    }
+
     const { lhr } = runnerResult;
 
     if (lhr.runtimeError) {
@@ -199,14 +230,18 @@ function isTransientFailure(message) {
 
 function warmUrl(url) {
   return new Promise((resolve, reject) => {
+    const headers = {
+      "user-agent": emulatedUserAgent,
+      ...(lighthouseAuditKey
+        ? { "x-mh-lighthouse-key": lighthouseAuditKey }
+        : {}),
+    };
+
     const client = url.startsWith("https:") ? https : http;
     const req = client.get(
       url,
       {
-        headers: {
-          "user-agent":
-            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
-        },
+        headers,
       },
       (res) => {
         res.resume();

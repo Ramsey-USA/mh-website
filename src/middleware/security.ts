@@ -45,6 +45,16 @@ const SECURITY_BYPASS_PATHS = [
   "/manifest.json",
 ];
 
+function isTrustedLighthouseAudit(request: NextRequest): boolean {
+  const configuredKey = process.env["LIGHTHOUSE_AUDIT_KEY"];
+  if (!configuredKey) {
+    return false;
+  }
+
+  const providedKey = request.headers.get("x-mh-lighthouse-key");
+  return providedKey === configuredKey;
+}
+
 /**
  * Main security middleware function
  */
@@ -54,6 +64,11 @@ export async function securityMiddleware(
   const pathname = request.nextUrl.pathname;
   const userAgent = request.headers.get("user-agent") || "Unknown";
   const ipAddress = getClientIP(request);
+
+  // Allow trusted internal Lighthouse audits to bypass middleware checks.
+  if (isTrustedLighthouseAudit(request)) {
+    return NextResponse.next();
+  }
 
   // Skip security processing for certain paths
   if (shouldBypassSecurity(pathname)) {
