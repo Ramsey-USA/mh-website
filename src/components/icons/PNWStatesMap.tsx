@@ -19,7 +19,7 @@ export function PNWStatesMap({
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 200 140"
+      viewBox="0 0 198 170"
       width={width}
       height={height}
       className={className}
@@ -28,23 +28,46 @@ export function PNWStatesMap({
     >
       <title>Pacific Northwest Service Area - Washington, Oregon, Idaho</title>
 
-      {/* Washington State */}
+      {/*
+       * Coordinate system (approximate geographic projection):
+       *   x = 10 + (125 − lon°W) × 13.5  px/degree longitude
+       *   y =  5 + (49  − lat°N) × 22.6  px/degree latitude
+       *
+       * Key reference points:
+       *   WA NW coast  (124.7°W, 49°N) → (14, 5)
+       *   WA NE / ID W (117.0°W, 49°N) → (118, 5)
+       *   Columbia R junction (117°W, 46.2°N) → (118, 68)
+       *   Columbia R mouth   (124°W,  46.2°N) → (24, 68)
+       *   OR SW corner (124.5°W, 42°N) → (17, 163)
+       *   OR/ID SW     (117°W,   42°N) → (118, 163)
+       *   ID panhandle NE (~116°W, 49°N) → (132, 5)
+       *   ID main-body E  (~112°W, 42°N) → (186, 163)
+       */}
+
+      {/* Washington State
+            – Flat 49th-parallel northern border
+            – Straight eastern border at 117° W
+            – Curved southern border following the Columbia River
+            – Pacific coast with a slight Olympic-Peninsula westward bulge */}
       <path
-        d="M10 10 L15 8 L25 5 L40 3 L55 5 L70 8 L85 6 L95 10 L100 15
-           L105 12 L115 10 L120 15 L118 25 L115 35 L112 45 L110 50
-           L105 52 L95 50 L85 52 L75 50 L65 52 L55 50 L45 52 L35 50
-           L25 52 L15 50 L10 45 L8 35 L10 25 L12 15 Z"
+        d="M 14,5
+           L 118,5
+           L 118,68
+           C 88,77 55,75 28,70
+           C 20,68 15,65 13,62
+           C 10,50 9,33 12,20
+           C 13,12 13,7 14,5
+           Z"
         fill="#386851"
         stroke="#D9BD93"
         strokeWidth="1.5"
         className="transition-all duration-300 hover:fill-[#628F79]"
       />
-      {/* WA Label */}
       <text
-        x="62"
-        y="32"
+        x="64"
+        y="36"
         fill="#D9BD93"
-        fontSize="12"
+        fontSize="11"
         fontWeight="bold"
         fontFamily="system-ui, sans-serif"
         textAnchor="middle"
@@ -52,47 +75,28 @@ export function PNWStatesMap({
         WA
       </text>
 
-      {/* Idaho State */}
+      {/* Oregon State
+            – North border matches WA's Columbia River south border
+            – Straight eastern border at 117° W
+            – Flat 42nd-parallel southern border
+            – Pacific coast (nearly straight) */}
       <path
-        d="M120 15 L130 12 L140 10 L150 15 L155 25 L158 35 L160 50
-           L162 65 L165 80 L168 95 L165 105 L160 110 L150 108
-           L140 105 L130 100 L125 90 L120 80 L118 70 L115 60
-           L112 50 L115 35 L118 25 L120 15 Z"
+        d="M 13,62
+           C 15,65 20,68 28,70
+           C 55,75 88,77 118,68
+           L 118,163
+           L 14,163
+           Z"
         fill="#386851"
         stroke="#D9BD93"
         strokeWidth="1.5"
         className="transition-all duration-300 hover:fill-[#628F79]"
       />
-      {/* ID Label */}
       <text
-        x="140"
-        y="65"
+        x="64"
+        y="122"
         fill="#D9BD93"
-        fontSize="12"
-        fontWeight="bold"
-        fontFamily="system-ui, sans-serif"
-        textAnchor="middle"
-      >
-        ID
-      </text>
-
-      {/* Oregon State */}
-      <path
-        d="M10 55 L25 52 L45 55 L65 52 L85 55 L105 52 L110 55
-           L112 65 L115 75 L118 85 L120 95 L118 105 L115 115
-           L110 120 L100 125 L85 128 L70 130 L55 128 L40 125
-           L25 120 L15 115 L10 105 L8 90 L10 75 L12 60 Z"
-        fill="#386851"
-        stroke="#D9BD93"
-        strokeWidth="1.5"
-        className="transition-all duration-300 hover:fill-[#628F79]"
-      />
-      {/* OR Label */}
-      <text
-        x="62"
-        y="95"
-        fill="#D9BD93"
-        fontSize="12"
+        fontSize="11"
         fontWeight="bold"
         fontFamily="system-ui, sans-serif"
         textAnchor="middle"
@@ -100,10 +104,39 @@ export function PNWStatesMap({
         OR
       </text>
 
-      {/* Service area indicator - Tri-Cities region marker */}
+      {/* Idaho State
+            – Narrow panhandle (≈ 1° wide) running from the Canadian border
+              south to ~46° N, then the state widens dramatically eastward —
+              Idaho's most distinctive geographic feature */}
+      <path
+        d="M 118,5
+           L 132,5
+           L 134,68
+           L 186,72
+           L 186,163
+           L 118,163
+           Z"
+        fill="#386851"
+        stroke="#D9BD93"
+        strokeWidth="1.5"
+        className="transition-all duration-300 hover:fill-[#628F79]"
+      />
+      <text
+        x="158"
+        y="122"
+        fill="#D9BD93"
+        fontSize="11"
+        fontWeight="bold"
+        fontFamily="system-ui, sans-serif"
+        textAnchor="middle"
+      >
+        ID
+      </text>
+
+      {/* Tri-Cities service area marker (SE Washington, ~119°W 46.3°N) */}
       <circle
-        cx="95"
-        cy="45"
+        cx="91"
+        cy="63"
         r="4"
         fill="#BD9264"
         stroke="#D9BD93"

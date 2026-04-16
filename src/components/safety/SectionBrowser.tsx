@@ -209,7 +209,7 @@ export function SectionBrowser({
 
                 <div className="space-y-2">
                   {items.map((section) => {
-                    const pdfHref = `/docs/sections/${section.number}-${section.slug}.pdf`;
+                    const pdfHref = `/docs/safety/sections/${section.number}-${section.slug}.pdf`;
                     return (
                       <div
                         key={section.slug}

@@ -78,6 +78,10 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
       "WA OR ID licensed contractor",
       "Eastern Washington contractor",
       "Pacific Northwest general contractor",
+      "BBB accredited contractor",
+      "BBB A+ rated general contractor",
+      "Pasco Chamber of Commerce contractor",
+      "Tri-City Regional Chamber member",
       "PWA construction app",
       "offline construction access",
       "proven construction process",
@@ -259,7 +263,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: "Our Oath → About Us | Service-Earned Values, Honest Relationships",
     description:
-      "Founded 2010, Veteran-Owned Since January 2025. General contractor serving Tri-Cities WA. 650+ projects, 70% referral rate, AGC-WA Top EMR Awards & OSHA VPP Star. Licensed WA, OR, ID. Honesty, Integrity, Professionalism, Thoroughness.",
+      "Founded 2010, Veteran-Owned Since January 2025. BBB Accredited A+ Rating. Pasco, Richland & Tri-City Regional Chamber of Commerce member. 650+ projects, 70% referral rate, AGC-WA Top EMR Awards & OSHA VPP Star. Licensed WA, OR, ID.",
     keywords: [
       "veteran-owned construction company Tri-Cities WA",
       "MH Construction company history",
@@ -272,6 +276,12 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
       "OSHA VPP Star certification",
       ".64 EMR construction safety record",
       "3-state licensed contractor WA OR ID",
+      "BBB accredited general contractor",
+      "BBB A+ rated construction company",
+      "Pasco Chamber of Commerce member",
+      "Richland Chamber of Commerce member",
+      "Tri-City Regional Chamber of Commerce member",
+      "Travelers Insurance bonding partner",
       "partnership philosophy construction",
       "transparent pricing honest communication",
       "Tri-Cities veteran general contractor",
@@ -639,10 +649,20 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
   const vendorSchemas = [
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      name: "Diamond Electric",
+      "@type": "LocalBusiness",
+      name: "Diamond Electric LLC",
       description:
         "Primary electrical contractor for MH Construction. Commercial and industrial electrical installations, code-compliant work, safety-first approach.",
+      telephone: "509-552-9459",
+      email: "drew@diamondelectricllc.net",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "1267 Evanslee Court",
+        addressLocality: "Richland",
+        addressRegion: "WA",
+        postalCode: "99352",
+        addressCountry: "US",
+      },
       sameAs: ["https://www.facebook.com/diamondelectricllc/photos/"],
       areaServed: "Tri-Cities, WA",
     },
@@ -824,14 +844,32 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       sameAs: ["https://corecabinetproduction.com/"],
       areaServed: "Tri-Cities, WA",
     },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "High Desert Drywall, Inc.",
+      description:
+        "Primary drywall and interior construction contractor for MH Construction. Drywall installation, taping, finishing, and commercial interior scope across the Pacific Northwest.",
+      telephone: "(509) 492-5208",
+      email: "office@hd-drywall.net",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Pasco",
+        addressRegion: "WA",
+        addressCountry: "US",
+      },
+      url: "https://hd-drywall.net/",
+      sameAs: ["https://hd-drywall.net/"],
+      areaServed: "Pacific Northwest",
+    },
   ];
 
   return generateEnhancedMetadata({
-    // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
+    // Title leads with the search-intent keyword phrase, then brand tagline
     title:
-      "Allies → Partners | Strategic Partnerships Built on Trust & Mutual Success",
+      "Trade Partner Opportunities | Allied Vendor Network | MH Construction",
     description:
-      "MH Construction's trusted vendor network: Diamond Electric, Mustang Signs, Bagley Landscape Construction, McKinney Glass, Dupree Building Specialties, D-Fence Fencing, IWI Insulation, Viking Plumbing & Mechanical, Core Cabinet Production. Subcontractor opportunities with a veteran-owned Pacific Northwest GC.",
+      "MH Construction's trusted vendor network: Diamond Electric, Mustang Signs, Bagley Landscape Construction, McKinney Glass, Dupree Building Specialties, D-Fence Fencing, IWI Insulation, Viking Plumbing & Mechanical, Core Cabinet Production, High Desert Drywall. Subcontractor opportunities with a veteran-owned Pacific Northwest GC.",
     keywords: [
       "construction subcontractor opportunities Tri-Cities WA",
       "trade partner network Pacific Northwest",
@@ -845,13 +883,68 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "Intermountain West Insulation IWI Kennewick spray foam",
       "Viking Plumbing Mechanical Yakima WA plumbing contractor",
       "Core Cabinet Production Richland WA custom cabinets",
+      "High Desert Drywall drywall contractor Pacific Northwest",
       "MH Construction vendor partners",
       "subcontractor opportunities Richland Kennewick Pasco Yakima Spokane",
       "construction digital handshake subcontractor",
       "Benton County Franklin County Yakima County trade partners",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/allies`,
-    schemas: [webPageSchema, generateLocalBusinessSchema(), ...vendorSchemas],
+    schemas: [
+      webPageSchema,
+      generateLocalBusinessSchema(),
+      ...vendorSchemas,
+      // ItemList schema — surfaces the vendor roster as an organized entity
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "@id": `${enhancedSEO.siteUrl}/allies#vendorlist`,
+        name: "MH Construction Ally Network — Primary Trade Partners",
+        description:
+          "Vetted trade partners who serve as primary vendors on MH Construction projects across the Pacific Northwest.",
+        numberOfItems: vendorSchemas.length,
+        itemListElement: vendorSchemas.map((v, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: (v as { name: string }).name,
+          url:
+            (v as { url?: string }).url ??
+            `${enhancedSEO.siteUrl}/allies#vendors`,
+        })),
+      },
+      // FAQPage schema — captures long-tail "how do I become a subcontractor" queries
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": `${enhancedSEO.siteUrl}/allies#faq`,
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "How do I join MH Construction's trade partner network?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "We're actively recruiting skilled trade professionals and specialty contractors across the Pacific Northwest. Visit mhc-gc.com/allies and use the 'Begin Partnership Discussion' button, or call (509) 308-6489 to start the conversation.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What trades is MH Construction looking for?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "MH Construction works with electrical, plumbing, landscaping, glass & glazing, signage, fencing, insulation, building specialties, and cabinetry contractors. We evaluate every partner for quality, safety culture, and alignment with our values of honesty, integrity, professionalism, and thoroughness.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What are the benefits of being an MH Construction Ally?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Allies receive consistent project volume, prompt payment, and a collaborative partnership with a veteran-owned GC that has a .64 EMR safety rating and 70% repeat/referral business. THE ROI IS THE RELATIONSHIP.",
+            },
+          },
+        ],
+      },
+    ],
   });
 }
 

@@ -62,7 +62,10 @@ export default async function SectionPage({ params }: Props) {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: "Home", url: "https://www.mhc-gc.com" },
     { name: "Resources", url: "https://www.mhc-gc.com/resources" },
-    { name: "Safety Program", url: "https://www.mhc-gc.com/safety" },
+    {
+      name: "Safety Program",
+      url: "https://www.mhc-gc.com/resources/safety-program",
+    },
     {
       name: `Section ${section.number}`,
       url: `https://www.mhc-gc.com/resources/safety-manual/section/${slug}`,
@@ -85,7 +88,7 @@ export default async function SectionPage({ params }: Props) {
             items={[
               { label: "Home", href: "/" },
               { label: "Resources", href: "/resources" },
-              { label: "Safety Program", href: "/safety" },
+              { label: "Safety Program", href: "/resources/safety-program" },
               {
                 label: `Section ${section.number}`,
                 href: `/resources/safety-manual/section/${slug}`,
@@ -96,11 +99,11 @@ export default async function SectionPage({ params }: Props) {
           <FadeInWhenVisible>
             {/* Back link */}
             <Link
-              href="/safety"
+              href="/resources/safety-program#manual-downloads"
               className="inline-flex items-center gap-1.5 text-sm text-brand-primary dark:text-brand-secondary hover:underline mb-8"
             >
               <MaterialIcon icon="arrow_back" size="sm" />
-              Back to Safety Program
+              Back to Safety Program Resources
             </Link>
 
             {/* Section header */}
@@ -199,10 +202,10 @@ export default async function SectionPage({ params }: Props) {
               )}
 
               <Link
-                href="/safety"
+                href="/resources/safety-program#manual-downloads"
                 className="text-xs text-gray-400 hover:text-brand-primary dark:hover:text-brand-secondary transition-colors"
               >
-                Safety Program
+                Safety Program Resources
               </Link>
 
               {next ? (

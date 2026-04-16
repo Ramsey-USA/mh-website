@@ -1277,7 +1277,7 @@ export default function VeteransPage() {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/images/logo/agc-member.png"
+                    src="/images/logo/agc-member.webp"
                     alt="AGC of Washington Member"
                     className="h-12 w-auto"
                   />
@@ -1300,6 +1300,56 @@ export default function VeteransPage() {
                     src={COMPANY_INFO.travelers.logoWhite}
                     alt="Travelers Insurance - Auto & Bonding Partner"
                     className="h-10 w-auto hidden dark:block"
+                  />
+                </a>
+                <a
+                  href={COMPANY_INFO.chambers.pasco.memberDirectoryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Pasco Chamber of Commerce Member"
+                  className="transition-transform hover:scale-105"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={COMPANY_INFO.chambers.pasco.logo}
+                    alt="Pasco Chamber of Commerce Member"
+                    className="h-12 w-auto dark:hidden"
+                  />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={COMPANY_INFO.chambers.pasco.logoWhite}
+                    alt="Pasco Chamber of Commerce Member"
+                    className="h-12 w-auto hidden dark:block"
+                  />
+                </a>
+                <a
+                  href={COMPANY_INFO.chambers.richland.memberDirectoryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Richland Chamber of Commerce Member"
+                  className="transition-transform hover:scale-105"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={COMPANY_INFO.chambers.richland.logo}
+                    alt="Richland Chamber of Commerce Member"
+                    className="h-12 w-auto"
+                  />
+                </a>
+                <a
+                  href={
+                    COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Tri-City Regional Chamber of Commerce Member"
+                  className="transition-transform hover:scale-105"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={COMPANY_INFO.chambers.triCityRegional.logo}
+                    alt="Tri-City Regional Chamber of Commerce Member"
+                    className="h-12 w-auto"
                   />
                 </a>
                 <div className="flex items-center gap-2 px-4 py-2 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-full">

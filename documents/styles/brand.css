@@ -59,6 +59,31 @@
   --font-heading: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
   --font-mono: "Courier New", Courier, monospace;
 
+  /* ── Print Type Scale ───────────────────────────── */
+  --type-print-running-head: 8pt;
+  --type-print-footer-small: 6.5pt;
+  --type-print-footer: 7pt;
+  --type-print-form-title: 16pt;
+  --type-print-form-title-compact: 14pt;
+  --type-print-form-title-dense: 13pt;
+  --type-print-meta: 7.5pt;
+  --type-print-meta-compact: 7pt;
+  --type-print-label: 7.5pt;
+  --type-print-label-small: 6.5pt;
+  --type-print-field: 9.5pt;
+  --type-print-table: 8.5pt;
+  --type-print-table-compact: 8pt;
+  --type-print-table-head: 8pt;
+  --type-print-table-head-compact: 7pt;
+  --type-print-note: 7.5pt;
+  --type-print-note-small: 7pt;
+  --type-print-signature: 7pt;
+  --type-print-summary: 12pt;
+  --type-print-manual-section-title: 18pt;
+  --type-print-qr-caption: 6.5pt;
+  --type-print-qr-body: 8pt;
+  --type-print-qr-title: 8.5pt;
+
   /* ── Sizing ─────────────────────────────────────── */
   --page-width: 8.5in;
   --page-height: 11in;

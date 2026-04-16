@@ -9,6 +9,8 @@
 export interface FAQQuestion {
   question: string;
   answer: string;
+  /** Optional CTA link rendered below the answer text */
+  link?: { text: string; href: string };
 }
 
 export interface FAQCategory {
@@ -227,6 +229,17 @@ export const faqCategories: FAQCategory[] = [
         question: "How do you select Allies and vendors?",
         answer:
           "We work with an approved network of Allies who share our values and quality standards. Our Thoroughness means carefully vetting every Ally for quality, reliability, and safety. We maintain these relationships through fair treatment, timely payment, and mutual respect—the same Integrity we extend to our clients.",
+        link: { text: "Meet Our Ally Network →", href: "/allies" },
+      },
+      {
+        question:
+          "How do I join MH Construction's trade partner network as an Ally?",
+        answer:
+          "We're actively recruiting skilled trade professionals and specialty contractors across the Pacific Northwest. If you share our values—quality workmanship, honest communication, and safety-first execution—we'd like to hear from you. Visit our Allies page to learn about current openings and begin a partnership discussion with our team.",
+        link: {
+          text: "View Trade Partner Opportunities →",
+          href: "/allies#apply",
+        },
       },
       {
         question: "Can I use my own subcontractors?",

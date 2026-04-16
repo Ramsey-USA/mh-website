@@ -142,7 +142,7 @@ export default function ResourcesPage() {
                     key={doc.id}
                     href={
                       doc.id === "safety-manual"
-                        ? "/safety"
+                        ? "/resources/safety-program"
                         : `/resources/${doc.id}`
                     }
                     className="group flex items-start gap-5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 sm:p-6 hover:border-brand-primary dark:hover:border-brand-secondary hover:shadow-lg transition-all duration-300"

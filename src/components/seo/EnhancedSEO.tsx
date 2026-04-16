@@ -9,7 +9,7 @@ export const enhancedSEO = {
   defaultTitle:
     "Base HQ → Home | Building projects for the Client, NOT the Dollar | MH Construction",
   defaultDescription:
-    "Base HQ → Home: Your Tri-Cities Construction Command Center. Construction management services since 2010, Veteran-Owned Since January 2025, with dual-label approach (Military Operations → Construction Services). Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction. Service-earned values—Honesty, Integrity, Professionalism, Thoroughness—building trust through SITREP-level transparency and Chain of Command excellence throughout the Pacific Northwest.",
+    "Base HQ → Home: Your Tri-Cities Construction Command Center. BBB Accredited A+. Pasco, Richland & Tri-City Regional Chamber of Commerce member. Construction management services since 2010, Veteran-Owned Since January 2025, with dual-label approach (Military Operations → Construction Services). Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction. Service-earned values—Honesty, Integrity, Professionalism, Thoroughness—building trust through SITREP-level transparency and Chain of Command excellence throughout the Pacific Northwest.",
   siteUrl: COMPANY_INFO.urls.getSiteUrl(),
   twitterHandle: COMPANY_INFO.social.twitterHandle,
   defaultKeywords: [
@@ -311,6 +311,36 @@ export function generateEnhancedOrganizationSchema() {
         dateCreated: "2026-04-07",
         description: "BBB Accredited Business with A+ Rating",
       },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "Membership",
+        recognizedBy: {
+          "@type": "Organization",
+          name: "Pasco Chamber of Commerce",
+          url: "https://pascochamber.org",
+        },
+        description: "Pasco Chamber of Commerce Member",
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "Membership",
+        recognizedBy: {
+          "@type": "Organization",
+          name: "Richland Chamber of Commerce",
+          url: "https://www.richlandchamber.org",
+        },
+        description: "Richland Chamber of Commerce Member",
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "Membership",
+        recognizedBy: {
+          "@type": "Organization",
+          name: "Tri-City Regional Chamber of Commerce",
+          url: "https://web.tricityregionalchamber.com",
+        },
+        description: "Tri-City Regional Chamber of Commerce Member",
+      },
     ],
     award: [
       "BBB Accredited Business - A+ Rating 2026",
@@ -330,6 +360,32 @@ export function generateEnhancedOrganizationSchema() {
       enhancedSEO.socialMedia.twitter,
       enhancedSEO.socialMedia.linkedin,
       enhancedSEO.socialMedia.youtube,
+      COMPANY_INFO.bbb.profileUrl,
+      COMPANY_INFO.chambers.pasco.memberDirectoryUrl,
+      COMPANY_INFO.chambers.richland.memberDirectoryUrl,
+      COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl,
+    ],
+    memberOf: [
+      {
+        "@type": "Organization",
+        name: "Pasco Chamber of Commerce",
+        url: "https://pascochamber.org",
+      },
+      {
+        "@type": "Organization",
+        name: "Richland Chamber of Commerce",
+        url: "https://www.richlandchamber.org",
+      },
+      {
+        "@type": "Organization",
+        name: "Tri-City Regional Chamber of Commerce",
+        url: "https://web.tricityregionalchamber.com",
+      },
+      {
+        "@type": "Organization",
+        name: "Associated General Contractors of Washington",
+        url: "https://www.agcwa.com",
+      },
     ],
     potentialAction: [
       {

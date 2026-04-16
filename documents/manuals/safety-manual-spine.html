@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <title>MH Construction, Inc. — Safety Manual Spine</title>
     <style>
+      @import url("../styles/brand.css");
+
       *,
       *::before,
       *::after {
@@ -21,7 +23,7 @@
         padding: 0;
         width: 8.5in;
         height: 11in;
-        font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+        font-family: var(--font-body);
         background: white;
       }
       .page {
@@ -117,6 +119,12 @@
         flex-shrink: 0;
         filter: brightness(0) invert(1) opacity(0.85);
       }
+      .spine-bbb {
+        height: 0.48in;
+        width: auto;
+        flex-shrink: 0;
+        filter: brightness(0) invert(1) opacity(0.92);
+      }
       .spine-rule {
         width: 1.5pt;
         flex: 0 0 0.12in;
@@ -173,7 +181,13 @@
             <div class="spine-rule2"></div>
             <span class="spine-company">MH Construction, Inc.</span>
             <div class="spine-rule2"></div>
-            <span class="spine-year">2026</span>
+            <span class="spine-year">{{BRAND_REVISION_YEAR}}</span>
+            <div class="spine-rule2"></div>
+            <img
+              class="spine-bbb"
+              src="{{BRAND_BBB_SEAL}}"
+              alt="BBB Accredited Business"
+            />
             <div class="spine-rule2"></div>
             <img
               class="spine-agc"

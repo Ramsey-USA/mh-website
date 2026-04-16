@@ -123,6 +123,39 @@ improvements.
 
 ---
 
+## Credentials & Certifications
+
+All credential data is centralized in `src/lib/constants/company.ts` under `COMPANY_INFO`. Logos
+are stored in `public/images/credentials/` as WebP files. Credentials are displayed in the Footer
+(all pages), Contact page, Allies page, and Public-Sector page.
+
+| Credential                       | Data Key                                 | Logo Path                                                                             | Link                                                                                  |
+| -------------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| **BBB Accredited A+**            | `COMPANY_INFO.bbb`                       | External BBB seal URLs (horizontal + vertical, light/dark variants)                   | `COMPANY_INFO.bbb.sealClickUrl`                                                       |
+| **AGC of Washington**            | Hardcoded `/images/logo/agc-member.webp` | `/images/logo/agc-member.webp`, `/images/logo/nwagc-logo.webp`                        | `https://www.agcwa.com/`                                                              |
+| **Travelers Insurance**          | `COMPANY_INFO.travelers`                 | `/images/logo/travelers-logo.png` (light), `travelers-logo-white.png` (dark)          | `COMPANY_INFO.travelers.website`                                                      |
+| **Pasco Chamber of Commerce**    | `COMPANY_INFO.chambers.pasco`            | `Pasco-Chamber-logo-color-transparent.webp` (light), `...-white-fullsize.webp` (dark) | `https://pascochamber.org/construction-equipment-contractors/`                        |
+| **Richland Chamber of Commerce** | `COMPANY_INFO.chambers.richland`         | `Richland-Chamber-logo-full-color.webp`                                               | `https://www.richlandchamber.org/member-directory`                                    |
+| **Tri-City Regional Chamber**    | `COMPANY_INFO.chambers.triCityRegional`  | `Kennewick-TriCity-Regional-Chamber-logo-horizontal.webp`                             | `https://web.tricityregionalchamber.com/Contractor-General/MH-Construction,-Inc-6318` |
+
+**Where credentials appear:**
+
+- **Footer** (`src/components/layout/Footer.tsx`) — All pages, Accreditations Row
+- **About page** (`src/app/about/page.tsx`) — Credential bar between Awards and Safety sections
+- **Contact page** (`src/app/contact/ContactPageClient.tsx`) — Trust Credentials strip
+- **Allies page** (`src/app/allies/page.tsx`) — Accredited & Certified section
+- **Public-Sector page** (`src/app/public-sector/page.tsx`) — Mission-Ready Credentials section
+- **Veterans page** (`src/app/veterans/page.tsx`) — Accredited & Certified section
+- **SEO structured data** (`src/components/seo/EnhancedSEO.tsx`) — `sameAs`, `memberOf`, `hasCredential` in Organization schema
+- **SEO structured data** (`src/components/seo/SeoMeta.tsx`) — `sameAs` in Organization schema
+
+> **Adding a new credential?** Update `COMPANY_INFO` in `src/lib/constants/company.ts`, add the
+> logo to `public/images/credentials/`, then add the display block to all four locations above.
+> Also update the smoke test mock in `src/app/__tests__/pages-smoke.test.tsx` and the contact
+> test mock in `src/app/contact/__tests__/ContactPageClient.test.tsx`.
+
+---
+
 ## Quick Start by Role
 
 ### Designers & Branding

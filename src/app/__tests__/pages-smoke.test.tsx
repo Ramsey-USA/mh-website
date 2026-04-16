@@ -160,6 +160,26 @@ jest.mock("@/lib/constants/company", () => ({
       logo: "/images/travelers-logo.png",
       logoWhite: "/images/travelers-logo-white.png",
     },
+    chambers: {
+      pasco: {
+        name: "Pasco Chamber of Commerce",
+        memberDirectoryUrl: "https://pascochamber.org/test",
+        logo: "/images/credentials/pasco-chamber.webp",
+        logoWhite: "/images/credentials/pasco-chamber-white.webp",
+      },
+      richland: {
+        name: "Richland Chamber of Commerce",
+        memberDirectoryUrl: "https://www.richlandchamber.org/test",
+        logo: "/images/credentials/richland-chamber.webp",
+        logoWhite: "/images/credentials/richland-chamber.webp",
+      },
+      triCityRegional: {
+        name: "Tri-City Regional Chamber of Commerce",
+        memberDirectoryUrl: "https://web.tricityregionalchamber.com/test",
+        logo: "/images/credentials/tricityregional-chamber.webp",
+        logoWhite: "/images/credentials/tricityregional-chamber.webp",
+      },
+    },
     address: {
       street: "3111 N Capitol Ave",
       city: "Pasco",

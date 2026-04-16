@@ -192,6 +192,10 @@ export function generateOrganizationStructuredData() {
       "https://www.facebook.com/profile.php?id=61575511773974",
       "https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all",
       "https://www.instagram.com/mh_construction_inc/reels/",
+      COMPANY_INFO.bbb.profileUrl,
+      COMPANY_INFO.chambers.pasco.memberDirectoryUrl,
+      COMPANY_INFO.chambers.richland.memberDirectoryUrl,
+      COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl,
     ],
   };
 }

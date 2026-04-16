@@ -858,7 +858,7 @@ export default function Footer() {
               className="group flex items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-3 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
             >
               <Image
-                src="/images/logo/nwagc-logo.png"
+                src="/images/logo/nwagc-logo.webp"
                 alt="AGC Northwest Washington Member"
                 width={795}
                 height={291}
@@ -917,6 +917,68 @@ export default function Footer() {
                 width={200}
                 height={56}
                 className="h-12 w-auto object-contain hidden dark:block"
+                loading="lazy"
+              />
+            </a>
+
+            {/* Pasco Chamber of Commerce */}
+            <a
+              href={COMPANY_INFO.chambers.pasco.memberDirectoryUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Pasco Chamber of Commerce Member"
+              className="group flex items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-3 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+            >
+              <Image
+                src={COMPANY_INFO.chambers.pasco.logo}
+                alt="Pasco Chamber of Commerce Member"
+                width={200}
+                height={56}
+                className="h-12 w-auto object-contain dark:hidden"
+                loading="lazy"
+              />
+              <Image
+                src={COMPANY_INFO.chambers.pasco.logoWhite}
+                alt="Pasco Chamber of Commerce Member"
+                width={200}
+                height={56}
+                className="h-12 w-auto object-contain hidden dark:block"
+                loading="lazy"
+              />
+            </a>
+
+            {/* Richland Chamber of Commerce */}
+            <a
+              href={COMPANY_INFO.chambers.richland.memberDirectoryUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Richland Chamber of Commerce Member"
+              className="group flex items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-3 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+            >
+              <Image
+                src={COMPANY_INFO.chambers.richland.logo}
+                alt="Richland Chamber of Commerce Member"
+                width={200}
+                height={56}
+                className="h-12 w-auto object-contain"
+                loading="lazy"
+              />
+            </a>
+
+            {/* Tri-City Regional Chamber of Commerce */}
+            <a
+              href={COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Tri-City Regional Chamber of Commerce Member"
+              className="group flex items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-3 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
+            >
+              <Image
+                src={COMPANY_INFO.chambers.triCityRegional.logo}
+                alt="Tri-City Regional Chamber of Commerce Member"
+                width={200}
+                height={56}
+                className="h-12 w-auto object-contain"
                 loading="lazy"
               />
             </a>

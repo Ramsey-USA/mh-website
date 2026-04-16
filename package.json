@@ -64,6 +64,7 @@
     "optimize:images": "node scripts/optimization/optimize-images.js",
     "optimize:videos": "node scripts/optimization/optimize-videos.js",
     "audit:images": "node scripts/optimization/audit-images.js",
+    "check:image-sizes": "node scripts/optimization/check-sizes.js",
     "quality:check": "bash scripts/utilities/cleanup-check.sh",
     "deps:check": "npx depcheck --ignores='@types/*,eslint-*,prettier,husky,@commitlint/*,postcss,autoprefixer,jest-environment-jsdom,@opennextjs/cloudflare,chalk'",
     "deps:update": "npm outdated",

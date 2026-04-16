@@ -12,7 +12,8 @@ export type FormType =
   | "consultation"
   | "newsletter"
   | "job-application"
-  | "safety-form";
+  | "safety-form"
+  | "testimonial-publish";
 
 export interface N8nWebhookPayload {
   type: FormType;

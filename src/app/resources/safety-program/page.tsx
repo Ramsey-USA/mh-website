@@ -552,7 +552,10 @@ export default function SafetyProgramPage() {
 
             {/* ── Complete Manual download card ───────────────────────────── */}
             <FadeInWhenVisible>
-              <div className="bg-gradient-to-r from-brand-primary-dark to-brand-primary rounded-2xl p-6 sm:p-8 shadow-xl">
+              <div
+                id="manual-downloads"
+                className="bg-gradient-to-r from-brand-primary-dark to-brand-primary rounded-2xl p-6 sm:p-8 shadow-xl"
+              >
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                   {/* Text + buttons */}
                   <div className="flex-1 text-white min-w-0">
@@ -634,7 +637,7 @@ export default function SafetyProgramPage() {
 
             {/* ── Field Forms download grid ────────────────────────────────── */}
             <FadeInWhenVisible>
-              <div>
+              <div id="field-forms">
                 <div className="mb-5">
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
                     Field Forms — Individual Downloads

@@ -12,8 +12,8 @@ interface ChatMessage {
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
-/** Time in ms before showing proactive prompt (default: 30 seconds) */
-const PROACTIVE_PROMPT_DELAY = 30_000;
+/** Time in ms before showing proactive prompt (default: 60 seconds) */
+const PROACTIVE_PROMPT_DELAY = 60_000;
 
 /** Session storage key to track if prompt was already shown */
 const PROACTIVE_PROMPT_KEY = "mhc-chat-prompted";

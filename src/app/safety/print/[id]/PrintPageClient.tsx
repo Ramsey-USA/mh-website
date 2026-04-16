@@ -607,7 +607,7 @@ export default function PrintPageClient() {
               />
               {/* AGC Logo */}
               <Image
-                src="/images/logo/agc-member.png"
+                src="/images/logo/agc-member.webp"
                 alt="AGC Member"
                 width={60}
                 height={24}

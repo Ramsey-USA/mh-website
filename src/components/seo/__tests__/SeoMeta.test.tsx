@@ -17,6 +17,21 @@ jest.mock("@/lib/constants/company", () => ({
     },
     phone: { display: "(509) 308-6489" },
     email: { main: "office@mhc-gc.com" },
+    bbb: {
+      profileUrl: "https://www.bbb.org/test",
+      sealClickUrl: "https://www.bbb.org/test#sealclick",
+    },
+    chambers: {
+      pasco: {
+        memberDirectoryUrl: "https://pascochamber.org/test",
+      },
+      richland: {
+        memberDirectoryUrl: "https://www.richlandchamber.org/test",
+      },
+      triCityRegional: {
+        memberDirectoryUrl: "https://web.tricityregionalchamber.com/test",
+      },
+    },
   },
 }));
 

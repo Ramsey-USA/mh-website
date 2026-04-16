@@ -20,7 +20,7 @@ import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
-import { faqCategories } from "@/lib/data/faq-data";
+import { faqCategories, type FAQQuestion } from "@/lib/data/faq-data";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.faq);
 
@@ -71,7 +71,7 @@ const faqSchema = {
 /**
  * FAQ Accordion Component - Modern Card Design
  */
-function FAQItem({ question, answer }: { question: string; answer: string }) {
+function FAQItem({ question, answer, link }: FAQQuestion) {
   return (
     <details className="group relative">
       {/* Animated Border Glow */}
@@ -101,6 +101,14 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base">
             {answer}
           </p>
+          {link && (
+            <Link
+              href={link.href}
+              className="inline-flex items-center gap-1.5 mt-4 text-sm font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
+            >
+              {link.text}
+            </Link>
+          )}
         </div>
       </div>
     </details>
@@ -282,6 +290,7 @@ export default function FAQPage() {
                         key={qIndex}
                         question={q.question}
                         answer={q.answer}
+                        link={q.link}
                       />
                     ))}
                   </StaggeredFadeIn>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
 import { BrandedContentSection } from "@/components/templates";
@@ -263,6 +264,36 @@ export function WhyPartnerSection() {
           </div>
         ))}
       </StaggeredFadeIn>
+
+      {/* Trade Partner CTA */}
+      <div className="mt-4 flex justify-center">
+        <div className="relative group max-w-2xl w-full">
+          <div className="absolute -inset-1 bg-gradient-to-r from-brand-secondary to-bronze-600 rounded-2xl blur-sm opacity-50 group-hover:opacity-90 transition duration-500" />
+          <div className="relative flex flex-col sm:flex-row items-center justify-between gap-4 bg-white dark:bg-gray-800 rounded-xl border-2 border-brand-secondary/30 dark:border-brand-secondary/40 shadow-xl px-8 py-5">
+            <div className="flex items-center gap-3">
+              <MaterialIcon
+                icon="handshake"
+                size="xl"
+                className="text-brand-secondary flex-shrink-0"
+                ariaLabel="Trade partners"
+              />
+              <p className="font-semibold text-gray-900 dark:text-white text-base sm:text-lg leading-snug">
+                Are you a trade contractor?{" "}
+                <span className="text-brand-secondary font-bold">
+                  Join our Ally network.
+                </span>
+              </p>
+            </div>
+            <Link
+              href="/allies"
+              className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-brand-secondary hover:bg-brand-secondary-dark text-black font-bold rounded-xl shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-sm sm:text-base"
+            >
+              View Trade Partner Opportunities
+              <MaterialIcon icon="arrow_forward" size="sm" ariaLabel="" />
+            </Link>
+          </div>
+        </div>
+      </div>
     </BrandedContentSection>
   );
 }

@@ -224,7 +224,7 @@ export function SectionBrowser({ sections }: Props) {
                           </span>
                         )}
                         <a
-                          href={`/docs/sections/${section.number}-${section.slug}.pdf`}
+                          href={`/docs/safety/sections/${section.number}-${section.slug}.pdf`}
                           onClick={(e) => e.stopPropagation()}
                           target="_blank"
                           rel="noopener noreferrer"

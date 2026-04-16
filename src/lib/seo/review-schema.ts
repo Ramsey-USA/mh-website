@@ -11,6 +11,8 @@ export interface ReviewSchemaProps {
   reviewBody: string;
   ratingValue: number; // 1-5
   reviewTitle?: string;
+  /** Absolute URL to the client/site photo for this review */
+  image?: string | undefined;
 }
 
 export function generateReviewSchema(review: ReviewSchemaProps) {
@@ -20,6 +22,7 @@ export function generateReviewSchema(review: ReviewSchemaProps) {
     author: {
       "@type": "Person",
       name: review.author,
+      ...(review.image ? { image: review.image } : {}),
     },
     datePublished: review.datePublished,
     reviewBody: review.reviewBody,

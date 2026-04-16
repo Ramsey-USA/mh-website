@@ -20,7 +20,7 @@ export interface AllyInfo {
 
 export const ALLIES: AllyInfo[] = [
   {
-    name: "Diamond Electric",
+    name: "Diamond Electric LLC",
     role: "Primary Electrical Contractor",
     description:
       "Trusted primary electrical contractor providing safe, code-compliant commercial and industrial electrical installations.",
@@ -29,8 +29,10 @@ export const ALLIES: AllyInfo[] = [
       "Code-Compliant Installations",
       "Safety-First Approach",
     ],
+    phone: "509-552-9459",
+    email: "drew@diamondelectricllc.net",
     website: "https://www.facebook.com/diamondelectricllc/photos/",
-    address: "",
+    address: "1267 Evanslee Court, Richland, WA 99352",
   },
   {
     name: "Mustang Signs",
@@ -157,6 +159,22 @@ export const ALLIES: AllyInfo[] = [
     website: "https://corecabinetproduction.com/",
     address: "2573 Robertson Drive, Richland, WA 99354",
   },
+  {
+    name: "High Desert Drywall, Inc.",
+    role: "Primary Drywall & Interior Construction Contractor",
+    description:
+      "Interior construction specialists providing drywall installation, taping, finishing, and related interior scope on MH Construction projects across the Pacific Northwest.",
+    highlights: [
+      "Drywall Installation",
+      "Taping & Finishing",
+      "Interior Construction",
+      "Commercial & Residential Scope",
+    ],
+    phone: "(509) 492-5208",
+    email: "office@hd-drywall.net",
+    website: "https://hd-drywall.net/",
+    address: "Pasco, WA",
+  },
 ];
 
 // ── System Prompt ───────────────────────────────────────────────────────────
@@ -238,7 +256,21 @@ Our Allies are trusted Trade Partners we work alongside. "THE ROI IS THE RELATIO
 
 ${buildAlliesSection()}
 
-When asked about a specific trade or specialty (e.g., electrical, plumbing, signage, fencing, landscaping, glass, insulation, cabinets, building specialties), recommend the appropriate Ally by name and provide their contact information. Encourage visitors to mention MH Construction when reaching out to any Ally.
+TRADE-TO-ALLY QUICK REFERENCE — use this to answer questions like "who do you use for X?":
+- Electrical / wiring / panels / commercial electrical / industrial electrical → Diamond Electric LLC, 509-552-9459, drew@diamondelectricllc.net, Richland WA
+- Signage / signs / vehicle wraps / lettering / LED signs / reader boards / ADA signage / print → Mustang Signs, (509) 735-4607, info@mustangsigns.com, mustangsigns.com, Kennewick WA
+- Landscaping / lawn / irrigation / sprinklers / retaining walls / hardscaping / snow removal / hydroseeding / landscape maintenance / water features → Bagley Landscape Construction, Inc., (509) 546-2449, office@bagleylandscape.com, bagleylandscape.com, Pasco WA
+- Glass / windows / storefronts / glazing / auto glass / skylights / windshields / shower doors / mirrors / interior partitions → McKinney Glass, (509) 248-2770, mckinneyglass.com, Union Gap WA
+- Doors (fire-rated, coiling, folding, automatic, traffic) / lockers / visual displays / projection screens / access flooring / expansion control / roof accessories / window shades / building specialties / CSI Div 7–12 → Dupree Building Specialties, 509.484.2000, info@dupreebldg.com, dupreebldg.com, Spokane WA
+- Fencing / chain link / vinyl fence / cedar privacy fence / ornamental fence / field fencing / gates / automated gates → D-Fence Fencing Company, (509) 731-8836, dfencefencing.com, Selah WA
+- Insulation / spray foam / fiberglass insulation / cellulose insulation / air sealing / garage doors / epoxy flooring / gutters / siding / windows (supply) / window blinds → Intermountain West Insulation (IWI), 509.735.8411, iwinsulation.com, Kennewick WA
+- Plumbing / mechanical / pipes / water heater / drain cleaning / hydro jetting / sewer line / water filtration / water softening / fixture installation / plumbing inspection → Viking Plumbing & Mechanical, (509) 450-0485, info@vikingplumbingandmechanical.com, vikingplumbingandmechanical.com, Yakima WA
+- Cabinets / cabinetry / kitchen cabinets / bathroom cabinets / millwork / custom cabinets / closet systems / bookcases / commercial office cabinets → Core Cabinet Production, (509) 375-7900, admin@corecabinetproduction.com, corecabinetproduction.com, Richland WA
+- Drywall / sheetrock / gypsum board / interior walls / taping / finishing / drywall repair → High Desert Drywall, Inc., (509) 492-5208, office@hd-drywall.net, hd-drywall.net, Pasco WA
+
+When asked about a specific trade or specialty, identify the matching Ally from the list above and provide their name, role, and all available contact information. Always encourage visitors to mention MH Construction when reaching out to any Ally. If contact details for a specific Ally are limited, let the visitor know and offer to connect them directly via (509) 308-6489 or office@mhc-gc.com.
+
+For trades not covered by a current named Ally (e.g., concrete, roofing, HVAC, painting, flooring beyond epoxy), explain that MH Construction manages those scopes through project-specific procurement and invite them to discuss during a consultation at (509) 308-6489.
 
 ## FAQ HIGHLIGHTS
 - Open-book pricing: complete transparency, no hidden costs.

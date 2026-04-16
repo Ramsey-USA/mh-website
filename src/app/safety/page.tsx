@@ -244,6 +244,8 @@ export default function SafetyPage() {
   const doc = getDocumentById("safety-manual");
   const revisionNumber = doc?.revisionNumber ?? "2";
   const revisionDate = doc?.revisionDate ?? "04/07/2026";
+  const manualHref =
+    doc?.pdfPath ?? "/resources/safety-program#manual-downloads";
 
   return (
     <>
@@ -441,19 +443,27 @@ export default function SafetyPage() {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <Link
-                    href="/resources/safety-program"
+                  <a
+                    href={manualHref}
+                    download
                     className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white font-bold px-6 py-3 rounded-xl transition-colors shadow-md"
                   >
-                    <MaterialIcon icon="open_in_new" size="sm" />
-                    View Full Program Overview
+                    <MaterialIcon icon="download" size="sm" />
+                    Download Complete Manual
+                  </a>
+                  <Link
+                    href="/resources/safety-program#field-forms"
+                    className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white font-bold px-6 py-3 rounded-xl transition-colors shadow-md"
+                  >
+                    <MaterialIcon icon="assignment" size="sm" />
+                    Access Forms & Sections
                   </Link>
                   <Link
-                    href="/contact"
+                    href="/resources/safety-program"
                     className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 transition-colors"
                   >
-                    <MaterialIcon icon="send" size="sm" />
-                    Request Documentation
+                    <MaterialIcon icon="open_in_new" size="sm" />
+                    View Public Safety Resource Center
                   </Link>
                 </div>
               </div>

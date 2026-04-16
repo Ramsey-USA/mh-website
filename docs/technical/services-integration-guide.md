@@ -981,7 +981,7 @@ const result = await ai.run("@cf/meta/llama-3.1-8b-instruct", {
 | Conversation history | Sent with each request (max 10 msgs) |
 | Quick actions        | Pre-defined prompts for common Qs    |
 | Mobile-responsive    | Full-screen on mobile, panel on desk |
-| Proactive prompt     | Shows after 30s of inactivity        |
+| Proactive prompt     | Shows after 60s of inactivity        |
 
 ### Chatbot Behavior Rules
 

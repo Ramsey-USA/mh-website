@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import type { Testimonial } from "@/lib/data/testimonials";
 
@@ -66,12 +67,24 @@ export function TestimonialCard({
       {/* Header with Avatar/Initials */}
       <div className="flex items-start space-x-3 sm:space-x-4 mb-4 sm:mb-6">
         {showImage && (
-          <div
-            className={`flex-shrink-0 flex justify-center items-center bg-gradient-to-br ${styles.iconBg} shadow-lg p-2 sm:p-3 rounded-xl sm:rounded-2xl w-12 h-12 sm:w-16 sm:h-16 group-hover:scale-110 transition-transform duration-300`}
-          >
-            <span className="font-bold text-white text-lg sm:text-2xl">
-              {testimonial.name.charAt(0)}
-            </span>
+          <div className="flex-shrink-0 relative rounded-xl sm:rounded-2xl w-12 h-12 sm:w-16 sm:h-16 overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-300">
+            {testimonial.image ? (
+              <Image
+                src={testimonial.image}
+                alt={`${testimonial.name} — MH Construction client`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 48px, 64px"
+              />
+            ) : (
+              <div
+                className={`flex justify-center items-center bg-gradient-to-br ${styles.iconBg} w-full h-full`}
+              >
+                <span className="font-bold text-white text-lg sm:text-2xl">
+                  {testimonial.name.charAt(0)}
+                </span>
+              </div>
+            )}
           </div>
         )}
         <div className="flex-1 min-w-0">

@@ -834,7 +834,7 @@ export default function ServicesPage() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/logo/agc-member.png"
+                  src="/images/logo/agc-member.webp"
                   alt="AGC of Washington Member"
                   className="h-12 w-auto"
                 />

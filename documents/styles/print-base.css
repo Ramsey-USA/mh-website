@@ -16,7 +16,7 @@
   @top-left {
     content: string(document-title);
     font-family: var(--font-heading);
-    font-size: 8pt;
+    font-size: var(--type-print-running-head);
     color: var(--color-primary-dark);
     vertical-align: bottom;
     padding-bottom: 4pt;
@@ -25,7 +25,7 @@
   @top-right {
     content: string(section-title);
     font-family: var(--font-heading);
-    font-size: 8pt;
+    font-size: var(--type-print-running-head);
     color: var(--color-secondary-text);
     vertical-align: bottom;
     padding-bottom: 4pt;
@@ -36,7 +36,7 @@
   @bottom-left {
     content: "MH Construction, Inc.  |  (509) 308-6489  ·  3111 N. Capitol Ave., Pasco, WA 99301  ·  www.mhc-gc.com  |  WA: MHCONCI907R7  ·  OR: 765043-99  ·  ID: RCE-49250";
     font-family: var(--font-body);
-    font-size: 6.5pt;
+    font-size: var(--type-print-footer-small);
     color: var(--color-secondary-text);
     vertical-align: top;
     padding-top: 4pt;
@@ -45,7 +45,7 @@
   @bottom-right {
     content: "Page " counter(page) " of " counter(pages);
     font-family: var(--font-body);
-    font-size: 7pt;
+    font-size: var(--type-print-footer);
     color: var(--color-secondary-text);
     vertical-align: top;
     padding-top: 4pt;

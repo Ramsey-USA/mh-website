@@ -83,7 +83,7 @@ const ACTIVE_PAGES = [
   // Priority 0.7 - Supporting pages
   { path: "/team", priority: 0.7, changeFreq: "monthly" as const },
   { path: "/careers", priority: 0.7, changeFreq: "weekly" as const },
-  { path: "/allies", priority: 0.7, changeFreq: "monthly" as const },
+  { path: "/allies", priority: 0.8, changeFreq: "monthly" as const },
 
   // Priority 0.75 - Resources hub
   { path: "/resources", priority: 0.75, changeFreq: "monthly" as const },

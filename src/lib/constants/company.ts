@@ -128,6 +128,35 @@ export const COMPANY_INFO = {
     umbrellaLogo: "/images/logo/travelers-umbrella.png",
   },
 
+  // Chamber of Commerce Memberships
+  chambers: {
+    pasco: {
+      name: "Pasco Chamber of Commerce",
+      memberDirectoryUrl:
+        "https://pascochamber.org/construction-equipment-contractors/",
+      // Color logo (use on light backgrounds)
+      logo: "/images/credentials/Pasco-Chamber-logo-color-transparent.webp",
+      // White logo (use on dark backgrounds)
+      logoWhite: "/images/credentials/Pasco-Chamber-logo-white-fullsize.webp",
+    },
+    richland: {
+      name: "Richland Chamber of Commerce",
+      memberDirectoryUrl: "https://www.richlandchamber.org/member-directory",
+      // Full color logo (works on light backgrounds)
+      logo: "/images/credentials/Richland-Chamber-logo-full-color.webp",
+      logoWhite: "/images/credentials/Richland-Chamber-logo-full-color.webp",
+    },
+    triCityRegional: {
+      name: "Tri-City Regional Chamber of Commerce",
+      memberDirectoryUrl:
+        "https://web.tricityregionalchamber.com/Contractor-General/MH-Construction,-Inc-6318",
+      // Horizontal logo (use on light backgrounds)
+      logo: "/images/credentials/Kennewick-TriCity-Regional-Chamber-logo-horizontal.webp",
+      logoWhite:
+        "/images/credentials/Kennewick-TriCity-Regional-Chamber-logo-horizontal.webp",
+    },
+  },
+
   // Website URLs
   urls: {
     // Use environment variable with fallback

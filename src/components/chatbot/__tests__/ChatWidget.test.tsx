@@ -703,7 +703,7 @@ describe("ChatWidget Proactive Prompt", () => {
     jest.useRealTimers();
   });
 
-  it("shows proactive prompt after 30 seconds", () => {
+  it("shows proactive prompt after 60 seconds", () => {
     render(<ChatWidget />);
 
     // Prompt should not be visible initially
@@ -711,9 +711,9 @@ describe("ChatWidget Proactive Prompt", () => {
       screen.queryByText(/Need help finding what you're looking for/),
     ).not.toBeInTheDocument();
 
-    // Advance time by 30 seconds
+    // Advance time by 60 seconds
     act(() => {
-      jest.advanceTimersByTime(30_000);
+      jest.advanceTimersByTime(60_000);
     });
 
     // Prompt should now be visible
@@ -731,7 +731,7 @@ describe("ChatWidget Proactive Prompt", () => {
 
     // Advance time
     act(() => {
-      jest.advanceTimersByTime(30_000);
+      jest.advanceTimersByTime(60_000);
     });
 
     // Prompt should NOT appear
@@ -744,7 +744,7 @@ describe("ChatWidget Proactive Prompt", () => {
     render(<ChatWidget />);
 
     act(() => {
-      jest.advanceTimersByTime(30_000);
+      jest.advanceTimersByTime(60_000);
     });
 
     expect(window.sessionStorage.setItem).toHaveBeenCalledWith(
@@ -758,7 +758,7 @@ describe("ChatWidget Proactive Prompt", () => {
     render(<ChatWidget />);
 
     act(() => {
-      jest.advanceTimersByTime(30_000);
+      jest.advanceTimersByTime(60_000);
     });
 
     expect(
@@ -781,7 +781,7 @@ describe("ChatWidget Proactive Prompt", () => {
     render(<ChatWidget />);
 
     act(() => {
-      jest.advanceTimersByTime(30_000);
+      jest.advanceTimersByTime(60_000);
     });
 
     // Click "Chat with us" link
@@ -801,7 +801,7 @@ describe("ChatWidget Proactive Prompt", () => {
     render(<ChatWidget />);
 
     act(() => {
-      jest.advanceTimersByTime(30_000);
+      jest.advanceTimersByTime(60_000);
     });
 
     expect(
@@ -832,7 +832,7 @@ describe("ChatWidget Proactive Prompt", () => {
 
     // Advance time
     act(() => {
-      jest.advanceTimersByTime(30_000);
+      jest.advanceTimersByTime(60_000);
     });
 
     // Prompt should NOT appear (chat is open)
@@ -846,7 +846,7 @@ describe("ChatWidget Proactive Prompt", () => {
 
     // Show prompt
     act(() => {
-      jest.advanceTimersByTime(30_000);
+      jest.advanceTimersByTime(60_000);
     });
 
     expect(
@@ -884,7 +884,7 @@ describe("ChatWidget Proactive Prompt", () => {
     render(<ChatWidget />);
 
     act(() => {
-      jest.advanceTimersByTime(30_000);
+      jest.advanceTimersByTime(60_000);
     });
 
     // Prompt should still appear (graceful degradation)

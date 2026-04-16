@@ -55,6 +55,8 @@ const aggregateRatingSchema = aggregateRating
     )
   : null;
 
+const SITE_URL = "https://www.mhc-gc.com";
+
 const reviewSchemas = testimonials.map((testimonial) =>
   generateReviewSchema({
     reviewBody: testimonial.quote,
@@ -62,6 +64,7 @@ const reviewSchemas = testimonials.map((testimonial) =>
     author: testimonial.name,
     reviewTitle: testimonial.project || "MH Construction Project",
     datePublished: testimonial.date || new Date().toISOString(),
+    image: testimonial.image ? `${SITE_URL}${testimonial.image}` : undefined,
   }),
 );
 

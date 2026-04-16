@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function SafetyManualPage() {
-  redirect("/safety");
+  redirect("/resources/safety-program#manual-downloads");
 }

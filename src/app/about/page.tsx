@@ -15,6 +15,7 @@ import {
 } from "@/lib/seo/breadcrumb-schema";
 import { aboutTimelineSteps } from "@/lib/data/about-timeline";
 import { gridPresets } from "@/lib/styles/layout-variants";
+import { COMPANY_INFO } from "@/lib/constants/company";
 // Below-fold: lazy-loaded to reduce initial JS
 const PartnershipPhilosophy = dynamic(() =>
   import("@/components/about").then((m) => ({
@@ -133,6 +134,142 @@ export default function AboutPage() {
 
         {/* Awards & Recognition Section - Credibility and trust signals (50-60% depth) */}
         <AwardsSection />
+
+        {/* Accreditations & Certifications - Credential logos */}
+        <section className="relative py-12 sm:py-14 bg-gray-50 dark:bg-gray-800/60">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-6">
+              Accredited & Certified
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+              {/* BBB */}
+              <a
+                href={COMPANY_INFO.bbb.sealClickUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="BBB Accredited Business - A+ Rating"
+                className="hover:opacity-80 transition-opacity"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={COMPANY_INFO.bbb.sealHorizontal}
+                  alt="BBB Accredited Business A+ Rating"
+                  className="h-10 sm:h-12 w-auto dark:hidden"
+                />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={COMPANY_INFO.bbb.sealHorizontalWhite}
+                  alt="BBB Accredited Business A+ Rating"
+                  className="h-10 sm:h-12 w-auto hidden dark:block"
+                />
+              </a>
+
+              {/* AGC Member */}
+              <a
+                href="https://www.agcwa.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="AGC of Washington Member"
+                className="hover:opacity-80 transition-opacity"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/logo/agc-member.webp"
+                  alt="AGC of Washington Member"
+                  className="h-10 sm:h-12 w-auto"
+                />
+              </a>
+
+              {/* Travelers Insurance */}
+              <a
+                href={COMPANY_INFO.travelers.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Travelers Insurance - Auto & Bonding Partner"
+                className="hover:opacity-80 transition-opacity"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={COMPANY_INFO.travelers.logo}
+                  alt="Travelers Insurance - Auto & Bonding Partner"
+                  className="h-10 sm:h-12 w-auto dark:hidden"
+                />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={COMPANY_INFO.travelers.logoWhite}
+                  alt="Travelers Insurance - Auto & Bonding Partner"
+                  className="h-10 sm:h-12 w-auto hidden dark:block"
+                />
+              </a>
+
+              {/* Pasco Chamber of Commerce */}
+              <a
+                href={COMPANY_INFO.chambers.pasco.memberDirectoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Pasco Chamber of Commerce Member"
+                className="hover:opacity-80 transition-opacity"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={COMPANY_INFO.chambers.pasco.logo}
+                  alt="Pasco Chamber of Commerce Member"
+                  className="h-10 sm:h-12 w-auto dark:hidden"
+                />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={COMPANY_INFO.chambers.pasco.logoWhite}
+                  alt="Pasco Chamber of Commerce Member"
+                  className="h-10 sm:h-12 w-auto hidden dark:block"
+                />
+              </a>
+
+              {/* Richland Chamber of Commerce */}
+              <a
+                href={COMPANY_INFO.chambers.richland.memberDirectoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Richland Chamber of Commerce Member"
+                className="hover:opacity-80 transition-opacity"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={COMPANY_INFO.chambers.richland.logo}
+                  alt="Richland Chamber of Commerce Member"
+                  className="h-10 sm:h-12 w-auto"
+                />
+              </a>
+
+              {/* Tri-City Regional Chamber of Commerce */}
+              <a
+                href={COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Tri-City Regional Chamber of Commerce Member"
+                className="hover:opacity-80 transition-opacity"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={COMPANY_INFO.chambers.triCityRegional.logo}
+                  alt="Tri-City Regional Chamber of Commerce Member"
+                  className="h-10 sm:h-12 w-auto"
+                />
+              </a>
+
+              {/* Veteran-Owned Badge */}
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/10 dark:bg-brand-primary/20">
+                <MaterialIcon
+                  icon="military_tech"
+                  size="md"
+                  className="text-brand-primary"
+                />
+                <span className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light">
+                  Veteran-Owned Since 2025
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Safety & Compliance Section - Industry-specific trust and expertise (60-70% depth) */}
         <SafetySection />

@@ -80,7 +80,7 @@ describe("Safety navigation contracts", () => {
     window.localStorage.clear();
   });
 
-  it("routes safety manual card from resources page to /safety", () => {
+  it("routes safety manual card from resources page to the public safety resource center", () => {
     const { default: ResourcesPage } = require("../resources/page") as {
       default: React.ComponentType;
     };
@@ -90,10 +90,13 @@ describe("Safety navigation contracts", () => {
     const safetyManualLink = screen.getByRole("link", {
       name: /MISH — Safety & Health Program/i,
     });
-    expect(safetyManualLink).toHaveAttribute("href", "/safety");
+    expect(safetyManualLink).toHaveAttribute(
+      "href",
+      "/resources/safety-program",
+    );
   });
 
-  it("keeps section page primary back navigation on /safety", async () => {
+  it("keeps section page primary back navigation on the public safety resource center", async () => {
     const { default: SectionPage } =
       require("../resources/safety-manual/section/[slug]/page") as {
         default: (props: {
@@ -109,10 +112,18 @@ describe("Safety navigation contracts", () => {
     const backLink = screen.getByRole("link", {
       name: /Back to Safety Program/i,
     });
-    expect(backLink).toHaveAttribute("href", "/safety");
+    expect(backLink).toHaveAttribute(
+      "href",
+      "/resources/safety-program#manual-downloads",
+    );
 
-    const middleNav = screen.getByRole("link", { name: /^Safety Program$/i });
-    expect(middleNav).toHaveAttribute("href", "/safety");
+    const middleNav = screen.getByRole("link", {
+      name: /^Safety Program Resources$/i,
+    });
+    expect(middleNav).toHaveAttribute(
+      "href",
+      "/resources/safety-program#manual-downloads",
+    );
   });
 
   it("returns print page users to /safety/hub", async () => {

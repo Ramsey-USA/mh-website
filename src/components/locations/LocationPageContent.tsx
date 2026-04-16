@@ -364,6 +364,13 @@ export function LocationPageContent({ location }: LocationPageProps) {
                     <MaterialIcon icon="phone" size="sm" />
                     Start a Consultation
                   </Link>
+                  <Link
+                    href="/allies"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-semibold text-gray-900 dark:text-gray-100 hover:border-brand-secondary transition-colors"
+                  >
+                    <MaterialIcon icon="handshake" size="sm" />
+                    Trade Partner Network
+                  </Link>
                 </div>
                 {nearbyAreas.length > 0 && (
                   <p className="mt-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
@@ -594,7 +601,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/images/logo/agc-member.png"
+                    src="/images/logo/agc-member.webp"
                     alt="AGC of Washington Member"
                     className="h-10 sm:h-12 w-auto"
                   />

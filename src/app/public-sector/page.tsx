@@ -479,7 +479,7 @@ export default function PublicSectorPage() {
             tagline: "Federal Wage Standards",
             description:
               "Full compliance with Davis-Bacon and Related Acts (DBRA) prevailing wage requirements for federal construction projects. Certified payroll documentation, wage determination expertise, and meticulous record-keeping ensure all federal labor standards are met with disciplined execution and complete transparency.",
-            image: "/images/compliance/prevailing-wage.jpg",
+            image: "/images/compliance/prevailing-wage.webp",
             iconBg: "bg-brand-primary",
             stats: "100%",
             statsLabel: "DBRA Compliance Rate",
@@ -491,7 +491,7 @@ export default function PublicSectorPage() {
             tagline: "Financial Security Assurance",
             description:
               "Comprehensive bonding capacity and insurance coverage meeting all federal requirements. Performance bonds, payment bonds, bid bonds, and professional liability insurance ensure complete financial protection for government projects. Our bonding relationships and insurance portfolio demonstrate financial stability and commitment to federal contracting excellence.",
-            image: "/images/compliance/bonding.jpg",
+            image: "/images/compliance/bonding.webp",
             iconBg: "bg-brand-secondary",
             stats: "$5M+",
             statsLabel: "Bonding Capacity",
@@ -503,7 +503,7 @@ export default function PublicSectorPage() {
             tagline: "OSHA VPP Star Designation",
             description:
               ".64 EMR safety rating—40% better than industry average—with OSHA VPP Star designation and multiple AGC-WA Top EMR Awards. Zero time-loss injuries for 3+ consecutive years. Our military-grade safety protocols, comprehensive training programs, and daily safety briefings exceed all federal safety requirements and ensure mission-critical project execution without compromise.",
-            image: "/images/compliance/safety.jpg",
+            image: "/images/compliance/safety.webp",
             iconBg: "bg-bronze-700",
             stats: ".64",
             statsLabel: "EMR Safety Rating",
@@ -515,7 +515,7 @@ export default function PublicSectorPage() {
             tagline: "Service-Earned Values",
             description:
               "Veteran-Owned Since January 2025 when Army veteran Jeremy Thamert purchased the company, bringing 15+ years military aviation experience and operational discipline. We actively recruit veterans across all branches, offer veteran hiring initiatives, and maintain veteran preference in all employment decisions. Our veteran ownership and values translate to disciplined execution, transparent communication, and unwavering commitment to federal project success.",
-            image: "/images/compliance/Veteran-Owned.jpg",
+            image: "/images/compliance/veteran-owned.webp",
             iconBg: "bg-brand-primary",
             stats: "2025",
             statsLabel: "Veteran-Owned Since",
@@ -1155,7 +1155,7 @@ export default function PublicSectorPage() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/logo/agc-member.png"
+                src="/images/logo/agc-member.webp"
                 alt="AGC of Washington Member"
                 className="h-10 sm:h-12 w-auto"
               />
@@ -1180,6 +1180,60 @@ export default function PublicSectorPage() {
                 src={COMPANY_INFO.travelers.logoWhite}
                 alt="Travelers Insurance - Auto & Bonding Partner"
                 className="h-10 sm:h-12 w-auto hidden dark:block"
+              />
+            </a>
+
+            {/* Pasco Chamber of Commerce */}
+            <a
+              href={COMPANY_INFO.chambers.pasco.memberDirectoryUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity"
+              title="Pasco Chamber of Commerce Member"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={COMPANY_INFO.chambers.pasco.logo}
+                alt="Pasco Chamber of Commerce Member"
+                className="h-10 sm:h-12 w-auto dark:hidden"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={COMPANY_INFO.chambers.pasco.logoWhite}
+                alt="Pasco Chamber of Commerce Member"
+                className="h-10 sm:h-12 w-auto hidden dark:block"
+              />
+            </a>
+
+            {/* Richland Chamber of Commerce */}
+            <a
+              href={COMPANY_INFO.chambers.richland.memberDirectoryUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity"
+              title="Richland Chamber of Commerce Member"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={COMPANY_INFO.chambers.richland.logo}
+                alt="Richland Chamber of Commerce Member"
+                className="h-10 sm:h-12 w-auto"
+              />
+            </a>
+
+            {/* Tri-City Regional Chamber of Commerce */}
+            <a
+              href={COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity"
+              title="Tri-City Regional Chamber of Commerce Member"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={COMPANY_INFO.chambers.triCityRegional.logo}
+                alt="Tri-City Regional Chamber of Commerce Member"
+                className="h-10 sm:h-12 w-auto"
               />
             </a>
 

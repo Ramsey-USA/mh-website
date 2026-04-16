@@ -195,6 +195,7 @@ function buildBrandTokens(brand) {
 }
 
 const BRAND_TOKENS = buildBrandTokens(BRAND);
+const BRAND_LICENSES_INLINE = BRAND_TOKENS["{{BRAND_LICENSES_INLINE}}"];
 
 /** Apply all brand tokens to an HTML string. */
 function applyBrandTokens(html) {
@@ -308,16 +309,16 @@ const SECTION_FOOTER_HTML = [
 
   // LEFT — Company contact (mirrors cover-bottom-left)
   `<div style="flex:1;min-width:0;color:#8A6B49;font-size:8pt;line-height:1.65;">`,
-  `<strong style="color:#386851;">MH Construction, Inc.</strong>`,
-  `<span style="color:#8A6B49;margin:0 5pt;">|</span>(509) 308-6489<br>`,
-  `3111 N. Capitol Ave., Pasco, WA 99301<br>`,
-  `www.mhc-gc.com</div>`,
+  `<strong style="color:#386851;">${BRAND.companyName}</strong>`,
+  `<span style="color:#8A6B49;margin:0 5pt;">|</span>${BRAND.phone}<br>`,
+  `${BRAND.addressStreet}, ${BRAND.addressCityStateZip}<br>`,
+  `${BRAND.website}</div>`,
 
   // RIGHT — Licenses + BBB + AGC logos (mirrors cover-bottom-right)
   `<div style="flex-shrink:0;display:flex;align-items:center;gap:0.12in;">`,
   `<div style="text-align:right;font-size:7pt;color:#8A6B49;white-space:nowrap;line-height:1.65;">`,
-  `WA Lic: MHCONCI907R7&nbsp;&middot;&nbsp;OR Lic: 765043-99&nbsp;&middot;&nbsp;ID Lic: RCE-49250<br>`,
-  `<span style="color:#BD9264;font-weight:700;">Revision 2026</span></div>`,
+  `${BRAND_LICENSES_INLINE.replaceAll("  ·  ", "&nbsp;&middot;&nbsp;")}<br>`,
+  `<span style="color:#BD9264;font-weight:700;">Revision ${BRAND.revisionYear}</span></div>`,
   BBB_LOGO_B64
     ? `<img src="${BBB_LOGO_B64}" style="height:0.34in;width:auto;display:block;flex-shrink:0;" alt="BBB Accredited A+" />`
     : "",

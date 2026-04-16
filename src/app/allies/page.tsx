@@ -53,12 +53,12 @@ type Vendor = {
 
 const vendors: Vendor[] = [
   {
-    name: "Diamond Electric",
+    name: "Diamond Electric LLC",
     role: "Primary Electrical Contractor",
     icon: "electrical_services",
     accentColor: "from-brand-primary to-brand-primary-dark",
     description:
-      "Diamond Electric is our trusted primary electrical contractor, providing safe, code-compliant commercial and industrial electrical installations on MH Construction projects. Their expertise and commitment to safety align perfectly with our award-winning safety culture.",
+      "Diamond Electric LLC is our trusted primary electrical contractor, providing safe, code-compliant commercial and industrial electrical installations on MH Construction projects. Their expertise and commitment to safety align perfectly with our award-winning safety culture.",
     highlights: [
       "Commercial & Industrial Electrical",
       "Code-Compliant Installations",
@@ -67,7 +67,9 @@ const vendors: Vendor[] = [
     portfolio: [],
     logo: "",
     brandColors: { primary: "#5C2D91", secondary: "#C9A227" },
-    address: "",
+    address: "1267 Evanslee Court, Richland, WA 99352",
+    phone: "509-552-9459",
+    email: "drew@diamondelectricllc.net",
     links: [
       {
         label: "Facebook",
@@ -371,6 +373,33 @@ const vendors: Vendor[] = [
       {
         label: "Website",
         href: "https://corecabinetproduction.com/",
+        platform: "website",
+      },
+    ],
+  },
+  {
+    name: "High Desert Drywall, Inc.",
+    role: "Primary Drywall & Interior Construction Contractor",
+    icon: "construction",
+    accentColor: "from-sky-700 to-sky-900",
+    description:
+      "High Desert Drywall, Inc. is our trusted primary drywall and interior construction contractor, delivering expert drywall installation, taping, and finishing on MH Construction projects. Their commitment to quality and precision makes them an essential part of every interior build.",
+    highlights: [
+      "Drywall Installation",
+      "Taping & Finishing",
+      "Commercial & Residential Interior Scope",
+      "Interior Construction Specialists",
+    ],
+    portfolio: [],
+    logo: "",
+    brandColors: { primary: "#1a3a5c", secondary: "#c8a04a" },
+    address: "Pasco, WA",
+    phone: "(509) 492-5208",
+    email: "office@hd-drywall.net",
+    links: [
+      {
+        label: "Website",
+        href: "https://hd-drywall.net/",
         platform: "website",
       },
     ],
@@ -1067,7 +1096,7 @@ export default function AlliesPage() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/logo/agc-member.png"
+                  src="/images/logo/agc-member.webp"
                   alt="AGC of Washington Member"
                   className="h-10 sm:h-12 w-auto"
                 />
@@ -1092,6 +1121,60 @@ export default function AlliesPage() {
                   src={COMPANY_INFO.travelers.logoWhite}
                   alt="Travelers Insurance - Auto & Bonding Partner"
                   className="h-10 sm:h-12 w-auto hidden dark:block"
+                />
+              </a>
+
+              {/* Pasco Chamber of Commerce */}
+              <a
+                href={COMPANY_INFO.chambers.pasco.memberDirectoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+                title="Pasco Chamber of Commerce Member"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={COMPANY_INFO.chambers.pasco.logo}
+                  alt="Pasco Chamber of Commerce Member"
+                  className="h-10 sm:h-12 w-auto dark:hidden"
+                />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={COMPANY_INFO.chambers.pasco.logoWhite}
+                  alt="Pasco Chamber of Commerce Member"
+                  className="h-10 sm:h-12 w-auto hidden dark:block"
+                />
+              </a>
+
+              {/* Richland Chamber of Commerce */}
+              <a
+                href={COMPANY_INFO.chambers.richland.memberDirectoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+                title="Richland Chamber of Commerce Member"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={COMPANY_INFO.chambers.richland.logo}
+                  alt="Richland Chamber of Commerce Member"
+                  className="h-10 sm:h-12 w-auto"
+                />
+              </a>
+
+              {/* Tri-City Regional Chamber of Commerce */}
+              <a
+                href={COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+                title="Tri-City Regional Chamber of Commerce Member"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={COMPANY_INFO.chambers.triCityRegional.logo}
+                  alt="Tri-City Regional Chamber of Commerce Member"
+                  className="h-10 sm:h-12 w-auto"
                 />
               </a>
 

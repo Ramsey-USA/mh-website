@@ -2,8 +2,8 @@ import { buildSystemPrompt, ALLIES } from "../knowledge-base";
 
 describe("Chatbot Knowledge Base", () => {
   describe("ALLIES", () => {
-    it("contains all 9 trade partners", () => {
-      expect(ALLIES).toHaveLength(9);
+    it("contains all 10 trade partners", () => {
+      expect(ALLIES).toHaveLength(10);
     });
 
     it("every ally has required fields", () => {
@@ -17,7 +17,7 @@ describe("Chatbot Knowledge Base", () => {
 
     it("includes known trade partners by name", () => {
       const names = ALLIES.map((a) => a.name);
-      expect(names).toContain("Diamond Electric");
+      expect(names).toContain("Diamond Electric LLC");
       expect(names).toContain("Mustang Signs");
       expect(names).toContain("Viking Plumbing & Mechanical");
       expect(names).toContain("Core Cabinet Production");
