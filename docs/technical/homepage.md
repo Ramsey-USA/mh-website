@@ -588,9 +588,8 @@ export default function Home() {
 
 ```json
 {
-  "next": "^15.5.12",
-  "react": "^18.3.1",
-  "framer-motion": "12.23.24",
+  "next": "^15.5.15",
+  "react": "^19.0.0",
   "typescript": "^5.9.2"
 }
 ```
@@ -648,7 +647,7 @@ className = "bg-white dark:bg-gray-900 text-gray-900 dark:text-white";
 ### Potential Improvements
 
 1. **Hero Background:** Add photo or video background (placeholder ready)
-2. **Animation Refinements:** Enhanced Framer Motion animations
+2. **Animation Refinements:** Enhanced CSS/IntersectionObserver animations
 3. **A/B Testing:** Test different CTA placements
 4. **Personalization:** Smart content based on user behavior
 5. **Interactive Elements:** More engaging user interactions

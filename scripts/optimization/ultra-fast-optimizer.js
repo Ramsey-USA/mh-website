@@ -19,7 +19,7 @@ const nextConfig = {
   experimental: {
     webpackBuildWorker: true,
     optimizeCss: true,
-    optimizePackageImports: ["lucide-react", "framer-motion"],
+    optimizePackageImports: ["@radix-ui/react-icons"],
     // SAFE ultra-fast additions
     turbo: true,                    // Turbo mode (15-25% faster)
     serverComponentsHmrCache: true, // Server component cache
@@ -76,7 +76,7 @@ const nextConfig = {
               reuseExistingChunk: true,
             },
             ui: {
-              test: /[\\\\/]node_modules[\\\\/](@radix-ui|framer-motion|lucide-react)[\\\\/]/,
+              test: /[\\\/]node_modules[\\\/](@radix-ui)[\\\/]/,
               name: "ui-libs",
               chunks: "all",
               priority: 25,

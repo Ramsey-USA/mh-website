@@ -73,7 +73,6 @@ function analyzeDependencies() {
 
     // Identify known heavy dependencies
     const knownHeavy = [
-      "framer-motion",
       "@emotion/react",
       "@emotion/styled",
       "moment",

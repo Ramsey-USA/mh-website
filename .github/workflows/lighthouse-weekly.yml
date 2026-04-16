@@ -4,7 +4,8 @@ on:
   schedule:
     # Every Friday at 8:00 AM Pacific (15:00 UTC)
     - cron: "0 15 * * 5"
-  workflow_dispatch: # Allow manual trigger
+  workflow_dispatch:
+    # Allow manual trigger
 
 permissions:
   contents: read
@@ -22,10 +23,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: "npm"
@@ -188,7 +189,7 @@ jobs:
 
       - name: Upload Lighthouse results artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: lighthouse-results-${{ github.run_id }}
           path: lighthouse-results/

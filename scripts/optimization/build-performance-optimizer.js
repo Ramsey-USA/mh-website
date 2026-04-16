@@ -35,7 +35,7 @@ function optimizeNextConfig() {
     // Enable concurrent features for faster builds
     concurrentFeatures: true,
     // Optimize package imports
-    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-icons'],
+    optimizePackageImports: ['@radix-ui/react-icons'],
   },`,
   );
 
@@ -100,7 +100,7 @@ function optimizeNextConfig() {
           },
           // UI library chunk
           ui: {
-            test: /[\\\\/]node_modules[\\\\/](@radix-ui|framer-motion|lucide-react)[\\\\/]/,
+            test: /[\\\/]node_modules[\\\/](@radix-ui)[\\\/]/,
             name: 'ui-libs',
             chunks: 'all',
             priority: 12,

@@ -192,27 +192,7 @@ export default function AnalyticsDashboardPage() {
                       : "text-gray-400 hover:text-white hover:bg-gray-700"
                   }`}
                 >
-                  {tab === "analytics" ? (
-                    <span className="flex items-center gap-2">
-                      <MaterialIcon icon="dashboard" size="sm" />
-                      Analytics
-                    </span>
-                  ) : tab === "leads" ? (
-                    <span className="flex items-center gap-2">
-                      <MaterialIcon icon="person_search" size="sm" />
-                      Leads CRM
-                    </span>
-                  ) : tab === "safety" ? (
-                    <span className="flex items-center gap-2">
-                      <MaterialIcon icon="safety_check" size="sm" />
-                      Safety
-                    </span>
-                  ) : (
-                    <span className="flex items-center gap-2">
-                      <MaterialIcon icon="directions_car" size="sm" />
-                      Drivers
-                    </span>
-                  )}
+                  {renderTabLabel(tab)}
                 </button>
               ),
             )}
@@ -221,293 +201,309 @@ export default function AnalyticsDashboardPage() {
       </div>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {activeTab === "leads" ? (
-          <LeadsTab token={adminToken ?? ""} />
-        ) : activeTab === "safety" ? (
-          <SafetyTab token={adminToken ?? ""} />
-        ) : activeTab === "drivers" ? (
-          <DriversTab token={adminToken ?? ""} />
-        ) : isLoading ? (
-          <div className="flex items-center justify-center py-20">
-            <div className="text-center">
-              <MaterialIcon
-                icon="radar"
-                size="4xl"
-                className="text-brand-secondary animate-pulse mx-auto mb-4"
-              />
-              <p className="text-brand-secondary font-bold uppercase tracking-wider">
-                SCANNING TACTICAL DATA...
-              </p>
+        {renderMainContent()}
+      </main>
+    </div>
+  );
+
+  function renderTabLabel(tab: "analytics" | "leads" | "safety" | "drivers") {
+    const TAB_CONFIG = {
+      analytics: { icon: "dashboard", label: "Analytics" },
+      leads: { icon: "person_search", label: "Leads CRM" },
+      safety: { icon: "safety_check", label: "Safety" },
+      drivers: { icon: "directions_car", label: "Drivers" },
+    } as const;
+    const { icon, label } = TAB_CONFIG[tab];
+    return (
+      <span className="flex items-center gap-2">
+        <MaterialIcon icon={icon} size="sm" />
+        {label}
+      </span>
+    );
+  }
+
+  function renderMainContent() {
+    if (activeTab === "leads") return <LeadsTab token={adminToken ?? ""} />;
+    if (activeTab === "safety") return <SafetyTab token={adminToken ?? ""} />;
+    if (activeTab === "drivers") return <DriversTab token={adminToken ?? ""} />;
+    if (isLoading) {
+      return (
+        <div className="flex items-center justify-center py-20">
+          <div className="text-center">
+            <MaterialIcon
+              icon="radar"
+              size="4xl"
+              className="text-brand-secondary animate-pulse mx-auto mb-4"
+            />
+            <p className="text-brand-secondary font-bold uppercase tracking-wider">
+              SCANNING TACTICAL DATA...
+            </p>
+          </div>
+        </div>
+      );
+    }
+    if (error) {
+      return (
+        <div className="bg-red-900/40 backdrop-blur-sm border-2 border-red-500 rounded-xl p-6">
+          <div className="flex items-start gap-3">
+            <MaterialIcon icon="warning" size="lg" className="text-red-400" />
+            <div>
+              <h3 className="font-black text-red-300 mb-1 uppercase tracking-wide">
+                MISSION CRITICAL ERROR
+              </h3>
+              <p className="text-red-200">{error}</p>
             </div>
           </div>
-        ) : error ? (
-          <div className="bg-red-900/40 backdrop-blur-sm border-2 border-red-500 rounded-xl p-6">
+        </div>
+      );
+    }
+    return renderAnalytics();
+  }
+
+  function renderAnalytics() {
+    return (
+      <div className="space-y-6">
+        {dashboardData?.kvStatus === "unavailable" && (
+          <div className="bg-yellow-900/40 backdrop-blur-sm border-2 border-yellow-500 rounded-xl p-4">
             <div className="flex items-start gap-3">
-              <MaterialIcon icon="warning" size="lg" className="text-red-400" />
+              <MaterialIcon
+                icon="cloud_off"
+                size="lg"
+                className="text-yellow-400"
+              />
               <div>
-                <h3 className="font-black text-red-300 mb-1 uppercase tracking-wide">
-                  MISSION CRITICAL ERROR
+                <h3 className="font-black text-yellow-300 mb-1 uppercase tracking-wide text-sm">
+                  KV NOT CONNECTED
                 </h3>
-                <p className="text-red-200">{error}</p>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className="space-y-6">
-            {dashboardData?.kvStatus === "unavailable" && (
-              <div className="bg-yellow-900/40 backdrop-blur-sm border-2 border-yellow-500 rounded-xl p-4">
-                <div className="flex items-start gap-3">
-                  <MaterialIcon
-                    icon="cloud_off"
-                    size="lg"
-                    className="text-yellow-400"
-                  />
-                  <div>
-                    <h3 className="font-black text-yellow-300 mb-1 uppercase tracking-wide text-sm">
-                      KV NOT CONNECTED
-                    </h3>
-                    <p className="text-yellow-200 text-sm">
-                      ANALYTICS KV namespace not provisioned. Run{" "}
-                      <code className="bg-black/40 px-1 rounded">
-                        wrangler kv namespace create ANALYTICS
-                      </code>{" "}
-                      and update wrangler.toml to see cross-visitor data.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-            <div>
-              <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
-                <MaterialIcon
-                  icon="dashboard"
-                  size="lg"
-                  className="text-brand-secondary"
-                />
-                TACTICAL OVERVIEW - ENGAGEMENT METRICS
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <MilitaryStatCard
-                  icon="visibility"
-                  label="RECON OPERATIONS"
-                  sublabel="Page Views"
-                  value={
-                    dashboardData?.pageviews?.total?.toLocaleString() || "0"
-                  }
-                  trend={`${dashboardData?.today?.pageviews ?? 0} today`}
-                  trendUp
-                />
-                <MilitaryStatCard
-                  icon="people"
-                  label="TOTAL SESSIONS"
-                  sublabel="All Visitors"
-                  value={
-                    dashboardData?.sessions?.count?.toLocaleString() || "0"
-                  }
-                  trend={`${dashboardData?.today?.sessions ?? 0} today`}
-                  trendUp
-                />
-                <MilitaryStatCard
-                  icon="schedule"
-                  label="ENGAGEMENT TIME"
-                  sublabel="Avg. Session Duration"
-                  value={formatDuration(
-                    dashboardData?.sessions?.averageDuration || 0,
-                  )}
-                  trend={`${dashboardData?.sessions?.count || 0} sessions`}
-                  trendUp
-                />
-                <MilitaryStatCard
-                  icon="flag"
-                  label="MISSION SUCCESS"
-                  sublabel="Total Conversions"
-                  value={dashboardData?.conversions?.total?.toString() || "0"}
-                  trend={`${dashboardData?.conversions?.contacts || 0} contacts`}
-                  trendUp
-                />
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
-                <MaterialIcon
-                  icon="map"
-                  size="lg"
-                  className="text-brand-secondary"
-                />
-                GEOGRAPHIC INTELLIGENCE - AO COVERAGE
-              </h2>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <GeographicHeatMap clicks={dashboardData?.clicks || []} />
-                <TopLocations clicks={dashboardData?.clicks || []} />
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
-                <MaterialIcon
-                  icon="touch_app"
-                  size="lg"
-                  className="text-brand-secondary"
-                />
-                CTA ENGAGEMENT - TACTICAL RESPONSE
-              </h2>
-              <CTAPerformanceGrid clicks={dashboardData?.clicks || []} />
-            </div>
-
-            <div>
-              <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
-                <MaterialIcon
-                  icon="trending_up"
-                  size="lg"
-                  className="text-brand-secondary"
-                />
-                MISSION OBJECTIVES - CONVERSIONS
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <MilitaryMetricCard
-                  icon="mail"
-                  label="CONTACT SECURED"
-                  sublabel="Form Submissions"
-                  value={
-                    dashboardData?.conversions?.contacts?.toString() || "0"
-                  }
-                  color="green"
-                />
-                <MilitaryMetricCard
-                  icon="event"
-                  label="CONSULTATIONS"
-                  sublabel="Scheduled Meetings"
-                  value={
-                    dashboardData?.conversions?.consultations?.toString() || "0"
-                  }
-                  color="blue"
-                />
-                <MilitaryMetricCard
-                  icon="assessment"
-                  label="TOTAL OBJECTIVES"
-                  sublabel="All Conversions"
-                  value={dashboardData?.conversions?.total?.toString() || "0"}
-                  color="purple"
-                />
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
-                <MaterialIcon
-                  icon="military_tech"
-                  size="lg"
-                  className="text-bronze-400"
-                />
-                VETERAN OPERATIONS - BROTHERHOOD ENGAGEMENT
-              </h2>
-              <div className="bg-gradient-to-br from-bronze-900/60 to-bronze-800/40 backdrop-blur-sm rounded-xl border-2 border-bronze-500 p-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="text-center">
-                    <MaterialIcon
-                      icon="visibility"
-                      size="2xl"
-                      className="text-bronze-300 mx-auto mb-3"
-                    />
-                    <div className="text-4xl font-black text-white mb-2">
-                      {veteranPageViews.toString()}
-                    </div>
-                    <div className="text-bronze-300 font-bold uppercase tracking-wide text-sm">
-                      Veteran Page Views
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <MaterialIcon
-                      icon="favorite"
-                      size="2xl"
-                      className="text-bronze-300 mx-auto mb-3"
-                    />
-                    <div className="text-4xl font-black text-white mb-2">
-                      {dashboardData?.topPages?.length
-                        ? `${dashboardData.topPages.length}`
-                        : "0"}
-                    </div>
-                    <div className="text-bronze-300 font-bold uppercase tracking-wide text-sm">
-                      Active Pages
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <MaterialIcon
-                      icon="stars"
-                      size="2xl"
-                      className="text-bronze-300 mx-auto mb-3"
-                    />
-                    <div className="text-4xl font-black text-white mb-2">
-                      100%
-                    </div>
-                    <div className="text-bronze-300 font-bold uppercase tracking-wide text-sm">
-                      Veteran Commitment
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
-                <MaterialIcon
-                  icon="speed"
-                  size="lg"
-                  className="text-brand-secondary"
-                />
-                PERFORMANCE READINESS - SYSTEM STATUS
-              </h2>
-              <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary p-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="text-center">
-                    <MaterialIcon
-                      icon="bar_chart"
-                      size="2xl"
-                      className="text-brand-secondary mx-auto mb-3"
-                    />
-                    <div className="text-3xl font-black text-white mb-2">
-                      {dashboardData?.pageviews?.total?.toLocaleString() || "0"}
-                    </div>
-                    <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-sm">
-                      Total Page Views
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <MaterialIcon
-                      icon="groups"
-                      size="2xl"
-                      className="text-brand-secondary mx-auto mb-3"
-                    />
-                    <div className="text-3xl font-black text-white mb-2">
-                      {dashboardData?.sessions?.count?.toLocaleString() || "0"}
-                    </div>
-                    <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-sm">
-                      Total Sessions
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <MaterialIcon
-                      icon="touch_app"
-                      size="2xl"
-                      className="text-brand-secondary mx-auto mb-3"
-                    />
-                    <div className="text-3xl font-black text-white mb-2">
-                      {dashboardData?.clicks?.length?.toLocaleString() || "0"}
-                    </div>
-                    <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-sm">
-                      CTA Clicks Tracked
-                    </div>
-                  </div>
-                </div>
+                <p className="text-yellow-200 text-sm">
+                  ANALYTICS KV namespace not provisioned. Run{" "}
+                  <code className="bg-black/40 px-1 rounded">
+                    wrangler kv namespace create ANALYTICS
+                  </code>{" "}
+                  and update wrangler.toml to see cross-visitor data.
+                </p>
               </div>
             </div>
           </div>
         )}
-        )
-      </main>
-    </div>
-  );
+        <div>
+          <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
+            <MaterialIcon
+              icon="dashboard"
+              size="lg"
+              className="text-brand-secondary"
+            />
+            TACTICAL OVERVIEW - ENGAGEMENT METRICS
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <MilitaryStatCard
+              icon="visibility"
+              label="RECON OPERATIONS"
+              sublabel="Page Views"
+              value={dashboardData?.pageviews?.total?.toLocaleString() || "0"}
+              trend={`${dashboardData?.today?.pageviews ?? 0} today`}
+              trendUp
+            />
+            <MilitaryStatCard
+              icon="people"
+              label="TOTAL SESSIONS"
+              sublabel="All Visitors"
+              value={dashboardData?.sessions?.count?.toLocaleString() || "0"}
+              trend={`${dashboardData?.today?.sessions ?? 0} today`}
+              trendUp
+            />
+            <MilitaryStatCard
+              icon="schedule"
+              label="ENGAGEMENT TIME"
+              sublabel="Avg. Session Duration"
+              value={formatDuration(
+                dashboardData?.sessions?.averageDuration || 0,
+              )}
+              trend={`${dashboardData?.sessions?.count || 0} sessions`}
+              trendUp
+            />
+            <MilitaryStatCard
+              icon="flag"
+              label="MISSION SUCCESS"
+              sublabel="Total Conversions"
+              value={dashboardData?.conversions?.total?.toString() || "0"}
+              trend={`${dashboardData?.conversions?.contacts || 0} contacts`}
+              trendUp
+            />
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
+            <MaterialIcon
+              icon="map"
+              size="lg"
+              className="text-brand-secondary"
+            />
+            GEOGRAPHIC INTELLIGENCE - AO COVERAGE
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <GeographicHeatMap clicks={dashboardData?.clicks || []} />
+            <TopLocations clicks={dashboardData?.clicks || []} />
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
+            <MaterialIcon
+              icon="touch_app"
+              size="lg"
+              className="text-brand-secondary"
+            />
+            CTA ENGAGEMENT - TACTICAL RESPONSE
+          </h2>
+          <CTAPerformanceGrid clicks={dashboardData?.clicks || []} />
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
+            <MaterialIcon
+              icon="trending_up"
+              size="lg"
+              className="text-brand-secondary"
+            />
+            MISSION OBJECTIVES - CONVERSIONS
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <MilitaryMetricCard
+              icon="mail"
+              label="CONTACT SECURED"
+              sublabel="Form Submissions"
+              value={dashboardData?.conversions?.contacts?.toString() || "0"}
+              color="green"
+            />
+            <MilitaryMetricCard
+              icon="event"
+              label="CONSULTATIONS"
+              sublabel="Scheduled Meetings"
+              value={
+                dashboardData?.conversions?.consultations?.toString() || "0"
+              }
+              color="blue"
+            />
+            <MilitaryMetricCard
+              icon="assessment"
+              label="TOTAL OBJECTIVES"
+              sublabel="All Conversions"
+              value={dashboardData?.conversions?.total?.toString() || "0"}
+              color="purple"
+            />
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
+            <MaterialIcon
+              icon="military_tech"
+              size="lg"
+              className="text-bronze-400"
+            />
+            VETERAN OPERATIONS - BROTHERHOOD ENGAGEMENT
+          </h2>
+          <div className="bg-gradient-to-br from-bronze-900/60 to-bronze-800/40 backdrop-blur-sm rounded-xl border-2 border-bronze-500 p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <MaterialIcon
+                  icon="visibility"
+                  size="2xl"
+                  className="text-bronze-300 mx-auto mb-3"
+                />
+                <div className="text-4xl font-black text-white mb-2">
+                  {veteranPageViews.toString()}
+                </div>
+                <div className="text-bronze-300 font-bold uppercase tracking-wide text-sm">
+                  Veteran Page Views
+                </div>
+              </div>
+              <div className="text-center">
+                <MaterialIcon
+                  icon="favorite"
+                  size="2xl"
+                  className="text-bronze-300 mx-auto mb-3"
+                />
+                <div className="text-4xl font-black text-white mb-2">
+                  {(dashboardData?.topPages?.length ?? 0).toString()}
+                </div>
+                <div className="text-bronze-300 font-bold uppercase tracking-wide text-sm">
+                  Active Pages
+                </div>
+              </div>
+              <div className="text-center">
+                <MaterialIcon
+                  icon="stars"
+                  size="2xl"
+                  className="text-bronze-300 mx-auto mb-3"
+                />
+                <div className="text-4xl font-black text-white mb-2">100%</div>
+                <div className="text-bronze-300 font-bold uppercase tracking-wide text-sm">
+                  Veteran Commitment
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
+            <MaterialIcon
+              icon="speed"
+              size="lg"
+              className="text-brand-secondary"
+            />
+            PERFORMANCE READINESS - SYSTEM STATUS
+          </h2>
+          <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <MaterialIcon
+                  icon="bar_chart"
+                  size="2xl"
+                  className="text-brand-secondary mx-auto mb-3"
+                />
+                <div className="text-3xl font-black text-white mb-2">
+                  {dashboardData?.pageviews?.total?.toLocaleString() || "0"}
+                </div>
+                <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-sm">
+                  Total Page Views
+                </div>
+              </div>
+              <div className="text-center">
+                <MaterialIcon
+                  icon="groups"
+                  size="2xl"
+                  className="text-brand-secondary mx-auto mb-3"
+                />
+                <div className="text-3xl font-black text-white mb-2">
+                  {dashboardData?.sessions?.count?.toLocaleString() || "0"}
+                </div>
+                <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-sm">
+                  Total Sessions
+                </div>
+              </div>
+              <div className="text-center">
+                <MaterialIcon
+                  icon="touch_app"
+                  size="2xl"
+                  className="text-brand-secondary mx-auto mb-3"
+                />
+                <div className="text-3xl font-black text-white mb-2">
+                  {dashboardData?.clicks?.length?.toLocaleString() || "0"}
+                </div>
+                <div className="text-brand-secondary-text font-bold uppercase tracking-wide text-sm">
+                  CTA Clicks Tracked
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 function formatDuration(seconds: number): string {
@@ -523,14 +519,14 @@ function MilitaryStatCard({
   value,
   trend,
   trendUp,
-}: {
+}: Readonly<{
   icon: string;
   label: string;
   sublabel: string;
   value: string;
   trend: string;
   trendUp: boolean;
-}) {
+}>) {
   return (
     <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-xl border-2 border-brand-primary shadow-2xl p-6 hover:scale-105 transition-transform">
       <div className="flex items-start justify-between mb-4">
@@ -562,13 +558,13 @@ function MilitaryMetricCard({
   sublabel,
   value,
   color,
-}: {
+}: Readonly<{
   icon: string;
   label: string;
   sublabel: string;
   value: string;
   color: "green" | "blue" | "purple";
-}) {
+}>) {
   const colorClasses = {
     green: {
       bg: "from-green-900/60 to-green-800/40",
@@ -609,9 +605,7 @@ function MilitaryMetricCard({
 
 function GeographicHeatMap({
   clicks,
-}: {
-  clicks: Array<{ state?: string; city?: string }>;
-}) {
+}: Readonly<{ clicks: ReadonlyArray<{ state?: string; city?: string }> }>) {
   const locationCounts: Record<
     string,
     { count: number; state?: string; city?: string }
@@ -620,19 +614,15 @@ function GeographicHeatMap({
   clicks.forEach((click) => {
     if (click.city && click.state) {
       const key = `${click.city}, ${click.state}`;
-      if (!locationCounts[key]) {
-        locationCounts[key] = {
-          count: 0,
-          city: click.city,
-          state: click.state,
-        };
-      }
+      locationCounts[key] ??= {
+        count: 0,
+        city: click.city,
+        state: click.state,
+      };
       locationCounts[key].count++;
     } else if (click.state) {
       const key = click.state;
-      if (!locationCounts[key]) {
-        locationCounts[key] = { count: 0, state: click.state };
-      }
+      locationCounts[key] ??= { count: 0, state: click.state };
       locationCounts[key].count++;
     }
   });
@@ -695,7 +685,9 @@ function GeographicHeatMap({
   );
 }
 
-function TopLocations({ clicks }: { clicks: Array<{ state?: string }> }) {
+function TopLocations({
+  clicks,
+}: Readonly<{ clicks: ReadonlyArray<{ state?: string }> }>) {
   const stateCounts: Record<string, number> = {};
   clicks.forEach((click) => {
     if (click.state) {
@@ -703,10 +695,17 @@ function TopLocations({ clicks }: { clicks: Array<{ state?: string }> }) {
     }
   });
 
-  const targetMarket = ["Washington", "WA", "Oregon", "OR", "Idaho", "ID"];
+  const targetMarket = new Set([
+    "Washington",
+    "WA",
+    "Oregon",
+    "OR",
+    "Idaho",
+    "ID",
+  ]);
   const targetCount = Object.entries(stateCounts).reduce(
     (sum, [state, count]) => {
-      return targetMarket.includes(state) ? sum + count : sum;
+      return targetMarket.has(state) ? sum + count : sum;
     },
     0,
   );
@@ -742,7 +741,7 @@ function TopLocations({ clicks }: { clicks: Array<{ state?: string }> }) {
 
       <div className="space-y-2">
         {topStates.map(([state, count]) => {
-          const isTarget = targetMarket.includes(state);
+          const isTarget = targetMarket.has(state);
           return (
             <div
               key={state}
@@ -769,9 +768,7 @@ function TopLocations({ clicks }: { clicks: Array<{ state?: string }> }) {
 
 function CTAPerformanceGrid({
   clicks,
-}: {
-  clicks: Array<{ element?: string }>;
-}) {
+}: Readonly<{ clicks: ReadonlyArray<{ element?: string }> }>) {
   const ctaCounts: Record<string, number> = {};
   clicks.forEach((click) => {
     if (click.element) {

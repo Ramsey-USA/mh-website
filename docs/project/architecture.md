@@ -62,11 +62,11 @@
 
 ### Core Technologies
 
-- **Framework**: Next.js 15.5.14 (App Router)
+- **Framework**: Next.js 15.5.15 (App Router)
 - **Language**: TypeScript 5.9.2
 - **Styling**: Tailwind CSS 3.4.19
 - **Icons**: Google Material Icons (font-based)
-- **Animations**: Framer Motion 12.35.2
+- **Animations**: CSS transitions + IntersectionObserver (native, no library dependency)
 - **Theme**: Dark/Light mode support
 - **PWA**: Service Worker v4.0.0, offline-ready, installable
 - **Media Optimization**: Automatic WebP/WebM conversion via GitHub Actions
@@ -75,7 +75,7 @@
 ### External Services
 
 - **Hosting**: Cloudflare Workers — `mhc-v2-website` (via OpenNext adapter)
-- **Domain**: Hostinger (registrar) → Cloudflare (DNS/CDN)
+- **Domain**: NameCheap (registrar) → Cloudflare (DNS/CDN)
 - **Database**: Cloudflare D1 (SQLite)
 - **Storage**: Cloudflare R2 (FILE_ASSETS, SAFETY_INTAKE, RESUMES buckets)
 - **Cache**: Cloudflare KV (CACHE, ANALYTICS namespaces)
@@ -148,7 +148,7 @@ src/
 │   │   ├── PageTrackingClient.tsx   # Client-side page tracking
 │   │   ├── TrackedContactLinks.tsx  # Analytics-tracked contact links
 │   │   └── index.ts                # Barrel export
-│   ├── animations/                 # Framer Motion animation components
+│   ├── animations/                 # Custom animation components (CSS transitions + IntersectionObserver)
 │   ├── chatbot/
 │   │   ├── ChatWidget.tsx          # Floating Partnership Guide widget (all pages)
 │   │   └── index.ts                # Barrel export
@@ -219,10 +219,10 @@ src/
 
 ### 🎬 **Animation System** - ✅ COMPLETE
 
-- **Framer Motion Integration**: Smooth, performant animations with spring physics
-- **Interactive Components**: Hover effects, gesture support, and micro-interactions
-- **Performance Optimized**: Transform-GPU acceleration and optimized re-renders
-- **Reusable Animations**: Component library with FadeInWhenVisible, HoverScale, StaggeredFadeIn
+- **Native Animation Implementation**: CSS transitions + IntersectionObserver (no library dependency)
+- **Interactive Components**: Hover effects and scroll-triggered reveal animations
+- **Performance Optimized**: Transform-GPU acceleration, reduced-motion support, mobile-aware config
+- **Reusable Animations**: Component library with FadeInWhenVisible, HoverScale, StaggeredFadeIn (in `@/components/animations/FramerMotionComponents`)
 
 ### 📊 **Analytics & SEO** - ✅ COMPLETE
 

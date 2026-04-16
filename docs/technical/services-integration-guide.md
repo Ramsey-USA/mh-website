@@ -6,10 +6,10 @@
 **Status:** ✅ Active
 
 This guide documents the integration of all external services used by the MH Construction
-website: **GitHub** (code repository), **Cloudflare Pages** (hosting/CDN/WAF), **NameCheap** (domain),
-**Microsoft 365** (email hosting), **Hostinger VPS** (n8n automation, Uptime Kuma monitoring),
+website: **GitHub** (code repository), **Cloudflare Workers** (hosting/CDN/WAF), **NameCheap** (domain),
+**Microsoft 365** (business mailboxes — not used for transactional email), **Hostinger VPS** (n8n automation, Uptime Kuma monitoring),
 **Resend** (transactional email), **Twilio** (communications), and **Semrush Pro** (SEO).
-Email notifications route through **n8n + Resend SMTP**.
+Transactional email notifications (form submissions, alerts) route through **n8n + Resend**. Business email (`@mhc-gc.com` mailboxes) is handled by **Microsoft 365**.
 
 **Tech Stack:** Next.js 15 + Tailwind CSS + TypeScript — high-performance, mobile-responsive, tactical professional tone.
 
@@ -17,16 +17,16 @@ Email notifications route through **n8n + Resend SMTP**.
 
 ## Current Status Summary
 
-| Service              | Status             | URL / Details                             |
-| -------------------- | ------------------ | ----------------------------------------- |
-| **Cloudflare Pages** | ✅ Live            | `mhc-gc.com`                              |
-| **n8n**              | ✅ Running         | `http://n8n.mhc-gc.com:5678`              |
-| **Portainer**        | ✅ Running         | `https://docker.mhc-gc.com:9443`          |
-| **Uptime Kuma**      | ✅ Monitoring      | `http://status.mhc-gc.com:3001`           |
-| **Resend**           | ✅ Domain verified | `mhc-gc.com`                              |
-| **Sentry**           | ✅ Client + Server | `@sentry/browser` + `toucan-js` (DSN set) |
-| **Twilio**           | ✅ Configured      | SMS alerts for urgent submissions         |
-| **PostHog**          | ⏸️ Deferred        | Using Cloudflare Web Analytics ✅         |
+| Service                | Status             | URL / Details                             |
+| ---------------------- | ------------------ | ----------------------------------------- |
+| **Cloudflare Workers** | ✅ Live            | `mhc-gc.com`                              |
+| **n8n**                | ✅ Running         | `http://n8n.mhc-gc.com:5678`              |
+| **Portainer**          | ✅ Running         | `https://docker.mhc-gc.com:9443`          |
+| **Uptime Kuma**        | ✅ Monitoring      | `http://status.mhc-gc.com:3001`           |
+| **Resend**             | ✅ Domain verified | `mhc-gc.com`                              |
+| **Sentry**             | ✅ Client + Server | `@sentry/browser` + `toucan-js` (DSN set) |
+| **Twilio**             | ✅ Configured      | SMS alerts for urgent submissions         |
+| **PostHog**            | ⏸️ Deferred        | Using Cloudflare Web Analytics ✅         |
 
 ### Recent Updates (April 15, 2026)
 
@@ -48,9 +48,9 @@ Email notifications route through **n8n + Resend SMTP**.
 
 - [Architecture Overview](#architecture-overview)
 - [GitHub (Code Repository)](#github-code-repository)
-- [Cloudflare Pages (Hosting & CDN)](#cloudflare-pages-hosting--cdn)
+- [Cloudflare Workers (Hosting & CDN)](#cloudflare-workers-hosting--cdn)
 - [NameCheap (Domain Registration)](#namecheap-domain-registration)
-- [Microsoft 365 (Email Hosting)](#microsoft-365-email-hosting)
+- [Microsoft 365 (Business Email)](#microsoft-365-business-email)
 - [Hostinger VPS (Automation & Monitoring)](#hostinger-vps-automation--monitoring)
 - [PostHog (Analytics)](#posthog-analytics)
 - [Email via n8n + Resend](#email-notifications-via-n8n--resend)
@@ -99,7 +99,7 @@ Email notifications route through **n8n + Resend SMTP**.
                                     │
                                     ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  CLOUDFLARE PAGES (Application Runtime + WAF)                               │
+│  CLOUDFLARE WORKERS (Application Runtime + WAF)                             │
 │  ├── Worker: mhc-v2-website                                                 │
 │  ├── Runtime: @opennextjs/cloudflare (Next.js 15)                           │
 │  ├── Framework: Tailwind CSS + TypeScript                                   │
@@ -123,7 +123,7 @@ Email notifications route through **n8n + Resend SMTP**.
 └─────────────────────────────┘             └─────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  MICROSOFT 365 (Email Hosting)                                              │
+│  MICROSOFT 365 (Business Email / Mailboxes)                                 │
 │  ├── Provider: Outlook/Exchange Online                                      │
 │  ├── Domain: @mhc-gc.com mailboxes                                          │
 │  └── MX/SPF/DKIM: Configured in Cloudflare DNS                              │
@@ -158,7 +158,7 @@ GitHub serves as the central code repository and backup location for automation 
 
 ### CI/CD Pipeline
 
-1. **Push to main** → GitHub triggers Cloudflare Pages deployment
+1. **Push to main** → GitHub Actions runs CI gate, then deploys to Cloudflare Workers via `wrangler deploy`
 2. **Pre-commit hooks:** Type checking, linting, tests run locally
 3. **Auto-deploy:** Cloudflare builds and deploys on every push
 
@@ -178,7 +178,7 @@ GitHub serves as the central code repository and backup location for automation 
 
 ---
 
-## Cloudflare Pages (Hosting & CDN)
+## Cloudflare Workers (Hosting & CDN)
 
 Cloudflare Workers provides the application runtime, CDN, and edge services.
 
@@ -303,7 +303,7 @@ for performance, security, and integration with Workers.
 
 ---
 
-## Microsoft 365 (Email Hosting)
+## Microsoft 365 (Business Email)
 
 Microsoft 365 (Outlook/Exchange Online) provides email hosting for `@mhc-gc.com` mailboxes.
 
@@ -323,8 +323,8 @@ With DNS managed by Cloudflare, add these Microsoft 365 records:
 - **Mailboxes:** Create/manage `@mhc-gc.com` addresses
 - **Outlook Access:** `outlook.office.com` or desktop/mobile apps
 
-> **Note:** Transactional email (form submissions) uses Resend API, not Outlook SMTP.
-> Microsoft 365 is for employee mailboxes and receiving mail at `@mhc-gc.com`.
+> **Note:** Microsoft 365 is used exclusively for **business mailboxes** (`@mhc-gc.com` addresses for employees).
+> All transactional email from the website (form submissions, alerts, notifications) uses **Resend API via n8n**, not Outlook SMTP.
 
 ---
 
@@ -354,7 +354,7 @@ automation workflows and monitoring tools.
 - **Container:** `n8n` (n8nio/n8n:latest)
 - **Status:** ✅ Deployed
 - **Use Cases:**
-  - Form submission processing → M365 email notifications
+  - Form submission processing → Resend email notifications
   - Notification routing to different recipients
   - Data synchronization between services
   - Scheduled tasks (backups, reports)
@@ -1515,23 +1515,23 @@ Thank you for trusting MH Construction!
 
 ### Current Stack (Implemented)
 
-| Category              | Service          | Status    |
-| --------------------- | ---------------- | --------- |
-| Code Repository       | GitHub           | ✅ Active |
-| Hosting/CDN/WAF       | Cloudflare Pages | ✅ Active |
-| Domain                | NameCheap        | ✅ Active |
-| Email (Team)          | Microsoft 365    | ✅ Active |
-| Email (Notifications) | n8n + M365 SMTP  | ✅ Active |
-| Communications        | Twilio           | ✅ Active |
-| Automation            | n8n              | ✅ Active |
-| Analytics             | PostHog          | ✅ Active |
-| Uptime                | Uptime Kuma      | ✅ Active |
-| SEO Research          | Semrush Pro      | ✅ Active |
-| AI Chatbot            | Workers AI       | ✅ Active |
-| Database              | Cloudflare D1    | ✅ Active |
-| Storage               | Cloudflare R2    | ✅ Active |
-| Bot Protection        | Turnstile        | ✅ Active |
-| Lead Tracking         | Built-in CRM     | ✅ Active |
+| Category              | Service            | Status    |
+| --------------------- | ------------------ | --------- |
+| Code Repository       | GitHub             | ✅ Active |
+| Hosting/CDN/WAF       | Cloudflare Workers | ✅ Active |
+| Domain                | NameCheap          | ✅ Active |
+| Email (Team)          | Microsoft 365      | ✅ Active |
+| Email (Notifications) | n8n + Resend       | ✅ Active |
+| Communications        | Twilio             | ✅ Active |
+| Automation            | n8n                | ✅ Active |
+| Analytics             | PostHog            | ✅ Active |
+| Uptime                | Uptime Kuma        | ✅ Active |
+| SEO Research          | Semrush Pro        | ✅ Active |
+| AI Chatbot            | Workers AI         | ✅ Active |
+| Database              | Cloudflare D1      | ✅ Active |
+| Storage               | Cloudflare R2      | ✅ Active |
+| Bot Protection        | Turnstile          | ✅ Active |
+| Lead Tracking         | Built-in CRM       | ✅ Active |
 
 ### Recommended Additions
 
