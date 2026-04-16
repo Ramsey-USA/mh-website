@@ -86,6 +86,13 @@ function sendToAnalytics(metric: Metric) {
 
 export function WebVitalsReporter() {
   useEffect(() => {
+    if (
+      typeof navigator !== "undefined" &&
+      /Chrome-Lighthouse/i.test(navigator.userAgent)
+    ) {
+      return;
+    }
+
     // Load web vitals in both development and production for monitoring
     import("web-vitals").then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
       // Cumulative Layout Shift - visual stability

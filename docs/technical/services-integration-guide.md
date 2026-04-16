@@ -1266,15 +1266,16 @@ on every page via `src/components/seo/SeoMeta.tsx`. This enables rich results in
 3. **Complete profile** (critical for rankings):
 
    **Basic Information:**
-   | Field | Value |
-   | ----- | ----- |
-   | Business name | `MH Construction, Inc.` (exact legal name) |
-   | Primary category | `General Contractor` |
+
+   | Field                | Value                                                                  |
+   | -------------------- | ---------------------------------------------------------------------- |
+   | Business name        | `MH Construction, Inc.` (exact legal name)                             |
+   | Primary category     | `General Contractor`                                                   |
    | Secondary categories | `Construction Company`, `Commercial Contractor`, `Building Contractor` |
-   | Address | 3111 N Capitol Ave, Pasco, WA 99301 |
-   | Phone | (509) 308-6489 |
-   | Website | `https://www.mhc-gc.com` |
-   | Hours | Mon-Fri 7:00 AM - 4:00 PM |
+   | Address              | 3111 N Capitol Ave, Pasco, WA 99301                                    |
+   | Phone                | (509) 308-6489                                                         |
+   | Website              | `https://www.mhc-gc.com`                                               |
+   | Hours                | Mon-Fri 7:00 AM - 4:00 PM                                              |
 
    **Service Areas** (add all 11 location pages):
    - Richland, Kennewick, Pasco, West Richland

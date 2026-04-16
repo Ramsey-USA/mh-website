@@ -16,32 +16,18 @@ export async function middleware(request: NextRequest) {
 
   // Add Cloudflare-specific optimizations
   if (response) {
-    // Add cache tags for better Cloudflare cache management
-    const url = new URL(request.url);
+    // Keep response tagging lightweight; cache policy ownership lives in
+    // route handlers and next.config.js headers.
+    const pathname = request.nextUrl.pathname;
 
-    if (url.pathname.startsWith("/api/")) {
+    if (pathname.startsWith("/api/")) {
       response.headers.set("CF-Cache-Tag", "api");
       // Mutation requests must never be stored in any cache (browser or CDN)
       // to prevent contact submissions, auth tokens, and form payloads from
-      // being replayed. Read-only GETs are scoped to private revalidation only.
+      // being replayed. GET routes define their own cache semantics.
       if (request.method !== "GET") {
         response.headers.set("Cache-Control", "no-store");
-      } else {
-        // Private: CDN must not share this response between users.
-        // must-revalidate: stale copies are never served without re-checking.
-        response.headers.set(
-          "Cache-Control",
-          "private, max-age=0, must-revalidate",
-        );
       }
-    } else if (
-      url.pathname.match(/\.(js|css|png|jpg|jpeg|gif|webp|svg|ico|woff|woff2)$/)
-    ) {
-      response.headers.set("CF-Cache-Tag", "static");
-      response.headers.set(
-        "Cache-Control",
-        "public, max-age=31536000, immutable",
-      );
     } else {
       response.headers.set("CF-Cache-Tag", "html");
     }

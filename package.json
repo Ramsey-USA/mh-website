@@ -25,6 +25,8 @@
     "smoke:safety": "node scripts/validation/smoke-safety-system.js",
     "test:pwa": "node scripts/test-pwa.js",
     "test:performance": "node scripts/test-basic-performance.js",
+    "perf:validate": "node scripts/validation/performance-gate.js",
+    "perf:gate": "node scripts/validation/performance-gate.js --strict",
     "lighthouse:guide": "node scripts/lighthouse-guide.js",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

@@ -237,6 +237,28 @@ const nextConfig = {
   // === HEADERS ===
   async headers() {
     return [
+      // Cache HTML pages at the edge while revalidating frequently.
+      // Excludes API routes, static assets, and authenticated surfaces.
+      {
+        source: "/",
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      {
+        source: "/:path((?!api|admin|dashboard|_next|.*\\..*).*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
+          },
+        ],
+      },
       // Cache static assets
       {
         source: "/:all*(svg|jpg|jpeg|png|webp|avif|gif)",

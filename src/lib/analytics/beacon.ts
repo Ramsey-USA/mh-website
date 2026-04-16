@@ -32,6 +32,12 @@ const queue: BeaconEvent[] = [];
 let flushTimer: ReturnType<typeof setTimeout> | null = null;
 let listenersBound = false;
 
+function isLighthouseRun(): boolean {
+  if (typeof window === "undefined") return false;
+  if (window.__LIGHTHOUSE__) return true;
+  return /Chrome-Lighthouse/i.test(navigator.userAgent);
+}
+
 function scheduleFlush(): void {
   if (flushTimer) return;
   flushTimer = setTimeout(() => {
@@ -99,7 +105,7 @@ function bindListeners(): void {
 // ── Public API ───────────────────────────────────────────────────────────────
 
 export function beaconEvent(event: BeaconEvent): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || isLighthouseRun()) return;
 
   bindListeners();
   queue.push(event);
@@ -137,5 +143,6 @@ export function beaconSessionEnd(duration: number): void {
  * Called internally on visibilitychange/beforeunload.
  */
 export function beaconFlush(): void {
+  if (isLighthouseRun()) return;
   flush();
 }

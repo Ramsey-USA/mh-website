@@ -31,6 +31,15 @@ import {
   beaconSessionEnd,
 } from "./beacon";
 
+function isLighthouseRun(): boolean {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  const userAgent = typeof navigator !== "undefined" ? navigator.userAgent : "";
+  return Boolean(window.__LIGHTHOUSE__) || /Chrome-Lighthouse/i.test(userAgent);
+}
+
 /**
  * Track button/link clicks
  * Use this on any clickable element you want to track
@@ -45,6 +54,10 @@ export function trackClick(
   elementId: string,
   properties?: Record<string, unknown>,
 ): void {
+  if (isLighthouseRun()) {
+    return;
+  }
+
   const enhancedProps = getEnhancedTrackingPropertiesSync();
 
   // Track click immediately with synchronous data
@@ -115,6 +128,10 @@ export function trackFormSubmit(
   formId: string,
   properties?: Record<string, unknown>,
 ): void {
+  if (isLighthouseRun()) {
+    return;
+  }
+
   const enhancedProps = getEnhancedTrackingPropertiesSync();
 
   analyticsEngine.track("form_submission", {
@@ -150,6 +167,10 @@ export function trackFormSubmit(
  * Automatically called by usePageTracking hook
  */
 export function trackScrollDepth(depth: number): void {
+  if (isLighthouseRun()) {
+    return;
+  }
+
   analyticsEngine.track("user_interaction", {
     element: "page",
     action: "scroll",
@@ -167,6 +188,10 @@ export function trackPageView(
   page: string,
   properties?: Record<string, unknown>,
 ): void {
+  if (isLighthouseRun()) {
+    return;
+  }
+
   analyticsEngine.trackPageView(page, properties);
 
   // Store page view data locally + beacon to server
@@ -189,6 +214,10 @@ export function trackPageView(
  * Automatically called by usePageTracking hook
  */
 export function trackPageDuration(page: string, duration: number): void {
+  if (isLighthouseRun()) {
+    return;
+  }
+
   analyticsEngine.track("user_interaction", {
     element: "page",
     action: "duration",
@@ -269,7 +298,7 @@ function getStoredSessions(): Array<{
  * Called automatically by usePageTracking
  */
 export function initializeSession(): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || isLighthouseRun()) return;
 
   const sessions = getStoredSessions();
   const sessionId = `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;

@@ -169,22 +169,22 @@ File: `src/app/careers/print/PrintableApplicationClient.tsx`
 
 ### 🟡 High Priority (Fix This Sprint)
 
-4. src/app/team/page.tsx - Slogan capitalization
-5. src/app/contact/ContactPageClient.tsx - Slogan capitalization
-6. src/app/projects/components/ProjectsHero.tsx - Slogan capitalization
-7. src/app/projects/components/TestimonialsSection.tsx - Slogan capitalization
-8. src/app/projects/components/projectsData.ts - Slogan capitalization
-9. src/app/faq/page.tsx - Slogan capitalization
-10. src/app/careers/page.tsx - Slogan capitalization
-11. src/app/careers/print/PrintableApplicationClient.tsx - Slogan + tagline
-12. src/app/veterans/page.tsx:1325 - Add "January"
-13. src/lib/data/faq-data.ts - Address format
+1. src/app/team/page.tsx - Slogan capitalization
+2. src/app/contact/ContactPageClient.tsx - Slogan capitalization
+3. src/app/projects/components/ProjectsHero.tsx - Slogan capitalization
+4. src/app/projects/components/TestimonialsSection.tsx - Slogan capitalization
+5. src/app/projects/components/projectsData.ts - Slogan capitalization
+6. src/app/faq/page.tsx - Slogan capitalization
+7. src/app/careers/page.tsx - Slogan capitalization
+8. src/app/careers/print/PrintableApplicationClient.tsx - Slogan + tagline
+9. src/app/veterans/page.tsx:1325 - Add "January"
+10. src/lib/data/faq-data.ts - Address format
 
 ### 🟢 Medium Priority (Next Sprint)
 
-14. Location descriptions core values capitalization
-15. Consider adding full tagline to manifest.json description
-16. Review email templates for brand consistency
+1. Location descriptions core values capitalization
+2. Consider adding full tagline to manifest.json description
+3. Review email templates for brand consistency
 
 ---
 

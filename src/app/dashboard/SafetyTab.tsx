@@ -1,16 +1,18 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo } from "react";
+import dynamic from "next/dynamic";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+
+const SafetyBarChart = dynamic(
+  () => import("./SafetyBarChart").then((m) => ({ default: m.SafetyBarChart })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-40 rounded-lg border border-gray-700 bg-gray-900/30 animate-pulse" />
+    ),
+  },
+);
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -66,31 +68,6 @@ interface DownloadLogEntry {
   downloaded_by: string;
   job_id: string | null;
   downloaded_at: string;
-}
-
-function LazyBarChart({
-  data,
-}: {
-  data: Array<{ name: string; count: number }>;
-}) {
-  return (
-    <ResponsiveContainer width="100%" height={160}>
-      <BarChart data={data} margin={{ top: 4, right: 8, left: -20, bottom: 0 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-        <XAxis dataKey="name" tick={{ fill: "#9ca3af", fontSize: 10 }} />
-        <YAxis tick={{ fill: "#9ca3af", fontSize: 10 }} allowDecimals={false} />
-        <Tooltip
-          contentStyle={{
-            background: "#1f2937",
-            border: "1px solid #374151",
-            borderRadius: "8px",
-            color: "#f3f4f6",
-          }}
-        />
-        <Bar dataKey="count" fill="#386851" radius={[4, 4, 0, 0]} />
-      </BarChart>
-    </ResponsiveContainer>
-  );
 }
 
 // ─── New Job Form ─────────────────────────────────────────────────────────────
@@ -666,7 +643,7 @@ export function SafetyTab({ token }: SafetyTabProps) {
             <p className="text-xs font-black text-gray-400 uppercase tracking-wider mb-3">
               Submissions by Form Type
             </p>
-            <LazyBarChart data={chartData} />
+            <SafetyBarChart data={chartData} />
           </div>
         )}
 

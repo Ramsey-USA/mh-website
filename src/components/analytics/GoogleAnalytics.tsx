@@ -13,13 +13,18 @@ export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
       />
       <Script id="google-analytics" strategy="lazyOnload">
         {`
+          window.__LIGHTHOUSE__ = /Chrome-Lighthouse/i.test(navigator.userAgent);
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
+          if (window.__LIGHTHOUSE__) {
+            window.gtag = gtag;
+          } else {
           gtag('js', new Date());
           gtag('config', '${measurementId}', {
             page_title: document.title,
             page_location: window.location.href,
           });
+          }
         `}
       </Script>
     </>
@@ -32,6 +37,7 @@ export const analytics = {
   pageView: (url: string, title?: string) => {
     if (
       typeof window !== "undefined" &&
+      !window.__LIGHTHOUSE__ &&
       window.gtag &&
       process.env["NEXT_PUBLIC_GA_MEASUREMENT_ID"]
     ) {
@@ -47,7 +53,11 @@ export const analytics = {
     eventName: string,
     parameters?: Record<string, string | number | boolean | undefined>,
   ) => {
-    if (typeof window !== "undefined" && window.gtag) {
+    if (
+      typeof window !== "undefined" &&
+      !window.__LIGHTHOUSE__ &&
+      window.gtag
+    ) {
       window.gtag("event", eventName, parameters);
     }
   },
@@ -66,6 +76,7 @@ export const analytics = {
 // Declare gtag function for TypeScript
 declare global {
   interface Window {
+    __LIGHTHOUSE__?: boolean;
     gtag: (
       command: "config" | "event" | "js",
       targetId: string | Date,

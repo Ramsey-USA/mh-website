@@ -7,14 +7,32 @@ import { logger } from "@/lib/utils/logger";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { usePageTracking } from "@/lib/analytics/hooks";
 
-const SafetyTab = dynamic(() =>
-  import("./SafetyTab").then((m) => ({ default: m.SafetyTab })),
+const SafetyTab = dynamic(
+  () => import("./SafetyTab").then((m) => ({ default: m.SafetyTab })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-6 animate-pulse h-64" />
+    ),
+  },
 );
-const DriversTab = dynamic(() =>
-  import("./DriversTab").then((m) => ({ default: m.DriversTab })),
+const DriversTab = dynamic(
+  () => import("./DriversTab").then((m) => ({ default: m.DriversTab })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-6 animate-pulse h-64" />
+    ),
+  },
 );
-const LeadsTab = dynamic(() =>
-  import("./LeadsTab").then((m) => ({ default: m.LeadsTab })),
+const LeadsTab = dynamic(
+  () => import("./LeadsTab").then((m) => ({ default: m.LeadsTab })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-6 animate-pulse h-64" />
+    ),
+  },
 );
 
 interface DashboardData {

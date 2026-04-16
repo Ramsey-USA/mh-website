@@ -9,13 +9,25 @@
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-next",
         "bradlc.vscode-tailwindcss",
+        "csstools.postcss",
         "GitHub.copilot",
         "GitHub.copilot-chat",
+        "Orta.vscode-jest",
+        "eamodio.gitlens",
+        "cloudflare.cloudflare-workers-bindings-extension",
         "formulahendry.auto-rename-tag",
         "christian-kohler.path-intellisense",
+        "mikestead.dotenv",
+        "usernamehw.errorlens",
         "streetsidesoftware.code-spell-checker",
-        "DavidAnson.vscode-markdownlint"
+        "DavidAnson.vscode-markdownlint",
+        "yzhang.markdown-all-in-one",
+        "redhat.vscode-yaml",
+        "deque-systems.vscode-axe-linter",
+        "SonarSource.sonarlint-vscode",
+        "snyk-security.snyk-vulnerability-scanner"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -23,7 +35,7 @@
         "editor.codeActionsOnSave": {
           "source.fixAll.eslint": "explicit"
         },
-        "typescript.preferences.importModuleSpecifier": "relative",
+        "js/ts.preferences.importModuleSpecifier": "relative",
         "files.associations": {
           "*.css": "tailwindcss"
         }

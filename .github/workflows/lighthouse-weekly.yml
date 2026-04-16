@@ -1,0 +1,193 @@
+name: Weekly Lighthouse Report
+
+on:
+  schedule:
+    # Every Friday at 8:00 AM Pacific (15:00 UTC)
+    - cron: "0 15 * * 5"
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: "22"
+  BASE_URL: "https://www.mhc-gc.com"
+
+jobs:
+  lighthouse:
+    name: Run Lighthouse & Email Report
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y chromium
+          echo "CHROME_PATH=$(which chromium)" >> "$GITHUB_ENV"
+
+      - name: Run Lighthouse on all pages
+        run: node scripts/test-lighthouse.js
+        env:
+          BASE_URL: ${{ env.BASE_URL }}
+          LH_SKIP_WARMUP: "false"
+          LH_RETRY_ON_TRANSIENT: "true"
+          LH_INTER_PAGE_DELAY_MS: "4000"
+          LH_AUDIT_TIMEOUT_MS: "120000"
+
+      - name: Send email report
+        if: always()
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          REPORT_TO_EMAIL: ${{ secrets.LIGHTHOUSE_REPORT_EMAIL }}
+          REPORT_FROM_EMAIL: ${{ vars.LIGHTHOUSE_REPORT_FROM_EMAIL || 'reports@mhc-gc.com' }}
+        run: |
+          node - <<'EOF'
+          const fs = require('fs');
+          const path = require('path');
+
+          const apiKey = process.env.RESEND_API_KEY;
+          const toEmail = process.env.REPORT_TO_EMAIL;
+          const fromEmail = process.env.REPORT_FROM_EMAIL;
+
+          if (!apiKey || !toEmail) {
+            console.error('Missing RESEND_API_KEY or LIGHTHOUSE_REPORT_EMAIL secret. Skipping email.');
+            process.exit(0);
+          }
+
+          const summaryPath = path.join(process.cwd(), 'lighthouse-results', 'summary.json');
+          if (!fs.existsSync(summaryPath)) {
+            console.error('summary.json not found — Lighthouse likely failed entirely.');
+            process.exit(0);
+          }
+
+          const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf8'));
+          const date = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+          const runDate = new Date(summary.generatedAt).toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
+
+          function scoreColor(score) {
+            if (score >= 90) return '#16a34a'; // green
+            if (score >= 50) return '#d97706'; // amber
+            return '#dc2626';                  // red
+          }
+
+          function scoreBadge(score) {
+            const color = scoreColor(score);
+            return `<span style="display:inline-block;min-width:36px;padding:2px 8px;border-radius:4px;background:${color};color:#fff;font-weight:700;text-align:center">${score}</span>`;
+          }
+
+          const successResults = summary.results.filter(r => r.success);
+          const failedResults  = summary.results.filter(r => !r.success);
+
+          // Averages
+          let avgBlock = '';
+          if (successResults.length > 0) {
+            const avg = (key) => Math.round(successResults.reduce((s, r) => s + r.scores[key], 0) / successResults.length);
+            const p = avg('performance'), a = avg('accessibility'), b = avg('bestPractices'), s = avg('seo');
+            avgBlock = `
+              <tr style="background:#f1f5f9">
+                <td style="padding:10px 14px;font-weight:700;border-top:2px solid #cbd5e1">Site Average</td>
+                <td style="padding:10px 14px;text-align:center;border-top:2px solid #cbd5e1">${scoreBadge(p)}</td>
+                <td style="padding:10px 14px;text-align:center;border-top:2px solid #cbd5e1">${scoreBadge(a)}</td>
+                <td style="padding:10px 14px;text-align:center;border-top:2px solid #cbd5e1">${scoreBadge(b)}</td>
+                <td style="padding:10px 14px;text-align:center;border-top:2px solid #cbd5e1">${scoreBadge(s)}</td>
+              </tr>`;
+          }
+
+          const pageRows = successResults.map(r => `
+            <tr>
+              <td style="padding:8px 14px;border-top:1px solid #e2e8f0">${r.name}</td>
+              <td style="padding:8px 14px;text-align:center;border-top:1px solid #e2e8f0">${scoreBadge(r.scores.performance)}</td>
+              <td style="padding:8px 14px;text-align:center;border-top:1px solid #e2e8f0">${scoreBadge(r.scores.accessibility)}</td>
+              <td style="padding:8px 14px;text-align:center;border-top:1px solid #e2e8f0">${scoreBadge(r.scores.bestPractices)}</td>
+              <td style="padding:8px 14px;text-align:center;border-top:1px solid #e2e8f0">${scoreBadge(r.scores.seo)}</td>
+            </tr>`).join('');
+
+          const failedBlock = failedResults.length > 0
+            ? `<p style="margin-top:24px;color:#dc2626;font-weight:600">⚠️ ${failedResults.length} page(s) failed to audit:</p>
+               <ul style="color:#dc2626">${failedResults.map(r => `<li><strong>${r.name}</strong> — ${r.error}</li>`).join('')}</ul>`
+            : '';
+
+          const html = `
+          <!DOCTYPE html>
+          <html>
+          <head><meta charset="utf-8"></head>
+          <body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1e293b;background:#f8fafc;padding:0;margin:0">
+            <div style="max-width:700px;margin:32px auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.1)">
+              <div style="background:#1e3a5f;padding:28px 32px">
+                <h1 style="margin:0;color:#fff;font-size:22px">📊 Weekly Lighthouse Report</h1>
+                <p style="margin:6px 0 0;color:#94b8db;font-size:14px">${date} · mhc-gc.com</p>
+              </div>
+              <div style="padding:28px 32px">
+                <p style="margin:0 0 8px;font-size:14px;color:#64748b">Ran ${summary.successfulAudits} of ${summary.totalPages} pages successfully · ${runDate} PT</p>
+                <table style="width:100%;border-collapse:collapse;margin-top:16px;font-size:14px">
+                  <thead>
+                    <tr style="background:#f1f5f9">
+                      <th style="padding:10px 14px;text-align:left;font-weight:600;color:#475569">Page</th>
+                      <th style="padding:10px 14px;text-align:center;font-weight:600;color:#475569">Perf</th>
+                      <th style="padding:10px 14px;text-align:center;font-weight:600;color:#475569">A11y</th>
+                      <th style="padding:10px 14px;text-align:center;font-weight:600;color:#475569">Best P.</th>
+                      <th style="padding:10px 14px;text-align:center;font-weight:600;color:#475569">SEO</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${pageRows}
+                    ${avgBlock}
+                  </tbody>
+                </table>
+                ${failedBlock}
+                <p style="margin-top:28px;font-size:12px;color:#94a3b8">
+                  🟢 90–100 &nbsp;|&nbsp; 🟠 50–89 &nbsp;|&nbsp; 🔴 0–49<br>
+                  Full run details available in the
+                  <a href="https://github.com/Ramsey-USA/mh-website/actions/workflows/lighthouse-weekly.yml" style="color:#1e3a5f">GitHub Actions log</a>.
+                </p>
+              </div>
+            </div>
+          </body>
+          </html>`;
+
+          async function send() {
+            const res = await fetch('https://api.resend.com/emails', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${apiKey}`,
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                from: fromEmail,
+                to: [toEmail],
+                subject: `📊 Weekly Lighthouse Report — ${date}`,
+                html,
+              }),
+            });
+
+            const body = await res.json();
+            if (!res.ok) {
+              console.error('Resend error:', JSON.stringify(body));
+              process.exit(1);
+            }
+            console.log('Report emailed successfully. ID:', body.id);
+          }
+
+          send().catch(err => { console.error(err); process.exit(1); });
+          EOF
+
+      - name: Upload Lighthouse results artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-results-${{ github.run_id }}
+          path: lighthouse-results/
+          retention-days: 90

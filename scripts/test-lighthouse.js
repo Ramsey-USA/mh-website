@@ -8,7 +8,10 @@
 const { default: lighthouse } = require("lighthouse");
 const chromeLauncher = require("chrome-launcher");
 const fs = require("fs");
+const http = require("http");
+const https = require("https");
 const path = require("path");
+const { getChromePath } = require("./utilities/get-chrome-path");
 
 // Define all pages to test
 const pages = [
@@ -37,8 +40,24 @@ const pages = [
   { name: "Spokane", url: "/locations/spokane" },
 ];
 
-const baseUrl = "http://localhost:3000";
+const baseUrl = process.env.BASE_URL || "http://localhost:3000";
 const resultsDir = path.join(__dirname, "../lighthouse-results");
+const auditTimeoutMs = Number(process.env.LH_AUDIT_TIMEOUT_MS || 120000);
+const retryOnTransient = process.env.LH_RETRY_ON_TRANSIENT !== "false";
+const skipWarmup = process.env.LH_SKIP_WARMUP === "true";
+const interPageDelayMs = Number(process.env.LH_INTER_PAGE_DELAY_MS || 3000);
+const emulatedUserAgent =
+  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36";
+const transientFailurePatterns = [
+  /TARGET_CRASHED/i,
+  /unexpectedly crashed/i,
+  /chrome[- ]error/i,
+  /execution context was destroyed/i,
+  /navigating frame was detached/i,
+  /ERR_CONNECTION_RESET/i,
+  /ERR_CONNECTION_REFUSED/i,
+  /interstitial/i,
+];
 
 // Ensure results directory exists
 if (!fs.existsSync(resultsDir)) {
@@ -67,13 +86,24 @@ const config = {
 };
 
 async function runLighthouse(url, name) {
+  const chromePath = getChromePath();
+  if (!chromePath) {
+    return {
+      name,
+      url,
+      error:
+        "No Chrome/Chromium executable found. Install a browser or set CHROME_PATH.",
+      success: false,
+    };
+  }
+
   const chrome = await chromeLauncher.launch({
+    chromePath,
     chromeFlags: [
       "--headless",
       "--no-sandbox",
       "--disable-dev-shm-usage",
       "--disable-gpu",
-      "--disable-software-rasterizer",
     ],
   });
   const options = {
@@ -83,7 +113,18 @@ async function runLighthouse(url, name) {
   };
 
   try {
-    const runnerResult = await lighthouse(url, options, config);
+    const runnerResult = await Promise.race([
+      lighthouse(url, options, config),
+      new Promise((_, reject) => {
+        setTimeout(() => {
+          reject(
+            new Error(
+              `Lighthouse timed out after ${auditTimeoutMs}ms for ${url}`,
+            ),
+          );
+        }, auditTimeoutMs);
+      }),
+    ]);
     const { lhr } = runnerResult;
 
     if (lhr.runtimeError) {
@@ -118,6 +159,21 @@ async function runLighthouse(url, name) {
       seo: Math.round(categories.seo.score * 100),
     };
 
+    const allZero =
+      scores.performance === 0 &&
+      scores.accessibility === 0 &&
+      scores.bestPractices === 0 &&
+      scores.seo === 0;
+    if (allZero) {
+      return {
+        name,
+        url,
+        error:
+          "Invalid Lighthouse report: all category scores are 0 (likely headless/runtime failure)",
+        success: false,
+      };
+    }
+
     // Save detailed report
     const reportPath = path.join(
       resultsDir,
@@ -131,6 +187,87 @@ async function runLighthouse(url, name) {
   } finally {
     await chrome.kill();
   }
+}
+
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function isTransientFailure(message) {
+  return transientFailurePatterns.some((pattern) => pattern.test(message));
+}
+
+function warmUrl(url) {
+  return new Promise((resolve, reject) => {
+    const client = url.startsWith("https:") ? https : http;
+    const req = client.get(
+      url,
+      {
+        headers: {
+          "user-agent":
+            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+        },
+      },
+      (res) => {
+        res.resume();
+
+        if (res.statusCode && res.statusCode >= 400) {
+          reject(
+            new Error(`Warmup request failed with status ${res.statusCode}`),
+          );
+          return;
+        }
+
+        res.on("end", resolve);
+      },
+    );
+
+    req.on("error", reject);
+    req.setTimeout(30000, () => {
+      req.destroy(new Error("Warmup request timed out"));
+    });
+  });
+}
+
+async function runAuditWithWarmup(url, name) {
+  if (!skipWarmup) {
+    console.log(`  Warming ${url}...`);
+    try {
+      await warmUrl(url);
+      await delay(1500);
+    } catch (error) {
+      console.log(`  Warmup warning: ${error.message}`);
+    }
+  }
+
+  let result = await runLighthouse(url, name);
+  if (
+    result.success ||
+    !result.error ||
+    !isTransientFailure(result.error) ||
+    !retryOnTransient
+  ) {
+    return result;
+  }
+
+  console.log("  Retrying after transient Lighthouse failure...");
+  await delay(5000);
+
+  if (!skipWarmup) {
+    try {
+      await warmUrl(url);
+      await delay(1500);
+    } catch (error) {
+      console.log(`  Warmup warning: ${error.message}`);
+    }
+  }
+
+  result = await runLighthouse(url, name);
+  if (!result.success && result.error) {
+    result.error = `${result.error} (after retry)`;
+  }
+
+  return result;
 }
 
 function getScoreEmoji(score) {
@@ -152,7 +289,7 @@ async function main() {
     const fullUrl = `${baseUrl}${page.url}`;
     console.log(`\n📊 Testing: ${page.name} (${page.url})`);
 
-    const result = await runLighthouse(fullUrl, page.name);
+    const result = await runAuditWithWarmup(fullUrl, page.name);
     results.push(result);
     totalTests++;
 
@@ -185,7 +322,7 @@ async function main() {
     }
 
     // Add delay between tests to avoid overloading
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await delay(interPageDelayMs);
   }
 
   console.log("\n" + "═".repeat(100));
@@ -296,4 +433,7 @@ async function main() {
   }
 }
 
-main().catch(console.error);
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
