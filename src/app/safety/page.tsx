@@ -108,6 +108,70 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Safety Program", url: "https://www.mhc-gc.com/safety" },
 ]);
 
+// ImageObject schemas for each credential / compliance badge
+const credentialImageSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": `${SITE_URL}/safety#badge-bonding`,
+    url: `${SITE_URL}/images/compliance/bonding.webp`,
+    name: "MH Construction — Surety Bonding Verification",
+    description:
+      "Licensed, bonded, and insured general contractor serving WA, OR, and ID. Travelers Insurance bonding partner.",
+    width: 800,
+    height: 600,
+    representativeOfPage: false,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": `${SITE_URL}/safety#badge-prevailing-wage`,
+    url: `${SITE_URL}/images/compliance/prevailing-wage.webp`,
+    name: "MH Construction — Prevailing Wage Compliance",
+    description:
+      "Washington State prevailing wage compliance for public works projects. L&I certified payroll reporting.",
+    width: 800,
+    height: 600,
+    representativeOfPage: false,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": `${SITE_URL}/safety#badge-safety`,
+    url: `${SITE_URL}/images/compliance/safety.webp`,
+    name: "MH Construction — Safety Compliance",
+    description:
+      "OSHA 29 CFR 1926 compliant safety program. 0.64 EMR rating — 40% below industry average. AGC-WA Top EMR Award winner.",
+    width: 800,
+    height: 600,
+    representativeOfPage: false,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": `${SITE_URL}/safety#badge-veteran`,
+    url: `${SITE_URL}/images/compliance/veteran-owned.webp`,
+    name: "MH Construction — Veteran-Owned Business",
+    description:
+      "Veteran-Owned business certified since January 2025. Army veteran Jeremy Thamert, owner and president.",
+    width: 800,
+    height: 600,
+    representativeOfPage: false,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": `${SITE_URL}/safety#badge-bbb`,
+    url: `${SITE_URL}/images/credentials/bbb-accredited-seal.webp`,
+    name: "MH Construction — BBB Accredited A+ Rating",
+    description:
+      "Better Business Bureau Accredited Business with A+ rating. Licensed general contractor in WA, OR, and ID.",
+    width: 400,
+    height: 400,
+    representativeOfPage: false,
+  },
+] as const;
+
 // Safety Program Schema for rich results
 const safetySchema = {
   "@context": "https://schema.org",
@@ -252,6 +316,9 @@ export default function SafetyPage() {
       <PageTrackingClient pageName="Safety" />
       <StructuredData data={breadcrumbSchema} />
       <StructuredData data={safetySchema} />
+      {credentialImageSchemas.map((schema) => (
+        <StructuredData key={schema["@id"]} data={schema} />
+      ))}
 
       <div className="bg-white dark:bg-gray-900 min-h-screen">
         {/* ── Hero ───────────────────────────────────────────────────────────── */}
@@ -357,6 +424,209 @@ export default function SafetyPage() {
                     <span className="text-xs text-white/60 mt-0.5">{sub}</span>
                   </div>
                 ))}
+              </div>
+            </FadeInWhenVisible>
+          </div>
+        </section>
+
+        {/* ── Credential Badges + MISH QR ─────────────────────────────────── */}
+        <section
+          id="credential-badges"
+          className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+          aria-labelledby="credential-badges-heading"
+        >
+          <DiagonalStripePattern />
+          <BrandColorBlobs />
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <FadeInWhenVisible>
+              <div className="text-center mb-10">
+                <div className="inline-flex items-center gap-2 bg-brand-primary/10 dark:bg-brand-primary/20 border border-brand-primary/20 rounded-full px-4 py-1.5 mb-4">
+                  <MaterialIcon
+                    icon="workspace_premium"
+                    size="sm"
+                    className="text-brand-primary"
+                  />
+                  <span className="text-brand-primary dark:text-brand-secondary text-sm font-semibold uppercase tracking-wide">
+                    Verified Credentials
+                  </span>
+                </div>
+                <h2
+                  id="credential-badges-heading"
+                  className="font-black text-gray-900 dark:text-gray-100 text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tight mb-4"
+                >
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent">
+                    Licensed · Bonded · Insured · Veteran-Owned
+                  </span>
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+                  Every credential below is verifiable. Click any badge to
+                  confirm status directly with the issuing authority.
+                </p>
+              </div>
+
+              {/* Compliance badge grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
+                {(
+                  [
+                    {
+                      src: "/images/compliance/bonding.webp",
+                      alt: "MH Construction surety bonding verification — licensed, bonded, and insured in WA, OR, ID",
+                      label: "Surety Bonding",
+                      href: "https://secure.lni.wa.gov/verify/",
+                      verify: "Verify via L&I",
+                    },
+                    {
+                      src: "/images/compliance/prevailing-wage.webp",
+                      alt: "Washington State prevailing wage compliance — L&I certified payroll reporting",
+                      label: "Prevailing Wage",
+                      href: "https://secure.lni.wa.gov/verify/",
+                      verify: "Verify via L&I",
+                    },
+                    {
+                      src: "/images/compliance/safety.webp",
+                      alt: "MH Construction OSHA safety compliance — 0.64 EMR, AGC-WA Top EMR Award",
+                      label: "Safety Compliance",
+                      href: "/safety#credentials",
+                      verify: "View Program",
+                    },
+                    {
+                      src: "/images/compliance/veteran-owned.webp",
+                      alt: "Veteran-Owned business — Army veteran Jeremy Thamert, owner and president since January 2025",
+                      label: "Veteran-Owned",
+                      href: "/veterans",
+                      verify: "Learn More",
+                    },
+                    {
+                      src: "/images/credentials/bbb-accredited-seal.webp",
+                      alt: "BBB Accredited Business A+ rating — Better Business Bureau accredited general contractor",
+                      label: "BBB A+ Rated",
+                      href: "https://www.bbb.org/us/wa/pasco/profile/general-contractor/mh-construction-inc-1296-1000145834",
+                      verify: "Verify via BBB",
+                    },
+                  ] as const
+                ).map(({ src, alt, label, href, verify }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={
+                      href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    className="group flex flex-col items-center gap-3 bg-gray-50 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-secondary rounded-2xl p-5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                  >
+                    <Image
+                      src={src}
+                      alt={alt}
+                      width={120}
+                      height={120}
+                      className="object-contain max-h-24 group-hover:scale-105 transition-transform duration-300"
+                      sizes="120px"
+                    />
+                    <span className="text-sm font-bold text-gray-800 dark:text-gray-200 text-center">
+                      {label}
+                    </span>
+                    <span className="text-xs text-brand-primary dark:text-brand-secondary font-semibold">
+                      {verify} →
+                    </span>
+                  </a>
+                ))}
+              </div>
+
+              {/* Chamber logos */}
+              <div className="border-t border-gray-200 dark:border-gray-700 pt-10">
+                <p className="text-center text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-6">
+                  Chamber Memberships
+                </p>
+                <div className="flex flex-wrap justify-center gap-8 items-center">
+                  {(
+                    [
+                      {
+                        src: "/images/credentials/Pasco-Chamber-logo-color-transparent.webp",
+                        alt: "Pasco Chamber of Commerce member — MH Construction",
+                        href: "https://www.pascochamber.org",
+                        width: 140,
+                        height: 60,
+                      },
+                      {
+                        src: "/images/credentials/Richland-Chamber-logo-full-color.webp",
+                        alt: "Richland Chamber of Commerce member — MH Construction",
+                        href: "https://www.richlandchamber.com",
+                        width: 140,
+                        height: 60,
+                      },
+                      {
+                        src: "/images/credentials/Kennewick-TriCity-Regional-Chamber-logo-horizontal.webp",
+                        alt: "Tri-City Regional Chamber of Commerce member — MH Construction",
+                        href: "https://www.tricityregionalchamber.com",
+                        width: 180,
+                        height: 60,
+                      },
+                    ] as const
+                  ).map(({ src, alt, href, width, height }) => (
+                    <a
+                      key={src}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="opacity-70 hover:opacity-100 transition-opacity duration-300"
+                    >
+                      <Image
+                        src={src}
+                        alt={alt}
+                        width={width}
+                        height={height}
+                        className="object-contain"
+                        sizes={`${width}px`}
+                      />
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* MISH QR Code callout */}
+              <div className="mt-12 flex flex-col sm:flex-row items-center gap-8 bg-brand-primary/5 dark:bg-brand-primary/10 border border-brand-primary/20 rounded-3xl p-8">
+                <div className="shrink-0">
+                  <Image
+                    src="/images/qr-codes/qr-safety-dashboard-color.webp"
+                    alt="QR code to MH Construction MISH Safety Dashboard — scan to access the Field Safety Hub"
+                    width={160}
+                    height={160}
+                    className="rounded-xl shadow-md"
+                    sizes="160px"
+                  />
+                </div>
+                <div>
+                  <div className="inline-flex items-center gap-2 bg-brand-primary/10 border border-brand-primary/20 rounded-full px-3 py-1 mb-3">
+                    <MaterialIcon
+                      icon="qr_code_2"
+                      size="sm"
+                      className="text-brand-primary"
+                    />
+                    <span className="text-brand-primary text-xs font-semibold uppercase tracking-wide">
+                      MISH Field Access
+                    </span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-black text-gray-900 dark:text-gray-100 mb-2">
+                    Instant Safety Dashboard Access
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed mb-4">
+                    Scan this QR code to reach the MH Construction Field Safety
+                    Hub — submit Toolbox Talks, JHAs, and Site Inspections
+                    directly from the jobsite. All submissions are timestamped,
+                    superintendent-attributed, and stored for bonding and owner
+                    review.
+                  </p>
+                  <a
+                    href="/safety/hub"
+                    className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white font-bold px-5 py-2.5 rounded-xl transition-colors text-sm shadow"
+                  >
+                    <MaterialIcon icon="open_in_new" size="sm" />
+                    Open Safety Hub
+                  </a>
+                </div>
               </div>
             </FadeInWhenVisible>
           </div>
@@ -732,6 +1002,81 @@ export default function SafetyPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ── Safety Snapshots Gallery ─────────────────────────────────── */}
+        <section
+          id="snapshots"
+          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+          aria-labelledby="snapshots-heading"
+        >
+          <div className="absolute inset-0 opacity-5">
+            <DiagonalStripePattern />
+          </div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <FadeInWhenVisible>
+              <div className="text-center mb-10">
+                <div className="inline-flex items-center gap-2 bg-brand-primary/10 dark:bg-brand-primary/20 border border-brand-primary/20 rounded-full px-4 py-1.5 mb-4">
+                  <MaterialIcon
+                    icon="photo_camera"
+                    size="sm"
+                    className="text-brand-primary"
+                  />
+                  <span className="text-brand-primary dark:text-brand-secondary text-sm font-semibold uppercase tracking-wide">
+                    Safety in Action
+                  </span>
+                </div>
+                <h2
+                  id="snapshots-heading"
+                  className="font-black text-gray-900 dark:text-gray-100 text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tight mb-4"
+                >
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent">
+                    Safety Snapshots
+                  </span>
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+                  Real jobsite moments captured by our superintendents — 100%
+                  PPE compliance verified before every image is published. Every
+                  snapshot has written Superintendent verification on file.
+                </p>
+              </div>
+
+              {/* Snapshot grid — populated once photos are available */}
+              <div
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                aria-label="Safety snapshot photo gallery"
+              >
+                {/* Placeholder state — replace individual items as photos arrive */}
+                {[1, 2, 3].map((n) => (
+                  <div
+                    key={n}
+                    className="aspect-video rounded-2xl bg-gray-200 dark:bg-gray-700 border-2 border-dashed border-gray-300 dark:border-gray-600 flex flex-col items-center justify-center gap-3 text-center p-6"
+                    aria-hidden="true"
+                  >
+                    <MaterialIcon
+                      icon="photo_camera"
+                      size="2xl"
+                      className="text-gray-400 dark:text-gray-500"
+                    />
+                    <span className="text-sm text-gray-400 dark:text-gray-500 font-medium">
+                      Safety Snapshot #{n}
+                    </span>
+                    <span className="text-xs text-gray-400 dark:text-gray-500">
+                      Photo coming soon
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Caption */}
+              <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
+                All Safety Snapshots require written Superintendent verification
+                — 100% PPE compliance confirmed at time of capture. Stored per
+                safety documentation protocol.
+              </p>
+            </FadeInWhenVisible>
           </div>
         </section>
 

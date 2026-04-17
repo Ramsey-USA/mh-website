@@ -75,6 +75,12 @@ jobs:
       - name: Run Prettier check
         run: npm run format:check
 
+      - name: Run Brand Lint
+        env:
+          BRAND_LINT_CHANGED_ONLY: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
+          BRAND_LINT_BASE_SHA: ${{ github.event.pull_request.base.sha || '' }}
+        run: npm run lint:brand
+
       - name: Run tests
         run: npm run test:ci
 

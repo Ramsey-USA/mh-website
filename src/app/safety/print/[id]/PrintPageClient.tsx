@@ -442,21 +442,41 @@ export default function PrintPageClient() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem("field_auth_token");
-    if (!token) {
-      setError("Not authenticated. Please sign in to the Safety Hub first.");
-      setLoading(false);
-      return;
-    }
+    const loadSubmission = async () => {
+      try {
+        const refreshResponse = await fetch("/api/auth/refresh", {
+          method: "POST",
+          credentials: "include",
+        });
 
-    fetch(`/api/safety/forms/${encodeURIComponent(id)}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((r) => {
-        if (!r.ok) throw new Error("Submission not found or access denied.");
-        return r.json();
-      })
-      .then((json) => {
+        if (!refreshResponse.ok) {
+          throw new Error(
+            "Not authenticated. Please sign in to the Safety Hub first.",
+          );
+        }
+
+        const refreshJson = (await refreshResponse.json()) as {
+          accessToken?: string;
+        };
+
+        if (!refreshJson.accessToken) {
+          throw new Error(
+            "Not authenticated. Please sign in to the Safety Hub first.",
+          );
+        }
+
+        const response = await fetch(
+          `/api/safety/forms/${encodeURIComponent(id)}`,
+          {
+            headers: { Authorization: `Bearer ${refreshJson.accessToken}` },
+          },
+        );
+
+        if (!response.ok) {
+          throw new Error("Submission not found or access denied.");
+        }
+
+        const json = await response.json();
         const raw = json.data as Submission & { data: string | unknown };
         // data is stored as JSON string in D1
         const parsedData =
@@ -464,11 +484,14 @@ export default function PrintPageClient() {
             ? (JSON.parse(raw.data) as unknown)
             : raw.data;
         setSubmission({ ...raw, data: parsedData });
-      })
-      .catch((err: unknown) => {
+      } catch (err) {
         setError((err as Error).message ?? "Failed to load submission.");
-      })
-      .finally(() => setLoading(false));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    void loadSubmission();
   }, [id]);
 
   if (loading) {

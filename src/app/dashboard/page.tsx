@@ -92,24 +92,42 @@ export default function AnalyticsDashboardPage() {
   }, [dashboardData?.pageviews?.pages]);
 
   useEffect(() => {
-    const token = localStorage.getItem("admin_token");
-    const user = localStorage.getItem("admin_user");
+    const bootstrapSession = async () => {
+      try {
+        const response = await fetch("/api/auth/refresh", {
+          method: "POST",
+          credentials: "include",
+        });
 
-    if (!token || !user) {
-      router.push("/");
-      return;
-    }
+        if (!response.ok) {
+          router.push("/");
+          return;
+        }
 
-    try {
-      const parsedUser = JSON.parse(user);
-      setUserData(parsedUser);
-      setAdminToken(token);
-      setIsAuthenticated(true);
-      fetchAnalyticsData(token);
-    } catch (err) {
-      logger.error("Auth error:", err);
-      router.push("/");
-    }
+        const data = (await response.json()) as {
+          accessToken?: string;
+          user?: { name?: string; email?: string; role?: string };
+        };
+
+        if (!data.accessToken || data.user?.role !== "admin") {
+          router.push("/");
+          return;
+        }
+
+        setUserData({
+          name: data.user.name ?? "Admin",
+          email: data.user.email ?? "",
+        });
+        setAdminToken(data.accessToken);
+        setIsAuthenticated(true);
+        await fetchAnalyticsData(data.accessToken);
+      } catch (err) {
+        logger.error("Auth bootstrap error:", err);
+        router.push("/");
+      }
+    };
+
+    void bootstrapSession();
   }, [router]);
 
   const fetchAnalyticsData = async (token: string) => {
@@ -134,9 +152,15 @@ export default function AnalyticsDashboardPage() {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("admin_token");
-    localStorage.removeItem("admin_user");
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/auth/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+    } catch (err) {
+      logger.error("Logout error:", err);
+    }
     router.push("/");
   };
 

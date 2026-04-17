@@ -489,6 +489,12 @@ export const navigationConfigs = {
       icon: "workspace_premium",
     },
     {
+      href: "#credential-badges",
+      label: "Verified Badges",
+      mobileLabel: "Badges",
+      icon: "verified",
+    },
+    {
       href: "#program",
       label: "MISH Program",
       mobileLabel: "Program",
@@ -510,7 +516,13 @@ export const navigationConfigs = {
       href: "#compliance",
       label: "Compliance",
       mobileLabel: "Comply",
-      icon: "verified",
+      icon: "gpp_good",
+    },
+    {
+      href: "#snapshots",
+      label: "Snapshots",
+      mobileLabel: "Photos",
+      icon: "photo_camera",
     },
     {
       href: "/resources/safety-program",

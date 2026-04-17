@@ -52,11 +52,8 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
       const data = await response.json();
 
       if (response.ok && data.success) {
-        // Store token
-        localStorage.setItem("admin_token", data.accessToken);
-        localStorage.setItem("admin_user", JSON.stringify(data.user));
-
-        // Redirect to dashboard
+        // Refresh token is persisted as an httpOnly cookie by the server.
+        // Access token is short-lived and will be bootstrapped on /dashboard.
         router.push("/dashboard");
         onClose();
       } else {

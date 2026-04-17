@@ -26,7 +26,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${enhancedSEO.siteUrl}/images/og-default.jpg`,
+      url: `${enhancedSEO.siteUrl}/images/og/og-home.webp`,
       width: 1200,
       height: 630,
     },
@@ -89,6 +89,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
       "veteran construction values",
     ],
     canonicalUrl: enhancedSEO.siteUrl,
+    ogImage: `${enhancedSEO.siteUrl}/images/og/og-home.webp`,
     schemas: [
       generateConstructionFAQSchema(),
       generateLocalBusinessSchema(),
@@ -301,6 +302,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
       "Pacific Northwest general contractor about",
     ],
     canonicalUrl: aboutUrl,
+    ogImage: `${enhancedSEO.siteUrl}/images/og/og-about.webp`,
     schemas: [companyHistorySchema],
   });
 }
@@ -406,6 +408,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
       "grant-funded construction projects",
     ],
     canonicalUrl: servicesUrl,
+    ogImage: `${enhancedSEO.siteUrl}/images/og/og-services.webp`,
     schemas: [...serviceSchemas, webPageSchema, breadcrumbSchema],
   });
 }
@@ -580,7 +583,7 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${enhancedSEO.siteUrl}/images/og-default.jpg`,
+      url: `${enhancedSEO.siteUrl}/images/og/og-veterans.webp`,
       width: 1200,
       height: 630,
     },
@@ -616,6 +619,7 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
       "veteran-owned business Washington",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/veterans`,
+    ogImage: `${enhancedSEO.siteUrl}/images/og/og-veterans.webp`,
     schemas: [webPageSchema, generateLocalBusinessSchema()],
   });
 }
@@ -963,7 +967,7 @@ export function getTestimonialsSEO(): Metadata & { schemas: object[] } {
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${enhancedSEO.siteUrl}/images/og-default.jpg`,
+      url: `${enhancedSEO.siteUrl}/images/og/og-testimonials.webp`,
       width: 1200,
       height: 630,
     },
@@ -987,6 +991,7 @@ export function getTestimonialsSEO(): Metadata & { schemas: object[] } {
       "verified contractor reviews",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/testimonials`,
+    ogImage: `${enhancedSEO.siteUrl}/images/og/og-testimonials.webp`,
     schemas: [collectionPageSchema, generateLocalBusinessSchema()],
   });
 }
@@ -1006,7 +1011,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${enhancedSEO.siteUrl}/images/og-default.jpg`,
+      url: `${enhancedSEO.siteUrl}/images/og/og-careers.webp`,
       width: 1200,
       height: 630,
     },
@@ -1048,6 +1053,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
       "veteran priority consideration construction jobs",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/careers`,
+    ogImage: `${enhancedSEO.siteUrl}/images/og/og-careers.webp`,
     schemas: [
       webPageSchema,
       generateEnhancedOrganizationSchema(),
@@ -1223,6 +1229,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
       "WA OR ID construction portfolio",
     ],
     canonicalUrl: projectsUrl,
+    ogImage: `${enhancedSEO.siteUrl}/images/og/og-projects.webp`,
     schemas: [
       portfolioListSchema,
       webPageSchema,
@@ -1247,7 +1254,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${enhancedSEO.siteUrl}/images/og-default.jpg`,
+      url: `${enhancedSEO.siteUrl}/images/og/og-contact.webp`,
       width: 1200,
       height: 630,
     },
@@ -1277,6 +1284,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
       "Tri-Cities general contractor contact",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/contact`,
+    ogImage: `${enhancedSEO.siteUrl}/images/og/og-contact.webp`,
     schemas: [contactPageSchema, generateLocalBusinessSchema()],
   });
 }

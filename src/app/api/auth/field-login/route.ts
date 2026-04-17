@@ -19,6 +19,15 @@ import {
 
 export const dynamic = "force-dynamic";
 
+function normalizeNameToUidFragment(value: string): string {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 48);
+}
+
 function resolveFieldPassword(): string {
   const value = process.env["FIELD_STAFF_PASSWORD"];
   if (!value) {
@@ -78,7 +87,8 @@ async function handler(request: NextRequest) {
 
     const superintendentName =
       typeof name === "string" && name.trim() ? name.trim() : "Superintendent";
-    const uid = `field-${Date.now()}`;
+    const uidSuffix = normalizeNameToUidFragment(superintendentName);
+    const uid = `field-${uidSuffix || "superintendent"}`;
 
     const { accessToken, refreshToken } = await generateTokenPair({
       uid,

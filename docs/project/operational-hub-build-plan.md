@@ -12,8 +12,66 @@
 | --- | ------------------------------------------------------------------------------------------ | ------------- | ------ |
 | P1  | Employee Manual sections formatted as JSON (`DocumentSection[]`) or uploaded as PDFs to R2 | Matt / Jeremy | ⚠️     |
 | P2  | Travelers training video URLs from Travelers account                                       | Matt / Jeremy | ⚠️     |
-| P3  | Confirm: SMS for logins only, email for in-session activity? (vs. SMS for all events)      | Matt          | ⚠️     |
-| P4  | Confirm: "Staff Access" footer link vs. main nav "Hub" entry                               | Matt / Jeremy | ⚠️     |
+| P3  | Decision locked: SMS for `login` only; batch non-critical activity into daily email digest | Matt          | ✅     |
+| P4  | Decision locked: implement subtle "Staff Access" footer link immediately                   | Matt / Jeremy | ✅     |
+| P5  | Branding baseline locked from `docs/branding/brand-constants.md` + standards + terminology | Jeremy        | ✅     |
+
+### Branding Governance (Applies to All Streams)
+
+Use these MH branding standards as non-optional development constraints. Violations are caught automatically by CI (see Automated Enforcement below):
+
+- Canonical source of truth: `docs/branding/brand-constants.md`
+- Color system enforcement:
+  - Primary: Hunter Green `#386851` for primary actions and trust states
+  - Secondary: Leather Tan `#BD9264` for large text and decorative elements only
+  - Secondary text: `#8A6B49` for normal text requiring WCAG AA contrast
+  - Accent: Architectural Bronze `#A87948` for borders and premium accents
+- Typography and component standards must follow `docs/branding/standards/unified-component-standards.md`
+- Section background pattern and spacing conventions must follow unified component standards for new Hub sections
+- Material Icons only in application code (`.tsx`, `.ts`, `.jsx`, `.js`); emojis allowed in Markdown docs only
+- Terminology standards from `docs/branding/strategy/universal-terminology-guide.md`:
+  - Use `Client Partner(s)` (not "clients" or "customers")
+  - Use `Trade Partner(s)` for subcontractors/vendors
+- Messaging integrity:
+  - Preserve canonical phrasing/capitalization where used in UI copy (for example, "Building projects for the Client, NOT the Dollar")
+  - Preserve "Veteran-Owned Since January 2025" phrasing when veteran-ownership appears
+
+### Automated Enforcement
+
+Brand compliance is CI-gated and cannot be bypassed without an explicit `LINT-EXEMPT` annotation.
+
+**Scripts:**
+
+| Command                 | When to use                                      |
+| ----------------------- | ------------------------------------------------ |
+| `npm run lint:brand`    | Full repo scan — run locally before pushing      |
+| `npm run lint:brand:ci` | Changed-files-only scan — set `BASE_SHA` env var |
+
+**CI gate** (`.github/workflows/ci-cd.yml` — `quality-checks` job):
+
+- Runs after ESLint and Prettier
+- Pull requests: changed-files mode (`BRAND_LINT_CHANGED_ONLY=true`) to avoid flagging legacy content
+- Pushes to `main`/`develop`: full scan
+- Failing checks block merge
+
+**Checks enforced:**
+
+| Rule                      | Pattern blocked                                       |
+| ------------------------- | ----------------------------------------------------- |
+| Slogan variant            | `"for the client, not the"`                           |
+| Address variant           | `"N. Capitol Ave."`                                   |
+| Veteran-owned date format | `Veteran-Owned since NNNN`                            |
+| Lowercase veteran phrase  | `veteran-owned since`                                 |
+| Banned terminology        | `customers`, `clients`, `subs`, `vendors`             |
+| Banned phrase             | `work FOR you`                                        |
+| Emoji in source files     | Any emoji in `.tsx/.ts/.jsx/.js` — use Material Icons |
+
+**Bypass (last resort):** append `// LINT-EXEMPT` or `<!-- LINT-EXEMPT -->` to the line with a comment explaining why.
+
+**Scope exclusions** (hardcoded in `brand-lint.sh`):
+
+- `docs/project/*` — planning files
+- `docs/branding/*` — guidelines intentionally show incorrect examples
 
 ---
 
@@ -46,30 +104,45 @@
 
 ## Stream 1 — 4-Role Auth System
 
-### Phase 1 — Worker Login API ⬜
+### Phase 1 — Unified Hub Login API (Worker + Traveler) ⬜
 
-**Create** `src/app/api/auth/worker-login/route.ts`
+**Create** `src/app/api/auth/hub-login/route.ts`
 
-Pattern: exact mirror of `src/app/api/auth/field-login/route.ts`
+Pattern: based on `src/app/api/auth/field-login/route.ts`, but with a role payload to reduce duplication.
 
 - `export const dynamic = "force-dynamic"`
-- Reads `WORKER_PASSWORD` env var; throws in production if missing; returns `"dev-placeholder-worker-password"` in dev
+- Accepts `role` in request body: `"worker" | "traveler"`
+- Reads the role-specific passcode env var:
+  - `worker` -> `WORKER_PASSWORD`
+  - `traveler` -> `TRAVELERS_PASSWORD`
+- Throws in production if selected env var is missing; returns role-specific dev placeholders in development
 - Timing-safe HMAC comparison (copy `timingSafeEqual` from field-login)
-- JWT: `generateTokenPair({ uid: \`worker-${Date.now()}\`, role: "worker", name: "Field Worker" })`
+- JWT uses role-aware payload:
+  - `worker` -> `generateTokenPair({ uid: \`worker-${Date.now()}\`, role: "worker", name: "Field Worker" })`
+  - `traveler` -> `generateTokenPair({ uid: \`traveler-${Date.now()}\`, role: "traveler", name: "Travelers Insurance" })`
 - Response: `{ success: true, accessToken, user: { uid, name, role }, expiresIn: 900 }`
-- Cookie: `mh_worker_refresh_token` — httpOnly, secure in production, sameSite strict, path `/api/auth`, maxAge 86400
+- Cookie name mapped by role:
+  - `worker` -> `mh_worker_refresh_token`
+  - `traveler` -> `mh_traveler_refresh_token`
+- Cookie flags: httpOnly, secure in production, sameSite strict, path `/api/auth`, maxAge 86400
 - Rate limit: `rateLimit(rateLimitPresets.strict)(handler)` — 3 attempts / 5 min
-- No `name` field accepted (passcode only)
+- No `name` field accepted (passcode-only roles)
 
-### Phase 2 — Traveler Login API ⬜
+### Phase 2 — MVR-Gated Worker Access Fail-Safe ⬜
 
-**Create** `src/app/api/auth/traveler-login/route.ts`
+**Update** `src/app/api/auth/hub-login/route.ts`
 
-Same structure as Phase 1 with:
+Add an automated MVR recency gate for `worker` role only:
 
-- Reads `TRAVELERS_PASSWORD` env var
-- JWT role `"traveler"`, name `"Travelers Insurance"`
-- Cookie name: `mh_traveler_refresh_token`
+- Read worker identifier from payload (employee id or normalized worker key)
+- Check matching record in `mvr-records` source
+- If annual MVR review timestamp is older than 365 days:
+  - Allow sign-in (non-blocking fail-safe)
+  - Emit `compliance_warning` event to access logging pipeline
+  - Trigger Matt alert through Phase 6 notification system:
+    - SMS (instant): `[MH Hub] Compliance Warning: <worker> MVR review expired (>365 days)`
+    - Include worker id + last review date in email digest details
+- If no matching MVR record exists, also emit `compliance_warning` with reason `missing_mvr_record`
 
 ### Phase 3 — 4-Card Role Selector Login UI ⬜
 
@@ -88,12 +161,12 @@ Replace `PasscodeGate` component with a 2-step component `RoleGate`:
 
 **Step 2 — Credential form per role:**
 
-| Role             | Fields           | Endpoint                        |
-| ---------------- | ---------------- | ------------------------------- |
-| `admin`          | Email + Password | `POST /api/auth/admin-login`    |
-| `superintendent` | Name + Passcode  | `POST /api/auth/field-login`    |
-| `worker`         | Passcode only    | `POST /api/auth/worker-login`   |
-| `traveler`       | Passcode only    | `POST /api/auth/traveler-login` |
+| Role             | Fields           | Endpoint                                        |
+| ---------------- | ---------------- | ----------------------------------------------- |
+| `admin`          | Email + Password | `POST /api/auth/admin-login`                    |
+| `superintendent` | Name + Passcode  | `POST /api/auth/field-login`                    |
+| `worker`         | Passcode only    | `POST /api/auth/hub-login` (`role: "worker"`)   |
+| `traveler`       | Passcode only    | `POST /api/auth/hub-login` (`role: "traveler"`) |
 
 - All forms: back button → returns to Step 1
 - On success: `localStorage.setItem("field_auth_token", accessToken)` + `localStorage.setItem("field_user", JSON.stringify(user))` — **same keys as today, no breaking change**
@@ -136,7 +209,7 @@ CREATE TABLE IF NOT EXISTS safety_access_log (
   id            TEXT PRIMARY KEY,
   event_type    TEXT NOT NULL CHECK (event_type IN (
                   'login','logout','download','form_view',
-                  'form_submit','manual_view','joining_view')),
+                  'form_submit','manual_view','joining_view','compliance_warning')),
   role          TEXT NOT NULL,
   user_name     TEXT NOT NULL,
   resource_key  TEXT,
@@ -163,7 +236,7 @@ Request body:
 
 ```ts
 {
-  event_type: "login" | "logout" | "download" | "form_view" | "form_submit" | "manual_view" | "joining_view";
+  event_type: "login" | "logout" | "download" | "form_view" | "form_submit" | "manual_view" | "joining_view" | "compliance_warning";
   resource_key?: string;   // section slug, form type, video id
   resource_title?: string;
   job_id?: string;
@@ -175,12 +248,28 @@ Handler steps:
 1. Verify JWT from `Authorization: Bearer <token>` header
 2. Extract `ip_address` from `request.headers.get("CF-Connecting-IP") ?? request.headers.get("X-Forwarded-For") ?? "unknown"`
 3. Extract `user_agent` from `request.headers.get("User-Agent") ?? "unknown"`
-4. Insert row into `safety_access_log` with `id = crypto.randomUUID()`
-5. Fire notifications (non-blocking — `void Promise.allSettled([...])`):
-   - SMS: `alertMatt(\`[MH Hub] ${user.name} (${user.role}) — ${event_type}${resource_title ? ": " + resource_title : ""} | IP: ${ip_address}\`)`
-   - Email: `sendEmail({ to: "matt@mhc-gc.com", subject: "Hub Access: " + event_type, html: <detailed table> })`
-6. Return `{ success: true }`
-7. On DB error: log + return `internalServerError()`
+4. Run automated **Privacy Scrub** on metadata before persistence:
+
+- Redact SSN-like patterns: `XXX-XX-1234` and equivalent numeric variants
+- Redact driver's license-like tokens when prefixed by `DL`, `Driver License`, or equivalent markers
+- Truncate extreme-length `user_agent` strings to sane bounds
+- Normalize multi-hop `X-Forwarded-For` values to first IP only
+- Store scrubbed values only; never persist raw unsanitized metadata
+
+5. Insert row into `safety_access_log` with `id = crypto.randomUUID()`
+6. Fire notifications with severity-aware routing (non-blocking):
+
+- Instant SMS: only for `login`, `form_submit`, and `compliance_warning`
+- Daily email digest: batch non-critical events (`download`, `form_view`, `manual_view`, `joining_view`, `logout`)
+- Compliance warnings are highlighted at top of digest when they occur
+
+7. Return `{ success: true }`
+8. On DB error: log + return `internalServerError()`
+
+Notification implementation note:
+
+- Add a scheduled digest job (daily) that aggregates non-critical events and sends a "Hub Activity Digest" email to Matt
+- Keep per-event email behind an emergency toggle for incident response mode
 
 **`GET /api/safety/access-log`** — `requireRole(["admin"])` only
 
@@ -190,7 +279,7 @@ Returns: `{ data: AccessLogRow[], total: number }`
 
 ### Phase 7 — Login Event Logging (Server-Side) ⬜
 
-**Update** all 4 login routes — after successful authentication and before returning the response, insert a `login` event:
+**Update** login handlers for all 4 paths — after successful authentication and before returning the response, insert a `login` event:
 
 ```ts
 // After successful auth, before return:
@@ -225,8 +314,7 @@ Files to update:
 
 - `src/app/api/auth/admin-login/route.ts`
 - `src/app/api/auth/field-login/route.ts`
-- `src/app/api/auth/worker-login/route.ts` _(new — Phase 1)_
-- `src/app/api/auth/traveler-login/route.ts` _(new — Phase 2)_
+- `src/app/api/auth/hub-login/route.ts` _(new — Phase 1)_
 
 ### Phase 8 — Client-Side Tracking in Hub ⬜
 
@@ -390,7 +478,17 @@ export const metadata = {
 **Create** `src/app/hub/HubClient.tsx`:
 
 - Move all logic from `SafetyHubClient.tsx` into this file
+- Implement lazy-loaded tab panels via code splitting so heavy resources are only fetched/rendered on demand
+  - Load Employee Manual panel only when `employee-manual` tab is first activated
+  - Load Joining Program panel (including Travelers video grid) only when `joining-program` tab is first activated
+  - Keep initial hub shell lightweight for low-bandwidth field crews
 - Extend with new top-level nav tabs (in addition to existing `downloads | forms | history`):
+- Apply brand UI standards to all newly built Hub panels:
+  - Buttons/primary actions use Hunter Green tokens
+  - Normal body copy and helper text use accessible tan (`#8A6B49`) or approved neutral tokens
+  - Headings, spacing, and responsive scale follow unified component standards
+  - New section containers follow standardized section background pattern
+  - Do not introduce alternate color themes for `/hub`; keep core MH palette
 
 | Tab ID            | Label           | Icon                | Roles                         |
 | ----------------- | --------------- | ------------------- | ----------------------------- |
@@ -445,9 +543,13 @@ Remove the `getDocumentById` call and `SafetyHubClient` import (no longer needed
 
 **Update** `src/components/layout/Navigation.tsx`
 
-> ⚠️ **Blocked on P4** — Confirm placement: main nav "Staff Hub" item vs. subtle footer link.
+Implement now per P4 decision: add a low-key "Staff Access" link in the footer section of the nav, below main public links. This keeps the public nav clean while remaining discoverable to staff.
 
-Recommended (pending confirmation): Add a low-key "Staff Access" link in the footer section of the nav, below the main links. This keeps the public nav clean while remaining discoverable to staff.
+Branding constraints for this link:
+
+- Use subtle, accessible styling aligned with MH palette (avoid high-alert visual treatment)
+- Copy remains operational and neutral: "Staff Access"
+- Respect typography hierarchy and spacing from unified component standards
 
 ---
 
@@ -507,6 +609,23 @@ Top-level keys:
 
 **Create** `messages/es.json` — Spanish translations for all keys in `en.json`.
 
+Brand language validation in translation files:
+
+- Preserve approved terminology intent in both locales (Client Partner, Trade Partner distinctions)
+- Protect canonical capitalization in English source keys where present (`Client`, `Veteran-Owned`)
+- Avoid introducing disallowed transactional terms in new copy keys ("customers", "subs", etc.)
+
+Priority translation order for risk reduction:
+
+1. JHA (`MISH 05`) Action-item strings first
+2. Safety form submit/confirm language
+3. Remaining hub UI strings
+
+Validation requirement:
+
+- Add a translation completeness check that blocks release if `MISH 05` Action keys exist in `en.json` but are missing in `es.json`
+- Include bilingual reviewer sign-off for Action-item terminology used in high-threat field workflows
+
 Pages not yet in scope (all other public pages) remain English-only; `next-intl`'s fallback handles missing keys gracefully.
 
 ### Phase 18 — Language Toggle Component ⬜
@@ -548,12 +667,15 @@ Pages not yet in scope (all other public pages) remain English-only; `next-intl`
 ### Access Tracking
 
 - [ ] Login event inserted into `safety_access_log` on successful auth (all 4 paths)
-- [ ] Matt receives SMS and email on login (check Twilio + Resend logs)
+- [ ] Matt receives instant SMS on login (check Twilio logs)
 - [ ] Tab switch to Forms → `form_view` event in access log
 - [ ] File download → `download` event in access log with correct `resource_key`
 - [ ] Form submit → `form_submit` event with correct `form_type` and `job_id`
 - [ ] Employee Manual open → `manual_view` event
 - [ ] Joining Program open → `joining_view` event
+- [ ] Expired or missing worker MVR emits `compliance_warning` and notifies Matt
+- [ ] Privacy Scrub redacts SSN/DL patterns from metadata before DB write
+- [ ] Daily "Hub Activity Digest" email contains non-critical event summary
 
 ### Dashboard
 
@@ -570,6 +692,7 @@ Pages not yet in scope (all other public pages) remain English-only; `next-intl`
 - [ ] Joining Program tab: welcome docs, HR forms, Travelers video grid visible
 - [ ] Travelers video cards link to correct external URLs (open in new tab)
 - [ ] History tab: visible only to admin + super
+- [ ] Employee Manual and Joining Program tab content loads lazily on first tab activation
 
 ### Spanish Toggle
 
@@ -577,6 +700,16 @@ Pages not yet in scope (all other public pages) remain English-only; `next-intl`
 - [ ] Selecting ES re-renders hub content in Spanish
 - [ ] Locale persists across page navigation (cookie survives)
 - [ ] Non-hub pages remain in English (graceful fallback)
+- [ ] JHA (`MISH 05`) Action items are translated in `es.json` before other low-risk strings
+
+### Branding Compliance
+
+- [ ] New `/hub` UI uses MH brand colors from `docs/branding/brand-constants.md` (no off-palette substitutions)
+- [ ] Normal-sized text avoids `#BD9264` and uses accessible alternatives (`#8A6B49` / approved tokens)
+- [ ] Typography scale and section composition follow unified component standards
+- [ ] App code uses Material Icons only (no emoji in source files)
+- [ ] New user-facing copy follows universal terminology standards (`Client Partner`, `Trade Partner`)
+- [ ] Any veteran-ownership wording uses canonical "Veteran-Owned Since January 2025" phrasing
 
 ---
 
@@ -584,8 +717,7 @@ Pages not yet in scope (all other public pages) remain English-only; `next-intl`
 
 | File                                           | Type      | Purpose                                                 |
 | ---------------------------------------------- | --------- | ------------------------------------------------------- |
-| `src/app/api/auth/worker-login/route.ts`       | API route | Worker shared-passcode authentication                   |
-| `src/app/api/auth/traveler-login/route.ts`     | API route | Traveler shared-passcode authentication                 |
+| `src/app/api/auth/hub-login/route.ts`          | API route | Unified worker/traveler shared-passcode authentication  |
 | `src/app/api/safety/access-log/route.ts`       | API route | Access event log — write + admin read                   |
 | `src/lib/safety/log-access-event.ts`           | Utility   | Shared server-side access logging + notification helper |
 | `migrations/0014_create_safety_access_log.sql` | Migration | `safety_access_log` table                               |
@@ -607,6 +739,7 @@ Pages not yet in scope (all other public pages) remain English-only; `next-intl`
 | `src/app/safety/hub/SafetyHubClient.tsx` | Replace `PasscodeGate` with `RoleGate` (2-step)               |
 | `src/app/api/auth/admin-login/route.ts`  | Add login event logging via `logAccessEvent`                  |
 | `src/app/api/auth/field-login/route.ts`  | Add login event logging via `logAccessEvent`                  |
+| `src/app/api/auth/hub-login/route.ts`    | Add role-aware worker/traveler auth + MVR compliance gate     |
 | `src/app/api/safety/downloads/route.ts`  | Extend POST `requireRole` to all 4 roles                      |
 | `src/app/dashboard/page.tsx`             | Add "Access Log" 5th tab                                      |
 | `src/lib/data/documents.ts`              | Add `employee-manual` / `joining-program` categories + arrays |

@@ -132,8 +132,6 @@ function PasscodeGate({ onLogin }: LoginFormProps) {
         accessToken: string;
         user: { name: string; role: string };
       };
-      localStorage.setItem("field_auth_token", accessToken);
-      localStorage.setItem("field_user", JSON.stringify(user));
       onLogin(accessToken, user);
     } catch (err) {
       setError(
@@ -1103,17 +1101,41 @@ export function SafetyHubClient({ sections }: SafetyHubClientProps) {
   const [user, setUser] = useState<{ name: string; role: string } | null>(null);
 
   useEffect(() => {
-    const storedToken = localStorage.getItem("field_auth_token");
-    const storedUser = localStorage.getItem("field_user");
-    if (storedToken && storedUser) {
+    const bootstrapSession = async () => {
       try {
-        setToken(storedToken);
-        setUser(JSON.parse(storedUser) as { name: string; role: string });
+        const response = await fetch("/api/auth/refresh", {
+          method: "POST",
+          credentials: "include",
+        });
+
+        if (!response.ok) {
+          return;
+        }
+
+        const data = (await response.json()) as {
+          accessToken?: string;
+          user?: { name?: string; role?: string };
+        };
+
+        if (!data.accessToken || !data.user?.role) {
+          return;
+        }
+
+        if (data.user.role !== "superintendent") {
+          return;
+        }
+
+        setToken(data.accessToken);
+        setUser({
+          name: data.user.name ?? "Superintendent",
+          role: data.user.role,
+        });
       } catch {
-        localStorage.removeItem("field_auth_token");
-        localStorage.removeItem("field_user");
+        // no-op: unauthenticated users should see the gate
       }
-    }
+    };
+
+    void bootstrapSession();
   }, []);
 
   const handleLogin = (
@@ -1125,8 +1147,10 @@ export function SafetyHubClient({ sections }: SafetyHubClientProps) {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("field_auth_token");
-    localStorage.removeItem("field_user");
+    void fetch("/api/auth/logout", {
+      method: "POST",
+      credentials: "include",
+    });
     setToken(null);
     setUser(null);
   };

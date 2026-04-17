@@ -19,7 +19,11 @@ async function handlePOST(request: NextRequest): Promise<NextResponse> {
     request.headers.get("x-forwarded-for") ??
     "unknown";
 
-  const refreshToken = request.cookies.get("mh_refresh_token")?.value;
+  const adminRefreshToken = request.cookies.get("mh_refresh_token")?.value;
+  const fieldRefreshToken = request.cookies.get(
+    "mh_field_refresh_token",
+  )?.value;
+  const refreshToken = adminRefreshToken ?? fieldRefreshToken;
 
   if (!refreshToken) {
     logger.warn("Logout requested without refresh token", { ip });
@@ -43,6 +47,13 @@ async function handlePOST(request: NextRequest): Promise<NextResponse> {
       path: "/api/auth",
       maxAge: 0,
     });
+    invalidResponse.cookies.set("mh_field_refresh_token", "", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      path: "/api/auth",
+      maxAge: 0,
+    });
     return invalidResponse;
   }
 
@@ -52,6 +63,13 @@ async function handlePOST(request: NextRequest): Promise<NextResponse> {
 
   // Clear the refresh token cookie by setting maxAge to 0
   response.cookies.set("mh_refresh_token", "", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    path: "/api/auth",
+    maxAge: 0,
+  });
+  response.cookies.set("mh_field_refresh_token", "", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "strict",
