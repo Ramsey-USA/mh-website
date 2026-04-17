@@ -53,7 +53,7 @@ async function sendEmail(
         ["Authorization"]: `Bearer ${resendApiKey}`,
       },
       body: JSON.stringify({
-        from: "MH Construction <noreply@mhc-gc.com>",
+        from: "MH Construction <office@mhc-gc.com>",
         to: recipient,
         subject: subject,
         html: `

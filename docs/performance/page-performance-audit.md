@@ -2,7 +2,7 @@
 
 **Purpose:** Systematic checklist to audit and fix load-time lag across all pages.  
 **Priority order:** Fix veterans + careers first (confirmed lag), then work top-to-bottom by severity score.  
-**Last scanned:** 2026-04-15
+**Last scanned:** 2026-04-17
 
 ---
 
@@ -52,7 +52,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 - [x] Remove `backgroundAttachment: 'fixed'` from the parallax div (src/app/veterans/page.tsx ~L88)
 - [x] Replace the 4 repeated `<Image fill>` cards in "Strategic Veteran Partnerships" with a single section-level CSS background or distinct images
 - [x] Replace section-level `FadeInWhenVisible` wrappers with `.scroll-reveal` CSS class — keep FIW only on individual stat cards and CTAs (aim: ≤5 FIW total)
-- [ ] Verify no Lighthouse LCP regression after changes
+- [x] Verify no Lighthouse LCP regression after changes — Apr 17 run: **Perf 96 / A11y 97 / BP 77 / SEO 100** ✓
 - [x] Build passes: `npm run build:next`
 
 ---
@@ -77,6 +77,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 - [x] Replace section-level FadeInWhenVisible with `.scroll-reveal` CSS (aim: ≤6 FIW total)
 - [ ] Confirm modal open/close still works after extraction
 - [x] Build passes: `npm run build:next`
+- ⚠️ Apr 17 Lighthouse run: **Perf 70** (below 90 target) — may be transient due to audit environment; retest recommended
 
 ---
 
@@ -295,8 +296,8 @@ No images, no animation wrappers, no client components (except `/offline`), no d
 
 **Audit checklist:**
 
-- [ ] Quick visual check — confirm pages render correctly
-- [ ] No action needed
+- [x] Quick visual check — confirm pages render correctly (Apr 17 Lighthouse: `/accessibility` 98/97/77/100, `/privacy` 96/97/77/100, `/terms` 98/97/77/100)
+- [x] No action needed
 
 ---
 
@@ -325,25 +326,67 @@ These patterns appear across many pages. When you touch any file, fix the patter
 
 ## Audit Progress Tracker
 
-| Page             | Severity | Audited | Fixed | Notes                                                                                      |
-| ---------------- | -------- | ------- | ----- | ------------------------------------------------------------------------------------------ |
-| `/veterans`      | 🔴 HIGH  | [x]     | [x]   | Fixed BG + repeated image + FIW                                                            |
-| `/careers`       | 🔴 HIGH  | [x]     | [x]   | Client boundary + modal lazy + decorBG                                                     |
-| `/about`         | 🟡 MED   | [x]     | [x]   | 17 FIW, 10 dynamic                                                                         |
-| `/allies`        | 🟡 MED   | [x]     | [x]   | 7 images no priority                                                                       |
-| `/faq`           | 🟡 MED   | [x]     | [x]   | 9 FIW                                                                                      |
-| `/public-sector` | 🟡 MED   | [x]     | [x]   | 17 FIW, no priority images                                                                 |
-| `/resources`     | 🟡 MED   | [x]     | [x]   | 9 FIW                                                                                      |
-| `/safety`        | 🟡 MED   | [x]     | [x]   | 10× decorBG                                                                                |
-| `/services`      | 🟡 MED   | [x]     | [x]   | 9 FIW, no priority images                                                                  |
-| `/team`          | 🟡 MED   | [x]     | [x]   | 8× decorBG                                                                                 |
-| `/testimonials`  | 🟢 LOW   | [x]     | [x]   | Removed hero FIW + 2 section DecorBGs                                                      |
-| `/projects`      | 🟢 LOW   | [x]     | [x]   | No Suspense needed — uses window.location                                                  |
-| `/contact`       | 🟢 LOW   | [x]     | [x]   | Map facade already implemented                                                             |
-| `/dashboard`     | 🟢 LOW   | [x]     | [x]   | Lazy-loaded 3 tab components (incl. recharts)                                              |
-| `/`              | 🟢 LOW   | [x]     | [x]   | Hero is CSS gradient — no Image to prioritize                                              |
-| `/accessibility` | 🟢 CLEAN | [ ]     | [ ]   | Visual check only                                                                          |
-| `/privacy`       | 🟢 CLEAN | [ ]     | [ ]   | Visual check only                                                                          |
-| `/terms`         | 🟢 CLEAN | [ ]     | [ ]   | Visual check only                                                                          |
-| `/offline`       | 🟢 CLEAN | [ ]     | [ ]   | Visual check only                                                                          |
-| **Global**       | —        | [x]     | [x]   | recharts already in optimizePackageImports; framer-motion/lucide-react not in package.json |
+| Page             | Severity | Audited | Fixed | Notes                                                                                                             |
+| ---------------- | -------- | ------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
+| `/veterans`      | 🔴 HIGH  | [x]     | [x]   | Fixed BG + repeated image + FIW; Lighthouse Apr 17: **96/97/77/100**                                              |
+| `/careers`       | 🔴 HIGH  | [x]     | [x]   | Client boundary + modal lazy + decorBG; ⚠️ Lighthouse Apr 17: **70/94/77/100** — Perf below target, retest needed |
+| `/about`         | 🟡 MED   | [x]     | [x]   | 17 FIW, 10 dynamic; Lighthouse Apr 17: **96/97/81/100**                                                           |
+| `/allies`        | 🟡 MED   | [x]     | [x]   | 7 images no priority; ❌ Lighthouse Apr 17: **TIMEOUT** — page timed out after 300s                               |
+| `/faq`           | 🟡 MED   | [x]     | [x]   | 9 FIW; Lighthouse Apr 17: **97/97/96/100** — standout BP score                                                    |
+| `/public-sector` | 🟡 MED   | [x]     | [x]   | 17 FIW, no priority images; Lighthouse Apr 17: **94/97/77/100**                                                   |
+| `/resources`     | 🟡 MED   | [x]     | [x]   | 9 FIW; not in Apr 17 run                                                                                          |
+| `/safety`        | 🟡 MED   | [x]     | [x]   | 10× decorBG; not in Apr 17 run                                                                                    |
+| `/services`      | 🟡 MED   | [x]     | [x]   | 9 FIW, no priority images; Lighthouse Apr 17: **97/97/77/100**                                                    |
+| `/team`          | 🟡 MED   | [x]     | [x]   | 8× decorBG; ❌ Lighthouse Apr 17: **PROTOCOL_TIMEOUT** — retest needed                                            |
+| `/testimonials`  | 🟢 LOW   | [x]     | [x]   | Removed hero FIW + 2 section DecorBGs; Lighthouse Apr 17: **97/97/77/100**                                        |
+| `/projects`      | 🟢 LOW   | [x]     | [x]   | No Suspense needed — uses window.location; Lighthouse Apr 17: **91/97/77/100**                                    |
+| `/contact`       | 🟢 LOW   | [x]     | [x]   | Map facade already implemented; ❌ Lighthouse Apr 17: **503 error** — intermittent, retest                        |
+| `/dashboard`     | 🟢 LOW   | [x]     | [x]   | Lazy-loaded 3 tab components (incl. recharts); not in Apr 17 run (auth-gated)                                     |
+| `/`              | 🟢 LOW   | [x]     | [x]   | Hero is CSS gradient — no Image to prioritize; Lighthouse Apr 17: **95/97/77/100**                                |
+| `/accessibility` | 🟢 CLEAN | [x]     | [x]   | Lighthouse Apr 17: **98/97/77/100** — verified clean                                                              |
+| `/privacy`       | 🟢 CLEAN | [x]     | [x]   | Lighthouse Apr 17: **96/97/77/100** — verified clean                                                              |
+| `/terms`         | 🟢 CLEAN | [x]     | [x]   | Lighthouse Apr 17: **98/97/77/100** — verified clean                                                              |
+| `/offline`       | 🟢 CLEAN | [ ]     | [ ]   | Visual check only; not in Apr 17 run                                                                              |
+| **Global**       | —        | [x]     | [x]   | recharts already in optimizePackageImports; framer-motion/lucide-react not in package.json                        |
+
+---
+
+## Lighthouse Score History
+
+### 2026-04-17 — `scripts/test-lighthouse.js` · `https://www.mhc-gc.com`
+
+**Result:** 19 / 22 successful · 3 failed  
+**Averages (successful pages):** Performance **95** · Accessibility **96** · Best Practices **78** · SEO **100** · Overall **92**
+
+| Page                                     | Perf   | A11y | Best Pr. | SEO | Avg | Status                |
+| ---------------------------------------- | ------ | ---- | -------- | --- | --- | --------------------- |
+| Home (/)                                 | 95     | 97   | 77       | 100 | 92  | ✅                    |
+| About (/about)                           | 96     | 97   | 81       | 100 | 94  | ✅                    |
+| Services (/services)                     | 97     | 97   | 77       | 100 | 93  | ✅                    |
+| Projects (/projects)                     | 91     | 97   | 77       | 100 | 91  | ✅                    |
+| Team (/team)                             | —      | —    | —        | —   | —   | ❌ PROTOCOL_TIMEOUT   |
+| Careers (/careers)                       | **70** | 94   | 77       | 100 | 85  | ⚠️ Perf below target  |
+| Contact (/contact)                       | —      | —    | —        | —   | —   | ❌ 503 (intermittent) |
+| FAQ (/faq)                               | 97     | 97   | **96**   | 100 | 98  | ✅ standout           |
+| Privacy (/privacy)                       | 96     | 97   | 77       | 100 | 93  | ✅                    |
+| Terms (/terms)                           | 98     | 97   | 77       | 100 | 93  | ✅                    |
+| Accessibility (/accessibility)           | 98     | 97   | 77       | 100 | 93  | ✅                    |
+| Testimonials (/testimonials)             | 97     | 97   | 77       | 100 | 93  | ✅                    |
+| Veterans (/veterans)                     | 96     | 97   | 77       | 100 | 93  | ✅                    |
+| Public Sector (/public-sector)           | 94     | 97   | 77       | 100 | 92  | ✅                    |
+| Allies (/allies)                         | —      | —    | —        | —   | —   | ❌ 300s TIMEOUT       |
+| Pasco (/locations/pasco)                 | 99     | 96   | 81       | 100 | 94  | ✅                    |
+| Richland (/locations/richland)           | 98     | 96   | 77       | 100 | 93  | ✅                    |
+| Kennewick (/locations/kennewick)         | 99     | 96   | 77       | 100 | 93  | ✅                    |
+| West Richland (/locations/west-richland) | 98     | 96   | 77       | 100 | 93  | ✅                    |
+| Yakima (/locations/yakima)               | 97     | 96   | 77       | 100 | 93  | ✅                    |
+| Walla Walla (/locations/walla-walla)     | 97     | 96   | 77       | 100 | 93  | ✅                    |
+| Spokane (/locations/spokane)             | 98     | 96   | 77       | 100 | 93  | ✅                    |
+
+**Open items from this run:**
+
+- ⚠️ `/careers` Perf 70 — run occurred post-audit-fixes; may be transient. Retest. If persistent, profile with Chrome DevTools under throttled conditions.
+- ❌ `/team` PROTOCOL_TIMEOUT — page likely slow to respond under CI load; retest standalone.
+- ❌ `/contact` 503 — intermittent server error under audit load; retest.
+- ❌ `/allies` 300s timeout — page may have a render-blocking fetch or large JS execution path; inspect Network panel.
+- 🟠 Best Practices **77** site-wide — caused by missing CSP (enforcement mode), HSTS, and COOP headers. These are `informative` audits in Lighthouse 13; does not affect binary pass/fail but pulls the category score. Addressed separately via HTTP headers config.

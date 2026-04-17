@@ -55,7 +55,8 @@ jobs:
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           REPORT_TO_EMAIL: ${{ secrets.LIGHTHOUSE_REPORT_EMAIL }}
-          REPORT_FROM_EMAIL: ${{ vars.LIGHTHOUSE_REPORT_FROM_EMAIL || 'reports@mhc-gc.com' }}
+          REPORT_CC_EMAIL: ${{ secrets.LIGHTHOUSE_REPORT_CC_EMAIL || 'matt@mhc-gc.com' }}
+          REPORT_FROM_EMAIL: ${{ vars.LIGHTHOUSE_REPORT_FROM_EMAIL || 'office@mhc-gc.com' }}
         run: |
           node - <<'EOF'
           const fs = require('fs');
@@ -63,12 +64,15 @@ jobs:
 
           const apiKey = process.env.RESEND_API_KEY;
           const toEmail = process.env.REPORT_TO_EMAIL;
+          const ccEmail = process.env.REPORT_CC_EMAIL;
           const fromEmail = process.env.REPORT_FROM_EMAIL;
 
           if (!apiKey || !toEmail) {
             console.error('Missing RESEND_API_KEY or LIGHTHOUSE_REPORT_EMAIL secret. Skipping email.');
             process.exit(0);
           }
+
+          const toList = [...new Set([toEmail, ...(ccEmail ? [ccEmail] : [])])];
 
           const summaryPath = path.join(process.cwd(), 'lighthouse-results', 'summary.json');
           if (!fs.existsSync(summaryPath)) {
@@ -170,7 +174,7 @@ jobs:
               },
               body: JSON.stringify({
                 from: fromEmail,
-                to: [toEmail],
+                to: toList,
                 subject: `📊 Weekly Lighthouse Report — ${date}`,
                 html,
               }),

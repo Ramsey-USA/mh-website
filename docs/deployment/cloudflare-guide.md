@@ -94,7 +94,7 @@ binding = "ASSETS"
 | `NEXT_PUBLIC_SITE_URL`  | Plaintext | `https://www.mhc-gc.com` | Canonical URL                         |
 | `CI`                    | Plaintext | `true`                   | Skips husky hooks during builds       |
 | `RESEND_API_KEY`        | Secret    | `re_xxxxx`               | Email notifications (contact forms)   |
-| `EMAIL_FROM`            | Secret    | `noreply@mhc-gc.com`     | Resend sender address                 |
+| `EMAIL_FROM`            | Secret    | `office@mhc-gc.com`      | Resend sender address                 |
 | `JWT_SECRET`            | Secret    | 48-byte hex string       | Signs admin JWTs                      |
 | `ADMIN_MATT_PASSWORD`   | Secret    | strong password          | Admin dashboard login for Matt        |
 | `ADMIN_JEREMY_PASSWORD` | Secret    | strong password          | Admin dashboard login for Jeremy      |
@@ -486,7 +486,7 @@ npx wrangler d1 execute mh-construction-db --local --file=migrations/0001_create
 - [ ] Run `npx wrangler login` and verify account access
 - [ ] Add `JWT_SECRET` (generate: `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`)
 - [ ] Add `ADMIN_MATT_PASSWORD` and `ADMIN_JEREMY_PASSWORD` via `wrangler secret put` or dashboard
-- [ ] Add `RESEND_API_KEY`, `EMAIL_FROM=noreply@mhc-gc.com`
+- [ ] Add `RESEND_API_KEY`, `EMAIL_FROM=office@mhc-gc.com`
 - [ ] Set `NEXT_PUBLIC_SITE_URL=https://www.mhc-gc.com` and `NEXT_TELEMETRY_DISABLED=1` in dashboard
 - [ ] Bind D1 database (`DB` → `mh-construction-db`) in dashboard
 - [ ] Create R2 buckets: `mh-construction-assets`, `mh-construction-safety-intake`, and `mh-construction-resumes`

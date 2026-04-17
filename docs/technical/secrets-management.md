@@ -127,7 +127,7 @@ wrangler secret list
 ```bash
 RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
 
-EMAIL_FROM=noreply@mhc-gc.com
+EMAIL_FROM=office@mhc-gc.com
 ```
 
 **Where to get:**

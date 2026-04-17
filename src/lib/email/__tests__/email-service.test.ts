@@ -41,7 +41,7 @@ import {
 function makeService(withKey = true) {
   if (withKey) {
     process.env["RESEND_API_KEY"] = "re_test_key";
-    process.env["EMAIL_FROM"] = "noreply@mhc-gc.com";
+    process.env["EMAIL_FROM"] = "office@mhc-gc.com";
   } else {
     delete process.env["RESEND_API_KEY"];
     delete process.env["EMAIL_FROM"];
@@ -222,7 +222,7 @@ describe("EmailService.sendToOffice()", () => {
   beforeEach(() => {
     mockSend.mockReset();
     process.env["RESEND_API_KEY"] = "re_test_key";
-    process.env["EMAIL_FROM"] = "noreply@mhc-gc.com";
+    process.env["EMAIL_FROM"] = "office@mhc-gc.com";
   });
 
   afterEach(() => {
@@ -275,7 +275,7 @@ describe("EmailService.sendAcknowledgment()", () => {
   beforeEach(() => {
     mockSend.mockReset();
     process.env["RESEND_API_KEY"] = "re_test_key";
-    process.env["EMAIL_FROM"] = "noreply@mhc-gc.com";
+    process.env["EMAIL_FROM"] = "office@mhc-gc.com";
   });
 
   afterEach(() => {
@@ -321,7 +321,7 @@ describe("Convenience re-exports", () => {
   beforeEach(() => {
     mockSend.mockReset();
     process.env["RESEND_API_KEY"] = "re_test_key";
-    process.env["EMAIL_FROM"] = "noreply@mhc-gc.com";
+    process.env["EMAIL_FROM"] = "office@mhc-gc.com";
   });
 
   afterEach(() => {

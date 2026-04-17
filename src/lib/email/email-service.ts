@@ -48,7 +48,7 @@ export class EmailService {
       const apiKey = process.env["RESEND_API_KEY"];
       if (!apiKey) return null;
       this.resend = new Resend(apiKey);
-      this.fromEmail = process.env["EMAIL_FROM"] || "noreply@mhc-gc.com";
+      this.fromEmail = process.env["EMAIL_FROM"] || "office@mhc-gc.com";
     }
     return { client: this.resend, from: this.fromEmail! };
   }

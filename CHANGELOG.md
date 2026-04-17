@@ -18,6 +18,17 @@ All notable changes to the MH Construction website are documented here.
 
 ## April 2026
 
+- **Apr 17:** First successful Lighthouse CI run — 19/22 pages audited at `https://www.mhc-gc.com`
+  using `scripts/test-lighthouse.js`; average scores across successful pages: **Performance 95 ·
+  Accessibility 96 · Best Practices 78 · SEO 100** (overall avg 92); 3 failures: `/team`
+  (PROTOCOL_TIMEOUT — retest needed), `/contact` (503 intermittent under load), `/allies` (300s
+  timeout — render-blocking path to investigate); `/careers` performance flagged at **70** —
+  post-fix regression may be transient, retest recommended; Best Practices stuck at **77** on
+  most pages due to missing CSP (enforcement mode), HSTS, and COOP headers (`informative` audits in
+  Lighthouse 13 — does not block binary pass/fail); `/faq` standout at **96** Best Practices;
+  scores and open items recorded in `docs/performance/page-performance-audit.md` and
+  `lighthouse-results/manual-baseline/summary.json`
+
 - **Apr 14:** Cloudflare Pro plan activated — upgraded from Free tier to Pro for enhanced
   performance, security features, and increased limits
 

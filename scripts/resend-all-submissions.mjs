@@ -33,7 +33,7 @@ const RECIPIENTS = [
   "matt@mhc-gc.com",
   "arnold@mhc-gc.com",
 ];
-const FROM_EMAIL = "MH Construction <noreply@mhc-gc.com>";
+const FROM_EMAIL = "MH Construction <office@mhc-gc.com>";
 
 // ── Validation ──────────────────────────────────────────────────────────────
 if (!CLOUDFLARE_API_TOKEN) {
