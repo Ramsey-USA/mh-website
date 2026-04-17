@@ -48,7 +48,8 @@ const TestimonialGrid = dynamic(
       default: mod.TestimonialGrid,
     })),
   {
-    ssr: false,
+    // Render on the server to avoid large layout shifts when this section mounts.
+    ssr: true,
     loading: () => <SimpleSkeleton />,
   },
 );

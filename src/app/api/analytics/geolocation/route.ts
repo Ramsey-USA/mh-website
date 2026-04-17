@@ -135,9 +135,22 @@ export const GET = rateLimit(rateLimitPresets.public)(async (
     return response;
   } catch (error) {
     logger.error("Geolocation API error:", error);
+    // Do not surface analytics geo failures as a 500, since callers have
+    // fallback providers and this endpoint is best-effort metadata.
     return NextResponse.json(
-      { error: "Failed to get geolocation" },
-      { status: 500 },
+      {
+        country: undefined,
+        countryCode: undefined,
+        city: undefined,
+        state: undefined,
+        region: undefined,
+        latitude: undefined,
+        longitude: undefined,
+        timezone: undefined,
+        zip: undefined,
+        source: "unknown",
+      },
+      { status: 200 },
     );
   }
 });
