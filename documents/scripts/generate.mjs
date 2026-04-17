@@ -29,7 +29,7 @@
 
 import puppeteer from "puppeteer";
 import QRCode from "qrcode";
-import { readFile, writeFile, mkdir } from "fs/promises";
+import { readFile, writeFile, mkdir, readdir } from "fs/promises";
 import { readFileSync, existsSync } from "fs";
 import { join, resolve, dirname, extname } from "path";
 import { fileURLToPath, pathToFileURL } from "url";
@@ -40,6 +40,7 @@ const ROOT = resolve(__dirname, "../..");
 const DOCS_DIR = join(ROOT, "documents");
 const OUTPUT_DIR = join(DOCS_DIR, "output");
 const MANIFEST = join(DOCS_DIR, "content/safety-manual.json");
+const FORMS_DIR = join(DOCS_DIR, "forms");
 
 // ── Argument parsing ──────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -578,6 +579,36 @@ async function generateForm(name) {
   const html = applyBrandTokens(raw);
   const pdfPath = join(formsDir, `${name}.pdf`);
   await renderHtmlToPdf(html, pdfPath, {}, `forms/_tmp_${name}.html`);
+}
+
+async function listStandaloneFormTemplates() {
+  try {
+    const entries = await readdir(FORMS_DIR, { withFileTypes: true });
+    return entries
+      .filter((entry) => entry.isFile() && entry.name.endsWith(".html"))
+      .map((entry) => entry.name.replace(/\.html$/, ""))
+      .sort();
+  } catch (error) {
+    if (error && typeof error === "object" && "code" in error) {
+      if (error.code === "ENOENT") {
+        return [];
+      }
+    }
+    throw error;
+  }
+}
+
+async function generateForms() {
+  const formNames = await listStandaloneFormTemplates();
+
+  if (formNames.length === 0) {
+    console.log("ℹ️  No standalone form templates found in documents/forms/.");
+    return;
+  }
+
+  for (const formName of formNames) {
+    await generateForm(formName);
+  }
 }
 
 // ── Utilities ─────────────────────────────────────────────────────────────────
@@ -1412,6 +1443,9 @@ async function main() {
         break;
       case "sections":
         await generateSections();
+        break;
+      case "forms":
+        await generateForms();
         break;
       case "section":
         if (!sectionNo) {

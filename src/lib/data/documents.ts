@@ -39,7 +39,7 @@ export interface DocumentEntry {
   title: string;
   subtitle?: string;
   description: string;
-  category: "manual" | "form";
+  category: "manual" | "form" | "employee-manual" | "joining-program";
   icon: string;
   revisionYear: number;
   /** Revision number string, e.g. "2" */
@@ -595,98 +595,16 @@ export const manuals: DocumentEntry[] = [
 
 // ── Standalone Forms ──────────────────────────────────────────────────────────
 
-export const forms: DocumentEntry[] = [
-  {
-    id: "toolbox-talk",
-    title: "Toolbox Talk",
-    subtitle: "Pre-Work Safety Briefing",
-    description:
-      "Branded one-page form for conducting and documenting daily pre-work safety briefings. Includes topic area, key points, attendance sign-off (15 rows), and foreman signature.",
-    category: "form",
-    icon: "record_voice_over",
-    revisionYear: 2026,
-    pdfPath: "/docs/safety/forms/toolbox-talk.pdf",
-    r2Key: "docs/safety/forms/toolbox-talk.pdf",
-    tags: ["safety", "field", "daily", "sign-off"],
-  },
-  {
-    id: "incident-report",
-    title: "Incident / Near-Miss Report",
-    subtitle: "MISH Section 08 — Event Reporting",
-    description:
-      "OSHA-aligned form for documenting workplace incidents, injuries, accidents, and near-miss events per MISH Section 08 and OSHA 29 CFR 1904. Includes root-cause analysis and corrective-action sections.",
-    category: "form",
-    icon: "report_problem",
-    revisionYear: 2026,
-    pdfPath: "/docs/safety/forms/incident-report.pdf",
-    r2Key: "docs/safety/forms/incident-report.pdf",
-    tags: ["safety", "reporting", "OSHA", "incident"],
-  },
-  {
-    id: "jha",
-    title: "Job Hazard Analysis (JHA)",
-    subtitle: "MISH Section 05 — Pre-Task Planning",
-    description:
-      "Systematic breakdown of job steps, associated hazards, and corrective actions before beginning work. Required by MISH Section 05 and OSHA 29 CFR 1926.20 for all non-routine and high-risk tasks.",
-    category: "form",
-    icon: "fact_check",
-    revisionYear: 2026,
-    pdfPath: "/docs/safety/forms/jha.pdf",
-    r2Key: "docs/safety/forms/jha.pdf",
-    tags: ["safety", "planning", "hazard", "pre-task"],
-  },
-  {
-    id: "equipment-checklist",
-    title: "Equipment Inspection Checklist",
-    subtitle: "MISH Sections 19 / 20 / 42 — Pre-Use Inspection",
-    description:
-      "Daily pre-use inspection checklist for construction equipment, aerial lifts, and forklifts per MISH Sections 19, 20, and 42. 23-point checklist with Pass/Fail/N-A columns and tag-out decision block.",
-    category: "form",
-    icon: "checklist",
-    revisionYear: 2026,
-    pdfPath: "/docs/safety/forms/equipment-checklist.pdf",
-    r2Key: "docs/safety/forms/equipment-checklist.pdf",
-    tags: ["equipment", "inspection", "daily", "field"],
-  },
-  {
-    id: "signin-log",
-    title: "Project Sign-In / Visitor Log",
-    subtitle: "MISH Sections 04 & 07 — Site Access Record",
-    description:
-      "Daily landscape-format log for recording all personnel and visitors entering the job site, including company, trade, time in/out, emergency contact, and safety orientation status.",
-    category: "form",
-    icon: "assignment_ind",
-    revisionYear: 2026,
-    pdfPath: "/docs/safety/forms/signin-log.pdf",
-    r2Key: "docs/safety/forms/signin-log.pdf",
-    tags: ["field", "access", "daily", "log"],
-  },
-  {
-    id: "sub-prequal",
-    title: "Subcontractor Pre-Qualification Form",
-    subtitle: "MISH Section 39 — Vetting & Compliance",
-    description:
-      "Required MISH Section 39 documentation for onboarding subcontractors, including license verification, insurance certificates, 3-year safety record, EMR, and AGC APP program review.",
-    category: "form",
-    icon: "verified",
-    revisionYear: 2026,
-    pdfPath: "/docs/safety/forms/sub-prequal.pdf",
-    r2Key: "docs/safety/forms/sub-prequal.pdf",
-    tags: ["subcontractor", "compliance", "onboarding"],
-  },
-  {
-    id: "change-order",
-    title: "Change Order / Field Notice",
-    subtitle: "Scope Change Documentation",
-    description:
-      "Field-level documentation for scope changes, owner-directed work, and design deviations requiring written authorization.",
-    category: "form",
-    icon: "edit_document",
-    revisionYear: 2026,
-    pdfPath: "/docs/safety/forms/change-order.pdf",
-    r2Key: "docs/safety/forms/change-order.pdf",
-    tags: ["project", "field", "change-order", "documentation"],
-  },
+export const forms: DocumentEntry[] = [];
+
+export const employeeManualSections: DocumentEntry[] = [];
+
+export const joiningProgramDocs: DocumentEntry[] = [];
+
+export const allHubDocuments: DocumentEntry[] = [
+  ...manuals,
+  ...employeeManualSections,
+  ...joiningProgramDocs,
 ];
 
 // ── Combined export ───────────────────────────────────────────────────────────
