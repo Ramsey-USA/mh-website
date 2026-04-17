@@ -1,5 +1,14 @@
 # Congruency Audit — Phase 5
 
+**Category:** Project - Audit Archive  
+**Last Updated:** April 17, 2026  
+**Status:** 🗄️ Archived - Historical Phase Record
+
+> [!IMPORTANT]
+> Archive Record: This is a historical phase audit.
+>
+> For consolidated audit navigation and current cross-phase context, start at [Audit Index](./audit-index.md).
+
 **Audit Date:** April 15, 2026  
 **Auditor:** GitHub Copilot  
 **Scope:** Remaining brand inconsistencies identified after Phases 1–4; process and tooling opportunities  

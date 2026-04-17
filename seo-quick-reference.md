@@ -1,32 +1,16 @@
 # SEO Quick Reference Card
 
-**Current implementation:** Full GEO optimization — dual-label titles, city-priority service
-targeting, canonical host standardization, media sitemap discovery, and named project content
-embedded in location data, metadata keywords, and `LocalBusiness` schema.
+**Category:** Technical - SEO Quick Reference  
+**Last Updated:** April 17, 2026  
+**Status:** ✅ Active - Quick Action Card
+**Canonical Source:** [docs/technical/seo/seo-complete-guide.md](./docs/technical/seo/seo-complete-guide.md)
+**Consolidation Rule:** Keep this file as a short action card; place deep implementation details in the complete guide.
+
+**Current implementation:** GEO optimization is active across titles, location data, schema, and sitemap media discovery.
 
 **Related Documentation:**
 
 - [Browser Titles Inventory](./docs/technical/browser-tab-titles-inventory.md) - Complete title system
-
----
-
-## 🤖 AI Search Optimization (Updated - Mar 11, 2026)
-
-**Files:**
-
-- `public/robots.txt` - Allows AI crawlers and advertises canonical `https://www.mhc-gc.com` sitemap endpoints
-- `public/llms.txt` - LLM-optimized content with city-priority service targeting context
-- `src/app/sitemap.ts` - Includes page URLs plus all supported media assets from `public/images` and `public/videos`
-
-**Supported AI Systems:**
-
-- ChatGPT (OpenAI)
-- Perplexity AI
-- Claude (Anthropic)
-- Google AI
-- You.com
-
-**Result:** When users ask AI assistants about MH Construction, they get accurate, up-to-date information.
 
 ---
 
@@ -52,35 +36,15 @@ embedded in location data, metadata keywords, and `LocalBusiness` schema.
 
 ### GEO Updates by City
 
-Update `src/lib/data/locations.ts` with up to four fields per city:
+Update `src/lib/data/locations.ts` and use these fields:
 
-- `servicePriorities` - top services to push in SEO + on-page content
-- `nearbyAreas` - nearby locality cues for GEO and internal market expansion
-- `recentProjects` - verified completed projects; each entry has `name`, `year?`, `category`,
-  `description?`, and `coreValue?` (`Honesty | Integrity | Professionalism | Thoroughness`)
-- `publicSectorHighlight` - set `true` to render a dedicated public-sector callout with a
-  hard link to `/public-sector` (use for cities with verified government/public-safety work)
+- `servicePriorities`
+- `nearbyAreas`
+- `recentProjects`
+- `publicSectorHighlight`
 
-These values automatically propagate into:
-
-- location metadata keywords (project name + category × city)
-- location JSON-LD (`serviceType`, `knowsAbout`, **`hasOfferCatalog`**)
-- location page hero/service CTA copy
-- **"Recent Projects in [City]"** card section on every location page
-
-**Project card format:** `Category badge · Year badge · Project name · Description · Core value badge`
-
-**Adding a project:**
-
-```typescript
-// src/lib/data/locations.ts  →  kennewick.recentProjects
-{
-  name: "Tri-Cities Cancer Center Expansion",
-  category: "Healthcare",
-  description: "Specialized medical facility expansion...",
-  coreValue: "Thoroughness",
-}
-```
+For field definitions and full examples, use the canonical guide:
+[docs/technical/seo/seo-complete-guide.md](./docs/technical/seo/seo-complete-guide.md).
 
 ---
 
@@ -96,50 +60,13 @@ npm run build && node scripts/seo-audit.js
 
 ---
 
-## 📊 SEO Scoring
-
-| Score  | Status       | What to Do               |
-| ------ | ------------ | ------------------------ |
-| 90-100 | 🟢 Excellent | Nothing! Keep it up      |
-| 80-89  | 🟡 Good      | Minor tweaks recommended |
-| 70-79  | 🟠 Fair      | Improvements needed      |
-| 0-69   | 🔴 Poor      | Fix immediately          |
-
----
-
 ## ✅ SEO Best Practices (Auto-Enforced)
 
-### Titles
-
-- ✅ 50 characters (optimal)
-- ⚠️ 30-60 range
-- Format: `[Page Name] | MH Construction`
-
-### Descriptions
-
-- ✅ 150 characters (optimal)
-- ⚠️ 120-160 range
-- Include: keyword, location, CTA
-
-### Keywords
-
-- ✅ 7 keywords (optimal)
-- ⚠️ 3-15 range
-- Always include: location, veteran-owned, service
-
----
-
-## 🎯 Page Categories (Auto-Detected)
-
-| Type         | Priority | Examples                    |
-| ------------ | -------- | --------------------------- |
-| Homepage     | 1.0      | `/`                         |
-| Services     | 0.9      | `/services`                 |
-| Contact      | 0.9      | `/contact`                  |
-| Projects     | 0.8      | `/projects`                 |
-| Partnerships | 0.75     | `/public-sector`, `/allies` |
-| Team/About   | 0.7      | `/team`, `/about`           |
-| Careers      | 0.7      | `/careers`                  |
+- Title: keep 30-60 chars, format `[Page Name] | MH Construction`
+- Description: keep 120-160 chars with keyword + location + CTA
+- Keywords: target 3-15 relevant terms
+- Keep sitemap entries aligned with active routes
+- Re-run `node scripts/seo-audit.js` after SEO-related changes
 
 ---
 
@@ -160,19 +87,6 @@ npm run type-check         # TypeScript check
 
 ---
 
-## 📈 Current Status
-
-✅ **13 pages** - All active  
-✅ **External validation** - Run audits to verify current page scores  
-✅ **Auto-sitemap** - Updates automatically  
-✅ **Smart defaults** - Page types detected  
-✅ **Best practices** - Auto-enforced  
-✅ **Media discovery** - Images/videos auto-added to sitemap  
-✅ **GEO targeting** - City-priority service signals live
-✅ **GEO-proof projects** - Verified completed-project data in schema + on-page cards
-
----
-
 ## 🚨 Quick Troubleshooting
 
 **Low SEO score?**
@@ -190,27 +104,10 @@ npm run type-check         # TypeScript check
 
 ---
 
-## 📚 Documentation
-
-**Main Guide:** [`docs/technical/seo/seo-complete-guide.md`](./docs/technical/seo/seo-complete-guide.md)
-
-**Quick Links:**
+## 📚 Canonical Docs
 
 - [SEO Complete Guide](./docs/technical/seo/seo-complete-guide.md)
+- [Browser Titles Inventory](./docs/technical/browser-tab-titles-inventory.md)
 
----
-
-## 🎉 What This Gives You
-
-✨ **Zero-maintenance sitemap** - Just add pages, system updates  
-✨ **Audit-ready workflow** - Validate SEO health with current reports  
-✨ **Built-in validation** - Catch issues before deployment  
-✨ **Smart defaults** - Best practices automatically applied  
-✨ **Scale friendly** - Works with 10 pages or 1000
-
----
-
-**💡 Remember:** The system works FOR you. Add pages naturally, audit regularly, deploy confidently!
-
-**Last Updated:** March 11, 2026  
+**Last Updated:** April 17, 2026  
 **System Version:** 2.1.0

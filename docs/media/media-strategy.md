@@ -36,6 +36,7 @@ public/
 │   ├── blog/                  # Blog post hero/thumbnail images
 │   ├── bbb/                   # BBB accreditation seals (keep)
 │   ├── compliance/            # Prevailing-wage, bonding, safety, veteran (keep)
+│   │   └── mvr-records/       # ← NEW: redacted annual driver qualification logs (MVR)
 │   ├── credentials/           # Chamber & association logos (keep)
 │   ├── culture/               # Job-site life / team culture shots (keep)
 │   │
@@ -85,6 +86,12 @@ public/
 │   ├── culture/               # ← NEW: recruitment / culture reels
 │   └── mh_veterans_day_vid.mp4  # existing (keep)
 │
+├── documents/
+│   └── subcontractors/        # ← NEW: Subcontractor Matrix + verified COI/AIE templates
+│       ├── subcontractor-matrix.xlsx   # Master list with insurance expiration dates
+│       ├── coi-template.pdf            # Certificate of Insurance template
+│       └── aie-template.pdf            # Additional Insured Endorsement template
+│
 └── fonts/                     # (keep)
 ```
 
@@ -92,6 +99,8 @@ public/
 
 - **One folder per context** — never mix testimonial photos with team
   headshots or project photos.
+- **MVR records privacy** — files in `compliance/mvr-records/` must be redacted before storage (no SSNs, full DOBs, or license numbers visible). These are reference logs only; never serve them as public assets.
+- **Subcontractor documents** — `documents/subcontractors/` is for internal operational use. Track COI expiration dates in the Subcontractor Matrix and keep AIE templates aligned with Washington State statute of repose requirements.
 - **ID matching** — a testimonial with `id: "client-001"` has its photo at
   `/images/testimonials/client-001.webp` and its social card at
   `/images/social/testimonials/client-001.webp`.
@@ -330,6 +339,58 @@ export interface Testimonial {
 8. Trigger distribution (see §7 and §8).
 ```
 
+### 6c. Operational Safety Wins
+
+Capture and distribute "Safety Snapshots" — job-site images that visibly demonstrate MH Construction's safety culture as identified in the Travelers insurance audit.
+
+**What qualifies as a Safety Snapshot:**
+
+- 100% PPE compliance is visible for every worker in frame (hard hats, high-vis vests, safety glasses, gloves as appropriate)
+- Organized tool storage — no tripping hazards, cords managed, equipment staged properly
+- Site perimeter controls, signage, and barriers clearly visible where applicable
+
+**Capture workflow:**
+
+```
+1. Superintendent identifies a compliant job-site moment worth documenting.
+
+2. Superintendent provides written safety verification before the image is
+   distributed. This must confirm:
+   ├── All workers in frame gave verbal consent to be photographed
+   ├── 100% PPE compliance verified at time of capture
+   └── Site conditions meet OSHA and MH Construction safety standards
+
+3. Drop source photo into:
+   public/images/safety/snapshots/[YYYY-MM-DD]-[site-slug]-[nn].jpg
+   └── Example: 2026-04-15-kennewick-office-01.jpg
+
+4. Run: npm run optimize:images
+   → Creates .webp at safety category dimensions (1200 px, 85 WebP)
+
+5. Create a LinkedIn-optimized post card (1200 × 627 px) using the
+   approved safety Canva template in /documents/brands/
+   └── Export → public/images/social/safety/[same-filename].webp
+
+6. Before posting to LinkedIn:
+   ├── Attach the Superintendent's written safety verification to the
+   │   internal record (store in documents/subcontractors/ or a team
+   │   shared drive per operational procedure)
+   └── Admin or marketing lead approves the caption for professional tone
+
+7. Post to LinkedIn with caption format:
+   "Safety first — always. [Brief description of work being performed]
+    in [City, WA]. 100% PPE compliance, zero shortcuts.
+    #MHConstruction #SafetyFirst #[TradeTag]"
+```
+
+**Folder for Safety Snapshots:**
+
+```
+public/images/safety/
+└── snapshots/             # ← NEW: job-site safety compliance photos
+    └── [YYYY-MM-DD]-[site-slug]-[nn].webp
+```
+
 ---
 
 ## 7. Social Media Auto-Post (n8n)
@@ -401,6 +462,63 @@ Webhook trigger (POST from site)
 - **Featured testimonials** → post immediately when `featured: true` is set.
 - **Non-featured** → queue with a delay (48 h gap between posts) to avoid
   overwhelming followers. Use n8n's scheduling node.
+
+### 7d. Compliance Triggers
+
+Two compliance-critical automation workflows identified in the Travelers insurance audit.
+
+#### Annual MVR Review — 30-Day Advance Alert
+
+```
+Schedule trigger (runs daily at 08:00 PT)
+  │
+  ├─► Query Subcontractor Matrix or HR records
+  │     SELECT employee_name, email, phone, mvr_review_due_date
+  │     WHERE mvr_review_due_date = TODAY + 30 days
+  │
+  ├─► Send Email (Resend)
+  │     to: employee email
+  │     cc: safety@mhc-gc.com
+  │     subject: "Action Required — Annual MVR Review Due in 30 Days"
+  │     body: Name, due date, steps to complete MVR submission,
+  │           link to mvr-records/ intake process
+  │
+  └─► Send SMS (Twilio or n8n SMS node)
+        to: employee mobile
+        message: "MVR review due [date]. Check your email for details.
+                  Reply STOP to opt out of SMS reminders. — MH Construction"
+```
+
+**Environment variables required:**
+
+- `N8N_MVR_ALERT_WEBHOOK_URL` — internal webhook for manual triggers
+- `TWILIO_ACCOUNT_SID` / `TWILIO_AUTH_TOKEN` / `TWILIO_FROM_NUMBER`
+- `RESEND_API_KEY` (already in use)
+
+#### Subcontractor COI Expiration — 15-Day Flag
+
+```
+Schedule trigger (runs daily at 07:00 PT)
+  │
+  ├─► Read Subcontractor Matrix
+  │     (HTTP Request → Google Sheets API or internal DB)
+  │     Filter: coi_expiration_date BETWEEN TODAY AND TODAY + 15 days
+  │
+  ├─► For each flagged subcontractor:
+  │   ├─► Update Matrix status column → "⚠ COI EXPIRING SOON"
+  │   ├─► Send Email alert to operations@mhc-gc.com
+  │   │     subject: "COI Expiring — [Subcontractor Name] ([days] days)"
+  │   │     body: Subcontractor name, COI expiration date, contact info,
+  │   │           reminder to obtain updated COI + AIE before expiry
+  │   └─► If expiration_date < TODAY:
+  │         Update status → "🔴 COI EXPIRED — DO NOT USE"
+  │         Send urgent alert to operations@mhc-gc.com + safety@mhc-gc.com
+  │
+  └─► Log all flags to compliance audit trail
+        (append to documents/subcontractors/coi-audit-log.csv)
+```
+
+**Key rule:** Do not assign work to any subcontractor whose COI or AIE is expired or flagged. Verify AIE language meets Washington State statute of repose before tagging subcontractors in project photos or marketing materials.
 
 ---
 
@@ -591,6 +709,14 @@ Use this checklist every time photos or videos are added.
 - [ ] `VideoObject` schema added to page (§10d)
 - [ ] Video file size < 20 MB (compress more or use a CDN for larger files)
 
+### Risk / Compliance
+
+- [ ] Verify mobile device policy is visible in the background of all interior vehicle shots and videos (e.g., "No Cell Phone Use While Driving" signage or policy card on dashboard)
+- [ ] Ensure subcontractor AIE/COI matches Washington State statute of repose requirements before tagging them in project photos or any published media
+- [ ] Safety Snapshot: written Superintendent verification obtained before LinkedIn distribution (§6c)
+- [ ] MVR records stored in `public/images/compliance/mvr-records/` are fully redacted — no SSNs, full DOBs, or license numbers visible
+- [ ] Subcontractor Matrix updated with current COI expiration dates before any project photo publish that includes subcontractor personnel
+
 ### Testimonials (full publish flow)
 
 - [ ] Written client consent obtained
@@ -620,6 +746,21 @@ Work through these phases in order. Each phase is independently deployable.
 7. ✅ `optimize-images.js` updated with `testimonials`, `social`, and `og` category size limits
 8. ☐ Replace `placeholder-team.webp` with a branded silhouette ← **next design task**
 9. ☐ Replace `placeholder-project.webp` with a real project photo ← **next design task**
+
+### Phase 1.5 — Risk Mitigation Anchor
+
+Priority: complete before Phase 2. These tasks directly address findings from the Travelers insurance audit and establish safety credibility across all media channels.
+
+1. ☐ **Replace all team placeholder images** — swap `placeholder-team.webp` and any team page placeholders with photos showing active PPE usage (hard hats, high-vis vests on site). No team photo without visible safety compliance should appear on the site.
+2. ☐ **Launch "Safety & Credentials" landing page** — build or finalize the high-authority safety page with:
+   - MISH (Motor Carrier Industry Safety Hub) QR code prominently integrated
+   - Links to bonding, insurance, and licensing verification
+   - Safety Snapshot gallery section (§6c) as a live social proof feed
+   - Structured data (`LocalBusiness` + `ImageObject` schema) for each credential badge
+3. ☐ Create `public/images/safety/snapshots/` folder and add first 3 Safety Snapshots with Superintendent verification on file
+4. ☐ Add `public/documents/subcontractors/` folder with Subcontractor Matrix and COI/AIE templates
+5. ☐ Activate n8n MVR Review alert workflow (§7d) and test with one employee record
+6. ☐ Activate n8n COI Expiration flag workflow (§7d) and verify against current Subcontractor Matrix
 
 ### Phase 2 — Testimonial Photos
 
@@ -657,5 +798,4 @@ Work through these phases in order. Each phase is independently deployable.
 
 ---
 
-_Last updated: April 2026. Review and update this document when the testimonial data model or
-automation workflows change._
+_Last updated: April 2026 (updated to incorporate Travelers insurance audit risk-mitigation requirements). Review and update this document when the testimonial data model, automation workflows, or compliance requirements change._

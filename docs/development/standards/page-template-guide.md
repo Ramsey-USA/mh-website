@@ -1,8 +1,16 @@
 # Page Template Guide
 
+**Category:** Development - Page Scaffolding  
+**Last Updated:** April 17, 2026  
+**Status:** ✅ Active
+**Canonical Sources:**
+
+- [../components/template-components.md](../components/template-components.md)
+- [./page-compliance-checklist.md](./page-compliance-checklist.md)
+  **Consolidation Rule:** Keep this file focused on end-to-end page scaffolding; keep reusable section APIs in template-components docs.
+
 **Purpose:** Copy-paste boilerplate for creating new MH-standard pages  
 **Version:** 1.0.0  
-**Last Updated:** March 15, 2026  
 **Reference:** [Homepage](../../technical/homepage.md) - Your page must match this quality level  
 **Quick Start:** Copy the template below and customize for your page
 
@@ -345,55 +353,11 @@ export const breadcrumbPatterns = {
 
 ## 🎨 Section Variations
 
-### Variation 1: Gray Background Section
+Use canonical pattern references for section variants instead of duplicating examples here:
 
-```tsx
-<section
-  id="section-id"
-  className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
->
-  {/* Same background patterns */}
-  {/* Content */}
-</section>
-```
-
-### Variation 2: With AlternatingShowcase
-
-```tsx
-import { AlternatingShowcase } from "@/components/ui";
-
-<AlternatingShowcase
-  items={[
-    {
-      image: "/images/feature-1.jpg",
-      imageAlt: "Feature description",
-      title: "Feature Title",
-      description: "Feature description",
-      icon: "verified",
-    },
-    // More items
-  ]}
-/>;
-```
-
-### Variation 3: With Timeline
-
-```tsx
-import { Timeline, type TimelineStep } from "@/components/ui/Timeline";
-
-const steps: TimelineStep[] = [
-  {
-    num: 1,
-    icon: "engineering",
-    title: "Step Title",
-    desc: "Step description",
-    position: "left",
-  },
-  // More steps
-];
-
-<Timeline steps={steps} />;
-```
+- [Component Cheatsheet](../quick-reference/component-cheatsheet.md)
+- [Template Components](../components/template-components.md)
+- [Unified Component Standards](../../branding/standards/unified-component-standards.md)
 
 ---
 
@@ -416,16 +380,16 @@ Before deploying your new page:
 
 ## 🚫 Common Mistakes to Avoid
 
-1. **Forgetting overflow-visible on gradient text** → Text gets clipped
-2. **Missing top accent bar on cards** → Cards don't match standard
-3. **Using emojis instead of Material Icons** → Violates policy
-4. **Inconsistent section padding** → Page feels disjointed
-5. **Not including NextStepsSection** → Missing conversion opportunity
-6. **Missing section IDs** → PageNavigation doesn't work
-7. **Forgetting DiagonalStripePattern** → Inconsistent backgrounds
-8. **Using old Card component** → Outdated visual style
-9. **Not lazy-loading below-fold** → Poor performance
-10. **Missing breadcrumbs on non-homepage** → Poor SEO
+Use the canonical mistakes catalog with wrong/correct examples:
+
+- [Common Mistakes](./common-mistakes.md)
+
+Template-specific checks:
+
+1. Keep section IDs in kebab-case for PageNavigation anchors.
+2. Keep `NextStepsSection` as the final major section.
+3. Keep below-fold sections dynamically imported where appropriate.
+4. Validate with [Page Compliance Checklist](./page-compliance-checklist.md) before merge.
 
 ---
 
@@ -449,6 +413,6 @@ Before deploying your new page:
 
 ---
 
-**Last Updated:** March 15, 2026  
+**Last Updated:** April 17, 2026  
 **Maintained by:** MH Construction Development Team  
 **Questions?** Refer to component examples in existing pages (Home, About, Services)

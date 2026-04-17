@@ -1,5 +1,14 @@
 # Website Congruency Audit - Phase 2
 
+**Category:** Project - Audit Archive  
+**Last Updated:** April 17, 2026  
+**Status:** 🗄️ Archived - Historical Phase Record
+
+> [!IMPORTANT]
+> Archive Record: This is a historical phase audit.
+>
+> For consolidated audit navigation and current cross-phase context, start at [Audit Index](./audit-index.md).
+
 **Audit Date:** April 15, 2026  
 **Auditor:** Website System  
 **Scope:** Data files, PWA manifest/meta, public AI-facing content, email

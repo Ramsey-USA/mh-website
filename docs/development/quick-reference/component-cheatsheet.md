@@ -1,9 +1,16 @@
 # MH Construction Component Cheatsheet
 
 **Category:** Development - Quick Reference  
+**Last Updated:** April 17, 2026  
+**Status:** ✅ Active
+**Canonical Sources:**
+
+- [../components/template-components.md](../components/template-components.md)
+- [../standards/development-standards.md](../standards/development-standards.md)
+- [../standards/page-compliance-checklist.md](../standards/page-compliance-checklist.md)
+  **Consolidation Rule:** Keep this cheatsheet concise and example-first; place normative standards in standards docs.
+
 **Version:** 1.1.0  
-**Last Updated:** April 15, 2026  
-**Status:** ✅ Active  
 **Reference Standard:** [Homepage](../../technical/homepage.md) - Your page should match this level of polish  
 **Related:** [Unified Component Standards](../../branding/standards/unified-component-standards.md) | [Brand Constants](../../branding/brand-constants.md)
 
@@ -380,67 +387,13 @@ text - secondary - 700; // Alternative
 
 ---
 
-## ⚡ Required Imports for New Pages
+## ⚡ Page Scaffolding Links
 
-### Standard Page Imports
+Use the canonical scaffolding docs for imports, lazy-loading, and page-bottom requirements:
 
-```tsx
-"use client";
-
-import dynamic from "next/dynamic";
-import { usePageTracking } from "@/lib/analytics/hooks";
-import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
-import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { StructuredData } from "@/components/seo/SeoMeta";
-import {
-  generateBreadcrumbSchema,
-  breadcrumbPatterns,
-} from "@/lib/seo/breadcrumb-schema";
-
-// Lazy load below-fold components
-const NextStepsSection = dynamic(
-  () =>
-    import("@/components/shared-sections").then((mod) => ({
-      default: mod.NextStepsSection,
-    })),
-  { ssr: true },
-);
-```
-
----
-
-## 🚀 NextStepsSection (REQUIRED)
-
-Every major page MUST end with NextStepsSection:
-
-```tsx
-const NextStepsSection = dynamic(
-  () =>
-    import("@/components/shared-sections").then((mod) => ({
-      default: mod.NextStepsSection,
-    })),
-  { ssr: true },
-);
-
-export default function YourPage() {
-  return (
-    <>
-      {/* Your page content */}
-
-      {/* NextStepsSection - REQUIRED at bottom */}
-      <NextStepsSection />
-    </>
-  );
-}
-```
-
-**Why Required:**
-
-- Unified conversion point across all pages
-- 4-card grid: PitchDeck, View Work, Get Estimate, Contact
-- Consistent user experience
-- Appears on: Home, About, Services, Projects, Team, FAQ, Veterans, etc.
+- [Page Template Guide](../standards/page-template-guide.md)
+- [Template Components](../components/template-components.md)
+- [Page Compliance Checklist](../standards/page-compliance-checklist.md)
 
 ---
 
@@ -485,45 +438,16 @@ className="transition-all duration-300 hover:scale-105 hover:shadow-2xl"
 
 ## ❌ Common Mistakes (AVOID)
 
-```tsx
-// ❌ WRONG: Missing overflow-visible on gradient text
-<span className="bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
+For the full mistake catalog with wrong/correct snippets, use:
 
-// ✅ CORRECT: Include overflow-visible
-<span className="bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent overflow-visible py-2">
+- [Common Mistakes](../standards/common-mistakes.md)
 
-// ❌ WRONG: Using emojis in TSX
-<span>✅ Complete</span>
+Quick checks before merge:
 
-// ✅ CORRECT: Use Material Icons
-<MaterialIcon icon="check_circle" className="text-brand-primary" />
-
-// ❌ WRONG: Old card component
-<Card><CardContent>...</CardContent></Card>
-
-// ✅ CORRECT: Modern card structure
-<div className="group relative flex h-full">
-  <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40...">
-
-// ❌ WRONG: Inconsistent padding
-className="py-20 lg:py-32"
-
-// ✅ CORRECT: Standard padding
-className="py-12 sm:py-16 lg:py-20 xl:py-24"
-
-// ❌ WRONG: Missing top accent bar on card
-<div className="bg-white rounded-xl">
-
-// ✅ CORRECT: Include h-2 accent bar
-<div className="bg-white rounded-xl">
-  <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker"></div>
-
-// ❌ WRONG: Using text-brand-accent
-className="text-brand-accent"
-
-// ✅ CORRECT: Use brand-primary or brand-secondary
-className="text-brand-primary"
-```
+- Keep gradient text containers `overflow-visible`
+- Use `MaterialIcon` (no emojis in source files)
+- Use modern card structure with top accent bar
+- Keep standard section padding (`py-12 sm:py-16 lg:py-20 xl:py-24`)
 
 ---
 

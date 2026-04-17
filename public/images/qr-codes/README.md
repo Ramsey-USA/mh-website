@@ -1,5 +1,10 @@
 # QR Codes for MH Construction
 
+**Category:** Operational - QR Codes  
+**Last Updated:** April 17, 2026  
+**Status:** Canonical QR documentation (active source of truth)
+**Consolidation Note:** Use this file for current QR status, generation summary, and operational troubleshooting.
+
 Generated: 4/8/2026, 2:43:49 PM
 
 ## Summary
