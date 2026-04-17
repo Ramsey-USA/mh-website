@@ -45,7 +45,7 @@ describe("GET /api/health", () => {
     expect(res.status).toBe(200);
 
     const body = await res.json();
-    expect(body.status).toBe("healthy");
+    expect(body.status).toBe("ok");
     expect(body.timestamp).toBeDefined();
     expect(body.services.email).toBe("configured");
     expect(body.services.sms).toMatch(/unconfigured/i);

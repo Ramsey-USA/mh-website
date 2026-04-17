@@ -61,7 +61,7 @@ export async function GET(request: Request) {
 
   return NextResponse.json(
     {
-      status: "healthy",
+      status: "ok",
       timestamp: new Date().toISOString(),
       services: {
         email: quickStatus.email ? "configured" : "unconfigured",
