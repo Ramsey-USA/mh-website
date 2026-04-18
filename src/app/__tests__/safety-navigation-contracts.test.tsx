@@ -66,6 +66,13 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
   MaterialIcon: ({ icon }: { icon: string }) => <span>{icon}</span>,
 }));
 
+jest.mock("@/components/pwa", () => ({
+  DownloadGate: ({ children }: { children: React.ReactNode }) => (
+    <>{children}</>
+  ),
+  PWAInstallCTA: () => null,
+}));
+
 jest.mock("@/lib/seo/breadcrumb-schema", () => ({
   generateBreadcrumbSchema: jest.fn(() => ({ "@type": "BreadcrumbList" })),
 }));
@@ -77,7 +84,7 @@ jest.mock("next/navigation", () => ({
 describe("Safety navigation contracts", () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    window.localStorage.clear();
+    globalThis.localStorage.clear();
   });
 
   it("routes safety manual card from resources page to the public safety resource center", () => {
@@ -153,7 +160,7 @@ describe("Safety navigation contracts", () => {
         }),
       });
 
-    Object.defineProperty(global, "fetch", {
+    Object.defineProperty(globalThis, "fetch", {
       writable: true,
       value: fetchMock,
     });

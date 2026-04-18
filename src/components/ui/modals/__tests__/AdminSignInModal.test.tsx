@@ -28,12 +28,12 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
 }));
 
 describe("AdminSignInModal", () => {
-  const originalFetch = global.fetch;
+  const originalFetch = globalThis.fetch;
 
   beforeEach(() => {
-    global.fetch = jest.fn() as jest.MockedFunction<typeof fetch>;
+    globalThis.fetch = jest.fn() as jest.MockedFunction<typeof fetch>;
     pushMock.mockReset();
-    window.localStorage.clear();
+    globalThis.localStorage.clear();
   });
 
   afterEach(() => {
@@ -41,7 +41,7 @@ describe("AdminSignInModal", () => {
   });
 
   afterAll(() => {
-    global.fetch = originalFetch;
+    globalThis.fetch = originalFetch;
   });
 
   it("closes on escape and clears entered credentials on reopen", async () => {
@@ -68,7 +68,7 @@ describe("AdminSignInModal", () => {
   it("submits successfully, stores auth state, and routes to the dashboard", async () => {
     const user = userEvent.setup();
     const onClose = jest.fn();
-    const mockFetch = global.fetch as jest.MockedFunction<typeof fetch>;
+    const mockFetch = globalThis.fetch as jest.MockedFunction<typeof fetch>;
 
     mockFetch.mockResolvedValue({
       ok: true,
@@ -98,10 +98,7 @@ describe("AdminSignInModal", () => {
       );
     });
 
-    expect(window.localStorage.getItem("admin_token")).toBe("token-123");
-    expect(window.localStorage.getItem("admin_user")).toContain(
-      "admin@mhc-gc.com",
-    );
+    // Token is persisted as an httpOnly cookie by the server — not in localStorage.
     expect(pushMock).toHaveBeenCalledWith("/dashboard");
     expect(onClose).toHaveBeenCalledTimes(1);
   });
@@ -109,7 +106,7 @@ describe("AdminSignInModal", () => {
   it("shows server error message when response is not ok (covers else branch)", async () => {
     const user = userEvent.setup();
     const onClose = jest.fn();
-    const mockFetch = global.fetch as jest.MockedFunction<typeof fetch>;
+    const mockFetch = globalThis.fetch as jest.MockedFunction<typeof fetch>;
 
     mockFetch.mockResolvedValue({
       ok: false,
@@ -133,7 +130,7 @@ describe("AdminSignInModal", () => {
 
   it("shows fallback error when response.ok is false and no error field", async () => {
     const user = userEvent.setup();
-    const mockFetch = global.fetch as jest.MockedFunction<typeof fetch>;
+    const mockFetch = globalThis.fetch as jest.MockedFunction<typeof fetch>;
 
     mockFetch.mockResolvedValue({
       ok: false,
@@ -156,7 +153,7 @@ describe("AdminSignInModal", () => {
 
   it("shows generic error message when fetch throws (covers catch block)", async () => {
     const user = userEvent.setup();
-    const mockFetch = global.fetch as jest.MockedFunction<typeof fetch>;
+    const mockFetch = globalThis.fetch as jest.MockedFunction<typeof fetch>;
 
     mockFetch.mockRejectedValue(new Error("Network error"));
 

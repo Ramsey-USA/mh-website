@@ -40,6 +40,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 const createNextIntlPlugin = require("next-intl/plugin");
+const path = require("node:path");
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const isLowMemoryBuild = process.env.LOW_MEMORY_BUILD === "true";
 
@@ -127,7 +128,7 @@ const nextConfig = {
     // Enhanced module resolution
     config.resolve.alias = {
       ...config.resolve.alias,
-      "@": require("path").resolve(__dirname, "src"),
+      "@": path.resolve(__dirname, "src"),
       // resend v6 optionally requires @react-email/render which is not installed;
       // stub it out so the edge bundler doesn't emit a module-not-found warning.
       "@react-email/render": false,
@@ -170,7 +171,7 @@ const nextConfig = {
               test: /[\\/]node_modules[\\/]/,
               name(module) {
                 const packageName = module.context?.match(
-                  /[\/\\]node_modules[\/\\](.*?)(?:[\/\\]|$)/,
+                  /[/\\]node_modules[/\\](.*?)(?:[/\\]|$)/,
                 )?.[1];
                 return `npm.${packageName?.replace("@", "") ?? "vendor"}`;
               },
@@ -256,7 +257,7 @@ const nextConfig = {
         ],
       },
       {
-        source: "/:path((?!api|admin|dashboard|_next|.*\\..*).*)",
+        source: String.raw`/:path((?!api|admin|dashboard|_next|.*\..*).*)`,
         headers: [
           {
             key: "Cache-Control",

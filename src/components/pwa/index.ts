@@ -10,3 +10,4 @@ export { PWAManager } from "./PWAManager";
 export { PWAInstallCTA } from "./PWAInstallCTA";
 export { OfflineIndicator } from "./OfflineIndicator";
 export { DownloadGate } from "./DownloadGate";
+export { PWAOnly } from "./PWAOnly";

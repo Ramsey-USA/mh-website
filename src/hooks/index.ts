@@ -1,4 +1,5 @@
 export * from "./use-breakpoint";
+export { usePWA, type PWAStatus } from "./usePWA";
 export { usePageTracking, useClickTracking } from "@/lib/analytics/hooks";
 export {
   useFormSubmit,

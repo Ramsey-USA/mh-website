@@ -11,10 +11,16 @@ import {
   type HubRole,
 } from "@/app/safety/hub/SafetyHubClient";
 import { useLocale } from "@/hooks/useLocale";
+import { usePWA } from "@/hooks/usePWA";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type TopTab = "safety" | "employee-manual" | "joining-program" | "history";
+type TopTab =
+  | "safety"
+  | "employee-manual"
+  | "joining-program"
+  | "history"
+  | "app";
 
 interface HubClientProps {
   allHubDocuments: DocumentEntry[];
@@ -131,6 +137,278 @@ function JoiningProgramPanel({
   );
 }
 
+// ─── App panel (PWA-only) ─────────────────────────────────────────────────────
+
+function AppPanel() {
+  const locale = useLocale();
+  const isEs = locale === "es";
+  const [notifPermission, setNotifPermission] =
+    useState<NotificationPermission>("default");
+  const [checkingUpdate, setCheckingUpdate] = useState(false);
+  const [updateChecked, setUpdateChecked] = useState(false);
+
+  useEffect(() => {
+    if ("Notification" in window) {
+      setNotifPermission(Notification.permission);
+    }
+  }, []);
+
+  const requestNotifications = async () => {
+    if (!("Notification" in window)) return;
+    const result = await Notification.requestPermission();
+    setNotifPermission(result);
+  };
+
+  const checkForUpdate = async () => {
+    setCheckingUpdate(true);
+    try {
+      if ("serviceWorker" in navigator) {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(regs.map((r) => r.update()));
+      }
+    } finally {
+      setCheckingUpdate(false);
+      setUpdateChecked(true);
+    }
+  };
+
+  const notifLabel = () => {
+    if (notifPermission === "granted") {
+      return isEs ? "Notificaciones activadas" : "Notifications enabled";
+    }
+    if (notifPermission === "denied") {
+      return isEs
+        ? "Bloqueado por el navegador"
+        : "Blocked by browser — enable in Settings";
+    }
+    return isEs ? "Activar notificaciones" : "Enable notifications";
+  };
+
+  const quickLinks = [
+    {
+      href: "/hub",
+      icon: "health_and_safety",
+      label: isEs ? "Seguridad" : "Safety Hub",
+    },
+    {
+      href: "/resources/safety-manual",
+      icon: "menu_book",
+      label: isEs ? "Manual de seguridad" : "Safety Manual",
+    },
+    {
+      href: "/contact",
+      icon: "alternate_email",
+      label: isEs ? "Contacto" : "Contact",
+    },
+    {
+      href: "/careers",
+      icon: "work",
+      label: isEs ? "Empleos" : "Careers",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 p-6 space-y-8">
+      {/* Quick contact ──────────────────────────────────────────────────── */}
+      <section>
+        <h2 className="text-lg font-black text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+          <MaterialIcon
+            icon="phone_in_talk"
+            size="sm"
+            className="text-brand-primary"
+          />
+          {isEs ? "Contacto rápido" : "Quick Contact"}
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <a
+            href="tel:+15093086489"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-5 py-4 hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10 transition-colors"
+          >
+            <span className="w-10 h-10 rounded-full bg-brand-primary/10 flex items-center justify-center flex-shrink-0">
+              <MaterialIcon
+                icon="phone"
+                size="sm"
+                className="text-brand-primary"
+              />
+            </span>
+            <div>
+              <p className="font-bold text-gray-900 dark:text-white text-sm">
+                {isEs ? "Llamar a la oficina" : "Call Office"}
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                (509) 308-6489
+              </p>
+            </div>
+          </a>
+          <a
+            href="mailto:office@mhc-gc.com"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-5 py-4 hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10 transition-colors"
+          >
+            <span className="w-10 h-10 rounded-full bg-brand-primary/10 flex items-center justify-center flex-shrink-0">
+              <MaterialIcon
+                icon="mail"
+                size="sm"
+                className="text-brand-primary"
+              />
+            </span>
+            <div>
+              <p className="font-bold text-gray-900 dark:text-white text-sm">
+                {isEs ? "Correo a la oficina" : "Email Office"}
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                office@mhc-gc.com
+              </p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      {/* Push notifications ─────────────────────────────────────────────── */}
+      {"Notification" in (typeof window !== "undefined" ? window : {}) && (
+        <section>
+          <h2 className="text-lg font-black text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+            <MaterialIcon
+              icon="notifications"
+              size="sm"
+              className="text-brand-primary"
+            />
+            {isEs ? "Notificaciones" : "Notifications"}
+          </h2>
+          <div className="flex items-center justify-between rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-5 py-4">
+            <div>
+              <p className="font-bold text-gray-900 dark:text-white text-sm">
+                {isEs ? "Alertas push" : "Push alerts"}
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                {notifLabel()}
+              </p>
+            </div>
+            {notifPermission === "default" && (
+              <button
+                onClick={() => void requestNotifications()}
+                className="text-xs font-bold px-4 py-2 rounded-lg bg-brand-primary text-white hover:bg-brand-primary-dark transition-colors"
+              >
+                {isEs ? "Activar" : "Enable"}
+              </button>
+            )}
+            {notifPermission === "granted" && (
+              <MaterialIcon
+                icon="check_circle"
+                size="sm"
+                className="text-green-600"
+              />
+            )}
+            {notifPermission === "denied" && (
+              <MaterialIcon icon="block" size="sm" className="text-red-500" />
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* Quick navigation ───────────────────────────────────────────────── */}
+      <section>
+        <h2 className="text-lg font-black text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+          <MaterialIcon
+            icon="grid_view"
+            size="sm"
+            className="text-brand-primary"
+          />
+          {isEs ? "Accesos rápidos" : "Quick Links"}
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {quickLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="flex flex-col items-center gap-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4 hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10 transition-colors text-center"
+            >
+              <span className="w-10 h-10 rounded-xl bg-brand-primary/10 flex items-center justify-center">
+                <MaterialIcon
+                  icon={link.icon}
+                  size="sm"
+                  className="text-brand-primary"
+                />
+              </span>
+              <span className="text-xs font-bold text-gray-700 dark:text-gray-300 leading-tight">
+                {link.label}
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* App maintenance ────────────────────────────────────────────────── */}
+      <section>
+        <h2 className="text-lg font-black text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+          <MaterialIcon
+            icon="system_update"
+            size="sm"
+            className="text-brand-primary"
+          />
+          {isEs ? "Mantenimiento de la app" : "App Maintenance"}
+        </h2>
+        <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 divide-y divide-gray-100 dark:divide-gray-800">
+          {/* Check for updates */}
+          <div className="flex items-center justify-between px-5 py-4">
+            <div>
+              <p className="font-bold text-gray-900 dark:text-white text-sm">
+                {isEs ? "Buscar actualización" : "Check for update"}
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                {updateChecked
+                  ? isEs
+                    ? "Comprobado — reinicia si se encontró una actualización"
+                    : "Checked — reload if an update was found"
+                  : isEs
+                    ? "Actualiza el service worker ahora"
+                    : "Polls service worker immediately"}
+              </p>
+            </div>
+            <button
+              onClick={() => void checkForUpdate()}
+              disabled={checkingUpdate}
+              className="text-xs font-bold px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 disabled:opacity-50 transition-colors flex items-center gap-1.5"
+            >
+              <MaterialIcon
+                icon="refresh"
+                size="sm"
+                className={checkingUpdate ? "animate-spin" : ""}
+              />
+              {checkingUpdate
+                ? isEs
+                  ? "Buscando…"
+                  : "Checking…"
+                : isEs
+                  ? "Verificar"
+                  : "Check"}
+            </button>
+          </div>
+
+          {/* Reload app */}
+          <div className="flex items-center justify-between px-5 py-4">
+            <div>
+              <p className="font-bold text-gray-900 dark:text-white text-sm">
+                {isEs ? "Recargar la app" : "Reload app"}
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                {isEs
+                  ? "Fuerza una recarga completa"
+                  : "Force a full page reload"}
+              </p>
+            </div>
+            <button
+              onClick={() => window.location.reload()}
+              className="text-xs font-bold px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            >
+              {isEs ? "Recargar" : "Reload"}
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 // ─── Placeholder panel ────────────────────────────────────────────────────────
 
 function PlaceholderPanel({
@@ -167,6 +445,7 @@ export function HubClient({
 }: Readonly<HubClientProps>) {
   const locale = useLocale();
   const isEs = locale === "es";
+  const { isStandalone } = usePWA();
   const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<HubUser | null>(null);
   const [activeTab, setActiveTab] = useState<TopTab>("safety");
@@ -234,7 +513,24 @@ export function HubClient({
 
   // ── Tab shell ─────────────────────────────────────────────────────────────
 
-  const tabs = visibleTabs(user.role);
+  const tabs = [
+    ...visibleTabs(user.role),
+    ...(isStandalone
+      ? [
+          {
+            id: "app" as TopTab,
+            label: "App",
+            icon: "smartphone",
+            minRole: [
+              "admin",
+              "superintendent",
+              "worker",
+              "traveler",
+            ] as HubRole[],
+          },
+        ]
+      : []),
+  ];
 
   // Clamp activeTab to visible set after potential role change
   const safeTab = tabs.some((t) => t.id === activeTab) ? activeTab : "safety";
@@ -277,9 +573,13 @@ export function HubClient({
                       ? isEs
                         ? "Programa de incorporación"
                         : "Joining Program"
-                      : isEs
-                        ? "Historial"
-                        : "History"}
+                      : tab.id === "app"
+                        ? isEs
+                          ? "App"
+                          : "App"
+                        : isEs
+                          ? "Historial"
+                          : "History"}
               </button>
             );
           })}
@@ -313,6 +613,8 @@ export function HubClient({
           icon="history"
         />
       )}
+
+      {safeTab === "app" && <AppPanel />}
     </div>
   );
 }

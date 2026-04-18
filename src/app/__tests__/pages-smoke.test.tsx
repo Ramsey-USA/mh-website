@@ -263,6 +263,9 @@ jest.mock("@/components/home", () => ({
 
 jest.mock("@/components/pwa", () => ({
   PWAInstallCTA: () => null,
+  DownloadGate: ({ children }: { children: React.ReactNode }) => (
+    <>{children}</>
+  ),
 }));
 
 // ── Mocks for resources/safety pages ──────────────────────────────────────────

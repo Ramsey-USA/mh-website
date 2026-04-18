@@ -48,6 +48,7 @@ homepage - same visual weight, spacing, animations, and polish.
 - **Optimizing images/videos?** → [Automatic Media Optimization](docs/technical/automatic-media-optimization.md)
 - **Adding SEO metadata?** → [SEO Complete Guide](docs/technical/seo/seo-complete-guide.md) + [SEO Quick Reference](seo-quick-reference.md)
 - **Making page installable (PWA)?** → [PWA Quick Reference](docs/technical/pwa-quick-reference.md)
+- **Adding PWA-only sections/tabs?** → [`usePWA` hook](src/hooks/usePWA.ts) · [`PWAOnly` component](src/components/pwa/PWAOnly.tsx) · [PWA Quick Reference — PWA-First Development](docs/technical/pwa-quick-reference.md#pwa-first-development)
 - **Using reusable components?** → [BrandedContentSection Template](docs/development/components/template-components.md)
 - **Deploying to Cloudflare?** → [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md)
 - **Understanding project structure?** → [Project Architecture](docs/project/architecture.md)
@@ -60,21 +61,21 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ### Production-Ready Platform
 
-| Metric            | Status    | Details                                    |
-| ----------------- | --------- | ------------------------------------------ |
-| **Build**         | Passing   | ~33s compilation, zero errors              |
-| **Deployed**      | Live      | Cloudflare Workers — mhc-gc.com            |
-| **TypeScript**    | Strict    | Zero type errors                           |
-| **ESLint**        | Clean     | Zero lint warnings, zero errors            |
-| **Tests**         | Passing   | CI and focused safety/hub suites green     |
-| **Coverage**      | Strong    | Maintained via `npm run test:coverage`     |
-| **SEO**           | External  | Audit via external tools                   |
-| **Lighthouse**    | External  | Audit via PageSpeed/DevTools               |
-| **Bundle Size**   | 240 kB    | Production optimized                       |
-| **Dark Mode**     | Complete  | Full theme support                         |
-| **PWA**           | Ready     | Offline-ready, 5-layer caching             |
-| **Analytics**     | Live      | 100% page coverage, dashboard active       |
-| **Documentation** | Optimized | 60 docs + 10 supporting guides, zero bloat |
+| Metric            | Status    | Details                                                                    |
+| ----------------- | --------- | -------------------------------------------------------------------------- |
+| **Build**         | Passing   | ~33s compilation, zero errors                                              |
+| **Deployed**      | Live      | Cloudflare Workers — mhc-gc.com                                            |
+| **TypeScript**    | Strict    | Zero type errors                                                           |
+| **ESLint**        | Clean     | Zero lint warnings, zero errors                                            |
+| **Tests**         | Passing   | CI and focused safety/hub suites green                                     |
+| **Coverage**      | Strong    | Maintained via `npm run test:coverage`                                     |
+| **SEO**           | External  | Audit via external tools                                                   |
+| **Lighthouse**    | External  | Audit via PageSpeed/DevTools                                               |
+| **Bundle Size**   | 240 kB    | Production optimized                                                       |
+| **Dark Mode**     | Complete  | Full theme support                                                         |
+| **PWA**           | PWA-first | Offline-ready, 5-layer caching, PWA-only sections via `usePWA` + `PWAOnly` |
+| **Analytics**     | Live      | 100% page coverage, dashboard active                                       |
+| **Documentation** | Optimized | 60 docs + 10 supporting guides, zero bloat                                 |
 
 ### Recent Changes
 

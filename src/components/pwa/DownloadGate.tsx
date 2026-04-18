@@ -58,7 +58,10 @@ function getStoredRole(): StoredRole | null {
  *
  * Employee Application is the sole public exemption — pass `exempt`.
  */
-export function DownloadGate({ children, exempt = false }: DownloadGateProps) {
+export function DownloadGate({
+  children,
+  exempt = false,
+}: Readonly<DownloadGateProps>) {
   const [role, setRole] = useState<StoredRole | null | "loading">("loading");
 
   useEffect(() => {

@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function SectionPage({ params }: Props) {
+export default async function SectionPage({ params }: Readonly<Props>) {
   const { slug } = await params;
   const section = getSection(slug);
   if (!section) notFound();

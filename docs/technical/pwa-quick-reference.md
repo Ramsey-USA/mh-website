@@ -149,9 +149,16 @@ public/
 src/
 ├── components/pwa/
 │   ├── PWAManager.tsx       ← Main coordinator
+│   ├── PWAOnly.tsx          ← Render only in installed PWA
 │   ├── ServiceWorkerRegistration.tsx
 │   ├── PWAInstallPrompt.tsx
+│   ├── PWAInstallCTA.tsx    ← Branded install call-to-action
+│   ├── OfflineIndicator.tsx ← Fixed offline/syncing banner
+│   ├── DownloadGate.tsx     ← Role-gated document downloads
 │   └── UpdateNotification.tsx
+├── hooks/
+│   ├── usePWA.ts            ← Detect standalone/installable state
+│   └── useOfflineStatus.ts  ← Track online state + pending count
 └── app/
     ├── layout.tsx           ← PWAManager integration
     └── offline/
@@ -251,3 +258,85 @@ Caution: Only use for critical issues!
 ---
 
 **Need Help?** Check the service worker at `public/sw.js` or run `npm run test:pwa`
+
+---
+
+## PWA-First Development
+
+The MH Construction site is built PWA-first: every page works offline, and
+select sections are enhanced (or gated) when the app is installed. This section
+documents the building blocks.
+
+### `usePWA` hook
+
+Detects the current PWA context. Safe for SSR — all values are `false` until
+client hydration.
+
+```typescript
+import { usePWA } from "@/hooks/usePWA";
+
+const { isStandalone, isInstallable, isIOS } = usePWA();
+// isStandalone → true when launched from home screen / installed PWA
+// isInstallable → true when browser supports install prompt (not yet installed)
+// isIOS         → true on iPhone/iPad (uses Add to Home Screen flow)
+```
+
+### `PWAOnly` component
+
+Renders `children` only inside the installed PWA (standalone mode). Renders
+`fallback` (default: nothing) in the regular browser.
+
+```tsx
+import { PWAOnly } from "@/components/pwa";
+
+// Show nothing in browser, show quick-actions in installed app
+<PWAOnly>
+  <AppQuickActions />
+</PWAOnly>
+
+// Show install CTA in browser, show quick-actions after installation
+<PWAOnly fallback={<InstallBanner />}>
+  <AppQuickActions />
+</PWAOnly>
+```
+
+### `useOfflineStatus` hook
+
+Tracks real-time connectivity and IndexedDB pending submission count. Used by
+`OfflineIndicator` but available to any component.
+
+```typescript
+import { useOfflineStatus } from "@/hooks/useOfflineStatus";
+
+const { isOnline, pendingCount, refreshPendingCount } = useOfflineStatus();
+```
+
+### PWA-only sections in the Hub (`/hub`)
+
+The Hub shows an **App** tab only when running as an installed PWA (detected via
+`usePWA().isStandalone`). The tab contains:
+
+| Feature                  | Description                                         |
+| ------------------------ | --------------------------------------------------- |
+| Quick Call / Email       | One-tap contact to the office                       |
+| Push notification toggle | Requests `Notification.permission`                  |
+| Quick Links              | Home screen shortcuts to key pages                  |
+| Check for update         | Calls `serviceWorker.update()` on all registrations |
+| Reload app               | `window.location.reload()` for force refresh        |
+
+To add a new PWA-only section to any page, wrap it in `<PWAOnly>`:
+
+```tsx
+import { PWAOnly } from "@/components/pwa";
+
+export default function MyPage() {
+  return (
+    <>
+      <RegularContent />
+      <PWAOnly>
+        <MyPWAOnlySection />
+      </PWAOnly>
+    </>
+  );
+}
+```

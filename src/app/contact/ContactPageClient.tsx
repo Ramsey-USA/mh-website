@@ -18,6 +18,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { PWAOnly } from "@/components/pwa";
 
 // Quick contact info - defined inside component for locale support
 const buildQuickContact = (isEs: boolean) => [
@@ -424,6 +425,47 @@ export default function ContactPageClient() {
             </FadeInWhenVisible>
           </div>
         </section>
+
+        {/* PWA-only: one-tap contact strip (only shown in installed app) */}
+        <PWAOnly>
+          <div className="bg-brand-primary dark:bg-brand-primary-dark px-4 py-3 flex flex-wrap items-center justify-center gap-3">
+            <span className="text-white font-bold text-sm tracking-wide mr-2">
+              {isEs ? "Contacto rápido" : "Quick Contact"}
+            </span>
+            <a
+              href={`tel:${COMPANY_INFO.phone.tel}`}
+              className="flex items-center gap-1.5 rounded-lg bg-white/20 hover:bg-white/30 active:bg-white/40 text-white font-bold text-sm px-4 py-2 transition-colors"
+              aria-label={
+                isEs
+                  ? `Llamar al ${COMPANY_INFO.phone.display}`
+                  : `Call ${COMPANY_INFO.phone.display}`
+              }
+            >
+              <MaterialIcon
+                icon="call"
+                size="sm"
+                style={{ fontSize: "16px" }}
+              />
+              {COMPANY_INFO.phone.display}
+            </a>
+            <a
+              href={`mailto:${COMPANY_INFO.email.main}`}
+              className="flex items-center gap-1.5 rounded-lg bg-white/20 hover:bg-white/30 active:bg-white/40 text-white font-bold text-sm px-4 py-2 transition-colors"
+              aria-label={
+                isEs
+                  ? `Enviar correo a ${COMPANY_INFO.email.main}`
+                  : `Email ${COMPANY_INFO.email.main}`
+              }
+            >
+              <MaterialIcon
+                icon="mail"
+                size="sm"
+                style={{ fontSize: "16px" }}
+              />
+              {isEs ? "Enviar correo" : "Send Email"}
+            </a>
+          </div>
+        </PWAOnly>
 
         {/* Two Pathways - Allies vs Clients */}
         <section

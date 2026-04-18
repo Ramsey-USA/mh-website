@@ -16,6 +16,7 @@ const JobApplicationModal = dynamic(
   { ssr: false },
 );
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { PWAOnly } from "@/components/pwa";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
@@ -1485,6 +1486,40 @@ export default function CareersPageClient() {
             </div>
           </div>
         </section>
+
+        {/* PWA-only: job-alert opt-in — shown only in the installed app */}
+        <PWAOnly>
+          <section className="bg-gradient-to-r from-brand-navy to-brand-blue py-10 px-6">
+            <div className="mx-auto max-w-3xl text-center text-white">
+              <MaterialIcon
+                icon="notifications_active"
+                className="mb-3 text-4xl text-yellow-300"
+              />
+              <h2 className="mb-2 text-2xl font-bold">
+                Get Notified About New Openings
+              </h2>
+              <p className="mb-6 text-white/80">
+                Enable job-alert notifications in the app and be the first to
+                hear when a new driving or operations role is posted.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  if (
+                    "Notification" in globalThis &&
+                    Notification.permission !== "granted"
+                  ) {
+                    void Notification.requestPermission();
+                  }
+                }}
+                className="inline-flex items-center gap-2 rounded-full bg-yellow-400 px-8 py-3 font-semibold text-brand-navy shadow-lg transition hover:bg-yellow-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-200"
+              >
+                <MaterialIcon icon="notifications" className="text-xl" />
+                Enable Job Alerts
+              </button>
+            </div>
+          </section>
+        </PWAOnly>
 
         {/* Next Steps Section - Standardized Final CTA */}
         <NextStepsSection />
