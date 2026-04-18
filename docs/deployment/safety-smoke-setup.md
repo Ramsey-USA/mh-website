@@ -45,7 +45,6 @@ Optional fallback secrets (only if required):
 3. Click Run workflow.
 4. Set inputs:
 
-- `run_authenticated_checks`: `true`
 - `strict_public_200`: `false` (until CI traffic is edge-allowlisted)
 - `base_url`: keep default unless testing non-production target
 
@@ -55,7 +54,7 @@ Note:
 
 - On main-branch `workflow_run` executions, authenticated smoke checks run
   automatically and are required.
-- On manual dispatch, set `run_authenticated_checks=true` to enable them.
+- On manual dispatch, authenticated smoke checks run automatically.
 
 ## Verify Success Criteria
 

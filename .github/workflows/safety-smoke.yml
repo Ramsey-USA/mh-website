@@ -2,9 +2,9 @@ name: Safety Smoke Tests
 
 on:
   workflow_run:
-    workflows: ["CI/CD Pipeline"]
-    types: [completed]
-    branches: [main]
+    workflows: [ "CI/CD Pipeline" ]
+    types: [ completed ]
+    branches: [ main ]
   workflow_dispatch:
     inputs:
       base_url:
@@ -17,9 +17,9 @@ on:
         default: false
         type: boolean
       run_authenticated_checks:
-        description: Enable authenticated probes using configured smoke auth secrets
+        description: Deprecated (ignored). Manual runs always include authenticated probes.
         required: false
-        default: false
+        default: true
         type: boolean
 
 permissions:
@@ -32,7 +32,8 @@ concurrency:
 jobs:
   baseline-smoke-tests:
     name: Run Safety Smoke Tests (Baseline)
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     env:
       SAFETY_SMOKE_BASE_URL: ${{ inputs.base_url || 'https://www.mhc-gc.com' }}
@@ -88,18 +89,20 @@ jobs:
   authenticated-smoke-tests:
     name: Run Safety Smoke Tests (Authenticated)
     needs: baseline-smoke-tests
-    if: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' || (github.event_name == 'workflow_dispatch' && inputs.run_authenticated_checks) }}
+    if: ${{ (github.event_name == 'workflow_run' &&
+      github.event.workflow_run.conclusion == 'success') || github.event_name ==
+      'workflow_dispatch' }}
     runs-on: ubuntu-latest
     env:
       SAFETY_SMOKE_BASE_URL: ${{ inputs.base_url || 'https://www.mhc-gc.com' }}
       SAFETY_SMOKE_STRICT_PUBLIC_200: ${{ inputs.strict_public_200 || 'false' }}
       SAFETY_SMOKE_REQUIRE_AUTH_CHECKS: "true"
-      SAFETY_SMOKE_FIELD_PASSCODE: ${{ (github.event_name == 'workflow_run' && secrets.SAFETY_SMOKE_FIELD_PASSCODE) || (inputs.run_authenticated_checks && secrets.SAFETY_SMOKE_FIELD_PASSCODE) || '' }}
-      SAFETY_SMOKE_ADMIN_EMAIL: ${{ (github.event_name == 'workflow_run' && secrets.SAFETY_SMOKE_ADMIN_EMAIL) || (inputs.run_authenticated_checks && secrets.SAFETY_SMOKE_ADMIN_EMAIL) || '' }}
-      SAFETY_SMOKE_ADMIN_PASSWORD: ${{ (github.event_name == 'workflow_run' && secrets.SAFETY_SMOKE_ADMIN_PASSWORD) || (inputs.run_authenticated_checks && secrets.SAFETY_SMOKE_ADMIN_PASSWORD) || '' }}
-      SAFETY_SMOKE_USER_BEARER_TOKEN: ${{ (github.event_name == 'workflow_run' && secrets.SAFETY_SMOKE_USER_BEARER_TOKEN) || (inputs.run_authenticated_checks && secrets.SAFETY_SMOKE_USER_BEARER_TOKEN) || '' }}
-      SAFETY_SMOKE_ADMIN_BEARER_TOKEN: ${{ (github.event_name == 'workflow_run' && secrets.SAFETY_SMOKE_ADMIN_BEARER_TOKEN) || (inputs.run_authenticated_checks && secrets.SAFETY_SMOKE_ADMIN_BEARER_TOKEN) || '' }}
-      SAFETY_SMOKE_JWT_SECRET: ${{ (github.event_name == 'workflow_run' && secrets.SAFETY_SMOKE_JWT_SECRET) || (inputs.run_authenticated_checks && secrets.SAFETY_SMOKE_JWT_SECRET) || '' }}
+      SAFETY_SMOKE_FIELD_PASSCODE: ${{ secrets.SAFETY_SMOKE_FIELD_PASSCODE || '' }}
+      SAFETY_SMOKE_ADMIN_EMAIL: ${{ secrets.SAFETY_SMOKE_ADMIN_EMAIL || '' }}
+      SAFETY_SMOKE_ADMIN_PASSWORD: ${{ secrets.SAFETY_SMOKE_ADMIN_PASSWORD || '' }}
+      SAFETY_SMOKE_USER_BEARER_TOKEN: ${{ secrets.SAFETY_SMOKE_USER_BEARER_TOKEN || '' }}
+      SAFETY_SMOKE_ADMIN_BEARER_TOKEN: ${{ secrets.SAFETY_SMOKE_ADMIN_BEARER_TOKEN || '' }}
+      SAFETY_SMOKE_JWT_SECRET: ${{ secrets.SAFETY_SMOKE_JWT_SECRET || '' }}
       SAFETY_SMOKE_JWT_ISSUER: ${{ inputs.base_url || 'https://www.mhc-gc.com' }}
 
     steps:
