@@ -99,9 +99,10 @@ export const coreServices: CoreService[] = [
   {
     iconName: "local_shipping",
     title: "Procurement & Trade Partnership Management",
-    subtitle: "Reliable Material Sourcing & Professional Vendor Coordination",
+    subtitle:
+      "Reliable Material Sourcing & Professional Trade Partner Coordination",
     description:
-      "Navigating the logistics of construction requires extensive planning and coordination. At MH Construction, we offer comprehensive Trade Partnership Management services throughout the Tri-Cities, specializing in sourcing quality materials and coordinating with our network of approved vendors tailored to your project goals. Our reliable Master Planning gives our trade partners the advanced notice necessary to streamline procurement and proactively manage long lead item delays, ensuring timely delivery and installation. We handle all vendor coordination so you don't have to worry about managing multiple trade relationships—we work with our established network of quality professionals to deliver results.",
+      "Navigating the logistics of construction requires extensive planning and coordination. At MH Construction, we offer comprehensive Trade Partnership Management services throughout the Tri-Cities, specializing in sourcing quality materials and coordinating with our network of approved Trade Partners tailored to your project goals. Our reliable Master Planning gives our trade partners the advanced notice necessary to streamline procurement and proactively manage long lead item delays, ensuring timely delivery and installation. We handle all Trade Partner coordination so you don't have to worry about managing multiple trade relationships—we work with our established network of quality professionals to deliver results.",
     features: [
       "Quality Material Sourcing and Professional Vetting",
       "Comprehensive Supplier Management and Communication",
@@ -109,7 +110,7 @@ export const coreServices: CoreService[] = [
       "Complete Purchase Orders and Documentation",
       "Professional Contract Management and Coordination",
       "Strategic Delivery Scheduling and Logistics",
-      "Curated Approved Vendor Network Management",
+      "Curated Approved Trade Partner Network Management",
       "Long Lead Item Proactive Management",
     ],
     benefits: [
@@ -117,7 +118,7 @@ export const coreServices: CoreService[] = [
       "Timely delivery and professional installation",
       "Proactive management of long lead item delays",
       "Established network of quality trade professionals",
-      "Eliminates Client Partner burden of vendor coordination",
+      "Eliminates Client Partner burden of Trade Partner coordination",
       "Advanced notice enables streamlined operations",
       "Consistent project opportunities for trade partners",
     ],

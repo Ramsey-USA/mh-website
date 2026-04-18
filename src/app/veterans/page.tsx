@@ -42,7 +42,7 @@ export default function VeteransPage() {
                 <AmericanFlag size="4xl" animated={true} />
               </div>
             </div>
-            <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+            <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
               <span className="block text-brand-secondary-text/80 text-sm sm:text-base md:text-lg lg:text-xl font-normal mb-2">
                 Service First → Veterans
               </span>
@@ -59,7 +59,7 @@ export default function VeteransPage() {
                 Combat Veteran Discount at the Ready
               </span>
               <span className="block text-white/90">
-                Building Projects for the Client,{" "}
+                Building projects for the Client,{" "}
                 <span className="font-black italic text-bronze-300">NOT</span>{" "}
                 the Dollar
               </span>
@@ -318,8 +318,11 @@ export default function VeteransPage() {
 
                         {/* Key Highlights */}
                         <div className="space-y-2 pt-4 border-t border-gray-200 dark:border-gray-700 mt-auto">
-                          {value.highlights.map((highlight, idx) => (
-                            <div key={idx} className="flex items-start gap-3">
+                          {value.highlights.map((highlight) => (
+                            <div
+                              key={`${value.title}-${highlight}`}
+                              className="flex items-start gap-3"
+                            >
                               <div
                                 className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br ${value.iconBgGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
                               >
@@ -819,7 +822,7 @@ export default function VeteransPage() {
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   As a{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    Veteran-Owned company since January 2025
+                    Veteran-Owned company Since January 2025
                   </span>
                   , we're deploying long-term operational programs to support
                   veterans.{" "}
@@ -858,11 +861,11 @@ export default function VeteransPage() {
                     value: "Growing",
                     label: "Veteran Network",
                     description:
-                      "Partnerships with Veteran-Owned subcontractors",
+                      "Partnerships with Veteran-Owned Trade Partners",
                   },
-                ].map((stat, index) => (
+                ].map((stat) => (
                   <div
-                    key={index}
+                    key={stat.label}
                     className="h-full flex flex-col text-center p-6 sm:p-8 bg-white dark:bg-gray-800 rounded-3xl border-2 border-gray-200 dark:border-gray-700 hover:shadow-2xl dark:hover:shadow-brand-primary/20 transition-all duration-300 group shadow-lg hover:-translate-y-2 scroll-reveal"
                   >
                     <div className="relative inline-block mb-4 mx-auto">
@@ -965,7 +968,7 @@ export default function VeteransPage() {
                         Veteran Allies
                       </h3>
                       <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 text-center leading-relaxed flex-grow">
-                        Recruiting Veteran-Owned subcontractors for our growing
+                        Recruiting Veteran-Owned Trade Partners for our growing
                         network. As we establish company longevity, we're
                         building partnerships with preferential opportunities
                         for Veteran-Owned businesses.
@@ -1371,7 +1374,7 @@ export default function VeteransPage() {
           {/* Next Steps Section - Veteran-Specific Messaging */}
           <NextStepsSection
             title="Let's Build Together"
-            subtitle="Partner with a Veteran-Owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision. Your word is your bond-so is ours."
+            subtitle="Partner with a Veteran-Owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision. Your word is your bond, so is ours."
             noBackground={true}
           />
         </div>

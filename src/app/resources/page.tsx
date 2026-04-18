@@ -21,11 +21,11 @@ import { DownloadGate } from "@/components/pwa";
 export const metadata: Metadata = {
   title: "Field Resources | MH Construction",
   description:
-    "Download MH Construction's Safety Manual, toolbox talk forms, JHA templates, equipment checklists, and all field documentation. Consistent branding on and off the job site.",
+    "Download MH Construction's Safety Manual, toolbox talk forms, JHA templates, equipment checklists, and all field documentation. Founded 2010, Veteran-Owned Since January 2025. Consistent branding on and off the job site.",
   openGraph: {
     title: "Field Resources | MH Construction",
     description:
-      "Safety manuals, toolbox talks, and field forms — branded and ready to print.",
+      "Safety manuals, toolbox talks, and field forms from a Veteran-Owned Since January 2025 Tri-Cities construction team — branded and ready to print.",
     url: "https://www.mhc-gc.com/resources",
   },
 };
@@ -66,7 +66,7 @@ export default function ResourcesPage() {
                   Field Intel
                 </span>
               </div>
-              <h1 className="text-4xl sm:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight">
+              <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight tracking-tight">
                 Field{" "}
                 <span className="bg-gradient-to-r from-brand-primary to-brand-primary-light bg-clip-text text-transparent">
                   Resources

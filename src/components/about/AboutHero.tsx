@@ -37,7 +37,7 @@ export function AboutHero() {
           <span className="block text-white/90">
             Building projects for the Client,{" "}
             <span className="font-black italic text-bronze-300">NOT</span> the
-            dollar
+            Dollar
           </span>
         </h1>
       </div>

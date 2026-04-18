@@ -107,9 +107,8 @@ export default function AboutPage() {
               </span>{" "}
               —sixteen years of partnership philosophy, safety leadership, and{" "}
               <span className="font-bold text-gray-900 dark:text-white">
-                650+ successfully completed projects
+                650+ successfully completed projects.
               </span>
-              .
             </>
           }
           steps={aboutTimelineSteps}
@@ -256,7 +255,7 @@ export default function AboutPage() {
                   className="text-brand-primary"
                 />
                 <span className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light">
-                  Veteran-Owned Since 2025
+                  Veteran-Owned Since January 2025
                 </span>
               </div>
             </div>
@@ -379,7 +378,7 @@ export default function AboutPage() {
                   category="Partnership"
                   categoryColor="secondary"
                   title="Expanding Trade Partner Network"
-                  description="We're actively growing our network of skilled trade professionals to better serve clients across the Pacific Northwest. Join our Veteran-Owned partnership program."
+                  description="We're actively growing our network of skilled trade professionals to better serve Client Partners across the Pacific Northwest. Join our Veteran-Owned partnership program."
                   date="Oct 2025"
                   href="/allies"
                   linkText="Become a Partner"

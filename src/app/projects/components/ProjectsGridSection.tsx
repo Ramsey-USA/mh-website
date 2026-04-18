@@ -20,7 +20,7 @@ interface ProjectsGridSectionProps {
 export function ProjectsGridSection({
   projects,
   selectedCategory,
-}: ProjectsGridSectionProps) {
+}: Readonly<ProjectsGridSectionProps>) {
   const categoryLabel =
     selectedCategory === "all"
       ? "Partnership Success"
@@ -41,11 +41,11 @@ export function ProjectsGridSection({
                 className="text-brand-primary dark:text-brand-primary"
               />
             </div>
-            <h2 className="mb-8 pb-2 font-black text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter">
-              <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+            <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+              <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                 {categoryLabel}
               </span>
-              <span className="block text-brand-primary dark:text-brand-primary font-black">
+              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                 Stories
               </span>
             </h2>

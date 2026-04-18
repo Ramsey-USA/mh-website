@@ -14,7 +14,7 @@ const SITE_URL = "https://www.mhc-gc.com";
 export const metadata: Metadata = withGeoMetadata({
   title: "Safety Culture | Zero-Incident Culture | MH Construction",
   description:
-    "At MH Construction, safety is a core value — not a compliance checkbox. Our zero-incident culture is built on personal accountability, daily habits, and service-earned discipline. Veteran-Owned. 0.64 EMR rating. AGC-WA Top EMR Award.",
+    "At MH Construction, safety is a core value — not a compliance checkbox. Our zero-incident culture is built on personal accountability, daily habits, and service-earned discipline. Veteran-Owned Since January 2025. 0.64 EMR rating. AGC-WA Top EMR Award.",
   keywords: [
     "MH Construction safety culture",
     "zero incident culture construction",
@@ -53,7 +53,7 @@ export const metadata: Metadata = withGeoMetadata({
     creator: "@mhc_gc",
     title: "Safety Culture | MH Construction",
     description:
-      "Safety is a value, not a rule. 0.64 EMR. AGC-WA Top EMR Award. Veteran-Owned zero-incident culture.",
+      "Safety is a value, not a rule. 0.64 EMR. AGC-WA Top EMR Award. Veteran-Owned Since January 2025 zero-incident culture.",
     images: [`${SITE_URL}/images/safety/safety-culture.webp`],
   },
   robots: {
@@ -182,11 +182,17 @@ export default function SafetyPage() {
             Zero-Incident Culture
           </span>
 
-          <h1 className="text-5xl md:text-6xl font-black leading-tight mb-6">
+          <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight mb-6">
             Safety Is a Value,
             <br />
             <span className="text-brand-accent">Not a Rule</span>
           </h1>
+
+          <p className="text-sm xs:text-base sm:text-lg md:text-xl text-white/90 leading-snug mb-6 font-medium">
+            Building projects for the Client,{" "}
+            <span className="font-black italic text-brand-secondary">NOT</span>{" "}
+            the Dollar
+          </p>
 
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-12">
             At MH Construction, safety isn&apos;t something we do because OSHA
@@ -213,8 +219,13 @@ export default function SafetyPage() {
       <section className="bg-white dark:bg-gray-900 py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4">
-              Our Commitment on Every Site
+            <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+              <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                Our Commitment
+              </span>
+              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
+                On Every Site
+              </span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Four principles that shape every interaction, every day, on every
@@ -253,8 +264,13 @@ export default function SafetyPage() {
       <section className="bg-slate-50 dark:bg-gray-950 py-20">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4">
-              Culture Is Built in Daily Habits
+            <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+              <span className="block mb-2 sm:mb-3 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                Culture Is Built
+              </span>
+              <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
+                In Daily Habits
+              </span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
               Not in posters. Not in policy manuals. In what we actually do,
@@ -290,8 +306,13 @@ export default function SafetyPage() {
             size="xl"
             className="mx-auto mb-6 text-brand-accent"
           />
-          <h2 className="text-3xl md:text-4xl font-black mb-6">
-            Accountability Runs Both Ways
+          <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+            <span className="block mb-2 sm:mb-3 font-semibold text-white/80 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+              Accountability
+            </span>
+            <span className="block bg-gradient-to-r from-brand-secondary via-white to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
+              Runs Both Ways
+            </span>
           </h2>
           <p className="text-xl text-white/85 leading-relaxed max-w-2xl mx-auto mb-8">
             Our leadership holds itself to the same standard we hold the team.
@@ -324,8 +345,13 @@ export default function SafetyPage() {
                 />
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-black mb-4">
-                Safety Documentation Lives in the App
+              <h2 className="mb-4 sm:mb-6 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                <span className="block mb-2 sm:mb-3 font-semibold text-white/80 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                  Safety Documentation
+                </span>
+                <span className="block bg-gradient-to-r from-brand-secondary via-white to-brand-secondary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-1 leading-normal">
+                  Lives in the App
+                </span>
               </h2>
 
               <p className="text-slate-300 text-lg max-w-xl mx-auto mb-8 leading-relaxed">

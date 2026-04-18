@@ -136,7 +136,7 @@ export default function ContactPageClient() {
             </div>
             <h1
               id="hero-heading"
-              className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed"
+              className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight"
             >
               <span className="block text-brand-secondary-text text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
                 {isEs
@@ -157,7 +157,9 @@ export default function ContactPageClient() {
                 {isEs
                   ? "Construyendo proyectos para el Cliente, "
                   : "Building projects for the Client, "}
-                <span className="font-black italic text-bronze-300">NO</span>{" "}
+                <span className="font-black italic text-bronze-300">
+                  {isEs ? "NO" : "NOT"}
+                </span>{" "}
                 {isEs ? "el Dinero" : "the Dollar"}
               </span>
             </h1>
@@ -244,9 +246,9 @@ export default function ContactPageClient() {
 
               {/* Contact Cards Grid */}
               <div className="gap-6 lg:gap-8 grid grid-cols-1 md:grid-cols-3 mb-16">
-                {quickContact.map((contact, index) => (
+                {quickContact.map((contact) => (
                   <a
-                    key={index}
+                    key={contact.link}
                     href={contact.link}
                     target={contact.icon === "place" ? "_blank" : undefined}
                     rel={
@@ -418,7 +420,7 @@ export default function ContactPageClient() {
                     className="text-brand-primary"
                   />
                   <span className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light">
-                    Veteran-Owned
+                    Veteran-Owned Since January 2025
                   </span>
                 </div>
               </div>
@@ -467,7 +469,7 @@ export default function ContactPageClient() {
           </div>
         </PWAOnly>
 
-        {/* Two Pathways - Allies vs Clients */}
+        {/* Two Pathways - Allies vs Client Partners */}
         <section
           className="relative py-20 lg:py-32 xl:py-40 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden"
           aria-labelledby="partnership-pathways-heading"
@@ -501,13 +503,13 @@ export default function ContactPageClient() {
                 <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
                   {isEs
                     ? "Ya sea cliente o Aliado, tenemos un camino diseñado para usted"
-                    : "Whether you're a client or an Ally, we have a pathway designed for you"}
+                    : "Whether you're a Client Partner or an Ally, we have a pathway designed for you"}
                 </p>
               </div>
 
               {/* Two-Column Grid for Pathways */}
               <div className={gridPresets.twoColumn("xl")}>
-                {/* Client Services Pathway */}
+                {/* Client Partner Services Pathway */}
                 <div className="bg-white dark:bg-gray-900 border-4 border-brand-primary p-8 lg:p-10 rounded-3xl shadow-2xl hover:shadow-brand-primary/20 transition-all duration-300">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="bg-brand-primary/10 dark:bg-brand-primary/20 p-4 rounded-2xl">
@@ -515,12 +517,12 @@ export default function ContactPageClient() {
                         icon="diversity_3"
                         size="3xl"
                         theme="military"
-                        ariaLabel="Client Partnership"
+                        ariaLabel="Client Partner Partnership"
                         className="text-brand-primary"
                       />
                     </div>
                     <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl">
-                      {isEs ? "Para Clientes" : "For Clients"}
+                      {isEs ? "Para Clientes" : "For Client Partners"}
                     </h3>
                   </div>
 
@@ -530,7 +532,7 @@ export default function ContactPageClient() {
                       : "Ready to begin your construction project? We're here to listen, collaborate, and bring your vision to life through professional construction management."}
                   </p>
 
-                  {/* Client Contact Info */}
+                  {/* Client Partner Contact Info */}
                   <div className="bg-gray-50 dark:bg-gray-800 p-6 border-l-4 border-brand-primary rounded-xl mb-6">
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
@@ -543,12 +545,14 @@ export default function ContactPageClient() {
                         />
                         <div>
                           <p className="font-semibold text-gray-900 dark:text-white text-sm">
-                            {isEs ? "Servicios al Cliente" : "Client Services"}
+                            {isEs
+                              ? "Servicios al Cliente"
+                              : "Client Partner Services"}
                           </p>
                           <a
                             href={`tel:${COMPANY_INFO.phone.tel}`}
                             className="text-brand-primary hover:text-brand-secondary-text text-lg font-bold transition-colors"
-                            aria-label={`Call Client services at ${COMPANY_INFO.phone.display}`}
+                            aria-label={`Call Client Partner services at ${COMPANY_INFO.phone.display}`}
                           >
                             {COMPANY_INFO.phone.display}
                           </a>
@@ -659,7 +663,7 @@ export default function ContactPageClient() {
                   <p className="mb-6 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                     {isEs
                       ? "¿Desea crecer su negocio con un líder de construcción de propiedad veterana? Únase a nuestra red de profesionales de calidad que sirven al mercado del Noroeste del Pacífico."
-                      : "Looking to grow your business with a Veteran-Owned construction leader? Join our network of quality professionals serving the Pacific Northwest market."}
+                      : "Looking to grow your business with a Veteran-Owned Since January 2025 construction leader? Join our network of quality professionals serving the Pacific Northwest market."}
                   </p>
 
                   {/* Ally Contact Info */}
@@ -715,7 +719,7 @@ export default function ContactPageClient() {
                         <p className="text-gray-600 dark:text-gray-300 text-sm italic">
                           {isEs
                             ? "Para: Solicitudes de proveedores, relaciones de Aliados y oportunidades de negocio"
-                            : "For: Vendor applications, Ally relationships, and business opportunities"}
+                            : "For: Trade Partner applications, Ally relationships, and business opportunities"}
                         </p>
                       </div>
                     </div>
@@ -735,12 +739,12 @@ export default function ContactPageClient() {
                           icon="verified_user"
                           size="lg"
                           theme="veteran"
-                          ariaLabel="Approved Vendor"
+                          ariaLabel="Approved Trade Partner"
                         />
                         <span>
                           {isEs
                             ? "Solicitar como Proveedor Aprobado"
-                            : "Apply as Approved Vendor"}
+                            : "Apply as Approved Trade Partner"}
                         </span>
                       </div>
                       <MaterialIcon
@@ -921,9 +925,9 @@ export default function ContactPageClient() {
               <StaggeredFadeIn
                 className={gridPresets.cards3("md", "max-w-6xl mx-auto")}
               >
-                {mainCTAs.map((cta, index) => (
+                {mainCTAs.map((cta) => (
                   <Link
-                    key={index}
+                    key={cta.link}
                     href={cta.link}
                     aria-label={cta.ariaLabel}
                     className="group relative flex h-full"

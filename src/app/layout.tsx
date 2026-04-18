@@ -35,7 +35,7 @@ export const metadata: Metadata = withGeoMetadata({
   keywords: [
     "Base HQ Home construction command center",
     "dual-label military civilian construction",
-    "Veteran-Owned contractor",
+    "Veteran-Owned Since January 2025 contractor",
     "disciplined execution construction",
     "service-earned construction values",
     "Chain of Command construction approach",
@@ -73,13 +73,15 @@ export const metadata: Metadata = withGeoMetadata({
     "Omak general contractor",
     "Pendleton Oregon general contractor",
     "Eastern Washington contractor",
-    "Army Veteran-Owned construction",
+    "Army Veteran-Owned Since January 2025 construction",
     "all-branch military construction",
     "SITREP-level construction communication",
     "battle-tested construction excellence",
   ],
   authors: [
-    { name: "MH Construction - Veteran-Owned Partnership-Driven Team" },
+    {
+      name: "MH Construction - Veteran-Owned Since January 2025 Partnership-Driven Team",
+    },
   ],
   creator: "MH Construction, Inc.",
   publisher: "MH Construction, Inc.",

@@ -82,7 +82,7 @@ export function LeadershipTeam() {
               ownership to field personnel contributes unique expertise toward
               one goal:{" "}
               <span className="font-bold text-white">
-                delivering exceptional results for our clients
+                delivering exceptional results for our Client Partners
               </span>
               .
             </p>

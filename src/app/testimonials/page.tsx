@@ -77,7 +77,7 @@ const faqSchema = {
       name: "How do I leave a testimonial for MH Construction?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can leave a Google review through our testimonials page link, or contact us directly to share your experience. We appreciate client feedback as it helps us maintain our high standards of Honesty, Integrity, Professionalism, and Thoroughness, and helps other businesses make informed decisions about partnering with our Veteran-Owned construction team.",
+        text: "You can leave a Google review through our testimonials page link, or contact us directly to share your experience. We appreciate Client Partner feedback as it helps us maintain our high standards of Honesty, Integrity, Professionalism, and Thoroughness, and helps other businesses make informed decisions about partnering with our Veteran-Owned Since January 2025 construction team.",
       },
     },
     {
@@ -93,12 +93,12 @@ const faqSchema = {
       name: "What makes MH Construction different from other contractors?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "As a Veteran-Owned business certified by the U.S. Small Business Administration, we bring disciplined execution and four core values—Honesty, Integrity, Professionalism, and Thoroughness—to every project. Our 70% referral rate, 650+ completed projects, .64 EMR safety rating, and 150+ years combined team experience demonstrate our commitment to building for the Client, NOT the Dollar.",
+        text: "As a Veteran-Owned Since January 2025 business certified by the U.S. Small Business Administration, we bring disciplined execution and four core values—Honesty, Integrity, Professionalism, and Thoroughness—to every project. Our 70% referral rate, 650+ completed projects, .64 EMR safety rating, and 150+ years combined team experience demonstrate our commitment to building for the Client, NOT the Dollar.",
       },
     },
     {
       "@type": "Question",
-      name: "Can I speak with past MH Construction clients?",
+      name: "Can I speak with past MH Construction Client Partners?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "We're happy to provide references during your consultation. We can connect you with past Client Partners who've experienced projects similar to yours in commercial, industrial, or government construction. Their firsthand accounts demonstrate our commitment to transparent communication, open-book pricing, and quality craftsmanship across the Pacific Northwest.",
@@ -147,7 +147,7 @@ export default function TestimonialsPage() {
             </div>
 
             {/* Two-line gradient heading */}
-            <h1 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-relaxed tracking-tighter overflow-visible">
+            <h1 className="mb-6 sm:mb-8 font-black text-white text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight overflow-visible">
               <span className="block mb-3 sm:mb-4 font-semibold text-white/90 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                 Service-Earned Commendations
               </span>
@@ -164,7 +164,7 @@ export default function TestimonialsPage() {
               </span>{" "}
               who've experienced our{" "}
               <span className="text-white font-bold">
-                Veteran-Owned, relationship-first service
+                Veteran-Owned Since January 2025, relationship-first service
               </span>{" "}
               in commercial, industrial, and government construction
             </p>
@@ -307,7 +307,7 @@ export default function TestimonialsPage() {
                     Why Businesses Trust
                   </span>
                   <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Veteran-Owned. Relationship-First.
+                    Veteran-Owned Since January 2025. Relationship-First.
                   </span>
                 </h2>
 
@@ -567,8 +567,9 @@ export default function TestimonialsPage() {
                     <span className="font-bold text-brand-primary">
                       Washington, Oregon, and Idaho
                     </span>
-                    , we bring a Veteran-Owned, relationship-first approach to
-                    commercial and industrial projects throughout the region.
+                    , we bring a Veteran-Owned Since January 2025,
+                    relationship-first approach to commercial and industrial
+                    projects throughout the region.
                   </p>
                   <div className="space-y-3">
                     {/* Tri-Cities Card */}
@@ -809,7 +810,7 @@ export default function TestimonialsPage() {
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   As a{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    Veteran-Owned business
+                    Veteran-Owned Since January 2025 business
                   </span>
                   , we bring the same{" "}
                   <span className="font-bold text-gray-900 dark:text-gray-100">
@@ -934,7 +935,8 @@ export default function TestimonialsPage() {
                   <span className="font-bold text-gray-900 dark:text-gray-100">
                     partnership approach
                   </span>{" "}
-                  and what to expect when working with our Veteran-Owned team.
+                  and what to expect when working with our Veteran-Owned Since
+                  January 2025 team.
                 </p>
               </div>
 
@@ -956,11 +958,11 @@ export default function TestimonialsPage() {
                       </h3>
                     </div>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      We appreciate client feedback! You can leave a Google
-                      review through the link above, or contact us directly to
-                      share your experience. Your honest feedback helps us
-                      maintain our high standards and helps other businesses
-                      make informed decisions.
+                      We appreciate Client Partner feedback! You can leave a
+                      Google review through the link above, or contact us
+                      directly to share your experience. Your honest feedback
+                      helps us maintain our high standards and helps other
+                      businesses make informed decisions.
                     </p>
                   </div>
                 </div>
@@ -1006,12 +1008,12 @@ export default function TestimonialsPage() {
                       </h3>
                     </div>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      As a Veteran-Owned business, we bring disciplined
-                      execution, Honesty, Integrity, Professionalism, and
-                      Thoroughness to every project. Our 70% referral rate and
-                      650+ completed projects speak to our partnership-first
-                      approach and commitment to building for the Client, NOT
-                      the Dollar.
+                      As a Veteran-Owned Since January 2025 business, we bring
+                      disciplined execution, Honesty, Integrity,
+                      Professionalism, and Thoroughness to every project. Our
+                      70% referral rate and 650+ completed projects speak to our
+                      partnership-first approach and commitment to building for
+                      the Client, NOT the Dollar.
                     </p>
                   </div>
                 </div>
@@ -1028,7 +1030,7 @@ export default function TestimonialsPage() {
                         ariaLabel="Question"
                       />
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                        Can I speak with past clients?
+                        Can I speak with past Client Partners?
                       </h3>
                     </div>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -1109,10 +1111,10 @@ export default function TestimonialsPage() {
                       ariaLabel="Veteran-Owned business"
                     />
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                      Veteran-Owned
+                      Veteran-Owned Since January 2025
                     </h3>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
-                      SBA Certified Veteran-Owned Small Business
+                      SBA Certified Veteran-Owned Small Business, Founded 2010
                     </p>
                   </div>
                 </div>
@@ -1262,7 +1264,7 @@ export default function TestimonialsPage() {
             <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-8">
               We're collecting feedback from our valued Client Partners. Check
               back soon to read about their experiences working with our
-              Veteran-Owned construction team.
+              Veteran-Owned Since January 2025 construction team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -1314,7 +1316,7 @@ export default function TestimonialsPage() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6">
             Ready to Experience{" "}
             <span className="text-brand-secondary">
-              Veteran-Owned, Relationship-First Service?
+              Veteran-Owned Since January 2025, Relationship-First Service?
             </span>
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl mb-10 text-white/90 font-light">

@@ -20,6 +20,41 @@ const PROACTIVE_PROMPT_DELAY = 60_000;
 /** Session storage key to track if prompt was already shown */
 const PROACTIVE_PROMPT_KEY = "mhc-chat-prompted";
 
+function useProactivePrompt(isOpen: boolean): [boolean, () => void] {
+  const [showPrompt, setShowPrompt] = useState(false);
+
+  useEffect(() => {
+    // Don't show if chat is already open or was already prompted this session
+    if (isOpen) {
+      setShowPrompt(false);
+      return;
+    }
+
+    try {
+      if (sessionStorage.getItem(PROACTIVE_PROMPT_KEY)) return;
+    } catch {
+      // sessionStorage not available (e.g., private browsing)
+    }
+
+    const timer = setTimeout(() => {
+      setShowPrompt(true);
+      try {
+        sessionStorage.setItem(PROACTIVE_PROMPT_KEY, "1");
+      } catch {
+        // Ignore storage errors
+      }
+    }, PROACTIVE_PROMPT_DELAY);
+
+    return () => clearTimeout(timer);
+  }, [isOpen]);
+
+  const dismissPrompt = useCallback(() => {
+    setShowPrompt(false);
+  }, []);
+
+  return [showPrompt, dismissPrompt];
+}
+
 function createChatMessage(
   role: ChatMessage["role"],
   content: string,
@@ -103,7 +138,7 @@ export function ChatWidget() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [showPrompt, setShowPrompt] = useState(false);
+  const [showPrompt, dismissPrompt] = useProactivePrompt(isOpen);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const panelRef = useRef<HTMLDialogElement>(null);
@@ -139,42 +174,11 @@ export function ChatWidget() {
     return getMobileScrollUnlock(isOpen);
   }, [isOpen]);
 
-  // Proactive prompt: show after delay if user hasn't interacted
-  useEffect(() => {
-    // Don't show if chat is already open or was already prompted this session
-    if (isOpen) {
-      setShowPrompt(false);
-      return;
-    }
-
-    try {
-      if (sessionStorage.getItem(PROACTIVE_PROMPT_KEY)) return;
-    } catch {
-      // sessionStorage not available (e.g., private browsing)
-    }
-
-    const timer = setTimeout(() => {
-      setShowPrompt(true);
-      try {
-        sessionStorage.setItem(PROACTIVE_PROMPT_KEY, "1");
-      } catch {
-        // Ignore storage errors
-      }
-    }, PROACTIVE_PROMPT_DELAY);
-
-    return () => clearTimeout(timer);
-  }, [isOpen]);
-
   // Dismiss prompt when user opens chat
   const handleOpenChat = useCallback(() => {
-    setShowPrompt(false);
+    dismissPrompt();
     setIsOpen(true);
-  }, []);
-
-  // Dismiss prompt without opening chat
-  const dismissPrompt = useCallback(() => {
-    setShowPrompt(false);
-  }, []);
+  }, [dismissPrompt]);
 
   const sendMessage = useCallback(
     async (text: string) => {

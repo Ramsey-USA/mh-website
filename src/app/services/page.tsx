@@ -351,7 +351,7 @@ export default function ServicesPage() {
                           Trade Partnerships
                         </h3>
                         <p className="text-brand-secondary dark:text-brand-secondary-light font-semibold text-lg">
-                          Vendor Network
+                          Trade Partner Network
                         </p>
                       </div>
                     </div>
@@ -460,7 +460,7 @@ export default function ServicesPage() {
                             size="md"
                             className="mr-2 group-hover:scale-110 transition-transform duration-300"
                           />
-                          Download Vendor Package
+                          Download Trade Partner Package
                         </Button>
                       </Link>
                       <p className="text-center text-gray-600 dark:text-gray-300 text-sm">

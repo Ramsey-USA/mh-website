@@ -39,7 +39,7 @@ const coreValues = [
 
 const trustIndicators = [
   { icon: "verified", label: "Licensed in WA, OR, ID" },
-  { icon: "military_tech", label: "Veteran-Owned" },
+  { icon: "military_tech", label: "Veteran-Owned Since January 2025" },
   { icon: "workspace_premium", label: "650+ Projects Completed" },
 ];
 
@@ -82,7 +82,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
       description:
         priorityServices.length > 2
           ? `${priorityServices[2]} solutions supporting public-sector standards and long-term lifecycle value in ${location.state}.`
-          : "Public sector construction with Veteran-Owned business advantages. Experienced with government compliance and procurement processes.",
+          : "Public sector construction with Veteran-Owned Since January 2025 business advantages. Experienced with government compliance and procurement processes.",
     },
     {
       icon: "home_repair_service",
@@ -104,7 +104,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
     "@type": "LocalBusiness",
     "@id": `${enhancedSEO.siteUrl}/locations/${location.slug}#localbusiness`,
     name: `MH Construction - ${location.city}`,
-    description: `Veteran-Owned general contractor serving ${location.city}, ${location.state} with commercial, industrial, and government construction services.`,
+    description: `Founded 2010, Veteran-Owned Since January 2025 general contractor serving ${location.city}, ${location.state} with commercial, industrial, and government construction services.`,
     url: `${enhancedSEO.siteUrl}/locations/${location.slug}`,
     telephone: location.telephone,
     email: location.email,
@@ -209,7 +209,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
               </div>
 
               {/* Main Heading */}
-              <h1 className="font-black text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
+              <h1 className="font-black text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight tracking-tight">
                 <span className="block text-white mb-3">
                   General Contractor in
                 </span>

@@ -12,21 +12,16 @@
         "ms-vscode.vscode-typescript-next",
         "bradlc.vscode-tailwindcss",
         "csstools.postcss",
-        "GitHub.copilot",
-        "GitHub.copilot-chat",
-        "Orta.vscode-jest",
-        "eamodio.gitlens",
+        "github.copilot",
+        "github.copilot-chat",
+        "orta.vscode-jest",
         "cloudflare.cloudflare-workers-bindings-extension",
-        "formulahendry.auto-rename-tag",
-        "christian-kohler.path-intellisense",
         "mikestead.dotenv",
-        "usernamehw.errorlens",
         "streetsidesoftware.code-spell-checker",
-        "DavidAnson.vscode-markdownlint",
-        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint",
         "redhat.vscode-yaml",
         "deque-systems.vscode-axe-linter",
-        "SonarSource.sonarlint-vscode",
+        "sonarsource.sonarlint-vscode",
         "snyk-security.snyk-vulnerability-scanner"
       ],
       "settings": {
@@ -38,7 +33,8 @@
         "js/ts.preferences.importModuleSpecifier": "relative",
         "files.associations": {
           "*.css": "tailwindcss"
-        }
+        },
+        "snyk.advanced.autoSelectOrganization": true
       }
     }
   },

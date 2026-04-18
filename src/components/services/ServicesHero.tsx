@@ -24,7 +24,7 @@ export function ServicesHero() {
             />
           </div>
         </div>
-        <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+        <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
           <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
             Operations → Services
           </span>
@@ -35,7 +35,7 @@ export function ServicesHero() {
           <span className="block text-white/90">
             Building projects for the Client,{" "}
             <span className="font-black italic text-bronze-300">NOT</span> the
-            dollar
+            Dollar
           </span>
         </h1>
       </div>

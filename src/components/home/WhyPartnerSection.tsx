@@ -58,6 +58,30 @@ type WhyPartnerValue = {
   accentColor?: string;
 };
 
+function getStatAccentClass(accentColor?: string): string {
+  if (accentColor === "bronze-500") {
+    return "text-bronze-700 dark:text-bronze-400";
+  }
+
+  if (accentColor === "brand-secondary") {
+    return "text-brand-secondary-dark dark:text-brand-secondary-light";
+  }
+
+  return "text-brand-primary-dark dark:text-brand-primary-light";
+}
+
+function getSubtitleAccentClass(accentColor?: string): string {
+  if (accentColor === "bronze-500") {
+    return "text-bronze-700 dark:text-bronze-300";
+  }
+
+  if (accentColor === "brand-secondary") {
+    return "text-brand-secondary-dark dark:text-brand-secondary";
+  }
+
+  return "text-brand-primary-dark dark:text-brand-primary";
+}
+
 export function WhyPartnerSection() {
   const locale = useLocale();
   const t = locale === "es" ? es.home.whyPartner : en.home.whyPartner;
@@ -116,6 +140,8 @@ export function WhyPartnerSection() {
       <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
         {(t.values || []).map((value: WhyPartnerValue, idx: number) => {
           const iconData = partnershipIcons[idx] ?? partnershipIcons[0]!;
+          const statAccentClass = getStatAccentClass(iconData.accentColor);
+          const subtitleAccentClass = getSubtitleAccentClass(value.accentColor);
           return (
             <div
               key={value.title}
@@ -161,13 +187,7 @@ export function WhyPartnerSection() {
                     </div>
                     <div className="text-right">
                       <div
-                        className={`text-3xl sm:text-4xl font-black group-hover:scale-105 transition-transform duration-300 ${
-                          iconData.accentColor === "bronze-500"
-                            ? "text-bronze-700 dark:text-bronze-400"
-                            : iconData.accentColor === "brand-secondary"
-                              ? "text-brand-secondary-dark dark:text-brand-secondary-light"
-                              : "text-brand-primary-dark dark:text-brand-primary-light"
-                        }`}
+                        className={`text-3xl sm:text-4xl font-black group-hover:scale-105 transition-transform duration-300 ${statAccentClass}`}
                       >
                         {value.stat ?? ""}
                       </div>
@@ -182,13 +202,7 @@ export function WhyPartnerSection() {
                     {value.title}
                   </h3>
                   <p
-                    className={`mb-4 text-sm sm:text-base font-semibold ${
-                      value.accentColor === "bronze-500"
-                        ? "text-bronze-700 dark:text-bronze-300"
-                        : value.accentColor === "brand-secondary"
-                          ? "text-brand-secondary-dark dark:text-brand-secondary"
-                          : "text-brand-primary-dark dark:text-brand-primary"
-                    }`}
+                    className={`mb-4 text-sm sm:text-base font-semibold ${subtitleAccentClass}`}
                   >
                     {value.subtitle}
                   </p>
@@ -200,23 +214,24 @@ export function WhyPartnerSection() {
 
                   {/* Key Highlights with Custom Icons */}
                   <div className="space-y-2 pt-4 border-t border-gray-200 dark:border-gray-700 mt-auto">
-                    {value.highlights
-                      .slice(0, 3)
-                      .map((highlight: string, hIdx: number) => (
-                        <div key={hIdx} className="flex items-start gap-3">
-                          <div
-                            className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br ${iconData.iconBgGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
-                          >
-                            <MaterialIcon
-                              icon="check"
-                              className="text-white text-xs"
-                            />
-                          </div>
-                          <span className="text-sm text-gray-700 dark:text-gray-200 leading-snug">
-                            {highlight}
-                          </span>
+                    {value.highlights.slice(0, 3).map((highlight: string) => (
+                      <div
+                        key={`${value.title}-${highlight}`}
+                        className="flex items-start gap-3"
+                      >
+                        <div
+                          className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br ${iconData.iconBgGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                        >
+                          <MaterialIcon
+                            icon="check"
+                            className="text-white text-xs"
+                          />
                         </div>
-                      ))}
+                        <span className="text-sm text-gray-700 dark:text-gray-200 leading-snug">
+                          {highlight}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

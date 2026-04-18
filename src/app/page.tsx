@@ -175,7 +175,7 @@ export default function Home() {
         id="stats"
         subtitle="Disciplined, Proven Results"
         title="Proven Track Record"
-        description="Measurable results from a Veteran-Owned team committed to disciplined execution, clear communication, and strong client relationships across the Pacific Northwest."
+        description="Measurable results from a Veteran-Owned team committed to disciplined execution, clear communication, and strong Client Partner relationships across the Pacific Northwest."
         variant="primary"
       />
 

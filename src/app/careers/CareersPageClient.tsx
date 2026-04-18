@@ -157,7 +157,7 @@ export default function CareersPageClient() {
                 />
               </div>
             </div>
-            <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+            <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
               <span className="block text-brand-secondary-text text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
                 Enlist → Careers
               </span>
@@ -165,7 +165,7 @@ export default function CareersPageClient() {
                 Occupation Specialties
               </span>
               <span className="block text-brand-primary">
-                Build Your Future with a Veteran-Owned Team
+                Build Your Future with Our Veteran-Owned Team Since January 2025
               </span>
               <span className="block text-white/90">
                 Building projects for the Client,{" "}
@@ -514,7 +514,7 @@ export default function CareersPageClient() {
                 {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    Veteran-Owned, veteran-led, veteran-proud
+                    Veteran-Owned Since January 2025, Veteran-led, Veteran-proud
                   </span>
                   . Your military experience translates directly to construction
                   excellence: discipline becomes precision, teamwork becomes
@@ -1466,7 +1466,7 @@ export default function CareersPageClient() {
                     ariaLabel="Veteran-Owned"
                   />
                   <span className="font-semibold text-gray-900 dark:text-white text-sm">
-                    Veteran-Owned Business
+                    Veteran-Owned Since January 2025
                   </span>
                 </div>
 

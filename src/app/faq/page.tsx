@@ -44,7 +44,7 @@ const howToSchema = generateHowToSchema({
     },
     {
       name: "Construction Phase",
-      text: "Regular progress updates, photo documentation, quality inspections, and client walkthroughs",
+      text: "Regular progress updates, photo documentation, quality inspections, and Client Partner walkthroughs",
     },
     {
       name: "Completion Phase",
@@ -71,7 +71,7 @@ const faqSchema = {
 /**
  * FAQ Accordion Component - Modern Card Design
  */
-function FAQItem({ question, answer, link }: FAQQuestion) {
+function FAQItem({ question, answer, link }: Readonly<FAQQuestion>) {
   return (
     <details className="group relative">
       {/* Animated Border Glow */}
@@ -148,7 +148,7 @@ export default function FAQPage() {
                 />
               </div>
             </div>
-            <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+            <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
               <span className="block text-brand-secondary-text text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
                 Intel Brief
               </span>
@@ -274,7 +274,10 @@ export default function FAQPage() {
                     </div>
 
                     {/* Two-line gradient heading */}
-                    <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl leading-relaxed tracking-tighter overflow-visible">
+                    <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                      <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                        FAQ Category
+                      </span>
                       <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
                         {category.title}
                       </span>
@@ -285,9 +288,9 @@ export default function FAQPage() {
                   </FadeInWhenVisible>
 
                   <StaggeredFadeIn className="space-y-4">
-                    {category.questions.map((q, qIndex) => (
+                    {category.questions.map((q) => (
                       <FAQItem
-                        key={qIndex}
+                        key={q.question}
                         question={q.question}
                         answer={q.answer}
                         {...(q.link ? { link: q.link } : {})}

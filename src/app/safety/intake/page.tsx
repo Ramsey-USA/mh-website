@@ -192,7 +192,7 @@ export default function SafetyIntakePage() {
                     : "Logistics → Document Intake"}
                 </span>
               </div>
-              <h1 className="mb-4 text-3xl xs:text-4xl sm:text-5xl font-black tracking-tight lg:text-5xl">
+              <h1 className="mb-4 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
                 <span className="block text-brand-secondary mb-2">
                   {isEs
                     ? "Documentación crítica para la misión"

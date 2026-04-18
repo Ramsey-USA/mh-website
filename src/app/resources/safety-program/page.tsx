@@ -57,7 +57,7 @@ export const metadata: Metadata = withGeoMetadata({
     "safety manual construction download",
     "jobsite safety documentation",
     "contractor safety credentials",
-    "Veteran-Owned contractor safety",
+    "Veteran-Owned Since January 2025 contractor safety",
     "Tri-Cities construction safety",
     "safety program Tri-Cities WA",
   ],
@@ -214,7 +214,7 @@ const PMBOK_MAP = [
 const CREDENTIAL_CARDS = [
   {
     icon: "workspace_premium",
-    label: "Veteran Owned",
+    label: "Veteran-Owned Since January 2025",
     sub: "SDVOSB · Proudly served",
     colorClass: "text-gray-700 dark:text-gray-300",
     bgClass: "bg-gray-50 dark:bg-gray-800",

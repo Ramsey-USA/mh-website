@@ -50,14 +50,27 @@ function groupByDepartment(members: VintageTeamMember[]) {
   return members.reduce(
     (acc, member) => {
       const dept = member.department;
-      if (!acc[dept]) {
-        acc[dept] = [];
-      }
+      acc[dept] ??= [];
       acc[dept].push(member);
       return acc;
     },
     {} as Record<string, VintageTeamMember[]>,
   );
+}
+
+function getDepartmentHeadingParts(department: string) {
+  if (department.startsWith("The ")) {
+    return {
+      subtitle: "The",
+      title: department.slice(4),
+    };
+  }
+
+  const parts = department.split(" ");
+  return {
+    subtitle: parts.slice(0, -1).join(" "),
+    title: parts.at(-1) ?? department,
+  };
 }
 
 const departmentConfig: Record<
@@ -105,7 +118,7 @@ const faqSchema = {
       name: "What makes MH Construction's leadership team unique?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "MH Construction's Chain of Command brings together 150+ years combined military-grade expertise from all service branches (Army, Navy, Air Force, Marines, Coast Guard, Space Force). Our Veteran-Owned leadership combines military discipline with proven construction excellence.",
+        text: "MH Construction's Chain of Command brings together 150+ years combined military-grade expertise from all service branches (Army, Navy, Air Force, Marines, Coast Guard, Space Force). Our leadership team has been Veteran-Owned Since January 2025 and combines military discipline with proven construction excellence.",
       },
     },
     {
@@ -188,7 +201,7 @@ export default function TeamPage() {
                 />
               </div>
             </div>
-            <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+            <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
               <span className="block text-brand-secondary-text text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
                 Chain of Command → Our Team
               </span>
@@ -306,6 +319,7 @@ export default function TeamPage() {
                   description: "",
                   id: "team",
                 };
+                const heading = getDepartmentHeadingParts(department);
 
                 return (
                   <div
@@ -331,10 +345,12 @@ export default function TeamPage() {
                         <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                       </div>
 
-                      {/* Single-line gradient heading for departments */}
-                      <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                        <span className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent drop-shadow-sm">
-                          {department}
+                      <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                        <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                          {heading.subtitle}
+                        </span>
+                        <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                          {heading.title}
                         </span>
                       </h3>
 
@@ -434,6 +450,7 @@ export default function TeamPage() {
                   description: "",
                   id: "team",
                 };
+                const heading = getDepartmentHeadingParts(department);
 
                 return (
                   <div
@@ -459,10 +476,12 @@ export default function TeamPage() {
                         <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                       </div>
 
-                      {/* Single-line gradient heading for departments */}
-                      <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter">
-                        <span className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent drop-shadow-sm">
-                          {department}
+                      <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                        <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                          {heading.subtitle}
+                        </span>
+                        <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                          {heading.title}
                         </span>
                       </h3>
 
@@ -531,10 +550,10 @@ export default function TeamPage() {
                   <span className="font-bold text-gray-900 dark:text-white">
                     people-centered culture
                   </span>{" "}
-                  starts with leadership committed to serving both clients and
-                  communities, maintaining the highest standards of safety (.64
-                  EMR award-winning), quality craftsmanship, and transparent
-                  communication that defines every partnership.
+                  starts with leadership committed to serving both Client
+                  Partners and communities, maintaining the highest standards of
+                  safety (.64 EMR award-winning), quality craftsmanship, and
+                  transparent communication that defines every partnership.
                 </p>
               </div>
 
@@ -570,10 +589,11 @@ export default function TeamPage() {
                         <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
                           From veterans to civilians, office to field—we&apos;re
                           one team with shared values forged through military
-                          discipline and construction excellence. Every client
-                          success belongs to all of us, every safety milestone
-                          reflects our collective commitment, and every project
-                          showcases our unified dedication to quality.
+                          discipline and construction excellence. Every Client
+                          Partner success belongs to all of us, every safety
+                          milestone reflects our collective commitment, and
+                          every project showcases our unified dedication to
+                          quality.
                         </p>
                       </div>
                     </div>
@@ -653,8 +673,8 @@ export default function TeamPage() {
                           Shared Success
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
-                          When our clients win, we all win—from AGC-WA Top EMR
-                          Awards to 3+ years without time-loss injuries.
+                          When our Client Partners win, we all win—from AGC-WA
+                          Top EMR Awards to 3+ years without time-loss injuries.
                           Celebrating achievements together (70% referral
                           business), learning from setbacks as a unified team,
                           and building lasting relationships that extend well
@@ -820,7 +840,7 @@ export default function TeamPage() {
                             Building lasting relationships that extend well
                             beyond project completion, with 70% referral
                             business proving the strength of our commitment to
-                            client success and future growth together.
+                            Client Partner success and future growth together.
                           </p>
                         </div>
                       </div>
@@ -1083,9 +1103,9 @@ export default function TeamPage() {
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed flex-grow">
                           Emerging leaders receive specialized training in
-                          project management, team leadership, client relations,
-                          and business development. We build tomorrow&apos;s
-                          construction leaders today.
+                          project management, team leadership, Client Partner
+                          relationships, and business development. We build
+                          tomorrow&apos;s construction leaders today.
                         </p>
                       </div>
                     </div>

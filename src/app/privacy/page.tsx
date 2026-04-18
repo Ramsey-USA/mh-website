@@ -25,7 +25,7 @@ export default function PrivacyPolicyPage() {
             <MaterialIcon icon="arrow_back" size="sm" />
             <span>Back to Home</span>
           </Link>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4">
             Privacy Policy
           </h1>
           <p className="text-gray-600 dark:text-gray-300">

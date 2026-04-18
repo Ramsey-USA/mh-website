@@ -80,7 +80,7 @@ const vendors: Vendor[] = [
   },
   {
     name: "Mustang Signs",
-    role: "Primary Signage Vendor",
+    role: "Primary Signage Trade Partner",
     icon: "signpost",
     accentColor: "from-brand-secondary to-brand-secondary-dark",
     description:
@@ -197,11 +197,11 @@ const vendors: Vendor[] = [
   },
   {
     name: "Dupree Building Specialties",
-    role: "Primary Building Specialties Vendor",
+    role: "Primary Building Specialties Trade Partner",
     icon: "door_front",
     accentColor: "from-amber-600 to-amber-800",
     description:
-      "Dupree Building Specialties is our trusted primary vendor for commercial building specialties, supplying and installing specialty construction products across Divisions 7–12. From fire-rated doors and expansion control to lockers, visual displays, and athletic equipment, Dupree delivers the finish-trade components that complete every MH Construction project.",
+      "Dupree Building Specialties is our trusted primary Trade Partner for commercial building specialties, supplying and installing specialty construction products across Divisions 7–12. From fire-rated doors and expansion control to lockers, visual displays, and athletic equipment, Dupree delivers the finish-trade components that complete every MH Construction project.",
     highlights: [
       "Div 7 — Roof Accessories & Expansion Control",
       "Div 8 — Access, Fire, Coiling, Folding & Traffic Doors",
@@ -350,11 +350,11 @@ const vendors: Vendor[] = [
   },
   {
     name: "Core Cabinet Production",
-    role: "Primary Cabinetry Vendor",
+    role: "Primary Cabinetry Trade Partner",
     icon: "kitchen",
     accentColor: "from-orange-500 to-orange-700",
     description:
-      "Core Cabinet Production is our trusted primary cabinetry vendor, specializing in custom-designed and in-house fabricated cabinets for residential and commercial applications. From kitchen and bathroom cabinets to full commercial office builds, Core Cabinet delivers precision craftsmanship on every MH Construction project.",
+      "Core Cabinet Production is our trusted primary cabinetry Trade Partner, specializing in custom-designed and in-house fabricated cabinets for residential and commercial applications. From kitchen and bathroom cabinets to full commercial office builds, Core Cabinet delivers precision craftsmanship on every MH Construction project.",
     highlights: [
       "Kitchen Cabinets",
       "Bathroom Cabinets",
@@ -412,7 +412,7 @@ const partnershipValues = [
     icon: "handshake",
     title: "Where Handshakes Still Matter",
     description:
-      "Your word is your bond. We treat our trade partners with the same integrity and respect we give our clients — face-to-face trust, mutual respect, and a shared commitment to doing what's right.",
+      "Your word is your bond. We treat our Trade Partners with the same integrity and respect we give our Client Partners — face-to-face trust, mutual respect, and a shared commitment to doing what's right.",
     color: "from-brand-primary to-brand-primary-dark",
   },
   {
@@ -461,7 +461,7 @@ export default function AlliesPage() {
               />
             </div>
           </div>
-          <h1 className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed">
+          <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
             <span className="block text-brand-secondary-text text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
               Allies → Partners
             </span>
@@ -474,7 +474,7 @@ export default function AlliesPage() {
             <span className="block text-white/90">
               Building projects for the Client,{" "}
               <span className="font-black italic text-bronze-300">NOT</span> the
-              dollar
+              Dollar
             </span>
           </h1>
         </div>
@@ -536,7 +536,7 @@ export default function AlliesPage() {
                 <span className="font-bold text-gray-900 dark:text-white">
                   (.64 EMR — 40% safer than industry average)
                 </span>
-                {". "}Veteran-Owned leadership since January 2025 means our
+                {". "}Veteran-Owned Since January 2025 leadership means our
                 partners get the same code of conduct that defines military
                 service: honor, accountability, and follow-through on every
                 commitment.
@@ -580,7 +580,7 @@ export default function AlliesPage() {
           </div>
         </section>
 
-        {/* ── SECTION 2: VENDOR SHOWCASE ────────────────────────────────── */}
+        {/* ── SECTION 2: TRADE PARTNER SHOWCASE ─────────────────────────── */}
         <section
           id="vendors"
           className="order-1 relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
@@ -596,7 +596,7 @@ export default function AlliesPage() {
                       icon="star"
                       size="2xl"
                       className="text-white drop-shadow-lg"
-                      ariaLabel="Our primary vendor partners"
+                      ariaLabel="Our primary Trade Partners"
                     />
                   </div>
                 </div>
@@ -608,7 +608,7 @@ export default function AlliesPage() {
                   Our Primary
                 </span>
                 <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Vendor Partners
+                  Trade Partners
                 </span>
               </h2>
 
@@ -989,7 +989,7 @@ export default function AlliesPage() {
                 <p className="mx-auto mb-8 max-w-4xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   Ready to grow your business with a{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    Veteran-Owned construction leader
+                    Veteran-Owned Since January 2025 construction leader
                   </span>
                   ? We&apos;re actively seeking reliable, skilled trade partners
                   who value quality workmanship, honest communication, and{" "}
@@ -1193,7 +1193,7 @@ export default function AlliesPage() {
                   ariaLabel="Veteran-Owned"
                 />
                 <span className="font-semibold text-gray-900 dark:text-white text-sm">
-                  Veteran-Owned Business
+                  Veteran-Owned Since January 2025
                 </span>
               </div>
             </div>

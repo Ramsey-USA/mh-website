@@ -16,7 +16,7 @@ const translations = {
   en: {
     title: "Employment Application",
     subtitle: "MH Construction, Inc.",
-    tagline: "Veteran-Owned General Contractor",
+    tagline: "Veteran-Owned Since January 2025 General Contractor",
     brandSlogan: "Building projects for the Client, NOT the Dollar",
     roiMessage: "THE ROI IS THE RELATIONSHIP",
     instructions: "Instructions",
@@ -122,7 +122,7 @@ const translations = {
   es: {
     title: "Solicitud de Empleo",
     subtitle: "MH Construction, Inc.",
-    tagline: "Contratista General de Propiedad de Veteranos",
+    tagline: "Contratista General de Propiedad de Veteranos Desde Enero 2025",
     brandSlogan: "Construyendo proyectos para el cliente, NO por el dinero",
     roiMessage: "EL RETORNO ES LA RELACIÓN",
     instructions: "Instrucciones",

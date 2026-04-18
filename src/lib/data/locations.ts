@@ -93,7 +93,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Operations Base → Richland | General Contractor Richland WA | MH Construction",
       metaDescription:
-        "Veteran-Owned GC serving Richland WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Richland WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Operations Base Richland strategic construction",
         "dual-label military construction Richland",
@@ -172,7 +172,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Forward Operating Base → Kennewick | General Contractor Kennewick WA | MH Construction",
       metaDescription:
-        "Veteran-Owned GC serving Kennewick WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Kennewick WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Forward Operating Base Kennewick tactical construction",
         "dual-label military construction Kennewick",
@@ -251,7 +251,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Command Center → Pasco | General Contractor Pasco WA | MH Construction",
       metaDescription:
-        "Veteran-Owned GC headquartered in Pasco WA. Commercial, industrial & government construction since 2010. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC headquartered in Pasco WA. Commercial, industrial & government construction since 2010. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Command Center Pasco home base construction",
         "dual-label military construction Pasco",
@@ -328,7 +328,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Outpost → Yakima | General Contractor Yakima WA | MH Construction",
       metaDescription:
-        "Veteran-Owned GC serving Yakima WA. Commercial, industrial & public-safety construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Yakima WA. Commercial, industrial & public-safety construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Outpost Yakima regional construction",
         "dual-label military construction Yakima",
@@ -398,7 +398,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Deployment Zone → Spokane | General Contractor Spokane WA | MH Construction",
       metaDescription:
-        "Veteran-Owned GC serving Spokane WA. Commercial, industrial & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Spokane WA. Commercial, industrial & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Deployment Zone Spokane construction",
         "dual-label military construction Spokane",
@@ -460,7 +460,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Station → West Richland | General Contractor West Richland WA | MH Construction",
       metaDescription:
-        "Veteran-Owned GC serving West Richland WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving West Richland WA. Commercial, industrial & government projects with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Station West Richland community construction",
         "dual-label military construction West Richland",
@@ -514,7 +514,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Forward Position → Walla Walla | General Contractor Walla Walla WA | MH Construction",
       metaDescription:
-        "Veteran-Owned GC serving Walla Walla WA. Commercial, industrial & specialty construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Walla Walla WA. Commercial, industrial & specialty construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Forward Position Walla Walla construction",
         "dual-label military construction Walla Walla",
@@ -584,7 +584,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Forward Base → Hermiston | General Contractor Hermiston OR | MH Construction",
       metaDescription:
-        "Veteran-Owned GC serving Hermiston OR. Commercial, industrial & agricultural construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Hermiston OR. Commercial, industrial & agricultural construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Forward Base Hermiston Oregon construction",
         "general contractor Hermiston OR",
@@ -638,7 +638,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Tactical Position → Pendleton | General Contractor Pendleton OR | MH Construction",
       metaDescription:
-        "Veteran-Owned GC serving Pendleton OR. Commercial, industrial & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Pendleton OR. Commercial, industrial & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Tactical Position Pendleton Oregon construction",
         "general contractor Pendleton OR",
@@ -696,7 +696,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Northern Operations → Coeur d'Alene | General Contractor Coeur d'Alene ID | MH Construction",
       metaDescription:
-        "Veteran-Owned GC serving Coeur d'Alene ID. Commercial, resort & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Coeur d'Alene ID. Commercial, resort & government construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Northern Operations Coeur d'Alene Idaho construction",
         "general contractor Coeur d'Alene ID",
@@ -750,7 +750,7 @@ export const locations: Record<string, LocationData> = {
       title:
         "Remote Station → Omak | General Contractor Omak WA | MH Construction",
       metaDescription:
-        "Veteran-Owned GC serving Omak WA. Commercial, agricultural & community construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
+        "Founded 2010, Veteran-Owned Since January 2025 GC serving Omak WA. Commercial, agricultural & community construction with disciplined execution. Licensed WA, OR, ID. Call (509) 308-6489.",
       keywords: [
         "Remote Station Omak Washington construction",
         "general contractor Omak WA",

@@ -382,7 +382,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     title:
       "Operations → Services | The Battle Plan - Strategic Construction Excellence",
     description:
-      "Commercial construction, master planning, tenant improvements, light industrial & government projects. Veteran-owned, Tri-Cities WA. Licensed WA, OR, ID. Transparent pricing.",
+      "Commercial construction, master planning, tenant improvements, light industrial & government projects. Founded 2010, Veteran-Owned Since January 2025. Tri-Cities WA. Licensed WA, OR, ID. Transparent pricing.",
     keywords: [
       "commercial construction Tri-Cities WA",
       "master planning preconstruction services",
@@ -480,7 +480,7 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
     url: teamUrl,
     name: "Chain of Command → Our Team | MH Construction",
     description:
-      "Meet the MH Construction team: 150+ years combined expertise across all service branches. Veteran-owned leadership serving Tri-Cities WA and Pacific Northwest.",
+      "Meet the MH Construction team: 150+ years combined expertise across all service branches. Founded 2010, Veteran-Owned Since January 2025. Serving Tri-Cities WA and the Pacific Northwest.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     breadcrumb: { "@id": `${teamUrl}#breadcrumb` },
@@ -578,7 +578,7 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/veterans`,
     name: "Allied Forces → Veterans | MH Construction",
     description:
-      "Veteran-owned Tri-Cities construction firm with Army & Navy leadership. Combat Veteran Discount, 100% veteran hiring priority & apprenticeships. Pasco, WA.",
+      "Tri-Cities construction firm founded 2010, Veteran-Owned Since January 2025, with Army & Navy leadership. Combat Veteran Discount, 100% veteran hiring priority & apprenticeships. Pasco, WA.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -596,14 +596,14 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
     title:
       "Allied Forces → Veterans | Combat Veteran Discount, Year-Round Support",
     description:
-      "Veteran-owned Tri-Cities construction firm with Army & Navy leadership. Combat Veteran Discount, 100% veteran hiring priority & apprenticeships. Pasco, WA.",
+      "Tri-Cities construction firm founded 2010, Veteran-Owned Since January 2025, with Army & Navy leadership. Combat Veteran Discount, 100% veteran hiring priority & apprenticeships. Pasco, WA.",
     keywords: [
       "veteran-owned construction Tri-Cities",
       "combat veteran discount",
       "veteran hiring priority",
       "Army Navy veteran leadership",
       "veteran apprenticeship programs",
-      "veteran-owned subcontractors",
+      "veteran-owned Trade Partners",
       "Pacific Northwest veteran contractor",
       "Group 1 Veteran Foundation",
       "disciplined execution construction",
@@ -634,7 +634,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/allies`,
     name: "Allies → Partners | MH Construction",
     description:
-      "Join MH Construction's trade partner network. Trusted vendors include Diamond Electric, Mustang Signs, Bagley Landscape Construction, McKinney Glass, Dupree Building Specialties, D-Fence Fencing, IWI Insulation, Viking Plumbing & Mechanical, and Core Cabinet Production.",
+      "Join MH Construction's Trade Partner network. Founded 2010, Veteran-Owned Since January 2025. Trusted Trade Partners include Diamond Electric, Mustang Signs, Bagley Landscape Construction, McKinney Glass, Dupree Building Specialties, D-Fence Fencing, IWI Insulation, Viking Plumbing & Mechanical, and Core Cabinet Production.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -675,7 +675,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Mustang Signs",
       description:
-        "Primary signage vendor for MH Construction. Full-service custom signage, vehicle wraps, exterior & interior signage, digital signage, LED retrofitting, print solutions, and professional installation.",
+        "Primary signage Trade Partner for MH Construction. Full-service custom signage, vehicle wraps, exterior & interior signage, digital signage, LED retrofitting, print solutions, and professional installation.",
       telephone: "(509) 735-4607",
       email: "info@mustangsigns.com",
       address: {
@@ -741,7 +741,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Dupree Building Specialties",
       description:
-        "Primary building specialties vendor for MH Construction. CSI Division 7–12 products: roof accessories, commercial doors, skylights, access flooring, visual displays, lockers, partitions, athletic equipment, window shades. Spokane WA.",
+        "Primary building specialties Trade Partner for MH Construction. CSI Division 7–12 products: roof accessories, commercial doors, skylights, access flooring, visual displays, lockers, partitions, athletic equipment, window shades. Spokane WA.",
       telephone: "509.484.2000",
       email: "info@dupreebldg.com",
       address: {
@@ -833,7 +833,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Core Cabinet Production",
       description:
-        "Primary cabinetry vendor for MH Construction. Custom-designed and in-house fabricated kitchen, bathroom, home office, closet, storage, and commercial office cabinets. Richland WA.",
+        "Primary cabinetry Trade Partner for MH Construction. Custom-designed and in-house fabricated kitchen, bathroom, home office, closet, storage, and commercial office cabinets. Richland WA.",
       telephone: "(509) 375-7900",
       email: "admin@corecabinetproduction.com",
       address: {
@@ -871,9 +871,9 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     // Title leads with the search-intent keyword phrase, then brand tagline
     title:
-      "Trade Partner Opportunities | Allied Vendor Network | MH Construction",
+      "Trade Partner Opportunities | Allied Trade Partner Network | MH Construction",
     description:
-      "MH Construction's trusted vendor network: Diamond Electric, Mustang Signs, Bagley Landscape Construction, McKinney Glass, Dupree Building Specialties, D-Fence Fencing, IWI Insulation, Viking Plumbing & Mechanical, Core Cabinet Production, High Desert Drywall. Subcontractor opportunities with a veteran-owned Pacific Northwest GC.",
+      "MH Construction's trusted Trade Partner network: Diamond Electric, Mustang Signs, Bagley Landscape Construction, McKinney Glass, Dupree Building Specialties, D-Fence Fencing, IWI Insulation, Viking Plumbing & Mechanical, Core Cabinet Production, High Desert Drywall. Subcontractor opportunities with a Pacific Northwest GC founded 2010, Veteran-Owned Since January 2025.",
     keywords: [
       "construction subcontractor opportunities Tri-Cities WA",
       "trade partner network Pacific Northwest",
@@ -888,7 +888,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "Viking Plumbing Mechanical Yakima WA plumbing contractor",
       "Core Cabinet Production Richland WA custom cabinets",
       "High Desert Drywall drywall contractor Pacific Northwest",
-      "MH Construction vendor partners",
+      "MH Construction Trade Partner network",
       "subcontractor opportunities Richland Kennewick Pasco Yakima Spokane",
       "construction digital handshake subcontractor",
       "Benton County Franklin County Yakima County trade partners",
@@ -905,7 +905,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
         "@id": `${enhancedSEO.siteUrl}/allies#vendorlist`,
         name: "MH Construction Ally Network — Primary Trade Partners",
         description:
-          "Vetted trade partners who serve as primary vendors on MH Construction projects across the Pacific Northwest.",
+          "Vetted Trade Partners serving as primary partners on MH Construction projects across the Pacific Northwest.",
         numberOfItems: vendorSchemas.length,
         itemListElement: vendorSchemas.map((v, i) => ({
           "@type": "ListItem",
@@ -943,7 +943,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
             name: "What are the benefits of being an MH Construction Ally?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Allies receive consistent project volume, prompt payment, and a collaborative partnership with a veteran-owned GC that has a .64 EMR safety rating and 70% repeat/referral business. THE ROI IS THE RELATIONSHIP.",
+              text: "Allies receive consistent project volume, prompt payment, and a collaborative partnership with a GC founded 2010 and Veteran-Owned Since January 2025, with a .64 EMR safety rating and 70% repeat/referral business. THE ROI IS THE RELATIONSHIP.",
             },
           },
         ],
@@ -1006,7 +1006,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/careers`,
     name: "Enlist → Careers | MH Construction",
     description:
-      "Build your future with a veteran-owned Tri-Cities construction team. General career inquiries welcome — Honesty, Integrity, Professionalism, Thoroughness. Veterans prioritized.",
+      "Build your future with a Tri-Cities construction team. Founded 2010, Veteran-Owned Since January 2025. General career inquiries welcome — Honesty, Integrity, Professionalism, Thoroughness. Veterans prioritized.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -1023,7 +1023,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: "Enlist → Careers | Build Your Future with MH Construction",
     description:
-      "Build your future with a veteran-owned Tri-Cities construction team. General career inquiries welcome — Honesty, Integrity, Professionalism, Thoroughness. Veterans prioritized.",
+      "Build your future with a Tri-Cities construction team. Founded 2010, Veteran-Owned Since January 2025. General career inquiries welcome — Honesty, Integrity, Professionalism, Thoroughness. Veterans prioritized.",
     keywords: [
       "Enlist Careers build your future MH Construction",
       "join the mission construction career",
@@ -1249,7 +1249,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/contact`,
     name: "Rally Point → Contact | MH Construction",
     description:
-      "Get a free consultation with MH Construction — veteran-owned general contractor in Pasco, WA. Serving the Tri-Cities & Pacific Northwest. Call (509) 308-6489.",
+      "Get a free consultation with MH Construction — founded 2010, Veteran-Owned Since January 2025. General contractor in Pasco, WA serving the Tri-Cities & Pacific Northwest. Call (509) 308-6489.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -1267,7 +1267,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     title:
       "Rally Point → Contact | Your Project. Our Expertise. Let's Connect.",
     description:
-      "Get a free consultation with MH Construction — veteran-owned general contractor in Pasco, WA. Serving the Tri-Cities & Pacific Northwest. Call (509) 308-6489.",
+      "Get a free consultation with MH Construction — founded 2010, Veteran-Owned Since January 2025. General contractor in Pasco, WA serving the Tri-Cities & Pacific Northwest. Call (509) 308-6489.",
     keywords: [
       "Rally Point Contact mission brief",
       "SITREP-level clarity consultation",
@@ -1299,7 +1299,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/faq`,
     name: "Intel Brief → FAQ | MH Construction",
     description:
-      "Veteran-owned Pacific Northwest construction FAQ. Open-book pricing, 0.64 EMR safety, Design-Build, PEMB metal buildings, and free consultation. Serving Tri-Cities, Yakima, Spokane, Walla Walla, and more.",
+      "Pacific Northwest construction FAQ from MH Construction. Founded 2010, Veteran-Owned Since January 2025. Open-book pricing, 0.64 EMR safety, Design-Build, PEMB metal buildings, and free consultation. Serving Tri-Cities, Yakima, Spokane, Walla Walla, and more.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -1317,7 +1317,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
     title:
       "Intel Brief → FAQ | Direct Answers. Clear Guidance. Mission-Ready Information.",
     description:
-      "Veteran-owned Pacific Northwest construction FAQ. Open-book pricing, 0.64 EMR safety, Design-Build, PEMB metal buildings, and free consultation. Serving Tri-Cities, Yakima, Spokane, Walla Walla, and more.",
+      "Pacific Northwest construction FAQ from MH Construction. Founded 2010, Veteran-Owned Since January 2025. Open-book pricing, 0.64 EMR safety, Design-Build, PEMB metal buildings, and free consultation. Serving Tri-Cities, Yakima, Spokane, Walla Walla, and more.",
     keywords: [
       "Intel Brief FAQ mission intelligence",
       "direct answers construction guidance",

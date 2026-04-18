@@ -182,7 +182,7 @@ describe("ContactPageClient", () => {
       /explore services/i,
     );
     expect(getLinkByHref("/allies")).toHaveAccessibleName(
-      /apply as approved vendor/i,
+      /apply as approved trade partner/i,
     );
     expect(getLinkByHref("/allies#benefits")).toHaveAccessibleName(
       /view ally benefits/i,
