@@ -1,17 +1,17 @@
 # MH Construction Safety Program Guide
 
 **Path:** `docs/technical/safety-program-guide.md`
-**Last Updated:** April 17, 2026
-**Version:** 1.1.0
-**Safety Program Revision:** Rev 2 — Effective 04/07/2026
+**Last Updated:** April 18, 2026
+**Version:** 1.2.0
+**Safety Program Revision:** Rev 3 — Effective 04/07/2026
 **Status:** ✅ Active
 
 ---
 
 ## Overview
 
-MH Construction's **Safety Program** is a comprehensive 45-section written safety
-program (Section 00 = Table of Contents, Sections 01–44 = content) covering all
+MH Construction's **Safety Program** is a comprehensive 50-section written safety
+program (Section 00 = Table of Contents, Sections 01–49 = content) covering all
 OSHA-required construction safety standards.
 
 This guide documents:
@@ -22,8 +22,8 @@ This guide documents:
 - Website integration points
 - Version history
 
-**Current Version:** Revision 2 | **Effective Date:** April 7, 2026
-**Total Sections:** 45 (00–44) | **Total Pages:** ~350 (formatted output)
+**Current Version:** Revision 3 | **Effective Date:** April 7, 2026
+**Total Sections:** 50 (00–49) | **Total Pages:** ~350 (formatted output)
 **Source Files:** Word (.docx) source library (MISH sections)
 
 ### Canonical Naming
@@ -51,7 +51,7 @@ revision has been reviewed against the applicable state rules.
 
 ## System Architecture
 
-> Alignment note (April 17, 2026): follow `docs/project/operational-hub-congruent-plan.md` as source of truth for route/auth sequencing. `/hub` is canonical staff access; `/safety/hub` remains backward-compatible until redirect cutover completes.
+> Alignment note (April 18, 2026): follow `docs/project/operational-hub-congruent-plan.md` as source of truth for route/auth sequencing. `/hub` is canonical staff access; `/safety/hub` now serves as an active backward-compat redirect to `/hub`.
 
 ### Two Audiences, Three Entry Points
 
@@ -68,10 +68,10 @@ documents/content/safety-manual-word/               ← Root folder for versione
 documents/content/safety-manual-word/<version-dir>/ ← Drop new .docx MISH sections here
            │
            ▼  npm run docs:extract-word
-documents/content/safety-manual.json                ← Auto-generated manifest (45 sections)
+documents/content/safety-manual.json                ← Auto-generated manifest (50 sections)
            │
            ▼  npm run docs:generate + npm run docs:generate:forms
-documents/output/sections/                          ← 44 generated PDFs served to field staff
+documents/output/sections/                          ← 50 generated PDFs served to field staff
 documents/output/forms/                             ← Generated form PDFs
            │
            ▼  npm run docs:merge + R2 publish
@@ -122,7 +122,7 @@ documents/
 │   ├── safety-manual-cover.html     ← 3-ring binder cover template
 │   ├── safety-manual-section.html   ← Individual section page template
 │   ├── safety-manual-spine.html     ← Spine label template
-│   └── safety-manual-tabs.html      ← Tab divider templates (44 tabs)
+│   └── safety-manual-tabs.html      ← Tab divider templates (50 tabs)
 ├── output/
 │   ├── safety-manual-cover.pdf
 │   ├── safety-manual-spine.pdf
@@ -141,55 +141,16 @@ documents/
 
 ---
 
-## 45-Section Inventory
+## Program Section Inventory (Authoritative Source)
 
-| #   | Title                                                 | Pages | Category                    | OSHA Reference   | Priority  |
-| --- | ----------------------------------------------------- | ----- | --------------------------- | ---------------- | --------- |
-| 00  | Table of Contents                                     | 2     | Planning & Administration   | —                | Reference |
-| 01  | Injury-Free Workplace Plan                            | 8     | Personnel & Policy          | 29 CFR 1926.20   | Required  |
-| 02  | Drug-Free Workplace                                   | 6     | Personnel & Policy          | 29 CFR 1926.23   | Required  |
-| 03  | Program Policy and Requirements                       | 5     | Personnel & Policy          | 29 CFR 1926.20   | Required  |
-| 04  | Safety and Health Orientation                         | 7     | Personnel & Policy          | 29 CFR 1926.21   | Required  |
-| 05  | Pre-Job Safety Planning                               | 6     | Planning & Administration   | 29 CFR 1926.20   | Required  |
-| 06  | Emergency Response                                    | 9     | Planning & Administration   | 29 CFR 1926.35   | Required  |
-| 07  | Safety Bulletin Boards                                | 3     | Planning & Administration   | 29 CFR 1903.2    | Required  |
-| 08  | Event Reporting of Incidents, Accidents & Near Misses | 8     | Planning & Administration   | 29 CFR 1904      | Required  |
-| 09  | Safety and Health Meetings / Inspections              | 5     | Planning & Administration   | 29 CFR 1926.20   | Required  |
-| 10  | Personal Protective Equipment (PPE)                   | 10    | Equipment & Operations      | 29 CFR 1926.95   | Field     |
-| 11  | Fall Protection                                       | 12    | Physical Hazards            | 29 CFR 1926.502  | Required  |
-| 12  | Flammable and Combustible Liquids                     | 7     | Physical Hazards            | 29 CFR 1926.152  | Field     |
-| 13  | Fire Prevention                                       | 8     | Physical Hazards            | 29 CFR 1926.150  | Required  |
-| 14  | Welding, Cutting, and Heating Operations              | 9     | Equipment & Operations      | 29 CFR 1926.350  | Field     |
-| 15  | Lockout / Tagout (LOTO)                               | 11    | Equipment & Operations      | 29 CFR 1910.147  | Required  |
-| 16  | Confined Space Entry                                  | 10    | Physical Hazards            | 29 CFR 1926.1200 | Required  |
-| 17  | Use and Care of Ladders                               | 6     | Equipment & Operations      | 29 CFR 1926.1053 | Field     |
-| 18  | Motor Vehicle Safety Program                          | 7     | Site Control & Environment  | 29 CFR 1926.600  | Required  |
-| 19  | Equipment Maintenance and Inspection                  | 8     | Equipment & Operations      | 29 CFR 1926.20   | Field     |
-| 20  | Aerial Lifts and Elevating Work Platforms             | 9     | Equipment & Operations      | 29 CFR 1926.453  | Field     |
-| 21  | Crane-Suspended Work Platforms                        | 7     | Equipment & Operations      | 29 CFR 1926.1431 | Field     |
-| 22  | Use and Handling of Scaffolds                         | 11    | Equipment & Operations      | 29 CFR 1926.451  | Field     |
-| 23  | Industrial Hygiene Program                            | 8     | Health & Industrial Hygiene | 29 CFR 1926.55   | Required  |
-| 24  | Contractor Hazard Communication Program               | 9     | Health & Industrial Hygiene | 29 CFR 1926.59   | Required  |
-| 25  | Heat-Related Illness Prevention                       | 7     | Physical Hazards            | 29 CFR 1926.51   | Field     |
-| 26  | Excavation, Trenching, and Shoring                    | 10    | Physical Hazards            | 29 CFR 1926.652  | Field     |
-| 27  | Construction Equipment Modifications and Fabrications | 5     | Equipment & Operations      | 29 CFR 1926.20   | Reference |
-| 28  | Housekeeping                                          | 4     | Site Control & Environment  | 29 CFR 1926.25   | Field     |
-| 29  | Electrical Safety                                     | 10    | Physical Hazards            | 29 CFR 1926.400  | Required  |
-| 30  | Signs, Signals, and Barricades                        | 6     | Site Control & Environment  | 29 CFR 1926.200  | Field     |
-| 31  | Miscellaneous Construction Requirements               | 8     | Health & Industrial Hygiene | 29 CFR 1926      | Reference |
-| 32  | Respiratory Protection                                | 9     | Health & Industrial Hygiene | 29 CFR 1926.103  | Required  |
-| 33  | Floor Openings, Open-Sided Surfaces, and Ramps        | 7     | Physical Hazards            | 29 CFR 1926.502  | Field     |
-| 34  | Compressed Gas / Compressed Air                       | 6     | Equipment & Operations      | 29 CFR 1926.350  | Field     |
-| 35  | Rigging                                               | 10    | Equipment & Operations      | 29 CFR 1926.251  | Field     |
-| 36  | Hand and Portable Power Tools                         | 7     | Equipment & Operations      | 29 CFR 1926.300  | Field     |
-| 37  | Concrete and Masonry Construction                     | 8     | Equipment & Operations      | 29 CFR 1926.701  | Field     |
-| 38  | Commercial Drivers Drug and Alcohol Program           | 9     | Personnel & Policy          | 49 CFR Part 382  | Required  |
-| 39  | Subcontractor Management Plan                         | 7     | Planning & Administration   | 29 CFR 1926.20   | Required  |
-| 40  | Waste Management Plan                                 | 5     | Planning & Administration   | 29 CFR 1926.25   | Required  |
-| 41  | Short Service Employee Program                        | 6     | Personnel & Policy          | 29 CFR 1926.21   | Required  |
-| 42  | Forklift / Truck Safety                               | 8     | Equipment & Operations      | 29 CFR 1910.178  | Field     |
-| 43  | Bloodborne Pathogens                                  | 7     | Health & Industrial Hygiene | 29 CFR 1910.1030 | Required  |
-| 44  | Silica Exposure Control                               | 9     | Health & Industrial Hygiene | 29 CFR 1926.1153 | Required  |
+The current MISH inventory is **50 sections (00-49)** for Revision 3.
+
+To avoid documentation drift, the authoritative section catalog lives in code and generated manifests:
+
+- `src/lib/data/documents.ts` (`manuals` -> `safety-manual` -> `sections`)
+- `documents/content/safety-manual.json` (generated extraction output)
+
+Use those sources for current section titles, priorities, and OSHA references rather than maintaining a duplicated static table in this guide.
 
 **Priority Legend:**
 
@@ -342,7 +303,7 @@ npm run type-check && npm run lint && npm run build
 | `npm run docs:all`                                                   | Generate manual PDFs + form PDFs, then merge complete manuals             |
 | `node documents/scripts/generate.mjs --template cover`               | Cover page only                                                           |
 | `node documents/scripts/generate.mjs --template spine`               | Spine label only                                                          |
-| `node documents/scripts/generate.mjs --template tabs`                | All 44 tab dividers                                                       |
+| `node documents/scripts/generate.mjs --template tabs`                | All 50 tab dividers                                                       |
 | `node documents/scripts/generate.mjs --template sections`            | All 44 section PDFs                                                       |
 | `node documents/scripts/generate.mjs --template section --section N` | Single section N                                                          |
 | `node documents/scripts/generate.mjs --template toolbox-talk`        | Toolbox talk form PDF (if `documents/forms/toolbox-talk.html` exists)     |
@@ -422,9 +383,9 @@ Do **not** reuse folder names. Keep old version directories as historical archiv
 
 ## Version History
 
-| Revision | Effective Date | Sections   | Description                                                                                                                        | Updated By |
-| -------- | -------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| Rev 2    | 04/07/2026     | 45 (00–44) | Initial digital program; 45 sections extracted into the digital manifest; field hub, digital forms, and download tracking deployed | Jeremy     |
+| Revision | Effective Date | Sections   | Description                                                                                                                                                      | Updated By |
+| -------- | -------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| Rev 3    | 04/07/2026     | 50 (00–49) | Current digital program baseline; 50 sections extracted into the digital manifest with field hub workflows, expanded forms library, and download/access tracking | Jeremy     |
 
 ---
 

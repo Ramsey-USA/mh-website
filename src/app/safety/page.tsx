@@ -36,7 +36,7 @@ const SITE_URL = "https://www.mhc-gc.com";
 export const metadata: Metadata = withGeoMetadata({
   title: "MISH Safety Program | Zero-Incident Culture | MH Construction",
   description:
-    "MH Construction's MISH Industrial Safety & Health Program: 0.64 EMR rating (40% below industry average), 50-section program built on the AGC Accident Prevention Program (APP) framework, compliant with OSHA 29 CFR 1926, WISHA/L&I (WA), OAR (OR), and IDAPA (ID). AGC-WA Top EMR Award winner. Daily toolbox talks, JHA, incident reporting.",
+    "MH Construction's written safety program (MISH): 0.64 EMR rating (40% below industry average), aligned with OSHA 29 CFR 1926, AGC CSEA prequalification expectations, and applicable WA/OR/ID requirements. AGC-WA Top EMR Award winner. Daily toolbox talks, JHA, and incident reporting.",
   keywords: [
     "MISH industrial safety health program",
     "MH Construction safety program",
@@ -67,7 +67,7 @@ export const metadata: Metadata = withGeoMetadata({
   openGraph: {
     title: "Safety Program | Zero-Incident Culture | MH Construction",
     description:
-      "Award-winning safety: 0.64 EMR rating, 50-section OSHA program, AGC-WA Top EMR Award. Daily toolbox talks, JHA, inspections. Veteran-Owned contractor.",
+      "Award-winning safety: 0.64 EMR rating, written program aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Daily toolbox talks, JHA, inspections. Veteran-Owned contractor.",
     url: `${SITE_URL}/safety`,
     siteName: "MH Construction",
     type: "website",
@@ -87,7 +87,7 @@ export const metadata: Metadata = withGeoMetadata({
     creator: "@mhc_gc",
     title: "MISH Safety Program | MH Construction",
     description:
-      "0.64 EMR rating. 50-section MISH program (AGC APP framework). OSHA + WA/OR/ID compliant. AGC-WA Top EMR Award winner.",
+      "0.64 EMR rating. Written safety program aligned with OSHA + WA/OR/ID requirements and AGC CSEA expectations. AGC-WA Top EMR Award winner.",
     images: [`${SITE_URL}/images/safety/safety-culture.webp`],
   },
   robots: {
@@ -179,7 +179,7 @@ const safetySchema = {
   "@id": `${SITE_URL}/safety#service`,
   name: "MISH — MH Construction Industrial Safety & Health Program",
   description:
-    "MH Construction's 50-section MISH Industrial Safety & Health Program (MISH) — built on the AGC Accident Prevention Program (APP) framework. 0.64 EMR rating, OSHA 29 CFR 1926 aligned, WISHA/L&I (WA), OAR (OR), and IDAPA (ID) compliant. AGC-WA Top EMR Award winner.",
+    "MH Construction's written Safety Program (MISH) with 0.64 EMR performance, aligned with OSHA 29 CFR 1926, AGC CSEA expectations, and applicable WA/OR/ID requirements. AGC-WA Top EMR Award winner.",
   provider: {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
@@ -248,39 +248,6 @@ const safetySchema = {
   },
 };
 
-const CREDENTIAL_STATS = [
-  {
-    value: "0.64",
-    label: "EMR Rating",
-    sub: "40% below industry avg",
-    icon: "trending_down",
-  },
-  {
-    value: "50",
-    label: "OSHA Sections",
-    sub: "29 CFR 1926",
-    icon: "menu_book",
-  },
-  {
-    value: "AGC-WA",
-    label: "Top EMR Awards",
-    sub: "Multiple consecutive",
-    icon: "workspace_premium",
-  },
-  {
-    value: "100%",
-    label: "Compliant",
-    sub: "All regulatory standards",
-    icon: "verified",
-  },
-  {
-    value: "Rev 3",
-    label: "Written Program",
-    sub: "Updated 04/07/2026",
-    icon: "shield",
-  },
-] as const;
-
 const EVIDENCE_CARDS = [
   {
     icon: "record_voice_over",
@@ -310,6 +277,45 @@ export default function SafetyPage() {
   const revisionDate = doc?.revisionDate ?? "04/07/2026";
   const manualHref =
     doc?.pdfPath ?? "/resources/safety-program#manual-downloads";
+  const programSectionCount = doc?.sections?.length ?? doc?.totalSections ?? 50;
+  const firstSectionNumber = doc?.sections?.[0]?.number ?? "00";
+  const lastSectionNumber =
+    doc?.sections?.at(-1)?.number ??
+    String(Math.max(programSectionCount - 1, 0)).padStart(2, "0");
+  const programSectionRange = `${firstSectionNumber}-${lastSectionNumber}`;
+
+  const credentialStats = [
+    {
+      value: "0.64",
+      label: "EMR Rating",
+      sub: "40% below industry avg",
+      icon: "trending_down",
+    },
+    {
+      value: String(programSectionCount),
+      label: "Written Sections",
+      sub: `MISH ${programSectionRange}`,
+      icon: "menu_book",
+    },
+    {
+      value: "AGC-WA",
+      label: "Top EMR Awards",
+      sub: "Multiple consecutive",
+      icon: "workspace_premium",
+    },
+    {
+      value: "100%",
+      label: "Compliant",
+      sub: "OSHA + state requirements",
+      icon: "verified",
+    },
+    {
+      value: `Rev ${revisionNumber}`,
+      label: "Written Program",
+      sub: `Updated ${revisionDate}`,
+      icon: "shield",
+    },
+  ] as const;
 
   return (
     <>
@@ -365,7 +371,7 @@ export default function SafetyPage() {
               </span>
               <span className="block text-white/60">|</span>
               <span className="block text-brand-primary-light">
-                0.64 EMR · 50-Section OSHA Program
+                {`0.64 EMR · ${programSectionCount}-Section Written Program`}
               </span>
               <span className="block text-white/60">|</span>
               <span className="block text-white/90">
@@ -405,7 +411,7 @@ export default function SafetyPage() {
                 Safety Credentials and Performance Metrics
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-                {CREDENTIAL_STATS.map(({ value, label, sub, icon }) => (
+                {credentialStats.map(({ value, label, sub, icon }) => (
                   <div
                     key={label}
                     className="group flex flex-col items-center text-center bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-3xl p-5 sm:p-6 lg:p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
@@ -418,7 +424,7 @@ export default function SafetyPage() {
                     <span className="text-2xl sm:text-3xl font-black text-white leading-none">
                       {value}
                     </span>
-                    <span className="text-sm font-bold text-brand-secondary mt-1">
+                    <span className="text-sm font-bold text-white/90 mt-1">
                       {label}
                     </span>
                     <span className="text-xs text-white/60 mt-0.5">{sub}</span>
@@ -620,7 +626,7 @@ export default function SafetyPage() {
                     review.
                   </p>
                   <a
-                    href="/safety/hub"
+                    href="/hub"
                     className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white font-bold px-5 py-2.5 rounded-xl transition-colors text-sm shadow"
                   >
                     <MaterialIcon icon="open_in_new" size="sm" />
@@ -671,18 +677,17 @@ export default function SafetyPage() {
                 <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
                   The{" "}
                   <strong className="text-gray-900 dark:text-white">
-                    MH Construction Industrial Safety &amp; Health Program
-                    (MISH)
+                    MH Construction Safety Program (MISH)
                   </strong>{" "}
-                  is a fully authored, actively enforced, 50-section written
-                  safety program built on the{" "}
+                  is a fully authored, actively enforced,{" "}
+                  {`${programSectionCount}-section`} written safety program
+                  aligned with{" "}
                   <strong className="text-gray-900 dark:text-white">
-                    AGC Accident Prevention Program (APP)
+                    OSHA 29 CFR 1926 and AGC CSEA expectations
                   </strong>{" "}
-                  framework. MISH ensures MHC standards meet and exceed
-                  OSHA&nbsp;29&nbsp;CFR&nbsp;1926, WISHA/L&amp;I (WA), OAR (OR),
-                  and IDAPA (ID) state regulations. Aligned with
-                  AGC-WA&nbsp;Contractor Safety Evaluation (CSEA) criteria.
+                  while supporting applicable WISHA/L&amp;I (WA), OAR (OR), and
+                  IDAPA (ID) requirements. Legacy AGC APP references are
+                  preserved in source material for continuity.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mb-8 text-sm">
@@ -692,7 +697,7 @@ export default function SafetyPage() {
                       label: `Revision ${revisionNumber} — ${revisionDate}`,
                     },
                     { icon: "gpp_good", label: "OSHA 29 CFR 1926 Aligned" },
-                    { icon: "verified", label: "AGC APP Framework" },
+                    { icon: "verified", label: "AGC CSEA Aligned" },
                     {
                       icon: "map",
                       label: "WISHA (WA) · OAR (OR) · IDAPA (ID)",
@@ -750,7 +755,7 @@ export default function SafetyPage() {
                       />
                     </div>
                     <div>
-                      <p className="text-sm text-brand-secondary font-semibold uppercase tracking-wider">
+                      <p className="text-sm text-white/90 font-semibold uppercase tracking-wider">
                         Program At a Glance
                       </p>
                     </div>
@@ -759,7 +764,7 @@ export default function SafetyPage() {
                     {[
                       {
                         term: "Total Sections",
-                        def: "44 (including all OSHA-required)",
+                        def: `${programSectionCount} (${programSectionRange})`,
                       },
                       {
                         term: "Current Revision",
@@ -767,7 +772,7 @@ export default function SafetyPage() {
                       },
                       {
                         term: "Framework",
-                        def: "AGC Accident Prevention Program (APP)",
+                        def: "OSHA 29 CFR 1926 + AGC CSEA alignment",
                       },
                       {
                         term: "Standards",
@@ -1090,7 +1095,7 @@ export default function SafetyPage() {
           </div>
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
             <div>
-              <p className="text-brand-secondary text-sm font-semibold uppercase tracking-wider mb-1">
+              <p className="text-white/90 text-sm font-semibold uppercase tracking-wider mb-1">
                 Field Superintendents
               </p>
               <h2 className="text-2xl sm:text-3xl font-black text-white mb-2">
@@ -1103,8 +1108,8 @@ export default function SafetyPage() {
               </p>
             </div>
             <Link
-              href="/safety/hub"
-              className="shrink-0 inline-flex items-center gap-2 bg-white text-brand-primary hover:bg-brand-secondary hover:text-white font-black px-8 py-4 rounded-2xl shadow-lg transition-all text-lg"
+              href="/hub"
+              className="shrink-0 inline-flex items-center gap-2 bg-white text-brand-primary hover:bg-brand-secondary-text hover:text-white font-black px-8 py-4 rounded-2xl shadow-lg transition-all text-lg"
             >
               <MaterialIcon icon="lock_open" size="md" />
               Staff Sign In

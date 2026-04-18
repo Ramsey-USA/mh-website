@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/forms/Input";
 import { Button } from "@/components/ui/base/button";
 import { logger } from "@/lib/utils/logger";
 import { useDialogBehavior } from "@/hooks/useDialogBehavior";
+import { useLocale } from "@/hooks/useLocale";
 
 interface AdminSignInModalProps {
   isOpen: boolean;
@@ -20,6 +21,8 @@ interface AdminSignInModalProps {
  * Accessed through the private admin shortcut
  */
 export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
+  const locale = useLocale();
+  const isEs = locale === "es";
   const router = useRouter();
   const titleId = useId();
   const modalRef = useRef<HTMLDivElement>(null);
@@ -57,10 +60,17 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
         router.push("/dashboard");
         onClose();
       } else {
-        setError(data.error || "Invalid credentials");
+        setError(
+          data.error ||
+            (isEs ? "Credenciales inválidas" : "Invalid credentials"),
+        );
       }
     } catch (err) {
-      setError("Authentication failed. Please try again.");
+      setError(
+        isEs
+          ? "La autenticación falló. Inténtelo de nuevo."
+          : "Authentication failed. Please try again.",
+      );
       logger.error("Admin login error:", err);
     } finally {
       setIsSubmitting(false);
@@ -75,7 +85,9 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
         type="button"
         className="absolute inset-0 bg-black/80 backdrop-blur-sm"
         onClick={handleClose}
-        aria-label="Close admin sign-in modal"
+        aria-label={
+          isEs ? "Cerrar modal de acceso admin" : "Close admin sign-in modal"
+        }
       />
 
       <div
@@ -108,7 +120,7 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
                     />
                   </div>
                   <h2 id={titleId} className="text-2xl font-black">
-                    Admin Access
+                    {isEs ? "Acceso de administrador" : "Admin Access"}
                   </h2>
                 </div>
                 <button
@@ -120,7 +132,9 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
                 </button>
               </div>
               <p className="text-white/90 text-sm">
-                Restricted access for authorized personnel only
+                {isEs
+                  ? "Acceso restringido solo para personal autorizado"
+                  : "Restricted access for authorized personnel only"}
               </p>
             </div>
           </CardHeader>
@@ -146,7 +160,7 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
               <Input
                 id="admin-email"
                 type="email"
-                label="Email Address"
+                label={isEs ? "Correo electrónico" : "Email Address"}
                 autoFocus
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -158,7 +172,7 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
               <Input
                 id="admin-password"
                 type="password"
-                label="Password"
+                label={isEs ? "Contraseña" : "Password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -174,6 +188,7 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
                   className="flex-1"
                 >
                   Cancel
+                  {isEs ? "Cancelar" : "Cancel"}
                 </Button>
                 <Button
                   type="submit"
@@ -188,12 +203,12 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
                         size="sm"
                         className="animate-spin"
                       />
-                      Signing In...
+                      {isEs ? "Iniciando sesión..." : "Signing In..."}
                     </>
                   ) : (
                     <>
                       <MaterialIcon icon="login" size="sm" />
-                      Sign In
+                      {isEs ? "Iniciar sesión" : "Sign In"}
                     </>
                   )}
                 </Button>
@@ -209,8 +224,9 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
                   className="text-gray-600 mt-0.5"
                 />
                 <p className="text-xs text-gray-500 dark:text-gray-300">
-                  This is a secure administrative area. All access attempts are
-                  logged.
+                  {isEs
+                    ? "Esta es un área administrativa segura. Todos los intentos de acceso se registran."
+                    : "This is a secure administrative area. All access attempts are logged."}
                 </p>
               </div>
             </div>

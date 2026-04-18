@@ -37,7 +37,7 @@ export const metadata: Metadata = withGeoMetadata({
   title:
     "MISH Safety Program | Travelers & Bonding Agency Resource | MH Construction",
   description:
-    "MH Construction's MISH Industrial Safety & Health Program — 50 sections built on the AGC Accident Prevention Program (APP) framework. OSHA 29 CFR 1926, WISHA/L&I (WA), OAR (OR), and IDAPA (ID) compliant. 0.64 EMR rating, AGC-WA Top EMR Award. Full PDF downloads for Travelers, bonding agencies, and bid pre-qualification.",
+    "MH Construction's written Safety Program (MISH) for Travelers and bonding review: aligned with OSHA 29 CFR 1926, AGC CSEA expectations, and applicable WA/OR/ID requirements. 0.64 EMR rating, AGC-WA Top EMR Award, and full PDF downloads for bid pre-qualification.",
   keywords: [
     "MISH industrial safety health program",
     "MH Construction safety program",
@@ -67,7 +67,7 @@ export const metadata: Metadata = withGeoMetadata({
     title:
       "MISH Safety Program | Travelers & Bonding Resource | MH Construction",
     description:
-      "MISH — 50-section safety program (AGC APP framework). OSHA + WA/OR/ID compliant. 0.64 EMR. Full PDF downloads for bonding agencies, sureties, and owner pre-qualification.",
+      "MISH written safety program aligned with OSHA 29 CFR 1926, AGC CSEA expectations, and applicable WA/OR/ID requirements. 0.64 EMR. Full PDF downloads for bonding agencies, sureties, and owner pre-qualification.",
     url: `${SITE_URL}/resources/safety-program`,
     siteName: "MH Construction",
     type: "website",
@@ -87,7 +87,7 @@ export const metadata: Metadata = withGeoMetadata({
     creator: "@mhc_gc",
     title: "MISH Safety Program | MH Construction",
     description:
-      "MISH — 50-section OSHA-compliant safety program (AGC APP framework). 0.64 EMR rating. Ideal for Travelers, bonding, and bid pre-qualification.",
+      "MISH written safety program aligned with OSHA and AGC CSEA expectations. 0.64 EMR rating. Ideal for Travelers, bonding, and bid pre-qualification.",
     images: [`${SITE_URL}/images/safety/compliance.webp`],
   },
   robots: {
@@ -119,7 +119,7 @@ const safetyProgramSchema = {
   "@id": `${SITE_URL}/resources/safety-program#service`,
   name: "MISH — MH Construction Industrial Safety & Health Program",
   description:
-    "MH Construction's 50-section MISH Industrial Safety & Health Program — built on the AGC Accident Prevention Program (APP) framework. Available for Travelers, bonding agency review, and bid pre-qualification. OSHA 29 CFR 1926, WISHA/L&I (WA), OAR (OR), and IDAPA (ID) compliant.",
+    "MH Construction's written Safety Program (MISH) available for Travelers, bonding agency review, and bid pre-qualification. Aligned with OSHA 29 CFR 1926, AGC CSEA expectations, and applicable WISHA/L&I (WA), OAR (OR), and IDAPA (ID) requirements.",
   provider: {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
@@ -141,7 +141,8 @@ const safetyProgramSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Complete Safety Manual",
-          description: "50-section OSHA-compliant written safety program",
+          description:
+            "Written safety program with section-by-section downloads",
         },
       },
       {
@@ -226,8 +227,8 @@ const CREDENTIAL_CARDS = [
   },
   {
     icon: "verified",
-    label: "AGC APP Framework",
-    sub: "Accident Prevention Program",
+    label: "AGC CSEA Aligned",
+    sub: "Prequalification-ready safety criteria",
     colorClass: "text-brand-primary dark:text-brand-secondary",
     bgClass: "bg-brand-primary/8 dark:bg-brand-primary/20",
   },
@@ -268,12 +269,26 @@ const CREDENTIAL_CARDS = [
   },
 ];
 
+function hasPdfPath(
+  form: (typeof forms)[number],
+): form is (typeof forms)[number] & { pdfPath: string } {
+  return typeof form.pdfPath === "string" && form.pdfPath.length > 0;
+}
+
 export default function SafetyProgramPage() {
   const doc = getDocumentById("safety-manual")!;
   const sections = doc.sections ?? [];
   const requiredCount = sections.filter(
     (s) => s.priority === "required",
   ).length;
+  const revisionNumber = doc.revisionNumber ?? "3";
+  const revisionDate = doc.revisionDate ?? "04/07/2026";
+  const sectionCount = sections.length || doc.totalSections || 50;
+  const firstSectionNumber = sections[0]?.number ?? "00";
+  const lastSectionNumber =
+    sections.at(-1)?.number ??
+    String(Math.max(sectionCount - 1, 0)).padStart(2, "0");
+  const sectionRange = `${firstSectionNumber}-${lastSectionNumber}`;
 
   return (
     <>
@@ -284,7 +299,7 @@ export default function SafetyProgramPage() {
       <div className="bg-white dark:bg-gray-900 min-h-screen">
         {/* ── Hero Section ───────────────────────────────────────────────── */}
         <section
-          className="relative h-[70vh] min-h-[500px] flex items-end justify-start text-white overflow-hidden"
+          className="relative h-screen flex items-end justify-end text-white overflow-hidden"
           aria-labelledby="safety-program-hero-heading"
         >
           {/* Background photo */}
@@ -303,31 +318,34 @@ export default function SafetyProgramPage() {
           />
 
           {/* Hero content */}
-          <div className="relative z-30 mb-24 sm:mb-28 ml-4 sm:ml-6 lg:ml-12 max-w-3xl pointer-events-none pb-2">
-            <div className="flex justify-start mb-4">
-              <div className="relative p-4 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border-2 border-white/30 shadow-2xl">
-                <MaterialIcon
-                  icon="shield_lock"
-                  size="4xl"
-                  className="text-white drop-shadow-lg"
-                  ariaLabel="Safety Program Overview"
-                />
-              </div>
-            </div>
+          <div className="relative z-30 mb-24 sm:mb-28 md:mb-32 lg:mb-36 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-3xl pointer-events-none pb-2">
             <h1
               id="safety-program-hero-heading"
-              className="text-left text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed"
+              className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black text-white drop-shadow-2xl leading-tight tracking-tight"
             >
-              <span className="block text-brand-secondary-text text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                For Travelers Insurance &amp; Bonding Agencies
+              <span className="block text-brand-secondary/80 text-sm sm:text-base md:text-lg lg:text-xl font-normal mb-2">
+                Safety HQ → Program Documentation
+              </span>
+              <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
+                MISH — Travelers &amp; Bonding Resource Center
               </span>
               <span className="block text-brand-secondary">
-                MISH — Safety &amp; Health Program
+                Bid-Ready Safety Documentation
               </span>
+              <span className="block text-white/60">|</span>
+              <span className="block text-white/95">
+                OSHA 29 CFR 1926 + AGC CSEA Alignment
+              </span>
+              <span className="block text-white/60">|</span>
+              <span className="block text-brand-primary-light">
+                {`${sectionCount} Sections (${sectionRange}) · Rev ${revisionNumber}`}
+              </span>
+              <span className="block text-white/60">|</span>
               <span className="block text-white/90">
-                50 Sections.{" "}
+                Building safely for the Client Partner,
                 <span className="font-black italic text-brand-secondary">
-                  AGC APP Framework. Fully Documented.
+                  {" "}
+                  every day
                 </span>
               </span>
             </h1>
@@ -396,17 +414,17 @@ export default function SafetyProgramPage() {
                   <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed mb-4">
                     The{" "}
                     <strong className="text-gray-900 dark:text-white">
-                      MH Construction Industrial Safety &amp; Health Program
-                      (MISH)
+                      MH Construction Safety Program (MISH)
                     </strong>{" "}
-                    is a 50-section written safety program built on the{" "}
+                    is a {sectionCount}-section written safety program aligned
+                    with{" "}
                     <strong className="text-gray-900 dark:text-white">
-                      AGC Accident Prevention Program (APP)
+                      OSHA 29 CFR 1926 and AGC CSEA expectations
                     </strong>{" "}
-                    framework. MISH ensures MHC standards meet and exceed
-                    OSHA&nbsp;29&nbsp;CFR&nbsp;1926, WISHA/L&amp;I&nbsp;(WA),
-                    OAR&nbsp;(OR), and IDAPA&nbsp;(ID) state safety regulations
-                    — fully documented, actively enforced, and updated annually.
+                    while supporting applicable WISHA/L&amp;I&nbsp;(WA),
+                    OAR&nbsp;(OR), and IDAPA&nbsp;(ID) requirements. Legacy AGC
+                    APP references are preserved in historical source materials
+                    for continuity.
                   </p>
                   <p className="mx-auto max-w-3xl font-light text-gray-600 dark:text-gray-300 text-base leading-relaxed mb-8">
                     This page is the dedicated resource for{" "}
@@ -415,8 +433,8 @@ export default function SafetyProgramPage() {
                     </strong>
                     , bonding agencies, surety underwriters, and owner
                     pre-qualification programs to review MHC&apos;s complete
-                    safety documentation. All 50 MISH sections and field forms
-                    are available for direct PDF download below.
+                    safety documentation. All {sectionCount} program sections
+                    and field forms are available for direct PDF download below.
                   </p>
 
                   {/* Compliance badge strip */}
@@ -453,7 +471,11 @@ export default function SafetyProgramPage() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[
                   { value: "0.64", label: "EMR Rating", icon: "trending_down" },
-                  { value: "50", label: "OSHA Sections", icon: "layers" },
+                  {
+                    value: `${sectionCount}`,
+                    label: "Written Sections",
+                    icon: "layers",
+                  },
                   {
                     value: `${requiredCount}`,
                     label: "OSHA-Required",
@@ -473,7 +495,7 @@ export default function SafetyProgramPage() {
                     <span className="text-2xl sm:text-3xl font-black text-white leading-none">
                       {value}
                     </span>
-                    <span className="text-sm font-bold text-brand-secondary mt-1">
+                    <span className="text-sm font-bold text-white/90 mt-1">
                       {label}
                     </span>
                   </div>
@@ -517,26 +539,23 @@ export default function SafetyProgramPage() {
                   <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
                     Program Revision&nbsp;
                     <strong className="text-gray-900 dark:text-white">
-                      Rev 3 — {doc.revisionDate ?? "04/07/2026"}
+                      {`Rev ${revisionNumber} — ${revisionDate}`}
                     </strong>
-                    . Built on the{" "}
-                    <strong className="text-gray-900 dark:text-white">
-                      AGC Accident Prevention Program (APP)
-                    </strong>{" "}
-                    framework. Exceeds OSHA&nbsp;29&nbsp;CFR&nbsp;1926,
-                    WISHA/L&amp;I&nbsp;(WA), OAR&nbsp;437&nbsp;(OR), and
-                    IDAPA&nbsp;07.02.01&nbsp;(ID) requirements. All 50 sections
-                    are available below as individual PDF downloads. The
-                    complete merged manual is available via the button below.
+                    . Aligned with OSHA&nbsp;29&nbsp;CFR&nbsp;1926, AGC CSEA
+                    expectations, and applicable WISHA/L&amp;I&nbsp;(WA),
+                    OAR&nbsp;(OR), and IDAPA&nbsp;(ID) requirements. All{" "}
+                    {sectionCount} sections are available below as individual
+                    PDF downloads. The complete merged manual is available via
+                    the button below.
                   </p>
                   <div className="flex flex-wrap gap-2 text-xs">
                     {[
                       "OSHA 29 CFR 1926",
-                      "AGC APP Framework",
+                      "AGC CSEA Alignment",
                       "WISHA (WA)",
                       "OAR (OR)",
                       "IDAPA (ID)",
-                      `Rev 3 — ${doc.revisionDate ?? "04/07/2026"}`,
+                      `Rev ${revisionNumber} — ${revisionDate}`,
                     ].map((badge) => (
                       <span
                         key={badge}
@@ -559,15 +578,14 @@ export default function SafetyProgramPage() {
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                   {/* Text + buttons */}
                   <div className="flex-1 text-white min-w-0">
-                    <p className="text-xs font-bold uppercase tracking-wider text-brand-secondary mb-1">
+                    <p className="text-xs font-bold uppercase tracking-wider text-white/90 mb-1">
                       Complete Manual Download
                     </p>
                     <h3 className="text-xl sm:text-2xl font-bold mb-1">
                       MISH — Safety &amp; Health Program
                     </h3>
-                    <p className="text-brand-secondary-light text-sm opacity-90 mb-4">
-                      Cover + tab dividers + all 50 sections in one PDF ·
-                      Rev&nbsp;2 — {doc.revisionDate ?? "04/07/2026"}
+                    <p className="text-white/85 text-sm mb-4">
+                      {`Cover + tab dividers + all ${sectionCount} sections in one PDF · Rev ${revisionNumber} — ${revisionDate}`}
                     </p>
                     <div className="flex gap-3 flex-wrap">
                       <a
@@ -582,13 +600,13 @@ export default function SafetyProgramPage() {
                         href="/docs/safety/sections/00-table-of-contents.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-brand-secondary hover:bg-brand-secondary-light text-white font-bold px-5 py-2.5 rounded-xl transition-colors duration-200 text-sm"
+                        className="inline-flex items-center gap-2 bg-brand-secondary-text hover:bg-secondary-800 text-white font-bold px-5 py-2.5 rounded-xl transition-colors duration-200 text-sm"
                       >
                         <MaterialIcon icon="download" size="sm" />
                         Table of Contents (PDF)
                       </a>
                       <Link
-                        href="/safety"
+                        href="/hub"
                         className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200 text-sm border border-white/30"
                       >
                         <MaterialIcon icon="format_list_numbered" size="sm" />
@@ -622,7 +640,7 @@ export default function SafetyProgramPage() {
               <div>
                 <div className="mb-5">
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
-                    All 50 MISH Sections — Individual PDF Downloads
+                    {`All ${sectionCount} MISH Sections — Individual PDF Downloads`}
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Each section includes OSHA reference citations, state
@@ -649,37 +667,35 @@ export default function SafetyProgramPage() {
                   </p>
                 </div>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {forms
-                    .filter((f) => f.pdfPath)
-                    .map((form) => (
-                      <a
-                        key={form.id}
-                        href={form.pdfPath ?? "#"}
-                        download
-                        className="flex items-center gap-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-secondary rounded-xl px-4 py-3 transition-all group shadow-sm"
-                      >
-                        <div className="w-9 h-9 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors flex-shrink-0">
-                          <MaterialIcon
-                            icon={form.icon}
-                            size="sm"
-                            className="text-brand-primary group-hover:text-white transition-colors"
-                          />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-brand-primary transition-colors truncate">
-                            {form.title}
-                          </p>
-                          <p className="text-xs text-gray-400 dark:text-gray-500 truncate">
-                            {form.subtitle ?? form.description.slice(0, 60)}
-                          </p>
-                        </div>
+                  {forms.filter(hasPdfPath).map((form) => (
+                    <a
+                      key={form.id}
+                      href={form.pdfPath}
+                      download
+                      className="flex items-center gap-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-secondary rounded-xl px-4 py-3 transition-all group shadow-sm"
+                    >
+                      <div className="w-9 h-9 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors flex-shrink-0">
                         <MaterialIcon
-                          icon="download"
+                          icon={form.icon}
                           size="sm"
-                          className="text-gray-400 group-hover:text-brand-primary transition-colors flex-shrink-0"
+                          className="text-brand-primary group-hover:text-white transition-colors"
                         />
-                      </a>
-                    ))}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-brand-primary transition-colors truncate">
+                          {form.title}
+                        </p>
+                        <p className="text-xs text-gray-400 dark:text-gray-500 truncate">
+                          {form.subtitle ?? form.description}
+                        </p>
+                      </div>
+                      <MaterialIcon
+                        icon="download"
+                        size="sm"
+                        className="text-gray-400 group-hover:text-brand-primary transition-colors flex-shrink-0"
+                      />
+                    </a>
+                  ))}
                 </div>
               </div>
             </FadeInWhenVisible>
@@ -872,7 +888,7 @@ export default function SafetyProgramPage() {
             {/* Field Staff Hub callout */}
             <FadeInWhenVisible>
               <Link
-                href="/safety"
+                href="/hub"
                 className="group flex items-start sm:items-center gap-5 bg-gradient-to-r from-brand-primary/8 to-brand-primary/4 dark:from-brand-primary/20 dark:to-brand-primary/10 border border-brand-primary/25 dark:border-brand-primary/40 rounded-2xl p-5 sm:p-6 hover:border-brand-primary hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex-shrink-0 w-12 h-12 bg-brand-primary rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
@@ -887,7 +903,7 @@ export default function SafetyProgramPage() {
                     Field Staff
                   </p>
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
-                    Superintendent Safety Hub
+                    Field Safety Hub
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     Download safety manual sections, fill out Toolbox Talks, JHA

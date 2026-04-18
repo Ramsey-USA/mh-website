@@ -2,37 +2,46 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
+import {
+  DEFAULT_LOCALE,
+  LOCALE_COOKIE_NAME,
+  normalizeLocale,
+  SUPPORTED_LOCALES,
+  type SupportedLocale,
+} from "@/lib/i18n/locale";
 
-const SUPPORTED_LOCALES = ["en", "es"] as const;
-type Locale = (typeof SUPPORTED_LOCALES)[number];
-
-const LOCALE_LABELS: Record<Locale, string> = {
+const LOCALE_LABELS: Record<SupportedLocale, string> = {
   en: "EN",
   es: "ES",
 };
 
-function readLocaleCookie(): Locale {
-  if (typeof document === "undefined") return "en";
-  const match = document.cookie.match(/(?:^|;\s*)locale=([^;]+)/);
-  const raw = match?.[1] ?? "en";
-  return (SUPPORTED_LOCALES as readonly string[]).includes(raw)
-    ? (raw as Locale)
-    : "en";
+function readLocaleCookie(): SupportedLocale {
+  if (typeof document === "undefined") return DEFAULT_LOCALE;
+  const match = document.cookie.match(
+    new RegExp(`(?:^|;\\s*)${LOCALE_COOKIE_NAME}=([^;]+)`),
+  );
+  return normalizeLocale(match?.[1]);
 }
 
 export function LanguageToggle() {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
-  const [currentLocale, setCurrentLocale] = useState<Locale>("en");
+  const [currentLocale, setCurrentLocale] =
+    useState<SupportedLocale>(DEFAULT_LOCALE);
 
   useEffect(() => {
     setCurrentLocale(readLocaleCookie());
   }, []);
 
-  function switchLocale(next: Locale) {
+  function switchLocale(next: SupportedLocale) {
     if (next === currentLocale) return;
-    document.cookie = `locale=${next}; path=/; max-age=31536000; SameSite=Lax`;
+
+    document.cookie = `${LOCALE_COOKIE_NAME}=${next}; path=/; max-age=31536000; SameSite=Lax`;
+    document.documentElement.lang = next;
     setCurrentLocale(next);
+
+    window.dispatchEvent(new Event("localechange"));
+
     startTransition(() => {
       router.refresh();
     });

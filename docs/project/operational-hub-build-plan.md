@@ -1,13 +1,13 @@
 # MH Operational Hub — Build Plan
 
 **Category:** Project - Operations Planning  
-**Last Updated:** April 17, 2026  
+**Last Updated:** April 18, 2026  
 **Version:** 1.0  
 **Status:** ✅ Active Planning Document
 
 **Project:** Replace `/safety/hub` with a unified `/hub` route covering Safety, Employee Manual, and Employee Joining Program — with 4-role authentication, full access tracking + notifications to Matt, and a Spanish language toggle.
 
-> Canonical alignment note (April 17, 2026): sequencing and cross-plan dependency decisions are centralized in `docs/project/operational-hub-congruent-plan.md`. If this build plan conflicts with roadmap or technical guides, follow the congruent plan and update this file in the same PR.
+> Canonical alignment note (April 18, 2026): sequencing and cross-plan dependency decisions are centralized in `docs/project/operational-hub-congruent-plan.md`. If this build plan conflicts with roadmap or technical guides, follow the congruent plan and update this file in the same PR.
 
 **Status key:** ⬜ Not started · 🔄 In progress · ✅ Done · ⚠️ Blocked (needs content/input)
 
@@ -694,16 +694,18 @@ Pages not yet in scope (all other public pages) remain English-only; `next-intl`
 
 ## Verification Checklist
 
+Validation note (April 18, 2026): checklist items below are only checked where implementation was re-verified from current code and targeted tests in this congruency pass.
+
 ### Auth
 
-- [ ] `/hub` shows 4-card role selector
+- [x] `/hub` shows 4-card role selector
 - [ ] Admin path: email + password → full hub + admin dashboard link
 - [ ] Superintendent path: name + passcode → full hub (all tabs + stat cards)
 - [ ] Worker path: passcode only → Safety + Employee Manual + Joining Program; no History tab, no stat cards
 - [ ] Traveler path: passcode only → Safety (read-only forms notice) + Travelers videos; no Employee Manual, no Joining Program
 - [ ] Wrong passcode: 401 returned, 3rd attempt triggers 5-min lockout
 - [ ] JWT `role` field correct for all 4 paths
-- [ ] `/safety/hub` redirects to `/hub`
+- [x] `/safety/hub` redirects to `/hub`
 
 ### Access Tracking
 
@@ -774,19 +776,19 @@ Pages not yet in scope (all other public pages) remain English-only; `next-intl`
 
 ## Modified Files Summary
 
-| File                                     | Change                                                        |
-| ---------------------------------------- | ------------------------------------------------------------- |
-| `src/app/safety/hub/page.tsx`            | Replace with `redirect("/hub")`                               |
-| `src/app/safety/hub/SafetyHubClient.tsx` | Replace `PasscodeGate` with `RoleGate` (2-step)               |
-| `src/app/api/auth/admin-login/route.ts`  | Add login event logging via `logAccessEvent`                  |
-| `src/app/api/auth/field-login/route.ts`  | Add login event logging via `logAccessEvent`                  |
-| `src/app/api/auth/hub-login/route.ts`    | Add role-aware worker/traveler auth + MVR compliance gate     |
-| `src/app/api/safety/downloads/route.ts`  | Extend POST `requireRole` to all 4 roles                      |
-| `src/app/dashboard/page.tsx`             | Add "Access Log" 5th tab                                      |
-| `src/lib/data/documents.ts`              | Add `employee-manual` / `joining-program` categories + arrays |
-| `src/components/layout/Navigation.tsx`   | Add Hub nav link + `<LanguageToggle />`                       |
-| `next.config.js`                         | Wrap with `createNextIntlPlugin`                              |
-| `wrangler.toml`                          | Add `WORKER_PASSWORD` + `TRAVELERS_PASSWORD` comment stubs    |
+| File                                     | Change                                                                       |
+| ---------------------------------------- | ---------------------------------------------------------------------------- |
+| `src/app/safety/hub/page.tsx`            | Replace with `redirect("/hub")`                                              |
+| `src/app/safety/hub/SafetyHubClient.tsx` | Replace `PasscodeGate` with `RoleGate` (2-step)                              |
+| `src/app/api/auth/admin-login/route.ts`  | Add login event logging via `logAccessEvent`                                 |
+| `src/app/api/auth/field-login/route.ts`  | Add login event logging via `logAccessEvent`                                 |
+| `src/app/api/auth/hub-login/route.ts`    | Add role-aware worker/traveler auth (MVR compliance gate remains in Phase 2) |
+| `src/app/api/safety/downloads/route.ts`  | Extend POST `requireRole` to all 4 roles                                     |
+| `src/app/dashboard/page.tsx`             | Add "Access Log" 5th tab                                                     |
+| `src/lib/data/documents.ts`              | Add `employee-manual` / `joining-program` categories + arrays                |
+| `src/components/layout/Navigation.tsx`   | Add Hub nav link + `<LanguageToggle />`                                      |
+| `next.config.js`                         | Wrap with `createNextIntlPlugin`                                             |
+| `wrangler.toml`                          | Add `WORKER_PASSWORD` + `TRAVELERS_PASSWORD` comment stubs                   |
 
 ---
 

@@ -19,6 +19,7 @@ import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
+import { getServerLocale } from "@/lib/i18n/locale";
 
 export const metadata: Metadata = withGeoMetadata({
   metadataBase: new URL(
@@ -164,13 +165,15 @@ export const viewport: Viewport = {
   colorScheme: "light dark",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
+  const locale = await getServerLocale();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         <FaviconLinks />
         {/* Google Analytics */}

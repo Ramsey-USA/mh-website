@@ -2,8 +2,8 @@
 
 **Category:** Project - Operations Planning  
 **Created:** April 17, 2026  
-**Last Updated:** April 17, 2026  
-**Version:** 1.0  
+**Last Updated:** April 18, 2026  
+**Version:** 1.1  
 **Status:** ✅ Canonical (Execution Source of Truth)  
 **Supersedes sequencing conflicts in:**
 
@@ -23,7 +23,7 @@ Ship one coherent Operational Hub delivery path without migration collisions, ro
 ## Locked Decisions
 
 1. **Single authenticated portal:** `/hub` is the canonical staff route.
-2. **Backward compatibility:** `/safety/hub` redirects to `/hub` once `/hub` is production-ready.
+2. **Backward compatibility:** `/safety/hub` now redirects to `/hub` (active compatibility route).
 3. **Role model:** `admin`, `superintendent`, `worker`, `traveler`.
 4. **Notification architecture (transition):** keep n8n + Resend + Twilio as primary during sprint delivery; build Cloudflare-native queues/workflows in parallel; cutover only after parity validation.
 5. **Migration policy:** preserve existing sequential numbering in `/migrations`; do not reuse numbers already present in repo.

@@ -16,6 +16,7 @@ import {
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
 import { usePageTracking } from "@/lib/analytics/hooks";
+import { useLocale } from "@/hooks/useLocale";
 
 const TURNSTILE_SITE_KEY = process.env["NEXT_PUBLIC_TURNSTILE_SITE_KEY"] ?? "";
 
@@ -27,6 +28,14 @@ const CATEGORY_OPTIONS = [
   { value: "certificate", label: "Certificate / License" },
   { value: "program-update", label: "Program Update Request" },
   { value: "other", label: "Other" },
+] as const;
+
+const CATEGORY_OPTIONS_ES = [
+  { value: "bonding-document", label: "Documento de fianza / garantía" },
+  { value: "field-form", label: "Formulario de campo completado" },
+  { value: "certificate", label: "Certificado / Licencia" },
+  { value: "program-update", label: "Solicitud de actualización del programa" },
+  { value: "other", label: "Otro" },
 ] as const;
 
 // Minimal Turnstile global type — full definition lives in @types/cloudflare
@@ -50,6 +59,8 @@ declare global {
 }
 
 export default function SafetyIntakePage() {
+  const locale = useLocale();
+  const isEs = locale === "es";
   usePageTracking("Safety Intake");
 
   const turnstileRef = useRef<HTMLDivElement>(null);
@@ -100,7 +111,11 @@ export default function SafetyIntakePage() {
     e.preventDefault();
 
     if (!turnstileToken && TURNSTILE_SITE_KEY) {
-      setErrorMessage("Please complete the security check before submitting.");
+      setErrorMessage(
+        isEs
+          ? "Complete la verificación de seguridad antes de enviar."
+          : "Please complete the security check before submitting.",
+      );
       return;
     }
 
@@ -123,13 +138,20 @@ export default function SafetyIntakePage() {
         resetWidget();
       } else {
         const data = (await response.json()) as { error?: string };
-        setErrorMessage(data.error ?? "Submission failed. Please try again.");
+        setErrorMessage(
+          data.error ??
+            (isEs
+              ? "El envío falló. Inténtelo de nuevo."
+              : "Submission failed. Please try again."),
+        );
         setSubmitState("error");
         resetWidget();
       }
     } catch {
       setErrorMessage(
-        "Network error. Please check your connection and try again.",
+        isEs
+          ? "Error de red. Revise su conexión e intente de nuevo."
+          : "Network error. Please check your connection and try again.",
       );
       setSubmitState("error");
       resetWidget();
@@ -165,19 +187,27 @@ export default function SafetyIntakePage() {
               {/* Dual Naming Format - Required per branding standards */}
               <div className="mb-4 flex justify-center">
                 <span className="rounded-full border border-brand-secondary/40 bg-brand-secondary/10 px-4 py-1.5 text-sm font-medium text-brand-secondary">
-                  Logistics → Document Intake
+                  {isEs
+                    ? "Logística → Ingreso de documentos"
+                    : "Logistics → Document Intake"}
                 </span>
               </div>
               <h1 className="mb-4 text-3xl xs:text-4xl sm:text-5xl font-black tracking-tight lg:text-5xl">
                 <span className="block text-brand-secondary mb-2">
-                  Mission-Critical Documentation
+                  {isEs
+                    ? "Documentación crítica para la misión"
+                    : "Mission-Critical Documentation"}
                 </span>
-                <span className="block text-white">Safety Document Intake</span>
+                <span className="block text-white">
+                  {isEs
+                    ? "Ingreso de documentos de seguridad"
+                    : "Safety Document Intake"}
+                </span>
               </h1>
               <p className="mx-auto max-w-2xl text-lg text-gray-300">
-                Submit bonding documents, completed field forms, certificates,
-                or program-update requests to the MH Construction Safety team.
-                All submissions are reviewed before any action is taken.
+                {isEs
+                  ? "Envíe documentos de fianza, formularios de campo completados, certificados o solicitudes de actualización del programa al equipo de Seguridad de MH Construction. Todos los envíos se revisan antes de cualquier acción."
+                  : "Submit bonding documents, completed field forms, certificates, or program-update requests to the MH Construction Safety team. All submissions are reviewed before any action is taken."}
               </p>
             </FadeInWhenVisible>
           </div>
@@ -193,12 +223,12 @@ export default function SafetyIntakePage() {
                   className="mx-auto mb-4 text-5xl text-green-600 dark:text-green-400"
                 />
                 <h2 className="mb-2 text-2xl font-bold text-green-900 dark:text-green-100">
-                  Document Received
+                  {isEs ? "Documento recibido" : "Document Received"}
                 </h2>
                 <p className="mb-6 text-green-800 dark:text-green-200">
-                  Your document has been queued for review by the Safety team.
-                  You will be contacted at your provided email if any follow-up
-                  is needed.
+                  {isEs
+                    ? "Su documento ha sido puesto en cola para revisión por el equipo de Seguridad. Se le contactará al correo proporcionado si se requiere seguimiento."
+                    : "Your document has been queued for review by the Safety team. You will be contacted at your provided email if any follow-up is needed."}
                 </p>
                 <div className="flex flex-wrap justify-center gap-3">
                   <button
@@ -206,13 +236,15 @@ export default function SafetyIntakePage() {
                     onClick={() => setSubmitState("idle")}
                     className="rounded-lg bg-green-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-500"
                   >
-                    Submit Another
+                    {isEs ? "Enviar otro" : "Submit Another"}
                   </button>
                   <Link
                     href="/safety"
                     className="rounded-lg border border-green-700 px-5 py-2.5 text-sm font-semibold text-green-800 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-500 dark:text-green-200 dark:hover:bg-green-900/40"
                   >
-                    Back to Safety Program
+                    {isEs
+                      ? "Volver al programa de seguridad"
+                      : "Back to Safety Program"}
                   </Link>
                 </div>
               </div>
@@ -224,7 +256,7 @@ export default function SafetyIntakePage() {
                   {/* Contact info */}
                   <div>
                     <h2 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
-                      Your Information
+                      {isEs ? "Su información" : "Your Information"}
                     </h2>
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div>
@@ -232,7 +264,8 @@ export default function SafetyIntakePage() {
                           htmlFor="name"
                           className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300"
                         >
-                          Full Name <span className="text-red-500">*</span>
+                          {isEs ? "Nombre completo" : "Full Name"}{" "}
+                          <span className="text-red-500">*</span>
                         </label>
                         <input
                           id="name"
@@ -249,7 +282,8 @@ export default function SafetyIntakePage() {
                           htmlFor="email"
                           className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300"
                         >
-                          Email Address <span className="text-red-500">*</span>
+                          {isEs ? "Correo electrónico" : "Email Address"}{" "}
+                          <span className="text-red-500">*</span>
                         </label>
                         <input
                           id="email"
@@ -267,7 +301,9 @@ export default function SafetyIntakePage() {
                         htmlFor="company"
                         className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300"
                       >
-                        Company / Organization
+                        {isEs
+                          ? "Compañía / Organización"
+                          : "Company / Organization"}
                       </label>
                       <input
                         id="company"
@@ -283,14 +319,14 @@ export default function SafetyIntakePage() {
                   {/* Document details */}
                   <div>
                     <h2 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
-                      Document Details
+                      {isEs ? "Detalles del documento" : "Document Details"}
                     </h2>
                     <div className="mb-4">
                       <label
                         htmlFor="category"
                         className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300"
                       >
-                        Document Category{" "}
+                        {isEs ? "Categoría de documento" : "Document Category"}{" "}
                         <span className="text-red-500">*</span>
                       </label>
                       <select
@@ -301,13 +337,17 @@ export default function SafetyIntakePage() {
                         className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
                       >
                         <option value="" disabled>
-                          Select a category…
+                          {isEs
+                            ? "Seleccione una categoría…"
+                            : "Select a category…"}
                         </option>
-                        {CATEGORY_OPTIONS.map((opt) => (
-                          <option key={opt.value} value={opt.value}>
-                            {opt.label}
-                          </option>
-                        ))}
+                        {(isEs ? CATEGORY_OPTIONS_ES : CATEGORY_OPTIONS).map(
+                          (opt) => (
+                            <option key={opt.value} value={opt.value}>
+                              {opt.label}
+                            </option>
+                          ),
+                        )}
                       </select>
                     </div>
                     <div>
@@ -315,14 +355,18 @@ export default function SafetyIntakePage() {
                         htmlFor="notes"
                         className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300"
                       >
-                        Notes / Context
+                        {isEs ? "Notas / Contexto" : "Notes / Context"}
                       </label>
                       <textarea
                         id="notes"
                         name="notes"
                         rows={3}
                         maxLength={2000}
-                        placeholder="Optional — describe the document or any context the reviewer should know."
+                        placeholder={
+                          isEs
+                            ? "Opcional: describa el documento o cualquier contexto útil para el revisor."
+                            : "Optional — describe the document or any context the reviewer should know."
+                        }
                         className="w-full resize-y rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
                       />
                     </div>
@@ -331,15 +375,18 @@ export default function SafetyIntakePage() {
                   {/* File upload */}
                   <div>
                     <h2 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
-                      Attach Document
+                      {isEs ? "Adjuntar documento" : "Attach Document"}
                     </h2>
                     <label
                       htmlFor="file"
                       className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300"
                     >
-                      File <span className="text-red-500">*</span>
+                      {isEs ? "Archivo" : "File"}{" "}
+                      <span className="text-red-500">*</span>
                       <span className="ml-2 font-normal text-gray-500">
-                        PDF, DOC, DOCX, PNG, JPG — max 25 MB
+                        {isEs
+                          ? "PDF, DOC, DOCX, PNG, JPG — máximo 25 MB"
+                          : "PDF, DOC, DOCX, PNG, JPG — max 25 MB"}
                       </span>
                     </label>
                     <input
@@ -361,7 +408,9 @@ export default function SafetyIntakePage() {
                       />
                       {!turnstileReady && (
                         <p className="mt-1 text-xs text-gray-500">
-                          Loading security check…
+                          {isEs
+                            ? "Cargando verificación de seguridad…"
+                            : "Loading security check…"}
                         </p>
                       )}
                     </div>
@@ -396,12 +445,12 @@ export default function SafetyIntakePage() {
                           icon="autorenew"
                           className="animate-spin"
                         />
-                        Submitting…
+                        {isEs ? "Enviando…" : "Submitting…"}
                       </>
                     ) : (
                       <>
                         <MaterialIcon icon="upload_file" />
-                        Submit Document
+                        {isEs ? "Enviar documento" : "Submit Document"}
                       </>
                     )}
                   </button>
@@ -416,7 +465,7 @@ export default function SafetyIntakePage() {
               <div className="mb-2 flex items-center gap-2">
                 <MaterialIcon icon="info" className="text-brand-primary" />
                 <span className="font-semibold text-gray-900 dark:text-white">
-                  What happens next?
+                  {isEs ? "¿Qué sigue?" : "What happens next?"}
                 </span>
               </div>
               <ul className="space-y-1.5 text-sm text-gray-700 dark:text-gray-300">
@@ -425,32 +474,38 @@ export default function SafetyIntakePage() {
                     icon="check"
                     className="mt-0.5 shrink-0 text-green-600 text-base"
                   />
-                  Your document is stored securely in our private review queue.
+                  {isEs
+                    ? "Su documento se almacena de forma segura en nuestra cola privada de revisión."
+                    : "Your document is stored securely in our private review queue."}
                 </li>
                 <li className="flex items-start gap-2">
                   <MaterialIcon
                     icon="check"
                     className="mt-0.5 shrink-0 text-green-600 text-base"
                   />
-                  The Safety team reviews all submissions before any action.
+                  {isEs
+                    ? "El equipo de Seguridad revisa todos los envíos antes de cualquier acción."
+                    : "The Safety team reviews all submissions before any action."}
                 </li>
                 <li className="flex items-start gap-2">
                   <MaterialIcon
                     icon="check"
                     className="mt-0.5 shrink-0 text-green-600 text-base"
                   />
-                  You will be contacted at your email if follow-up is needed.
+                  {isEs
+                    ? "Se le contactará por correo electrónico si se requiere seguimiento."
+                    : "You will be contacted at your email if follow-up is needed."}
                 </li>
               </ul>
               <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-                Questions?{" "}
+                {isEs ? "¿Preguntas?" : "Questions?"}{" "}
                 <Link
                   href="/contact"
                   className="font-medium text-brand-primary underline-offset-2 hover:underline"
                 >
-                  Contact us directly
+                  {isEs ? "Contáctenos directamente" : "Contact us directly"}
                 </Link>{" "}
-                or call{" "}
+                {isEs ? "o llame al" : "or call"}{" "}
                 <a
                   href="tel:+15093086489"
                   className="font-medium text-brand-primary underline-offset-2 hover:underline"

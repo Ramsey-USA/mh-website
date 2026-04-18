@@ -9,9 +9,11 @@ import { JHAForm } from "@/components/safety/forms/JHAForm";
 import { SiteInspectionForm } from "@/components/safety/forms/SiteInspectionForm";
 import { IncidentReportForm } from "@/components/safety/forms/IncidentReportForm";
 import type { DocumentSection } from "@/lib/data/documents";
+import { forms } from "@/lib/data/documents";
 import { DiagonalStripePattern } from "@/components/ui/backgrounds/DiagonalStripePattern";
 import { BrandColorBlobs } from "@/components/ui/backgrounds/BrandColorBlobs";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
+import { useLocale } from "@/hooks/useLocale";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -91,6 +93,12 @@ const STATUS_STYLES: Record<string, string> = {
     "bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-gray-700",
 };
 
+function hasPdfPath(
+  form: (typeof forms)[number],
+): form is (typeof forms)[number] & { pdfPath: string } {
+  return typeof form.pdfPath === "string" && form.pdfPath.length > 0;
+}
+
 // ─── Role Gate ────────────────────────────────────────────────────────────────
 
 export type HubRole = "admin" | "superintendent" | "worker" | "traveler";
@@ -137,7 +145,9 @@ const ROLE_CARDS: {
   },
 ];
 
-export function RoleGate({ onLogin }: LoginFormProps) {
+export function RoleGate({ onLogin }: Readonly<LoginFormProps>) {
+  const locale = useLocale();
+  const isEs = locale === "es";
   const [selectedRole, setSelectedRole] = useState<HubRole | null>(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -166,26 +176,42 @@ export function RoleGate({ onLogin }: LoginFormProps) {
     setError(null);
 
     if (!selectedRole) {
-      setError("Select a role to continue.");
+      setError(
+        isEs
+          ? "Seleccione un rol para continuar."
+          : "Select a role to continue.",
+      );
       return;
     }
 
     if (selectedRole === "admin") {
       if (!email.trim() || !password) {
-        setError("Please enter your email and password.");
+        setError(
+          isEs
+            ? "Ingrese su correo electrónico y contraseña."
+            : "Please enter your email and password.",
+        );
         return;
       }
     } else if (selectedRole === "superintendent") {
       if (!name.trim()) {
-        setError("Please enter your name.");
+        setError(isEs ? "Ingrese su nombre." : "Please enter your name.");
         return;
       }
       if (!passcode) {
-        setError("Please enter the site passcode.");
+        setError(
+          isEs
+            ? "Ingrese el código de acceso de la obra."
+            : "Please enter the site passcode.",
+        );
         return;
       }
     } else if (!passcode) {
-      setError("Please enter the role passcode.");
+      setError(
+        isEs
+          ? "Ingrese el código de acceso del rol."
+          : "Please enter the role passcode.",
+      );
       return;
     }
 
@@ -221,14 +247,20 @@ export function RoleGate({ onLogin }: LoginFormProps) {
       };
 
       if (!res.ok) {
-        throw new Error(json.error ?? "Login failed.");
+        throw new Error(
+          json.error ?? (isEs ? "Error de inicio de sesión." : "Login failed."),
+        );
       }
 
       const accessToken = json.accessToken ?? json.admin_token;
       const user = json.user ?? json.admin_user;
 
       if (!accessToken || !user?.role) {
-        throw new Error("Login response was incomplete.");
+        throw new Error(
+          isEs
+            ? "La respuesta de inicio de sesión está incompleta."
+            : "Login response was incomplete.",
+        );
       }
 
       if (user.role === "admin") {
@@ -245,7 +277,9 @@ export function RoleGate({ onLogin }: LoginFormProps) {
       setError(
         err instanceof Error
           ? err.message
-          : "Login failed. Check credentials and try again.",
+          : isEs
+            ? "Error de inicio de sesión. Revise sus credenciales e intente de nuevo."
+            : "Login failed. Check credentials and try again.",
       );
     } finally {
       setLoading(false);
@@ -273,14 +307,18 @@ export function RoleGate({ onLogin }: LoginFormProps) {
 
           <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 px-8 py-8">
             <div className="text-center mb-6">
-              <span className="block text-xs text-brand-secondary font-medium uppercase tracking-wider mb-1">
-                Field Ops &rarr; Safety Hub
+              <span className="block text-xs text-brand-secondary-text dark:text-brand-secondary-light font-medium uppercase tracking-wider mb-1">
+                {isEs
+                  ? "Operaciones de campo → Centro de seguridad"
+                  : "Field Ops → Safety Hub"}
               </span>
               <h1 className="text-xl font-black text-gray-900 dark:text-white mb-1">
-                Field Safety Hub
+                {isEs ? "Centro de seguridad de campo" : "Field Safety Hub"}
               </h1>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                MH Construction - Role-Based Access
+                {isEs
+                  ? "MH Construction - Acceso por rol"
+                  : "MH Construction - Role-Based Access"}
               </p>
             </div>
 
@@ -323,7 +361,9 @@ export function RoleGate({ onLogin }: LoginFormProps) {
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-500 dark:text-gray-400 hover:text-brand-primary"
                 >
                   <MaterialIcon icon="arrow_back" size="sm" />
-                  Back to role selection
+                  {isEs
+                    ? "Volver a selección de rol"
+                    : "Back to role selection"}
                 </button>
 
                 {selectedRole === "admin" && (
@@ -333,7 +373,7 @@ export function RoleGate({ onLogin }: LoginFormProps) {
                         htmlFor="hub-email"
                         className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1"
                       >
-                        Email
+                        {isEs ? "Correo electrónico" : "Email"}
                       </label>
                       <input
                         id="hub-email"
@@ -350,7 +390,7 @@ export function RoleGate({ onLogin }: LoginFormProps) {
                         htmlFor="hub-password"
                         className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1"
                       >
-                        Password
+                        {isEs ? "Contraseña" : "Password"}
                       </label>
                       <div className="relative">
                         <input
@@ -367,7 +407,13 @@ export function RoleGate({ onLogin }: LoginFormProps) {
                           onClick={() => setShowSecret((v) => !v)}
                           className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
                           aria-label={
-                            showSecret ? "Hide password" : "Show password"
+                            isEs
+                              ? showSecret
+                                ? "Ocultar contraseña"
+                                : "Mostrar contraseña"
+                              : showSecret
+                                ? "Hide password"
+                                : "Show password"
                           }
                         >
                           <MaterialIcon
@@ -386,7 +432,7 @@ export function RoleGate({ onLogin }: LoginFormProps) {
                       htmlFor="hub-name"
                       className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1"
                     >
-                      Your Name
+                      {isEs ? "Su nombre" : "Your Name"}
                     </label>
                     <input
                       id="hub-name"
@@ -406,7 +452,7 @@ export function RoleGate({ onLogin }: LoginFormProps) {
                       htmlFor="hub-passcode"
                       className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1"
                     >
-                      Passcode
+                      {isEs ? "Código de acceso" : "Passcode"}
                     </label>
                     <div className="relative">
                       <input
@@ -423,7 +469,13 @@ export function RoleGate({ onLogin }: LoginFormProps) {
                         onClick={() => setShowSecret((v) => !v)}
                         className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
                         aria-label={
-                          showSecret ? "Hide passcode" : "Show passcode"
+                          isEs
+                            ? showSecret
+                              ? "Ocultar código"
+                              : "Mostrar código"
+                            : showSecret
+                              ? "Hide passcode"
+                              : "Show passcode"
                         }
                       >
                         <MaterialIcon
@@ -450,12 +502,12 @@ export function RoleGate({ onLogin }: LoginFormProps) {
                   {loading ? (
                     <>
                       <MaterialIcon icon="hourglass_empty" size="sm" />
-                      Signing In...
+                      {isEs ? "Iniciando sesión..." : "Signing In..."}
                     </>
                   ) : (
                     <>
                       <MaterialIcon icon="lock_open" size="sm" />
-                      Sign In
+                      {isEs ? "Iniciar sesión" : "Sign In"}
                     </>
                   )}
                 </button>
@@ -463,14 +515,14 @@ export function RoleGate({ onLogin }: LoginFormProps) {
             )}
 
             <p className="mt-4 text-center text-xs text-gray-400 dark:text-gray-500">
-              Contact Jeremy at{" "}
+              {isEs ? "Contacte a Jeremy al" : "Contact Jeremy at"}{" "}
               <a
                 href="tel:+15093086489"
                 className="text-brand-primary hover:underline font-semibold"
               >
                 (509) 308-6489
               </a>{" "}
-              for access.
+              {isEs ? "para acceso." : "for access."}
             </p>
           </div>
         </div>
@@ -485,11 +537,14 @@ function SubmissionSuccess({
   submissionId,
   formLabel,
   onReset,
-}: {
+}: Readonly<{
   submissionId: string;
   formLabel: string;
   onReset: () => void;
-}) {
+}>) {
+  const locale = useLocale();
+  const isEs = locale === "es";
+
   return (
     <FadeInWhenVisible>
       <div className="rounded-2xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 px-6 py-8 text-center">
@@ -501,10 +556,12 @@ function SubmissionSuccess({
           />
         </div>
         <h3 className="text-lg font-black text-gray-900 dark:text-white mb-1">
-          {formLabel} Submitted
+          {isEs ? `${formLabel} enviado` : `${formLabel} Submitted`}
         </h3>
         <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
-          Your form has been saved and the safety officer has been notified.
+          {isEs
+            ? "Su formulario ha sido guardado y el oficial de seguridad ha sido notificado."
+            : "Your form has been saved and the safety officer has been notified."}
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <a
@@ -514,14 +571,14 @@ function SubmissionSuccess({
             className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-colors"
           >
             <MaterialIcon icon="print" size="sm" />
-            Print / Export PDF
+            {isEs ? "Imprimir / Exportar PDF" : "Print / Export PDF"}
           </a>
           <button
             onClick={onReset}
             className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-semibold px-5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 transition-colors"
           >
             <MaterialIcon icon="add_circle_outline" size="sm" />
-            Submit Another
+            {isEs ? "Enviar otro" : "Submit Another"}
           </button>
         </div>
       </div>
@@ -536,12 +593,12 @@ function StatCard({
   value,
   icon,
   accent,
-}: {
+}: Readonly<{
   label: string;
   value: number | string;
   icon: string;
   accent?: "amber" | "green" | "brand";
-}) {
+}>) {
   const colorMap = {
     amber: "text-amber-600 dark:text-amber-400",
     green: "text-green-600 dark:text-green-400",
@@ -577,7 +634,14 @@ export interface SafetyHubProps {
   onLogout: () => void;
 }
 
-export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
+export function SafetyHub({
+  sections,
+  token,
+  user,
+  onLogout,
+}: Readonly<SafetyHubProps>) {
+  const locale = useLocale();
+  const isEs = locale === "es";
   const [jobs, setJobs] = useState<Job[]>([]);
   const [selectedJobId, setSelectedJobId] = useState<string>("");
   const [jobsLoading, setJobsLoading] = useState(true);
@@ -602,6 +666,7 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
     user.role === "admin" || user.role === "superintendent";
   const canSubmitForms = user.role !== "traveler";
   const showJobSelector = user.role !== "traveler";
+  const sectionCount = sections.length;
 
   const logAccess = useCallback(
     (payload: {
@@ -696,7 +761,9 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
       logAccess({
         event_type: "download",
         resource_key: "downloads-tab",
-        resource_title: "Safety Documents tab",
+        resource_title: isEs
+          ? "Pestaña de documentos de seguridad"
+          : "Safety Documents tab",
       });
       return;
     }
@@ -839,13 +906,21 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
           >
             {(
               [
-                { id: "downloads", label: "Downloads", icon: "download" },
-                { id: "forms", label: "Forms", icon: "edit_note" },
+                {
+                  id: "downloads",
+                  label: isEs ? "Descargas" : "Downloads",
+                  icon: "download",
+                },
+                {
+                  id: "forms",
+                  label: isEs ? "Formularios" : "Forms",
+                  icon: "edit_note",
+                },
                 ...(isAdminOrSuper
                   ? [
                       {
                         id: "history" as HubSection,
-                        label: "My History",
+                        label: isEs ? "Mi historial" : "My History",
                         icon: "history",
                       },
                     ]
@@ -879,7 +954,9 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
             className="shrink-0 inline-flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-red-500 transition-colors"
           >
             <MaterialIcon icon="logout" size="sm" />
-            <span className="hidden sm:inline">Sign Out</span>
+            <span className="hidden sm:inline">
+              {isEs ? "Cerrar sesión" : "Sign Out"}
+            </span>
           </button>
         </div>
 
@@ -894,18 +971,22 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
               />
               {jobsLoading ? (
                 <span className="text-xs text-gray-400 animate-pulse">
-                  Loading jobs...
+                  {isEs ? "Cargando obras..." : "Loading jobs..."}
                 </span>
               ) : jobs.length === 0 ? (
                 <span className="text-xs text-gray-400 italic">
-                  No active jobs. Contact your PM to add a job.
+                  {isEs
+                    ? "No hay obras activas. Contacte a su PM para agregar una."
+                    : "No active jobs. Contact your PM to add a job."}
                 </span>
               ) : (
                 <select
                   value={selectedJobId}
                   onChange={(e) => setSelectedJobId(e.target.value)}
                   className="flex-1 max-w-sm bg-transparent border-0 text-sm font-semibold text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-0 cursor-pointer"
-                  aria-label="Select active job"
+                  aria-label={
+                    isEs ? "Seleccionar obra activa" : "Select active job"
+                  }
                 >
                   {jobs.map((j) => (
                     <option key={j.id} value={j.id}>
@@ -925,19 +1006,19 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
         <div className="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 grid grid-cols-3 gap-3">
             <StatCard
-              label="This Week"
+              label={isEs ? "Esta semana" : "This Week"}
               value={weekSubmissions.length}
               icon="assignment_turned_in"
               accent="green"
             />
             <StatCard
-              label="Active Jobs"
+              label={isEs ? "Obras activas" : "Active Jobs"}
               value={jobs.length}
               icon="work_outline"
               accent="brand"
             />
             <StatCard
-              label="Outstanding"
+              label={isEs ? "Pendientes" : "Outstanding"}
               value={outstandingJobs.length}
               icon="warning_amber"
               accent={outstandingJobs.length > 0 ? "amber" : "green"}
@@ -956,9 +1037,14 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
               className="text-amber-600 dark:text-amber-400 shrink-0 mt-0.5"
             />
             <p className="text-xs text-amber-800 dark:text-amber-300">
-              <span className="font-bold">Missing weekly toolbox talk</span> on{" "}
-              {outstandingJobs.map((j) => j.job_number).join(", ")}. Submit one
-              under{" "}
+              <span className="font-bold">
+                {isEs
+                  ? "Falta charla de seguridad semanal"
+                  : "Missing weekly toolbox talk"}
+              </span>{" "}
+              {isEs ? "en" : "on"}{" "}
+              {outstandingJobs.map((j) => j.job_number).join(", ")}
+              {isEs ? ". Envíe una en" : ". Submit one under"}{" "}
               <button
                 className="underline font-semibold"
                 onClick={() => {
@@ -966,7 +1052,7 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
                   setActiveFormType("toolbox-talk");
                 }}
               >
-                Forms
+                {isEs ? "Formularios" : "Forms"}
               </button>
               .
             </p>
@@ -982,86 +1068,52 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
             <div>
               <div className="mb-6">
                 <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-1">
-                  Safety Documents
+                  {isEs ? "Documentos de seguridad" : "Safety Documents"}
                 </h2>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Browse and download sections from the{" "}
+                  {isEs
+                    ? "Explore y descargue secciones del"
+                    : "Browse and download sections from the"}{" "}
                   <span className="font-semibold text-gray-700 dark:text-gray-300">
                     MISH — MH Construction Industrial Safety &amp; Health
                     Program
                   </span>
-                  . Built on the AGC Accident Prevention Program (APP) framework
-                  — OSHA 29 CFR 1926, WISHA (WA), OAR (OR), and IDAPA (ID)
-                  compliant.
+                  .{" "}
+                  {isEs
+                    ? "Alineado con OSHA 29 CFR 1926, expectativas AGC CSEA y requisitos aplicables de WISHA (WA), OAR (OR) e IDAPA (ID)."
+                    : "Aligned with OSHA 29 CFR 1926, AGC CSEA expectations, and applicable WISHA (WA), OAR (OR), and IDAPA (ID) requirements."}
                 </p>
               </div>
 
+              <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">
+                {isEs
+                  ? "Biblioteca ampliada de formularios de seguridad"
+                  : "Expanded safety form library"}
+              </p>
+
               {/* Quick-download blank forms */}
               <div className="mb-8 grid sm:grid-cols-2 gap-3">
-                {[
-                  {
-                    href: "/docs/safety/forms/toolbox-talk.pdf",
-                    icon: "record_voice_over",
-                    label: "Toolbox Talk (Blank)",
-                    desc: "Printable blank form",
-                    key: "toolbox-talk",
-                  },
-                  {
-                    href: "/docs/safety/forms/jha.pdf",
-                    icon: "fact_check",
-                    label: "JHA — Job Hazard Analysis",
-                    desc: "MISH Section 05 pre-task form",
-                    key: "jha",
-                  },
-                  {
-                    href: "/docs/safety/forms/incident-report.pdf",
-                    icon: "report",
-                    label: "Incident Report (Blank)",
-                    desc: "MISH Section 08 — near miss / incident",
-                    key: "incident-report",
-                  },
-                  {
-                    href: "/docs/safety/forms/equipment-checklist.pdf",
-                    icon: "checklist",
-                    label: "Equipment Inspection",
-                    desc: "MISH Sections 19 / 20 / 42 — pre-use",
-                    key: "equipment-checklist",
-                  },
-                  {
-                    href: "/docs/safety/forms/signin-log.pdf",
-                    icon: "assignment_ind",
-                    label: "Sign-In / Visitor Log",
-                    desc: "MISH Sections 04 & 07 — site access",
-                    key: "signin-log",
-                  },
-                  {
-                    href: "/docs/safety/forms/sub-prequal.pdf",
-                    icon: "verified",
-                    label: "Subcontractor Pre-Qual",
-                    desc: "MISH Section 39 — vetting form",
-                    key: "sub-prequal",
-                  },
-                ].map((f) => (
+                {forms.filter(hasPdfPath).map((form) => (
                   <a
-                    key={f.href}
-                    href={f.href}
+                    key={form.id}
+                    href={form.pdfPath}
                     download
-                    onClick={() => logDownload(f.key, f.label, "form")}
+                    onClick={() => logDownload(form.id, form.title, "form")}
                     className="flex items-center gap-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-secondary rounded-xl px-4 py-3 transition-all group"
                   >
                     <div className="w-9 h-9 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors">
                       <MaterialIcon
-                        icon={f.icon}
+                        icon={form.icon}
                         size="sm"
                         className="text-brand-primary group-hover:text-white transition-colors"
                       />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-brand-primary transition-colors">
-                        {f.label}
+                        {form.title}
                       </p>
                       <p className="text-xs text-gray-400 dark:text-gray-500">
-                        {f.desc}
+                        {form.subtitle ?? form.description}
                       </p>
                     </div>
                     <MaterialIcon
@@ -1076,7 +1128,9 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
               <div className="flex items-center gap-4 mb-6">
                 <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
                 <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                  Full Safety Manual — All Sections
+                  {isEs
+                    ? "Manual de seguridad completo — todas las secciones"
+                    : "Full Safety Manual — All Sections"}
                 </span>
                 <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
               </div>
@@ -1103,10 +1157,12 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-bold">
-                    Download Complete MISH Manual
+                    {isEs
+                      ? "Descargar manual MISH completo"
+                      : "Download Complete MISH Manual"}
                   </p>
                   <p className="text-xs text-white/70">
-                    Cover + tab dividers + all 50 sections · Rev 3 — 04/07/2026
+                    {`Cover + tab dividers + all ${sectionCount} sections`}
                   </p>
                 </div>
                 <MaterialIcon
@@ -1131,11 +1187,14 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
             <div>
               <div className="mb-6">
                 <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-1">
-                  Fill a Safety Form
+                  {isEs
+                    ? "Completar un formulario de seguridad"
+                    : "Fill a Safety Form"}
                 </h2>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Complete and submit forms digitally. Submissions are tracked
-                  and can be printed for your records.
+                  {isEs
+                    ? "Complete y envíe formularios digitalmente. Los envíos se registran y se pueden imprimir para sus registros."
+                    : "Complete and submit forms digitally. Submissions are tracked and can be printed for your records."}
                 </p>
               </div>
 
@@ -1151,11 +1210,14 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
                     </div>
                     <div>
                       <h3 className="text-base font-black text-gray-900 dark:text-white mb-1">
-                        Travelers Insurance - Auditor View
+                        {isEs
+                          ? "Travelers Insurance - Vista de auditor"
+                          : "Travelers Insurance - Auditor View"}
                       </h3>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Forms are submitted by field staff. Contact Jeremy at
-                        (509) 308-6489 for submission records.
+                        {isEs
+                          ? "Los formularios son enviados por el personal de campo. Contacte a Jeremy al (509) 308-6489 para registros de envíos."
+                          : "Forms are submitted by field staff. Contact Jeremy at (509) 308-6489 for submission records."}
                       </p>
                     </div>
                   </div>
@@ -1186,8 +1248,9 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
                   {!selectedJobId && (
                     <div className="mb-4 flex items-center gap-2 text-sm text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl px-4 py-3">
                       <MaterialIcon icon="work_outline" size="sm" />
-                      Select an active job in the bar above before submitting a
-                      form.
+                      {isEs
+                        ? "Seleccione una obra activa en la barra superior antes de enviar un formulario."
+                        : "Select an active job in the bar above before submitting a form."}
                     </div>
                   )}
 
@@ -1272,10 +1335,12 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
               <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
                 <div>
                   <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-1">
-                    My Submissions
+                    {isEs ? "Mis envíos" : "My Submissions"}
                   </h2>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Your submission history across all jobs.
+                    {isEs
+                      ? "Su historial de envíos en todas las obras."
+                      : "Your submission history across all jobs."}
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
@@ -1284,7 +1349,9 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
                     onChange={(e) => setHistoryFormType(e.target.value)}
                     className="px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
                   >
-                    <option value="">All Types</option>
+                    <option value="">
+                      {isEs ? "Todos los tipos" : "All Types"}
+                    </option>
                     {Object.entries(FORM_TYPE_LABELS).map(([id, label]) => (
                       <option key={id} value={id}>
                         {label}
@@ -1294,7 +1361,9 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
                   <button
                     onClick={() => void fetchMyHistory()}
                     className="p-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-500 hover:text-brand-primary transition-colors"
-                    aria-label="Refresh history"
+                    aria-label={
+                      isEs ? "Actualizar historial" : "Refresh history"
+                    }
                   >
                     <MaterialIcon icon="refresh" size="sm" />
                   </button>
@@ -1308,7 +1377,9 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
                     size="xl"
                     className="animate-pulse mb-2"
                   />
-                  <p className="text-sm">Loading your history…</p>
+                  <p className="text-sm">
+                    {isEs ? "Cargando su historial…" : "Loading your history…"}
+                  </p>
                 </div>
               ) : myHistory.length === 0 ? (
                 <div className="py-16 text-center text-gray-400">
@@ -1318,17 +1389,21 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
                     className="mb-2"
                   />
                   <p className="text-sm font-semibold mb-1">
-                    No submissions yet
+                    {isEs ? "Aún no hay envíos" : "No submissions yet"}
                   </p>
                   <p className="text-xs">
-                    Submit a form from the{" "}
+                    {isEs
+                      ? "Envíe un formulario desde la pestaña"
+                      : "Submit a form from the"}{" "}
                     <button
                       className="underline text-brand-primary"
                       onClick={() => setActiveSection("forms")}
                     >
-                      Forms
+                      {isEs ? "Formularios" : "Forms"}
                     </button>{" "}
-                    tab to see your history here.
+                    {isEs
+                      ? "para ver su historial aquí."
+                      : "tab to see your history here."}
                   </p>
                 </div>
               ) : (
@@ -1338,11 +1413,11 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
                       <thead>
                         <tr className="border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/80">
                           {[
-                            "Date",
-                            "Job",
-                            "Form Type",
-                            "Status",
-                            "Actions",
+                            isEs ? "Fecha" : "Date",
+                            isEs ? "Obra" : "Job",
+                            isEs ? "Tipo de formulario" : "Form Type",
+                            isEs ? "Estado" : "Status",
+                            isEs ? "Acciones" : "Actions",
                           ].map((h) => (
                             <th
                               key={h}
@@ -1399,7 +1474,7 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
                                 >
                                   <MaterialIcon icon="print" size="sm" />
                                   <span className="hidden sm:inline">
-                                    Print
+                                    {isEs ? "Imprimir" : "Print"}
                                   </span>
                                 </a>
                               </td>
@@ -1410,9 +1485,10 @@ export function SafetyHub({ sections, token, user, onLogout }: SafetyHubProps) {
                     </table>
                   </div>
                   <div className="px-4 py-3 border-t border-gray-100 dark:border-gray-800 text-xs text-gray-400 dark:text-gray-500">
-                    {myHistory.length} submission
+                    {myHistory.length} {isEs ? "envío" : "submission"}
                     {myHistory.length !== 1 ? "s" : ""} —{" "}
-                    {weekSubmissions.length} this week
+                    {weekSubmissions.length}{" "}
+                    {isEs ? "esta semana" : "this week"}
                   </div>
                 </div>
               )}
@@ -1430,7 +1506,7 @@ interface SafetyHubClientProps {
   sections: DocumentSection[];
 }
 
-export function SafetyHubClient({ sections }: SafetyHubClientProps) {
+export function SafetyHubClient({ sections }: Readonly<SafetyHubClientProps>) {
   const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<HubUser | null>(null);
 

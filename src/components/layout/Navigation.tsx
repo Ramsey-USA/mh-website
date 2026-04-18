@@ -6,6 +6,7 @@ import { ThemeToggle } from "@/components/ui/layout/ThemeToggle";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { LanguageToggle } from "@/components/ui/LanguageToggle";
+import { useLocale } from "@/hooks/useLocale";
 
 /**
  * Global Hamburger Navigation Component
@@ -50,6 +51,8 @@ import { LanguageToggle } from "@/components/ui/LanguageToggle";
  * @see {@link /docs/project/architecture.md} - Project architecture documentation
  */
 export function Navigation() {
+  const locale = useLocale();
+  const isEs = locale === "es";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -62,7 +65,7 @@ export function Navigation() {
           onKeyDown={(e) => e.key === "Escape" && setIsMenuOpen(false)}
           role="button"
           tabIndex={0}
-          aria-label="Close menu"
+          aria-label={isEs ? "Cerrar menú" : "Close menu"}
         />
       )}
 
@@ -115,7 +118,15 @@ export function Navigation() {
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="relative bg-brand-primary hover:bg-brand-primary-dark shadow-lg hover:shadow-xl p-2 xs:p-2.5 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 touch-manipulation border-2 border-brand-secondary hover:border-brand-secondary-light outline outline-2 outline-offset-2 outline-brand-secondary/50 hover:outline-brand-secondary min-w-[40px] min-h-[40px] xs:min-w-[44px] xs:min-h-[44px] sm:min-w-[48px] sm:min-h-[48px] flex items-center justify-center"
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-label={
+            isMenuOpen
+              ? isEs
+                ? "Cerrar menú"
+                : "Close menu"
+              : isEs
+                ? "Abrir menú"
+                : "Open menu"
+          }
         >
           <div className="flex flex-col justify-center space-y-0.5 xs:space-y-1 w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6">
             <span
@@ -174,85 +185,85 @@ export function Navigation() {
                   {[
                     {
                       href: "/",
-                      label: "Home",
+                      label: isEs ? "Inicio" : "Home",
                       subLabel: "Base HQ",
                       icon: "home",
                     },
                     {
                       href: "/about",
-                      label: "About Us",
+                      label: isEs ? "Nosotros" : "About Us",
                       subLabel: "Our Oath",
                       icon: "military_tech",
                     },
                     {
                       href: "/services",
-                      label: "Services",
+                      label: isEs ? "Servicios" : "Services",
                       subLabel: "Operations",
                       icon: "build",
                     },
                     {
                       href: "/projects",
-                      label: "Projects",
+                      label: isEs ? "Proyectos" : "Projects",
                       subLabel: "Missions",
                       icon: "photo_library",
                     },
                     {
                       href: "/team",
-                      label: "Our Team",
+                      label: isEs ? "Nuestro equipo" : "Our Team",
                       subLabel: "Chain of Command",
                       icon: "groups",
                     },
                     {
                       href: "/testimonials",
-                      label: "Reviews",
+                      label: isEs ? "Reseñas" : "Reviews",
                       subLabel: "Commendations",
                       icon: "star",
                     },
                     {
                       href: "/careers",
-                      label: "Careers",
+                      label: isEs ? "Carreras" : "Careers",
                       subLabel: "Enlist",
                       icon: "work",
                     },
                     {
                       href: "/contact",
-                      label: "Contact",
+                      label: isEs ? "Contacto" : "Contact",
                       subLabel: "Rally Point",
                       icon: "contact_phone",
                     },
                     {
                       href: "/public-sector",
-                      label: "Government",
+                      label: isEs ? "Gobierno" : "Government",
                       subLabel: "Public Sector",
                       icon: "account_balance",
                     },
                     {
                       href: "/allies",
-                      label: "Partners",
+                      label: isEs ? "Aliados" : "Partners",
                       subLabel: "Allies",
                       icon: "handshake",
                     },
                     {
                       href: "/veterans",
-                      label: "Veterans",
+                      label: isEs ? "Veteranos" : "Veterans",
                       subLabel: "Service First",
                       icon: "workspace_premium",
                     },
                     {
                       href: "/resources",
-                      label: "Resources",
+                      label: isEs ? "Recursos" : "Resources",
                       subLabel: "Field Intel",
                       icon: "folder_open",
                     },
                     {
                       href: "/faq",
-                      label: "Help/FAQ",
+                      label: isEs ? "Ayuda/Preguntas" : "Help/FAQ",
                       subLabel: "Intel Brief",
                       icon: "help",
                     },
                     {
                       href: "/safety",
-                      label: "Safety",
+                      label: isEs ? "Seguridad" : "Safety",
                       subLabel: "Force Protection",
                       icon: "verified_user",
                     },
@@ -289,7 +300,7 @@ export function Navigation() {
             <div className="flex-shrink-0 pt-3 sm:pt-4 border-t border-gray-200 dark:border-gray-700">
               <div className="mb-2 sm:mb-3 text-center">
                 <h4 className="font-bold text-brand-secondary text-xs sm:text-sm uppercase tracking-wide">
-                  Connect With Us
+                  {isEs ? "Conéctate con nosotros" : "Connect With Us"}
                 </h4>
               </div>
               <div className="flex justify-center gap-2 sm:gap-2.5">

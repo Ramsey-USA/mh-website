@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { useLocale } from "@/hooks/useLocale";
 
 interface Witness {
   id: string;
@@ -52,6 +53,8 @@ export function IncidentReportForm({
   token,
   onSubmitSuccess,
 }: Props) {
+  const locale = useLocale();
+  const isEs = locale === "es";
   const today = new Date().toISOString().split("T")[0] ?? "";
   const nowTime = new Date().toTimeString().slice(0, 5);
 
@@ -104,11 +107,19 @@ export function IncidentReportForm({
     setError(null);
 
     if (!formData.description.trim()) {
-      setError("Incident description is required.");
+      setError(
+        isEs
+          ? "La descripción del incidente es obligatoria."
+          : "Incident description is required.",
+      );
       return;
     }
     if (!formData.rootCause.trim()) {
-      setError("Root cause analysis is required.");
+      setError(
+        isEs
+          ? "El análisis de causa raíz es obligatorio."
+          : "Root cause analysis is required.",
+      );
       return;
     }
 
@@ -127,11 +138,18 @@ export function IncidentReportForm({
         }),
       });
       const json = await res.json();
-      if (!res.ok) throw new Error(json.error ?? "Submit failed");
+      if (!res.ok)
+        throw new Error(
+          json.error ?? (isEs ? "Error al enviar" : "Submit failed"),
+        );
       onSubmitSuccess(json.data.id as string);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "Submit failed. Try again.",
+        err instanceof Error
+          ? err.message
+          : isEs
+            ? "Error al enviar. Intente de nuevo."
+            : "Submit failed. Try again.",
       );
     } finally {
       setSubmitting(false);
@@ -154,9 +172,19 @@ export function IncidentReportForm({
           className="text-amber-600 dark:text-amber-400 shrink-0 mt-0.5"
         />
         <p className="text-sm text-amber-800 dark:text-amber-200">
-          For life-threatening emergencies, call <strong>911</strong>{" "}
-          immediately. Notify your PM and safety officer as soon as safe to do
-          so.
+          {isEs ? (
+            <>
+              En emergencias que ponen en riesgo la vida, llame al{" "}
+              <strong>911</strong> de inmediato. Notifique a su PM y al oficial
+              de seguridad tan pronto sea seguro hacerlo.
+            </>
+          ) : (
+            <>
+              For life-threatening emergencies, call <strong>911</strong>{" "}
+              immediately. Notify your PM and safety officer as soon as safe to
+              do so.
+            </>
+          )}
         </p>
       </div>
 
@@ -164,7 +192,7 @@ export function IncidentReportForm({
       <div className="grid sm:grid-cols-4 gap-4">
         <div>
           <label className={labelClass}>
-            Date <span className="text-red-500">*</span>
+            {isEs ? "Fecha" : "Date"} <span className="text-red-500">*</span>
           </label>
           <input
             type="date"
@@ -177,7 +205,7 @@ export function IncidentReportForm({
           />
         </div>
         <div>
-          <label className={labelClass}>Time</label>
+          <label className={labelClass}>{isEs ? "Hora" : "Time"}</label>
           <input
             type="time"
             value={formData.time}
@@ -188,7 +216,7 @@ export function IncidentReportForm({
           />
         </div>
         <div>
-          <label className={labelClass}>Job</label>
+          <label className={labelClass}>{isEs ? "Obra" : "Job"}</label>
           <input
             type="text"
             readOnly
@@ -197,7 +225,9 @@ export function IncidentReportForm({
           />
         </div>
         <div>
-          <label className={labelClass}>Reported By</label>
+          <label className={labelClass}>
+            {isEs ? "Reportado por" : "Reported By"}
+          </label>
           <input
             type="text"
             value={formData.reporterName}
@@ -212,7 +242,9 @@ export function IncidentReportForm({
       {/* Incident type + location */}
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label className={labelClass}>Incident Type</label>
+          <label className={labelClass}>
+            {isEs ? "Tipo de incidente" : "Incident Type"}
+          </label>
           <select
             value={formData.incidentType}
             onChange={(e) =>
@@ -220,7 +252,9 @@ export function IncidentReportForm({
             }
             className={inputClass}
           >
-            <option value="">— Select type —</option>
+            <option value="">
+              {isEs ? "— Seleccione tipo —" : "— Select type —"}
+            </option>
             {INCIDENT_TYPES.map((t) => (
               <option key={t} value={t}>
                 {t}
@@ -229,10 +263,16 @@ export function IncidentReportForm({
           </select>
         </div>
         <div>
-          <label className={labelClass}>Location on Site</label>
+          <label className={labelClass}>
+            {isEs ? "Ubicación en obra" : "Location on Site"}
+          </label>
           <input
             type="text"
-            placeholder="e.g. Main entry, East elevation Level 2"
+            placeholder={
+              isEs
+                ? "Ej. Acceso principal, elevación este nivel 2"
+                : "e.g. Main entry, East elevation Level 2"
+            }
             value={formData.location}
             onChange={(e) =>
               setFormData((d) => ({ ...d, location: e.target.value }))
@@ -244,10 +284,16 @@ export function IncidentReportForm({
 
       {/* Person involved + checkboxes */}
       <div>
-        <label className={labelClass}>Person(s) Involved</label>
+        <label className={labelClass}>
+          {isEs ? "Persona(s) involucrada(s)" : "Person(s) Involved"}
+        </label>
         <input
           type="text"
-          placeholder="Full name and trade / role"
+          placeholder={
+            isEs
+              ? "Nombre completo y oficio / rol"
+              : "Full name and trade / role"
+          }
           value={formData.personInvolved}
           onChange={(e) =>
             setFormData((d) => ({ ...d, personInvolved: e.target.value }))
@@ -258,10 +304,15 @@ export function IncidentReportForm({
 
       <div className="flex gap-6">
         {[
-          { field: "injuryOccurred" as const, label: "Injury occurred" },
+          {
+            field: "injuryOccurred" as const,
+            label: isEs ? "Hubo lesión" : "Injury occurred",
+          },
           {
             field: "medicalAttentionRequired" as const,
-            label: "Medical attention required",
+            label: isEs
+              ? "Se requiere atención médica"
+              : "Medical attention required",
           },
         ].map(({ field, label }) => (
           <label
@@ -284,12 +335,17 @@ export function IncidentReportForm({
       {/* Description */}
       <div>
         <label className={labelClass}>
-          Incident Description <span className="text-red-500">*</span>
+          {isEs ? "Descripción del incidente" : "Incident Description"}{" "}
+          <span className="text-red-500">*</span>
         </label>
         <textarea
           required
           rows={4}
-          placeholder="Describe exactly what happened — include sequence of events, equipment involved, and conditions at the time of the incident…"
+          placeholder={
+            isEs
+              ? "Describa exactamente lo ocurrido: secuencia de eventos, equipo involucrado y condiciones al momento del incidente…"
+              : "Describe exactly what happened — include sequence of events, equipment involved, and conditions at the time of the incident…"
+          }
           value={formData.description}
           onChange={(e) =>
             setFormData((d) => ({ ...d, description: e.target.value }))
@@ -300,10 +356,16 @@ export function IncidentReportForm({
 
       {/* Immediate action */}
       <div>
-        <label className={labelClass}>Immediate Action Taken</label>
+        <label className={labelClass}>
+          {isEs ? "Acción inmediata tomada" : "Immediate Action Taken"}
+        </label>
         <textarea
           rows={2}
-          placeholder="What was done immediately to respond to and contain the incident?"
+          placeholder={
+            isEs
+              ? "¿Qué se hizo de inmediato para responder y contener el incidente?"
+              : "What was done immediately to respond to and contain the incident?"
+          }
           value={formData.immediateAction}
           onChange={(e) =>
             setFormData((d) => ({ ...d, immediateAction: e.target.value }))
@@ -315,12 +377,17 @@ export function IncidentReportForm({
       {/* Root cause */}
       <div>
         <label className={labelClass}>
-          Root Cause Analysis <span className="text-red-500">*</span>
+          {isEs ? "Análisis de causa raíz" : "Root Cause Analysis"}{" "}
+          <span className="text-red-500">*</span>
         </label>
         <textarea
           required
           rows={3}
-          placeholder="Identify the underlying root cause(s) — not just the immediate cause. Ask 'why' until you find the systemic issue."
+          placeholder={
+            isEs
+              ? "Identifique la(s) causa(s) raíz subyacente(s), no solo la causa inmediata. Pregunte 'por qué' hasta llegar al problema sistémico."
+              : "Identify the underlying root cause(s) — not just the immediate cause. Ask 'why' until you find the systemic issue."
+          }
           value={formData.rootCause}
           onChange={(e) =>
             setFormData((d) => ({ ...d, rootCause: e.target.value }))
@@ -331,10 +398,16 @@ export function IncidentReportForm({
 
       {/* Corrective action */}
       <div>
-        <label className={labelClass}>Corrective Action Plan</label>
+        <label className={labelClass}>
+          {isEs ? "Plan de acción correctiva" : "Corrective Action Plan"}
+        </label>
         <textarea
           rows={3}
-          placeholder="What changes will be made to prevent recurrence? Who is responsible and by when?"
+          placeholder={
+            isEs
+              ? "¿Qué cambios se harán para evitar recurrencia? ¿Quién es responsable y para cuándo?"
+              : "What changes will be made to prevent recurrence? Who is responsible and by when?"
+          }
           value={formData.correctiveAction}
           onChange={(e) =>
             setFormData((d) => ({ ...d, correctiveAction: e.target.value }))
@@ -422,12 +495,12 @@ export function IncidentReportForm({
         {submitting ? (
           <>
             <MaterialIcon icon="hourglass_empty" size="sm" />
-            Submitting…
+            {isEs ? "Enviando…" : "Submitting…"}
           </>
         ) : (
           <>
             <MaterialIcon icon="send" size="sm" />
-            Submit Incident Report
+            {isEs ? "Enviar reporte de incidente" : "Submit Incident Report"}
           </>
         )}
       </button>

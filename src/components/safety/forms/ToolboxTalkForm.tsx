@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { useLocale } from "@/hooks/useLocale";
 
 interface Attendee {
   id: string;
@@ -34,6 +35,8 @@ export function ToolboxTalkForm({
   token,
   onSubmitSuccess,
 }: Props) {
+  const locale = useLocale();
+  const isEs = locale === "es";
   const today = new Date().toISOString().split("T")[0] ?? "";
 
   const [formData, setFormData] = useState<ToolboxTalkData>({
@@ -80,7 +83,11 @@ export function ToolboxTalkForm({
     setError(null);
 
     if (!formData.date || !formData.topic.trim()) {
-      setError("Date and topic are required.");
+      setError(
+        isEs
+          ? "La fecha y el tema son obligatorios."
+          : "Date and topic are required.",
+      );
       return;
     }
 
@@ -100,12 +107,19 @@ export function ToolboxTalkForm({
       });
 
       const json = await res.json();
-      if (!res.ok) throw new Error(json.error ?? "Submit failed");
+      if (!res.ok)
+        throw new Error(
+          json.error ?? (isEs ? "Error al enviar" : "Submit failed"),
+        );
 
       onSubmitSuccess(json.data.id as string);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "Submit failed. Try again.",
+        err instanceof Error
+          ? err.message
+          : isEs
+            ? "Error al enviar. Intente de nuevo."
+            : "Submit failed. Try again.",
       );
     } finally {
       setSubmitting(false);
@@ -118,7 +132,7 @@ export function ToolboxTalkForm({
       <div className="grid sm:grid-cols-3 gap-4">
         <div>
           <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
-            Date <span className="text-red-500">*</span>
+            {isEs ? "Fecha" : "Date"} <span className="text-red-500">*</span>
           </label>
           <input
             type="date"
@@ -132,7 +146,7 @@ export function ToolboxTalkForm({
         </div>
         <div>
           <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
-            Job
+            {isEs ? "Obra" : "Job"}
           </label>
           <input
             type="text"
@@ -143,7 +157,7 @@ export function ToolboxTalkForm({
         </div>
         <div>
           <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
-            Conducted By
+            {isEs ? "Dirigido por" : "Conducted By"}
           </label>
           <input
             type="text"
@@ -159,12 +173,17 @@ export function ToolboxTalkForm({
       {/* Topic */}
       <div>
         <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
-          Safety Topic / Subject <span className="text-red-500">*</span>
+          {isEs ? "Tema de seguridad" : "Safety Topic / Subject"}{" "}
+          <span className="text-red-500">*</span>
         </label>
         <input
           type="text"
           required
-          placeholder="e.g. Fall Protection — Ladder Safety Review"
+          placeholder={
+            isEs
+              ? "Ej. Protección contra caídas — revisión de seguridad en escaleras"
+              : "e.g. Fall Protection — Ladder Safety Review"
+          }
           value={formData.topic}
           onChange={(e) =>
             setFormData((d) => ({ ...d, topic: e.target.value }))
@@ -176,11 +195,15 @@ export function ToolboxTalkForm({
       {/* Hazards */}
       <div>
         <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
-          Hazards Discussed
+          {isEs ? "Peligros discutidos" : "Hazards Discussed"}
         </label>
         <textarea
           rows={3}
-          placeholder="List specific hazards reviewed during this meeting…"
+          placeholder={
+            isEs
+              ? "Liste los peligros específicos revisados durante esta reunión…"
+              : "List specific hazards reviewed during this meeting…"
+          }
           value={formData.hazardsDiscussed}
           onChange={(e) =>
             setFormData((d) => ({ ...d, hazardsDiscussed: e.target.value }))
@@ -192,11 +215,15 @@ export function ToolboxTalkForm({
       {/* Safety observations */}
       <div>
         <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
-          Safety Observations
+          {isEs ? "Observaciones de seguridad" : "Safety Observations"}
         </label>
         <textarea
           rows={3}
-          placeholder="Note any positive observations or areas for improvement…"
+          placeholder={
+            isEs
+              ? "Anote observaciones positivas o áreas de mejora…"
+              : "Note any positive observations or areas for improvement…"
+          }
           value={formData.safetyObservations}
           onChange={(e) =>
             setFormData((d) => ({ ...d, safetyObservations: e.target.value }))
@@ -208,11 +235,15 @@ export function ToolboxTalkForm({
       {/* Action items */}
       <div>
         <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
-          Action Items / Follow-ups
+          {isEs ? "Acciones / Seguimiento" : "Action Items / Follow-ups"}
         </label>
         <textarea
           rows={2}
-          placeholder="List any corrective actions or follow-up tasks assigned…"
+          placeholder={
+            isEs
+              ? "Liste acciones correctivas o tareas de seguimiento asignadas…"
+              : "List any corrective actions or follow-up tasks assigned…"
+          }
           value={formData.actionItems}
           onChange={(e) =>
             setFormData((d) => ({ ...d, actionItems: e.target.value }))
@@ -225,7 +256,7 @@ export function ToolboxTalkForm({
       <div>
         <div className="flex items-center justify-between mb-2">
           <label className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
-            Attendees
+            {isEs ? "Asistentes" : "Attendees"}
           </label>
           <button
             type="button"
@@ -233,7 +264,7 @@ export function ToolboxTalkForm({
             className="inline-flex items-center gap-1 text-xs text-brand-primary hover:text-brand-primary-dark font-semibold"
           >
             <MaterialIcon icon="add" size="sm" />
-            Add Row
+            {isEs ? "Agregar fila" : "Add Row"}
           </button>
         </div>
         <div className="space-y-2">
@@ -241,14 +272,16 @@ export function ToolboxTalkForm({
             <div key={a.id} className="flex items-center gap-2">
               <input
                 type="text"
-                placeholder="Full name"
+                placeholder={isEs ? "Nombre completo" : "Full name"}
                 value={a.name}
                 onChange={(e) => updateAttendee(a.id, "name", e.target.value)}
                 className="flex-1 px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
               />
               <input
                 type="text"
-                placeholder="Initials / signature"
+                placeholder={
+                  isEs ? "Iniciales / firma" : "Initials / signature"
+                }
                 value={a.signature}
                 onChange={(e) =>
                   updateAttendee(a.id, "signature", e.target.value)
@@ -260,7 +293,7 @@ export function ToolboxTalkForm({
                   type="button"
                   onClick={() => removeAttendee(a.id)}
                   className="text-gray-400 hover:text-red-500 transition-colors"
-                  aria-label="Remove attendee"
+                  aria-label={isEs ? "Eliminar asistente" : "Remove attendee"}
                 >
                   <MaterialIcon icon="remove_circle_outline" size="sm" />
                 </button>
@@ -285,12 +318,12 @@ export function ToolboxTalkForm({
         {submitting ? (
           <>
             <MaterialIcon icon="hourglass_empty" size="sm" />
-            Submitting…
+            {isEs ? "Enviando…" : "Submitting…"}
           </>
         ) : (
           <>
             <MaterialIcon icon="send" size="sm" />
-            Submit Toolbox Talk
+            {isEs ? "Enviar charla de seguridad" : "Submit Toolbox Talk"}
           </>
         )}
       </button>

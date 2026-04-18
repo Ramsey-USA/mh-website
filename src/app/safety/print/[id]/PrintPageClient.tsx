@@ -513,10 +513,7 @@ export default function PrintPageClient() {
         <p className="text-gray-700 font-semibold">
           {error ?? "Submission not found."}
         </p>
-        <a
-          href="/safety/hub"
-          className="text-brand-primary hover:underline text-sm"
-        >
+        <a href="/hub" className="text-brand-primary hover:underline text-sm">
           Return to Safety Hub
         </a>
       </div>
@@ -539,7 +536,7 @@ export default function PrintPageClient() {
       <div className="print:hidden sticky top-0 z-10 bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-3xl mx-auto px-4 h-12 flex items-center justify-between gap-4">
           <a
-            href="/safety/hub"
+            href="/hub"
             className="inline-flex items-center gap-1.5 text-sm text-gray-600 hover:text-gray-900"
           >
             <MaterialIcon icon="arrow_back" size="sm" />

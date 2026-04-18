@@ -4,11 +4,14 @@
  * Used on: Homepage, About, Services pages
  */
 
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PitchDeckCTA } from "@/components/ui/cta";
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
+import { useLocale } from "@/hooks/useLocale";
 
 interface NextStepsSectionProps {
   title?: string;
@@ -24,25 +27,36 @@ export function NextStepsSection({
   className = "",
   noBackground: _noBackground = false,
 }: NextStepsSectionProps) {
+  const locale = useLocale();
+  const isEs = locale === "es";
+
   return (
     <BrandedContentSection
       id="next-steps"
       header={{
         icon: "handshake",
         iconVariant: "secondary",
-        subtitle: "Ready to Start Your Project?",
-        title: "Let's Build Together",
+        subtitle: isEs
+          ? "Listo para comenzar su proyecto?"
+          : "Ready to Start Your Project?",
+        title: isEs ? "Construyamos juntos" : "Let's Build Together",
         description: (
           <>
-            Where{" "}
+            {isEs ? "Donde " : "Where "}
             <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              your word is your bond
+              {isEs ? "su palabra es su compromiso" : "your word is your bond"}
             </span>
-            , and ours is too. Partner with a{" "}
+            {isEs
+              ? ", y la nuestra también. Asóciese con un "
+              : ", and ours is too. Partner with a "}
             <span className="font-bold text-gray-900 dark:text-white">
-              Veteran-Owned, relationship-first team
+              {isEs
+                ? "equipo veterano centrado en relaciones"
+                : "Veteran-Owned, relationship-first team"}
             </span>{" "}
-            backed by proven values.
+            {isEs
+              ? "respaldado por valores probados."
+              : "backed by proven values."}
           </>
         ),
       }}
@@ -57,7 +71,7 @@ export function NextStepsSection({
           <div className="bg-gradient-to-r from-brand-secondary to-brand-secondary-dark -top-4 left-1/2 absolute px-5 py-1.5 rounded-full -translate-x-1/2 shadow-lg border-2 border-brand-secondary/30">
             <span className="font-bold text-xs text-white uppercase tracking-wider flex items-center gap-1.5">
               <MaterialIcon icon="star" size="sm" className="text-yellow-300" />
-              Most Popular
+              {isEs ? "Mas popular" : "Most Popular"}
             </span>
           </div>
           <div className="flex justify-center mb-6">
@@ -70,11 +84,12 @@ export function NextStepsSection({
             </div>
           </div>
           <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
-            See Our Real Work
+            {isEs ? "Vea nuestro trabajo real" : "See Our Real Work"}
           </h3>
           <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-            Real projects. Real results. Real testimonials from Client Partners
-            who trust us.
+            {isEs
+              ? "Proyectos reales. Resultados reales. Testimonios reales de Clientes que confian en nosotros."
+              : "Real projects. Real results. Real testimonials from Client Partners who trust us."}
           </p>
           <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 flex-grow">
             <li className="flex items-center gap-2">
@@ -83,7 +98,11 @@ export function NextStepsSection({
                 size="sm"
                 className="text-brand-secondary flex-shrink-0"
               />
-              <span>650+ completed projects since 2010</span>
+              <span>
+                {isEs
+                  ? "650+ proyectos completados desde 2010"
+                  : "650+ completed projects since 2010"}
+              </span>
             </li>
             <li className="flex items-center gap-2">
               <MaterialIcon
@@ -91,7 +110,11 @@ export function NextStepsSection({
                 size="sm"
                 className="text-brand-secondary flex-shrink-0"
               />
-              <span>98% Client Partner satisfaction rate</span>
+              <span>
+                {isEs
+                  ? "98% de satisfaccion de clientes"
+                  : "98% Client Partner satisfaction rate"}
+              </span>
             </li>
             <li className="flex items-center gap-2">
               <MaterialIcon
@@ -99,7 +122,11 @@ export function NextStepsSection({
                 size="sm"
                 className="text-brand-secondary flex-shrink-0"
               />
-              <span>70% referral rate - proven excellence</span>
+              <span>
+                {isEs
+                  ? "70% de referidos - excelencia comprobada"
+                  : "70% referral rate - proven excellence"}
+              </span>
             </li>
           </ul>
           <Link href="/projects">
@@ -109,7 +136,7 @@ export function NextStepsSection({
                 size="lg"
                 className="mr-2 group-hover/btn:scale-110 transition-transform"
               />
-              View Our Work
+              {isEs ? "Ver nuestro trabajo" : "View Our Work"}
             </Button>
           </Link>
         </div>
@@ -126,11 +153,12 @@ export function NextStepsSection({
             </div>
           </div>
           <h3 className="mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white leading-tight">
-            Let's Talk Face-to-Face
+            {isEs ? "Hablemos cara a cara" : "Let's Talk Face-to-Face"}
           </h3>
           <p className="mb-6 text-center text-gray-600 text-base dark:text-gray-300 leading-relaxed">
-            Honest answers from real people. No automated systems. Just
-            transparent communication.
+            {isEs
+              ? "Respuestas honestas de personas reales. Sin sistemas automatizados. Solo comunicacion transparente."
+              : "Honest answers from real people. No automated systems. Just transparent communication."}
           </p>
           <ul className="space-y-2 mb-6 text-gray-600 text-sm dark:text-gray-300 flex-grow">
             <li className="flex items-center gap-2">
@@ -139,7 +167,11 @@ export function NextStepsSection({
                 size="sm"
                 className="text-brand-secondary flex-shrink-0"
               />
-              <span>Face-to-face consultation preferred</span>
+              <span>
+                {isEs
+                  ? "Consulta presencial preferida"
+                  : "Face-to-face consultation preferred"}
+              </span>
             </li>
             <li className="flex items-center gap-2">
               <MaterialIcon
@@ -147,7 +179,11 @@ export function NextStepsSection({
                 size="sm"
                 className="text-brand-secondary flex-shrink-0"
               />
-              <span>Transparent pricing from day one</span>
+              <span>
+                {isEs
+                  ? "Precios transparentes desde el primer dia"
+                  : "Transparent pricing from day one"}
+              </span>
             </li>
             <li className="flex items-center gap-2">
               <MaterialIcon
@@ -155,7 +191,11 @@ export function NextStepsSection({
                 size="sm"
                 className="text-brand-secondary flex-shrink-0"
               />
-              <span>Direct line to decision-makers</span>
+              <span>
+                {isEs
+                  ? "Contacto directo con quienes toman decisiones"
+                  : "Direct line to decision-makers"}
+              </span>
             </li>
           </ul>
           <Link href="/contact">
@@ -169,7 +209,7 @@ export function NextStepsSection({
                 size="lg"
                 className="mr-2 group-hover/btn:scale-110 transition-transform"
               />
-              Get In Touch
+              {isEs ? "Contactenos" : "Get In Touch"}
             </Button>
           </Link>
         </div>

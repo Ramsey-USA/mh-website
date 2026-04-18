@@ -9,7 +9,7 @@ export const metadata: Metadata = withGeoMetadata({
   description:
     "Restricted field resource hub for MH Construction Superintendents — download safety manual sections, submit Toolbox Talks, Site Safety Inspections, Job Hazard Analyses, and Incident Reports.",
   alternates: {
-    canonical: `${siteUrl}/safety/hub`,
+    canonical: `${siteUrl}/hub`,
   },
   robots: {
     index: false,

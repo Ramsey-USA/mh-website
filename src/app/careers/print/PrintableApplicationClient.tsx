@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { useLocale } from "@/hooks/useLocale";
+import { LOCALE_COOKIE_NAME, type SupportedLocale } from "@/lib/i18n/locale";
 
 // ─── Translations ─────────────────────────────────────────────────────────────
 
@@ -282,7 +284,21 @@ function WorkHistoryBlock({ t }: { t: (typeof translations)["en"] }) {
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function PrintableApplicationClient() {
+  const locale = useLocale();
   const [lang, setLang] = useState<Language>("en");
+
+  useEffect(() => {
+    setLang(locale);
+  }, [locale]);
+
+  const switchLanguage = () => {
+    const next = (lang === "en" ? "es" : "en") as SupportedLocale;
+    document.cookie = `${LOCALE_COOKIE_NAME}=${next}; path=/; max-age=31536000; SameSite=Lax`;
+    document.documentElement.lang = next;
+    setLang(next);
+    window.dispatchEvent(new Event("localechange"));
+  };
+
   const t = translations[lang];
 
   return (
@@ -302,7 +318,7 @@ export default function PrintableApplicationClient() {
           </Link>
           <div className="flex items-center gap-3">
             <button
-              onClick={() => setLang(lang === "en" ? "es" : "en")}
+              onClick={switchLanguage}
               className="inline-flex items-center gap-2 border-2 border-gray-300 dark:border-gray-600 hover:border-brand-primary dark:hover:border-brand-secondary bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:text-brand-primary dark:hover:text-brand-secondary text-sm font-semibold px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md"
               aria-label={`Switch to ${lang === "en" ? "Spanish" : "English"}`}
             >

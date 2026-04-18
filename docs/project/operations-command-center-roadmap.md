@@ -2,11 +2,11 @@
 
 **Category:** Project - Operations Planning  
 **Created:** April 13, 2026  
-**Last Updated:** April 17, 2026  
+**Last Updated:** April 18, 2026  
 **Version:** 1.1  
 **Status:** ✅ Active
 
-> Alignment update (April 17, 2026): this roadmap is now sequenced with `docs/project/operational-hub-build-plan.md` and the canonical execution order in `docs/project/operational-hub-congruent-plan.md`.
+> Alignment update (April 18, 2026): this roadmap is now sequenced with `docs/project/operational-hub-build-plan.md` and the canonical execution order in `docs/project/operational-hub-congruent-plan.md`.
 
 ---
 
@@ -28,7 +28,7 @@ making the website the canonical source for how MH Construction operates.
 
 | System                | Status        | What Exists                                                                             |
 | --------------------- | ------------- | --------------------------------------------------------------------------------------- |
-| **Safety Program**    | ✅ Production | 45-section manual, QR PDFs, form submissions, intake portal, R2 storage                 |
+| **Safety Program**    | ✅ Production | 50-section manual, QR PDFs, form submissions, intake portal, R2 storage                 |
 | **Driving Program**   | ⚠️ Partial    | Driver database, license tracking, MVR monitoring, daily cron alerts, admin dashboard   |
 | **Document Pipeline** | ✅ Production | Puppeteer PDF generation, branded covers/tabs/spines, QR back-links                     |
 | **Email Templates**   | ✅ Production | Branded HTML builder, alert templates, digest summaries                                 |

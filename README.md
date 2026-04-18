@@ -22,7 +22,7 @@ honest communication, and proven craftsmanship.
 4. **Study [Component Cheatsheet](docs/development/quick-reference/component-cheatsheet.md)** -
    Copy-paste patterns matching homepage style
 5. **Use [Page Template Guide](docs/development/standards/page-template-guide.md)** - Complete boilerplate for new pages
-6. **Build your page** using StandardSection template and cheatsheet patterns to match homepage cohesiveness
+6. **Build your page** using BrandedContentSection/template component patterns and cheatsheet references to match homepage cohesiveness
 7. **Audit with [Page Compliance Checklist](docs/development/standards/page-compliance-checklist.md)** -
    150+ items to verify homepage-level quality
 8. **Deploy** following standards
@@ -48,7 +48,7 @@ homepage - same visual weight, spacing, animations, and polish.
 - **Optimizing images/videos?** → [Automatic Media Optimization](docs/technical/automatic-media-optimization.md)
 - **Adding SEO metadata?** → [SEO Complete Guide](docs/technical/seo/seo-complete-guide.md) + [SEO Quick Reference](seo-quick-reference.md)
 - **Making page installable (PWA)?** → [PWA Quick Reference](docs/technical/pwa-quick-reference.md)
-- **Using reusable components?** → [StandardSection Template](docs/development/components/template-components.md)
+- **Using reusable components?** → [BrandedContentSection Template](docs/development/components/template-components.md)
 - **Deploying to Cloudflare?** → [Cloudflare Deployment Guide](docs/deployment/cloudflare-guide.md)
 - **Understanding project structure?** → [Project Architecture](docs/project/architecture.md)
 
@@ -56,7 +56,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ---
 
-## Project Status (April 15, 2026)
+## Project Status (April 18, 2026)
 
 ### Production-Ready Platform
 
@@ -66,8 +66,8 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Deployed**      | Live      | Cloudflare Workers — mhc-gc.com            |
 | **TypeScript**    | Strict    | Zero type errors                           |
 | **ESLint**        | Clean     | Zero lint warnings, zero errors            |
-| **Tests**         | Passing   | 1795/1795 passing, 141 suites              |
-| **Coverage**      | Strong    | 97.32% stmts, 91.23% branches, 99.03% fns  |
+| **Tests**         | Passing   | CI and focused safety/hub suites green     |
+| **Coverage**      | Strong    | Maintained via `npm run test:coverage`     |
 | **SEO**           | External  | Audit via external tools                   |
 | **Lighthouse**    | External  | Audit via PageSpeed/DevTools               |
 | **Bundle Size**   | 240 kB    | Production optimized                       |
@@ -89,6 +89,13 @@ monitors (Health API, Twilio, Resend, Cloudflare Status); D1 preview database
 routing bug fixed; tj-actions CVE remediated (v44 → v46.0.1); observability
 (logs + traces, 100% sampling) enabled. Documentation audit (earlier): brand
 consistency fixes across all markdown files.
+
+**Apr 18 highlights:** Safety and Operational Hub congruency normalization complete
+around canonical `/hub` routing (with active backward-compat redirect from
+`/safety/hub`), centralized safety form registry adoption across public + staff
+surfaces, docs alignment to current MISH revision/section model, and targeted
+branding/accessibility refinements for safety/hub UI (including improved small-text
+contrast rules and updated smoke-test handling for async server page rendering).
 
 **Apr 8 highlights:** Documentation audit — corrected stale file paths, resolved
 demo-account security status, added /resources pages to architecture inventory,
@@ -351,7 +358,7 @@ scripts/mh-scripts-guide.md             # Scripts overview and direct-run helper
 - **Development:**
   [Component Cheatsheet](docs/development/quick-reference/component-cheatsheet.md) |
   [Compliance Checklist](docs/development/standards/page-compliance-checklist.md) |
-  [StandardSection Template](docs/development/components/template-components.md)
+  [BrandedContentSection Template](docs/development/components/template-components.md)
 - **Design System:**
   [Unified Component Standards](docs/branding/standards/unified-component-standards.md) v7.0.0
   (consolidated typography & components)

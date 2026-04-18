@@ -20,6 +20,7 @@ import {
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { DASHBOARD_ACCESS_CODE } from "@/lib/constants/dashboard-access";
 import { trackFormSubmit } from "@/lib/analytics/tracking";
+import { useLocale } from "@/hooks/useLocale";
 
 type FooterNavItem = {
   href: string;
@@ -438,6 +439,8 @@ function ServiceAreasDropdown({
 }
 
 export default function Footer() {
+  const locale = useLocale();
+  const isEs = locale === "es";
   const [showAdminModal, setShowAdminModal] = useState(false);
   const [accessCode, setAccessCode] = useState("");
   const [accessCodeError, setAccessCodeError] = useState("");
@@ -491,7 +494,9 @@ export default function Footer() {
       setAccessCodeError("");
       setShowAdminModal(true);
     } else {
-      setAccessCodeError("Invalid access code");
+      setAccessCodeError(
+        isEs ? "Código de acceso inválido" : "Invalid access code",
+      );
       setAccessCode("");
     }
   };
@@ -517,7 +522,7 @@ export default function Footer() {
       if (response.ok) {
         setNewsletterEmail("");
         setNewsletterStatus("success");
-        setNewsletterMessage("Subscribed!");
+        setNewsletterMessage(isEs ? "¡Suscrito!" : "Subscribed!");
         try {
           trackFormSubmit("newsletter");
         } catch {
@@ -527,10 +532,10 @@ export default function Footer() {
       }
 
       setNewsletterStatus("error");
-      setNewsletterMessage("Try again");
+      setNewsletterMessage(isEs ? "Intente de nuevo" : "Try again");
     } catch {
       setNewsletterStatus("error");
-      setNewsletterMessage("Error");
+      setNewsletterMessage(isEs ? "Error" : "Error");
     }
   };
 
@@ -742,7 +747,7 @@ export default function Footer() {
                 >
                   <FooterActionCardContent
                     icon="mail"
-                    eyebrow="Email Us"
+                    eyebrow={isEs ? "Escríbanos" : "Email Us"}
                     body={
                       <div className="truncate text-xs font-bold text-gray-300 transition-colors group-hover:text-brand-primary xs:text-sm">
                         {COMPANY_INFO.email.main}
@@ -761,7 +766,7 @@ export default function Footer() {
                 >
                   <FooterActionCardContent
                     icon="place"
-                    eyebrow="Visit Us"
+                    eyebrow={isEs ? "Visítenos" : "Visit Us"}
                     body={
                       <div className="text-xs font-bold text-gray-300 transition-colors group-hover:text-brand-primary xs:text-sm">
                         <span itemProp="streetAddress">
@@ -796,23 +801,25 @@ export default function Footer() {
                   </div>
                   <div className="flex-grow">
                     <div className="text-brand-secondary text-xs font-bold uppercase tracking-wide mb-0.5">
-                      Stay Updated
+                      {isEs ? "Manténgase al día" : "Stay Updated"}
                     </div>
                     <div className="text-gray-300 font-bold text-sm xs:text-base group-hover:text-brand-primary transition-colors">
-                      Join Our Newsletter
+                      {isEs ? "Únase a nuestro boletín" : "Join Our Newsletter"}
                     </div>
                   </div>
                 </div>
                 <form onSubmit={handleNewsletterSubmit} className="space-y-2">
                   <label htmlFor="footer-newsletter-email" className="sr-only">
-                    Email address
+                    {isEs ? "Correo electrónico" : "Email address"}
                   </label>
                   <input
                     id="footer-newsletter-email"
                     type="email"
                     name="email"
                     autoComplete="email"
-                    placeholder="Enter your email"
+                    placeholder={
+                      isEs ? "Ingrese su correo" : "Enter your email"
+                    }
                     required
                     value={newsletterEmail}
                     onChange={(event) => setNewsletterEmail(event.target.value)}
@@ -825,8 +832,12 @@ export default function Footer() {
                     className="w-full px-4 py-2 bg-brand-primary hover:bg-brand-primary-dark text-brand-secondary-light hover:text-white text-sm font-bold rounded-lg transition-all duration-300 border-2 border-brand-secondary/50 hover:border-brand-secondary shadow-md hover:shadow-lg flex items-center justify-center gap-2"
                   >
                     {newsletterStatus === "submitting"
-                      ? "Subscribing..."
-                      : "Subscribe"}
+                      ? isEs
+                        ? "Suscribiendo..."
+                        : "Subscribing..."
+                      : isEs
+                        ? "Suscribirse"
+                        : "Subscribe"}
                     <MaterialIcon icon="arrow_forward" size="sm" />
                   </button>
                   <div
@@ -1061,7 +1072,7 @@ export default function Footer() {
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 className="group flex items-center gap-2 bg-gradient-to-r from-brand-primary to-brand-primary-dark hover:from-brand-primary-dark hover:to-brand-primary text-brand-secondary-light px-4 py-2 rounded-lg shadow-md hover:shadow-lg hover:shadow-brand-primary/20 transition-all duration-300 hover:scale-105 touch-manipulation border border-brand-secondary/30 hover:border-brand-secondary"
-                aria-label="Back to top"
+                aria-label={isEs ? "Volver arriba" : "Back to top"}
               >
                 <MaterialIcon
                   icon="arrow_upward"
@@ -1069,7 +1080,7 @@ export default function Footer() {
                   className="text-brand-secondary group-hover:text-brand-secondary-light group-hover:-translate-y-0.5 transition-all duration-300"
                 />
                 <span className="font-bold text-sm text-brand-secondary group-hover:text-brand-secondary-light transition-colors duration-300">
-                  Top
+                  {isEs ? "Arriba" : "Top"}
                 </span>
               </button>
             </div>
@@ -1103,12 +1114,12 @@ export default function Footer() {
                     className="text-gray-500 dark:text-gray-600"
                   />
                   <label htmlFor="footer-access-code" className="sr-only">
-                    Access code
+                    {isEs ? "Código de acceso" : "Access code"}
                   </label>
                   <input
                     id="footer-access-code"
                     type="password"
-                    placeholder="Staff"
+                    placeholder={isEs ? "Personal" : "Staff"}
                     value={accessCode}
                     onChange={(e) => setAccessCode(e.target.value)}
                     autoComplete="off"
@@ -1116,7 +1127,9 @@ export default function Footer() {
                   />
                   <button
                     type="submit"
-                    aria-label="Submit access code"
+                    aria-label={
+                      isEs ? "Enviar código de acceso" : "Submit access code"
+                    }
                     className="flex items-center justify-center rounded bg-gray-700/50 hover:bg-brand-primary/50 p-1 transition-colors touch-manipulation"
                   >
                     <MaterialIcon

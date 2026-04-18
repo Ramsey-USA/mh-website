@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { useLocale } from "@/hooks/useLocale";
 
 interface CrewMember {
   id: string;
@@ -41,7 +42,9 @@ export function JHAForm({
   jobLabel,
   token,
   onSubmitSuccess,
-}: Props) {
+}: Readonly<Props>) {
+  const locale = useLocale();
+  const isEs = locale === "es";
   const today = new Date().toISOString().split("T")[0] ?? "";
 
   const [formData, setFormData] = useState<JHAData>({
@@ -107,7 +110,11 @@ export function JHAForm({
     e.preventDefault();
     setError(null);
     if (!formData.taskDescription.trim()) {
-      setError("Task description is required.");
+      setError(
+        isEs
+          ? "La descripción de la tarea es obligatoria."
+          : "Task description is required.",
+      );
       return;
     }
     setSubmitting(true);
@@ -125,11 +132,18 @@ export function JHAForm({
         }),
       });
       const json = await res.json();
-      if (!res.ok) throw new Error(json.error ?? "Submit failed");
+      if (!res.ok)
+        throw new Error(
+          json.error ?? (isEs ? "Error al enviar" : "Submit failed"),
+        );
       onSubmitSuccess(json.data.id as string);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "Submit failed. Try again.",
+        err instanceof Error
+          ? err.message
+          : isEs
+            ? "Error al enviar. Intente de nuevo."
+            : "Submit failed. Try again.",
       );
     } finally {
       setSubmitting(false);
@@ -147,7 +161,7 @@ export function JHAForm({
       <div className="grid sm:grid-cols-3 gap-4">
         <div>
           <label className={labelClass}>
-            Date <span className="text-red-500">*</span>
+            {isEs ? "Fecha" : "Date"} <span className="text-red-500">*</span>
           </label>
           <input
             type="date"
@@ -160,8 +174,11 @@ export function JHAForm({
           />
         </div>
         <div>
-          <label className={labelClass}>Job</label>
+          <label htmlFor="jha-job" className={labelClass}>
+            {isEs ? "Obra" : "Job"}
+          </label>
           <input
+            id="jha-job"
             type="text"
             readOnly
             value={jobLabel}
@@ -169,8 +186,11 @@ export function JHAForm({
           />
         </div>
         <div>
-          <label className={labelClass}>Supervisor</label>
+          <label htmlFor="jha-supervisor" className={labelClass}>
+            Supervisor
+          </label>
           <input
+            id="jha-supervisor"
             type="text"
             value={formData.supervisorName}
             onChange={(e) =>
@@ -185,12 +205,19 @@ export function JHAForm({
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className={labelClass}>
-            Task / Work Description <span className="text-red-500">*</span>
+            {isEs
+              ? "Tarea / Descripción del trabajo"
+              : "Task / Work Description"}{" "}
+            <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
             required
-            placeholder="e.g. Overhead steel beam installation"
+            placeholder={
+              isEs
+                ? "Ej. Instalación de viga de acero elevada"
+                : "e.g. Overhead steel beam installation"
+            }
             value={formData.taskDescription}
             onChange={(e) =>
               setFormData((d) => ({ ...d, taskDescription: e.target.value }))
@@ -199,10 +226,16 @@ export function JHAForm({
           />
         </div>
         <div>
-          <label className={labelClass}>Work Location on Site</label>
+          <label className={labelClass}>
+            {isEs ? "Ubicación en obra" : "Work Location on Site"}
+          </label>
           <input
             type="text"
-            placeholder="e.g. East elevation, Level 3"
+            placeholder={
+              isEs
+                ? "Ej. Elevación este, nivel 3"
+                : "e.g. East elevation, Level 3"
+            }
             value={formData.workLocation}
             onChange={(e) =>
               setFormData((d) => ({ ...d, workLocation: e.target.value }))
@@ -214,10 +247,16 @@ export function JHAForm({
 
       {/* Required PPE */}
       <div>
-        <label className={labelClass}>Required PPE</label>
+        <label className={labelClass}>
+          {isEs ? "EPP requerido" : "Required PPE"}
+        </label>
         <input
           type="text"
-          placeholder="e.g. Hard hat, harness, Hi-Vis vest, steel-toed boots"
+          placeholder={
+            isEs
+              ? "Ej. Casco, arnés, chaleco reflectante, botas con punta de acero"
+              : "e.g. Hard hat, harness, Hi-Vis vest, steel-toed boots"
+          }
           value={formData.requiredPPE}
           onChange={(e) =>
             setFormData((d) => ({ ...d, requiredPPE: e.target.value }))
@@ -229,14 +268,16 @@ export function JHAForm({
       {/* Crew Members */}
       <div>
         <div className="flex items-center justify-between mb-2">
-          <label className={labelClass}>Crew Members</label>
+          <label className={labelClass}>
+            {isEs ? "Miembros de la cuadrilla" : "Crew Members"}
+          </label>
           <button
             type="button"
             onClick={addCrew}
             className="inline-flex items-center gap-1 text-xs text-brand-primary hover:text-brand-primary-dark font-semibold"
           >
             <MaterialIcon icon="add" size="sm" />
-            Add Row
+            {isEs ? "Agregar fila" : "Add Row"}
           </button>
         </div>
         <div className="space-y-2">
@@ -244,14 +285,14 @@ export function JHAForm({
             <div key={c.id} className="flex items-center gap-2">
               <input
                 type="text"
-                placeholder="Full name"
+                placeholder={isEs ? "Nombre completo" : "Full name"}
                 value={c.name}
                 onChange={(e) => updateCrew(c.id, "name", e.target.value)}
                 className="flex-1 px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
               />
               <input
                 type="text"
-                placeholder="Role / trade"
+                placeholder={isEs ? "Rol / oficio" : "Role / trade"}
                 value={c.role}
                 onChange={(e) => updateCrew(c.id, "role", e.target.value)}
                 className="w-36 px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
@@ -260,7 +301,7 @@ export function JHAForm({
                 <button
                   type="button"
                   onClick={() => removeCrew(c.id)}
-                  aria-label="Remove crew member"
+                  aria-label={isEs ? "Eliminar miembro" : "Remove crew member"}
                   className="text-gray-400 hover:text-red-500 transition-colors"
                 >
                   <MaterialIcon icon="remove_circle_outline" size="sm" />
@@ -274,14 +315,18 @@ export function JHAForm({
       {/* JHA Steps */}
       <div>
         <div className="flex items-center justify-between mb-3">
-          <label className={labelClass}>Job Steps — Hazard Analysis</label>
+          <label className={labelClass}>
+            {isEs
+              ? "Pasos del trabajo — análisis de peligros"
+              : "Job Steps — Hazard Analysis"}
+          </label>
           <button
             type="button"
             onClick={addStep}
             className="inline-flex items-center gap-1 text-xs text-brand-primary hover:text-brand-primary-dark font-semibold"
           >
             <MaterialIcon icon="add" size="sm" />
-            Add Step
+            {isEs ? "Agregar paso" : "Add Step"}
           </button>
         </div>
 
@@ -310,11 +355,15 @@ export function JHAForm({
             >
               <div>
                 <span className="sm:hidden text-xs font-semibold text-gray-500 uppercase">
-                  Step {idx + 1}
+                  {isEs ? `Paso ${idx + 1}` : `Step ${idx + 1}`}
                 </span>
                 <textarea
                   rows={2}
-                  placeholder="Describe the task step…"
+                  placeholder={
+                    isEs
+                      ? "Describa el paso de la tarea…"
+                      : "Describe the task step…"
+                  }
                   value={s.step}
                   onChange={(e) => updateStep(s.id, "step", e.target.value)}
                   className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50 resize-none"
@@ -322,11 +371,13 @@ export function JHAForm({
               </div>
               <div>
                 <span className="sm:hidden text-xs font-semibold text-gray-500 uppercase">
-                  Hazard
+                  {isEs ? "Peligro" : "Hazard"}
                 </span>
                 <textarea
                   rows={2}
-                  placeholder="What could go wrong?"
+                  placeholder={
+                    isEs ? "¿Qué podría salir mal?" : "What could go wrong?"
+                  }
                   value={s.hazard}
                   onChange={(e) => updateStep(s.id, "hazard", e.target.value)}
                   className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50 resize-none"
@@ -338,7 +389,9 @@ export function JHAForm({
                 </span>
                 <textarea
                   rows={2}
-                  placeholder="How will it be controlled?"
+                  placeholder={
+                    isEs ? "¿Cómo se controlará?" : "How will it be controlled?"
+                  }
                   value={s.control}
                   onChange={(e) => updateStep(s.id, "control", e.target.value)}
                   className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50 resize-none"
@@ -348,7 +401,7 @@ export function JHAForm({
                 <button
                   type="button"
                   onClick={() => removeStep(s.id)}
-                  aria-label="Remove step"
+                  aria-label={isEs ? "Eliminar paso" : "Remove step"}
                   className="mt-1 sm:mt-2 text-gray-400 hover:text-red-500 transition-colors"
                 >
                   <MaterialIcon icon="remove_circle_outline" size="sm" />
@@ -361,10 +414,18 @@ export function JHAForm({
 
       {/* Supervisor sign-off */}
       <div>
-        <label className={labelClass}>Supervisor Sign-off (initials)</label>
+        <label className={labelClass}>
+          {isEs
+            ? "Validación del supervisor (iniciales)"
+            : "Supervisor Sign-off (initials)"}
+        </label>
         <input
           type="text"
-          placeholder="Initials confirming review with crew"
+          placeholder={
+            isEs
+              ? "Iniciales que confirman la revisión con la cuadrilla"
+              : "Initials confirming review with crew"
+          }
           value={formData.supervisorSignature}
           onChange={(e) =>
             setFormData((d) => ({ ...d, supervisorSignature: e.target.value }))
@@ -388,12 +449,12 @@ export function JHAForm({
         {submitting ? (
           <>
             <MaterialIcon icon="hourglass_empty" size="sm" />
-            Submitting…
+            {isEs ? "Enviando…" : "Submitting…"}
           </>
         ) : (
           <>
             <MaterialIcon icon="send" size="sm" />
-            Submit JHA
+            {isEs ? "Enviar JHA" : "Submit JHA"}
           </>
         )}
       </button>

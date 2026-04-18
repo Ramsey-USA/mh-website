@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/base/button";
 import { Input, Textarea } from "@/components/ui/forms/Input";
 import { useDialogBehavior } from "@/hooks/useDialogBehavior";
 import { trackFormSubmit } from "@/lib/analytics/tracking";
+import { useLocale } from "@/hooks/useLocale";
 
 // Turnstile configuration
 const TURNSTILE_SITE_KEY = process.env["NEXT_PUBLIC_TURNSTILE_SITE_KEY"] ?? "";
@@ -165,6 +166,8 @@ export function JobApplicationModal({
   onClose,
   entryPoint,
 }: JobApplicationModalProps) {
+  const locale = useLocale();
+  const isEs = locale === "es";
   const modalRef = useRef<HTMLDivElement>(null);
   const descriptionId = useId();
   const [formData, setFormData] = useState<ApplicationData>(
@@ -269,7 +272,11 @@ export function JobApplicationModal({
     }
 
     if (file.size > MAX_RESUME_SIZE_BYTES) {
-      setSubmitError("Resume must be 10 MB or smaller.");
+      setSubmitError(
+        isEs
+          ? "El currículum debe ser de 10 MB o menos."
+          : "Resume must be 10 MB or smaller.",
+      );
       return;
     }
 
@@ -283,7 +290,9 @@ export function JobApplicationModal({
     // Verify Turnstile token if configured
     if (TURNSTILE_SITE_KEY && !turnstileToken) {
       setSubmitError(
-        "Please complete the security verification before submitting.",
+        isEs
+          ? "Complete la verificación de seguridad antes de enviar."
+          : "Please complete the security verification before submitting.",
       );
       return;
     }
@@ -311,7 +320,9 @@ export function JobApplicationModal({
         if (!uploadResponse.ok) {
           throw new Error(
             uploadResult?.error ||
-              "Resume upload failed. Please try again or submit without a file.",
+              (isEs
+                ? "La carga del currículum falló. Intente de nuevo o envíe sin archivo."
+                : "Resume upload failed. Please try again or submit without a file."),
           );
         }
 
@@ -344,7 +355,9 @@ export function JobApplicationModal({
       if (!response.ok) {
         throw new Error(
           responseBody?.error ||
-            "Could not submit your application. Please review the required fields and try again.",
+            (isEs
+              ? "No se pudo enviar su solicitud. Revise los campos requeridos e intente de nuevo."
+              : "Could not submit your application. Please review the required fields and try again."),
         );
       }
 
@@ -362,7 +375,9 @@ export function JobApplicationModal({
       setSubmitError(
         error instanceof Error
           ? error.message
-          : "Could not submit your application. Please try again.",
+          : isEs
+            ? "No se pudo enviar su solicitud. Inténtelo de nuevo."
+            : "Could not submit your application. Please try again.",
       );
       resetTurnstile();
     } finally {
@@ -379,7 +394,11 @@ export function JobApplicationModal({
           type="button"
           className="fixed inset-0 bg-black/75 backdrop-blur-sm"
           onClick={handleClose}
-          aria-label="Close application confirmation"
+          aria-label={
+            isEs
+              ? "Cerrar confirmación de solicitud"
+              : "Close application confirmation"
+          }
         />
         <div className="flex min-h-full items-center justify-center p-4">
           <div
@@ -405,16 +424,16 @@ export function JobApplicationModal({
               id="job-application-success-title"
               className="mb-4 font-black text-3xl sm:text-4xl md:text-5xl leading-tight text-gray-900 dark:text-white"
             >
-              Application Received
+              {isEs ? "Solicitud recibida" : "Application Received"}
             </h3>
             <p className="mb-6 text-base sm:text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
-              Thank you for reaching out to MH Construction. Our team has your
-              information and will review it against current hiring needs and
-              upcoming work. We believe{" "}
+              {isEs
+                ? "Gracias por contactar a MH Construction. Nuestro equipo ya tiene su información y la revisará según las necesidades actuales de contratación y el trabajo próximo. Creemos que"
+                : "Thank you for reaching out to MH Construction. Our team has your information and will review it against current hiring needs and upcoming work. We believe"}{" "}
               <span className="font-semibold text-brand-primary dark:text-brand-secondary">
                 THE ROI IS THE RELATIONSHIP
               </span>
-              —and that starts here.
+              {isEs ? " y aquí comienza." : "—and that starts here."}
             </p>
             <div className="bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 dark:from-brand-primary/20 dark:to-brand-secondary/20 p-4 rounded-xl border border-brand-primary/30 dark:border-brand-primary/40 inline-block">
               <div className="flex items-center gap-2">
@@ -424,13 +443,17 @@ export function JobApplicationModal({
                   className="text-bronze-300"
                 />
                 <span className="font-semibold text-bronze-300">
-                  Veteran-Owned. Your word matters as much as ours.
+                  {isEs
+                    ? "De propiedad de veteranos. Su palabra vale tanto como la nuestra."
+                    : "Veteran-Owned. Your word matters as much as ours."}
                 </span>
               </div>
             </div>
 
             <p className="mt-6 text-sm text-gray-500 dark:text-gray-300">
-              If there is a fit, we will contact you directly at{" "}
+              {isEs
+                ? "Si hay compatibilidad, lo contactaremos directamente en"
+                : "If there is a fit, we will contact you directly at"}{" "}
               <a
                 href="mailto:office@mhc-gc.com"
                 className="font-semibold text-brand-primary hover:text-brand-secondary underline"
@@ -447,7 +470,7 @@ export function JobApplicationModal({
                 size="lg"
               >
                 <MaterialIcon icon="check" size="md" className="mr-2" />
-                Done
+                {isEs ? "Listo" : "Done"}
               </Button>
             </div>
           </div>
@@ -462,7 +485,9 @@ export function JobApplicationModal({
         type="button"
         className="fixed inset-0 bg-black/75 backdrop-blur-sm"
         onClick={handleClose}
-        aria-label="Close application form"
+        aria-label={
+          isEs ? "Cerrar formulario de solicitud" : "Close application form"
+        }
       />
       <div className="flex min-h-full items-center justify-center p-4">
         <div
@@ -528,33 +553,39 @@ export function JobApplicationModal({
                   <div className="mb-2 flex items-center gap-2 text-bronze-300">
                     <MaterialIcon icon="badge" size="sm" />
                     <span className="text-xs font-semibold uppercase tracking-wide">
-                      Step 1
+                      {isEs ? "Paso 1" : "Step 1"}
                     </span>
                   </div>
                   <p className="text-sm text-white">
-                    Share your name and best email.
+                    {isEs
+                      ? "Comparta su nombre y mejor correo electrónico."
+                      : "Share your name and best email."}
                   </p>
                 </div>
                 <div className="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm">
                   <div className="mb-2 flex items-center gap-2 text-bronze-300">
                     <MaterialIcon icon="work" size="sm" />
                     <span className="text-xs font-semibold uppercase tracking-wide">
-                      Step 2
+                      {isEs ? "Paso 2" : "Step 2"}
                     </span>
                   </div>
                   <p className="text-sm text-white">
-                    Tell us the role, trade, or path you want.
+                    {isEs
+                      ? "Cuéntenos el puesto, oficio o camino que desea."
+                      : "Tell us the role, trade, or path you want."}
                   </p>
                 </div>
                 <div className="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm">
                   <div className="mb-2 flex items-center gap-2 text-bronze-300">
                     <MaterialIcon icon="description" size="sm" />
                     <span className="text-xs font-semibold uppercase tracking-wide">
-                      Step 3
+                      {isEs ? "Paso 3" : "Step 3"}
                     </span>
                   </div>
                   <p className="text-sm text-white">
-                    Add a resume or background only if it helps.
+                    {isEs
+                      ? "Agregue un currículum o antecedentes solo si ayuda."
+                      : "Add a resume or background only if it helps."}
                   </p>
                 </div>
               </div>
@@ -574,11 +605,14 @@ export function JobApplicationModal({
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 dark:text-white text-lg">
-                      Direct and simple by design
+                      {isEs
+                        ? "Directo y simple por diseño"
+                        : "Direct and simple by design"}
                     </h3>
                     <p className="mt-1 text-sm leading-relaxed text-gray-700 dark:text-gray-200">
-                      We start with the essentials. If we need more detail, we
-                      will ask in a direct follow-up conversation.
+                      {isEs
+                        ? "Comenzamos con lo esencial. Si necesitamos más detalle, lo pediremos en una conversación de seguimiento directa."
+                        : "We start with the essentials. If we need more detail, we will ask in a direct follow-up conversation."}
                     </p>
                     <div className="mt-3 pt-3 border-t border-brand-primary/20">
                       <Link
@@ -588,8 +622,9 @@ export function JobApplicationModal({
                       >
                         <MaterialIcon icon="print" size="sm" />
                         <span>
-                          Prefer paper? Print a blank application (English /
-                          Spanish)
+                          {isEs
+                            ? "¿Prefiere papel? Imprima una solicitud en blanco (inglés / español)"
+                            : "Prefer paper? Print a blank application (English / Spanish)"}
                         </span>
                         <MaterialIcon icon="arrow_forward" size="sm" />
                       </Link>
@@ -607,16 +642,16 @@ export function JobApplicationModal({
                       className="text-brand-primary"
                     />
                   </span>
-                  Essentials
+                  {isEs ? "Lo esencial" : "Essentials"}
                   <span className="ml-2 text-xs font-medium text-brand-secondary-text dark:text-brand-secondary bg-brand-secondary/10 px-2 py-0.5 rounded-full">
-                    Required
+                    {isEs ? "Requerido" : "Required"}
                   </span>
                 </h3>
                 <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                   <Input
                     type="text"
                     name="firstName"
-                    label="First Name *"
+                    label={isEs ? "Nombre *" : "First Name *"}
                     autoFocus
                     required
                     value={formData.firstName}
@@ -625,7 +660,7 @@ export function JobApplicationModal({
                   <Input
                     type="text"
                     name="lastName"
-                    label="Last Name *"
+                    label={isEs ? "Apellido *" : "Last Name *"}
                     required
                     value={formData.lastName}
                     onChange={handleInputChange}
@@ -633,19 +668,27 @@ export function JobApplicationModal({
                   <Input
                     type="email"
                     name="email"
-                    label="Email Address *"
+                    label={isEs ? "Correo electrónico *" : "Email Address *"}
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    helperText="We use this for direct follow-up from our team."
+                    helperText={
+                      isEs
+                        ? "Usamos este correo para seguimiento directo de nuestro equipo."
+                        : "We use this for direct follow-up from our team."
+                    }
                   />
                   <Input
                     type="tel"
                     name="phone"
-                    label="Phone Number"
+                    label={isEs ? "Teléfono" : "Phone Number"}
                     value={formData.phone}
                     onChange={handleInputChange}
-                    helperText="Optional, but helpful if you prefer a call."
+                    helperText={
+                      isEs
+                        ? "Opcional, pero útil si prefiere una llamada."
+                        : "Optional, but helpful if you prefer a call."
+                    }
                   />
                 </div>
               </div>
@@ -659,7 +702,7 @@ export function JobApplicationModal({
                       className="text-brand-primary"
                     />
                   </span>
-                  Role and Availability
+                  {isEs ? "Puesto y disponibilidad" : "Role and Availability"}
                 </h3>
                 <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                   <div>
@@ -667,7 +710,7 @@ export function JobApplicationModal({
                       htmlFor="job-position"
                       className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm"
                     >
-                      Position of Interest *
+                      {isEs ? "Puesto de interés *" : "Position of Interest *"}
                     </label>
                     <select
                       id="job-position"
@@ -677,7 +720,11 @@ export function JobApplicationModal({
                       onChange={handleInputChange}
                       className={SELECT_FIELD_CLASS}
                     >
-                      <option value="">Select a role or trade</option>
+                      <option value="">
+                        {isEs
+                          ? "Seleccione un puesto u oficio"
+                          : "Select a role or trade"}
+                      </option>
                       {POSITIONS.map((position) => (
                         <option key={position} value={position}>
                           {position}
@@ -685,8 +732,9 @@ export function JobApplicationModal({
                       ))}
                     </select>
                     <p className="mt-1 text-sm text-gray-500 dark:text-gray-300">
-                      If your role is not listed, choose "Other" and explain
-                      below.
+                      {isEs
+                        ? 'Si su puesto no aparece, seleccione "Other" y explíquelo abajo.'
+                        : 'If your role is not listed, choose "Other" and explain below.'}
                     </p>
                   </div>
                   <div>
@@ -694,7 +742,7 @@ export function JobApplicationModal({
                       htmlFor="job-experience"
                       className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm"
                     >
-                      Years of Experience *
+                      {isEs ? "Años de experiencia *" : "Years of Experience *"}
                     </label>
                     <select
                       id="job-experience"
@@ -703,7 +751,9 @@ export function JobApplicationModal({
                       onChange={handleInputChange}
                       className={SELECT_FIELD_CLASS}
                     >
-                      <option value="">Not specified yet</option>
+                      <option value="">
+                        {isEs ? "Aún no especificado" : "Not specified yet"}
+                      </option>
                       {EXPERIENCE_LEVELS.map((level) => (
                         <option key={level} value={level}>
                           {level}
@@ -716,7 +766,7 @@ export function JobApplicationModal({
                       htmlFor="job-availability"
                       className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm"
                     >
-                      Availability
+                      {isEs ? "Disponibilidad" : "Availability"}
                     </label>
                     <select
                       id="job-availability"
@@ -725,7 +775,9 @@ export function JobApplicationModal({
                       onChange={handleInputChange}
                       className={SELECT_FIELD_CLASS}
                     >
-                      <option value="">Not specified yet</option>
+                      <option value="">
+                        {isEs ? "Aún no especificado" : "Not specified yet"}
+                      </option>
                       {AVAILABILITY_OPTIONS.map((option) => (
                         <option key={option} value={option}>
                           {option}
@@ -738,7 +790,7 @@ export function JobApplicationModal({
                       htmlFor="job-veteran-status"
                       className="block mb-1 font-medium text-gray-700 dark:text-gray-200 text-sm"
                     >
-                      Veteran Status
+                      {isEs ? "Estado de veterano" : "Veteran Status"}
                     </label>
                     <select
                       id="job-veteran-status"
@@ -747,40 +799,67 @@ export function JobApplicationModal({
                       onChange={handleInputChange}
                       className={SELECT_FIELD_CLASS}
                     >
-                      <option value="">Prefer not to say</option>
-                      <option value="veteran">Veteran</option>
-                      <option value="active-duty">Active Duty</option>
-                      <option value="not-veteran">Not a Veteran</option>
+                      <option value="">
+                        {isEs ? "Prefiero no decir" : "Prefer not to say"}
+                      </option>
+                      <option value="veteran">
+                        {isEs ? "Veterano" : "Veteran"}
+                      </option>
+                      <option value="active-duty">
+                        {isEs ? "Servicio activo" : "Active Duty"}
+                      </option>
+                      <option value="not-veteran">
+                        {isEs ? "No veterano" : "Not a Veteran"}
+                      </option>
                     </select>
                   </div>
                   <Input
                     type="text"
                     name="referralSource"
-                    label="How did you hear about MH Construction?"
+                    label={
+                      isEs
+                        ? "¿Cómo se enteró de MH Construction?"
+                        : "How did you hear about MH Construction?"
+                    }
                     value={formData.referralSource}
                     onChange={handleInputChange}
-                    placeholder="Referral, website, field contact, job board, etc."
+                    placeholder={
+                      isEs
+                        ? "Referencia, sitio web, contacto en campo, bolsa de empleo, etc."
+                        : "Referral, website, field contact, job board, etc."
+                    }
                   />
                 </div>
               </div>
 
               <Textarea
                 name="coverLetter"
-                label="Background or notes"
+                label={isEs ? "Antecedentes o notas" : "Background or notes"}
                 rows={5}
                 value={formData.coverLetter}
                 onChange={handleInputChange}
-                helperText="Optional. Tell us about your background, certifications, crew leadership, or the kind of work you want."
-                placeholder="Example: 8 years in commercial concrete, OSHA 30, comfortable leading small crews, interested in superintendent or estimator opportunities."
+                helperText={
+                  isEs
+                    ? "Opcional. Cuéntenos sobre su experiencia, certificaciones, liderazgo de cuadrillas o el tipo de trabajo que busca."
+                    : "Optional. Tell us about your background, certifications, crew leadership, or the kind of work you want."
+                }
+                placeholder={
+                  isEs
+                    ? "Ejemplo: 8 años en concreto comercial, OSHA 30, experiencia liderando cuadrillas pequeñas, interesado en oportunidades de superintendente o estimador."
+                    : "Example: 8 years in commercial concrete, OSHA 30, comfortable leading small crews, interested in superintendent or estimator opportunities."
+                }
               />
 
               <div>
                 <label className="block mb-2 font-medium text-gray-700 dark:text-gray-200 text-sm">
-                  Resume or work history
+                  {isEs
+                    ? "Currículum o historial laboral"
+                    : "Resume or work history"}
                 </label>
                 <p className="mb-3 text-sm text-gray-500 dark:text-gray-300">
-                  Optional. If you do not have a resume ready, send the
-                  application anyway.
+                  {isEs
+                    ? "Opcional. Si no tiene un currículum listo, envíe la solicitud de todas formas."
+                    : "Optional. If you do not have a resume ready, send the application anyway."}
                 </p>
                 <div className="flex justify-center mt-1 px-6 pt-8 pb-8 border-2 border-gray-300 hover:border-brand-primary dark:border-gray-600 border-dashed rounded-xl transition-all duration-300 hover:bg-gradient-to-br hover:from-brand-primary/5 hover:to-brand-secondary/5 dark:hover:from-brand-primary/10 dark:hover:to-brand-secondary/10 group cursor-pointer">
                   <div className="space-y-2 text-center">
@@ -793,7 +872,9 @@ export function JobApplicationModal({
                     </div>
                     <div className="flex flex-wrap justify-center text-gray-600 dark:text-gray-300 text-sm">
                       <label className="relative bg-white dark:bg-gray-700 rounded-md font-semibold text-brand-primary hover:text-brand-secondary cursor-pointer transition-colors">
-                        <span>Choose a file</span>
+                        <span>
+                          {isEs ? "Elija un archivo" : "Choose a file"}
+                        </span>
                         <input
                           type="file"
                           name="resume"
@@ -804,7 +885,9 @@ export function JobApplicationModal({
                       </label>
                     </div>
                     <p className="text-gray-500 dark:text-gray-300 text-xs">
-                      PDF, DOC, DOCX up to 10MB
+                      {isEs
+                        ? "PDF, DOC, DOCX hasta 10MB"
+                        : "PDF, DOC, DOCX up to 10MB"}
                     </p>
                     {formData.resumeFile && (
                       <div className="mt-3 p-3 bg-brand-primary/10 border border-brand-primary/30 rounded-lg">
@@ -814,7 +897,8 @@ export function JobApplicationModal({
                             size="sm"
                             className="mr-2"
                           />
-                          Selected: {formData.resumeFile.name}
+                          {isEs ? "Seleccionado:" : "Selected:"}{" "}
+                          {formData.resumeFile.name}
                         </p>
                       </div>
                     )}
@@ -833,10 +917,14 @@ export function JobApplicationModal({
                   </div>
                   <p className="text-sm leading-relaxed text-gray-800 dark:text-gray-100">
                     <span className="font-semibold">
-                      The goal is a direct conversation
+                      {isEs
+                        ? "El objetivo es una conversación directa"
+                        : "The goal is a direct conversation"}
                     </span>
-                    , not a long intake process. Start with what you have. We
-                    will handle the rest in follow-up.
+                    ,{" "}
+                    {isEs
+                      ? "no un largo proceso de admisión. Comience con lo que tiene. Manejaremos el resto en el seguimiento."
+                      : "not a long intake process. Start with what you have. We will handle the rest in follow-up."}
                   </p>
                 </div>
               </div>
@@ -854,10 +942,14 @@ export function JobApplicationModal({
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-gray-900 dark:text-white">
-                        Your data is protected
+                        {isEs
+                          ? "Sus datos están protegidos"
+                          : "Your data is protected"}
                       </p>
                       <p className="text-xs text-gray-600 dark:text-gray-300">
-                        SSL encrypted • Rate limited • Bot protected
+                        {isEs
+                          ? "SSL encriptado • Limitado de velocidad • Protegido contra bots"
+                          : "SSL encrypted • Rate limited • Bot protected"}
                       </p>
                     </div>
                   </div>
@@ -871,18 +963,22 @@ export function JobApplicationModal({
                 </div>
                 {TURNSTILE_SITE_KEY && !turnstileReady && (
                   <p className="mt-2 text-xs text-gray-500 dark:text-gray-400 text-center sm:text-right">
-                    Loading security verification...
+                    {isEs
+                      ? "Cargando verificación de seguridad..."
+                      : "Loading security verification..."}
                   </p>
                 )}
                 {TURNSTILE_SITE_KEY && turnstileReady && !turnstileToken && (
                   <p className="mt-2 text-xs text-amber-600 dark:text-amber-400 text-center sm:text-right">
-                    Please complete the security check above
+                    {isEs
+                      ? "Complete la verificación de seguridad anterior"
+                      : "Please complete the security check above"}
                   </p>
                 )}
                 {turnstileToken && (
                   <p className="mt-2 text-xs text-brand-primary dark:text-brand-secondary text-center sm:text-right flex items-center justify-center sm:justify-end gap-1">
                     <MaterialIcon icon="check_circle" size="sm" />
-                    Verified
+                    {isEs ? "Verificado" : "Verified"}
                   </p>
                 )}
               </div>
@@ -907,7 +1003,7 @@ export function JobApplicationModal({
                     size="lg"
                     className="order-2 sm:order-1"
                   >
-                    Cancel
+                    {isEs ? "Cancelar" : "Cancel"}
                   </Button>
                   <Button
                     type="submit"
@@ -923,12 +1019,12 @@ export function JobApplicationModal({
                           size="md"
                           className="mr-3 animate-spin"
                         />
-                        Submitting...
+                        {isEs ? "Enviando..." : "Submitting..."}
                       </>
                     ) : (
                       <>
                         <MaterialIcon icon="send" size="md" className="mr-3" />
-                        Send Application
+                        {isEs ? "Enviar solicitud" : "Send Application"}
                       </>
                     )}
                   </Button>

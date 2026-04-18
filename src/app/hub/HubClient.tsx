@@ -10,6 +10,7 @@ import {
   type HubUser,
   type HubRole,
 } from "@/app/safety/hub/SafetyHubClient";
+import { useLocale } from "@/hooks/useLocale";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -67,6 +68,9 @@ function JoiningProgramPanel({
 }: Readonly<{
   travelersVideos: TravelersVideo[];
 }>) {
+  const locale = useLocale();
+  const isEs = locale === "es";
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 p-6 space-y-8">
       <section>
@@ -76,7 +80,9 @@ function JoiningProgramPanel({
             size="sm"
             className="text-brand-primary"
           />
-          Travelers Training Videos
+          {isEs
+            ? "Videos de capacitación de Travelers"
+            : "Travelers Training Videos"}
         </h2>
         <div
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
@@ -87,7 +93,7 @@ function JoiningProgramPanel({
               key={video.id}
               className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 p-5 flex flex-col gap-3"
             >
-              <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-brand-secondary px-2 py-0.5 rounded-full bg-brand-secondary/10 self-start">
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-brand-secondary-text dark:text-brand-secondary-light px-2 py-0.5 rounded-full bg-brand-secondary/10 self-start">
                 {video.category}
               </span>
               <div className="grow">
@@ -115,7 +121,7 @@ function JoiningProgramPanel({
                 }`}
               >
                 <MaterialIcon icon="play_arrow" size="sm" />
-                Watch Video
+                {isEs ? "Ver video" : "Watch Video"}
               </a>
             </div>
           ))}
@@ -131,6 +137,9 @@ function PlaceholderPanel({
   label,
   icon,
 }: Readonly<{ label: string; icon: string }>) {
+  const locale = useLocale();
+  const isEs = locale === "es";
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex items-center justify-center p-8">
       <div className="text-center max-w-sm space-y-4">
@@ -141,8 +150,9 @@ function PlaceholderPanel({
           {label}
         </h3>
         <p className="text-sm text-gray-500 dark:text-gray-400">
-          This section is coming soon. Content will be added once the source
-          materials are delivered.
+          {isEs
+            ? "Esta sección estará disponible pronto. El contenido se agregará cuando se entregue el material fuente."
+            : "This section is coming soon. Content will be added once the source materials are delivered."}
         </p>
       </div>
     </div>
@@ -155,6 +165,8 @@ export function HubClient({
   allHubDocuments,
   travelersVideos,
 }: Readonly<HubClientProps>) {
+  const locale = useLocale();
+  const isEs = locale === "es";
   const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<HubUser | null>(null);
   const [activeTab, setActiveTab] = useState<TopTab>("safety");
@@ -253,7 +265,21 @@ export function HubClient({
                   size="sm"
                   style={{ fontSize: "14px" }}
                 />
-                {tab.label}
+                {tab.id === "safety"
+                  ? isEs
+                    ? "Seguridad"
+                    : "Safety"
+                  : tab.id === "employee-manual"
+                    ? isEs
+                      ? "Manual del empleado"
+                      : "Employee Manual"
+                    : tab.id === "joining-program"
+                      ? isEs
+                        ? "Programa de incorporación"
+                        : "Joining Program"
+                      : isEs
+                        ? "Historial"
+                        : "History"}
               </button>
             );
           })}
@@ -271,7 +297,10 @@ export function HubClient({
       )}
 
       {safeTab === "employee-manual" && (
-        <PlaceholderPanel label="Employee Manual" icon="menu_book" />
+        <PlaceholderPanel
+          label={isEs ? "Manual del empleado" : "Employee Manual"}
+          icon="menu_book"
+        />
       )}
 
       {safeTab === "joining-program" && (
@@ -279,7 +308,10 @@ export function HubClient({
       )}
 
       {safeTab === "history" && (
-        <PlaceholderPanel label="Activity History" icon="history" />
+        <PlaceholderPanel
+          label={isEs ? "Historial de actividad" : "Activity History"}
+          icon="history"
+        />
       )}
     </div>
   );

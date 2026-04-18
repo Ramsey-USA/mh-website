@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback, useEffect } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { useLocale } from "@/hooks/useLocale";
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -33,9 +34,30 @@ const QUICK_ACTIONS = [
   { label: "Get in touch", message: "How do I contact MH Construction?" },
 ];
 
+const QUICK_ACTIONS_ES = [
+  {
+    label: "Sus servicios",
+    message: "¿Qué servicios ofrece MH Construction?",
+  },
+  {
+    label: "Conocer aliados",
+    message: "Cuéntame sobre su red de Aliados (socios comerciales).",
+  },
+  {
+    label: "Beneficios veteranos",
+    message: "¿Qué beneficios para veteranos ofrecen?",
+  },
+  {
+    label: "Contacto",
+    message: "¿Cómo me comunico con MH Construction?",
+  },
+];
+
 // ── Component ────────────────────────────────────────────────────────────────
 
 export function ChatWidget() {
+  const locale = useLocale();
+  const isEs = locale === "es";
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
@@ -150,7 +172,9 @@ export function ChatWidget() {
         };
         const reply =
           data.response ??
-          "I wasn't able to process that. Please call (509) 308-6489 for immediate help.";
+          (isEs
+            ? "No pude procesar eso. Llame al (509) 308-6489 para ayuda inmediata."
+            : "I wasn't able to process that. Please call (509) 308-6489 for immediate help.");
 
         setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
       } catch {
@@ -158,8 +182,9 @@ export function ChatWidget() {
           ...prev,
           {
             role: "assistant",
-            content:
-              "I'm having trouble connecting right now. Please call (509) 308-6489 or email office@mhc-gc.com for immediate assistance.",
+            content: isEs
+              ? "Estoy teniendo problemas para conectar en este momento. Llame al (509) 308-6489 o escriba a office@mhc-gc.com para asistencia inmediata."
+              : "I'm having trouble connecting right now. Please call (509) 308-6489 or email office@mhc-gc.com for immediate assistance.",
           },
         ]);
       } finally {
@@ -196,7 +221,7 @@ export function ChatWidget() {
               <button
                 onClick={dismissPrompt}
                 className="absolute -top-2 -right-2 flex items-center justify-center w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
-                aria-label="Dismiss prompt"
+                aria-label={isEs ? "Descartar aviso" : "Dismiss prompt"}
               >
                 <MaterialIcon
                   icon="close"
@@ -205,13 +230,15 @@ export function ChatWidget() {
                 />
               </button>
               <p className="text-sm text-gray-700 dark:text-gray-200 leading-snug mb-2">
-                👋 Need help finding what you&apos;re looking for?
+                {isEs
+                  ? "👋 ¿Necesita ayuda para encontrar lo que busca?"
+                  : "👋 Need help finding what you&apos;re looking for?"}
               </p>
               <button
                 onClick={handleOpenChat}
                 className="text-xs font-medium text-brand-primary dark:text-brand-primary-light hover:underline focus:outline-none focus:ring-2 focus:ring-brand-primary/50 rounded"
               >
-                Chat with us →
+                {isEs ? "Chatee con nosotros →" : "Chat with us →"}
               </button>
               {/* Tail pointing to button */}
               <div className="absolute -bottom-2 right-6 w-4 h-4 bg-white dark:bg-gray-800 border-r border-b border-gray-200 dark:border-gray-700 rotate-45" />
@@ -221,8 +248,12 @@ export function ChatWidget() {
           <button
             onClick={handleOpenChat}
             className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-brand-primary to-brand-primary-dark text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900"
-            aria-label="Open partnership guide chat"
-            title="Partnership Guide"
+            aria-label={
+              isEs
+                ? "Abrir chat de guía de alianzas"
+                : "Open partnership guide chat"
+            }
+            title={isEs ? "Guía de alianzas" : "Partnership Guide"}
           >
             <MaterialIcon icon="chat" size="lg" className="text-white" />
           </button>
@@ -234,7 +265,11 @@ export function ChatWidget() {
         <div
           ref={panelRef}
           role="dialog"
-          aria-label="MH Construction Partnership Guide"
+          aria-label={
+            isEs
+              ? "Guía de alianzas de MH Construction"
+              : "MH Construction Partnership Guide"
+          }
           className="fixed z-50 flex flex-col bg-white dark:bg-gray-900 shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden inset-0 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[calc(100vw-3rem)] sm:max-w-md sm:h-[min(32rem,calc(100vh-6rem))] sm:rounded-2xl"
           style={{
             animation: "chatSlideIn 200ms ease-out",
@@ -246,7 +281,7 @@ export function ChatWidget() {
             <button
               onClick={() => setIsOpen(false)}
               className="flex sm:hidden items-center justify-center w-8 h-8 rounded-full hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
-              aria-label="Close chat"
+              aria-label={isEs ? "Cerrar chat" : "Close chat"}
             >
               <MaterialIcon
                 icon="arrow_back"
@@ -259,16 +294,18 @@ export function ChatWidget() {
             </div>
             <div className="flex-1 min-w-0">
               <h2 className="text-sm font-bold leading-tight">
-                Partnership Guide
+                {isEs ? "Guía de alianzas" : "Partnership Guide"}
               </h2>
               <p className="text-xs text-white/80 leading-tight">
-                MH Construction &middot; Veteran-Owned
+                {isEs
+                  ? "MH Construction · De propiedad de veteranos"
+                  : "MH Construction · Veteran-Owned"}
               </p>
             </div>
             <button
               onClick={() => setIsOpen(false)}
               className="hidden sm:flex items-center justify-center w-8 h-8 rounded-full hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
-              aria-label="Close chat"
+              aria-label={isEs ? "Cerrar chat" : "Close chat"}
             >
               <MaterialIcon icon="close" size="sm" className="text-white" />
             </button>
@@ -291,17 +328,16 @@ export function ChatWidget() {
                   </div>
                   <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl rounded-tl-sm px-3 py-2 max-w-[85%]">
                     <p className="text-sm text-gray-800 dark:text-gray-200 leading-relaxed">
-                      Welcome! I&apos;m the MH Construction Partnership Guide. I
-                      can help you learn about our services, connect you with
-                      our Allies (Trade Partners), or answer questions about
-                      working with us. How can I help?
+                      {isEs
+                        ? "¡Bienvenido! Soy la Guía de Alianzas de MH Construction. Puedo ayudarle a conocer nuestros servicios, conectarlo con nuestros Aliados (socios comerciales) o responder preguntas sobre trabajar con nosotros. ¿En qué puedo ayudarle?"
+                        : "Welcome! I&apos;m the MH Construction Partnership Guide. I can help you learn about our services, connect you with our Allies (Trade Partners), or answer questions about working with us. How can I help?"}
                     </p>
                   </div>
                 </div>
 
                 {/* Quick actions */}
                 <div className="flex flex-wrap gap-2 pl-9">
-                  {QUICK_ACTIONS.map((action) => (
+                  {(isEs ? QUICK_ACTIONS_ES : QUICK_ACTIONS).map((action) => (
                     <button
                       key={action.label}
                       onClick={() => sendMessage(action.message)}
@@ -382,18 +418,22 @@ export function ChatWidget() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Ask about services, Allies, or anything else..."
+              placeholder={
+                isEs
+                  ? "Pregunte sobre servicios, aliados o cualquier otra cosa..."
+                  : "Ask about services, Allies, or anything else..."
+              }
               rows={1}
               maxLength={500}
               disabled={isLoading}
               className="flex-1 resize-none rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-3 py-2.5 text-base sm:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary disabled:opacity-50"
-              aria-label="Type your message"
+              aria-label={isEs ? "Escriba su mensaje" : "Type your message"}
             />
             <button
               type="submit"
               disabled={!input.trim() || isLoading}
               className="flex items-center justify-center w-10 h-10 sm:w-9 sm:h-9 rounded-full bg-brand-primary text-white hover:bg-brand-primary-dark disabled:opacity-40 disabled:hover:bg-brand-primary transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900 shrink-0"
-              aria-label="Send message"
+              aria-label={isEs ? "Enviar mensaje" : "Send message"}
             >
               <MaterialIcon icon="send" size="sm" className="text-white" />
             </button>
@@ -402,7 +442,9 @@ export function ChatWidget() {
           {/* Disclaimer */}
           <div className="shrink-0 px-4 py-1.5 text-center border-t border-gray-100 dark:border-gray-800">
             <p className="text-[10px] text-gray-400 dark:text-gray-500">
-              For project-specific questions, call{" "}
+              {isEs
+                ? "Para preguntas específicas del proyecto, llame al"
+                : "For project-specific questions, call"}{" "}
               <a
                 href="tel:+15093086489"
                 className="text-brand-primary dark:text-brand-primary-light hover:underline"

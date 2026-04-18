@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { useLocale } from "@/hooks/useLocale";
 
 type InspectionResult = "pass" | "fail" | "na";
 
@@ -116,6 +117,8 @@ export function SiteInspectionForm({
   token,
   onSubmitSuccess,
 }: Props) {
+  const locale = useLocale();
+  const isEs = locale === "es";
   const today = new Date().toISOString().split("T")[0] ?? "";
 
   const [formData, setFormData] = useState<SiteInspectionData>({
@@ -180,11 +183,18 @@ export function SiteInspectionForm({
         }),
       });
       const json = await res.json();
-      if (!res.ok) throw new Error(json.error ?? "Submit failed");
+      if (!res.ok)
+        throw new Error(
+          json.error ?? (isEs ? "Error al enviar" : "Submit failed"),
+        );
       onSubmitSuccess(json.data.id as string);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "Submit failed. Try again.",
+        err instanceof Error
+          ? err.message
+          : isEs
+            ? "Error al enviar. Intente de nuevo."
+            : "Submit failed. Try again.",
       );
     } finally {
       setSubmitting(false);
@@ -202,7 +212,8 @@ export function SiteInspectionForm({
       <div className="grid sm:grid-cols-3 gap-4">
         <div>
           <label className={labelClass}>
-            Inspection Date <span className="text-red-500">*</span>
+            {isEs ? "Fecha de inspección" : "Inspection Date"}{" "}
+            <span className="text-red-500">*</span>
           </label>
           <input
             type="date"
@@ -215,7 +226,7 @@ export function SiteInspectionForm({
           />
         </div>
         <div>
-          <label className={labelClass}>Job</label>
+          <label className={labelClass}>{isEs ? "Obra" : "Job"}</label>
           <input
             type="text"
             readOnly
@@ -224,7 +235,9 @@ export function SiteInspectionForm({
           />
         </div>
         <div>
-          <label className={labelClass}>Inspector</label>
+          <label className={labelClass}>
+            {isEs ? "Inspector" : "Inspector"}
+          </label>
           <input
             type="text"
             value={formData.inspectorName}
@@ -237,10 +250,16 @@ export function SiteInspectionForm({
       </div>
 
       <div>
-        <label className={labelClass}>Weather / Site Conditions</label>
+        <label className={labelClass}>
+          {isEs ? "Clima / condiciones del sitio" : "Weather / Site Conditions"}
+        </label>
         <input
           type="text"
-          placeholder="e.g. Clear, 72°F; wet ground in NW corner"
+          placeholder={
+            isEs
+              ? "Ej. Despejado, 22°C; terreno húmedo en esquina noroeste"
+              : "e.g. Clear, 72°F; wet ground in NW corner"
+          }
           value={formData.weatherConditions}
           onChange={(e) =>
             setFormData((d) => ({ ...d, weatherConditions: e.target.value }))
@@ -266,7 +285,9 @@ export function SiteInspectionForm({
               {failCount > 0 && (
                 <span className="inline-flex items-center gap-1 text-xs font-semibold text-red-700 dark:text-red-400 bg-red-100 dark:bg-red-900/30 px-2 py-0.5 rounded-full">
                   <MaterialIcon icon="warning" size="sm" />
-                  {failCount} fail{failCount > 1 ? "s" : ""}
+                  {isEs
+                    ? `${failCount} falla${failCount > 1 ? "s" : ""}`
+                    : `${failCount} fail${failCount > 1 ? "s" : ""}`}
                 </span>
               )}
             </div>
@@ -290,7 +311,13 @@ export function SiteInspectionForm({
                                 : "ring-gray-200 dark:ring-gray-700 text-gray-400 hover:ring-gray-400"
                             }`}
                           >
-                            {RESULT_LABELS[r]}
+                            {isEs
+                              ? r === "pass"
+                                ? "Pasa"
+                                : r === "fail"
+                                  ? "Falla"
+                                  : "N/A"
+                              : RESULT_LABELS[r]}
                           </button>
                         ),
                       )}
@@ -300,7 +327,11 @@ export function SiteInspectionForm({
                     <div className="mt-2 pl-0">
                       <input
                         type="text"
-                        placeholder="Describe the issue and corrective action required…"
+                        placeholder={
+                          isEs
+                            ? "Describa el problema y la acción correctiva requerida…"
+                            : "Describe the issue and corrective action required…"
+                        }
                         value={item.notes}
                         onChange={(e) =>
                           setItemNotes(zone.id, item.id, e.target.value)
@@ -318,10 +349,16 @@ export function SiteInspectionForm({
 
       {/* Overall notes */}
       <div>
-        <label className={labelClass}>Overall Inspection Notes</label>
+        <label className={labelClass}>
+          {isEs ? "Notas generales de inspección" : "Overall Inspection Notes"}
+        </label>
         <textarea
           rows={3}
-          placeholder="Any additional observations, commendations, or follow-up requirements…"
+          placeholder={
+            isEs
+              ? "Observaciones adicionales, reconocimientos o requerimientos de seguimiento…"
+              : "Any additional observations, commendations, or follow-up requirements…"
+          }
           value={formData.overallNotes}
           onChange={(e) =>
             setFormData((d) => ({ ...d, overallNotes: e.target.value }))
@@ -345,12 +382,12 @@ export function SiteInspectionForm({
         {submitting ? (
           <>
             <MaterialIcon icon="hourglass_empty" size="sm" />
-            Submitting…
+            {isEs ? "Enviando…" : "Submitting…"}
           </>
         ) : (
           <>
             <MaterialIcon icon="send" size="sm" />
-            Submit Inspection
+            {isEs ? "Enviar inspección" : "Submit Inspection"}
           </>
         )}
       </button>

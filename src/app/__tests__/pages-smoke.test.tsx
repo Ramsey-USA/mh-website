@@ -418,11 +418,13 @@ describe("Testimonials page", () => {
 // ── Public Sector page ────────────────────────────────────────────────────────
 
 describe("Public Sector page", () => {
-  it("renders without throwing", () => {
+  it("renders without throwing", async () => {
     const { default: PublicSectorPage } = require("../public-sector/page") as {
-      default: React.ComponentType;
+      default: () => Promise<React.ReactElement>;
     };
-    expect(() => render(<PublicSectorPage />)).not.toThrow();
+
+    const page = await PublicSectorPage();
+    expect(() => render(page)).not.toThrow();
   });
 });
 

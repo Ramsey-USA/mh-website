@@ -3,6 +3,7 @@
 import { useEffect, useState, type CSSProperties } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { usePageTracking } from "@/lib/analytics/hooks";
+import { useLocale } from "@/hooks/useLocale";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Button, AlternatingShowcase } from "@/components/ui";
@@ -62,6 +63,8 @@ const NextStepsSection = dynamic(
 export default function CareersPageClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const locale = useLocale();
+  const isEs = locale === "es";
 
   // Analytics tracking
   usePageTracking("Careers");
@@ -786,15 +789,16 @@ export default function CareersPageClient() {
 
                     {/* Heading */}
                     <h3 className="mb-4 font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl leading-tight">
-                      Ready to Join Our Team?
+                      {isEs
+                        ? "¿Listo para unirse a nuestro equipo?"
+                        : "Ready to Join Our Team?"}
                     </h3>
 
                     {/* Description */}
                     <p className="mb-8 font-medium text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
-                      Start with the essentials. Share your contact information,
-                      tell us where you can contribute, and attach a resume if
-                      you have one ready. If there is a fit, we will follow up
-                      directly.
+                      {isEs
+                        ? "Comience con lo esencial. Comparta su información de contacto, cuéntenos dónde puede contribuir y adjunte un currículum si tiene uno listo. Si hay compatibilidad, nos comunicaremos directamente."
+                        : "Start with the essentials. Share your contact information, tell us where you can contribute, and attach a resume if you have one ready. If there is a fit, we will follow up directly."}
                     </p>
 
                     {/* CTA Buttons */}
@@ -806,7 +810,9 @@ export default function CareersPageClient() {
                         className="transition-all duration-300 min-w-[260px] shadow-xl hover:shadow-2xl"
                       >
                         <MaterialIcon icon="send" size="lg" className="mr-3" />
-                        <span className="font-medium">Start Application</span>
+                        <span className="font-medium">
+                          {isEs ? "Iniciar solicitud" : "Start Application"}
+                        </span>
                       </Button>
                       <Link href="/contact">
                         <Button
@@ -820,7 +826,9 @@ export default function CareersPageClient() {
                             className="mr-3"
                           />
                           <span className="font-medium">
-                            Call (509) 308-6489
+                            {isEs
+                              ? "Llamar (509) 308-6489"
+                              : "Call (509) 308-6489"}
                           </span>
                         </Button>
                       </Link>
@@ -829,9 +837,14 @@ export default function CareersPageClient() {
                     {/* Supporting Text */}
                     <p className="mt-8 text-sm text-gray-600 dark:text-gray-400 font-medium">
                       <span className="text-brand-primary dark:text-brand-primary-light font-bold">
-                        Veterans receive priority consideration
+                        {isEs
+                          ? "Los veteranos reciben consideración prioritaria"
+                          : "Veterans receive priority consideration"}
                       </span>
-                      . Name, email, and role are enough to begin.
+                      .{" "}
+                      {isEs
+                        ? "Nombre, correo y rol son suficientes para comenzar."
+                        : "Name, email, and role are enough to begin."}
                     </p>
                   </div>
                 </div>
@@ -868,24 +881,27 @@ export default function CareersPageClient() {
                 {/* Two-line gradient heading */}
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Your Journey to
+                    {isEs ? "Tu viaje para" : "Your Journey to"}
                   </span>
                   <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Join Our Team
+                    {isEs ? "unirte a nuestro equipo" : "Join Our Team"}
                   </span>
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    Clear steps. Direct communication. Respect for your time.
+                    {isEs
+                      ? "Pasos claros. Comunicación directa. Respeto por tu tiempo."
+                      : "Clear steps. Direct communication. Respect for your time."}
                   </span>
-                  Our process starts with a short application and moves forward
-                  only when there is a real fit. We keep the process focused and
-                  let you know what comes next.{" "}
+                  {isEs
+                    ? "Nuestro proceso comienza con una solicitud breve y avanza solo cuando hay una verdadera compatibilidad. Mantenemos el proceso enfocado y te informamos qué sigue."
+                    : "Our process starts with a short application and moves forward only when there is a real fit. We keep the process focused and let you know what comes next."}{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    The goal is a good working relationship, not unnecessary
-                    steps
+                    {isEs
+                      ? "El objetivo es una buena relación de trabajo, no pasos innecesarios"
+                      : "The goal is a good working relationship, not unnecessary steps"}
                   </span>
                   .
                 </p>
@@ -1239,26 +1255,36 @@ export default function CareersPageClient() {
                 {/* Two-line gradient heading */}
                 <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Don't See the
+                    {isEs ? "¿No ve el" : "Don't See the"}
                   </span>
                   <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Perfect Role?
+                    {isEs ? "Rol perfecto?" : "Perfect Role?"}
                   </span>
                 </h2>
 
                 {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  The right role might not be posted yet, but the right
-                  relationship can still begin now. If you bring{" "}
+                  {isEs
+                    ? "El rol correcto podría no estar publicado aún, pero la relación correcta puede comenzar ahora. Si trae"
+                    : "The right role might not be posted yet, but the right relationship can still begin now. If you bring"}{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    the right values, work ethic, and craft mindset
+                    {isEs
+                      ? "los valores correctos, ética de trabajo y mentalidad de oficio"
+                      : "the right values, work ethic, and craft mindset"}
                   </span>
-                  , we want to hear from you. We are always open to strong
-                  candidates who share our standards for{" "}
+                  ,{" "}
+                  {isEs
+                    ? "queremos escucharte. Siempre estamos abiertos a candidatos fuertes que compartan nuestros estándares de"
+                    : "we want to hear from you. We are always open to strong candidates who share our standards for"}{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    honesty, professionalism, and thorough work
+                    {isEs
+                      ? "honestidad, profesionalismo y trabajo minucioso"
+                      : "honesty, professionalism, and thorough work"}
                   </span>
-                  . Tell us where you can contribute.
+                  .{" "}
+                  {isEs
+                    ? "Cuéntanos dónde puedes contribuir."
+                    : "Tell us where you can contribute."}
                 </p>
               </div>
 
@@ -1277,7 +1303,9 @@ export default function CareersPageClient() {
                     ariaLabel="Submit Application"
                     className="mr-3"
                   />
-                  <span className="font-medium">Submit Application</span>
+                  <span className="font-medium">
+                    {isEs ? "Enviar solicitud" : "Submit Application"}
+                  </span>
                 </Button>
                 <Link href="/contact">
                   <Button
@@ -1292,7 +1320,9 @@ export default function CareersPageClient() {
                       ariaLabel="Contact HR"
                       className="mr-3"
                     />
-                    <span className="font-medium">Contact HR</span>
+                    <span className="font-medium">
+                      {isEs ? "Contactar a RRHH" : "Contact HR"}
+                    </span>
                   </Button>
                 </Link>
               </div>
@@ -1304,7 +1334,8 @@ export default function CareersPageClient() {
                   ariaLabel="HR Phone"
                   className="inline mr-2"
                 />
-                HR Hotline: {COMPANY_INFO.phone.display} |{" "}
+                {isEs ? "Línea de RRHH:" : "HR Hotline:"}{" "}
+                {COMPANY_INFO.phone.display} |{" "}
                 <a
                   href={`mailto:${COMPANY_INFO.email.main}`}
                   className="font-semibold text-brand-primary hover:text-brand-secondary underline"
@@ -1320,17 +1351,18 @@ export default function CareersPageClient() {
         <section className="relative bg-gradient-to-r from-brand-primary to-brand-primary-dark py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
             <h2 className="mb-6 font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter drop-shadow-lg">
-              Questions About Careers?
+              {isEs ? "¿Preguntas sobre carreras?" : "Questions About Careers?"}
             </h2>
             <p className="mx-auto max-w-3xl font-light text-white/90 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8">
-              Contact our team for information about jobs, benefits, hiring
-              process, and growth opportunities
+              {isEs
+                ? "Contacta a nuestro equipo para obtener información sobre empleos, beneficios, proceso de contratación y oportunidades de crecimiento"
+                : "Contact our team for information about jobs, benefits, hiring process, and growth opportunities"}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="secondary" size="lg" asChild>
                 <Link href="/contact">
                   <MaterialIcon icon="email" className="mr-2" />
-                  Contact HR
+                  {isEs ? "Contactar a RRHH" : "Contact HR"}
                 </Link>
               </Button>
               <Button

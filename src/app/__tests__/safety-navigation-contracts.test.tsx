@@ -126,7 +126,7 @@ describe("Safety navigation contracts", () => {
     );
   });
 
-  it("returns print page users to /safety/hub", async () => {
+  it("returns print page users to /hub", async () => {
     const fetchMock = jest
       .fn()
       .mockResolvedValueOnce({
@@ -172,6 +172,6 @@ describe("Safety navigation contracts", () => {
     });
 
     const backToHub = screen.getByRole("link", { name: /Back to Hub/i });
-    expect(backToHub).toHaveAttribute("href", "/safety/hub");
+    expect(backToHub).toHaveAttribute("href", "/hub");
   });
 });

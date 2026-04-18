@@ -531,7 +531,7 @@ export const navigationConfigs = {
       icon: "policy",
     },
     {
-      href: "/safety/hub",
+      href: "/hub",
       label: "Staff Access",
       mobileLabel: "Staff",
       icon: "lock",

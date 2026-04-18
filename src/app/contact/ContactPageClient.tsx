@@ -1,5 +1,8 @@
+"use client";
+
 import { MapFacade } from "./MapFacade";
 import { PageTrackingClient } from "@/components/analytics";
+import { useLocale } from "@/hooks/useLocale";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
@@ -16,74 +19,89 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { COMPANY_INFO } from "@/lib/constants/company";
 
-// Quick contact info with proper accessibility
-const quickContact = [
+// Quick contact info - defined inside component for locale support
+const buildQuickContact = (isEs: boolean) => [
   {
     icon: "call",
-    label: "Call Us",
+    label: isEs ? "Llámenos" : "Call Us",
     value: COMPANY_INFO.phone.display,
     link: `tel:${COMPANY_INFO.phone.tel}`,
     color: "brand-primary",
-    actionLabel: "Call Now",
-    ariaLabel: `Call MH Construction at ${COMPANY_INFO.phone.display}`,
+    actionLabel: isEs ? "Llamar Ahora" : "Call Now",
+    ariaLabel: `${isEs ? "Llamar a MH Construction al" : "Call MH Construction at"} ${COMPANY_INFO.phone.display}`,
   },
   {
     icon: "mark_email_read",
-    label: "Email Us",
+    label: isEs ? "Envíenos un Correo" : "Email Us",
     value: COMPANY_INFO.email.main,
     link: `mailto:${COMPANY_INFO.email.main}`,
     color: "brand-primary",
-    actionLabel: "Send Email",
-    ariaLabel: "Send email to MH Construction",
+    actionLabel: isEs ? "Enviar Correo" : "Send Email",
+    ariaLabel: isEs
+      ? "Enviar correo a MH Construction"
+      : "Send email to MH Construction",
   },
   {
     icon: "place",
-    label: "Visit Us",
+    label: isEs ? "Visítenos" : "Visit Us",
     value: COMPANY_INFO.address.full,
     link: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY_INFO.address.full)}`,
     color: "brand-primary",
-    actionLabel: "Get Directions",
-    ariaLabel: "Get directions to MH Construction office in Pasco, WA",
+    actionLabel: isEs ? "Cómo Llegar" : "Get Directions",
+    ariaLabel: isEs
+      ? "Cómo llegar a las oficinas de MH Construction en Pasco, WA"
+      : "Get directions to MH Construction office in Pasco, WA",
   },
 ];
 
-// Main CTAs - Strategic navigation with consultation prioritized
-const mainCTAs = [
+const buildMainCTAs = (isEs: boolean) => [
   {
     icon: "map",
-    label: "The Battle Plan",
-    description: "What we build together",
+    label: isEs ? "El Plan de Batalla" : "The Battle Plan",
+    description: isEs ? "Lo que construimos juntos" : "What we build together",
     link: "/services",
     variant: "primary" as const,
-    ariaLabel: "Explore construction services and solutions",
+    ariaLabel: isEs
+      ? "Explorar servicios de construcción"
+      : "Explore construction services and solutions",
   },
   {
     icon: "emoji_events",
-    label: "Victories",
-    description: "See completed projects",
+    label: isEs ? "Victorias" : "Victories",
+    description: isEs ? "Ver proyectos completados" : "See completed projects",
     link: "/projects",
     variant: "primary" as const,
-    ariaLabel: "View completed projects and partnerships",
+    ariaLabel: isEs
+      ? "Ver proyectos completados"
+      : "View completed projects and partnerships",
   },
   {
     icon: "diversity_3",
-    label: "Chain of Command",
-    description: "Your partnership team",
+    label: isEs ? "Cadena de Mando" : "Chain of Command",
+    description: isEs ? "Su equipo de asociación" : "Your partnership team",
     link: "/team",
     variant: "primary" as const,
-    ariaLabel: "Meet the MH Construction partnership team",
+    ariaLabel: isEs
+      ? "Conocer al equipo de MH Construction"
+      : "Meet the MH Construction partnership team",
   },
   {
     icon: "military_tech",
-    label: "Occupation Specialties",
-    description: "Career opportunities",
+    label: isEs ? "Especialidades" : "Occupation Specialties",
+    description: isEs ? "Oportunidades de carrera" : "Career opportunities",
     link: "/careers",
     variant: "secondary" as const,
-    ariaLabel: "Explore career opportunities at MH Construction",
+    ariaLabel: isEs
+      ? "Explorar oportunidades de carrera"
+      : "Explore career opportunities at MH Construction",
   },
 ];
 
 export default function ContactPageClient() {
+  const locale = useLocale();
+  const isEs = locale === "es";
+  const quickContact = buildQuickContact(isEs);
+  const mainCTAs = buildMainCTAs(isEs);
   return (
     <>
       <PageTrackingClient pageName="Contact" />
@@ -120,18 +138,26 @@ export default function ContactPageClient() {
               className="text-right text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-2xl leading-relaxed"
             >
               <span className="block text-brand-secondary-text text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                Rally Point → Contact
+                {isEs
+                  ? "Punto de Encuentro → Contacto"
+                  : "Rally Point → Contact"}
               </span>
               <span className="block text-brand-secondary">
-                Your Project. Our Expertise. Let's Connect.
+                {isEs
+                  ? "Su Proyecto. Nuestra Experiencia. Conectemos."
+                  : "Your Project. Our Expertise. Let's Connect."}
               </span>
               <span className="block text-brand-primary">
-                Schedule Your Free Mission Brief
+                {isEs
+                  ? "Programe Su Consulta Gratuita"
+                  : "Schedule Your Free Mission Brief"}
               </span>
               <span className="block text-white/90">
-                Building projects for the Client,{" "}
-                <span className="font-black italic text-bronze-300">NOT</span>{" "}
-                the Dollar
+                {isEs
+                  ? "Construyendo proyectos para el Cliente, "
+                  : "Building projects for the Client, "}
+                <span className="font-black italic text-bronze-300">NO</span>{" "}
+                {isEs ? "el Dinero" : "the Dollar"}
               </span>
             </h1>
           </div>
@@ -145,7 +171,10 @@ export default function ContactPageClient() {
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb
-          items={[{ label: "Home", href: "/" }, { label: "Introductions" }]}
+          items={[
+            { label: isEs ? "Inicio" : "Home", href: "/" },
+            { label: isEs ? "Presentaciones" : "Introductions" },
+          ]}
         />
 
         {/* Quick Contact Section */}
@@ -183,26 +212,32 @@ export default function ContactPageClient() {
                   className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"
                 >
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Connect With
+                    {isEs ? "Conéctese Con" : "Connect With"}
                   </span>
                   <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Your Partnership Team
+                    {isEs ? "Su Equipo de Asociación" : "Your Partnership Team"}
                   </span>
                 </h2>
 
                 {/* Description */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  Every great partnership begins with an{" "}
+                  {isEs
+                    ? "Todo gran asociación comienza con una "
+                    : "Every great partnership begins with an "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    honest conversation
+                    {isEs ? "conversación honesta" : "honest conversation"}
                   </span>
-                  . Pick up the phone, send an email, or stop by our office in
-                  Pasco—we do business the old-fashioned way. Over{" "}
+                  {isEs
+                    ? ". Llámenos, envíe un correo, o visítenos en Pasco—hacemos negocios a la antigua. Más de "
+                    : ". Pick up the phone, send an email, or stop by our office in Pasco—we do business the old-fashioned way. Over "}
                   <span className="font-bold text-gray-900 dark:text-white">
-                    150 years combined experience
+                    {isEs
+                      ? "150 años de experiencia combinada"
+                      : "150 years combined experience"}
                   </span>
-                  , and we still believe in looking people in the eye and
-                  shaking hands.
+                  {isEs
+                    ? ", y aún creemos en mirar a las personas a los ojos y estrechar la mano."
+                    : ", and we still believe in looking people in the eye and shaking hands."}
                 </p>
               </div>
 
@@ -267,7 +302,9 @@ export default function ContactPageClient() {
               {/* Trust Credentials */}
               <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-8 border-t border-gray-200 dark:border-gray-700">
                 <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Accredited & Certified:
+                  {isEs
+                    ? "Acreditado y Certificado:"
+                    : "Accredited & Certified:"}
                 </span>
                 <a
                   href={COMPANY_INFO.bbb.sealClickUrl}
@@ -413,15 +450,16 @@ export default function ContactPageClient() {
                   className="mb-8 pb-2 font-black text-gray-900 dark:text-gray-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tighter"
                 >
                   <span className="block mb-4 font-semibold text-gray-700 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                    Two Pathways to
+                    {isEs ? "Dos Caminos hacia el" : "Two Pathways to"}
                   </span>
                   <span className="block text-brand-primary dark:text-brand-primary-light font-black drop-shadow-sm">
-                    Partnership Success
+                    {isEs ? "Éxito en Asociación" : "Partnership Success"}
                   </span>
                 </h2>
                 <p className="mx-auto max-w-4xl font-light text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-4 break-words">
-                  Whether you're a client or an Ally, we have a pathway designed
-                  for you
+                  {isEs
+                    ? "Ya sea cliente o Aliado, tenemos un camino diseñado para usted"
+                    : "Whether you're a client or an Ally, we have a pathway designed for you"}
                 </p>
               </div>
 
@@ -440,14 +478,14 @@ export default function ContactPageClient() {
                       />
                     </div>
                     <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl">
-                      For Clients
+                      {isEs ? "Para Clientes" : "For Clients"}
                     </h3>
                   </div>
 
                   <p className="mb-6 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                    Ready to begin your construction project? We're here to
-                    listen, collaborate, and bring your vision to life through
-                    professional construction management.
+                    {isEs
+                      ? "¿Listo para comenzar su proyecto de construcción? Estamos aquí para escuchar, colaborar y hacer realidad su visión a través de una gestión de construcción profesional."
+                      : "Ready to begin your construction project? We're here to listen, collaborate, and bring your vision to life through professional construction management."}
                   </p>
 
                   {/* Client Contact Info */}
@@ -463,7 +501,7 @@ export default function ContactPageClient() {
                         />
                         <div>
                           <p className="font-semibold text-gray-900 dark:text-white text-sm">
-                            Client Services
+                            {isEs ? "Servicios al Cliente" : "Client Services"}
                           </p>
                           <a
                             href={`tel:${COMPANY_INFO.phone.tel}`}
@@ -484,12 +522,16 @@ export default function ContactPageClient() {
                         />
                         <div>
                           <p className="font-semibold text-gray-900 dark:text-white text-sm">
-                            Email
+                            {isEs ? "Correo" : "Email"}
                           </p>
                           <a
                             href="mailto:office@mhc-gc.com?subject=Project%20Inquiry"
                             className="text-brand-primary hover:text-brand-secondary-text text-lg font-bold transition-colors"
-                            aria-label="Email office@mhc-gc.com for project inquiries"
+                            aria-label={
+                              isEs
+                                ? "Enviar correo a office@mhc-gc.com para consultas de proyectos"
+                                : "Email office@mhc-gc.com for project inquiries"
+                            }
                           >
                             office@mhc-gc.com
                           </a>
@@ -497,8 +539,9 @@ export default function ContactPageClient() {
                       </div>
                       <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
                         <p className="text-gray-600 dark:text-gray-300 text-sm italic">
-                          For: Free estimates, consultations, and project
-                          discussions
+                          {isEs
+                            ? "Para: Presupuestos gratuitos, consultas y discusiones de proyectos"
+                            : "For: Free estimates, consultations, and project discussions"}
                         </p>
                       </div>
                     </div>
@@ -507,7 +550,7 @@ export default function ContactPageClient() {
                   {/* Client Partner CTAs */}
                   <div className="space-y-3">
                     <h4 className="font-semibold text-gray-900 dark:text-white text-lg mb-4">
-                      Get Started:
+                      {isEs ? "Comenzar:" : "Get Started:"}
                     </h4>
                     <Link
                       href="/contact"
@@ -520,7 +563,9 @@ export default function ContactPageClient() {
                           theme="military"
                           ariaLabel="Contact Us"
                         />
-                        <span>Contact Us Today</span>
+                        <span>
+                          {isEs ? "Contáctenos Hoy" : "Contact Us Today"}
+                        </span>
                       </div>
                       <MaterialIcon
                         icon="arrow_forward"
@@ -539,7 +584,9 @@ export default function ContactPageClient() {
                           theme="military"
                           ariaLabel="Services"
                         />
-                        <span>Explore Services</span>
+                        <span>
+                          {isEs ? "Explorar Servicios" : "Explore Services"}
+                        </span>
                       </div>
                       <MaterialIcon
                         icon="arrow_forward"
@@ -563,14 +610,14 @@ export default function ContactPageClient() {
                       />
                     </div>
                     <h3 className="font-black text-gray-900 dark:text-white text-2xl sm:text-3xl md:text-4xl">
-                      For Allies
+                      {isEs ? "Para Aliados" : "For Allies"}
                     </h3>
                   </div>
 
                   <p className="mb-6 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                    Looking to grow your business with a Veteran-Owned
-                    construction leader? Join our network of quality
-                    professionals serving the Pacific Northwest market.
+                    {isEs
+                      ? "¿Desea crecer su negocio con un líder de construcción de propiedad veterana? Únase a nuestra red de profesionales de calidad que sirven al mercado del Noroeste del Pacífico."
+                      : "Looking to grow your business with a Veteran-Owned construction leader? Join our network of quality professionals serving the Pacific Northwest market."}
                   </p>
 
                   {/* Ally Contact Info */}
@@ -586,7 +633,7 @@ export default function ContactPageClient() {
                         />
                         <div>
                           <p className="font-semibold text-gray-900 dark:text-white text-sm">
-                            Ally Inquiries
+                            {isEs ? "Consultas de Aliados" : "Ally Inquiries"}
                           </p>
                           <a
                             href={`tel:${COMPANY_INFO.phone.tel}`}
@@ -607,12 +654,16 @@ export default function ContactPageClient() {
                         />
                         <div>
                           <p className="font-semibold text-gray-900 dark:text-white text-sm">
-                            Email
+                            {isEs ? "Correo" : "Email"}
                           </p>
                           <a
                             href="mailto:office@mhc-gc.com?subject=Ally%20Inquiry"
                             className="text-brand-secondary-text hover:text-bronze-600 text-lg font-bold transition-colors dark:text-brand-secondary-light"
-                            aria-label="Email office@mhc-gc.com for Ally inquiries"
+                            aria-label={
+                              isEs
+                                ? "Enviar correo a office@mhc-gc.com para consultas de aliados"
+                                : "Email office@mhc-gc.com for Ally inquiries"
+                            }
                           >
                             office@mhc-gc.com
                           </a>
@@ -620,8 +671,9 @@ export default function ContactPageClient() {
                       </div>
                       <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
                         <p className="text-gray-600 dark:text-gray-300 text-sm italic">
-                          For: Vendor applications, Ally relationships, and
-                          business opportunities
+                          {isEs
+                            ? "Para: Solicitudes de proveedores, relaciones de Aliados y oportunidades de negocio"
+                            : "For: Vendor applications, Ally relationships, and business opportunities"}
                         </p>
                       </div>
                     </div>
@@ -630,7 +682,7 @@ export default function ContactPageClient() {
                   {/* Ally CTAs */}
                   <div className="space-y-3">
                     <h4 className="font-semibold text-gray-900 dark:text-white text-lg mb-4">
-                      Join Our Network:
+                      {isEs ? "Únase a Nuestra Red:" : "Join Our Network:"}
                     </h4>
                     <Link
                       href="/allies"
@@ -643,7 +695,11 @@ export default function ContactPageClient() {
                           theme="veteran"
                           ariaLabel="Approved Vendor"
                         />
-                        <span>Apply as Approved Vendor</span>
+                        <span>
+                          {isEs
+                            ? "Solicitar como Proveedor Aprobado"
+                            : "Apply as Approved Vendor"}
+                        </span>
                       </div>
                       <MaterialIcon
                         icon="arrow_forward"
@@ -662,7 +718,11 @@ export default function ContactPageClient() {
                           theme="veteran"
                           ariaLabel="Ally Benefits"
                         />
-                        <span>View Ally Benefits</span>
+                        <span>
+                          {isEs
+                            ? "Ver Beneficios de Aliados"
+                            : "View Ally Benefits"}
+                        </span>
                       </div>
                       <MaterialIcon
                         icon="arrow_forward"
@@ -711,10 +771,10 @@ export default function ContactPageClient() {
                   className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"
                 >
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Visit Our
+                    {isEs ? "Visítenos en" : "Visit Our"}
                   </span>
                   <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Office Location
+                    {isEs ? "Nuestra Oficina" : "Office Location"}
                   </span>
                 </h2>
 
@@ -725,7 +785,9 @@ export default function ContactPageClient() {
                   </span>
                 </p>
                 <p className="mt-4 text-gray-500 dark:text-gray-300 text-base sm:text-lg">
-                  Serving the Tri-Cities and Pacific Northwest
+                  {isEs
+                    ? "Sirviendo al Tri-Cities y el Noroeste del Pacífico"
+                    : "Serving the Tri-Cities and Pacific Northwest"}
                 </p>
               </div>
 
@@ -743,7 +805,11 @@ export default function ContactPageClient() {
                   href="https://maps.google.com/?q=3111+N+Capitol+Ave+Pasco+WA+99301"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Get directions to MH Construction office in Pasco, Washington"
+                  aria-label={
+                    isEs
+                      ? "Como llegar a la oficina de MH Construction en Pasco, Washington"
+                      : "Get directions to MH Construction office in Pasco, Washington"
+                  }
                   className="inline-flex items-center gap-3 bg-white dark:bg-gray-800 border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-brand-primary/50"
                 >
                   <MaterialIcon
@@ -752,7 +818,7 @@ export default function ContactPageClient() {
                     theme="military"
                     ariaLabel="Get Directions"
                   />
-                  Get Directions
+                  {isEs ? "Cómo Llegar" : "Get Directions"}
                 </a>
               </div>
             </FadeInWhenVisible>
@@ -793,18 +859,18 @@ export default function ContactPageClient() {
                   className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"
                 >
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Explore Your
+                    {isEs ? "Explore Sus" : "Explore Your"}
                   </span>
                   <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Partnership Options
+                    {isEs ? "Opciones de Asociación" : "Partnership Options"}
                   </span>
                 </h2>
 
                 {/* Description */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  Discover how we can{" "}
+                  {isEs ? "Descubra cómo podemos " : "Discover how we can "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    build together
+                    {isEs ? "construir juntos" : "build together"}
                   </span>
                 </p>
               </div>
@@ -883,7 +949,7 @@ export default function ContactPageClient() {
                             aria-hidden="true"
                           >
                             <span className="font-semibold text-sm">
-                              Learn More
+                              {isEs ? "Más Información" : "Learn More"}
                             </span>
                             <MaterialIcon
                               icon="arrow_forward"
@@ -937,18 +1003,20 @@ export default function ContactPageClient() {
                   className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible"
                 >
                   <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                    Our Tri-State
+                    {isEs ? "Nuestra Cobertura" : "Our Tri-State"}
                   </span>
                   <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                    Service Coverage
+                    {isEs ? "de Tres Estados" : "Service Coverage"}
                   </span>
                 </h2>
 
                 {/* Description */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  Professional construction services throughout the{" "}
+                  {isEs
+                    ? "Servicios profesionales de construccion en todo el"
+                    : "Professional construction services throughout the"}{" "}
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    Pacific Northwest
+                    {isEs ? "Noroeste del Pacifico" : "Pacific Northwest"}
                   </span>
                 </p>
               </div>
@@ -979,12 +1047,14 @@ export default function ContactPageClient() {
                           </div>
                         </div>
                         <h3 className="font-bold text-brand-primary text-xl sm:text-2xl">
-                          Tri-Cities Area
+                          {isEs ? "Área de Tri-Cities" : "Tri-Cities Area"}
                         </h3>
                       </div>
 
                       <p className="mb-6 text-gray-600 dark:text-gray-300 text-sm">
-                        Primary Service Region - Immediate Response Available
+                        {isEs
+                          ? "Región de Servicio Principal - Respuesta Inmediata Disponible"
+                          : "Primary Service Region - Immediate Response Available"}
                       </p>
 
                       {/* Location Links */}
@@ -1001,7 +1071,7 @@ export default function ContactPageClient() {
                           />
                           <span className="font-medium">Pasco, WA</span>
                           <span className="ml-auto text-xs text-gray-500">
-                            Headquarters
+                            {isEs ? "Sede" : "Headquarters"}
                           </span>
                         </Link>
                         <Link
@@ -1057,12 +1127,14 @@ export default function ContactPageClient() {
                           </div>
                         </div>
                         <h3 className="font-bold text-brand-secondary text-xl sm:text-2xl">
-                          Extended Coverage
+                          {isEs ? "Cobertura Extendida" : "Extended Coverage"}
                         </h3>
                       </div>
 
                       <p className="mb-6 text-gray-600 dark:text-gray-300 text-sm">
-                        Multi-State Licensed - WA, OR, ID
+                        {isEs
+                          ? "Licencia Multi-Estado - WA, OR, ID"
+                          : "Multi-State Licensed - WA, OR, ID"}
                       </p>
 
                       {/* Location Links and Coverage */}
