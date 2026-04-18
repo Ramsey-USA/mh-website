@@ -37,6 +37,10 @@ const ROUTE_SECURITY_CONFIG: Record<
 // Security paths that bypass normal processing
 const SECURITY_BYPASS_PATHS = [
   "/api/security/status",
+  // Analytics beacon uses sendBeacon/fetch(keepalive) which cannot set
+  // custom headers — CSRF check would always block it. The route has its
+  // own rate limiter (60 req/min) so middleware CSRF is redundant here.
+  "/api/analytics/collect",
   "/favicon.ico",
   "/_next/",
   "/images/",
