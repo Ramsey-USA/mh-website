@@ -134,7 +134,7 @@
     "postcss": "^8.5.8",
     "prettier": "^3.8.1",
     "typescript": "^5.9.2",
-    "wrangler": "^4.81.1"
+    "wrangler": "^4.83.0"
   },
   "optionalDependencies": {
     "chrome-launcher": "^1.2.1",
