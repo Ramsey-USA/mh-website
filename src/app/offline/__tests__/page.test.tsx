@@ -29,7 +29,9 @@ import OfflinePage from "../page";
 describe("OfflinePage", () => {
   it("renders the offline heading", () => {
     render(<OfflinePage />);
-    expect(screen.getByText(/You're Offline/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Base HQ → Offline Operations/i),
+    ).toBeInTheDocument();
   });
 
   it("renders the Go Home link", () => {
