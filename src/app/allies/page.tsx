@@ -490,11 +490,11 @@ export default function AlliesPage() {
         items={[{ label: "Home", href: "/" }, { label: "Allies in Force" }]}
       />
 
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 xl:py-40 max-w-7xl flex flex-col">
         {/* ── SECTION 1: WHY PARTNER WITH MHC ──────────────────────────── */}
         <section
           id="partnership"
-          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32 rounded-2xl"
+          className="order-2 relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32 rounded-2xl"
         >
           <DiagonalStripePattern />
           <BrandColorBlobs />
@@ -536,9 +536,10 @@ export default function AlliesPage() {
                 <span className="font-bold text-gray-900 dark:text-white">
                   (.64 EMR — 40% safer than industry average)
                 </span>
-                . Veteran-Owned leadership since January 2025 means our partners
-                get the same code of conduct that defines military service:
-                honor, accountability, and follow-through on every commitment.
+                {". "}Veteran-Owned leadership since January 2025 means our
+                partners get the same code of conduct that defines military
+                service: honor, accountability, and follow-through on every
+                commitment.
               </p>
               <cite className="block mt-4 font-semibold text-brand-secondary-text text-lg dark:text-brand-secondary-light not-italic">
                 — MH Construction Leadership Team
@@ -546,8 +547,8 @@ export default function AlliesPage() {
             </div>
 
             <StaggeredFadeIn className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {partnershipValues.map((value, index) => (
-                <div key={index} className="group relative flex h-full">
+              {partnershipValues.map((value) => (
+                <div key={value.title} className="group relative flex h-full">
                   <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse" />
                   <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden flex flex-col w-full">
                     <div className="h-2 bg-gradient-to-r from-brand-primary via-brand-primary-dark to-brand-primary-darker" />
@@ -582,7 +583,7 @@ export default function AlliesPage() {
         {/* ── SECTION 2: VENDOR SHOWCASE ────────────────────────────────── */}
         <section
           id="vendors"
-          className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
+          className="order-1 relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden mb-20 lg:mb-32"
         >
           <div className="relative z-10">
             <div className="mb-16 sm:mb-20 text-center">
@@ -621,15 +622,15 @@ export default function AlliesPage() {
                 <span className="font-bold text-gray-900 dark:text-white">
                   first call on every MH Construction project
                 </span>
-                .
+                {"."}
               </p>
             </div>
 
             {/* Logo Parade */}
             <div className="mb-14 flex flex-wrap items-center justify-center gap-4">
-              {vendors.map((vendor, index) => (
+              {vendors.map((vendor) => (
                 <div
-                  key={index}
+                  key={vendor.name}
                   className="group flex items-center justify-center rounded-xl border-2 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                   style={{
                     borderColor: vendor.brandColors
@@ -670,9 +671,9 @@ export default function AlliesPage() {
             </div>
 
             <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {vendors.map((vendor, index) => (
+              {vendors.map((vendor) => (
                 <div
-                  key={index}
+                  key={`${vendor.name}-card`}
                   className="group relative [perspective:1200px] h-[480px]"
                 >
                   {/* Glow */}
@@ -762,7 +763,7 @@ export default function AlliesPage() {
                             className="text-gray-400"
                           />
                           <a
-                            href={`tel:${vendor.phone.replace(/[^0-9+]/g, "")}`}
+                            href={`tel:${vendor.phone.replaceAll(/[^0-9+]/g, "")}`}
                             className="text-xs text-gray-600 dark:text-gray-300 font-medium hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors"
                           >
                             {vendor.phone}
@@ -824,9 +825,9 @@ export default function AlliesPage() {
                             Services
                           </h4>
                           <ul className="space-y-1.5">
-                            {vendor.highlights.map((h, hi) => (
+                            {vendor.highlights.map((h) => (
                               <li
-                                key={hi}
+                                key={h}
                                 className="flex items-start gap-2 text-white text-xs"
                               >
                                 <MaterialIcon
@@ -848,9 +849,9 @@ export default function AlliesPage() {
                               Our Work Together
                             </h4>
                             <ul className="space-y-1.5">
-                              {vendor.portfolio.map((item, pi) => (
+                              {vendor.portfolio.map((item) => (
                                 <li
-                                  key={pi}
+                                  key={item}
                                   className="flex items-start gap-2 text-white text-xs"
                                 >
                                   <MaterialIcon
@@ -896,7 +897,7 @@ export default function AlliesPage() {
                               className="text-white/60 flex-shrink-0"
                             />
                             <a
-                              href={`tel:${vendor.phone.replace(/[^0-9+]/g, "")}`}
+                              href={`tel:${vendor.phone.replaceAll(/[^0-9+]/g, "")}`}
                               className="underline underline-offset-2 hover:text-white transition-colors"
                             >
                               {vendor.phone}
@@ -929,9 +930,9 @@ export default function AlliesPage() {
                           <span className="text-white/50 text-xs font-medium mr-1">
                             Connect:
                           </span>
-                          {vendor.links.map((link, lIndex) => (
+                          {vendor.links.map((link) => (
                             <VendorPlatformLink
-                              key={lIndex}
+                              key={link.href}
                               href={link.href}
                               label={link.label}
                               platform={link.platform}
@@ -950,8 +951,13 @@ export default function AlliesPage() {
         {/* ── SECTION 3: CTA ────────────────────────────────────────────── */}
         <section
           id="apply"
-          className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden rounded-2xl"
+          className="order-4 relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden rounded-2xl"
         >
+          <div
+            id="vendor-application"
+            className="absolute -top-24"
+            aria-hidden="true"
+          />
           <div className="relative z-10 px-8 lg:px-16 xl:px-20">
             <div className="text-center">
               <div className="mb-16 sm:mb-20">
@@ -990,7 +996,7 @@ export default function AlliesPage() {
                   <span className="font-bold text-gray-900 dark:text-white">
                     sustainable business relationships built on mutual success
                   </span>
-                  .
+                  {"."}
                 </p>
               </div>
 
@@ -1050,7 +1056,7 @@ export default function AlliesPage() {
         </section>
 
         {/* Accreditations & Certifications */}
-        <section className="relative py-12 sm:py-16">
+        <section className="order-3 relative py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
               Accredited & Certified

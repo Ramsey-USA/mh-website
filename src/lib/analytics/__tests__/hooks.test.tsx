@@ -114,6 +114,16 @@ describe("usePageTracking()", () => {
     expect(mockTrackJourneyMilestone).toHaveBeenCalledWith("viewed_contact");
   });
 
+  it("tracks entered_site milestone once on homepage", () => {
+    mockPathname.mockReturnValue("/");
+    const { rerender } = renderHook(() => usePageTracking());
+
+    rerender();
+
+    expect(mockTrackJourneyMilestone).toHaveBeenCalledTimes(1);
+    expect(mockTrackJourneyMilestone).toHaveBeenCalledWith("entered_site");
+  });
+
   it("adds scroll event listener on mount and removes it on unmount", () => {
     const addListener = jest.spyOn(window, "addEventListener");
     const removeListener = jest.spyOn(window, "removeEventListener");
@@ -152,6 +162,32 @@ describe("usePageTracking()", () => {
 
     // At scrollY=0 with innerHeight=500 and scrollHeight=1000 → 50% scroll
     expect(mockTrackScrollDepth).toHaveBeenCalledWith(50);
+  });
+
+  it("fires crossed milestones when scroll jumps past multiple thresholds", () => {
+    renderHook(() => usePageTracking());
+
+    Object.defineProperty(window, "innerHeight", {
+      value: 500,
+      configurable: true,
+    });
+    Object.defineProperty(document.documentElement, "scrollHeight", {
+      value: 1000,
+      configurable: true,
+    });
+    Object.defineProperty(window, "scrollY", {
+      value: 100,
+      configurable: true,
+    });
+
+    act(() => {
+      window.dispatchEvent(new Event("scroll"));
+    });
+
+    // Scroll jumps to ~60%; should emit both 25 and 50 milestones.
+    expect(mockTrackScrollDepth).toHaveBeenCalledWith(25);
+    expect(mockTrackScrollDepth).toHaveBeenCalledWith(50);
+    expect(mockTrackScrollDepth).not.toHaveBeenCalledWith(75);
   });
 });
 

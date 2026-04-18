@@ -1,16 +1,17 @@
 # Page Template Guide
 
 **Category:** Development - Page Scaffolding  
-**Last Updated:** April 17, 2026  
+**Last Updated:** April 18, 2026  
 **Status:** ✅ Active
 **Canonical Sources:**
 
 - [../components/template-components.md](../components/template-components.md)
 - [./page-compliance-checklist.md](./page-compliance-checklist.md)
+- [./universal-page-flow-standard.md](./universal-page-flow-standard.md)
   **Consolidation Rule:** Keep this file focused on end-to-end page scaffolding; keep reusable section APIs in template-components docs.
 
 **Purpose:** Copy-paste boilerplate for creating new MH-standard pages  
-**Version:** 1.0.0  
+**Version:** 1.1.0  
 **Reference:** [Homepage](../../technical/homepage.md) - Your page must match this quality level  
 **Quick Start:** Copy the template below and customize for your page
 
@@ -48,13 +49,16 @@ like siblings, not cousins.
 
 ## 🚀 Quick Start Workflow
 
-1. **Copy the full template** from section below
-2. **Replace placeholders** (search for `YOUR_PAGE_NAME`, `Your Page Title`, etc.)
-3. **Customize hero section** (icon, title, description)
-4. **Add content sections using BrandedContentSection** (eliminates 68 lines of
+1. **Identify page intent** using the universal flow standard
+2. **Copy the full template** from section below
+3. **Replace placeholders** (search for `YOUR_PAGE_NAME`, `Your Page Title`, etc.)
+4. **Customize hero section** (icon, title, description)
+5. **Map body sections to Discover -> Trust -> Proof -> Action**
+6. **Add content sections using BrandedContentSection** (eliminates 68 lines of
    boilerplate per section)
-5. **Run compliance checklist** (see page-compliance-checklist.md)
-6. **Test responsiveness** (mobile, tablet, desktop)
+7. **Decide whether the page should stay focused or split into smaller pages**
+8. **Run compliance checklist** (see page-compliance-checklist.md)
+9. **Test responsiveness** (mobile, tablet, desktop)
 
 **Pro Tip:** Use BrandedContentSection component instead of manual section
 markup - it automatically includes all required patterns
@@ -63,6 +67,33 @@ markup - it automatically includes all required patterns
 **Non-coder explanation:** BrandedContentSection is the "fancy section with
 gold/green gradient titles and background patterns" - it's pre-made so
 developers don't code the same thing 26 times.
+
+---
+
+## Mandatory Page Architecture
+
+Every page body must follow the MH universal page flow standard:
+
+```text
+Discover -> Trust -> Proof -> Action
+```
+
+Use that sequence before choosing individual section types.
+
+### What each stage means
+
+1. **Discover**: Show what the page is about and who it is for.
+2. **Trust**: Explain why MH is credible in this context.
+3. **Proof**: Validate the claims with evidence.
+4. **Action**: Present the clearest next step.
+
+### Page planning rules
+
+1. The first body section must orient the visitor.
+2. Do not stack multiple sections with the same narrative job unless each one adds new decision value.
+3. If the page contains multiple audiences or multiple CTA paths, split it into smaller intent-based pages instead of adding more sections.
+4. Keep `NextStepsSection` as the final major section, but add a stronger primary CTA earlier when needed.
+5. Route partner-intent visitors to `/allies` after enough context has been established.
 
 ---
 
@@ -365,6 +396,7 @@ Use canonical pattern references for section variants instead of duplicating exa
 
 Before deploying your new page:
 
+- [ ] Validate section order against [Universal Page Flow Standard](./universal-page-flow-standard.md)
 - [ ] Run through [Page Compliance Checklist](./page-compliance-checklist.md)
 - [ ] Test on mobile device (actual device, not just DevTools)
 - [ ] Test dark mode toggle
@@ -386,10 +418,12 @@ Use the canonical mistakes catalog with wrong/correct examples:
 
 Template-specific checks:
 
+1. First body section must serve the Discover stage.
 1. Keep section IDs in kebab-case for PageNavigation anchors.
-2. Keep `NextStepsSection` as the final major section.
-3. Keep below-fold sections dynamically imported where appropriate.
-4. Validate with [Page Compliance Checklist](./page-compliance-checklist.md) before merge.
+1. Keep `NextStepsSection` as the final major section.
+1. Keep below-fold sections dynamically imported where appropriate.
+1. Split oversized pages when they serve multiple audiences or multiple action paths.
+1. Validate with [Page Compliance Checklist](./page-compliance-checklist.md) before merge.
 
 ---
 
@@ -397,6 +431,7 @@ Template-specific checks:
 
 - [Component Cheatsheet](../quick-reference/component-cheatsheet.md) - Quick patterns reference
 - [Page Compliance Checklist](./page-compliance-checklist.md) - Audit tool
+- [Universal Page Flow Standard](./universal-page-flow-standard.md) - Required page architecture
 - [Unified Component Standards](../../branding/standards/unified-component-standards.md) - Complete standard
 - [Common Mistakes](./common-mistakes.md) - What to avoid
 

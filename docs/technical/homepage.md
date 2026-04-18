@@ -77,12 +77,14 @@ veteran-owned values and transparent communication.
 
 ## 📐 Section Structure
 
-The homepage follows an optimized section ordering strategy (25-30% testimonial placement):
+The homepage follows the **Universal Page Flow Standard**: **Discover → Trust → Proof → Action**.
 
-> **📋 Structural Template:** Most pages follow similar section patterns
-> (Hero → Values/Benefits → Services/Content → Testimonials → Stats → Process
-> → Next Steps). However, section ordering and content are optimized per page
-> purpose. Timeline and component designs remain visually consistent.
+> **📋 Structural Template:** All lead-path pages follow the Universal Page Flow Standard
+> (Discover: Hero + primary content → Trust: values/benefits/capabilities → Proof: testimonials/stats/awards
+> → Action: CTAs + Next Steps). Section _content_ is optimized per page purpose; the flow sequence
+> is consistent. Timeline and component designs remain visually consistent.
+>
+> **Full Standard:** [Universal Page Flow Standard](../../development/standards/universal-page-flow-standard.md)
 >
 > **Exception Pages:** Public Sector and Veterans pages have completely different structures.
 

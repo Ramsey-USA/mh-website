@@ -3,9 +3,11 @@
 ## Overview
 
 The `NextStepsSection` component is the standardized final call-to-action (CTA)
-section used across all major pages of the MH Website. It provides a
-consistent user experience by offering clear next steps for visitors to take
-action.
+section used across all major pages of the MH Website. It is the canonical
+**Action phase** closer in the
+[Universal Page Flow Standard](../../development/standards/universal-page-flow-standard.md)
+(Discover → Trust → Proof → **Action**). Every lead-path page must end with this component
+as the last section before the footer.
 
 ## Component Location
 

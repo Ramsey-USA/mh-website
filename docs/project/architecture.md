@@ -1,11 +1,12 @@
 # MH Construction — Architecture Documentation
 
 **Category:** Project - Architecture  
-**Last Updated:** April 15, 2026  
-**Version:** 1.1.0  
+**Last Updated:** April 18, 2026  
+**Version:** 1.2.0  
 **Status:** ✅ Active
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../branding/brand-constants.md).
+> **Page Structure Standard:** All lead-path pages follow the [Universal Page Flow Standard](../development/standards/universal-page-flow-standard.md) (Discover → Trust → Proof → Action).
 
 ## 🎯 **CURRENT STATE: Complete Production Platform**
 

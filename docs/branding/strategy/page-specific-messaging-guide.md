@@ -47,6 +47,10 @@ location references, safety record, etc.), see the
 page-group-specific voice and tone, while the Universal Terminology Guide ensures consistency in
 specific terms and phrases.
 
+For **page section ordering**, all lead-path pages must follow the
+**[Universal Page Flow Standard](../../development/standards/universal-page-flow-standard.md)**
+(Discover → Trust → Proof → Action). Messaging strategy per group below maps to that flow.
+
 ---
 
 ## 📖 Page Group Classifications (4 Core Groups)

@@ -1,7 +1,7 @@
 # Branding Documentation
 
 **Category:** Branding - Overview  
-**Last Updated:** April 15, 2026
+**Last Updated:** April 18, 2026
 
 ## Overview
 
@@ -36,6 +36,11 @@ Messaging, voice, and brand positioning guidelines.
 ### Section Types
 
 - **[Section Types Guide](./section-types-guide.md)** - Available section patterns and usage
+
+### Page Structure & Flow
+
+- **[Universal Page Flow Standard](../development/standards/universal-page-flow-standard.md)** - Required body-content sequence for all MH pages
+- **[Page Template Guide](../development/standards/page-template-guide.md)** - Implementation guide for new or refactored pages
 
 ## Quick Links
 

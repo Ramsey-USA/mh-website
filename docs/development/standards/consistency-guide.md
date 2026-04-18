@@ -3,7 +3,7 @@
 ## Comprehensive Standards for Pages, Sections, Components, and Mobile
 
 **Category:** Development - Implementation Standards  
-**Last Updated:** April 15, 2026 | **Version:** 2.1.0 | **Status:** Official Standard
+**Last Updated:** April 18, 2026 | **Version:** 2.2.0 | **Status:** Official Standard
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../../branding/brand-constants.md).
 
@@ -23,6 +23,8 @@
 - [Hero Section Tagline Strategy](#hero-section-tagline-strategy)
 - [Typography System](#typography-system)
 - [Page Layout Standards](#page-layout-standards)
+- [Universal Page Flow](#universal-page-flow)
+- [Content Architecture Standards](#content-architecture-standards)
 - [Section Standards](#section-standards)
 - [Component Standards](#component-standards)
 - [Mobile Consistency](#mobile-consistency)
@@ -168,6 +170,54 @@ All consultation CTAs now direct to `/contact` for face-to-face consultation.
 - **CTAs**: "Schedule Consultation", "Discuss Your Project", "Contact Our Team"
 
 ### Component Props
+
+---
+
+## Universal Page Flow
+
+All MH Construction pages must organize body content using this sequence:
+
+```text
+Discover -> Trust -> Proof -> Action
+```
+
+This is now the required MH page-flow standard.
+
+### What this means in practice
+
+1. **Discover** sections explain the page purpose immediately.
+2. **Trust** sections establish credibility in that context.
+3. **Proof** sections validate the claims with evidence.
+4. **Action** sections ask for the next step after enough confidence has been built.
+
+### Layout requirements
+
+1. The first body section must orient the visitor.
+2. Do not stack multiple Trust sections or Proof sections unless each one has a distinct job.
+3. Primary CTAs should appear after meaningful Proof, not before the page earns the action.
+4. `NextStepsSection` remains the final section, but long pages should include an earlier primary CTA.
+5. When a page branches to a partner path, send qualified users to `/allies` after capability and trust context.
+
+## Content Architecture Standards
+
+MH now prefers smaller, intent-specific pages over oversized pages with too many body sections.
+
+### Split into smaller pages when
+
+1. a page serves multiple audiences
+2. a page asks users to make multiple major decisions
+3. a page contains multiple proof clusters that could support dedicated landing pages
+4. a section could perform better as a standalone destination for search or internal links
+
+### Keep a page unified when
+
+1. the page has one clear audience and one primary action path
+2. supporting sections are necessary to complete a single narrative
+3. splitting would create thin, repetitive pages
+
+### Required outcome
+
+Every page should feel easier to scan, easier to understand, and more direct about the next step.
 
 ---
 
@@ -987,6 +1037,7 @@ the word **"NOT"** must ALWAYS be styled in a contrasting color to emphasize the
 
 - **[Page-Specific Messaging Guide](../../branding/strategy/page-specific-messaging-guide.md)** - ⭐
   **CRITICAL** - 4 Core Page Groups strategy
+- **[Universal Page Flow Standard](./universal-page-flow-standard.md)** - Required body-content sequence and smaller-page rules
 - **[Brand Overview](../../branding/strategy/brand-overview.md)** - Complete brand standards
 - **[Brand Overview](../../branding/strategy/brand-overview.md)** - Complete brand standards
 - **[Design System Components](../../technical/design-system/buttons-ctas-complete-guide.md)** - Complete design system

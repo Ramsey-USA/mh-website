@@ -18,6 +18,12 @@ export function getNavigationLabel(
 export const navigationConfigs = {
   home: [
     {
+      href: "#services",
+      label: "Services",
+      mobileLabel: "Services",
+      icon: "build",
+    },
+    {
       href: "#core-values",
       label: "Core Values",
       mobileLabel: "Values",
@@ -28,12 +34,6 @@ export const navigationConfigs = {
       label: "Why Partner",
       mobileLabel: "Why Us",
       icon: "handshake",
-    },
-    {
-      href: "#services",
-      label: "Services",
-      mobileLabel: "Services",
-      icon: "build",
     },
     {
       href: "#testimonials",
@@ -63,34 +63,34 @@ export const navigationConfigs = {
 
   about: [
     {
-      href: "#stats",
-      label: "Track Record",
-      mobileLabel: "Stats",
-      icon: "analytics",
-    },
-    {
-      href: "#testimonials",
-      label: "Client Partners",
-      mobileLabel: "Reviews",
-      icon: "verified",
-    },
-    {
       href: "#partnership-philosophy",
-      label: "Partnership Philosophy",
+      label: "Philosophy",
       mobileLabel: "Philosophy",
       icon: "handshake",
     },
     {
-      href: "#evolution",
+      href: "#team",
+      label: "Chain of Command",
+      mobileLabel: "Team",
+      icon: "military_tech",
+    },
+    {
+      href: "#values",
+      label: "Why Values Matter",
+      mobileLabel: "Values",
+      icon: "verified",
+    },
+    {
+      href: "#company-evolution",
       label: "Company Evolution",
       mobileLabel: "Evolution",
       icon: "timeline",
     },
     {
-      href: "#leadership",
-      label: "Chain of Command",
-      mobileLabel: "Team",
-      icon: "military_tech",
+      href: "#stats",
+      label: "Track Record",
+      mobileLabel: "Stats",
+      icon: "analytics",
     },
     {
       href: "#awards",
@@ -105,6 +105,12 @@ export const navigationConfigs = {
       icon: "shield",
     },
     {
+      href: "#testimonials",
+      label: "Client Partners",
+      mobileLabel: "Reviews",
+      icon: "forum",
+    },
+    {
       href: "#news",
       label: "Latest News",
       mobileLabel: "News",
@@ -113,12 +119,6 @@ export const navigationConfigs = {
   ],
 
   services: [
-    {
-      href: "#expertise",
-      label: "Construction Expertise",
-      mobileLabel: "Expertise",
-      icon: "engineering",
-    },
     {
       href: "#core-services",
       label: "Core Services",
@@ -132,12 +132,6 @@ export const navigationConfigs = {
       icon: "construction",
     },
     {
-      href: "#testimonials",
-      label: "Trust In Action",
-      mobileLabel: "Trust",
-      icon: "verified",
-    },
-    {
       href: "#government",
       label: "Government Projects",
       mobileLabel: "Gov",
@@ -148,6 +142,18 @@ export const navigationConfigs = {
       label: "Service Areas",
       mobileLabel: "Areas",
       icon: "map",
+    },
+    {
+      href: "#expertise",
+      label: "Construction Expertise",
+      mobileLabel: "Expertise",
+      icon: "engineering",
+    },
+    {
+      href: "#testimonials",
+      label: "Trust In Action",
+      mobileLabel: "Trust",
+      icon: "verified",
     },
     {
       href: "#process",
@@ -249,16 +255,16 @@ export const navigationConfigs = {
 
   projects: [
     {
-      href: "#stats",
-      label: "Our Stats",
-      mobileLabel: "Stats",
-      icon: "analytics",
-    },
-    {
       href: "#portfolio",
       label: "Trust In Action",
       mobileLabel: "Portfolio",
       icon: "verified",
+    },
+    {
+      href: "#capabilities",
+      label: "Capabilities",
+      mobileLabel: "Capabilities",
+      icon: "engineering",
     },
     {
       href: "#Veteran-Owned",
@@ -267,10 +273,10 @@ export const navigationConfigs = {
       icon: "military_tech",
     },
     {
-      href: "#capabilities",
-      label: "Capabilities",
-      mobileLabel: "Capabilities",
-      icon: "engineering",
+      href: "#stats",
+      label: "Our Stats",
+      mobileLabel: "Stats",
+      icon: "analytics",
     },
     {
       href: "#testimonials",
@@ -294,6 +300,18 @@ export const navigationConfigs = {
       icon: "engineering",
     },
     {
+      href: "#employee-testimonials",
+      label: "Team Stories",
+      mobileLabel: "Stories",
+      icon: "star",
+    },
+    {
+      href: "#field-officers",
+      label: "Field Officers",
+      mobileLabel: "Field Ops",
+      icon: "construction",
+    },
+    {
       href: "#special-operations",
       label: "Special Operations",
       mobileLabel: "Spec Ops",
@@ -306,22 +324,16 @@ export const navigationConfigs = {
       icon: "support_agent",
     },
     {
-      href: "#field-officers",
-      label: "Field Officers",
-      mobileLabel: "Field Ops",
-      icon: "construction",
-    },
-    {
       href: "#company-culture",
       label: "Company Culture",
       mobileLabel: "Culture",
       icon: "diversity_3",
     },
     {
-      href: "#employee-testimonials",
-      label: "Team Stories",
-      mobileLabel: "Stories",
-      icon: "star",
+      href: "#career-growth",
+      label: "Career Growth",
+      mobileLabel: "Growth",
+      icon: "school",
     },
   ],
 
@@ -358,6 +370,12 @@ export const navigationConfigs = {
       label: "Quick Contact",
       mobileLabel: "Contact",
       icon: "forum",
+    },
+    {
+      href: "#partnership-pathways-heading",
+      label: "Partnership Paths",
+      mobileLabel: "Paths",
+      icon: "handshake",
     },
     {
       href: "#office-location-heading",
@@ -408,16 +426,16 @@ export const navigationConfigs = {
 
   allies: [
     {
-      href: "#partnership",
-      label: "Why MHC",
-      mobileLabel: "Why MHC",
-      icon: "handshake",
-    },
-    {
       href: "#vendors",
       label: "Our Partners",
       mobileLabel: "Partners",
       icon: "star",
+    },
+    {
+      href: "#partnership",
+      label: "Why MHC",
+      mobileLabel: "Why MHC",
+      icon: "handshake",
     },
     {
       href: "#apply",

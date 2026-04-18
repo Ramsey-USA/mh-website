@@ -137,19 +137,23 @@ rankings by **15-25%** without changing any content.
 
 ### General Ordering Principles
 
-1. **Above the Fold (0-10%)**: Hero with H1, primary CTA, key value proposition
-2. **Primary Content (10-25%)**: Main offerings, services, or core information
-3. **Social Proof (25-30%)**: Testimonials, reviews, trust signals - **CRITICAL for SEO**
-4. **Supporting Content (30-60%)**: Additional details, features, benefits
-5. **Secondary Actions (60-80%)**: Tools, calculators, interactive elements
-6. **Conversion Path (80-100%)**: Final CTAs, next steps, contact forms
+All lead-path pages follow the **Universal Page Flow Standard** — **Discover → Trust → Proof → Action**:
 
-### Why Testimonials at 25-30%?
+| Phase        | Position | Content                                                            |
+| ------------ | -------- | ------------------------------------------------------------------ |
+| **Discover** | 0–25%    | Hero (H1 + primary CTA), primary offerings/content                 |
+| **Trust**    | 25–50%   | Values, capabilities, expertise, why-choose-us                     |
+| **Proof**    | 50–75%   | Testimonials, stats, awards, accreditations — **CRITICAL for SEO** |
+| **Action**   | 75–100%  | Process summary, final CTAs, NextStepsSection                      |
 
-✅ Google's algorithms favor user-generated content positioned early  
-✅ Builds trust signals before users scroll too far  
+> **Full Standard:** [Universal Page Flow Standard](../../development/standards/universal-page-flow-standard.md)
+
+### Why Proof After Trust?
+
+✅ Users are primed to accept social proof _after_ understanding what the company does  
+✅ Google's algorithms favor trust signals backed by contextual authority  
 ✅ Increases time-on-page and engagement metrics  
-✅ Reduces bounce rate by providing validation early
+✅ Reduces bounce rate by providing validation at the right moment in the scroll journey
 
 ### Anti-Patterns to Avoid
 
@@ -191,72 +195,127 @@ rankings by **15-25%** without changing any content.
 
 ---
 
-### Services Page - Optimization Required
+## 🏠 Page-Specific Section Ordering
 
-#### ✅ Optimized Structure (COMPLETED - Dec 24, 2025)
+> All lead-path pages follow the **Universal Page Flow Standard** (Discover → Trust → Proof → Action).
+> Structures below reflect the **current implemented state** as of April 2026.
+> See [Universal Page Flow Standard](../../development/standards/universal-page-flow-standard.md) for the canonical reference.
 
-1. Hero Section (0-5%)
-2. Construction Expertise (5-10%) - Context setting
-3. Core Services (10-20%) - PRIMARY CONTENT
-4. Specialty Services (20-25%) - Extended offerings
-5. **Testimonials (25-30%)** ✅ OPTIMAL POSITION for SEO
-6. Government Projects (30-35%) - Niche offering
-7. Service Areas (35-40%) - Geographic coverage
-8. Why Choose Us (40-50%) - Differentiation
-9. Timeline Tool (50-55%) - Interactive element
-10. Construction Process (55-65%) - Detailed walkthrough
-11. Partnership Types (65-75%) - Segmentation
-12. Next Steps (75-85%) - Conversion guidance
-13. Portfolio Preview (85-95%) - Visual proof
-14. Final CTA (95-100%) - Conversion
+### Homepage ✅
 
-**Status:** ✅ OPTIMIZED - Testimonials section added at optimal 25-30% depth
+1. Hero + ServiceShowcase _(Discover)_
+2. CoreValuesSection _(Discover/Trust)_
+3. WhyPartnerSection _(Trust)_
+4. CompanyStats _(Trust)_
+5. TestimonialsSection _(Proof)_
+6. Timeline _(Proof)_
+7. StrategicCTABanner _(Action)_
+8. NextStepsSection _(Action)_
 
 ---
 
-### About Page - Optimization Required
+### Services Page ✅
 
-#### ✅ Optimized Structure (COMPLETED - Dec 24, 2025)
-
-1. Hero Section (0-5%)
-2. Partnership Philosophy (5-15%) - Core messaging
-3. Company Stats (15-20%) - Quick trust indicators
-4. Core Values (20-25%) - Brand foundation
-5. **Testimonials (25-30%)** ✅ OPTIMAL POSITION
-6. Leadership Team (30-40%) ✅ MOVED EARLIER - faces build trust
-7. Awards & Recognition (40-50%) - Credibility
-8. Why Values Matter (50-60%) - Deep dive
-9. Safety & Compliance (60-70%) - Industry standards
-10. News & Achievements (70-80%) - Current updates
-11. Next Steps (80-90%) ✅ PROPER conversion flow position
-12. Partnership CTA (90-100%) - Final conversion
-
-**Status:** ✅ OPTIMIZED - Leadership Team moved before Awards section, testimonials at optimal depth
+1. Hero _(Discover)_
+2. CoreServicesSection _(Discover)_
+3. SpecialtyServicesSection _(Discover)_
+4. GovernmentProjectsSection _(Discover)_
+5. ServiceAreasSection _(Discover)_
+6. ConstructionExpertiseSection _(Trust)_
+7. WhyChooseUs _(Trust)_
+8. TestimonialsSection _(Proof)_
+9. ConstructionProcessSection _(Action)_
+10. Partnership section + final CTAs _(Action)_
+11. NextStepsSection _(Action)_
 
 ---
 
-### Careers Page - Minor Optimization
+### Projects Page ✅
 
-#### ✅ Optimized Structure (COMPLETED - Dec 24, 2025)
-
-1. Hero (0-10%)
-2. Why Work With Us (10-20%)
-3. Benefits & Perks (20-25%)
-4. **Employee Stories/Testimonials (25-30%)** ✅ OPTIMAL POSITION
-5. Veteran Benefits (30-40%) - After general testimonials
-6. Open Positions (40-60%) ✅ PRIMARY conversion action
-7. Application Process (60-75%) - Process details
-8. CTA (75-100%)
-
-**Status:** ✅ OPTIMIZED - Employee Testimonials moved to optimal 25-30% depth position
+1. Hero _(Discover)_
+2. ProjectsFilterSection _(Discover)_
+3. ProjectsGridSection _(Discover)_
+4. CapabilitiesSection _(Trust)_
+5. VeteranBenefitsBanner _(Trust)_
+6. ProjectsStatsSection _(Proof)_
+7. WhyChooseSection _(Proof)_
 
 ---
 
-### Other Pages (Already Optimized)
+### About Page ✅
 
-**Contact Page:** ✅ Structured for strong SEO performance; validate with current audits  
-**Projects Page:** ✅ Portfolio-focused structure; validate with current audits  
-**Team Page:** ✅ Reasonable content hierarchy; validate with current audits
+1. Hero _(Discover)_
+2. PartnershipPhilosophy _(Discover)_
+3. LeadershipTeam _(Trust)_
+4. ValuesShowcase _(Trust)_
+5. Timeline / company-evolution _(Trust)_
+6. CompanyStats _(Proof)_
+7. AwardsSection _(Proof)_
+8. Accreditations _(Proof)_
+9. SafetySection _(Proof)_
+10. TestimonialsSection _(Proof)_
+11. News section _(Proof)_
+12. NextStepsSection _(Action)_
+
+---
+
+### Team Page ✅
+
+1. Hero _(Discover)_
+2. Intro + Upper Brass _(Discover)_
+3. Mission Commanders _(Discover)_
+4. Employee Testimonials _(Proof)_
+5. Field Officers / Special Ops / Logistics _(Trust)_
+6. Company Culture _(Trust)_
+7. Career Growth / NextStepsSection _(Action)_
+
+---
+
+### Allies Page ✅
+
+1. Hero _(Discover)_
+2. Vendor Partners + cards _(Discover)_
+3. Partnership philosophy / Why MHC _(Trust)_
+4. Accreditations _(Proof)_
+5. Apply / Become an Ally CTA _(Action)_
+
+---
+
+### Contact Page ✅
+
+1. Hero _(Discover)_
+2. Quick Contact form _(Action — primary goal)_
+3. Two Pathways / partnership-pathways _(Discover)_
+4. Office Locations / map _(Trust)_
+5. Partnership Options CTAs _(Action)_
+6. Service Areas _(Trust)_
+
+---
+
+### FAQ Page ✅
+
+1. Hero + Stats _(Discover)_
+2. Category sections: General → Process → Safety → Communication → Veterans → Technical → Partnership → Financial _(Discover → Trust → Proof)_
+3. Still Have Questions CTA _(Action)_
+4. NextStepsSection _(Action)_
+
+---
+
+### Location Pages ✅ _(shared template)_
+
+1. Hero _(Discover)_
+2. Services _(Discover)_
+3. Why Choose / local expertise _(Trust)_
+4. Recent Projects _(Proof)_
+5. Accreditations _(Proof)_
+6. Contact CTA _(Action)_
+
+---
+
+### Other Pages
+
+**Careers:** Standard flow; not a lead-path conversion page — validate separately  
+**Public Sector / Veterans:** Different structural intent; exempt from standard flow
 
 ---
 

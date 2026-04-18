@@ -40,19 +40,19 @@ describe("OfflinePage", () => {
     );
   });
 
-  it("renders the Try Again button", () => {
+  it("renders the Retry Connection button", () => {
     render(<OfflinePage />);
     expect(
-      screen.getByRole("button", { name: /Try Again/i }),
+      screen.getByRole("button", { name: /Retry Connection/i }),
     ).toBeInTheDocument();
   });
 
-  it("Try Again button click executes without error", async () => {
+  it("Retry Connection button click executes without error", async () => {
     const user = userEvent.setup();
     render(<OfflinePage />);
     // window.location.reload is not mockable in jsdom, but clicking must not throw
     await expect(
-      user.click(screen.getByRole("button", { name: /Try Again/i })),
+      user.click(screen.getByRole("button", { name: /Retry Connection/i })),
     ).resolves.toBeUndefined();
   });
 });

@@ -44,13 +44,16 @@ const trustIndicators = [
 ];
 
 interface LocationPageProps {
-  location: LocationData;
+  readonly location: LocationData;
 }
 
-export function LocationPageContent({ location }: LocationPageProps) {
+export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
   usePageTracking(`Location - ${location.city}`);
   const priorityServices = location.servicePriorities || [];
   const nearbyAreas = location.nearbyAreas || [];
+  const locationTelephoneHref = `tel:${Array.from(location.telephone)
+    .filter((char) => /\d/.test(char))
+    .join("")}`;
   const heroPriorityLine =
     priorityServices.length > 0
       ? `Priority focus in ${location.city}: ${priorityServices.slice(0, 2).join(" and ")}.`
@@ -192,7 +195,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
       <StructuredData data={locationSchema} />
       <StructuredData data={breadcrumbSchema} />
 
-      <main className="min-h-screen">
+      <main className="min-h-screen flex flex-col">
         {/* Hero Section - Location Specific */}
         <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20 sm:py-28 md:py-36 lg:py-44">
           <SectionContainer padding="compact">
@@ -251,7 +254,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
                   size="lg"
                   className="group w-full sm:w-auto"
                 >
-                  <Link href={`tel:${location.telephone.replace(/\D/g, "")}`}>
+                  <Link href={locationTelephoneHref}>
                     <MaterialIcon
                       icon="phone"
                       size="md"
@@ -276,7 +279,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
         </section>
 
         {/* Services Section */}
-        <section className="py-16 sm:py-20 md:py-24 bg-white dark:bg-gray-900">
+        <section className="order-1 py-16 sm:py-20 md:py-24 bg-white dark:bg-gray-900">
           <SectionContainer padding="compact">
             <div className="max-w-5xl mx-auto">
               {/* Section Header */}
@@ -384,7 +387,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
 
         {/* Recent Projects Section — City-specific GEO-proof content */}
         {location.recentProjects && location.recentProjects.length > 0 && (
-          <section className="py-16 sm:py-20 md:py-24 bg-gray-50 dark:bg-gray-800/60">
+          <section className="order-3 py-16 sm:py-20 md:py-24 bg-gray-50 dark:bg-gray-800/60">
             <SectionContainer padding="compact">
               <div className="max-w-5xl mx-auto">
                 {/* Section Header */}
@@ -491,7 +494,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
         )}
 
         {/* Why Choose MH Construction */}
-        <section className="py-16 sm:py-20 md:py-24 bg-white dark:bg-gray-900">
+        <section className="order-2 py-16 sm:py-20 md:py-24 bg-white dark:bg-gray-900">
           <SectionContainer padding="compact">
             <div className="max-w-5xl mx-auto">
               {/* Section Header */}
@@ -539,9 +542,9 @@ export function LocationPageContent({ location }: LocationPageProps) {
                     <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
                       {location.localExpertise.title}
                     </h3>
-                    {location.localExpertise.description.map((paragraph, i) => (
+                    {location.localExpertise.description.map((paragraph) => (
                       <p
-                        key={i}
+                        key={paragraph}
                         className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4 last:mb-0"
                       >
                         {paragraph}
@@ -555,7 +558,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
         </section>
 
         {/* Accreditations Section */}
-        <section className="py-12 sm:py-16 bg-white dark:bg-gray-900">
+        <section className="order-4 py-12 sm:py-16 bg-white dark:bg-gray-900">
           <SectionContainer padding="compact">
             <div className="text-center">
               <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
@@ -647,7 +650,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
         </section>
 
         {/* Contact CTA Section */}
-        <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-brand-primary via-brand-primary to-brand-primary-dark text-white">
+        <section className="order-5 py-16 sm:py-20 md:py-24 bg-gradient-to-br from-brand-primary via-brand-primary to-brand-primary-dark text-white">
           <SectionContainer padding="compact">
             <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
               <h2 className="font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
@@ -699,7 +702,7 @@ export function LocationPageContent({ location }: LocationPageProps) {
               {/* Contact Info */}
               <div className="pt-8 flex flex-col sm:flex-row justify-center items-center gap-6 text-sm text-white/80">
                 <a
-                  href={`tel:${location.telephone.replace(/\D/g, "")}`}
+                  href={locationTelephoneHref}
                   className="flex items-center gap-2 hover:text-white transition-colors"
                 >
                   <MaterialIcon icon="phone" size="sm" />

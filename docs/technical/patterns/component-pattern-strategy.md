@@ -7,6 +7,11 @@ create a cohesive, professional user experience. This document outlines the
 strategic approach to implementing these patterns across pages to maintain
 consistency while allowing each page to have its unique character.
 
+> **Page Flow Context:** All lead-path pages follow the **Universal Page Flow Standard**
+> (Discover → Trust → Proof → Action). When choosing where to place a showcase pattern,
+> align it with the phase it serves. See
+> [Universal Page Flow Standard](../../development/standards/universal-page-flow-standard.md).
+
 ## Core Philosophy: "One of Each"
 
 **Key Principle:** Each page should utilize 1-2 of these showcase patterns to

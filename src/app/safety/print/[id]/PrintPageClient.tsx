@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { DownloadGate } from "@/components/pwa";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -542,13 +543,15 @@ export default function PrintPageClient() {
             <MaterialIcon icon="arrow_back" size="sm" />
             Back to Hub
           </a>
-          <button
-            onClick={() => window.print()}
-            className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white text-sm font-bold px-4 py-1.5 rounded-lg transition-colors"
-          >
-            <MaterialIcon icon="print" size="sm" />
-            Print / Save as PDF
-          </button>
+          <DownloadGate>
+            <button
+              onClick={() => window.print()}
+              className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white text-sm font-bold px-4 py-1.5 rounded-lg transition-colors"
+            >
+              <MaterialIcon icon="print" size="sm" />
+              Print / Save as PDF
+            </button>
+          </DownloadGate>
         </div>
       </div>
 

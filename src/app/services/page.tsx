@@ -89,31 +89,31 @@ export default function ServicesPage() {
           items={[{ label: "Home", href: "/" }, { label: "The Battle Plan" }]}
         />
 
-        {/* Construction Expertise Section - Early trust signals */}
+        {/* Core Services Section - Primary discovery content */}
+        <CoreServicesSection services={coreServices} />
+
+        {/* Specialty Services Section - Expanded discovery */}
+        <SpecialtyServicesSection services={specialtyServices} />
+
+        {/* Government & Grant-Funded Projects Section */}
+        <GovernmentProjectsSection />
+
+        {/* Service Areas Section - Clarify geographic fit early */}
+        <ServiceAreasSection serviceAreas={serviceAreas} />
+
+        {/* Construction Expertise Section - Trust after concrete offerings */}
         <ConstructionExpertiseSection />
 
-        {/* Why Choose Us Section - Value proposition early for SEO */}
+        {/* Why Choose Us Section - Value proposition after scope is clear */}
         <WhyChooseUs />
 
-        {/* Client Testimonials Section - Social proof after value prop (optimal 15-20% depth) */}
+        {/* Client Testimonials Section - Proof after capabilities and trust */}
         <TestimonialsSection
           id="testimonials"
           subtitle="Client Partner"
           title="Testimonials"
           description="Hear directly from our partners about their experience working with MH Construction on their most important projects—where trust is earned, not claimed."
         />
-
-        {/* Core Services Section - Main services after establishing trust */}
-        <CoreServicesSection services={coreServices} />
-
-        {/* Specialty Services Section */}
-        <SpecialtyServicesSection services={specialtyServices} />
-
-        {/* Government & Grant-Funded Projects Section */}
-        <GovernmentProjectsSection />
-
-        {/* Service Areas Section */}
-        <ServiceAreasSection serviceAreas={serviceAreas} />
 
         {/* Construction Process Overview Section */}
         <ConstructionProcessSection />
@@ -166,7 +166,7 @@ export default function ServicesPage() {
                 <span className="font-bold text-gray-900 dark:text-white">
                   dedicated pathways to collaboration and success
                 </span>
-                .
+                {"."}
               </p>
             </div>
 
@@ -543,7 +543,7 @@ export default function ServicesPage() {
                 <span className="font-bold text-white">
                   Veteran-Owned reliability
                 </span>
-                .
+                {"."}
               </p>
             </div>
 
@@ -775,7 +775,7 @@ export default function ServicesPage() {
                 <span className="font-bold text-gray-900 dark:text-white">
                   commercial, residential, and government sectors
                 </span>
-                .
+                {"."}
               </p>
             </div>
 

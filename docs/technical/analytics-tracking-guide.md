@@ -1,8 +1,8 @@
 # Analytics Tracking Implementation Guide
 
 **Category:** Technical - Analytics  
-**Last Updated:** April 8, 2026  
-**Version:** 1.0.0  
+**Last Updated:** April 18, 2026  
+**Version:** 1.1.0  
 **Status:** ✅ Active
 
 ## Quick Start: Add Tracking to ANY Page in 30 Seconds
@@ -75,6 +75,69 @@ const handleSubmit = async (e: FormEvent) => {
   }
 };
 ```
+
+---
+
+## Optimization Guide (High Impact, Low Risk)
+
+This analytics system can be optimized further. The fastest gains usually come
+from improving data quality first, then reducing noise, then tuning dashboard
+read performance.
+
+### Priority Matrix
+
+1. **P0 - Data quality guardrails (start here)**
+
+- Normalize event names to kebab-case (example: `hero-cta-click`)
+- Require core properties on key events: `page`, `source`, `deviceType`
+- Avoid reusing one track ID for multiple unrelated actions
+
+2. **P1 - Reduce event noise and payload size**
+
+- Track decision-point interactions only (CTA, form, high-value nav)
+- Do not track decorative or low-signal interactions
+- Prefer short enums over long text in custom properties
+
+3. **P1 - Improve dashboard read path**
+
+- Keep summary cards based on pre-aggregated counters
+- Keep expensive filtering/joins out of request-time paths
+- Verify cache behavior for repeated admin refreshes
+
+4. **P2 - Improve reliability around unload/navigation**
+
+- Keep beacon batching in place for unload safety
+- Verify `visibilitychange` and `beforeunload` flush behavior in QA
+- Test mobile background/foreground transitions explicitly
+
+### 30-Minute Optimization Checklist
+
+- [ ] Confirm critical pages use `usePageTracking()` or `<PageTrackingClient>`
+- [ ] Audit top 10 CTAs and verify one canonical event name per interaction
+- [ ] Remove duplicate tracking calls on the same click path
+- [ ] Verify `POST /api/analytics/collect` returns HTTP 200 in Network tab
+- [ ] Verify `/api/analytics/dashboard` totals move after fresh interactions
+- [ ] Capture one before/after dashboard screenshot for validation
+
+### Event Naming Standard
+
+Use this pattern for consistency and easier segmentation:
+
+`<domain>-<surface>-<action>`
+
+Examples:
+
+- `lead-home-hero-cta-click`
+- `lead-services-card-click`
+- `conversion-contact-form-submit`
+- `engagement-testimonial-carousel-next`
+
+### KPI Set for Optimization Success
+
+- **Collection health**: successful collect responses / collect attempts
+- **Signal quality**: events with required properties / total events
+- **Conversion attribution quality**: conversions with source/campaign fields
+- **Dashboard latency**: p95 response for `/api/analytics/dashboard`
 
 ---
 
@@ -281,7 +344,13 @@ import { trackNavigation } from "@/lib/analytics/tracking";
 
 ## Data Storage & Retrieval
 
-All tracking data is stored in localStorage under these keys:
+Tracking uses a hybrid model:
+
+- **Client local cache** (localStorage) for immediate in-browser context
+- **Server-side aggregation** via `POST /api/analytics/collect` into Cloudflare
+  KV for cross-visitor analytics and dashboard reporting
+
+Local cache keys:
 
 - `mh_analytics_pageviews` - Page view data
 - `mh_analytics_clicks` - Click event data
@@ -327,9 +396,10 @@ When creating a new page, follow this checklist:
 
 1. Make sure component is marked `"use client"`
 2. Check browser console for errors
-3. Verify localStorage isn't disabled
+3. Verify localStorage isn't disabled (local cache layer)
 4. Check that tracking functions are imported correctly
 5. Verify the `ANALYTICS` KV namespace is bound in `wrangler.toml`
+6. Verify `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set if GA events are expected
 
 ### Data not showing in dashboard?
 
@@ -342,12 +412,19 @@ When creating a new page, follow this checklist:
 ### Need to reset local data?
 
 ```javascript
-// In browser console (resets client-side only; KV data persists server-side):
+// In browser console (resets client-side cache only; KV data persists server-side):
 localStorage.removeItem("mh_analytics_pageviews");
 localStorage.removeItem("mh_analytics_clicks");
 localStorage.removeItem("mh_analytics_conversions");
 localStorage.removeItem("mh_analytics_sessions");
 ```
+
+### Need to validate server pipeline quickly?
+
+1. Visit an instrumented page and trigger at least one tracked interaction
+2. In DevTools Network, verify `POST /api/analytics/collect` returns HTTP 200
+3. Open dashboard and confirm totals change after refresh
+4. If dashboard does not move, inspect KV binding and server logs first
 
 ---
 

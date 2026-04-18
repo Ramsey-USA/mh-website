@@ -41,6 +41,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 const createNextIntlPlugin = require("next-intl/plugin");
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
+const isLowMemoryBuild = process.env.LOW_MEMORY_BUILD === "true";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -53,6 +54,8 @@ const nextConfig = {
   // Note: swcMinify is enabled by default in Next.js 13+
 
   experimental: {
+    // Reduce build worker pressure in constrained containers.
+    webpackBuildWorker: !isLowMemoryBuild,
     optimizePackageImports: [
       "@radix-ui/react-slot",
       "@radix-ui/react-tabs",
@@ -135,11 +138,11 @@ const nextConfig = {
       // Enable persistent caching for faster rebuilds (all build targets)
       config.cache = {
         type: "filesystem",
-        compression: "gzip",
+        compression: isLowMemoryBuild ? false : "gzip",
       };
     }
 
-    if (!dev && !isServer) {
+    if (!dev && !isServer && !isLowMemoryBuild) {
       // Better code splitting
       config.optimization = {
         ...config.optimization,

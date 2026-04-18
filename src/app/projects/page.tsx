@@ -145,13 +145,7 @@ export default function ProjectsPage() {
           items={[{ label: "Home", href: "/" }, { label: "Victories" }]}
         />
 
-        {/* Stats Section */}
-        <ProjectsStatsSection />
-
-        {/* Veteran-Owned Benefits Banner */}
-        <VeteranBenefitsBanner />
-
-        {/* Filter & Search Section */}
+        {/* Filter & Search Section - Primary discovery entry */}
         <ProjectsFilterSection
           selectedCategory={selectedCategory}
           onCategoryChange={setSelectedCategory}
@@ -160,14 +154,20 @@ export default function ProjectsPage() {
           onClearSearch={clearSearch}
         />
 
-        {/* Projects Grid */}
+        {/* Projects Grid - Show the work first */}
         <ProjectsGridSection
           projects={projects}
           selectedCategory={selectedCategory}
         />
 
-        {/* Capabilities Section */}
+        {/* Capabilities Section - Explain what the portfolio proves */}
         <CapabilitiesSection />
+
+        {/* Veteran-Owned Benefits Banner */}
+        <VeteranBenefitsBanner />
+
+        {/* Stats Section - Proof after portfolio visibility */}
+        <ProjectsStatsSection />
 
         {/* Why Choose MH Section */}
         <WhyChooseSection />

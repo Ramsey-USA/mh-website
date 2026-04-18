@@ -18,6 +18,7 @@ import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { SafetyComplianceBadge } from "@/components/resources/SafetyComplianceBadge";
 import { getDocumentById, forms } from "@/lib/data/documents";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
+import { DownloadGate } from "@/components/pwa";
 
 // Below-fold: lazy-loaded for performance
 const NextStepsSection = dynamic(() =>
@@ -588,23 +589,27 @@ export default function SafetyProgramPage() {
                       {`Cover + tab dividers + all ${sectionCount} sections in one PDF · Rev ${revisionNumber} — ${revisionDate}`}
                     </p>
                     <div className="flex gap-3 flex-wrap">
-                      <a
-                        href="/docs/safety/safety-manual-complete.pdf"
-                        download
-                        className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-brand-primary font-bold px-5 py-2.5 rounded-xl transition-colors duration-200 text-sm shadow-md"
-                      >
-                        <MaterialIcon icon="menu_book" size="sm" />
-                        Download Complete MISH Manual (PDF)
-                      </a>
-                      <a
-                        href="/docs/safety/sections/00-table-of-contents.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-brand-secondary-text hover:bg-secondary-800 text-white font-bold px-5 py-2.5 rounded-xl transition-colors duration-200 text-sm"
-                      >
-                        <MaterialIcon icon="download" size="sm" />
-                        Table of Contents (PDF)
-                      </a>
+                      <DownloadGate>
+                        <a
+                          href="/docs/safety/safety-manual-complete.pdf"
+                          download
+                          className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-brand-primary font-bold px-5 py-2.5 rounded-xl transition-colors duration-200 text-sm shadow-md"
+                        >
+                          <MaterialIcon icon="menu_book" size="sm" />
+                          Download Complete MISH Manual (PDF)
+                        </a>
+                      </DownloadGate>
+                      <DownloadGate>
+                        <a
+                          href="/docs/safety/sections/00-table-of-contents.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 bg-brand-secondary-text hover:bg-secondary-800 text-white font-bold px-5 py-2.5 rounded-xl transition-colors duration-200 text-sm"
+                        >
+                          <MaterialIcon icon="download" size="sm" />
+                          Table of Contents (PDF)
+                        </a>
+                      </DownloadGate>
                       <Link
                         href="/hub"
                         className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200 text-sm border border-white/30"
@@ -666,37 +671,39 @@ export default function SafetyProgramPage() {
                     MISH program. Each form is available as a printable PDF.
                   </p>
                 </div>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {forms.filter(hasPdfPath).map((form) => (
-                    <a
-                      key={form.id}
-                      href={form.pdfPath}
-                      download
-                      className="flex items-center gap-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-secondary rounded-xl px-4 py-3 transition-all group shadow-sm"
-                    >
-                      <div className="w-9 h-9 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors flex-shrink-0">
+                <DownloadGate>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {forms.filter(hasPdfPath).map((form) => (
+                      <a
+                        key={form.id}
+                        href={form.pdfPath}
+                        download
+                        className="flex items-center gap-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-secondary rounded-xl px-4 py-3 transition-all group shadow-sm"
+                      >
+                        <div className="w-9 h-9 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors flex-shrink-0">
+                          <MaterialIcon
+                            icon={form.icon}
+                            size="sm"
+                            className="text-brand-primary group-hover:text-white transition-colors"
+                          />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-brand-primary transition-colors truncate">
+                            {form.title}
+                          </p>
+                          <p className="text-xs text-gray-400 dark:text-gray-500 truncate">
+                            {form.subtitle ?? form.description}
+                          </p>
+                        </div>
                         <MaterialIcon
-                          icon={form.icon}
+                          icon="download"
                           size="sm"
-                          className="text-brand-primary group-hover:text-white transition-colors"
+                          className="text-gray-400 group-hover:text-brand-primary transition-colors flex-shrink-0"
                         />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-brand-primary transition-colors truncate">
-                          {form.title}
-                        </p>
-                        <p className="text-xs text-gray-400 dark:text-gray-500 truncate">
-                          {form.subtitle ?? form.description}
-                        </p>
-                      </div>
-                      <MaterialIcon
-                        icon="download"
-                        size="sm"
-                        className="text-gray-400 group-hover:text-brand-primary transition-colors flex-shrink-0"
-                      />
-                    </a>
-                  ))}
-                </div>
+                      </a>
+                    ))}
+                  </div>
+                </DownloadGate>
               </div>
             </FadeInWhenVisible>
           </div>

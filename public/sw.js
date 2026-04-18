@@ -67,6 +67,10 @@ const STATIC_ASSETS = [
   "/veterans",
   "/privacy",
   "/terms",
+  "/safety",
+  "/hub",
+  "/resources",
+  "/resources/safety-program",
   // Note: Next.js CSS chunks use content-hash filenames (e.g. /_next/static/css/4a8b2c.css)
   // and cannot be reliably precached here. They are cached at runtime by fetch handlers below.
 ];
@@ -158,47 +162,63 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// Enhanced service worker with background sync support
+// Single consolidated sync event listener — handles all sync tags
 self.addEventListener("sync", (event) => {
   console.info("[SW] Background sync event:", event.tag);
 
   if (event.tag === "background-sync") {
     event.waitUntil(handleBackgroundSync());
+    return;
+  }
+
+  if (event.tag === "contact-form-sync") {
+    event.waitUntil(syncContactForms());
   }
 });
 
-// Handle background sync
+// Handle general background sync — drains the shared offline-submissions queue
 async function handleBackgroundSync() {
   console.info("[SW] Performing background sync...");
 
   try {
-    // Notify clients that sync is starting
+    const db = await openIndexedDB();
+    const pending = await getAllPendingForms(db, "offline-submissions");
+
     const clients = await self.clients.matchAll();
     clients.forEach((client) => {
       client.postMessage({
         type: "BACKGROUND_SYNC_START",
+        data: { count: pending.length },
       });
     });
 
-    // In a real implementation, you would:
-    // 1. Read queued requests from IndexedDB
-    // 2. Attempt to send them to the server
-    // 3. Remove successful requests from the queue
-    // 4. Notify clients of the results
-
-    // For demo, we'll just simulate success
-    setTimeout(() => {
-      clients.forEach((client) => {
-        client.postMessage({
-          type: "BACKGROUND_SYNC_SUCCESS",
-          data: { processed: 1 },
+    let processed = 0;
+    for (const entry of pending) {
+      try {
+        const response = await fetch(entry.endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(entry.data),
         });
+        if (response.ok) {
+          await deletePendingForm(db, "offline-submissions", entry.id);
+          processed++;
+          console.info("[SW] Synced offline submission:", entry.id);
+        }
+      } catch (_submitError) {
+        console.info("[SW] Failed to sync submission, will retry:", entry.id);
+      }
+    }
+
+    const updatedClients = await self.clients.matchAll();
+    updatedClients.forEach((client) => {
+      client.postMessage({
+        type: "BACKGROUND_SYNC_SUCCESS",
+        data: { processed },
       });
-    }, 1000);
+    });
   } catch (error) {
     console.error("[SW] Background sync failed:", error);
-
-    // Notify clients of failure
     const clients = await self.clients.matchAll();
     clients.forEach((client) => {
       client.postMessage({
@@ -477,7 +497,7 @@ async function handleStaticRequest(request) {
       return cachedResponse;
     }
 
-    throw error;
+    throw _error;
   }
 }
 
@@ -674,20 +694,6 @@ function createPlaceholderImage() {
   });
 }
 
-// Background sync for form submissions
-self.addEventListener("sync", (event) => {
-  console.info("[SW] Background sync triggered:", event.tag);
-
-  if (event.tag === "background-sync") {
-    event.waitUntil(handleBackgroundSync());
-    return;
-  }
-
-  if (event.tag === "contact-form-sync") {
-    event.waitUntil(syncContactForms());
-  }
-});
-
 // Sync pending contact forms
 async function syncContactForms() {
   try {
@@ -729,6 +735,13 @@ function openIndexedDB() {
       // Create object stores for offline form data
       if (!db.objectStoreNames.contains("contact-forms")) {
         db.createObjectStore("contact-forms", {
+          keyPath: "id",
+          autoIncrement: true,
+        });
+      }
+      // General offline submissions queue (endpoint + data pairs)
+      if (!db.objectStoreNames.contains("offline-submissions")) {
+        db.createObjectStore("offline-submissions", {
           keyPath: "id",
           autoIncrement: true,
         });

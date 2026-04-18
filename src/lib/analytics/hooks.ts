@@ -81,6 +81,7 @@ export function usePageTracking(pageName?: string) {
   const startTimeRef = useRef<number>(Date.now());
   const maxScrollRef = useRef<number>(0);
   const hasInitializedRef = useRef<boolean>(false);
+  const hasTrackedEntryMilestoneRef = useRef<boolean>(false);
 
   // Initialize session on first load
   useEffect(() => {
@@ -113,8 +114,9 @@ export function usePageTracking(pageName?: string) {
     }
 
     // Track journey milestones based on page
-    if (page === "/" && !hasInitializedRef.current) {
+    if (page === "/" && !hasTrackedEntryMilestoneRef.current) {
       trackJourneyMilestone("entered_site");
+      hasTrackedEntryMilestoneRef.current = true;
     } else if (page === "/services") {
       trackJourneyMilestone("viewed_services");
     } else if (page === "/projects") {
@@ -143,17 +145,16 @@ export function usePageTracking(pageName?: string) {
       );
 
       if (scrollPercent > maxScrollRef.current) {
+        const previousMax = maxScrollRef.current;
         maxScrollRef.current = scrollPercent;
 
-        // Track at 25%, 50%, 75%, and 100% milestones
-        if (
-          scrollPercent === 25 ||
-          scrollPercent === 50 ||
-          scrollPercent === 75 ||
-          scrollPercent === 100
-        ) {
-          trackScrollDepth(scrollPercent);
-        }
+        // Fire milestone events when thresholds are crossed, even on large jumps.
+        const milestones = [25, 50, 75, 100] as const;
+        milestones.forEach((milestone) => {
+          if (previousMax < milestone && scrollPercent >= milestone) {
+            trackScrollDepth(milestone);
+          }
+        });
       }
     };
 

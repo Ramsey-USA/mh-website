@@ -1,8 +1,8 @@
 # Page Compliance Checklist
 
 **Purpose:** Systematic audit tool to verify page compliance with MH standards  
-**Version:** 1.1.0  
-**Last Updated:** April 15, 2026  
+**Version:** 1.2.0  
+**Last Updated:** April 18, 2026  
 **Use Case:** Run this checklist on any page to ensure consistency
 
 ---
@@ -34,6 +34,15 @@
 - [ ] Section IDs use kebab-case (e.g., `id="core-values"`)
 - [ ] Sections use standard class: `relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden`
 - [ ] Content wrapped in: `relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl`
+
+### Universal Page Flow
+
+- [ ] Body sections follow `Discover -> Trust -> Proof -> Action`
+- [ ] First body section clearly explains what the page is about
+- [ ] Trust and Proof sections are not stacked redundantly without distinct jobs
+- [ ] Primary CTA appears after enough Trust and Proof to justify action
+- [ ] If the page serves multiple audiences, it either branches clearly or should be split into smaller intent-based pages
+- [ ] Partner-intent pathways route to `/allies` where appropriate
 
 ### Page Bottom
 
@@ -395,6 +404,8 @@
 ---
 
 ## 🔗 Related Documentation
+
+- **[Universal Page Flow Standard](./universal-page-flow-standard.md)** - Required body architecture
 
 - [Component Cheatsheet](../quick-reference/component-cheatsheet.md) - Quick reference
 - [Unified Component Standards](../../branding/standards/unified-component-standards.md) - Complete standard

@@ -24,6 +24,14 @@ const PWAManager = dynamic(
   { ssr: false },
 );
 
+const OfflineIndicator = dynamic(
+  () =>
+    import("@/components/pwa/OfflineIndicator").then((mod) => ({
+      default: mod.OfflineIndicator,
+    })),
+  { ssr: false },
+);
+
 const ENABLE_RUNTIME_ENHANCEMENTS =
   process.env.NODE_ENV === "production" ||
   process.env["NEXT_PUBLIC_ENABLE_RUNTIME_MONITORING"] === "true";
@@ -84,6 +92,7 @@ export function DeferredPerformanceEnhancements() {
       <WebVitalsReporter />
       <MobilePerformanceMonitor />
       <PWAManager />
+      <OfflineIndicator />
     </>
   );
 }

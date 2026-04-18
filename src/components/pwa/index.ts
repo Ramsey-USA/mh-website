@@ -8,3 +8,5 @@ export { PWAInstallPrompt } from "./PWAInstallPrompt";
 export { UpdateNotification } from "./UpdateNotification";
 export { PWAManager } from "./PWAManager";
 export { PWAInstallCTA } from "./PWAInstallCTA";
+export { OfflineIndicator } from "./OfflineIndicator";
+export { DownloadGate } from "./DownloadGate";

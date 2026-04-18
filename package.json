@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "dev:turbo": "next dev --turbo",
-    "build": "opennextjs-cloudflare build",
+    "build": "npm run build:lowmem",
+    "build:lowmem": "cross-env LOW_MEMORY_BUILD=true NODE_OPTIONS=--max-old-space-size=3072 opennextjs-cloudflare build",
     "deploy": "opennextjs-cloudflare build && wrangler deploy",
     "build:next": "next build",
     "build:fast": "NODE_ENV=production SKIP_LINT=true next build",

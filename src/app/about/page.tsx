@@ -83,33 +83,16 @@ export default function AboutPage() {
           items={[{ label: "Home", href: "/" }, { label: "Our Oath" }]}
         />
 
-        {/* Partnership Philosophy Section - Core value proposition with keywords (5-15% depth) */}
+        {/* Partnership Philosophy Section - Story and positioning first */}
         <PartnershipPhilosophy />
 
-        {/* Company Stats - Early trust signals (10-15% depth) */}
-        <CompanyStats
-          id="stats"
-          subtitle=""
-          title="Trusted by the Community"
-          description=""
-          variant="primary"
-        />
-
-        {/* Leadership Team Section - Faces build trust early (15-25% depth) */}
+        {/* Leadership Team Section - Faces and structure build trust early */}
         <LeadershipTeam />
 
-        {/* Client Reviews Section - Social proof at optimal 20-30% page depth for SEO */}
-        <TestimonialsSection
-          id="testimonials"
-          subtitle="Client Partner"
-          title="Testimonials"
-          description="Hear directly from our partners about their experience working with MH Construction on their most important projects—where trust is earned, not claimed."
-        />
-
-        {/* Why Values Matter Section - Interactive Modal Showcase (30-40% depth for trust-building) */}
+        {/* Why Values Matter Section - Trust framework before proof */}
         <ValuesShowcase />
 
-        {/* Company Evolution Timeline Section - Rich historical content (40-50% depth) */}
+        {/* Company Evolution Timeline Section - Story continuity before proof cluster */}
         <Timeline
           id="company-evolution"
           icon="history"
@@ -121,7 +104,7 @@ export default function AboutPage() {
               From founding father's vision to{" "}
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                 Veteran-Owned, relationship-first leadership
-              </span>
+              </span>{" "}
               —sixteen years of partnership philosophy, safety leadership, and{" "}
               <span className="font-bold text-gray-900 dark:text-white">
                 650+ successfully completed projects
@@ -132,7 +115,16 @@ export default function AboutPage() {
           steps={aboutTimelineSteps}
         />
 
-        {/* Awards & Recognition Section - Credibility and trust signals (50-60% depth) */}
+        {/* Company Stats - Proof after story and leadership */}
+        <CompanyStats
+          id="stats"
+          subtitle=""
+          title="Trusted by the Community"
+          description=""
+          variant="primary"
+        />
+
+        {/* Awards & Recognition Section - External proof signals */}
         <AwardsSection />
 
         {/* Accreditations & Certifications - Credential logos */}
@@ -271,8 +263,16 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Safety & Compliance Section - Industry-specific trust and expertise (60-70% depth) */}
+        {/* Safety & Compliance Section - Verified operational proof */}
         <SafetySection />
+
+        {/* Client Reviews Section - Social proof after credibility cluster */}
+        <TestimonialsSection
+          id="testimonials"
+          subtitle="Client Partner"
+          title="Testimonials"
+          description="Hear directly from our partners about their experience working with MH Construction on their most important projects—where trust is earned, not claimed."
+        />
 
         {/* News & Achievements Section - MERGED from Company Blog + Latest News */}
         <section
@@ -454,7 +454,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Next Steps Section - MOVED TO PROPER CONVERSION POSITION (80-90% page depth) */}
+        {/* Next Steps Section - Final conversion action */}
         <NextStepsSection />
       </div>
     </>

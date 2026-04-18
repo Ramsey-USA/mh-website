@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/backgrounds";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { getDocumentById } from "@/lib/data/documents";
+import { DownloadGate } from "@/components/pwa";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -151,14 +152,16 @@ export default async function SectionPage({ params }: Props) {
                     here
                   </p>
                 </div>
-                <a
-                  href={pdfPath}
-                  download={pdfFileName}
-                  className="inline-flex items-center gap-2 bg-brand-secondary hover:bg-brand-secondary-light text-white font-bold px-5 py-3 rounded-xl transition-colors duration-200 text-sm shadow"
-                >
-                  <MaterialIcon icon="download" size="sm" />
-                  Download Section PDF
-                </a>
+                <DownloadGate>
+                  <a
+                    href={pdfPath}
+                    download={pdfFileName}
+                    className="inline-flex items-center gap-2 bg-brand-secondary hover:bg-brand-secondary-light text-white font-bold px-5 py-3 rounded-xl transition-colors duration-200 text-sm shadow"
+                  >
+                    <MaterialIcon icon="download" size="sm" />
+                    Download Section PDF
+                  </a>
+                </DownloadGate>
               </div>
             </div>
 

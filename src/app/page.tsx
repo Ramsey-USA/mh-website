@@ -161,10 +161,16 @@ export default function Home() {
       {/* PWA Install Banner - Only shows when installable */}
       <PWAInstallCTA variant="banner" />
 
-      {/* Core Values Section - Establish trust and heritage first */}
+      {/* Showcase of Services Section - Primary discovery path */}
+      <ServicesShowcase />
+
+      {/* Core Values Section - Trust foundation after service orientation */}
       <CoreValuesSection />
 
-      {/* Company Statistics Section - Early trust signals & credibility */}
+      {/* Why Partner With MH Construction Section - Partnership philosophy */}
+      <WhyPartnerSection />
+
+      {/* Company Statistics Section - Proof after discovery and trust */}
       <CompanyStats
         id="stats"
         subtitle="Disciplined, Proven Results"
@@ -173,13 +179,7 @@ export default function Home() {
         variant="primary"
       />
 
-      {/* Showcase of Services Section - What we actually do */}
-      <ServicesShowcase />
-
-      {/* Why Partner With MH Construction Section - Partnership philosophy */}
-      <WhyPartnerSection />
-
-      {/* Enhanced Client Partner Testimonials - Social proof after value proposition */}
+      {/* Enhanced Client Partner Testimonials - Social proof after trust and stats */}
       <TestimonialsSection
         id="testimonials"
         subtitle="Trusted By Our Partners"
@@ -187,10 +187,7 @@ export default function Home() {
         description="Read testimonials from valued Client Partners across the Pacific Northwest who have experienced our collaborative excellence firsthand."
       />
 
-      {/* Strategic CTA after Social Proof - Combo (App + Pitch Deck + Contact) */}
-      <StrategicCTABanner variant="combo" className="my-0" />
-
-      {/* Our Process Timeline Section */}
+      {/* Our Process Timeline Section - Reinforce confidence before conversion */}
       <Timeline
         id="our-process"
         icon="timeline"
@@ -211,6 +208,9 @@ export default function Home() {
         }
         steps={processSteps}
       />
+
+      {/* Strategic CTA after proof and process - Combo (App + Pitch Deck + Contact) */}
+      <StrategicCTABanner variant="combo" className="my-0" />
 
       {/* Next Steps Section */}
       <NextStepsSection />

@@ -2,8 +2,9 @@
 
 **Purpose:** Explain page section types for non-coders  
 **Audience:** Marketing, Project Managers, Content Editors  
-**Version:** 1.0.0  
-**Created:** December 28, 2025
+**Version:** 1.1.0  
+**Created:** December 28, 2025  
+**Last Updated:** April 18, 2026
 
 ---
 
@@ -14,6 +15,28 @@ Construction website. Think of these like LEGO pieces - each has a specific purp
 
 **Why this matters:** When discussing page layouts or requesting changes, using these names helps
 everyone understand exactly which part of the page you're talking about.
+
+This guide now works with the MH universal page-flow standard. Section types are building blocks,
+but the order of those blocks must follow a decision-making flow.
+
+---
+
+## Universal Page Flow Standard
+
+All page bodies should move through this order:
+
+```text
+Discover -> Trust -> Proof -> Action
+```
+
+### What this means for section planning
+
+1. **Discover**: Start with sections that explain the page topic quickly.
+2. **Trust**: Use sections that establish why MH is credible.
+3. **Proof**: Use sections that show evidence, results, or social proof.
+4. **Action**: End with the clearest next step.
+
+This does not mean every page uses the exact same sections. It means every page uses the same visitor logic.
 
 ---
 
@@ -192,13 +215,12 @@ everyone understand exactly which part of the page you're talking about.
 **✅ Clear page structure:**
 
 1. HeroSection (introduce the page)
-2. BrandedContentSection #1 (explain main topic)
-3. ShowcaseSection (display 4-6 key items)
-4. BrandedContentSection #2 (deeper dive)
-5. CTABanner (prompt action)
-6. ProcessTimeline (if applicable)
-7. TestimonialsSection (build trust)
-8. NextStepsSection (final CTA)
+2. Discover section (explain main topic)
+3. Trust section (explain why MH is credible)
+4. Proof section (show evidence or examples)
+5. CTABanner or page-specific CTA (prompt action)
+6. ProcessTimeline (if it helps remove hesitation)
+7. NextStepsSection (final CTA)
 
 ---
 
@@ -209,17 +231,15 @@ everyone understand exactly which part of the page you're talking about.
 ```text
 HeroSection (full-screen intro)
    ↓
-BrandedContentSection (introduction)
+BrandedContentSection (Discover: introduction)
    ↓
-ShowcaseSection (features/values)
+ShowcaseSection or BrandedContentSection (Trust: values, expertise, local credibility)
    ↓
-CTABanner (mid-page action prompt)
+TestimonialsSection, stats, or case-study section (Proof)
    ↓
-BrandedContentSection (detailed content)
+CTABanner (primary action prompt)
    ↓
-ProcessTimeline (how it works)
-   ↓
-TestimonialsSection (social proof)
+ProcessTimeline (optional hesitation-reducer)
    ↓
 NextStepsSection (final CTA)
 ```
@@ -227,14 +247,24 @@ NextStepsSection (final CTA)
 ### Service Page Pattern
 
 ```text
-HeroSection → BrandedContentSection (overview) → ShowcaseSection (services grid) → ProcessTimeline (construction process) → BrandedContentSection (differentiators) → CTABanner → Testimonials
+HeroSection → ShowcaseSection (Discover: services grid) → BrandedContentSection (Trust: differentiators) → Testimonials or stats (Proof) → CTABanner → ProcessTimeline (optional) → NextStepsSection
 ```
 
 ### About Page Pattern
 
 ```text
-HeroSection → BrandedContentSection (mission) → ShowcaseSection (values) → BrandedContentSection (history) → ShowcaseSection (team) → Testimonials → NextSteps
+HeroSection → BrandedContentSection (Discover: mission/story) → ShowcaseSection (Trust: leadership/values) → Testimonials, awards, or stats (Proof) → CTABanner → NextStepsSection
 ```
+
+### Smaller Pages Rule
+
+If a page needs too many sections because it is trying to serve multiple audiences or decisions, do not keep adding sections. Split the page into smaller intent-based pages.
+
+Examples:
+
+- Keep `/services` as a hub, but move deep service detail to smaller service pages.
+- Keep `/projects` as a portfolio hub, but move deep proof clusters to category-specific pages.
+- Use `/allies` as the dedicated partner page instead of forcing partner content into client-oriented pages.
 
 ---
 
@@ -264,6 +294,7 @@ HeroSection → BrandedContentSection (mission) → ShowcaseSection (values) →
 
 - [Template Components Documentation](../development/components/template-components.md)
 - [Page Template Guide](../development/standards/page-template-guide.md)
+- [Universal Page Flow Standard](../development/standards/universal-page-flow-standard.md)
 - [Component Cheatsheet](../development/quick-reference/component-cheatsheet.md)
 
 **For Non-Technical Users:**
