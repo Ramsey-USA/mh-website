@@ -1,9 +1,14 @@
+"use client";
+
 import type { CSSProperties } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
 import Image from "next/image";
+import { useLocale } from "@/hooks/useLocale";
+import en from "@/../messages/en.json";
+import es from "@/../messages/es.json";
 
-const coreValues = [
+const coreValuesBase = [
   {
     value: "Honesty",
     icon: "verified",
@@ -51,32 +56,49 @@ const coreValues = [
  * Displays the four foundational principles with alternating image/text layouts
  */
 export function CoreValuesSection() {
+  const locale = useLocale();
+  const t = locale === "es" ? es.home.coreValues : en.home.coreValues;
+
+  const coreValues = coreValuesBase.map((item, i) => ({
+    ...item,
+    value: t.values[i]?.value ?? item.value,
+    tagline: t.values[i]?.tagline ?? item.tagline,
+    description: t.values[i]?.description ?? item.description,
+    stats: t.values[i]?.stats ?? item.stats,
+  }));
+
   return (
     <BrandedContentSection
       id="core-values"
       header={{
         icon: "shield",
         iconVariant: "primary",
-        subtitle: "Veteran-Owned Values",
-        title: "Built on Honesty & Integrity",
+        subtitle: t.sectionSubtitle,
+        title: t.sectionTitle,
         description: (
           <>
-            Four foundational values guide every{" "}
-            <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              project and partnership
-            </span>
-            —focused on building projects for the{" "}
-            <span className="font-bold text-gray-900 dark:text-white">
-              client
-            </span>
-            ,{" "}
-            <span className="font-black italic text-bronze-600 dark:text-bronze-400">
-              NOT
-            </span>{" "}
-            <span className="font-bold text-gray-900 dark:text-white">
-              the dollar
-            </span>
-            .
+            {locale === "es" ? (
+              t.sectionDescription
+            ) : (
+              <>
+                Four foundational values guide every{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  project and partnership
+                </span>
+                —focused on building projects for the{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  client
+                </span>
+                ,{" "}
+                <span className="font-black italic text-bronze-600 dark:text-bronze-400">
+                  NOT
+                </span>{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  the dollar
+                </span>
+                .
+              </>
+            )}
           </>
         ),
       }}

@@ -3,12 +3,18 @@
 import { AmericanFlag } from "@/components/icons/AmericanFlag";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
+import { useLocale } from "@/hooks/useLocale";
+import en from "@/../messages/en.json";
+import es from "@/../messages/es.json";
 
 /**
  * Homepage Hero Section
  * Full-screen hero with background support for photo/video
  */
 export function HeroSection() {
+  const locale = useLocale();
+  const t = locale === "es" ? es.home.hero : en.home.hero;
+
   return (
     <section className="relative h-screen flex items-end justify-end text-white overflow-hidden">
       {/* Background - Ready for photo or video */}
@@ -33,19 +39,21 @@ export function HeroSection() {
           <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
             Base HQ → Home
           </span>
-          <span className="block text-brand-secondary">
-            Founded 2010, Veteran-Owned Since January 2025
-          </span>
-          <span className="block text-brand-primary">
-            Your Tri-Cities Construction Command Center
-          </span>
+          <span className="block text-brand-secondary">{t.founded}</span>
+          <span className="block text-brand-primary">{t.tagline}</span>
           <span className="block text-white/90">
-            Building projects for the Client,{" "}
-            <span className="font-black italic text-bronze-300">NOT</span> the
-            Dollar
+            {locale === "es" ? (
+              t.mission
+            ) : (
+              <>
+                Building projects for the Client,{" "}
+                <span className="font-black italic text-bronze-300">NOT</span>{" "}
+                the Dollar
+              </>
+            )}
           </span>
           <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
-            Serving Tri-Cities, Yakima, Spokane, and Walla Walla
+            {t.serving}
           </span>
         </h1>
       </div>

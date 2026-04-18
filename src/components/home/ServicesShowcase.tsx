@@ -14,6 +14,9 @@ import {
 } from "@/components/ui";
 import { trackServiceInterest } from "@/lib/analytics/marketing-tracking";
 import { Modal } from "@/components/ui/modals/Modal";
+import { useLocale } from "@/hooks/useLocale";
+import en from "@/../messages/en.json";
+import es from "@/../messages/es.json";
 
 // Helper function to render subtitle with styled "NOT"
 function renderSubtitle(subtitle: string) {
@@ -32,143 +35,35 @@ function renderSubtitle(subtitle: string) {
   return subtitle;
 }
 
-const services = [
+const serviceIcons = [
   {
     icon: "engineering",
-    title: "Construction Management",
-    subtitle: "Complete Project Oversight",
-    description:
-      "Complete oversight from concept through completion. Your project objectives executed with clear communication and proven expertise.",
-    features: [
-      "Complete project oversight & coordination",
-      "Master Planning & Pre-Construction",
-      "Budget control & cost management",
-      "Quality assurance & safety protocols",
-    ],
-    benefits: [
-      "Eliminate costly last-minute decisions",
-      "Proven reliability",
-      "Complete transparency",
-      "150+ years combined experience",
-    ],
-    link: "/services",
-    cta: "Explore Services",
     iconGradient: "from-brand-primary via-brand-primary-dark to-primary-800",
     iconGlow: "from-brand-primary/30 to-brand-primary-dark/30",
   },
   {
     icon: "map",
-    title: "Master Planning",
-    subtitle: "Comprehensive Pre-Construction",
-    description:
-      "Transform your vision into actionable plans. Strategic coordination of every component from initial assessment through execution.",
-    features: [
-      "Detailed project scope & parameters",
-      "Budget & timeline forecasting",
-      "Constructability analysis & risk assessment",
-      "Vendor & material coordination",
-    ],
-    benefits: [
-      "Prevent scope creep",
-      "Accurate cost projections",
-      "Optimized timeline",
-      "Thorough risk mitigation",
-    ],
-    link: "/services#master-planning",
-    cta: "Learn More",
     iconGradient: "from-brand-secondary via-bronze-600 to-bronze-700",
     iconGlow: "from-brand-secondary/30 to-bronze-600/30",
   },
   {
     icon: "build",
-    title: "Commercial Buildings",
-    subtitle: "Built projects for the Client, NOT the Dollar",
-    description:
-      "Commercial construction for offices, retail, medical facilities, and religious spaces. Licensed across WA, OR, and ID—quality craftsmanship over profit margins.",
-    features: [
-      "Professional offices & retail spaces",
-      "Medical facilities & clinics",
-      "Religious & community buildings",
-      "Auto dealerships & showrooms",
-    ],
-    benefits: [
-      "3-state licensing (WA, OR, ID)",
-      "Quality-first focus",
-      "Proven track record",
-      "Complete project management",
-    ],
-    link: "/services#commercial-construction",
-    cta: "View Projects",
     iconGradient: "from-bronze-600 via-bronze-700 to-bronze-800",
     iconGlow: "from-bronze-600/30 to-bronze-800/30",
   },
   {
     icon: "inventory_2",
-    title: "Procurement & Trade Partnerships",
-    subtitle: "Supply Chain Management",
-    description:
-      "Expert supply chain coordination—sourcing quality materials and managing our network of trusted vendors. No coordination headaches, just reliable execution.",
-    features: [
-      "Material sourcing & procurement",
-      "Vendor coordination & management",
-      "Quality control & verification",
-      "Cost-effective purchasing",
-    ],
-    benefits: [
-      "Zero coordination headaches",
-      "Vetted trade partners",
-      "Competitive pricing",
-      "On-time delivery",
-    ],
-    link: "/services#procurement",
-    cta: "Learn More",
     iconGradient: "from-primary-600 via-primary-700 to-primary-800",
     iconGlow: "from-primary-600/30 to-primary-800/30",
   },
   {
     icon: "construction",
-    title: "Light Industrial",
-    subtitle: "Durable, High-Performance Infrastructure",
-    description:
-      "Safe, durable industrial construction with 16+ years proven experience. Warehouses to processing plants built to exacting specifications with industry-leading safety standards.",
-    features: [
-      "Warehouse & distribution centers",
-      "Manufacturing & processing plants",
-      "Cold storage facilities",
-      "Industrial parks & complexes",
-    ],
-    benefits: [
-      "Industry-leading safety (.64 EMR)",
-      "Durable construction",
-      "Expert craftsmanship",
-      "Precise specifications",
-    ],
-    link: "/services#industrial",
-    cta: "See Capabilities",
     iconGradient:
       "from-brand-secondary via-brand-secondary-dark to-secondary-700",
     iconGlow: "from-brand-secondary/30 to-brand-secondary-dark/30",
   },
   {
     icon: "domain",
-    title: "Tenant Improvements",
-    subtitle: "Efficient Space Transformations",
-    description:
-      "Transform your commercial space quickly and efficiently with expert craftsmanship. Minimal downtime, maximum results.",
-    features: [
-      "Office space renovations",
-      "Retail store buildouts",
-      "Restaurant & hospitality TI",
-      "Medical office improvements",
-    ],
-    benefits: [
-      "Fast, efficient completion",
-      "Minimal business disruption",
-      "3-state licensing (WA, OR, ID)",
-      "Quality workmanship guaranteed",
-    ],
-    link: "/services#tenant-improvements",
-    cta: "Get Started",
     iconGradient: "from-brand-primary via-primary-600 to-brand-primary-dark",
     iconGlow: "from-brand-primary/30 to-primary-600/30",
   },
@@ -180,7 +75,26 @@ const services = [
  * Optimized with keyboard navigation, body scroll lock, and performance enhancements
  */
 export function ServicesShowcase() {
+  const locale = useLocale();
+  const t = locale === "es" ? es.home.services : en.home.services;
   const [selectedService, setSelectedService] = useState<number | null>(null);
+
+  // Build services array from translations with icon metadata
+  const services = useMemo(
+    () =>
+      (t.items || []).map((item, index) => ({
+        ...item,
+        icon: serviceIcons[index]?.icon || "engineering",
+        iconGradient:
+          serviceIcons[index]?.iconGradient ||
+          "from-brand-primary via-brand-primary-dark to-primary-800",
+        iconGlow:
+          serviceIcons[index]?.iconGlow ||
+          "from-brand-primary/30 to-brand-primary-dark/30",
+        link: "/services",
+      })),
+    [t.items],
+  );
 
   // Memoize the selected service data to prevent unnecessary recalculations
   const currentService = useMemo(
@@ -204,19 +118,25 @@ export function ServicesShowcase() {
       header={{
         icon: "explore",
         iconVariant: "bronze",
-        subtitle: "Full-Spectrum Construction",
-        title: "Services Built on Trust",
+        subtitle: t.sectionSubtitle,
+        title: t.sectionTitle,
         description: (
           <>
-            From planning to completion, every project reflects our{" "}
-            <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              core values
-            </span>
-            —honesty, integrity, professionalism, and{" "}
-            <span className="font-bold text-gray-900 dark:text-white">
-              thoroughness
-            </span>
-            .
+            {locale === "es" ? (
+              t.sectionDescription
+            ) : (
+              <>
+                From planning to completion, every project reflects our{" "}
+                <span className="font-bold text-brand-primary dark:text-brand-primary-light">
+                  core values
+                </span>
+                —honesty, integrity, professionalism, and{" "}
+                <span className="font-bold text-gray-900 dark:text-white">
+                  thoroughness
+                </span>
+                .
+              </>
+            )}
           </>
         ),
       }}
@@ -291,7 +211,7 @@ export function ServicesShowcase() {
                           className="text-brand-primary dark:text-brand-primary-light group-hover:scale-110 group-hover:rotate-12 transition-all duration-300"
                         />
                         <span className="font-bold text-xs sm:text-sm uppercase tracking-wider text-gray-700 dark:text-gray-200 group-hover:text-brand-primary dark:group-hover:text-brand-primary-light transition-colors duration-300">
-                          Click for Full Details
+                          {t.clickForDetails}
                         </span>
                         <MaterialIcon
                           icon="arrow_forward"
@@ -376,7 +296,7 @@ export function ServicesShowcase() {
                   />
                 </div>
                 <h4 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl">
-                  What's Included
+                  {t.whatsIncluded}
                 </h4>
               </div>
               <ul className="space-y-3 ml-13">
@@ -406,7 +326,7 @@ export function ServicesShowcase() {
                   />
                 </div>
                 <h4 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl">
-                  Key Benefits
+                  {t.keyBenefits}
                 </h4>
               </div>
               <ul className="space-y-3 ml-13">
@@ -434,7 +354,7 @@ export function ServicesShowcase() {
                     size="md"
                     className="mr-2 group-hover/btn:translate-x-1 transition-transform"
                   />
-                  {currentService.cta}
+                  {currentService.cta || "Learn More"}
                 </Button>
               </Link>
               <Link href="/contact" className="flex-1">
@@ -444,7 +364,7 @@ export function ServicesShowcase() {
                     size="md"
                     className="mr-2 group-hover/btn:scale-110 transition-transform"
                   />
-                  Get Started
+                  {locale === "es" ? "Contactar" : "Get Started"}
                 </Button>
               </Link>
             </div>
