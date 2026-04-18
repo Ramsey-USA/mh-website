@@ -32,8 +32,6 @@ concurrency:
 jobs:
   baseline-smoke-tests:
     name: Run Safety Smoke Tests (Baseline)
-    if: ${{ github.event_name == 'workflow_dispatch' ||
-      github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     env:
       SAFETY_SMOKE_BASE_URL: ${{ inputs.base_url || 'https://www.mhc-gc.com' }}
@@ -89,9 +87,6 @@ jobs:
   authenticated-smoke-tests:
     name: Run Safety Smoke Tests (Authenticated)
     needs: baseline-smoke-tests
-    if: ${{ (github.event_name == 'workflow_run' &&
-      github.event.workflow_run.conclusion == 'success') || github.event_name ==
-      'workflow_dispatch' }}
     runs-on: ubuntu-latest
     env:
       SAFETY_SMOKE_BASE_URL: ${{ inputs.base_url || 'https://www.mhc-gc.com' }}
