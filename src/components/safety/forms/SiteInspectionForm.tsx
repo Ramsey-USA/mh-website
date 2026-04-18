@@ -98,6 +98,18 @@ interface Props {
   onSubmitSuccess: (submissionId: string) => void;
 }
 
+type ResultChangeHandler = (
+  zoneId: string,
+  itemId: string,
+  result: InspectionResult,
+) => void;
+
+type NotesChangeHandler = (
+  zoneId: string,
+  itemId: string,
+  notes: string,
+) => void;
+
 const RESULT_LABELS: Record<InspectionResult, string> = {
   pass: "Pass",
   fail: "Fail",
@@ -110,13 +122,176 @@ const RESULT_COLORS: Record<InspectionResult, string> = {
   na: "bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400 ring-gray-400",
 };
 
+function getResultLabel(result: InspectionResult, isEs: boolean): string {
+  if (!isEs) {
+    return RESULT_LABELS[result];
+  }
+
+  if (result === "pass") {
+    return "Pasa";
+  }
+
+  if (result === "fail") {
+    return "Falla";
+  }
+
+  return "N/A";
+}
+
+function getFailBadgeText(failCount: number, isEs: boolean): string {
+  const suffix = failCount > 1 ? "s" : "";
+  return isEs ? `${failCount} falla${suffix}` : `${failCount} fail${suffix}`;
+}
+
+function getSubmitErrorMessage(err: unknown, isEs: boolean): string {
+  if (err instanceof Error) {
+    return err.message;
+  }
+
+  if (isEs) {
+    return "Error al enviar. Intente de nuevo.";
+  }
+
+  return "Submit failed. Try again.";
+}
+
+function updateZoneItem(
+  zones: InspectionZone[],
+  zoneId: string,
+  itemId: string,
+  updater: (item: CheckItem) => CheckItem,
+): InspectionZone[] {
+  const zoneIndex = zones.findIndex((zone) => zone.id === zoneId);
+  if (zoneIndex === -1) {
+    return zones;
+  }
+
+  const nextZones = [...zones];
+  const targetZone = nextZones[zoneIndex]!;
+  const nextItems = targetZone.items.map((item) => {
+    if (item.id !== itemId) {
+      return item;
+    }
+
+    return updater(item);
+  });
+
+  nextZones[zoneIndex] = {
+    ...targetZone,
+    items: nextItems,
+  };
+
+  return nextZones;
+}
+
+interface InspectionItemRowProps {
+  zoneId: string;
+  item: CheckItem;
+  isEs: boolean;
+  onResultChange: ResultChangeHandler;
+  onNotesChange: NotesChangeHandler;
+}
+
+function InspectionItemRow({
+  zoneId,
+  item,
+  isEs,
+  onResultChange,
+  onNotesChange,
+}: Readonly<InspectionItemRowProps>) {
+  return (
+    <div className="px-4 py-3">
+      <div className="flex items-start gap-3">
+        <p className="flex-1 text-sm text-gray-700 dark:text-gray-300 pt-0.5">
+          {item.label}
+        </p>
+        <div className="flex gap-1 shrink-0">
+          {(["pass", "fail", "na"] as InspectionResult[]).map((result) => (
+            <button
+              key={result}
+              type="button"
+              onClick={() => onResultChange(zoneId, item.id, result)}
+              className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ring-1 ring-inset ${
+                item.result === result
+                  ? RESULT_COLORS[result]
+                  : "ring-gray-200 dark:ring-gray-700 text-gray-400 hover:ring-gray-400"
+              }`}
+            >
+              {getResultLabel(result, isEs)}
+            </button>
+          ))}
+        </div>
+      </div>
+      {item.result === "fail" && (
+        <div className="mt-2 pl-0">
+          <input
+            type="text"
+            placeholder={
+              isEs
+                ? "Describa el problema y la acción correctiva requerida…"
+                : "Describe the issue and corrective action required…"
+            }
+            value={item.notes}
+            onChange={(e) => onNotesChange(zoneId, item.id, e.target.value)}
+            className="w-full px-3 py-1.5 bg-white dark:bg-gray-800 border border-red-300 dark:border-red-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-400/50"
+          />
+        </div>
+      )}
+    </div>
+  );
+}
+
+interface InspectionZoneCardProps {
+  zone: InspectionZone;
+  isEs: boolean;
+  onResultChange: ResultChangeHandler;
+  onNotesChange: NotesChangeHandler;
+}
+
+function InspectionZoneCard({
+  zone,
+  isEs,
+  onResultChange,
+  onNotesChange,
+}: Readonly<InspectionZoneCardProps>) {
+  const failCount = zone.items.filter((item) => item.result === "fail").length;
+
+  return (
+    <div className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
+      <div className="flex items-center justify-between bg-gray-50 dark:bg-gray-800 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+        <h4 className="font-semibold text-sm text-gray-800 dark:text-gray-200">
+          {zone.name}
+        </h4>
+        {failCount > 0 && (
+          <span className="inline-flex items-center gap-1 text-xs font-semibold text-red-700 dark:text-red-400 bg-red-100 dark:bg-red-900/30 px-2 py-0.5 rounded-full">
+            <MaterialIcon icon="warning" size="sm" />
+            {getFailBadgeText(failCount, isEs)}
+          </span>
+        )}
+      </div>
+      <div className="divide-y divide-gray-100 dark:divide-gray-700/50">
+        {zone.items.map((item) => (
+          <InspectionItemRow
+            key={item.id}
+            zoneId={zone.id}
+            item={item}
+            isEs={isEs}
+            onResultChange={onResultChange}
+            onNotesChange={onNotesChange}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function SiteInspectionForm({
   superintendentName,
   jobId,
   jobLabel,
   token,
   onSubmitSuccess,
-}: Props) {
+}: Readonly<Props>) {
   const locale = useLocale();
   const isEs = locale === "es";
   const today = new Date().toISOString().split("T")[0] ?? "";
@@ -138,34 +313,22 @@ export function SiteInspectionForm({
   ) =>
     setFormData((d) => ({
       ...d,
-      zones: d.zones.map((z) =>
-        z.id === zoneId
-          ? {
-              ...z,
-              items: z.items.map((it) =>
-                it.id === itemId ? { ...it, result } : it,
-              ),
-            }
-          : z,
-      ),
+      zones: updateZoneItem(d.zones, zoneId, itemId, (item) => ({
+        ...item,
+        result,
+      })),
     }));
 
   const setItemNotes = (zoneId: string, itemId: string, notes: string) =>
     setFormData((d) => ({
       ...d,
-      zones: d.zones.map((z) =>
-        z.id === zoneId
-          ? {
-              ...z,
-              items: z.items.map((it) =>
-                it.id === itemId ? { ...it, notes } : it,
-              ),
-            }
-          : z,
-      ),
+      zones: updateZoneItem(d.zones, zoneId, itemId, (item) => ({
+        ...item,
+        notes,
+      })),
     }));
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
     setSubmitting(true);
@@ -183,19 +346,14 @@ export function SiteInspectionForm({
         }),
       });
       const json = await res.json();
-      if (!res.ok)
+      if (!res.ok) {
         throw new Error(
           json.error ?? (isEs ? "Error al enviar" : "Submit failed"),
         );
+      }
       onSubmitSuccess(json.data.id as string);
     } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : isEs
-            ? "Error al enviar. Intente de nuevo."
-            : "Submit failed. Try again.",
-      );
+      setError(getSubmitErrorMessage(err, isEs));
     } finally {
       setSubmitting(false);
     }
@@ -235,9 +393,7 @@ export function SiteInspectionForm({
           />
         </div>
         <div>
-          <label className={labelClass}>
-            {isEs ? "Inspector" : "Inspector"}
-          </label>
+          <label className={labelClass}>Inspector</label>
           <input
             type="text"
             value={formData.inspectorName}
@@ -269,83 +425,15 @@ export function SiteInspectionForm({
       </div>
 
       {/* Checklist zones */}
-      {formData.zones.map((zone) => {
-        const failCount = zone.items.filter(
-          (it) => it.result === "fail",
-        ).length;
-        return (
-          <div
-            key={zone.id}
-            className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden"
-          >
-            <div className="flex items-center justify-between bg-gray-50 dark:bg-gray-800 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
-              <h4 className="font-semibold text-sm text-gray-800 dark:text-gray-200">
-                {zone.name}
-              </h4>
-              {failCount > 0 && (
-                <span className="inline-flex items-center gap-1 text-xs font-semibold text-red-700 dark:text-red-400 bg-red-100 dark:bg-red-900/30 px-2 py-0.5 rounded-full">
-                  <MaterialIcon icon="warning" size="sm" />
-                  {isEs
-                    ? `${failCount} falla${failCount > 1 ? "s" : ""}`
-                    : `${failCount} fail${failCount > 1 ? "s" : ""}`}
-                </span>
-              )}
-            </div>
-            <div className="divide-y divide-gray-100 dark:divide-gray-700/50">
-              {zone.items.map((item) => (
-                <div key={item.id} className="px-4 py-3">
-                  <div className="flex items-start gap-3">
-                    <p className="flex-1 text-sm text-gray-700 dark:text-gray-300 pt-0.5">
-                      {item.label}
-                    </p>
-                    <div className="flex gap-1 shrink-0">
-                      {(["pass", "fail", "na"] as InspectionResult[]).map(
-                        (r) => (
-                          <button
-                            key={r}
-                            type="button"
-                            onClick={() => setItemResult(zone.id, item.id, r)}
-                            className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ring-1 ring-inset ${
-                              item.result === r
-                                ? RESULT_COLORS[r]
-                                : "ring-gray-200 dark:ring-gray-700 text-gray-400 hover:ring-gray-400"
-                            }`}
-                          >
-                            {isEs
-                              ? r === "pass"
-                                ? "Pasa"
-                                : r === "fail"
-                                  ? "Falla"
-                                  : "N/A"
-                              : RESULT_LABELS[r]}
-                          </button>
-                        ),
-                      )}
-                    </div>
-                  </div>
-                  {item.result === "fail" && (
-                    <div className="mt-2 pl-0">
-                      <input
-                        type="text"
-                        placeholder={
-                          isEs
-                            ? "Describa el problema y la acción correctiva requerida…"
-                            : "Describe the issue and corrective action required…"
-                        }
-                        value={item.notes}
-                        onChange={(e) =>
-                          setItemNotes(zone.id, item.id, e.target.value)
-                        }
-                        className="w-full px-3 py-1.5 bg-white dark:bg-gray-800 border border-red-300 dark:border-red-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-400/50"
-                      />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        );
-      })}
+      {formData.zones.map((zone) => (
+        <InspectionZoneCard
+          key={zone.id}
+          zone={zone}
+          isEs={isEs}
+          onResultChange={setItemResult}
+          onNotesChange={setItemNotes}
+        />
+      ))}
 
       {/* Overall notes */}
       <div>

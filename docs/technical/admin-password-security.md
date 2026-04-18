@@ -276,7 +276,7 @@ If passwords are compromised:
    wrangler secret put ADMIN_JEREMY_PASSWORD
 
    # Force redeploy
-   wrangler deploy --env production
+   WRANGLER_SEND_METRICS=false npx wrangler deploy --env production
    ```
 
 2. **Investigation (within 1 hour):**
@@ -386,7 +386,7 @@ const ADMIN_ENV_KEYS: Record<string, string> = {
 1. Clear browser localStorage
 2. Verify Cloudflare Workers secret is set
 3. Check for typos in environment variable name
-4. Redeploy application: `wrangler deploy`
+4. Redeploy application: `WRANGLER_SEND_METRICS=false npx wrangler deploy`
 5. Wait 1-2 minutes for changes to propagate
 
 ### Issue: Forgot the new password
@@ -555,7 +555,7 @@ wrangler secret put ADMIN_JEREMY_PASSWORD
 wrangler secret list
 
 # Deploy
-wrangler deploy --env production
+WRANGLER_SEND_METRICS=false npx wrangler deploy --env production
 ```
 
 ### Password Requirements

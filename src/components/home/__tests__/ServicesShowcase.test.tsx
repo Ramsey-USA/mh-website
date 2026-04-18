@@ -111,7 +111,7 @@ describe("ServicesShowcase", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
-  it("opens modal via keyboard Enter key on a service card", async () => {
+  it("opens modal via Enter key on a service card button", async () => {
     const user = userEvent.setup();
     render(<ServicesShowcase />);
 
@@ -125,7 +125,10 @@ describe("ServicesShowcase", () => {
     expect(trackServiceInterest).toHaveBeenCalledWith(
       "Construction Management",
       "click",
-      expect.objectContaining({ method: "keyboard" }),
+      expect.objectContaining({
+        location: "homepage-showcase",
+        position: 1,
+      }),
     );
   });
 

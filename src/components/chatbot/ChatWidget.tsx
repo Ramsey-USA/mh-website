@@ -7,6 +7,7 @@ import { useLocale } from "@/hooks/useLocale";
 // ── Types ────────────────────────────────────────────────────────────────────
 
 interface ChatMessage {
+  id: string;
   role: "user" | "assistant";
   content: string;
 }
@@ -18,6 +19,46 @@ const PROACTIVE_PROMPT_DELAY = 60_000;
 
 /** Session storage key to track if prompt was already shown */
 const PROACTIVE_PROMPT_KEY = "mhc-chat-prompted";
+
+function createChatMessage(
+  role: ChatMessage["role"],
+  content: string,
+): ChatMessage {
+  return {
+    id: crypto.randomUUID(),
+    role,
+    content,
+  };
+}
+
+function getApiFallbackReply(isEs: boolean): string {
+  if (isEs) {
+    return "No pude procesar eso. Llame al (509) 308-6489 para ayuda inmediata.";
+  }
+
+  return "I wasn't able to process that. Please call (509) 308-6489 for immediate help.";
+}
+
+function getConnectionErrorReply(isEs: boolean): string {
+  if (isEs) {
+    return "Estoy teniendo problemas para conectar en este momento. Llame al (509) 308-6489 o escriba a office@mhc-gc.com para asistencia inmediata.";
+  }
+
+  return "I'm having trouble connecting right now. Please call (509) 308-6489 or email office@mhc-gc.com for immediate assistance.";
+}
+
+function getMobileScrollUnlock(isOpen: boolean): (() => void) | undefined {
+  if (!isOpen) return;
+
+  const isMobile = globalThis.matchMedia("(max-width: 639px)").matches;
+  if (!isMobile) return;
+
+  const prev = document.body.style.overflow;
+  document.body.style.overflow = "hidden";
+  return () => {
+    document.body.style.overflow = prev;
+  };
+}
 
 // ── Quick-action suggestions ─────────────────────────────────────────────────
 
@@ -65,7 +106,7 @@ export function ChatWidget() {
   const [showPrompt, setShowPrompt] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDialogElement>(null);
 
   // Scroll to bottom on new messages
   useEffect(() => {
@@ -95,14 +136,7 @@ export function ChatWidget() {
 
   // Scroll lock on mobile (full-screen layout: inset-0 at < sm breakpoint)
   useEffect(() => {
-    if (!isOpen) return;
-    const isMobile = window.matchMedia("(max-width: 639px)").matches;
-    if (!isMobile) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = prev;
-    };
+    return getMobileScrollUnlock(isOpen);
   }, [isOpen]);
 
   // Proactive prompt: show after delay if user hasn't interacted
@@ -147,7 +181,7 @@ export function ChatWidget() {
       const trimmed = text.trim();
       if (!trimmed || isLoading) return;
 
-      const userMessage: ChatMessage = { role: "user", content: trimmed };
+      const userMessage = createChatMessage("user", trimmed);
       setMessages((prev) => [...prev, userMessage]);
       setInput("");
       setIsLoading(true);
@@ -170,31 +204,22 @@ export function ChatWidget() {
           response?: string;
           error?: string;
         };
-        const reply =
-          data.response ??
-          (isEs
-            ? "No pude procesar eso. Llame al (509) 308-6489 para ayuda inmediata."
-            : "I wasn't able to process that. Please call (509) 308-6489 for immediate help.");
+        const reply = data.response ?? getApiFallbackReply(isEs);
 
-        setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
+        setMessages((prev) => [...prev, createChatMessage("assistant", reply)]);
       } catch {
         setMessages((prev) => [
           ...prev,
-          {
-            role: "assistant",
-            content: isEs
-              ? "Estoy teniendo problemas para conectar en este momento. Llame al (509) 308-6489 o escriba a office@mhc-gc.com para asistencia inmediata."
-              : "I'm having trouble connecting right now. Please call (509) 308-6489 or email office@mhc-gc.com for immediate assistance.",
-          },
+          createChatMessage("assistant", getConnectionErrorReply(isEs)),
         ]);
       } finally {
         setIsLoading(false);
       }
     },
-    [isLoading, messages],
+    [isEs, isLoading, messages],
   );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     sendMessage(input);
   };
@@ -262,9 +287,9 @@ export function ChatWidget() {
 
       {/* ── Chat panel ──────────────────────────────────────────────────── */}
       {isOpen && (
-        <div
+        <dialog
+          open
           ref={panelRef}
-          role="dialog"
           aria-label={
             isEs
               ? "Guía de alianzas de MH Construction"
@@ -352,9 +377,9 @@ export function ChatWidget() {
             )}
 
             {/* Chat messages */}
-            {messages.map((msg, i) => (
+            {messages.map((msg) => (
               <div
-                key={i}
+                key={msg.id}
                 className={`flex gap-2 ${msg.role === "user" ? "justify-end" : ""}`}
               >
                 {msg.role === "assistant" && (
@@ -453,7 +478,7 @@ export function ChatWidget() {
               </a>
             </p>
           </div>
-        </div>
+        </dialog>
       )}
 
       {/* ── Inline animation keyframes ──────────────────────────────────── */}

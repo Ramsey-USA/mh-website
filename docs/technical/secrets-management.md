@@ -365,7 +365,7 @@ npm run dev
 wrangler dev
 
 # Deploy to preview
-wrangler deploy --env preview
+WRANGLER_SEND_METRICS=false npx wrangler deploy --env preview
 
 # Verify secrets are accessible
 # Check logs for any errors

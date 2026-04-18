@@ -92,19 +92,19 @@ read performance.
 - Require core properties on key events: `page`, `source`, `deviceType`
 - Avoid reusing one track ID for multiple unrelated actions
 
-2. **P1 - Reduce event noise and payload size**
+1. **P1 - Reduce event noise and payload size**
 
 - Track decision-point interactions only (CTA, form, high-value nav)
 - Do not track decorative or low-signal interactions
 - Prefer short enums over long text in custom properties
 
-3. **P1 - Improve dashboard read path**
+1. **P1 - Improve dashboard read path**
 
 - Keep summary cards based on pre-aggregated counters
 - Keep expensive filtering/joins out of request-time paths
 - Verify cache behavior for repeated admin refreshes
 
-4. **P2 - Improve reliability around unload/navigation**
+1. **P2 - Improve reliability around unload/navigation**
 
 - Keep beacon batching in place for unload safety
 - Verify `visibilitychange` and `beforeunload` flush behavior in QA

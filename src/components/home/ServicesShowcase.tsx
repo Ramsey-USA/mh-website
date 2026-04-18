@@ -98,8 +98,8 @@ export function ServicesShowcase() {
 
   // Memoize the selected service data to prevent unnecessary recalculations
   const currentService = useMemo(
-    () => (selectedService !== null ? services[selectedService] : null),
-    [selectedService],
+    () => (selectedService === null ? null : services[selectedService]),
+    [selectedService, services],
   );
 
   // Close modal handler
@@ -129,7 +129,7 @@ export function ServicesShowcase() {
                 From planning to completion, every project reflects our{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                   core values
-                </span>
+                </span>{" "}
                 —honesty, integrity, professionalism, and{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
                   thoroughness
@@ -144,9 +144,10 @@ export function ServicesShowcase() {
       {/* Service Cards Grid */}
       <div className={gridPresets.cards3("md")}>
         {services.map((service, index) => (
-          <div
+          <button
+            type="button"
             key={service.title}
-            className="scroll-reveal cursor-pointer"
+            className="scroll-reveal cursor-pointer text-left bg-transparent border-0 p-0"
             style={{ "--delay": `${index * 0.1}s` } as CSSProperties}
             onClick={() => {
               trackServiceInterest(service.title, "click", {
@@ -155,19 +156,6 @@ export function ServicesShowcase() {
               });
               openModal(index);
             }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                trackServiceInterest(service.title, "click", {
-                  location: "homepage-showcase",
-                  position: index + 1,
-                  method: "keyboard",
-                });
-                openModal(index);
-              }
-            }}
-            role="button"
-            tabIndex={0}
             aria-label={`View details for ${service.title}`}
           >
             <Card className="flex flex-col bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-brand-secondary/20 border border-gray-200 dark:border-gray-700 rounded-3xl h-full transition-all duration-300 p-6 sm:p-7 lg:p-8 overflow-hidden group hover:scale-[1.02]">
@@ -224,7 +212,7 @@ export function ServicesShowcase() {
                 </CardContent>
               </div>
             </Card>
-          </div>
+          </button>
         ))}
       </div>
 
@@ -300,8 +288,8 @@ export function ServicesShowcase() {
                 </h4>
               </div>
               <ul className="space-y-3 ml-13">
-                {currentService.features.map((feature, fIndex) => (
-                  <li key={fIndex} className="flex items-start">
+                {currentService.features.map((feature) => (
+                  <li key={feature} className="flex items-start">
                     <MaterialIcon
                       icon="check_circle"
                       className="flex-shrink-0 mt-1 mr-3 text-brand-primary dark:text-brand-primary-light"
@@ -330,8 +318,8 @@ export function ServicesShowcase() {
                 </h4>
               </div>
               <ul className="space-y-3 ml-13">
-                {currentService.benefits.map((benefit, bIndex) => (
-                  <li key={bIndex} className="flex items-start">
+                {currentService.benefits.map((benefit) => (
+                  <li key={benefit} className="flex items-start">
                     <MaterialIcon
                       icon="military_tech"
                       className="flex-shrink-0 mt-1 mr-3 text-brand-secondary dark:text-brand-secondary-light"

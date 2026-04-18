@@ -22,7 +22,6 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
     icon: string;
     ariaLabel?: string;
     className?: string;
-    size?: string;
   }) => (
     <span
       data-testid={`icon-${icon}`}
@@ -38,7 +37,7 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
 Element.prototype.scrollIntoView = jest.fn();
 
 // Mock matchMedia (not available in jsdom)
-Object.defineProperty(window, "matchMedia", {
+Object.defineProperty(globalThis, "matchMedia", {
   writable: true,
   value: jest.fn().mockImplementation((query: string) => ({
     matches: false,
@@ -54,11 +53,11 @@ Object.defineProperty(window, "matchMedia", {
 
 // Mock fetch globally
 const mockFetch = jest.fn();
-global.fetch = mockFetch;
+globalThis.fetch = mockFetch;
 
 // Mock sessionStorage
 const mockSessionStorage: Record<string, string> = {};
-Object.defineProperty(window, "sessionStorage", {
+Object.defineProperty(globalThis, "sessionStorage", {
   value: {
     getItem: jest.fn((key: string) => mockSessionStorage[key] ?? null),
     setItem: jest.fn((key: string, value: string) => {
@@ -82,8 +81,8 @@ beforeEach(() => {
   Object.keys(mockSessionStorage).forEach(
     (key) => delete mockSessionStorage[key],
   );
-  (window.sessionStorage.getItem as jest.Mock).mockClear();
-  (window.sessionStorage.setItem as jest.Mock).mockClear();
+  (globalThis.sessionStorage.getItem as jest.Mock).mockClear();
+  (globalThis.sessionStorage.setItem as jest.Mock).mockClear();
 });
 
 // ── Tests ────────────────────────────────────────────────────────────────────
@@ -282,16 +281,18 @@ describe("ChatWidget", () => {
 
   it("locks body scroll on mobile when chat opens and restores on close", async () => {
     // Override matchMedia to simulate a mobile viewport (max-width: 639px matches)
-    (window.matchMedia as jest.Mock).mockImplementation((query: string) => ({
-      matches: query.includes("639px"), // mobile breakpoint
-      media: query,
-      onchange: null,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
-      dispatchEvent: jest.fn(),
-    }));
+    (globalThis.matchMedia as jest.Mock).mockImplementation(
+      (query: string) => ({
+        matches: query.includes("639px"), // mobile breakpoint
+        media: query,
+        onchange: null,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      }),
+    );
 
     const user = userEvent.setup();
     render(<ChatWidget />);
@@ -310,16 +311,18 @@ describe("ChatWidget", () => {
     expect(document.body.style.overflow).not.toBe("hidden");
 
     // Restore default matchMedia mock for subsequent tests
-    (window.matchMedia as jest.Mock).mockImplementation((query: string) => ({
-      matches: false,
-      media: query,
-      onchange: null,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
-      dispatchEvent: jest.fn(),
-    }));
+    (globalThis.matchMedia as jest.Mock).mockImplementation(
+      (query: string) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      }),
+    );
   });
 
   it("displays fallback message when API response has no 'response' field", async () => {
@@ -708,7 +711,7 @@ describe("ChatWidget Proactive Prompt", () => {
 
     // Prompt should not be visible initially
     expect(
-      screen.queryByText(/Need help finding what you're looking for/),
+      screen.queryByText(/Need help finding what/i),
     ).not.toBeInTheDocument();
 
     // Advance time by 60 seconds
@@ -717,9 +720,7 @@ describe("ChatWidget Proactive Prompt", () => {
     });
 
     // Prompt should now be visible
-    expect(
-      screen.getByText(/Need help finding what you're looking for/),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Need help finding what/i)).toBeInTheDocument();
     expect(screen.getByText(/Chat with us/)).toBeInTheDocument();
   });
 
@@ -736,7 +737,7 @@ describe("ChatWidget Proactive Prompt", () => {
 
     // Prompt should NOT appear
     expect(
-      screen.queryByText(/Need help finding what you're looking for/),
+      screen.queryByText(/Need help finding what/i),
     ).not.toBeInTheDocument();
   });
 
@@ -747,7 +748,7 @@ describe("ChatWidget Proactive Prompt", () => {
       jest.advanceTimersByTime(60_000);
     });
 
-    expect(window.sessionStorage.setItem).toHaveBeenCalledWith(
+    expect(globalThis.sessionStorage.setItem).toHaveBeenCalledWith(
       "mhc-chat-prompted",
       "1",
     );
@@ -761,15 +762,13 @@ describe("ChatWidget Proactive Prompt", () => {
       jest.advanceTimersByTime(60_000);
     });
 
-    expect(
-      screen.getByText(/Need help finding what you're looking for/),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Need help finding what/i)).toBeInTheDocument();
 
     // Click dismiss button
     await user.click(screen.getByRole("button", { name: /dismiss prompt/i }));
 
     expect(
-      screen.queryByText(/Need help finding what you're looking for/),
+      screen.queryByText(/Need help finding what/i),
     ).not.toBeInTheDocument();
 
     // Chat should NOT be open
@@ -792,7 +791,7 @@ describe("ChatWidget Proactive Prompt", () => {
 
     // Prompt should be dismissed
     expect(
-      screen.queryByText(/Need help finding what you're looking for/),
+      screen.queryByText(/Need help finding what/i),
     ).not.toBeInTheDocument();
   });
 
@@ -804,9 +803,7 @@ describe("ChatWidget Proactive Prompt", () => {
       jest.advanceTimersByTime(60_000);
     });
 
-    expect(
-      screen.getByText(/Need help finding what you're looking for/),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Need help finding what/i)).toBeInTheDocument();
 
     // Click the chat trigger button
     await user.click(
@@ -818,7 +815,7 @@ describe("ChatWidget Proactive Prompt", () => {
 
     // Prompt should be gone
     expect(
-      screen.queryByText(/Need help finding what you're looking for/),
+      screen.queryByText(/Need help finding what/i),
     ).not.toBeInTheDocument();
   });
 
@@ -837,7 +834,7 @@ describe("ChatWidget Proactive Prompt", () => {
 
     // Prompt should NOT appear (chat is open)
     expect(
-      screen.queryByText(/Need help finding what you're looking for/),
+      screen.queryByText(/Need help finding what/i),
     ).not.toBeInTheDocument();
   });
 
@@ -849,15 +846,13 @@ describe("ChatWidget Proactive Prompt", () => {
       jest.advanceTimersByTime(60_000);
     });
 
-    expect(
-      screen.getByText(/Need help finding what you're looking for/),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Need help finding what/i)).toBeInTheDocument();
 
     // Dismiss it
     fireEvent.click(screen.getByRole("button", { name: /dismiss prompt/i }));
 
     expect(
-      screen.queryByText(/Need help finding what you're looking for/),
+      screen.queryByText(/Need help finding what/i),
     ).not.toBeInTheDocument();
 
     // Advance more time
@@ -867,16 +862,16 @@ describe("ChatWidget Proactive Prompt", () => {
 
     // Should still not reappear
     expect(
-      screen.queryByText(/Need help finding what you're looking for/),
+      screen.queryByText(/Need help finding what/i),
     ).not.toBeInTheDocument();
   });
 
   it("handles sessionStorage errors gracefully", () => {
     // Make sessionStorage throw
-    (window.sessionStorage.getItem as jest.Mock).mockImplementation(() => {
+    (globalThis.sessionStorage.getItem as jest.Mock).mockImplementation(() => {
       throw new Error("Storage not available");
     });
-    (window.sessionStorage.setItem as jest.Mock).mockImplementation(() => {
+    (globalThis.sessionStorage.setItem as jest.Mock).mockImplementation(() => {
       throw new Error("Storage not available");
     });
 
@@ -888,8 +883,6 @@ describe("ChatWidget Proactive Prompt", () => {
     });
 
     // Prompt should still appear (graceful degradation)
-    expect(
-      screen.getByText(/Need help finding what you're looking for/),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Need help finding what/i)).toBeInTheDocument();
   });
 });

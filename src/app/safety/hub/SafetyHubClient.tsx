@@ -8,8 +8,7 @@ import { ToolboxTalkForm } from "@/components/safety/forms/ToolboxTalkForm";
 import { JHAForm } from "@/components/safety/forms/JHAForm";
 import { SiteInspectionForm } from "@/components/safety/forms/SiteInspectionForm";
 import { IncidentReportForm } from "@/components/safety/forms/IncidentReportForm";
-import type { DocumentSection } from "@/lib/data/documents";
-import { forms } from "@/lib/data/documents";
+import { forms, type DocumentSection } from "@/lib/data/documents";
 import { DiagonalStripePattern } from "@/components/ui/backgrounds/DiagonalStripePattern";
 import { BrandColorBlobs } from "@/components/ui/backgrounds/BrandColorBlobs";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
@@ -145,6 +144,52 @@ const ROLE_CARDS: {
   },
 ];
 
+function getLoginFallbackErrorMessage(isEs: boolean): string {
+  if (isEs) {
+    return "Error de inicio de sesión. Revise sus credenciales e intente de nuevo.";
+  }
+
+  return "Login failed. Check credentials and try again.";
+}
+
+function getSecretAriaLabel(
+  isEs: boolean,
+  showSecret: boolean,
+  mode: "password" | "passcode",
+): string {
+  if (isEs) {
+    if (mode === "password") {
+      return showSecret ? "Ocultar contraseña" : "Mostrar contraseña";
+    }
+    return showSecret ? "Ocultar código" : "Mostrar código";
+  }
+
+  if (mode === "password") {
+    return showSecret ? "Hide password" : "Show password";
+  }
+  return showSecret ? "Hide passcode" : "Show passcode";
+}
+
+function getDefaultUserName(role: HubRole, providedName?: string): string {
+  if (providedName) {
+    return providedName;
+  }
+
+  if (role === "worker") {
+    return "Field Worker";
+  }
+
+  if (role === "traveler") {
+    return "Travelers Insurance";
+  }
+
+  if (role === "admin") {
+    return "Admin";
+  }
+
+  return "Superintendent";
+}
+
 export function RoleGate({ onLogin }: Readonly<LoginFormProps>) {
   const locale = useLocale();
   const isEs = locale === "es";
@@ -171,7 +216,7 @@ export function RoleGate({ onLogin }: Readonly<LoginFormProps>) {
     setSelectedRole(null);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
 
@@ -266,7 +311,7 @@ export function RoleGate({ onLogin }: Readonly<LoginFormProps>) {
       if (user.role === "admin") {
         localStorage.setItem("admin_token", accessToken);
         localStorage.setItem("admin_user", JSON.stringify(user));
-        window.location.href = "/dashboard";
+        globalThis.location.href = "/dashboard";
         return;
       }
 
@@ -275,11 +320,7 @@ export function RoleGate({ onLogin }: Readonly<LoginFormProps>) {
       onLogin(accessToken, user);
     } catch (err) {
       setError(
-        err instanceof Error
-          ? err.message
-          : isEs
-            ? "Error de inicio de sesión. Revise sus credenciales e intente de nuevo."
-            : "Login failed. Check credentials and try again.",
+        err instanceof Error ? err.message : getLoginFallbackErrorMessage(isEs),
       );
     } finally {
       setLoading(false);
@@ -322,38 +363,7 @@ export function RoleGate({ onLogin }: Readonly<LoginFormProps>) {
               </p>
             </div>
 
-            {!selectedRole ? (
-              <div className="grid sm:grid-cols-2 gap-3">
-                {ROLE_CARDS.map((card) => (
-                  <button
-                    key={card.role}
-                    onClick={() => {
-                      setSelectedRole(card.role);
-                      resetRoleForm();
-                    }}
-                    className="text-left bg-gray-50 dark:bg-gray-800 hover:bg-white dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-secondary rounded-xl px-4 py-3 transition-all"
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="w-9 h-9 shrink-0 rounded-lg bg-brand-primary/10 dark:bg-brand-primary/20 flex items-center justify-center">
-                        <MaterialIcon
-                          icon={card.icon}
-                          size="sm"
-                          className="text-brand-primary"
-                        />
-                      </div>
-                      <div>
-                        <p className="text-sm font-bold text-gray-900 dark:text-white">
-                          {card.label}
-                        </p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-                          {card.subLabel}
-                        </p>
-                      </div>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            ) : (
+            {selectedRole ? (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <button
                   type="button"
@@ -406,15 +416,11 @@ export function RoleGate({ onLogin }: Readonly<LoginFormProps>) {
                           type="button"
                           onClick={() => setShowSecret((v) => !v)}
                           className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
-                          aria-label={
-                            isEs
-                              ? showSecret
-                                ? "Ocultar contraseña"
-                                : "Mostrar contraseña"
-                              : showSecret
-                                ? "Hide password"
-                                : "Show password"
-                          }
+                          aria-label={getSecretAriaLabel(
+                            isEs,
+                            showSecret,
+                            "password",
+                          )}
                         >
                           <MaterialIcon
                             icon={showSecret ? "visibility_off" : "visibility"}
@@ -468,15 +474,11 @@ export function RoleGate({ onLogin }: Readonly<LoginFormProps>) {
                         type="button"
                         onClick={() => setShowSecret((v) => !v)}
                         className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
-                        aria-label={
-                          isEs
-                            ? showSecret
-                              ? "Ocultar código"
-                              : "Mostrar código"
-                            : showSecret
-                              ? "Hide passcode"
-                              : "Show passcode"
-                        }
+                        aria-label={getSecretAriaLabel(
+                          isEs,
+                          showSecret,
+                          "passcode",
+                        )}
                       >
                         <MaterialIcon
                           icon={showSecret ? "visibility_off" : "visibility"}
@@ -512,6 +514,37 @@ export function RoleGate({ onLogin }: Readonly<LoginFormProps>) {
                   )}
                 </button>
               </form>
+            ) : (
+              <div className="grid sm:grid-cols-2 gap-3">
+                {ROLE_CARDS.map((card) => (
+                  <button
+                    key={card.role}
+                    onClick={() => {
+                      setSelectedRole(card.role);
+                      resetRoleForm();
+                    }}
+                    className="text-left bg-gray-50 dark:bg-gray-800 hover:bg-white dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 hover:border-brand-primary dark:hover:border-brand-secondary rounded-xl px-4 py-3 transition-all"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-9 h-9 shrink-0 rounded-lg bg-brand-primary/10 dark:bg-brand-primary/20 flex items-center justify-center">
+                        <MaterialIcon
+                          icon={card.icon}
+                          size="sm"
+                          className="text-brand-primary"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-sm font-bold text-gray-900 dark:text-white">
+                          {card.label}
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                          {card.subLabel}
+                        </p>
+                      </div>
+                    </div>
+                  </button>
+                ))}
+              </div>
             )}
 
             <p className="mt-4 text-center text-xs text-gray-400 dark:text-gray-500">
@@ -780,6 +813,7 @@ export function SafetyHub({
     activeFormTab.label,
     activeFormType,
     activeSection,
+    isEs,
     logAccess,
     selectedJobId,
   ]);
@@ -874,6 +908,10 @@ export function SafetyHub({
   const jobLabel = selectedJob
     ? `${selectedJob.job_number} — ${selectedJob.job_name}`
     : "";
+  const submissionsPluralSuffix = myHistory.length === 1 ? "" : "s";
+  const jobsEmptyMessage = isEs
+    ? "No hay obras activas. Contacte a su PM para agregar una."
+    : "No active jobs. Contact your PM to add a job.";
 
   return (
     <div className="relative min-h-screen bg-gray-50 dark:bg-gray-950">
@@ -975,9 +1013,7 @@ export function SafetyHub({
                 </span>
               ) : jobs.length === 0 ? (
                 <span className="text-xs text-gray-400 italic">
-                  {isEs
-                    ? "No hay obras activas. Contacte a su PM para agregar una."
-                    : "No active jobs. Contact your PM to add a job."}
+                  {jobsEmptyMessage}
                 </span>
               ) : (
                 <select
@@ -1054,7 +1090,7 @@ export function SafetyHub({
               >
                 {isEs ? "Formularios" : "Forms"}
               </button>
-              .
+              {"."}
             </p>
           </div>
         </div>
@@ -1198,31 +1234,7 @@ export function SafetyHub({
                 </p>
               </div>
 
-              {!canSubmitForms ? (
-                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm px-6 py-6">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center shrink-0">
-                      <MaterialIcon
-                        icon="visibility"
-                        size="sm"
-                        className="text-amber-700 dark:text-amber-300"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-black text-gray-900 dark:text-white mb-1">
-                        {isEs
-                          ? "Travelers Insurance - Vista de auditor"
-                          : "Travelers Insurance - Auditor View"}
-                      </h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        {isEs
-                          ? "Los formularios son enviados por el personal de campo. Contacte a Jeremy al (509) 308-6489 para registros de envíos."
-                          : "Forms are submitted by field staff. Contact Jeremy at (509) 308-6489 for submission records."}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ) : (
+              {canSubmitForms ? (
                 <>
                   {/* Form type tabs */}
                   <div className="flex gap-2 flex-wrap mb-6">
@@ -1323,6 +1335,30 @@ export function SafetyHub({
                     </div>
                   </div>
                 </>
+              ) : (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm px-6 py-6">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center shrink-0">
+                      <MaterialIcon
+                        icon="visibility"
+                        size="sm"
+                        className="text-amber-700 dark:text-amber-300"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-black text-gray-900 dark:text-white mb-1">
+                        {isEs
+                          ? "Travelers Insurance - Vista de auditor"
+                          : "Travelers Insurance - Auditor View"}
+                      </h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {isEs
+                          ? "Los formularios son enviados por el personal de campo. Contacte a Jeremy al (509) 308-6489 para registros de envíos."
+                          : "Forms are submitted by field staff. Contact Jeremy at (509) 308-6489 for submission records."}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
           </FadeInWhenVisible>
@@ -1486,8 +1522,7 @@ export function SafetyHub({
                   </div>
                   <div className="px-4 py-3 border-t border-gray-100 dark:border-gray-800 text-xs text-gray-400 dark:text-gray-500">
                     {myHistory.length} {isEs ? "envío" : "submission"}
-                    {myHistory.length !== 1 ? "s" : ""} —{" "}
-                    {weekSubmissions.length}{" "}
+                    {submissionsPluralSuffix} — {weekSubmissions.length}{" "}
                     {isEs ? "esta semana" : "this week"}
                   </div>
                 </div>
@@ -1543,15 +1578,7 @@ export function SafetyHubClient({ sections }: Readonly<SafetyHubClientProps>) {
 
         setToken(data.accessToken);
         setUser({
-          name:
-            data.user.name ??
-            (role === "worker"
-              ? "Field Worker"
-              : role === "traveler"
-                ? "Travelers Insurance"
-                : role === "admin"
-                  ? "Admin"
-                  : "Superintendent"),
+          name: getDefaultUserName(role, data.user.name),
           role,
         });
       } catch {

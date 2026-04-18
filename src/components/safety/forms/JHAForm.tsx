@@ -36,6 +36,34 @@ interface Props {
   onSubmitSuccess: (submissionId: string) => void;
 }
 
+function getTaskDescriptionRequiredMessage(isEs: boolean): string {
+  if (isEs) {
+    return "La descripción de la tarea es obligatoria.";
+  }
+
+  return "Task description is required.";
+}
+
+function getSubmitFailedMessage(isEs: boolean): string {
+  if (isEs) {
+    return "Error al enviar";
+  }
+
+  return "Submit failed";
+}
+
+function getSubmitErrorMessage(err: unknown, isEs: boolean): string {
+  if (err instanceof Error) {
+    return err.message;
+  }
+
+  if (isEs) {
+    return "Error al enviar. Intente de nuevo.";
+  }
+
+  return "Submit failed. Try again.";
+}
+
 export function JHAForm({
   superintendentName,
   jobId,
@@ -106,15 +134,11 @@ export function JHAForm({
       steps: d.steps.map((s) => (s.id === id ? { ...s, [field]: value } : s)),
     }));
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
     if (!formData.taskDescription.trim()) {
-      setError(
-        isEs
-          ? "La descripción de la tarea es obligatoria."
-          : "Task description is required.",
-      );
+      setError(getTaskDescriptionRequiredMessage(isEs));
       return;
     }
     setSubmitting(true);
@@ -132,19 +156,12 @@ export function JHAForm({
         }),
       });
       const json = await res.json();
-      if (!res.ok)
-        throw new Error(
-          json.error ?? (isEs ? "Error al enviar" : "Submit failed"),
-        );
+      if (!res.ok) {
+        throw new Error(json.error ?? getSubmitFailedMessage(isEs));
+      }
       onSubmitSuccess(json.data.id as string);
     } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : isEs
-            ? "Error al enviar. Intente de nuevo."
-            : "Submit failed. Try again.",
-      );
+      setError(getSubmitErrorMessage(err, isEs));
     } finally {
       setSubmitting(false);
     }

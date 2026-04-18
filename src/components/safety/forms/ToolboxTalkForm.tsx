@@ -21,12 +21,67 @@ interface ToolboxTalkData {
 }
 
 interface Props {
-  superintendentName: string;
-  jobId: string;
-  jobLabel: string;
-  token: string;
-  onSubmitSuccess: (submissionId: string) => void;
+  readonly superintendentName: string;
+  readonly jobId: string;
+  readonly jobLabel: string;
+  readonly token: string;
+  readonly onSubmitSuccess: (submissionId: string) => void;
 }
+
+const COPY = {
+  en: {
+    date: "Date",
+    job: "Job",
+    conductedBy: "Conducted By",
+    safetyTopic: "Safety Topic / Subject",
+    safetyTopicPlaceholder: "e.g. Fall Protection - Ladder Safety Review",
+    hazardsDiscussed: "Hazards Discussed",
+    hazardsPlaceholder: "List specific hazards reviewed during this meeting...",
+    safetyObservations: "Safety Observations",
+    observationsPlaceholder:
+      "Note any positive observations or areas for improvement...",
+    actionItems: "Action Items / Follow-ups",
+    actionItemsPlaceholder:
+      "List any corrective actions or follow-up tasks assigned...",
+    attendees: "Attendees",
+    addRow: "Add Row",
+    fullName: "Full name",
+    initialsOrSignature: "Initials / signature",
+    removeAttendee: "Remove attendee",
+    submitting: "Submitting...",
+    submit: "Submit Toolbox Talk",
+    requiredDateTopic: "Date and topic are required.",
+    submitFailedShort: "Submit failed",
+    submitFailedRetry: "Submit failed. Try again.",
+  },
+  es: {
+    date: "Fecha",
+    job: "Obra",
+    conductedBy: "Dirigido por",
+    safetyTopic: "Tema de seguridad",
+    safetyTopicPlaceholder:
+      "Ej. Proteccion contra caidas - revision de seguridad en escaleras",
+    hazardsDiscussed: "Peligros discutidos",
+    hazardsPlaceholder:
+      "Liste los peligros especificos revisados durante esta reunion...",
+    safetyObservations: "Observaciones de seguridad",
+    observationsPlaceholder:
+      "Anote observaciones positivas o areas de mejora...",
+    actionItems: "Acciones / Seguimiento",
+    actionItemsPlaceholder:
+      "Liste acciones correctivas o tareas de seguimiento asignadas...",
+    attendees: "Asistentes",
+    addRow: "Agregar fila",
+    fullName: "Nombre completo",
+    initialsOrSignature: "Iniciales / firma",
+    removeAttendee: "Eliminar asistente",
+    submitting: "Enviando...",
+    submit: "Enviar charla de seguridad",
+    requiredDateTopic: "La fecha y el tema son obligatorios.",
+    submitFailedShort: "Error al enviar",
+    submitFailedRetry: "Error al enviar. Intente de nuevo.",
+  },
+} as const;
 
 export function ToolboxTalkForm({
   superintendentName,
@@ -37,6 +92,7 @@ export function ToolboxTalkForm({
 }: Props) {
   const locale = useLocale();
   const isEs = locale === "es";
+  const t = isEs ? COPY.es : COPY.en;
   const today = new Date().toISOString().split("T")[0] ?? "";
 
   const [formData, setFormData] = useState<ToolboxTalkData>({
@@ -78,16 +134,12 @@ export function ToolboxTalkForm({
       ),
     }));
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
 
     if (!formData.date || !formData.topic.trim()) {
-      setError(
-        isEs
-          ? "La fecha y el tema son obligatorios."
-          : "Date and topic are required.",
-      );
+      setError(t.requiredDateTopic);
       return;
     }
 
@@ -107,20 +159,14 @@ export function ToolboxTalkForm({
       });
 
       const json = await res.json();
-      if (!res.ok)
-        throw new Error(
-          json.error ?? (isEs ? "Error al enviar" : "Submit failed"),
-        );
+      if (!res.ok) {
+        throw new Error(json.error ?? t.submitFailedShort);
+      }
 
       onSubmitSuccess(json.data.id as string);
     } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : isEs
-            ? "Error al enviar. Intente de nuevo."
-            : "Submit failed. Try again.",
-      );
+      const fallbackError = t.submitFailedRetry;
+      setError(err instanceof Error ? err.message : fallbackError);
     } finally {
       setSubmitting(false);
     }
@@ -132,7 +178,7 @@ export function ToolboxTalkForm({
       <div className="grid sm:grid-cols-3 gap-4">
         <div>
           <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
-            {isEs ? "Fecha" : "Date"} <span className="text-red-500">*</span>
+            {t.date} <span className="text-red-500">*</span>
           </label>
           <input
             type="date"
@@ -146,7 +192,7 @@ export function ToolboxTalkForm({
         </div>
         <div>
           <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
-            {isEs ? "Obra" : "Job"}
+            {t.job}
           </label>
           <input
             type="text"
@@ -157,7 +203,7 @@ export function ToolboxTalkForm({
         </div>
         <div>
           <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
-            {isEs ? "Dirigido por" : "Conducted By"}
+            {t.conductedBy}
           </label>
           <input
             type="text"
@@ -173,17 +219,12 @@ export function ToolboxTalkForm({
       {/* Topic */}
       <div>
         <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
-          {isEs ? "Tema de seguridad" : "Safety Topic / Subject"}{" "}
-          <span className="text-red-500">*</span>
+          {t.safetyTopic} <span className="text-red-500">*</span>
         </label>
         <input
           type="text"
           required
-          placeholder={
-            isEs
-              ? "Ej. Protección contra caídas — revisión de seguridad en escaleras"
-              : "e.g. Fall Protection — Ladder Safety Review"
-          }
+          placeholder={t.safetyTopicPlaceholder}
           value={formData.topic}
           onChange={(e) =>
             setFormData((d) => ({ ...d, topic: e.target.value }))
@@ -195,15 +236,11 @@ export function ToolboxTalkForm({
       {/* Hazards */}
       <div>
         <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
-          {isEs ? "Peligros discutidos" : "Hazards Discussed"}
+          {t.hazardsDiscussed}
         </label>
         <textarea
           rows={3}
-          placeholder={
-            isEs
-              ? "Liste los peligros específicos revisados durante esta reunión…"
-              : "List specific hazards reviewed during this meeting…"
-          }
+          placeholder={t.hazardsPlaceholder}
           value={formData.hazardsDiscussed}
           onChange={(e) =>
             setFormData((d) => ({ ...d, hazardsDiscussed: e.target.value }))
@@ -215,15 +252,11 @@ export function ToolboxTalkForm({
       {/* Safety observations */}
       <div>
         <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
-          {isEs ? "Observaciones de seguridad" : "Safety Observations"}
+          {t.safetyObservations}
         </label>
         <textarea
           rows={3}
-          placeholder={
-            isEs
-              ? "Anote observaciones positivas o áreas de mejora…"
-              : "Note any positive observations or areas for improvement…"
-          }
+          placeholder={t.observationsPlaceholder}
           value={formData.safetyObservations}
           onChange={(e) =>
             setFormData((d) => ({ ...d, safetyObservations: e.target.value }))
@@ -235,15 +268,11 @@ export function ToolboxTalkForm({
       {/* Action items */}
       <div>
         <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
-          {isEs ? "Acciones / Seguimiento" : "Action Items / Follow-ups"}
+          {t.actionItems}
         </label>
         <textarea
           rows={2}
-          placeholder={
-            isEs
-              ? "Liste acciones correctivas o tareas de seguimiento asignadas…"
-              : "List any corrective actions or follow-up tasks assigned…"
-          }
+          placeholder={t.actionItemsPlaceholder}
           value={formData.actionItems}
           onChange={(e) =>
             setFormData((d) => ({ ...d, actionItems: e.target.value }))
@@ -255,16 +284,16 @@ export function ToolboxTalkForm({
       {/* Attendees */}
       <div>
         <div className="flex items-center justify-between mb-2">
-          <label className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
-            {isEs ? "Asistentes" : "Attendees"}
-          </label>
+          <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+            {t.attendees}
+          </p>
           <button
             type="button"
             onClick={addAttendee}
             className="inline-flex items-center gap-1 text-xs text-brand-primary hover:text-brand-primary-dark font-semibold"
           >
             <MaterialIcon icon="add" size="sm" />
-            {isEs ? "Agregar fila" : "Add Row"}
+            {t.addRow}
           </button>
         </div>
         <div className="space-y-2">
@@ -272,16 +301,14 @@ export function ToolboxTalkForm({
             <div key={a.id} className="flex items-center gap-2">
               <input
                 type="text"
-                placeholder={isEs ? "Nombre completo" : "Full name"}
+                placeholder={t.fullName}
                 value={a.name}
                 onChange={(e) => updateAttendee(a.id, "name", e.target.value)}
                 className="flex-1 px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
               />
               <input
                 type="text"
-                placeholder={
-                  isEs ? "Iniciales / firma" : "Initials / signature"
-                }
+                placeholder={t.initialsOrSignature}
                 value={a.signature}
                 onChange={(e) =>
                   updateAttendee(a.id, "signature", e.target.value)
@@ -293,7 +320,7 @@ export function ToolboxTalkForm({
                   type="button"
                   onClick={() => removeAttendee(a.id)}
                   className="text-gray-400 hover:text-red-500 transition-colors"
-                  aria-label={isEs ? "Eliminar asistente" : "Remove attendee"}
+                  aria-label={t.removeAttendee}
                 >
                   <MaterialIcon icon="remove_circle_outline" size="sm" />
                 </button>
@@ -318,12 +345,12 @@ export function ToolboxTalkForm({
         {submitting ? (
           <>
             <MaterialIcon icon="hourglass_empty" size="sm" />
-            {isEs ? "Enviando…" : "Submitting…"}
+            {t.submitting}
           </>
         ) : (
           <>
             <MaterialIcon icon="send" size="sm" />
-            {isEs ? "Enviar charla de seguridad" : "Submit Toolbox Talk"}
+            {t.submit}
           </>
         )}
       </button>

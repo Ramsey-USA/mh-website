@@ -5,8 +5,8 @@
  * Ensures the website builds correctly for Cloudflare Workers deployment
  */
 
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 
 console.log(
   "🔍 Validating build configuration for Cloudflare Workers deployment...",

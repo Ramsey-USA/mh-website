@@ -28,11 +28,11 @@ interface IncidentReportData {
 }
 
 interface Props {
-  superintendentName: string;
-  jobId: string;
-  jobLabel: string;
-  token: string;
-  onSubmitSuccess: (submissionId: string) => void;
+  readonly superintendentName: string;
+  readonly jobId: string;
+  readonly jobLabel: string;
+  readonly token: string;
+  readonly onSubmitSuccess: (submissionId: string) => void;
 }
 
 const INCIDENT_TYPES = [
@@ -46,6 +46,96 @@ const INCIDENT_TYPES = [
   "Vehicle Accident",
 ];
 
+const COPY = {
+  en: {
+    emergencyPrefix: "For life-threatening emergencies, call",
+    emergencySuffix:
+      "immediately. Notify your PM and safety officer as soon as safe to do so.",
+    date: "Date",
+    time: "Time",
+    job: "Job",
+    reportedBy: "Reported By",
+    incidentType: "Incident Type",
+    selectType: "- Select type -",
+    locationOnSite: "Location on Site",
+    locationPlaceholder: "e.g. Main entry, East elevation Level 2",
+    personsInvolved: "Person(s) Involved",
+    personInvolvedPlaceholder: "Full name and trade / role",
+    injuryOccurred: "Injury occurred",
+    medicalAttentionRequired: "Medical attention required",
+    incidentDescription: "Incident Description",
+    incidentDescriptionPlaceholder:
+      "Describe exactly what happened - include sequence of events, equipment involved, and conditions at the time of the incident...",
+    immediateAction: "Immediate Action Taken",
+    immediateActionPlaceholder:
+      "What was done immediately to respond to and contain the incident?",
+    rootCause: "Root Cause Analysis",
+    rootCausePlaceholder:
+      "Identify the underlying root cause(s) - not just the immediate cause. Ask 'why' until you find the systemic issue.",
+    correctiveAction: "Corrective Action Plan",
+    correctiveActionPlaceholder:
+      "What changes will be made to prevent recurrence? Who is responsible and by when?",
+    witnesses: "Witnesses",
+    addWitness: "Add Witness",
+    noWitnesses: "No witnesses added.",
+    witnessName: "Witness name",
+    witnessStatement: "Brief statement",
+    removeWitness: "Remove witness",
+    supervisorSignoff: "Supervisor Sign-off (initials)",
+    supervisorSignoffPlaceholder: "Initials confirming report accuracy",
+    submitting: "Submitting...",
+    submit: "Submit Incident Report",
+    descriptionRequired: "Incident description is required.",
+    rootCauseRequired: "Root cause analysis is required.",
+    submitFailedShort: "Submit failed",
+    submitFailedRetry: "Submit failed. Try again.",
+  },
+  es: {
+    emergencyPrefix: "En emergencias que ponen en riesgo la vida, llame al",
+    emergencySuffix:
+      "de inmediato. Notifique a su PM y al oficial de seguridad tan pronto sea seguro hacerlo.",
+    date: "Fecha",
+    time: "Hora",
+    job: "Obra",
+    reportedBy: "Reportado por",
+    incidentType: "Tipo de incidente",
+    selectType: "- Seleccione tipo -",
+    locationOnSite: "Ubicacion en obra",
+    locationPlaceholder: "Ej. Acceso principal, elevacion este nivel 2",
+    personsInvolved: "Persona(s) involucrada(s)",
+    personInvolvedPlaceholder: "Nombre completo y oficio / rol",
+    injuryOccurred: "Hubo lesion",
+    medicalAttentionRequired: "Se requiere atencion medica",
+    incidentDescription: "Descripcion del incidente",
+    incidentDescriptionPlaceholder:
+      "Describa exactamente lo ocurrido: secuencia de eventos, equipo involucrado y condiciones al momento del incidente...",
+    immediateAction: "Accion inmediata tomada",
+    immediateActionPlaceholder:
+      "Que se hizo de inmediato para responder y contener el incidente?",
+    rootCause: "Analisis de causa raiz",
+    rootCausePlaceholder:
+      "Identifique la(s) causa(s) raiz subyacente(s), no solo la causa inmediata. Pregunte 'por que' hasta llegar al problema sistemico.",
+    correctiveAction: "Plan de accion correctiva",
+    correctiveActionPlaceholder:
+      "Que cambios se haran para evitar recurrencia? Quien es responsable y para cuando?",
+    witnesses: "Testigos",
+    addWitness: "Agregar testigo",
+    noWitnesses: "No se agregaron testigos.",
+    witnessName: "Nombre del testigo",
+    witnessStatement: "Declaracion breve",
+    removeWitness: "Eliminar testigo",
+    supervisorSignoff: "Firma del supervisor (iniciales)",
+    supervisorSignoffPlaceholder:
+      "Iniciales que confirman la exactitud del reporte",
+    submitting: "Enviando...",
+    submit: "Enviar reporte de incidente",
+    descriptionRequired: "La descripcion del incidente es obligatoria.",
+    rootCauseRequired: "El analisis de causa raiz es obligatorio.",
+    submitFailedShort: "Error al enviar",
+    submitFailedRetry: "Error al enviar. Intente de nuevo.",
+  },
+} as const;
+
 export function IncidentReportForm({
   superintendentName,
   jobId,
@@ -55,6 +145,7 @@ export function IncidentReportForm({
 }: Props) {
   const locale = useLocale();
   const isEs = locale === "es";
+  const t = isEs ? COPY.es : COPY.en;
   const today = new Date().toISOString().split("T")[0] ?? "";
   const nowTime = new Date().toTimeString().slice(0, 5);
 
@@ -102,24 +193,16 @@ export function IncidentReportForm({
       ),
     }));
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
 
     if (!formData.description.trim()) {
-      setError(
-        isEs
-          ? "La descripción del incidente es obligatoria."
-          : "Incident description is required.",
-      );
+      setError(t.descriptionRequired);
       return;
     }
     if (!formData.rootCause.trim()) {
-      setError(
-        isEs
-          ? "El análisis de causa raíz es obligatorio."
-          : "Root cause analysis is required.",
-      );
+      setError(t.rootCauseRequired);
       return;
     }
 
@@ -138,19 +221,13 @@ export function IncidentReportForm({
         }),
       });
       const json = await res.json();
-      if (!res.ok)
-        throw new Error(
-          json.error ?? (isEs ? "Error al enviar" : "Submit failed"),
-        );
+      if (!res.ok) {
+        throw new Error(json.error ?? t.submitFailedShort);
+      }
       onSubmitSuccess(json.data.id as string);
     } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : isEs
-            ? "Error al enviar. Intente de nuevo."
-            : "Submit failed. Try again.",
-      );
+      const fallbackError = t.submitFailedRetry;
+      setError(err instanceof Error ? err.message : fallbackError);
     } finally {
       setSubmitting(false);
     }
@@ -172,19 +249,7 @@ export function IncidentReportForm({
           className="text-amber-600 dark:text-amber-400 shrink-0 mt-0.5"
         />
         <p className="text-sm text-amber-800 dark:text-amber-200">
-          {isEs ? (
-            <>
-              En emergencias que ponen en riesgo la vida, llame al{" "}
-              <strong>911</strong> de inmediato. Notifique a su PM y al oficial
-              de seguridad tan pronto sea seguro hacerlo.
-            </>
-          ) : (
-            <>
-              For life-threatening emergencies, call <strong>911</strong>{" "}
-              immediately. Notify your PM and safety officer as soon as safe to
-              do so.
-            </>
-          )}
+          {t.emergencyPrefix} <strong>911</strong> {t.emergencySuffix}
         </p>
       </div>
 
@@ -192,7 +257,7 @@ export function IncidentReportForm({
       <div className="grid sm:grid-cols-4 gap-4">
         <div>
           <label className={labelClass}>
-            {isEs ? "Fecha" : "Date"} <span className="text-red-500">*</span>
+            {t.date} <span className="text-red-500">*</span>
           </label>
           <input
             type="date"
@@ -205,7 +270,7 @@ export function IncidentReportForm({
           />
         </div>
         <div>
-          <label className={labelClass}>{isEs ? "Hora" : "Time"}</label>
+          <label className={labelClass}>{t.time}</label>
           <input
             type="time"
             value={formData.time}
@@ -216,7 +281,7 @@ export function IncidentReportForm({
           />
         </div>
         <div>
-          <label className={labelClass}>{isEs ? "Obra" : "Job"}</label>
+          <label className={labelClass}>{t.job}</label>
           <input
             type="text"
             readOnly
@@ -225,9 +290,7 @@ export function IncidentReportForm({
           />
         </div>
         <div>
-          <label className={labelClass}>
-            {isEs ? "Reportado por" : "Reported By"}
-          </label>
+          <label className={labelClass}>{t.reportedBy}</label>
           <input
             type="text"
             value={formData.reporterName}
@@ -242,9 +305,7 @@ export function IncidentReportForm({
       {/* Incident type + location */}
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label className={labelClass}>
-            {isEs ? "Tipo de incidente" : "Incident Type"}
-          </label>
+          <label className={labelClass}>{t.incidentType}</label>
           <select
             value={formData.incidentType}
             onChange={(e) =>
@@ -252,9 +313,7 @@ export function IncidentReportForm({
             }
             className={inputClass}
           >
-            <option value="">
-              {isEs ? "— Seleccione tipo —" : "— Select type —"}
-            </option>
+            <option value="">{t.selectType}</option>
             {INCIDENT_TYPES.map((t) => (
               <option key={t} value={t}>
                 {t}
@@ -263,16 +322,10 @@ export function IncidentReportForm({
           </select>
         </div>
         <div>
-          <label className={labelClass}>
-            {isEs ? "Ubicación en obra" : "Location on Site"}
-          </label>
+          <label className={labelClass}>{t.locationOnSite}</label>
           <input
             type="text"
-            placeholder={
-              isEs
-                ? "Ej. Acceso principal, elevación este nivel 2"
-                : "e.g. Main entry, East elevation Level 2"
-            }
+            placeholder={t.locationPlaceholder}
             value={formData.location}
             onChange={(e) =>
               setFormData((d) => ({ ...d, location: e.target.value }))
@@ -284,16 +337,10 @@ export function IncidentReportForm({
 
       {/* Person involved + checkboxes */}
       <div>
-        <label className={labelClass}>
-          {isEs ? "Persona(s) involucrada(s)" : "Person(s) Involved"}
-        </label>
+        <label className={labelClass}>{t.personsInvolved}</label>
         <input
           type="text"
-          placeholder={
-            isEs
-              ? "Nombre completo y oficio / rol"
-              : "Full name and trade / role"
-          }
+          placeholder={t.personInvolvedPlaceholder}
           value={formData.personInvolved}
           onChange={(e) =>
             setFormData((d) => ({ ...d, personInvolved: e.target.value }))
@@ -306,13 +353,11 @@ export function IncidentReportForm({
         {[
           {
             field: "injuryOccurred" as const,
-            label: isEs ? "Hubo lesión" : "Injury occurred",
+            label: t.injuryOccurred,
           },
           {
             field: "medicalAttentionRequired" as const,
-            label: isEs
-              ? "Se requiere atención médica"
-              : "Medical attention required",
+            label: t.medicalAttentionRequired,
           },
         ].map(({ field, label }) => (
           <label
@@ -335,17 +380,12 @@ export function IncidentReportForm({
       {/* Description */}
       <div>
         <label className={labelClass}>
-          {isEs ? "Descripción del incidente" : "Incident Description"}{" "}
-          <span className="text-red-500">*</span>
+          {t.incidentDescription} <span className="text-red-500">*</span>
         </label>
         <textarea
           required
           rows={4}
-          placeholder={
-            isEs
-              ? "Describa exactamente lo ocurrido: secuencia de eventos, equipo involucrado y condiciones al momento del incidente…"
-              : "Describe exactly what happened — include sequence of events, equipment involved, and conditions at the time of the incident…"
-          }
+          placeholder={t.incidentDescriptionPlaceholder}
           value={formData.description}
           onChange={(e) =>
             setFormData((d) => ({ ...d, description: e.target.value }))
@@ -356,16 +396,10 @@ export function IncidentReportForm({
 
       {/* Immediate action */}
       <div>
-        <label className={labelClass}>
-          {isEs ? "Acción inmediata tomada" : "Immediate Action Taken"}
-        </label>
+        <label className={labelClass}>{t.immediateAction}</label>
         <textarea
           rows={2}
-          placeholder={
-            isEs
-              ? "¿Qué se hizo de inmediato para responder y contener el incidente?"
-              : "What was done immediately to respond to and contain the incident?"
-          }
+          placeholder={t.immediateActionPlaceholder}
           value={formData.immediateAction}
           onChange={(e) =>
             setFormData((d) => ({ ...d, immediateAction: e.target.value }))
@@ -377,17 +411,12 @@ export function IncidentReportForm({
       {/* Root cause */}
       <div>
         <label className={labelClass}>
-          {isEs ? "Análisis de causa raíz" : "Root Cause Analysis"}{" "}
-          <span className="text-red-500">*</span>
+          {t.rootCause} <span className="text-red-500">*</span>
         </label>
         <textarea
           required
           rows={3}
-          placeholder={
-            isEs
-              ? "Identifique la(s) causa(s) raíz subyacente(s), no solo la causa inmediata. Pregunte 'por qué' hasta llegar al problema sistémico."
-              : "Identify the underlying root cause(s) — not just the immediate cause. Ask 'why' until you find the systemic issue."
-          }
+          placeholder={t.rootCausePlaceholder}
           value={formData.rootCause}
           onChange={(e) =>
             setFormData((d) => ({ ...d, rootCause: e.target.value }))
@@ -398,16 +427,10 @@ export function IncidentReportForm({
 
       {/* Corrective action */}
       <div>
-        <label className={labelClass}>
-          {isEs ? "Plan de acción correctiva" : "Corrective Action Plan"}
-        </label>
+        <label className={labelClass}>{t.correctiveAction}</label>
         <textarea
           rows={3}
-          placeholder={
-            isEs
-              ? "¿Qué cambios se harán para evitar recurrencia? ¿Quién es responsable y para cuándo?"
-              : "What changes will be made to prevent recurrence? Who is responsible and by when?"
-          }
+          placeholder={t.correctiveActionPlaceholder}
           value={formData.correctiveAction}
           onChange={(e) =>
             setFormData((d) => ({ ...d, correctiveAction: e.target.value }))
@@ -419,18 +442,18 @@ export function IncidentReportForm({
       {/* Witnesses */}
       <div>
         <div className="flex items-center justify-between mb-2">
-          <label className={labelClass}>Witnesses</label>
+          <p className={labelClass}>{t.witnesses}</p>
           <button
             type="button"
             onClick={addWitness}
             className="inline-flex items-center gap-1 text-xs text-brand-primary hover:text-brand-primary-dark font-semibold"
           >
             <MaterialIcon icon="add" size="sm" />
-            Add Witness
+            {t.addWitness}
           </button>
         </div>
         {formData.witnesses.length === 0 && (
-          <p className="text-sm text-gray-400 italic">No witnesses added.</p>
+          <p className="text-sm text-gray-400 italic">{t.noWitnesses}</p>
         )}
         <div className="space-y-3">
           {formData.witnesses.map((w) => (
@@ -438,14 +461,14 @@ export function IncidentReportForm({
               <div className="grid sm:grid-cols-2 gap-2 flex-1">
                 <input
                   type="text"
-                  placeholder="Witness name"
+                  placeholder={t.witnessName}
                   value={w.name}
                   onChange={(e) => updateWitness(w.id, "name", e.target.value)}
                   className="px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
                 />
                 <input
                   type="text"
-                  placeholder="Brief statement"
+                  placeholder={t.witnessStatement}
                   value={w.statement}
                   onChange={(e) =>
                     updateWitness(w.id, "statement", e.target.value)
@@ -456,7 +479,7 @@ export function IncidentReportForm({
               <button
                 type="button"
                 onClick={() => removeWitness(w.id)}
-                aria-label="Remove witness"
+                aria-label={t.removeWitness}
                 className="mt-1.5 text-gray-400 hover:text-red-500 transition-colors"
               >
                 <MaterialIcon icon="remove_circle_outline" size="sm" />
@@ -468,10 +491,13 @@ export function IncidentReportForm({
 
       {/* Supervisor sign-off */}
       <div>
-        <label className={labelClass}>Supervisor Sign-off (initials)</label>
+        <label htmlFor="incident-supervisor-signoff" className={labelClass}>
+          {t.supervisorSignoff}
+        </label>
         <input
+          id="incident-supervisor-signoff"
           type="text"
-          placeholder="Initials confirming report accuracy"
+          placeholder={t.supervisorSignoffPlaceholder}
           value={formData.supervisorSignature}
           onChange={(e) =>
             setFormData((d) => ({ ...d, supervisorSignature: e.target.value }))
@@ -495,12 +521,12 @@ export function IncidentReportForm({
         {submitting ? (
           <>
             <MaterialIcon icon="hourglass_empty" size="sm" />
-            {isEs ? "Enviando…" : "Submitting…"}
+            {t.submitting}
           </>
         ) : (
           <>
             <MaterialIcon icon="send" size="sm" />
-            {isEs ? "Enviar reporte de incidente" : "Submit Incident Report"}
+            {t.submit}
           </>
         )}
       </button>

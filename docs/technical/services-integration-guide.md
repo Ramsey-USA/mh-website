@@ -160,7 +160,7 @@ GitHub serves as the central code repository and backup location for automation 
 
 ### CI/CD Pipeline
 
-1. **Push to main** → GitHub Actions runs CI gate, then deploys to Cloudflare Workers via `wrangler deploy`
+1. **Push to main** → GitHub Actions runs CI gate, then deploys to Cloudflare Workers via `WRANGLER_SEND_METRICS=false npx wrangler deploy`
 2. **Pre-commit hooks:** Type checking, linting, tests run locally
 3. **Auto-deploy:** Cloudflare builds and deploys on every push
 
@@ -1039,7 +1039,7 @@ With ~300 tokens per response and moderate traffic, expect $5-20/month.
 Workers AI binding isn't available in local dev. The code automatically falls
 back to `generateFallbackResponse()`. To test AI responses:
 
-1. Deploy to preview: `wrangler deploy --env preview`
+1. Deploy to preview: `WRANGLER_SEND_METRICS=false npx wrangler deploy --env preview`
 2. Test against preview URL
 3. Check Cloudflare dashboard → Workers AI for usage stats
 
@@ -1182,7 +1182,7 @@ Then add CNAME records in Cloudflare DNS pointing to `<TUNNEL_ID>.cfargotunnel.c
 
 ### Cloudflare Bindings Not Working
 
-1. Run `wrangler deploy` after updating `wrangler.toml`
+1. Run `WRANGLER_SEND_METRICS=false npx wrangler deploy` after updating `wrangler.toml`
 2. Check binding names match code expectations
 3. Verify D1/KV/R2 resources exist in dashboard
 

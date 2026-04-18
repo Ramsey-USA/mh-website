@@ -38,7 +38,7 @@
 ```text
 git push → Cloudflare Workers CI picks up the commit
          → Runs build command:   npm run build
-         → Runs deploy command:  npx wrangler deploy
+         → Runs deploy command:  WRANGLER_SEND_METRICS=false npx wrangler deploy
          → Output: .open-next/worker.js + .open-next/assets deployed as a Worker
 ```
 
@@ -70,16 +70,16 @@ binding = "ASSETS"
 
 ### Workers & Pages → mhc-v2-website → Settings → Builds → Edit
 
-| Field               | Value                          | Notes                                      |
-| ------------------- | ------------------------------ | ------------------------------------------ |
-| **Build command**   | `npm run build`                | Runs `opennextjs-cloudflare build`         |
-| **Deploy command**  | `npx wrangler deploy`          | Deploys Worker; reads `wrangler.toml` auto |
-| **Version command** | `npx wrangler versions upload` | Optional — for gradual/versioned rollouts  |
-| **Root directory**  | `/`                            | Repo root                                  |
+| Field               | Value                                             | Notes                                      |
+| ------------------- | ------------------------------------------------- | ------------------------------------------ |
+| **Build command**   | `npm run build`                                   | Runs `opennextjs-cloudflare build`         |
+| **Deploy command**  | `WRANGLER_SEND_METRICS=false npx wrangler deploy` | Deploys Worker; reads `wrangler.toml` auto |
+| **Version command** | `npx wrangler versions upload`                    | Optional — for gradual/versioned rollouts  |
+| **Root directory**  | `/`                                               | Repo root                                  |
 
 > ⚠️ **`npx wrangler pages deploy .open-next/assets` is WRONG here.** That is the
 > Cloudflare Pages command and will not work with the Workers `wrangler.toml` config.
-> The correct deploy command is `npx wrangler deploy`.
+> The correct deploy command is `WRANGLER_SEND_METRICS=false npx wrangler deploy`.
 
 ---
 
@@ -219,7 +219,7 @@ npx wrangler login
 
 # Build + deploy to Workers
 npm run deploy
-# Equivalent to: opennextjs-cloudflare build && wrangler deploy
+# Equivalent to: WRANGLER_SEND_METRICS=false opennextjs-cloudflare build && WRANGLER_SEND_METRICS=false npx wrangler deploy
 ```
 
 ---
@@ -431,8 +431,8 @@ Monitor weekly in Dashboard → Analytics → Cache.
 
 **Cause:** Running `wrangler deploy` without building first.
 
-**Fix:** Always use `npm run deploy` (which runs `opennextjs-cloudflare build && wrangler deploy`),
-or run `npm run build` before `npx wrangler deploy` manually.
+**Fix:** Always use `npm run deploy` (which runs `WRANGLER_SEND_METRICS=false opennextjs-cloudflare build && WRANGLER_SEND_METRICS=false npx wrangler deploy`),
+or run `npm run build` before `WRANGLER_SEND_METRICS=false npx wrangler deploy` manually.
 
 ---
 
@@ -468,7 +468,6 @@ Verify `wrangler.toml` has the correct binding:
 ```toml
 [[d1_databases]]
 binding = "DB"
-database_name = "mh-construction-db"
 database_id = "98ad144a-cfe2-4f19-a55c-c43140279840"
 ```
 

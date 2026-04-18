@@ -48,6 +48,16 @@ const partnershipIcons = [
   },
 ];
 
+type WhyPartnerValue = {
+  title: string;
+  stat?: string;
+  statLabel: string;
+  subtitle: string;
+  description: string;
+  highlights: string[];
+  accentColor?: string;
+};
+
 export function WhyPartnerSection() {
   const locale = useLocale();
   const t = locale === "es" ? es.home.whyPartner : en.home.whyPartner;
@@ -104,7 +114,7 @@ export function WhyPartnerSection() {
 
       {/* Modern Grid Cards with Unique Hover Effects */}
       <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
-        {(t.values || []).map((value: any, idx: number) => {
+        {(t.values || []).map((value: WhyPartnerValue, idx: number) => {
           const iconData = partnershipIcons[idx] ?? partnershipIcons[0]!;
           return (
             <div
@@ -159,7 +169,7 @@ export function WhyPartnerSection() {
                               : "text-brand-primary-dark dark:text-brand-primary-light"
                         }`}
                       >
-                        {value.stat}
+                        {value.stat ?? ""}
                       </div>
                       <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
                         {value.statLabel}

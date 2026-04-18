@@ -387,7 +387,7 @@ v7.0.0.
 ```bash
 # Build + deploy
 npm run deploy
-# Equivalent to: opennextjs-cloudflare build && wrangler deploy
+# Equivalent to: WRANGLER_SEND_METRICS=false opennextjs-cloudflare build && WRANGLER_SEND_METRICS=false npx wrangler deploy
 
 # Secrets — set via wrangler or dashboard
 # Workers & Pages → mhc-v2-website → Settings → Variables & Secrets
