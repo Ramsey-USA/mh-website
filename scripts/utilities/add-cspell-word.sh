@@ -1,52 +1,75 @@
 #!/bin/bash
 
-# Add word(s) to cSpell dictionary
-# Usage: ./scripts/add-cspell-word.sh word1 word2 word3
+# Add word(s) to a cSpell project dictionary
+# Usage: ./scripts/utilities/add-cspell-word.sh [--dict technical|safety|names|tech-additions|spanish] word1 word2 word3
+
+set -euo pipefail
+
+DICT_NAME="technical"
+if [ "${1:-}" = "--dict" ]; then
+    DICT_NAME="${2:-}"
+    shift 2
+fi
 
 if [ $# -eq 0 ]; then
-    echo "Usage: $0 word1 [word2 word3 ...]"
-    echo "Adds words to the cSpell dictionary in cspell.json"
+    echo "Usage: $0 [--dict technical|safety|names|tech-additions|spanish] word1 [word2 word3 ...]"
+    echo "Adds words to a categorized cSpell project dictionary under config/cspell/"
     exit 1
 fi
 
-CSPELL_FILE="/workspaces/mh-website/cspell.json"
+case "$DICT_NAME" in
+    technical)
+        CSPELL_FILE="/workspaces/mh-website/config/cspell/project-words.txt"
+        ;;
+    safety)
+        CSPELL_FILE="/workspaces/mh-website/config/cspell/safety-industry-words.txt"
+        ;;
+    names)
+        CSPELL_FILE="/workspaces/mh-website/config/cspell/names-and-places-words.txt"
+        ;;
+    tech-additions)
+        CSPELL_FILE="/workspaces/mh-website/config/cspell/technical-additions.txt"
+        ;;
+    spanish)
+        CSPELL_FILE="/workspaces/mh-website/config/cspell/spanish-custom-words.txt"
+        ;;
+    *)
+        echo "Unknown dictionary: $DICT_NAME"
+        echo "Valid options: technical, safety, names, tech-additions, spanish"
+        exit 1
+        ;;
+esac
 
-# Check if cspell.json exists
+# Check if project dictionary exists
 if [ ! -f "$CSPELL_FILE" ]; then
-    echo "Error: cspell.json not found at $CSPELL_FILE"
+    echo "Error: project dictionary not found at $CSPELL_FILE"
     exit 1
 fi
 
-# Create backup
-cp "$CSPELL_FILE" "${CSPELL_FILE}.backup"
+sort_file() {
+    local tmp_file
+    tmp_file="$(mktemp)"
+    awk 'NF > 0' "$CSPELL_FILE" | LC_ALL=C sort -u > "$tmp_file"
+    mv "$tmp_file" "$CSPELL_FILE"
+}
 
-echo "Adding words to cSpell dictionary:"
+echo "Adding words to cSpell dictionary '$DICT_NAME':"
 
 for word in "$@"; do
     echo "  - $word"
     
     # Check if word already exists
-    if grep -q "\"$word\"" "$CSPELL_FILE"; then
+    if grep -Fqx "$word" "$CSPELL_FILE"; then
         echo "    (already exists)"
         continue
     fi
-    
-    # Add word before the closing bracket of the words array
-    # Use a more robust approach with awk
-    awk -v word="$word" '
-    /^[ ]*],$/ && in_words {
-        print "    \"" word "\","
-        in_words = 0
-    }
-    /^[ ]*"words":/ { in_words = 1 }
-    { print }
-    ' "$CSPELL_FILE" > "${CSPELL_FILE}.tmp"
-    
-    mv "${CSPELL_FILE}.tmp" "$CSPELL_FILE"
+
+    printf '%s\n' "$word" >> "$CSPELL_FILE"
 done
+
+sort_file
 
 echo ""
 echo "✅ Words added successfully!"
-echo "📄 Backup saved as cspell.json.backup"
 echo ""
 echo "💡 Test with: npm run cspell:check"
