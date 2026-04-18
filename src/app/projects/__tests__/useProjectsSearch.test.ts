@@ -14,7 +14,7 @@ jest.mock("@/components/analytics/EnhancedAnalytics", () => ({
 
 jest.mock("@/lib/services/portfolio-service", () => ({
   PortfolioService: {
-    getProjectsByCategory: jest.fn((category: string) => {
+    searchProjects: jest.fn((category: string, query: string) => {
       const projects = [
         {
           id: "1",
@@ -35,8 +35,29 @@ jest.mock("@/lib/services/portfolio-service", () => ({
           tags: undefined,
         },
       ];
-      if (category === "all") return projects;
-      return projects.filter((p) => p.category === category);
+
+      const categoryProjects =
+        category === "all"
+          ? projects
+          : projects.filter((project) => project.category === category);
+
+      const normalizedQuery = query.trim().toLowerCase();
+      if (!normalizedQuery) {
+        return categoryProjects;
+      }
+
+      return categoryProjects.filter((project) => {
+        const haystack = [
+          project.title,
+          project.description,
+          project.location.city,
+          ...(project.tags ?? []),
+        ]
+          .join(" ")
+          .toLowerCase();
+
+        return haystack.includes(normalizedQuery);
+      });
     }),
   },
 }));
@@ -143,6 +164,9 @@ describe("useProjectsSearch", () => {
     act(() => {
       result.current.setSearchQuery("Pasco");
     });
+    act(() => {
+      jest.advanceTimersByTime(300);
+    });
     expect(window.location.search).toContain("search=Pasco");
   });
 
@@ -152,7 +176,13 @@ describe("useProjectsSearch", () => {
       result.current.setSearchQuery("temp");
     });
     act(() => {
+      jest.advanceTimersByTime(300);
+    });
+    act(() => {
       result.current.setSearchQuery("");
+    });
+    act(() => {
+      jest.advanceTimersByTime(300);
     });
     expect(window.location.search).not.toContain("search=");
   });
