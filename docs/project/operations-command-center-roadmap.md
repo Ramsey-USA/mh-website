@@ -1,8 +1,12 @@
 # MHC Operations Command Center Roadmap
 
+**Category:** Project - Operations Planning  
 **Created:** April 13, 2026  
-**Version:** 1.0  
-**Status:** Active
+**Last Updated:** April 17, 2026  
+**Version:** 1.1  
+**Status:** ✅ Active
+
+> Alignment update (April 17, 2026): this roadmap is now sequenced with `docs/project/operational-hub-build-plan.md` and the canonical execution order in `docs/project/operational-hub-congruent-plan.md`.
 
 ---
 
@@ -65,7 +69,7 @@ Using Safety Program pipeline:
 
 ### 1.2 Extend Database Schema
 
-**Migration 0013: Extend `authorized_drivers` table**
+**Migration 0015: Extend `authorized_drivers` table**
 
 ```sql
 ALTER TABLE authorized_drivers ADD COLUMN training_completion_date TEXT;
@@ -85,7 +89,7 @@ ALTER TABLE authorized_drivers ADD COLUMN last_annual_review TEXT;
 
 ### 1.4 Driver Self-Service Portal
 
-Create `/drivers/me`:
+Create `/hub/me` (unified self-service under the Operational Hub):
 
 - [ ] View own license status, upcoming expirations
 - [ ] Upload updated license photo
@@ -110,13 +114,13 @@ Create `/drivers/me`:
 
 | File                                            | Action                   |
 | ----------------------------------------------- | ------------------------ |
-| `migrations/0013_extend_authorized_drivers.sql` | Create                   |
+| `migrations/0015_extend_authorized_drivers.sql` | Create                   |
 | `src/app/dashboard/DriversTab.tsx`              | Enhance                  |
 | `src/app/api/drivers/check-alerts/route.ts`     | Add incident alerts      |
 | `documents/content/MHC_Driving_Program_2026/`   | Create content           |
 | `public/sw.js`                                  | Extend for offline forms |
 | `src/lib/pwa/offline-queue.ts`                  | Create                   |
-| `src/app/drivers/me/page.tsx`                   | Create                   |
+| `src/app/hub/me/page.tsx`                       | Create                   |
 
 ### Phase 1 Verification
 
@@ -137,7 +141,7 @@ Create `/drivers/me`:
 
 ### 2.2 Database Tables
 
-**Migration 0014: `handbook_acknowledgments`**
+**Migration 0016: `handbook_acknowledgments`**
 
 ```sql
 CREATE TABLE handbook_acknowledgments (
@@ -154,7 +158,7 @@ CREATE INDEX idx_ack_employee ON handbook_acknowledgments(employee_id);
 CREATE INDEX idx_ack_version ON handbook_acknowledgments(version);
 ```
 
-**Migration 0015: `employee_certifications`**
+**Migration 0017: `employee_certifications`**
 
 ```sql
 CREATE TABLE employee_certifications (
@@ -179,7 +183,7 @@ CREATE INDEX idx_certs_type ON employee_certifications(cert_type);
 
 ### 2.3 Employee Portal
 
-Create `/handbook`:
+Create handbook experience in `/hub` (`employee-manual` tab) with optional `/handbook` alias redirect if needed:
 
 - [ ] Browse sections online (SSR from R2 PDFs or markdown)
 - [ ] Download complete PDF
@@ -209,9 +213,9 @@ Create `/handbook`:
 
 | File                                                  | Action         |
 | ----------------------------------------------------- | -------------- |
-| `migrations/0014_create_handbook_acknowledgments.sql` | Create         |
-| `migrations/0015_create_employee_certifications.sql`  | Create         |
-| `src/app/handbook/page.tsx`                           | Create         |
+| `migrations/0016_create_handbook_acknowledgments.sql` | Create         |
+| `migrations/0017_create_employee_certifications.sql`  | Create         |
+| `src/app/hub/HubClient.tsx`                           | Enhance        |
 | `src/app/dashboard/CertificationsTab.tsx`             | Create         |
 | `src/app/api/certifications/`                         | Create routes  |
 | `documents/content/MHC_Handbook_2026/`                | Create content |
@@ -246,7 +250,7 @@ Create `/handbook`:
 
 ### 3.1 Content Calendar
 
-**Migration 0016: `content_calendar`**
+**Migration 0018: `content_calendar`**
 
 ```sql
 CREATE TABLE content_calendar (
@@ -292,7 +296,7 @@ CREATE INDEX idx_calendar_status ON content_calendar(status);
 
 | File                                          | Action |
 | --------------------------------------------- | ------ |
-| `migrations/0016_create_content_calendar.sql` | Create |
+| `migrations/0018_create_content_calendar.sql` | Create |
 | `src/app/podcast/page.tsx`                    | Create |
 | `src/app/dashboard/SocialTab.tsx`             | Create |
 | `src/app/api/social/schedule/route.ts`        | Create |
@@ -308,7 +312,7 @@ CREATE INDEX idx_calendar_status ON content_calendar(status);
 
 ## Phase 4: Automation Engine + Compliance Tracking (Week 9-12)
 
-**Replace n8n vision with Cloudflare-native primitives.**
+**Build Cloudflare-native primitives in parallel with the existing n8n system, then evaluate cutover after stabilization.**
 
 ### 4.1 Cloudflare Queues Setup
 
@@ -330,7 +334,7 @@ CREATE INDEX idx_calendar_status ON content_calendar(status);
 
 ### 4.4 Insurance & Bonding Tracking
 
-**Migration 0017: `company_policies`**
+**Migration 0019: `company_policies`**
 
 ```sql
 CREATE TABLE company_policies (
@@ -370,7 +374,7 @@ CREATE INDEX idx_policies_type ON company_policies(policy_type);
 
 | File                                          | Action                      |
 | --------------------------------------------- | --------------------------- |
-| `migrations/0017_create_company_policies.sql` | Create                      |
+| `migrations/0019_create_company_policies.sql` | Create                      |
 | `src/app/dashboard/InsuranceTab.tsx`          | Create                      |
 | `src/app/api/policies/`                       | Create routes               |
 | `src/app/api/webhooks/transistor/route.ts`    | Create                      |
@@ -667,21 +671,21 @@ emails (form notifications, alerts) while Outlook handles business correspondenc
 
 ## Decisions Made
 
-| Decision          | Resolution                                                                  |
-| ----------------- | --------------------------------------------------------------------------- |
-| VPS               | Eliminated — all automation via Cloudflare Queues/Workflows                 |
-| n8n               | Replaced with native Cloudflare primitives                                  |
-| Cloudflare        | Upgrading to Pro plan ($25/mo) — WAF, image optimization, analytics         |
-| Email             | Microsoft 365 / Outlook (existing) + Resend (transactional)                 |
-| Social platform   | Buffer ($60/mo) — covers all platforms including TikTok                     |
-| Podcast           | Transistor + Riverside + Descript stack                                     |
-| PWA               | Existing v4.0.0 — extend for offline forms, manual caching, background sync |
-| Certifications    | Track in D1, same expiration alert pattern as driver licenses               |
-| Insurance/Bonding | Track in D1, alert Matt/Jeremy on expiration                                |
-| HD Drywall        | On hold, infrastructure ready when needed                                   |
-| Heatmaps          | Microsoft Clarity (free), implement when prioritized                        |
-| Phased approach   | Strict adherence — no scope creep between phases                            |
-| Media storage     | Cloudflare R2 for photos/videos (not Git) — free egress, unlimited scale    |
+| Decision          | Resolution                                                                              |
+| ----------------- | --------------------------------------------------------------------------------------- |
+| VPS               | Retained short-term for n8n/monitoring; reevaluate after Cloudflare workflows stabilize |
+| n8n               | Transitional primary for notifications during migration; target phased cutover          |
+| Cloudflare        | Upgrading to Pro plan ($25/mo) — WAF, image optimization, analytics                     |
+| Email             | Microsoft 365 / Outlook (existing) + Resend (transactional)                             |
+| Social platform   | Buffer ($60/mo) — covers all platforms including TikTok                                 |
+| Podcast           | Transistor + Riverside + Descript stack                                                 |
+| PWA               | Existing v4.0.0 — extend for offline forms, manual caching, background sync             |
+| Certifications    | Track in D1, same expiration alert pattern as driver licenses                           |
+| Insurance/Bonding | Track in D1, alert Matt/Jeremy on expiration                                            |
+| HD Drywall        | On hold, infrastructure ready when needed                                               |
+| Heatmaps          | Microsoft Clarity (free), implement when prioritized                                    |
+| Phased approach   | Strict adherence — no scope creep between phases                                        |
+| Media storage     | Cloudflare R2 for photos/videos (not Git) — free egress, unlimited scale                |
 
 ---
 
@@ -711,6 +715,7 @@ emails (form notifications, alerts) while Outlook handles business correspondenc
 
 **Document History:**
 
-| Date           | Version | Changes                 |
-| -------------- | ------- | ----------------------- |
-| April 13, 2026 | 1.0     | Initial roadmap created |
+| Date           | Version | Changes                                                                                            |
+| -------------- | ------- | -------------------------------------------------------------------------------------------------- |
+| April 17, 2026 | 1.1     | Alignment update for migration sequencing, `/hub` routing, and staged n8n-to-Cloudflare transition |
+| April 13, 2026 | 1.0     | Initial roadmap created                                                                            |

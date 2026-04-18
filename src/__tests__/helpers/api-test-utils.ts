@@ -7,7 +7,7 @@
  * logic can reference makeRequireRoleImpl exported here.
  */
 
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 // ── Auth helpers ──────────────────────────────────────────────────────────────
 
@@ -34,20 +34,43 @@ export const mockSuperUser = {
   email: "super@test.com",
 };
 
+export const mockWorkerUser = {
+  uid: "worker-1",
+  role: "worker",
+  name: "Field Worker",
+  email: "worker@test.com",
+};
+
+export const mockTravelerUser = {
+  uid: "traveler-1",
+  role: "traveler",
+  name: "Travelers Insurance",
+  email: "traveler@test.com",
+};
+
 // ── Request factory ───────────────────────────────────────────────────────────
 
 export function makeRequest(
   url: string,
-  options: {
-    method?: string;
-    body?: unknown;
-    headers?: Record<string, string>;
-  } = {},
+  options:
+    | {
+        method?: string;
+        body?: unknown;
+        headers?: Record<string, string>;
+      }
+    | undefined = undefined,
 ): NextRequest {
+  const resolvedOptions = options ?? {};
+
   return new NextRequest(url, {
-    method: options.method ?? "GET",
-    headers: { "Content-Type": "application/json", ...(options.headers ?? {}) },
-    ...(options.body !== undefined && { body: JSON.stringify(options.body) }),
+    method: resolvedOptions.method ?? "GET",
+    headers: {
+      "Content-Type": "application/json",
+      ...(resolvedOptions.headers ?? {}),
+    },
+    ...(resolvedOptions.body !== undefined && {
+      body: JSON.stringify(resolvedOptions.body),
+    }),
   });
 }
 
@@ -68,41 +91,59 @@ export function makeRequireRoleImpl(
   roles: string[],
   handler: (req: NextRequest, user: unknown, ctx?: unknown) => unknown,
 ) {
-  return async (req: NextRequest, ctx?: unknown) => {
+  return (req: NextRequest, ctx?: unknown) => {
     const auth = req.headers.get("Authorization");
     if (!auth) {
-      // NextResponse imported inline to avoid hoisting issues
-      const { NextResponse } =
-        require("next/server") as typeof import("next/server");
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
     const role = req.headers.get("X-Test-Role") ?? "admin";
     if (!roles.includes(role)) {
-      const { NextResponse } =
-        require("next/server") as typeof import("next/server");
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
-    const user =
-      role === "superintendent"
-        ? {
-            uid: "super-1",
-            role: "superintendent",
-            name: "Bob Super",
-            email: "super@test.com",
-          }
-        : role === "manager"
-          ? {
-              uid: "mgr-1",
-              role: "manager",
-              name: "Manager",
-              email: "mgr@test.com",
-            }
-          : {
-              uid: "admin-1",
-              role: "admin",
-              name: "Admin User",
-              email: "admin@test.com",
-            };
+    let user: {
+      uid: string;
+      role: string;
+      name: string;
+      email: string;
+    };
+
+    if (role === "superintendent") {
+      user = {
+        uid: "super-1",
+        role: "superintendent",
+        name: "Bob Super",
+        email: "super@test.com",
+      };
+    } else if (role === "worker") {
+      user = {
+        uid: "worker-1",
+        role: "worker",
+        name: "Field Worker",
+        email: "worker@test.com",
+      };
+    } else if (role === "traveler") {
+      user = {
+        uid: "traveler-1",
+        role: "traveler",
+        name: "Travelers Insurance",
+        email: "traveler@test.com",
+      };
+    } else if (role === "manager") {
+      user = {
+        uid: "mgr-1",
+        role: "manager",
+        name: "Manager",
+        email: "mgr@test.com",
+      };
+    } else {
+      user = {
+        uid: "admin-1",
+        role: "admin",
+        name: "Admin User",
+        email: "admin@test.com",
+      };
+    }
+
     return handler(req, user, ctx);
   };
 }

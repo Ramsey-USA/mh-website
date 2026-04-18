@@ -1,6 +1,6 @@
-# Browser Tab Titles - Dual Military/Construction Messaging
+# Browser Tab Titles — Dual Military/Construction Messaging
 
-## Complete Site Title Inventory - Updated April 8, 2026
+## Complete Site Title Inventory — Updated April 8, 2026
 
 All browser tab titles now consistently use the dual military → construction
 messaging format, honoring our veteran heritage while maintaining civilian

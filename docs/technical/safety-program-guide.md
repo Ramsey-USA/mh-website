@@ -51,13 +51,15 @@ revision has been reviewed against the applicable state rules.
 
 ## System Architecture
 
+> Alignment note (April 17, 2026): follow `docs/project/operational-hub-congruent-plan.md` as source of truth for route/auth sequencing. `/hub` is canonical staff access; `/safety/hub` remains backward-compatible until redirect cutover completes.
+
 ### Two Audiences, Three Entry Points
 
-| Audience                          | URL           | Access                                    |
-| --------------------------------- | ------------- | ----------------------------------------- |
-| Bonding agents, insurers, clients | `/safety`     | Public — no login required                |
-| Superintendents / Field staff     | `/safety/hub` | Passcode (`FIELD_STAFF_PASSWORD` env var) |
-| Admins (Matt & Jeremy)            | `/dashboard`  | Email + password                          |
+| Audience                                           | URL          | Access                        |
+| -------------------------------------------------- | ------------ | ----------------------------- |
+| Bonding agents, insurers, clients                  | `/safety`    | Public — no login required    |
+| Staff (Admin, Superintendents, Workers, Travelers) | `/hub`       | Role-based auth (4-role gate) |
+| Admins (Matt & Jeremy)                             | `/dashboard` | Email + password              |
 
 ### Document Pipeline
 
@@ -125,7 +127,7 @@ documents/
 │   ├── safety-manual-cover.pdf
 │   ├── safety-manual-spine.pdf
 │   ├── safety-manual-tabs.pdf
-│   ├── sections/          ← Generated section PDFs (served to /safety/hub field staff)
+│   ├── sections/          ← Generated section PDFs (served to /hub field staff)
 │   └── forms/             ← Generated form PDFs
 ├── scripts/
 │   ├── extract.mjs        ← PDF text extraction → safety-manual.json
@@ -353,7 +355,8 @@ npm run type-check && npm run lint && npm run build
 
 ```text
 /safety              ← Public showcase (bonding agents, insurers, clients) — SEO indexed
-/safety/hub          ← Field staff dashboard (passcode required) — noindex
+/hub                 ← Unified staff dashboard (4-role auth) — noindex
+/safety/hub          ← Backward-compat redirect to `/hub` — noindex
 /safety/print/[id]   ← Print/PDF view for submitted forms — noindex
 /api/safety/intake   ← Public upload intake (Turnstile + rate limiting + review queue)
 /dashboard           ← Admin management (email + password) — noindex
@@ -365,9 +368,10 @@ npm run type-check && npm run lint && npm run build
 | ------------------------------------------ | ------------------------------------------------------------------- |
 | `src/app/safety/page.tsx`                  | Public safety showcase page                                         |
 | `src/app/safety/layout.tsx`                | Public SEO metadata (indexed)                                       |
-| `src/app/safety/hub/page.tsx`              | Field hub server entry                                              |
-| `src/app/safety/hub/layout.tsx`            | Hub metadata (noindex)                                              |
-| `src/app/safety/hub/SafetyHubClient.tsx`   | Field hub UI (passcode gate + superintendent dashboard)             |
+| `src/app/hub/page.tsx`                     | Unified hub server entry                                            |
+| `src/app/safety/hub/page.tsx`              | Backward-compat redirect to `/hub`                                  |
+| `src/app/safety/hub/layout.tsx`            | Legacy hub metadata retained for redirect-path compatibility        |
+| `src/app/hub/HubClient.tsx`                | Unified hub UI (role-gated: admin/superintendent/worker/traveler)   |
 | `src/app/safety/print/[id]/page.tsx`       | Print view entry                                                    |
 | `src/app/dashboard/SafetyTab.tsx`          | Admin safety management tab                                         |
 | `src/lib/data/documents.ts`                | Web document registry — update `revisionDate`/`revisionNumber` here |
@@ -376,6 +380,9 @@ npm run type-check && npm run lint && npm run build
 | `src/app/api/safety/forms/route.ts`        | Form submission API                                                 |
 | `src/app/api/safety/jobs/route.ts`         | Jobs API                                                            |
 | `src/app/api/safety/downloads/route.ts`    | PDF download tracking API                                           |
+| `src/app/api/safety/access-log/route.ts`   | Hub access activity API (log + admin reporting)                     |
+
+All authenticated hub roles can write download-log entries, while access-log `GET` remains restricted to admin reporting.
 
 ### Database Tables
 
@@ -384,14 +391,19 @@ npm run type-check && npm run lint && npm run build
 | `jobs`                    | Active/closed/archived construction jobs         |
 | `safety_form_submissions` | Digital form submissions per job                 |
 | `safety_download_log`     | PDF section download tracking per superintendent |
+| `safety_access_log`       | Authenticated hub access and audit activity log  |
 
 ### Auth Architecture
 
-| Role             | Login Method                                      | Access                          |
-| ---------------- | ------------------------------------------------- | ------------------------------- |
-| `admin`          | Email + password via `POST /api/auth/admin-login` | Full dashboard, all API routes  |
-| `superintendent` | Shared passcode via `POST /api/auth/field-login`  | Field hub, own submissions only |
-| Anonymous        | N/A                                               | Public `/safety` page only      |
+| Role             | Login Method                                                        | Access                          |
+| ---------------- | ------------------------------------------------------------------- | ------------------------------- |
+| `admin`          | Email + password via `POST /api/auth/admin-login`                   | Full dashboard, all API routes  |
+| `superintendent` | Shared passcode via `POST /api/auth/field-login`                    | Field hub, own submissions only |
+| `worker`         | Shared passcode via `POST /api/auth/hub-login` (`role: "worker"`)   | Hub access with role limits     |
+| `traveler`       | Shared passcode via `POST /api/auth/hub-login` (`role: "traveler"`) | Hub read/audit scope only       |
+| Anonymous        | N/A                                                                 | Public `/safety` page only      |
+
+Successful authenticated login flows now emit server-side `login` audit events through the shared access-log pipeline.
 
 ---
 

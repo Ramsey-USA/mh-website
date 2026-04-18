@@ -1,7 +1,7 @@
 # External Services Integration Guide
 
 **Category:** Technical - Infrastructure
-**Last Updated:** April 15, 2026
+**Last Updated:** April 17, 2026
 **Version:** 1.2.0
 **Status:** ✅ Active
 
@@ -10,6 +10,8 @@ website: **GitHub** (code repository), **Cloudflare Workers** (hosting/CDN/WAF),
 **Microsoft 365** (business mailboxes — not used for transactional email), **Hostinger VPS** (n8n automation, Uptime Kuma monitoring),
 **Resend** (transactional email), **Twilio** (communications), and **Semrush Pro** (SEO).
 Transactional email notifications (form submissions, alerts) route through **n8n + Resend**. Business email (`@mhc-gc.com` mailboxes) is handled by **Microsoft 365**.
+
+> Alignment note (April 17, 2026): follow `docs/project/operational-hub-congruent-plan.md` for automation transition policy. n8n remains active production automation while Cloudflare Queues/Workflows equivalents are built in parallel; do not decommission n8n until parity and reliability gates are met.
 
 **Tech Stack:** Next.js 15 + Tailwind CSS + TypeScript — high-performance, mobile-responsive, tactical professional tone.
 

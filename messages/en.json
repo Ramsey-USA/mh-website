@@ -1,0 +1,108 @@
+{
+  "common": {
+    "signIn": "Sign In",
+    "back": "Back",
+    "logout": "Sign Out",
+    "loading": "Loading...",
+    "error": "An error occurred. Please try again.",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "download": "Download",
+    "open": "Open",
+    "close": "Close"
+  },
+  "hub": {
+    "tabs": {
+      "safety": "Safety",
+      "employeeManual": "Employee Manual",
+      "joiningProgram": "Joining Program",
+      "history": "History"
+    },
+    "login": {
+      "title": "Staff Access",
+      "subtitle": "MH Construction Operational Hub",
+      "selectRole": "Select your role to continue",
+      "adminLabel": "Admin / Office",
+      "superintendentLabel": "Superintendent",
+      "workerLabel": "Team Member",
+      "travelerLabel": "Travelers Insurance",
+      "emailPlaceholder": "Email address",
+      "passwordPlaceholder": "Password",
+      "passcodePlaceholder": "Access code",
+      "namePlaceholder": "Your name",
+      "signInButton": "Sign In",
+      "wrongCredentials": "Incorrect credentials. Please try again.",
+      "lockedOut": "Account temporarily locked. Try again in 5 minutes."
+    },
+    "roleSelector": {
+      "chooseRole": "How are you accessing the hub today?",
+      "admin": "Admin",
+      "superintendent": "Superintendent",
+      "worker": "Team Member",
+      "traveler": "Travelers Insurance"
+    }
+  },
+  "safety": {
+    "tabs": {
+      "downloads": "Downloads",
+      "forms": "Forms",
+      "history": "History"
+    },
+    "downloads": {
+      "title": "Safety Documents",
+      "subtitle": "Download field safety references",
+      "noDocuments": "No documents available."
+    },
+    "forms": {
+      "title": "Safety Forms",
+      "subtitle": "Complete and submit field safety forms",
+      "toolboxTalk": "Toolbox Talk",
+      "jhaLabel": "Job Hazard Analysis (JHA)",
+      "inspection": "Site Safety Inspection",
+      "incident": "Incident Report",
+      "selectJob": "Select job site",
+      "noJobSelected": "Select a job site to continue",
+      "submitSuccess": "Form submitted successfully.",
+      "submitError": "Submission failed. Please try again.",
+      "jha": {
+        "title": "Job Hazard Analysis",
+        "formNumber": "MISH 05",
+        "actionItems": {
+          "identifyHazards": "Identify all hazards before work begins",
+          "ppe": "Confirm required PPE is available and worn",
+          "emergencyPlan": "Review emergency action plan with crew",
+          "signOff": "All workers sign off before starting task"
+        }
+      }
+    }
+  },
+  "employeeManual": {
+    "title": "Employee Manual",
+    "description": "MH Construction company policies and procedures",
+    "comingSoon": "Content coming soon."
+  },
+  "joiningProgram": {
+    "title": "Joining Program",
+    "subtitle": "Travelers Insurance onboarding resources",
+    "sections": {
+      "videos": "Training Videos",
+      "documents": "Program Documents",
+      "contact": "Travelers Contact"
+    }
+  },
+  "travelers": {
+    "videos": {
+      "title": "Safety Training Videos",
+      "watchNow": "Watch Now",
+      "duration": "Duration",
+      "noVideos": "No videos available at this time."
+    },
+    "contact": {
+      "title": "Travelers Contact Information",
+      "riskControl": "Risk Control Consultant",
+      "claimsPhone": "Claims: 1-800-238-6225"
+    }
+  }
+}

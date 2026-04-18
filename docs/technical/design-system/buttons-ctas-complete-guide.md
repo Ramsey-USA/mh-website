@@ -1,4 +1,4 @@
-# Buttons & CTAs - Complete Implementation Guide
+# Buttons & CTAs — Complete Implementation Guide
 
 **Category:** UI Components - Buttons & Call-to-Actions  
 **Last Updated:** March 15, 2026  

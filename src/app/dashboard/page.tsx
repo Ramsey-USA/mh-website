@@ -25,6 +25,15 @@ const DriversTab = dynamic(
     ),
   },
 );
+const AccessLogTab = dynamic(
+  () => import("./AccessLogTab").then((m) => ({ default: m.AccessLogTab })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-6 animate-pulse h-64" />
+    ),
+  },
+);
 const LeadsTab = dynamic(
   () => import("./LeadsTab").then((m) => ({ default: m.LeadsTab })),
   {
@@ -80,7 +89,7 @@ export default function AnalyticsDashboardPage() {
   );
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<
-    "analytics" | "leads" | "safety" | "drivers"
+    "analytics" | "leads" | "safety" | "drivers" | "access-log"
   >("analytics");
   const [adminToken, setAdminToken] = useState<string | null>(null);
 
@@ -205,21 +214,21 @@ export default function AnalyticsDashboardPage() {
       <div className="bg-gray-900/80 border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-1 py-2">
-            {(["analytics", "leads", "safety", "drivers"] as const).map(
-              (tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-5 py-2 rounded-lg text-sm font-black uppercase tracking-wider transition-colors ${
-                    activeTab === tab
-                      ? "bg-brand-primary text-white"
-                      : "text-gray-400 hover:text-white hover:bg-gray-700"
-                  }`}
-                >
-                  {renderTabLabel(tab)}
-                </button>
-              ),
-            )}
+            {(
+              ["analytics", "leads", "safety", "drivers", "access-log"] as const
+            ).map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-5 py-2 rounded-lg text-sm font-black uppercase tracking-wider transition-colors ${
+                  activeTab === tab
+                    ? "bg-brand-primary text-white"
+                    : "text-gray-400 hover:text-white hover:bg-gray-700"
+                }`}
+              >
+                {renderTabLabel(tab)}
+              </button>
+            ))}
           </div>
         </div>
       </div>
@@ -230,12 +239,15 @@ export default function AnalyticsDashboardPage() {
     </div>
   );
 
-  function renderTabLabel(tab: "analytics" | "leads" | "safety" | "drivers") {
+  function renderTabLabel(
+    tab: "analytics" | "leads" | "safety" | "drivers" | "access-log",
+  ) {
     const TAB_CONFIG = {
       analytics: { icon: "dashboard", label: "Analytics" },
       leads: { icon: "person_search", label: "Leads CRM" },
       safety: { icon: "safety_check", label: "Safety" },
       drivers: { icon: "directions_car", label: "Drivers" },
+      "access-log": { icon: "verified_user", label: "Access Log" },
     } as const;
     const { icon, label } = TAB_CONFIG[tab];
     return (
@@ -250,6 +262,9 @@ export default function AnalyticsDashboardPage() {
     if (activeTab === "leads") return <LeadsTab token={adminToken ?? ""} />;
     if (activeTab === "safety") return <SafetyTab token={adminToken ?? ""} />;
     if (activeTab === "drivers") return <DriversTab token={adminToken ?? ""} />;
+    if (activeTab === "access-log") {
+      return <AccessLogTab token={adminToken ?? ""} />;
+    }
     if (isLoading) {
       return (
         <div className="flex items-center justify-center py-20">

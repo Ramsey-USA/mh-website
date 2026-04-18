@@ -1,6 +1,13 @@
 # MH Operational Hub — Build Plan
 
+**Category:** Project - Operations Planning  
+**Last Updated:** April 17, 2026  
+**Version:** 1.0  
+**Status:** ✅ Active Planning Document
+
 **Project:** Replace `/safety/hub` with a unified `/hub` route covering Safety, Employee Manual, and Employee Joining Program — with 4-role authentication, full access tracking + notifications to Matt, and a Spanish language toggle.
+
+> Canonical alignment note (April 17, 2026): sequencing and cross-plan dependency decisions are centralized in `docs/project/operational-hub-congruent-plan.md`. If this build plan conflicts with roadmap or technical guides, follow the congruent plan and update this file in the same PR.
 
 **Status key:** ⬜ Not started · 🔄 In progress · ✅ Done · ⚠️ Blocked (needs content/input)
 
@@ -104,7 +111,7 @@ Brand compliance is CI-gated and cannot be bypassed without an explicit `LINT-EX
 
 ## Stream 1 — 4-Role Auth System
 
-### Phase 1 — Unified Hub Login API (Worker + Traveler) ⬜
+### Phase 1 — Unified Hub Login API (Worker + Traveler) ✅
 
 **Create** `src/app/api/auth/hub-login/route.ts`
 
@@ -128,6 +135,8 @@ Pattern: based on `src/app/api/auth/field-login/route.ts`, but with a role paylo
 - Rate limit: `rateLimit(rateLimitPresets.strict)(handler)` — 3 attempts / 5 min
 - No `name` field accepted (passcode-only roles)
 
+Implementation status (April 17, 2026): complete in `src/app/api/auth/hub-login/route.ts` with dedicated tests in `src/__tests__/api/hub-login.test.ts` and refresh/logout compatibility added for worker/traveler refresh cookies.
+
 ### Phase 2 — MVR-Gated Worker Access Fail-Safe ⬜
 
 **Update** `src/app/api/auth/hub-login/route.ts`
@@ -144,7 +153,7 @@ Add an automated MVR recency gate for `worker` role only:
     - Include worker id + last review date in email digest details
 - If no matching MVR record exists, also emit `compliance_warning` with reason `missing_mvr_record`
 
-### Phase 3 — 4-Card Role Selector Login UI ⬜
+### Phase 3 — 4-Card Role Selector Login UI ✅
 
 **Update** `src/app/safety/hub/SafetyHubClient.tsx`
 
@@ -172,7 +181,9 @@ Replace `PasscodeGate` component with a 2-step component `RoleGate`:
 - On success: `localStorage.setItem("field_auth_token", accessToken)` + `localStorage.setItem("field_user", JSON.stringify(user))` — **same keys as today, no breaking change**
 - Admin login response shape differs (`admin_token` / `admin_user`) — use those keys for admin path and redirect to `/dashboard`
 
-### Phase 4 — Role-Based Hub Rendering ⬜
+Implementation status (April 17, 2026): complete in `src/app/safety/hub/SafetyHubClient.tsx` with the 4-card `RoleGate` flow wired to admin, superintendent, worker, and traveler login endpoints.
+
+### Phase 4 — Role-Based Hub Rendering ✅
 
 **Update** `SafetyHub` component in `src/app/safety/hub/SafetyHubClient.tsx`
 
@@ -189,18 +200,22 @@ const showJobSelector = user.role !== "traveler";
 - **Outstanding items banner**: render only if `isAdminOrSuper`
 - **Job selector** in header: render only if `showJobSelector`
 - **Forms tab — interactive submit UI**: render if `canSubmitForms`; otherwise render a read-only notice:
+
   ```
   "Travelers Insurance — Auditor View
    Forms are submitted by field staff. Contact Jeremy at (509) 308-6489 for submission records."
   ```
+
 - **Employee Manual tab** (Phase 13): render only if `user.role !== "traveler"`
 - **Joining Program tab** (Phase 13): render only if `user.role !== "traveler"`
+
+Implementation status (April 17, 2026): complete for current safety-hub scope in `src/app/safety/hub/SafetyHubClient.tsx`, including traveler read-only forms behavior, admin/superintendent-only history/stat surfaces, and traveler job-selector suppression.
 
 ---
 
 ## Stream 2 — Access Tracking & Notifications
 
-### Phase 5 — Access Log DB Migration ⬜
+### Phase 5 — Access Log DB Migration ✅
 
 **Create** `migrations/0014_create_safety_access_log.sql`
 
@@ -226,7 +241,9 @@ CREATE INDEX IF NOT EXISTS idx_access_log_accessed_at   ON safety_access_log(acc
 CREATE INDEX IF NOT EXISTS idx_access_log_user_name     ON safety_access_log(user_name);
 ```
 
-### Phase 6 — Access Log API ⬜
+Implementation status (April 17, 2026): complete in `migrations/0014_create_safety_access_log.sql`.
+
+### Phase 6 — Access Log API ✅
 
 **Create** `src/app/api/safety/access-log/route.ts`
 
@@ -241,6 +258,8 @@ Request body:
   resource_title?: string;
   job_id?: string;
 }
+
+Implementation status (April 17, 2026): complete in `src/app/api/safety/access-log/route.ts` with `POST` for role-authenticated logging, `GET` for admin reporting, privacy scrubbing, SMS escalation for critical events, digest queuing for non-critical events, and test coverage in `src/__tests__/api/safety-access-log.test.ts`.
 ```
 
 Handler steps:
@@ -256,15 +275,15 @@ Handler steps:
 - Normalize multi-hop `X-Forwarded-For` values to first IP only
 - Store scrubbed values only; never persist raw unsanitized metadata
 
-5. Insert row into `safety_access_log` with `id = crypto.randomUUID()`
-6. Fire notifications with severity-aware routing (non-blocking):
+- Insert row into `safety_access_log` with `id = crypto.randomUUID()`
+- Fire notifications with severity-aware routing (non-blocking):
 
 - Instant SMS: only for `login`, `form_submit`, and `compliance_warning`
 - Daily email digest: batch non-critical events (`download`, `form_view`, `manual_view`, `joining_view`, `logout`)
 - Compliance warnings are highlighted at top of digest when they occur
 
-7. Return `{ success: true }`
-8. On DB error: log + return `internalServerError()`
+- Return `{ success: true }`
+- On DB error: log + return `internalServerError()`
 
 Notification implementation note:
 
@@ -277,7 +296,7 @@ Query params: `role?`, `event_type?`, `from_date?` (ISO), `to_date?` (ISO), `lim
 
 Returns: `{ data: AccessLogRow[], total: number }`
 
-### Phase 7 — Login Event Logging (Server-Side) ⬜
+### Phase 7 — Login Event Logging (Server-Side) ✅
 
 **Update** login handlers for all 4 paths — after successful authentication and before returning the response, insert a `login` event:
 
@@ -316,7 +335,9 @@ Files to update:
 - `src/app/api/auth/field-login/route.ts`
 - `src/app/api/auth/hub-login/route.ts` _(new — Phase 1)_
 
-### Phase 8 — Client-Side Tracking in Hub ⬜
+Implementation status (April 17, 2026): complete via shared helper `src/lib/safety/log-access-event.ts`, wired into admin, superintendent, worker, and traveler login success flows.
+
+### Phase 8 — Client-Side Tracking in Hub ✅
 
 **Update** `src/app/safety/hub/SafetyHubClient.tsx` (and later `HubClient.tsx`)
 
@@ -350,26 +371,31 @@ Call sites:
 - Employee Manual section open → `logAccess({ event_type: "manual_view", resource_key: sectionSlug })`
 - Joining Program open → `logAccess({ event_type: "joining_view", resource_key: "joining-program" })`
 
-### Phase 9 — Extend Download Log Roles ⬜
+Implementation status (April 18, 2026): complete for current safety-hub scope in `src/app/safety/hub/SafetyHubClient.tsx`, including tab-view tracking, download access events, and form-submit access events.
+
+### Phase 9 — Extend Download Log Roles ✅
 
 **Update** `src/app/api/safety/downloads/route.ts`
 
 Change POST `requireRole` call from `["admin", "superintendent"]` to `["admin", "superintendent", "worker", "traveler"]`.
 
-### Phase 10 — Access Log Dashboard Tab ⬜
+Implementation status (April 17, 2026): complete in `src/app/api/safety/downloads/route.ts` with worker and traveler role coverage added to `src/__tests__/api/safety-api.test.ts`.
+
+### Phase 10 — Access Log Dashboard Tab ✅
 
 **Create** `src/app/dashboard/AccessLogTab.tsx`
 
 Table columns:
-| Column | Source | Notes |
-|---|---|---|
-| Time | `accessed_at` | Full timestamp, sort descending |
-| Name | `user_name` | |
-| Role | `role` | Color-coded badge (see below) |
-| Event | `event_type` | Human-readable label |
-| Resource | `resource_title ?? resource_key` | |
-| IP Address | `ip_address` | |
-| Device / Browser | `user_agent` | Parse to short string: `Chrome / macOS` |
+
+| Column           | Source                           | Notes                                   |
+| ---------------- | -------------------------------- | --------------------------------------- |
+| Time             | `accessed_at`                    | Full timestamp, sort descending         |
+| Name             | `user_name`                      |                                         |
+| Role             | `role`                           | Color-coded badge (see below)           |
+| Event            | `event_type`                     | Human-readable label                    |
+| Resource         | `resource_title ?? resource_key` |                                         |
+| IP Address       | `ip_address`                     |                                         |
+| Device / Browser | `user_agent`                     | Parse to short string: `Chrome / macOS` |
 
 Role badge colors:
 
@@ -389,18 +415,22 @@ Features:
 **Update** `src/app/dashboard/page.tsx`
 
 1. Add `"access-log"` to the `activeTab` type union:
+
    ```ts
    useState<"analytics" | "leads" | "safety" | "drivers" | "access-log">;
    ```
+
 2. Add `AccessLogTab` to dynamic imports (same pattern as `SafetyTab`)
 3. Add tab nav button "Access Log" with icon `verified_user`
 4. Render `<AccessLogTab token={adminToken} />` when `activeTab === "access-log"`
+
+Implementation status (April 18, 2026): complete in `src/app/dashboard/AccessLogTab.tsx` and `src/app/dashboard/page.tsx`, with filterable admin reporting, 30-second auto-refresh, and dashboard tab wiring.
 
 ---
 
 ## Stream 3 — Operational Hub at /hub
 
-### Phase 11 — Expand Document Data Model ⬜
+### Phase 11 — Expand Document Data Model ✅
 
 **Update** `src/lib/data/documents.ts`
 
@@ -418,6 +448,7 @@ Features:
    ```
 
 3. Add combined export:
+
    ```ts
    export const allHubDocuments = [
      ...manuals,
@@ -429,7 +460,9 @@ Features:
 
 > ⚠️ **Blocked on P1** — Employee Manual section content required from Matt/Jeremy before this can be fully populated.
 
-### Phase 12 — Travelers Training Video Data ⬜
+Implementation status (April 18, 2026): complete for schema/export scaffolding in `src/lib/data/documents.ts`, including expanded categories and combined `allHubDocuments` export that now includes manuals, forms, employee-manual placeholders, and joining-program placeholders.
+
+### Phase 12 — Travelers Training Video Data ✅
 
 **Create** `src/lib/data/travelers-training.ts`
 
@@ -457,7 +490,9 @@ export const travelersVideos: TravelersVideo[] = [
 
 > ⚠️ **Blocked on P2** — Video URLs required from Matt/Jeremy.
 
-### Phase 13 — New /hub Route ⬜
+Implementation status (April 18, 2026): complete with placeholder data in `src/lib/data/travelers-training.ts` pending final Travelers URL delivery.
+
+### Phase 13 — New /hub Route ✅
 
 **Create** `src/app/hub/layout.tsx`:
 
@@ -514,6 +549,7 @@ export const metadata = {
 - Welcome Packet: download card for welcome PDF
 - Required HR Forms: download cards (W-4, I-9, direct deposit, etc.)
 - Travelers Training Videos: card grid
+
   ```
   ┌─────────────────────────────┐
   │ [Category badge]            │
@@ -523,9 +559,12 @@ export const metadata = {
   │ [Watch Video →]             │  (opens in new tab, rel="noopener noreferrer")
   └─────────────────────────────┘
   ```
+
 - Travelers logo + contact block at bottom
 
-### Phase 14 — /safety/hub Backward Compat Redirect ⬜
+Implementation status (April 18, 2026): route foundation created in `src/app/hub/layout.tsx`, `src/app/hub/page.tsx`, and `src/app/hub/HubClient.tsx`. Current `HubClient` delegates to the existing safety hub experience while preserving `allHubDocuments` and `travelersVideos` inputs; expanded multi-tab Operational Hub UI remains in progress.
+
+### Phase 14 — /safety/hub Backward Compat Redirect ✅
 
 **Update** `src/app/safety/hub/page.tsx`:
 
@@ -539,7 +578,9 @@ export default function SafetyHubPage() {
 
 Remove the `getDocumentById` call and `SafetyHubClient` import (no longer needed in this file).
 
-### Phase 15 — Navigation Entry ⬜
+Implementation status (April 18, 2026): complete in `src/app/safety/hub/page.tsx` with `redirect("/hub")`.
+
+### Phase 15 — Navigation Entry ✅
 
 **Update** `src/components/layout/Navigation.tsx`
 
@@ -590,7 +631,7 @@ export default getRequestConfig(async () => {
 **Strategy: Cookie-based locale — no URL changes.**
 Existing routes (`/hub`, `/safety`, etc.) stay unchanged. The locale is read from a `locale` cookie set by the toggle. `next-intl` falls back to English for any untranslated keys.
 
-### Phase 17 — Translation Files ⬜
+### Phase 17 — Translation Files ✅
 
 **Create** `messages/en.json` — all hub/safety UI strings (English source of truth):
 
@@ -628,7 +669,7 @@ Validation requirement:
 
 Pages not yet in scope (all other public pages) remain English-only; `next-intl`'s fallback handles missing keys gracefully.
 
-### Phase 18 — Language Toggle Component ⬜
+### Phase 18 — Language Toggle Component ✅
 
 **Create** `src/components/ui/LanguageToggle.tsx`:
 

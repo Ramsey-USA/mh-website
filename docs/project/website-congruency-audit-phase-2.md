@@ -1,4 +1,4 @@
-# Website Congruency Audit - Phase 2
+# Website Congruency Audit — Phase 2
 
 **Category:** Project - Audit Archive  
 **Last Updated:** April 17, 2026  

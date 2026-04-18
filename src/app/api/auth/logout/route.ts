@@ -12,6 +12,36 @@ import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 
 export const dynamic = "force-dynamic";
 
+const REFRESH_COOKIE_NAMES = [
+  "mh_refresh_token",
+  "mh_field_refresh_token",
+  "mh_worker_refresh_token",
+  "mh_traveler_refresh_token",
+] as const;
+
+function resolveRefreshToken(request: NextRequest): string | null {
+  for (const cookieName of REFRESH_COOKIE_NAMES) {
+    const token = request.cookies.get(cookieName)?.value;
+    if (token) {
+      return token;
+    }
+  }
+
+  return null;
+}
+
+function clearRefreshCookies(response: NextResponse) {
+  for (const cookieName of REFRESH_COOKIE_NAMES) {
+    response.cookies.set(cookieName, "", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      path: "/api/auth",
+      maxAge: 0,
+    });
+  }
+}
+
 async function handlePOST(request: NextRequest): Promise<NextResponse> {
   // Identify the caller (best-effort, for audit logging only)
   const ip =
@@ -19,11 +49,7 @@ async function handlePOST(request: NextRequest): Promise<NextResponse> {
     request.headers.get("x-forwarded-for") ??
     "unknown";
 
-  const adminRefreshToken = request.cookies.get("mh_refresh_token")?.value;
-  const fieldRefreshToken = request.cookies.get(
-    "mh_field_refresh_token",
-  )?.value;
-  const refreshToken = adminRefreshToken ?? fieldRefreshToken;
+  const refreshToken = resolveRefreshToken(request);
 
   if (!refreshToken) {
     logger.warn("Logout requested without refresh token", { ip });
@@ -40,42 +66,16 @@ async function handlePOST(request: NextRequest): Promise<NextResponse> {
       { error: "Authentication required" },
       { status: 401 },
     );
-    invalidResponse.cookies.set("mh_refresh_token", "", {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      path: "/api/auth",
-      maxAge: 0,
-    });
-    invalidResponse.cookies.set("mh_field_refresh_token", "", {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      path: "/api/auth",
-      maxAge: 0,
-    });
+    clearRefreshCookies(invalidResponse);
     return invalidResponse;
   }
 
-  logger.info("Admin logout", { ip, userId: refreshUserId });
+  logger.info("User logout", { ip, userId: refreshUserId });
 
   const response = NextResponse.json({ success: true });
 
-  // Clear the refresh token cookie by setting maxAge to 0
-  response.cookies.set("mh_refresh_token", "", {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
-    path: "/api/auth",
-    maxAge: 0,
-  });
-  response.cookies.set("mh_field_refresh_token", "", {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
-    path: "/api/auth",
-    maxAge: 0,
-  });
+  // Clear all refresh token cookies by setting maxAge to 0
+  clearRefreshCookies(response);
 
   return response;
 }

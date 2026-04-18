@@ -32,6 +32,11 @@ jest.mock("@/lib/utils/logger", () => ({
   },
 }));
 
+const mockLogAccessEvent = jest.fn().mockResolvedValue(undefined);
+jest.mock("@/lib/safety/log-access-event", () => ({
+  logAccessEvent: (...args: unknown[]) => mockLogAccessEvent(...args),
+}));
+
 // ── Setup ─────────────────────────────────────────────────────────────────────
 
 let POST: (req: NextRequest) => Promise<Response>;
@@ -83,6 +88,7 @@ describe("POST /api/auth/field-login", () => {
     expect(body.success).toBe(true);
     expect(body.accessToken).toBe("mock-field-access-token");
     expect(body.user.role).toBe("superintendent");
+    expect(mockLogAccessEvent).toHaveBeenCalledTimes(1);
   });
 
   it("uses supplied name in the token payload when provided", async () => {

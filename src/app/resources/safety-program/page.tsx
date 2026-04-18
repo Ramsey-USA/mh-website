@@ -37,7 +37,7 @@ export const metadata: Metadata = withGeoMetadata({
   title:
     "MISH Safety Program | Travelers & Bonding Agency Resource | MH Construction",
   description:
-    "MH Construction's MISH Industrial Safety & Health Program — 44 sections built on the AGC Accident Prevention Program (APP) framework. OSHA 29 CFR 1926, WISHA/L&I (WA), OAR (OR), and IDAPA (ID) compliant. 0.64 EMR rating, AGC-WA Top EMR Award. Full PDF downloads for Travelers, bonding agencies, and bid pre-qualification.",
+    "MH Construction's MISH Industrial Safety & Health Program — 50 sections built on the AGC Accident Prevention Program (APP) framework. OSHA 29 CFR 1926, WISHA/L&I (WA), OAR (OR), and IDAPA (ID) compliant. 0.64 EMR rating, AGC-WA Top EMR Award. Full PDF downloads for Travelers, bonding agencies, and bid pre-qualification.",
   keywords: [
     "MISH industrial safety health program",
     "MH Construction safety program",
@@ -67,7 +67,7 @@ export const metadata: Metadata = withGeoMetadata({
     title:
       "MISH Safety Program | Travelers & Bonding Resource | MH Construction",
     description:
-      "MISH — 44-section safety program (AGC APP framework). OSHA + WA/OR/ID compliant. 0.64 EMR. Full PDF downloads for bonding agencies, sureties, and owner pre-qualification.",
+      "MISH — 50-section safety program (AGC APP framework). OSHA + WA/OR/ID compliant. 0.64 EMR. Full PDF downloads for bonding agencies, sureties, and owner pre-qualification.",
     url: `${SITE_URL}/resources/safety-program`,
     siteName: "MH Construction",
     type: "website",
@@ -87,7 +87,7 @@ export const metadata: Metadata = withGeoMetadata({
     creator: "@mhc_gc",
     title: "MISH Safety Program | MH Construction",
     description:
-      "MISH — 44-section OSHA-compliant safety program (AGC APP framework). 0.64 EMR rating. Ideal for Travelers, bonding, and bid pre-qualification.",
+      "MISH — 50-section OSHA-compliant safety program (AGC APP framework). 0.64 EMR rating. Ideal for Travelers, bonding, and bid pre-qualification.",
     images: [`${SITE_URL}/images/safety/compliance.webp`],
   },
   robots: {
@@ -119,7 +119,7 @@ const safetyProgramSchema = {
   "@id": `${SITE_URL}/resources/safety-program#service`,
   name: "MISH — MH Construction Industrial Safety & Health Program",
   description:
-    "MH Construction's 44-section MISH Industrial Safety & Health Program — built on the AGC Accident Prevention Program (APP) framework. Available for Travelers, bonding agency review, and bid pre-qualification. OSHA 29 CFR 1926, WISHA/L&I (WA), OAR (OR), and IDAPA (ID) compliant.",
+    "MH Construction's 50-section MISH Industrial Safety & Health Program — built on the AGC Accident Prevention Program (APP) framework. Available for Travelers, bonding agency review, and bid pre-qualification. OSHA 29 CFR 1926, WISHA/L&I (WA), OAR (OR), and IDAPA (ID) compliant.",
   provider: {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
@@ -141,7 +141,7 @@ const safetyProgramSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Complete Safety Manual",
-          description: "44-section OSHA-compliant written safety program",
+          description: "50-section OSHA-compliant written safety program",
         },
       },
       {
@@ -325,7 +325,7 @@ export default function SafetyProgramPage() {
                 MISH — Safety &amp; Health Program
               </span>
               <span className="block text-white/90">
-                44 Sections.{" "}
+                50 Sections.{" "}
                 <span className="font-black italic text-brand-secondary">
                   AGC APP Framework. Fully Documented.
                 </span>
@@ -399,7 +399,7 @@ export default function SafetyProgramPage() {
                       MH Construction Industrial Safety &amp; Health Program
                       (MISH)
                     </strong>{" "}
-                    is a 44-section written safety program built on the{" "}
+                    is a 50-section written safety program built on the{" "}
                     <strong className="text-gray-900 dark:text-white">
                       AGC Accident Prevention Program (APP)
                     </strong>{" "}
@@ -415,7 +415,7 @@ export default function SafetyProgramPage() {
                     </strong>
                     , bonding agencies, surety underwriters, and owner
                     pre-qualification programs to review MHC&apos;s complete
-                    safety documentation. All 44 MISH sections and field forms
+                    safety documentation. All 50 MISH sections and field forms
                     are available for direct PDF download below.
                   </p>
 
@@ -453,7 +453,7 @@ export default function SafetyProgramPage() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[
                   { value: "0.64", label: "EMR Rating", icon: "trending_down" },
-                  { value: "44", label: "OSHA Sections", icon: "layers" },
+                  { value: "50", label: "OSHA Sections", icon: "layers" },
                   {
                     value: `${requiredCount}`,
                     label: "OSHA-Required",
@@ -517,7 +517,7 @@ export default function SafetyProgramPage() {
                   <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
                     Program Revision&nbsp;
                     <strong className="text-gray-900 dark:text-white">
-                      Rev 2 — {doc.revisionDate ?? "04/07/2026"}
+                      Rev 3 — {doc.revisionDate ?? "04/07/2026"}
                     </strong>
                     . Built on the{" "}
                     <strong className="text-gray-900 dark:text-white">
@@ -525,7 +525,7 @@ export default function SafetyProgramPage() {
                     </strong>{" "}
                     framework. Exceeds OSHA&nbsp;29&nbsp;CFR&nbsp;1926,
                     WISHA/L&amp;I&nbsp;(WA), OAR&nbsp;437&nbsp;(OR), and
-                    IDAPA&nbsp;07.02.01&nbsp;(ID) requirements. All 44 sections
+                    IDAPA&nbsp;07.02.01&nbsp;(ID) requirements. All 50 sections
                     are available below as individual PDF downloads. The
                     complete merged manual is available via the button below.
                   </p>
@@ -536,7 +536,7 @@ export default function SafetyProgramPage() {
                       "WISHA (WA)",
                       "OAR (OR)",
                       "IDAPA (ID)",
-                      `Rev 2 — ${doc.revisionDate ?? "04/07/2026"}`,
+                      `Rev 3 — ${doc.revisionDate ?? "04/07/2026"}`,
                     ].map((badge) => (
                       <span
                         key={badge}
@@ -566,7 +566,7 @@ export default function SafetyProgramPage() {
                       MISH — Safety &amp; Health Program
                     </h3>
                     <p className="text-brand-secondary-light text-sm opacity-90 mb-4">
-                      Cover + tab dividers + all 44 sections in one PDF ·
+                      Cover + tab dividers + all 50 sections in one PDF ·
                       Rev&nbsp;2 — {doc.revisionDate ?? "04/07/2026"}
                     </p>
                     <div className="flex gap-3 flex-wrap">
@@ -622,7 +622,7 @@ export default function SafetyProgramPage() {
               <div>
                 <div className="mb-5">
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
-                    All 44 MISH Sections — Individual PDF Downloads
+                    All 50 MISH Sections — Individual PDF Downloads
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Each section includes OSHA reference citations, state

@@ -12,6 +12,7 @@ import { generateTokenPair } from "@/lib/auth/jwt";
 import { rateLimit, rateLimitPresets } from "@/lib/security/rate-limiter";
 import { logger } from "@/lib/utils/logger";
 import { captureServerException } from "@/lib/monitoring/sentry-server";
+import { logAccessEvent } from "@/lib/safety/log-access-event";
 import {
   badRequest,
   unauthorized,
@@ -49,6 +50,10 @@ const ADMIN_ENV_KEYS: Record<string, string> = {
   "arnold@mhc-gc.com": "ADMIN_ARNOLD_PASSWORD",
   "brittney@mhc-gc.com": "ADMIN_BRITTNEY_PASSWORD",
 };
+
+function resolveInvalidAdminSentinel(email: string): string {
+  return `${email}:${crypto.randomUUID()}`;
+}
 
 /**
  * Constant-time string comparison using HMAC-SHA256 (Edge Runtime compatible).
@@ -102,7 +107,7 @@ async function handler(request: NextRequest) {
     // Resolve password at request-time so a missing env var surfaces now.
     const storedPassword = envKey
       ? resolveAdminPassword(envKey)
-      : "not-a-real-password";
+      : resolveInvalidAdminSentinel(normalizedEmail);
     const passwordMatch = await timingSafeEqual(storedPassword, password);
 
     if (!adminName || !passwordMatch) {
@@ -119,6 +124,16 @@ async function handler(request: NextRequest) {
     });
 
     logger.info(`Successful admin login: ${normalizedEmail}`);
+
+    logAccessEvent(request, {
+      event_type: "login",
+      role: "admin",
+      user_name: adminName,
+      resource_key: "login",
+      resource_title: `${adminName} logged in`,
+    }).catch((error) => {
+      logger.warn("Failed to log admin login event", { error, email });
+    });
 
     const response = NextResponse.json({
       success: true,

@@ -125,7 +125,10 @@ async function handlePOST(request: NextRequest, user: JWTUser) {
 
 // GET: admin only — review download activity
 export const GET = requireRole(["admin"], withSecurity(handleGET));
-// POST: admin/superintendent only — superintendent logs their own download
+// POST: all authenticated hub roles can log their own downloads
 export const POST = rateLimit(rateLimitPresets.api)(
-  requireRole(["admin", "superintendent"], withSecurity(handlePOST)),
+  requireRole(
+    ["admin", "superintendent", "worker", "traveler"],
+    withSecurity(handlePOST),
+  ),
 );

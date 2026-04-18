@@ -1,4 +1,4 @@
-# MH Construction - Architecture Documentation
+# MH Construction — Architecture Documentation
 
 **Category:** Project - Architecture  
 **Last Updated:** April 15, 2026  
@@ -204,7 +204,7 @@ src/
 
 ## ✨ **Advanced Features Implementation Status**
 
-### 🤖 **Partnership Guide (AI Chatbot)** - ✅ COMPLETE (March 26, 2026)
+### 🤖 **Partnership Guide (AI Chatbot)** — ✅ COMPLETE (March 26, 2026)
 
 - **Cloudflare Workers AI**: `@cf/meta/llama-3.1-8b-instruct` via `[ai]` binding in
   `wrangler.toml` (no provisioning needed)
@@ -217,14 +217,14 @@ src/
 - **SEO/GEO**: `contactPoint` in Organization schema, FAQ structured data, `public/llms.txt` updated
 - **Test Coverage**: 19 tests (10 UI assertions, 9 knowledge-base assertions)
 
-### 🎬 **Animation System** - ✅ COMPLETE
+### 🎬 **Animation System** — ✅ COMPLETE
 
 - **Native Animation Implementation**: CSS transitions + IntersectionObserver (no library dependency)
 - **Interactive Components**: Hover effects and scroll-triggered reveal animations
 - **Performance Optimized**: Transform-GPU acceleration, reduced-motion support, mobile-aware config
 - **Reusable Animations**: Component library with FadeInWhenVisible, HoverScale, StaggeredFadeIn (in `@/components/animations/FramerMotionComponents`)
 
-### 📊 **Analytics & SEO** - ✅ COMPLETE
+### 📊 **Analytics & SEO** — ✅ COMPLETE
 
 **Custom Analytics System:**
 
@@ -246,7 +246,7 @@ src/
 - **Robots.txt**: Optimized for AI crawlers, excludes all `/api/`, `/admin/`, `/dashboard/`, and internal paths
 - **llms.txt**: Machine-readable company overview including Partnership Guide description
 
-### 🎛️ **Content Management System** - ✅ COMPLETE
+### 🎛️ **Content Management System** — ✅ COMPLETE
 
 - **Cloudflare Integration**: ✅ Edge runtime with D1 database (ACTIVE)
 - **Dynamic Content**: Project galleries and testimonials (via TestimonialsSection component)
@@ -254,7 +254,7 @@ src/
 - **API Routes**: ✅ Secure Edge Functions and API endpoints (ACTIVE)
 - **Data Storage**: ✅ Cloudflare D1 SQL database for structured data (ACTIVE)
 
-### 🔧 **Performance Optimization** - ✅ COMPLETE
+### 🔧 **Performance Optimization** — ✅ COMPLETE
 
 - **Code Splitting**: Automatic route and component-based splitting
 - **Image Optimization**: Automatic WebP conversion (42% size reduction via GitHub Actions)
@@ -263,7 +263,7 @@ src/
 - **Caching Strategy**: 5-layer service worker caching (static, dynamic, images, API, CDN)
 - **PWA**: Historical baseline: 100% test score (50/50) in Dec 2025; offline support and installability remain active
 
-### 📱 **Progressive Web App** - ✅ COMPLETE (Dec 2025)
+### 📱 **Progressive Web App** — ✅ COMPLETE (Dec 2025)
 
 - **Service Worker v4.0.0**: 5-layer caching strategy with navigation preload
 - **Offline Support**: Cached pages, assets, and custom offline page

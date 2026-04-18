@@ -74,7 +74,7 @@ This third audit phase extends beyond documentation and primary source code to e
 
 ---
 
-## Section 3: Source Code Pages - Slogan Capitalization
+## Section 3: Source Code Pages — Slogan Capitalization
 
 ### 3.1 Files Using Lowercase "client/dollar" in Slogan
 

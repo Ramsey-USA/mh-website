@@ -1,6 +1,6 @@
 # Safety CI Gate Policy
 
-Last Updated: April 8, 2026
+Last Updated: April 17, 2026
 Owner: Engineering
 Applies To: all pull requests into main and all pushes to main/develop
 
@@ -8,6 +8,8 @@ Applies To: all pull requests into main and all pushes to main/develop
 
 This policy ensures that Safety System code cannot reach production unless it
 passes strict quality, security, and build verification gates.
+
+Alignment note (April 17, 2026): follow `docs/project/operational-hub-congruent-plan.md` for route/auth sequencing. `/hub` is canonical staff access; keep `/safety/hub` checks only as backward-compat redirect verification.
 
 ## Required Gate Order
 
@@ -51,7 +53,8 @@ Use this checklist for Safety feature changes before merge and after deployment.
 1. Confirm the following routes build successfully and are present in build output:
 
 - `/safety`
-- `/safety/hub`
+- `/hub`
+- `/safety/hub` (redirect to `/hub`)
 - `/resources/safety-manual`
 - `/resources/safety-manual/section/[slug]`
 - `/api/safety/forms`
@@ -59,12 +62,14 @@ Use this checklist for Safety feature changes before merge and after deployment.
 - `/api/safety/jobs`
 - `/api/safety/jobs/[id]`
 - `/api/safety/downloads`
+- `/api/safety/access-log`
 
 1. Confirm auth behavior for Safety APIs:
 
 - Unauthorized requests are rejected (401/403 where applicable).
 - Authorized requests are accepted.
 - Object-level access checks are enforced for `[id]` endpoints.
+- Worker/traveler role expansion is verified for safe role-based endpoints such as `/api/safety/downloads` and `/api/safety/access-log`.
 
 1. Confirm data and file safety controls:
 
@@ -75,6 +80,7 @@ Use this checklist for Safety feature changes before merge and after deployment.
 1. Confirm observability:
 
 - Audit events are written for safety form/job create and update operations.
+- Login events are written for successful admin, superintendent, worker, and traveler sign-ins.
 - Error logs include endpoint, status code, and request context without leaking
   secrets.
 

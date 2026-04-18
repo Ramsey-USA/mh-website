@@ -127,30 +127,36 @@ describe("Safety navigation contracts", () => {
   });
 
   it("returns print page users to /safety/hub", async () => {
-    const fetchMock = jest.fn().mockResolvedValue({
-      ok: true,
-      json: async () => ({
-        data: {
-          id: "submission-123",
-          job_id: "job-1",
-          job_number: "J-001",
-          job_name: "Sample Project",
-          form_type: "toolbox-talk",
-          submitted_by: "Test User",
-          data: JSON.stringify({ topic: "Lift plan review" }),
-          print_count: 0,
-          status: "submitted",
-          created_at: "2026-04-01T00:00:00.000Z",
-        },
-      }),
-    });
+    const fetchMock = jest
+      .fn()
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({
+          accessToken: "token-123",
+        }),
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({
+          data: {
+            id: "submission-123",
+            job_id: "job-1",
+            job_number: "J-001",
+            job_name: "Sample Project",
+            form_type: "toolbox-talk",
+            submitted_by: "Test User",
+            data: JSON.stringify({ topic: "Lift plan review" }),
+            print_count: 0,
+            status: "submitted",
+            created_at: "2026-04-01T00:00:00.000Z",
+          },
+        }),
+      });
 
     Object.defineProperty(global, "fetch", {
       writable: true,
       value: fetchMock,
     });
-
-    window.localStorage.setItem("field_auth_token", "token-123");
 
     const { default: PrintPageClient } =
       require("../safety/print/[id]/PrintPageClient") as {

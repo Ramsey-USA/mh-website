@@ -215,6 +215,36 @@ describe("Safety Downloads API", () => {
       // Route returns { success: true } only (no data payload) — this is intentional.
     });
 
+    it("allows worker download logging", async () => {
+      const res = await POST(
+        makeRequest("http://localhost/api/safety/downloads", {
+          method: "POST",
+          headers: { ...authedHeaders, "X-Test-Role": "worker" },
+          body: {
+            section_key: "manual-04",
+            download_type: "section",
+          },
+        }),
+      );
+
+      expect(res.status).toBe(201);
+    });
+
+    it("allows traveler download logging", async () => {
+      const res = await POST(
+        makeRequest("http://localhost/api/safety/downloads", {
+          method: "POST",
+          headers: { ...authedHeaders, "X-Test-Role": "traveler" },
+          body: {
+            section_key: "manual-04",
+            download_type: "section",
+          },
+        }),
+      );
+
+      expect(res.status).toBe(201);
+    });
+
     it("returns 400 on malformed JSON body", async () => {
       const res = await POST(
         new NextRequest("http://localhost/api/safety/downloads", {

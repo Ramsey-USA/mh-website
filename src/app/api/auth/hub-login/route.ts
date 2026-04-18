@@ -1,9 +1,6 @@
 /**
- * Field Login API Route
- * Shared-passcode authentication for Superintendents accessing the Safety Hub.
- *
- * The passcode is stored in the FIELD_STAFF_PASSWORD environment variable.
- * Comparison uses a constant-time HMAC check to prevent timing side-channels.
+ * Hub Login API Route
+ * Shared-passcode authentication for Worker and Traveler hub roles.
  */
 
 import { type NextRequest, NextResponse } from "next/server";
@@ -20,41 +17,22 @@ import {
 
 export const dynamic = "force-dynamic";
 
-function normalizeNameToUidFragment(value: string): string {
-  const characters = value.toLowerCase().trim().split("");
-  let normalized = "";
-  let previousWasDash = false;
+type HubRole = "worker" | "traveler";
 
-  for (const character of characters) {
-    const isAlphaNumeric =
-      (character >= "a" && character <= "z") ||
-      (character >= "0" && character <= "9");
+function resolveHubPassword(role: HubRole): string {
+  const envKey = role === "worker" ? "WORKER_PASSWORD" : "TRAVELERS_PASSWORD";
+  const value = process.env[envKey];
 
-    if (isAlphaNumeric) {
-      normalized += character;
-      previousWasDash = false;
-      continue;
-    }
-
-    if (!previousWasDash && normalized.length > 0) {
-      normalized += "-";
-      previousWasDash = true;
-    }
-  }
-
-  return normalized.replace(/-+$/u, "").slice(0, 48);
-}
-
-function resolveFieldPassword(): string {
-  const value = process.env["FIELD_STAFF_PASSWORD"];
   if (!value) {
     if (process.env.NODE_ENV === "production") {
-      throw new Error(
-        "Required environment variable FIELD_STAFF_PASSWORD is not set",
-      );
+      throw new Error(`Required environment variable ${envKey} is not set`);
     }
-    return "dev-placeholder-field-password";
+
+    return role === "worker"
+      ? "dev-placeholder-worker-password"
+      : "dev-placeholder-travelers-password";
   }
+
   return value;
 }
 
@@ -81,6 +59,10 @@ async function timingSafeEqual(a: string, b: string): Promise<boolean> {
   return diff === 0;
 }
 
+function isHubRole(value: unknown): value is HubRole {
+  return value === "worker" || value === "traveler";
+}
+
 async function handler(request: NextRequest) {
   if (request.method !== "POST") {
     return methodNotAllowed();
@@ -88,69 +70,71 @@ async function handler(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const { passcode, name } = body ?? {};
+    const { passcode, role } = body ?? {};
+
+    if (!isHubRole(role)) {
+      return badRequest("Role must be worker or traveler");
+    }
 
     if (typeof passcode !== "string" || !passcode) {
       return badRequest("Passcode is required");
     }
 
-    const storedPassword = resolveFieldPassword();
+    const storedPassword = resolveHubPassword(role);
     const passcodeMatch = await timingSafeEqual(storedPassword, passcode);
 
     if (!passcodeMatch) {
-      logger.warn("Failed field-login attempt");
+      logger.warn("Failed hub-login attempt", { role });
       return unauthorized("Invalid passcode");
     }
 
-    const superintendentName =
-      typeof name === "string" && name.trim() ? name.trim() : "Superintendent";
-    const uidSuffix = normalizeNameToUidFragment(superintendentName);
-    const uid = `field-${uidSuffix || "superintendent"}`;
+    const uid =
+      role === "worker" ? `worker-${Date.now()}` : `traveler-${Date.now()}`;
+    const name = role === "worker" ? "Field Worker" : "Travelers Insurance";
 
     const { accessToken, refreshToken } = await generateTokenPair({
       uid,
-      role: "superintendent",
-      name: superintendentName,
+      role,
+      name,
     });
-
-    logger.info(`Successful field login: ${superintendentName}`);
 
     logAccessEvent(request, {
       event_type: "login",
-      role: "superintendent",
-      user_name: superintendentName,
+      role,
+      user_name: name,
       resource_key: "login",
-      resource_title: `${superintendentName} logged in`,
+      resource_title: `${name} logged in`,
     }).catch((error) => {
-      logger.warn("Failed to log superintendent login event", {
-        error,
-        superintendentName,
-      });
+      logger.warn("Failed to log hub login event", { error, role });
     });
+
+    const cookieName =
+      role === "worker"
+        ? "mh_worker_refresh_token"
+        : "mh_traveler_refresh_token";
 
     const response = NextResponse.json({
       success: true,
       accessToken,
       user: {
         uid,
-        name: superintendentName,
-        role: "superintendent",
+        name,
+        role,
       },
-      expiresIn: 900, // 15 minutes
+      expiresIn: 900,
     });
 
-    // Store refresh token in httpOnly cookie
-    response.cookies.set("mh_field_refresh_token", refreshToken, {
+    response.cookies.set(cookieName, refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
       path: "/api/auth",
-      maxAge: 60 * 60 * 24, // 24 hours
+      maxAge: 60 * 60 * 24,
     });
 
     return response;
   } catch (error) {
-    logger.error("Field login error:", error);
+    logger.error("Hub login error:", error);
     return internalServerError("Authentication failed");
   }
 }

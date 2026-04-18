@@ -68,13 +68,13 @@ export const manuals: DocumentEntry[] = [
     title: "MISH — Safety & Health Program",
     subtitle: "MH Construction Industrial Safety & Health Program",
     description:
-      "MH Construction's 44-section Industrial Safety & Health Program (MISH) — built on the AGC Accident Prevention Program (APP) framework and fully aligned with OSHA 29 CFR 1926, WISHA/L&I (WA), OAR (OR), and IDAPA (ID) state regulations. Covers injury prevention, emergency response, PPE, fall protection, hazard communication, and all OSHA-required construction safety standards.",
+      "MH Construction's 50-section Industrial Safety & Health Program (MISH) — built on the AGC Accident Prevention Program (APP) framework and fully aligned with OSHA 29 CFR 1926, WISHA/L&I (WA), OAR (OR), and IDAPA (ID) state regulations. Covers injury prevention, emergency response, PPE, fall protection, hazard communication, and all OSHA-required construction safety standards.",
     category: "manual",
     icon: "health_and_safety",
     revisionYear: 2026,
-    revisionNumber: "2",
+    revisionNumber: "3",
     revisionDate: "04/07/2026",
-    totalSections: 45, // 00–44
+    totalSections: 50, // 00–49
     totalPages: 350,
     hasSectionPdfs: true,
     pdfPath: "/docs/safety/safety-manual-complete.pdf",
@@ -86,7 +86,7 @@ export const manuals: DocumentEntry[] = [
         title: "Table of Contents",
         slug: "table-of-contents",
         summary:
-          "Complete index of all 44 safety program sections with page references.",
+          "Complete index of all 50 safety program sections with page references.",
         pages: 2,
         category: "Planning & Administration",
         priority: "reference",
@@ -589,6 +589,60 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1926.1153",
         priority: "required",
       },
+      {
+        number: "45",
+        title: "Distracted Driving & Mobile Device Policy",
+        slug: "distracted-driving-mobile-device",
+        summary:
+          "Prohibition on handheld mobile device use while operating any vehicle. Covers company vehicles, personal vehicles on company time, and enforcement procedures.",
+        pages: 4,
+        category: "Site Control & Environment",
+        oshaRef: "29 CFR 1926.600",
+        priority: "required",
+      },
+      {
+        number: "46",
+        title: "Motor Vehicle Records Program",
+        slug: "motor-vehicle-records",
+        summary:
+          "Annual MVR check process, acceptable driving record standards, and procedures for disqualifying or reinstating drivers.",
+        pages: 4,
+        category: "Site Control & Environment",
+        oshaRef: "29 CFR 1926.600",
+        priority: "required",
+      },
+      {
+        number: "47",
+        title: "Insurance Requirements & Contractual Risk Transfer",
+        slug: "insurance-contractual-risk-transfer",
+        summary:
+          "Minimum insurance coverages required of subcontractors and vendors. Additional insured endorsements, certificate of insurance requirements, and contractual indemnification provisions.",
+        pages: 5,
+        category: "Planning & Administration",
+        priority: "required",
+      },
+      {
+        number: "48",
+        title: "Incident Investigation & Root Cause Analysis",
+        slug: "incident-investigation-root-cause",
+        summary:
+          "Structured incident investigation process including root cause analysis methodology, corrective action planning, and trend reporting to prevent recurrence.",
+        pages: 8,
+        category: "Planning & Administration",
+        oshaRef: "29 CFR 1904",
+        pmbok: "Risk Management",
+        priority: "required",
+      },
+      {
+        number: "49",
+        title: "Return-to-Work Program",
+        slug: "return-to-work",
+        summary:
+          "Modified-duty and transitional work program for injured employees. Covers light-duty assignments, medical progress tracking, and coordination with treating physicians.",
+        pages: 6,
+        category: "Personnel & Policy",
+        priority: "required",
+      },
     ],
   },
 ];
@@ -603,6 +657,7 @@ export const joiningProgramDocs: DocumentEntry[] = [];
 
 export const allHubDocuments: DocumentEntry[] = [
   ...manuals,
+  ...forms,
   ...employeeManualSections,
   ...joiningProgramDocs,
 ];

@@ -1,0 +1,108 @@
+{
+  "common": {
+    "signIn": "Iniciar sesión",
+    "back": "Regresar",
+    "logout": "Cerrar sesión",
+    "loading": "Cargando...",
+    "error": "Ocurrió un error. Por favor intente de nuevo.",
+    "submit": "Enviar",
+    "submitting": "Enviando...",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "download": "Descargar",
+    "open": "Abrir",
+    "close": "Cerrar"
+  },
+  "hub": {
+    "tabs": {
+      "safety": "Seguridad",
+      "employeeManual": "Manual del Empleado",
+      "joiningProgram": "Programa de Incorporación",
+      "history": "Historial"
+    },
+    "login": {
+      "title": "Acceso al Personal",
+      "subtitle": "Centro Operativo MH Construction",
+      "selectRole": "Seleccione su función para continuar",
+      "adminLabel": "Admin / Oficina",
+      "superintendentLabel": "Superintendente",
+      "workerLabel": "Miembro del Equipo",
+      "travelerLabel": "Travelers Insurance",
+      "emailPlaceholder": "Correo electrónico",
+      "passwordPlaceholder": "Contraseña",
+      "passcodePlaceholder": "Código de acceso",
+      "namePlaceholder": "Su nombre",
+      "signInButton": "Iniciar sesión",
+      "wrongCredentials": "Credenciales incorrectas. Por favor intente de nuevo.",
+      "lockedOut": "Cuenta bloqueada temporalmente. Intente de nuevo en 5 minutos."
+    },
+    "roleSelector": {
+      "chooseRole": "¿Cómo accede al centro hoy?",
+      "admin": "Admin",
+      "superintendent": "Superintendente",
+      "worker": "Miembro del Equipo",
+      "traveler": "Travelers Insurance"
+    }
+  },
+  "safety": {
+    "tabs": {
+      "downloads": "Descargas",
+      "forms": "Formularios",
+      "history": "Historial"
+    },
+    "downloads": {
+      "title": "Documentos de Seguridad",
+      "subtitle": "Descargue referencias de seguridad en campo",
+      "noDocuments": "No hay documentos disponibles."
+    },
+    "forms": {
+      "title": "Formularios de Seguridad",
+      "subtitle": "Complete y envíe formularios de seguridad en campo",
+      "toolboxTalk": "Charla de Seguridad",
+      "jhaLabel": "Análisis de Peligros del Trabajo (JHA)",
+      "inspection": "Inspección de Seguridad en Obra",
+      "incident": "Reporte de Incidente",
+      "selectJob": "Seleccionar obra",
+      "noJobSelected": "Seleccione una obra para continuar",
+      "submitSuccess": "Formulario enviado con éxito.",
+      "submitError": "Error al enviar. Por favor intente de nuevo.",
+      "jha": {
+        "title": "Análisis de Peligros del Trabajo",
+        "formNumber": "MISH 05",
+        "actionItems": {
+          "identifyHazards": "Identifique todos los peligros antes de comenzar el trabajo",
+          "ppe": "Confirme que el EPP requerido esté disponible y se use correctamente",
+          "emergencyPlan": "Revise el plan de acción de emergencia con el equipo",
+          "signOff": "Todos los trabajadores deben firmar antes de comenzar la tarea"
+        }
+      }
+    }
+  },
+  "employeeManual": {
+    "title": "Manual del Empleado",
+    "description": "Políticas y procedimientos de MH Construction",
+    "comingSoon": "Contenido próximamente."
+  },
+  "joiningProgram": {
+    "title": "Programa de Incorporación",
+    "subtitle": "Recursos de incorporación de Travelers Insurance",
+    "sections": {
+      "videos": "Videos de Capacitación",
+      "documents": "Documentos del Programa",
+      "contact": "Contacto de Travelers"
+    }
+  },
+  "travelers": {
+    "videos": {
+      "title": "Videos de Capacitación en Seguridad",
+      "watchNow": "Ver ahora",
+      "duration": "Duración",
+      "noVideos": "No hay videos disponibles en este momento."
+    },
+    "contact": {
+      "title": "Información de Contacto de Travelers",
+      "riskControl": "Consultor de Control de Riesgos",
+      "claimsPhone": "Reclamaciones: 1-800-238-6225"
+    }
+  }
+}

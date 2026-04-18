@@ -1,9 +1,5 @@
-import { getDocumentById } from "@/lib/data/documents";
-import { SafetyHubClient } from "./SafetyHubClient";
+import { redirect } from "next/navigation";
 
 export default function SafetyHubPage() {
-  const doc = getDocumentById("safety-manual")!;
-  const sections = doc.sections ?? [];
-
-  return <SafetyHubClient sections={sections} />;
+  redirect("/hub");
 }

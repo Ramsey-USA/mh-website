@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ThemeToggle } from "@/components/ui/layout/ThemeToggle";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { LanguageToggle } from "@/components/ui/LanguageToggle";
 
 /**
  * Global Hamburger Navigation Component
@@ -105,7 +106,11 @@ export function Navigation() {
       </div>
 
       {/* Hamburger Menu - Fixed right edge */}
-      <div className="top-2 xs:top-3 sm:top-4 right-2 xs:right-3 sm:right-4 lg:right-6 z-[70] fixed flex items-center pointer-events-auto">
+      <div className="top-2 xs:top-3 sm:top-4 right-2 xs:right-3 sm:right-4 lg:right-6 z-[70] fixed flex items-center gap-2 pointer-events-auto">
+        {/* Language Toggle */}
+        <div className="bg-brand-primary rounded-lg sm:rounded-xl border-2 border-brand-secondary px-1 py-1 shadow-lg">
+          <LanguageToggle />
+        </div>
         {/* Hamburger Menu */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -358,6 +363,25 @@ export function Navigation() {
                     className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.8)]"
                   />
                 </a>
+              </div>
+
+              {/* Staff Access Link */}
+              <div className="mt-3 sm:mt-4 flex justify-center">
+                <Link
+                  href="/hub"
+                  className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-600 bg-gradient-to-r from-gray-100 dark:from-gray-800 to-gray-50 dark:to-gray-700 hover:from-brand-primary/10 hover:to-brand-secondary/10 hover:border-brand-primary/40 transition-all duration-300"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <MaterialIcon
+                    icon="lock"
+                    size="sm"
+                    className="text-gray-400 group-hover:text-brand-secondary transition-colors"
+                    style={{ fontSize: "12px" }}
+                  />
+                  <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-white transition-colors uppercase tracking-wide">
+                    Staff Access
+                  </span>
+                </Link>
               </div>
 
               {/* Legal Links Row */}

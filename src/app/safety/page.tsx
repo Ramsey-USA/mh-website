@@ -36,7 +36,7 @@ const SITE_URL = "https://www.mhc-gc.com";
 export const metadata: Metadata = withGeoMetadata({
   title: "MISH Safety Program | Zero-Incident Culture | MH Construction",
   description:
-    "MH Construction's MISH Industrial Safety & Health Program: 0.64 EMR rating (40% below industry average), 44-section program built on the AGC Accident Prevention Program (APP) framework, compliant with OSHA 29 CFR 1926, WISHA/L&I (WA), OAR (OR), and IDAPA (ID). AGC-WA Top EMR Award winner. Daily toolbox talks, JHA, incident reporting.",
+    "MH Construction's MISH Industrial Safety & Health Program: 0.64 EMR rating (40% below industry average), 50-section program built on the AGC Accident Prevention Program (APP) framework, compliant with OSHA 29 CFR 1926, WISHA/L&I (WA), OAR (OR), and IDAPA (ID). AGC-WA Top EMR Award winner. Daily toolbox talks, JHA, incident reporting.",
   keywords: [
     "MISH industrial safety health program",
     "MH Construction safety program",
@@ -67,7 +67,7 @@ export const metadata: Metadata = withGeoMetadata({
   openGraph: {
     title: "Safety Program | Zero-Incident Culture | MH Construction",
     description:
-      "Award-winning safety: 0.64 EMR rating, 44-section OSHA program, AGC-WA Top EMR Award. Daily toolbox talks, JHA, inspections. Veteran-Owned contractor.",
+      "Award-winning safety: 0.64 EMR rating, 50-section OSHA program, AGC-WA Top EMR Award. Daily toolbox talks, JHA, inspections. Veteran-Owned contractor.",
     url: `${SITE_URL}/safety`,
     siteName: "MH Construction",
     type: "website",
@@ -87,7 +87,7 @@ export const metadata: Metadata = withGeoMetadata({
     creator: "@mhc_gc",
     title: "MISH Safety Program | MH Construction",
     description:
-      "0.64 EMR rating. 44-section MISH program (AGC APP framework). OSHA + WA/OR/ID compliant. AGC-WA Top EMR Award winner.",
+      "0.64 EMR rating. 50-section MISH program (AGC APP framework). OSHA + WA/OR/ID compliant. AGC-WA Top EMR Award winner.",
     images: [`${SITE_URL}/images/safety/safety-culture.webp`],
   },
   robots: {
@@ -179,7 +179,7 @@ const safetySchema = {
   "@id": `${SITE_URL}/safety#service`,
   name: "MISH — MH Construction Industrial Safety & Health Program",
   description:
-    "MH Construction's 44-section MISH Industrial Safety & Health Program (MISH) — built on the AGC Accident Prevention Program (APP) framework. 0.64 EMR rating, OSHA 29 CFR 1926 aligned, WISHA/L&I (WA), OAR (OR), and IDAPA (ID) compliant. AGC-WA Top EMR Award winner.",
+    "MH Construction's 50-section MISH Industrial Safety & Health Program (MISH) — built on the AGC Accident Prevention Program (APP) framework. 0.64 EMR rating, OSHA 29 CFR 1926 aligned, WISHA/L&I (WA), OAR (OR), and IDAPA (ID) compliant. AGC-WA Top EMR Award winner.",
   provider: {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
@@ -256,7 +256,7 @@ const CREDENTIAL_STATS = [
     icon: "trending_down",
   },
   {
-    value: "44",
+    value: "50",
     label: "OSHA Sections",
     sub: "29 CFR 1926",
     icon: "menu_book",
@@ -274,7 +274,7 @@ const CREDENTIAL_STATS = [
     icon: "verified",
   },
   {
-    value: "Rev 2",
+    value: "Rev 3",
     label: "Written Program",
     sub: "Updated 04/07/2026",
     icon: "shield",
@@ -306,7 +306,7 @@ const EVIDENCE_CARDS = [
 
 export default function SafetyPage() {
   const doc = getDocumentById("safety-manual");
-  const revisionNumber = doc?.revisionNumber ?? "2";
+  const revisionNumber = doc?.revisionNumber ?? "3";
   const revisionDate = doc?.revisionDate ?? "04/07/2026";
   const manualHref =
     doc?.pdfPath ?? "/resources/safety-program#manual-downloads";
@@ -365,7 +365,7 @@ export default function SafetyPage() {
               </span>
               <span className="block text-white/60">|</span>
               <span className="block text-brand-primary-light">
-                0.64 EMR · 44-Section OSHA Program
+                0.64 EMR · 50-Section OSHA Program
               </span>
               <span className="block text-white/60">|</span>
               <span className="block text-white/90">
@@ -674,7 +674,7 @@ export default function SafetyPage() {
                     MH Construction Industrial Safety &amp; Health Program
                     (MISH)
                   </strong>{" "}
-                  is a fully authored, actively enforced, 44-section written
+                  is a fully authored, actively enforced, 50-section written
                   safety program built on the{" "}
                   <strong className="text-gray-900 dark:text-white">
                     AGC Accident Prevention Program (APP)

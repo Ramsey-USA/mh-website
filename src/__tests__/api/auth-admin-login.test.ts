@@ -32,6 +32,11 @@ jest.mock("@/lib/utils/logger", () => ({
   },
 }));
 
+const mockLogAccessEvent = jest.fn().mockResolvedValue(undefined);
+jest.mock("@/lib/safety/log-access-event", () => ({
+  logAccessEvent: (...args: unknown[]) => mockLogAccessEvent(...args),
+}));
+
 // ── Setup ─────────────────────────────────────────────────────────────────────
 
 let POST: typeof import("@/app/api/auth/admin-login/route").POST;
@@ -98,6 +103,7 @@ describe("POST /api/auth/admin-login", () => {
     expect(body.user.email).toBe("matt@mhc-gc.com");
     expect(body.user.role).toBe("admin");
     expect(body.expiresIn).toBe(900);
+    expect(mockLogAccessEvent).toHaveBeenCalledTimes(1);
 
     delete process.env["ADMIN_MATT_PASSWORD"];
   });

@@ -80,6 +80,8 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 See [CHANGELOG.md](CHANGELOG.md) for the full history of changes.
 
+Operational planning source of truth: [Operational Hub Congruent Plan](docs/project/operational-hub-congruent-plan.md) (use this to resolve roadmap/build-plan sequencing conflicts).
+
 **Apr 15 highlights:** Infrastructure buildout — Cloudflare Workers CI/CD wired to
 GitHub (auto-deploy on push); all bindings live (KV ×3, D1, R2 ×3, AI, Assets);
 Twilio SMS configured and env var mismatch fixed; Uptime Kuma expanded to 7
@@ -623,5 +625,5 @@ Jeremy Thamert, continuing 16 years of construction excellence with renewed vete
 
 ---
 
-**Last Updated:** April 15, 2026  
+**Last Updated:** April 17, 2026  
 **Documentation Version:** 4.0 (README + CHANGELOG split)

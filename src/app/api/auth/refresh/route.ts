@@ -50,9 +50,13 @@ function resolveFieldUser(userId: string): JWTUser | null {
   }
 
   const raw = userId.slice("field-".length);
-  const normalized = raw.replace(/-/g, " ").trim();
+  const normalized = raw.split("-").join(" ").trim();
   const name = normalized
-    ? normalized.replace(/\b\w/g, (char) => char.toUpperCase())
+    ? normalized
+        .split(" ")
+        .filter(Boolean)
+        .map((segment) => segment[0]?.toUpperCase() + segment.slice(1))
+        .join(" ")
     : "Superintendent";
 
   return {
@@ -62,9 +66,40 @@ function resolveFieldUser(userId: string): JWTUser | null {
   };
 }
 
+function resolveHubUser(userId: string): JWTUser | null {
+  if (userId.startsWith("worker-")) {
+    return {
+      uid: userId,
+      role: "worker",
+      name: "Field Worker",
+    };
+  }
+
+  if (userId.startsWith("traveler-")) {
+    return {
+      uid: userId,
+      role: "traveler",
+      name: "Travelers Insurance",
+    };
+  }
+
+  return null;
+}
+
+function resolveUserById(userId: string): JWTUser | null {
+  return (
+    ADMIN_USERS[userId] ?? resolveFieldUser(userId) ?? resolveHubUser(userId)
+  );
+}
+
 function resolveRefreshCookie(request: NextRequest): {
   token: string | null;
-  cookieName: "mh_refresh_token" | "mh_field_refresh_token" | null;
+  cookieName:
+    | "mh_refresh_token"
+    | "mh_field_refresh_token"
+    | "mh_worker_refresh_token"
+    | "mh_traveler_refresh_token"
+    | null;
 } {
   const adminToken = request.cookies.get("mh_refresh_token")?.value ?? null;
   if (adminToken) {
@@ -75,6 +110,18 @@ function resolveRefreshCookie(request: NextRequest): {
     request.cookies.get("mh_field_refresh_token")?.value ?? null;
   if (fieldToken) {
     return { token: fieldToken, cookieName: "mh_field_refresh_token" };
+  }
+
+  const workerToken =
+    request.cookies.get("mh_worker_refresh_token")?.value ?? null;
+  if (workerToken) {
+    return { token: workerToken, cookieName: "mh_worker_refresh_token" };
+  }
+
+  const travelerToken =
+    request.cookies.get("mh_traveler_refresh_token")?.value ?? null;
+  if (travelerToken) {
+    return { token: travelerToken, cookieName: "mh_traveler_refresh_token" };
   }
 
   return { token: null, cookieName: null };
@@ -102,7 +149,7 @@ async function handleRefresh(request: NextRequest): Promise<NextResponse> {
     return res;
   }
 
-  const resolvedUser = ADMIN_USERS[userId] ?? resolveFieldUser(userId);
+  const resolvedUser = resolveUserById(userId);
   if (!resolvedUser) {
     const res = NextResponse.json(
       { error: "Refresh token invalid or expired" },
@@ -116,8 +163,7 @@ async function handleRefresh(request: NextRequest): Promise<NextResponse> {
 
   const newAccessToken = await refreshAccessToken(
     refreshToken,
-    (userId: string) =>
-      Promise.resolve(ADMIN_USERS[userId] ?? resolveFieldUser(userId)),
+    (userId: string) => Promise.resolve(resolveUserById(userId)),
   );
 
   if (!newAccessToken) {
