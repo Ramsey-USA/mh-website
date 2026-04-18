@@ -6,6 +6,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useMemo } from "react";
 import { usePageTracking } from "@/lib/analytics/hooks";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PortfolioService } from "@/lib/services/portfolio-service";
@@ -118,7 +119,7 @@ export default function ProjectsPage() {
   } = useProjectsSearch();
 
   // Get all projects for testimonials section
-  const allProjects = PortfolioService.getAllProjects();
+  const allProjects = useMemo(() => PortfolioService.getAllProjects(), []);
 
   return (
     <>

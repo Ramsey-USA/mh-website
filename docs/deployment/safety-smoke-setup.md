@@ -1,7 +1,8 @@
 # Safety Smoke Setup Guide
 
-Last Updated: April 8, 2026
-Owner: Engineering
+**Last Updated:** April 18, 2026  
+**Owner:** Engineering  
+**Status:** ✅ Active
 
 ## Purpose
 

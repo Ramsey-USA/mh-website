@@ -147,7 +147,9 @@ Use bearer-token or JWT-signing-secret options only as fallback.
 
 ### GitHub Actions Repository Secrets
 
-**GitHub → Ramsey-USA/mh-website → Settings → Secrets and variables → Actions**
+#### GitHub Path
+
+GitHub → Ramsey-USA/mh-website → Settings → Secrets and variables → Actions
 
 | Secret                    | Type      | Workflow                             | Purpose                                           |
 | ------------------------- | --------- | ------------------------------------ | ------------------------------------------------- |

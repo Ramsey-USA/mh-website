@@ -502,8 +502,3 @@ Thank you for trusting us with your construction projects. We're grateful for th
 - Monday: 7-9 AM
 - Wednesday: 1-3 PM
 - Friday: 10 AM - 12 PM
-
----
-
-**Last Updated:** April 15, 2026  
-**For questions, contact your marketing team**

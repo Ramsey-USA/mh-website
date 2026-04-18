@@ -53,6 +53,17 @@ describe("usePageTracking()", () => {
     mockPathname.mockReturnValue("/");
   });
 
+  it("skips tracking on excluded operational routes", () => {
+    mockPathname.mockReturnValue("/dashboard");
+
+    renderHook(() => usePageTracking("Analytics Dashboard"));
+
+    expect(mockInitializeSession).not.toHaveBeenCalled();
+    expect(mockTrackPageView).not.toHaveBeenCalled();
+    expect(mockTrackLandingPage).not.toHaveBeenCalled();
+    expect(mockTrackJourneyMilestone).not.toHaveBeenCalled();
+  });
+
   it("calls initializeSession on first mount", () => {
     renderHook(() => usePageTracking());
     expect(mockInitializeSession).toHaveBeenCalledTimes(1);
@@ -181,6 +192,17 @@ describe("useClickTracking()", () => {
       "nav-link",
       expect.objectContaining({ page: "/home" }),
     );
+  });
+
+  it("skips click tracking on excluded operational routes", () => {
+    mockPathname.mockReturnValue("/hub");
+    const { result } = renderHook(() => useClickTracking());
+
+    act(() => {
+      result.current("restricted-link", { section: "internal" });
+    });
+
+    expect(mockTrackClick).not.toHaveBeenCalled();
   });
 });
 

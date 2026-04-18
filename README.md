@@ -320,44 +320,30 @@ See [CHANGELOG.md](CHANGELOG.md#dependency-overrides-march-2026) for current `np
 
 ## Documentation Structure
 
-All documentation is organized in `/docs/` by category:
+Documentation is organized by domain. The list below is intentionally high-level so it stays accurate as files are added, consolidated, or archived.
 
 ```text
 docs/
-├── branding/                     # Brand guidelines
-│   ├── standards/               # unified-component-standards.md (v7.0.0), color-system.md, +3 more
-│   └── strategy/                # messaging.md, brand-overview.md, terminology, page-specific messaging
-├── business/                     # Business documentation
-│   ├── services.md, core-values.md, project-specializations.md, testimonials.md
-│   └── team/profiles/           # 14 team member profiles
-├── development/                  # Development guides
-│   ├── quick-reference/         # component-cheatsheet.md
-│   ├── standards/               # development-standards.md, consistency-guide.md, common-mistakes.md,
-│   │                            # page-compliance-checklist.md, page-template-guide.md, ai-development-guidelines.md
-│   └── components/              # template-components.md (StandardSection docs)
-├── technical/                    # Technical implementation (14 files + 3 subdirs)
-│   ├── design-system/           # buttons-ctas-complete-guide.md, icon-system-complete.md
-│   ├── seo/                     # seo-complete-guide.md
-│   ├── patterns/                # component-pattern-strategy.md, +2 component patterns
-│   ├── analytics-tracking-guide.md, homepage.md, secrets-management.md
-│   ├── dark-mode-quick-reference.md, admin-password-security.md
-│   └── pwa-quick-reference.md, automatic-media-optimization.md, +3 more
-├── marketing/                    # Marketing resources
-│   ├── gbp-post-templates.md
-│   └── google-business-profile-guide.md
-├── deployment/                   # Deployment guides
-│   └── cloudflare-guide.md
-└── project/                      # Project documentation
-    └── architecture.md
+├── branding/       # Brand constants, standards, and messaging strategy
+├── business/       # Core values, services, and project specialization references
+├── development/    # Standards, quick references, templates, and testing notes
+├── deployment/     # Cloudflare deployment and safety release workflow docs
+├── marketing/      # GBP and marketing operations docs
+├── media/          # Media workflow and content strategy
+├── performance/    # Performance audits and optimization references
+├── project/        # Architecture, audits, and roadmap/planning docs
+└── technical/      # Technical implementation guides, SEO, patterns, integrations
 
 # Root-level guides
 analytics-guide-for-matt-and-jeremy.md  # PRIMARY marketing intelligence guide
 seo-quick-reference.md                  # Quick SEO actions
 contributing.md                         # Contribution guidelines
+testing/mh-testing-guide.md             # Testing overview and commands
 
 # Config guides
 config/config-directory-guide.md        # Config directory overview
 config/cloudflare/edge-optimization.md  # Cloudflare edge optimization reference
+scripts/mh-scripts-guide.md             # Scripts overview and direct-run helpers
 ```
 
 **Key Documentation:**

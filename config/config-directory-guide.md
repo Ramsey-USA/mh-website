@@ -32,6 +32,8 @@ See [Main README](../README.md) for full documentation.
 
 - **`monitoring/audit-ci.json`** - Automated audit CI configuration
 - **`monitoring/lighthouserc.json`** - Lighthouse CI configuration
+- **`monitoring/n8n-form-notification-workflow.json`** - n8n workflow export for form notifications
+- **`monitoring/uptime-kuma-monitors.md`** - Uptime Kuma monitor inventory and setup notes
 
 ---
 
@@ -69,7 +71,9 @@ config/
 │   └── docker-compose.yml
 └── monitoring/         # CI/CD monitoring configs
     ├── audit-ci.json
-    └── lighthouserc.json
+    ├── lighthouserc.json
+    ├── n8n-form-notification-workflow.json
+    └── uptime-kuma-monitors.md
 ```
 
 ### Why This Structure?
@@ -150,5 +154,3 @@ config/
 ---
 
 **For Questions:** See [Main README](../README.md)
-
-**Last Updated:** April 15, 2026

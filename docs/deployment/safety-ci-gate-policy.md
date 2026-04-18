@@ -1,8 +1,9 @@
 # Safety CI Gate Policy
 
-Last Updated: April 17, 2026
-Owner: Engineering
-Applies To: all pull requests into main and all pushes to main/develop
+**Last Updated:** April 18, 2026  
+**Owner:** Engineering  
+**Applies To:** all pull requests into `main` and all pushes to `main`/`develop`  
+**Status:** ✅ Active
 
 ## Purpose
 

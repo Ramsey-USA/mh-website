@@ -3,7 +3,13 @@
  * Manages search and filtering logic for projects
  */
 
-import { useState, useMemo, useEffect } from "react";
+import {
+  useDeferredValue,
+  useEffect,
+  useEffectEvent,
+  useMemo,
+  useState,
+} from "react";
 import { PortfolioService } from "@/lib/services/portfolio-service";
 import { useAnalytics } from "@/components/analytics/EnhancedAnalytics";
 
@@ -12,6 +18,17 @@ export function useProjectsSearch() {
     useAnalytics();
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const deferredSearchQuery = useDeferredValue(searchQuery);
+
+  const logSearchPerformed = useEffectEvent(
+    (query: string, resultsCount: number) => {
+      trackSearchPerformed(query, "projects_page", resultsCount);
+    },
+  );
+
+  const logFilterUsed = useEffectEvent((category: string, query: string) => {
+    trackSearchFilterUsed("category", category, query);
+  });
 
   // Initialize search from URL parameters
   useEffect(() => {
@@ -29,71 +46,65 @@ export function useProjectsSearch() {
 
   // Update URL when search changes
   useEffect(() => {
-    const urlParams = new URLSearchParams();
-    if (searchQuery.trim()) {
-      urlParams.set("search", searchQuery);
-    }
-    if (selectedCategory && selectedCategory !== "all") {
-      urlParams.set("category", selectedCategory);
-    }
+    const timeoutId = window.setTimeout(() => {
+      const trimmedSearchQuery = searchQuery.trim();
+      const urlParams = new URLSearchParams();
 
-    const newUrl = urlParams.toString()
-      ? `${window.location.pathname}?${urlParams.toString()}`
-      : window.location.pathname;
+      if (trimmedSearchQuery) {
+        urlParams.set("search", trimmedSearchQuery);
+      }
+      if (selectedCategory && selectedCategory !== "all") {
+        urlParams.set("category", selectedCategory);
+      }
 
-    window.history.replaceState({}, "", newUrl);
+      const nextQueryString = urlParams.toString();
+      const nextUrl = nextQueryString
+        ? `${window.location.pathname}?${nextQueryString}`
+        : window.location.pathname;
+      const currentUrl = `${window.location.pathname}${window.location.search}`;
+
+      if (nextUrl !== currentUrl) {
+        window.history.replaceState({}, "", nextUrl);
+      }
+    }, 250);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
   }, [searchQuery, selectedCategory]);
 
   // Get projects based on selected category and search query
   const projects = useMemo(() => {
-    let filteredProjects =
-      PortfolioService.getProjectsByCategory(selectedCategory);
-
-    if (searchQuery.trim()) {
-      filteredProjects = filteredProjects.filter(
-        (project) =>
-          project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          project.description
-            .toLowerCase()
-            .includes(searchQuery.toLowerCase()) ||
-          (project.subcategory &&
-            project.subcategory
-              .toLowerCase()
-              .includes(searchQuery.toLowerCase())) ||
-          project.location.city
-            .toLowerCase()
-            .includes(searchQuery.toLowerCase()) ||
-          (project.tags &&
-            project.tags.some((tag) =>
-              tag.toLowerCase().includes(searchQuery.toLowerCase()),
-            )),
-      );
-    }
-
-    return filteredProjects;
-  }, [selectedCategory, searchQuery]);
+    return PortfolioService.searchProjects(
+      selectedCategory,
+      deferredSearchQuery,
+    );
+  }, [selectedCategory, deferredSearchQuery]);
 
   // Track search analytics (after projects is defined)
   useEffect(() => {
     let timeoutId: number | undefined;
-    if (searchQuery.trim()) {
+    const trimmedSearchQuery = deferredSearchQuery.trim();
+
+    if (trimmedSearchQuery) {
       timeoutId = window.setTimeout(() => {
-        trackSearchPerformed(searchQuery, "projects_page", projects.length);
-      }, 1000); // Debounce tracking
+        logSearchPerformed(trimmedSearchQuery, projects.length);
+      }, 750);
     }
+
     return () => {
       if (timeoutId !== undefined) {
         clearTimeout(timeoutId);
       }
     };
-  }, [searchQuery, projects.length, trackSearchPerformed]);
+  }, [deferredSearchQuery, logSearchPerformed, projects.length]);
 
   // Track category filter usage
   useEffect(() => {
     if (selectedCategory && selectedCategory !== "all") {
-      trackSearchFilterUsed("category", selectedCategory, searchQuery);
+      logFilterUsed(selectedCategory, deferredSearchQuery.trim());
     }
-  }, [selectedCategory, searchQuery, trackSearchFilterUsed]);
+  }, [deferredSearchQuery, logFilterUsed, selectedCategory]);
 
   // Clear search function with analytics
   const clearSearch = () => {

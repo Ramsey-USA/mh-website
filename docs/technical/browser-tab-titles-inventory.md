@@ -1,5 +1,9 @@
 # Browser Tab Titles — Dual Military/Construction Messaging
 
+**Category:** Technical - SEO Metadata Inventory  
+**Last Updated:** April 18, 2026  
+**Status:** ✅ Historical Reference - verify against current metadata implementation before using as a canonical source
+
 ## Complete Site Title Inventory — Updated April 8, 2026
 
 All browser tab titles now consistently use the dual military → construction
@@ -259,8 +263,3 @@ export const metadata: Metadata = {
 3. **Add New Pages** - Apply same dual-label format
 4. **Update OpenGraph** - Ensure social media titles match
 5. **International** - Consider if dual-label translates well
-
----
-
-Last Updated: December 27, 2025
-Status: ✅ Complete - All main content pages updated

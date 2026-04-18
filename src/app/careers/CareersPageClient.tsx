@@ -15,10 +15,6 @@ const JobApplicationModal = dynamic(
   { ssr: false },
 );
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import {
-  FadeInWhenVisible,
-  StaggeredFadeIn,
-} from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
@@ -380,11 +376,11 @@ export default function CareersPageClient() {
             </div>
 
             {/* Modern Grid Cards with Unique Hover Effects */}
-            <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {companyBenefits.map((benefit) => (
                 <div
                   key={benefit.title}
-                  className="group relative flex h-full min-h-[320px]"
+                  className="group relative flex h-full min-h-[320px] scroll-reveal"
                 >
                   {/* Colored Border Glow - Visible on hover */}
                   <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-600/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
@@ -423,7 +419,7 @@ export default function CareersPageClient() {
                   </div>
                 </div>
               ))}
-            </StaggeredFadeIn>
+            </div>
           </div>
         </section>
 
@@ -602,11 +598,11 @@ export default function CareersPageClient() {
               </div>
 
               {/* Modern Grid Cards with Unique Hover Effects */}
-              <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
                 {veteranBenefits.map((benefit) => (
                   <div
                     key={benefit.title}
-                    className="group relative flex h-full min-h-[280px]"
+                    className="group relative flex h-full min-h-[280px] scroll-reveal"
                   >
                     {/* Colored Border Glow - Visible on hover */}
                     <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
@@ -645,10 +641,10 @@ export default function CareersPageClient() {
                     </div>
                   </div>
                 ))}
-              </StaggeredFadeIn>
+              </div>
 
               {/* Enhanced CTA Section */}
-              <FadeInWhenVisible>
+              <div className="scroll-reveal">
                 <div className="relative">
                   {/* Background gradient box */}
                   <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-primary-dark/10 dark:from-brand-primary/10 dark:to-brand-primary-dark/20 rounded-2xl"></div>
@@ -707,7 +703,7 @@ export default function CareersPageClient() {
                     </div>
                   </div>
                 </div>
-              </FadeInWhenVisible>
+              </div>
             </div>
           </div>
         </section>
@@ -766,7 +762,7 @@ export default function CareersPageClient() {
             </div>
 
             {/* General Inquiry CTA Card */}
-            <FadeInWhenVisible>
+            <div className="scroll-reveal">
               <div className="relative">
                 {/* Colored Border Glow */}
                 <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
@@ -840,7 +836,7 @@ export default function CareersPageClient() {
                   </div>
                 </div>
               </div>
-            </FadeInWhenVisible>
+            </div>
           </div>
         </section>
 
@@ -983,7 +979,6 @@ export default function CareersPageClient() {
                           </>
                         ) : (
                           <>
-                            {/* Empty Left */}
                             <div className="flex-1"></div>
 
                             {/* Center Circle */}
@@ -1070,7 +1065,7 @@ export default function CareersPageClient() {
               </div>
 
               {/* Timeline Details */}
-              <FadeInWhenVisible>
+              <div className="scroll-reveal">
                 <div className="mt-16">
                   <h3 className="mb-8 font-black text-center text-gray-900 dark:text-white text-2xl sm:text-3xl">
                     What to Expect Timeline
@@ -1168,7 +1163,7 @@ export default function CareersPageClient() {
                     </div>
                   </div>
                 </div>
-              </FadeInWhenVisible>
+              </div>
 
               {/* CTA Section */}
               <div className="mt-12 text-center">
@@ -1356,7 +1351,7 @@ export default function CareersPageClient() {
         {/* Accreditations & About Our Company */}
         <section className="relative py-12 sm:py-16 bg-white dark:bg-gray-900">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <FadeInWhenVisible>
+            <div className="scroll-reveal">
               <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
                 Join an Accredited Team
               </p>
@@ -1455,7 +1450,7 @@ export default function CareersPageClient() {
                   </span>
                 </div>
               </div>
-            </FadeInWhenVisible>
+            </div>
           </div>
         </section>
 

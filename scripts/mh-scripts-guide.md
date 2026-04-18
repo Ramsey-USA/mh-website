@@ -3,7 +3,9 @@
 **Last Updated:** April 15, 2026  
 **Status:** ✅ Active
 
-Organized automation scripts for the MH Construction website development workflow.
+Selected automation scripts for the MH Construction website development workflow.
+
+Use `package.json` as the canonical source for `npm run ...` entry points. This guide focuses on the most useful direct-run scripts and the current folder layout.
 
 ## Directory Structure
 
@@ -31,7 +33,9 @@ Organized automation scripts for the MH Construction website development workflo
 - `build-monitor.js` - Monitor build performance
 - `build-performance-optimizer.js` - Optimize build performance
 - `optimize-for-cloudflare.js` - Cloudflare-specific optimizations
+- `optimize-images.js` - Image conversion and optimization pipeline
 - `optimize-images.sh` - Image optimization
+- `optimize-videos.js` - Video conversion and optimization pipeline
 - `ultra-fast-optimizer.js` - Ultra-fast build optimization
 
 ### 📁 `/utilities/` - General Purpose Tools
@@ -46,7 +50,12 @@ Organized automation scripts for the MH Construction website development workflo
 
 ### 📁 `/validation/` - Quality Assurance
 
+- `check-branding-compliance.sh` - Brand consistency validation
+- `check-env-vars.js` - Environment variable validation
+- `check-mobile-responsiveness.sh` - Mobile responsiveness audit helpers
 - `health-check-final.sh` - Final health check validation
+- `performance-gate.js` - Performance validation gate
+- `smoke-safety-system.js` - Safety workflow smoke test
 - `validate-css-js-cohesion.sh` - CSS/JavaScript cohesion validation
 
 ### 🎯 **Root Level - Core Operations**
@@ -56,9 +65,13 @@ Organized automation scripts for the MH Construction website development workflo
 - `add-team-skills.js` - Add skills to team data
 - `analyze-components.js` - Component analysis
 - `check-qr-codes.sh` - Verify QR code presence
+- `check-translations.js` - Translation consistency check
 - `extract-team-data.js` - Extract team member data
 - `fix-code-issues.js` - Fix common code issues
 - `lighthouse-guide.js` - Lighthouse workflow guide (use PageSpeed/DevTools for authoritative scores)
+- `r2-publish-forms.sh` - Publish forms PDFs to Cloudflare R2
+- `r2-publish-safety-pdfs.sh` - Publish safety PDFs to Cloudflare R2
+- `r2-seed-pdfs.sh` - Seed PDF assets into Cloudflare R2
 - `seo-audit.js` - SEO audit tool
 - `setup-ffmpeg.sh` - FFmpeg setup for video processing
 - `test-basic-performance.js` - Basic performance testing
@@ -66,12 +79,14 @@ Organized automation scripts for the MH Construction website development workflo
 - `test-lighthouse-quick.js` - Quick local Lighthouse checks (fails when audits are invalid)
 - `test-lighthouse.js` - Full local Lighthouse checks (fails when audits are invalid)
 - `test-pwa.js` - PWA testing
+- `test-qr-codes.js` - QR code validation tests
+- `update-doc-dates.sh` - Bulk update documentation dates
 
 ## Usage Examples
 
 ```bash
 # run-analysis
-node scripts/analysis/analyze-content-quality.sh
+bash scripts/analysis/analyze-content-quality.sh
 
 # cleanup-operations
 npm run clean
@@ -103,6 +118,8 @@ Access these scripts via npm:
 - `npm run lint:markdown` - Lint markdown files
 - `npm run lint:markdown:fix` - Auto-fix markdown issues
 - `npm run quality:check` - Run full quality scan
+- `npm run check:translations` - Validate translations
+- `npm run docs:release` - Generate, merge, and publish document bundles
 
 Scripts without npm aliases (run directly):
 

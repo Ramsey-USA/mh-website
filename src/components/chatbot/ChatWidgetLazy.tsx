@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 // ChatWidget is a heavy chatbot bundle — lazy-load so it never blocks initial
 // page paint. It has no SSR content so ssr: false is correct.
@@ -10,10 +11,28 @@ const ChatWidget = dynamic(
   { ssr: false },
 );
 
+const CHAT_WIDGET_EXCLUDED_PREFIXES = [
+  "/dashboard",
+  "/hub",
+  "/offline",
+  "/file-handler",
+  "/protocol-handler",
+] as const;
+
 export default function ChatWidgetLazy() {
+  const pathname = usePathname();
   const [shouldRender, setShouldRender] = useState(false);
 
+  const isExcludedRoute = CHAT_WIDGET_EXCLUDED_PREFIXES.some((prefix) =>
+    pathname?.startsWith(prefix),
+  );
+
   useEffect(() => {
+    if (isExcludedRoute) {
+      setShouldRender(false);
+      return;
+    }
+
     let cancelled = false;
 
     const enable = () => {
@@ -51,7 +70,11 @@ export default function ChatWidgetLazy() {
       window.removeEventListener("pointerdown", onFirstInteraction);
       window.removeEventListener("keydown", onFirstInteraction);
     };
-  }, []);
+  }, [isExcludedRoute]);
+
+  if (isExcludedRoute) {
+    return null;
+  }
 
   if (!shouldRender) {
     return null;

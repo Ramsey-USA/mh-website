@@ -457,8 +457,3 @@ Quick checks before merge:
 - [Page Compliance Checklist](../standards/page-compliance-checklist.md) - Audit tool
 - [Page Template Guide](../standards/page-template-guide.md) - New page boilerplate
 - [Common Mistakes](../standards/common-mistakes.md) - What to avoid
-
----
-
-**Last Updated:** March 15, 2026  
-**Maintained by:** MH Construction Development Team

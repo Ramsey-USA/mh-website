@@ -509,17 +509,6 @@ appropriately.
 ## 📞 Questions or Suggestions?
 
 Contact the Marketing & Brand Team with messaging questions or suggestions.
-
----
-
-**Last Updated:** December 14, 2025 | **Version:** 3.0.0  
-**Maintained by:** MH Construction Marketing & Brand Team  
-**Status:** ✅ Active - Veteran/Honesty Focus
-
----
-
-**Primary Slogan:** "Building projects for the Client, NOT the Dollar"  
-**Core Message:** Your word is your bond — so is ours. Period.  
 **Special Message:** THE ROI IS THE RELATIONSHIP (exclusive to Group 3 - Partnership & Team)  
 **Brand Identity:** Veteran-owned. Veteran-operated. Veteran values in every project.  
 **Measurable Trust:** 98% satisfaction rate | 70% referral rate | Combat Veteran Discount at the Ready

@@ -807,9 +807,3 @@ jest.mock("@/lib/constants/company", () => ({
 - [Page Compliance Checklist](./page-compliance-checklist.md) - Systematic audit
 - [Page Template Guide](./page-template-guide.md) - Correct boilerplate
 - [Unified Component Standards](../../branding/standards/unified-component-standards.md) - Official standard
-
----
-
-**Last Updated:** April 15, 2026  
-**Maintained by:** MH Construction Development Team  
-**Have a mistake to add?** Submit a PR or notify the team

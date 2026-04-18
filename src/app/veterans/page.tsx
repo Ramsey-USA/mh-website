@@ -2,10 +2,6 @@ import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { AmericanFlag } from "@/components/icons/AmericanFlag";
-import {
-  FadeInWhenVisible,
-  StaggeredFadeIn,
-} from "@/components/animations/FramerMotionComponents";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
@@ -80,9 +76,9 @@ export default function VeteransPage() {
 
       {/* All sections below Hero - WITH parallax background */}
       <div className="relative min-h-screen">
-        {/* Parallax Background - Fixed for all sections except Hero */}
+        {/* Shared background - anchored to the content container to avoid fixed-scroll repaints */}
         <div
-          className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-30 dark:opacity-25 pointer-events-none"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 dark:opacity-25 pointer-events-none"
           style={{
             backgroundImage: "url('/images/logo/mh-veteran-bg.webp')",
           }}
@@ -148,7 +144,7 @@ export default function VeteransPage() {
               </div>
 
               {/* Veteran Foundation Values Grid */}
-              <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
                 {[
                   {
                     icon: "military_tech",
@@ -250,7 +246,7 @@ export default function VeteransPage() {
                 ].map((value) => (
                   <div
                     key={value.title}
-                    className="group relative flex h-full min-h-[420px]"
+                    className="group relative flex h-full min-h-[420px] scroll-reveal"
                   >
                     {/* Colored Border Glow */}
                     <div
@@ -342,12 +338,15 @@ export default function VeteransPage() {
                     </div>
                   </div>
                 ))}
-              </StaggeredFadeIn>
+              </div>
 
               {/* Veteran Team Members - Side by Side */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
                 {/* Jeremy - Army Veteran */}
-                <FadeInWhenVisible delay={0.1}>
+                <div
+                  className="scroll-reveal"
+                  style={{ "--delay": "0.1s" } as React.CSSProperties}
+                >
                   <div className="group relative flex h-full">
                     <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
@@ -383,10 +382,13 @@ export default function VeteransPage() {
                       </div>
                     </div>
                   </div>
-                </FadeInWhenVisible>
+                </div>
 
                 {/* Matt - Navy Veteran */}
-                <FadeInWhenVisible delay={0.2}>
+                <div
+                  className="scroll-reveal"
+                  style={{ "--delay": "0.2s" } as React.CSSProperties}
+                >
                   <div className="group relative flex h-full">
                     <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
@@ -422,7 +424,7 @@ export default function VeteransPage() {
                       </div>
                     </div>
                   </div>
-                </FadeInWhenVisible>
+                </div>
               </div>
             </div>
           </section>
@@ -725,9 +727,9 @@ export default function VeteransPage() {
                 </div>
 
                 {/* Commitment Card */}
-                <FadeInWhenVisible
-                  className="mt-16 max-w-3xl mx-auto"
-                  delay={0.5}
+                <div
+                  className="mt-16 max-w-3xl mx-auto scroll-reveal"
+                  style={{ "--delay": "0.5s" } as React.CSSProperties}
                 >
                   <div className="bg-brand-primary/10 dark:bg-brand-primary/20 rounded-2xl p-8 border-2 border-brand-primary/30">
                     <div className="flex items-start gap-4">
@@ -751,7 +753,7 @@ export default function VeteransPage() {
                       </div>
                     </div>
                   </div>
-                </FadeInWhenVisible>
+                </div>
               </div>
 
               {/* CTA */}
@@ -888,10 +890,8 @@ export default function VeteransPage() {
               </div>
 
               {/* Program Cards */}
-              <StaggeredFadeIn
-                className={`${gridPresets.cards3("md")} relative z-10`}
-              >
-                <div className="group relative flex h-full">
+              <div className={`${gridPresets.cards3("md")} relative z-10`}>
+                <div className="group relative flex h-full scroll-reveal">
                   {/* Animated Border Glow */}
                   <div className="absolute -inset-2 bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
@@ -940,7 +940,7 @@ export default function VeteransPage() {
                   </div>
                 </div>
 
-                <div className="group relative flex h-full">
+                <div className="group relative flex h-full scroll-reveal">
                   {/* Animated Border Glow */}
                   <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
@@ -987,7 +987,7 @@ export default function VeteransPage() {
                   </div>
                 </div>
 
-                <div className="group relative flex h-full">
+                <div className="group relative flex h-full scroll-reveal">
                   {/* Animated Border Glow */}
                   <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 via-bronze-600/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
@@ -1033,7 +1033,7 @@ export default function VeteransPage() {
                     </div>
                   </div>
                 </div>
-              </StaggeredFadeIn>
+              </div>
             </div>
           </section>
 
@@ -1042,6 +1042,12 @@ export default function VeteransPage() {
             id="veteran-partnerships"
             className="relative py-20 lg:py-32 xl:py-40"
           >
+            <div
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none"
+              style={{
+                backgroundImage: "url('/images/logo/mh-veteran-bg.webp')",
+              }}
+            ></div>
             <div className="relative z-10 mx-auto px-4 container">
               {/* Section Header */}
               <div className="mb-16 sm:mb-20 text-center">
@@ -1137,13 +1143,9 @@ export default function VeteransPage() {
                         <div
                           role="img"
                           aria-label={`${item.title} - ${item.tagline}`}
-                          className={`relative h-64 sm:h-80 lg:h-full lg:min-h-[500px] overflow-hidden bg-cover bg-center ${
+                          className={`relative h-64 sm:h-80 lg:h-full lg:min-h-[500px] overflow-hidden bg-gradient-to-br from-brand-primary via-gray-900 to-brand-secondary ${
                             isLeft ? "lg:order-1" : "lg:order-2"
                           }`}
-                          style={{
-                            backgroundImage:
-                              "url('/images/logo/mh-veteran-bg.webp')",
-                          }}
                         >
                           {/* Overlay gradient for better icon visibility */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent lg:bg-gradient-to-r lg:from-black/60 lg:via-black/20 lg:to-transparent"></div>
@@ -1209,7 +1211,7 @@ export default function VeteransPage() {
               </div>
 
               {/* Partnership CTA */}
-              <FadeInWhenVisible className="mt-16 text-center" delay={0.4}>
+              <div className="mt-16 text-center scroll-reveal">
                 <div className="max-w-3xl mx-auto bg-brand-primary/10 dark:bg-brand-primary/20 rounded-2xl p-8 border-2 border-brand-primary/30">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     <MaterialIcon
@@ -1237,7 +1239,7 @@ export default function VeteransPage() {
                     </div>
                   </div>
                 </div>
-              </FadeInWhenVisible>
+              </div>
             </div>
           </section>
 

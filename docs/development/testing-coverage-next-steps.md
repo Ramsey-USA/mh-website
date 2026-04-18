@@ -1,6 +1,6 @@
 # Test Coverage Audit — Next Steps
 
-**Last updated:** April 15, 2026
+**Last Updated:** April 15, 2026
 **Session baseline:** 77 suites · 840 tests · 49.02% statements · 80.19% branches · 73.51% functions
 **Current state:** 118 suites · 1225 tests · 82.87% statements · 84.50% branches · 86.78% functions
 
@@ -205,8 +205,3 @@ jest.mock("@/lib/constants/company", () => ({
 ```text
 TypeError: Cannot read properties of undefined (reading 'website')
 ```
-
----
-
-**Last Updated:** April 15, 2026  
-**Maintained by:** MH Construction Development Team

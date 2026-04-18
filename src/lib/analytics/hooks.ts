@@ -29,6 +29,24 @@ import {
 } from "./tracking";
 import { trackJourneyMilestone, trackLandingPage } from "./marketing-tracking";
 
+const ANALYTICS_EXCLUDED_ROUTE_PREFIXES = [
+  "/dashboard",
+  "/hub",
+  "/offline",
+  "/file-handler",
+  "/protocol-handler",
+] as const;
+
+function isAnalyticsExcludedPath(pathname: string | null): boolean {
+  if (!pathname) {
+    return false;
+  }
+
+  return ANALYTICS_EXCLUDED_ROUTE_PREFIXES.some((prefix) =>
+    pathname.startsWith(prefix),
+  );
+}
+
 function isLighthouseRun(): boolean {
   if (typeof window === "undefined") {
     return false;
@@ -59,13 +77,14 @@ function isLighthouseRun(): boolean {
  */
 export function usePageTracking(pageName?: string) {
   const pathname = usePathname();
+  const isExcludedPath = isAnalyticsExcludedPath(pathname);
   const startTimeRef = useRef<number>(Date.now());
   const maxScrollRef = useRef<number>(0);
   const hasInitializedRef = useRef<boolean>(false);
 
   // Initialize session on first load
   useEffect(() => {
-    if (isLighthouseRun()) {
+    if (isLighthouseRun() || isExcludedPath) {
       return;
     }
 
@@ -73,11 +92,11 @@ export function usePageTracking(pageName?: string) {
       initializeSession();
       hasInitializedRef.current = true;
     }
-  }, []);
+  }, [isExcludedPath]);
 
   // Track page view on mount
   useEffect(() => {
-    if (isLighthouseRun()) {
+    if (isLighthouseRun() || isExcludedPath) {
       return;
     }
 
@@ -105,11 +124,11 @@ export function usePageTracking(pageName?: string) {
     }
 
     startTimeRef.current = Date.now();
-  }, [pathname, pageName]);
+  }, [pathname, pageName, isExcludedPath]);
 
   // Track scroll depth
   useEffect(() => {
-    if (isLighthouseRun()) {
+    if (isLighthouseRun() || isExcludedPath) {
       return;
     }
 
@@ -140,11 +159,11 @@ export function usePageTracking(pageName?: string) {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isExcludedPath]);
 
   // Track time spent on page when leaving
   useEffect(() => {
-    if (isLighthouseRun()) {
+    if (isLighthouseRun() || isExcludedPath) {
       return;
     }
 
@@ -177,7 +196,7 @@ export function usePageTracking(pageName?: string) {
       window.removeEventListener("beforeunload", handleBeforeUnload);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, [pathname]);
+  }, [pathname, isExcludedPath]);
 }
 
 /**
@@ -199,10 +218,11 @@ export function usePageTracking(pageName?: string) {
  */
 export function useClickTracking() {
   const pathname = usePathname();
+  const isExcludedPath = isAnalyticsExcludedPath(pathname);
 
   return useCallback(
     (elementId: string, properties?: Record<string, unknown>) => {
-      if (isLighthouseRun()) {
+      if (isLighthouseRun() || isExcludedPath) {
         return;
       }
 
@@ -211,6 +231,6 @@ export function useClickTracking() {
         page: pathname,
       });
     },
-    [pathname],
+    [pathname, isExcludedPath],
   );
 }

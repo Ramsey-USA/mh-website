@@ -400,8 +400,3 @@
 - [Unified Component Standards](../../branding/standards/unified-component-standards.md) - Complete standard
 - [Page Template Guide](./page-template-guide.md) - New page boilerplate
 - [Common Mistakes](./common-mistakes.md) - What to avoid
-
----
-
-**Last Updated:** April 15, 2026  
-**Maintained by:** MH Construction Development Team

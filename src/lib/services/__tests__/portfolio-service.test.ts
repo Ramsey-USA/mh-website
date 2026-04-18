@@ -57,6 +57,19 @@ describe("PortfolioService", () => {
     expect(filtered[0]?.title).toContain("Spokane Healthcare Clinic");
   });
 
+  it("searches published projects by precomputed text fields", () => {
+    const pascoResults = PortfolioService.searchProjects("all", "pasco");
+    const commercialResults = PortfolioService.searchProjects(
+      "commercial",
+      "clinic",
+    );
+
+    expect(pascoResults).toHaveLength(1);
+    expect(pascoResults[0]?.title).toContain("Pasco Industrial Warehouse");
+    expect(commercialResults).toHaveLength(1);
+    expect(commercialResults[0]?.title).toContain("Spokane Healthcare Clinic");
+  });
+
   it("returns related published projects in the same category and excludes the current project", () => {
     const related = PortfolioService.getRelatedProjects("proj-003", 5);
 

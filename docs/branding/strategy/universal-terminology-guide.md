@@ -808,17 +808,3 @@ Contact the Marketing & Brand Team with:
 
 This guide is a living document. When patterns emerge or new terminology becomes standard, this guide will be
 updated to reflect the evolution.
-
----
-
-**Last Updated:** December 14, 2025 | **Version:** 1.0.0  
-**Maintained by:** MH Construction Marketing & Brand Team  
-**Status:** Active - Official Brand Standard
-
----
-
-**Remember:** Consistency builds trust. When we all use the same language, we strengthen the brand.
-
-**Primary Slogan:** "Building projects for the Client, NOT the Dollar"  
-**Core Partnership Term:** Client Partner (not "client")  
-**Brand Promise:** Trust Built Through Excellence

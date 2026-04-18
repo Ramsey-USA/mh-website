@@ -108,6 +108,3 @@ npm run type-check         # TypeScript check
 
 - [SEO Complete Guide](./docs/technical/seo/seo-complete-guide.md)
 - [Browser Titles Inventory](./docs/technical/browser-tab-titles-inventory.md)
-
-**Last Updated:** April 17, 2026  
-**System Version:** 2.1.0

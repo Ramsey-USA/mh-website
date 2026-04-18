@@ -1,5 +1,8 @@
 # Contributing to MH Construction Website
 
+**Last Updated:** April 18, 2026  
+**Status:** ✅ Active
+
 We welcome contributions to the MH Construction website. Start with [README.md](./README.md) for
 project context, then follow this guide for Git workflow and contribution process.
 
@@ -159,7 +162,3 @@ and `api/job-applications/` for reference.
 - **General / Urgent:** [office@mhc-gc.com](mailto:office@mhc-gc.com) | (509) 308-6489
 - **GitHub Issues:** bug reports and feature requests
 - **GitHub Discussions:** general questions
-
----
-
-**Last updated:** March 26, 2026

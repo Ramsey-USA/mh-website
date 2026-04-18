@@ -130,30 +130,35 @@ import PublicSectorPage from "../page";
 
 // ── Tests ─────────────────────────────────────────────────────────────────────
 
+async function renderPublicSectorPage() {
+  const ui = await PublicSectorPage();
+  return render(ui);
+}
+
 describe("PublicSectorPage (under construction)", () => {
-  it("renders the page tracking client with correct page name", () => {
-    render(<PublicSectorPage />);
+  it("renders the page tracking client with correct page name", async () => {
+    await renderPublicSectorPage();
     const tracker = screen.getByTestId("page-tracking");
     expect(tracker).toHaveAttribute("data-page", "Public Sector");
   });
 
-  it("renders the UnderConstruction component", () => {
-    render(<PublicSectorPage />);
+  it("renders the UnderConstruction component", async () => {
+    await renderPublicSectorPage();
     expect(screen.getByTestId("under-construction")).toBeInTheDocument();
   });
 
-  it("displays the correct page name", () => {
-    render(<PublicSectorPage />);
+  it("displays the correct page name", async () => {
+    await renderPublicSectorPage();
     expect(screen.getByText("Public Sector Contracting")).toBeInTheDocument();
   });
 
-  it("displays the estimated completion date", () => {
-    render(<PublicSectorPage />);
+  it("displays the estimated completion date", async () => {
+    await renderPublicSectorPage();
     expect(screen.getByText("Q2 2026")).toBeInTheDocument();
   });
 
-  it("displays the description mentioning bonding capacity", () => {
-    render(<PublicSectorPage />);
+  it("displays the description mentioning bonding capacity", async () => {
+    await renderPublicSectorPage();
     expect(screen.getByText(/bonding capacity/i)).toBeInTheDocument();
   });
 });
@@ -167,7 +172,7 @@ describe("PublicSectorPage — module-level data integrity", () => {
     expect(typeof PublicSectorPage).toBe("function");
   });
 
-  it("renders without throwing", () => {
-    expect(() => render(<PublicSectorPage />)).not.toThrow();
+  it("renders without throwing", async () => {
+    await expect(PublicSectorPage()).resolves.toBeTruthy();
   });
 });

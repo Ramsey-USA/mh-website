@@ -924,4 +924,4 @@ Use `SEOFragments` from `src/lib/seo/seo-content-fragments.ts` for consistent, S
 ---
 
 **MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
-[← Back to README](../../README.md)
+[← Back to README](../../../README.md)

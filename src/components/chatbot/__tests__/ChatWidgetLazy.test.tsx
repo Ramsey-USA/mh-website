@@ -5,6 +5,12 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ChatWidgetLazy from "../ChatWidgetLazy";
 
+const mockUsePathname = jest.fn();
+
+jest.mock("next/navigation", () => ({
+  usePathname: () => mockUsePathname(),
+}));
+
 // ── Mocks ────────────────────────────────────────────────────────────────────
 
 jest.mock("@/components/icons/MaterialIcon", () => ({
@@ -46,12 +52,29 @@ Object.defineProperty(window, "matchMedia", {
   })),
 });
 
+Object.defineProperty(window, "requestIdleCallback", {
+  writable: true,
+  value: jest.fn().mockImplementation((callback: IdleRequestCallback) => {
+    callback({
+      didTimeout: false,
+      timeRemaining: () => 50,
+    });
+    return 1;
+  }),
+});
+
+Object.defineProperty(window, "cancelIdleCallback", {
+  writable: true,
+  value: jest.fn(),
+});
+
 // Mock fetch globally
 const mockFetch = jest.fn();
 global.fetch = mockFetch;
 
 beforeEach(() => {
   mockFetch.mockReset();
+  mockUsePathname.mockReturnValue("/");
 });
 
 // ── Tests ────────────────────────────────────────────────────────────────────
@@ -139,5 +162,19 @@ describe("ChatWidgetLazy", () => {
     expect(screen.getByText("Meet our Allies")).toBeInTheDocument();
     expect(screen.getByText("Veteran benefits")).toBeInTheDocument();
     expect(screen.getByText("Get in touch")).toBeInTheDocument();
+  });
+
+  it("does not render on excluded operational routes", async () => {
+    mockUsePathname.mockReturnValue("/dashboard");
+
+    render(<ChatWidgetLazy />);
+
+    await waitFor(() => {
+      expect(
+        screen.queryByRole("button", {
+          name: /open partnership guide chat/i,
+        }),
+      ).not.toBeInTheDocument();
+    });
   });
 });

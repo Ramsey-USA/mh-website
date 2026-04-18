@@ -1,6 +1,23 @@
 // Portfolio service for managing project data
 import { type ProjectPortfolio, type ProjectFilter } from "../types";
 
+function normalizeSearchValue(value: string): string {
+  return value.trim().toLowerCase();
+}
+
+function buildProjectSearchText(project: ProjectPortfolio): string {
+  return normalizeSearchValue(
+    [
+      project.title,
+      project.description,
+      project.subcategory ?? "",
+      project.location.city,
+      project.location.state,
+      ...project.tags,
+    ].join(" "),
+  );
+}
+
 // Sample portfolio projects for MH Construction
 // In production, populate this from Cloudflare D1 or KV via an admin dashboard.
 export const portfolioData: ProjectPortfolio[] = [
@@ -274,24 +291,55 @@ export const portfolioData: ProjectPortfolio[] = [
   },
 ];
 
+const publishedProjects = portfolioData.filter(
+  (project) => project.isPublished,
+);
+const featuredProjects = publishedProjects.filter(
+  (project) => project.isFeatured,
+);
+const publishedProjectsBySlug = new Map(
+  publishedProjects.map((project) => [project.seoMetadata.slug, project]),
+);
+const publishedProjectsByCategory = publishedProjects.reduce(
+  (projectsByCategory, project) => {
+    const existingProjects = projectsByCategory.get(project.category) ?? [];
+    existingProjects.push(project);
+    projectsByCategory.set(project.category, existingProjects);
+    return projectsByCategory;
+  },
+  new Map<string, ProjectPortfolio[]>(),
+);
+const projectSearchIndex = new Map(
+  publishedProjects.map((project) => [
+    project.id,
+    buildProjectSearchText(project),
+  ]),
+);
+const portfolioStats = {
+  totalProjects: publishedProjects.length,
+  categories: Array.from(
+    new Set(publishedProjects.map((project) => project.category)),
+  ),
+  featuredProjects: featuredProjects.length,
+  completedProjects: publishedProjects.filter(
+    (project) => project.status === "completed",
+  ).length,
+};
+
 export class PortfolioService {
   // Get all published projects
   static getAllProjects(): ProjectPortfolio[] {
-    return portfolioData.filter((project) => project.isPublished);
+    return [...publishedProjects];
   }
 
   // Get featured projects for homepage
   static getFeaturedProjects(): ProjectPortfolio[] {
-    return portfolioData.filter(
-      (project) => project.isPublished && project.isFeatured,
-    );
+    return [...featuredProjects];
   }
 
   // Get project by slug
   static getProjectBySlug(slug: string): ProjectPortfolio | undefined {
-    return portfolioData.find(
-      (project) => project.isPublished && project.seoMetadata.slug === slug,
-    );
+    return publishedProjectsBySlug.get(slug);
   }
 
   // Filter projects by category
@@ -299,14 +347,29 @@ export class PortfolioService {
     if (category === "all") {
       return this.getAllProjects();
     }
-    return portfolioData.filter(
-      (project) => project.isPublished && project.category === category,
+    return [...(publishedProjectsByCategory.get(category) ?? [])];
+  }
+
+  // Search projects using a precomputed index to minimize repeated string work
+  static searchProjects(category: string, query: string): ProjectPortfolio[] {
+    const normalizedQuery = normalizeSearchValue(query);
+    const scopedProjects =
+      category === "all"
+        ? publishedProjects
+        : (publishedProjectsByCategory.get(category) ?? []);
+
+    if (!normalizedQuery) {
+      return [...scopedProjects];
+    }
+
+    return scopedProjects.filter((project) =>
+      projectSearchIndex.get(project.id)?.includes(normalizedQuery),
     );
   }
 
   // Search and filter projects
   static filterProjects(filter: ProjectFilter): ProjectPortfolio[] {
-    let filteredProjects = this.getAllProjects();
+    let filteredProjects = [...publishedProjects];
 
     if (filter.category && filter.category.length > 0) {
       filteredProjects = filteredProjects.filter((project) =>
@@ -321,14 +384,11 @@ export class PortfolioService {
     }
 
     if (filter.location) {
+      const normalizedLocation = normalizeSearchValue(filter.location);
       filteredProjects = filteredProjects.filter(
         (project) =>
-          project.location.city
-            .toLowerCase()
-            .includes(filter.location!.toLowerCase()) ||
-          project.location.state
-            .toLowerCase()
-            .includes(filter.location!.toLowerCase()),
+          project.location.city.toLowerCase().includes(normalizedLocation) ||
+          project.location.state.toLowerCase().includes(normalizedLocation),
       );
     }
 
@@ -345,13 +405,14 @@ export class PortfolioService {
 
   // Get related projects (same category, different project)
   static getRelatedProjects(projectId: string, limit = 3): ProjectPortfolio[] {
-    const currentProject = portfolioData.find((p) => p.id === projectId);
+    const currentProject = portfolioData.find(
+      (project) => project.id === projectId,
+    );
     if (!currentProject) return [];
 
-    return portfolioData
+    return publishedProjects
       .filter(
         (project) =>
-          project.isPublished &&
           project.id !== projectId &&
           project.category === currentProject.category,
       )
@@ -360,15 +421,9 @@ export class PortfolioService {
 
   // Get project statistics
   static getPortfolioStats() {
-    const projects = this.getAllProjects();
-    const categories = Array.from(new Set(projects.map((p) => p.category)));
-
     return {
-      totalProjects: projects.length,
-      categories: categories,
-      featuredProjects: projects.filter((p) => p.isFeatured).length,
-      completedProjects: projects.filter((p) => p.status === "completed")
-        .length,
+      ...portfolioStats,
+      categories: [...portfolioStats.categories],
     };
   }
 }
