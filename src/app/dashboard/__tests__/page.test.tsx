@@ -5,8 +5,7 @@
  */
 
 jest.mock("next/navigation", () => {
-  const push = jest.fn();
-  const stableRouter = { push };
+  const stableRouter = { push: mockPush };
   return {
     useRouter: jest.fn(() => stableRouter),
     usePathname: () => "/dashboard",
@@ -30,17 +29,14 @@ jest.mock("@/lib/utils/logger", () => ({
   logger: { error: jest.fn(), info: jest.fn(), warn: jest.fn() },
 }));
 
+const mockPush = jest.fn();
 const mockFetch = jest.fn();
-global.fetch = mockFetch;
+Object.defineProperty(globalThis, "fetch", {
+  writable: true,
+  value: mockFetch,
+});
 
 import { render, act } from "@testing-library/react";
-
-function getRouter() {
-  const { useRouter } = jest.requireMock("next/navigation") as {
-    useRouter: jest.Mock;
-  };
-  return useRouter() as { push: jest.Mock };
-}
 
 function mockRefreshAsAdmin() {
   mockFetch.mockResolvedValueOnce({
@@ -80,7 +76,7 @@ function mockAnalyticsOk(payload?: Record<string, unknown>) {
 describe("Analytics Dashboard page", () => {
   beforeEach(() => {
     mockFetch.mockClear();
-    getRouter().push.mockClear();
+    mockPush.mockClear();
   });
 
   it("renders without throwing when refresh is unauthorized", async () => {
@@ -93,7 +89,7 @@ describe("Analytics Dashboard page", () => {
       render(<DashboardPage />);
     });
 
-    expect(getRouter().push).toHaveBeenCalledWith("/");
+    expect(mockPush).toHaveBeenCalledWith("/");
   });
 
   it("redirects when refresh returns non-admin role", async () => {
@@ -112,7 +108,7 @@ describe("Analytics Dashboard page", () => {
       render(<DashboardPage />);
     });
 
-    expect(getRouter().push).toHaveBeenCalledWith("/");
+    expect(mockPush).toHaveBeenCalledWith("/");
   });
 
   it("renders the access log tab label for authenticated admins", async () => {
@@ -204,7 +200,7 @@ describe("Analytics Dashboard page", () => {
       method: "POST",
       credentials: "include",
     });
-    expect(getRouter().push).toHaveBeenCalledWith("/");
+    expect(mockPush).toHaveBeenCalledWith("/");
   });
 
   it("renders kvStatus=unavailable warning banner", async () => {

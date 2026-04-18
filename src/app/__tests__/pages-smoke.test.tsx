@@ -333,8 +333,10 @@ jest.mock("next/script", () => ({
 
 // Mock for useParams in client components
 const mockUseParams = jest.fn(() => ({ id: "test-123" }));
+const mockRedirect = jest.fn();
 jest.mock("next/navigation", () => ({
   ...jest.requireActual("next/navigation"),
+  redirect: (...args: unknown[]) => mockRedirect(...args),
   useParams: () => mockUseParams(),
   useRouter: () => ({
     push: jest.fn(),
@@ -516,11 +518,14 @@ describe("Safety page", () => {
 // ── Safety Hub page ───────────────────────────────────────────────────────────
 
 describe("Safety Hub page", () => {
-  it("renders without throwing", () => {
+  it("redirects to /hub", () => {
     const { default: SafetyHubPage } = require("../safety/hub/page") as {
-      default: React.ComponentType;
+      default: () => void;
     };
-    expect(() => render(<SafetyHubPage />)).not.toThrow();
+
+    SafetyHubPage();
+
+    expect(mockRedirect).toHaveBeenCalledWith("/hub");
   });
 });
 
@@ -579,12 +584,6 @@ describe("Safety Print page", () => {
 
 describe("Safety Manual redirect page", () => {
   it("calls redirect to /safety", () => {
-    const mockRedirect = jest.fn();
-    jest.doMock("next/navigation", () => ({
-      ...jest.requireActual("next/navigation"),
-      redirect: mockRedirect,
-    }));
-
     // The page just redirects, so we verify it doesn't crash
     // The redirect is tested in safety-navigation-contracts.test.tsx
     expect(true).toBe(true);
