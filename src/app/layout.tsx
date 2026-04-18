@@ -19,7 +19,7 @@ import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
-import { getServerLocale } from "@/lib/i18n/locale";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 
 export const metadata: Metadata = withGeoMetadata({
   metadataBase: new URL(

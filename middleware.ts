@@ -4,6 +4,11 @@
  */
 
 import { type NextRequest } from "next/server";
+import {
+  getPreferredLocaleFromAcceptLanguage,
+  isSupportedLocale,
+  LOCALE_COOKIE_NAME,
+} from "./src/lib/i18n/locale";
 import { securityMiddleware } from "./src/middleware/security";
 
 export async function middleware(request: NextRequest) {
@@ -30,6 +35,21 @@ export async function middleware(request: NextRequest) {
       }
     } else {
       response.headers.set("CF-Cache-Tag", "html");
+
+      const localeCookie = request.cookies.get(LOCALE_COOKIE_NAME)?.value;
+      if (!localeCookie || !isSupportedLocale(localeCookie)) {
+        const preferredLocale = getPreferredLocaleFromAcceptLanguage(
+          request.headers.get("accept-language"),
+        );
+
+        response.cookies.set({
+          name: LOCALE_COOKIE_NAME,
+          value: preferredLocale,
+          path: "/",
+          maxAge: 60 * 60 * 24 * 365,
+          sameSite: "lax",
+        });
+      }
     }
   }
 

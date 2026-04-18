@@ -6,7 +6,7 @@ import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { useLocale } from "@/hooks/useLocale";
-import { LOCALE_COOKIE_NAME, type SupportedLocale } from "@/lib/i18n/locale";
+import { setClientLocale, type SupportedLocale } from "@/lib/i18n/locale";
 
 // ─── Translations ─────────────────────────────────────────────────────────────
 
@@ -293,10 +293,8 @@ export default function PrintableApplicationClient() {
 
   const switchLanguage = () => {
     const next = (lang === "en" ? "es" : "en") as SupportedLocale;
-    document.cookie = `${LOCALE_COOKIE_NAME}=${next}; path=/; max-age=31536000; SameSite=Lax`;
-    document.documentElement.lang = next;
+    setClientLocale(next);
     setLang(next);
-    window.dispatchEvent(new Event("localechange"));
   };
 
   const t = translations[lang];

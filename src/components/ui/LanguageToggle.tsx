@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 import {
   DEFAULT_LOCALE,
-  LOCALE_COOKIE_NAME,
-  normalizeLocale,
+  getClientLocale,
+  setClientLocale,
   SUPPORTED_LOCALES,
   type SupportedLocale,
 } from "@/lib/i18n/locale";
@@ -15,14 +15,6 @@ const LOCALE_LABELS: Record<SupportedLocale, string> = {
   es: "ES",
 };
 
-function readLocaleCookie(): SupportedLocale {
-  if (typeof document === "undefined") return DEFAULT_LOCALE;
-  const match = document.cookie.match(
-    new RegExp(`(?:^|;\\s*)${LOCALE_COOKIE_NAME}=([^;]+)`),
-  );
-  return normalizeLocale(match?.[1]);
-}
-
 export function LanguageToggle() {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -30,17 +22,14 @@ export function LanguageToggle() {
     useState<SupportedLocale>(DEFAULT_LOCALE);
 
   useEffect(() => {
-    setCurrentLocale(readLocaleCookie());
+    setCurrentLocale(getClientLocale());
   }, []);
 
   function switchLocale(next: SupportedLocale) {
     if (next === currentLocale) return;
 
-    document.cookie = `${LOCALE_COOKIE_NAME}=${next}; path=/; max-age=31536000; SameSite=Lax`;
-    document.documentElement.lang = next;
+    setClientLocale(next);
     setCurrentLocale(next);
-
-    window.dispatchEvent(new Event("localechange"));
 
     startTransition(() => {
       router.refresh();
