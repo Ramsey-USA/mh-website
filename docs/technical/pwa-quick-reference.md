@@ -3,6 +3,7 @@
 **Related Documentation:**
 
 - [Browser Titles](./browser-tab-titles-inventory.md) - Title system used in PWA
+- [Operational Hub Congruent Plan](../project/operational-hub-congruent-plan.md) - Canonical website/PWA role and language congruency standard
 
 ---
 

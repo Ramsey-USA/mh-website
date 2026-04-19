@@ -84,7 +84,7 @@ The homepage follows the **Universal Page Flow Standard**: **Discover → Trust 
 > → Action: CTAs + Next Steps). Section _content_ is optimized per page purpose; the flow sequence
 > is consistent. Timeline and component designs remain visually consistent.
 >
-> **Full Standard:** [Universal Page Flow Standard](../../development/standards/universal-page-flow-standard.md)
+> **Full Standard:** [Universal Page Flow Standard](../development/standards/universal-page-flow-standard.md)
 >
 > **Exception Pages:** Public Sector and Veterans pages have completely different structures.
 
@@ -686,7 +686,7 @@ className = "bg-white dark:bg-gray-900 text-gray-900 dark:text-white";
 - **[Analytics Guide](../../analytics-guide-for-matt-and-jeremy.md)** - Marketing analytics
 - **[PWA Quick Reference](./pwa-quick-reference.md)** - Progressive Web App details
 - **[Architecture](../project/architecture.md)** - Overall platform architecture
-- **[Lighthouse Results](../../lighthouse-results/summary.json)** - Local artifact (only trustworthy when all audits succeed)
+- **Lighthouse Results (`lighthouse-results/summary.json`)** - Local artifact when generated; use PageSpeed/DevTools if not present
 
 ---
 
