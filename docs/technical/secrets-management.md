@@ -192,7 +192,6 @@ Cloudflare dashboard secrets and `wrangler.toml` bindings.
 | `NEXT_PUBLIC_SITE_URL`    | Plaintext | `ci-cd.yml`                          | Canonical site URL (`https://www.mhc-gc.com`)     |
 | `RESEND_API_KEY`          | Secret    | `lighthouse-weekly.yml` / deployment | Resend API key for outbound email                 |
 | `SENTRY_DSN`              | Secret    | deployment                           | Sentry DSN for server-side API route tracking     |
-| `SNYK_TOKEN`              | Secret    | `snyk.yml`                           | Authenticates Snyk vulnerability scanner          |
 | `TURNSTILE_SECRET_KEY`    | Secret    | deployment                           | Cloudflare Turnstile secret for bot protection    |
 | `TWILIO_AUTH_TOKEN`       | Secret    | deployment                           | Twilio auth token for SMS notifications           |
 | `TWILIO_FROM_NUMBER`      | Secret    | deployment                           | Twilio sender phone number                        |

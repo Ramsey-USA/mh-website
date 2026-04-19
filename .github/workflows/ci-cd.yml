@@ -6,9 +6,9 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [main, develop]
+    branches: [ main, develop ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 concurrency:
   group: ci-cd-${{ github.ref }}
@@ -103,14 +103,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run npm audit (fail on high/critical)
-        run: npm audit --omit=dev --audit-level=high
+      - name: Run internal dependency security check
+        run: npm run security:check:prod
 
   # Build Verification
   build:
     name: Build Next.js
     runs-on: ubuntu-latest
-    needs: [quality-checks, security-audit]
+    needs: [ quality-checks, security-audit ]
 
     steps:
       - name: Checkout code
@@ -126,7 +126,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .next/cache
-          key: nextjs-cache-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('src/**') }}
+          key: nextjs-cache-${{ hashFiles('**/package-lock.json') }}-${{
+            hashFiles('src/**') }}
           restore-keys: |
             nextjs-cache-${{ hashFiles('**/package-lock.json') }}-
             nextjs-cache-
