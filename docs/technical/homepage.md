@@ -686,7 +686,7 @@ className = "bg-white dark:bg-gray-900 text-gray-900 dark:text-white";
 - **[Analytics Guide](../../analytics-guide-for-matt-and-jeremy.md)** - Marketing analytics
 - **[PWA Quick Reference](./pwa-quick-reference.md)** - Progressive Web App details
 - **[Architecture](../project/architecture.md)** - Overall platform architecture
-- **[Lighthouse Results](../../lighthouse-results/summary.json)** - Local artifact (only trustworthy when all audits succeed)
+- **Lighthouse Results (`lighthouse-results/summary.json`)** - Local artifact when generated; use PageSpeed/DevTools if not present
 
 ---
 
