@@ -97,6 +97,10 @@ jest.mock("@/lib/styles/card-variants", () => ({
   getCardClassName: () => "card-class",
 }));
 
+jest.mock("@/lib/i18n/locale.server", () => ({
+  getServerLocale: jest.fn(async () => "en"),
+}));
+
 jest.mock("@/lib/analytics/marketing-tracking", () => ({
   trackProjectInterest: jest.fn(),
 }));
@@ -249,9 +253,10 @@ describe("ProjectCard", () => {
 // ─── ProjectsCTASection ──────────────────────────────────────────────────────
 
 describe("ProjectsCTASection", () => {
-  it("renders the CTA section", () => {
+  it("renders the CTA section", async () => {
     const { ProjectsCTASection } = require("../ProjectsCTASection");
-    const { container } = render(<ProjectsCTASection />);
+    const section = await ProjectsCTASection();
+    const { container } = render(section);
     expect(container.querySelector("section")).toBeTruthy();
   });
 });

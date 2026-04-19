@@ -8,6 +8,178 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 import { LanguageToggle } from "@/components/ui/LanguageToggle";
 import { useLocale } from "@/hooks/useLocale";
 
+type GlobalMenuItem = {
+  href: string;
+  icon: string;
+  label: string;
+  subLabel: string;
+};
+
+const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
+  en: [
+    { href: "/", label: "Home", subLabel: "Base HQ", icon: "home" },
+    {
+      href: "/about",
+      label: "About Us",
+      subLabel: "Our Oath",
+      icon: "military_tech",
+    },
+    {
+      href: "/services",
+      label: "Services",
+      subLabel: "Operations",
+      icon: "build",
+    },
+    {
+      href: "/projects",
+      label: "Projects",
+      subLabel: "Missions",
+      icon: "photo_library",
+    },
+    {
+      href: "/team",
+      label: "Our Team",
+      subLabel: "Chain of Command",
+      icon: "groups",
+    },
+    {
+      href: "/testimonials",
+      label: "Reviews",
+      subLabel: "Commendations",
+      icon: "star",
+    },
+    {
+      href: "/careers",
+      label: "Careers",
+      subLabel: "Enlist",
+      icon: "work",
+    },
+    {
+      href: "/contact",
+      label: "Contact",
+      subLabel: "Rally Point",
+      icon: "contact_phone",
+    },
+    {
+      href: "/public-sector",
+      label: "Government",
+      subLabel: "Public Sector",
+      icon: "account_balance",
+    },
+    {
+      href: "/allies",
+      label: "Partners",
+      subLabel: "Allies",
+      icon: "handshake",
+    },
+    {
+      href: "/veterans",
+      label: "Veterans",
+      subLabel: "Service First",
+      icon: "workspace_premium",
+    },
+    {
+      href: "/resources",
+      label: "Resources",
+      subLabel: "Field Intel",
+      icon: "folder_open",
+    },
+    {
+      href: "/faq",
+      label: "Help/FAQ",
+      subLabel: "Intel Brief",
+      icon: "help",
+    },
+    {
+      href: "/safety",
+      label: "Safety",
+      subLabel: "Force Protection",
+      icon: "verified_user",
+    },
+  ],
+  es: [
+    { href: "/", label: "Inicio", subLabel: "Base central", icon: "home" },
+    {
+      href: "/about",
+      label: "Nosotros",
+      subLabel: "Nuestro compromiso",
+      icon: "military_tech",
+    },
+    {
+      href: "/services",
+      label: "Servicios",
+      subLabel: "Operaciones",
+      icon: "build",
+    },
+    {
+      href: "/projects",
+      label: "Proyectos",
+      subLabel: "Misiones",
+      icon: "photo_library",
+    },
+    {
+      href: "/team",
+      label: "Nuestro equipo",
+      subLabel: "Cadena de mando",
+      icon: "groups",
+    },
+    {
+      href: "/testimonials",
+      label: "Reseñas",
+      subLabel: "Reconocimientos",
+      icon: "star",
+    },
+    {
+      href: "/careers",
+      label: "Carreras",
+      subLabel: "Únete",
+      icon: "work",
+    },
+    {
+      href: "/contact",
+      label: "Contacto",
+      subLabel: "Punto de encuentro",
+      icon: "contact_phone",
+    },
+    {
+      href: "/public-sector",
+      label: "Gobierno",
+      subLabel: "Sector público",
+      icon: "account_balance",
+    },
+    {
+      href: "/allies",
+      label: "Aliados",
+      subLabel: "Socios",
+      icon: "handshake",
+    },
+    {
+      href: "/veterans",
+      label: "Veteranos",
+      subLabel: "Servicio primero",
+      icon: "workspace_premium",
+    },
+    {
+      href: "/resources",
+      label: "Recursos",
+      subLabel: "Inteligencia de campo",
+      icon: "folder_open",
+    },
+    {
+      href: "/faq",
+      label: "Ayuda/Preguntas",
+      subLabel: "Informe rápido",
+      icon: "help",
+    },
+    {
+      href: "/safety",
+      label: "Seguridad",
+      subLabel: "Proteccion operativa",
+      icon: "verified_user",
+    },
+  ],
+};
+
 /**
  * Global Hamburger Navigation Component
  *
@@ -53,7 +225,11 @@ import { useLocale } from "@/hooks/useLocale";
 export function Navigation() {
   const locale = useLocale();
   const isEs = locale === "es";
+  const menuItems = globalMenuItemsByLocale[isEs ? "es" : "en"];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const closeMenuLabel = isEs ? "Cerrar menu" : "Close menu";
+  const openMenuLabel = isEs ? "Abrir menu" : "Open menu";
+  const menuToggleAriaLabel = isMenuOpen ? closeMenuLabel : openMenuLabel;
   const controlButtonClassName =
     "relative bg-brand-primary hover:bg-brand-primary-dark shadow-lg hover:shadow-xl p-2 xs:p-2.5 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 touch-manipulation border-2 border-brand-secondary hover:border-brand-secondary-light outline outline-2 outline-offset-2 outline-brand-secondary/50 hover:outline-brand-secondary min-w-[40px] min-h-[40px] xs:min-w-[44px] xs:min-h-[44px] sm:min-w-[48px] sm:min-h-[48px] flex items-center justify-center";
 
@@ -65,9 +241,8 @@ export function Navigation() {
           className="z-[60] fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-300 cursor-pointer"
           onClick={() => setIsMenuOpen(false)}
           onKeyDown={(e) => e.key === "Escape" && setIsMenuOpen(false)}
-          role="button"
           tabIndex={0}
-          aria-label={isEs ? "Cerrar menú" : "Close menu"}
+          aria-label={closeMenuLabel}
         />
       )}
 
@@ -119,15 +294,7 @@ export function Navigation() {
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className={controlButtonClassName}
-          aria-label={
-            isMenuOpen
-              ? isEs
-                ? "Cerrar menú"
-                : "Close menu"
-              : isEs
-                ? "Abrir menú"
-                : "Open menu"
-          }
+          aria-label={menuToggleAriaLabel}
         >
           <div className="flex flex-col justify-center space-y-0.5 xs:space-y-1 w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6">
             <span
@@ -183,92 +350,7 @@ export function Navigation() {
             <div className="flex-1 flex items-center justify-center min-h-0">
               <div className="w-full max-w-xs">
                 <div className="gap-1.5 sm:gap-2 grid grid-cols-2">
-                  {[
-                    {
-                      href: "/",
-                      label: isEs ? "Inicio" : "Home",
-                      subLabel: "Base HQ",
-                      icon: "home",
-                    },
-                    {
-                      href: "/about",
-                      label: isEs ? "Nosotros" : "About Us",
-                      subLabel: "Our Oath",
-                      icon: "military_tech",
-                    },
-                    {
-                      href: "/services",
-                      label: isEs ? "Servicios" : "Services",
-                      subLabel: "Operations",
-                      icon: "build",
-                    },
-                    {
-                      href: "/projects",
-                      label: isEs ? "Proyectos" : "Projects",
-                      subLabel: "Missions",
-                      icon: "photo_library",
-                    },
-                    {
-                      href: "/team",
-                      label: isEs ? "Nuestro equipo" : "Our Team",
-                      subLabel: "Chain of Command",
-                      icon: "groups",
-                    },
-                    {
-                      href: "/testimonials",
-                      label: isEs ? "Reseñas" : "Reviews",
-                      subLabel: "Commendations",
-                      icon: "star",
-                    },
-                    {
-                      href: "/careers",
-                      label: isEs ? "Carreras" : "Careers",
-                      subLabel: "Enlist",
-                      icon: "work",
-                    },
-                    {
-                      href: "/contact",
-                      label: isEs ? "Contacto" : "Contact",
-                      subLabel: "Rally Point",
-                      icon: "contact_phone",
-                    },
-                    {
-                      href: "/public-sector",
-                      label: isEs ? "Gobierno" : "Government",
-                      subLabel: "Public Sector",
-                      icon: "account_balance",
-                    },
-                    {
-                      href: "/allies",
-                      label: isEs ? "Aliados" : "Partners",
-                      subLabel: "Allies",
-                      icon: "handshake",
-                    },
-                    {
-                      href: "/veterans",
-                      label: isEs ? "Veteranos" : "Veterans",
-                      subLabel: "Service First",
-                      icon: "workspace_premium",
-                    },
-                    {
-                      href: "/resources",
-                      label: isEs ? "Recursos" : "Resources",
-                      subLabel: "Field Intel",
-                      icon: "folder_open",
-                    },
-                    {
-                      href: "/faq",
-                      label: isEs ? "Ayuda/Preguntas" : "Help/FAQ",
-                      subLabel: "Intel Brief",
-                      icon: "help",
-                    },
-                    {
-                      href: "/safety",
-                      label: isEs ? "Seguridad" : "Safety",
-                      subLabel: "Force Protection",
-                      icon: "verified_user",
-                    },
-                  ].map((item) => (
+                  {menuItems.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
@@ -310,7 +392,11 @@ export function Navigation() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#1877F2] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#1877F2]/40"
-                  aria-label="Follow MH Construction on Facebook"
+                  aria-label={
+                    isEs
+                      ? "Sigue a MH Construction en Facebook"
+                      : "Follow MH Construction on Facebook"
+                  }
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
@@ -324,7 +410,11 @@ export function Navigation() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#E4405F] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#E4405F]/40"
-                  aria-label="View MH Construction on Instagram"
+                  aria-label={
+                    isEs
+                      ? "Ver MH Construction en Instagram"
+                      : "View MH Construction on Instagram"
+                  }
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
@@ -338,7 +428,11 @@ export function Navigation() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#1D9BF0] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-black/40"
-                  aria-label="Follow MH Construction on X (Twitter)"
+                  aria-label={
+                    isEs
+                      ? "Sigue a MH Construction en X (Twitter)"
+                      : "Follow MH Construction on X (Twitter)"
+                  }
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
@@ -352,7 +446,11 @@ export function Navigation() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#FF0000] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#FF0000]/40"
-                  aria-label="Watch MH Construction on YouTube"
+                  aria-label={
+                    isEs
+                      ? "Ver MH Construction en YouTube"
+                      : "Watch MH Construction on YouTube"
+                  }
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
@@ -366,7 +464,11 @@ export function Navigation() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#0A66C2] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#0A66C2]/40"
-                  aria-label="Connect with MH Construction on LinkedIn"
+                  aria-label={
+                    isEs
+                      ? "Conecta con MH Construction en LinkedIn"
+                      : "Connect with MH Construction on LinkedIn"
+                  }
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
@@ -391,7 +493,7 @@ export function Navigation() {
                     style={{ fontSize: "12px" }}
                   />
                   <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-white transition-colors">
-                    Privacy
+                    {isEs ? "Privacidad" : "Privacy"}
                   </span>
                 </Link>
                 <Link
@@ -406,7 +508,7 @@ export function Navigation() {
                     style={{ fontSize: "12px" }}
                   />
                   <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-white transition-colors">
-                    Terms
+                    {isEs ? "Terminos" : "Terms"}
                   </span>
                 </Link>
                 <Link
@@ -421,7 +523,7 @@ export function Navigation() {
                     style={{ fontSize: "12px" }}
                   />
                   <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-white transition-colors">
-                    Accessibility
+                    {isEs ? "Accesibilidad" : "Accessibility"}
                   </span>
                 </Link>
               </div>
@@ -435,7 +537,9 @@ export function Navigation() {
                   style={{ fontSize: "14px" }}
                 />
                 <span className="text-[10px] font-medium">
-                  Veteran-Owned • Licensed WA OR ID
+                  {isEs
+                    ? "Empresa veterana • Licencia WA OR ID"
+                    : "Veteran-Owned • Licensed WA OR ID"}
                 </span>
               </div>
             </div>

@@ -100,6 +100,10 @@ jest.mock("@/lib/seo/review-schema", () => ({
   ),
 }));
 
+jest.mock("@/lib/i18n/locale.server", () => ({
+  getServerLocale: jest.fn(async () => "en"),
+}));
+
 // ── KEY DIFFERENCE: return populated testimonials ─────────────────────────────
 const mockTestimonials = [
   {
@@ -129,31 +133,34 @@ jest.mock("@/lib/data/testimonials", () => ({
 // ─── Tests ────────────────────────────────────────────────────────────────────
 
 describe("TestimonialsPage (with populated testimonials data)", () => {
-  let TestimonialsPage: React.ComponentType;
+  let TestimonialsPage: () => Promise<React.ReactElement>;
 
   beforeAll(() => {
     // Each file gets its own module registry — import directly
     ({ default: TestimonialsPage } = require("../page") as {
-      default: React.ComponentType;
+      default: () => Promise<React.ReactElement>;
     });
   });
 
-  it("renders without throwing", () => {
-    expect(() => render(<TestimonialsPage />)).not.toThrow();
+  it("renders without throwing", async () => {
+    const page = await TestimonialsPage();
+    expect(() => render(page)).not.toThrow();
   });
 
-  it("renders main heading", () => {
-    render(<TestimonialsPage />);
+  it("renders main heading", async () => {
+    const page = await TestimonialsPage();
+    render(page);
     expect(
       screen.getAllByText(/Client Partners/i).length,
     ).toBeGreaterThanOrEqual(1);
   });
 
-  it("renders aggregate rating section (truthy aggregateRating branch)", () => {
-    render(<TestimonialsPage />);
+  it("renders aggregate rating section (truthy aggregateRating branch)", async () => {
+    const page = await TestimonialsPage();
+    render(page);
     // With 2 testimonials averaging 4.5 rating, the aggregate rating section renders
     // "Average Rating" or numerical value
-    const { container } = render(<TestimonialsPage />);
+    const { container } = render(page);
     // aggregateRatingSchema is computed and StructuredData renders a script tag
     const scripts = container.querySelectorAll(
       'script[type="application/ld+json"]',
@@ -161,16 +168,18 @@ describe("TestimonialsPage (with populated testimonials data)", () => {
     expect(scripts.length).toBeGreaterThan(0);
   });
 
-  it("renders review schema structured data for each testimonial", () => {
-    const { container } = render(<TestimonialsPage />);
+  it("renders review schema structured data for each testimonial", async () => {
+    const page = await TestimonialsPage();
+    const { container } = render(page);
     const scripts = container.querySelectorAll(
       'script[type="application/ld+json"]',
     );
     expect(scripts.length).toBeGreaterThan(1); // at least breadcrumb + aggregate + reviews
   });
 
-  it("renders the star rating display (aggregateRating.ratingValue branch)", () => {
-    render(<TestimonialsPage />);
+  it("renders the star rating display (aggregateRating.ratingValue branch)", async () => {
+    const page = await TestimonialsPage();
+    render(page);
     // The star rating block renders '4.5 Average Rating' or similar
     // We just verify the page renders aggregateRating-related content
     expect(
@@ -178,8 +187,9 @@ describe("TestimonialsPage (with populated testimonials data)", () => {
     ).toBeGreaterThanOrEqual(1);
   });
 
-  it("renders testimonial names in the hero stats block", () => {
-    render(<TestimonialsPage />);
+  it("renders testimonial names in the hero stats block", async () => {
+    const page = await TestimonialsPage();
+    render(page);
     // testimonials.length > 0 → reviewCount shows
     expect(
       screen.getAllByText(/2\+?|Client Partners/i).length,

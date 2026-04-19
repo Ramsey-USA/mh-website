@@ -30,6 +30,12 @@ jest.mock("@/hooks/use-breakpoint", () => ({
   useIsMobile: () => false,
 }));
 
+const mockLocale = jest.fn<"en" | "es", []>(() => "en");
+
+jest.mock("@/hooks/useLocale", () => ({
+  useLocale: () => mockLocale(),
+}));
+
 const items: NavigationItem[] = [
   { href: "#core-values", label: "Core Values", icon: "shield" },
   { href: "/services", label: "Services", icon: "build" },
@@ -42,6 +48,10 @@ const items: NavigationItem[] = [
 ];
 
 describe("PageNavigation", () => {
+  beforeEach(() => {
+    mockLocale.mockReturnValue("en");
+  });
+
   it("renders a navigation landmark", () => {
     render(<PageNavigation items={items} />);
     expect(
@@ -60,6 +70,16 @@ describe("PageNavigation", () => {
   it("renders the full label on desktop", () => {
     render(<PageNavigation items={items} />);
     expect(screen.getByText("Why Partner")).toBeInTheDocument();
+  });
+
+  it("renders translated labels in spanish locale", () => {
+    mockLocale.mockReturnValue("es");
+
+    render(<PageNavigation items={items} />);
+
+    expect(screen.getByText("Por que asociarse")).toBeInTheDocument();
+    expect(screen.getByText("Valores centrales")).toBeInTheDocument();
+    expect(screen.getByText("Servicios")).toBeInTheDocument();
   });
 
   it("applies custom className to the nav element", () => {
@@ -109,15 +129,14 @@ describe("PageNavigation — hash link scroll handling", () => {
     { href: "#", label: "Empty Hash", icon: "tag" },
   ];
 
-  let origPushState: typeof window.history.pushState;
+  let originalHash: string;
 
   beforeEach(() => {
-    origPushState = window.history.pushState;
-    window.history.pushState = jest.fn();
+    originalHash = globalThis.location.hash;
   });
 
   afterEach(() => {
-    window.history.pushState = origPushState;
+    globalThis.location.hash = originalHash;
   });
 
   it("prevents default and scrolls for same-page hash links", async () => {
@@ -136,9 +155,9 @@ describe("PageNavigation — hash link scroll handling", () => {
       behavior: "smooth",
       block: "start",
     });
-    expect(window.history.pushState).toHaveBeenCalled();
+    expect(globalThis.location.hash).toBe("#section-a");
 
-    document.body.removeChild(mockElement);
+    mockElement.remove();
   });
 
   it("does not scroll when hash element does not exist", async () => {
@@ -147,7 +166,7 @@ describe("PageNavigation — hash link scroll handling", () => {
     const link = container.querySelector('a[href="#section-a"]') as HTMLElement;
     await user.click(link);
 
-    expect(window.history.pushState).not.toHaveBeenCalled();
+    expect(globalThis.location.hash).toBe("");
   });
 
   it("does not call pushState for hash links with different page path", async () => {
@@ -159,6 +178,6 @@ describe("PageNavigation — hash link scroll handling", () => {
     ) as HTMLElement;
     await user.click(link);
 
-    expect(window.history.pushState).not.toHaveBeenCalled();
+    expect(globalThis.location.hash).toBe("");
   });
 });

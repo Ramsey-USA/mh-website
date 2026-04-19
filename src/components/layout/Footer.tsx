@@ -367,9 +367,11 @@ function LicenseBadge() {
 function ServiceAreasDropdown({
   isOpen,
   onToggle,
+  isEs,
 }: {
   isOpen: boolean;
   onToggle: () => void;
+  isEs: boolean;
 }) {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -400,7 +402,9 @@ function ServiceAreasDropdown({
           size="sm"
           className="text-brand-secondary dark:text-brand-secondary-light"
         />
-        <span className="text-gray-300 dark:text-gray-200">Areas Served</span>
+        <span className="text-gray-300 dark:text-gray-200">
+          {isEs ? "Areas atendidas" : "Areas Served"}
+        </span>
         <MaterialIcon
           icon={isOpen ? "expand_less" : "expand_more"}
           size="sm"
@@ -411,10 +415,10 @@ function ServiceAreasDropdown({
         <div
           className="absolute bottom-full left-0 mb-2 w-64 rounded-lg border border-brand-primary/30 bg-gray-800 dark:bg-gray-900 p-3 shadow-xl z-50"
           role="listbox"
-          aria-label="Service areas"
+          aria-label={isEs ? "Areas de servicio" : "Service areas"}
         >
           <div className="text-xs font-bold uppercase tracking-wide text-brand-primary mb-2">
-            Pacific Northwest
+            {isEs ? "Pacifico Noroeste" : "Pacific Northwest"}
           </div>
           <div className="flex flex-wrap gap-1.5">
             {linkedCities.map((city) => (
@@ -454,6 +458,63 @@ function ServiceAreasDropdown({
 export default function Footer() {
   const locale = useLocale();
   const isEs = locale === "es";
+  const localizedNavCol1Links = navCol1Links.map((link) => {
+    if (!isEs) return link;
+
+    const translations: Record<string, { label: string; sub: string }> = {
+      "/": { label: "Inicio", sub: "Base central" },
+      "/contact": { label: "Contacto", sub: "Punto de encuentro" },
+      "/services": { label: "Servicios", sub: "Operaciones" },
+      "/projects": { label: "Proyectos", sub: "Misiones" },
+      "/resources": { label: "Recursos", sub: "Inteligencia de campo" },
+      "/safety": { label: "Seguridad", sub: "Proteccion operativa" },
+      "/faq": { label: "Ayuda/Preguntas", sub: "Informe rapido" },
+    };
+
+    const translation = translations[link.href];
+    return {
+      ...link,
+      label: translation?.label ?? link.label,
+      sub: translation?.sub ?? link.sub,
+    };
+  });
+
+  const localizedNavCol2Links = navCol2Links.map((link) => {
+    if (!isEs) return link;
+
+    const translations: Record<string, { label: string; sub: string }> = {
+      "/about": { label: "Nosotros", sub: "Nuestro compromiso" },
+      "/team": { label: "Nuestro equipo", sub: "Cadena de mando" },
+      "/allies": { label: "Aliados", sub: "Socios" },
+      "/public-sector": { label: "Gobierno", sub: "Sector publico" },
+      "/veterans": { label: "Veteranos", sub: "Servicio primero" },
+      "/careers": { label: "Carreras", sub: "Unete" },
+      "/testimonials": { label: "Resenas", sub: "Reconocimientos" },
+    };
+
+    const translation = translations[link.href];
+    return {
+      ...link,
+      label: translation?.label ?? link.label,
+      sub: translation?.sub ?? link.sub,
+    };
+  });
+
+  const localizedFooterUtilityLinks = footerUtilityLinks.map((link) => {
+    if (!isEs) return link;
+
+    const translations: Record<string, string> = {
+      "/privacy": "Privacidad",
+      "/terms": "Terminos",
+      "/accessibility": "Accesibilidad",
+      "/sitemap.xml": "Mapa del sitio",
+    };
+
+    return {
+      ...link,
+      label: translations[link.href] ?? link.label,
+    };
+  });
   const [showAdminModal, setShowAdminModal] = useState(false);
   const [accessCode, setAccessCode] = useState("");
   const [accessCodeError, setAccessCodeError] = useState("");
@@ -589,7 +650,9 @@ export default function Footer() {
 
                 {/* Social Media Links */}
                 <nav
-                  aria-label="Social media links"
+                  aria-label={
+                    isEs ? "Enlaces de redes sociales" : "Social media links"
+                  }
                   className="mx-auto flex w-[240px] max-w-full flex-nowrap items-center justify-between pb-1 xs:w-[270px] sm:mx-0 sm:w-[300px]"
                 >
                   {socialLinks.map((link) => (
@@ -603,16 +666,22 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${primaryActionCardClassName} mt-4`}
-                  aria-label="Leave a 5-star Google review for MH Construction"
+                  aria-label={
+                    isEs
+                      ? "Deje una resena de 5 estrellas en Google para MH Construction"
+                      : "Leave a 5-star Google review for MH Construction"
+                  }
                   itemProp="review"
                 >
                   <FooterActionCardContent
                     icon="rate_review"
-                    eyebrow="Rate Us"
+                    eyebrow={isEs ? "Calificanos" : "Rate Us"}
                     body={
                       <>
                         <div className="mb-1 text-sm font-bold text-gray-300 transition-colors group-hover:text-brand-primary xs:text-base">
-                          Leave a Google Review
+                          {isEs
+                            ? "Deja una resena en Google"
+                            : "Leave a Google Review"}
                         </div>
                         <div className="flex items-center gap-1 text-yellow-500">
                           <MaterialIcon icon="star" size="sm" />
@@ -635,7 +704,9 @@ export default function Footer() {
                       className="drop-shadow-md"
                     />
                     <div className="mt-2 text-center text-xs font-semibold text-brand-secondary dark:text-brand-secondary-light">
-                      Serving the Pacific Northwest
+                      {isEs
+                        ? "Sirviendo al Pacifico Noroeste"
+                        : "Serving the Pacific Northwest"}
                     </div>
                   </div>
                 </div>
@@ -645,7 +716,7 @@ export default function Footer() {
             {/* Column 2: Core Navigation */}
             <nav
               className="space-y-3 xs:space-y-4"
-              aria-label="Main navigation"
+              aria-label={isEs ? "Navegacion principal" : "Main navigation"}
             >
               <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
                 <MaterialIcon
@@ -655,15 +726,15 @@ export default function Footer() {
                 />
                 <div className="flex flex-col leading-tight">
                   <h3 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
-                    Services
+                    {isEs ? "Servicios" : "Services"}
                   </h3>
                   <span className="text-[9px] uppercase tracking-wide text-brand-secondary/80">
-                    Mission Execution
+                    {isEs ? "Ejecucion de mision" : "Mission Execution"}
                   </span>
                 </div>
               </div>
               <div className="space-y-1.5 xs:space-y-2">
-                {navCol1Links.map((link) => (
+                {localizedNavCol1Links.map((link) => (
                   <FooterNavLink key={`${link.href}-${link.label}`} {...link} />
                 ))}
               </div>
@@ -672,7 +743,9 @@ export default function Footer() {
             {/* Column 3: Company & Partnerships */}
             <nav
               className="space-y-3 xs:space-y-4"
-              aria-label="Company information"
+              aria-label={
+                isEs ? "Informacion de la compania" : "Company information"
+              }
             >
               <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
                 <MaterialIcon
@@ -682,15 +755,15 @@ export default function Footer() {
                 />
                 <div className="flex flex-col leading-tight">
                   <h3 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
-                    Company
+                    {isEs ? "Compania" : "Company"}
                   </h3>
                   <span className="text-[9px] uppercase tracking-wide text-brand-secondary/80">
-                    Our Forces
+                    {isEs ? "Nuestras fuerzas" : "Our Forces"}
                   </span>
                 </div>
               </div>
               <div className="space-y-1.5 xs:space-y-2">
-                {navCol2Links.map((link) => (
+                {localizedNavCol2Links.map((link) => (
                   <FooterNavLink key={`${link.href}-${link.label}`} {...link} />
                 ))}
               </div>
@@ -712,10 +785,10 @@ export default function Footer() {
                     id="contact-heading"
                     className="font-medium text-brand-primary text-xs uppercase tracking-wide"
                   >
-                    Contact
+                    {isEs ? "Contacto" : "Contact"}
                   </h3>
                   <span className="text-[9px] uppercase tracking-wide text-brand-secondary/80">
-                    Command Center
+                    {isEs ? "Centro de mando" : "Command Center"}
                   </span>
                 </div>
               </div>
@@ -730,15 +803,19 @@ export default function Footer() {
                 <Link
                   href="/careers?apply=true&entryPoint=Footer%20Application"
                   className={secondaryActionCardClassName}
-                  aria-label="Start a job application with MH Construction"
+                  aria-label={
+                    isEs
+                      ? "Inicie una solicitud de empleo con MH Construction"
+                      : "Start a job application with MH Construction"
+                  }
                 >
                   <FooterActionCardContent
                     icon="badge"
-                    eyebrow="Join the Team"
+                    eyebrow={isEs ? "Unete al equipo" : "Join the Team"}
                     accent="secondary"
                     body={
                       <div className="text-sm font-bold text-gray-300 transition-colors group-hover:text-brand-secondary xs:text-base">
-                        Quick Application
+                        {isEs ? "Solicitud rapida" : "Quick Application"}
                       </div>
                     }
                   />
@@ -751,11 +828,15 @@ export default function Footer() {
                     style: "button",
                   }}
                   className={primaryActionCardClassName}
-                  aria-label={`Call MH Construction at ${COMPANY_INFO.phone.display}`}
+                  aria-label={`${
+                    isEs
+                      ? "Llame a MH Construction al"
+                      : "Call MH Construction at"
+                  } ${COMPANY_INFO.phone.display}`}
                 >
                   <FooterActionCardContent
                     icon="call"
-                    eyebrow="Call Us"
+                    eyebrow={isEs ? "Llamenos" : "Call Us"}
                     body={
                       <div className="text-sm font-bold text-gray-300 transition-colors group-hover:text-brand-primary xs:text-base">
                         {COMPANY_INFO.phone.display}
@@ -771,7 +852,11 @@ export default function Footer() {
                     style: "button",
                   }}
                   className={primaryActionCardClassName}
-                  aria-label={`Email MH Construction at ${COMPANY_INFO.email.main}`}
+                  aria-label={`${
+                    isEs
+                      ? "Envie un correo a MH Construction a"
+                      : "Email MH Construction at"
+                  } ${COMPANY_INFO.email.main}`}
                 >
                   <FooterActionCardContent
                     icon="mail"
@@ -1029,9 +1114,13 @@ export default function Footer() {
             {/* Primary Row: Legal Links as Icon Pills */}
             <nav
               className="flex flex-wrap justify-center items-center gap-2 xs:gap-3 mb-6"
-              aria-label="Legal and utility links"
+              aria-label={
+                isEs
+                  ? "Enlaces legales y utilitarios"
+                  : "Legal and utility links"
+              }
             >
-              {footerUtilityLinks.map((link) => (
+              {localizedFooterUtilityLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -1055,6 +1144,7 @@ export default function Footer() {
               <ServiceAreasDropdown
                 isOpen={areasDropdownOpen}
                 onToggle={() => setAreasDropdownOpen(!areasDropdownOpen)}
+                isEs={isEs}
               />
 
               {/* Licensed */}
@@ -1098,7 +1188,11 @@ export default function Footer() {
                 <form
                   onSubmit={handleAccessCodeSubmit}
                   className="flex items-center gap-1.5 opacity-50 hover:opacity-100 transition-opacity duration-300"
-                  aria-label="Staff portal access"
+                  aria-label={
+                    isEs
+                      ? "Acceso al portal de personal"
+                      : "Staff portal access"
+                  }
                 >
                   <MaterialIcon
                     icon="lock"

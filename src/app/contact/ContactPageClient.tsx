@@ -1113,7 +1113,11 @@ export default function ContactPageClient() {
                             icon="arrow_forward"
                             size="sm"
                             className="text-brand-secondary group-hover/link:translate-x-1 transition-transform"
-                            ariaLabel="Navigate to Pasco page"
+                            ariaLabel={
+                              isEs
+                                ? "Navegar a la pagina de Pasco"
+                                : "Navigate to Pasco page"
+                            }
                           />
                           <span className="font-medium">Pasco, WA</span>
                           <span className="ml-auto text-xs text-gray-500">
@@ -1128,7 +1132,11 @@ export default function ContactPageClient() {
                             icon="arrow_forward"
                             size="sm"
                             className="text-brand-secondary group-hover/link:translate-x-1 transition-transform"
-                            ariaLabel="Navigate to Kennewick page"
+                            ariaLabel={
+                              isEs
+                                ? "Navegar a la pagina de Kennewick"
+                                : "Navigate to Kennewick page"
+                            }
                           />
                           <span className="font-medium">Kennewick, WA</span>
                         </Link>
@@ -1140,7 +1148,11 @@ export default function ContactPageClient() {
                             icon="arrow_forward"
                             size="sm"
                             className="text-brand-secondary group-hover/link:translate-x-1 transition-transform"
-                            ariaLabel="Navigate to Richland page"
+                            ariaLabel={
+                              isEs
+                                ? "Navegar a la pagina de Richland"
+                                : "Navigate to Richland page"
+                            }
                           />
                           <span className="font-medium">Richland, WA</span>
                         </Link>
@@ -1168,7 +1180,11 @@ export default function ContactPageClient() {
                               icon="travel_explore"
                               size="xl"
                               className="text-white drop-shadow-lg"
-                              ariaLabel="Extended service coverage"
+                              ariaLabel={
+                                isEs
+                                  ? "Cobertura de servicio extendida"
+                                  : "Extended service coverage"
+                              }
                             />
                           </div>
                         </div>
@@ -1193,7 +1209,11 @@ export default function ContactPageClient() {
                             icon="arrow_forward"
                             size="sm"
                             className="text-brand-primary group-hover/link:translate-x-1 transition-transform"
-                            ariaLabel="Navigate to Spokane page"
+                            ariaLabel={
+                              isEs
+                                ? "Navegar a la pagina de Spokane"
+                                : "Navigate to Spokane page"
+                            }
                           />
                           <span className="font-medium">Spokane, WA</span>
                         </Link>
@@ -1205,7 +1225,11 @@ export default function ContactPageClient() {
                             icon="arrow_forward"
                             size="sm"
                             className="text-brand-primary group-hover/link:translate-x-1 transition-transform"
-                            ariaLabel="Navigate to Yakima page"
+                            ariaLabel={
+                              isEs
+                                ? "Navegar a la pagina de Yakima"
+                                : "Navigate to Yakima page"
+                            }
                           />
                           <span className="font-medium">Yakima, WA</span>
                         </Link>

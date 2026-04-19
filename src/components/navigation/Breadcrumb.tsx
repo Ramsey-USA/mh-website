@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { useLocale } from "@/hooks/useLocale";
 
 export interface BreadcrumbItem {
   label: string;
@@ -40,9 +43,12 @@ interface BreadcrumbProps {
  * @param {string} [props.className] - Additional CSS classes
  */
 export function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
+  const locale = useLocale();
+  const isEs = locale === "es";
+
   return (
     <nav
-      aria-label="Breadcrumb navigation"
+      aria-label={isEs ? "Navegacion de ruta" : "Breadcrumb navigation"}
       className={`bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 py-3 ${className}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

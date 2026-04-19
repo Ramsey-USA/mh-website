@@ -20,6 +20,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 const TestimonialsSection = dynamic(() =>
   import("@/components/shared-sections/TestimonialsSection").then((m) => ({
     default: m.TestimonialsSection,
@@ -56,6 +57,7 @@ const aggregateRatingSchema = aggregateRating
   : null;
 
 const SITE_URL = "https://www.mhc-gc.com";
+const STAR_SLOTS = ["star-1", "star-2", "star-3", "star-4", "star-5"];
 
 const reviewSchemas = testimonials.map((testimonial) =>
   generateReviewSchema({
@@ -107,15 +109,19 @@ const faqSchema = {
   ],
 };
 
-export default function TestimonialsPage() {
+// NOSONAR: This page intentionally composes many static marketing sections.
+export default async function TestimonialsPage() {
+  const locale = await getServerLocale();
+  const isEs = locale === "es";
+
   return (
     <>
       <PageTrackingClient pageName="Testimonials" />
       <StructuredData data={breadcrumbSchema} />
       {aggregateRatingSchema && <StructuredData data={aggregateRatingSchema} />}
-      {reviewSchemas.map((schema) => (
+      {reviewSchemas.map((schema, index) => (
         <StructuredData
-          key={`review-${schema.author?.name || schema["@type"]}`}
+          key={`review-${schema.author?.name || schema["@type"] || "schema"}-${index}`}
           data={schema}
         />
       ))}
@@ -174,9 +180,9 @@ export default function TestimonialsPage() {
               <div className="flex flex-wrap justify-center gap-8 sm:gap-12 pt-8">
                 <div className="flex flex-col items-center">
                   <div className="flex items-center gap-2 mb-2">
-                    {[...Array(5)].map((_, i) => (
+                    {STAR_SLOTS.map((slot, i) => (
                       <MaterialIcon
-                        key={i}
+                        key={slot}
                         icon="star"
                         size="md"
                         className={
@@ -222,7 +228,11 @@ export default function TestimonialsPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-3 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-2xl font-bold text-lg"
-                aria-label="Leave a Google review for MH Construction"
+                aria-label={
+                  isEs
+                    ? "Deje una resena de Google para MH Construction"
+                    : "Leave a Google review for MH Construction"
+                }
               >
                 <MaterialIcon
                   icon="star"
@@ -230,12 +240,18 @@ export default function TestimonialsPage() {
                   className="group-hover:scale-110 transition-transform"
                   ariaLabel=""
                 />
-                <span>Leave a Google Review</span>
+                <span>
+                  {isEs ? "Deja una resena en Google" : "Leave a Google Review"}
+                </span>
               </Link>
               <Link
                 href="/contact"
                 className="group inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-white/50 hover:border-white shadow-2xl font-bold text-lg"
-                aria-label="Start your construction project"
+                aria-label={
+                  isEs
+                    ? "Inicie su proyecto de construccion"
+                    : "Start your construction project"
+                }
               >
                 <MaterialIcon
                   icon="contact_page"
@@ -243,7 +259,9 @@ export default function TestimonialsPage() {
                   className="group-hover:scale-110 transition-transform"
                   ariaLabel=""
                 />
-                <span>Start Your Project</span>
+                <span>
+                  {isEs ? "Inicie su proyecto" : "Start Your Project"}
+                </span>
               </Link>
             </div>
           </div>
@@ -559,15 +577,17 @@ export default function TestimonialsPage() {
                       ariaLabel="Service coverage map"
                     />
                     <h3 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white">
-                      Serving the Pacific Northwest
+                      {isEs
+                        ? "Sirviendo al Pacifico Noroeste"
+                        : "Serving the Pacific Northwest"}
                     </h3>
                   </div>
                   <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
                     Licensed and insured across{" "}
                     <span className="font-bold text-brand-primary">
-                      Washington, Oregon, and Idaho
+                      Washington, Oregon, and Idaho,
                     </span>
-                    , we bring a Veteran-Owned Since January 2025,
+                    we bring a Veteran-Owned Since January 2025,
                     relationship-first approach to commercial and industrial
                     projects throughout the region.
                   </p>
@@ -653,9 +673,9 @@ export default function TestimonialsPage() {
                   <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
                     From{" "}
                     <span className="font-bold text-brand-primary">
-                      ground-up construction to tenant improvements
+                      ground-up construction to tenant improvements,
                     </span>
-                    , we deliver proven results across diverse project types.
+                    we deliver proven results across diverse project types.
                   </p>
                   <div className="grid grid-cols-2 gap-3">
                     {/* Office Buildings Card */}
@@ -1052,7 +1072,11 @@ export default function TestimonialsPage() {
                 <Link
                   href="/faq"
                   className="group inline-flex items-center justify-center gap-3 bg-brand-primary hover:bg-brand-primary-dark text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-xl font-bold text-lg"
-                  aria-label="View all frequently asked questions"
+                  aria-label={
+                    isEs
+                      ? "Ver todas las preguntas frecuentes"
+                      : "View all frequently asked questions"
+                  }
                 >
                   <MaterialIcon
                     icon="quiz"
@@ -1060,7 +1084,7 @@ export default function TestimonialsPage() {
                     className="group-hover:scale-110 transition-transform"
                     ariaLabel=""
                   />
-                  <span>View All FAQs</span>
+                  <span>{isEs ? "Ver todas las FAQs" : "View All FAQs"}</span>
                 </Link>
               </div>
             </div>
@@ -1272,7 +1296,11 @@ export default function TestimonialsPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-3 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-xl font-bold text-lg"
-                aria-label="Leave a Google review for MH Construction"
+                aria-label={
+                  isEs
+                    ? "Deje una resena de Google para MH Construction"
+                    : "Leave a Google review for MH Construction"
+                }
               >
                 <MaterialIcon
                   icon="star"
@@ -1280,12 +1308,18 @@ export default function TestimonialsPage() {
                   className="group-hover:scale-110 transition-transform"
                   ariaLabel=""
                 />
-                <span>Leave a Google Review</span>
+                <span>
+                  {isEs ? "Deja una resena en Google" : "Leave a Google Review"}
+                </span>
               </Link>
               <Link
                 href="/contact"
                 className="group inline-flex items-center justify-center gap-3 bg-brand-primary hover:bg-brand-primary-dark text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-brand-secondary shadow-xl font-bold text-lg"
-                aria-label="Start your construction project"
+                aria-label={
+                  isEs
+                    ? "Inicie su proyecto de construccion"
+                    : "Start your construction project"
+                }
               >
                 <MaterialIcon
                   icon="contact_page"
@@ -1293,7 +1327,9 @@ export default function TestimonialsPage() {
                   className="group-hover:scale-110 transition-transform"
                   ariaLabel=""
                 />
-                <span>Start Your Project</span>
+                <span>
+                  {isEs ? "Inicie su proyecto" : "Start Your Project"}
+                </span>
               </Link>
             </div>
           </div>
@@ -1327,7 +1363,11 @@ export default function TestimonialsPage() {
             <Link
               href="/contact"
               className="group inline-flex items-center justify-center gap-3 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-2xl font-bold text-lg"
-              aria-label="Contact us to start your project"
+              aria-label={
+                isEs
+                  ? "Contactenos para iniciar su proyecto"
+                  : "Contact us to start your project"
+              }
             >
               <MaterialIcon
                 icon="contact_page"
@@ -1335,12 +1375,16 @@ export default function TestimonialsPage() {
                 className="group-hover:scale-110 transition-transform"
                 ariaLabel=""
               />
-              <span>Get Started Today</span>
+              <span>{isEs ? "Comience hoy" : "Get Started Today"}</span>
             </Link>
             <Link
               href="/services"
               className="group inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-white/50 hover:border-white shadow-2xl font-bold text-lg"
-              aria-label="Learn about our construction services"
+              aria-label={
+                isEs
+                  ? "Conozca nuestros servicios de construccion"
+                  : "Learn about our construction services"
+              }
             >
               <MaterialIcon
                 icon="construction"
@@ -1348,7 +1392,9 @@ export default function TestimonialsPage() {
                 className="group-hover:scale-110 transition-transform"
                 ariaLabel=""
               />
-              <span>View Our Services</span>
+              <span>
+                {isEs ? "Ver nuestros servicios" : "View Our Services"}
+              </span>
             </Link>
           </div>
         </div>

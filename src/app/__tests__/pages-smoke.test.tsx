@@ -254,6 +254,10 @@ jest.mock("@/lib/data/vintage-team", () => ({
   vintageTeamMembers: [],
 }));
 
+jest.mock("@/lib/i18n/locale.server", () => ({
+  getServerLocale: jest.fn(async () => "en"),
+}));
+
 jest.mock("@/components/home", () => ({
   HeroSection: () => null,
   CoreValuesSection: () => null,
@@ -390,11 +394,12 @@ describe("Veterans page", () => {
 // ── Testimonials page ─────────────────────────────────────────────────────────
 
 describe("Testimonials page", () => {
-  it("renders without throwing", () => {
+  it("renders without throwing", async () => {
     const { default: TestimonialsPage } = require("../testimonials/page") as {
-      default: React.ComponentType;
+      default: () => Promise<React.ReactElement>;
     };
-    expect(() => render(<TestimonialsPage />)).not.toThrow();
+    const page = await TestimonialsPage();
+    expect(() => render(page)).not.toThrow();
   });
 });
 

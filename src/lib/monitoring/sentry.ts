@@ -13,9 +13,11 @@
  * @see https://docs.sentry.io/platforms/javascript/
  */
 
-import * as Sentry from "@sentry/browser";
+import * as SentryBrowser from "@sentry/browser";
 
 let isInitialized = false;
+const FALLBACK_SENTRY_DSN =
+  "https://4bcf174e0a1db00489a4d0cde0b290de@o4511220420050944.ingest.us.sentry.io/4511220427980800";
 
 /**
  * Initialize Sentry for client-side error tracking
@@ -26,16 +28,9 @@ export function initSentry(): void {
     return;
   }
 
-  const dsn = process.env["NEXT_PUBLIC_SENTRY_DSN"];
+  const dsn = process.env["NEXT_PUBLIC_SENTRY_DSN"] || FALLBACK_SENTRY_DSN;
 
-  if (!dsn) {
-    if (process.env.NODE_ENV === "development") {
-      console.info("[Sentry] No DSN configured - error tracking disabled");
-    }
-    return;
-  }
-
-  Sentry.init({
+  SentryBrowser.init({
     dsn,
     environment: process.env.NODE_ENV || "production",
     release: process.env["NEXT_PUBLIC_APP_VERSION"] || "unknown",
@@ -44,12 +39,12 @@ export function initSentry(): void {
     sendDefaultPii: true,
 
     // Adjust sample rate based on environment
-    tracesSampleRate: process.env.NODE_ENV === "production" ? 0.1 : 1.0,
+    tracesSampleRate: process.env.NODE_ENV === "production" ? 0.1 : 1,
 
     // Capture unhandled promise rejections
     integrations: [
-      Sentry.browserTracingIntegration(),
-      Sentry.replayIntegration({
+      SentryBrowser.browserTracingIntegration(),
+      SentryBrowser.replayIntegration({
         maskAllText: true,
         blockAllMedia: true,
       }),
@@ -57,7 +52,7 @@ export function initSentry(): void {
 
     // Session replay sample rate
     replaysSessionSampleRate: 0.1,
-    replaysOnErrorSampleRate: 1.0,
+    replaysOnErrorSampleRate: 1,
 
     // Don't send errors in development unless explicitly enabled
     enabled:
@@ -81,16 +76,16 @@ export function initSentry(): void {
  * Capture an exception and send to Sentry
  */
 export function captureException(
-  error: Error | unknown,
+  error: unknown,
   context?: Record<string, unknown>,
 ): void {
   if (context) {
-    Sentry.withScope((scope) => {
+    SentryBrowser.withScope((scope) => {
       scope.setExtras(context);
-      Sentry.captureException(error);
+      SentryBrowser.captureException(error);
     });
   } else {
-    Sentry.captureException(error);
+    SentryBrowser.captureException(error);
   }
 }
 
@@ -99,16 +94,16 @@ export function captureException(
  */
 export function captureMessage(
   message: string,
-  level: Sentry.SeverityLevel = "info",
+  level: SentryBrowser.SeverityLevel = "info",
   context?: Record<string, unknown>,
 ): void {
   if (context) {
-    Sentry.withScope((scope) => {
+    SentryBrowser.withScope((scope) => {
       scope.setExtras(context);
-      Sentry.captureMessage(message, level);
+      SentryBrowser.captureMessage(message, level);
     });
   } else {
-    Sentry.captureMessage(message, level);
+    SentryBrowser.captureMessage(message, level);
   }
 }
 
@@ -118,7 +113,7 @@ export function captureMessage(
 export function setUser(
   user: { id?: string; email?: string; username?: string } | null,
 ): void {
-  Sentry.setUser(user);
+  SentryBrowser.setUser(user);
 }
 
 /**
@@ -127,10 +122,10 @@ export function setUser(
 export function addBreadcrumb(breadcrumb: {
   category?: string;
   message: string;
-  level?: Sentry.SeverityLevel;
+  level?: SentryBrowser.SeverityLevel;
   data?: Record<string, unknown>;
 }): void {
-  Sentry.addBreadcrumb({
+  SentryBrowser.addBreadcrumb({
     ...(breadcrumb.category && { category: breadcrumb.category }),
     message: breadcrumb.message,
     level: breadcrumb.level || "info",
@@ -139,4 +134,4 @@ export function addBreadcrumb(breadcrumb: {
 }
 
 // Re-export Sentry for advanced usage
-export { Sentry };
+export * as Sentry from "@sentry/browser";

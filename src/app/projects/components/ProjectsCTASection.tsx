@@ -8,12 +8,16 @@ import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { getServerLocale } from "@/lib/i18n/locale.server";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
 
-export function ProjectsCTASection() {
+export async function ProjectsCTASection() {
+  const locale = await getServerLocale();
+  const isEs = locale === "es";
+
   return (
     <section
       id="start-your-project"
@@ -76,7 +80,11 @@ export function ProjectsCTASection() {
                   variant="primary"
                   size="lg"
                   className="w-full sm:w-auto min-w-[280px] transition-all duration-300 group"
-                  aria-label="Start your construction project with MH Construction"
+                  aria-label={
+                    isEs
+                      ? "Inicie su proyecto de construccion con MH Construction"
+                      : "Start your construction project with MH Construction"
+                  }
                 >
                   <MaterialIcon
                     icon="event"
@@ -92,7 +100,11 @@ export function ProjectsCTASection() {
                   variant="outline"
                   size="lg"
                   className="w-full sm:w-auto min-w-[280px] transition-all duration-300 group border-2 border-brand-primary dark:border-brand-primary-light"
-                  aria-label="View our construction services"
+                  aria-label={
+                    isEs
+                      ? "Ver nuestros servicios de construccion"
+                      : "View our construction services"
+                  }
                 >
                   <MaterialIcon
                     icon="build"
@@ -119,7 +131,11 @@ export function ProjectsCTASection() {
                 <a
                   href={`tel:${COMPANY_INFO.phone.tel}`}
                   className="hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors"
-                  aria-label={`Call MH Construction at ${COMPANY_INFO.phone.display}`}
+                  aria-label={`${
+                    isEs
+                      ? "Llame a MH Construction al"
+                      : "Call MH Construction at"
+                  } ${COMPANY_INFO.phone.display}`}
                 >
                   {COMPANY_INFO.phone.display}
                 </a>
@@ -136,7 +152,11 @@ export function ProjectsCTASection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors"
-                  aria-label="View MH Construction location on map"
+                  aria-label={
+                    isEs
+                      ? "Ver ubicacion de MH Construction en el mapa"
+                      : "View MH Construction location on map"
+                  }
                 >
                   {COMPANY_INFO.address.full}
                 </a>
@@ -151,7 +171,11 @@ export function ProjectsCTASection() {
                 <a
                   href={`mailto:${COMPANY_INFO.email.main}`}
                   className="hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors"
-                  aria-label={`Email MH Construction at ${COMPANY_INFO.email.main}`}
+                  aria-label={`${
+                    isEs
+                      ? "Envie un correo a MH Construction a"
+                      : "Email MH Construction at"
+                  } ${COMPANY_INFO.email.main}`}
                 >
                   {COMPANY_INFO.email.main}
                 </a>

@@ -25,7 +25,8 @@
 }
 
 /* Hide breadcrumb navigation globally */
-nav[aria-label="Breadcrumb navigation"] {
+nav[aria-label="Breadcrumb navigation"],
+nav[aria-label="Navegacion de ruta"] {
   display: none;
 }
 
