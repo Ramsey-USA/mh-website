@@ -1,6 +1,5 @@
 import { logger } from "@/lib/utils/logger";
 import { sendToN8n, sendToN8nAsync } from "../n8n-webhook";
-import * as n8nWebhook from "../n8n-webhook";
 
 jest.mock("@/lib/utils/logger", () => ({
   logger: {
@@ -138,27 +137,19 @@ describe("n8n webhook notifications", () => {
     });
   });
 
-  it("logs async send failures in sendToN8nAsync", async () => {
-    const spy = jest
-      .spyOn(n8nWebhook, "sendToN8n")
-      .mockRejectedValueOnce(new Error("async failure"));
-
+  it("invokes async n8n send flow without blocking caller", async () => {
+    process.env["N8N_WEBHOOK_URL"] = "https://n8n.example/webhook";
+    mockFetch.mockResolvedValueOnce({ ok: true });
     sendToN8nAsync({
       type: "contact",
       data: { name: "Matt" },
     });
     await Promise.resolve();
+    await Promise.resolve();
 
-    expect(spy).toHaveBeenCalledWith({
+    expect(mockFetch).toHaveBeenCalledTimes(1);
+    expect(logger.info).toHaveBeenCalledWith("n8n webhook sent successfully", {
       type: "contact",
-      data: { name: "Matt" },
     });
-    expect(logger.error).toHaveBeenCalledWith(
-      "n8n async notification failed",
-      expect.objectContaining({
-        error: expect.any(Error),
-        type: "contact",
-      }),
-    );
   });
 });

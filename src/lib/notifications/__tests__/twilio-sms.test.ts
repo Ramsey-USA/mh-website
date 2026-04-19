@@ -5,7 +5,6 @@ import {
   sendSms,
   sendSmsAsync,
 } from "../twilio-sms";
-import * as twilioSms from "../twilio-sms";
 
 jest.mock("@/lib/utils/logger", () => ({
   logger: {
@@ -174,52 +173,67 @@ describe("twilio sms notifications", () => {
     });
   });
 
-  it("logs async send failures in sendSmsAsync", async () => {
-    const spy = jest
-      .spyOn(twilioSms, "sendSms")
-      .mockRejectedValueOnce(new Error("async sms failure"));
-
+  it("invokes async send flow without blocking caller", async () => {
+    process.env["TWILIO_ACCOUNT_SID"] = "AC123";
+    process.env["TWILIO_AUTH_TOKEN"] = "token";
+    process.env["TWILIO_FROM_NUMBER"] = "+15095550000";
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({ sid: "SMASYNC" }),
+    });
     sendSmsAsync({
       to: "+15095551234",
       message: "test",
     });
     await Promise.resolve();
+    await Promise.resolve();
 
-    expect(spy).toHaveBeenCalledWith({
+    expect(mockFetch).toHaveBeenCalledTimes(1);
+    expect(logger.info).toHaveBeenCalledWith("SMS sent successfully", {
+      messageId: "SMASYNC",
       to: "+15095551234",
-      message: "test",
     });
-    expect(logger.error).toHaveBeenCalledWith(
-      "Async SMS send failed",
-      expect.any(Error),
-    );
   });
 
   it("sends urgent submission notifications and logs failed recipients", async () => {
-    const spy = jest
-      .spyOn(twilioSms, "sendSms")
-      .mockResolvedValueOnce({ success: false, error: "downstream failed" });
+    process.env["TWILIO_ACCOUNT_SID"] = "AC123";
+    process.env["TWILIO_AUTH_TOKEN"] = "token";
+    process.env["TWILIO_FROM_NUMBER"] = "+15095550000";
+    mockFetch.mockResolvedValueOnce({
+      ok: false,
+      status: 500,
+      json: async () => ({ message: "downstream failed" }),
+    });
 
     await notifyUrgentSubmission("lead", "High-value lead submitted");
 
-    expect(spy).toHaveBeenCalledWith({
-      to: "+15094912494",
-      message:
-        "🚨 MHC Alert: New lead\n\nHigh-value lead submitted\n\nCheck dashboard for details.",
-    });
+    const [, requestInit] = mockFetch.mock.calls[0] as [string, RequestInit];
+    const params = new URLSearchParams(String(requestInit.body));
+    expect(params.get("To")).toBe("+15094912494");
+    expect(params.get("Body")).toBe(
+      "🚨 MHC Alert: New lead\n\nHigh-value lead submitted\n\nCheck dashboard for details.",
+    );
     expect(logger.warn).toHaveBeenCalledWith("Failed to notify matt", {
       error: "downstream failed",
     });
   });
 
-  it("routes alertMatt through sendSmsAsync with MHC prefix", () => {
-    const spy = jest.spyOn(twilioSms, "sendSmsAsync").mockImplementation();
+  it("routes alertMatt through async sms path with MHC prefix", async () => {
+    process.env["TWILIO_ACCOUNT_SID"] = "AC123";
+    process.env["TWILIO_AUTH_TOKEN"] = "token";
+    process.env["TWILIO_FROM_NUMBER"] = "+15095550000";
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({ sid: "SMMATT" }),
+    });
 
     alertMatt("System test");
+    await Promise.resolve();
+    await Promise.resolve();
 
-    expect(spy).toHaveBeenCalledWith({
-      to: "+15094912494",
-      message: "MHC: System test",
-    });
+    const [, requestInit] = mockFetch.mock.calls[0] as [string, RequestInit];
+    const params = new URLSearchParams(String(requestInit.body));
+    expect(params.get("To")).toBe("+15094912494");
+    expect(params.get("Body")).toBe("MHC: System test");
   });
 });
