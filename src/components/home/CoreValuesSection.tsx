@@ -181,7 +181,7 @@ export function CoreValuesSection() {
                       </div>
                       <div className="flex-1">
                         <p className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
-                          Key Metric
+                          {t.keyMetric}
                         </p>
                         <p className="font-bold text-sm sm:text-base lg:text-lg text-gray-900 dark:text-gray-100">
                           {item.stats}

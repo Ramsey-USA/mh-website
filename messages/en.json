@@ -107,6 +107,7 @@
   },
   "home": {
     "hero": {
+      "baseLabel": "Base HQ → Home",
       "founded": "Founded 2010, Veteran-Owned Since January 2025",
       "tagline": "Your Tri-Cities Construction Command Center",
       "mission": "Building projects for the Client, NOT the Dollar",
@@ -160,8 +161,13 @@
       "sectionTitle": "Services Built on Trust",
       "sectionDescription": "From planning to completion, every project reflects our core values—honesty, integrity, professionalism, and thoroughness.",
       "clickForDetails": "Click for Full Details",
+      "viewDetailsAriaPrefix": "View details for",
+      "closeDetailsBackdropAria": "Close service details modal",
+      "closeModalAria": "Close modal",
       "whatsIncluded": "What's Included",
       "keyBenefits": "Key Benefits",
+      "learnMoreFallback": "Learn More",
+      "contactCta": "Get Started",
       "items": [
         {
           "title": "Construction Management",
@@ -279,6 +285,12 @@
       "sectionDescription": "Where discipline meets construction expertise—honest communication, proven craftsmanship, and earned integrity create partnerships built on trust.",
       "philosophy": "Building projects for the Client, NOT the Dollar",
       "theROI": "THE ROI IS THE RELATIONSHIP",
+      "tradeCta": {
+        "prompt": "Are you a trade contractor?",
+        "highlight": "Join our Ally network.",
+        "button": "View Trade Partner Opportunities",
+        "iconAria": "Trade partners"
+      },
       "values": [
         {
           "title": ".64 EMR - Industry-Leading Safety",

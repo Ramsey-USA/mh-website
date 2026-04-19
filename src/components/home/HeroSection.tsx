@@ -37,7 +37,7 @@ export function HeroSection() {
         </div>
         <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
           <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-            Base HQ → Home
+            {t.baseLabel}
           </span>
           <span className="block text-brand-secondary">{t.founded}</span>
           <span className="block text-brand-primary">{t.tagline}</span>

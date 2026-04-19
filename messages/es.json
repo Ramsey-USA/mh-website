@@ -107,6 +107,7 @@
   },
   "home": {
     "hero": {
+      "baseLabel": "Base Central → Hogar",
       "founded": "Fundado 2010, Empresa Veterana Desde Enero 2025",
       "tagline": "Su Centro de Comando de Construcción en Tri-Cities",
       "mission": "Construyendo proyectos para el Cliente, NO para el Dinero",
@@ -160,8 +161,13 @@
       "sectionTitle": "Servicios Basados en la Confianza",
       "sectionDescription": "Desde la planificación hasta la finalización, cada proyecto refleja nuestros valores fundamentales—honestidad, integridad, profesionalismo y minuciosidad.",
       "clickForDetails": "Haga clic para detalles completos",
+      "viewDetailsAriaPrefix": "Ver detalles de",
+      "closeDetailsBackdropAria": "Cerrar modal de detalles del servicio",
+      "closeModalAria": "Cerrar modal",
       "whatsIncluded": "Qué Incluye",
       "keyBenefits": "Beneficios Clave",
+      "learnMoreFallback": "Saber Más",
+      "contactCta": "Comenzar",
       "items": [
         {
           "title": "Gestión de Construcción",
@@ -279,6 +285,12 @@
       "sectionDescription": "Donde la disciplina se une a la experiencia en construcción—comunicación honesta, artesanía comprobada e integridad ganada crean asociaciones basadas en la confianza.",
       "philosophy": "Construyendo proyectos para el Cliente, NO para el Dinero",
       "theROI": "EL ROI ES LA RELACIÓN",
+      "tradeCta": {
+        "prompt": "¿Es usted contratista de oficios?",
+        "highlight": "Únase a nuestra red Ally.",
+        "button": "Ver oportunidades para socios comerciales",
+        "iconAria": "Socios comerciales"
+      },
       "values": [
         {
           "title": ".64 EMR - Seguridad Líder en la Industria",

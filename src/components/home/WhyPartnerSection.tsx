@@ -250,12 +250,12 @@ export function WhyPartnerSection() {
                 icon="handshake"
                 size="xl"
                 className="text-brand-secondary flex-shrink-0"
-                ariaLabel="Trade partners"
+                ariaLabel={t.tradeCta.iconAria}
               />
               <p className="font-semibold text-gray-900 dark:text-white text-base sm:text-lg leading-snug">
-                Are you a trade contractor?{" "}
+                {t.tradeCta.prompt}{" "}
                 <span className="text-brand-secondary font-bold">
-                  Join our Ally network.
+                  {t.tradeCta.highlight}
                 </span>
               </p>
             </div>
@@ -263,7 +263,7 @@ export function WhyPartnerSection() {
               href="/allies"
               className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-brand-secondary hover:bg-brand-secondary-dark text-black font-bold rounded-xl shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-sm sm:text-base"
             >
-              View Trade Partner Opportunities
+              {t.tradeCta.button}
               <MaterialIcon icon="arrow_forward" size="sm" ariaLabel="" />
             </Link>
           </div>

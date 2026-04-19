@@ -156,7 +156,7 @@ export function ServicesShowcase() {
               });
               openModal(index);
             }}
-            aria-label={`View details for ${service.title}`}
+            aria-label={`${t.viewDetailsAriaPrefix} ${service.title}`}
           >
             <Card className="flex flex-col bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl dark:hover:shadow-brand-secondary/20 border border-gray-200 dark:border-gray-700 rounded-3xl h-full transition-all duration-300 p-6 sm:p-7 lg:p-8 overflow-hidden group hover:scale-[1.02]">
               <div className="relative flex flex-col h-full">
@@ -224,7 +224,7 @@ export function ServicesShowcase() {
           title={currentService.title}
           size="xl"
           showVeteranBadge={false}
-          backdropAriaLabel="Close service details modal"
+          backdropAriaLabel={t.closeDetailsBackdropAria}
           panelClassName="max-w-3xl rounded-3xl border-0 dark:bg-gray-800"
           contentClassName="p-0"
           renderHeader={({ titleId, onClose }) => (
@@ -235,7 +235,7 @@ export function ServicesShowcase() {
               <button
                 onClick={onClose}
                 className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white/20 active:bg-white/30 rounded-full p-2.5 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl hover:scale-110 z-10"
-                aria-label="Close modal"
+                aria-label={t.closeModalAria}
                 type="button"
                 autoFocus
               >
@@ -342,7 +342,7 @@ export function ServicesShowcase() {
                     size="md"
                     className="mr-2 group-hover/btn:translate-x-1 transition-transform"
                   />
-                  {currentService.cta || "Learn More"}
+                  {currentService.cta || t.learnMoreFallback}
                 </Button>
               </Link>
               <Link href="/contact" className="flex-1">
@@ -352,7 +352,7 @@ export function ServicesShowcase() {
                     size="md"
                     className="mr-2 group-hover/btn:scale-110 transition-transform"
                   />
-                  {locale === "es" ? "Contactar" : "Get Started"}
+                  {t.contactCta}
                 </Button>
               </Link>
             </div>
