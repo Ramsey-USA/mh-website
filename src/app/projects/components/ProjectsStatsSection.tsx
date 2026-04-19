@@ -60,7 +60,8 @@ export function ProjectsStatsSection() {
                 650+ construction missions completed
               </span>
               —numbers that reflect our Veteran-Owned commitment to proven
-              results and trusted partnerships across the Tri-Cities
+              results and trusted partnerships across our Tri-State licensed
+              footprint from our Tri-Cities headquarters
             </p>
           </div>
 

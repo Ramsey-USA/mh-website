@@ -35,7 +35,7 @@ Create a Google Post about this week's focus:
 **Example Posts:**
 
 ```text
-🏗️ Project Update: Breaking ground on a new 10,000 sq ft commercial facility in Kennewick this week! Our veteran-owned team is proud to serve the Tri-Cities business community.
+🏗️ Project Update: Breaking ground on a new 10,000 sq ft commercial facility in Kennewick this week! Our veteran-owned team is proud to serve the Tri-Cities headquarters community and a Tri-State project footprint.
 
 📞 Need construction services? Call (509) 308-6489
 🌐 Visit: www.mhc-gc.com
@@ -194,7 +194,7 @@ Thank you for taking the time to share your experience, [Name]. We take all feed
 - 10+ positive reviews (4+ stars average)
 - 1,000+ profile views/month
 - 100+ website clicks/month
-- Top 3 ranking for "general contractor Tri-Cities"
+- Top 3 ranking for "general contractor Tri-State licensed"
 - Complete profile (100% information filled)
 
 ---

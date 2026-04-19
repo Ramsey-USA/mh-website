@@ -573,7 +573,7 @@ Trust is the ultimate goal—earned through consistent demonstration of all four
 
 **Supporting Points**:
 
-- Tri-Cities area specialization (Richland, Pasco, Kennewick)
+- Tri-Cities headquarters strength (Pasco, Richland, Kennewick) with Tri-State licensed reach
 - Benton County and Franklin County expertise
 - Licensed in WA, OR, ID
 - Extended service areas: Yakima, Spokane, Walla Walla, Hermiston, Coeur d'Alene
@@ -582,12 +582,12 @@ Trust is the ultimate goal—earned through consistent demonstration of all four
 
 **Service Area Details**:
 
-- **Primary**: Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County
+- **Primary**: Tri-State licensed coverage (WA, OR, ID) anchored by Tri-Cities headquarters (Pasco, Richland, Kennewick), Benton County, Franklin County
 - **Extended**: Yakima, Spokane, Walla Walla, Hermiston, Coeur d'Alene, Eastern Washington
 
 **Example Applications**:
 
-- "Rooted in the Tri-Cities (Richland, Pasco, Kennewick), serving the Pacific Northwest"
+- "Headquartered in the Tri-Cities (Pasco, Richland, Kennewick), serving a Tri-State licensed Pacific Northwest footprint"
 - "Serving Benton and Franklin Counties with local expertise and regional reach"
 - "Your neighbors in quality construction across Eastern Washington"
 

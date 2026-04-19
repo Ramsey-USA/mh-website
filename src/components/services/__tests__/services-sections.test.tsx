@@ -183,7 +183,7 @@ describe("ConstructionExpertiseSection", () => {
 describe("ServiceAreasSection", () => {
   const baseAreas = [
     {
-      title: "Tri-Cities",
+      title: "Tri-Cities Headquarters",
       iconName: "location_city",
       areas: ["Kennewick", "Pasco", "Richland"],
     },
@@ -207,7 +207,7 @@ describe("ServiceAreasSection", () => {
     const { ServiceAreasSection } = require("../ServiceAreasSection");
     const areasWithLinks = [
       {
-        title: "Tri-Cities",
+        title: "Tri-Cities Headquarters",
         iconName: "location_city",
         areas: ["Kennewick", "Pasco"],
         links: ["/locations/kennewick", null],
@@ -222,7 +222,7 @@ describe("ServiceAreasSection", () => {
     const { ServiceAreasSection } = require("../ServiceAreasSection");
     const multipleAreas = [
       {
-        title: "Tri-Cities",
+        title: "Tri-Cities Headquarters",
         iconName: "location_city",
         areas: ["Kennewick"],
       },
@@ -233,7 +233,7 @@ describe("ServiceAreasSection", () => {
       },
     ];
     render(<ServiceAreasSection serviceAreas={multipleAreas} />);
-    expect(screen.getByText("Tri-Cities")).toBeInTheDocument();
+    expect(screen.getByText("Tri-Cities Headquarters")).toBeInTheDocument();
     expect(screen.getByText("Eastern WA")).toBeInTheDocument();
   });
 });

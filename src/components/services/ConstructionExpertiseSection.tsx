@@ -22,9 +22,10 @@ export function ConstructionExpertiseSection() {
             <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">
               expert partnership oversight
             </span>
-            . Work WITH us through comprehensive Partnership-Focused
-            Construction Management services throughout the Tri-Cities (Pasco,
-            WA) area.
+            {". "}Work WITH us through comprehensive Partnership-Focused
+            Construction Management services across our Tri-State licensed
+            footprint from our Tri-Cities headquarters (Pasco, Richland,
+            Kennewick).
           </>
         ),
       }}
@@ -46,7 +47,7 @@ export function ConstructionExpertiseSection() {
               <p className="text-gray-800 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed text-left">
                 <strong className="text-brand-primary dark:text-brand-primary-light block mb-3 text-xl sm:text-2xl font-black">
                   Our Partnership Priority:
-                </strong>
+                </strong>{" "}
                 Delivering an exceptional partnership experience from start to
                 finish. Our commitment to thorough communication ensures you're
                 never in the dark about your project's status or details.

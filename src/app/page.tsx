@@ -47,16 +47,16 @@ export const metadata: Metadata = withGeoMetadata({
       "Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction",
   },
   description:
-    "Base HQ → Home: Your Tri-Cities Construction Command Center serving Richland, Pasco, Kennewick, Yakima, Spokane, and Walla Walla. Veteran-Owned Since January 2025. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest. Service-earned values: Honesty, Integrity, Professionalism, Thoroughness. Licensed in WA, OR, ID.",
+    "Base HQ → Home: Your Tri-State Construction Command Center serving Washington, Oregon, and Idaho across the Pacific Northwest. Headquartered in the Tri-Cities (Pasco, Richland, Kennewick). Veteran-Owned Since January 2025. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations. Service-earned values: Honesty, Integrity, Professionalism, Thoroughness. Montana expansion coming soon.",
   keywords: [
-    "general contractor Tri-Cities WA",
+    "general contractor Tri-State",
     "Veteran-Owned contractor Pacific Northwest",
     "Richland general contractor",
     "Pasco general contractor",
     "Kennewick general contractor",
     "Benton County general contractor",
     "Franklin County general contractor",
-    "commercial construction Tri-Cities",
+    "commercial construction Tri-State",
     "construction management services",
     "master planning preconstruction",
     "tenant improvement contractor",
@@ -77,7 +77,7 @@ export const metadata: Metadata = withGeoMetadata({
     title:
       "Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction",
     description:
-      "Your Tri-Cities Construction Command Center. Veteran-Owned Since January 2025. Commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest.",
+      "Your Tri-State Construction Command Center. Veteran-Owned Since January 2025. Tri-Cities headquarters in Pasco, Richland, and Kennewick with licensed operations across WA, OR, and ID.",
     url: SITE_URL,
     siteName: "MH Construction",
     type: "website",
@@ -86,7 +86,7 @@ export const metadata: Metadata = withGeoMetadata({
         url: "/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "MH Construction - Veteran-Owned General Contractor serving Tri-Cities and Pacific Northwest",
+        alt: "MH Construction - Veteran-Owned Tri-State Licensed General Contractor",
       },
     ],
     locale: "en_US",
@@ -98,7 +98,7 @@ export const metadata: Metadata = withGeoMetadata({
     title:
       "Base HQ → Home | Building Projects for the Client, NOT the Dollar | MH Construction",
     description:
-      "Your Tri-Cities Construction Command Center. Veteran-Owned Since January 2025. Commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest.",
+      "Your Tri-State Construction Command Center. Veteran-Owned Since January 2025. Tri-Cities headquarters in Pasco, Richland, and Kennewick with licensed operations across WA, OR, and ID.",
     images: ["/images/og-default.jpg"],
   },
 });

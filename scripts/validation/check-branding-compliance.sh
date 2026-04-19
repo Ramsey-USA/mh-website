@@ -48,7 +48,7 @@ echo ""
 
 # Check for regional focus
 echo "📍 Checking regional focus..."
-regional_usage=$(find src/app -name "*.tsx" -exec grep -l "Tri-Cities\|Pasco\|Washington\|Oregon\|Idaho" {} \; | wc -l)
+regional_usage=$(find src/app -name "*.tsx" -exec grep -l "Tri-Cities\|Tri-State\|Pasco\|Richland\|Kennewick\|Washington\|Oregon\|Idaho\|Pacific Northwest" {} \; | wc -l)
 echo "✅ $regional_usage files mention service region"
 echo ""
 

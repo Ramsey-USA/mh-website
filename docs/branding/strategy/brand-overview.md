@@ -35,7 +35,7 @@ aligned with our veteran-owned, honesty-first brand identity.
 - **Industry**: Commercial Construction Management
 - **Founded**: 2010 by Mike Holstein; Veteran-Owned Since January 2025
 - **BBB Accredited**: A+ Rating since April 7, 2026 — [View BBB Profile](https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036)
-- **Service Area**: Tri-Cities, WA | Licensed in WA, OR, ID
+- **Service Area**: Tri-State licensed (WA, OR, ID) | Tri-Cities headquarters (Pasco, Richland, Kennewick)
 - **Headquarters**: 3111 N Capitol Ave, Pasco, WA 99301
 - **Phone**: [(509) 308-6489](tel:+15093086489)
 - **Client Contact**: [office@mhc-gc.com](mailto:office@mhc-gc.com)
@@ -109,7 +109,7 @@ unwavering dedication and owner-first focus to every project.
 
 ### Target Audience
 
-**Primary**: Commercial property owners and developers in the Tri-Cities area
+**Primary**: Commercial property owners and developers across the Tri-State licensed footprint, anchored by the Tri-Cities headquarters market
 
 **Secondary**:
 

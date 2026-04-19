@@ -35,7 +35,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Where are you licensed and what areas do you serve?",
         answer:
-          "MH Construction is licensed in Washington, Oregon, and Idaho. We're headquartered in Pasco, WA (3111 N Capitol Ave, Pasco, WA 99301) and serve the broader Pacific Northwest. Our primary service area is the Tri-Cities (Pasco, Kennewick, Richland, and West Richland), with active operations in Yakima, Spokane, Walla Walla, Hermiston, Pendleton, Coeur d'Alene, and Omak.",
+          "MH Construction is Tri-State licensed in Washington, Oregon, and Idaho. We're headquartered in the Tri-Cities — Pasco, WA (3111 N Capitol Ave), with deep roots in Richland and Kennewick — and serve the broader Pacific Northwest. Active operations span Yakima, Spokane, Walla Walla, Hermiston, Pendleton, Coeur d'Alene, and Omak, with Montana expansion coming soon.",
       },
       {
         question: "What types of projects do you specialize in?",
@@ -172,7 +172,7 @@ export const faqCategories: FAQCategory[] = [
         question:
           "Do you handle Pre-Engineered Metal Buildings (PEMB) for industrial projects?",
         answer:
-          "Yes, MH Construction specializes in Pre-Engineered Metal Buildings (PEMB). These are ideal for industrial facilities and warehouses in the Tri-Cities area as they are often 30-50% faster to erect and more cost-effective than traditional steel structures.",
+          "Yes, MH Construction specializes in Pre-Engineered Metal Buildings (PEMB). These are ideal for industrial facilities and warehouses throughout our Tri-State licensed footprint — from our Tri-Cities headquarters (Pasco, Richland, Kennewick) to projects across Washington, Oregon, and Idaho — as they are often 30-50% faster to erect and more cost-effective than traditional steel structures.",
       },
       {
         question:
@@ -183,7 +183,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "What is MH Construction's service area?",
         answer:
-          "We are headquartered in Pasco, WA (3111 N Capitol Ave) and serve the entire Tri-Cities region—Kennewick, Richland, West Richland, Burbank, and Connell—plus extended areas including Yakima, Spokane, Walla Walla, Hermiston (OR), Pendleton (OR), Coeur d'Alene (ID), and Omak. We are also equipped to handle government and industrial projects near the Hanford Site.",
+          "We are headquartered in Pasco, WA (3111 N Capitol Ave) in the heart of the Tri-Cities — Pasco, Richland, and Kennewick — and are Tri-State licensed across Washington, Oregon, and Idaho. We serve communities throughout the Pacific Northwest including Yakima, Spokane, Walla Walla, Hermiston (OR), Pendleton (OR), Coeur d'Alene (ID), and Omak. We are also equipped to handle government and industrial projects near the Hanford Site.",
       },
       {
         question: "Is MH Construction a certified Veteran-Owned business?",
@@ -209,7 +209,7 @@ export const faqCategories: FAQCategory[] = [
       },
       {
         question:
-          "Can you help with site selection and feasibility studies in the Tri-Cities?",
+          "Can you help with site selection and feasibility studies in the Tri-Cities and across your Tri-State footprint?",
         answer:
           "Yes. We assist clients in the pre-construction phase by evaluating land for utility access, zoning suitability (Industrial vs. Commercial), and soil conditions before you make a purchase, ensuring the site is viable for your vision.",
       },

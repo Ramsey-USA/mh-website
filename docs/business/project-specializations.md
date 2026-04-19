@@ -143,7 +143,7 @@ constrained budgets; transparent communication and honest pricing are non-negoti
 ## Tenant Improvements & Renovations
 
 Across every sector above, MH Construction is a high-volume tenant improvement and interior
-renovation contractor. This service line generates consistent repeatable work in the Tri-Cities
+renovation contractor. This service line generates consistent repeatable work in the Tri-Cities headquarters market and across the broader Tri-State licensed footprint
 commercial market and is a primary driver of the firm's referral rate.
 
 **Typical scope includes:**

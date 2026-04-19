@@ -799,8 +799,10 @@ export default function TeamPage() {
                             Building stronger communities through quality
                             craftsmanship, lasting relationships, and local
                             hiring preferences. Team members are deeply rooted
-                            in the Tri-Cities and surrounding regions, with
-                            personal investment in community success.
+                            in the Tri-Cities (Pasco, Richland, Kennewick) and
+                            surrounding regions, with personal investment in
+                            community success across our Tri-State licensed
+                            market.
                           </p>
                         </div>
                       </div>

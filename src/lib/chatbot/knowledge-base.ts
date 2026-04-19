@@ -54,7 +54,7 @@ export const ALLIES: AllyInfo[] = [
     name: "Bagley Landscape Construction, Inc.",
     role: "Primary Landscaping Contractor",
     description:
-      "Comprehensive landscape design, installation, hardscaping, maintenance, and snow & ice services across the Tri-Cities area.",
+      "Comprehensive landscape design, installation, hardscaping, maintenance, and snow & ice services across the Tri-Cities (Pasco, Richland, Kennewick) and our broader Pacific Northwest footprint.",
     highlights: [
       "Landscape Design & Installation",
       "Irrigation Systems",
@@ -242,7 +242,8 @@ Specialty Services:
 - Design-Build Services
 
 ## SERVICE AREA
-Primary: Tri-Cities WA (Pasco HQ, Kennewick, Richland, West Richland), Benton & Franklin Counties.
+Primary: Tri-Cities headquarters in Pasco, Richland, and Kennewick, plus Benton & Franklin Counties.
+Licensed footprint: Washington, Oregon, and Idaho (Tri-State).
 Extended: Yakima, Spokane, Walla Walla, Hermiston OR, Pendleton OR, Coeur d'Alene ID, Omak WA.
 
 ## VETERAN BENEFITS

@@ -534,7 +534,7 @@ const mockLocation = {
   state: "WA",
   county: "Benton County",
   militaryTitle: "Operations Base",
-  tagline: "Serving the Tri-Cities",
+  tagline: "Serving the Tri-Cities headquarters market",
   description: "Commercial and industrial construction in Kennewick.",
   telephone: "509-555-0100",
   email: "info@mhc-gc.com",

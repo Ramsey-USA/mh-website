@@ -192,7 +192,7 @@ function generateFallbackResponse(message: string): string {
     lower.includes("kennewick") ||
     lower.includes("richland")
   ) {
-    return "We're headquartered at 3111 N Capitol Ave, Pasco, WA 99301. Our primary service area is the Tri-Cities (Pasco, Kennewick, Richland, West Richland). We also serve Yakima, Spokane, Walla Walla, Hermiston (OR), Pendleton (OR), Coeur d'Alene (ID), and Omak. Licensed in WA, OR, and ID.";
+    return "We're headquartered at 3111 N Capitol Ave, Pasco, WA 99301. Our Tri-Cities headquarters covers Pasco, Richland, and Kennewick. We are Tri-State licensed in Washington, Oregon, and Idaho, and serve projects throughout the Pacific Northwest including Yakima, Spokane, Walla Walla, Hermiston (OR), Pendleton (OR), Coeur d'Alene (ID), and Omak. We are also preparing for Montana expansion.";
   }
 
   // Allies / partners

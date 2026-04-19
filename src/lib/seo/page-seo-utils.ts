@@ -21,7 +21,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     url: enhancedSEO.siteUrl,
     name: "Base HQ → Home | MH Construction",
     description:
-      "Your Tri-Cities Construction Command Center. Founded 2010, Veteran-Owned Since January 2025. General contractor serving Richland, Pasco, Kennewick, Yakima, Spokane, and Walla Walla.",
+      "Your Tri-State Construction Command Center. Founded 2010, Veteran-Owned Since January 2025. General contractor serving Richland, Pasco, Kennewick, Yakima, Spokane, and Walla Walla.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -46,11 +46,11 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: "Base HQ → Home | Building Projects for the Client, NOT the Dollar",
     description:
-      "Base HQ → Home: Your Tri-Cities Construction Command Center serving Richland, Pasco, Kennewick, Yakima, Spokane, and Walla Walla. Founded 2010, Veteran-Owned Since January 2025. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest. Four core values (Honesty, Integrity, Professionalism, Thoroughness) building trust through transparent communication. Dual-label approach: Military Operations → Construction Services. Licensed in WA, OR, ID.",
+      "Base HQ → Home: Your Tri-State Construction Command Center serving Richland, Pasco, Kennewick, Yakima, Spokane, and Walla Walla. Founded 2010, Veteran-Owned Since January 2025. Expert commercial construction, master planning, preconstruction, tenant improvements, and light industrial operations throughout the Pacific Northwest. Four core values (Honesty, Integrity, Professionalism, Thoroughness) building trust through transparent communication. Dual-label approach: Military Operations → Construction Services. Licensed in WA, OR, ID.",
     keywords: [
       "Base HQ Home construction command center",
       "veteran-owned contractor Pacific Northwest",
-      "general contractor Tri-Cities",
+      "general contractor Tri-State",
       "Richland general contractor",
       "Pasco general contractor",
       "Kennewick general contractor",
@@ -67,10 +67,10 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
       "general contractor Yakima WA",
       "general contractor Spokane WA",
       "general contractor Walla Walla WA",
-      "Tri-Cities construction company",
+      "Tri-State construction company",
       "construction partnership approach",
       "face-to-face construction consultation",
-      "construction partnerships Tri-Cities WA",
+      "construction partnerships Tri-State WA OR ID",
       "modern construction tools traditional values",
       "collaborative construction relationships",
       "transparent construction communication",
@@ -115,7 +115,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
     url: aboutUrl,
     name: "Our Oath → About Us | MH Construction",
     description:
-      "Founded 2010, Veteran-Owned Since January 2025. 650+ projects, 70% referral rate, AGC-WA Top EMR Awards & OSHA VPP Star. Serving Tri-Cities WA, Yakima, Spokane, Walla Walla, Hermiston OR, Coeur d'Alene ID, Omak WA, and Pendleton OR. Licensed WA, OR, ID.",
+      "Founded 2010, Veteran-Owned Since January 2025. 650+ projects, 70% referral rate, AGC-WA Top EMR Awards & OSHA VPP Star. Serving Tri-State WA, OR, ID, Yakima, Spokane, Walla Walla, Hermiston OR, Coeur d'Alene ID, Omak WA, and Pendleton OR. Licensed WA, OR, ID.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     breadcrumb: { "@id": `${aboutUrl}#breadcrumb` },
@@ -266,7 +266,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
     description:
       "Founded 2010, Veteran-Owned Since January 2025. BBB Accredited A+ Rating. Pasco, Richland & Tri-City Regional Chamber of Commerce member. 650+ projects, 70% referral rate, AGC-WA Top EMR Awards & OSHA VPP Star. Licensed WA, OR, ID.",
     keywords: [
-      "veteran-owned construction company Tri-Cities WA",
+      "veteran-owned construction company Tri-State WA OR ID",
       "MH Construction company history",
       "Jeremy Thamert Army veteran owner",
       "Arnold Garcia VP construction",
@@ -285,7 +285,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
       "Travelers Insurance bonding partner",
       "partnership philosophy construction",
       "transparent pricing honest communication",
-      "Tri-Cities veteran general contractor",
+      "Tri-State veteran general contractor",
       "Richland construction company history",
       "Pasco veteran-owned construction",
       "Kennewick construction awards",
@@ -361,7 +361,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     url: servicesUrl,
     name: "Operations → Services | MH Construction",
     description:
-      "Commercial construction, master planning, tenant improvements, light industrial, and government projects across Tri-Cities WA, Yakima, Spokane, and Walla Walla.",
+      "Commercial construction, master planning, tenant improvements, light industrial, and government projects across our Tri-State licensed footprint, with strong delivery in Yakima, Spokane, and Walla Walla.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     breadcrumb: { "@id": `${servicesUrl}#breadcrumb` },
@@ -382,9 +382,9 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     title:
       "Operations → Services | The Battle Plan - Strategic Construction Excellence",
     description:
-      "Commercial construction, master planning, tenant improvements, light industrial & government projects. Founded 2010, Veteran-Owned Since January 2025. Tri-Cities WA. Licensed WA, OR, ID. Transparent pricing.",
+      "Commercial construction, master planning, tenant improvements, light industrial & government projects. Founded 2010, Veteran-Owned Since January 2025. Headquartered in the Tri-Cities (Pasco, Richland, Kennewick). Licensed WA, OR, ID. Transparent pricing.",
     keywords: [
-      "commercial construction Tri-Cities WA",
+      "commercial construction Tri-State WA OR ID",
       "master planning preconstruction services",
       "tenant improvement contractor",
       "light industrial construction Pacific Northwest",
@@ -480,7 +480,7 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
     url: teamUrl,
     name: "Chain of Command → Our Team | MH Construction",
     description:
-      "Meet the MH Construction team: 150+ years combined expertise across all service branches. Founded 2010, Veteran-Owned Since January 2025. Serving Tri-Cities WA and the Pacific Northwest.",
+      "Meet the MH Construction team: 150+ years combined expertise across all service branches. Founded 2010, Veteran-Owned Since January 2025. Serving Tri-State WA, OR, ID and the Pacific Northwest.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     breadcrumb: { "@id": `${teamUrl}#breadcrumb` },
@@ -493,15 +493,15 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
     title:
       "Chain of Command → Our Team | 150+ Years Combined Military-Grade Expertise",
     description:
-      "Meet MH Construction's veteran-led team: 150+ years combined expertise across all service branches. Jeremy Thamert (Army), Arnold Garcia VP. Serving Tri-Cities WA. Licensed WA, OR, ID.",
+      "Meet MH Construction's veteran-led team: 150+ years combined expertise across all service branches. Jeremy Thamert (Army), Arnold Garcia VP. Serving Tri-State WA, OR, ID. Licensed WA, OR, ID.",
     keywords: [
       "MH Construction team leadership",
-      "veteran-owned construction team Tri-Cities WA",
+      "veteran-owned construction team Tri-State WA OR ID",
       "Jeremy Thamert Army veteran owner",
       "Arnold Garcia VP construction",
       "150 years combined construction experience",
       "all-branch veteran leadership",
-      "construction project managers Tri-Cities",
+      "construction project managers Tri-State",
       "veteran construction professionals",
       "Richland contractor team",
       "Pasco construction leadership",
@@ -527,7 +527,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/public-sector`,
     name: "Public Sector → Government | MH Construction",
     description:
-      "Veteran-owned Tri-Cities contractor for government & public sector construction. Federal compliance, grant support, bonding capacity. Pasco, WA.",
+      "Veteran-owned Tri-State contractor for government & public sector construction. Federal compliance, grant support, bonding capacity. Pasco, WA.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -545,7 +545,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
     title:
       "Public Sector → Government | Veteran-Owned, Relationship-First Government Construction",
     description:
-      "Veteran-owned Tri-Cities contractor for government & public sector construction. Federal compliance, grant support, bonding capacity. Pasco, WA.",
+      "Veteran-owned Tri-State contractor for government & public sector construction. Federal compliance, grant support, bonding capacity. Pasco, WA.",
     keywords: [
       "Public Sector Government construction missions",
       "mission-ready construction operations",
@@ -554,7 +554,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
       "government grant support",
       "construction subcontractor",
       "veteran-owned contractor",
-      "Tri-Cities construction",
+      "Tri-State construction",
       "grant application construction support",
       "Richland public sector",
       "Pasco government support",
@@ -578,7 +578,7 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/veterans`,
     name: "Allied Forces → Veterans | MH Construction",
     description:
-      "Tri-Cities construction firm founded 2010, Veteran-Owned Since January 2025, with Army & Navy leadership. Combat Veteran Discount, 100% veteran hiring priority & apprenticeships. Pasco, WA.",
+      "Tri-State construction firm founded 2010, Veteran-Owned Since January 2025, with Army & Navy leadership. Combat Veteran Discount, 100% veteran hiring priority & apprenticeships. Pasco, WA.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -596,9 +596,9 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
     title:
       "Allied Forces → Veterans | Combat Veteran Discount, Year-Round Support",
     description:
-      "Tri-Cities construction firm founded 2010, Veteran-Owned Since January 2025, with Army & Navy leadership. Combat Veteran Discount, 100% veteran hiring priority & apprenticeships. Pasco, WA.",
+      "Tri-State construction firm founded 2010, Veteran-Owned Since January 2025, with Army & Navy leadership. Combat Veteran Discount, 100% veteran hiring priority & apprenticeships. Pasco, WA.",
     keywords: [
-      "veteran-owned construction Tri-Cities",
+      "veteran-owned construction Tri-State",
       "combat veteran discount",
       "veteran hiring priority",
       "Army Navy veteran leadership",
@@ -615,7 +615,7 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
       "all-branch veterans",
       "veteran discount screening",
       "military construction services",
-      "Tri-Cities veteran contractor",
+      "Tri-State veteran contractor",
       "veteran-owned business Washington",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/veterans`,
@@ -668,7 +668,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
         addressCountry: "US",
       },
       sameAs: ["https://www.facebook.com/diamondelectricllc/photos/"],
-      areaServed: "Tri-Cities, WA",
+      areaServed: "Tri-State (WA, OR, ID)",
     },
     {
       "@context": "https://schema.org",
@@ -699,7 +699,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Bagley Landscape Construction, Inc.",
       description:
-        "Primary landscaping contractor for MH Construction. Commercial & residential landscape design, irrigation, hydroseeding, retaining walls, hardscaping, maintenance, spraying, and snow & ice services. Tri-Cities WA.",
+        "Primary landscaping contractor for MH Construction. Commercial & residential landscape design, irrigation, hydroseeding, retaining walls, hardscaping, maintenance, spraying, and snow & ice services from the Tri-Cities headquarters region across the broader footprint.",
       telephone: "(509) 546-2449",
       email: "office@bagleylandscape.com",
       address: {
@@ -712,7 +712,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       },
       url: "https://bagleylandscape.com/",
       sameAs: ["https://bagleylandscape.com/"],
-      areaServed: "Tri-Cities, WA",
+      areaServed: "Tri-State (WA, OR, ID)",
     },
     {
       "@context": "https://schema.org",
@@ -846,7 +846,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       },
       url: "https://corecabinetproduction.com/",
       sameAs: ["https://corecabinetproduction.com/"],
-      areaServed: "Tri-Cities, WA",
+      areaServed: "Tri-State (WA, OR, ID)",
     },
     {
       "@context": "https://schema.org",
@@ -875,10 +875,10 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
     description:
       "MH Construction's trusted Trade Partner network: Diamond Electric, Mustang Signs, Bagley Landscape Construction, McKinney Glass, Dupree Building Specialties, D-Fence Fencing, IWI Insulation, Viking Plumbing & Mechanical, Core Cabinet Production, High Desert Drywall. Subcontractor opportunities with a Pacific Northwest GC founded 2010, Veteran-Owned Since January 2025.",
     keywords: [
-      "construction subcontractor opportunities Tri-Cities WA",
+      "construction subcontractor opportunities Tri-State WA OR ID",
       "trade partner network Pacific Northwest",
       "veteran-owned contractor partnerships Washington",
-      "Diamond Electric electrical contractor Tri-Cities",
+      "Diamond Electric electrical contractor Tri-State region",
       "Mustang Signs Kennewick commercial signage vehicle wraps",
       "Bagley Landscape Construction Pasco WA landscaping",
       "McKinney Glass Union Gap Yakima glazing contractor",
@@ -962,7 +962,7 @@ export function getTestimonialsSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/testimonials`,
     name: "Commendations \u2192 Reviews | MH Construction",
     description:
-      "Verified client testimonials from commercial, industrial & public-sector partners across Tri-Cities WA and the Pacific Northwest. Veteran-owned MH Construction.",
+      "Verified client testimonials from commercial, industrial & public-sector partners across our Tri-State licensed footprint and the Pacific Northwest. Veteran-owned MH Construction.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -979,11 +979,11 @@ export function getTestimonialsSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: "Commendations \u2192 Reviews | Trusted Partner Testimonials",
     description:
-      "Verified client testimonials from commercial, industrial & public-sector partners across Tri-Cities WA and the Pacific Northwest. Veteran-owned MH Construction.",
+      "Verified client testimonials from commercial, industrial & public-sector partners across our Tri-State licensed footprint and the Pacific Northwest. Veteran-owned MH Construction.",
     keywords: [
       "construction testimonials",
       "client reviews MH Construction",
-      "Tri-Cities contractor reviews",
+      "Tri-State contractor reviews",
       "veteran-owned construction feedback",
       "commercial construction testimonials",
       "Pacific Northwest construction reputation",
@@ -1006,7 +1006,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/careers`,
     name: "Enlist → Careers | MH Construction",
     description:
-      "Build your future with a Tri-Cities construction team. Founded 2010, Veteran-Owned Since January 2025. General career inquiries welcome — Honesty, Integrity, Professionalism, Thoroughness. Veterans prioritized.",
+      "Build your future with a Tri-State construction team. Founded 2010, Veteran-Owned Since January 2025. General career inquiries welcome — Honesty, Integrity, Professionalism, Thoroughness. Veterans prioritized.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -1023,7 +1023,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: "Enlist → Careers | Build Your Future with MH Construction",
     description:
-      "Build your future with a Tri-Cities construction team. Founded 2010, Veteran-Owned Since January 2025. General career inquiries welcome — Honesty, Integrity, Professionalism, Thoroughness. Veterans prioritized.",
+      "Build your future with a Tri-State construction team. Founded 2010, Veteran-Owned Since January 2025. General career inquiries welcome — Honesty, Integrity, Professionalism, Thoroughness. Veterans prioritized.",
     keywords: [
       "Enlist Careers build your future MH Construction",
       "join the mission construction career",
@@ -1033,13 +1033,13 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
       "construction career inquiry Washington state",
       "construction jobs Pacific Northwest",
       "veteran construction careers Washington",
-      "construction employment Tri-Cities WA",
+      "construction employment Tri-State WA OR ID",
       "military values construction jobs",
       "4 core values employer construction",
       "honesty integrity professionalism thoroughness jobs",
       "skilled trades career inquiry WA",
       "general contractor career Washington",
-      "Tri-Cities construction careers WA",
+      "Tri-State construction careers WA OR ID",
       "Richland construction jobs WA",
       "Pasco construction careers WA",
       "Kennewick construction employment WA",
@@ -1064,7 +1064,7 @@ export function getCareersSEO(): Metadata & { schemas: object[] } {
         title:
           "Build Your Future with MH Construction - General Career Inquiry",
         description:
-          "Submit a general inquiry for career opportunities at MH Construction. We are always looking for driven individuals who mirror our commitment to our 4 Core Values: Honesty, Integrity, Professionalism, and Thoroughness. Even when we aren't hiring for a specific role, we are always open to inquiries from skilled professionals who want to contribute to a high-standard operations environment. Whether you are a seasoned Project Manager or a dedicated Field Specialist, we want to hear from you. Veterans receive priority consideration. Serving Tri-Cities WA (Richland, Kennewick, Pasco), Yakima, Spokane, and Walla Walla.",
+          "Submit a general inquiry for career opportunities at MH Construction. We are always looking for driven individuals who mirror our commitment to our 4 Core Values: Honesty, Integrity, Professionalism, and Thoroughness. Even when we aren't hiring for a specific role, we are always open to inquiries from skilled professionals who want to contribute to a high-standard operations environment. Whether you are a seasoned Project Manager or a dedicated Field Specialist, we want to hear from you. Veterans receive priority consideration. Serving Tri-State WA, OR, ID (Richland, Kennewick, Pasco), Yakima, Spokane, and Walla Walla.",
         datePosted: "2026-03-11",
         url: `${enhancedSEO.siteUrl}/careers`,
         hiringOrganization: {
@@ -1188,7 +1188,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
     url: projectsUrl,
     name: "Missions \u2192 Projects | MH Construction Portfolio",
     description:
-      "650+ completed commercial, industrial, light industrial, and government construction projects across Tri-Cities WA, Yakima, Spokane, and Walla Walla.",
+      "650+ completed commercial, industrial, light industrial, and government construction projects across our Tri-State licensed footprint, including Yakima, Spokane, and Walla Walla.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     breadcrumb: { "@id": `${projectsUrl}#breadcrumb` },
@@ -1206,9 +1206,9 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
     title:
       "Missions \u2192 Projects | Mission Success: 650+ Completed Projects",
     description:
-      "650+ completed commercial, industrial & government projects across Tri-Cities WA, Yakima, Spokane, and Walla Walla. Veteran-Owned Since January 2025. 70% referral rate. Licensed WA, OR, ID.",
+      "650+ completed commercial, industrial & government projects across our Tri-State licensed footprint, including Yakima, Spokane, and Walla Walla. Veteran-Owned Since January 2025. 70% referral rate. Licensed WA, OR, ID.",
     keywords: [
-      "construction portfolio Tri-Cities WA",
+      "construction portfolio Tri-State WA OR ID",
       "650 completed construction projects",
       "commercial construction projects Pacific Northwest",
       "light industrial construction portfolio",
@@ -1249,7 +1249,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/contact`,
     name: "Rally Point → Contact | MH Construction",
     description:
-      "Get a free consultation with MH Construction — founded 2010, Veteran-Owned Since January 2025. General contractor in Pasco, WA serving the Tri-Cities & Pacific Northwest. Call (509) 308-6489.",
+      "Get a free consultation with MH Construction — founded 2010, Veteran-Owned Since January 2025. Tri-State licensed general contractor headquartered in the Tri-Cities (Pasco, WA). Serving WA, OR, ID throughout the Pacific Northwest. Call (509) 308-6489.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -1267,21 +1267,21 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     title:
       "Rally Point → Contact | Your Project. Our Expertise. Let's Connect.",
     description:
-      "Get a free consultation with MH Construction — founded 2010, Veteran-Owned Since January 2025. General contractor in Pasco, WA serving the Tri-Cities & Pacific Northwest. Call (509) 308-6489.",
+      "Get a free consultation with MH Construction — founded 2010, Veteran-Owned Since January 2025. Tri-State licensed general contractor headquartered in the Tri-Cities (Pasco, WA). Serving WA, OR, ID throughout the Pacific Northwest. Call (509) 308-6489.",
     keywords: [
       "Rally Point Contact mission brief",
       "SITREP-level clarity consultation",
       "contact construction contractor Pasco WA",
       "veteran-owned construction contact",
       "Pacific Northwest construction company",
-      "construction consultation Tri-Cities",
+      "construction consultation Tri-State",
       "disciplined execution construction contact",
       "Richland general contractor contact",
       "Pasco general contractor",
       "Kennewick contractor contact",
       "Benton County construction contact",
       "Franklin County general contractor",
-      "Tri-Cities general contractor contact",
+      "Tri-State general contractor contact",
     ],
     canonicalUrl: `${enhancedSEO.siteUrl}/contact`,
     ogImage: `${enhancedSEO.siteUrl}/images/og/og-contact.webp`,
@@ -1299,7 +1299,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/faq`,
     name: "Intel Brief → FAQ | MH Construction",
     description:
-      "Pacific Northwest construction FAQ from MH Construction. Founded 2010, Veteran-Owned Since January 2025. Open-book pricing, 0.64 EMR safety, Design-Build, PEMB metal buildings, and free consultation. Serving Tri-Cities, Yakima, Spokane, Walla Walla, and more.",
+      "Pacific Northwest construction FAQ from MH Construction. Founded 2010, Veteran-Owned Since January 2025. Open-book pricing, 0.64 EMR safety, Design-Build, PEMB metal buildings, and free consultation. Serving Tri-State licensed markets across Yakima, Spokane, Walla Walla, and more.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -1317,7 +1317,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
     title:
       "Intel Brief → FAQ | Direct Answers. Clear Guidance. Mission-Ready Information.",
     description:
-      "Pacific Northwest construction FAQ from MH Construction. Founded 2010, Veteran-Owned Since January 2025. Open-book pricing, 0.64 EMR safety, Design-Build, PEMB metal buildings, and free consultation. Serving Tri-Cities, Yakima, Spokane, Walla Walla, and more.",
+      "Pacific Northwest construction FAQ from MH Construction. Founded 2010, Veteran-Owned Since January 2025. Open-book pricing, 0.64 EMR safety, Design-Build, PEMB metal buildings, and free consultation. Serving Tri-State licensed markets across Yakima, Spokane, Walla Walla, and more.",
     keywords: [
       "Intel Brief FAQ mission intelligence",
       "direct answers construction guidance",
@@ -1337,7 +1337,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
       "Design-Build vs Design-Bid-Build",
       "Pre-Engineered Metal Buildings PEMB",
       "Pasco WA building permits",
-      "Tri-Cities construction",
+      "Tri-State construction",
       "Yakima construction",
       "Spokane construction",
       "Walla Walla construction",

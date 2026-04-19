@@ -9,7 +9,7 @@ export const enhancedSEO = {
   defaultTitle:
     "Base HQ → Home | Building projects for the Client, NOT the Dollar | MH Construction",
   defaultDescription:
-    "Base HQ → Home: Your Tri-Cities Construction Command Center. BBB Accredited A+. Pasco, Richland & Tri-City Regional Chamber of Commerce member. Construction management services since 2010, Veteran-Owned Since January 2025, with dual-label approach (Military Operations → Construction Services). Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction. Service-earned values—Honesty, Integrity, Professionalism, Thoroughness—building trust through SITREP-level transparency and Chain of Command excellence throughout the Pacific Northwest.",
+    "Base HQ → Home: Your Tri-State Construction Command Center. BBB Accredited A+. Pasco, Richland & Tri-City Regional Chamber of Commerce member. Construction management services since 2010, Veteran-Owned Since January 2025, with dual-label approach (Military Operations → Construction Services). Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction. Service-earned values—Honesty, Integrity, Professionalism, Thoroughness—building trust through SITREP-level transparency and Chain of Command excellence throughout the Pacific Northwest.",
   siteUrl: COMPANY_INFO.urls.getSiteUrl(),
   twitterHandle: COMPANY_INFO.social.twitterHandle,
   defaultKeywords: [
@@ -40,8 +40,8 @@ export const enhancedSEO = {
     "long-term construction partnerships",
     "trust-based construction",
     "veteran benefits construction",
-    "Tri-Cities WA contractor",
-    "general contractor Tri-Cities",
+    "Tri-State licensed contractor",
+    "general contractor Tri-State",
     "Richland general contractor",
     "Pasco general contractor",
     "Kennewick general contractor",
@@ -52,7 +52,7 @@ export const enhancedSEO = {
     "Franklin County contractor",
     "Benton County general contractor",
     "Franklin County general contractor",
-    "Tri-Cities construction company",
+    "Tri-State construction company",
     "Richland construction",
     "Pasco construction",
     "Kennewick construction",
@@ -88,7 +88,7 @@ export const enhancedSEO = {
     serviceArea: {
       states: ["Washington", "Oregon", "Idaho"],
       region: "Pacific Northwest",
-      primaryArea: "Tri-Cities WA",
+      primaryArea: "Tri-Cities Headquarters (Pasco, Richland, Kennewick)",
       radius: "Licensed in WA, OR, ID",
     },
     veteranOwned: true,
@@ -173,9 +173,8 @@ export function generateEnhancedOrganizationSchema() {
       },
       {
         "@type": "City",
-        name: "Tri-Cities Washington",
-        description:
-          "Primary service area including Pasco, Kennewick, and Richland",
+        name: "Tri-Cities Headquarters",
+        description: "Headquarters region: Pasco, Richland, and Kennewick",
       },
       {
         "@type": "City",
@@ -539,7 +538,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "What areas do you serve in the Pacific Northwest?",
       answer:
-        "MH Construction serves the Pacific Northwest region with primary focus on the Tri-Cities Washington area (Pasco, Kennewick, Richland). We are fully licensed in Washington, Oregon, and Idaho, serving communities throughout these three states with our partnership-driven approach.",
+        "MH Construction serves projects throughout the Pacific Northwest and is fully licensed in Washington, Oregon, and Idaho. We are headquartered in the Tri-Cities (Pasco, Richland, Kennewick) and deliver work across our Tri-State footprint, with Montana expansion coming soon.",
     },
     {
       question: "What makes MH Construction different from other contractors?",
@@ -746,7 +745,7 @@ export function generateLocalBusinessSchema() {
       },
       {
         "@type": "Place",
-        name: "Tri-Cities Washington",
+        name: "Tri-Cities Headquarters Region",
       },
       {
         "@type": "Place",

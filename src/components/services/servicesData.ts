@@ -49,7 +49,7 @@ export const coreServices: CoreService[] = [
     subtitle:
       "Streamline Your Project Success with Partnership-Focused CM Services",
     description:
-      "Planning a new commercial building demands intricate details and expert partnership oversight. Put your project in the right hands with comprehensive Construction Management (CM) services throughout the Tri-Cities area. Our priority is delivering an exceptional partnership experience from concept through completion, built on trust and proven excellence. We believe meticulous Master Planning and thorough communication are critical to streamlining the process in later stages, which is why we minimize 'on-the-fly' decisions. Trust our experienced team to manage the intricate details, allowing you to focus on your vision's success.",
+      "Planning a new commercial building demands intricate details and expert partnership oversight. Put your project in the right hands with comprehensive Construction Management (CM) services across our Tri-State licensed footprint. From our Tri-Cities headquarters (Pasco, Richland, Kennewick), our priority is delivering an exceptional partnership experience from concept through completion, built on trust and proven excellence. We believe meticulous Master Planning and thorough communication are critical to streamlining the process in later stages, which is why we minimize 'on-the-fly' decisions. Trust our experienced team to manage the intricate details, allowing you to focus on your vision's success.",
     features: [
       "Commercial Businesses (Retail Stores, Office Buildings)",
       "Medical Facilities & Healthcare Centers",
@@ -102,7 +102,7 @@ export const coreServices: CoreService[] = [
     subtitle:
       "Reliable Material Sourcing & Professional Trade Partner Coordination",
     description:
-      "Navigating the logistics of construction requires extensive planning and coordination. At MH Construction, we offer comprehensive Trade Partnership Management services throughout the Tri-Cities, specializing in sourcing quality materials and coordinating with our network of approved Trade Partners tailored to your project goals. Our reliable Master Planning gives our trade partners the advanced notice necessary to streamline procurement and proactively manage long lead item delays, ensuring timely delivery and installation. We handle all Trade Partner coordination so you don't have to worry about managing multiple trade relationships—we work with our established network of quality professionals to deliver results.",
+      "Navigating the logistics of construction requires extensive planning and coordination. At MH Construction, we offer comprehensive Trade Partnership Management services across our Tri-State licensed markets, specializing in sourcing quality materials and coordinating with our network of approved Trade Partners tailored to your project goals. Our reliable Master Planning gives our trade partners the advanced notice necessary to streamline procurement and proactively manage long lead item delays, ensuring timely delivery and installation. We handle all Trade Partner coordination so you don't have to worry about managing multiple trade relationships—we work with our established network of quality professionals to deliver results.",
     features: [
       "Quality Material Sourcing and Professional Vetting",
       "Comprehensive Supplier Management and Communication",
@@ -155,7 +155,7 @@ export const coreServices: CoreService[] = [
     title: "Modularization & Subproject Management",
     subtitle: "Advanced Project Division for Complex Builds",
     description:
-      "Project Modularization involves strategically dividing a project into smaller, more manageable subprojects. This advanced process simplifies design, execution, and maintenance by breaking complex builds into focused phases. MH Construction focuses on Subproject Management to help Client Partners complete large, complex projects more efficiently and consistently meet schedules across the Tri-Cities and the Pacific Northwest. Ushering in a new era of project management—replacing a single project manager with a team of phase specialists is the smartest decision you can make. Our subproject management services help streamline the transitions between different construction phases, improve resource allocation and communication efficiency, and leverage our expertise specifically at each stage of construction.",
+      "Project Modularization involves strategically dividing a project into smaller, more manageable subprojects. This advanced process simplifies design, execution, and maintenance by breaking complex builds into focused phases. MH Construction focuses on Subproject Management to help Client Partners complete large, complex projects more efficiently and consistently meet schedules across our Tri-State licensed region and the broader Pacific Northwest. Ushering in a new era of project management—replacing a single project manager with a team of phase specialists is the smartest decision you can make. Our subproject management services help streamline the transitions between different construction phases, improve resource allocation and communication efficiency, and leverage our expertise specifically at each stage of construction.",
     features: [
       "Strategic division into manageable subprojects",
       "Streamlined transitions between construction phases",
@@ -184,7 +184,7 @@ export const specialtyServices: SpecialtyService[] = [
     title: "Markets We Serve",
     subtitle: "Diverse Business Solutions Across WA, OR, ID",
     description:
-      "At MH Construction, we complete projects for a wide range of businesses throughout the Tri-Cities (Kennewick, Richland, Pasco) and the wider Pacific Northwest region. With over 150 years of combined construction experience, you can trust us to bring your unique vision to life—from specialty religious facilities to complex industrial centers, from boutique wineries to large-scale medical facilities. We serve diverse markets across Washington, Idaho, and Oregon with the same commitment to quality and partnership excellence.",
+      "At MH Construction, we complete projects for a wide range of businesses throughout our Tri-State licensed region and the wider Pacific Northwest. Headquartered in the Tri-Cities (Kennewick, Richland, Pasco), we bring over 150 years of combined construction experience to your unique vision—from specialty religious facilities to complex industrial centers, from boutique wineries to large-scale medical facilities. We serve diverse markets across Washington, Idaho, and Oregon with the same commitment to quality and partnership excellence.",
     markets: [
       "Religious Facilities (Churches, Community Centers)",
       "Commercial Buildings (Retail Stores, Office Buildings)",
@@ -198,9 +198,9 @@ export const specialtyServices: SpecialtyService[] = [
   {
     iconName: "domain",
     title: "Tenant Improvements",
-    subtitle: "Transform Your Commercial Space in the Tri-Cities",
+    subtitle: "Transform Your Commercial Space Across Our Tri-State Footprint",
     description:
-      "If you've recently purchased a commercial building in the Tri-Cities area (Kennewick, Richland, Pasco, WA), MH Construction can help you transform it into your vision. We have decades of experience providing professional Tenant Improvement (TI) Services and are fully licensed to complete commercial renovation projects throughout Washington, Oregon, and Idaho. Whether you need a complete build-out or focused renovations, we'll help you bring your vision to life quickly and efficiently with expert craftsmanship. Our team understands the urgency of getting your business operational—we work diligently to minimize downtime while delivering exceptional results.",
+      "If you've recently purchased a commercial building in the Tri-Cities area (Kennewick, Richland, Pasco, WA) or elsewhere in our Tri-State licensed footprint, MH Construction can help you transform it into your vision. We have decades of experience providing professional Tenant Improvement (TI) Services and are fully licensed to complete commercial renovation projects throughout Washington, Oregon, and Idaho. Whether you need a complete build-out or focused renovations, we'll help you bring your vision to life quickly and efficiently with expert craftsmanship. Our team understands the urgency of getting your business operational—we work diligently to minimize downtime while delivering exceptional results.",
     capabilities: [
       "Complete commercial space transformation and renovation",
       "Licensed throughout Washington, Oregon, and Idaho",
@@ -218,7 +218,7 @@ export const specialtyServices: SpecialtyService[] = [
     title: "Commercial New Build-Outs",
     subtitle: "Build Your Business Right from the Ground Up",
     description:
-      "Looking for a committed, quality construction partner for your new commercial building? We offer comprehensive Commercial Construction Services to business owners throughout Kennewick, WA and the entire Tri-Cities area. Whether you need a small professional office or a large automotive dealership, we construct functional spaces where your business can thrive. With over 150 years of combined experience, our crew uses top-grade materials and partners with the best architects in the Pacific Northwest to ensure your building meets your exact specifications and supports your business success. Every project is built with quality craftsmanship—construction excellence that serves your business for generations.",
+      "Looking for a committed, quality construction partner for your new commercial building? We offer comprehensive Commercial Construction Services to business owners throughout Kennewick, WA, the Tri-Cities headquarters market, and our full Tri-State licensed footprint. Whether you need a small professional office or a large automotive dealership, we construct functional spaces where your business can thrive. With over 150 years of combined experience, our crew uses top-grade materials and partners with the best architects in the Pacific Northwest to ensure your building meets your exact specifications and supports your business success. Every project is built with quality craftsmanship—construction excellence that serves your business for generations.",
     buildTypes: [
       "Retail Construction (Stores, Shopping Centers)",
       "Medical Office Construction (Clinics, Healthcare)",
@@ -235,7 +235,7 @@ export const specialtyServices: SpecialtyService[] = [
     title: "Light Industrial Construction",
     subtitle: "Functional & Safe Industrial Facilities",
     description:
-      "When choosing a contractor for light industrial facilities, experience is the most critical factor. MH Construction has been providing professional Light Industrial Construction Services for over 13 years to business owners in the Tri-Cities (Kennewick, WA) and surrounding states including Oregon and Idaho. Count on us to create a safe, functional, and code-compliant building—from warehouses to processing plants—all built to your precise specifications with industry-leading materials and expert craftsmanship. Light industrial facilities demand durability, accessibility, and reliability—we deliver on all three fronts with meticulous attention to safety and functionality.",
+      "When choosing a contractor for light industrial facilities, experience is the most critical factor. MH Construction has been providing professional Light Industrial Construction Services for over 13 years to business owners in the Tri-Cities (Kennewick, WA) and across our Tri-State licensed footprint, including Oregon and Idaho. Count on us to create a safe, functional, and code-compliant building—from warehouses to processing plants—all built to your precise specifications with industry-leading materials and expert craftsmanship. Light industrial facilities demand durability, accessibility, and reliability—we deliver on all three fronts with meticulous attention to safety and functionality.",
     features: [
       "Advanced Fire Protection Systems",
       "Commercial-Grade Doors and Windows",
@@ -270,7 +270,7 @@ export const specialtyServices: SpecialtyService[] = [
     title: "Design-Build Services",
     subtitle: "Integrated Design & Construction Excellence",
     description:
-      "MH Construction offers comprehensive Design-Build Services, a streamlined approach that unifies design and construction under one partnership throughout the Tri-Cities and Pacific Northwest. By integrating architecture, engineering, and construction expertise from day one, we eliminate communication gaps and reduce costly change orders that plague traditional design-bid-build projects. Our Design-Build approach means faster project delivery, better cost control, and a single point of accountability from concept through completion. Partner with our team to experience the efficiency of having designers and builders collaborating seamlessly, ensuring your vision becomes reality without the friction of coordinating multiple separate firms.",
+      "MH Construction offers comprehensive Design-Build Services, a streamlined approach that unifies design and construction under one partnership throughout our Tri-State licensed footprint and the Pacific Northwest. By integrating architecture, engineering, and construction expertise from day one, we eliminate communication gaps and reduce costly change orders that plague traditional design-bid-build projects. Our Design-Build approach means faster project delivery, better cost control, and a single point of accountability from concept through completion. Partner with our team to experience the efficiency of having designers and builders collaborating seamlessly, ensuring your vision becomes reality without the friction of coordinating multiple separate firms.",
     capabilities: [
       "Unified design and construction under one contract",
       "Single point of accountability from concept to completion",
@@ -288,7 +288,7 @@ export const specialtyServices: SpecialtyService[] = [
 export const serviceAreas: ServiceArea[] = [
   {
     iconName: "place",
-    title: "Tri-Cities Primary",
+    title: "Tri-Cities Headquarters",
     areas: [
       "Pasco, WA",
       "Kennewick, WA",

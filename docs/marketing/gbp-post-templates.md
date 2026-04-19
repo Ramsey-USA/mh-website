@@ -89,7 +89,7 @@ Today we're highlighting [TEAM MEMBER NAME], [POSITION] and [Military Branch] ve
 
 "[Quote about service and construction]" - [Name]
 
-Proud to be a veteran-owned business serving the Tri-Cities!
+Proud to be a veteran-owned business headquartered in the Tri-Cities and serving a Tri-State licensed footprint!
 
 📞 (509) 308-6489
 🌐 www.mhc-gc.com/team
@@ -128,7 +128,7 @@ Veterans receive special consideration for employment opportunities. Contact us 
 ```text
 🏢 Commercial Construction Services
 
-From concept to completion, MH Construction delivers exceptional commercial building projects throughout the Tri-Cities.
+From concept to completion, MH Construction delivers exceptional commercial building projects from our Tri-Cities headquarters market across our Tri-State licensed footprint.
 
 Our Services Include:
 • New construction
@@ -222,7 +222,7 @@ Questions about your upcoming project?
 - Budget planning for construction
 - Choosing the right contractor
 - Construction timelines and scheduling
-- Permitting process in Tri-Cities
+- Permitting process in the Tri-Cities headquarters market
 - Design-build vs. design-bid-build
 - Construction financing options
 - Seasonal considerations
@@ -292,7 +292,7 @@ Ready to build in [CITY]?
 ```text
 🤝 Community First
 
-At MH Construction, we believe in giving back to the Tri-Cities community that supports us.
+At MH Construction, we believe in giving back to the Tri-Cities headquarters community that supports us.
 
 This month, we're [COMMUNITY ACTION]:
 [Description of involvement]

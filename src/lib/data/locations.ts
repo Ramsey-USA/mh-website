@@ -422,7 +422,7 @@ export const locations: Record<string, LocationData> = {
     localExpertise: {
       title: "Expanding to Spokane",
       description: [
-        "As we expand our services to Spokane and Eastern Washington, we bring the same level of professionalism and expertise that has made us successful in the Tri-Cities area.",
+        "As we expand our services to Spokane and Eastern Washington, we bring the same level of professionalism and expertise rooted in our Tri-Cities headquarters (Pasco, Richland, Kennewick) and our Tri-State licensed track record across WA, OR, and ID.",
         "Our Veteran-Owned values and commitment to excellence travel with us, ensuring Spokane clients receive the same quality service and partnership-driven approach.",
       ],
     },

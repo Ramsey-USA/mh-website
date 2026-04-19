@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Field Resources | MH Construction",
     description:
-      "Safety manuals, toolbox talks, and field forms from a Veteran-Owned Since January 2025 Tri-Cities construction team — branded and ready to print.",
+      "Safety manuals, toolbox talks, and field forms from a Veteran-Owned Since January 2025 Tri-State licensed construction team with Tri-Cities headquarters — branded and ready to print.",
     url: "https://www.mhc-gc.com/resources",
   },
 };

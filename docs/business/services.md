@@ -12,7 +12,7 @@
 **Veteran-Owned**: All-Branch Military Service Leadership  
 **BBB Accredited**: A+ Rating since April 7, 2026
 
-**Primary Service Area**: Tri-Cities (Richland, Pasco, Kennewick), Benton County, Franklin County  
+**Primary Service Area**: Tri-State licensed coverage (WA, OR, ID), anchored by Tri-Cities headquarters (Pasco, Richland, Kennewick), Benton County, Franklin County  
 **Extended Service Areas**: Yakima, Spokane, Walla Walla, Hermiston, Coeur d'Alene, Eastern Washington
 
 **Strategic Focus:** Professional veteran-led construction operations with military precision and
@@ -25,7 +25,7 @@ construction expertise.
 ### Commercial Construction Management
 
 Put your commercial building project in the right hands. MH Construction delivers full
-Construction Management (CM) services throughout the Tri-Cities area, including Pasco,
+Construction Management (CM) services throughout our Tri-Cities headquarters market and Tri-State licensed footprint, including Pasco,
 Kennewick, and Richland, WA. Our priority is delivering an exceptional Client experience
 from concept through completion.
 
@@ -43,11 +43,11 @@ Trust our experienced team to manage the intricate details, allowing you to focu
 
 ### 1. **Commercial Construction Management**
 
-#### Streamline Your Project Success with Construction Management in the Tri-Cities
+#### Streamline Your Project Success Across Our Tri-State Footprint
 
 Planning a new commercial building demands intricate details and expert oversight. Put your
 project in the right hands by hiring MH Construction for comprehensive Construction
-Management (CM) services throughout the Tri-Cities (Pasco, WA) area. Our priority is
+Management (CM) services throughout our Tri-Cities headquarters market and broader Tri-State licensed footprint. Our priority is
 delivering an exceptional Client experience from start to finish. Our commitment to
 thorough communication and upfront planning is critical to streamlining the process,
 preventing costly on-the-fly decisions later on.
@@ -73,7 +73,7 @@ commercial, industrial, and specialty businesses, including:
 
 ### 2. **Master Planning (Pre-Construction)**
 
-#### Unlock Your Building's Potential with Comprehensive Master Planning in the Tri-Cities
+#### Unlock Your Building's Potential with Comprehensive Master Planning Across Our Tri-State Footprint
 
 At MH Construction, we're passionate about transforming your vision into a reality through
 detailed Master Planning. We strategize and coordinate every component of your building
@@ -100,7 +100,7 @@ We meticulously consider:
 
 Navigating the logistics of construction requires extensive planning and coordination.
 At MH Construction, we offer comprehensive Ally Management services throughout the
-Tri-Cities that specialize in sourcing quality materials and coordinating with our network of
+Tri-Cities headquarters market and across our Tri-State licensed region that specialize in sourcing quality materials and coordinating with our network of
 approved vendors tailored to your project goals. Our reliable Master Planning gives our
 Allies the advanced notice necessary to streamline procurement and proactively
 manage long lead item delays, ensuring timely delivery and installation.
@@ -158,7 +158,7 @@ and secure consistent work through our constructability review process._
 Project Modularization involves strategically dividing a project into smaller, more
 manageable subprojects. This process simplifies design, execution, and maintenance.
 MH Construction focuses on Subproject Management to help Clients complete large, complex
-projects more efficiently and consistently meet schedules across the Tri-Cities and the
+projects more efficiently and consistently meet schedules across our Tri-State licensed footprint and the
 Northwest.
 
 #### Ushering in a New Era of Project Management
@@ -176,10 +176,10 @@ decision you can make. Our subproject management services help to:
 
 ### Markets
 
-#### Explore the Diverse Businesses We Work With | Tri-Cities, WA, OR, ID
+#### Explore the Diverse Businesses We Work With | Tri-State Licensed (WA, OR, ID) + Tri-Cities HQ
 
 At MH Construction, we complete projects for a wide range of businesses throughout the
-Tri-Cities (Kennewick, Richland, Pasco) and the wider region. With over 150 years of
+Tri-Cities headquarters market (Pasco, Richland, Kennewick) and the wider region. With over 150 years of
 construction experience, you can trust us to bring your unique vision to life—from
 specialty religious facilities to complex industrial centers.
 
@@ -198,9 +198,9 @@ We serve a wide range of markets across Washington, Idaho, and Oregon, including
 
 ### Tenant Improvements
 
-#### Transform Your Commercial Space with Expert Tenant Improvement Services in the Tri-Cities
+#### Transform Your Commercial Space with Expert Tenant Improvement Services Across Our Tri-State Footprint
 
-If you've recently purchased a commercial building in the Tri-Cities (Kennewick, WA),
+If you've recently purchased a commercial building in the Tri-Cities headquarters market (Kennewick, WA),
 MH Construction can help you transform it. We have decades of experience providing Tenant
 Improvement (TI) Services and are licensed to complete commercial renovation projects
 throughout Washington, Oregon, and Idaho. We'll help you bring your vision to life
@@ -217,11 +217,11 @@ quickly and efficiently.
 
 ### Commercial New Build-Outs
 
-#### Build Your Business Right: New Commercial Construction in the Tri-Cities
+#### Build Your Business Right: New Commercial Construction from Tri-Cities HQ to the Tri-State Region
 
 If you're looking for a committed, quality construction partner, look no further. We offer
 comprehensive Commercial Construction Services to business owners throughout Kennewick, WA
-and the entire Tri-Cities area. Whether you need a small office or a large dealership,
+and the entire Tri-Cities headquarters market. Whether you need a small office or a large dealership,
 we construct a space where your business can thrive, using top-grade materials and
 partnering with the best architects.
 
@@ -240,11 +240,11 @@ construction services, including:
 
 ### Light Industrial
 
-#### Functional & Safe Light Industrial Construction Services | Tri-Cities, WA
+#### Functional & Safe Light Industrial Construction Services | Tri-State Licensed (WA, OR, ID)
 
 When choosing a contractor for light industrial facilities, experience is the most important
 factor. MH Construction has been providing Light Industrial Construction Services for over
-13 years to business owners in the Tri-Cities (Kennewick, WA) and surrounding states.
+13 years to business owners in the Tri-Cities headquarters market (Kennewick, WA) and surrounding states.
 Count on us to create a safe and functional building—from warehouses to processing
 plants—all built to your precise specifications.
 
@@ -278,7 +278,7 @@ or new construction project.
 #### Integrated Design & Construction Excellence
 
 MH Construction offers comprehensive Design-Build Services, a streamlined approach that
-unifies design and construction under one partnership throughout the Tri-Cities and Pacific
+unifies design and construction under one partnership throughout our Tri-State licensed footprint, anchored by Tri-Cities headquarters and the Pacific
 Northwest. By integrating architecture, engineering, and construction expertise from day one,
 we eliminate communication gaps and reduce costly change orders that plague traditional
 design-bid-build projects.
@@ -299,7 +299,7 @@ design-bid-build projects.
 
 ### Primary Service Area
 
-- **Tri-Cities, WA**: Richland, Pasco, Kennewick
+- **Tri-Cities Headquarters**: Pasco, Richland, Kennewick
 - **Benton County, WA**
 - **Franklin County, WA**
 

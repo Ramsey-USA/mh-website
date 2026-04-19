@@ -216,7 +216,7 @@ All main content pages use the format:
 - Veteran-owned
 - Military precision
 - Service-earned values
-- Tri-Cities / Pacific Northwest
+- Tri-Cities HQ / Tri-State Pacific Northwest
 - General contractor / Construction
 - Specific location names
 - Specific service terms

@@ -240,9 +240,9 @@ Pasco, WA 99301
 **Regional References:**
 
 - "Pacific Northwest" (PREFERRED for regional identity)
-- "Tri-Cities" (when referring to local area)
-- "Tri-Cities Area" or "Tri-Cities Region"
-- "Pasco, Kennewick, Richland" (full listing when needed)
+- "Tri-Cities" only when referring to headquarters/local market (Pasco, Richland, Kennewick)
+- "Tri-Cities headquarters market" or "Tri-Cities HQ region"
+- "Pasco, Richland, Kennewick" (full listing when needed)
 - "Eastern Washington region"
 - "Pacific Northwest communities"
 
@@ -252,7 +252,7 @@ Pasco, WA 99301
 ✅ "Serving the Pacific Northwest"
 ✅ "Licensed in WA, OR, ID"
 ✅ "Headquartered in Pasco, WA"
-✅ "Tri-Cities construction excellence"
+✅ "Tri-State licensed construction excellence with Tri-Cities headquarters"
 ✅ "Pacific Northwest premium materials"
 ```
 
@@ -260,7 +260,7 @@ Pasco, WA 99301
 
 - Always use "Pacific Northwest" (not "PNW" in formal content)
 - When listing states, use abbreviations OR full names consistently within same content block
-- Tri-Cities = Pasco, Kennewick, Richland (this specific area)
+- Tri-Cities = Pasco, Richland, Kennewick (headquarters/local market only)
 
 ---
 

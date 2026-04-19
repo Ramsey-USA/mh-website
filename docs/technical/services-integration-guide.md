@@ -820,7 +820,7 @@ integration for multi-channel customer communication.
 | **Account SID**    | `ACxxxx...` (secret) |
 | **Auth Token**     | `xxxx...` (secret)   |
 | **Primary Number** | `+15093086489`       |
-| **Region**         | 509 (Tri-Cities)     |
+| **Region**         | 509 (Tri-Cities HQ)  |
 
 ### Services
 
@@ -832,7 +832,7 @@ integration for multi-channel customer communication.
 
 #### Local 509 Numbers
 
-- Professional local presence for Tri-Cities area
+- Professional local presence for Tri-Cities headquarters market with Tri-State licensed scale
 - Call forwarding to office lines
 - SMS-enabled for two-way communication
 
@@ -1246,7 +1246,7 @@ The following services are recommended to complete the "monster engine" tech sta
 
 #### Google Business Profile (Free) ✅ Schema Ready
 
-**Why:** Critical for local SEO — "general contractor Tri-Cities" searches. Drives phone calls and direction requests.
+**Why:** Critical for local SEO — "general contractor Tri-State licensed" and city-based searches. Drives phone calls and direction requests.
 
 **Schema Support:** The website emits `LocalBusiness` and `GeneralContractor` structured data
 on every page via `src/components/seo/SeoMeta.tsx`. This enables rich results in Google Search.

@@ -592,7 +592,7 @@ export default async function TestimonialsPage() {
                     projects throughout the region.
                   </p>
                   <div className="space-y-3">
-                    {/* Tri-Cities Card */}
+                    {/* Tri-Cities Headquarters Card */}
                     <div className="group relative">
                       <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg opacity-20 group-hover:opacity-40 blur transition-all duration-300"></div>
                       <div className="relative flex items-start gap-3 bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group-hover:border-brand-primary/30 transition-all duration-300">
@@ -607,7 +607,7 @@ export default async function TestimonialsPage() {
                             Tri-Cities, WA (Headquarters)
                           </h4>
                           <p className="text-sm text-gray-600 dark:text-gray-300">
-                            Pasco, Kennewick, Richland, West Richland
+                            Pasco, Kennewick, Richland
                           </p>
                         </div>
                       </div>

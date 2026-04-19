@@ -158,8 +158,8 @@ echo "   ✅ Partnership Files: $partnership_files pages"
 
 # 11. REGIONAL FOCUS
 echo "📍 Regional Focus Analysis..."
-regional_terms=$(find $SRC_DIR -name "*.tsx" | xargs grep -c -i "tri-cities\|pasco\|washington\|oregon\|idaho\|pacific northwest" | paste -sd+ | bc)
-regional_files=$(find $SRC_DIR -name "*.tsx" | xargs grep -l -i "tri-cities\|pasco\|washington\|oregon\|idaho\|pacific northwest" | wc -l)
+regional_terms=$(find $SRC_DIR -name "*.tsx" | xargs grep -c -i "tri-cities\|tri-state\|pasco\|richland\|kennewick\|washington\|oregon\|idaho\|pacific northwest" | paste -sd+ | bc)
+regional_files=$(find $SRC_DIR -name "*.tsx" | xargs grep -l -i "tri-cities\|tri-state\|pasco\|richland\|kennewick\|washington\|oregon\|idaho\|pacific northwest" | wc -l)
 
 echo "   ✅ Regional Terms: $regional_terms instances"
 echo "   ✅ Regional Files: $regional_files pages"

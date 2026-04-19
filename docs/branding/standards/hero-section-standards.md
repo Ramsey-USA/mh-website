@@ -62,7 +62,7 @@ recognition and accessibility.
 
 | Page           | Dual Naming                 | Military/Construction Blend Tagline                                             | Mantra                                                                                                                                                                                  |
 | -------------- | --------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Homepage       | Base HQ → Home              | "Mission-Focused Execution \| Building Projects for the Client, NOT the Dollar" | Your Tri-Cities Construction Command Center                                                                                                                                             |
+| Homepage       | Base HQ → Home              | "Mission-Focused Execution \| Building Projects for the Client, NOT the Dollar" | Your Tri-State Construction Command Center                                                                                                                                              |
 | About          | Our Oath → About Us         | "Battle-Tested Excellence Through Service-Earned Experience"                    | Service-Earned Values, Construction Excellence                                                                                                                                          |
 | Services       | Operations → Services       | "Your Construction Mission Deserves Veteran-Led Expert Oversight"               | The Battle Plan - Strategic Construction Excellence                                                                                                                                     |
 | Projects       | Missions → Projects         | "650+ Construction Missions Completed - Proven Results"                         | Mission Success: 650+ Projects, Countless Relationships                                                                                                                                 |
@@ -127,7 +127,7 @@ visual element. This creates a more impactful first impression where imagery spe
       </span>
       {/* PAGE-SPECIFIC MANTRA */}
       <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
-        Your Tri-Cities Construction Command Center
+        Your Tri-State Construction Command Center
       </span>
       {/* TAGLINE WITH SEPARATORS */}
       <span className="block text-brand-secondary">

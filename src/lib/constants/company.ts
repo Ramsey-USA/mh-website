@@ -88,8 +88,9 @@ export const COMPANY_INFO = {
     veteranOwnedSince: "January 2025",
     veteranOwnedSinceYear: 2025,
     licenses: ["WA", "OR", "ID"],
-    serviceArea: "Pacific Northwest",
-    primaryRegion: "Tri-Cities",
+    serviceArea: "Tri-State Pacific Northwest (WA, OR, ID)",
+    primaryRegion: "Tri-Cities (Pasco, Richland, Kennewick)",
+    expansionRegion: "Montana (coming soon)",
     bbbAccredited: true,
     bbbAccreditedSince: "2026-04-07", // April 7, 2026
     bbbRating: "A+",

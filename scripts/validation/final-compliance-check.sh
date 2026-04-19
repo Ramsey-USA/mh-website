@@ -80,7 +80,7 @@ partnership_messaging=$(find $SRC_DIR -name "*.tsx" | xargs grep -l "partnership
 echo "🤝 Partnership Messaging: ✅ $partnership_messaging pages include partnership focus"
 
 # Regional focus
-regional_focus=$(find $SRC_DIR -name "*.tsx" | xargs grep -l "Tri-Cities\|Pasco\|Washington\|Oregon\|Idaho\|Pacific Northwest" | wc -l)
+regional_focus=$(find $SRC_DIR -name "*.tsx" | xargs grep -l "Tri-Cities\|Tri-State\|Pasco\|Richland\|Kennewick\|Washington\|Oregon\|Idaho\|Pacific Northwest" | wc -l)
 echo "📍 Regional Focus: ✅ $regional_focus pages mention service region"
 
 # Veteran-owned messaging

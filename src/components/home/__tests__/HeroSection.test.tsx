@@ -50,7 +50,9 @@ describe("HeroSection", () => {
   it("renders the service area text", () => {
     render(<HeroSection />);
     expect(
-      screen.getAllByText(/Serving Tri-Cities, Yakima, Spokane/i)[0],
+      screen.getAllByText(
+        /Tri-Cities HQ .* Tri-State Licensed in WA, OR, ID/i,
+      )[0],
     ).toBeInTheDocument();
   });
 });

@@ -39,7 +39,7 @@ export function ServiceAreasSection({
           <>
             Serving the{" "}
             <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              Tri-Cities region and Pacific Northwest
+              Tri-State licensed region and Pacific Northwest
             </span>{" "}
             with{" "}
             <span className="font-bold text-brand-secondary dark:text-brand-secondary-light">

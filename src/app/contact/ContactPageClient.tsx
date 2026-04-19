@@ -833,8 +833,8 @@ export default function ContactPageClient() {
                 </p>
                 <p className="mt-4 text-gray-500 dark:text-gray-300 text-base sm:text-lg">
                   {isEs
-                    ? "Sirviendo al Tri-Cities y el Noroeste del Pacífico"
-                    : "Serving the Tri-Cities and Pacific Northwest"}
+                    ? "Sede en Tri-Cities (Pasco, Richland y Kennewick). Con licencia Tri-State en el Noroeste del Pacífico"
+                    : "Headquartered in the Tri-Cities (Pasco, Richland, Kennewick). Tri-State licensed across the Pacific Northwest"}
                 </p>
               </div>
 
@@ -1070,7 +1070,7 @@ export default function ContactPageClient() {
 
               {/* Service Area Cards */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                {/* Tri-Cities Primary Card */}
+                {/* Tri-Cities Headquarters Card */}
                 <div className="group relative flex h-full">
                   {/* Animated Border Glow */}
                   <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-brand-primary/40 to-brand-primary-dark/40 opacity-20 group-hover:opacity-60 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
@@ -1094,14 +1094,16 @@ export default function ContactPageClient() {
                           </div>
                         </div>
                         <h3 className="font-bold text-brand-primary text-xl sm:text-2xl">
-                          {isEs ? "Área de Tri-Cities" : "Tri-Cities Area"}
+                          {isEs
+                            ? "Sede en Tri-Cities"
+                            : "Tri-Cities Headquarters"}
                         </h3>
                       </div>
 
                       <p className="mb-6 text-gray-600 dark:text-gray-300 text-sm">
                         {isEs
-                          ? "Región de Servicio Principal - Respuesta Inmediata Disponible"
-                          : "Primary Service Region - Immediate Response Available"}
+                          ? "Pasco, Richland y Kennewick - Respuesta inmediata disponible"
+                          : "Pasco, Richland, and Kennewick - Immediate response available"}
                       </p>
 
                       {/* Location Links */}
@@ -1196,8 +1198,8 @@ export default function ContactPageClient() {
 
                       <p className="mb-6 text-gray-600 dark:text-gray-300 text-sm">
                         {isEs
-                          ? "Licencia Multi-Estado - WA, OR, ID"
-                          : "Multi-State Licensed - WA, OR, ID"}
+                          ? "Con licencia Tri-State - WA, OR, ID. Expansión a MT próximamente"
+                          : "Tri-State Licensed - WA, OR, ID. Montana expansion coming soon"}
                       </p>
 
                       {/* Location Links and Coverage */}

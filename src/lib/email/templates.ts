@@ -483,7 +483,7 @@ export function generateNewsletterAcknowledgment(data: NewsletterEmailData): {
             <strong style="color: #BD9264;">🎖️ Veteran-Owned. Relationship-first.</strong>
           </p>
           <p style="margin: 0; font-size: 14px; color: #666; line-height: 1.6;">
-            As a Veteran-Owned company, we bring disciplined execution, follow-through, and integrity to every project. We're proud to serve the Tri-Cities community and the Pacific Northwest with the same dedication we showed in service to our country.
+            As a Veteran-Owned company, we bring disciplined execution, follow-through, and integrity to every project. We're proud to be headquartered in the Tri-Cities (Pasco, Richland, Kennewick) and to serve our Tri-State licensed footprint across the Pacific Northwest with the same dedication we showed in service to our country.
           </p>
         </div>
         
@@ -554,7 +554,7 @@ WHAT TO EXPECT:
 At MH Construction, we believe in "Building projects for the Client, NOT the Dollar." This philosophy extends to everything we do, including the content we share with you.
 
 VETERAN-OWNED. RELATIONSHIP-FIRST.
-As a Veteran-Owned company, we bring disciplined execution, follow-through, and integrity to every project. We're proud to serve the Tri-Cities community and the Pacific Northwest with the same dedication we showed in service to our country.
+As a Veteran-Owned company, we bring disciplined execution, follow-through, and integrity to every project. We're proud to be headquartered in the Tri-Cities (Pasco, Richland, Kennewick) and to serve our Tri-State licensed footprint across the Pacific Northwest with the same dedication we showed in service to our country.
 
 READY TO START YOUR PROJECT?
 Get your free consultation: https://www.mhc-gc.com/contact

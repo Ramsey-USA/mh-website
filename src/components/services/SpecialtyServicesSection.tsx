@@ -23,7 +23,7 @@ export function SpecialtyServicesSection({
         subtitle: "Specialized Partnership",
         title: "Solutions",
         description:
-          "Diverse collaborative construction expertise across the Tri-Cities and Pacific Northwest region.",
+          "Diverse collaborative construction expertise across our Tri-State licensed footprint and the Pacific Northwest region.",
       }}
     >
       {/* Grid - 2 columns on tablet, 3 on desktop */}

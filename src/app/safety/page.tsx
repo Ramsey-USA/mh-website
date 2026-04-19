@@ -13,14 +13,13 @@ import { PWAInstallCTA } from "@/components/pwa";
 const SITE_URL = "https://www.mhc-gc.com";
 
 export const metadata: Metadata = withGeoMetadata({
-  title:
-    "Safety Culture | 0.64 EMR | AGC-WA Award | MH Construction Tri-Cities WA",
+  title: "Safety Culture | 0.64 EMR | AGC-WA Award | MH Construction Tri-State",
   description:
-    "MH Construction's zero-incident safety culture — 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, and 50-section written safety program. Veteran-Owned Since January 2025. Serving Tri-Cities, Yakima, Spokane, & Walla Walla WA.",
+    "MH Construction's zero-incident safety culture — 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, and 50-section written safety program. Veteran-Owned Since January 2025. Tri-State licensed in WA, OR, and ID with Tri-Cities headquarters in Pasco, Richland, and Kennewick.",
   keywords: [
     "MH Construction safety culture",
     "zero incident culture construction",
-    "construction safety Tri-Cities WA",
+    "construction safety Tri-State WA OR ID",
     "veteran-owned contractor safety",
     "0.64 EMR construction contractor",
     "AGC-WA Top EMR Award",
@@ -108,11 +107,10 @@ const safetySchema = {
   },
   serviceType: "Construction Safety Management",
   areaServed: [
-    "Tri-Cities WA",
+    "Tri-State (WA, OR, ID)",
     "Pasco WA",
     "Kennewick WA",
     "Richland WA",
-    "West Richland WA",
     "Yakima WA",
     "Spokane WA",
     "Walla Walla WA",

@@ -28,7 +28,7 @@ const defaultSEO = {
     "renovation",
     "remodeling",
     "Pacific Northwest",
-    "Tri-Cities construction",
+    "Tri-State construction",
     "Pasco construction",
     "Kennewick construction",
     "Richland construction",

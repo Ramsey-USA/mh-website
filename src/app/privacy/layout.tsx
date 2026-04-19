@@ -62,7 +62,7 @@ export const metadata: Metadata = withGeoMetadata({
     "MH Construction privacy policy",
     "construction company privacy",
     "data protection policy",
-    "Tri-Cities contractor privacy",
+    "Tri-State contractor privacy",
     "Pasco WA privacy notice",
   ],
   alternates: {
@@ -90,9 +90,9 @@ export const metadata: Metadata = withGeoMetadata({
 
 export default function PrivacyLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <>
       <StructuredData data={privacySchemas} />

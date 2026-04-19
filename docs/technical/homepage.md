@@ -467,9 +467,10 @@ const homepageSEO = getHomepageSEO();
    - Company differentiation
 
 3. **LocalBusiness Schema:**
-   - Tri-Cities location data
-   - Service areas (WA, OR, ID)
-   - Business hours and contact
+
+- Tri-Cities headquarters location data
+- Service areas (WA, OR, ID)
+- Business hours and contact
 
 ### Analytics Tracking
 

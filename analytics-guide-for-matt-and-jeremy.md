@@ -81,7 +81,7 @@ scoring (0-100), device intelligence, traffic attribution, 100+ data points
 ```text
 ✓ "Healthcare projects vs retail" → Interest comparison
 ✓ "High-value projects ($1M+) engagement" → Premium market interest
-✓ "Local projects (Tri-Cities) vs regional" → Geographic preference
+✓ "Local HQ projects (Tri-Cities: Pasco, Richland, Kennewick) vs Tri-State regional" → Geographic preference
 ✓ "Featured project ROI" → Featured placement effectiveness
 ```
 

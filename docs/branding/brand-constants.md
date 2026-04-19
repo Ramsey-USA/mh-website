@@ -138,7 +138,7 @@ The four-value foundation system, in hierarchical order:
 ### Primary Markets
 
 - **Headquarters:** Pasco, WA
-- **Tri-Cities:** Richland, Kennewick, Pasco, West Richland
+- **Tri-Cities Headquarters:** Pasco, Richland, Kennewick
 
 ### Extended Markets
 

@@ -63,7 +63,7 @@ export const metadata: Metadata = withGeoMetadata({
     "MH Construction terms",
     "construction website legal terms",
     "Pasco contractor terms",
-    "Tri-Cities construction legal",
+    "Tri-State construction legal",
   ],
   alternates: {
     canonical: `${siteUrl}/terms`,

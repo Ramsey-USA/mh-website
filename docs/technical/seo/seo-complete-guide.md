@@ -345,7 +345,7 @@ All lead-path pages follow the **Universal Page Flow Standard** â€” **Discover â
 
 - Include primary keyword in first 120 characters
 - Add call-to-action
-- Mention location (Pacific Northwest, Tri-Cities WA)
+- Mention location (Pacific Northwest, Tri-State licensed footprint, Tri-Cities HQ)
 - Highlight veteran-owned status
 
 **Example (154 characters - PERFECT!):**
@@ -366,7 +366,7 @@ with transparent pricing. Schedule your free consultation today.
 1. **Primary:** Page-specific term (e.g., "construction services")
 2. **Brand:** "MH Construction"
 3. **Identity:** "veteran-owned construction"
-4. **Location:** "Pacific Northwest", "Tri-Cities WA"
+4. **Location:** "Pacific Northwest", "Tri-State licensed (WA, OR, ID)", "Tri-Cities HQ"
 5. **Services:** Related service terms
 6. **USP:** "transparent pricing", "military precision"
 7. **Secondary:** Additional relevant terms
@@ -379,7 +379,7 @@ with transparent pricing. Schedule your free consultation today.
 4. Pacific Northwest builder
 5. General MH military construction
 6. veteran benefits construction
-7. Tri-Cities WA contractor
+7. Tri-State licensed contractor
 8. transparent construction partnerships
 9. military-style project management
 10. Washington Oregon Idaho contractor

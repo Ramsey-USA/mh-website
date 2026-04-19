@@ -119,7 +119,7 @@ improvements.
 - **Mission:** Building projects for the Client, NOT the Dollar
 - **Values:** Honesty, Integrity, Professionalism, Thoroughness
 - **Approach:** Face-to-face consultation, transparent pricing, veteran priority scheduling
-- **Service Area:** Tri-Cities WA (Richland, Kennewick, Pasco, West Richland), Yakima, Spokane, Walla Walla
+- **Service Area:** Tri-Cities HQ (Pasco, Richland, Kennewick) with Tri-State licensed coverage (WA, OR, ID), including Yakima, Spokane, and Walla Walla
 - **Specialties:** Commercial construction, residential, public sector, master planning
 
 ### Business Philosophy

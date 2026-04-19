@@ -20,6 +20,7 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { cn } from "@/lib/utils";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.allies);
 
@@ -135,7 +136,7 @@ const vendors: Vendor[] = [
     icon: "yard",
     accentColor: "from-brand-primary to-brand-primary-dark",
     description:
-      "Bagley Landscape Construction, Inc. is our trusted primary landscaping partner, delivering comprehensive landscape design, installation, hardscaping, maintenance, and snow & ice services across the Tri-Cities area. Their local expertise and full-service capabilities make them an essential part of every MH Construction project from groundbreaking to year-round upkeep.",
+      "Bagley Landscape Construction, Inc. is our trusted primary landscaping partner, delivering comprehensive landscape design, installation, hardscaping, maintenance, and snow & ice services across the Tri-Cities (Pasco, Richland, Kennewick) and our broader Pacific Northwest project footprint. Their local expertise and full-service capabilities make them an essential part of every MH Construction project from groundbreaking to year-round upkeep.",
     highlights: [
       "Commercial & Residential Landscape Design & Installation",
       "Irrigation Systems & Hydroseeding",
@@ -685,7 +686,11 @@ export default function AlliesPage() {
                     <div className="absolute inset-0 [backface-visibility:hidden] bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-xl overflow-hidden flex flex-col">
                       {/* Brand accent bar */}
                       <div
-                        className={`h-3 flex-shrink-0 ${vendor.brandColors ? "" : `bg-gradient-to-r ${vendor.accentColor}`}`}
+                        className={cn(
+                          "h-3 flex-shrink-0",
+                          !vendor.brandColors &&
+                            `bg-gradient-to-r ${vendor.accentColor}`,
+                        )}
                         style={
                           vendor.brandColors
                             ? {
@@ -717,7 +722,11 @@ export default function AlliesPage() {
                             />
                           ) : (
                             <div
-                              className={`w-full h-full flex items-center justify-center ${vendor.brandColors ? "" : `bg-gradient-to-br ${vendor.accentColor}`}`}
+                              className={cn(
+                                "w-full h-full flex items-center justify-center",
+                                !vendor.brandColors &&
+                                  `bg-gradient-to-br ${vendor.accentColor}`,
+                              )}
                               style={
                                 vendor.brandColors
                                   ? {
@@ -787,7 +796,11 @@ export default function AlliesPage() {
 
                     {/* ── BACK FACE ─────────────────────────────────────── */}
                     <div
-                      className={`absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl border-2 shadow-xl overflow-hidden flex flex-col ${vendor.brandColors ? "" : `bg-gradient-to-br ${vendor.accentColor}`}`}
+                      className={cn(
+                        "absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl border-2 shadow-xl overflow-hidden flex flex-col",
+                        !vendor.brandColors &&
+                          `bg-gradient-to-br ${vendor.accentColor}`,
+                      )}
                       style={
                         vendor.brandColors
                           ? {
