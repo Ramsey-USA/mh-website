@@ -103,6 +103,7 @@ export default function ContactPageClient() {
   const isEs = locale === "es";
   const quickContact = buildQuickContact(isEs);
   const mainCTAs = buildMainCTAs(isEs);
+
   return (
     <>
       <PageTrackingClient pageName="Contact" />
