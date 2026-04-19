@@ -405,9 +405,9 @@ Run these steps after the next production deployment.
 
 ### Code changes deployed
 
-- [ ] `TestimonialGrid` SSR fix (`ssr: true`) — [src/app/careers/CareersPageClient.tsx](../src/app/careers/CareersPageClient.tsx)
-- [ ] Geolocation API 200 fallback — [src/app/api/analytics/geolocation/route.ts](../src/app/api/analytics/geolocation/route.ts)
-- [ ] Service worker pre-probe + Lighthouse skip — [src/components/pwa/ServiceWorkerRegistration.tsx](../src/components/pwa/ServiceWorkerRegistration.tsx)
+- [ ] `TestimonialGrid` SSR fix (`ssr: true`) — [src/app/careers/CareersPageClient.tsx](../../src/app/careers/CareersPageClient.tsx)
+- [ ] Geolocation API 200 fallback — [src/app/api/analytics/geolocation/route.ts](../../src/app/api/analytics/geolocation/route.ts)
+- [ ] Service worker pre-probe + Lighthouse skip — [src/components/pwa/ServiceWorkerRegistration.tsx](../../src/components/pwa/ServiceWorkerRegistration.tsx)
 
 ### Cloudflare changes applied
 

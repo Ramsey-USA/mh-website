@@ -1,7 +1,7 @@
 # Branding Documentation
 
 **Category:** Branding - Overview  
-**Last Updated:** April 18, 2026
+**Last Updated:** April 19, 2026
 
 ## Overview
 
@@ -21,6 +21,7 @@ Design and visual standards for consistent brand implementation.
 - **[Color System](./standards/color-system.md)** - Brand colors (Hunter Green #386851, Leather Tan #BD9264)
 - **[Hero Section Standards](./standards/hero-section-standards.md)** - Page header guidelines
 - **[Unified Component Standards](./standards/unified-component-standards.md)** - UI component patterns (v7.0.0)
+- **[Documents & Forms Branding Standards](./standards/documents-and-forms-standards.md)** - Print/download/manual/form identity standards
 - **[Team Badge System](./standards/team-badge-system.md)** - Veteran and role badge guidelines
 - **[Team Profile Radar Chart](./standards/team-profile-radar-chart.md)** - Skill visualization standards
 
@@ -41,6 +42,7 @@ Messaging, voice, and brand positioning guidelines.
 
 - **[Universal Page Flow Standard](../development/standards/universal-page-flow-standard.md)** - Required body-content sequence for all MH pages
 - **[Page Template Guide](../development/standards/page-template-guide.md)** - Implementation guide for new or refactored pages
+- **[Operational Hub Congruent Plan](../project/operational-hub-congruent-plan.md)** - Website vs PWA role alignment and markdown governance workflow
 
 ## Quick Links
 

@@ -134,8 +134,8 @@ secrets, not Cloudflare dashboard secrets.
 
 For Safety smoke setup and policy details, see:
 
-- [docs/deployment/safety-ci-gate-policy.md](docs/deployment/safety-ci-gate-policy.md)
-- [docs/deployment/safety-smoke-setup.md](docs/deployment/safety-smoke-setup.md)
+- [safety-ci-gate-policy.md](./safety-ci-gate-policy.md)
+- [safety-smoke-setup.md](./safety-smoke-setup.md)
 
 Recommended authenticated smoke strategy is login-based credentials in GitHub:
 

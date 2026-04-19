@@ -25,7 +25,8 @@ honest communication, and proven craftsmanship.
 6. **Build your page** using BrandedContentSection/template component patterns and cheatsheet references to match homepage cohesiveness
 7. **Audit with [Page Compliance Checklist](docs/development/standards/page-compliance-checklist.md)** -
    150+ items to verify homepage-level quality
-8. **Deploy** following standards
+8. **Verify cross-platform language/identity alignment** with [Operational Hub Congruent Plan](docs/project/operational-hub-congruent-plan.md)
+9. **Deploy** following standards
 
 **Key Principle:** Your page should feel like it belongs on the same site as the
 homepage - same visual weight, spacing, animations, and polish.
@@ -35,6 +36,7 @@ homepage - same visual weight, spacing, animations, and polish.
 - [Common Mistakes Guide](docs/development/standards/common-mistakes.md) - 22 errors to avoid
 - [Development Standards](docs/development/standards/development-standards.md) - Code patterns
 - [Consistency Guide](docs/development/standards/consistency-guide.md) - **MANDATORY** reading
+- [Operational Hub Congruent Plan](docs/project/operational-hub-congruent-plan.md) - Website + PWA + document congruency rules
 
 **When You Need Specific Features:**
 

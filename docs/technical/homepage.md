@@ -84,7 +84,7 @@ The homepage follows the **Universal Page Flow Standard**: **Discover → Trust 
 > → Action: CTAs + Next Steps). Section _content_ is optimized per page purpose; the flow sequence
 > is consistent. Timeline and component designs remain visually consistent.
 >
-> **Full Standard:** [Universal Page Flow Standard](../../development/standards/universal-page-flow-standard.md)
+> **Full Standard:** [Universal Page Flow Standard](../development/standards/universal-page-flow-standard.md)
 >
 > **Exception Pages:** Public Sector and Veterans pages have completely different structures.
 
