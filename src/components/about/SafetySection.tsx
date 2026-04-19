@@ -16,7 +16,7 @@ const safetyFeatures: AlternatingShowcaseItem[] = [
     icon: "shield",
     tagline: "Safety First, Always",
     description:
-      "Every team member has stop-work authority. Safety is never compromised for schedule or budget. Comprehensive daily briefings, hazard analysis on all sites, and continuous safety training create a culture where incidents are prevented, not managed. Our OSHA VPP Star certification represents the highest level of workplace safety achievement—earned through unwavering commitment to bringing everyone home safely.",
+      "Every team member has stop-work authority. Safety is never compromised for schedule or budget. Comprehensive daily briefings, hazard analysis on all sites, and continuous safety training create a culture where incidents are prevented, not managed. Our OSHA VPP Star designation represents the highest level of workplace safety achievement—earned through unwavering commitment to bringing everyone home safely.",
     image: "/images/safety/safety-culture.webp",
     iconBg: "bg-brand-primary",
     stats: "OSHA VPP Star Certified",
