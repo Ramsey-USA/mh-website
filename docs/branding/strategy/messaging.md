@@ -108,6 +108,32 @@ these core values in hierarchical order:
 - **Dual Labels**: Full label for desktop, mobile label for mobile devices
 - **Material Icons**: All navigation items include semantic icons
 
+### Military-Themed Section Framing Standard (MANDATORY - Apr 19, 2026)
+
+**Policy**: Military-themed section framing is required site-wide for all major user-facing pages.
+
+**Scope (must apply):**
+
+- Section headers and section intro labels
+- In-page section navigation labels
+- Footer navigation group labels and supporting sublabels
+
+**Required pattern:**
+
+- Primary label remains clear/civilian for accessibility and SEO
+- Secondary sublabel uses military-themed wording to preserve veteran-led brand identity
+
+**Examples:**
+
+- "Services" + "Operations"
+- "Projects" + "Missions"
+- "Our Team" + "Chain of Command"
+- "Contact" + "Rally Point"
+
+**Non-optional rule:**
+
+- Do not ship new or refactored pages with civilian-only section framing unless an approved exception is documented in the page audit.
+
 ### Core Voice Attributes
 
 #### Professional yet Approachable

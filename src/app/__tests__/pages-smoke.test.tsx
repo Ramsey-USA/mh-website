@@ -297,26 +297,6 @@ jest.mock("@/lib/analytics/hooks", () => ({
   usePageTracking: jest.fn(),
 }));
 
-jest.mock("@/components/safety/SectionBrowser", () => ({
-  SectionBrowser: () => <div>Section Browser Mock</div>,
-}));
-
-jest.mock("@/components/safety/forms/ToolboxTalkForm", () => ({
-  ToolboxTalkForm: () => null,
-}));
-
-jest.mock("@/components/safety/forms/JHAForm", () => ({
-  JHAForm: () => null,
-}));
-
-jest.mock("@/components/safety/forms/SiteInspectionForm", () => ({
-  SiteInspectionForm: () => null,
-}));
-
-jest.mock("@/components/safety/forms/IncidentReportForm", () => ({
-  IncidentReportForm: () => null,
-}));
-
 jest.mock("@/components/resources/SafetyComplianceBadge", () => ({
   SafetyComplianceBadge: () => null,
 }));
@@ -523,14 +503,14 @@ describe("Safety page", () => {
 // ── Safety Hub page ───────────────────────────────────────────────────────────
 
 describe("Safety Hub page", () => {
-  it("redirects to /hub", () => {
+  it("redirects to /safety", () => {
     const { default: SafetyHubPage } = require("../safety/hub/page") as {
       default: () => void;
     };
 
     SafetyHubPage();
 
-    expect(mockRedirect).toHaveBeenCalledWith("/hub");
+    expect(mockRedirect).toHaveBeenCalledWith("/safety");
   });
 });
 

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
@@ -363,15 +362,10 @@ export default function SafetyPage() {
               <div className="flex flex-col items-center gap-4">
                 <PWAInstallCTA className="w-full max-w-sm" variant="button" />
 
-                <Link
-                  href="/hub"
-                  className="text-sm text-slate-400 hover:text-white transition-colors"
-                >
-                  Already a team member?{" "}
-                  <span className="underline underline-offset-2">
-                    Open the Hub →
-                  </span>
-                </Link>
+                <p className="text-sm text-slate-400">
+                  Safety documentation and workflows are available in the MH
+                  Construction app for authorized team members.
+                </p>
               </div>
             </div>
           </div>

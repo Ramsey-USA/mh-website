@@ -13,7 +13,6 @@ const ChatWidget = dynamic(
 
 const CHAT_WIDGET_EXCLUDED_PREFIXES = [
   "/dashboard",
-  "/hub",
   "/offline",
   "/file-handler",
   "/protocol-handler",

@@ -5,11 +5,11 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 
 export const metadata: Metadata = withGeoMetadata({
-  title: "Field Safety Hub | MH Construction",
+  title: "Safety Culture | MH Construction",
   description:
-    "Restricted field resource hub for MH Construction Superintendents — download safety manual sections, submit Toolbox Talks, Site Safety Inspections, Job Hazard Analyses, and Incident Reports.",
+    "MH Construction Safety Culture page covering credentials, standards, and safety leadership.",
   alternates: {
-    canonical: `${siteUrl}/hub`,
+    canonical: `${siteUrl}/safety`,
   },
   robots: {
     index: false,

@@ -29,6 +29,12 @@ type FooterNavItem = {
   sub: string;
 };
 
+type FooterUtilityLinkItem = {
+  href: string;
+  icon: string;
+  label: string;
+};
+
 type SocialLinkItem = {
   href: string;
   icon: string;
@@ -103,6 +109,13 @@ const navCol2Links: FooterNavItem[] = [
     label: "Reviews",
     sub: "Commendations",
   },
+];
+
+const footerUtilityLinks: FooterUtilityLinkItem[] = [
+  { href: "/privacy", icon: "shield", label: "Privacy" },
+  { href: "/terms", icon: "gavel", label: "Terms" },
+  { href: "/accessibility", icon: "accessibility", label: "Accessibility" },
+  { href: "/sitemap.xml", icon: "account_tree", label: "Sitemap" },
 ];
 
 const linkedCities = [
@@ -577,7 +590,7 @@ export default function Footer() {
                 {/* Social Media Links */}
                 <nav
                   aria-label="Social media links"
-                  className="flex w-full flex-nowrap items-center justify-center gap-2 overflow-x-auto pb-1 sm:justify-start xs:gap-2.5"
+                  className="mx-auto flex w-[240px] max-w-full flex-nowrap items-center justify-between pb-1 xs:w-[270px] sm:mx-0 sm:w-[300px]"
                 >
                   {socialLinks.map((link) => (
                     <SocialLink key={link.href} {...link} />
@@ -640,9 +653,14 @@ export default function Footer() {
                   size="sm"
                   className="text-brand-primary"
                 />
-                <h3 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
-                  Mission Execution
-                </h3>
+                <div className="flex flex-col leading-tight">
+                  <h3 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
+                    Services
+                  </h3>
+                  <span className="text-[9px] uppercase tracking-wide text-brand-secondary/80">
+                    Mission Execution
+                  </span>
+                </div>
               </div>
               <div className="space-y-1.5 xs:space-y-2">
                 {navCol1Links.map((link) => (
@@ -662,9 +680,14 @@ export default function Footer() {
                   size="sm"
                   className="text-brand-primary"
                 />
-                <h3 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
-                  Our Forces
-                </h3>
+                <div className="flex flex-col leading-tight">
+                  <h3 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
+                    Company
+                  </h3>
+                  <span className="text-[9px] uppercase tracking-wide text-brand-secondary/80">
+                    Our Forces
+                  </span>
+                </div>
               </div>
               <div className="space-y-1.5 xs:space-y-2">
                 {navCol2Links.map((link) => (
@@ -684,12 +707,17 @@ export default function Footer() {
                   size="sm"
                   className="text-brand-primary"
                 />
-                <h3
-                  id="contact-heading"
-                  className="font-medium text-brand-primary text-xs uppercase tracking-wide"
-                >
-                  Command Center
-                </h3>
+                <div className="flex flex-col leading-tight">
+                  <h3
+                    id="contact-heading"
+                    className="font-medium text-brand-primary text-xs uppercase tracking-wide"
+                  >
+                    Contact
+                  </h3>
+                  <span className="text-[9px] uppercase tracking-wide text-brand-secondary/80">
+                    Command Center
+                  </span>
+                </div>
               </div>
 
               {/* Contact Info */}
@@ -1003,58 +1031,22 @@ export default function Footer() {
               className="flex flex-wrap justify-center items-center gap-2 xs:gap-3 mb-6"
               aria-label="Legal and utility links"
             >
-              <Link
-                href="/privacy"
-                className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 hover:from-brand-primary/15 hover:to-brand-secondary/15 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
-              >
-                <MaterialIcon
-                  icon="shield"
-                  size="sm"
-                  className="text-brand-secondary/70 group-hover:text-brand-secondary transition-colors"
-                />
-                <span className="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors">
-                  Privacy
-                </span>
-              </Link>
-              <Link
-                href="/terms"
-                className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 hover:from-brand-primary/15 hover:to-brand-secondary/15 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
-              >
-                <MaterialIcon
-                  icon="gavel"
-                  size="sm"
-                  className="text-brand-secondary/70 group-hover:text-brand-secondary transition-colors"
-                />
-                <span className="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors">
-                  Terms
-                </span>
-              </Link>
-              <Link
-                href="/accessibility"
-                className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 hover:from-brand-primary/15 hover:to-brand-secondary/15 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
-              >
-                <MaterialIcon
-                  icon="accessibility"
-                  size="sm"
-                  className="text-brand-secondary/70 group-hover:text-brand-secondary transition-colors"
-                />
-                <span className="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors">
-                  Accessibility
-                </span>
-              </Link>
-              <Link
-                href="/sitemap.xml"
-                className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 hover:from-brand-primary/15 hover:to-brand-secondary/15 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
-              >
-                <MaterialIcon
-                  icon="account_tree"
-                  size="sm"
-                  className="text-brand-secondary/70 group-hover:text-brand-secondary transition-colors"
-                />
-                <span className="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors">
-                  Sitemap
-                </span>
-              </Link>
+              {footerUtilityLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 hover:from-brand-primary/15 hover:to-brand-secondary/15 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
+                >
+                  <MaterialIcon
+                    icon={link.icon}
+                    size="sm"
+                    className="text-brand-secondary/70 group-hover:text-brand-secondary transition-colors"
+                  />
+                  <span className="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors">
+                    {link.label}
+                  </span>
+                </Link>
+              ))}
             </nav>
 
             {/* Secondary Row: Company Info & Actions */}

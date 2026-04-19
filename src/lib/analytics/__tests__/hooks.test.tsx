@@ -231,7 +231,7 @@ describe("useClickTracking()", () => {
   });
 
   it("skips click tracking on excluded operational routes", () => {
-    mockPathname.mockReturnValue("/hub");
+    mockPathname.mockReturnValue("/dashboard");
     const { result } = renderHook(() => useClickTracking());
 
     act(() => {

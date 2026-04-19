@@ -54,6 +54,8 @@ export function Navigation() {
   const locale = useLocale();
   const isEs = locale === "es";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const controlButtonClassName =
+    "relative bg-brand-primary hover:bg-brand-primary-dark shadow-lg hover:shadow-xl p-2 xs:p-2.5 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 touch-manipulation border-2 border-brand-secondary hover:border-brand-secondary-light outline outline-2 outline-offset-2 outline-brand-secondary/50 hover:outline-brand-secondary min-w-[40px] min-h-[40px] xs:min-w-[44px] xs:min-h-[44px] sm:min-w-[48px] sm:min-h-[48px] flex items-center justify-center";
 
   return (
     <>
@@ -103,21 +105,20 @@ export function Navigation() {
 
       {/* Theme Toggle - Fixed left edge */}
       <div className="top-2 xs:top-3 sm:top-4 left-2 xs:left-3 sm:left-4 lg:left-6 z-[70] fixed flex items-center pointer-events-auto">
-        <div className="relative bg-brand-primary hover:bg-brand-primary-dark shadow-lg hover:shadow-xl p-2 xs:p-2.5 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 touch-manipulation border-2 border-brand-secondary hover:border-brand-secondary-light outline outline-2 outline-offset-2 outline-brand-secondary/50 hover:outline-brand-secondary min-w-[40px] min-h-[40px] xs:min-w-[44px] xs:min-h-[44px] sm:min-w-[48px] sm:min-h-[48px] flex items-center justify-center">
+        <div className={controlButtonClassName}>
           <ThemeToggle compact size="sm" />
         </div>
       </div>
 
-      {/* Hamburger Menu - Fixed right edge */}
-      <div className="top-2 xs:top-3 sm:top-4 right-2 xs:right-3 sm:right-4 lg:right-6 z-[70] fixed flex items-center gap-2 pointer-events-auto">
+      {/* Header Controls - Fixed right edge */}
+      <div className="top-2 xs:top-3 sm:top-4 right-2 xs:right-3 sm:right-4 lg:right-6 z-[70] fixed flex items-center gap-1.5 xs:gap-2 sm:gap-2.5 pointer-events-auto">
         {/* Language Toggle */}
-        <div className="bg-brand-primary rounded-lg sm:rounded-xl border-2 border-brand-secondary px-1 py-1 shadow-lg">
-          <LanguageToggle />
-        </div>
+        <LanguageToggle className="order-1" />
+
         {/* Hamburger Menu */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="relative bg-brand-primary hover:bg-brand-primary-dark shadow-lg hover:shadow-xl p-2 xs:p-2.5 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 touch-manipulation border-2 border-brand-secondary hover:border-brand-secondary-light outline outline-2 outline-offset-2 outline-brand-secondary/50 hover:outline-brand-secondary min-w-[40px] min-h-[40px] xs:min-w-[44px] xs:min-h-[44px] sm:min-w-[48px] sm:min-h-[48px] flex items-center justify-center"
+          className={controlButtonClassName}
           aria-label={
             isMenuOpen
               ? isEs
@@ -374,25 +375,6 @@ export function Navigation() {
                     className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.8)]"
                   />
                 </a>
-              </div>
-
-              {/* Staff Access Link */}
-              <div className="mt-3 sm:mt-4 flex justify-center">
-                <Link
-                  href="/hub"
-                  className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-600 bg-gradient-to-r from-gray-100 dark:from-gray-800 to-gray-50 dark:to-gray-700 hover:from-brand-primary/10 hover:to-brand-secondary/10 hover:border-brand-primary/40 transition-all duration-300"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <MaterialIcon
-                    icon="lock"
-                    size="sm"
-                    className="text-gray-400 group-hover:text-brand-secondary transition-colors"
-                    style={{ fontSize: "12px" }}
-                  />
-                  <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-white transition-colors uppercase tracking-wide">
-                    Staff Access
-                  </span>
-                </Link>
               </div>
 
               {/* Legal Links Row */}

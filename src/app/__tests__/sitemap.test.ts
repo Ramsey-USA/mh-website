@@ -202,8 +202,7 @@ describe("sitemap() with media files", () => {
     };
     const entries = sitemap() as Array<{ url: string; priority: number }>;
     for (const kw of importantKeywords) {
-      // Search only within media entries to avoid matching static page URLs
-      // (e.g. /resources/safety-manual also contains "safety" at priority 0.75)
+      // Search only within media entries to avoid matching static page URLs.
       const found = entries.find(
         (e) =>
           (e.url.includes("/images/") || e.url.includes("/videos/")) &&

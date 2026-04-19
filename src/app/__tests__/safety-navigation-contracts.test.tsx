@@ -77,8 +77,11 @@ jest.mock("@/lib/seo/breadcrumb-schema", () => ({
   generateBreadcrumbSchema: jest.fn(() => ({ "@type": "BreadcrumbList" })),
 }));
 
+const mockRedirect = jest.fn();
+
 jest.mock("next/navigation", () => ({
   useParams: () => ({ id: "submission-123" }),
+  redirect: (...args: unknown[]) => mockRedirect(...args),
 }));
 
 describe("Safety navigation contracts", () => {
@@ -97,43 +100,25 @@ describe("Safety navigation contracts", () => {
     const safetyManualLink = screen.getByRole("link", {
       name: /MISH — Safety & Health Program/i,
     });
-    expect(safetyManualLink).toHaveAttribute(
-      "href",
-      "/resources/safety-program",
-    );
+    expect(safetyManualLink).toHaveAttribute("href", "/safety");
   });
 
-  it("keeps section page primary back navigation on the public safety resource center", async () => {
+  it("redirects safety manual section pages to /safety", async () => {
     const { default: SectionPage } =
       require("../resources/safety-manual/section/[slug]/page") as {
         default: (props: {
           params: Promise<{ slug: string }>;
-        }) => Promise<React.ReactElement>;
+        }) => Promise<void>;
       };
 
-    const ui = await SectionPage({
+    await SectionPage({
       params: Promise.resolve({ slug: "table-of-contents" }),
     });
-    render(ui);
 
-    const backLink = screen.getByRole("link", {
-      name: /Back to Safety Program/i,
-    });
-    expect(backLink).toHaveAttribute(
-      "href",
-      "/resources/safety-program#manual-downloads",
-    );
-
-    const middleNav = screen.getByRole("link", {
-      name: /^Safety Program Resources$/i,
-    });
-    expect(middleNav).toHaveAttribute(
-      "href",
-      "/resources/safety-program#manual-downloads",
-    );
+    expect(mockRedirect).toHaveBeenCalledWith("/safety");
   });
 
-  it("returns print page users to /hub", async () => {
+  it("returns print page users to /safety", async () => {
     const fetchMock = jest
       .fn()
       .mockResolvedValueOnce({
@@ -174,11 +159,11 @@ describe("Safety navigation contracts", () => {
 
     await waitFor(() => {
       expect(
-        screen.getByRole("link", { name: /Back to Hub/i }),
+        screen.getByRole("link", { name: /Back to Safety/i }),
       ).toBeInTheDocument();
     });
 
-    const backToHub = screen.getByRole("link", { name: /Back to Hub/i });
-    expect(backToHub).toHaveAttribute("href", "/hub");
+    const backToSafety = screen.getByRole("link", { name: /Back to Safety/i });
+    expect(backToSafety).toHaveAttribute("href", "/safety");
   });
 });

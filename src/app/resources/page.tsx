@@ -81,7 +81,7 @@ export default function ResourcesPage() {
 
           {/* Bonding & Insurance Agency CTA */}
           <Link
-            href="/resources/safety-program"
+            href="/safety"
             className="group flex items-start sm:items-center gap-5 bg-gradient-to-r from-brand-primary/8 to-brand-primary/4 dark:from-brand-primary/20 dark:to-brand-primary/10 border border-brand-primary/25 dark:border-brand-primary/40 rounded-2xl p-5 sm:p-6 mb-10 hover:border-brand-primary hover:shadow-lg transition-all duration-300"
           >
             <div className="flex-shrink-0 w-12 h-12 bg-brand-primary rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
@@ -143,7 +143,7 @@ export default function ResourcesPage() {
                     key={doc.id}
                     href={
                       doc.id === "safety-manual"
-                        ? "/resources/safety-program"
+                        ? "/safety"
                         : `/resources/${doc.id}`
                     }
                     className="group flex items-start gap-5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 sm:p-6 hover:border-brand-primary dark:hover:border-brand-secondary hover:shadow-lg transition-all duration-300"

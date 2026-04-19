@@ -198,17 +198,22 @@ describe("UpdateNotification", () => {
 // ─── PWAInstallCTA ────────────────────────────────────────────────────────────
 
 describe("PWAInstallCTA", () => {
+  const setMatchMedia = (matches: boolean) => {
+    globalThis.matchMedia = jest.fn().mockReturnValue({
+      matches,
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+      dispatchEvent: jest.fn(),
+      onchange: null,
+      media: "(display-mode: standalone)",
+    });
+  };
+
   beforeEach(() => {
     // Not installed by default
-    Object.defineProperty(window, "matchMedia", {
-      writable: true,
-      configurable: true,
-      value: jest.fn().mockReturnValue({
-        matches: false,
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-      }),
-    });
+    setMatchMedia(false);
   });
 
   it("card variant: renders non-installable state by default", async () => {
@@ -284,15 +289,7 @@ describe("PWAInstallCTA", () => {
   });
 
   it("does not render when already installed (standalone mode)", async () => {
-    Object.defineProperty(window, "matchMedia", {
-      writable: true,
-      configurable: true,
-      value: jest.fn().mockReturnValue({
-        matches: true, // standalone mode = already installed
-        addEventListener: jest.fn(),
-        removeListener: jest.fn(),
-      }),
-    });
+    setMatchMedia(true); // standalone mode = already installed
 
     // The card variant still renders its non-installable UI
     await act(async () => {

@@ -1,8 +1,8 @@
 # MH Construction Unified Component & Typography Standards
 
 **Category:** Branding - Standards  
-**Version:** 7.0.0  
-**Last Updated:** April 15, 2026  
+**Version:** 7.1.0  
+**Last Updated:** April 19, 2026  
 **Status:** ✅ Official Standard - Consolidated Documentation  
 **Previous Versions:** Replaces typography.md v5.0.0 and component-standards.md v6.0.0
 
@@ -69,6 +69,22 @@ The gradient text in section headers, as implemented across all pages, is the co
 - **Approved:** Material Icons exclusively
 - **Permitted:** Emojis only in Markdown documentation files (.md)
 - **Standard Sizes:** `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`
+
+### Global Brand Non-Negotiables (NEW - Apr 19, 2026)
+
+#### 1) Military-Themed Sections Are Required Site-Wide
+
+- All major pages must use military-themed section framing through the dual-label pattern.
+- Use clear primary labels for accessibility, plus military-themed secondary labels for brand identity.
+- Applies to section navigation, major section headers, and footer navigation group labels.
+- New or refactored pages without military-themed section framing are non-compliant unless explicitly exempted in a documented audit.
+
+#### 2) Accreditation Presence Is Required
+
+- Every production page must render the global footer accreditation row.
+- Accreditation row must include official partner/credential logos (for example: AGC, BBB, insurance, and chamber memberships) with valid outbound destinations.
+- Do not remove or hide accreditations in redesigns, experiments, or A/B variants without stakeholder approval.
+- Accreditation visibility is a trust requirement and part of brand consistency.
 
 ---
 

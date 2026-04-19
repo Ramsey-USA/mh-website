@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PWAInstallCTA } from "./PWAInstallCTA";
 
@@ -100,13 +99,10 @@ export function DownloadGate({
         {/* Triggers the native browser install prompt when available */}
         <PWAInstallCTA variant="button" />
 
-        <Link
-          href="/hub"
-          className="inline-flex items-center gap-1.5 rounded-lg border border-brand-primary/30 px-3 py-1.5 text-xs font-semibold text-brand-primary transition-colors hover:border-brand-primary hover:bg-brand-primary/5 dark:text-brand-secondary"
-        >
-          Already have it? Open Hub
-          <MaterialIcon icon="arrow_forward" size="sm" />
-        </Link>
+        <span className="inline-flex items-center gap-1.5 rounded-lg border border-brand-primary/30 px-3 py-1.5 text-xs font-semibold text-brand-primary/80 dark:text-brand-secondary">
+          Already have it? Open the app
+          <MaterialIcon icon="smartphone" size="sm" />
+        </span>
       </div>
     </div>
   );

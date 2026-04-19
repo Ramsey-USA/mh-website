@@ -1,8 +1,8 @@
 # Page Compliance Checklist
 
 **Purpose:** Systematic audit tool to verify page compliance with MH standards  
-**Version:** 1.2.0  
-**Last Updated:** April 18, 2026  
+**Version:** 1.3.0  
+**Last Updated:** April 19, 2026  
 **Use Case:** Run this checklist on any page to ensure consistency
 
 ---
@@ -34,6 +34,8 @@
 - [ ] Section IDs use kebab-case (e.g., `id="core-values"`)
 - [ ] Sections use standard class: `relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden`
 - [ ] Content wrapped in: `relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl`
+- [ ] Major section framing uses dual-label military pattern (clear primary label + military-themed secondary sublabel)
+- [ ] Section/navigation labels include military-themed language consistent with brand messaging standards
 
 ### Universal Page Flow
 
@@ -48,6 +50,8 @@
 
 - [ ] NextStepsSection included as final section (before footer)
 - [ ] NextStepsSection loaded via dynamic import with `ssr: true`
+- [ ] Global footer includes accreditation row and it is visible at all breakpoints
+- [ ] Accreditation row includes required trust credentials and valid outbound links (for example: AGC, BBB, insurance, chamber memberships)
 
 ---
 

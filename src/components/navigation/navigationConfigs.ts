@@ -542,18 +542,6 @@ export const navigationConfigs = {
       mobileLabel: "Photos",
       icon: "photo_camera",
     },
-    {
-      href: "/resources/safety-program",
-      label: "Bonding Docs",
-      mobileLabel: "Bonding",
-      icon: "policy",
-    },
-    {
-      href: "/hub",
-      label: "Staff Access",
-      mobileLabel: "Staff",
-      icon: "lock",
-    },
   ],
 };
 

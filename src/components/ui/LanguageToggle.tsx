@@ -15,7 +15,11 @@ const LOCALE_LABELS: Record<SupportedLocale, string> = {
   es: "ES",
 };
 
-export function LanguageToggle() {
+interface LanguageToggleProps {
+  className?: string;
+}
+
+export function LanguageToggle({ className = "" }: LanguageToggleProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [currentLocale, setCurrentLocale] =
@@ -38,21 +42,27 @@ export function LanguageToggle() {
 
   return (
     <div
-      className="inline-flex items-center gap-0 rounded-full border border-white/30 overflow-hidden text-xs font-semibold"
+      className={[
+        "relative inline-flex items-center overflow-hidden rounded-lg sm:rounded-xl border-2 border-brand-secondary bg-brand-primary shadow-lg outline outline-2 outline-offset-2 outline-brand-secondary/50 transition-shadow duration-300",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
       aria-label="Language selector"
     >
       {SUPPORTED_LOCALES.map((locale, i) => (
         <button
           key={locale}
+          type="button"
           onClick={() => switchLocale(locale)}
           disabled={isPending}
           aria-pressed={locale === currentLocale}
           className={[
-            "px-2.5 py-1 transition-colors",
-            i > 0 ? "border-l border-white/30" : "",
+            "min-w-[40px] min-h-[40px] xs:min-w-[44px] xs:min-h-[44px] sm:min-w-[48px] sm:min-h-[48px] px-2 xs:px-2.5 text-xs xs:text-sm font-bold transition-all duration-300 touch-manipulation disabled:opacity-70 disabled:cursor-wait",
+            i > 0 ? "border-l-2 border-brand-secondary/70" : "",
             locale === currentLocale
-              ? "bg-white text-brand-primary font-bold"
-              : "bg-transparent text-white hover:bg-white/10",
+              ? "bg-brand-secondary text-brand-primary"
+              : "bg-transparent text-brand-secondary hover:bg-brand-primary-dark hover:text-brand-secondary-light",
           ].join(" ")}
         >
           {LOCALE_LABELS[locale]}

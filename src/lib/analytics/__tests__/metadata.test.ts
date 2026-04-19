@@ -26,20 +26,16 @@ import {
 
 // matchMedia is not implemented in jsdom
 const setupMatchMedia = (darkMode = false) => {
-  Object.defineProperty(window, "matchMedia", {
-    value: jest.fn().mockImplementation((query: string) => ({
-      matches: darkMode ? query.includes("dark") : false,
-      media: query,
-      onchange: null,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
-      dispatchEvent: jest.fn(),
-    })),
-    writable: true,
-    configurable: true,
-  });
+  globalThis.matchMedia = jest.fn().mockImplementation((query: string) => ({
+    matches: darkMode ? query.includes("dark") : false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  }));
 };
 
 beforeEach(() => {
