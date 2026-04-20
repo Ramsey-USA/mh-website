@@ -1,10 +1,8 @@
 import { PageTrackingClient } from "@/components/analytics";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  VendorPlatformLink,
-  type VendorPlatform,
-} from "@/components/allies/VendorPlatformLink";
+import { type VendorPlatform } from "@/components/allies/VendorPlatformLink";
+import { TradeGroupCarousel } from "@/components/allies/TradeGroupCarousel";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -20,7 +18,6 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { cn } from "@/lib/utils";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.allies);
 
@@ -30,6 +27,10 @@ type VendorBrandColors = { primary: string; secondary?: string };
 
 type Vendor = {
   name: string;
+  /** Trade category used to group this partner in the directory.
+   * Must match a key defined in TRADE_ICONS (e.g. "Electrical", "Signage").
+   */
+  trade: string;
   role: string;
   icon: string;
   accentColor: string;
@@ -54,12 +55,115 @@ type Vendor = {
 
 const vendors: Vendor[] = [
   {
+    name: "Bagley Landscape Construction, Inc.",
+    trade: "Landscaping",
+    role: "Landscaping Contractor",
+    icon: "yard",
+    accentColor: "from-brand-primary to-brand-primary-dark",
+    description:
+      "Bagley Landscape Construction, Inc. delivers comprehensive landscape design, installation, hardscaping, maintenance, and snow & ice services across the Tri-Cities (Pasco, Richland, Kennewick) and our broader Pacific Northwest project footprint. Their local expertise and full-service capabilities support MH Construction projects from groundbreaking to year-round upkeep.",
+    highlights: [
+      "Commercial & Residential Landscape Design & Installation",
+      "Irrigation Systems & Hydroseeding",
+      "Landscape Lighting",
+      "Retaining Walls — Block, Boulder & Rock",
+      "Pavers, Flagstone & Concrete Curbing",
+      "Ponds & Water Features",
+      "Landscape Maintenance — Mowing, Edging & Clean Up",
+      "Spraying — Fertilization, Weed & Spider Control",
+      "Snow & Ice — Plowing, Sidewalk Removal & De-icing",
+    ],
+    portfolio: [],
+    logo: "/images/vendors/bagley_landscape.webp",
+    brandColors: { primary: "#409416", secondary: "#262626" },
+    address: "1418 E St Helens St, Pasco, WA 99301",
+    phone: "(509) 546-2449",
+    email: "office@bagleylandscape.com",
+    links: [
+      {
+        label: "Website",
+        href: "https://bagleylandscape.com/",
+        platform: "website",
+      },
+    ],
+  },
+  {
+    name: "Core Cabinet Production",
+    trade: "Cabinetry & Millwork",
+    role: "Cabinetry Partner",
+    icon: "kitchen",
+    accentColor: "from-orange-500 to-orange-700",
+    description:
+      "Core Cabinet Production specializes in custom-designed, in-house fabricated cabinets for residential and commercial applications on MH Construction projects. From kitchen and bathroom cabinets to full commercial office builds, Core Cabinet delivers precision craftsmanship.",
+    highlights: [
+      "Kitchen Cabinets",
+      "Bathroom Cabinets",
+      "Home Offices",
+      "Closets",
+      "Storage & Bookcases",
+      "Commercial Offices",
+    ],
+    portfolio: [],
+    logo: "/images/vendors/core_cabinet.webp",
+    brandColors: { primary: "#E35724", secondary: "#444444" },
+    address: "2573 Robertson Drive, Richland, WA 99354",
+    phone: "(509) 375-7900",
+    email: "admin@corecabinetproduction.com",
+    links: [
+      {
+        label: "Website",
+        href: "https://corecabinetproduction.com/",
+        platform: "website",
+      },
+    ],
+  },
+  {
+    name: "D-Fence Fencing Company",
+    trade: "Fencing",
+    role: "Fencing Contractor",
+    icon: "fence",
+    accentColor: "from-red-600 to-red-800",
+    description:
+      "D-Fence Fencing Company delivers residential and commercial fencing solutions across Eastern Washington on MH Construction projects. From galvanized chain link to ornamental and cedar privacy fencing, D-Fence brings craftsmanship and reliability to every project.",
+    highlights: [
+      "Galvanized & Black Chain Link",
+      "Vinyl Fencing",
+      "Cedar Privacy Fencing",
+      "Ornamental Fencing",
+      "Field Fencing",
+      "Gates & Automated Gates",
+    ],
+    portfolio: [],
+    logo: "/images/vendors/d_fence_fencing.webp",
+    brandColors: { primary: "#CC2020", secondary: "#333333" },
+    address: "P.O. Box 881, Selah, WA 98942",
+    phone: "(509) 731-8836",
+    links: [
+      {
+        label: "Website",
+        href: "https://dfencefencing.com/",
+        platform: "website",
+      },
+      {
+        label: "Facebook",
+        href: "https://www.facebook.com/EasternWAFENCING/",
+        platform: "facebook",
+      },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/dfencefencing2014/",
+        platform: "instagram",
+      },
+    ],
+  },
+  {
     name: "Diamond Electric LLC",
-    role: "Primary Electrical Contractor",
+    trade: "Electrical",
+    role: "Electrical Contractor",
     icon: "electrical_services",
     accentColor: "from-brand-primary to-brand-primary-dark",
     description:
-      "Diamond Electric LLC is our trusted primary electrical contractor, providing safe, code-compliant commercial and industrial electrical installations on MH Construction projects. Their expertise and commitment to safety align perfectly with our award-winning safety culture.",
+      "Diamond Electric LLC provides safe, code-compliant commercial and industrial electrical installations on MH Construction projects. Their expertise and commitment to safety align with our award-winning safety culture.",
     highlights: [
       "Commercial & Industrial Electrical",
       "Code-Compliant Installations",
@@ -80,12 +184,152 @@ const vendors: Vendor[] = [
     ],
   },
   {
+    name: "Dupree Building Specialties",
+    trade: "Building Specialties",
+    role: "Building Specialties Partner",
+    icon: "door_front",
+    accentColor: "from-amber-600 to-amber-800",
+    description:
+      "Dupree Building Specialties supplies and installs specialty construction products across Divisions 7–12 on MH Construction projects. From fire-rated doors and expansion control to lockers, visual displays, and athletic equipment, Dupree delivers the finish-trade components that complete every interior build.",
+    highlights: [
+      "Div 7 — Roof Accessories & Expansion Control",
+      "Div 8 — Access, Fire, Coiling, Folding & Traffic Doors",
+      "Div 8 — Skylights & Louvers",
+      "Div 9 — Access Flooring",
+      "Div 10 — Visual Displays, Signage & Partitions",
+      "Div 10 — Lockers, Wall Protection & Postal Specialties",
+      "Div 11 — Projection Screens & Athletic Equipment",
+      "Div 12 — Floor Mats & Window Shades",
+    ],
+    portfolio: [],
+    logo: "/images/vendors/dupree_building.webp",
+    brandColors: { primary: "#384884", secondary: "#384884" },
+    address: "1035 E. Cataldo, Spokane, WA 99202",
+    phone: "509.484.2000",
+    email: "info@dupreebldg.com",
+    links: [
+      {
+        label: "Website",
+        href: "https://dupreebldg.com/",
+        platform: "website",
+      },
+      {
+        label: "Facebook",
+        href: "https://www.facebook.com/people/Dupree-Building-Specialties/61554190085687/",
+        platform: "facebook",
+      },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/company/dupree-building-specialties",
+        platform: "linkedin",
+      },
+    ],
+  },
+  {
+    name: "High Desert Drywall, Inc.",
+    trade: "Drywall & Interior",
+    role: "Drywall & Interior Contractor",
+    icon: "construction",
+    accentColor: "from-sky-700 to-sky-900",
+    description:
+      "High Desert Drywall, Inc. delivers expert drywall installation, taping, and finishing on MH Construction projects. Their commitment to quality and precision makes them a valued partner for interior builds across the Pacific Northwest.",
+    highlights: [
+      "Drywall Installation",
+      "Taping & Finishing",
+      "Commercial & Residential Interior Scope",
+      "Interior Construction Specialists",
+    ],
+    portfolio: [],
+    logo: "",
+    brandColors: { primary: "#1a3a5c", secondary: "#c8a04a" },
+    address: "Pasco, WA",
+    phone: "(509) 492-5208",
+    email: "office@hd-drywall.net",
+    links: [
+      {
+        label: "Website",
+        href: "https://hd-drywall.net/",
+        platform: "website",
+      },
+    ],
+  },
+  {
+    name: "Intermountain West Insulation (IWI)",
+    trade: "Insulation & Building Products",
+    role: "Insulation Contractor",
+    icon: "home_work",
+    accentColor: "from-red-600 to-red-800",
+    description:
+      "Intermountain West Insulation (IWI) delivers a comprehensive range of insulation and building product installation services across the Pacific Northwest on MH Construction projects. From spray foam and fiberglass to garage doors and epoxy flooring, IWI brings versatility and quality to every build.",
+    highlights: [
+      "Fiberglass, Spray Foam & Cellulose Insulation",
+      "Air Sealing",
+      "Garage Doors — Sales, Installation & Service",
+      "Epoxy Flooring",
+      "Gutters, Siding & Windows",
+      "Window Blinds & Paint",
+    ],
+    portfolio: [],
+    logo: "/images/vendors/iwi_insulation.webp",
+    brandColors: { primary: "#CE2027", secondary: "#262626" },
+    address: "9304 W. Clearwater Dr. Suite A, Kennewick, WA 99336",
+    phone: "509.735.8411",
+    links: [
+      {
+        label: "Website",
+        href: "https://iwinsulation.com/",
+        platform: "website",
+      },
+      {
+        label: "Facebook",
+        href: "https://www.facebook.com/p/Intermountain-West-Insulation-100063735342877/",
+        platform: "facebook",
+      },
+    ],
+  },
+  {
+    name: "McKinney Glass",
+    trade: "Glass & Glazing",
+    role: "Glass & Glazing Contractor",
+    icon: "window",
+    accentColor: "from-sky-500 to-sky-700",
+    description:
+      "McKinney Glass provides full-service auto, residential, and commercial glass solutions for MH Construction projects. Based in the Yakima Valley, their expertise spans windshield repair, energy-efficient windows, commercial storefronts, and fire-rated specialty doors.",
+    highlights: [
+      "Auto Glass — Windshield Repair/Replacement & Rock Chip Repair",
+      "RV, Bus & Heavy Equipment Glass",
+      "Energy Efficient Windows & Sliding Glass Doors",
+      "Skylights, Custom Showers & Mirrors",
+      "Commercial Storefronts & Automatic Doors",
+      "Fire-Rated & Specialty Doors",
+      "Interior Partitions",
+    ],
+    portfolio: [],
+    logo: "/images/vendors/mckinney_glass.webp",
+    brandColors: null,
+    address: "2220 Goodman Rd, Union Gap, WA 98903",
+    phone: "(509) 248-2770",
+    links: [
+      {
+        label: "Website",
+        href: "https://mckinneyglass.com/",
+        platform: "website",
+      },
+      {
+        label: "Facebook",
+        href: "https://www.facebook.com/McKinneyglassyakima",
+        platform: "facebook",
+      },
+    ],
+  },
+  {
     name: "Mustang Signs",
-    role: "Primary Signage Trade Partner",
+    trade: "Signage",
+    role: "Signage Partner",
     icon: "signpost",
     accentColor: "from-brand-secondary to-brand-secondary-dark",
     description:
-      "Mustang Signs is our go-to primary signage partner, delivering full-service custom signage solutions across the Pacific Northwest. From vehicle wraps and digital signage to LED retrofitting and professional installation, their craftsmanship and reliability make them an integral part of every MH Construction project.",
+      "Mustang Signs delivers full-service custom signage solutions across the Pacific Northwest. From vehicle wraps and digital signage to LED retrofitting and professional installation, their craftsmanship and reliability make them a valued part of MH Construction projects.",
     highlights: [
       "Custom Signage Solutions",
       "Vehicle Wraps",
@@ -131,190 +375,13 @@ const vendors: Vendor[] = [
     ],
   },
   {
-    name: "Bagley Landscape Construction, Inc.",
-    role: "Primary Landscaping Contractor",
-    icon: "yard",
-    accentColor: "from-brand-primary to-brand-primary-dark",
-    description:
-      "Bagley Landscape Construction, Inc. is our trusted primary landscaping partner, delivering comprehensive landscape design, installation, hardscaping, maintenance, and snow & ice services across the Tri-Cities (Pasco, Richland, Kennewick) and our broader Pacific Northwest project footprint. Their local expertise and full-service capabilities make them an essential part of every MH Construction project from groundbreaking to year-round upkeep.",
-    highlights: [
-      "Commercial & Residential Landscape Design & Installation",
-      "Irrigation Systems & Hydroseeding",
-      "Landscape Lighting",
-      "Retaining Walls — Block, Boulder & Rock",
-      "Pavers, Flagstone & Concrete Curbing",
-      "Ponds & Water Features",
-      "Landscape Maintenance — Mowing, Edging & Clean Up",
-      "Spraying — Fertilization, Weed & Spider Control",
-      "Snow & Ice — Plowing, Sidewalk Removal & De-icing",
-    ],
-    portfolio: [],
-    logo: "/images/vendors/bagley_landscape.webp",
-    brandColors: { primary: "#409416", secondary: "#262626" },
-    address: "1418 E St Helens St, Pasco, WA 99301",
-    phone: "(509) 546-2449",
-    email: "office@bagleylandscape.com",
-    links: [
-      {
-        label: "Website",
-        href: "https://bagleylandscape.com/",
-        platform: "website",
-      },
-    ],
-  },
-  {
-    name: "McKinney Glass",
-    role: "Primary Glass & Glazing Contractor",
-    icon: "window",
-    accentColor: "from-sky-500 to-sky-700",
-    description:
-      "McKinney Glass is our trusted primary glass and glazing partner, providing full-service auto, residential, and commercial glass solutions for MH Construction projects. Based in the Yakima Valley, their expertise spans everything from windshield repair and energy-efficient windows to commercial storefronts and fire-rated specialty doors.",
-    highlights: [
-      "Auto Glass — Windshield Repair/Replacement & Rock Chip Repair",
-      "RV, Bus & Heavy Equipment Glass",
-      "Energy Efficient Windows & Sliding Glass Doors",
-      "Skylights, Custom Showers & Mirrors",
-      "Commercial Storefronts & Automatic Doors",
-      "Fire-Rated & Specialty Doors",
-      "Interior Partitions",
-    ],
-    portfolio: [],
-    logo: "/images/vendors/mckinney_glass.webp",
-    brandColors: null,
-    address: "2220 Goodman Rd, Union Gap, WA 98903",
-    phone: "(509) 248-2770",
-    links: [
-      {
-        label: "Website",
-        href: "https://mckinneyglass.com/",
-        platform: "website",
-      },
-      {
-        label: "Facebook",
-        href: "https://www.facebook.com/McKinneyglassyakima",
-        platform: "facebook",
-      },
-    ],
-  },
-  {
-    name: "Dupree Building Specialties",
-    role: "Primary Building Specialties Trade Partner",
-    icon: "door_front",
-    accentColor: "from-amber-600 to-amber-800",
-    description:
-      "Dupree Building Specialties is our trusted primary Trade Partner for commercial building specialties, supplying and installing specialty construction products across Divisions 7–12. From fire-rated doors and expansion control to lockers, visual displays, and athletic equipment, Dupree delivers the finish-trade components that complete every MH Construction project.",
-    highlights: [
-      "Div 7 — Roof Accessories & Expansion Control",
-      "Div 8 — Access, Fire, Coiling, Folding & Traffic Doors",
-      "Div 8 — Skylights & Louvers",
-      "Div 9 — Access Flooring",
-      "Div 10 — Visual Displays, Signage & Partitions",
-      "Div 10 — Lockers, Wall Protection & Postal Specialties",
-      "Div 11 — Projection Screens & Athletic Equipment",
-      "Div 12 — Floor Mats & Window Shades",
-    ],
-    portfolio: [],
-    logo: "/images/vendors/dupree_building.webp",
-    brandColors: { primary: "#384884", secondary: "#384884" },
-    address: "1035 E. Cataldo, Spokane, WA 99202",
-    phone: "509.484.2000",
-    email: "info@dupreebldg.com",
-    links: [
-      {
-        label: "Website",
-        href: "https://dupreebldg.com/",
-        platform: "website",
-      },
-      {
-        label: "Facebook",
-        href: "https://www.facebook.com/people/Dupree-Building-Specialties/61554190085687/",
-        platform: "facebook",
-      },
-      {
-        label: "LinkedIn",
-        href: "https://www.linkedin.com/company/dupree-building-specialties",
-        platform: "linkedin",
-      },
-    ],
-  },
-  {
-    name: "D-Fence Fencing Company",
-    role: "Primary Fencing Contractor",
-    icon: "fence",
-    accentColor: "from-red-600 to-red-800",
-    description:
-      "D-Fence Fencing Company is our trusted primary fencing contractor, delivering residential and commercial fencing solutions across Eastern Washington. From galvanized chain link to ornamental and cedar privacy fencing, D-Fence brings craftsmanship and reliability to every MH Construction project.",
-    highlights: [
-      "Galvanized & Black Chain Link",
-      "Vinyl Fencing",
-      "Cedar Privacy Fencing",
-      "Ornamental Fencing",
-      "Field Fencing",
-      "Gates & Automated Gates",
-    ],
-    portfolio: [],
-    logo: "/images/vendors/d_fence_fencing.webp",
-    brandColors: { primary: "#CC2020", secondary: "#333333" },
-    address: "P.O. Box 881, Selah, WA 98942",
-    phone: "(509) 731-8836",
-    links: [
-      {
-        label: "Website",
-        href: "https://dfencefencing.com/",
-        platform: "website",
-      },
-      {
-        label: "Facebook",
-        href: "https://www.facebook.com/EasternWAFENCING/",
-        platform: "facebook",
-      },
-      {
-        label: "Instagram",
-        href: "https://www.instagram.com/dfencefencing2014/",
-        platform: "instagram",
-      },
-    ],
-  },
-  {
-    name: "Intermountain West Insulation (IWI)",
-    role: "Primary Insulation Contractor",
-    icon: "home_work",
-    accentColor: "from-red-600 to-red-800",
-    description:
-      "Intermountain West Insulation (IWI) is our trusted primary insulation contractor, delivering a comprehensive range of insulation and building product installation services across the Pacific Northwest. From spray foam and fiberglass to garage doors and epoxy flooring, IWI brings versatility and quality to every MH Construction project.",
-    highlights: [
-      "Fiberglass, Spray Foam & Cellulose Insulation",
-      "Air Sealing",
-      "Garage Doors — Sales, Installation & Service",
-      "Epoxy Flooring",
-      "Gutters, Siding & Windows",
-      "Window Blinds & Paint",
-    ],
-    portfolio: [],
-    logo: "/images/vendors/iwi_insulation.webp",
-    brandColors: { primary: "#CE2027", secondary: "#262626" },
-    address: "9304 W. Clearwater Dr. Suite A, Kennewick, WA 99336",
-    phone: "509.735.8411",
-    links: [
-      {
-        label: "Website",
-        href: "https://iwinsulation.com/",
-        platform: "website",
-      },
-      {
-        label: "Facebook",
-        href: "https://www.facebook.com/p/Intermountain-West-Insulation-100063735342877/",
-        platform: "facebook",
-      },
-    ],
-  },
-  {
     name: "Viking Plumbing & Mechanical",
-    role: "Primary Plumbing & Mechanical Contractor",
+    trade: "Plumbing & Mechanical",
+    role: "Plumbing & Mechanical Contractor",
     icon: "plumbing",
     accentColor: "from-yellow-500 to-yellow-700",
     description:
-      "Viking Plumbing & Mechanical is our trusted primary plumbing and mechanical contractor, delivering full-service commercial, industrial, and residential plumbing across the Pacific Northwest. From new construction to complex renovations, Viking brings the expertise and reliability that MH Construction projects demand.",
+      "Viking Plumbing & Mechanical delivers full-service commercial, industrial, and residential plumbing across the Pacific Northwest on MH Construction projects. From new construction to complex renovations, Viking brings the expertise and reliability our projects demand.",
     highlights: [
       "Commercial & Industrial New Construction Plumbing",
       "Residential New Construction & Remodeling",
@@ -349,63 +416,62 @@ const vendors: Vendor[] = [
       },
     ],
   },
-  {
-    name: "Core Cabinet Production",
-    role: "Primary Cabinetry Trade Partner",
-    icon: "kitchen",
-    accentColor: "from-orange-500 to-orange-700",
-    description:
-      "Core Cabinet Production is our trusted primary cabinetry Trade Partner, specializing in custom-designed and in-house fabricated cabinets for residential and commercial applications. From kitchen and bathroom cabinets to full commercial office builds, Core Cabinet delivers precision craftsmanship on every MH Construction project.",
-    highlights: [
-      "Kitchen Cabinets",
-      "Bathroom Cabinets",
-      "Home Offices",
-      "Closets",
-      "Storage & Bookcases",
-      "Commercial Offices",
-    ],
-    portfolio: [],
-    logo: "/images/vendors/core_cabinet.webp",
-    brandColors: { primary: "#E35724", secondary: "#444444" },
-    address: "2573 Robertson Drive, Richland, WA 99354",
-    phone: "(509) 375-7900",
-    email: "admin@corecabinetproduction.com",
-    links: [
-      {
-        label: "Website",
-        href: "https://corecabinetproduction.com/",
-        platform: "website",
-      },
-    ],
-  },
-  {
-    name: "High Desert Drywall, Inc.",
-    role: "Primary Drywall & Interior Construction Contractor",
-    icon: "construction",
-    accentColor: "from-sky-700 to-sky-900",
-    description:
-      "High Desert Drywall, Inc. is our trusted primary drywall and interior construction contractor, delivering expert drywall installation, taping, and finishing on MH Construction projects. Their commitment to quality and precision makes them an essential part of every interior build.",
-    highlights: [
-      "Drywall Installation",
-      "Taping & Finishing",
-      "Commercial & Residential Interior Scope",
-      "Interior Construction Specialists",
-    ],
-    portfolio: [],
-    logo: "",
-    brandColors: { primary: "#1a3a5c", secondary: "#c8a04a" },
-    address: "Pasco, WA",
-    phone: "(509) 492-5208",
-    email: "office@hd-drywall.net",
-    links: [
-      {
-        label: "Website",
-        href: "https://hd-drywall.net/",
-        platform: "website",
-      },
-    ],
-  },
 ];
+
+// ── Trade Group Directory ────────────────────────────────────────────────────
+// Maps each trade category name to its representative icon.
+const TRADE_ICONS: Record<string, string> = {
+  "Building Specialties": "door_front",
+  "Cabinetry & Millwork": "kitchen",
+  "Drywall & Interior": "construction",
+  Electrical: "electrical_services",
+  Fencing: "fence",
+  "Glass & Glazing": "window",
+  "Insulation & Building Products": "home_work",
+  Landscaping: "yard",
+  "Plumbing & Mechanical": "plumbing",
+  Signage: "signpost",
+};
+
+type TradeGroup = { trade: string; icon: string; vendors: Vendor[] };
+
+// Build alphabetically-ordered trade groups.
+// Within each group, partners are also sorted alphabetically by name.
+// Quarterly governance: adds, removals, and reclassifications require
+// a documented reason and owner approval before merging.
+const tradeGroups: TradeGroup[] = Object.entries(
+  vendors.reduce<Record<string, Vendor[]>>((acc, v) => {
+    (acc[v.trade] ??= []).push(v);
+    return acc;
+  }, {}),
+)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([trade, tradeVendors]) => {
+    if (!(trade in TRADE_ICONS)) {
+      // Guard against unmapped trade categories: errors surface in server logs
+      // so the missing icon is caught before it reaches users.
+      console.error(
+        `[Trade Partners] Unknown trade category "${trade}" — add it to TRADE_ICONS`,
+      );
+    }
+    return {
+      trade,
+      icon: TRADE_ICONS[trade] ?? tradeVendors[0]?.icon ?? "business",
+      vendors: [...tradeVendors].sort((a, b) => a.name.localeCompare(b.name)),
+    };
+  });
+
+// Flat globally-alphabetical list used for the logo parade.
+// This is distinct from the trade-grouped order: here all vendors sort by
+// company name across all trades; in tradeGroups they sort by trade first.
+const sortedVendors = [...vendors].sort((a, b) =>
+  a.name.localeCompare(b.name),
+);
+
+/** Derives a stable HTML id for a trade group, e.g. "electrical" or "glass-glazing". */
+function tradeId(trade: string): string {
+  return trade.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+}
 
 // ── Partnership Values ───────────────────────────────────────────────────────
 const partnershipValues = [
@@ -594,10 +660,10 @@ export default function AlliesPage() {
                   <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 blur-2xl rounded-full" />
                   <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-secondary p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
                     <MaterialIcon
-                      icon="star"
+                      icon="groups"
                       size="2xl"
                       className="text-white drop-shadow-lg"
-                      ariaLabel="Our primary Trade Partners"
+                      ariaLabel="Trade Partner Network"
                     />
                   </div>
                 </div>
@@ -606,30 +672,68 @@ export default function AlliesPage() {
 
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Our Primary
+                  Our
                 </span>
                 <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Trade Partners
+                  Trade Partner Network
                 </span>
               </h2>
 
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                These trusted companies are{" "}
+                Vetted companies grouped by trade and listed{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                  integral members of our project teams
-                </span>{" "}
-                — proven partners whose expertise, reliability, and shared
-                values make them our{" "}
+                  alphabetically within each category
+                </span>
+                {". "}Partners are selected based on licensing, safety
+                alignment, performance history, and shared values —{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  first call on every MH Construction project
+                  reviewed quarterly to ensure fair and current representation
                 </span>
                 {"."}
               </p>
+
+              {/* Listing Criteria */}
+              <div className="mx-auto max-w-4xl mt-8 mb-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-6 py-4 text-left">
+                <div className="flex items-center gap-2 mb-3">
+                  <MaterialIcon
+                    icon="checklist"
+                    size="sm"
+                    className="text-brand-primary dark:text-brand-primary-light flex-shrink-0"
+                    ariaLabel="Listing criteria"
+                  />
+                  <span className="text-xs font-bold uppercase tracking-widest text-brand-primary dark:text-brand-primary-light">
+                    Listing Criteria
+                  </span>
+                </div>
+                <ul className="flex flex-wrap gap-2">
+                  {[
+                    "Licensed & insured",
+                    "Safety-culture aligned",
+                    "Active project footprint",
+                    "Demonstrated performance history",
+                    "Honest communication standard",
+                    "Reviewed quarterly",
+                  ].map((criterion) => (
+                    <li
+                      key={criterion}
+                      className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-xs font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      <MaterialIcon
+                        icon="check"
+                        size="sm"
+                        ariaLabel=""
+                        className="text-brand-primary dark:text-brand-primary-light"
+                      />
+                      {criterion}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             {/* Logo Parade */}
             <div className="mb-14 flex flex-wrap items-center justify-center gap-4">
-              {vendors.map((vendor) => (
+              {sortedVendors.map((vendor) => (
                 <div
                   key={vendor.name}
                   className="group flex items-center justify-center rounded-xl border-2 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
@@ -671,293 +775,38 @@ export default function AlliesPage() {
               ))}
             </div>
 
-            <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {vendors.map((vendor) => (
+            <div className="space-y-16">
+              {tradeGroups.map((group, groupIndex) => (
                 <div
-                  key={`${vendor.name}-card`}
-                  className="group relative [perspective:1200px] h-[480px]"
+                  key={group.trade}
+                  id={`trade-${tradeId(group.trade)}`}
                 >
-                  {/* Glow */}
-                  <div className="absolute -inset-3 bg-gradient-to-br from-brand-primary/50 to-brand-secondary/50 rounded-2xl opacity-20 group-hover:opacity-70 blur-xl transition-all duration-500 pointer-events-none" />
-
-                  {/* Flip container */}
-                  <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                    {/* ── FRONT FACE ────────────────────────────────────── */}
-                    <div className="absolute inset-0 [backface-visibility:hidden] bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-xl overflow-hidden flex flex-col">
-                      {/* Brand accent bar */}
-                      <div
-                        className={cn(
-                          "h-3 flex-shrink-0",
-                          !vendor.brandColors &&
-                            `bg-gradient-to-r ${vendor.accentColor}`,
-                        )}
-                        style={
-                          vendor.brandColors
-                            ? {
-                                backgroundImage: `linear-gradient(to right, ${vendor.brandColors.primary}, ${vendor.brandColors.secondary ?? vendor.brandColors.primary})`,
-                              }
-                            : undefined
-                        }
+                  {/* Deep-link anchor: /allies#trade-electrical etc.
+                      The top-level #vendors nav item covers keyboard access. */}
+                  {/* Trade group header */}
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-brand-primary/10 dark:bg-brand-primary/20 flex-shrink-0">
+                      <MaterialIcon
+                        icon={group.icon}
+                        size="sm"
+                        className="text-brand-primary dark:text-brand-primary-light"
+                        ariaLabel={group.trade}
                       />
-
-                      {/* Logo — hero element */}
-                      <div className="flex-1 flex flex-col items-center justify-center gap-5 px-6 pt-6 pb-4">
-                        <div
-                          className="relative flex justify-center items-center rounded-2xl w-48 h-48 shadow-2xl overflow-hidden border-4 bg-white"
-                          style={
-                            vendor.brandColors
-                              ? {
-                                  borderColor: `${vendor.brandColors.primary}80`,
-                                }
-                              : { borderColor: "#e5e7eb" }
-                          }
-                        >
-                          {vendor.logo ? (
-                            <Image
-                              src={vendor.logo}
-                              alt={`${vendor.name} logo`}
-                              fill
-                              sizes="192px"
-                              className="object-contain p-4"
-                            />
-                          ) : (
-                            <div
-                              className={cn(
-                                "w-full h-full flex items-center justify-center",
-                                !vendor.brandColors &&
-                                  `bg-gradient-to-br ${vendor.accentColor}`,
-                              )}
-                              style={
-                                vendor.brandColors
-                                  ? {
-                                      backgroundImage: `linear-gradient(135deg, ${vendor.brandColors.primary}, ${vendor.brandColors.secondary ?? vendor.brandColors.primary})`,
-                                    }
-                                  : undefined
-                              }
-                            >
-                              <MaterialIcon
-                                icon={vendor.icon}
-                                size="4xl"
-                                className="text-white drop-shadow-lg"
-                                ariaLabel={vendor.name}
-                              />
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Name + role */}
-                        <div className="text-center">
-                          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border text-xs font-bold uppercase tracking-wider mb-2 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-brand-primary-light border-brand-primary/30">
-                            <MaterialIcon
-                              icon="verified"
-                              size="sm"
-                              ariaLabel="Active partner"
-                              className="text-current"
-                            />
-                            {vendor.role}
-                          </div>
-                          <h3 className="font-black text-gray-900 dark:text-white text-2xl leading-tight">
-                            {vendor.name}
-                          </h3>
-                        </div>
-                      </div>
-
-                      {/* Phone */}
-                      {vendor.phone && (
-                        <div className="flex items-center justify-center gap-1.5 py-2 flex-shrink-0">
-                          <MaterialIcon
-                            icon="call"
-                            size="sm"
-                            ariaLabel=""
-                            className="text-gray-400"
-                          />
-                          <a
-                            href={`tel:${vendor.phone.replaceAll(/[^0-9+]/g, "")}`}
-                            className="text-xs text-gray-600 dark:text-gray-300 font-medium hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors"
-                          >
-                            {vendor.phone}
-                          </a>
-                        </div>
-                      )}
-
-                      {/* Flip hint */}
-                      <div className="flex items-center justify-center gap-1.5 py-3 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-100 dark:border-gray-700 flex-shrink-0">
-                        <MaterialIcon
-                          icon="touch_app"
-                          size="sm"
-                          ariaLabel=""
-                          className="text-gray-400"
-                        />
-                        <span className="text-xs text-gray-400 font-medium">
-                          Hover to see services
-                        </span>
-                      </div>
                     </div>
-
-                    {/* ── BACK FACE ─────────────────────────────────────── */}
-                    <div
-                      className={cn(
-                        "absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl border-2 shadow-xl overflow-hidden flex flex-col",
-                        !vendor.brandColors &&
-                          `bg-gradient-to-br ${vendor.accentColor}`,
-                      )}
-                      style={
-                        vendor.brandColors
-                          ? {
-                              background: `linear-gradient(145deg, ${vendor.brandColors.primary}f0, ${vendor.brandColors.secondary ?? vendor.brandColors.primary}cc)`,
-                              borderColor: `${vendor.brandColors.primary}80`,
-                            }
-                          : undefined
-                      }
-                    >
-                      {/* Back header */}
-                      <div className="flex items-center gap-3 p-4 border-b border-white/20 flex-shrink-0">
-                        <div className="flex justify-center items-center rounded-xl w-10 h-10 bg-white/20 flex-shrink-0">
-                          <MaterialIcon
-                            icon={vendor.icon}
-                            size="sm"
-                            ariaLabel={vendor.name}
-                            className="text-white"
-                          />
-                        </div>
-                        <div className="min-w-0">
-                          <div className="text-white/70 text-xs font-medium truncate">
-                            {vendor.role}
-                          </div>
-                          <div className="text-white font-black text-lg leading-tight truncate">
-                            {vendor.name}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Scrollable content */}
-                      <div className="flex-1 overflow-y-auto p-4 space-y-4 overscroll-contain">
-                        {/* Services / highlights */}
-                        <div>
-                          <h4 className="text-white/70 text-xs font-bold uppercase tracking-wider mb-2">
-                            Services
-                          </h4>
-                          <ul className="space-y-1.5">
-                            {vendor.highlights.map((h) => (
-                              <li
-                                key={h}
-                                className="flex items-start gap-2 text-white text-xs"
-                              >
-                                <MaterialIcon
-                                  icon="check_circle"
-                                  size="sm"
-                                  ariaLabel=""
-                                  className="text-white/60 flex-shrink-0 mt-0.5"
-                                />
-                                {h}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Our Work Together */}
-                        {vendor.portfolio.length > 0 && (
-                          <div>
-                            <h4 className="text-white/70 text-xs font-bold uppercase tracking-wider mb-2">
-                              Our Work Together
-                            </h4>
-                            <ul className="space-y-1.5">
-                              {vendor.portfolio.map((item) => (
-                                <li
-                                  key={item}
-                                  className="flex items-start gap-2 text-white text-xs"
-                                >
-                                  <MaterialIcon
-                                    icon="arrow_right"
-                                    size="sm"
-                                    ariaLabel=""
-                                    className="text-white/60 flex-shrink-0 mt-0.5"
-                                  />
-                                  {item}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-
-                        {/* Address */}
-                        {vendor.address && (
-                          <div className="flex items-start gap-2 text-white/90 text-xs">
-                            <MaterialIcon
-                              icon="location_on"
-                              size="sm"
-                              ariaLabel="Address"
-                              className="text-white/60 flex-shrink-0 mt-0.5"
-                            />
-                            <a
-                              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(vendor.address)}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="underline underline-offset-2 hover:text-white transition-colors"
-                            >
-                              {vendor.address}
-                            </a>
-                          </div>
-                        )}
-
-                        {/* Phone */}
-                        {vendor.phone && (
-                          <div className="flex items-center gap-2 text-white/90 text-xs">
-                            <MaterialIcon
-                              icon="call"
-                              size="sm"
-                              ariaLabel="Phone"
-                              className="text-white/60 flex-shrink-0"
-                            />
-                            <a
-                              href={`tel:${vendor.phone.replaceAll(/[^0-9+]/g, "")}`}
-                              className="underline underline-offset-2 hover:text-white transition-colors"
-                            >
-                              {vendor.phone}
-                            </a>
-                          </div>
-                        )}
-
-                        {/* Email */}
-                        {vendor.email && (
-                          <div className="flex items-center gap-2 text-white/90 text-xs">
-                            <MaterialIcon
-                              icon="mail"
-                              size="sm"
-                              ariaLabel="Email"
-                              className="text-white/60 flex-shrink-0"
-                            />
-                            <a
-                              href={`mailto:${vendor.email}`}
-                              className="underline underline-offset-2 hover:text-white transition-colors break-all"
-                            >
-                              {vendor.email}
-                            </a>
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Platform links repeated on back */}
-                      {vendor.links.length > 0 && (
-                        <div className="flex items-center gap-2 px-4 py-3 border-t border-white/20 flex-shrink-0">
-                          <span className="text-white/50 text-xs font-medium mr-1">
-                            Connect:
-                          </span>
-                          {vendor.links.map((link) => (
-                            <VendorPlatformLink
-                              key={link.href}
-                              href={link.href}
-                              label={link.label}
-                              platform={link.platform}
-                            />
-                          ))}
-                        </div>
-                      )}
-                    </div>
+                    <h3 className="font-bold text-gray-900 dark:text-white text-lg tracking-tight">
+                      {group.trade}
+                    </h3>
+                    <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
                   </div>
+
+                  {/* Carousel: logo alternates left/right per trade group */}
+                  <TradeGroupCarousel
+                    vendors={group.vendors}
+                    logoSide={groupIndex % 2 === 0 ? "left" : "right"}
+                  />
                 </div>
               ))}
-            </StaggeredFadeIn>
+            </div>
           </div>
         </section>
 

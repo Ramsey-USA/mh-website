@@ -656,7 +656,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Diamond Electric LLC",
       description:
-        "Primary electrical contractor for MH Construction. Commercial and industrial electrical installations, code-compliant work, safety-first approach.",
+        "Electrical contractor in the MH Construction Trade Partner network. Commercial and industrial electrical installations, code-compliant work, safety-first approach.",
       telephone: "509-552-9459",
       email: "drew@diamondelectricllc.net",
       address: {
@@ -675,7 +675,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Mustang Signs",
       description:
-        "Primary signage Trade Partner for MH Construction. Full-service custom signage, vehicle wraps, exterior & interior signage, digital signage, LED retrofitting, print solutions, and professional installation.",
+        "Signage Trade Partner in the MH Construction network. Full-service custom signage, vehicle wraps, exterior & interior signage, digital signage, LED retrofitting, print solutions, and professional installation.",
       telephone: "(509) 735-4607",
       email: "info@mustangsigns.com",
       address: {
@@ -699,7 +699,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Bagley Landscape Construction, Inc.",
       description:
-        "Primary landscaping contractor for MH Construction. Commercial & residential landscape design, irrigation, hydroseeding, retaining walls, hardscaping, maintenance, spraying, and snow & ice services from the Tri-Cities headquarters region across the broader footprint.",
+        "Landscaping contractor in the MH Construction Trade Partner network. Commercial & residential landscape design, irrigation, hydroseeding, retaining walls, hardscaping, maintenance, spraying, and snow & ice services from the Tri-Cities headquarters region across the broader footprint.",
       telephone: "(509) 546-2449",
       email: "office@bagleylandscape.com",
       address: {
@@ -719,7 +719,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "McKinney Glass",
       description:
-        "Primary glass and glazing contractor for MH Construction. Auto glass, residential windows & skylights, commercial storefronts, automatic doors, fire-rated specialty doors, and interior partitions. Union Gap WA.",
+        "Glass and glazing contractor in the MH Construction Trade Partner network. Auto glass, residential windows & skylights, commercial storefronts, automatic doors, fire-rated specialty doors, and interior partitions. Union Gap WA.",
       telephone: "(509) 248-2770",
       address: {
         "@type": "PostalAddress",
@@ -741,7 +741,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Dupree Building Specialties",
       description:
-        "Primary building specialties Trade Partner for MH Construction. CSI Division 7–12 products: roof accessories, commercial doors, skylights, access flooring, visual displays, lockers, partitions, athletic equipment, window shades. Spokane WA.",
+        "Building specialties Trade Partner in the MH Construction network. CSI Division 7–12 products: roof accessories, commercial doors, skylights, access flooring, visual displays, lockers, partitions, athletic equipment, window shades. Spokane WA.",
       telephone: "509.484.2000",
       email: "info@dupreebldg.com",
       address: {
@@ -765,7 +765,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "D-Fence Fencing Company",
       description:
-        "Primary fencing contractor for MH Construction. Galvanized & black chain link, vinyl, cedar privacy, ornamental, and field fencing, plus gates and automated gates. Eastern Washington.",
+        "Fencing contractor in the MH Construction Trade Partner network. Galvanized & black chain link, vinyl, cedar privacy, ornamental, and field fencing, plus gates and automated gates. Eastern Washington.",
       telephone: "(509) 731-8836",
       address: {
         "@type": "PostalAddress",
@@ -787,7 +787,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Intermountain West Insulation",
       description:
-        "Primary insulation contractor for MH Construction. Fiberglass, spray foam, cellulose insulation, air sealing, garage door sales & installation, epoxy flooring, gutters, siding, windows, and window blinds. Kennewick WA.",
+        "Insulation contractor in the MH Construction Trade Partner network. Fiberglass, spray foam, cellulose insulation, air sealing, garage door sales & installation, epoxy flooring, gutters, siding, windows, and window blinds. Kennewick WA.",
       telephone: "509.735.8411",
       address: {
         "@type": "PostalAddress",
@@ -809,7 +809,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Viking Plumbing & Mechanical",
       description:
-        "Primary plumbing and mechanical contractor for MH Construction. Commercial & industrial new construction plumbing, residential plumbing, drain cleaning, hydro jetting, water heater services, sewer line repair, and water filtration. Yakima WA.",
+        "Plumbing and mechanical contractor in the MH Construction Trade Partner network. Commercial & industrial new construction plumbing, residential plumbing, drain cleaning, hydro jetting, water heater services, sewer line repair, and water filtration. Yakima WA.",
       telephone: "(509) 450-0485",
       email: "info@vikingplumbingandmechanical.com",
       address: {
@@ -833,7 +833,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "Core Cabinet Production",
       description:
-        "Primary cabinetry Trade Partner for MH Construction. Custom-designed and in-house fabricated kitchen, bathroom, home office, closet, storage, and commercial office cabinets. Richland WA.",
+        "Cabinetry Trade Partner in the MH Construction network. Custom-designed and in-house fabricated kitchen, bathroom, home office, closet, storage, and commercial office cabinets. Richland WA.",
       telephone: "(509) 375-7900",
       email: "admin@corecabinetproduction.com",
       address: {
@@ -853,7 +853,7 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
       "@type": "LocalBusiness",
       name: "High Desert Drywall, Inc.",
       description:
-        "Primary drywall and interior construction contractor for MH Construction. Drywall installation, taping, finishing, and commercial interior scope across the Pacific Northwest.",
+        "Drywall and interior construction contractor in the MH Construction Trade Partner network. Drywall installation, taping, finishing, and commercial interior scope across the Pacific Northwest.",
       telephone: "(509) 492-5208",
       email: "office@hd-drywall.net",
       address: {
@@ -903,9 +903,9 @@ export function getTradePartnersSEO(): Metadata & { schemas: object[] } {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "@id": `${enhancedSEO.siteUrl}/allies#vendorlist`,
-        name: "MH Construction Ally Network — Primary Trade Partners",
+        name: "MH Construction Trade Partner Network",
         description:
-          "Vetted Trade Partners serving as primary partners on MH Construction projects across the Pacific Northwest.",
+          "Vetted Trade Partners in the MH Construction network, listed alphabetically within each trade category. Updated quarterly.",
         numberOfItems: vendorSchemas.length,
         itemListElement: vendorSchemas.map((v, i) => ({
           "@type": "ListItem",
