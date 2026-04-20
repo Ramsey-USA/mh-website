@@ -1,0 +1,65 @@
+# Agent Branding Policy (Master at Arms)
+
+**Category:** Branding - Agent Policy  
+**Last Updated:** April 20, 2026  
+**Version:** 1.0.0  
+**Status:** ✅ Active
+
+> **Purpose:** Fast, unambiguous policy for AI agents enforcing MH branding standards.
+
+> **Authority Order:**
+>
+> 1. This file (agent decision policy)
+> 2. [Brand Constants](./brand-constants.md) (canonical values)
+> 3. [Unified Component Standards](./standards/unified-component-standards.md)
+> 4. [Messaging Guide](./strategy/messaging.md)
+> 5. Remaining branding docs for implementation detail
+
+## Scope
+
+Applies to all UI copy, headings, CTA labels, metadata, schema labels, navigation labels,
+and markdown content in the MH website repository.
+
+## Non-Negotiable Rules
+
+1. Preserve relationship-first, direct, professional tone.
+2. Preserve factual veteran-owned framing; avoid slogan-heavy or gimmick phrasing.
+3. Preserve trust and accreditation presence on trust-critical surfaces.
+4. Keep terminology consistent across page copy, navigation, metadata, and schema.
+5. Prefer plain-language SEO labels (`Home`, `About`, `Services`, `Projects`, `Contact`).
+6. Enforce accessibility basics (semantic structure, labels, contrast, keyboard flow).
+
+## Required Language Behavior
+
+Always do:
+
+- Use clear, human wording over hype language.
+- Keep communication direct and honest.
+- Route conversion intent toward real human contact.
+
+Never do:
+
+- Introduce militarized aliases in page or SEO labels unless explicitly approved.
+- Remove or downplay established trust/credential signals.
+- Use buzzword-heavy claims that conflict with relationship-first messaging.
+
+## Conflict Resolution
+
+If two docs appear to conflict:
+
+1. Follow this policy first.
+2. Resolve canonical values via [Brand Constants](./brand-constants.md).
+3. Resolve component/layout behavior via [Unified Component Standards](./standards/unified-component-standards.md).
+4. Log approved exceptions in `.github/branding-exceptions.json` with owner, ticket, and expiry.
+
+## Agent Execution Checklist
+
+- Read this file before applying or reviewing changes.
+- Confirm trust/accreditation is preserved where already present.
+- Confirm veteran-owned framing is factual and non-hype.
+- Confirm labels remain plain-language and consistent.
+- Output a compliance result: PASS or FAIL with concrete remediation if needed.
+
+---
+
+**MH Construction** — Founded 2010, Veteran-Owned Since January 2025

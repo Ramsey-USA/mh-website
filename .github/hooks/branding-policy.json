@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "type": "command",
+        "command": "node .github/hooks/branding-gate.js",
+        "timeout": 45
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "exceptions": [
+    {
+      "active": false,
+      "rule": "Trust/accreditation preservation",
+      "filePattern": "src/app/about/page.tsx",
+      "detailPattern": "Trust/accreditation",
+      "approvedBy": "",
+      "ticket": "",
+      "reason": "",
+      "expiresOn": "2026-12-31"
+    }
+  ]
+}

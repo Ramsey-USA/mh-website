@@ -1,7 +1,7 @@
 # Branding Documentation
 
 **Category:** Branding - Overview  
-**Last Updated:** April 19, 2026
+**Last Updated:** April 20, 2026
 
 ## Overview
 
@@ -11,6 +11,17 @@ and brand identity guidelines.
 ## 📌 Single Source of Truth
 
 - **[Brand Constants](./brand-constants.md)** - ⭐ **START HERE** - Canonical values for all brand elements
+- **[Agent Branding Policy](./agent-branding-policy.md)** - Fast enforcement policy for AI agent decisions
+
+## Agent Quick Start
+
+For AI enforcement agents, read these first in order:
+
+1. **[Agent Branding Policy](./agent-branding-policy.md)** - Primary decision policy and conflict handling.
+2. **[Brand Constants](./brand-constants.md)** - Canonical values and non-negotiable brand references.
+3. **[Unified Component Standards](./standards/unified-component-standards.md)** - Component and layout implementation standard.
+
+Then read the remaining branding files for page-specific implementation details.
 
 ## Directory Structure
 
@@ -20,7 +31,7 @@ Design and visual standards for consistent brand implementation.
 
 - **[Color System](./standards/color-system.md)** - Brand colors (Hunter Green #386851, Leather Tan #BD9264)
 - **[Hero Section Standards](./standards/hero-section-standards.md)** - Page header guidelines
-- **[Unified Component Standards](./standards/unified-component-standards.md)** - UI component patterns (v7.0.0)
+- **[Unified Component Standards](./standards/unified-component-standards.md)** - UI component patterns (v7.1.0)
 - **[Documents & Forms Branding Standards](./standards/documents-and-forms-standards.md)** - Print/download/manual/form identity standards
 - **[Team Badge System](./standards/team-badge-system.md)** - Veteran and role badge guidelines
 - **[Team Profile Radar Chart](./standards/team-profile-radar-chart.md)** - Skill visualization standards

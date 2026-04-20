@@ -18,7 +18,7 @@ honest communication, and proven craftsmanship.
 2. **Study the [Homepage](src/app/page.tsx)** as your reference standard - See
    [Homepage Documentation](docs/technical/homepage.md) for complete breakdown
 3. **Review [Unified Component Standards](docs/branding/standards/unified-component-standards.md)
-   v7.0.0** - Complete design system (colors, typography, components)
+   v7.1.0** - Complete design system (colors, typography, components)
 4. **Study [Component Cheatsheet](docs/development/quick-reference/component-cheatsheet.md)** -
    Copy-paste patterns matching homepage style
 5. **Use [Page Template Guide](docs/development/standards/page-template-guide.md)** - Complete boilerplate for new pages
@@ -129,7 +129,7 @@ improvements.
 - **Contact-First:** All paths lead to phone (509) 308-6489 or personal consultation
 - **Honest Messaging:** Authentic communication, no marketing buzzwords
 - **Veteran-Owned Perspective:** Service-earned discipline, clear communication, and priority scheduling across all branches
-- **No AI Gimmicks:** Removed AI estimators, booking bots, and automated closers — replaced by
+- **No AI Gimmicks:** Removed AI-driven estimate tools, booking bots, and auto-closing funnels — replaced by
   the Partnership Guide, which answers questions honestly and routes every visitor to a real
   human conversation
 
@@ -172,7 +172,7 @@ are stored in `public/images/credentials/` as WebP files. Credentials are displa
 
 ### Designers & Branding
 
-- [Unified Component Standards](docs/branding/standards/unified-component-standards.md) - Complete design system v7.0.0
+- [Unified Component Standards](docs/branding/standards/unified-component-standards.md) - Complete design system v7.1.0
 - [Color System](docs/branding/standards/color-system.md) - Brand colors (Hunter Green, Leather Tan)
 - [Brand Overview](docs/branding/strategy/brand-overview.md) - Brand identity & values
 - [Messaging Guide](docs/branding/strategy/messaging.md) - Core messaging v7.0.0
@@ -363,7 +363,7 @@ scripts/mh-scripts-guide.md             # Scripts overview and direct-run helper
   [Compliance Checklist](docs/development/standards/page-compliance-checklist.md) |
   [BrandedContentSection Template](docs/development/components/template-components.md)
 - **Design System:**
-  [Unified Component Standards](docs/branding/standards/unified-component-standards.md) v7.0.0
+  [Unified Component Standards](docs/branding/standards/unified-component-standards.md) v7.1.0
   (consolidated typography & components)
 - **Marketing:** [Analytics Guide for Matt & Jeremy](analytics-guide-for-matt-and-jeremy.md) | [SEO Quick Reference](seo-quick-reference.md)
 
@@ -378,7 +378,7 @@ directory tree, page inventory, and component map.
 
 Colors, typography, icons, and component patterns are fully documented in
 [Unified Component Standards](docs/branding/standards/unified-component-standards.md)
-v7.0.0.
+v7.1.0.
 
 ## Deployment
 

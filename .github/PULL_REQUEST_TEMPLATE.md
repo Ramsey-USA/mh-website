@@ -18,6 +18,33 @@
 - [ ] Tested locally
 - [ ] All quality checks pass (type-check, lint, tests, build)
 
+## Master at Arms Compliance
+
+- [ ] Compliance Result included (PASS or FAIL)
+- [ ] Applied standards listed
+- [ ] Violations and remediations documented (or "none")
+- [ ] Risk level recorded (low, medium, high)
+
+### Compliance Report
+
+Compliance Result:
+
+Applied Standards:
+
+Passes:
+
+Violations:
+
+Risk Level:
+
+### Exception Disclosure
+
+- [ ] No exception used
+- [ ] Exception used and recorded in .github/branding-exceptions.json
+- Exception ticket:
+- Exception owner:
+- Exception expiry:
+
 ## Pre-Merge Checklist
 
 - [ ] 🧹 No commented-out code
