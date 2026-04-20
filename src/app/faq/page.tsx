@@ -149,23 +149,18 @@ export default function FAQPage() {
               </div>
             </div>
             <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
-              <span className="block text-brand-secondary-text text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                Intel Brief
+              <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
+                Intel Brief → FAQ
               </span>
-              <span className="block text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-2">
-                FAQ
-              </span>
-              <span className="block text-white/90 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl mb-3">
+              <span className="block text-brand-secondary">
                 Your Questions,
               </span>
-              <span className="block text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-3">
+              <span className="block text-brand-primary">
                 Our Honest Answers
               </span>
-              <span className="block text-white/80 text-xs xs:text-sm sm:text-base md:text-lg">
+              <span className="block text-white/90">
                 Building projects for the Client,{" "}
-                <span className="font-black italic text-brand-secondary">
-                  NOT
-                </span>{" "}
+                <span className="font-black italic text-bronze-300">NOT</span>{" "}
                 the Dollar
               </span>
             </h1>
