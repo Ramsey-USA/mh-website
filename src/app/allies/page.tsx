@@ -30,7 +30,8 @@ type VendorBrandColors = { primary: string; secondary?: string };
 
 type Vendor = {
   name: string;
-  /** Trade category used to group this partner in the directory. */
+  /** Trade category used to group this partner in the directory.
+   * Must match a key defined in TRADE_ICONS (e.g. "Electrical", "Signage"). */
   trade: string;
   role: string;
   icon: string;
@@ -447,11 +448,20 @@ const tradeGroups: TradeGroup[] = Object.entries(
   }, {}),
 )
   .sort(([a], [b]) => a.localeCompare(b))
-  .map(([trade, tradeVendors]) => ({
-    trade,
-    icon: TRADE_ICONS[trade] ?? tradeVendors[0]?.icon ?? "business",
-    vendors: [...tradeVendors].sort((a, b) => a.name.localeCompare(b.name)),
-  }));
+  .map(([trade, tradeVendors]) => {
+    if (!(trade in TRADE_ICONS)) {
+      // If a new vendor is added with an unmapped trade category, warn at
+      // build/server time so the missing icon is noticed immediately.
+      console.warn(
+        `[Trade Partners] Unknown trade category "${trade}" — add it to TRADE_ICONS`,
+      );
+    }
+    return {
+      trade,
+      icon: TRADE_ICONS[trade] ?? tradeVendors[0]?.icon ?? "business",
+      vendors: [...tradeVendors].sort((a, b) => a.name.localeCompare(b.name)),
+    };
+  });
 
 // Flat alphabetical list used for the logo parade.
 const sortedVendors = [...vendors].sort((a, b) =>
@@ -766,6 +776,8 @@ export default function AlliesPage() {
                   key={group.trade}
                   id={`trade-${group.trade.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
                 >
+                  {/* Deep-link anchor: /allies#trade-electrical etc.
+                      The top-level #vendors nav item covers keyboard access. */}
                   {/* Trade group header */}
                   <div className="flex items-center gap-3 mb-8">
                     <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-brand-primary/10 dark:bg-brand-primary/20 flex-shrink-0">
