@@ -43,7 +43,7 @@ export default function VeteransPage() {
               </div>
             </div>
             <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
-              <span className="block text-brand-secondary-text/80 text-sm sm:text-base md:text-lg lg:text-xl font-normal mb-2">
+              <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
                 Service First → Veterans
               </span>
               <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
