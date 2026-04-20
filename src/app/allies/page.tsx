@@ -463,10 +463,17 @@ const tradeGroups: TradeGroup[] = Object.entries(
     };
   });
 
-// Flat alphabetical list used for the logo parade.
+// Flat globally-alphabetical list used for the logo parade.
+// This is distinct from the trade-grouped order: here all vendors sort by
+// company name across all trades; in tradeGroups they sort by trade first.
 const sortedVendors = [...vendors].sort((a, b) =>
   a.name.localeCompare(b.name),
 );
+
+/** Derives a stable HTML id for a trade group, e.g. "electrical" or "glass-glazing". */
+function tradeId(trade: string): string {
+  return trade.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+}
 
 // ── Partnership Values ───────────────────────────────────────────────────────
 const partnershipValues = [
@@ -774,7 +781,7 @@ export default function AlliesPage() {
               {tradeGroups.map((group) => (
                 <div
                   key={group.trade}
-                  id={`trade-${group.trade.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                  id={`trade-${tradeId(group.trade)}`}
                 >
                   {/* Deep-link anchor: /allies#trade-electrical etc.
                       The top-level #vendors nav item covers keyboard access. */}
