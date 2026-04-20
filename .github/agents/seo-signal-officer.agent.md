@@ -27,6 +27,21 @@ Protect clear, plain-language SEO and metadata naming.
 - Prevent terminology drift between nav, copy, metadata, and schema.
 - Avoid slogan-heavy aliases in SEO-facing labels.
 
-## Output
+## Required Checks
 
-Provide a naming consistency report and corrected labels where needed.
+- Label Consistency: verify nav, headings, metadata, and schema use aligned terminology.
+- Title/Metadata Clarity: verify titles and metadata remain plain-language and user-readable.
+- Schema Naming Integrity: verify schema labels and entity naming match page intent.
+- Discoverability Hygiene: verify sitemap-oriented labels and naming remain consistent.
+
+## Output Format
+
+- Naming Result: PASS or FAIL
+- Terminology Drift:
+- Metadata/Schema Conflicts:
+- Discoverability Risks:
+- Required Remediations:
+
+## Completion Gate
+
+Do not mark work complete without a filled Output Format section and a PASS or FAIL result.

@@ -27,6 +27,21 @@ Ensure brand-compliant accessibility outcomes before merge.
 - Keep accessibility fixes consistent with MH design standards.
 - Prefer low-risk, explicit remediation steps.
 
-## Output
+## Required Checks
 
-Return accessibility findings by severity with precise fix guidance.
+- Semantic Integrity: verify heading structure, landmarks, and control semantics.
+- Labeling Integrity: verify controls and interactive elements have clear accessible names.
+- Keyboard/Focus Integrity: verify tab flow, focus visibility, and interactive reachability.
+- Contrast Integrity: verify contrast remains acceptable in light and dark contexts.
+
+## Output Format
+
+- Accessibility Result: PASS or FAIL
+- Severity Findings:
+- Keyboard/Focus Risks:
+- Contrast/Semantic Risks:
+- Required Remediations:
+
+## Completion Gate
+
+Do not mark work complete without a filled Output Format section and a PASS or FAIL result.

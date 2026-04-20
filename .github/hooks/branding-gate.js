@@ -31,14 +31,14 @@ const REQUIRED_PLAIN_LANGUAGE_LABELS = [
   "contact",
 ];
 
-const TRUST_CRITICAL_FILES = [
+const TRUST_CRITICAL_FILES = new Set([
   "src/components/layout/Footer.tsx",
   "src/app/about/page.tsx",
   "src/app/contact/ContactPageClient.tsx",
   "src/app/allies/page.tsx",
   "src/app/public-sector/page.tsx",
   "src/app/veterans/page.tsx",
-];
+]);
 
 const PHRASE_MILITARIZED_LABEL_RISK = [
   "battle-tested",
@@ -156,7 +156,7 @@ function readFileFromFs(path) {
 }
 
 function normalize(value) {
-  return value.toLowerCase().replace(/\s+/g, " ");
+  return value.toLowerCase().replaceAll(/\s+/g, " ");
 }
 
 function hasTrustSignals(content) {
@@ -184,9 +184,9 @@ function isPolicyFile(path) {
 
 function globToRegex(glob) {
   const escaped = glob
-    .replace(/[.+^${}()|[\]\\]/g, "\\$&")
-    .replace(/\*/g, ".*")
-    .replace(/\?/g, ".");
+    .replaceAll(/[.+^${}()|[\]\\]/g, String.raw`\$&`)
+    .replaceAll(/\*/g, ".*")
+    .replaceAll(/\?/g, ".");
   return new RegExp(`^${escaped}$`, "i");
 }
 
@@ -257,35 +257,35 @@ function applyExceptions(violations) {
 }
 
 function detectViolations(path, before, after) {
-  const violations = [];
-  const afterNorm = normalize(after);
-
   // Do not scan policy/config files for content phrase violations.
   if (isPolicyFile(path)) {
-    return violations;
+    return [];
   }
 
-  for (const phrase of BANNED_PHRASES) {
-    if (afterNorm.includes(phrase)) {
-      violations.push({
+  const afterNorm = normalize(after);
+  const violations = [];
+
+  violations.push(
+    ...BANNED_PHRASES.filter((phrase) => afterNorm.includes(phrase)).map(
+      (phrase) => ({
         file: path,
         severity: "high",
         rule: "Off-brand phrase",
         detail: `Banned phrase detected: "${phrase}"`,
-      });
-    }
-  }
+      }),
+    ),
+  );
 
-  for (const phrase of PHRASE_MILITARIZED_LABEL_RISK) {
-    if (afterNorm.includes(phrase)) {
-      violations.push({
-        file: path,
-        severity: "high",
-        rule: "Militarized label risk",
-        detail: `Avoid slogan-heavy militarized label: "${phrase}"`,
-      });
-    }
-  }
+  violations.push(
+    ...PHRASE_MILITARIZED_LABEL_RISK.filter((phrase) =>
+      afterNorm.includes(phrase),
+    ).map((phrase) => ({
+      file: path,
+      severity: "high",
+      rule: "Militarized label risk",
+      detail: `Avoid slogan-heavy militarized label: "${phrase}"`,
+    })),
+  );
 
   if (
     path.includes("seo") ||
@@ -323,7 +323,7 @@ function detectViolations(path, before, after) {
     }
   }
 
-  if (TRUST_CRITICAL_FILES.includes(path)) {
+  if (TRUST_CRITICAL_FILES.has(path)) {
     const hadTrust = hasTrustSignals(before);
     const hasTrust = hasTrustSignals(after);
 

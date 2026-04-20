@@ -26,6 +26,21 @@ Prevent erosion of trust and accreditation signals across MH surfaces.
 - Keep trust language factual and easy to verify.
 - Escalate risk if a trust-critical block is reduced or hidden.
 
-## Output
+## Required Checks
 
-Return pass/fail trust review with exact remediation if anything is at risk.
+- Credential Presence: verify required trust blocks remain present on trust-critical surfaces.
+- Credential Accuracy: verify credential names, links, and references remain factual and consistent.
+- Visibility Integrity: verify trust markers are not hidden, downgraded, or de-emphasized.
+- Schema Continuity: verify related trust/credential schema references remain aligned.
+
+## Output Format
+
+- Trust Result: PASS or FAIL
+- Missing or Reduced Trust Signals:
+- Credential Accuracy Risks:
+- Schema/Visibility Risks:
+- Required Remediations:
+
+## Completion Gate
+
+Do not mark work complete without a filled Output Format section and a PASS or FAIL result.

@@ -27,6 +27,21 @@ Protect MH voice quality in customer-facing language.
 - Keep language clear, plain, and human.
 - Route action intent toward direct human contact.
 
-## Output
+## Required Checks
 
-Provide approved copy plus brief rationale for any major wording changes.
+- Voice Integrity: verify relationship-first tone and direct, professional language.
+- CTA Integrity: verify calls to action align with contact-first intent.
+- Veteran Framing Integrity: verify veteran-owned language remains factual and grounded.
+- Terminology Integrity: verify wording aligns with approved brand terminology.
+
+## Output Format
+
+- Messaging Result: PASS or FAIL
+- Voice/Tone Drift:
+- CTA Risks:
+- Terminology or Framing Risks:
+- Required Remediations:
+
+## Completion Gate
+
+Do not mark work complete without a filled Output Format section and a PASS or FAIL result.

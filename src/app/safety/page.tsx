@@ -380,21 +380,21 @@ export default function SafetyPage() {
         {/* Header Text — Bottom Right */}
         <div className="relative z-30 mb-32 sm:mb-36 md:mb-40 lg:mb-44 mr-4 sm:mr-6 lg:mr-8 xl:mr-12 ml-auto max-w-2xl pointer-events-none pb-2">
           <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
-            {/* Dual Naming */}
+            {/* Page Identity */}
             <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-              Safety HQ → Safety Program
+              Safety Culture
             </span>
             {/* Page Mantra */}
             <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
-              Award-Winning Safety: 0.64 EMR, Zero Compromises
+              Award-Winning Safety: 0.64 EMR, 15+ Years
             </span>
             {/* Tagline */}
             <span className="block text-brand-secondary">
-              Zero-Incident Operations
+              Zero-Incident Culture
             </span>
             <span className="block">|</span>
             <span className="block text-white/95">
-              Mission-Critical Safety Culture
+              Award-Winning Safety Program
             </span>
             <span className="block">|</span>
             <span className="block text-white/90">
@@ -789,6 +789,41 @@ export default function SafetyPage() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Contact CTA ── */}
+      <section className="bg-white dark:bg-gray-900 py-20">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <MaterialIcon
+            icon="handshake"
+            size="xl"
+            className="mx-auto mb-6 text-brand-primary"
+          />
+          <h2 className="font-black text-gray-900 dark:text-white text-3xl sm:text-4xl mb-4 tracking-tight">
+            Ready to Talk?
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-xl mx-auto mb-8 leading-relaxed">
+            Our safety record is open for review. Call us directly or send an
+            email — we&apos;ll walk you through our credentials and answer any
+            questions about compliance, EMR, or our written safety program.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="tel:+15093086489"
+              className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white font-bold px-8 py-4 rounded-xl transition-colors text-lg"
+            >
+              <MaterialIcon icon="phone" size="md" className="text-white" />
+              (509) 308-6489
+            </a>
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-bold px-8 py-4 rounded-xl transition-colors text-lg"
+            >
+              <MaterialIcon icon="mail" size="md" />
+              Send a Message
+            </a>
           </div>
         </div>
       </section>

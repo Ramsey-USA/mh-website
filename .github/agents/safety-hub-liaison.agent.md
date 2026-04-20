@@ -27,6 +27,21 @@ Maintain safety and hub congruency with canonical routing and language standards
 - Prevent naming drift across UI, docs, and operational references.
 - Flag conflicts with operational-hub standards immediately.
 
-## Output
+## Required Checks
 
-Provide route integrity and messaging congruency status with remediation steps.
+- Route Integrity: verify canonical `/hub` behavior and expected compatibility redirects.
+- Terminology Integrity: verify safety and hub naming stays consistent across UI and docs.
+- Cross-Surface Congruency: verify website, PWA, and docs remain aligned in routing language.
+- Operational Alignment: verify consistency with operational-hub congruent guidance.
+
+## Output Format
+
+- Hub/Safety Result: PASS or FAIL
+- Route Conflicts:
+- Terminology Drift:
+- Cross-Surface Risks:
+- Required Remediations:
+
+## Completion Gate
+
+Do not mark work complete without a filled Output Format section and a PASS or FAIL result.

@@ -23,6 +23,31 @@ For AI enforcement agents, read these first in order:
 
 Then read the remaining branding files for page-specific implementation details.
 
+## Agent Routing Quick Map
+
+Use this quick map to select the right agent without memorizing the full squad matrix:
+
+| If You Are Doing This                                | Use This Agent                              |
+| ---------------------------------------------------- | ------------------------------------------- |
+| Brand/copy/design compliance across page work        | **Master at Arms**                          |
+| Trust badges, accreditation, and credential surfaces | **Trust Sentinel**                          |
+| Metadata/nav/schema naming consistency               | **SEO Signal Officer**                      |
+| Accessibility checks and remediation                 | **Accessibility Watch Officer**             |
+| Analytics coverage and event naming integrity        | **Telemetry Recon Officer** (on-demand)     |
+| Speed, payload, and CWV regression checks            | **Performance Budget Officer** (on-demand)  |
+| Docs and implementation drift reconciliation         | **Documentation Drift Officer** (on-demand) |
+| Final pre-merge readiness gate                       | **Release Command**                         |
+
+For full invocation examples, see the Agent Routing Matrix in the main README.
+
+### Specialist Report Contracts
+
+On-demand specialist agents use explicit PASS/FAIL report contracts:
+
+- **Telemetry Recon Officer**: `Coverage Result`, `Missing Events`, `Naming Conflicts`, `Dashboard Impact`, `Required Remediations`
+- **Performance Budget Officer**: `Performance Result`, `Payload/Bundles at Risk`, `CWV Risk`, `Top Regressions`, `Prioritized Fixes`
+- **Documentation Drift Officer**: `Drift Result`, `Broken/Stale References`, `Workflow Mismatches`, `Canonical Source`, `Required Doc Updates`
+
 ## Directory Structure
 
 ### Standards

@@ -27,6 +27,21 @@ Keep implementation tightly aligned with MH design standards.
 - Keep new UI consistent with established site rhythm.
 - Preserve accessibility while applying visual standards.
 
-## Output
+## Required Checks
 
-Return compliance verdict with exact implementation fixes for drift.
+- Pattern Integrity: verify components follow unified design-system patterns.
+- Spacing/Hierarchy Integrity: verify rhythm, alignment, and visual hierarchy are consistent.
+- Typography/Color Integrity: verify approved scales, weights, and color emphasis usage.
+- Cross-Page Cohesion: verify new UI feels native to existing MH surfaces.
+
+## Output Format
+
+- Design Compliance Result: PASS or FAIL
+- Pattern Drift:
+- Visual Hierarchy Risks:
+- Typography/Color Risks:
+- Required Remediations:
+
+## Completion Gate
+
+Do not mark work complete without a filled Output Format section and a PASS or FAIL result.
