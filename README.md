@@ -201,6 +201,7 @@ This project uses a military-themed agent squad in `.github/agents/`. **You do n
 | **SEO Signal Officer**          | `seo-signal-officer.agent.md`          | Metadata, page titles, nav labels, schema naming                                             |
 | **Accessibility Watch Officer** | `accessibility-watch-officer.agent.md` | WCAG 2.1 AA — semantics, contrast, keyboard, focus                                           |
 | **Safety Hub Liaison**          | `safety-hub-liaison.agent.md`          | `/hub` canonical routing, safety language congruency                                         |
+| **Spanish Toggle Officer**      | `spanish-toggle-officer.agent.md`      | English/Spanish locale wiring, toggle behavior, translation coverage, and localization gates |
 | **Design Quartermaster**        | `design-quartermaster.agent.md`        | Design system enforcement — spacing, typography, component patterns                          |
 | **Telemetry Recon Officer**     | `telemetry-recon-officer.agent.md`     | On-demand analytics integrity — CTA coverage, event schema naming, dashboard continuity      |
 | **Performance Budget Officer**  | `performance-budget-officer.agent.md`  | On-demand speed protection — payload, bundle growth, and Core Web Vitals risk checks         |
@@ -221,6 +222,7 @@ Use this quick map when deciding which agent to invoke directly:
 | Metadata, nav labels, schema naming consistency           | **SEO Signal Officer**          | `@seo-signal-officer audit labels and schema naming`                   |
 | WCAG checks (semantics, contrast, keyboard/focus)         | **Accessibility Watch Officer** | `@accessibility-watch-officer validate accessibility before merge`     |
 | `/hub` routing and safety-language congruency             | **Safety Hub Liaison**          | `@safety-hub-liaison verify hub route and safety language alignment`   |
+| English/Spanish localization and language-toggle checks   | **Spanish Toggle Officer**      | `@spanish-toggle-officer validate full en/es toggle readiness`         |
 | Design system consistency and component pattern fidelity  | **Design Quartermaster**        | `@design-quartermaster align this UI to unified component standards`   |
 | Analytics coverage and event naming integrity (on-demand) | **Telemetry Recon Officer**     | `@telemetry-recon-officer validate tracking coverage and event schema` |
 | Payload/bundle/CWV regression review (on-demand)          | **Performance Budget Officer**  | `@performance-budget-officer check performance risk for this feature`  |
@@ -234,6 +236,19 @@ When invoking on-demand specialists, expect a PASS/FAIL report with these fields
 - **Telemetry Recon Officer**: `Coverage Result`, `Missing Events`, `Naming Conflicts`, `Dashboard Impact`, `Required Remediations`
 - **Performance Budget Officer**: `Performance Result`, `Payload/Bundles at Risk`, `CWV Risk`, `Top Regressions`, `Prioritized Fixes`
 - **Documentation Drift Officer**: `Drift Result`, `Broken/Stale References`, `Workflow Mismatches`, `Canonical Source`, `Required Doc Updates`
+
+#### Slash Prompt Catalog
+
+Use these slash prompts for standardized compliance checks before merge or release:
+
+| Prompt                            | Agent                      | Typical Use                                                              |
+| --------------------------------- | -------------------------- | ------------------------------------------------------------------------ |
+| `/Forms Rapid Triage Brief`       | `forms-logistics-officer`  | Fast PR go/no-go for changed forms/template/generator files              |
+| `/Forms Readiness Brief`          | `forms-logistics-officer`  | Full forms readiness gate before merge/release                           |
+| `/Manual Structure Rapid Triage`  | `manual-structure-officer` | Fast PR go/no-go for manual layout and numbering changes                 |
+| `/Manual Structure Brief`         | `manual-structure-officer` | Full manual layout/WBS readiness gate before merge/release               |
+| `/Spanish Toggle Rapid Triage`    | `spanish-toggle-officer`   | Fast PR go/no-go for locale wiring, toggle UI, and translation key edits |
+| `/Spanish Toggle Readiness Brief` | `spanish-toggle-officer`   | Full en/es localization readiness gate before merge/release              |
 
 ---
 

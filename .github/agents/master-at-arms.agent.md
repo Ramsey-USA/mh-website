@@ -33,6 +33,7 @@ Do not require the user to memorize agent names.
 - Safety and hub routing congruency -> safety-hub-liaison
 - Forms templates, printable docs, and form generation compliance -> forms-logistics-officer
 - Manual layout uniformity and WBS numbering enforcement -> manual-structure-officer
+- Spanish localization and locale toggle validation -> spanish-toggle-officer
 - UI pattern and visual standard enforcement -> design-quartermaster
 - Final PR readiness and risk summary -> release-command
 
