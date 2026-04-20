@@ -21,9 +21,9 @@ export interface AllyInfo {
 export const ALLIES: AllyInfo[] = [
   {
     name: "Diamond Electric LLC",
-    role: "Primary Electrical Contractor",
+    role: "Electrical Contractor",
     description:
-      "Trusted primary electrical contractor providing safe, code-compliant commercial and industrial electrical installations.",
+      "Electrical contractor providing safe, code-compliant commercial and industrial electrical installations.",
     highlights: [
       "Commercial & Industrial Electrical",
       "Code-Compliant Installations",
@@ -36,7 +36,7 @@ export const ALLIES: AllyInfo[] = [
   },
   {
     name: "Mustang Signs",
-    role: "Primary Signage Vendor",
+    role: "Signage Partner",
     description:
       "Full-service custom signage solutions across the Pacific Northwest — vehicle wraps, digital signage, LED retrofitting, and professional installation.",
     highlights: [
@@ -52,7 +52,7 @@ export const ALLIES: AllyInfo[] = [
   },
   {
     name: "Bagley Landscape Construction, Inc.",
-    role: "Primary Landscaping Contractor",
+    role: "Landscaping Contractor",
     description:
       "Comprehensive landscape design, installation, hardscaping, maintenance, and snow & ice services across the Tri-Cities (Pasco, Richland, Kennewick) and our broader Pacific Northwest footprint.",
     highlights: [
@@ -68,7 +68,7 @@ export const ALLIES: AllyInfo[] = [
   },
   {
     name: "McKinney Glass",
-    role: "Primary Glass & Glazing Contractor",
+    role: "Glass & Glazing Contractor",
     description:
       "Full-service auto, residential, and commercial glass solutions — from windshield repair and energy-efficient windows to commercial storefronts.",
     highlights: [
@@ -83,7 +83,7 @@ export const ALLIES: AllyInfo[] = [
   },
   {
     name: "Dupree Building Specialties",
-    role: "Primary Building Specialties Vendor",
+    role: "Building Specialties Partner",
     description:
       "Commercial building specialties supplier covering Divisions 7–12 — fire-rated doors, expansion control, lockers, visual displays, and athletic equipment.",
     highlights: [
@@ -99,7 +99,7 @@ export const ALLIES: AllyInfo[] = [
   },
   {
     name: "D-Fence Fencing Company",
-    role: "Primary Fencing Contractor",
+    role: "Fencing Contractor",
     description:
       "Residential and commercial fencing solutions across Eastern Washington — chain link, vinyl, cedar privacy, ornamental, and automated gates.",
     highlights: [
@@ -114,7 +114,7 @@ export const ALLIES: AllyInfo[] = [
   },
   {
     name: "Intermountain West Insulation (IWI)",
-    role: "Primary Insulation Contractor",
+    role: "Insulation Contractor",
     description:
       "Comprehensive insulation and building product installation — spray foam, fiberglass, garage doors, epoxy flooring, gutters, and siding.",
     highlights: [
@@ -129,7 +129,7 @@ export const ALLIES: AllyInfo[] = [
   },
   {
     name: "Viking Plumbing & Mechanical",
-    role: "Primary Plumbing & Mechanical Contractor",
+    role: "Plumbing & Mechanical Contractor",
     description:
       "Full-service commercial, industrial, and residential plumbing — new construction, renovations, drain cleaning, and water systems.",
     highlights: [
@@ -145,7 +145,7 @@ export const ALLIES: AllyInfo[] = [
   },
   {
     name: "Core Cabinet Production",
-    role: "Primary Cabinetry Vendor",
+    role: "Cabinetry Partner",
     description:
       "Custom-designed, in-house fabricated cabinets for residential and commercial applications — kitchens, bathrooms, offices, and closets.",
     highlights: [
@@ -161,7 +161,7 @@ export const ALLIES: AllyInfo[] = [
   },
   {
     name: "High Desert Drywall, Inc.",
-    role: "Primary Drywall & Interior Construction Contractor",
+    role: "Drywall & Interior Contractor",
     description:
       "Interior construction specialists providing drywall installation, taping, finishing, and related interior scope on MH Construction projects across the Pacific Northwest.",
     highlights: [

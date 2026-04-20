@@ -566,7 +566,7 @@ export const navigationConfigs = {
       href: "#vendors",
       label: "Our Partners",
       mobileLabel: "Partners",
-      icon: "star",
+      icon: "groups",
     },
     {
       href: "#partnership",
