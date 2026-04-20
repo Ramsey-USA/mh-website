@@ -642,7 +642,35 @@ export default function PrintPageClient() {
             </div>
           </div>
           <div className="flex items-center justify-between mt-2 text-xs text-gray-400">
-            <span>WA: MHCONCI907R7 · OR: 765043-99 · ID: RCE-49250</span>
+            <span>
+              WA:{" "}
+              <a
+                href="https://secure.lni.wa.gov/verify/Detail.aspx?UBI=603069508&LIC=MHCONCI907R7&SAW=false"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                MHCONCI907R7
+              </a>{" "}
+              · OR:{" "}
+              <a
+                href="https://egov.sos.state.or.us/br/pkg_web_name_srch_inq.show_detl?p_be_rsn=1514612&p_srce=BR_INQ&p_print=FALSE"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                765043-99
+              </a>{" "}
+              · ID:{" "}
+              <a
+                href="https://www.labor.idaho.gov/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                RCE-49250
+              </a>
+            </span>
             <span>Printed {new Date().toLocaleDateString("en-US")}</span>
           </div>
         </div>

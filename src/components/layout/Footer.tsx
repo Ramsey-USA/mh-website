@@ -49,6 +49,7 @@ type LicenseDetail = {
   state: string;
   label: string;
   number: string;
+  verifyUrl?: string;
 };
 
 const navCol1Links: FooterNavItem[] = [
@@ -132,11 +133,29 @@ const linkedCities = [
   { href: "/locations/omak", name: "Omak" },
 ];
 
-const regionalAreas = [
-  "Eastern Washington",
-  "Eastern Oregon",
-  "Northern Idaho",
-];
+const serviceStates = [
+  {
+    code: "WA",
+    nameEn: "Washington",
+    nameEs: "Washington",
+    noteEn: "Primary service footprint",
+    noteEs: "Cobertura principal",
+  },
+  {
+    code: "OR",
+    nameEn: "Oregon",
+    nameEs: "Oregon",
+    noteEn: "Licensed operations",
+    noteEs: "Operaciones con licencia",
+  },
+  {
+    code: "ID",
+    nameEn: "Idaho",
+    nameEs: "Idaho",
+    noteEn: "Licensed operations",
+    noteEs: "Operaciones con licencia",
+  },
+] as const;
 
 const socialLinkBaseClass =
   "group flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg border border-gray-600 bg-gradient-to-br from-gray-700 to-gray-800 p-2.5 shadow-md transition-all duration-300 touch-manipulation hover:scale-105 dark:border-gray-500 dark:from-gray-600 dark:to-gray-700";
@@ -209,16 +228,21 @@ const licenseDetails: LicenseDetail[] = [
     state: "WA",
     label: "Washington License",
     number: "MHCONCI907R7",
+    verifyUrl:
+      "https://secure.lni.wa.gov/verify/Detail.aspx?UBI=603069508&LIC=MHCONCI907R7&SAW=false",
   },
   {
     state: "OR",
     label: "Oregon License",
     number: "765043-99",
+    verifyUrl:
+      "https://egov.sos.state.or.us/br/pkg_web_name_srch_inq.show_detl?p_be_rsn=1514612&p_srce=BR_INQ&p_print=FALSE",
   },
   {
     state: "ID",
     label: "Idaho License",
     number: "RCE-49250",
+    verifyUrl: "https://www.labor.idaho.gov/",
   },
 ];
 
@@ -236,7 +260,7 @@ function FooterNavLink({
   return (
     <Link
       href={href}
-      className="group flex items-center space-x-2 text-gray-300 hover:text-brand-primary dark:text-gray-200 text-sm xs:text-base transition-all hover:translate-x-1 duration-300 touch-manipulation"
+      className="group flex items-center space-x-2 text-base xs:text-lg text-gray-300 hover:text-brand-primary dark:text-gray-200 transition-all hover:translate-x-1 duration-300 touch-manipulation"
     >
       <MaterialIcon
         icon={icon}
@@ -245,7 +269,7 @@ function FooterNavLink({
       />
       <span className="flex flex-col">
         <span>{label}</span>
-        <span className="text-[9px] text-brand-secondary opacity-75">
+        <span className="text-[10px] xs:text-xs text-brand-secondary opacity-75">
           {sub}
         </span>
       </span>
@@ -355,7 +379,20 @@ function LicenseBadge() {
             </dt>
             <dd className="text-gray-300 dark:text-gray-200">
               <span className="sr-only">{license.label}: </span>
-              {license.number}
+              {license.verifyUrl ? (
+                <a
+                  href={license.verifyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-brand-secondary/70 underline-offset-2 transition-colors hover:text-brand-secondary"
+                  aria-label={`${license.label} ${license.number} verification`}
+                  title={`Verify ${license.label}`}
+                >
+                  {license.number}
+                </a>
+              ) : (
+                license.number
+              )}
             </dd>
           </div>
         ))}
@@ -434,17 +471,25 @@ function ServiceAreasDropdown({
               </Link>
             ))}
           </div>
-          <div className="border-t border-gray-700 mt-2 pt-2">
-            <div className="flex flex-wrap gap-1.5">
-              {regionalAreas.map((area) => (
+          <div className="mt-2 border-t border-gray-700 pt-2">
+            <div className="grid gap-1.5">
+              {serviceStates.map((state) => (
                 <span
-                  key={area}
-                  className="bg-gray-700/30 px-2 py-1 rounded text-gray-400 text-xs"
+                  key={state.code}
+                  className="flex items-center justify-between rounded bg-gray-700/30 px-2 py-1 text-xs"
                   itemProp="areaServed"
                   itemScope
                   itemType="https://schema.org/State"
                 >
-                  <span itemProp="name">{area}</span>
+                  <span className="font-semibold text-brand-secondary">
+                    {state.code}
+                  </span>
+                  <span itemProp="name" className="text-gray-300">
+                    {isEs ? state.nameEs : state.nameEn}
+                  </span>
+                  <span className="text-[10px] text-gray-400">
+                    {isEs ? state.noteEs : state.noteEn}
+                  </span>
                 </span>
               ))}
             </div>
@@ -626,10 +671,10 @@ export default function Footer() {
       >
         <div className="mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Main Footer Content */}
-          <div className="gap-4 xs:gap-5 sm:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 pb-3">
+          <div className="gap-4 xs:gap-5 sm:gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:items-stretch pb-3">
             {/* Column 1: Company Info */}
-            <div className="space-y-3 xs:space-y-4 sm:col-span-2 lg:col-span-1">
-              <div className="text-center sm:text-left lg:text-left">
+            <div className="h-full space-y-3 xs:space-y-4 sm:col-span-2 lg:col-span-1">
+              <div className="flex h-full flex-col text-center sm:text-left lg:text-left">
                 <div className="mb-4">
                   <Link
                     href="/"
@@ -696,14 +741,14 @@ export default function Footer() {
                 </a>
 
                 {/* Service Area Map */}
-                <div className="mt-4 flex justify-center sm:justify-start">
-                  <div className="rounded-lg border border-brand-primary/20 bg-brand-primary/5 p-3 transition-all duration-300 hover:border-brand-primary/40 hover:bg-brand-primary/15 dark:border-brand-primary/30 dark:bg-brand-primary/10">
+                <div className="mt-4 flex flex-1 items-end justify-center sm:justify-start">
+                  <div className="w-full max-w-[340px] rounded-lg border border-brand-primary/20 bg-brand-primary/5 p-4 transition-all duration-300 hover:border-brand-primary/40 hover:bg-brand-primary/15 dark:border-brand-primary/30 dark:bg-brand-primary/10">
                     <PNWStatesMap
-                      width={160}
-                      height={112}
-                      className="drop-shadow-md"
+                      width={220}
+                      height={154}
+                      className="mx-auto drop-shadow-md"
                     />
-                    <div className="mt-2 text-center text-xs font-semibold text-brand-secondary dark:text-brand-secondary-light">
+                    <div className="mt-3 text-center text-sm font-semibold text-brand-secondary dark:text-brand-secondary-light">
                       {isEs
                         ? "Sirviendo al Pacifico Noroeste"
                         : "Serving the Pacific Northwest"}
@@ -715,7 +760,7 @@ export default function Footer() {
 
             {/* Column 2: Core Navigation */}
             <nav
-              className="space-y-3 xs:space-y-4"
+              className="h-full space-y-3 xs:space-y-4"
               aria-label={isEs ? "Navegacion principal" : "Main navigation"}
             >
               <div className="flex items-center space-x-2 pb-2 border-b border-brand-primary/30">
@@ -725,15 +770,15 @@ export default function Footer() {
                   className="text-brand-primary"
                 />
                 <div className="flex flex-col leading-tight">
-                  <h3 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
+                  <h3 className="font-semibold text-brand-primary text-sm uppercase tracking-wide">
                     {isEs ? "Servicios" : "Services"}
                   </h3>
-                  <span className="text-[9px] uppercase tracking-wide text-brand-secondary/80">
+                  <span className="text-[10px] uppercase tracking-wide text-brand-secondary/80">
                     {isEs ? "Ejecucion de mision" : "Mission Execution"}
                   </span>
                 </div>
               </div>
-              <div className="space-y-1.5 xs:space-y-2">
+              <div className="flex h-[calc(100%-2.75rem)] flex-col justify-evenly">
                 {localizedNavCol1Links.map((link) => (
                   <FooterNavLink key={`${link.href}-${link.label}`} {...link} />
                 ))}
@@ -742,7 +787,7 @@ export default function Footer() {
 
             {/* Column 3: Company & Partnerships */}
             <nav
-              className="space-y-3 xs:space-y-4"
+              className="h-full space-y-3 xs:space-y-4"
               aria-label={
                 isEs ? "Informacion de la compania" : "Company information"
               }
@@ -754,15 +799,15 @@ export default function Footer() {
                   className="text-brand-primary"
                 />
                 <div className="flex flex-col leading-tight">
-                  <h3 className="font-medium text-brand-primary text-xs uppercase tracking-wide">
+                  <h3 className="font-semibold text-brand-primary text-sm uppercase tracking-wide">
                     {isEs ? "Compania" : "Company"}
                   </h3>
-                  <span className="text-[9px] uppercase tracking-wide text-brand-secondary/80">
+                  <span className="text-[10px] uppercase tracking-wide text-brand-secondary/80">
                     {isEs ? "Nuestras fuerzas" : "Our Forces"}
                   </span>
                 </div>
               </div>
-              <div className="space-y-1.5 xs:space-y-2">
+              <div className="flex h-[calc(100%-2.75rem)] flex-col justify-evenly">
                 {localizedNavCol2Links.map((link) => (
                   <FooterNavLink key={`${link.href}-${link.label}`} {...link} />
                 ))}

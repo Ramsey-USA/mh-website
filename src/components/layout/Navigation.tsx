@@ -237,11 +237,11 @@ export function Navigation() {
     <>
       {/* Backdrop overlay when menu is open */}
       {isMenuOpen && (
-        <div
+        <button
+          type="button"
           className="z-[60] fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-300 cursor-pointer"
           onClick={() => setIsMenuOpen(false)}
           onKeyDown={(e) => e.key === "Escape" && setIsMenuOpen(false)}
-          tabIndex={0}
           aria-label={closeMenuLabel}
         />
       )}

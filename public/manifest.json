@@ -2,7 +2,7 @@
   "name": "MH Construction - Base HQ → Home | Building Projects for the Client, NOT the Dollar",
   "short_name": "MH Const",
   "description": "Base HQ → Home: Your Tri-State Construction Command Center. Tri-Cities headquarters in Pasco, Richland, and Kennewick, with licensed operations across WA, OR, and ID throughout the Pacific Northwest. Building projects for the Client, NOT the Dollar. Veteran-Owned Since January 2025 with dual-label approach (Operations → Services, Missions → Projects). Montana expansion coming soon.",
-  "start_url": "/",
+  "start_url": "/hub",
   "display": "standalone",
   "background_color": "#1e293b",
   "theme_color": "#386851",
@@ -12,6 +12,19 @@
   "dir": "ltr",
   "categories": ["business", "construction", "productivity"],
   "shortcuts": [
+    {
+      "name": "Operations Hub",
+      "short_name": "Hub",
+      "description": "Open the staff operations dashboard",
+      "url": "/hub",
+      "icons": [
+        {
+          "src": "/icons/shortcut-contact.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
     {
       "name": "Missions → Projects",
       "short_name": "Missions",

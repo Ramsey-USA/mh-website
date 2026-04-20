@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "../styles/material-icons.css";
-import { Navigation, Footer } from "@/components/layout";
+import { AppShell } from "@/components/layout/AppShell";
 import FaviconLinks from "@/components/layout/FaviconLinks";
 import { AuthProvider } from "@/lib/auth/auth-context";
 import { ThemeProvider } from "@/contexts/theme-context";
@@ -220,13 +220,7 @@ export default async function RootLayout({
         <ThemeProvider defaultTheme="light" storageKey="mh-construction-theme">
           <AuthProvider>
             <ErrorBoundary>
-              <Navigation />
-              <div className="flex flex-col bg-white dark:bg-gray-900 min-h-screen">
-                <main id="main-content" className="flex-grow">
-                  {children}
-                </main>
-                <Footer />
-              </div>
+              <AppShell>{children}</AppShell>
               <ChatWidgetLazy />
             </ErrorBoundary>
           </AuthProvider>

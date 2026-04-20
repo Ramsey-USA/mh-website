@@ -39,13 +39,10 @@ describe("Navigation", () => {
     await user.click(toggleButton);
 
     expect(screen.getAllByLabelText("Close menu")).toHaveLength(2);
-    expect(
-      screen.getByLabelText("Close menu", { selector: "div" }),
-    ).toBeInTheDocument();
+    const closeButtons = screen.getAllByRole("button", { name: /close menu/i });
+    expect(closeButtons).toHaveLength(2);
 
-    await user.click(
-      screen.getByLabelText("Close menu", { selector: "button" }),
-    );
+    await user.click(closeButtons[0]);
 
     expect(
       screen.getByRole("button", { name: /open menu/i }),
@@ -58,7 +55,8 @@ describe("Navigation", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /open menu/i }));
 
-    const backdrop = screen.getByLabelText("Close menu", { selector: "div" });
+    const closeButtons = screen.getAllByRole("button", { name: /close menu/i });
+    const backdrop = closeButtons[0];
     fireEvent.keyDown(backdrop, { key: "Escape" });
 
     expect(
@@ -87,7 +85,8 @@ describe("Navigation", () => {
     render(<Navigation />);
 
     await user.click(screen.getByRole("button", { name: /open menu/i }));
-    await user.click(screen.getByLabelText("Close menu", { selector: "div" }));
+    const closeButtons = screen.getAllByRole("button", { name: /close menu/i });
+    await user.click(closeButtons[0]);
 
     expect(
       screen.getByRole("button", { name: /open menu/i }),
