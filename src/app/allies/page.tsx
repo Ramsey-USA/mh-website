@@ -28,7 +28,8 @@ type VendorBrandColors = { primary: string; secondary?: string };
 type Vendor = {
   name: string;
   /** Trade category used to group this partner in the directory.
-   * Must match a key defined in TRADE_ICONS (e.g. "Electrical", "Signage"). */
+   * Must match a key defined in TRADE_ICONS (e.g. "Electrical", "Signage").
+   */
   trade: string;
   role: string;
   icon: string;
@@ -447,9 +448,9 @@ const tradeGroups: TradeGroup[] = Object.entries(
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([trade, tradeVendors]) => {
     if (!(trade in TRADE_ICONS)) {
-      // If a new vendor is added with an unmapped trade category, warn at
-      // build/server time so the missing icon is noticed immediately.
-      console.warn(
+      // Guard against unmapped trade categories: errors surface in server logs
+      // so the missing icon is caught before it reaches users.
+      console.error(
         `[Trade Partners] Unknown trade category "${trade}" — add it to TRADE_ICONS`,
       );
     }

@@ -123,7 +123,7 @@ export function TradeGroupCarousel({
       {/* Phone */}
       {vendor.phone && (
         <a
-          href={`tel:${vendor.phone.replaceAll(/[^0-9+]/g, "")}`}
+          href={`tel:${vendor.phone.replace(/[^0-9+]/g, "")}`}
           className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-300 font-medium hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors"
         >
           <MaterialIcon
