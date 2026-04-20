@@ -1,10 +1,8 @@
 import { PageTrackingClient } from "@/components/analytics";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  VendorPlatformLink,
-  type VendorPlatform,
-} from "@/components/allies/VendorPlatformLink";
+import { type VendorPlatform } from "@/components/allies/VendorPlatformLink";
+import { TradeGroupCarousel } from "@/components/allies/TradeGroupCarousel";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -20,7 +18,6 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { cn } from "@/lib/utils";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.allies);
 
@@ -778,7 +775,7 @@ export default function AlliesPage() {
             </div>
 
             <div className="space-y-16">
-              {tradeGroups.map((group) => (
+              {tradeGroups.map((group, groupIndex) => (
                 <div
                   key={group.trade}
                   id={`trade-${tradeId(group.trade)}`}
@@ -801,293 +798,11 @@ export default function AlliesPage() {
                     <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
                   </div>
 
-                  <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {group.vendors.map((vendor) => (
-                <div
-                  key={`${vendor.name}-card`}
-                  className="group relative [perspective:1200px] h-[480px]"
-                >
-                  {/* Glow */}
-                  <div className="absolute -inset-3 bg-gradient-to-br from-brand-primary/50 to-brand-secondary/50 rounded-2xl opacity-20 group-hover:opacity-70 blur-xl transition-all duration-500 pointer-events-none" />
-
-                  {/* Flip container */}
-                  <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                    {/* ── FRONT FACE ────────────────────────────────────── */}
-                    <div className="absolute inset-0 [backface-visibility:hidden] bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-xl overflow-hidden flex flex-col">
-                      {/* Brand accent bar */}
-                      <div
-                        className={cn(
-                          "h-3 flex-shrink-0",
-                          !vendor.brandColors &&
-                            `bg-gradient-to-r ${vendor.accentColor}`,
-                        )}
-                        style={
-                          vendor.brandColors
-                            ? {
-                                backgroundImage: `linear-gradient(to right, ${vendor.brandColors.primary}, ${vendor.brandColors.secondary ?? vendor.brandColors.primary})`,
-                              }
-                            : undefined
-                        }
-                      />
-
-                      {/* Logo — hero element */}
-                      <div className="flex-1 flex flex-col items-center justify-center gap-5 px-6 pt-6 pb-4">
-                        <div
-                          className="relative flex justify-center items-center rounded-2xl w-48 h-48 shadow-2xl overflow-hidden border-4 bg-white"
-                          style={
-                            vendor.brandColors
-                              ? {
-                                  borderColor: `${vendor.brandColors.primary}80`,
-                                }
-                              : { borderColor: "#e5e7eb" }
-                          }
-                        >
-                          {vendor.logo ? (
-                            <Image
-                              src={vendor.logo}
-                              alt={`${vendor.name} logo`}
-                              fill
-                              sizes="192px"
-                              className="object-contain p-4"
-                            />
-                          ) : (
-                            <div
-                              className={cn(
-                                "w-full h-full flex items-center justify-center",
-                                !vendor.brandColors &&
-                                  `bg-gradient-to-br ${vendor.accentColor}`,
-                              )}
-                              style={
-                                vendor.brandColors
-                                  ? {
-                                      backgroundImage: `linear-gradient(135deg, ${vendor.brandColors.primary}, ${vendor.brandColors.secondary ?? vendor.brandColors.primary})`,
-                                    }
-                                  : undefined
-                              }
-                            >
-                              <MaterialIcon
-                                icon={vendor.icon}
-                                size="4xl"
-                                className="text-white drop-shadow-lg"
-                                ariaLabel={vendor.name}
-                              />
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Name + role */}
-                        <div className="text-center">
-                          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border text-xs font-bold uppercase tracking-wider mb-2 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-brand-primary-light border-brand-primary/30">
-                            <MaterialIcon
-                              icon="verified"
-                              size="sm"
-                              ariaLabel="Active partner"
-                              className="text-current"
-                            />
-                            {vendor.role}
-                          </div>
-                          <h3 className="font-black text-gray-900 dark:text-white text-2xl leading-tight">
-                            {vendor.name}
-                          </h3>
-                        </div>
-                      </div>
-
-                      {/* Phone */}
-                      {vendor.phone && (
-                        <div className="flex items-center justify-center gap-1.5 py-2 flex-shrink-0">
-                          <MaterialIcon
-                            icon="call"
-                            size="sm"
-                            ariaLabel=""
-                            className="text-gray-400"
-                          />
-                          <a
-                            href={`tel:${vendor.phone.replaceAll(/[^0-9+]/g, "")}`}
-                            className="text-xs text-gray-600 dark:text-gray-300 font-medium hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors"
-                          >
-                            {vendor.phone}
-                          </a>
-                        </div>
-                      )}
-
-                      {/* Flip hint */}
-                      <div className="flex items-center justify-center gap-1.5 py-3 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-100 dark:border-gray-700 flex-shrink-0">
-                        <MaterialIcon
-                          icon="touch_app"
-                          size="sm"
-                          ariaLabel=""
-                          className="text-gray-400"
-                        />
-                        <span className="text-xs text-gray-400 font-medium">
-                          Hover to see services
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* ── BACK FACE ─────────────────────────────────────── */}
-                    <div
-                      className={cn(
-                        "absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl border-2 shadow-xl overflow-hidden flex flex-col",
-                        !vendor.brandColors &&
-                          `bg-gradient-to-br ${vendor.accentColor}`,
-                      )}
-                      style={
-                        vendor.brandColors
-                          ? {
-                              background: `linear-gradient(145deg, ${vendor.brandColors.primary}f0, ${vendor.brandColors.secondary ?? vendor.brandColors.primary}cc)`,
-                              borderColor: `${vendor.brandColors.primary}80`,
-                            }
-                          : undefined
-                      }
-                    >
-                      {/* Back header */}
-                      <div className="flex items-center gap-3 p-4 border-b border-white/20 flex-shrink-0">
-                        <div className="flex justify-center items-center rounded-xl w-10 h-10 bg-white/20 flex-shrink-0">
-                          <MaterialIcon
-                            icon={vendor.icon}
-                            size="sm"
-                            ariaLabel={vendor.name}
-                            className="text-white"
-                          />
-                        </div>
-                        <div className="min-w-0">
-                          <div className="text-white/70 text-xs font-medium truncate">
-                            {vendor.role}
-                          </div>
-                          <div className="text-white font-black text-lg leading-tight truncate">
-                            {vendor.name}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Scrollable content */}
-                      <div className="flex-1 overflow-y-auto p-4 space-y-4 overscroll-contain">
-                        {/* Services / highlights */}
-                        <div>
-                          <h4 className="text-white/70 text-xs font-bold uppercase tracking-wider mb-2">
-                            Services
-                          </h4>
-                          <ul className="space-y-1.5">
-                            {vendor.highlights.map((h) => (
-                              <li
-                                key={h}
-                                className="flex items-start gap-2 text-white text-xs"
-                              >
-                                <MaterialIcon
-                                  icon="check_circle"
-                                  size="sm"
-                                  ariaLabel=""
-                                  className="text-white/60 flex-shrink-0 mt-0.5"
-                                />
-                                {h}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Our Work Together */}
-                        {vendor.portfolio.length > 0 && (
-                          <div>
-                            <h4 className="text-white/70 text-xs font-bold uppercase tracking-wider mb-2">
-                              Our Work Together
-                            </h4>
-                            <ul className="space-y-1.5">
-                              {vendor.portfolio.map((item) => (
-                                <li
-                                  key={item}
-                                  className="flex items-start gap-2 text-white text-xs"
-                                >
-                                  <MaterialIcon
-                                    icon="arrow_right"
-                                    size="sm"
-                                    ariaLabel=""
-                                    className="text-white/60 flex-shrink-0 mt-0.5"
-                                  />
-                                  {item}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-
-                        {/* Address */}
-                        {vendor.address && (
-                          <div className="flex items-start gap-2 text-white/90 text-xs">
-                            <MaterialIcon
-                              icon="location_on"
-                              size="sm"
-                              ariaLabel="Address"
-                              className="text-white/60 flex-shrink-0 mt-0.5"
-                            />
-                            <a
-                              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(vendor.address)}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="underline underline-offset-2 hover:text-white transition-colors"
-                            >
-                              {vendor.address}
-                            </a>
-                          </div>
-                        )}
-
-                        {/* Phone */}
-                        {vendor.phone && (
-                          <div className="flex items-center gap-2 text-white/90 text-xs">
-                            <MaterialIcon
-                              icon="call"
-                              size="sm"
-                              ariaLabel="Phone"
-                              className="text-white/60 flex-shrink-0"
-                            />
-                            <a
-                              href={`tel:${vendor.phone.replaceAll(/[^0-9+]/g, "")}`}
-                              className="underline underline-offset-2 hover:text-white transition-colors"
-                            >
-                              {vendor.phone}
-                            </a>
-                          </div>
-                        )}
-
-                        {/* Email */}
-                        {vendor.email && (
-                          <div className="flex items-center gap-2 text-white/90 text-xs">
-                            <MaterialIcon
-                              icon="mail"
-                              size="sm"
-                              ariaLabel="Email"
-                              className="text-white/60 flex-shrink-0"
-                            />
-                            <a
-                              href={`mailto:${vendor.email}`}
-                              className="underline underline-offset-2 hover:text-white transition-colors break-all"
-                            >
-                              {vendor.email}
-                            </a>
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Platform links repeated on back */}
-                      {vendor.links.length > 0 && (
-                        <div className="flex items-center gap-2 px-4 py-3 border-t border-white/20 flex-shrink-0">
-                          <span className="text-white/50 text-xs font-medium mr-1">
-                            Connect:
-                          </span>
-                          {vendor.links.map((link) => (
-                            <VendorPlatformLink
-                              key={link.href}
-                              href={link.href}
-                              label={link.label}
-                              platform={link.platform}
-                            />
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </StaggeredFadeIn>
+                  {/* Carousel: logo alternates left/right per trade group */}
+                  <TradeGroupCarousel
+                    vendors={group.vendors}
+                    logoSide={groupIndex % 2 === 0 ? "left" : "right"}
+                  />
                 </div>
               ))}
             </div>
