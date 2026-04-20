@@ -3,7 +3,7 @@
  * Mirrors the brand color tokens from tailwind.config.ts exactly.
  * Import this file in every document template.
  *
- * Company: MH Construction, Inc. (Veteran-Owned)
+ * Company: MH Construction, Inc. (Founded 2010, Veteran-Owned Since January 2025)
  * Address: 3111 N. Capitol Ave., Pasco, WA 99301
  * Phone:   (509) 308-6489
  * Web:     https://www.mhc-gc.com
@@ -83,6 +83,40 @@
   --type-print-qr-caption: 6.5pt;
   --type-print-qr-body: 8pt;
   --type-print-qr-title: 8.5pt;
+  --type-print-cover-meta: 10pt;
+  --type-print-cover-title: 42pt;
+  --type-print-cover-subtitle: 11pt;
+
+  /* ── Print Heading Scale ────────────────────────── */
+  --type-print-h1: 22pt;
+  --type-print-h2: 16pt;
+  --type-print-h3: 13pt;
+  --type-print-h4: 11pt;
+  --type-print-h5: 10pt;
+  --type-print-h6: 9pt;
+
+  /* ── Component Type Tokens ─────────────────────── */
+  --type-print-callout-icon: 14pt;
+  --type-print-callout-title: 9pt;
+  --type-print-callout-body: 9pt;
+  --type-print-doc-header-title: 11pt;
+  --type-print-toc-tier-head: 8pt;
+  --type-print-toc-tier-label: 8.5pt;
+  --type-print-toc-tier-desc: 7.5pt;
+  --type-print-tab-watermark: 72pt;
+  --type-print-tab-title: 22pt;
+  --type-print-emphasis-warning: 12pt;
+
+  /* ── Component Spacing Tokens ──────────────────── */
+  --spacing-component-callout: 8pt 10pt;
+  --spacing-component-badge: 2pt 7pt;
+  --spacing-component-toc-tier: 3pt 4pt;
+  --spacing-component-toc-entry: 3pt 0;
+  --spacing-component-table-head-cell: 5pt 7pt;
+  --spacing-component-table-cell: 4pt 7pt;
+  --spacing-component-form-header: 7pt 10pt;
+  --spacing-component-form-badge: 2pt 8pt;
+  --spacing-component-signature-cell: 5pt 8pt;
 
   /* ── Sizing ─────────────────────────────────────── */
   --page-width: 8.5in;
@@ -91,4 +125,12 @@
   --margin-right: 0.75in;
   --margin-bottom: 0.75in;
   --margin-left: 1.25in; /* Extra for 3-ring binder punch */
+
+  /* ── Cover Spacing Tokens ─────────────────────── */
+  --spacing-cover-top-pad: 0 0.5in;
+  --spacing-cover-hero-pad: 0.35in 0.6in;
+  --spacing-cover-logo-pad: 0.2in 0.3in;
+  --spacing-cover-badge-pad: 5pt 16pt;
+  --spacing-cover-qr-pad: 0.08in;
+  --spacing-cover-bottom-pad: 0 0.45in;
 }

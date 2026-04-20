@@ -29,10 +29,10 @@
 
 import puppeteer from "puppeteer";
 import QRCode from "qrcode";
-import { readFile, writeFile, mkdir, readdir } from "fs/promises";
-import { readFileSync, existsSync } from "fs";
-import { join, resolve, dirname, extname } from "path";
-import { fileURLToPath, pathToFileURL } from "url";
+import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
+import { readFileSync, existsSync, unlinkSync } from "node:fs";
+import { join, resolve, dirname, extname } from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const SITE_URL = "https://www.mhc-gc.com";
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -46,7 +46,8 @@ const FORMS_DIR = join(DOCS_DIR, "forms");
 const args = process.argv.slice(2);
 const getArg = (flag) => {
   const i = args.indexOf(flag);
-  return i !== -1 ? args[i + 1] : null;
+  if (i === -1) return null;
+  return args[i + 1];
 };
 const template = getArg("--template") || "all";
 const sectionNo = getArg("--section");
@@ -118,6 +119,9 @@ try {
   /* Travelers logo not found — footer will render without it */
 }
 
+const CANONICAL_OWNERSHIP_TAGLINE =
+  "Founded 2010, Veteran-Owned Since January 2025";
+
 /**
  * Build a flat token map from the brand config.
  * Every key becomes {{BRAND_KEY}} in templates.
@@ -137,10 +141,8 @@ function buildBrandTokens(brand) {
     try {
       const buf = readFileSync(absPath);
       const ext = extname(absPath).slice(1).toLowerCase();
-      const mime =
-        ext === "svg"
-          ? "image/svg+xml"
-          : `image/${ext === "jpg" ? "jpeg" : ext}`;
+      const imageExt = ext === "jpg" ? "jpeg" : ext;
+      const mime = ext === "svg" ? "image/svg+xml" : `image/${imageExt}`;
       return `data:${mime};base64,${buf.toString("base64")}`;
     } catch {
       // Fallback to file:// URL if file cannot be read
@@ -153,7 +155,7 @@ function buildBrandTokens(brand) {
     "{{BRAND_COMPANY_NAME}}": brand.companyName,
     "{{BRAND_COMPANY_SHORT}}": brand.companyShort,
     "{{BRAND_TAGLINE}}": brand.tagline,
-    "{{BRAND_VETERAN}}": brand.veteranOwned ? "Veteran-Owned" : "",
+    "{{BRAND_VETERAN}}": brand.veteranOwned ? CANONICAL_OWNERSHIP_TAGLINE : "",
     "{{BRAND_ADDRESS}}": brand.address,
     "{{BRAND_ADDRESS_STREET}}": brand.addressStreet,
     "{{BRAND_ADDRESS_CITYSTATEZIP}}": brand.addressCityStateZip,
@@ -197,6 +199,11 @@ function buildBrandTokens(brand) {
 
 const BRAND_TOKENS = buildBrandTokens(BRAND);
 const BRAND_LICENSES_INLINE = BRAND_TOKENS["{{BRAND_LICENSES_INLINE}}"];
+const BRAND_COLORS = {
+  primary: BRAND.colors.primary,
+  secondary: BRAND.colors.secondary,
+  secondaryText: BRAND.colors.secondaryText,
+};
 
 /** Apply all brand tokens to an HTML string. */
 function applyBrandTokens(html) {
@@ -219,7 +226,7 @@ function sectionToTab(sectionNumber) {
   if (n === 0) return "TOC";
   if (n >= 1 && n <= 33) return String(n);
   // 34→A, 35→B, … 44→K
-  return String.fromCharCode(65 + (n - 34));
+  return String.fromCodePoint(65 + (n - 34));
 }
 
 /**
@@ -267,28 +274,28 @@ function buildSectionHeaderHtml(sectionNum, sectionTitle, revNum, revDate) {
   const font = "'Helvetica Neue',Arial,sans-serif";
   const pad = "padding:0 0.75in 0 1.25in";
   return [
-    `<div style="width:100%;background:white;border-bottom:1.5pt solid #BD9264;`,
+    `<div style="width:100%;background:white;border-bottom:1.5pt solid ${BRAND_COLORS.secondary};`,
     `${pad};height:0.65in;display:flex;align-items:center;`,
     `justify-content:space-between;font-family:${font};`,
     `-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box;">`,
 
     // LEFT — section designator + title
     `<div style="flex:1;display:flex;flex-direction:column;justify-content:center;overflow:hidden;">`,
-    `<span style="font-size:10pt;font-weight:900;color:#386851;line-height:1;">MISH ${sectionNum}</span>`,
-    `<span style="font-size:8pt;font-weight:700;color:#386851;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${titleShort}</span>`,
+    `<span style="font-size:10pt;font-weight:900;color:${BRAND_COLORS.primary};line-height:1;">MISH ${sectionNum}</span>`,
+    `<span style="font-size:8pt;font-weight:700;color:${BRAND_COLORS.primary};line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${titleShort}</span>`,
     `</div>`,
 
     // CENTER — single high-resolution MHC logo, centered in header block
     `<div style="flex:0 0 auto;display:flex;justify-content:center;align-items:center;padding:0 14pt;">`,
     LOGO_COLOR_B64
       ? `<img src="${LOGO_COLOR_B64}" style="height:34pt;width:auto;" alt="MH Construction" />`
-      : `<span style="font-size:13pt;font-weight:900;color:#386851;letter-spacing:0.04em;">MHC</span>`,
+      : `<span style="font-size:13pt;font-weight:900;color:${BRAND_COLORS.primary};letter-spacing:0.04em;">MHC</span>`,
     `</div>`,
 
     // RIGHT — binder tab location + revision metadata
     `<div style="flex:1;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;">`,
-    `<span style="font-size:7pt;font-weight:700;color:#BD9264;line-height:1.2;letter-spacing:0.04em;">BINDER LOCATION: TAB ${tabRef}</span>`,
-    `<span style="font-size:7.5pt;color:#8A6B49;white-space:nowrap;line-height:1.3;">Rev. ${revNum}&nbsp;|&nbsp;${revDate}</span>`,
+    `<span style="font-size:7pt;font-weight:700;color:${BRAND_COLORS.secondary};line-height:1.2;letter-spacing:0.04em;">BINDER LOCATION: TAB ${tabRef}</span>`,
+    `<span style="font-size:7.5pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;line-height:1.3;">Rev. ${revNum}&nbsp;|&nbsp;${revDate}</span>`,
     `</div>`,
 
     `</div>`,
@@ -303,23 +310,23 @@ function buildSectionHeaderHtml(sectionNum, sectionTitle, revNum, revDate) {
 // Left: Company + contact  |  Center: MHC-APP identifier + Veteran Owned + compliance  |  Right: Page
 const SECTION_FOOTER_HTML = [
   // Outer container — matches cover-bottom layout (light variant)
-  `<div style="width:100%;border-top:0.75pt solid #BD9264;`,
+  `<div style="width:100%;border-top:0.75pt solid ${BRAND_COLORS.secondary};`,
   `padding:0 0.75in 0 1.25in;height:0.65in;display:flex;align-items:center;`,
   `justify-content:space-between;gap:0.2in;font-family:'Helvetica Neue',Arial,sans-serif;`,
   `-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box;">`,
 
   // LEFT — Company contact (mirrors cover-bottom-left)
-  `<div style="flex:1;min-width:0;color:#8A6B49;font-size:8pt;line-height:1.65;">`,
-  `<strong style="color:#386851;">${BRAND.companyName}</strong>`,
-  `<span style="color:#8A6B49;margin:0 5pt;">|</span>${BRAND.phone}<br>`,
+  `<div style="flex:1;min-width:0;color:${BRAND_COLORS.secondaryText};font-size:8pt;line-height:1.65;">`,
+  `<strong style="color:${BRAND_COLORS.primary};">${BRAND.companyName}</strong>`,
+  `<span style="color:${BRAND_COLORS.secondaryText};margin:0 5pt;">|</span>${BRAND.phone}<br>`,
   `${BRAND.addressStreet}, ${BRAND.addressCityStateZip}<br>`,
   `${BRAND.website}</div>`,
 
   // RIGHT — Licenses + BBB + AGC logos (mirrors cover-bottom-right)
   `<div style="flex-shrink:0;display:flex;align-items:center;gap:0.12in;">`,
-  `<div style="text-align:right;font-size:7pt;color:#8A6B49;white-space:nowrap;line-height:1.65;">`,
+  `<div style="text-align:right;font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;line-height:1.65;">`,
   `${BRAND_LICENSES_INLINE.replaceAll("  ·  ", "&nbsp;&middot;&nbsp;")}<br>`,
-  `<span style="color:#BD9264;font-weight:700;">Revision ${BRAND.revisionYear}</span></div>`,
+  `<span style="color:${BRAND_COLORS.secondary};font-weight:700;">Revision ${BRAND.revisionYear}</span></div>`,
   BBB_LOGO_B64
     ? `<img src="${BBB_LOGO_B64}" style="height:0.34in;width:auto;display:block;flex-shrink:0;" alt="BBB Accredited A+" />`
     : "",
@@ -372,7 +379,7 @@ async function renderHtmlToPdf(
   const tmpHtml = join(DOCS_DIR, tmpName);
   await writeFile(tmpHtml, html, "utf-8");
   await renderPdf(tmpHtml, pdfPath, pageOpts);
-  await import("fs").then((fs) => fs.default.unlinkSync(tmpHtml));
+  unlinkSync(tmpHtml);
 }
 
 /**
@@ -496,9 +503,9 @@ async function generateSections(filter = null) {
 
   // Optional: render only a single section
   const targets =
-    filter !== null
-      ? sections.filter((s) => String(s.number) === String(filter))
-      : sections;
+    filter === null
+      ? sections
+      : sections.filter((s) => String(s.number) === String(filter));
 
   console.log(`\n📑 Generating ${targets.length} section PDF(s)…`);
 
@@ -512,23 +519,25 @@ async function generateSections(filter = null) {
     const sectionUrl = `${SITE_URL}/resources/safety-manual/section/${section.slug}`;
     const qrDataUrl = await buildQrDataUrl(sectionUrl);
 
+    let sectionBody;
+    if (section.number === 0) {
+      sectionBody = textToTocHtml(section.body);
+    } else if (section.body.trimStart().startsWith("<")) {
+      sectionBody = cleanWordHtml(section.body);
+    } else {
+      sectionBody = textToHtml(section.body);
+    }
+
     // Inject section data + brand tokens; run section-specific post-processing
     let html = applyBrandTokens(
       templateHtml
-        .replace(/\{\{SECTION_NUMBER\}\}/g, section.numberStr)
-        .replace(/\{\{SECTION_TITLE\}\}/g, escapeHtml(section.title))
-        .replace(
-          /\{\{SECTION_BODY\}\}/g,
-          section.number === 0
-            ? textToTocHtml(section.body)
-            : section.body.trimStart().startsWith("<")
-              ? cleanWordHtml(section.body)
-              : textToHtml(section.body),
-        )
-        .replace(/\{\{REVISION_YEAR\}\}/g, BRAND.revisionYear || "2026")
-        .replace(/\{\{TOTAL_SECTIONS\}\}/g, String(sections.length))
-        .replace(/\{\{QR_CODE_DATA_URL\}\}/g, qrDataUrl)
-        .replace(/\{\{SECTION_URL\}\}/g, escapeHtml(sectionUrl)),
+        .replaceAll("{{SECTION_NUMBER}}", section.numberStr)
+        .replaceAll("{{SECTION_TITLE}}", escapeHtml(section.title))
+        .replaceAll("{{SECTION_BODY}}", sectionBody)
+        .replaceAll("{{REVISION_YEAR}}", BRAND.revisionYear || "2026")
+        .replaceAll("{{TOTAL_SECTIONS}}", String(sections.length))
+        .replaceAll("{{QR_CODE_DATA_URL}}", qrDataUrl)
+        .replaceAll("{{SECTION_URL}}", escapeHtml(sectionUrl)),
     );
 
     // Post-process: 3-Hour Rule callout, Addendum A table, form page breaks
@@ -587,7 +596,7 @@ async function listStandaloneFormTemplates() {
     return entries
       .filter((entry) => entry.isFile() && entry.name.endsWith(".html"))
       .map((entry) => entry.name.replace(/\.html$/, ""))
-      .sort();
+      .sort((a, b) => a.localeCompare(b));
   } catch (error) {
     if (error && typeof error === "object" && "code" in error) {
       if (error.code === "ENOENT") {
@@ -614,10 +623,10 @@ async function generateForms() {
 // ── Utilities ─────────────────────────────────────────────────────────────────
 function escapeHtml(str) {
   return String(str)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
 }
 
 /**
@@ -633,86 +642,101 @@ function escapeHtml(str) {
  *  - Strips the column-header row ("NUMBER TITLE REV EFF. DATE")
  *  - Strips per-page artifact banners (company header repeated on each page)
  */
+const TOC_ARTIFACT_PATTERNS = [
+  /^--\s*\d+\s*of\s*\d+\s*--$/,
+  /^MH CONSTRUCTION\s*$/i,
+  /^Industrial Safety and Health Program\s*$/i,
+  /^MISH\s+TOC\s*$/i,
+  /^Veteran Owned\s*$/i,
+  /^MH Construction,?\s*Inc\.?\s*\|/i,
+  /^Aligned with AGC/i,
+  /^NUMBER\s+TITLE\s+REV/i,
+];
+
+function isAllCapsSubhead(line) {
+  return (
+    line.length < 90 &&
+    line === line.toUpperCase() &&
+    /[A-Z]{2}/.test(line) &&
+    !/^\d/.test(line)
+  );
+}
+
+function parseTocEntry(line) {
+  const tocMatch = /^MISH\s+(\d+)\s+(.+)$/.exec(line);
+  if (!tocMatch) return null;
+
+  const numInt = Number(tocMatch[1]);
+  const num = tocMatch[1].padStart(2, "0");
+  const title = tocMatch[2]
+    .replace(/\s+\d+\s+\d{2}\/\d{2}\/\d{4}\s*$/, "")
+    .trim();
+
+  return {
+    num,
+    numInt,
+    title,
+    tabRef: sectionToTab(numInt),
+    tier: sectionToTier(numInt),
+  };
+}
+
+function renderTocTierHeading(tier) {
+  return (
+    `<div class="toc-tier-heading">` +
+    `<span class="toc-tier-label">TIER ${tier.num}</span>` +
+    `<span class="toc-tier-desc">${tier.label} — ${tier.desc}</span>` +
+    `</div>`
+  );
+}
+
+function renderTocEntry(entry) {
+  return (
+    `<div class="toc-entry">` +
+    `<span class="toc-tab">TAB ${entry.tabRef}</span>` +
+    `<span class="toc-number">MISH\u00a0${entry.num}</span>` +
+    `<span class="toc-title">${escapeHtml(entry.title)}</span>` +
+    `<span class="toc-dots"></span>` +
+    `</div>`
+  );
+}
+
+function processTocLine(line, state) {
+  if (!line) return;
+
+  if (/^TABLE\s+OF\s+CONTENTS\s*$/i.test(line)) {
+    state.inToc = true;
+    state.parts.push(`<h4 class="sec-subhead">TABLE OF CONTENTS</h4>`);
+    return;
+  }
+
+  if (!state.inToc) return;
+  if (TOC_ARTIFACT_PATTERNS.some((p) => p.test(line))) return;
+
+  const entry = parseTocEntry(line);
+  if (entry) {
+    if (entry.tier && state.lastTier !== entry.tier.num) {
+      state.parts.push(renderTocTierHeading(entry.tier));
+      state.lastTier = entry.tier.num;
+    }
+    state.parts.push(renderTocEntry(entry));
+    return;
+  }
+
+  if (isAllCapsSubhead(line)) {
+    state.parts.push(`<h4 class="sec-subhead">${escapeHtml(line)}</h4>`);
+  }
+}
+
 function textToTocHtml(text) {
   if (!text) return "";
 
-  const TOC_ARTIFACT = [
-    /^--\s*\d+\s*of\s*\d+\s*--$/,
-    /^MH CONSTRUCTION\s*$/i,
-    /^Industrial Safety and Health Program\s*$/i,
-    /^MISH\s+TOC\s*$/i,
-    /^Veteran Owned\s*$/i,
-    /^MH Construction,?\s*Inc\.?\s*\|/i,
-    /^Aligned with AGC/i,
-    /^NUMBER\s+TITLE\s+REV/i,
-  ];
-
-  const lines = text.split("\n");
-  const parts = [];
-  let inToc = false;
-  let lastTier = null;
-
-  for (const raw of lines) {
-    const line = raw.trim();
-    if (!line) continue;
-
-    // Everything before the TABLE OF CONTENTS heading is preamble — skip it
-    if (/^TABLE\s+OF\s+CONTENTS\s*$/i.test(line)) {
-      inToc = true;
-      parts.push(`<h4 class="sec-subhead">TABLE OF CONTENTS</h4>`);
-      continue;
-    }
-    if (!inToc) continue;
-
-    // Suppress per-page artifact lines
-    if (TOC_ARTIFACT.some((p) => p.test(line))) continue;
-
-    // "MISH ## Section Title [Rev Date]" — the core TOC entry
-    const tocMatch = line.match(/^MISH\s+(\d+)\s+(.+)$/);
-    if (tocMatch) {
-      const num = tocMatch[1].padStart(2, "0");
-      const numInt = Number(tocMatch[1]);
-      // Strip trailing " 2 04/07/2026" style revision/date suffix
-      const title = tocMatch[2]
-        .replace(/\s+\d+\s+\d{2}\/\d{2}\/\d{4}\s*$/, "")
-        .trim();
-      const tabRef = sectionToTab(numInt);
-      const tier = sectionToTier(numInt);
-
-      // Insert tier heading when entering a new tier
-      if (tier && (!lastTier || lastTier !== tier.num)) {
-        parts.push(
-          `<div class="toc-tier-heading">` +
-            `<span class="toc-tier-label">TIER ${tier.num}</span>` +
-            `<span class="toc-tier-desc">${tier.label} — ${tier.desc}</span>` +
-            `</div>`,
-        );
-        lastTier = tier.num;
-      }
-
-      parts.push(
-        `<div class="toc-entry">` +
-          `<span class="toc-tab">TAB ${tabRef}</span>` +
-          `<span class="toc-number">MISH\u00a0${num}</span>` +
-          `<span class="toc-title">${escapeHtml(title)}</span>` +
-          `<span class="toc-dots"></span>` +
-          `</div>`,
-      );
-      continue;
-    }
-
-    // All-caps short lines after the heading become sub-section markers
-    if (
-      line.length < 90 &&
-      line === line.toUpperCase() &&
-      /[A-Z]{2}/.test(line) &&
-      !/^\d/.test(line)
-    ) {
-      parts.push(`<h4 class="sec-subhead">${escapeHtml(line)}</h4>`);
-    }
+  const state = { inToc: false, lastTier: null, parts: [] };
+  for (const raw of text.split("\n")) {
+    processTocLine(raw.trim(), state);
   }
 
-  return parts.join("\n");
+  return state.parts.join("\n");
 }
 
 /**
@@ -758,33 +782,33 @@ function cleanWordHtml(html) {
   let out = html;
 
   // Strip inline style attributes
-  out = out.replace(/\s+style="[^"]*"/gi, "");
+  out = out.replaceAll(/\s+style="[^"]*"/gi, "");
 
   // Strip colour/font spans that add no semantic value
-  out = out.replace(/<span[^>]*>([^<]*)<\/span>/gi, "$1");
+  out = out.replaceAll(/<span[^>]*>([^<]*)<\/span>/gi, "$1");
 
   // Remove empty / whitespace-only paragraphs
-  out = out.replace(/<p>(\s|&nbsp;)*<\/p>/gi, "");
+  out = out.replaceAll(/<p>(\s|&nbsp;)*<\/p>/gi, "");
 
   // Remove boilerplate <p> blocks
-  out = out.replace(/<p>([\s\S]*?)<\/p>/gi, (match, inner) => {
-    const text = inner.replace(/<[^>]+>/g, "").trim();
+  out = out.replaceAll(/<p>([\s\S]*?)<\/p>/gi, (match, inner) => {
+    const text = inner.replaceAll(/<[^>]+>/g, "").trim();
     if (!text) return "";
     if (STRIP.some((p) => p.test(text))) return "";
     return match;
   });
 
   // Remap heading levels to sec-subhead style
-  out = out.replace(
+  out = out.replaceAll(
     /<h[123](\s[^>]*)?>([\s\S]*?)<\/h[123]>/gi,
     (_, attrs, content) => `<h4 class="sec-subhead">${content}</h4>`,
   );
 
   // Add sec-list class to lists
-  out = out.replace(/<(ul|ol)(\s[^>]*)?>/gi, '<$1 class="sec-list">');
+  out = out.replaceAll(/<(ul|ol)(\s[^>]*)?>/gi, '<$1 class="sec-list">');
 
   // Add sec-bullet class to list items
-  out = out.replace(/<li(\s[^>]*)?>/gi, '<li class="sec-bullet">');
+  out = out.replaceAll(/<li(\s[^>]*)?>/gi, '<li class="sec-bullet">');
 
   return out.trim();
 }
@@ -842,7 +866,8 @@ function textToHtml(text) {
     if (STRIP.some((p) => p.test(line))) continue;
 
     // Dotted section number: "2.3", "2.3.1", "2.3.1.1" — flush-left heading
-    const numMatch = line.match(/^(\d+\.\d+(?:\.\d+)*)\s+(.+)$/);
+    const sectionNumberRegex = /^(\d+\.\d+(?:\.\d+)*)\s+(.+)$/;
+    const numMatch = sectionNumberRegex.exec(line);
     if (numMatch && line.length < 160) {
       flush();
       parts.push(
@@ -881,7 +906,7 @@ function textToHtml(text) {
 
   // Wrap orphaned <li> elements in <ul>
   let html = parts.join("\n");
-  html = html.replace(
+  html = html.replaceAll(
     /(<li[\s\S]*?<\/li>\n?)+/g,
     (m) => `<ul class="sec-list">${m}</ul>`,
   );
@@ -925,7 +950,7 @@ function injectThreeHourCallout(html, sectionNumber) {
     // background + 2pt MHC Green border renders correctly and the bold-warning achieves 12pt.
     let replaced = false;
 
-    html = html.replace(
+    html = html.replaceAll(
       /<table><tr><td>(?:<p><strong>3-HOUR RULE[^<]*<\/strong><\/p>[\s\S]*?)<\/td><\/tr><\/table>/gi,
       (match) => {
         replaced = true;
@@ -1088,7 +1113,7 @@ function injectFormPageBreaks(html) {
  * Replace long underscore sequences with styled non-breaking signature lines.
  */
 function injectSignatureLines(html) {
-  return html.replace(/_{8,}/g, '<span class="sig-line-underline"></span>');
+  return html.replaceAll(/_{8,}/g, '<span class="sig-line-underline"></span>');
 }
 
 /**
@@ -1468,8 +1493,10 @@ async function main() {
   }
 }
 
-main().catch((err) => {
+try {
+  await main();
+} catch (err) {
   console.error("\n❌ Fatal error:", err);
   if (_browser) _browser.close();
   process.exit(1);
-});
+}

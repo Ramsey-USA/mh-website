@@ -31,6 +31,8 @@ Do not require the user to memorize agent names.
 - SEO, metadata, nav labels, schema naming -> seo-signal-officer
 - Accessibility checks and remediation -> accessibility-watch-officer
 - Safety and hub routing congruency -> safety-hub-liaison
+- Forms templates, printable docs, and form generation compliance -> forms-logistics-officer
+- Manual layout uniformity and WBS numbering enforcement -> manual-structure-officer
 - UI pattern and visual standard enforcement -> design-quartermaster
 - Final PR readiness and risk summary -> release-command
 

@@ -59,7 +59,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0 0.5in;
+        padding: var(--spacing-cover-top-pad);
         flex-shrink: 0;
       }
       .cover-top-text {
@@ -82,7 +82,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 0.35in 0.6in;
+        padding: var(--spacing-cover-hero-pad);
         position: relative;
         overflow: hidden;
       }
@@ -101,7 +101,7 @@
       }
       .cover-logo-wrap {
         background: white;
-        padding: 0.2in 0.3in;
+        padding: var(--spacing-cover-logo-pad);
         border-radius: 4pt;
         display: inline-block;
         margin-bottom: 0.35in;
@@ -131,8 +131,8 @@
         z-index: 1;
       }
       .cover-document-label {
-        color: #d9bd93;
-        font-size: 10pt;
+        color: #ffffff;
+        font-size: var(--type-print-cover-meta);
         font-weight: 600;
         letter-spacing: 0.25em;
         text-transform: uppercase;
@@ -142,7 +142,7 @@
       }
       .cover-title {
         color: #fff;
-        font-size: 42pt;
+        font-size: var(--type-print-cover-title);
         font-weight: 900;
         text-align: center;
         line-height: 1;
@@ -154,7 +154,7 @@
       }
       .cover-subtitle {
         color: #bd9264;
-        font-size: 11pt;
+        font-size: var(--type-print-cover-subtitle);
         font-weight: 500;
         text-align: center;
         letter-spacing: 0.1em;
@@ -176,12 +176,12 @@
         display: inline-flex;
         align-items: center;
         gap: 8pt;
-        background: rgba(168, 121, 72, 0.22);
-        border: 1pt solid rgba(168, 121, 72, 0.55);
+        background: rgba(18, 35, 27, 0.82);
+        border: 1pt solid rgba(189, 146, 100, 0.7);
         border-radius: 3pt;
-        padding: 5pt 16pt;
-        color: #d9bd93;
-        font-size: 8.5pt;
+        padding: var(--spacing-cover-badge-pad);
+        color: #ffffff;
+        font-size: var(--type-print-table);
         font-weight: 700;
         letter-spacing: 0.12em;
         text-transform: uppercase;
@@ -191,12 +191,12 @@
       .cover-veteran::before {
         content: "★";
         color: #bd9264;
-        font-size: 10pt;
+        font-size: var(--type-print-cover-meta);
       }
       .cover-veteran::after {
         content: "★";
         color: #bd9264;
-        font-size: 10pt;
+        font-size: var(--type-print-cover-meta);
       }
       /* QR code block in hero */
       .cover-qr-block {
@@ -209,7 +209,7 @@
       }
       .cover-qr-wrap {
         background: white;
-        padding: 0.08in;
+        padding: var(--spacing-cover-qr-pad);
         border-radius: 4pt;
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
         display: inline-block;
@@ -221,7 +221,7 @@
       }
       .cover-qr-label {
         color: #d9bd93;
-        font-size: 7pt;
+        font-size: var(--type-print-footer);
         font-weight: 600;
         letter-spacing: 0.14em;
         text-transform: uppercase;
@@ -231,7 +231,7 @@
       .cover-bottom {
         background: #12231b;
         height: 0.65in;
-        padding: 0 0.45in;
+        padding: var(--spacing-cover-bottom-pad);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -240,7 +240,7 @@
       }
       .cover-bottom-left {
         color: rgba(255, 255, 255, 0.85);
-        font-size: 8pt;
+        font-size: var(--type-print-table-compact);
         flex: 1;
         min-width: 0;
         line-height: 1.65;
@@ -257,7 +257,7 @@
       }
       .cover-licenses {
         text-align: right;
-        font-size: 7pt;
+        font-size: var(--type-print-footer);
         color: #8a6b49;
         white-space: nowrap;
         line-height: 1.65;
@@ -286,9 +286,9 @@
 
       <div class="cover-top">
         <span class="cover-top-text">
-          MH Construction,
-          Inc.&nbsp;&nbsp;·&nbsp;&nbsp;Veteran-Owned&nbsp;&nbsp;·&nbsp;&nbsp;Pasco,
-          WA 99301
+          MH Construction, Inc.&nbsp;&nbsp;·&nbsp;&nbsp;Founded 2010,
+          Veteran-Owned Since January 2025&nbsp;&nbsp;·&nbsp;&nbsp;Pasco, WA
+          99301
         </span>
       </div>
 
@@ -307,7 +307,9 @@
           MHC Industrial Safety and Health Program (MISH)
         </div>
         <div class="cover-rule-bottom"></div>
-        <div class="cover-veteran">Veteran-Owned General Contractor</div>
+        <div class="cover-veteran">
+          Founded 2010, Veteran-Owned Since January 2025
+        </div>
         <div class="cover-qr-block">
           <div class="cover-qr-wrap">
             <img

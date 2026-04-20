@@ -9,6 +9,7 @@
 
 - [📚 Consistency Guide](./consistency-guide.md)
 - [🧱 Universal Page Flow Standard](./universal-page-flow-standard.md)
+- [🛡 Agent Prompt Runbook](./agent-prompt-runbook.md)
 - [Main README](../../../README.md)
 
 ---
