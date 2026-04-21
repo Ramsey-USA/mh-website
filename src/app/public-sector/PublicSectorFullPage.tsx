@@ -325,10 +325,10 @@ export default function PublicSectorFullPage() {
               Public Sector → Government
             </span>
             <span className="block text-brand-secondary">
-              Federal Contracting Excellence
+              Mission-Ready, Compliance-Driven
             </span>
             <span className="block text-brand-primary">
-              Veteran-Owned Precision for Mission-Critical Government Projects
+              Veteran-Owned Partnership for Government Projects
             </span>
             <span className="block text-white/90">
               Building projects for the Client,{" "}
@@ -966,26 +966,25 @@ export default function PublicSectorFullPage() {
               {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
-                  Ready to Execute Your
+                  Ready to Plan Your
                 </span>
                 <span className="block bg-gradient-to-r from-brand-primary-light via-white to-brand-primary-light bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
-                  Federal Mission?
+                  Government Project?
                 </span>
               </h2>
 
               {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl mb-8 font-light text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                Deploy with{" "}
+                Partner with{" "}
                 <span className="font-bold text-brand-primary-light">
                   Army veteran leadership
                 </span>{" "}
-                that delivers{" "}
+                for{" "}
                 <span className="font-bold text-white">
-                  mission-critical results
+                  clear planning and compliant delivery
                 </span>
-                . Contact our command center to discuss your federal
-                construction requirements and begin mission planning for
-                successful execution.
+                . Contact our team to discuss your government construction
+                requirements and next steps.
               </p>
             </div>
 
@@ -1064,24 +1063,28 @@ export default function PublicSectorFullPage() {
                     className="mr-3"
                     size="lg"
                     theme="military"
-                    ariaLabel="Request Mission Brief"
+                    ariaLabel="Request Project Consultation"
                   />
-                  Request Mission Brief
+                  Request Project Consultation
                 </Button>
               </Link>
-              <Button
-                size="lg"
-                className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-500 dark:hover:bg-gray-600 px-10 py-7 text-white dark:text-white text-xl"
+              <a
+                href={`mailto:${COMPANY_INFO.email.main}?subject=Federal%20Capabilities%20Brief%20Request`}
               >
-                <MaterialIcon
-                  icon="download"
-                  className="mr-3"
+                <Button
                   size="lg"
-                  theme="military"
-                  ariaLabel="Federal Capabilities Brief"
-                />
-                Federal Capabilities Brief
-              </Button>
+                  className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-500 dark:hover:bg-gray-600 px-10 py-7 text-white dark:text-white text-xl"
+                >
+                  <MaterialIcon
+                    icon="download"
+                    className="mr-3"
+                    size="lg"
+                    theme="military"
+                    ariaLabel="Request Federal Capabilities Brief"
+                  />
+                  Request Federal Capabilities Brief
+                </Button>
+              </a>
             </div>
 
             <p className="mt-8 text-gray-600 dark:text-gray-300 text-sm">
