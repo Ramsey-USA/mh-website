@@ -430,39 +430,44 @@ function ServiceAreasDropdown({
     <div ref={dropdownRef} className="relative">
       <button
         onClick={onToggle}
-        className="group flex items-center gap-1.5 rounded-lg border border-brand-primary/20 bg-brand-primary/5 px-3 py-2 text-sm font-semibold transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-primary/40 hover:bg-brand-primary/15 dark:border-brand-primary/30 dark:bg-brand-primary/10"
+        className="group flex items-center gap-2 rounded-lg border border-brand-secondary/30 bg-gradient-to-r from-brand-primary to-brand-primary-dark px-4 py-2 text-sm font-bold text-brand-secondary shadow-md transition-all duration-300 touch-manipulation hover:scale-105 hover:from-brand-primary-dark hover:to-brand-primary hover:border-brand-secondary hover:text-brand-secondary-light hover:shadow-lg hover:shadow-brand-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900"
         aria-expanded={isOpen}
         aria-haspopup="listbox"
       >
         <MaterialIcon
           icon="map"
           size="sm"
-          className="text-brand-secondary dark:text-brand-secondary-light"
+          className="text-brand-secondary transition-colors group-hover:text-brand-secondary-light"
         />
-        <span className="text-gray-300 dark:text-gray-200">
+        <span className="font-bold text-brand-secondary transition-colors group-hover:text-brand-secondary-light">
           {isEs ? "Areas atendidas" : "Areas Served"}
         </span>
         <MaterialIcon
           icon={isOpen ? "expand_less" : "expand_more"}
           size="sm"
-          className="text-brand-secondary dark:text-brand-secondary-light transition-transform"
+          className="text-brand-secondary transition-all group-hover:text-brand-secondary-light"
         />
       </button>
       {isOpen && (
         <div
-          className="absolute bottom-full left-0 mb-2 w-64 rounded-lg border border-brand-primary/30 bg-gray-800 dark:bg-gray-900 p-3 shadow-xl z-50"
+          className="absolute bottom-full left-0 z-50 mb-2 w-72 rounded-xl border border-brand-primary/40 bg-gradient-to-b from-gray-800 to-gray-900 p-3 shadow-xl shadow-brand-primary/20"
           role="listbox"
           aria-label={isEs ? "Areas de servicio" : "Service areas"}
         >
-          <div className="text-xs font-bold uppercase tracking-wide text-brand-primary mb-2">
-            {isEs ? "Pacifico Noroeste" : "Pacific Northwest"}
+          <div className="mb-2 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-brand-primary">
+            <MaterialIcon
+              icon="location_on"
+              size="sm"
+              className="text-brand-secondary"
+            />
+            <span>{isEs ? "Pacifico Noroeste" : "Pacific Northwest"}</span>
           </div>
           <div className="flex flex-wrap gap-1.5">
             {linkedCities.map((city) => (
               <Link
                 key={city.href}
                 href={city.href}
-                className="bg-gray-700/50 hover:bg-brand-primary/20 px-2 py-1 rounded text-gray-300 text-xs transition-colors hover:text-brand-secondary"
+                className="rounded-full border border-brand-primary/25 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 px-2.5 py-1 text-xs font-semibold text-gray-200 transition-all duration-300 hover:scale-105 hover:border-brand-secondary/40 hover:from-brand-primary/20 hover:to-brand-secondary/20 hover:text-brand-secondary-light"
                 itemProp="areaServed"
                 itemScope
                 itemType="https://schema.org/City"
@@ -471,23 +476,23 @@ function ServiceAreasDropdown({
               </Link>
             ))}
           </div>
-          <div className="mt-2 border-t border-gray-700 pt-2">
+          <div className="mt-3 border-t border-gray-700/70 pt-2.5">
             <div className="grid gap-1.5">
               {serviceStates.map((state) => (
                 <span
                   key={state.code}
-                  className="flex items-center justify-between rounded bg-gray-700/30 px-2 py-1 text-xs"
+                  className="flex items-center justify-between rounded-lg border border-brand-primary/20 bg-gray-700/40 px-2.5 py-1.5 text-xs"
                   itemProp="areaServed"
                   itemScope
                   itemType="https://schema.org/State"
                 >
-                  <span className="font-semibold text-brand-secondary">
+                  <span className="font-bold text-brand-secondary">
                     {state.code}
                   </span>
-                  <span itemProp="name" className="text-gray-300">
+                  <span itemProp="name" className="text-gray-200">
                     {isEs ? state.nameEs : state.nameEn}
                   </span>
-                  <span className="text-[10px] text-gray-400">
+                  <span className="text-[10px] text-gray-300">
                     {isEs ? state.noteEs : state.noteEn}
                   </span>
                 </span>
