@@ -110,8 +110,6 @@ const faqSchema = {
 
 // NOSONAR: This page intentionally composes many static marketing sections.
 export default function TestimonialsPage() {
-  const isEs = false; // locale served via ISR in English; Spanish users get locale from client bootstrap
-
   return (
     <>
       <PageTrackingClient pageName="Testimonials" />
@@ -226,11 +224,7 @@ export default function TestimonialsPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-3 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-2xl font-bold text-lg"
-                aria-label={
-                  isEs
-                    ? "Deje una resena de Google para MH Construction"
-                    : "Leave a Google review for MH Construction"
-                }
+                aria-label="Leave a Google review for MH Construction"
               >
                 <MaterialIcon
                   icon="star"
@@ -238,18 +232,12 @@ export default function TestimonialsPage() {
                   className="group-hover:scale-110 transition-transform"
                   ariaLabel=""
                 />
-                <span>
-                  {isEs ? "Deja una resena en Google" : "Leave a Google Review"}
-                </span>
+                <span>{"Leave a Google Review"}</span>
               </Link>
               <Link
                 href="/contact"
                 className="group inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-white/50 hover:border-white shadow-2xl font-bold text-lg"
-                aria-label={
-                  isEs
-                    ? "Inicie su proyecto de construccion"
-                    : "Start your construction project"
-                }
+                aria-label="Start your construction project"
               >
                 <MaterialIcon
                   icon="contact_page"
@@ -257,9 +245,7 @@ export default function TestimonialsPage() {
                   className="group-hover:scale-110 transition-transform"
                   ariaLabel=""
                 />
-                <span>
-                  {isEs ? "Inicie su proyecto" : "Start Your Project"}
-                </span>
+                <span>{"Start Your Project"}</span>
               </Link>
             </div>
           </div>
@@ -575,9 +561,7 @@ export default function TestimonialsPage() {
                       ariaLabel="Service coverage map"
                     />
                     <h3 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white">
-                      {isEs
-                        ? "Sirviendo al Pacifico Noroeste"
-                        : "Serving the Pacific Northwest"}
+                      {"Serving the Pacific Northwest"}
                     </h3>
                   </div>
                   <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
@@ -1070,11 +1054,7 @@ export default function TestimonialsPage() {
                 <Link
                   href="/faq"
                   className="group inline-flex items-center justify-center gap-3 bg-brand-primary hover:bg-brand-primary-dark text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-xl font-bold text-lg"
-                  aria-label={
-                    isEs
-                      ? "Ver todas las preguntas frecuentes"
-                      : "View all frequently asked questions"
-                  }
+                  aria-label="View all frequently asked questions"
                 >
                   <MaterialIcon
                     icon="quiz"
@@ -1082,7 +1062,7 @@ export default function TestimonialsPage() {
                     className="group-hover:scale-110 transition-transform"
                     ariaLabel=""
                   />
-                  <span>{isEs ? "Ver todas las FAQs" : "View All FAQs"}</span>
+                  <span>{"View All FAQs"}</span>
                 </Link>
               </div>
             </div>
@@ -1294,11 +1274,7 @@ export default function TestimonialsPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-3 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-xl font-bold text-lg"
-                aria-label={
-                  isEs
-                    ? "Deje una resena de Google para MH Construction"
-                    : "Leave a Google review for MH Construction"
-                }
+                aria-label="Leave a Google review for MH Construction"
               >
                 <MaterialIcon
                   icon="star"
@@ -1306,18 +1282,12 @@ export default function TestimonialsPage() {
                   className="group-hover:scale-110 transition-transform"
                   ariaLabel=""
                 />
-                <span>
-                  {isEs ? "Deja una resena en Google" : "Leave a Google Review"}
-                </span>
+                <span>{"Leave a Google Review"}</span>
               </Link>
               <Link
                 href="/contact"
                 className="group inline-flex items-center justify-center gap-3 bg-brand-primary hover:bg-brand-primary-dark text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-brand-secondary shadow-xl font-bold text-lg"
-                aria-label={
-                  isEs
-                    ? "Inicie su proyecto de construccion"
-                    : "Start your construction project"
-                }
+                aria-label="Start your construction project"
               >
                 <MaterialIcon
                   icon="contact_page"
@@ -1325,9 +1295,7 @@ export default function TestimonialsPage() {
                   className="group-hover:scale-110 transition-transform"
                   ariaLabel=""
                 />
-                <span>
-                  {isEs ? "Inicie su proyecto" : "Start Your Project"}
-                </span>
+                <span>{"Start Your Project"}</span>
               </Link>
             </div>
           </div>
@@ -1361,11 +1329,7 @@ export default function TestimonialsPage() {
             <Link
               href="/contact"
               className="group inline-flex items-center justify-center gap-3 bg-brand-secondary hover:bg-brand-secondary-light text-gray-900 px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-2xl font-bold text-lg"
-              aria-label={
-                isEs
-                  ? "Contactenos para iniciar su proyecto"
-                  : "Contact us to start your project"
-              }
+              aria-label="Contact us to start your project"
             >
               <MaterialIcon
                 icon="contact_page"
@@ -1373,16 +1337,12 @@ export default function TestimonialsPage() {
                 className="group-hover:scale-110 transition-transform"
                 ariaLabel=""
               />
-              <span>{isEs ? "Comience hoy" : "Get Started Today"}</span>
+              <span>{"Get Started Today"}</span>
             </Link>
             <Link
               href="/services"
               className="group inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 border-2 border-white/50 hover:border-white shadow-2xl font-bold text-lg"
-              aria-label={
-                isEs
-                  ? "Conozca nuestros servicios de construccion"
-                  : "Learn about our construction services"
-              }
+              aria-label="Learn about our construction services"
             >
               <MaterialIcon
                 icon="construction"
@@ -1390,9 +1350,7 @@ export default function TestimonialsPage() {
                 className="group-hover:scale-110 transition-transform"
                 ariaLabel=""
               />
-              <span>
-                {isEs ? "Ver nuestros servicios" : "View Our Services"}
-              </span>
+              <span>{"View Our Services"}</span>
             </Link>
           </div>
         </div>
