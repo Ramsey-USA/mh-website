@@ -1,15 +1,11 @@
 import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { Button, AlternatingShowcase } from "@/components/ui";
 import {
-  Button,
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-  AlternatingShowcase,
-} from "@/components/ui";
-import { DiagonalStripePattern } from "@/components/ui/backgrounds";
+  DiagonalStripePattern,
+  BrandColorBlobs,
+} from "@/components/ui/backgrounds";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
@@ -299,7 +295,7 @@ const successFactors = [
 
 export default function PublicSectorFullPage() {
   return (
-    <div className="bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       <PageTrackingClient pageName="Public Sector" />
       <StructuredData data={breadcrumbSchema} />
       {/* Hero Section - Group 4: Professional & Patriotic */}
@@ -352,11 +348,15 @@ export default function PublicSectorFullPage() {
         ]}
       />
       {/* Grant Support Services */}
-      <section className="bg-white dark:bg-gray-900 py-20">
-        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          {/* Section Header - Military Construction Standard */}
+      <section
+        id="overview"
+        className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+      >
+        <DiagonalStripePattern />
+        <BrandColorBlobs />
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          {/* Section Header */}
           <div className="mb-16 sm:mb-20 text-center">
-            {/* Icon with decorative lines */}
             <div className="flex items-center justify-center mb-8 gap-4">
               <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               <div className="relative">
@@ -372,7 +372,6 @@ export default function PublicSectorFullPage() {
               <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
             </div>
 
-            {/* Two-line gradient heading */}
             <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
               <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                 Federal Contracting
@@ -382,10 +381,9 @@ export default function PublicSectorFullPage() {
               </span>
             </h2>
 
-            {/* Description with colored keyword highlighting */}
             <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                Veteran-Owned Army veteran leadership
+                Army veteran-led team
               </span>{" "}
               delivers mission-critical construction services with unwavering
               commitment to federal specifications, operational success,{" "}
@@ -405,27 +403,39 @@ export default function PublicSectorFullPage() {
             className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
           >
             {grantSupportServices.map((service, index) => (
-              <Card
+              <div
                 key={index}
-                className="dark:bg-gray-800 hover:shadow-2xl dark:hover:shadow-gray-600/50 border-gray-800 dark:border-gray-600 border-t-4 transition-all hover:-translate-y-2"
+                className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 overflow-hidden hover:-translate-y-1"
               >
-                <CardHeader>
-                  <div className="flex justify-center items-center bg-gray-200 dark:bg-gray-700 mx-auto mb-6 rounded-full w-20 h-20">
-                    <MaterialIcon
-                      icon={service.icon}
-                      size="3xl"
-                      className="text-gray-700 dark:text-gray-300"
+                {/* Animated border glow */}
+                <div
+                  className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-xl opacity-20 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+                  aria-hidden="true"
+                />
+                {/* Top accent bar */}
+                <div className="h-2 bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600" />
+                <div className="relative p-6 sm:p-8 pt-8">
+                  {/* Icon with nested blur layers */}
+                  <div className="relative inline-block mb-6">
+                    <div
+                      className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-lg opacity-70"
+                      aria-hidden="true"
                     />
+                    <div className="relative bg-gradient-to-br from-slate-600 via-gray-700 to-slate-800 p-4 rounded-xl shadow-xl">
+                      <MaterialIcon
+                        icon={service.icon}
+                        size="2xl"
+                        className="text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
                   </div>
-                  <CardTitle className="mb-4 dark:text-white text-2xl text-center">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3">
                     {service.title}
-                  </CardTitle>
-                  <p className="text-gray-600 dark:text-gray-300 text-center">
+                  </h3>
+                  <p className="text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-300 mb-6">
                     {service.description}
                   </p>
-                </CardHeader>
-                <CardContent>
-                  <div className="pt-6 dark:border-gray-700 border-t">
+                  <div className="border-t dark:border-gray-700 pt-6">
                     <p className="mb-3 font-semibold text-gray-900 dark:text-white text-sm">
                       What We Provide:
                     </p>
@@ -434,7 +444,7 @@ export default function PublicSectorFullPage() {
                         <li key={fIndex} className="flex items-start text-sm">
                           <MaterialIcon
                             icon="check_circle"
-                            className="flex-shrink-0 mt-0.5 mr-2 text-gray-600 dark:text-gray-300"
+                            className="flex-shrink-0 mt-0.5 mr-2 text-gray-500 dark:text-gray-400"
                             size="sm"
                           />
                           <span className="text-gray-700 dark:text-gray-300">
@@ -444,8 +454,8 @@ export default function PublicSectorFullPage() {
                       ))}
                     </ul>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </StaggeredFadeIn>
         </div>
@@ -528,12 +538,20 @@ export default function PublicSectorFullPage() {
         iconVariant="primary"
       />
       {/* Hanford & DOE Section */}
-      <section className="bg-gradient-to-br from-gray-900 to-black py-20 text-white">
-        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <section
+        id="services"
+        className="relative bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden text-white"
+      >
+        <DiagonalStripePattern
+          lightOpacity={0.05}
+          darkOpacity={0.08}
+          color="rgba(255,255,255,0.1)"
+        />
+        <BrandColorBlobs />
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="mx-auto max-w-6xl">
-            {/* Section Header - Military Construction Standard */}
+            {/* Section Header */}
             <div className="mb-16 sm:mb-20 text-center">
-              {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
                 <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-500 rounded-full"></div>
                 <div className="relative">
@@ -549,7 +567,6 @@ export default function PublicSectorFullPage() {
                 <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-500 rounded-full"></div>
               </div>
 
-              {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Hanford & Department of
@@ -559,7 +576,6 @@ export default function PublicSectorFullPage() {
                 </span>
               </h2>
 
-              {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span className="font-bold text-brand-primary-light">
                   Proven operational excellence
@@ -577,37 +593,57 @@ export default function PublicSectorFullPage() {
 
             <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
               {hanfordCapabilities.map((capability, index) => (
-                <Card
+                <div
                   key={index}
-                  className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border-white/20 transition-all"
+                  className="group relative bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-2xl border border-white/20 hover:border-transparent transition-all duration-300 overflow-hidden hover:-translate-y-1"
                 >
-                  <CardContent className="p-6">
-                    <MaterialIcon
-                      icon={capability.icon}
-                      size="2xl"
-                      className="mb-4 text-gray-300"
-                    />
-                    <h3 className="mb-2 font-bold text-white text-lg">
+                  {/* Top accent bar */}
+                  <div className="h-2 bg-gradient-to-r from-slate-500 via-gray-400 to-slate-500" />
+                  <div className="p-6 pt-6">
+                    <div className="relative inline-block mb-4">
+                      <div
+                        className="absolute -inset-2 bg-gradient-to-r from-slate-500/40 to-gray-400/40 blur-lg opacity-70"
+                        aria-hidden="true"
+                      />
+                      <div className="relative bg-gradient-to-br from-slate-600 via-gray-500 to-slate-700 p-3 rounded-xl shadow-xl">
+                        <MaterialIcon
+                          icon={capability.icon}
+                          size="xl"
+                          className="text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
+                        />
+                      </div>
+                    </div>
+                    <h3 className="mb-2 font-bold text-white text-lg sm:text-xl">
                       {capability.title}
                     </h3>
-                    <p className="text-gray-200 text-sm">
+                    <p className="text-gray-200 text-sm sm:text-base leading-relaxed">
                       {capability.description}
                     </p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               ))}
             </StaggeredFadeIn>
 
-            <Card className="bg-gray-800 border-gray-600">
-              <CardContent className="p-8">
+            {/* Federal Project Capabilities highlight card */}
+            <div className="group relative bg-gray-800 rounded-2xl border border-gray-600 overflow-hidden shadow-xl">
+              {/* Top accent bar */}
+              <div className="h-2 bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600" />
+              <div className="p-8 pt-8">
                 <div className="flex items-start">
-                  <MaterialIcon
-                    icon="construction"
-                    size="3xl"
-                    theme="military"
-                    ariaLabel="Federal Project Capabilities"
-                    className="flex-shrink-0 mr-6 text-gray-300"
-                  />
+                  <div className="relative inline-block flex-shrink-0 mr-6">
+                    <div
+                      className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-lg opacity-70"
+                      aria-hidden="true"
+                    />
+                    <div className="relative bg-gradient-to-br from-slate-600 via-gray-700 to-slate-800 p-4 rounded-xl shadow-xl">
+                      <MaterialIcon
+                        icon="construction"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                        ariaLabel="Federal Project Capabilities"
+                      />
+                    </div>
+                  </div>
                   <div>
                     <h3 className="mb-4 font-bold text-white text-2xl">
                       Federal Project Capabilities
@@ -627,7 +663,7 @@ export default function PublicSectorFullPage() {
                         >
                           <MaterialIcon
                             icon="arrow_right"
-                            className="mr-2 text-gray-600 dark:text-gray-300"
+                            className="mr-2 text-gray-400"
                             size="sm"
                           />
                           <span>{item}</span>
@@ -636,15 +672,17 @@ export default function PublicSectorFullPage() {
                     </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
       {/* Grant Types Section */}
-      <section className="bg-gray-50 dark:bg-gray-800 py-20">
-        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          {/* Section Header - Military Construction Standard */}
+      <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+        <DiagonalStripePattern />
+        <BrandColorBlobs />
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          {/* Section Header */}
           <div className="mb-16 sm:mb-20 text-center">
             {/* Icon with decorative lines */}
             <div className="flex items-center justify-center mb-8 gap-4">
@@ -662,7 +700,6 @@ export default function PublicSectorFullPage() {
               <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
             </div>
 
-            {/* Two-line gradient heading */}
             <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
               <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                 Federal Contract
@@ -672,7 +709,6 @@ export default function PublicSectorFullPage() {
               </span>
             </h2>
 
-            {/* Description with colored keyword highlighting */}
             <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                 Proven execution
@@ -688,14 +724,15 @@ export default function PublicSectorFullPage() {
 
           <InteractiveGrantSelector grantTypes={grantTypes} />
         </div>
-      </section>{" "}
+      </section>
       {/* Process Steps */}
-      <section className="bg-white dark:bg-gray-900 py-20">
-        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+        <DiagonalStripePattern />
+        <BrandColorBlobs />
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="mx-auto max-w-5xl">
-            {/* Section Header - Military Construction Standard */}
+            {/* Section Header */}
             <div className="mb-16 sm:mb-20 text-center">
-              {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
                 <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
@@ -711,7 +748,6 @@ export default function PublicSectorFullPage() {
                 <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
 
-              {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Federal Contract
@@ -721,7 +757,6 @@ export default function PublicSectorFullPage() {
                 </span>
               </h2>
 
-              {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                   Five-phase military approach
@@ -736,48 +771,56 @@ export default function PublicSectorFullPage() {
 
             <div className="space-y-6">
               {processSteps.map((process, index) => (
-                <Card
+                <div
                   key={index}
-                  className="dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 border-gray-800 dark:border-gray-600 border-l-4 transition-shadow"
+                  className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 overflow-hidden"
                 >
-                  <CardContent className="p-8">
+                  {/* Animated border glow */}
+                  <div
+                    className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-xl opacity-20 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+                    aria-hidden="true"
+                  />
+                  {/* Top accent bar */}
+                  <div className="h-2 bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600" />
+                  <div className="relative p-8 pt-8">
                     <div className="flex items-start">
                       <div className="flex-shrink-0 mr-6">
-                        <div className="flex justify-center items-center bg-gray-800 dark:bg-gray-600 shadow-lg rounded-full w-16 h-16 font-bold text-white text-2xl">
+                        <div className="flex justify-center items-center bg-gradient-to-br from-slate-600 to-gray-800 shadow-lg rounded-full w-16 h-16 font-bold text-white text-2xl">
                           {process.step}
                         </div>
                       </div>
                       <div className="flex-grow">
                         <div className="flex justify-between items-start">
                           <div className="flex-grow">
-                            <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-2xl">
+                            <h3 className="mb-3 font-bold text-gray-900 dark:text-white text-xl sm:text-2xl">
                               {process.title}
                             </h3>
-                            <p className="text-gray-700 dark:text-gray-300 text-lg">
+                            <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg">
                               {process.description}
                             </p>
                           </div>
                           <MaterialIcon
                             icon={process.icon}
                             size="2xl"
-                            className="ml-6 text-gray-700 dark:text-gray-300"
+                            className="ml-6 text-gray-500 dark:text-gray-400"
                           />
                         </div>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
         </div>
       </section>
       {/* Government Project Types */}
-      <section className="bg-gray-50 dark:bg-gray-800 py-20">
-        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          {/* Section Header - Military Construction Standard */}
+      <section className="relative bg-gray-50 dark:bg-gray-800 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+        <DiagonalStripePattern />
+        <BrandColorBlobs />
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          {/* Section Header */}
           <div className="mb-16 sm:mb-20 text-center">
-            {/* Icon with decorative lines */}
             <div className="flex items-center justify-center mb-8 gap-4">
               <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               <div className="relative">
@@ -793,7 +836,6 @@ export default function PublicSectorFullPage() {
               <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
             </div>
 
-            {/* Two-line gradient heading */}
             <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
               <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                 Federal Facility
@@ -803,7 +845,6 @@ export default function PublicSectorFullPage() {
               </span>
             </h2>
 
-            {/* Description with colored keyword highlighting */}
             <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                 Licensed and mission-ready
@@ -820,23 +861,34 @@ export default function PublicSectorFullPage() {
             className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
           >
             {governmentProjects.map((project, index) => (
-              <Card
+              <div
                 key={index}
-                className="dark:bg-gray-800 hover:shadow-xl dark:hover:shadow-gray-600/50 transition-all hover:-translate-y-1"
+                className="group relative bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 overflow-hidden hover:-translate-y-1"
               >
-                <CardHeader>
-                  <div className="flex justify-center items-center bg-gray-200 dark:bg-gray-700 mb-4 rounded-lg w-16 h-16">
-                    <MaterialIcon
-                      icon={project.icon}
-                      size="2xl"
-                      className="text-gray-700 dark:text-gray-300"
+                {/* Animated border glow */}
+                <div
+                  className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-xl opacity-20 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+                  aria-hidden="true"
+                />
+                {/* Top accent bar */}
+                <div className="h-2 bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600" />
+                <div className="relative p-6 sm:p-8 pt-8">
+                  <div className="relative inline-block mb-4">
+                    <div
+                      className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-lg opacity-70"
+                      aria-hidden="true"
                     />
+                    <div className="relative bg-gradient-to-br from-slate-600 via-gray-700 to-slate-800 p-3 rounded-xl shadow-xl">
+                      <MaterialIcon
+                        icon={project.icon}
+                        size="xl"
+                        className="text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
                   </div>
-                  <CardTitle className="mb-4 dark:text-white text-xl">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4">
                     {project.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
+                  </h3>
                   <ul className="space-y-2">
                     {project.examples.map((example, eIdx) => (
                       <li
@@ -845,26 +897,27 @@ export default function PublicSectorFullPage() {
                       >
                         <MaterialIcon
                           icon="arrow_forward"
-                          className="mr-2 text-gray-600 dark:text-gray-300"
+                          className="mr-2 text-gray-500 dark:text-gray-400"
                           size="sm"
                         />
                         <span className="text-sm">{example}</span>
                       </li>
                     ))}
                   </ul>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </StaggeredFadeIn>
         </div>
       </section>
       {/* Success Factors */}
-      <section className="bg-white dark:bg-gray-900 py-20">
-        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
+        <DiagonalStripePattern />
+        <BrandColorBlobs />
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="mx-auto max-w-6xl">
-            {/* Section Header - Military Construction Standard */}
+            {/* Section Header */}
             <div className="mb-16 sm:mb-20 text-center">
-              {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
                 <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
                 <div className="relative">
@@ -880,7 +933,6 @@ export default function PublicSectorFullPage() {
                 <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
               </div>
 
-              {/* Two-line gradient heading */}
               <h2 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
                 <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
                   Mission Success
@@ -890,7 +942,6 @@ export default function PublicSectorFullPage() {
                 </span>
               </h2>
 
-              {/* Description with colored keyword highlighting */}
               <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 What ensures{" "}
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
@@ -907,43 +958,59 @@ export default function PublicSectorFullPage() {
 
             <div className="gap-6 grid md:grid-cols-2">
               {successFactors.map((factor, index) => (
-                <Card
+                <div
                   key={index}
-                  className="dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-gray-600/50 transition-shadow"
+                  className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 overflow-hidden"
                 >
-                  <CardContent className="p-8">
+                  {/* Animated border glow */}
+                  <div
+                    className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-xl opacity-20 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+                    aria-hidden="true"
+                  />
+                  {/* Top accent bar */}
+                  <div className="h-2 bg-gradient-to-r from-slate-600 via-gray-700 to-slate-600" />
+                  <div className="relative p-6 sm:p-8 pt-8">
                     <div className="flex items-start">
-                      <div className="flex flex-shrink-0 justify-center items-center bg-gray-200 dark:bg-gray-700 mr-6 rounded-full w-14 h-14">
-                        <MaterialIcon
-                          icon={factor.icon}
-                          size="lg"
-                          className="text-gray-700 dark:text-gray-300"
+                      <div className="relative inline-block flex-shrink-0 mr-6">
+                        <div
+                          className="absolute -inset-2 bg-gradient-to-r from-slate-600/40 to-gray-700/40 blur-lg opacity-70"
+                          aria-hidden="true"
                         />
+                        <div className="relative bg-gradient-to-br from-slate-600 via-gray-700 to-slate-800 p-3 rounded-xl shadow-xl">
+                          <MaterialIcon
+                            icon={factor.icon}
+                            size="lg"
+                            className="text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
+                          />
+                        </div>
                       </div>
                       <div>
-                        <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-xl">
+                        <h3 className="mb-2 font-bold text-gray-900 dark:text-white text-lg sm:text-xl">
                           {factor.title}
                         </h3>
-                        <p className="text-gray-700 dark:text-gray-300">
+                        <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
                           {factor.description}
                         </p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
         </div>
       </section>
       {/* CTA Section - Strong Government Theme */}
-      <section className="relative bg-gradient-to-r from-gray-900 to-black py-20 overflow-hidden text-white">
+      <section
+        id="contact"
+        className="relative bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden text-white"
+      >
         <DiagonalStripePattern
           lightOpacity={0.1}
           darkOpacity={0.1}
           color="rgba(255,255,255,0.1)"
         />
-        <div className="z-10 relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="mx-auto max-w-4xl text-center">
             {/* Section Header - Military Construction Standard */}
             <div className="mb-16 sm:mb-20 text-center">
@@ -1101,8 +1168,9 @@ export default function PublicSectorFullPage() {
         </div>
       </section>
       {/* Federal Accreditations & Certifications */}
-      <section className="relative py-12 sm:py-16 bg-gray-50 dark:bg-gray-800">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative py-12 sm:py-16 bg-gray-50 dark:bg-gray-800 overflow-hidden">
+        <DiagonalStripePattern />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light tracking-widest uppercase mb-4">
             Mission-Ready Credentials
           </p>

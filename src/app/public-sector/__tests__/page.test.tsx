@@ -44,16 +44,6 @@ jest.mock("@/components/ui", () => ({
   Button: ({ children }: { children: React.ReactNode }) => (
     <button>{children}</button>
   ),
-  Card: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
-  CardHeader: ({ children }: { children: React.ReactNode }) => (
-    <div>{children}</div>
-  ),
-  CardTitle: ({ children }: { children: React.ReactNode }) => (
-    <h3>{children}</h3>
-  ),
-  CardContent: ({ children }: { children: React.ReactNode }) => (
-    <div>{children}</div>
-  ),
   AlternatingShowcase: ({ children }: { children: React.ReactNode }) => (
     <div>{children}</div>
   ),
@@ -61,6 +51,7 @@ jest.mock("@/components/ui", () => ({
 
 jest.mock("@/components/ui/backgrounds", () => ({
   DiagonalStripePattern: () => <div data-testid="stripe-pattern" />,
+  BrandColorBlobs: () => <div data-testid="brand-color-blobs" />,
 }));
 
 jest.mock("@/components/icons/MaterialIcon", () => ({
