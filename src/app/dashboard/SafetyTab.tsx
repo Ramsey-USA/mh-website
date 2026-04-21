@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import dynamic from "next/dynamic";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { DashboardFormField } from "@/components/ui/forms/DashboardFormField";
 
 const SafetyBarChart = dynamic(
   () => import("./SafetyBarChart").then((m) => ({ default: m.SafetyBarChart })),
@@ -116,9 +117,6 @@ function NewJobForm({ token, onCreated, onCancel }: NewJobFormProps) {
     }
   };
 
-  const inputClass =
-    "w-full px-3 py-2 bg-gray-700/60 border border-gray-600 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50 focus:border-brand-secondary";
-
   return (
     <form
       onSubmit={handleSubmit}
@@ -128,26 +126,21 @@ function NewJobForm({ token, onCreated, onCancel }: NewJobFormProps) {
         New Job
       </h4>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-3">
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            Job # <span className="text-red-400">*</span>
-          </label>
-          <input
-            type="text"
-            required
-            placeholder="e.g. 2025-001"
-            value={fields.job_number}
-            onChange={(e) =>
-              setFields((f) => ({ ...f, job_number: e.target.value }))
-            }
-            className={inputClass}
-          />
-        </div>
+        <DashboardFormField
+          label="Job #"
+          isRequired
+          type="text"
+          required
+          placeholder="e.g. 2025-001"
+          value={fields.job_number}
+          onChange={(e) =>
+            setFields((f) => ({ ...f, job_number: e.target.value }))
+          }
+        />
         <div className="col-span-2 sm:col-span-1">
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            Job Name <span className="text-red-400">*</span>
-          </label>
-          <input
+          <DashboardFormField
+            label="Job Name"
+            isRequired
             type="text"
             required
             placeholder="Project name"
@@ -155,51 +148,35 @@ function NewJobForm({ token, onCreated, onCancel }: NewJobFormProps) {
             onChange={(e) =>
               setFields((f) => ({ ...f, job_name: e.target.value }))
             }
-            className={inputClass}
           />
         </div>
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            Location
-          </label>
-          <input
-            type="text"
-            placeholder="City, ST"
-            value={fields.location}
-            onChange={(e) =>
-              setFields((f) => ({ ...f, location: e.target.value }))
-            }
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            PM Name
-          </label>
-          <input
-            type="text"
-            placeholder="Project manager"
-            value={fields.pm_name}
-            onChange={(e) =>
-              setFields((f) => ({ ...f, pm_name: e.target.value }))
-            }
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            Super Name
-          </label>
-          <input
-            type="text"
-            placeholder="Superintendent"
-            value={fields.super_name}
-            onChange={(e) =>
-              setFields((f) => ({ ...f, super_name: e.target.value }))
-            }
-            className={inputClass}
-          />
-        </div>
+        <DashboardFormField
+          label="Location"
+          type="text"
+          placeholder="City, ST"
+          value={fields.location}
+          onChange={(e) =>
+            setFields((f) => ({ ...f, location: e.target.value }))
+          }
+        />
+        <DashboardFormField
+          label="PM Name"
+          type="text"
+          placeholder="Project manager"
+          value={fields.pm_name}
+          onChange={(e) =>
+            setFields((f) => ({ ...f, pm_name: e.target.value }))
+          }
+        />
+        <DashboardFormField
+          label="Super Name"
+          type="text"
+          placeholder="Superintendent"
+          value={fields.super_name}
+          onChange={(e) =>
+            setFields((f) => ({ ...f, super_name: e.target.value }))
+          }
+        />
       </div>
 
       {error && (
