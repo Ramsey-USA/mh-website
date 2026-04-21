@@ -4,7 +4,7 @@
 
 import { renderHook, act, waitFor } from "@testing-library/react";
 
-import { useFormSubmit } from "../useFormSubmit";
+import { useFormSubmit, useAuthenticatedFormSubmit } from "../useFormSubmit";
 import { useDialogBehavior } from "../useDialogBehavior";
 
 // ── useFormSubmit ─────────────────────────────────────────────────────────────
@@ -382,5 +382,133 @@ describe("useDialogBehavior", () => {
     });
 
     expect(onClose).not.toHaveBeenCalled();
+  });
+});
+
+// ── useAuthenticatedFormSubmit ────────────────────────────────────────────────
+
+describe("useAuthenticatedFormSubmit", () => {
+  let mockFetch: jest.Mock;
+
+  beforeEach(() => {
+    mockFetch = jest.fn();
+    global.fetch = mockFetch;
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  it("adds Authorization Bearer header to every request", async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({ ok: true }),
+    });
+
+    const { result } = renderHook(() => useAuthenticatedFormSubmit("my-token"));
+
+    await act(async () => {
+      await result.current.submit("/api/protected", { data: 1 });
+    });
+
+    expect(mockFetch).toHaveBeenCalledWith(
+      "/api/protected",
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          Authorization: "Bearer my-token",
+        }),
+      }),
+    );
+  });
+
+  it("merges caller-supplied headers with the Authorization header", async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({}),
+    });
+
+    const { result } = renderHook(() => useAuthenticatedFormSubmit("tok"));
+
+    await act(async () => {
+      await result.current.submit(
+        "/api/protected",
+        {},
+        { headers: { "X-Custom": "value" } },
+      );
+    });
+
+    expect(mockFetch).toHaveBeenCalledWith(
+      "/api/protected",
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          Authorization: "Bearer tok",
+          "X-Custom": "value",
+        }),
+      }),
+    );
+  });
+
+  it("forwards method override to the underlying fetch call", async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({}),
+    });
+
+    const { result } = renderHook(() => useAuthenticatedFormSubmit("tok"));
+
+    await act(async () => {
+      await result.current.submit("/api/item", {}, { method: "PUT" });
+    });
+
+    expect(mockFetch).toHaveBeenCalledWith(
+      "/api/item",
+      expect.objectContaining({ method: "PUT" }),
+    );
+  });
+
+  it("calls onSuccess with the response on success", async () => {
+    const responseData = { saved: true };
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => responseData,
+    });
+
+    const onSuccess = jest.fn();
+    const { result } = renderHook(() =>
+      useAuthenticatedFormSubmit("tok", { onSuccess }),
+    );
+
+    await act(async () => {
+      await result.current.submit("/api/protected", {});
+    });
+
+    expect(onSuccess).toHaveBeenCalledWith(responseData);
+  });
+
+  it("sets error and calls onError on a failed request", async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: false,
+      json: async () => ({ error: "Unauthorized" }),
+    });
+
+    const onError = jest.fn();
+    const { result } = renderHook(() =>
+      useAuthenticatedFormSubmit("tok", { onError }),
+    );
+
+    await act(async () => {
+      await result.current.submit("/api/protected", {});
+    });
+
+    expect(result.current.error).toBe("Unauthorized");
+    expect(onError).toHaveBeenCalledWith(expect.any(Error));
+  });
+
+  it("exposes setError and clearError from the underlying hook", () => {
+    const { result } = renderHook(() => useAuthenticatedFormSubmit("tok"));
+    act(() => result.current.setError("boom"));
+    expect(result.current.error).toBe("boom");
+    act(() => result.current.clearError());
+    expect(result.current.error).toBeNull();
   });
 });

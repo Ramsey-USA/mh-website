@@ -59,6 +59,12 @@ jest.mock("@/components/ui/cta", () => ({
   PitchDeckCTA: () => <div data-testid="pitch-deck-cta" />,
 }));
 
+// Mock useLocale — default to English; override per-test when needed
+const mockUseLocale = jest.fn().mockReturnValue("en");
+jest.mock("@/hooks/useLocale", () => ({
+  useLocale: () => mockUseLocale(),
+}));
+
 import { StrategicCTABanner } from "../StrategicCTABanner";
 import { PitchDeckCTA } from "../PitchDeckCTA";
 import { NextStepsSection } from "@/components/shared-sections/NextStepsSection";
@@ -132,6 +138,10 @@ describe("PitchDeckCTA", () => {
 // ── NextStepsSection ──────────────────────────────────────────────────────────
 
 describe("NextStepsSection", () => {
+  beforeEach(() => {
+    mockUseLocale.mockReturnValue("en");
+  });
+
   it("renders without throwing with default props", () => {
     expect(() => render(<NextStepsSection />)).not.toThrow();
   });
@@ -144,5 +154,59 @@ describe("NextStepsSection", () => {
   it("renders with id=next-steps", () => {
     const { container } = render(<NextStepsSection />);
     expect(container.querySelector("#next-steps")).toBeInTheDocument();
+  });
+
+  it("renders English content by default", () => {
+    render(<NextStepsSection />);
+    expect(screen.getByText("See Our Real Work")).toBeInTheDocument();
+    expect(screen.getByText("Let's Talk Face-to-Face")).toBeInTheDocument();
+    expect(screen.getByText(/Most Popular/i)).toBeInTheDocument();
+    expect(screen.getByText("View Our Work")).toBeInTheDocument();
+    expect(screen.getByText("Get In Touch")).toBeInTheDocument();
+  });
+
+  it("renders Spanish content when locale is 'es'", () => {
+    mockUseLocale.mockReturnValue("es");
+    render(<NextStepsSection />);
+    expect(screen.getByText("Vea nuestro trabajo real")).toBeInTheDocument();
+    expect(screen.getByText("Hablemos cara a cara")).toBeInTheDocument();
+    expect(screen.getByText(/Mas popular/i)).toBeInTheDocument();
+    expect(screen.getByText("Ver nuestro trabajo")).toBeInTheDocument();
+    expect(screen.getByText("Contactenos")).toBeInTheDocument();
+  });
+
+  it("Spanish locale: shows project/satisfaction stats in Spanish", () => {
+    mockUseLocale.mockReturnValue("es");
+    render(<NextStepsSection />);
+    expect(
+      screen.getByText(/650\+ proyectos completados desde 2010/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/98% de satisfaccion de clientes/i),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/70% de referidos/i)).toBeInTheDocument();
+  });
+
+  it("Spanish locale: shows contact section in Spanish", () => {
+    mockUseLocale.mockReturnValue("es");
+    render(<NextStepsSection />);
+    expect(
+      screen.getByText(/Consulta presencial preferida/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Precios transparentes desde el primer dia/i),
+    ).toBeInTheDocument();
+  });
+
+  it("links to /projects and /contact with correct hrefs", () => {
+    render(<NextStepsSection />);
+    const projectLink = screen.getByRole("link", {
+      name: /view our work/i,
+    });
+    const contactLink = screen.getByRole("link", {
+      name: /get in touch/i,
+    });
+    expect(projectLink).toHaveAttribute("href", "/projects");
+    expect(contactLink).toHaveAttribute("href", "/contact");
   });
 });
