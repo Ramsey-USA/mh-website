@@ -98,6 +98,9 @@ Our 4 Core Values create 6 measurable differences:
 4. **Partnership-Driven Trust**: 70% referral business from promise-keeping
 5. **650+ Successful Projects - Reliability**: Proven track record of completion
 6. **3 State - Licensed & Insured**: Licensed in WA, OR, ID with full credentials
+7. **BABAA Supporter**: Dedicated supporter of the Build America, Buy America Act (BABAA) as an AGC
+   member — a compliance-forward distinction for government and public sector projects. See
+   [AGC BABAA Resource Hub](https://www.agc.org/babaa-resource-hub).
 
 **The Connection**: Our 4 values (Honesty, Integrity, Professionalism, Thoroughness) aren't just principles—
 they create measurable outcomes clients can see and experience on every project.

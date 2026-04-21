@@ -2,3 +2,4 @@
 export { Navigation } from "./Navigation";
 export { default as Footer } from "./Footer";
 export { SectionContainer } from "./SectionContainer";
+export { SemiquincentennialBanner } from "./SemiquincentennialBanner";

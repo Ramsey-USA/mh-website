@@ -24,6 +24,9 @@ jest.mock("@/hooks/usePWA", () => ({
 jest.mock("@/components/layout", () => ({
   Navigation: () => <nav data-testid="site-navigation">Navigation</nav>,
   Footer: () => <footer data-testid="site-footer">Footer</footer>,
+  SemiquincentennialBanner: () => (
+    <div data-testid="semiquincentennial-banner">250th Anniversary Banner</div>
+  ),
 }));
 
 jest.mock("@/components/icons/MaterialIcon", () => ({
@@ -49,6 +52,7 @@ describe("AppShell", () => {
     );
 
     expect(screen.getByTestId("site-navigation")).toBeInTheDocument();
+    expect(screen.getByTestId("semiquincentennial-banner")).toBeInTheDocument();
     expect(screen.getByTestId("site-footer")).toBeInTheDocument();
     expect(screen.getByText("Page Content")).toBeInTheDocument();
     expect(

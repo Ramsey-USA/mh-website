@@ -179,6 +179,31 @@ describe("Footer", () => {
     jest.useRealTimers();
   });
 
+  it("renders the BABAA supporter link pointing to the AGC resource hub", () => {
+    render(<Footer />);
+
+    const babaaLink = screen.getByRole("link", {
+      name: /AGC BABAA Resource Hub/i,
+    });
+    expect(babaaLink).toBeInTheDocument();
+    expect(babaaLink).toHaveAttribute(
+      "href",
+      "https://www.agc.org/babaa-resource-hub",
+    );
+    expect(babaaLink).toHaveAttribute("target", "_blank");
+    expect(babaaLink).toHaveAttribute("rel", "noopener noreferrer");
+    expect(screen.getByText("BABAA Supporter")).toBeInTheDocument();
+  });
+
+  it("does not render the staff portal form", () => {
+    render(<Footer />);
+
+    expect(
+      screen.queryByLabelText(/staff portal access/i),
+    ).not.toBeInTheDocument();
+    expect(screen.queryByPlaceholderText(/staff/i)).not.toBeInTheDocument();
+  });
+
   it("closes the admin modal when onClose is called", async () => {
     render(<Footer />);
 

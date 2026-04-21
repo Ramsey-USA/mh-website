@@ -1,7 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Navigation, Footer } from "@/components/layout";
+import {
+  Navigation,
+  Footer,
+  SemiquincentennialBanner,
+} from "@/components/layout";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { usePWA } from "@/hooks/usePWA";
 
@@ -27,6 +31,7 @@ export function AppShell({ children }: Readonly<AppShellProps>) {
           <main id="main-content" className="flex-grow">
             {children}
           </main>
+          <SemiquincentennialBanner />
           <Footer />
         </div>
       </>

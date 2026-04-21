@@ -491,15 +491,19 @@ export default function PublicSectorFullPage() {
           },
           {
             id: "veteran-preference",
-            title: "Veteran-Owned Commitment",
+            title: "Veteran-Owned & BABAA Commitment",
             icon: "military_tech",
             tagline: "Service-Earned Values",
             description:
-              "Veteran-Owned Since January 2025 when Army veteran Jeremy Thamert purchased the company, bringing 15+ years military aviation experience and operational discipline. We actively recruit veterans across all branches, offer veteran hiring initiatives, and maintain veteran preference in all employment decisions. Our veteran ownership and values translate to disciplined execution, transparent communication, and unwavering commitment to federal project success.",
+              "Veteran-Owned Since January 2025 when Army veteran Jeremy Thamert purchased the company, bringing 15+ years military aviation experience and operational discipline. As a Veteran-Owned firm and dedicated supporter of the Build America, Buy America Act (BABAA), we actively recruit veterans, offer veteran hiring initiatives, and maintain veteran preference in employment decisions. Our values translate to disciplined execution, transparent communication, and unwavering commitment to federal project success.",
             image: "/images/compliance/veteran-owned.webp",
             iconBg: "bg-brand-primary",
             stats: "2025",
             statsLabel: "Veteran-Owned Since",
+            link: {
+              href: "https://www.agc.org/babaa-resource-hub",
+              text: "AGC BABAA Resource Hub →",
+            },
           },
         ]}
         title="Excellence"

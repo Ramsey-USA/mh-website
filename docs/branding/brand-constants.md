@@ -175,6 +175,27 @@ The four-value foundation system, in hierarchical order:
 
 ---
 
+## Associations & Affiliations
+
+### Associated General Contractors (AGC)
+
+| Affiliation       | Details                                                           |
+| ----------------- | ----------------------------------------------------------------- |
+| **Membership**    | AGC Member                                                        |
+| **BABAA Support** | Dedicated supporter of the Build America, Buy America Act (BABAA) |
+| **Resource**      | [AGC BABAA Resource Hub](https://www.agc.org/babaa-resource-hub)  |
+
+**Standard Language:**
+
+> "MH Construction is a dedicated supporter of the Build America, Buy America Act (BABAA). As an AGC
+> member, we stay current on BABAA guidance and compliance-forward practices for government projects."
+
+**Usage:** Reference when discussing government or public sector work, federal project compliance, or
+veteran-owned distinctions on procurement-sensitive surfaces. Keep mentions factual and
+compliance-oriented — avoid hype language.
+
+---
+
 ## Credentials
 
 ### BBB Profile
@@ -231,9 +252,10 @@ The four-value foundation system, in hierarchical order:
 
 ## Version History
 
-| Version | Date           | Changes                          |
-| ------- | -------------- | -------------------------------- |
-| 1.0.0   | April 15, 2026 | Initial brand constants document |
+| Version | Date           | Changes                                           |
+| ------- | -------------- | ------------------------------------------------- |
+| 1.1.0   | April 21, 2026 | Added Associations & Affiliations / BABAA section |
+| 1.0.0   | April 15, 2026 | Initial brand constants document                  |
 
 ---
 

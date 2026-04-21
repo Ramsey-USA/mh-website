@@ -1,5 +1,6 @@
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import Image from "next/image";
+import Link from "next/link";
 import { type ReactNode, type CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 import { BrandedContentSection } from "@/components/templates/BrandedContentSection";
@@ -38,6 +39,8 @@ export interface AlternatingShowcaseItem {
   stats?: string;
   /** Optional stat label (defaults to "Key Metric") */
   statsLabel?: string;
+  /** Optional CTA link rendered below the description */
+  link?: { href: string; text: string };
 }
 
 interface AlternatingShowcaseProps {
@@ -161,6 +164,18 @@ export function AlternatingShowcase({
                     <p className="font-normal text-gray-700 dark:text-gray-300 text-sm sm:text-base lg:text-base leading-relaxed">
                       {item.description}
                     </p>
+
+                    {/* Optional CTA Link */}
+                    {item.link && (
+                      <Link
+                        href={item.link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
+                      >
+                        {item.link.text}
+                      </Link>
+                    )}
 
                     {/* Optional Stats/Metric Display */}
                     {item.stats && (
