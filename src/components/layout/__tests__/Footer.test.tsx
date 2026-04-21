@@ -66,27 +66,14 @@ describe("Footer", () => {
     expect(screen.getByText("RCE-49250")).toBeVisible();
   });
 
-  it("renders the service area map with AVIF/WebP/PNG fallback sources", () => {
-    const { container } = render(<Footer />);
+  it("renders the service area map as an inline SVG with correct aria-label", () => {
+    render(<Footer />);
 
-    const mapImage = screen.getByAltText(
-      "Map showing Washington, Oregon, and Idaho - MH Construction service area",
-    ) as HTMLImageElement;
-    expect(mapImage).toBeInTheDocument();
-    expect(mapImage).toHaveAttribute("src", "/icons/tri-state-mhc.png");
-
-    const picture = mapImage.closest("picture");
-    expect(picture).not.toBeNull();
-
-    const avifSource = container.querySelector(
-      'source[type="image/avif"]',
-    ) as HTMLSourceElement | null;
-    const webpSource = container.querySelector(
-      'source[type="image/webp"]',
-    ) as HTMLSourceElement | null;
-
-    expect(avifSource).toHaveAttribute("srcset", "/icons/tri-state-mhc.avif");
-    expect(webpSource).toHaveAttribute("srcset", "/icons/tri-state-mhc.webp");
+    const mapSvg = screen.getByRole("img", {
+      name: "Map showing Washington, Oregon, and Idaho - MH Construction service area",
+    });
+    expect(mapSvg).toBeInTheDocument();
+    expect(mapSvg.tagName.toLowerCase()).toBe("svg");
   });
 
   it("submits the newsletter form with accessible status feedback", async () => {
