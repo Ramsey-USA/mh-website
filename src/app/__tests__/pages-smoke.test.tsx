@@ -508,14 +508,14 @@ describe("Safety page", () => {
 // ── Safety Hub page ───────────────────────────────────────────────────────────
 
 describe("Safety Hub page", () => {
-  it("redirects to /safety", () => {
+  it("redirects to /hub", () => {
     const { default: SafetyHubPage } = require("../safety/hub/page") as {
       default: () => void;
     };
 
     SafetyHubPage();
 
-    expect(mockRedirect).toHaveBeenCalledWith("/safety");
+    expect(mockRedirect).toHaveBeenCalledWith("/hub");
   });
 });
 
