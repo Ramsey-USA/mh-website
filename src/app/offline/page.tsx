@@ -1,16 +1,20 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { usePageTracking } from "@/lib/analytics/hooks";
+import { PageTrackingClient } from "@/components/analytics";
+import { RetryConnectionButton } from "./RetryConnectionButton";
+
+const OFFLINE_FEATURES = [
+  "Previously loaded pages",
+  "Hub resources opened this session",
+  "Cached safety and field documents",
+  "Saved form drafts that sync after reconnect",
+] as const;
 
 export default function OfflinePage() {
-  usePageTracking("Offline");
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4">
+      <PageTrackingClient pageName="Offline" />
       <div className="max-w-lg w-full text-center">
-        {/* Logo */}
         <div className="mb-8 flex justify-center">
           <Image
             src="/images/logo/mh-logo-dark-bg.webp"
@@ -21,7 +25,6 @@ export default function OfflinePage() {
           />
         </div>
 
-        {/* Offline icon */}
         <div className="w-20 h-20 bg-brand-secondary/10 border border-brand-secondary/30 rounded-full flex items-center justify-center mx-auto mb-6">
           <svg
             className="w-10 h-10 text-brand-secondary"
@@ -40,29 +43,28 @@ export default function OfflinePage() {
         </div>
 
         <h1 className="text-3xl md:text-4xl font-black text-white mb-2">
-          Base HQ → Offline Operations
+          Offline Hub
         </h1>
 
         <p className="text-brand-secondary font-semibold text-sm uppercase tracking-widest mb-3">
-          Building projects for the Client, NOT the Dollar
+          You&apos;re offline
+        </p>
+
+        <p className="text-white/80 text-sm mb-4">
+          Building projects for the Client, NOT the Dollar.
         </p>
 
         <p className="text-white/70 mb-8 leading-relaxed">
-          No connection detected. The app is still running — cached content and
-          any role-gated features you&apos;ve already accessed remain available.
+          You&apos;re offline, but the app is still available from cache. Any
+          resources you already opened remain available until your connection
+          returns.
         </p>
 
-        {/* What's available */}
         <div className="bg-brand-primary-dark/60 border border-brand-secondary/20 rounded-2xl p-6 mb-8 text-left space-y-3">
           <p className="text-xs font-bold uppercase tracking-widest text-brand-secondary mb-4">
-            Operations → Available Offline
+            Available offline
           </p>
-          {[
-            "All previously loaded pages",
-            "Hub content accessed this session",
-            "Cached safety & field documents",
-            "Form drafts — saved and will sync on reconnect",
-          ].map((item) => (
+          {OFFLINE_FEATURES.map((item) => (
             <div key={item} className="flex items-start gap-3">
               <span className="text-green-400 mt-0.5 shrink-0">✓</span>
               <span className="text-white/80 text-sm">{item}</span>
@@ -70,28 +72,8 @@ export default function OfflinePage() {
           ))}
         </div>
 
-        {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <button
-            onClick={() => window.location.reload()}
-            className="px-6 py-3 bg-brand-primary hover:bg-brand-primary-dark text-white font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
-          >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-              />
-            </svg>
-            Retry Connection
-          </button>
+          <RetryConnectionButton />
 
           <Link
             href="/"
@@ -116,7 +98,7 @@ export default function OfflinePage() {
         </div>
 
         <p className="mt-8 text-xs text-white/30">
-          MH Construction, Inc. · Base HQ → Offline Mode Active
+          MH Construction, Inc. · Offline mode active
         </p>
       </div>
     </div>

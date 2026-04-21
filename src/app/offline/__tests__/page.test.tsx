@@ -20,8 +20,12 @@ jest.mock("next/link", () => ({
   }) => <a href={href}>{children}</a>,
 }));
 
-jest.mock("@/lib/analytics/hooks", () => ({
-  usePageTracking: jest.fn(),
+jest.mock("@/components/analytics", () => ({
+  PageTrackingClient: () => null,
+}));
+
+jest.mock("../RetryConnectionButton", () => ({
+  RetryConnectionButton: () => <button type="button">Retry Connection</button>,
 }));
 
 import OfflinePage from "../page";
@@ -29,9 +33,7 @@ import OfflinePage from "../page";
 describe("OfflinePage", () => {
   it("renders the offline heading", () => {
     render(<OfflinePage />);
-    expect(
-      screen.getByText(/Base HQ → Offline Operations/i),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Offline Hub/i)).toBeInTheDocument();
   });
 
   it("renders the Go Home link", () => {
@@ -52,7 +54,6 @@ describe("OfflinePage", () => {
   it("Retry Connection button click executes without error", async () => {
     const user = userEvent.setup();
     render(<OfflinePage />);
-    // window.location.reload is not mockable in jsdom, but clicking must not throw
     await expect(
       user.click(screen.getByRole("button", { name: /Retry Connection/i })),
     ).resolves.toBeUndefined();

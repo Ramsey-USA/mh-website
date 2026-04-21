@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PageTrackingClient } from "@/components/analytics";
+import { Input, Textarea } from "@/components/ui/forms/Input";
 
 interface Job {
   id: string;
@@ -268,159 +269,132 @@ export default function SafetyIncidentReportPage() {
                 </select>
               </label>
 
-              <label className="flex flex-col gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200">
-                Incident Type
-                <input
-                  type="text"
-                  value={form.incidentType}
-                  onChange={(event) =>
-                    setForm((previous) => ({
-                      ...previous,
-                      incidentType: event.target.value,
-                    }))
-                  }
-                  placeholder="Injury, property damage, near miss, etc."
-                  className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-brand-primary focus:outline-none dark:border-slate-600 dark:bg-gray-800 dark:text-white"
-                  required
-                />
-              </label>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-3">
-              <label className="flex flex-col gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200">
-                Date
-                <input
-                  type="date"
-                  value={form.date}
-                  onChange={(event) =>
-                    setForm((previous) => ({
-                      ...previous,
-                      date: event.target.value,
-                    }))
-                  }
-                  className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-brand-primary focus:outline-none dark:border-slate-600 dark:bg-gray-800 dark:text-white"
-                  required
-                />
-              </label>
-
-              <label className="flex flex-col gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200">
-                Time
-                <input
-                  type="time"
-                  value={form.time}
-                  onChange={(event) =>
-                    setForm((previous) => ({
-                      ...previous,
-                      time: event.target.value,
-                    }))
-                  }
-                  className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-brand-primary focus:outline-none dark:border-slate-600 dark:bg-gray-800 dark:text-white"
-                  required
-                />
-              </label>
-
-              <label className="flex flex-col gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200">
-                Reporter Name
-                <input
-                  type="text"
-                  value={form.reporterName}
-                  onChange={(event) =>
-                    setForm((previous) => ({
-                      ...previous,
-                      reporterName: event.target.value,
-                    }))
-                  }
-                  placeholder="Full name"
-                  className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-brand-primary focus:outline-none dark:border-slate-600 dark:bg-gray-800 dark:text-white"
-                  required
-                />
-              </label>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              <label className="flex flex-col gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200">
-                Location
-                <input
-                  type="text"
-                  value={form.location}
-                  onChange={(event) =>
-                    setForm((previous) => ({
-                      ...previous,
-                      location: event.target.value,
-                    }))
-                  }
-                  placeholder="Jobsite location"
-                  className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-brand-primary focus:outline-none dark:border-slate-600 dark:bg-gray-800 dark:text-white"
-                  required
-                />
-              </label>
-
-              <label className="flex flex-col gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200">
-                Person Involved
-                <input
-                  type="text"
-                  value={form.personInvolved}
-                  onChange={(event) =>
-                    setForm((previous) => ({
-                      ...previous,
-                      personInvolved: event.target.value,
-                    }))
-                  }
-                  placeholder="Name or crew reference"
-                  className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-brand-primary focus:outline-none dark:border-slate-600 dark:bg-gray-800 dark:text-white"
-                />
-              </label>
-            </div>
-
-            <label className="flex flex-col gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200">
-              Incident Description
-              <textarea
-                value={form.description}
+              <Input
+                label="Incident Type"
+                type="text"
+                value={form.incidentType}
                 onChange={(event) =>
                   setForm((previous) => ({
                     ...previous,
-                    description: event.target.value,
+                    incidentType: event.target.value,
                   }))
                 }
-                rows={4}
-                placeholder="What happened, where, and immediate conditions"
-                className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-brand-primary focus:outline-none dark:border-slate-600 dark:bg-gray-800 dark:text-white"
+                placeholder="Injury, property damage, near miss, etc."
                 required
               />
-            </label>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              <Input
+                label="Date"
+                type="date"
+                value={form.date}
+                onChange={(event) =>
+                  setForm((previous) => ({
+                    ...previous,
+                    date: event.target.value,
+                  }))
+                }
+                required
+              />
+
+              <Input
+                label="Time"
+                type="time"
+                value={form.time}
+                onChange={(event) =>
+                  setForm((previous) => ({
+                    ...previous,
+                    time: event.target.value,
+                  }))
+                }
+                required
+              />
+
+              <Input
+                label="Reporter Name"
+                type="text"
+                value={form.reporterName}
+                onChange={(event) =>
+                  setForm((previous) => ({
+                    ...previous,
+                    reporterName: event.target.value,
+                  }))
+                }
+                placeholder="Full name"
+                required
+              />
+            </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <label className="flex flex-col gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200">
-                Immediate Action Taken
-                <textarea
-                  value={form.immediateAction}
-                  onChange={(event) =>
-                    setForm((previous) => ({
-                      ...previous,
-                      immediateAction: event.target.value,
-                    }))
-                  }
-                  rows={3}
-                  placeholder="Immediate response actions"
-                  className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-brand-primary focus:outline-none dark:border-slate-600 dark:bg-gray-800 dark:text-white"
-                />
-              </label>
+              <Input
+                label="Location"
+                type="text"
+                value={form.location}
+                onChange={(event) =>
+                  setForm((previous) => ({
+                    ...previous,
+                    location: event.target.value,
+                  }))
+                }
+                placeholder="Jobsite location"
+                required
+              />
 
-              <label className="flex flex-col gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200">
-                Corrective Action
-                <textarea
-                  value={form.correctiveAction}
-                  onChange={(event) =>
-                    setForm((previous) => ({
-                      ...previous,
-                      correctiveAction: event.target.value,
-                    }))
-                  }
-                  rows={3}
-                  placeholder="Planned corrective or preventive measures"
-                  className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-brand-primary focus:outline-none dark:border-slate-600 dark:bg-gray-800 dark:text-white"
-                />
-              </label>
+              <Input
+                label="Person Involved"
+                type="text"
+                value={form.personInvolved}
+                onChange={(event) =>
+                  setForm((previous) => ({
+                    ...previous,
+                    personInvolved: event.target.value,
+                  }))
+                }
+                placeholder="Name or crew reference"
+              />
+            </div>
+
+            <Textarea
+              label="Incident Description"
+              value={form.description}
+              onChange={(event) =>
+                setForm((previous) => ({
+                  ...previous,
+                  description: event.target.value,
+                }))
+              }
+              rows={4}
+              placeholder="What happened, where, and immediate conditions"
+              required
+            />
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Textarea
+                label="Immediate Action Taken"
+                value={form.immediateAction}
+                onChange={(event) =>
+                  setForm((previous) => ({
+                    ...previous,
+                    immediateAction: event.target.value,
+                  }))
+                }
+                rows={3}
+                placeholder="Immediate response actions"
+              />
+
+              <Textarea
+                label="Corrective Action"
+                value={form.correctiveAction}
+                onChange={(event) =>
+                  setForm((previous) => ({
+                    ...previous,
+                    correctiveAction: event.target.value,
+                  }))
+                }
+                rows={3}
+                placeholder="Planned corrective or preventive measures"
+              />
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
@@ -453,21 +427,18 @@ export default function SafetyIncidentReportPage() {
               </label>
             </div>
 
-            <label className="flex flex-col gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200">
-              Root Cause Notes
-              <textarea
-                value={form.rootCause}
-                onChange={(event) =>
-                  setForm((previous) => ({
-                    ...previous,
-                    rootCause: event.target.value,
-                  }))
-                }
-                rows={2}
-                placeholder="Known or suspected root cause"
-                className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-brand-primary focus:outline-none dark:border-slate-600 dark:bg-gray-800 dark:text-white"
-              />
-            </label>
+            <Textarea
+              label="Root Cause Notes"
+              value={form.rootCause}
+              onChange={(event) =>
+                setForm((previous) => ({
+                  ...previous,
+                  rootCause: event.target.value,
+                }))
+              }
+              rows={2}
+              placeholder="Known or suspected root cause"
+            />
 
             {(error || successMessage) && (
               <div
