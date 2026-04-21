@@ -2,9 +2,8 @@
  * @jest-environment jsdom
  *
  * Public Sector page tests
- * Currently the page has SHOW_UNDER_CONSTRUCTION = true,
- * so the default export renders the UnderConstruction component.
- * These tests cover the rendered output and verify the data arrays are well-formed.
+ * The default export now renders the full Government/Public Sector page.
+ * These tests cover top-level rendering behavior and module integrity.
  */
 
 import React from "react";
@@ -15,24 +14,6 @@ import { render, screen } from "@testing-library/react";
 jest.mock("@/components/analytics", () => ({
   PageTrackingClient: ({ pageName }: { pageName: string }) => (
     <div data-testid="page-tracking" data-page={pageName} />
-  ),
-}));
-
-jest.mock("@/components/layout/UnderConstruction", () => ({
-  UnderConstruction: ({
-    pageName,
-    description,
-    estimatedCompletion,
-  }: {
-    pageName: string;
-    description: string;
-    estimatedCompletion: string;
-  }) => (
-    <div data-testid="under-construction">
-      <h1>{pageName}</h1>
-      <p>{description}</p>
-      <span>{estimatedCompletion}</span>
-    </div>
   ),
 }));
 
@@ -112,7 +93,41 @@ jest.mock("@/lib/styles/layout-variants", () => ({
 }));
 
 jest.mock("@/lib/constants/company", () => ({
-  COMPANY_INFO: { phone: "509-308-6489", email: "office@mhc-gc.com" },
+  COMPANY_INFO: {
+    phone: { tel: "+15093086489", display: "(509) 308-6489" },
+    email: { main: "office@mhc-gc.com" },
+    address: {
+      street: "123 Main St",
+      city: "Pasco",
+      state: "WA",
+      zip: "99301",
+    },
+    bbb: {
+      sealClickUrl: "https://example.com/bbb",
+      sealHorizontal: "/images/bbb.webp",
+      sealHorizontalWhite: "/images/bbb-white.webp",
+    },
+    travelers: {
+      website: "https://example.com/travelers",
+      logo: "/images/travelers.webp",
+      logoWhite: "/images/travelers-white.webp",
+    },
+    chambers: {
+      pasco: {
+        memberDirectoryUrl: "https://example.com/pasco",
+        logo: "/images/pasco.webp",
+        logoWhite: "/images/pasco-white.webp",
+      },
+      richland: {
+        memberDirectoryUrl: "https://example.com/richland",
+        logo: "/images/richland.webp",
+      },
+      triCityRegional: {
+        memberDirectoryUrl: "https://example.com/tricity",
+        logo: "/images/tricity.webp",
+      },
+    },
+  },
 }));
 
 jest.mock("@/components/seo/SeoMeta", () => ({
@@ -135,31 +150,36 @@ async function renderPublicSectorPage() {
   return render(ui);
 }
 
-describe("PublicSectorPage (under construction)", () => {
+describe("PublicSectorPage", () => {
   it("renders the page tracking client with correct page name", async () => {
     await renderPublicSectorPage();
     const tracker = screen.getByTestId("page-tracking");
     expect(tracker).toHaveAttribute("data-page", "Public Sector");
   });
 
-  it("renders the UnderConstruction component", async () => {
+  it("renders page navigation and breadcrumb", async () => {
     await renderPublicSectorPage();
-    expect(screen.getByTestId("under-construction")).toBeInTheDocument();
+    expect(screen.getByTestId("page-navigation")).toBeInTheDocument();
+    expect(screen.getByTestId("breadcrumb")).toBeInTheDocument();
   });
 
-  it("displays the correct page name", async () => {
+  it("displays the Government hero naming format", async () => {
     await renderPublicSectorPage();
-    expect(screen.getByText("Public Sector Contracting")).toBeInTheDocument();
+    expect(screen.getByText("Public Sector → Government")).toBeInTheDocument();
   });
 
-  it("displays the estimated completion date", async () => {
+  it("displays the Government hero tagline", async () => {
     await renderPublicSectorPage();
-    expect(screen.getByText("Q2 2026")).toBeInTheDocument();
+    expect(
+      screen.getByText("Mission-Ready, Compliance-Driven"),
+    ).toBeInTheDocument();
   });
 
-  it("displays the description mentioning bonding capacity", async () => {
+  it("displays an actionable consultation CTA", async () => {
     await renderPublicSectorPage();
-    expect(screen.getByText(/bonding capacity/i)).toBeInTheDocument();
+    expect(
+      screen.getByText("Request Project Consultation"),
+    ).toBeInTheDocument();
   });
 });
 
