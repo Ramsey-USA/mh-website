@@ -13,9 +13,9 @@ import { PWAInstallCTA } from "@/components/pwa";
 const SITE_URL = "https://www.mhc-gc.com";
 
 export const metadata: Metadata = withGeoMetadata({
-  title: "Safety Culture | 0.64 EMR | AGC-WA Award | MH Construction Tri-State",
+  title: "Safety Program | 0.64 EMR | AGC-WA Award | MH Construction Tri-State",
   description:
-    "MH Construction's zero-incident safety culture — 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, and 50-section written safety program. Veteran-Owned Since January 2025. Tri-State licensed in WA, OR, and ID with Tri-Cities headquarters in Pasco, Richland, and Kennewick.",
+    "MH Construction's safety program — 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, and 50-section written safety program. Veteran-Owned Since January 2025. Tri-State licensed in WA, OR, and ID with Tri-Cities headquarters in Pasco, Richland, and Kennewick.",
   keywords: [
     "MH Construction safety culture",
     "zero incident culture construction",
@@ -42,7 +42,7 @@ export const metadata: Metadata = withGeoMetadata({
     canonical: `${SITE_URL}/safety`,
   },
   openGraph: {
-    title: "Safety Culture | 0.64 EMR, AGC-WA Award | MH Construction",
+    title: "Safety Program | 0.64 EMR, AGC-WA Award | MH Construction",
     description:
       "Safety is a value, not a rule. 0.64 EMR (40% below industry avg), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written safety program. Veteran-Owned Since January 2025.",
     url: `${SITE_URL}/safety`,
@@ -62,7 +62,7 @@ export const metadata: Metadata = withGeoMetadata({
     card: "summary_large_image",
     site: "@mhc_gc",
     creator: "@mhc_gc",
-    title: "Safety Culture | 0.64 EMR | MH Construction",
+    title: "Safety Program | 0.64 EMR | MH Construction",
     description:
       "0.64 EMR — 40% better than industry average. OSHA VPP Star designation. AGC-WA Top EMR Award. Veteran-Owned Since January 2025.",
     images: [`${SITE_URL}/images/safety/safety-culture.webp`],
@@ -82,15 +82,15 @@ export const metadata: Metadata = withGeoMetadata({
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", url: "https://www.mhc-gc.com" },
-  { name: "Safety Culture", url: "https://www.mhc-gc.com/safety" },
+  { name: "Safety Program", url: "https://www.mhc-gc.com/safety" },
 ]);
 
 const safetySchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "MH Construction Safety Culture Program",
+  name: "MH Construction Safety Program",
   description:
-    "Zero-incident safety culture with 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written safety program aligned with OSHA, AGC, WISHA, Oregon OSHA, and Idaho requirements.",
+    "Safety program with 0.64 EMR (40% better than industry average), OSHA VPP Star designation, AGC-WA Top EMR Award, and a 50-section written safety program aligned with OSHA, AGC, WISHA, Oregon OSHA, and Idaho requirements.",
   provider: {
     "@type": "Organization",
     name: "MH Construction, Inc.",
@@ -148,7 +148,7 @@ const safetyFaqSchema = {
       name: "What is MH Construction's EMR rating?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "MH Construction's Experience Modification Rate (EMR) is 0.64 — 40% better than the industry average of 1.0. This award-winning safety record has earned multiple consecutive AGC-WA Top EMR Awards and directly reflects our zero-incident culture and daily safety discipline.",
+        text: "MH Construction's Experience Modification Rate (EMR) is 0.64 — 40% better than the industry average of 1.0. This award-winning safety record has earned multiple consecutive AGC-WA Top EMR Awards and directly reflects our daily safety discipline.",
       },
     },
     {
@@ -349,7 +349,7 @@ const COMPLIANCE_ITEMS = [
 export default function SafetyPage() {
   return (
     <>
-      <PageTrackingClient pageName="Safety Culture" />
+      <PageTrackingClient pageName="Safety Program" />
       <StructuredData
         data={[breadcrumbSchema, safetySchema, safetyFaqSchema]}
       />
@@ -358,7 +358,7 @@ export default function SafetyPage() {
       <div className="bg-slate-900 border-b border-slate-700">
         <div className="max-w-6xl mx-auto px-4 py-3">
           <Breadcrumb
-            items={[{ label: "Home", href: "/" }, { label: "Safety Culture" }]}
+            items={[{ label: "Home", href: "/" }, { label: "Safety Program" }]}
           />
         </div>
       </div>
@@ -382,19 +382,19 @@ export default function SafetyPage() {
           <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
             {/* Page Identity */}
             <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-              Safety Culture
+              Safety Program
             </span>
             {/* Page Mantra */}
             <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
-              Award-Winning Safety: 0.64 EMR, 15+ Years
+              0.64 EMR (40% Better), AGC-WA Verified
             </span>
             {/* Tagline */}
             <span className="block text-brand-secondary">
-              Zero-Incident Culture
+              40% Better Than Industry Average
             </span>
             <span className="block">|</span>
-            <span className="block text-white/95">
-              Award-Winning Safety Program
+            <span className="block text-white/90">
+              OSHA VPP Star, AGC-WA Awards, and documented compliance
             </span>
             <span className="block">|</span>
             <span className="block text-white/90">
