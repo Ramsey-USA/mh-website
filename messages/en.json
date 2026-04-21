@@ -108,7 +108,7 @@
   "home": {
     "hero": {
       "baseLabel": "Base HQ → Home",
-      "founded": "Founded 2010, Veteran-Owned Since January 2025",
+      "founded": "Founded 2010, Veteran-Owned Since January 2025, Dedicated BABAA Supporter",
       "tagline": "Your Tri-State Construction Command Center",
       "mission": "Building projects for the Client, NOT the Dollar",
       "serving": "Tri-Cities HQ (Pasco, Richland, Kennewick) | Tri-State Licensed in WA, OR, ID"
@@ -148,7 +148,7 @@
     "companyStats": {
       "subtitle": "Disciplined, Proven Results",
       "title": "Proven Track Record",
-      "description": "Measurable results from a Veteran-Owned team committed to disciplined execution, clear communication, and strong client relationships across the Pacific Northwest.",
+      "description": "Measurable results from a Veteran-Owned team and dedicated Build America, Buy America Act (BABAA) supporter committed to disciplined execution, clear communication, and strong client relationships across the Pacific Northwest.",
       "labels": {
         "safety": "Award-Winning Safety EMR",
         "experience": "Years Combined Experience",
@@ -280,7 +280,7 @@
       ]
     },
     "whyPartner": {
-      "sectionSubtitle": "Veteran-Owned. Relationship-First.",
+      "sectionSubtitle": "Veteran-Owned. BABAA Supporter. Relationship-First.",
       "sectionTitle": "Proven Performance & Earned Integrity",
       "sectionDescription": "Where discipline meets construction expertise—honest communication, proven craftsmanship, and earned integrity create partnerships built on trust.",
       "philosophy": "Building projects for the Client, NOT the Dollar",
@@ -347,6 +347,7 @@
           "highlights": [
             "650+ completed projects",
             "Veteran-Owned Since January 2025",
+            "Dedicated BABAA supporter",
             "Disciplined execution",
             "Service-earned values"
           ],

@@ -24,10 +24,11 @@ and markdown content in the MH website repository.
 
 1. Preserve relationship-first, direct, professional tone.
 2. Preserve factual veteran-owned framing; avoid slogan-heavy or gimmick phrasing.
-3. Preserve trust and accreditation presence on trust-critical surfaces.
-4. Keep terminology consistent across page copy, navigation, metadata, and schema.
-5. Prefer plain-language SEO labels (`Home`, `About`, `Services`, `Projects`, `Contact`).
-6. Enforce accessibility basics (semantic structure, labels, contrast, keyboard flow).
+3. Preserve factual BABAA distinction where relevant: MH Construction is a dedicated supporter of the Build America, Buy America Act (BABAA).
+4. Preserve trust and accreditation presence on trust-critical surfaces.
+5. Keep terminology consistent across page copy, navigation, metadata, and schema.
+6. Prefer plain-language SEO labels (`Home`, `About`, `Services`, `Projects`, `Contact`).
+7. Enforce accessibility basics (semantic structure, labels, contrast, keyboard flow).
 
 ## Required Language Behavior
 
@@ -36,6 +37,7 @@ Always do:
 - Use clear, human wording over hype language.
 - Keep communication direct and honest.
 - Route conversion intent toward real human contact.
+- Keep veteran-owned and BABAA mentions factual and compliance-oriented.
 
 Never do:
 

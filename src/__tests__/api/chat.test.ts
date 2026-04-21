@@ -99,6 +99,14 @@ describe("POST /api/chat", () => {
     expect(body.response.toLowerCase()).toContain("veteran");
   });
 
+  it("returns BABAA info for 'do you support BABAA'", async () => {
+    const res = await POST(makeRequest({ message: "do you support BABAA" }));
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.response).toContain("BABAA");
+    expect(body.response).toContain("Build America, Buy America Act");
+  });
+
   it("uses Workers AI response when AI binding is available", async () => {
     const mockAi = {
       run: jest.fn().mockResolvedValue({ response: "AI generated answer" }),

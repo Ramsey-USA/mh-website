@@ -20,7 +20,8 @@ export const COMPANY_INFO = {
     primary: "Building projects for the Client, NOT the Dollar",
     secondary: "THE ROI IS THE RELATIONSHIP",
   },
-  tagline: "Founded 2010, Veteran-Owned Since January 2025",
+  tagline:
+    "Founded 2010, Veteran-Owned Since January 2025, Dedicated BABAA Supporter",
 
   // Contact Information
   phone: {
