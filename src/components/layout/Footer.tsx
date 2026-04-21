@@ -18,7 +18,6 @@ import {
   TrackedLocationLink,
 } from "@/components/analytics/TrackedContactLinks";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { DASHBOARD_ACCESS_CODE } from "@/lib/constants/dashboard-access";
 import { trackFormSubmit } from "@/lib/analytics/tracking";
 import { useLocale } from "@/hooks/useLocale";
 
@@ -561,8 +560,6 @@ export default function Footer() {
     };
   });
   const [showAdminModal, setShowAdminModal] = useState(false);
-  const [accessCode, setAccessCode] = useState("");
-  const [accessCodeError, setAccessCodeError] = useState("");
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterStatus, setNewsletterStatus] = useState<
     "idle" | "submitting" | "success" | "error"
@@ -603,22 +600,6 @@ export default function Footer() {
       window.clearTimeout(timeoutId);
     };
   }, [newsletterStatus]);
-
-  const handleAccessCodeSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (
-      accessCode.trim().toUpperCase() === DASHBOARD_ACCESS_CODE.toUpperCase()
-    ) {
-      setAccessCode("");
-      setAccessCodeError("");
-      setShowAdminModal(true);
-    } else {
-      setAccessCodeError(
-        isEs ? "Código de acceso inválido" : "Invalid access code",
-      );
-      setAccessCode("");
-    }
-  };
 
   const handleNewsletterSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -1212,7 +1193,7 @@ export default function Footer() {
               </button>
             </div>
 
-            {/* Final Row: Copyright & Staff Portal */}
+            {/* Final Row: Copyright & BABAA */}
             <div className="flex flex-wrap items-center justify-center gap-4">
               {/* Copyright */}
               <div className="flex items-center gap-2 text-gray-400 dark:text-gray-500">
@@ -1228,58 +1209,27 @@ export default function Footer() {
                 <span className="text-xs">Veteran-Owned</span>
               </div>
 
-              {/* Staff Portal - Subtle */}
-              <div className="flex items-center">
-                <form
-                  onSubmit={handleAccessCodeSubmit}
-                  className="flex items-center gap-1.5 opacity-50 hover:opacity-100 transition-opacity duration-300"
-                  aria-label={
-                    isEs
-                      ? "Acceso al portal de personal"
-                      : "Staff portal access"
-                  }
-                >
-                  <MaterialIcon
-                    icon="lock"
-                    size="sm"
-                    className="text-gray-500 dark:text-gray-600"
-                  />
-                  <label htmlFor="footer-access-code" className="sr-only">
-                    {isEs ? "Código de acceso" : "Access code"}
-                  </label>
-                  <input
-                    id="footer-access-code"
-                    type="password"
-                    placeholder={isEs ? "Personal" : "Staff"}
-                    value={accessCode}
-                    onChange={(e) => setAccessCode(e.target.value)}
-                    autoComplete="off"
-                    className="w-14 rounded bg-gray-800/50 border border-gray-700/50 px-2 py-0.5 text-[10px] text-gray-400 placeholder-gray-600 focus:outline-none focus:border-brand-primary/50 focus:bg-gray-800 transition-all"
-                  />
-                  <button
-                    type="submit"
-                    aria-label={
-                      isEs ? "Enviar código de acceso" : "Submit access code"
-                    }
-                    className="flex items-center justify-center rounded bg-gray-700/50 hover:bg-brand-primary/50 p-1 transition-colors touch-manipulation"
-                  >
-                    <MaterialIcon
-                      icon="arrow_forward"
-                      size="sm"
-                      className="text-gray-500 hover:text-brand-secondary text-xs"
-                    />
-                  </button>
-                </form>
-                {accessCodeError && (
-                  <p
-                    role="alert"
-                    aria-live="assertive"
-                    className="ml-2 text-[10px] text-red-400"
-                  >
-                    {accessCodeError}
-                  </p>
-                )}
-              </div>
+              {/* BABAA Supporter */}
+              <a
+                href={COMPANY_INFO.agc.babaaResourceHub}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity duration-300"
+                aria-label={
+                  isEs
+                    ? "Centro de recursos BABAA de la AGC (abre en una nueva pestaña)"
+                    : "AGC BABAA Resource Hub (opens in new tab)"
+                }
+              >
+                <MaterialIcon
+                  icon="flag"
+                  size="sm"
+                  className="text-brand-secondary/70"
+                />
+                <span className="text-xs font-medium text-gray-400 dark:text-gray-500">
+                  {isEs ? "Partidario de BABAA" : "BABAA Supporter"}
+                </span>
+              </a>
             </div>
           </div>
         </div>
