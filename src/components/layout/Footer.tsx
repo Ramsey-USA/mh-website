@@ -170,7 +170,7 @@ const serviceAreasTriggerClassName =
   "group flex items-center gap-2 rounded-lg border border-brand-secondary/30 bg-gradient-to-r from-brand-primary to-brand-primary-dark px-4 py-2 text-sm font-bold text-brand-secondary shadow-md transition-all duration-300 touch-manipulation hover:scale-105 hover:from-brand-primary-dark hover:to-brand-primary hover:border-brand-secondary hover:text-brand-secondary-light hover:shadow-lg hover:shadow-brand-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900";
 
 const serviceAreaCityChipClassName =
-  "rounded-full border border-brand-primary/25 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 px-2.5 py-1 text-xs font-semibold text-gray-200 transition-all duration-300 hover:scale-105 hover:border-brand-secondary/40 hover:from-brand-primary/20 hover:to-brand-secondary/20 hover:text-brand-secondary-light";
+  "rounded-full border border-brand-primary/25 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 px-2.5 py-1 text-xs font-semibold text-gray-200 transition-all duration-300 hover:scale-105 hover:border-brand-secondary/40 hover:from-brand-primary/20 hover:to-brand-secondary/20 hover:text-brand-secondary-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900";
 
 const socialLinks: SocialLinkItem[] = [
   {
@@ -466,7 +466,7 @@ function ServiceAreasDropdown({
               size="sm"
               className="text-brand-secondary"
             />
-            <span>{isEs ? "Pacifico Noroeste" : "Pacific Northwest"}</span>
+            <span>{isEs ? "Pacífico Noroeste" : "Pacific Northwest"}</span>
           </div>
           <div className="flex flex-wrap gap-1.5">
             {linkedCities.map((city) => (
