@@ -386,7 +386,7 @@ export default function SafetyPage() {
             </span>
             {/* Page Mantra */}
             <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
-              0.64 EMR Safety Record, Verified
+              0.64 EMR (40% Better), AGC-WA Verified
             </span>
             {/* Tagline */}
             <span className="block text-brand-secondary">
@@ -394,7 +394,7 @@ export default function SafetyPage() {
             </span>
             <span className="block">|</span>
             <span className="block text-white/90">
-              Verified credentials and documented compliance
+              OSHA VPP Star, AGC-WA Awards, and documented compliance
             </span>
             <span className="block">|</span>
             <span className="block text-white/90">
