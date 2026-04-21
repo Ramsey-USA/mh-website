@@ -959,14 +959,12 @@ async function generate() {
 
   // ── 9. Clean up intermediate PDFs ──────────────────────────────────────────
   for (const p of pdfParts) {
-    if (p !== mergedPath && !p.endsWith(".pdf") === false) {
-      // Only remove files we created in the output dir (not exhibit source files)
-      if (p.startsWith(OUTPUT_DIR) && p !== mergedPath) {
-        try {
-          unlinkSync(p);
-        } catch {
-          /* ignore cleanup errors */
-        }
+    // Only remove intermediate PDFs we created in the output dir (not exhibit source files)
+    if (p.startsWith(OUTPUT_DIR) && p !== mergedPath) {
+      try {
+        unlinkSync(p);
+      } catch {
+        /* ignore cleanup errors */
       }
     }
   }
