@@ -18,7 +18,11 @@ import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
-import { DEFAULT_LOCALE, LOCALE_COOKIE_NAME } from "@/lib/i18n/locale";
+import {
+  DEFAULT_LOCALE,
+  LOCALE_COOKIE_NAME,
+  SUPPORTED_LOCALES,
+} from "@/lib/i18n/locale";
 
 export const metadata: Metadata = withGeoMetadata({
   metadataBase: new URL(
@@ -204,8 +208,12 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `(() => {
-              const match = document.cookie.match(/(?:^|;\\s*)${LOCALE_COOKIE_NAME}=([^;]+)/);
-              const locale = match && (match[1] === "es" || match[1] === "en") ? match[1] : "${DEFAULT_LOCALE}";
+              const escapeRegex = (value) => value.replace(/[.*+?^$()|[\\]{}\\\\]/g, "\\\\$&");
+              const localeCookieName = ${JSON.stringify(LOCALE_COOKIE_NAME)};
+              const localePattern = new RegExp(\`(?:^|;\\\\s*)\${escapeRegex(localeCookieName)}=([^;]+)\`);
+              const match = document.cookie.match(localePattern);
+              const supportedLocales = ${JSON.stringify(SUPPORTED_LOCALES)};
+              const locale = match && supportedLocales.includes(match[1]) ? match[1] : ${JSON.stringify(DEFAULT_LOCALE)};
               document.documentElement.lang = locale;
             })();`,
           }}
