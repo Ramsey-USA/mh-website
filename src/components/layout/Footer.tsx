@@ -166,6 +166,12 @@ const primaryActionCardClassName =
 const secondaryActionCardClassName =
   "group flex items-center gap-3 rounded-lg border border-brand-secondary/40 bg-gradient-to-r from-brand-secondary/15 to-brand-primary/15 p-3 transition-all duration-300 hover:scale-105 hover:border-brand-secondary hover:from-brand-secondary/25 hover:to-brand-primary/25 touch-manipulation";
 
+const serviceAreasTriggerClassName =
+  "group flex items-center gap-2 rounded-lg border border-brand-secondary/30 bg-gradient-to-r from-brand-primary to-brand-primary-dark px-4 py-2 text-sm font-bold text-brand-secondary shadow-md transition-all duration-300 touch-manipulation hover:scale-105 hover:from-brand-primary-dark hover:to-brand-primary hover:border-brand-secondary hover:text-brand-secondary-light hover:shadow-lg hover:shadow-brand-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900";
+
+const serviceAreaCityChipClassName =
+  "rounded-full border border-brand-primary/25 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 px-2.5 py-1 text-xs font-semibold text-gray-200 transition-all duration-300 hover:scale-105 hover:border-brand-secondary/40 hover:from-brand-primary/20 hover:to-brand-secondary/20 hover:text-brand-secondary-light";
+
 const socialLinks: SocialLinkItem[] = [
   {
     href: COMPANY_INFO.social.facebook,
@@ -430,7 +436,7 @@ function ServiceAreasDropdown({
     <div ref={dropdownRef} className="relative">
       <button
         onClick={onToggle}
-        className="group flex items-center gap-2 rounded-lg border border-brand-secondary/30 bg-gradient-to-r from-brand-primary to-brand-primary-dark px-4 py-2 text-sm font-bold text-brand-secondary shadow-md transition-all duration-300 touch-manipulation hover:scale-105 hover:from-brand-primary-dark hover:to-brand-primary hover:border-brand-secondary hover:text-brand-secondary-light hover:shadow-lg hover:shadow-brand-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900"
+        className={serviceAreasTriggerClassName}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
       >
@@ -439,7 +445,7 @@ function ServiceAreasDropdown({
           size="sm"
           className="text-brand-secondary transition-colors group-hover:text-brand-secondary-light"
         />
-        <span className="font-bold text-brand-secondary transition-colors group-hover:text-brand-secondary-light">
+        <span className="text-brand-secondary transition-colors group-hover:text-brand-secondary-light">
           {isEs ? "Areas atendidas" : "Areas Served"}
         </span>
         <MaterialIcon
@@ -467,7 +473,7 @@ function ServiceAreasDropdown({
               <Link
                 key={city.href}
                 href={city.href}
-                className="rounded-full border border-brand-primary/25 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 px-2.5 py-1 text-xs font-semibold text-gray-200 transition-all duration-300 hover:scale-105 hover:border-brand-secondary/40 hover:from-brand-primary/20 hover:to-brand-secondary/20 hover:text-brand-secondary-light"
+                className={serviceAreaCityChipClassName}
                 itemProp="areaServed"
                 itemScope
                 itemType="https://schema.org/City"
