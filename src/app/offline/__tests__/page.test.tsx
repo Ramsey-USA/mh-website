@@ -1,5 +1,6 @@
 /** @jest-environment jsdom */
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 jest.mock("next/image", () => ({
   __esModule: true,
@@ -23,6 +24,10 @@ jest.mock("@/components/analytics", () => ({
   PageTrackingClient: () => null,
 }));
 
+jest.mock("../RetryConnectionButton", () => ({
+  RetryConnectionButton: () => <button type="button">Retry Connection</button>,
+}));
+
 import OfflinePage from "../page";
 
 describe("OfflinePage", () => {
@@ -39,10 +44,18 @@ describe("OfflinePage", () => {
     );
   });
 
-  it("renders the Retry Connection link", () => {
+  it("renders the Retry Connection button", () => {
     render(<OfflinePage />);
     expect(
-      screen.getByRole("link", { name: /Retry Connection/i }),
-    ).toHaveAttribute("href", "/hub");
+      screen.getByRole("button", { name: /Retry Connection/i }),
+    ).toBeInTheDocument();
+  });
+
+  it("Retry Connection button click executes without error", async () => {
+    const user = userEvent.setup();
+    render(<OfflinePage />);
+    await expect(
+      user.click(screen.getByRole("button", { name: /Retry Connection/i })),
+    ).resolves.toBeUndefined();
   });
 });

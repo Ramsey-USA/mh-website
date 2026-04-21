@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PageTrackingClient } from "@/components/analytics";
+import { RetryConnectionButton } from "./RetryConnectionButton";
 
 const OFFLINE_FEATURES = [
   "Previously loaded pages",
@@ -49,6 +50,10 @@ export default function OfflinePage() {
           Connection unavailable
         </p>
 
+        <p className="text-white/80 text-sm mb-4">
+          Building projects for the Client, NOT the Dollar.
+        </p>
+
         <p className="text-white/70 mb-8 leading-relaxed">
           You&apos;re offline, but the app is still available from cache. Any
           resources you already opened remain available until your connection
@@ -68,26 +73,7 @@ export default function OfflinePage() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Link
-            href="/hub"
-            className="px-6 py-3 bg-brand-primary hover:bg-brand-primary-dark text-white font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
-          >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-              />
-            </svg>
-            Retry Connection
-          </Link>
+          <RetryConnectionButton />
 
           <Link
             href="/"

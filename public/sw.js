@@ -542,7 +542,7 @@ async function handlePageRequest(request) {
     if (offlineResponse) return offlineResponse;
 
     return new Response(
-      '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Offline – MH Construction</title></head><body><p>You are offline. <a href="/">Retry</a></p></body></html>',
+      '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Offline Hub – MH Construction</title></head><body><p>You are offline. <a href="/">Retry</a></p></body></html>',
       { status: 503, headers: { "Content-Type": "text/html; charset=utf-8" } },
     );
   }
