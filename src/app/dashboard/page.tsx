@@ -43,6 +43,15 @@ const LeadsTab = dynamic(
     ),
   },
 );
+const RfqTab = dynamic(
+  () => import("./RfqTab").then((m) => ({ default: m.RfqTab })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-6 animate-pulse h-64" />
+    ),
+  },
+);
 
 interface DashboardData {
   pageviews: {
@@ -89,7 +98,7 @@ export default function AnalyticsDashboardPage() {
   );
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<
-    "analytics" | "leads" | "safety" | "drivers" | "access-log"
+    "analytics" | "leads" | "safety" | "drivers" | "access-log" | "rfq"
   >("analytics");
   const [adminToken, setAdminToken] = useState<string | null>(null);
 
@@ -215,7 +224,14 @@ export default function AnalyticsDashboardPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-1 py-2">
             {(
-              ["analytics", "leads", "safety", "drivers", "access-log"] as const
+              [
+                "analytics",
+                "leads",
+                "safety",
+                "drivers",
+                "access-log",
+                "rfq",
+              ] as const
             ).map((tab) => (
               <button
                 key={tab}
@@ -240,7 +256,7 @@ export default function AnalyticsDashboardPage() {
   );
 
   function renderTabLabel(
-    tab: "analytics" | "leads" | "safety" | "drivers" | "access-log",
+    tab: "analytics" | "leads" | "safety" | "drivers" | "access-log" | "rfq",
   ) {
     const TAB_CONFIG = {
       analytics: { icon: "dashboard", label: "Analytics" },
@@ -248,6 +264,7 @@ export default function AnalyticsDashboardPage() {
       safety: { icon: "safety_check", label: "Safety" },
       drivers: { icon: "directions_car", label: "Drivers" },
       "access-log": { icon: "verified_user", label: "Access Log" },
+      rfq: { icon: "description", label: "RFQ Builder" },
     } as const;
     const { icon, label } = TAB_CONFIG[tab];
     return (
@@ -264,6 +281,9 @@ export default function AnalyticsDashboardPage() {
     if (activeTab === "drivers") return <DriversTab token={adminToken ?? ""} />;
     if (activeTab === "access-log") {
       return <AccessLogTab token={adminToken ?? ""} />;
+    }
+    if (activeTab === "rfq") {
+      return <RfqTab token={adminToken ?? ""} />;
     }
     if (isLoading) {
       return (
