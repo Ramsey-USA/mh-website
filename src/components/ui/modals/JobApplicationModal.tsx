@@ -72,6 +72,9 @@ const AVAILABILITY_OPTIONS = [
 
 const MAX_RESUME_SIZE_BYTES = 10 * 1024 * 1024;
 
+const MODAL_VIEWPORT_OFFSET_CLASS =
+  "flex min-h-full items-start justify-center px-4 pb-4 pt-[calc(env(safe-area-inset-top)+5.5rem)] xs:pt-[calc(env(safe-area-inset-top)+6rem)] sm:pt-[calc(env(safe-area-inset-top)+7rem)] md:pt-[calc(env(safe-area-inset-top)+8.5rem)] lg:pt-[calc(env(safe-area-inset-top)+10.5rem)]";
+
 const SELECT_FIELD_CLASS =
   "w-full min-h-[48px] rounded-xl border-2 border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all duration-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30 focus:ring-offset-2 hover:border-gray-400 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-brand-secondary dark:focus:ring-brand-secondary/30 dark:hover:border-gray-500 cursor-pointer shadow-sm focus:shadow-md";
 
@@ -150,6 +153,15 @@ function getApplicationContext(entryPoint?: string): ApplicationContext {
       title: "Start the Conversation",
       description:
         "THE ROI IS THE RELATIONSHIP. Send your name, email, and the role you want to discuss. Build your career with a company that keeps its word.",
+    };
+  }
+
+  if (normalizedEntryPoint.includes("footer")) {
+    return {
+      badge: "MHC Application",
+      title: "Build Your Career With Us",
+      description:
+        "Join a Veteran-Owned team where your word matters as much as ours. Name, email, and the role you want are enough to begin.",
     };
   }
 
@@ -400,7 +412,10 @@ export function JobApplicationModal({
               : "Close application confirmation"
           }
         />
-        <div className="flex min-h-full items-center justify-center p-4">
+        <div
+          className={MODAL_VIEWPORT_OFFSET_CLASS}
+          data-testid="job-application-success-positioner"
+        >
           <div
             ref={successRef}
             role="dialog"
@@ -489,7 +504,10 @@ export function JobApplicationModal({
           isEs ? "Cerrar formulario de solicitud" : "Close application form"
         }
       />
-      <div className="flex min-h-full items-center justify-center p-4">
+      <div
+        className={MODAL_VIEWPORT_OFFSET_CLASS}
+        data-testid="job-application-modal-positioner"
+      >
         <div
           ref={modalRef}
           role="dialog"
@@ -592,7 +610,7 @@ export function JobApplicationModal({
             </div>
           </div>
 
-          <div className="p-6 max-h-[calc(90vh-200px)] overflow-y-auto">
+          <div className="max-h-[calc(90vh-200px)] overflow-y-auto px-6 pt-6 pb-10 sm:pb-12">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="rounded-2xl border-2 border-brand-primary/20 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 p-4 sm:p-5 dark:border-brand-primary/30 dark:from-brand-primary/10 dark:to-brand-secondary/10 shadow-sm">
                 <div className="flex items-start gap-3">

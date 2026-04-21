@@ -42,7 +42,7 @@ describe("Navigation", () => {
     const closeButtons = screen.getAllByRole("button", { name: /close menu/i });
     expect(closeButtons).toHaveLength(2);
 
-    await user.click(closeButtons[0]);
+    await user.click(closeButtons[0]!);
 
     expect(
       screen.getByRole("button", { name: /open menu/i }),
@@ -56,7 +56,7 @@ describe("Navigation", () => {
     fireEvent.click(screen.getByRole("button", { name: /open menu/i }));
 
     const closeButtons = screen.getAllByRole("button", { name: /close menu/i });
-    const backdrop = closeButtons[0];
+    const backdrop = closeButtons[0]!;
     fireEvent.keyDown(backdrop, { key: "Escape" });
 
     expect(
@@ -86,7 +86,7 @@ describe("Navigation", () => {
 
     await user.click(screen.getByRole("button", { name: /open menu/i }));
     const closeButtons = screen.getAllByRole("button", { name: /close menu/i });
-    await user.click(closeButtons[0]);
+    await user.click(closeButtons[0]!);
 
     expect(
       screen.getByRole("button", { name: /open menu/i }),

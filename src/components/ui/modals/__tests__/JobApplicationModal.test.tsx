@@ -35,6 +35,24 @@ describe("JobApplicationModal", () => {
     expect(screen.getByLabelText(/Veteran Status/i)).toHaveValue("veteran");
   });
 
+  it("offsets the modal below the site header logo", () => {
+    render(
+      <JobApplicationModal
+        isOpen
+        onClose={jest.fn()}
+        entryPoint="Footer Application"
+      />,
+    );
+
+    expect(screen.getByTestId("job-application-modal-positioner")).toHaveClass(
+      "items-start",
+      "pt-[calc(env(safe-area-inset-top)+5.5rem)]",
+      "lg:pt-[calc(env(safe-area-inset-top)+10.5rem)]",
+    );
+
+    expect(screen.getByText("MHC Application")).toBeInTheDocument();
+  });
+
   it("submits the streamlined form without requiring a resume upload", async () => {
     const user = userEvent.setup();
     const mockFetch = global.fetch as jest.MockedFunction<typeof fetch>;

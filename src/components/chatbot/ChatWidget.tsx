@@ -14,8 +14,8 @@ interface ChatMessage {
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
-/** Time in ms before showing proactive prompt (default: 60 seconds) */
-const PROACTIVE_PROMPT_DELAY = 60_000;
+/** Time in ms before showing proactive prompt (default: 5 minutes) */
+const PROACTIVE_PROMPT_DELAY = 300_000;
 
 /** Session storage key to track if prompt was already shown */
 const PROACTIVE_PROMPT_KEY = "mhc-chat-prompted";
@@ -261,7 +261,7 @@ export function ChatWidget() {
               <p className="text-sm text-gray-700 dark:text-gray-200 leading-snug mb-2">
                 {isEs
                   ? "👋 ¿Necesita ayuda para encontrar lo que busca?"
-                  : "👋 Need help finding what you&apos;re looking for?"}
+                  : "👋 Need help finding what you're looking for?"}
               </p>
               <button
                 onClick={handleOpenChat}

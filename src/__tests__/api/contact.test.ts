@@ -209,15 +209,17 @@ describe("POST /api/contact", () => {
     expect(emailArgs.to).toHaveLength(1);
   });
 
-  it("routes to three recipients for job-application type", async () => {
+  it("routes employee applications to all careers recipients", async () => {
     const res = await POST(
       makePostRequest({ ...validBody, type: "job-application" }),
     );
     expect(res.status).toBe(200);
     const [[emailArgs]] = (mockSendEmail as jest.Mock).mock.calls;
-    expect(emailArgs.to).toHaveLength(3);
+    expect(emailArgs.to).toHaveLength(4);
+    expect(emailArgs.to).toContain("office@mhc-gc.com");
     expect(emailArgs.to).toContain("matt@mhc-gc.com");
     expect(emailArgs.to).toContain("arnold@mhc-gc.com");
+    expect(emailArgs.to).toContain("brittney@mhc-gc.com");
   });
 
   it("stores submission in DB when D1 is available", async () => {

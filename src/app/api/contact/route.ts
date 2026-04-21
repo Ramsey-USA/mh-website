@@ -34,6 +34,7 @@ const ALLOWED_RECIPIENT_EMAILS = new Set([
   COMPANY_INFO.email.main,
   "matt@mhc-gc.com",
   "arnold@mhc-gc.com",
+  "brittney@mhc-gc.com",
 ]);
 
 interface ContactRequest {
@@ -102,9 +103,16 @@ async function handlePOST(request: NextRequest) {
     const isAcknowledgment =
       data.type === "acknowledgment" || data.metadata?.["isAcknowledgment"];
 
+    const isJobApplication = data.type === "job-application";
+
     let emailRecipients: string[];
     if (isAcknowledgment) {
       emailRecipients = [recipientEmail];
+    } else if (isJobApplication) {
+      // Employee applications must notify office, matt, arnold, and brittney.
+      emailRecipients = [
+        ...new Set([recipientEmail, ...EMAIL_RECIPIENTS.careers]),
+      ];
     } else {
       // All non-acknowledgment submissions go to office, Matt, and Arnold
       emailRecipients = [
