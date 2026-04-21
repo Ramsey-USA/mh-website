@@ -464,9 +464,7 @@ const tradeGroups: TradeGroup[] = Object.entries(
 // Flat globally-alphabetical list used for the logo parade.
 // This is distinct from the trade-grouped order: here all vendors sort by
 // company name across all trades; in tradeGroups they sort by trade first.
-const sortedVendors = [...vendors].sort((a, b) =>
-  a.name.localeCompare(b.name),
-);
+const sortedVendors = [...vendors].sort((a, b) => a.name.localeCompare(b.name));
 
 /** Derives a stable HTML id for a trade group, e.g. "electrical" or "glass-glazing". */
 function tradeId(trade: string): string {
@@ -777,10 +775,7 @@ export default function AlliesPage() {
 
             <div className="space-y-16">
               {tradeGroups.map((group, groupIndex) => (
-                <div
-                  key={group.trade}
-                  id={`trade-${tradeId(group.trade)}`}
-                >
+                <div key={group.trade} id={`trade-${tradeId(group.trade)}`}>
                   {/* Deep-link anchor: /allies#trade-electrical etc.
                       The top-level #vendors nav item covers keyboard access. */}
                   {/* Trade group header */}

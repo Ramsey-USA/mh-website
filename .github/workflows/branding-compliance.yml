@@ -1,178 +1,178 @@
 name: Branding Compliance Gate
 
 on:
-    pull_request:
-        branches: [ main ]
-    workflow_dispatch:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
-    contents: read
-    pull-requests: write
+  contents: read
+  pull-requests: write
 
 jobs:
-    branding-gate:
-        runs-on: ubuntu-latest
+  branding-gate:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-            - name: Setup Node
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 22
-                  cache: npm
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
 
-            - name: Install Dependencies
-              run: npm ci
+      - name: Install Dependencies
+        run: npm ci
 
-            - name: Type Check
-              run: npm run type-check
+      - name: Type Check
+        run: npm run type-check
 
-            - name: Lint
-              run: npm run lint
+      - name: Lint
+        run: npm run lint
 
-            - name: Branding Gate Script
-              id: branding_gate
-              env:
-                  GITHUB_BASE_REF: ${{ github.base_ref }}
-              run: |
-                  set +e
-                  gate_output="$(node .github/hooks/branding-gate.js)"
-                  gate_exit_code=$?
+      - name: Branding Gate Script
+        id: branding_gate
+        env:
+          GITHUB_BASE_REF: ${{ github.base_ref }}
+        run: |
+          set +e
+          gate_output="$(node .github/hooks/branding-gate.js)"
+          gate_exit_code=$?
 
-                  {
-                    echo "output<<EOF"
-                    echo "$gate_output"
-                    echo "EOF"
-                    echo "exit_code=$gate_exit_code"
-                  } >> "$GITHUB_OUTPUT"
+          {
+            echo "output<<EOF"
+            echo "$gate_output"
+            echo "EOF"
+            echo "exit_code=$gate_exit_code"
+          } >> "$GITHUB_OUTPUT"
 
-                  if [ "$gate_exit_code" -ne 0 ]; then
-                    echo "Branding gate failed."
-                    exit 1
-                  fi
+          if [ "$gate_exit_code" -ne 0 ]; then
+            echo "Branding gate failed."
+            exit 1
+          fi
 
-            - name: Post Branding Compliance Comment
-              if: always() && github.event_name == 'pull_request'
-              uses: actions/github-script@v7
-              env:
-                  BRANDING_GATE_OUTPUT: ${{ steps.branding_gate.outputs.output }}
-                  BRANDING_GATE_EXIT_CODE: ${{ steps.branding_gate.outputs.exit_code }}
-              with:
-                  script: |
-                      const marker = "<!-- master-at-arms-branding-report -->";
-                      const outputRaw = process.env.BRANDING_GATE_OUTPUT || "{}";
-                      const exitCode = Number(process.env.BRANDING_GATE_EXIT_CODE || "1");
+      - name: Post Branding Compliance Comment
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        env:
+          BRANDING_GATE_OUTPUT: ${{ steps.branding_gate.outputs.output }}
+          BRANDING_GATE_EXIT_CODE: ${{ steps.branding_gate.outputs.exit_code }}
+        with:
+          script: |
+            const marker = "<!-- master-at-arms-branding-report -->";
+            const outputRaw = process.env.BRANDING_GATE_OUTPUT || "{}";
+            const exitCode = Number(process.env.BRANDING_GATE_EXIT_CODE || "1");
 
-                      let parsed;
-                      try {
-                        parsed = JSON.parse(outputRaw);
-                      } catch {
-                        parsed = {
-                          decision: "block",
-                          reason: "Branding gate output parse failure",
-                          findings: [{
-                            file: ".github/workflows/branding-compliance.yml",
-                            severity: "high",
-                            rule: "Gate output",
-                            detail: "Unable to parse branding gate JSON output."
-                          }],
-                          systemMessage: "Master at Arms could not parse branding gate output."
-                        };
-                      }
+            let parsed;
+            try {
+              parsed = JSON.parse(outputRaw);
+            } catch {
+              parsed = {
+                decision: "block",
+                reason: "Branding gate output parse failure",
+                findings: [{
+                  file: ".github/workflows/branding-compliance.yml",
+                  severity: "high",
+                  rule: "Gate output",
+                  detail: "Unable to parse branding gate JSON output."
+                }],
+                systemMessage: "Master at Arms could not parse branding gate output."
+              };
+            }
 
-                      const findings = Array.isArray(parsed.findings) ? parsed.findings : [];
-                      const result = exitCode === 0 ? "PASS" : "FAIL";
+            const findings = Array.isArray(parsed.findings) ? parsed.findings : [];
+            const result = exitCode === 0 ? "PASS" : "FAIL";
 
-                      const severityCounts = findings.reduce((acc, f) => {
-                        const key = (f.severity || "unknown").toLowerCase();
-                        acc[key] = (acc[key] || 0) + 1;
-                        return acc;
-                      }, { high: 0, medium: 0, low: 0, unknown: 0 });
+            const severityCounts = findings.reduce((acc, f) => {
+              const key = (f.severity || "unknown").toLowerCase();
+              acc[key] = (acc[key] || 0) + 1;
+              return acc;
+            }, { high: 0, medium: 0, low: 0, unknown: 0 });
 
-                      const summaryTable = [
-                        "| Severity | Count |",
-                        "| --- | ---: |",
-                        `| High | ${severityCounts.high || 0} |`,
-                        `| Medium | ${severityCounts.medium || 0} |`,
-                        `| Low | ${severityCounts.low || 0} |`,
-                        `| Unknown | ${severityCounts.unknown || 0} |`
-                      ].join("\n");
+            const summaryTable = [
+              "| Severity | Count |",
+              "| --- | ---: |",
+              `| High | ${severityCounts.high || 0} |`,
+              `| Medium | ${severityCounts.medium || 0} |`,
+              `| Low | ${severityCounts.low || 0} |`,
+              `| Unknown | ${severityCounts.unknown || 0} |`
+            ].join("\n");
 
-                      const commitSha = context.payload.pull_request?.head?.sha || context.sha;
-                      const fileLink = (path) => `https://github.com/${context.repo.owner}/${context.repo.repo}/blob/${commitSha}/${path}`;
+            const commitSha = context.payload.pull_request?.head?.sha || context.sha;
+            const fileLink = (path) => `https://github.com/${context.repo.owner}/${context.repo.repo}/blob/${commitSha}/${path}`;
 
-                      // Group findings by rule
-                      const byRule = {};
-                      for (const f of findings) {
-                        const rule = f.rule || "Unknown Rule";
-                        if (!byRule[rule]) byRule[rule] = [];
-                        byRule[rule].push(f);
-                      }
+            // Group findings by rule
+            const byRule = {};
+            for (const f of findings) {
+              const rule = f.rule || "Unknown Rule";
+              if (!byRule[rule]) byRule[rule] = [];
+              byRule[rule].push(f);
+            }
 
-                      const findingsSection = findings.length === 0
-                        ? "- none"
-                        : Object.entries(byRule).map(([rule, items]) => {
-                            const header = `**${rule}**`;
-                            const lines = items.map((f) => {
-                              const path = f.file || "unknown file";
-                              const safePath = path.replace(/`/g, "");
-                              const link = path === "unknown file" ? "unknown file" : `[${safePath}](${fileLink(safePath)})`;
-                              return `  - [${(f.severity || "unknown").toUpperCase()}] ${link} — ${f.detail || "No detail provided"}`;
-                            }).join("\n");
-                            return `${header}\n${lines}`;
-                          }).join("\n\n");
+            const findingsSection = findings.length === 0
+              ? "- none"
+              : Object.entries(byRule).map(([rule, items]) => {
+                  const header = `**${rule}**`;
+                  const lines = items.map((f) => {
+                    const path = f.file || "unknown file";
+                    const safePath = path.replace(/`/g, "");
+                    const link = path === "unknown file" ? "unknown file" : `[${safePath}](${fileLink(safePath)})`;
+                    return `  - [${(f.severity || "unknown").toUpperCase()}] ${link} — ${f.detail || "No detail provided"}`;
+                  }).join("\n");
+                  return `${header}\n${lines}`;
+                }).join("\n\n");
 
-                      const overallRisk = severityCounts.high > 0 ? "HIGH"
-                        : severityCounts.medium > 0 ? "MEDIUM"
-                        : severityCounts.low > 0 ? "LOW"
-                        : findings.length > 0 ? "UNKNOWN"
-                        : "NONE";
+            const overallRisk = severityCounts.high > 0 ? "HIGH"
+              : severityCounts.medium > 0 ? "MEDIUM"
+              : severityCounts.low > 0 ? "LOW"
+              : findings.length > 0 ? "UNKNOWN"
+              : "NONE";
 
-                      const body = [
-                        marker,
-                        "## Master at Arms Branding Compliance",
-                        `Compliance Result: **${result}**`,
-                        "",
-                        `Decision: ${parsed.decision || "unknown"}`,
-                        `Reason: ${parsed.reason || "none"}`,
-                        `System Message: ${parsed.systemMessage || "none"}`,
-                        `Overall Risk: **${overallRisk}**`,
-                        "",
-                        "### Severity Summary",
-                        summaryTable,
-                        "",
-                        "### Findings",
-                        findingsSection
-                      ].join("\n");
+            const body = [
+              marker,
+              "## Master at Arms Branding Compliance",
+              `Compliance Result: **${result}**`,
+              "",
+              `Decision: ${parsed.decision || "unknown"}`,
+              `Reason: ${parsed.reason || "none"}`,
+              `System Message: ${parsed.systemMessage || "none"}`,
+              `Overall Risk: **${overallRisk}**`,
+              "",
+              "### Severity Summary",
+              summaryTable,
+              "",
+              "### Findings",
+              findingsSection
+            ].join("\n");
 
-                      const { owner, repo } = context.repo;
-                      const issue_number = context.issue.number;
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
 
-                      const { data: comments } = await github.rest.issues.listComments({
-                        owner,
-                        repo,
-                        issue_number,
-                        per_page: 100
-                      });
+            const { data: comments } = await github.rest.issues.listComments({
+              owner,
+              repo,
+              issue_number,
+              per_page: 100
+            });
 
-                      const existing = comments.find((c) => c.user?.type === "Bot" && c.body?.includes(marker));
+            const existing = comments.find((c) => c.user?.type === "Bot" && c.body?.includes(marker));
 
-                      if (existing) {
-                        await github.rest.issues.updateComment({
-                          owner,
-                          repo,
-                          comment_id: existing.id,
-                          body
-                        });
-                      } else {
-                        await github.rest.issues.createComment({
-                          owner,
-                          repo,
-                          issue_number,
-                          body
-                        });
-                      }
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: existing.id,
+                body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number,
+                body
+              });
+            }

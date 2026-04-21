@@ -98,11 +98,9 @@ describe("docs catch-all route", () => {
 
   it("falls back to octet-stream for unknown extensions", async () => {
     const bucket: BucketMock = {
-      get: jest
-        .fn()
-        .mockResolvedValue({
-          body: new ReadableStream({ start: (c) => c.close() }),
-        }),
+      get: jest.fn().mockResolvedValue({
+        body: new ReadableStream({ start: (c) => c.close() }),
+      }),
     };
     (getR2Bucket as jest.Mock).mockReturnValue(bucket);
 

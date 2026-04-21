@@ -102,7 +102,9 @@ async function listDocxFilesRecursive(dirPath) {
 
 async function extractDocxText(filePath) {
   const mammoth = await import("mammoth");
-  const result = await mammoth.extractRawText({ buffer: readFileSync(filePath) });
+  const result = await mammoth.extractRawText({
+    buffer: readFileSync(filePath),
+  });
   return normalizeWhitespace(result.value || "");
 }
 
@@ -128,7 +130,9 @@ async function main() {
     );
   }
 
-  console.log(`Found ${allDocx.length} DOCX files (${parsed.length} matched section naming).\n`);
+  console.log(
+    `Found ${allDocx.length} DOCX files (${parsed.length} matched section naming).\n`,
+  );
 
   const sections = [];
 
