@@ -1,6 +1,5 @@
 /** @jest-environment jsdom */
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 
 jest.mock("next/image", () => ({
   __esModule: true,
@@ -20,8 +19,8 @@ jest.mock("next/link", () => ({
   }) => <a href={href}>{children}</a>,
 }));
 
-jest.mock("@/lib/analytics/hooks", () => ({
-  usePageTracking: jest.fn(),
+jest.mock("@/components/analytics", () => ({
+  PageTrackingClient: () => null,
 }));
 
 import OfflinePage from "../page";
@@ -29,9 +28,7 @@ import OfflinePage from "../page";
 describe("OfflinePage", () => {
   it("renders the offline heading", () => {
     render(<OfflinePage />);
-    expect(
-      screen.getByText(/Base HQ → Offline Operations/i),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Offline Hub/i)).toBeInTheDocument();
   });
 
   it("renders the Go Home link", () => {
@@ -42,19 +39,10 @@ describe("OfflinePage", () => {
     );
   });
 
-  it("renders the Retry Connection button", () => {
+  it("renders the Retry Connection link", () => {
     render(<OfflinePage />);
     expect(
-      screen.getByRole("button", { name: /Retry Connection/i }),
-    ).toBeInTheDocument();
-  });
-
-  it("Retry Connection button click executes without error", async () => {
-    const user = userEvent.setup();
-    render(<OfflinePage />);
-    // window.location.reload is not mockable in jsdom, but clicking must not throw
-    await expect(
-      user.click(screen.getByRole("button", { name: /Retry Connection/i })),
-    ).resolves.toBeUndefined();
+      screen.getByRole("link", { name: /Retry Connection/i }),
+    ).toHaveAttribute("href", "/hub");
   });
 });
