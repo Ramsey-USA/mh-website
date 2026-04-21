@@ -316,3 +316,290 @@ describe("MetricsCalculator", () => {
     ).toEqual(["recent", "recent-ended"]);
   });
 });
+
+// ─── Additional branch coverage ───────────────────────────────────────────────
+
+describe("MetricsCalculator — additional branches", () => {
+  const calculator = new MetricsCalculator();
+
+  // ── getSessionDuration via endTime ────────────────────────────────────────
+
+  it("uses endTime Date when totalDuration is 0 for average session calculation", () => {
+    const sessions = [
+      createSession({
+        sessionId: "s1",
+        startTime: new Date("2026-04-21T10:00:00.000Z"),
+        endTime: new Date("2026-04-21T10:02:00.000Z"), // 120s
+        totalDuration: 0,
+      }),
+    ];
+    expect(calculator.calculateAverageSessionDuration(sessions)).toBe(120_000);
+  });
+
+  it("returns 0 for session with no totalDuration and no endTime", () => {
+    const sessions = [createSession({ sessionId: "s1", totalDuration: 0 })];
+    expect(calculator.calculateAverageSessionDuration(sessions)).toBe(0);
+  });
+
+  // ── extractTrafficSource — explicit source property ────────────────────────
+
+  it("getTrafficSources uses explicit 'source' property when present", () => {
+    const events = [
+      createEvent({
+        sessionId: "s1",
+        properties: { source: "Newsletter" },
+      }),
+    ];
+    const sessions = [createSession({ sessionId: "s1", conversions: [] })];
+    const result = calculator.getTrafficSources(events, sessions);
+    expect(result[0]!.source).toBe("newsletter");
+  });
+
+  it("getTrafficSources uses utm_source property when present", () => {
+    const events = [
+      createEvent({
+        sessionId: "s1",
+        properties: { utm_source: "Google_Ads" },
+      }),
+    ];
+    const sessions = [createSession({ sessionId: "s1", conversions: [] })];
+    const result = calculator.getTrafficSources(events, sessions);
+    expect(result[0]!.source).toBe("google_ads");
+  });
+
+  // ── extractTrafficSource — referrer-based ──────────────────────────────────
+
+  it("identifies bing from referrer hostname", () => {
+    const events = [
+      createEvent({
+        sessionId: "s1",
+        metadata: { ...baseMetadata, referrer: "https://www.bing.com/search" },
+      }),
+    ];
+    const sessions = [createSession({ sessionId: "s1", conversions: [] })];
+    expect(calculator.getTrafficSources(events, sessions)[0]!.source).toBe(
+      "bing",
+    );
+  });
+
+  it("identifies twitter from twitter.com referrer", () => {
+    const events = [
+      createEvent({
+        sessionId: "s1",
+        metadata: { ...baseMetadata, referrer: "https://twitter.com/share" },
+      }),
+    ];
+    const sessions = [createSession({ sessionId: "s1", conversions: [] })];
+    expect(calculator.getTrafficSources(events, sessions)[0]!.source).toBe(
+      "twitter",
+    );
+  });
+
+  it("identifies twitter from t.co referrer", () => {
+    const events = [
+      createEvent({
+        sessionId: "s1",
+        metadata: { ...baseMetadata, referrer: "https://t.co/abc123" },
+      }),
+    ];
+    const sessions = [createSession({ sessionId: "s1", conversions: [] })];
+    expect(calculator.getTrafficSources(events, sessions)[0]!.source).toBe(
+      "twitter",
+    );
+  });
+
+  it("returns the hostname for unknown referrers", () => {
+    const events = [
+      createEvent({
+        sessionId: "s1",
+        metadata: {
+          ...baseMetadata,
+          referrer: "https://custom-partner.com/page",
+        },
+      }),
+    ];
+    const sessions = [createSession({ sessionId: "s1", conversions: [] })];
+    expect(calculator.getTrafficSources(events, sessions)[0]!.source).toBe(
+      "custom-partner.com",
+    );
+  });
+
+  it("returns 'direct' for a malformed referrer URL", () => {
+    const events = [
+      createEvent({
+        sessionId: "s1",
+        metadata: { ...baseMetadata, referrer: "not a url ://" },
+      }),
+    ];
+    const sessions = [createSession({ sessionId: "s1", conversions: [] })];
+    expect(calculator.getTrafficSources(events, sessions)[0]!.source).toBe(
+      "direct",
+    );
+  });
+
+  // ── isTruthyVeteranValue string branches ───────────────────────────────────
+
+  it.each([
+    "true",
+    "yes",
+    "veteran",
+    "army",
+    "navy",
+    "air force",
+    "marines",
+    "coast guard",
+    "space force",
+  ])("countVeteranUsers counts events with veteran string '%s'", (value) => {
+    const events = [
+      createEvent({
+        sessionId: "s1",
+        userId: "u1",
+        properties: { veteran: value },
+      }),
+    ];
+    expect(calculator.countVeteranUsers(events)).toBe(1);
+  });
+
+  it("countVeteranUsers does not count events with non-veteran strings", () => {
+    const events = [
+      createEvent({ sessionId: "s1", properties: { veteran: "no" } }),
+    ];
+    expect(calculator.countVeteranUsers(events)).toBe(0);
+  });
+
+  it("countVeteranUsers does not count events with numeric veteran property", () => {
+    const events = [
+      createEvent({ sessionId: "s1", properties: { veteran: 1 } }),
+    ];
+    expect(calculator.countVeteranUsers(events)).toBe(0);
+  });
+
+  // ── calculateVeteranUserPercentage ────────────────────────────────────────
+
+  it("calculateVeteranUserPercentage returns 0 for totalUsers <= 0", () => {
+    const events = [
+      createEvent({ sessionId: "s1", properties: { veteran: "army" } }),
+    ];
+    expect(calculator.calculateVeteranUserPercentage(events, 0)).toBe(0);
+    expect(calculator.calculateVeteranUserPercentage(events, -1)).toBe(0);
+  });
+
+  // ── getTopPages — averageTime and bounceRate in output ────────────────────
+
+  it("getTopPages computes averageTime and bounceRate from multi-page sessions", () => {
+    const t0 = new Date("2026-04-21T10:00:00.000Z");
+    const t1 = new Date("2026-04-21T10:01:00.000Z"); // +60s
+    const t2 = new Date("2026-04-21T10:02:00.000Z"); // +60s
+
+    const events = [
+      createEvent({
+        id: "ev1",
+        type: "page_view",
+        sessionId: "s1",
+        timestamp: t0,
+        properties: { page: "/home" },
+      }),
+      createEvent({
+        id: "ev2",
+        type: "page_view",
+        sessionId: "s1",
+        timestamp: t1,
+        properties: { page: "/about" },
+      }),
+      createEvent({
+        id: "ev3",
+        type: "page_view",
+        sessionId: "s1",
+        timestamp: t2,
+        properties: { page: "/contact" },
+      }),
+    ];
+
+    const pages = calculator.getTopPages(events, 10);
+    const home = pages.find((p) => p.page === "/home");
+    const about = pages.find((p) => p.page === "/about");
+    expect(home).toBeDefined();
+    expect(about).toBeDefined();
+    // 3-page session → bounce rate = 0
+    expect(home!.bounceRate).toBe(0);
+    expect(about!.bounceRate).toBe(0);
+    // averageTime: ev1 → ev2 = 60_000 ms
+    expect(home!.averageTime).toBe(60_000);
+  });
+
+  it("getTopPages returns bounceRate=1 for single-page sessions", () => {
+    const events = [
+      createEvent({
+        id: "ev1",
+        type: "page_view",
+        sessionId: "s1",
+        properties: { page: "/landing" },
+      }),
+    ];
+    const pages = calculator.getTopPages(events, 10);
+    expect(pages[0]!.bounceRate).toBe(1);
+    expect(pages[0]!.averageTime).toBe(0); // no next event
+  });
+
+  it("getTopPages handles event page from metadata when properties.page is absent", () => {
+    const events = [
+      createEvent({
+        id: "ev1",
+        type: "page_view",
+        sessionId: "s1",
+        metadata: { ...baseMetadata, page: "/meta-page" },
+        properties: {},
+      }),
+    ];
+    const pages = calculator.getTopPages(events, 10);
+    expect(pages[0]!.page).toBe("/meta-page");
+  });
+
+  // ── getTrafficSources — session without matching event ────────────────────
+
+  it("getTrafficSources defaults to 'direct' for sessions with no matching event", () => {
+    // No events for this session → firstEvent will be undefined
+    const sessions = [
+      createSession({ sessionId: "no-event-session", conversions: [] }),
+    ];
+    const result = calculator.getTrafficSources([], sessions);
+    expect(result[0]!.source).toBe("direct");
+  });
+
+  // ── countTotalConversions ─────────────────────────────────────────────────
+
+  it("countTotalConversions sums conversions across all sessions", () => {
+    const sessions = [
+      createSession({
+        sessionId: "s1",
+        conversions: [
+          {
+            type: "contact_form",
+            value: 1,
+            timestamp: new Date(),
+            properties: {},
+          },
+          {
+            type: "specialist_contact" as const,
+            value: 1,
+            timestamp: new Date(),
+            properties: {},
+          },
+        ],
+      }),
+      createSession({
+        sessionId: "s2",
+        conversions: [
+          {
+            type: "contact_form",
+            value: 1,
+            timestamp: new Date(),
+            properties: {},
+          },
+        ],
+      }),
+    ];
+    expect(calculator.countTotalConversions(sessions)).toBe(3);
+    expect(calculator.countTotalConversions([])).toBe(0);
+  });
+});
