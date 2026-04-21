@@ -128,6 +128,49 @@ describe("AlternatingShowcase", () => {
     expect(screen.getByText("100+")).toBeInTheDocument();
     expect(screen.getByText("Projects")).toBeInTheDocument();
   });
+
+  it("renders item link when link prop is provided", () => {
+    const itemsWithLink = [
+      {
+        ...items[0],
+        link: {
+          href: "https://www.agc.org/babaa-resource-hub",
+          text: "AGC BABAA Resource Hub →",
+        },
+      },
+      items[1],
+    ];
+    render(
+      <AlternatingShowcase
+        items={itemsWithLink}
+        title="Test Title"
+        subtitle="Test Subtitle"
+        icon="star"
+        description="Test description"
+      />,
+    );
+    const link = screen.getByText("AGC BABAA Resource Hub →");
+    expect(link).toBeInTheDocument();
+    expect(link.closest("a")).toHaveAttribute(
+      "href",
+      "https://www.agc.org/babaa-resource-hub",
+    );
+  });
+
+  it("does not render a link when link prop is absent", () => {
+    render(
+      <AlternatingShowcase
+        items={items}
+        title="Test Title"
+        subtitle="Test Subtitle"
+        icon="star"
+        description="Test description"
+      />,
+    );
+    expect(
+      screen.queryByText("AGC BABAA Resource Hub →"),
+    ).not.toBeInTheDocument();
+  });
 });
 
 // ── ContentCard ───────────────────────────────────────────────────────────────

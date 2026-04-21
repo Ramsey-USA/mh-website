@@ -166,6 +166,12 @@ export const COMPANY_INFO = {
     getSiteUrl: () =>
       process.env["NEXT_PUBLIC_SITE_URL"] || "https://www.mhc-gc.com",
   },
+
+  // Associated General Contractors (AGC) — MH Construction is an AGC member
+  agc: {
+    /** AGC national BABAA resource hub — covers Build America, Buy America Act guidance */
+    babaaResourceHub: "https://www.agc.org/babaa-resource-hub",
+  },
 } as const;
 
 /**

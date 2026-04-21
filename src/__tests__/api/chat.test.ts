@@ -105,6 +105,7 @@ describe("POST /api/chat", () => {
     const body = await res.json();
     expect(body.response).toContain("BABAA");
     expect(body.response).toContain("Build America, Buy America Act");
+    expect(body.response).toContain("agc.org/babaa-resource-hub");
   });
 
   it("uses Workers AI response when AI binding is available", async () => {

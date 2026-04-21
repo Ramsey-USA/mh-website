@@ -154,7 +154,7 @@ function generateFallbackResponse(message: string): string {
     lower.includes("build america") ||
     lower.includes("buy america")
   ) {
-    return "MH Construction is Veteran-Owned Since January 2025 by Army veteran Jeremy Thamert, and as a Veteran-Owned firm we are a dedicated supporter of the Build America, Buy America Act (BABAA). We're BBB Accredited with an A+ rating. We offer a Combat Veteran Discount and priority scheduling for all veterans. Bring your DD-214 or VA card to your consultation. Learn more at mhc-gc.com/veterans.";
+    return "MH Construction is Veteran-Owned Since January 2025 by Army veteran Jeremy Thamert, and as a Veteran-Owned firm we are a dedicated supporter of the Build America, Buy America Act (BABAA). As an AGC member, we stay current on BABAA requirements — learn more at agc.org/babaa-resource-hub. We're BBB Accredited with an A+ rating. We offer a Combat Veteran Discount and priority scheduling for all veterans. Bring your DD-214 or VA card to your consultation. Learn more at mhc-gc.com/veterans.";
   }
 
   // BBB / Better Business Bureau

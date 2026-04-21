@@ -37,6 +37,7 @@ describe("Chatbot Knowledge Base", () => {
       expect(prompt).toContain("office@mhc-gc.com");
       expect(prompt).toContain("Veteran-Owned");
       expect(prompt).toContain("Build America, Buy America Act (BABAA)");
+      expect(prompt).toContain("agc.org/babaa-resource-hub");
       expect(prompt).toContain("THE ROI IS THE RELATIONSHIP");
       expect(prompt).toContain(
         "Building projects for the Client, NOT the Dollar",
