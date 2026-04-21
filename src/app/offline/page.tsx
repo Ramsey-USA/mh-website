@@ -47,7 +47,7 @@ export default function OfflinePage() {
         </h1>
 
         <p className="text-brand-secondary font-semibold text-sm uppercase tracking-widest mb-3">
-          Connection unavailable
+          You&apos;re offline
         </p>
 
         <p className="text-white/80 text-sm mb-4">
