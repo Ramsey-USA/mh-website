@@ -3,11 +3,9 @@ import "./globals.css";
 import "../styles/material-icons.css";
 import { AppShell } from "@/components/layout/AppShell";
 import FaviconLinks from "@/components/layout/FaviconLinks";
-import { AuthProvider } from "@/lib/auth/auth-context";
 import { ThemeProvider } from "@/contexts/theme-context";
 import { ErrorBoundary } from "@/components/error";
 import { SentryInit } from "@/components/monitoring/SentryInit";
-import { SentryTestButton } from "@/components/monitoring/SentryTestButton";
 import ChatWidgetLazy from "@/components/chatbot/ChatWidgetLazy";
 import { DeferredPerformanceEnhancements } from "@/components/performance/DeferredPerformanceEnhancements";
 import {
@@ -20,7 +18,11 @@ import { ScrollProgress } from "@/components/ui/accessibility/ScrollProgress";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
-import { getServerLocale } from "@/lib/i18n/locale.server";
+import {
+  DEFAULT_LOCALE,
+  LOCALE_COOKIE_NAME,
+  SUPPORTED_LOCALES,
+} from "@/lib/i18n/locale";
 
 export const metadata: Metadata = withGeoMetadata({
   metadataBase: new URL(
@@ -168,15 +170,13 @@ export const viewport: Viewport = {
   colorScheme: "light dark",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const locale = await getServerLocale();
-
   return (
-    <html lang={locale}>
+    <html lang={DEFAULT_LOCALE}>
       <head>
         <FaviconLinks />
         {/* Google Analytics */}
@@ -205,6 +205,19 @@ export default async function RootLayout({
           type="font/woff2"
           crossOrigin="anonymous"
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(() => {
+              const escapeRegex = (value) => value.replace(/[.*+?^$()|[\\]{}\\\\]/g, "\\\\$&");
+              const localeCookieName = ${JSON.stringify(LOCALE_COOKIE_NAME)};
+              const localePattern = new RegExp(\`(?:^|;\\\\s*)\${escapeRegex(localeCookieName)}=([^;]+)\`);
+              const match = document.cookie.match(localePattern);
+              const supportedLocales = ${JSON.stringify(SUPPORTED_LOCALES)};
+              const locale = match && supportedLocales.includes(match[1]) ? match[1] : ${JSON.stringify(DEFAULT_LOCALE)};
+              document.documentElement.lang = locale;
+            })();`,
+          }}
+        />
 
         {/* Enhanced Schema Markup */}
         <StructuredData
@@ -213,17 +226,14 @@ export default async function RootLayout({
       </head>
       <body className="font-sans">
         <SentryInit />
-        <SentryTestButton />
         <SkipLink />
         <ScrollProgress />
         <DeferredPerformanceEnhancements />
         <ThemeProvider defaultTheme="light" storageKey="mh-construction-theme">
-          <AuthProvider>
-            <ErrorBoundary>
-              <AppShell>{children}</AppShell>
-              <ChatWidgetLazy />
-            </ErrorBoundary>
-          </AuthProvider>
+          <ErrorBoundary>
+            <AppShell>{children}</AppShell>
+            <ChatWidgetLazy />
+          </ErrorBoundary>
         </ThemeProvider>
       </body>
     </html>
