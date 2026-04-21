@@ -148,3 +148,158 @@ describe("offline-queue", () => {
     expect(await getPendingCount()).toBe(0);
   });
 });
+
+// ─── onupgradeneeded path ─────────────────────────────────────────────────────
+
+describe("offline-queue — onupgradeneeded", () => {
+  it("invokes onupgradeneeded and creates object stores when DB does not exist", async () => {
+    const createdStores: string[] = [];
+
+    const mockDBForUpgrade = {
+      objectStoreNames: { contains: (_name: string) => false },
+      createObjectStore: jest.fn((name: string) => {
+        createdStores.push(name);
+      }),
+    };
+
+    // Supply an onupgradeneeded-aware mock
+    const openWithUpgrade = jest.fn((_name: string, _version: number) => {
+      const req = new MockIDBRequest<MockIDBDatabase>();
+      // Fire onupgradeneeded synchronously before resolving
+      Promise.resolve().then(() => {
+        const asRecord = req as unknown as Record<string, unknown>;
+        if (typeof asRecord["onupgradeneeded"] === "function") {
+          const handler = asRecord["onupgradeneeded"] as (e: {
+            target: unknown;
+          }) => void;
+          handler({ target: { result: mockDBForUpgrade } });
+        }
+        req._resolve(new MockIDBDatabase());
+      });
+      return req;
+    });
+
+    Object.defineProperty(global, "indexedDB", {
+      value: { open: openWithUpgrade },
+      configurable: true,
+      writable: true,
+    });
+
+    await getPendingCount();
+
+    expect(mockDBForUpgrade.createObjectStore).toHaveBeenCalledWith(
+      "contact-forms",
+      expect.objectContaining({ autoIncrement: true }),
+    );
+    expect(mockDBForUpgrade.createObjectStore).toHaveBeenCalledWith(
+      "offline-submissions",
+      expect.objectContaining({ autoIncrement: true }),
+    );
+
+    // Restore original mock
+    Object.defineProperty(global, "indexedDB", {
+      value: { open: mockOpen },
+      configurable: true,
+      writable: true,
+    });
+  });
+
+  it("skips createObjectStore when stores already exist (onupgradeneeded with contains=true)", async () => {
+    const mockDBForUpgrade = {
+      objectStoreNames: { contains: (_name: string) => true },
+      createObjectStore: jest.fn(),
+    };
+
+    const openWithUpgrade = jest.fn((_name: string, _version: number) => {
+      const req = new MockIDBRequest<MockIDBDatabase>();
+      Promise.resolve().then(() => {
+        const asRecord = req as unknown as Record<string, unknown>;
+        if (typeof asRecord["onupgradeneeded"] === "function") {
+          const handler = asRecord["onupgradeneeded"] as (e: {
+            target: unknown;
+          }) => void;
+          handler({ target: { result: mockDBForUpgrade } });
+        }
+        req._resolve(new MockIDBDatabase());
+      });
+      return req;
+    });
+
+    Object.defineProperty(global, "indexedDB", {
+      value: { open: openWithUpgrade },
+      configurable: true,
+      writable: true,
+    });
+
+    await getPendingCount();
+
+    expect(mockDBForUpgrade.createObjectStore).not.toHaveBeenCalled();
+
+    Object.defineProperty(global, "indexedDB", {
+      value: { open: mockOpen },
+      configurable: true,
+      writable: true,
+    });
+  });
+});
+
+// ─── SyncManager / background sync path ──────────────────────────────────────
+
+describe("offline-queue — background sync registration", () => {
+  afterEach(() => {
+    // Reset stores and restore navigator.serviceWorker
+    globalStores.set("offline-submissions", new MockStore());
+    globalStores.set("contact-forms", new MockStore());
+    Object.defineProperty(global, "indexedDB", {
+      value: { open: mockOpen },
+      configurable: true,
+      writable: true,
+    });
+  });
+
+  it("registers background-sync tag when SyncManager and serviceWorker are available", async () => {
+    const syncRegister = jest.fn().mockResolvedValue(undefined);
+    const mockRegistration = { sync: { register: syncRegister } };
+
+    Object.defineProperty(window, "SyncManager", {
+      value: class SyncManager {},
+      configurable: true,
+      writable: true,
+    });
+    Object.defineProperty(navigator, "serviceWorker", {
+      value: {
+        ready: Promise.resolve(mockRegistration),
+      },
+      configurable: true,
+      writable: true,
+    });
+
+    await saveOfflineSubmission("/api/test", { a: 1 });
+
+    expect(syncRegister).toHaveBeenCalledWith("background-sync");
+  });
+
+  it("does not throw when sync.register() rejects (browser limitation)", async () => {
+    const syncRegister = jest
+      .fn()
+      .mockRejectedValue(new Error("Sync not supported"));
+    const mockRegistration = { sync: { register: syncRegister } };
+
+    Object.defineProperty(window, "SyncManager", {
+      value: class SyncManager {},
+      configurable: true,
+      writable: true,
+    });
+    Object.defineProperty(navigator, "serviceWorker", {
+      value: {
+        ready: Promise.resolve(mockRegistration),
+      },
+      configurable: true,
+      writable: true,
+    });
+
+    await expect(
+      saveOfflineSubmission("/api/test", { b: 2 }),
+    ).resolves.not.toThrow();
+  });
+});

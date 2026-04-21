@@ -106,4 +106,131 @@ describe("useOfflineStatus", () => {
     await act(async () => {});
     expect(typeof result.current.refreshPendingCount).toBe("function");
   });
+
+  it("calls refreshPendingCount when BACKGROUND_SYNC_SUCCESS message is received", async () => {
+    mockGetPendingCount.mockResolvedValue(3);
+
+    const swListeners: Array<(e: MessageEvent) => void> = [];
+    Object.defineProperty(navigator, "serviceWorker", {
+      value: {
+        addEventListener: jest.fn(
+          (_type: string, cb: (e: MessageEvent) => void) => {
+            swListeners.push(cb);
+          },
+        ),
+        removeEventListener: jest.fn(),
+      },
+      configurable: true,
+      writable: true,
+    });
+
+    const { result } = renderHook(() => useOfflineStatus());
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    mockGetPendingCount.mockResolvedValue(9);
+
+    await act(async () => {
+      swListeners.forEach((cb) =>
+        cb(
+          new MessageEvent("message", {
+            data: { type: "BACKGROUND_SYNC_SUCCESS" },
+          }),
+        ),
+      );
+      await Promise.resolve();
+    });
+
+    expect(result.current.pendingCount).toBe(9);
+  });
+
+  it("calls refreshPendingCount when BACKGROUND_SYNC_START message is received", async () => {
+    const swListeners: Array<(e: MessageEvent) => void> = [];
+    Object.defineProperty(navigator, "serviceWorker", {
+      value: {
+        addEventListener: jest.fn(
+          (_type: string, cb: (e: MessageEvent) => void) => {
+            swListeners.push(cb);
+          },
+        ),
+        removeEventListener: jest.fn(),
+      },
+      configurable: true,
+      writable: true,
+    });
+
+    mockGetPendingCount.mockResolvedValue(2);
+    const { result } = renderHook(() => useOfflineStatus());
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    mockGetPendingCount.mockResolvedValue(5);
+
+    await act(async () => {
+      swListeners.forEach((cb) =>
+        cb(
+          new MessageEvent("message", {
+            data: { type: "BACKGROUND_SYNC_START" },
+          }),
+        ),
+      );
+      await Promise.resolve();
+    });
+
+    expect(result.current.pendingCount).toBe(5);
+  });
+
+  it("ignores unrelated service worker messages", async () => {
+    const swListeners: Array<(e: MessageEvent) => void> = [];
+    Object.defineProperty(navigator, "serviceWorker", {
+      value: {
+        addEventListener: jest.fn(
+          (_type: string, cb: (e: MessageEvent) => void) => {
+            swListeners.push(cb);
+          },
+        ),
+        removeEventListener: jest.fn(),
+      },
+      configurable: true,
+      writable: true,
+    });
+
+    mockGetPendingCount.mockResolvedValue(1);
+    const { result } = renderHook(() => useOfflineStatus());
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    // Fire a message that should not trigger a refresh
+    await act(async () => {
+      swListeners.forEach((cb) =>
+        cb(new MessageEvent("message", { data: { type: "SOME_OTHER_TYPE" } })),
+      );
+    });
+
+    // pendingCount should remain at its initial value (1)
+    expect(result.current.pendingCount).toBe(1);
+    // getPendingCount should have only been called once (on mount)
+    expect(mockGetPendingCount).toHaveBeenCalledTimes(1);
+  });
+
+  it("removes SW message listener on cleanup", async () => {
+    const removeSpy = jest.fn();
+    Object.defineProperty(navigator, "serviceWorker", {
+      value: {
+        addEventListener: jest.fn(),
+        removeEventListener: removeSpy,
+      },
+      configurable: true,
+      writable: true,
+    });
+
+    const { unmount } = renderHook(() => useOfflineStatus());
+    await act(async () => {});
+    unmount();
+
+    expect(removeSpy).toHaveBeenCalledWith("message", expect.any(Function));
+  });
 });
