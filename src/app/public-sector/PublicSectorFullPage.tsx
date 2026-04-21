@@ -383,7 +383,7 @@ export default function PublicSectorFullPage() {
 
             <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                Army veteran-led team
+                Army-veteran-led team
               </span>{" "}
               delivers mission-critical construction services with unwavering
               commitment to federal specifications, operational success,{" "}
@@ -1136,7 +1136,7 @@ export default function PublicSectorFullPage() {
                 </Button>
               </Link>
               <a
-                href={`mailto:${COMPANY_INFO.email.main}?subject=Federal%20Capabilities%20Brief%20Request`}
+                href={`mailto:${COMPANY_INFO.email.main}?subject=Request%20Federal%20Capabilities%20Brief`}
               >
                 <Button
                   size="lg"
