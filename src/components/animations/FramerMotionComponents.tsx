@@ -149,7 +149,7 @@ export function HoverScale({
     transform: `translateZ(0) scale(${currentScale})`,
     transition: "transform 0.2s cubic-bezier(0.34,1.56,0.64,1)",
     backfaceVisibility: "hidden",
-    willChange: "transform",
+    willChange: hovered || pressed ? "transform" : "auto",
     WebkitFontSmoothing: "antialiased",
   };
   return (

@@ -146,12 +146,14 @@ export default function AboutPage() {
                   src={COMPANY_INFO.bbb.sealHorizontal}
                   alt="BBB Accredited Business A+ Rating"
                   className="h-10 sm:h-12 w-auto dark:hidden"
+                  loading="lazy"
                 />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={COMPANY_INFO.bbb.sealHorizontalWhite}
                   alt="BBB Accredited Business A+ Rating"
                   className="h-10 sm:h-12 w-auto hidden dark:block"
+                  loading="lazy"
                 />
               </a>
 
@@ -168,6 +170,7 @@ export default function AboutPage() {
                   src="/images/logo/agc-member.webp"
                   alt="AGC of Washington Member"
                   className="h-10 sm:h-12 w-auto"
+                  loading="lazy"
                 />
               </a>
 
@@ -184,12 +187,14 @@ export default function AboutPage() {
                   src={COMPANY_INFO.travelers.logo}
                   alt="Travelers Insurance - Auto & Bonding Partner"
                   className="h-10 sm:h-12 w-auto dark:hidden"
+                  loading="lazy"
                 />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={COMPANY_INFO.travelers.logoWhite}
                   alt="Travelers Insurance - Auto & Bonding Partner"
                   className="h-10 sm:h-12 w-auto hidden dark:block"
+                  loading="lazy"
                 />
               </a>
 
@@ -206,12 +211,14 @@ export default function AboutPage() {
                   src={COMPANY_INFO.chambers.pasco.logo}
                   alt="Pasco Chamber of Commerce Member"
                   className="h-10 sm:h-12 w-auto dark:hidden"
+                  loading="lazy"
                 />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={COMPANY_INFO.chambers.pasco.logoWhite}
                   alt="Pasco Chamber of Commerce Member"
                   className="h-10 sm:h-12 w-auto hidden dark:block"
+                  loading="lazy"
                 />
               </a>
 
@@ -228,6 +235,7 @@ export default function AboutPage() {
                   src={COMPANY_INFO.chambers.richland.logo}
                   alt="Richland Chamber of Commerce Member"
                   className="h-10 sm:h-12 w-auto"
+                  loading="lazy"
                 />
               </a>
 
@@ -244,6 +252,7 @@ export default function AboutPage() {
                   src={COMPANY_INFO.chambers.triCityRegional.logo}
                   alt="Tri-City Regional Chamber of Commerce Member"
                   className="h-10 sm:h-12 w-auto"
+                  loading="lazy"
                 />
               </a>
 

@@ -816,12 +816,14 @@ export default function ServicesPage() {
                 <img
                   src={COMPANY_INFO.bbb.sealHorizontal}
                   alt="BBB Accredited A+ Rating"
+                  loading="lazy"
                   className="h-12 w-auto dark:hidden"
                 />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={COMPANY_INFO.bbb.sealHorizontalWhite}
                   alt="BBB Accredited A+ Rating"
+                  loading="lazy"
                   className="h-12 w-auto hidden dark:block"
                 />
               </a>
@@ -836,6 +838,7 @@ export default function ServicesPage() {
                 <img
                   src="/images/logo/agc-member.webp"
                   alt="AGC of Washington Member"
+                  loading="lazy"
                   className="h-12 w-auto"
                 />
               </a>
@@ -850,12 +853,14 @@ export default function ServicesPage() {
                 <img
                   src={COMPANY_INFO.travelers.logo}
                   alt="Travelers Insurance - Auto & Bonding Partner"
+                  loading="lazy"
                   className="h-10 w-auto dark:hidden"
                 />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={COMPANY_INFO.travelers.logoWhite}
                   alt="Travelers Insurance - Auto & Bonding Partner"
+                  loading="lazy"
                   className="h-10 w-auto hidden dark:block"
                 />
               </a>

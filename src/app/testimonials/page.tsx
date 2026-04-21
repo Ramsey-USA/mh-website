@@ -20,7 +20,6 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { getServerLocale } from "@/lib/i18n/locale.server";
 const TestimonialsSection = dynamic(() =>
   import("@/components/shared-sections/TestimonialsSection").then((m) => ({
     default: m.TestimonialsSection,
@@ -110,9 +109,8 @@ const faqSchema = {
 };
 
 // NOSONAR: This page intentionally composes many static marketing sections.
-export default async function TestimonialsPage() {
-  const locale = await getServerLocale();
-  const isEs = locale === "es";
+export default function TestimonialsPage() {
+  const isEs = false; // locale served via ISR in English; Spanish users get locale from client bootstrap
 
   return (
     <>

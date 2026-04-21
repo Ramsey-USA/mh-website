@@ -464,9 +464,7 @@ const tradeGroups: TradeGroup[] = Object.entries(
 // Flat globally-alphabetical list used for the logo parade.
 // This is distinct from the trade-grouped order: here all vendors sort by
 // company name across all trades; in tradeGroups they sort by trade first.
-const sortedVendors = [...vendors].sort((a, b) =>
-  a.name.localeCompare(b.name),
-);
+const sortedVendors = [...vendors].sort((a, b) => a.name.localeCompare(b.name));
 
 /** Derives a stable HTML id for a trade group, e.g. "electrical" or "glass-glazing". */
 function tradeId(trade: string): string {
@@ -777,10 +775,7 @@ export default function AlliesPage() {
 
             <div className="space-y-16">
               {tradeGroups.map((group, groupIndex) => (
-                <div
-                  key={group.trade}
-                  id={`trade-${tradeId(group.trade)}`}
-                >
+                <div key={group.trade} id={`trade-${tradeId(group.trade)}`}>
                   {/* Deep-link anchor: /allies#trade-electrical etc.
                       The top-level #vendors nav item covers keyboard access. */}
                   {/* Trade group header */}
@@ -945,12 +940,14 @@ export default function AlliesPage() {
                   src={COMPANY_INFO.bbb.sealHorizontal}
                   alt="BBB Accredited Business A+ Rating"
                   className="h-10 sm:h-12 w-auto dark:hidden"
+                  loading="lazy"
                 />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={COMPANY_INFO.bbb.sealHorizontalWhite}
                   alt="BBB Accredited Business A+ Rating"
                   className="h-10 sm:h-12 w-auto hidden dark:block"
+                  loading="lazy"
                 />
               </a>
 
@@ -967,6 +964,7 @@ export default function AlliesPage() {
                   src="/images/logo/agc-member.webp"
                   alt="AGC of Washington Member"
                   className="h-10 sm:h-12 w-auto"
+                  loading="lazy"
                 />
               </a>
 
@@ -983,12 +981,14 @@ export default function AlliesPage() {
                   src={COMPANY_INFO.travelers.logo}
                   alt="Travelers Insurance - Auto & Bonding Partner"
                   className="h-10 sm:h-12 w-auto dark:hidden"
+                  loading="lazy"
                 />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={COMPANY_INFO.travelers.logoWhite}
                   alt="Travelers Insurance - Auto & Bonding Partner"
                   className="h-10 sm:h-12 w-auto hidden dark:block"
+                  loading="lazy"
                 />
               </a>
 
@@ -1005,12 +1005,14 @@ export default function AlliesPage() {
                   src={COMPANY_INFO.chambers.pasco.logo}
                   alt="Pasco Chamber of Commerce Member"
                   className="h-10 sm:h-12 w-auto dark:hidden"
+                  loading="lazy"
                 />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={COMPANY_INFO.chambers.pasco.logoWhite}
                   alt="Pasco Chamber of Commerce Member"
                   className="h-10 sm:h-12 w-auto hidden dark:block"
+                  loading="lazy"
                 />
               </a>
 
@@ -1027,6 +1029,7 @@ export default function AlliesPage() {
                   src={COMPANY_INFO.chambers.richland.logo}
                   alt="Richland Chamber of Commerce Member"
                   className="h-10 sm:h-12 w-auto"
+                  loading="lazy"
                 />
               </a>
 
@@ -1043,6 +1046,7 @@ export default function AlliesPage() {
                   src={COMPANY_INFO.chambers.triCityRegional.logo}
                   alt="Tri-City Regional Chamber of Commerce Member"
                   className="h-10 sm:h-12 w-auto"
+                  loading="lazy"
                 />
               </a>
 
