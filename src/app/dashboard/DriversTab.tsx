@@ -2,6 +2,11 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import {
+  DashboardFormField,
+  DashboardSelectField,
+  DashboardTextareaField,
+} from "@/components/ui/forms/DashboardFormField";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -142,11 +147,6 @@ function DriverForm({ token, driver, onSaved, onCancel }: DriverFormProps) {
     }
   };
 
-  const inputClass =
-    "w-full px-3 py-2 bg-gray-700/60 border border-gray-600 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50 focus:border-brand-secondary";
-
-  const selectClass = `${inputClass} appearance-none`;
-
   return (
     <form
       onSubmit={handleSubmit}
@@ -158,237 +158,166 @@ function DriverForm({ token, driver, onSaved, onCancel }: DriverFormProps) {
 
       {/* Row 1: Name, Email, Phone */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            Employee Name <span className="text-red-400">*</span>
-          </label>
-          <input
-            type="text"
-            required
-            placeholder="Full name"
-            value={fields.employee_name}
-            onChange={(e) =>
-              setFields((f) => ({ ...f, employee_name: e.target.value }))
-            }
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            Email
-          </label>
-          <input
-            type="email"
-            placeholder="employee@email.com"
-            value={fields.email}
-            onChange={(e) =>
-              setFields((f) => ({ ...f, email: e.target.value }))
-            }
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            Phone
-          </label>
-          <input
-            type="tel"
-            placeholder="(509) 555-0123"
-            value={fields.phone}
-            onChange={(e) =>
-              setFields((f) => ({ ...f, phone: e.target.value }))
-            }
-            className={inputClass}
-          />
-        </div>
+        <DashboardFormField
+          label="Employee Name"
+          isRequired
+          type="text"
+          required
+          placeholder="Full name"
+          value={fields.employee_name}
+          onChange={(e) =>
+            setFields((f) => ({ ...f, employee_name: e.target.value }))
+          }
+        />
+        <DashboardFormField
+          label="Email"
+          type="email"
+          placeholder="employee@email.com"
+          value={fields.email}
+          onChange={(e) => setFields((f) => ({ ...f, email: e.target.value }))}
+        />
+        <DashboardFormField
+          label="Phone"
+          type="tel"
+          placeholder="(509) 555-0123"
+          value={fields.phone}
+          onChange={(e) => setFields((f) => ({ ...f, phone: e.target.value }))}
+        />
       </div>
 
       {/* Row 2: License Info */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            License # <span className="text-red-400">*</span>
-          </label>
-          <input
-            type="text"
-            required
-            placeholder="DL number"
-            value={fields.license_number}
-            onChange={(e) =>
-              setFields((f) => ({ ...f, license_number: e.target.value }))
-            }
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            State
-          </label>
-          <input
-            type="text"
-            placeholder="WA"
-            maxLength={2}
-            value={fields.license_state}
-            onChange={(e) =>
-              setFields((f) => ({
-                ...f,
-                license_state: e.target.value.toUpperCase(),
-              }))
-            }
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            License Class
-          </label>
-          <select
-            value={fields.license_class}
-            onChange={(e) =>
-              setFields((f) => ({ ...f, license_class: e.target.value }))
-            }
-            className={selectClass}
-          >
-            <option value="">Standard</option>
-            <option value="CDL-A">CDL-A</option>
-            <option value="CDL-B">CDL-B</option>
-            <option value="CDL-C">CDL-C</option>
-          </select>
-        </div>
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            Expiration <span className="text-red-400">*</span>
-          </label>
-          <input
-            type="date"
-            required
-            value={fields.license_expiration_date}
-            onChange={(e) =>
-              setFields((f) => ({
-                ...f,
-                license_expiration_date: e.target.value,
-              }))
-            }
-            className={inputClass}
-          />
-        </div>
+        <DashboardFormField
+          label="License #"
+          isRequired
+          type="text"
+          required
+          placeholder="DL number"
+          value={fields.license_number}
+          onChange={(e) =>
+            setFields((f) => ({ ...f, license_number: e.target.value }))
+          }
+        />
+        <DashboardFormField
+          label="State"
+          type="text"
+          placeholder="WA"
+          maxLength={2}
+          value={fields.license_state}
+          onChange={(e) =>
+            setFields((f) => ({
+              ...f,
+              license_state: e.target.value.toUpperCase(),
+            }))
+          }
+        />
+        <DashboardSelectField
+          label="License Class"
+          value={fields.license_class}
+          onChange={(e) =>
+            setFields((f) => ({ ...f, license_class: e.target.value }))
+          }
+        >
+          <option value="">Standard</option>
+          <option value="CDL-A">CDL-A</option>
+          <option value="CDL-B">CDL-B</option>
+          <option value="CDL-C">CDL-C</option>
+        </DashboardSelectField>
+        <DashboardFormField
+          label="Expiration"
+          isRequired
+          type="date"
+          required
+          value={fields.license_expiration_date}
+          onChange={(e) =>
+            setFields((f) => ({
+              ...f,
+              license_expiration_date: e.target.value,
+            }))
+          }
+        />
       </div>
 
       {/* Row 3: CDL & MVR */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            CDL Endorsements
-          </label>
-          <input
-            type="text"
-            placeholder="H, N, T, P, etc."
-            value={fields.cdl_endorsements}
-            onChange={(e) =>
-              setFields((f) => ({ ...f, cdl_endorsements: e.target.value }))
-            }
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            Last MVR Check
-          </label>
-          <input
-            type="date"
-            value={fields.last_mvr_check_date}
-            onChange={(e) =>
-              setFields((f) => ({ ...f, last_mvr_check_date: e.target.value }))
-            }
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            Next MVR Due
-          </label>
-          <input
-            type="date"
-            value={fields.next_mvr_check_date}
-            onChange={(e) =>
-              setFields((f) => ({ ...f, next_mvr_check_date: e.target.value }))
-            }
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            MVR Status
-          </label>
-          <select
-            value={fields.mvr_status}
-            onChange={(e) =>
-              setFields((f) => ({
-                ...f,
-                mvr_status: e.target.value as typeof f.mvr_status,
-              }))
-            }
-            className={selectClass}
-          >
-            <option value="pending">Pending</option>
-            <option value="clear">Clear</option>
-            <option value="flagged">Flagged</option>
-            <option value="suspended">Suspended</option>
-            <option value="revoked">Revoked</option>
-          </select>
-        </div>
+        <DashboardFormField
+          label="CDL Endorsements"
+          type="text"
+          placeholder="H, N, T, P, etc."
+          value={fields.cdl_endorsements}
+          onChange={(e) =>
+            setFields((f) => ({ ...f, cdl_endorsements: e.target.value }))
+          }
+        />
+        <DashboardFormField
+          label="Last MVR Check"
+          type="date"
+          value={fields.last_mvr_check_date}
+          onChange={(e) =>
+            setFields((f) => ({ ...f, last_mvr_check_date: e.target.value }))
+          }
+        />
+        <DashboardFormField
+          label="Next MVR Due"
+          type="date"
+          value={fields.next_mvr_check_date}
+          onChange={(e) =>
+            setFields((f) => ({ ...f, next_mvr_check_date: e.target.value }))
+          }
+        />
+        <DashboardSelectField
+          label="MVR Status"
+          value={fields.mvr_status}
+          onChange={(e) =>
+            setFields((f) => ({
+              ...f,
+              mvr_status: e.target.value as typeof f.mvr_status,
+            }))
+          }
+        >
+          <option value="pending">Pending</option>
+          <option value="clear">Clear</option>
+          <option value="flagged">Flagged</option>
+          <option value="suspended">Suspended</option>
+          <option value="revoked">Revoked</option>
+        </DashboardSelectField>
       </div>
 
       {/* Row 4: Authorization */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            Auth Status
-          </label>
-          <select
-            value={fields.authorization_status}
-            onChange={(e) =>
-              setFields((f) => ({
-                ...f,
-                authorization_status: e.target
-                  .value as typeof f.authorization_status,
-              }))
-            }
-            className={selectClass}
-          >
-            <option value="pending">Pending</option>
-            <option value="authorized">Authorized</option>
-            <option value="suspended">Suspended</option>
-            <option value="revoked">Revoked</option>
-          </select>
-        </div>
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            Authorized By
-          </label>
-          <input
-            type="text"
-            placeholder="Manager name"
-            value={fields.authorized_by}
-            onChange={(e) =>
-              setFields((f) => ({ ...f, authorized_by: e.target.value }))
-            }
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-            Auth Date
-          </label>
-          <input
-            type="date"
-            value={fields.authorization_date}
-            onChange={(e) =>
-              setFields((f) => ({ ...f, authorization_date: e.target.value }))
-            }
-            className={inputClass}
-          />
-        </div>
+        <DashboardSelectField
+          label="Auth Status"
+          value={fields.authorization_status}
+          onChange={(e) =>
+            setFields((f) => ({
+              ...f,
+              authorization_status: e.target
+                .value as typeof f.authorization_status,
+            }))
+          }
+        >
+          <option value="pending">Pending</option>
+          <option value="authorized">Authorized</option>
+          <option value="suspended">Suspended</option>
+          <option value="revoked">Revoked</option>
+        </DashboardSelectField>
+        <DashboardFormField
+          label="Authorized By"
+          type="text"
+          placeholder="Manager name"
+          value={fields.authorized_by}
+          onChange={(e) =>
+            setFields((f) => ({ ...f, authorized_by: e.target.value }))
+          }
+        />
+        <DashboardFormField
+          label="Auth Date"
+          type="date"
+          value={fields.authorization_date}
+          onChange={(e) =>
+            setFields((f) => ({ ...f, authorization_date: e.target.value }))
+          }
+        />
         <div className="flex items-end pb-2">
           <label className="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
             <input
@@ -406,15 +335,12 @@ function DriverForm({ token, driver, onSaved, onCancel }: DriverFormProps) {
 
       {/* Notes */}
       <div className="mb-3">
-        <label className="text-xs text-gray-400 font-semibold uppercase mb-1 block">
-          Notes
-        </label>
-        <textarea
+        <DashboardTextareaField
+          label="Notes"
           placeholder="Additional notes..."
           rows={2}
           value={fields.notes}
           onChange={(e) => setFields((f) => ({ ...f, notes: e.target.value }))}
-          className={inputClass}
         />
       </div>
 
