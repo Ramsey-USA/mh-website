@@ -28,7 +28,7 @@ export default function VeteransPage() {
 
       {/* Hero Section - No parallax (will be video later) */}
       <div className="relative z-10">
-        <section className="relative h-screen flex items-end justify-end text-white overflow-hidden">
+        <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
           {/* Background - Ready for photo or video */}
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900">
             <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>

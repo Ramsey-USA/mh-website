@@ -10,7 +10,6 @@ export {
   captureMessage,
   setUser,
   addBreadcrumb,
-  Sentry,
 } from "./sentry";
 
 // Server-side Sentry (Cloudflare Workers/Pages)

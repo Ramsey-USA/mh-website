@@ -632,7 +632,7 @@ describe("ScrollProgress", () => {
     });
   });
 
-  it("updates progress bar width and aria-valuenow on scroll", () => {
+  it("updates progress bar transform and aria-valuenow on scroll", () => {
     // Mock scrollHeight and innerHeight so scrollHeightCache > 0
     Object.defineProperty(document.documentElement, "scrollHeight", {
       value: 2000,
@@ -667,7 +667,7 @@ describe("ScrollProgress", () => {
     });
 
     const bar = document.querySelector("[role='progressbar']") as HTMLElement;
-    expect(bar.style.width).toBe("50%");
+    expect(bar.style.transform).toBe("scaleX(0.5)");
     expect(bar.getAttribute("aria-valuenow")).toBe("50");
 
     // Scroll to same position — should skip DOM write (lastProgress unchanged)
@@ -679,8 +679,8 @@ describe("ScrollProgress", () => {
       if (rafCallbacks.length > prevLen)
         rafCallbacks[rafCallbacks.length - 1]!(0);
     });
-    // Width unchanged
-    expect(bar.style.width).toBe("50%");
+    // Transform unchanged
+    expect(bar.style.transform).toBe("scaleX(0.5)");
 
     jest.restoreAllMocks();
   });
@@ -713,7 +713,7 @@ describe("ScrollProgress", () => {
     });
 
     const bar = document.querySelector("[role='progressbar']") as HTMLElement;
-    expect(bar.style.width).toBe("0%");
+    expect(bar.style.transform).toBe("scaleX(0)");
 
     jest.restoreAllMocks();
   });

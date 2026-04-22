@@ -99,7 +99,7 @@ export function HeroSection({
 
   return (
     <section
-      className={`relative bg-gradient-to-br ${backgroundGradient} h-screen flex items-end ${alignmentClass} ${textColor === "white" ? "text-white" : ""} overflow-hidden ${className}`}
+      className={`hero-section relative bg-gradient-to-br ${backgroundGradient} flex items-end ${alignmentClass} ${textColor === "white" ? "text-white" : ""} overflow-hidden ${className}`}
     >
       {/* Background Elements */}
       <div
