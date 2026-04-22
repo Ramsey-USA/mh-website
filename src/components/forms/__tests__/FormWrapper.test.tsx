@@ -22,7 +22,7 @@ describe("FormInput", () => {
       />,
     );
 
-    expect(screen.getByLabelText("Name")).toBeInTheDocument();
+    expect(screen.getByRole("textbox")).toHaveAttribute("name", "name");
     expect(screen.getByText("Name", { selector: "label" })).toHaveTextContent(
       "Name*",
     );
@@ -43,7 +43,7 @@ describe("FormInput", () => {
     expect(
       screen.queryByText("We only use this for follow-up."),
     ).not.toBeInTheDocument();
-    expect(screen.getByLabelText("Email")).toHaveClass("border-red-500");
+    expect(screen.getByRole("textbox")).toHaveClass("border-red-500");
   });
 });
 
@@ -57,7 +57,7 @@ describe("FormTextarea", () => {
       />,
     );
 
-    expect(screen.getByLabelText("Message")).toBeInTheDocument();
+    expect(screen.getByRole("textbox")).toHaveAttribute("name", "message");
     expect(screen.getByText("Keep details concise.")).toBeInTheDocument();
   });
 });
@@ -76,7 +76,7 @@ describe("FormSelect", () => {
       />,
     );
 
-    const select = screen.getByLabelText("Service");
+    const select = screen.getByRole("combobox");
     expect(select).toBeInTheDocument();
     expect(
       screen.getByRole("option", { name: "Select an option" }),

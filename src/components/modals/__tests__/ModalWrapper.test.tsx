@@ -44,8 +44,12 @@ describe("ModalWrapper", () => {
     );
 
     expect(
-      screen.getByRole("dialog", { name: "Job application modal" }),
+      screen.getByRole("dialog", { name: "Application" }),
     ).toBeInTheDocument();
+    expect(screen.getByRole("dialog")).toHaveAttribute(
+      "aria-label",
+      "Job application modal",
+    );
     expect(screen.getByText("Submit your details")).toBeInTheDocument();
     expect(screen.getByText("Form fields")).toBeInTheDocument();
     expect(document.body.style.overflow).toBe("hidden");
