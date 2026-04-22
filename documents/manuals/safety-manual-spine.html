@@ -72,7 +72,7 @@
       .spine {
         width: 100%;
         height: 100%;
-        background: #386851;
+        background: #1e392c;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -81,17 +81,22 @@
         overflow: hidden;
         position: relative;
       }
+      /* Green border frame */
       .spine::before {
         content: "";
         position: absolute;
-        inset: 0;
-        background: repeating-linear-gradient(
-          -45deg,
-          rgba(255, 255, 255, 0.02) 0px,
-          rgba(255, 255, 255, 0.02) 1px,
-          transparent 1px,
-          transparent 6px
-        );
+        inset: 0.04in;
+        border: 0.07in solid #1e392c;
+        z-index: 20;
+        pointer-events: none;
+      }
+      /* Tan inner edge */
+      .spine::after {
+        content: "";
+        position: absolute;
+        inset: 0.1in;
+        border: 0.02in solid #d9bd93;
+        z-index: 20;
         pointer-events: none;
       }
       /* writing-mode + rotate(180deg) = text reads bottom-to-top on shelf */
@@ -103,63 +108,62 @@
         justify-content: space-between;
         width: 100%;
         height: 100%;
-        padding: 0.15in 0;
+        padding: 0.22in 0;
         position: relative;
         z-index: 1;
       }
       .spine-logo {
-        height: 0.82in;
+        height: 0.6in;
         width: auto;
         flex-shrink: 0;
-        filter: brightness(0) invert(1);
       }
       .spine-agc {
         height: 0.42in;
         width: auto;
         flex-shrink: 0;
-        filter: brightness(0) invert(1) opacity(0.85);
       }
       .spine-bbb {
         height: 0.48in;
         width: auto;
         flex-shrink: 0;
-        filter: brightness(0) invert(1) opacity(0.92);
       }
       .spine-rule {
         width: 1.5pt;
         flex: 0 0 0.12in;
-        background: rgba(189, 146, 100, 0.6);
+        background: #d9bd93;
         align-self: stretch;
         margin: 0 auto;
       }
       .spine-rule2 {
         width: 1.5pt;
         flex: 0 0 0.06in;
-        background: rgba(189, 146, 100, 0.35);
+        background: rgba(217, 189, 147, 0.5);
         align-self: stretch;
         margin: 0 auto;
       }
       .spine-title {
         color: white;
-        font-size: 13pt;
+        font-family: var(--font-heading);
+        font-size: 13.5pt;
         font-weight: 900;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.04em;
         text-transform: uppercase;
         flex-shrink: 0;
-        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+        text-shadow: none;
       }
       .spine-company {
-        color: #bd9264;
+        color: #d9bd93;
         font-size: 7.5pt;
-        font-weight: 600;
-        letter-spacing: 0.12em;
+        font-weight: 700;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
         flex-shrink: 0;
       }
       .spine-year {
-        color: rgba(255, 255, 255, 0.45);
+        color: rgba(255, 255, 255, 0.7);
         font-size: 7pt;
-        letter-spacing: 0.05em;
+        font-weight: 500;
+        letter-spacing: 0.06em;
         flex-shrink: 0;
       }
     </style>
@@ -177,7 +181,7 @@
               alt="MH Construction"
             />
             <div class="spine-rule"></div>
-            <span class="spine-title">Safety Manual</span>
+            <span class="spine-title">MISH - APP Safety Program</span>
             <div class="spine-rule2"></div>
             <span class="spine-company">MH Construction, Inc.</span>
             <div class="spine-rule2"></div>

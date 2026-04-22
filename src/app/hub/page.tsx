@@ -2,11 +2,12 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PageTrackingClient } from "@/components/analytics";
+import { manuals } from "@/lib/data/documents";
 
 export const metadata: Metadata = {
   title: "Operations Hub | MH Construction",
   description:
-    "Operations Hub dashboard for safety, forms, manuals, incident reporting, and employee handbook resources.",
+    "Operations Hub dashboard for Safety Manual access, forms, incident reporting, and employee handbook resources.",
   robots: {
     index: false,
     follow: false,
@@ -59,6 +60,10 @@ const HUB_CARDS = [
 ] as const;
 
 export default function HubPage() {
+  const safetyManual = manuals.find((doc) => doc.id === "safety-manual");
+  const sectionCount = safetyManual?.totalSections ?? 50;
+  const revisionNumber = safetyManual?.revisionNumber ?? "3";
+
   return (
     <>
       <PageTrackingClient pageName="operations-hub" />
@@ -75,11 +80,14 @@ export default function HubPage() {
               Operations Hub
             </p>
             <h1 className="text-3xl font-black tracking-tight sm:text-4xl md:text-5xl">
-              Mission Control Dashboard
+              Operations Dashboard
             </h1>
             <p className="mt-4 text-base text-slate-100 sm:text-lg">
-              Access safety operations, field documentation, and team resources
+              Access the Safety Manual, field documentation, and team resources
               from one dashboard built for mobile and desktop PWA workflows.
+            </p>
+            <p className="mt-2 text-sm text-slate-200">
+              MISH Rev {revisionNumber} · {sectionCount} sections.
             </p>
             <p className="mt-3 text-sm text-slate-200">
               Building projects for the Client, NOT the Dollar.

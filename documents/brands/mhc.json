@@ -11,8 +11,11 @@
   "website": "www.mhc-gc.com",
   "email": "office@mhc-gc.com",
   "revisionYear": "2026",
-  "revisionNumber": "2",
+  "revisionNumber": "3",
   "revisionDate": "04/07/2026",
+  "safetyProgramTitle": "MISH — Safety & Health Program",
+  "safetyProgramSubtitle": "MH Construction Industrial Safety & Health Program",
+  "safetyProgramTotalSections": 50,
   "licenses": {
     "WA": "MHCONCI907R7",
     "OR": "765043-99",

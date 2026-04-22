@@ -18,6 +18,51 @@ interface ServiceWorkerRegistrationProps {
   onError?: (error: Error) => void;
 }
 
+type StoredRole = "admin" | "superintendent" | "worker" | "traveler";
+
+function getStoredRole(): StoredRole | null {
+  try {
+    const adminToken = localStorage.getItem("admin_token");
+    const adminUser = localStorage.getItem("admin_user");
+    if (adminToken && adminUser) {
+      const parsed = JSON.parse(adminUser) as { role?: string };
+      if (parsed.role === "admin") return "admin";
+    }
+
+    const fieldToken = localStorage.getItem("field_auth_token");
+    const fieldUser = localStorage.getItem("field_user");
+    if (fieldToken && fieldUser) {
+      const parsed = JSON.parse(fieldUser) as { role?: string };
+      const role = parsed.role;
+      if (
+        role === "superintendent" ||
+        role === "worker" ||
+        role === "traveler"
+      ) {
+        return role as StoredRole;
+      }
+    }
+  } catch {
+    // localStorage unavailable or malformed
+  }
+  return null;
+}
+
+function requestRegisteredOfflineBundle(reg: ServiceWorkerRegistration): void {
+  const role = getStoredRole();
+  if (!role) return;
+
+  const targetWorker =
+    reg.active ||
+    reg.waiting ||
+    reg.installing ||
+    navigator.serviceWorker.controller;
+
+  if (!targetWorker) return;
+
+  targetWorker.postMessage({ type: "CACHE_REGISTERED_OFFLINE_BUNDLE" });
+}
+
 export function ServiceWorkerRegistration({
   onUpdateAvailable,
   onInstalled,
@@ -46,6 +91,9 @@ export function ServiceWorkerRegistration({
         .then((reg) => {
           logger.info("[PWA] Service worker registered successfully");
           setRegistration(reg);
+
+          // Registered users get an expanded offline bundle (manual PDFs + pages).
+          requestRegisteredOfflineBundle(reg);
 
           // Check for updates every hour
           setInterval(
@@ -142,6 +190,28 @@ export function ServiceWorkerRegistration({
         if (registration) {
           onUpdateAvailable?.(registration);
         }
+      }
+
+      if (
+        event.data &&
+        event.data.type === "REGISTERED_OFFLINE_BUNDLE_CACHED"
+      ) {
+        const { cachedCount, failedCount } =
+          (event.data.data as { cachedCount?: number; failedCount?: number }) ||
+          {};
+        logger.info(
+          `[PWA] Registered offline bundle cached (${cachedCount ?? 0} success, ${failedCount ?? 0} failed)`,
+        );
+      }
+
+      if (
+        event.data &&
+        event.data.type === "REGISTERED_OFFLINE_BUNDLE_FAILED"
+      ) {
+        logger.warn(
+          "[PWA] Registered offline bundle caching failed:",
+          event.data.error,
+        );
       }
     });
 

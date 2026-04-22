@@ -83,9 +83,9 @@
   --type-print-qr-caption: 6.5pt;
   --type-print-qr-body: 8pt;
   --type-print-qr-title: 8.5pt;
-  --type-print-cover-meta: 10pt;
-  --type-print-cover-title: 42pt;
-  --type-print-cover-subtitle: 11pt;
+  --type-print-cover-meta: 9pt;
+  --type-print-cover-title: 44pt;
+  --type-print-cover-subtitle: 10.5pt;
 
   /* ── Print Heading Scale ────────────────────────── */
   --type-print-h1: 22pt;

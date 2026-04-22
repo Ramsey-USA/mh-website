@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Operational Hub | MH Construction",
+  title: "Operations Hub | MH Construction",
   description:
-    "Restricted staff portal - safety, employee resources, and onboarding.",
+    "Restricted staff portal for Safety Manual access, employee resources, and onboarding.",
   robots: {
     index: false,
     follow: false,

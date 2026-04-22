@@ -8,6 +8,22 @@
  * The `pdfPath` is relative to documents/output/ and served statically.
  */
 
+import mhcBrand from "../../../documents/brands/mhc.json";
+
+const SAFETY_PROGRAM_TITLE =
+  mhcBrand.safetyProgramTitle || "MISH — Safety & Health Program";
+const SAFETY_PROGRAM_SUBTITLE =
+  mhcBrand.safetyProgramSubtitle ||
+  "MH Construction Industrial Safety & Health Program";
+const SAFETY_PROGRAM_TOTAL_SECTIONS =
+  Number(mhcBrand.safetyProgramTotalSections) || 50;
+const SAFETY_PROGRAM_LAST_SECTION = String(
+  Math.max(SAFETY_PROGRAM_TOTAL_SECTIONS - 1, 0),
+).padStart(2, "0");
+const SAFETY_PROGRAM_REVISION_YEAR = Number(mhcBrand.revisionYear) || 2026;
+const SAFETY_PROGRAM_REVISION_NUMBER = mhcBrand.revisionNumber || "3";
+const SAFETY_PROGRAM_REVISION_DATE = mhcBrand.revisionDate || "04/07/2026";
+
 export type SectionCategory =
   | "Personnel & Policy"
   | "Planning & Administration"
@@ -73,16 +89,15 @@ export interface DocumentEntry {
 export const manuals: DocumentEntry[] = [
   {
     id: "safety-manual",
-    title: "MISH — Safety & Health Program",
-    subtitle: "MH Construction Industrial Safety & Health Program",
-    description:
-      "MH Construction's written Safety Program (MISH) with 50 sections (00-49), aligned with OSHA 29 CFR 1926, AGC CSEA expectations, and applicable WISHA/L&I (WA), OAR (OR), and IDAPA (ID) requirements. Legacy AGC APP references are retained in historical source material for continuity. Covers injury prevention, emergency response, PPE, fall protection, hazard communication, and OSHA-required construction safety standards.",
+    title: SAFETY_PROGRAM_TITLE,
+    subtitle: SAFETY_PROGRAM_SUBTITLE,
+    description: `MH Construction's written Safety Program (MISH) with ${SAFETY_PROGRAM_TOTAL_SECTIONS} sections (00-${SAFETY_PROGRAM_LAST_SECTION}), aligned with OSHA 29 CFR 1926, AGC CSEA expectations, and applicable WISHA/L&I (WA), OAR (OR), and IDAPA (ID) requirements. Legacy AGC APP references are retained in historical source material for continuity. Covers injury prevention, emergency response, PPE, fall protection, hazard communication, and OSHA-required construction safety standards.`,
     category: "manual",
     icon: "health_and_safety",
-    revisionYear: 2026,
-    revisionNumber: "3",
-    revisionDate: "04/07/2026",
-    totalSections: 50, // 00–49
+    revisionYear: SAFETY_PROGRAM_REVISION_YEAR,
+    revisionNumber: SAFETY_PROGRAM_REVISION_NUMBER,
+    revisionDate: SAFETY_PROGRAM_REVISION_DATE,
+    totalSections: SAFETY_PROGRAM_TOTAL_SECTIONS,
     totalPages: 350,
     hasSectionPdfs: true,
     pdfPath: "/docs/safety/safety-manual-complete.pdf",
@@ -97,8 +112,7 @@ export const manuals: DocumentEntry[] = [
         number: "00",
         title: "Table of Contents",
         slug: "table-of-contents",
-        summary:
-          "Complete index of all 50 safety program sections with page references.",
+        summary: `Complete index of all ${SAFETY_PROGRAM_TOTAL_SECTIONS} safety program sections with page references.`,
         pages: 2,
         category: "Planning & Administration",
         priority: "reference",

@@ -338,10 +338,10 @@ const SECTION_FOOTER_HTML = [
   `${BRAND_LICENSES_INLINE.replaceAll("  ·  ", "&nbsp;&middot;&nbsp;")}<br>`,
   `<span style="color:${BRAND_COLORS.secondary};font-weight:700;">Revision ${BRAND.revisionYear}</span></div>`,
   BBB_LOGO_B64
-    ? `<img src="${BBB_LOGO_B64}" style="height:0.34in;width:auto;display:block;flex-shrink:0;" alt="BBB Accredited A+" />`
+    ? `<img src="${BBB_LOGO_B64}" style="height:0.34in;width:auto;display:block;flex-shrink:0;background:rgba(255,255,255,0.92);padding:2pt 4pt;border-radius:3pt;" alt="BBB Accredited A+" />`
     : "",
   AGC_LOGO_B64
-    ? `<img src="${AGC_LOGO_B64}" style="height:0.34in;width:auto;display:block;flex-shrink:0;" alt="AGC Member" />`
+    ? `<img src="${AGC_LOGO_B64}" style="height:0.34in;width:auto;display:block;flex-shrink:0;background:rgba(255,255,255,0.92);padding:2pt 4pt;border-radius:3pt;" alt="AGC Member" />`
     : "",
   TRAVELERS_LOGO_B64
     ? `<img src="${TRAVELERS_LOGO_B64}" style="height:0.28in;width:auto;display:block;flex-shrink:0;" alt="Travelers Insurance Partner" />`
@@ -467,7 +467,7 @@ async function generateCover() {
     html,
     pdfPath,
     { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
-    "_tmp_cover.html",
+    "manuals/_tmp_cover.html",
   );
 }
 
@@ -485,7 +485,7 @@ async function generateSpine() {
     html,
     pdfPath,
     { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
-    "_tmp_spine.html",
+    "manuals/_tmp_spine.html",
   );
 }
 

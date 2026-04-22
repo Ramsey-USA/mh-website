@@ -75,6 +75,42 @@ const STATIC_ASSETS = [
   // and cannot be reliably precached here. They are cached at runtime by fetch handlers below.
 ];
 
+// Expanded offline bundle for registered team members using the installed app.
+// This is requested on-demand from the client after role detection, instead of
+// being precached for every anonymous visitor.
+const REGISTERED_OFFLINE_ASSETS = [
+  "/employee-handbook",
+  "/resources/safety-program",
+  "/docs/safety/safety-manual-complete.pdf",
+  "/docs/safety/safety-manual-contents.pdf",
+  "/docs/safety/safety-manual-reference.pdf",
+  "/docs/safety/forms/toolbox-talk.pdf",
+  "/docs/safety/forms/jha.pdf",
+  "/docs/safety/forms/incident-report.pdf",
+  "/docs/safety/forms/near-miss-report.pdf",
+  "/docs/safety/forms/daily-site-safety-inspection.pdf",
+  "/docs/safety/forms/safety-orientation-sign-off.pdf",
+  "/docs/safety/forms/employee-safety-training-record.pdf",
+  "/docs/safety/forms/pre-task-safety-plan.pdf",
+  "/docs/safety/forms/equipment-checklist.pdf",
+  "/docs/safety/forms/signin-log.pdf",
+  "/docs/safety/forms/sub-prequal.pdf",
+  "/docs/safety/forms/osha-300-log-cover-sheet.pdf",
+  "/docs/safety/forms/wa-li-roa-cover-sheet.pdf",
+];
+
+async function cacheRegisteredOfflineBundle() {
+  const cache = await caches.open(STATIC_CACHE_NAME);
+  const results = await Promise.allSettled(
+    REGISTERED_OFFLINE_ASSETS.map((url) => cache.add(url)),
+  );
+
+  const cachedCount = results.filter((r) => r.status === "fulfilled").length;
+  const failedCount = REGISTERED_OFFLINE_ASSETS.length - cachedCount;
+
+  return { cachedCount, failedCount };
+}
+
 // No API warmup list is maintained. The current app benefits more from runtime
 // caching than install-time network work, especially on first visit.
 
@@ -300,6 +336,33 @@ self.addEventListener("message", (event) => {
     self.registration.sync.register("background-sync").catch((err) => {
       console.error("[SW] Background sync registration failed:", err);
     });
+  }
+
+  if (event.data && event.data.type === "CACHE_REGISTERED_OFFLINE_BUNDLE") {
+    const requester = event.source;
+
+    const warmup = cacheRegisteredOfflineBundle()
+      .then(({ cachedCount, failedCount }) => {
+        if (requester && "postMessage" in requester) {
+          requester.postMessage({
+            type: "REGISTERED_OFFLINE_BUNDLE_CACHED",
+            data: { cachedCount, failedCount },
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("[SW] Registered offline bundle caching failed:", error);
+        if (requester && "postMessage" in requester) {
+          requester.postMessage({
+            type: "REGISTERED_OFFLINE_BUNDLE_FAILED",
+            error: error?.message || "Unknown caching error",
+          });
+        }
+      });
+
+    if (event.waitUntil) {
+      event.waitUntil(warmup);
+    }
   }
 });
 

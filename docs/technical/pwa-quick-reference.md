@@ -179,6 +179,39 @@ scripts/
 | Cache Layers   | 3+     | **5** ✅               |
 | Icon Sizes     | 8+     | **8** ✅               |
 
+## Registered Offline Bundle
+
+The installed app now supports a larger offline package for logged-in team members.
+
+- Trigger: after service worker registration, if local role is present (`admin`,
+  `superintendent`, `worker`, or `traveler`), the app posts
+  `CACHE_REGISTERED_OFFLINE_BUNDLE` to the service worker.
+- Scope: additional resources beyond baseline static precache, including
+  key Safety Manual PDFs and core registered-user pages.
+- Behavior: anonymous visitors keep baseline precache only; registered users
+  receive expanded offline coverage for field operations.
+
+Current registered bundle assets:
+
+- `/employee-handbook`
+- `/resources/safety-program`
+- `/docs/safety/safety-manual-complete.pdf`
+- `/docs/safety/safety-manual-contents.pdf`
+- `/docs/safety/safety-manual-reference.pdf`
+- `/docs/safety/forms/toolbox-talk.pdf`
+- `/docs/safety/forms/jha.pdf`
+- `/docs/safety/forms/incident-report.pdf`
+- `/docs/safety/forms/near-miss-report.pdf`
+- `/docs/safety/forms/daily-site-safety-inspection.pdf`
+- `/docs/safety/forms/safety-orientation-sign-off.pdf`
+- `/docs/safety/forms/employee-safety-training-record.pdf`
+- `/docs/safety/forms/pre-task-safety-plan.pdf`
+- `/docs/safety/forms/equipment-checklist.pdf`
+- `/docs/safety/forms/signin-log.pdf`
+- `/docs/safety/forms/sub-prequal.pdf`
+- `/docs/safety/forms/osha-300-log-cover-sheet.pdf`
+- `/docs/safety/forms/wa-li-roa-cover-sheet.pdf`
+
 ## Support Matrix
 
 | Browser | Install | Offline | Sync | Push |

@@ -35,49 +35,55 @@
         flex-direction: column;
         position: relative;
         overflow: hidden;
+        background: white;
       }
-      /* Left-edge bronze accent bar (binder side) */
-      .cover-spine-accent {
+      /* Green + tan border frame */
+      .cover::before {
+        content: "";
         position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 0.18in;
-        background: linear-gradient(
-          180deg,
-          #a87948 0%,
-          #bd9264 50%,
-          #a87948 100%
-        );
-        z-index: 10;
+        inset: 0.05in;
+        border: 0.13in solid #1e392c;
+        z-index: 20;
+        pointer-events: none;
+      }
+      .cover::after {
+        content: "";
+        position: absolute;
+        inset: 0.18in;
+        border: 0.03in solid #d9bd93;
+        z-index: 20;
+        pointer-events: none;
+      }
+      /* Left-edge bronze accent bar — hidden for ink-saving print */
+      .cover-spine-accent {
+        display: none;
       }
       /* Top band */
       .cover-top {
-        background: #1e392c;
+        background: white;
         height: 0.55in;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         padding: var(--spacing-cover-top-pad);
+        padding-left: 0.28in;
+        padding-right: 0.28in;
         flex-shrink: 0;
       }
       .cover-top-text {
-        color: #bd9264;
-        font-size: var(--type-print-table);
+        color: #1e392c;
+        font-size: var(--type-print-footer);
         font-weight: 600;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
       }
       /* Hero */
       .cover-hero {
         flex: 1;
-        background: linear-gradient(
-          160deg,
-          #1e392c 0%,
-          #386851 50%,
-          #628f79 100%
-        );
+        background: white;
+        padding-left: 0.28in;
+        padding-right: 0.28in;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -87,27 +93,18 @@
         overflow: hidden;
       }
       .cover-hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: repeating-linear-gradient(
-          -45deg,
-          rgba(255, 255, 255, 0.015) 0px,
-          rgba(255, 255, 255, 0.015) 1px,
-          transparent 1px,
-          transparent 8px
-        );
+        display: none;
         pointer-events: none;
       }
       .cover-logo-wrap {
-        background: white;
+        background: transparent;
         padding: var(--spacing-cover-logo-pad);
         border-radius: 4pt;
         display: inline-block;
         margin-bottom: 0.35in;
         position: relative;
         z-index: 1;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.32);
+        box-shadow: none;
       }
       .cover-logo {
         height: 1.35in;
@@ -131,34 +128,38 @@
         z-index: 1;
       }
       .cover-document-label {
-        color: #ffffff;
+        color: #1e392c;
         font-size: var(--type-print-cover-meta);
-        font-weight: 600;
-        letter-spacing: 0.25em;
+        font-weight: 700;
+        letter-spacing: 0.22em;
         text-transform: uppercase;
-        margin-bottom: 0.06in;
+        margin-bottom: 0.08in;
         position: relative;
         z-index: 1;
       }
       .cover-title {
-        color: #fff;
+        color: #1e392c;
+        font-family: var(--font-heading);
         font-size: var(--type-print-cover-title);
         font-weight: 900;
         text-align: center;
-        line-height: 1;
-        margin: 0 0 0.1in;
-        letter-spacing: -0.01em;
-        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+        line-height: 0.92;
+        margin: 0 0 0.12in;
+        letter-spacing: -0.02em;
+        max-width: 5.6in;
+        text-shadow: none;
         position: relative;
         z-index: 1;
       }
       .cover-subtitle {
-        color: #bd9264;
+        color: #8a6b49;
         font-size: var(--type-print-cover-subtitle);
-        font-weight: 500;
+        font-weight: 600;
         text-align: center;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
+        max-width: 6.2in;
+        line-height: 1.25;
         margin-bottom: 0.28in;
         position: relative;
         z-index: 1;
@@ -176,11 +177,11 @@
         display: inline-flex;
         align-items: center;
         gap: 8pt;
-        background: rgba(18, 35, 27, 0.82);
-        border: 1pt solid rgba(189, 146, 100, 0.7);
+        background: transparent;
+        border: 1pt solid rgba(30, 57, 44, 0.5);
         border-radius: 3pt;
         padding: var(--spacing-cover-badge-pad);
-        color: #ffffff;
+        color: #1e392c;
         font-size: var(--type-print-table);
         font-weight: 700;
         letter-spacing: 0.12em;
@@ -190,12 +191,12 @@
       }
       .cover-veteran::before {
         content: "★";
-        color: #bd9264;
+        color: #8a6b49;
         font-size: var(--type-print-cover-meta);
       }
       .cover-veteran::after {
         content: "★";
-        color: #bd9264;
+        color: #8a6b49;
         font-size: var(--type-print-cover-meta);
       }
       /* QR code block in hero */
@@ -220,7 +221,7 @@
         display: block;
       }
       .cover-qr-label {
-        color: #d9bd93;
+        color: #8a6b49;
         font-size: var(--type-print-footer);
         font-weight: 600;
         letter-spacing: 0.14em;
@@ -229,7 +230,9 @@
       }
       /* Bottom band */
       .cover-bottom {
-        background: #12231b;
+        background: white;
+        padding-left: 0.28in;
+        padding-right: 0.28in;
         height: 0.65in;
         padding: var(--spacing-cover-bottom-pad);
         display: flex;
@@ -239,7 +242,7 @@
         flex-shrink: 0;
       }
       .cover-bottom-left {
-        color: rgba(255, 255, 255, 0.85);
+        color: #1e392c;
         font-size: var(--type-print-table-compact);
         flex: 1;
         min-width: 0;
@@ -263,7 +266,7 @@
         line-height: 1.65;
       }
       .cover-licenses .rev {
-        color: #bd9264;
+        color: #1e392c;
         font-weight: 700;
       }
       .cover-agc {
