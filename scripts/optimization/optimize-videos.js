@@ -3,147 +3,88 @@
 /**
  * Video Optimization Script
  *
- * Automatically optimizes videos for web delivery:
- * - Converts to WebM (VP9) and MP4 (H.264) formats
- * - Generates multiple quality levels (1080p, 720p, 480p)
- * - Creates poster images from first frame
- * - Compresses for optimal web performance
+ * Converts raw video uploads (MP4/MOV/AVI/MKV) to web-optimized WebM (VP9) and
+ * MP4 (H.264) formats, and generates poster images. Output files are written
+ * directly into public/videos/ alongside sources — the same directory pattern
+ * used by optimize-images.js.
+ *
+ * Re-encoding rules (mirrors optimize-images.js re-pack logic):
+ *  - Existing .webm files exceeding MAX_WEBM_SIZE_BYTES (10 MB) are re-encoded.
+ *  - Existing .mp4 files exceeding MAX_MP4_SIZE_BYTES (15 MB) are re-encoded.
+ *  - Use --force to re-process all files regardless of size or prior conversion.
+ *
+ * Poster images are named poster-{name}.jpg (matches the CI git-add pattern).
  *
  * Usage:
- *   npm run optimize:videos
- *   npm run optimize:videos -- --ci
- *
- * @version 1.0.0
+ *   npm run optimize:videos              # skip already-converted; re-encodes oversized files
+ *   npm run optimize:videos -- --force   # re-process ALL video files
+ *   npm run optimize:videos -- --ci      # suppress ffmpeg stderr (CI output)
  */
 
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
 
-// Configuration
-const VIDEO_DIR = path.join(__dirname, "../../public/videos");
-const OUTPUT_DIR = path.join(__dirname, "../../public/videos-optimized");
-const SUPPORTED_FORMATS = [".mp4", ".mov", ".avi", ".webm", ".mkv"];
-
-// CI mode flag
 const CI_MODE = process.argv.includes("--ci");
+const FORCE = process.argv.includes("--force");
 
-// Video quality presets
-const QUALITY_PRESETS = {
-  "1080p": { width: 1920, bitrate: "5000k", audioBitrate: "192k" },
-  "720p": { width: 1280, bitrate: "2500k", audioBitrate: "128k" },
-  "480p": { width: 854, bitrate: "1000k", audioBitrate: "96k" },
-};
+const VIDEO_DIR = path.join(__dirname, "../../public/videos");
+
+/** Raw source extensions that always need conversion. */
+const RAW_SOURCE_FORMATS = [".mov", ".avi", ".mkv"];
+
+/** Hard limit for a production WebM file; files over this are re-encoded. */
+const MAX_WEBM_SIZE_BYTES = 10 * 1024 * 1024; // 10 MB
+
+/** Hard limit for a production MP4 file; files over this are re-encoded. */
+const MAX_MP4_SIZE_BYTES = 15 * 1024 * 1024; // 15 MB
 
 /**
- * Check if FFmpeg is installed
+ * Category-based encoding presets keyed by the immediate subdirectory name.
+ * Mirrors the MAX_WIDTH_BY_CATEGORY pattern in optimize-images.js.
+ *
+ * resolution: FFmpeg scale filter value (width:-2 preserves aspect ratio).
+ * crf:        VP9 / H.264 CRF quality (lower = better quality, larger file).
+ * audioBitrate: null means strip audio (for muted background loops).
+ */
+const CATEGORY_PRESETS = {
+  // Muted looping hero / culture backgrounds — 1080p, high quality
+  culture: { resolution: "1920:-2", crf: 33, audioBitrate: null },
+  // Project showcase clips — 720p, balanced
+  projects: { resolution: "1280:-2", crf: 28, audioBitrate: "128k" },
+  // Interview-style testimonials — 720p, balanced
+  testimonials: { resolution: "1280:-2", crf: 28, audioBitrate: "128k" },
+  // Default fallback for any unrecognised category
+  default: { resolution: "1280:-2", crf: 28, audioBitrate: "128k" },
+};
+
+const stats = { success: 0, skipped: 0, failed: 0 };
+const savings = { before: 0, after: 0 };
+
+function log(message) {
+  console.log(message);
+}
+
+/**
+ * Verify FFmpeg is available and exit with a helpful message if not.
  */
 function checkFFmpeg() {
   try {
     execSync("ffmpeg -version", { stdio: "ignore" });
-    return true;
-  } catch (error) {
+  } catch {
     console.error("❌ FFmpeg not found. Please install FFmpeg:");
-    console.error("   macOS: brew install ffmpeg");
-    console.error("   Ubuntu: sudo apt install ffmpeg");
-    console.error("   Windows: Download from https://ffmpeg.org/download.html");
+    console.error("   macOS:   brew install ffmpeg");
+    console.error("   Ubuntu:  sudo apt install ffmpeg");
+    console.error("   Windows: https://ffmpeg.org/download.html");
     process.exit(1);
   }
 }
 
-/**
- * Get all video files recursively
- */
-function getVideoFiles(dir, fileList = []) {
-  if (!fs.existsSync(dir)) {
-    return fileList;
-  }
-
-  const files = fs.readdirSync(dir);
-
-  files.forEach((file) => {
-    const filePath = path.join(dir, file);
-    const stat = fs.statSync(filePath);
-
-    if (stat.isDirectory()) {
-      getVideoFiles(filePath, fileList);
-    } else {
-      const ext = path.extname(file).toLowerCase();
-      if (SUPPORTED_FORMATS.includes(ext)) {
-        fileList.push(filePath);
-      }
-    }
-  });
-
-  return fileList;
+function getPreset(relPath) {
+  const category = relPath.split(path.sep)[0];
+  return CATEGORY_PRESETS[category] ?? CATEGORY_PRESETS.default;
 }
 
-/**
- * Get video metadata using ffprobe
- */
-function getVideoMetadata(videoPath) {
-  try {
-    const output = execSync(
-      `ffprobe -v quiet -print_format json -show_format -show_streams "${videoPath}"`,
-      { encoding: "utf8" },
-    );
-    return JSON.parse(output);
-  } catch (error) {
-    console.error(`Failed to get metadata for ${videoPath}`);
-    return null;
-  }
-}
-
-/**
- * Optimize video to WebM format
- */
-function optimizeToWebM(inputPath, outputPath, quality = "720p") {
-  const preset = QUALITY_PRESETS[quality];
-  const command = `ffmpeg -i "${inputPath}" -c:v libvpx-vp9 -b:v ${preset.bitrate} -vf scale=${preset.width}:-2 -c:a libopus -b:a ${preset.audioBitrate} -y "${outputPath}"`;
-
-  try {
-    execSync(command, { stdio: CI_MODE ? "ignore" : "inherit" });
-    return true;
-  } catch (error) {
-    console.error(`Failed to convert to WebM: ${inputPath}`);
-    return false;
-  }
-}
-
-/**
- * Optimize video to MP4 format
- */
-function optimizeToMP4(inputPath, outputPath, quality = "720p") {
-  const preset = QUALITY_PRESETS[quality];
-  const command = `ffmpeg -i "${inputPath}" -c:v libx264 -preset slow -crf 23 -vf scale=${preset.width}:-2 -c:a aac -b:a ${preset.audioBitrate} -movflags +faststart -y "${outputPath}"`;
-
-  try {
-    execSync(command, { stdio: CI_MODE ? "ignore" : "inherit" });
-    return true;
-  } catch (error) {
-    console.error(`Failed to convert to MP4: ${inputPath}`);
-    return false;
-  }
-}
-
-/**
- * Generate poster image from video
- */
-function generatePoster(inputPath, outputPath) {
-  const command = `ffmpeg -i "${inputPath}" -ss 00:00:01 -vframes 1 -vf scale=1280:-2 -q:v 2 -y "${outputPath}"`;
-
-  try {
-    execSync(command, { stdio: "ignore" });
-    return true;
-  } catch (error) {
-    console.error(`Failed to generate poster: ${inputPath}`);
-    return false;
-  }
-}
-
-/**
- * Get file size in bytes
- */
 function getFileSize(filePath) {
   try {
     return fs.statSync(filePath).size;
@@ -152,127 +93,338 @@ function getFileSize(filePath) {
   }
 }
 
-/**
- * Format bytes to human readable
- */
 function formatBytes(bytes) {
   if (bytes === 0) return "0 B";
   const k = 1024;
   const sizes = ["B", "KB", "MB", "GB"];
   const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return Math.round(bytes / Math.pow(k, i)) + " " + sizes[i];
+  return (bytes / Math.pow(k, i)).toFixed(1) + " " + sizes[i];
 }
 
 /**
- * Main optimization function
+ * Encode a video to WebM (VP9 + Opus / silent).
+ * Returns true on success, false on failure.
  */
-async function optimizeVideos() {
-  console.log("\n=== Video Optimization ===");
-  console.log("Converting videos to web-optimized formats...\n");
+function encodeWebM(inputPath, outputPath, preset) {
+  const audioArgs = preset.audioBitrate
+    ? `-c:a libopus -b:a ${preset.audioBitrate}`
+    : "-an";
+  const cmd = [
+    "ffmpeg",
+    `-i "${inputPath}"`,
+    `-c:v libvpx-vp9`,
+    `-crf ${preset.crf}`,
+    `-b:v 0`,
+    `-vf scale=${preset.resolution}`,
+    audioArgs,
+    `-deadline good`,
+    `-cpu-used 2`,
+    `-y`,
+    `"${outputPath}"`,
+  ].join(" ");
 
-  // Check for FFmpeg
-  checkFFmpeg();
+  try {
+    execSync(cmd, { stdio: CI_MODE ? "ignore" : "inherit" });
+    return true;
+  } catch {
+    log(`  ✗ WebM encode failed: ${path.basename(inputPath)}`);
+    return false;
+  }
+}
 
-  // Create output directory
-  if (!fs.existsSync(OUTPUT_DIR)) {
-    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+/**
+ * Encode a video to MP4 (H.264 + AAC / silent).
+ * Returns true on success, false on failure.
+ */
+function encodeMP4(inputPath, outputPath, preset) {
+  const audioArgs = preset.audioBitrate
+    ? `-c:a aac -b:a ${preset.audioBitrate}`
+    : "-an";
+  const cmd = [
+    "ffmpeg",
+    `-i "${inputPath}"`,
+    `-c:v libx264`,
+    `-preset slow`,
+    `-crf ${preset.crf}`,
+    `-vf scale=${preset.resolution}`,
+    audioArgs,
+    `-movflags +faststart`,
+    `-y`,
+    `"${outputPath}"`,
+  ].join(" ");
+
+  try {
+    execSync(cmd, { stdio: CI_MODE ? "ignore" : "inherit" });
+    return true;
+  } catch {
+    log(`  ✗ MP4 encode failed: ${path.basename(inputPath)}`);
+    return false;
+  }
+}
+
+/**
+ * Extract a poster image from the first second of a video.
+ * Named poster-{name}.jpg to match the CI git-add pattern for poster-*.jpg.
+ */
+function generatePoster(inputPath, posterPath) {
+  const cmd = `ffmpeg -i "${inputPath}" -ss 00:00:01 -vframes 1 -vf scale=1280:-2 -q:v 2 -y "${posterPath}"`;
+  try {
+    execSync(cmd, { stdio: "ignore" });
+    return true;
+  } catch {
+    log(`  ✗ Poster generation failed: ${path.basename(inputPath)}`);
+    return false;
+  }
+}
+
+/**
+ * Convert a raw source video (MOV/AVI/MKV or unoptimised MP4) to WebM + MP4
+ * + poster image, all written into the same directory as the source.
+ *
+ * When the source itself is an .mp4 the file is re-encoded in-place (via a
+ * sibling .tmp file) rather than generating a second .mp4 alongside it.
+ */
+function processSourceVideo(filePath, relPath) {
+  const dir = path.dirname(filePath);
+  const sourceExt = path.extname(filePath).toLowerCase();
+  const name = path.basename(filePath, sourceExt);
+  const webmOut = path.join(dir, `${name}.webm`);
+  const posterOut = path.join(dir, `poster-${name}.jpg`);
+  const preset = getPreset(relPath);
+  const originalSize = getFileSize(filePath);
+
+  let converted = false;
+
+  // --- WebM ---
+  if (FORCE || !fs.existsSync(webmOut)) {
+    log(`  → WebM ...`);
+    if (encodeWebM(filePath, webmOut, preset)) {
+      const sz = getFileSize(webmOut);
+      savings.before += originalSize;
+      savings.after += sz;
+      log(`  ✓ WebM: ${formatBytes(sz)} (from ${formatBytes(originalSize)})`);
+      converted = true;
+    } else {
+      stats.failed++;
+      return;
+    }
+  } else {
+    log(`  - WebM already exists (use --force to re-encode)`);
   }
 
-  // Get all video files
-  const videos = getVideoFiles(VIDEO_DIR);
+  // --- MP4 ---
+  if (sourceExt === ".mp4") {
+    // Source IS an MP4: re-encode in-place only when oversized or --force
+    if (FORCE || originalSize > MAX_MP4_SIZE_BYTES) {
+      const tmpPath = `${filePath}.tmp.mp4`;
+      log(`  → Re-encoding MP4 source ...`);
+      if (encodeMP4(filePath, tmpPath, preset)) {
+        const afterSize = getFileSize(tmpPath);
+        if (afterSize < originalSize) {
+          fs.renameSync(tmpPath, filePath);
+          log(
+            `  ✓ MP4 re-encoded: ${formatBytes(afterSize)} (was ${formatBytes(originalSize)})`,
+          );
+          converted = true;
+        } else {
+          fs.unlinkSync(tmpPath);
+          log(`  - MP4 source is already optimal`);
+        }
+      }
+    } else {
+      log(`  - MP4 source is within the size budget`);
+    }
+  } else {
+    // Source is MOV/AVI/MKV: generate an MP4 companion
+    const mp4Out = path.join(dir, `${name}.mp4`);
+    if (FORCE || !fs.existsSync(mp4Out)) {
+      log(`  → MP4 ...`);
+      if (encodeMP4(filePath, mp4Out, preset)) {
+        log(`  ✓ MP4: ${formatBytes(getFileSize(mp4Out))}`);
+        converted = true;
+      }
+    } else {
+      log(`  - MP4 already exists (use --force to re-encode)`);
+    }
+  }
 
-  if (videos.length === 0) {
-    console.log("No videos found to optimize.\n");
+  // --- Poster ---
+  if (FORCE || !fs.existsSync(posterOut)) {
+    if (generatePoster(filePath, posterOut)) {
+      log(`  ✓ Poster: poster-${name}.jpg`);
+      converted = true;
+    }
+  } else {
+    log(`  - Poster already exists (use --force to re-generate)`);
+  }
+
+  if (converted) {
+    stats.success++;
+  } else {
+    stats.skipped++;
+  }
+}
+
+/**
+ * Re-encode an existing .webm that exceeds MAX_WEBM_SIZE_BYTES in-place
+ * (atomic write via a sibling .tmp file — same pattern as repackWebp in
+ * optimize-images.js). Only replaces the original when the re-encoded file
+ * is actually smaller.
+ */
+function repackWebM(filePath, relPath) {
+  const beforeSize = getFileSize(filePath);
+  if (!FORCE && beforeSize <= MAX_WEBM_SIZE_BYTES) {
+    stats.skipped++;
     return;
   }
 
-  let successCount = 0;
-  let failCount = 0;
-  let totalOriginalSize = 0;
-  let totalOptimizedSize = 0;
+  const preset = getPreset(relPath);
+  // Re-encode at a higher CRF (lower quality) to bring the file within budget
+  const repackPreset = { ...preset, crf: Math.min(preset.crf + 6, 63) };
+  const tmpPath = `${filePath}.tmp.webm`;
 
-  for (const videoPath of videos) {
-    const relativePath = path.relative(VIDEO_DIR, videoPath);
-    const parsedPath = path.parse(relativePath);
-    const outputBasePath = path.join(
-      OUTPUT_DIR,
-      parsedPath.dir,
-      parsedPath.name,
-    );
+  log(
+    `  → Re-packing WebM (${formatBytes(beforeSize)} → budget ${formatBytes(MAX_WEBM_SIZE_BYTES)}) ...`,
+  );
 
-    // Create output subdirectory
-    const outputDir = path.dirname(outputBasePath);
-    if (!fs.existsSync(outputDir)) {
-      fs.mkdirSync(outputDir, { recursive: true });
-    }
+  if (!encodeWebM(filePath, tmpPath, repackPreset)) {
+    stats.failed++;
+    return;
+  }
 
-    console.log(`Processing: ${relativePath}`);
+  const afterSize = getFileSize(tmpPath);
+  if (afterSize < beforeSize) {
+    fs.renameSync(tmpPath, filePath);
+    savings.before += beforeSize;
+    savings.after += afterSize;
+    const savedMB = ((beforeSize - afterSize) / (1024 * 1024)).toFixed(1);
+    log(`  ✓ Re-packed: -${savedMB} MB → ${formatBytes(afterSize)}`);
+    stats.success++;
+  } else {
+    fs.unlinkSync(tmpPath);
+    log(`  - Already optimal`);
+    stats.skipped++;
+  }
+}
 
-    // Get video metadata
-    const metadata = getVideoMetadata(videoPath);
-    if (!metadata) {
-      console.log("  ✗ Failed to read video metadata");
-      failCount++;
+/**
+ * Re-encode an existing .mp4 that exceeds MAX_MP4_SIZE_BYTES in-place.
+ */
+function repackMP4(filePath, relPath) {
+  const beforeSize = getFileSize(filePath);
+  if (!FORCE && beforeSize <= MAX_MP4_SIZE_BYTES) {
+    stats.skipped++;
+    return;
+  }
+
+  const preset = getPreset(relPath);
+  const repackPreset = { ...preset, crf: Math.min(preset.crf + 6, 51) };
+  const tmpPath = `${filePath}.tmp.mp4`;
+
+  log(`  → Re-packing MP4 (${formatBytes(beforeSize)}) ...`);
+
+  if (!encodeMP4(filePath, tmpPath, repackPreset)) {
+    stats.failed++;
+    return;
+  }
+
+  const afterSize = getFileSize(tmpPath);
+  if (afterSize < beforeSize) {
+    fs.renameSync(tmpPath, filePath);
+    savings.before += beforeSize;
+    savings.after += afterSize;
+    log(`  ✓ Re-packed MP4: ${formatBytes(afterSize)}`);
+    stats.success++;
+  } else {
+    fs.unlinkSync(tmpPath);
+    log(`  - Already optimal`);
+    stats.skipped++;
+  }
+}
+
+/**
+ * Walk public/videos/ and process every video file.
+ *
+ * Decision table:
+ *  .mov / .avi / .mkv          → processSourceVideo (always raw)
+ *  .mp4 with no .webm sibling  → processSourceVideo (treat as raw source)
+ *  .mp4 with .webm sibling     → repackMP4 (already converted; check budget)
+ *  .webm                       → repackWebM (check budget)
+ *  anything else (.jpg, etc.)  → skip
+ */
+function processDirectory(dir, relBase = "") {
+  if (!fs.existsSync(dir)) return;
+
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+  for (const entry of entries) {
+    if (entry.name === ".gitkeep") continue;
+
+    const fullPath = path.join(dir, entry.name);
+    const relPath = relBase ? path.join(relBase, entry.name) : entry.name;
+
+    if (entry.isDirectory()) {
+      processDirectory(fullPath, relPath);
       continue;
     }
 
-    // Determine best quality preset based on video resolution
-    const videoStream = metadata.streams.find((s) => s.codec_type === "video");
-    const height = videoStream?.height || 720;
-    let quality = "720p";
-    if (height >= 1080) quality = "1080p";
-    else if (height <= 480) quality = "480p";
+    if (!entry.isFile()) continue;
 
-    const originalSize = getFileSize(videoPath);
-    totalOriginalSize += originalSize;
+    const ext = path.extname(entry.name).toLowerCase();
+    const name = path.basename(entry.name, ext);
 
-    // Convert to WebM
-    const webmPath = `${outputBasePath}.webm`;
-    if (optimizeToWebM(videoPath, webmPath, quality)) {
-      const webmSize = getFileSize(webmPath);
-      totalOptimizedSize += webmSize;
-      const savings = originalSize - webmSize;
-      const percent = Math.round((savings / originalSize) * 100);
-      console.log(`  ✓ WebM: ${formatBytes(webmSize)} (${percent}% saved)`);
+    if (RAW_SOURCE_FORMATS.includes(ext)) {
+      log(`\nProcessing source: ${relPath}`);
+      processSourceVideo(fullPath, relPath);
+    } else if (ext === ".mp4") {
+      const webmSibling = path.join(dir, `${name}.webm`);
+      if (FORCE || !fs.existsSync(webmSibling)) {
+        log(`\nProcessing MP4 source: ${relPath}`);
+        processSourceVideo(fullPath, relPath);
+      } else {
+        repackMP4(fullPath, relPath);
+      }
+    } else if (ext === ".webm") {
+      repackWebM(fullPath, relPath);
     }
-
-    // Convert to MP4
-    const mp4Path = `${outputBasePath}.mp4`;
-    if (optimizeToMP4(videoPath, mp4Path, quality)) {
-      const mp4Size = getFileSize(mp4Path);
-      const savings = originalSize - mp4Size;
-      const percent = Math.round((savings / originalSize) * 100);
-      console.log(`  ✓ MP4: ${formatBytes(mp4Size)} (${percent}% saved)`);
-    }
-
-    // Generate poster image
-    const posterPath = `${outputBasePath}-poster.jpg`;
-    if (generatePoster(videoPath, posterPath)) {
-      console.log(`  ✓ Poster image generated`);
-    }
-
-    successCount++;
+    // .jpg poster images, .gitkeep, etc. — intentionally skipped
   }
+}
 
-  // Print summary
-  console.log("\n=== Optimization Complete ===");
-  console.log(`✓ Success: ${successCount}`);
-  console.log(`✗ Failed: ${failCount}`);
-
-  if (totalOptimizedSize > 0) {
-    const totalSavings = totalOriginalSize - totalOptimizedSize;
-    const percent = Math.round((totalSavings / totalOriginalSize) * 100);
-    console.log(
-      `\n💾 Total Savings: ${formatBytes(totalSavings)} (${percent}%)`,
+function main() {
+  log("\n=== Video Optimization ===");
+  if (FORCE) {
+    log("Force mode: re-processing all video files\n");
+  } else {
+    log(
+      "Skipping already-converted files (use --force to re-process).\n" +
+        `Existing WebM > ${formatBytes(MAX_WEBM_SIZE_BYTES)} or MP4 > ${formatBytes(MAX_MP4_SIZE_BYTES)} are always re-packed.\n`,
     );
   }
 
-  console.log(`\nOptimized videos saved to: ${OUTPUT_DIR}/`);
-  console.log("Review and replace originals when ready.\n");
+  checkFFmpeg();
+  processDirectory(VIDEO_DIR);
+
+  log("\n=== Optimization Complete ===");
+  log(`✓ Success: ${stats.success}`);
+  log(`- Skipped: ${stats.skipped}`);
+  log(`✗ Failed:  ${stats.failed}`);
+
+  if (savings.before > 0) {
+    const savedMB = ((savings.before - savings.after) / (1024 * 1024)).toFixed(
+      1,
+    );
+    const pct = Math.round(
+      ((savings.before - savings.after) / savings.before) * 100,
+    );
+    log(`\n💾 Total Savings: ${savedMB} MB (${pct}%)`);
+  }
+
+  log(`\nOptimized video files written to: public/videos/\n`);
+
+  if (stats.failed > 0) {
+    process.exit(1);
+  }
 }
 
-// Run optimization
-optimizeVideos().catch((error) => {
-  console.error("Optimization failed:", error);
-  process.exit(1);
-});
+main();

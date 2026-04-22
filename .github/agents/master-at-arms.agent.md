@@ -36,6 +36,7 @@ Do not require the user to memorize agent names.
 - Spanish localization and locale toggle validation -> spanish-toggle-officer
 - UI pattern and visual standard enforcement -> design-quartermaster
 - Image/photo uploads, kebab-case filename normalization, and WebP cleanup -> photo-upload-naming-officer
+- Video uploads, WebM/MP4 conversion, poster generation, and video size budget -> video-upload-officer
 - Final PR readiness and risk summary -> release-command
 
 ## Mandatory References
