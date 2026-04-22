@@ -154,8 +154,9 @@ function extractExhibitFile(line) {
 
 function summarizeSection(lines) {
   const firstBodyLine = lines.find((line) => line && !line.startsWith("- "));
-  if (!firstBodyLine)
+  if (!firstBodyLine) {
     return "Qualifications details and supporting owner-facing information.";
+  }
   return firstBodyLine.replaceAll(/\[(.*?)\]/g, "$1");
 }
 
