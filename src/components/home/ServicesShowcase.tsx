@@ -15,8 +15,8 @@ import {
 import { trackServiceInterest } from "@/lib/analytics/marketing-tracking";
 import { Modal } from "@/components/ui/modals/Modal";
 import { useLocale } from "@/hooks/useLocale";
-import en from "@/../messages/en.json";
-import es from "@/../messages/es.json";
+import en from "@/../messages/home/en.json";
+import es from "@/../messages/home/es.json";
 
 // Helper function to render subtitle with styled "NOT"
 function renderSubtitle(subtitle: string) {
@@ -76,7 +76,7 @@ const serviceIcons = [
  */
 export function ServicesShowcase() {
   const locale = useLocale();
-  const t = locale === "es" ? es.home.services : en.home.services;
+  const t = locale === "es" ? es.services : en.services;
   const [selectedService, setSelectedService] = useState<number | null>(null);
 
   // Build services array from translations with icon metadata

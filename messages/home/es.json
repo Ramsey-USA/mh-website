@@ -1,0 +1,299 @@
+{
+  "hero": {
+    "baseLabel": "Base Central → Hogar",
+    "founded": "Fundado en 2010, Empresa Veterana Desde Enero de 2025 • Partidario de BABAA",
+    "tagline": "Su Centro de Comando de Construcción Tri-State",
+    "mission": "Construyendo proyectos para el Cliente, NO para el Dinero",
+    "serving": "Sede en Tri-Cities (Pasco, Richland, Kennewick) | Licencia Tri-State en WA, OR, ID"
+  },
+  "coreValues": {
+    "sectionSubtitle": "Valores de Empresa Veterana",
+    "sectionTitle": "Construidos en Honestidad e Integridad",
+    "sectionDescription": "Cuatro valores fundamentales guían cada proyecto y asociación, enfocados en construir proyectos para el cliente, NO para el dinero.",
+    "keyMetric": "Métrica Clave",
+    "values": [
+      {
+        "value": "Honestidad",
+        "tagline": "Comunicación Clara en Todo Momento",
+        "description": "Transparencia total—evaluaciones verídicas, comunicación abierta, información honesta. Discusión directa de desafíos y obstáculos. Actualizaciones en tiempo real sobre cambios de cronograma o presupuesto. Evaluación honesta cuando un proyecto no es adecuado. Desglose completo de costos antes de comenzar. Hablar claro, sin tecnicismos.",
+        "stats": "Precios 100% Transparentes"
+      },
+      {
+        "value": "Integridad",
+        "tagline": "Haciendo lo Correcto",
+        "description": "Ética sólida—haciendo lo correcto incluso cuando nadie mira. Usando materiales y métodos especificados sin sustituciones. Garantías integrales—respaldamos nuestro trabajo. Tomando decisiones que beneficien a los clientes, no solo nuestros resultados. Cumpliendo compromisos incluso cuando las circunstancias cambian. Sin atajos, punto.",
+        "stats": "Ética Inquebrantable"
+      },
+      {
+        "value": "Profesionalismo",
+        "tagline": "Excelencia en Acción",
+        "description": "A tiempo, preparados y listos—sin excusas. Llegando a tiempo y preparados. Comunicación clara en todas las interacciones. Gestión y organización adecuada del sitio. Tratando su propiedad con respeto. Manteniendo credenciales de la industria y mejora continua.",
+        "stats": "Estándares de Servicio Experto"
+      },
+      {
+        "value": "Minuciosidad",
+        "tagline": "Ningún Detalle Olvidado",
+        "description": "Planificación y ejecución meticulosas: documentación completa, cero sorpresas. Análisis y planificación detallada del sitio. Mediciones y cálculos de precisión. Puntos de control de calidad sistemáticos en cada fase. Documentación completa con registros fotográficos. Revisión final exhaustiva con listas de verificación detalladas.",
+        "stats": "Cero Detalles Omitidos"
+      }
+    ]
+  },
+  "companyStats": {
+    "subtitle": "Resultados Disciplinados y Comprobados",
+    "title": "Historial Comprobado",
+    "description": "Resultados medibles de un equipo veterano y partidario dedicado de la Ley Build America, Buy America (BABAA), comprometido con la ejecución disciplinada, la comunicación clara y las relaciones duraderas con clientes en todo el Noroeste del Pacífico.",
+    "labels": {
+      "safety": "EMR de Seguridad Galardonado",
+      "experience": "Años de Experiencia Combinada",
+      "projects": "Proyectos Exitosos",
+      "states": "Estados con Licencia y Seguro"
+    }
+  },
+  "services": {
+    "sectionSubtitle": "Construcción de Espectro Completo",
+    "sectionTitle": "Servicios Basados en la Confianza",
+    "sectionDescription": "Desde la planificación hasta la finalización, cada proyecto refleja nuestros valores fundamentales—honestidad, integridad, profesionalismo y minuciosidad.",
+    "clickForDetails": "Haga clic para detalles completos",
+    "viewDetailsAriaPrefix": "Ver detalles de",
+    "closeDetailsBackdropAria": "Cerrar modal de detalles del servicio",
+    "closeModalAria": "Cerrar modal",
+    "whatsIncluded": "Qué Incluye",
+    "keyBenefits": "Beneficios Clave",
+    "learnMoreFallback": "Saber Más",
+    "contactCta": "Comenzar",
+    "items": [
+      {
+        "title": "Gestión de Construcción",
+        "subtitle": "Supervisión Completa del Proyecto",
+        "description": "Supervisión completa desde el concepto hasta la finalización. Sus objetivos de proyecto ejecutados con comunicación clara y experiencia comprobada.",
+        "features": [
+          "Supervisión y coordinación completa del proyecto",
+          "Planificación Maestra y Pre-Construcción",
+          "Control de presupuesto y gestión de costos",
+          "Garantía de calidad y protocolos de seguridad"
+        ],
+        "benefits": [
+          "Elimine decisiones costosas de último momento",
+          "Confiabilidad comprobada",
+          "Transparencia completa",
+          "Más de 150 años de experiencia combinada"
+        ],
+        "cta": "Explorar Servicios"
+      },
+      {
+        "title": "Planificación Maestra",
+        "subtitle": "Pre-Construcción Integral",
+        "description": "Transforme su visión en planes accionables. Coordinación estratégica de cada componente desde la evaluación inicial hasta la ejecución.",
+        "features": [
+          "Alcance detallado del proyecto y parámetros",
+          "Pronóstico de presupuesto y cronograma",
+          "Análisis de constructabilidad y evaluación de riesgos",
+          "Coordinación de proveedores y materiales"
+        ],
+        "benefits": [
+          "Prevenga el aumento del alcance",
+          "Proyecciones de costo precisas",
+          "Cronograma optimizado",
+          "Mitigación exhaustiva de riesgos"
+        ],
+        "cta": "Saber Más"
+      },
+      {
+        "title": "Edificios Comerciales",
+        "subtitle": "Proyectos construidos para el Cliente, NO para el Dinero",
+        "description": "Construcción comercial para oficinas, tiendas, instalaciones médicas y espacios religiosos. Con licencia en WA, OR e ID—calidad de artesanía sobre márgenes de ganancia.",
+        "features": [
+          "Oficinas profesionales y espacios comerciales",
+          "Instalaciones médicas y clínicas",
+          "Edificios religiosos y comunitarios",
+          "Concesionarios de autos y salas de exhibición"
+        ],
+        "benefits": [
+          "Licencia en 3 estados (WA, OR, ID)",
+          "Enfoque en calidad primero",
+          "Historial comprobado",
+          "Gestión completa de proyectos"
+        ],
+        "cta": "Ver Proyectos"
+      },
+      {
+        "title": "Adquisición y Alianzas Comerciales",
+        "subtitle": "Gestión de Cadena de Suministro",
+        "description": "Coordinación experta de la cadena de suministro—abastecimiento de materiales de calidad y gestión de nuestra red de proveedores de confianza. Sin dolores de cabeza de coordinación, solo ejecución confiable.",
+        "features": [
+          "Abastecimiento y adquisición de materiales",
+          "Coordinación y gestión de proveedores",
+          "Control de calidad y verificación",
+          "Compras rentables"
+        ],
+        "benefits": [
+          "Cero dolores de cabeza de coordinación",
+          "Socios comerciales verificados",
+          "Precios competitivos",
+          "Entrega a tiempo"
+        ],
+        "cta": "Saber Más"
+      },
+      {
+        "title": "Industrial Ligero",
+        "subtitle": "Infraestructura Duradera y de Alto Rendimiento",
+        "description": "Construcción industrial segura y duradera con más de 16 años de experiencia comprobada. Almacenes hasta plantas de procesamiento construidos con especificaciones exactas y estándares de seguridad líderes en la industria.",
+        "features": [
+          "Almacenes y centros de distribución",
+          "Plantas de fabricación y procesamiento",
+          "Instalaciones de almacenamiento en frío",
+          "Parques industriales y complejos"
+        ],
+        "benefits": [
+          "Seguridad líder en la industria (.64 EMR)",
+          "Construcción duradera",
+          "Artesanía experta",
+          "Especificaciones precisas"
+        ],
+        "cta": "Ver Capacidades"
+      },
+      {
+        "title": "Mejoras para Inquilinos",
+        "subtitle": "Transformaciones Eficientes de Espacios",
+        "description": "Transforme su espacio comercial rápida y eficientemente con artesanía experta. Tiempo de inactividad mínimo, resultados máximos.",
+        "features": [
+          "Renovaciones de oficinas",
+          "Habilitaciones de tiendas",
+          "Mejoras de restaurantes y hostelería",
+          "Mejoras de consultorios médicos"
+        ],
+        "benefits": [
+          "Finalización rápida y eficiente",
+          "Mínima interrupción del negocio",
+          "Licencia en 3 estados (WA, OR, ID)",
+          "Calidad de trabajo garantizada"
+        ],
+        "cta": "Comenzar"
+      }
+    ]
+  },
+  "whyPartner": {
+    "sectionSubtitle": "Empresa Veterana. Partidario de BABAA. Relaciones Primero.",
+    "sectionTitle": "Rendimiento Comprobado e Integridad Ganada",
+    "sectionDescription": "Donde la disciplina se une a la experiencia en construcción—comunicación honesta, artesanía comprobada e integridad ganada crean asociaciones basadas en la confianza.",
+    "philosophy": "Construyendo proyectos para el Cliente, NO para el Dinero",
+    "theROI": "EL ROI ES LA RELACIÓN",
+    "tradeCta": {
+      "prompt": "¿Es usted contratista de oficios?",
+      "highlight": "Únase a nuestra red Ally.",
+      "button": "Ver oportunidades para socios comerciales",
+      "iconAria": "Socios comerciales"
+    },
+    "values": [
+      {
+        "title": ".64 EMR - Seguridad Líder en la Industria",
+        "subtitle": "Cada Miembro del Equipo Regresa a Casa Seguro",
+        "description": "Múltiples premios AGC-WA Top EMR con .64 EMR—40% mejor que el promedio de la industria. Más de 3 años sin lesiones con pérdida de tiempo y designación OSHA VPP Star. Sin compromisos en seguridad, punto.",
+        "highlights": [
+          ".64 EMR (40% mejor que la industria)",
+          "3+ años sin lesiones con pérdida de tiempo",
+          "Designación OSHA VPP Star",
+          "Cero compromisos en seguridad"
+        ],
+        "statLabel": "Calificación de Seguridad"
+      },
+      {
+        "title": "Más de 150 Años de Experiencia Combinada",
+        "subtitle": "Experiencia Comprobada en Construcción",
+        "description": "Nuestro equipo aporta más de 150 años de experiencia combinada en construcción. Veteranos y civiles trabajando juntos, aprovechando métodos probados refinados a través de generaciones. Experiencia profunda en la que puede confiar.",
+        "highlights": [
+          "Más de 150 años de experiencia combinada",
+          "Excelencia de equipo veterano + civil",
+          "Métodos y prácticas comprobados",
+          "Experiencia multigeneracional"
+        ],
+        "statLabel": "Años de Experiencia Combinada"
+      },
+      {
+        "title": "Transparencia Completa",
+        "subtitle": "Cero Sorpresas",
+        "description": "Precios de libro abierto con visibilidad completa en cada costo, cronograma y decisión. Usted controla el proyecto, nosotros lo ejecutamos con total transparencia. Sin costos ocultos, evaluaciones honestas en cada fase. Su palabra es su compromiso—y la nuestra también.",
+        "highlights": [
+          "Precios de libro abierto",
+          "Actualizaciones del proyecto en tiempo real",
+          "Transparencia completa de costos",
+          "Cronogramas y expectativas honestos"
+        ],
+        "statLabel": "Promesa de Transparencia"
+      },
+      {
+        "title": "Asociaciones a Largo Plazo",
+        "subtitle": "Relaciones que Superan los Proyectos",
+        "description": "El 70% de nuestro negocio proviene de referencias y socios habituales—confianza ganada a través de acciones, no palabras. Nuestro compromiso no termina cuando el proyecto se completa. Estamos por el largo plazo, construyendo relaciones que importan. EL ROI ES LA RELACIÓN.",
+        "highlights": [
+          "70% de negocio por referencias y repetición",
+          "Compromiso de asociación de por vida",
+          "Apoyo y servicio continuo",
+          "Relaciones enfocadas en la comunidad"
+        ],
+        "statLabel": "Negocio por Referencias"
+      },
+      {
+        "title": "Más de 650 Proyectos Exitosos",
+        "subtitle": "Historial Comprobado",
+        "description": "Más de 650 proyectos completados exitosamente demuestran confiabilidad comprobada. El liderazgo veterano aporta disciplina, planificación bajo presión y ejecución consistente. Ya sea rutinario o urgente, entregamos resultados sin importar los desafíos.",
+        "highlights": [
+          "Más de 650 proyectos completados",
+          "Empresa Veterana desde enero de 2025",
+          "Partidario dedicado de BABAA",
+          "Ejecución disciplinada",
+          "Valores ganados en servicio"
+        ],
+        "statLabel": "Proyectos Exitosos"
+      },
+      {
+        "title": "Licencia en 3 Estados",
+        "subtitle": "Con Licencia en Todo el Noroeste del Pacífico",
+        "description": "Contratista general con licencia completa en Washington, Oregon e Idaho. Seguro y fianza integrales proporcionan protección completa para cada proyecto. Credenciales mantenidas con precisión—cumplimiento continuo, cero compromisos.",
+        "highlights": [
+          "Con licencia en WA, OR e ID",
+          "Cobertura completa de seguro y fianza",
+          "Garantía de cumplimiento completo",
+          "Mantenida con precisión"
+        ],
+        "statLabel": "Estados con Licencia"
+      }
+    ]
+  },
+  "testimonials": {
+    "subtitle": "Confiado por Nuestros Socios",
+    "title": "Lo que Dicen Nuestros Clientes",
+    "description": "Lea testimonios de valiosos Clientes en todo el Noroeste del Pacífico que han experimentado nuestra excelencia colaborativa de primera mano."
+  },
+  "process": {
+    "subtitle": "Simple y Transparente",
+    "title": "Nuestro Proceso",
+    "descriptionPart1": "Cinco pasos claros desde el",
+    "descriptionPart2": "primer contacto hasta la finalización del proyecto",
+    "descriptionPart3": ". Sin sorpresas, solo",
+    "descriptionPart4": "comunicación honesta y resultados comprobados",
+    "descriptionPart5": ".",
+    "steps": [
+      {
+        "title": "Planificación Pre-Construcción",
+        "desc": "Evaluación integral del sitio, desarrollo detallado del alcance y planificación estratégica para identificar desafíos antes de que surjan."
+      },
+      {
+        "title": "Transparencia Presupuestaria",
+        "desc": "Precios claros y detallados con desglose completo de costos. Sin tarifas ocultas, sin sorpresas—solo números honestos en los que puede confiar."
+      },
+      {
+        "title": "Ejecución de Calidad",
+        "desc": "Artesanía experta con puntos de control de calidad sistemáticos en cada fase. Ejecución de precisión respaldada por más de 150 años de experiencia combinada."
+      },
+      {
+        "title": "Comunicación Proactiva",
+        "desc": "Actualizaciones regulares lo mantienen informado durante todo el proyecto. Notificaciones en tiempo real de cualquier cambio—nunca estará en la oscuridad."
+      },
+      {
+        "title": "Cierre Sin Problemas",
+        "desc": "Recorrido final exhaustivo y documentación completa. Nuestro compromiso con su satisfacción se extiende más allá de la finalización del proyecto."
+      }
+    ]
+  }
+}
