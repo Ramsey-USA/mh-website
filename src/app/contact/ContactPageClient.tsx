@@ -110,7 +110,7 @@ export default function ContactPageClient() {
       <div className="bg-white dark:bg-gray-900 min-h-screen">
         {/* Hero Section */}
         <section
-          className="relative h-screen flex items-end justify-end text-white overflow-hidden"
+          className="hero-section relative flex items-end justify-end text-white overflow-hidden"
           aria-labelledby="hero-heading"
         >
           {/* Background - Ready for photo or video */}

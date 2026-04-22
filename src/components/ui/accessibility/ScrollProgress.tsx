@@ -36,7 +36,7 @@ export function ScrollProgress() {
         if (progress === lastProgress.current) return;
         lastProgress.current = progress;
 
-        bar.style.width = `${progress}%`;
+        bar.style.transform = `scaleX(${progress / 100})`;
         bar.setAttribute("aria-valuenow", String(progress));
       });
     };

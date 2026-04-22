@@ -511,7 +511,7 @@ export default function AlliesPage() {
       <StructuredData data={breadcrumbSchema} />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 h-screen flex items-end justify-end text-white overflow-hidden">
+      <section className="hero-section relative bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900 flex items-end justify-end text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/80 to-brand-secondary/20" />
 
         {/* Content — bottom right */}

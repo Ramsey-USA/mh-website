@@ -9,7 +9,7 @@ import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 
 export function ProjectsHero() {
   return (
-    <section className="relative h-screen flex items-end justify-end text-white overflow-hidden">
+    <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
       {/* Background - Ready for photo or video */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900">
         {/* Overlay for text readability */}

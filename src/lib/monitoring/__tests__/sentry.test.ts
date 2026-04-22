@@ -39,7 +39,7 @@ import type { SeverityLevel } from "@sentry/browser";
 
 // ── Import after mocking ──────────────────────────────────────────────────────
 
-let initSentry: () => void;
+let initSentry: () => Promise<void>;
 let captureException: (error: unknown, ctx?: Record<string, unknown>) => void;
 let captureMessage: (
   msg: string,
@@ -64,14 +64,14 @@ beforeAll(async () => {
 describe("initSentry()", () => {
   beforeEach(() => jest.clearAllMocks());
 
-  it("calls SentryBrowser.init once", () => {
-    initSentry();
+  it("calls SentryBrowser.init once", async () => {
+    await initSentry();
     expect(mockInit).toHaveBeenCalledTimes(1);
   });
 
-  it("does not call init again on subsequent invocations (already initialised)", () => {
+  it("does not call init again on subsequent invocations (already initialised)", async () => {
     // isInitialized is now true — second call should no-op
-    initSentry();
+    await initSentry();
     expect(mockInit).not.toHaveBeenCalled();
   });
 });

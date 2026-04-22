@@ -822,6 +822,7 @@ main {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     height: 3px;
     background: linear-gradient(
       90deg,
@@ -829,7 +830,10 @@ main {
       theme("colors.brand.secondary")
     );
     z-index: 100;
-    transition: width 0.15s ease-out;
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 0.15s ease-out;
+    will-change: transform;
   }
 }
 

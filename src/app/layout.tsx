@@ -197,6 +197,15 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* Preconnect to external origins used by GA and Sentry to reduce
+            connection latency (TCP + TLS handshake done early) */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link
+          rel="dns-prefetch"
+          href="https://o4511220420050944.ingest.us.sentry.io"
+        />
         {/* Preload self-hosted Material Icons font for optimal performance */}
         <link
           rel="preload"

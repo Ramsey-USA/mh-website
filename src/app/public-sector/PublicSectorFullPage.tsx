@@ -299,7 +299,7 @@ export default function PublicSectorFullPage() {
       <PageTrackingClient pageName="Public Sector" />
       <StructuredData data={breadcrumbSchema} />
       {/* Hero Section - Group 4: Professional & Patriotic */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 h-screen flex items-end justify-end text-white overflow-hidden">
+      <section className="hero-section relative bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 flex items-end justify-end text-white overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-700/30 via-gray-900/80 to-gray-600/20"></div>
 
