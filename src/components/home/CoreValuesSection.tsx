@@ -5,8 +5,8 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
 import Image from "next/image";
 import { useLocale } from "@/hooks/useLocale";
-import en from "@/../messages/en.json";
-import es from "@/../messages/es.json";
+import en from "@/../messages/home/en.json";
+import es from "@/../messages/home/es.json";
 
 const coreValuesBase = [
   {
@@ -57,7 +57,7 @@ const coreValuesBase = [
  */
 export function CoreValuesSection() {
   const locale = useLocale();
-  const t = locale === "es" ? es.home.coreValues : en.home.coreValues;
+  const t = locale === "es" ? es.coreValues : en.coreValues;
 
   const coreValues = coreValuesBase.map((item, i) => ({
     ...item,

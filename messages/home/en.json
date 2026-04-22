@@ -1,0 +1,299 @@
+{
+  "hero": {
+    "baseLabel": "Base HQ → Home",
+    "founded": "Founded 2010, Veteran-Owned Since January 2025 • BABAA Supporter",
+    "tagline": "Your Tri-State Construction Command Center",
+    "mission": "Building projects for the Client, NOT the Dollar",
+    "serving": "Tri-Cities HQ (Pasco, Richland, Kennewick) | Tri-State Licensed in WA, OR, ID"
+  },
+  "coreValues": {
+    "sectionSubtitle": "Veteran-Owned Values",
+    "sectionTitle": "Built on Honesty & Integrity",
+    "sectionDescription": "Four foundational values guide every project and partnership—focused on building projects for the client, NOT the dollar.",
+    "keyMetric": "Key Metric",
+    "values": [
+      {
+        "value": "Honesty",
+        "tagline": "Clear Communication Every Time",
+        "description": "Full transparency—truthful assessments, open communication, honest intel. Upfront discussion of challenges and obstacles. Real-time updates on timeline or budget changes. Honest assessment when a project isn't the right fit. Complete cost breakdown before starting. Straight talk, no jargon.",
+        "stats": "100% Transparent Pricing"
+      },
+      {
+        "value": "Integrity",
+        "tagline": "Doing What's Right",
+        "description": "Strong ethics—doing what's right even when no one's watching. Using specified materials and methods without substitutions. Comprehensive warranties—we stand behind our work. Making decisions that benefit clients, not just our bottom line. Following through on commitments even when circumstances change. No shortcuts, period.",
+        "stats": "Unwavering Ethics"
+      },
+      {
+        "value": "Professionalism",
+        "tagline": "Excellence in Action",
+        "description": "On time, prepared, and ready—zero excuses. Arriving on time and prepared. Clear communication in all interactions. Proper site management and organization. Treating your property with respect. Maintaining industry credentials and continuous improvement.",
+        "stats": "Expert Service Standards"
+      },
+      {
+        "value": "Thoroughness",
+        "tagline": "No Detail Left Behind",
+        "description": "Meticulous planning and execution—complete documentation, zero surprises. Detailed site analysis and planning. Precision measurements and calculations. Systematic quality checkpoints at every phase. Complete documentation with photo records. Comprehensive final review with detailed punch lists.",
+        "stats": "Zero Details Missed"
+      }
+    ]
+  },
+  "companyStats": {
+    "subtitle": "Disciplined, Proven Results",
+    "title": "Proven Track Record",
+    "description": "Measurable results from a Veteran-Owned team and dedicated Build America, Buy America Act (BABAA) supporter committed to disciplined execution, clear communication, and strong client relationships across the Pacific Northwest.",
+    "labels": {
+      "safety": "Award-Winning Safety EMR",
+      "experience": "Years Combined Experience",
+      "projects": "Successful Projects",
+      "states": "States Licensed & Insured"
+    }
+  },
+  "services": {
+    "sectionSubtitle": "Full-Spectrum Construction",
+    "sectionTitle": "Services Built on Trust",
+    "sectionDescription": "From planning to completion, every project reflects our core values—honesty, integrity, professionalism, and thoroughness.",
+    "clickForDetails": "Click for Full Details",
+    "viewDetailsAriaPrefix": "View details for",
+    "closeDetailsBackdropAria": "Close service details modal",
+    "closeModalAria": "Close modal",
+    "whatsIncluded": "What's Included",
+    "keyBenefits": "Key Benefits",
+    "learnMoreFallback": "Learn More",
+    "contactCta": "Get Started",
+    "items": [
+      {
+        "title": "Construction Management",
+        "subtitle": "Complete Project Oversight",
+        "description": "Complete oversight from concept through completion. Your project objectives executed with clear communication and proven expertise.",
+        "features": [
+          "Complete project oversight & coordination",
+          "Master Planning & Pre-Construction",
+          "Budget control & cost management",
+          "Quality assurance & safety protocols"
+        ],
+        "benefits": [
+          "Eliminate costly last-minute decisions",
+          "Proven reliability",
+          "Complete transparency",
+          "150+ years combined experience"
+        ],
+        "cta": "Explore Services"
+      },
+      {
+        "title": "Master Planning",
+        "subtitle": "Comprehensive Pre-Construction",
+        "description": "Transform your vision into actionable plans. Strategic coordination of every component from initial assessment through execution.",
+        "features": [
+          "Detailed project scope & parameters",
+          "Budget & timeline forecasting",
+          "Constructability analysis & risk assessment",
+          "Vendor & material coordination"
+        ],
+        "benefits": [
+          "Prevent scope creep",
+          "Accurate cost projections",
+          "Optimized timeline",
+          "Thorough risk mitigation"
+        ],
+        "cta": "Learn More"
+      },
+      {
+        "title": "Commercial Buildings",
+        "subtitle": "Built projects for the Client, NOT the Dollar",
+        "description": "Commercial construction for offices, retail, medical facilities, and religious spaces. Licensed across WA, OR, and ID—quality craftsmanship over profit margins.",
+        "features": [
+          "Professional offices & retail spaces",
+          "Medical facilities & clinics",
+          "Religious & community buildings",
+          "Auto dealerships & showrooms"
+        ],
+        "benefits": [
+          "3-state licensing (WA, OR, ID)",
+          "Quality-first focus",
+          "Proven track record",
+          "Complete project management"
+        ],
+        "cta": "View Projects"
+      },
+      {
+        "title": "Procurement & Trade Partnerships",
+        "subtitle": "Supply Chain Management",
+        "description": "Expert supply chain coordination—sourcing quality materials and managing our network of trusted vendors. No coordination headaches, just reliable execution.",
+        "features": [
+          "Material sourcing & procurement",
+          "Vendor coordination & management",
+          "Quality control & verification",
+          "Cost-effective purchasing"
+        ],
+        "benefits": [
+          "Zero coordination headaches",
+          "Vetted trade partners",
+          "Competitive pricing",
+          "On-time delivery"
+        ],
+        "cta": "Learn More"
+      },
+      {
+        "title": "Light Industrial",
+        "subtitle": "Durable, High-Performance Infrastructure",
+        "description": "Safe, durable industrial construction with 16+ years proven experience. Warehouses to processing plants built to exacting specifications with industry-leading safety standards.",
+        "features": [
+          "Warehouse & distribution centers",
+          "Manufacturing & processing plants",
+          "Cold storage facilities",
+          "Industrial parks & complexes"
+        ],
+        "benefits": [
+          "Industry-leading safety (.64 EMR)",
+          "Durable construction",
+          "Expert craftsmanship",
+          "Precise specifications"
+        ],
+        "cta": "See Capabilities"
+      },
+      {
+        "title": "Tenant Improvements",
+        "subtitle": "Efficient Space Transformations",
+        "description": "Transform your commercial space quickly and efficiently with expert craftsmanship. Minimal downtime, maximum results.",
+        "features": [
+          "Office space renovations",
+          "Retail store buildouts",
+          "Restaurant & hospitality TI",
+          "Medical office improvements"
+        ],
+        "benefits": [
+          "Fast, efficient completion",
+          "Minimal business disruption",
+          "3-state licensing (WA, OR, ID)",
+          "Quality workmanship guaranteed"
+        ],
+        "cta": "Get Started"
+      }
+    ]
+  },
+  "whyPartner": {
+    "sectionSubtitle": "Veteran-Owned. BABAA Supporter. Relationship-First.",
+    "sectionTitle": "Proven Performance & Earned Integrity",
+    "sectionDescription": "Where discipline meets construction expertise—honest communication, proven craftsmanship, and earned integrity create partnerships built on trust.",
+    "philosophy": "Building projects for the Client, NOT the Dollar",
+    "theROI": "THE ROI IS THE RELATIONSHIP",
+    "tradeCta": {
+      "prompt": "Are you a trade contractor?",
+      "highlight": "Join our Ally network.",
+      "button": "View Trade Partner Opportunities",
+      "iconAria": "Trade partners"
+    },
+    "values": [
+      {
+        "title": ".64 EMR - Industry-Leading Safety",
+        "subtitle": "Every Team Member Returns Home Safe",
+        "description": "Multiple AGC-WA Top EMR Awards with .64 EMR—40% better than industry average. 3+ years without time-loss injury and OSHA VPP Star designation. No compromises on safety, period.",
+        "highlights": [
+          ".64 EMR (40% better than industry)",
+          "3+ years without time-loss injury",
+          "OSHA VPP Star designation",
+          "Zero compromises on safety"
+        ],
+        "statLabel": "Safety Rating"
+      },
+      {
+        "title": "150+ Years of Combined Experience",
+        "subtitle": "Proven Construction Expertise",
+        "description": "Our team brings 150+ years of combined construction expertise. Veterans and civilians working together, leveraging proven methods refined through generations. Deep experience you can trust.",
+        "highlights": [
+          "150+ years combined expertise",
+          "Veteran + civilian team excellence",
+          "Proven methods & practices",
+          "Multi-generational experience"
+        ],
+        "statLabel": "Years Combined Experience"
+      },
+      {
+        "title": "Complete Transparency",
+        "subtitle": "Zero Surprises",
+        "description": "Open-book pricing with complete visibility on every cost, timeline, and decision. You control the project, we execute it with full transparency. No hidden costs, honest assessments at every phase. Your word is your bond—so is ours.",
+        "highlights": [
+          "Open-book pricing",
+          "Real-time project updates",
+          "Complete cost transparency",
+          "Honest timelines & expectations"
+        ],
+        "statLabel": "Transparency Promise"
+      },
+      {
+        "title": "Long-Term Partnerships",
+        "subtitle": "Relationships That Outlast Projects",
+        "description": "70% of our business comes from referrals and repeat partners—trust earned through action, not words. Our commitment doesn't end when the project completes. We're in it for the long haul, building relationships that matter. THE ROI IS THE RELATIONSHIP.",
+        "highlights": [
+          "70% referral & repeat business",
+          "Lifelong partnership commitment",
+          "Ongoing support & service",
+          "Community-focused relationships"
+        ],
+        "statLabel": "Referral Business"
+      },
+      {
+        "title": "650+ Successful Projects",
+        "subtitle": "Proven Track Record",
+        "description": "650+ successfully completed projects demonstrate proven reliability. Veteran leadership brings discipline, planning under pressure, and consistent execution. Whether routine or urgent—we deliver results no matter the challenges.",
+        "highlights": [
+          "650+ completed projects",
+          "Veteran-Owned Since January 2025",
+          "Dedicated BABAA supporter",
+          "Disciplined execution",
+          "Service-earned values"
+        ],
+        "statLabel": "Successful Projects"
+      },
+      {
+        "title": "3-State Licensing",
+        "subtitle": "Licensed Across the Pacific Northwest",
+        "description": "Fully licensed general contractor across Washington, Oregon, and Idaho. Comprehensive insurance and bonding provide complete protection for every project. Credentials maintained with precision—continuous compliance, zero compromises.",
+        "highlights": [
+          "Licensed in WA, OR, and ID",
+          "Full insurance & bonding coverage",
+          "Complete compliance assurance",
+          "Maintained with precision"
+        ],
+        "statLabel": "States Licensed"
+      }
+    ]
+  },
+  "testimonials": {
+    "subtitle": "Trusted By Our Partners",
+    "title": "What Our Client Partners Say",
+    "description": "Read testimonials from valued Client Partners across the Pacific Northwest who have experienced our collaborative excellence firsthand."
+  },
+  "process": {
+    "subtitle": "Simple & Transparent",
+    "title": "Our Process",
+    "descriptionPart1": "Five clear steps from",
+    "descriptionPart2": "first contact to project completion",
+    "descriptionPart3": ". No surprises, just",
+    "descriptionPart4": "honest communication and proven results",
+    "descriptionPart5": ".",
+    "steps": [
+      {
+        "title": "Pre-Construction Planning",
+        "desc": "Comprehensive site assessment, detailed scope development, and strategic planning to identify challenges before they arise."
+      },
+      {
+        "title": "Budget Transparency",
+        "desc": "Clear, itemized pricing with complete cost breakdown. No hidden fees, no surprises—just honest numbers you can trust."
+      },
+      {
+        "title": "Quality Execution",
+        "desc": "Expert craftsmanship with systematic quality checkpoints at every phase. Precision execution backed by 150+ years combined experience."
+      },
+      {
+        "title": "Proactive Communication",
+        "desc": "Regular updates keep you informed throughout the project. Real-time notifications of any changes—you're never in the dark."
+      },
+      {
+        "title": "Seamless Close-Out",
+        "desc": "Comprehensive final walkthrough and complete documentation. Our commitment to your satisfaction extends beyond project completion."
+      }
+    ]
+  }
+}

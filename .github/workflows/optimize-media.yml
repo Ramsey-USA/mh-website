@@ -109,6 +109,51 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
 
+      - name: Enforce video size budget
+        run: |
+          echo "📏 Checking video file size budgets (WebM ≤ 10 MB, MP4 ≤ 15 MB)..."
+          OVERSIZED_WEBM=$(find public/videos -name "*.webm" -size +10M 2>/dev/null)
+          OVERSIZED_MP4=$(find public/videos -name "*.mp4" -size +15M 2>/dev/null)
+          FAIL=false
+          if [ -n "$OVERSIZED_WEBM" ]; then
+            echo "❌ WebM files exceeding the 10 MB limit:"
+            echo "$OVERSIZED_WEBM" | while read f; do
+              SIZE=$(du -sh "$f" | cut -f1)
+              echo "  $SIZE  $f"
+            done
+            FAIL=true
+          fi
+          if [ -n "$OVERSIZED_MP4" ]; then
+            echo "❌ MP4 files exceeding the 15 MB limit:"
+            echo "$OVERSIZED_MP4" | while read f; do
+              SIZE=$(du -sh "$f" | cut -f1)
+              echo "  $SIZE  $f"
+            done
+            FAIL=true
+          fi
+          if [ "$FAIL" = "true" ]; then
+            echo ""
+            echo "Run 'npm run optimize:videos -- --force' locally to re-pack these files."
+            exit 1
+          fi
+          echo "✅ All video files are within the size budget"
+
+      - name: Enforce 500 KB image size budget
+        run: |
+          echo "📏 Checking WebP file size budget (max 500 KB per file)..."
+          OVERSIZED=$(find public/images -name "*.webp" -size +500k 2>/dev/null)
+          if [ -n "$OVERSIZED" ]; then
+            echo "❌ The following WebP files exceed the 500 KB limit:"
+            echo "$OVERSIZED" | while read f; do
+              SIZE=$(du -sh "$f" | cut -f1)
+              echo "  $SIZE  $f"
+            done
+            echo ""
+            echo "Run 'npm run optimize:images -- --force' locally to re-pack these files."
+            exit 1
+          fi
+          echo "✅ All WebP files are within the 500 KB budget"
+
       - name: Generate optimization report
         if: steps.verify-changes.outputs.changes == 'true'
         run: |

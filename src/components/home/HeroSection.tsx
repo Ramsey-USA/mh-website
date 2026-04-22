@@ -4,8 +4,8 @@ import { AmericanFlag } from "@/components/icons/AmericanFlag";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { useLocale } from "@/hooks/useLocale";
-import en from "@/../messages/en.json";
-import es from "@/../messages/es.json";
+import en from "@/../messages/home/en.json";
+import es from "@/../messages/home/es.json";
 
 /**
  * Homepage Hero Section
@@ -13,7 +13,7 @@ import es from "@/../messages/es.json";
  */
 export function HeroSection() {
   const locale = useLocale();
-  const t = locale === "es" ? es.home.hero : en.home.hero;
+  const t = locale === "es" ? es.hero : en.hero;
 
   return (
     <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">

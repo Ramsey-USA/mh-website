@@ -5,8 +5,8 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
 import { BrandedContentSection } from "@/components/templates";
 import { useLocale } from "@/hooks/useLocale";
-import en from "@/../messages/en.json";
-import es from "@/../messages/es.json";
+import en from "@/../messages/home/en.json";
+import es from "@/../messages/home/es.json";
 
 const partnershipIcons = [
   {
@@ -84,7 +84,7 @@ function getSubtitleAccentClass(accentColor?: string): string {
 
 export function WhyPartnerSection() {
   const locale = useLocale();
-  const t = locale === "es" ? es.home.whyPartner : en.home.whyPartner;
+  const t = locale === "es" ? es.whyPartner : en.whyPartner;
   return (
     <BrandedContentSection
       id="why-partner"
