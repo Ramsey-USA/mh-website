@@ -18,6 +18,19 @@ All notable changes to the MH Construction website are documented here.
 
 ## April 2026
 
+- **Apr 22:** Safety PDF governance and artifact congruence hardening — created dedicated
+  safety PDF editing agent (`.github/agents/safety-pdf-editor.agent.md`) for source-first PDF
+  changes (templates/scripts only), regeneration, metadata validation, and congruence checks;
+  updated Manual Structure Officer (`.github/agents/manual-structure-officer.agent.md`) to
+  require generated-PDF QA (page box, typography, WBS sequence, and artifact metadata checks)
+  and to report explicit PASS/FAIL findings for regenerated artifacts; synchronized
+  `safety-manual-cover.pdf`, `safety-manual-spine.pdf`, and `safety-manual-digital.pdf`
+  from the same generation pass; standardized Safety Manual title metadata conventions to
+  `MH Construction Safety Manual — Cover|Spine|Digital`; aligned PDF author/creator metadata
+  in generation + merge pipeline to `Author: Matt Ramsey, Editor-in-Chief` and
+  `Creator: MH Construction Document Pipeline`; added direct quick-access support for
+  `safety-manual-contents.pdf` and `safety-manual-reference.pdf` in resource metadata/UI.
+
 - **Apr 17:** First successful Lighthouse CI run — 19/22 pages audited at `https://www.mhc-gc.com`
   using `scripts/test-lighthouse.js`; average scores across successful pages: **Performance 95 ·
   Accessibility 96 · Best Practices 78 · SEO 100** (overall avg 92); 3 failures: `/team`

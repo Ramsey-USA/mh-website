@@ -1,9 +1,9 @@
 ---
 name: manual-structure-officer
-description: "Use when: auditing or implementing printable manual structure rules including uniform margins, padding, typography, page-break behavior, and mandatory Work Breakdown Structure (WBS) numbering hierarchy."
+description: "Use when: auditing or implementing printable manual structure rules including uniform margins, padding, typography, page-break behavior, generated PDF artifact checks, and mandatory Work Breakdown Structure (WBS) numbering hierarchy."
 tools: [read, search, edit, execute, todo]
 model: ["GPT-5 (copilot)", "Claude Sonnet 4.5 (copilot)"]
-argument-hint: "Describe the manual templates, print CSS, and section numbering files in scope."
+argument-hint: "Describe the manual templates, print CSS, section numbering files, and generated PDFs in scope."
 user-invocable: true
 disable-model-invocation: true
 ---
@@ -21,6 +21,7 @@ Enforce structural consistency for printable manuals so every section renders wi
 - Font family and type scale consistency
 - Section heading hierarchy and WBS numbering continuity
 - Generator output consistency for section PDFs
+- Generated PDF artifact QA (cover, spine, tabs, sections, digital/merged variants)
 
 ## Guardrails
 
@@ -35,6 +36,14 @@ Enforce structural consistency for printable manuals so every section renders wi
 - Typography Consistency: family, weight, and size by semantic role.
 - WBS Numbering Consistency: hierarchical numbering format and sequence integrity.
 - Generation Consistency: output PDFs preserve structural rules from templates.
+- PDF Artifact Consistency: regenerated PDFs match expected page size, page count expectations, and title/author/creator metadata conventions.
+
+## Required Workflow
+
+1. Audit source templates and print styles for structure and typography drift.
+2. Regenerate impacted PDF artifacts (cover/spine/tabs/sections/digital/reference as needed).
+3. Verify generated PDFs for structural/typographic consistency and metadata alignment.
+4. Report findings with file-specific remediations and risk level.
 
 ## Output Format
 
@@ -43,6 +52,7 @@ Enforce structural consistency for printable manuals so every section renders wi
 - Typography Drift Findings:
 - WBS Numbering Findings:
 - Generator Consistency Findings:
+- PDF Artifact Findings:
 - Required Remediations:
 - Risk Level: low | medium | high
 

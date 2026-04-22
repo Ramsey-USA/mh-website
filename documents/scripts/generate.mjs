@@ -29,12 +29,22 @@
 
 import puppeteer from "puppeteer";
 import QRCode from "qrcode";
-import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
+import { PDFDocument } from "pdf-lib";
+import {
+  readFile,
+  writeFile,
+  mkdir,
+  readdir,
+  copyFile,
+} from "node:fs/promises";
 import { readFileSync, existsSync, unlinkSync } from "node:fs";
 import { join, resolve, dirname, extname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const SITE_URL = "https://www.mhc-gc.com";
+const PDF_METADATA_AUTHOR = "Matt Ramsey, Editor-in-Chief";
+const PDF_METADATA_CREATOR = "MH Construction Document Pipeline";
+const PDF_METADATA_SUBJECT = "Accident · Injury · Safety · Health Program";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
 const DOCS_DIR = join(ROOT, "documents");
@@ -426,6 +436,15 @@ async function renderPdf(htmlPath, pdfPath, pageOpts = {}) {
   await page.pdf({ path: pdfPath, ...defaultOpts, ...pageOpts });
   await page.close();
 
+  // Normalize metadata so standalone PDFs match merged manual metadata fields.
+  const pdfBytes = await readFile(pdfPath);
+  const pdfDoc = await PDFDocument.load(pdfBytes);
+  pdfDoc.setAuthor(PDF_METADATA_AUTHOR);
+  pdfDoc.setCreator(PDF_METADATA_CREATOR);
+  pdfDoc.setSubject(PDF_METADATA_SUBJECT);
+  const outBytes = await pdfDoc.save();
+  await writeFile(pdfPath, outBytes);
+
   const rel = pdfPath.replace(ROOT + "/", "");
   console.log(`  ✓  ${rel}`);
 }
@@ -486,6 +505,220 @@ async function generateTabs() {
     { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
     "_tmp_tabs.html",
   );
+}
+
+function buildContentsPdfHtml(sections) {
+  const generatedOn = new Date().toLocaleDateString("en-US");
+  const rows = sections
+    .map((section) => {
+      const number = String(section.numberStr || section.number).padStart(
+        2,
+        "0",
+      );
+      return (
+        `<tr>` +
+        `<td class="num">MISH ${number}</td>` +
+        `<td class="title">${escapeHtml(section.title || "")}</td>` +
+        `</tr>`
+      );
+    })
+    .join("\n");
+
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Safety Manual Table of Contents</title>
+    <style>
+      @page { size: Letter; margin: 0.75in 0.75in 0.75in 1.0in; }
+      body {
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        color: #1f2937;
+        font-size: 11pt;
+        line-height: 1.35;
+      }
+      .header {
+        margin-bottom: 0.3in;
+        padding-bottom: 0.12in;
+        border-bottom: 2px solid {{BRAND_COLOR_PRIMARY}};
+      }
+      .brand {
+        font-size: 10pt;
+        color: #4b5563;
+        margin-bottom: 0.06in;
+      }
+      h1 {
+        font-size: 20pt;
+        margin: 0;
+        color: {{BRAND_COLOR_PRIMARY}};
+      }
+      .meta {
+        margin-top: 0.08in;
+        font-size: 9pt;
+        color: #6b7280;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      tr {
+        border-bottom: 1px solid #e5e7eb;
+      }
+      td {
+        padding: 0.1in 0;
+        vertical-align: top;
+      }
+      .num {
+        width: 1.15in;
+        font-weight: 700;
+        color: #111827;
+        white-space: nowrap;
+      }
+      .title {
+        color: #1f2937;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="brand">{{BRAND_COMPANY_NAME}}</div>
+      <h1>Safety Manual Table of Contents</h1>
+      <div class="meta">Generated ${generatedOn} • Revision {{BRAND_REVISION_NUMBER}} ({{BRAND_REVISION_DATE}})</div>
+    </div>
+
+    <table aria-label="Safety manual section index">
+      <tbody>
+        ${rows}
+      </tbody>
+    </table>
+  </body>
+</html>`;
+}
+
+function buildReferencePdfHtml(sections) {
+  const generatedOn = new Date().toLocaleDateString("en-US");
+  const rows = sections
+    .map((section) => {
+      const number = String(section.numberStr || section.number).padStart(
+        2,
+        "0",
+      );
+      const category = section.category || "General";
+      const oshaRef = section.oshaRef || "-";
+      const pages = section.pages ? String(section.pages) : "-";
+
+      return (
+        `<tr>` +
+        `<td class="num">${escapeHtml(number)}</td>` +
+        `<td class="title">${escapeHtml(section.title || "")}</td>` +
+        `<td class="cat">${escapeHtml(category)}</td>` +
+        `<td class="ref">${escapeHtml(oshaRef)}</td>` +
+        `<td class="pages">${escapeHtml(pages)}</td>` +
+        `</tr>`
+      );
+    })
+    .join("\n");
+
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Safety Manual Reference Guide</title>
+    <style>
+      @page { size: Letter; margin: 0.65in 0.5in 0.65in 0.5in; }
+      body {
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        color: #1f2937;
+        font-size: 9.5pt;
+        line-height: 1.3;
+      }
+      .header {
+        margin-bottom: 0.25in;
+        padding-bottom: 0.1in;
+        border-bottom: 2px solid {{BRAND_COLOR_PRIMARY}};
+      }
+      .brand {
+        font-size: 9pt;
+        color: #4b5563;
+        margin-bottom: 0.04in;
+      }
+      h1 {
+        font-size: 17pt;
+        margin: 0;
+        color: {{BRAND_COLOR_PRIMARY}};
+      }
+      .meta {
+        margin-top: 0.06in;
+        font-size: 8pt;
+        color: #6b7280;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      thead th {
+        text-align: left;
+        font-size: 8pt;
+        letter-spacing: 0.01em;
+        color: #374151;
+        border-bottom: 1px solid #9ca3af;
+        padding: 0.06in 0.04in;
+      }
+      tbody td {
+        border-bottom: 1px solid #e5e7eb;
+        padding: 0.06in 0.04in;
+        vertical-align: top;
+      }
+      .num {
+        width: 0.55in;
+        font-weight: 700;
+        color: #111827;
+        white-space: nowrap;
+      }
+      .title {
+        width: 3.35in;
+        color: #111827;
+      }
+      .cat {
+        width: 1.35in;
+        color: #1f2937;
+      }
+      .ref {
+        width: 1.1in;
+        color: #374151;
+      }
+      .pages {
+        width: 0.55in;
+        text-align: right;
+        color: #374151;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="brand">{{BRAND_COMPANY_NAME}}</div>
+      <h1>Safety Manual Reference Guide</h1>
+      <div class="meta">Generated ${generatedOn} • Revision {{BRAND_REVISION_NUMBER}} ({{BRAND_REVISION_DATE}})</div>
+    </div>
+
+    <table aria-label="Safety manual reference index">
+      <thead>
+        <tr>
+          <th>MISH</th>
+          <th>Section Title</th>
+          <th>Category</th>
+          <th>OSHA Ref</th>
+          <th>Pages</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows}
+      </tbody>
+    </table>
+  </body>
+</html>`;
 }
 
 // ── Template: Section PDFs ────────────────────────────────────────────────────
@@ -568,6 +801,42 @@ async function generateSections(filter = null) {
         },
       },
       `manuals/_tmp_section_${section.numberStr}.html`,
+    );
+  }
+
+  // Keep a top-level TOC artifact for quick access without opening section folders.
+  // If legacy section 00 exists, copy it. Otherwise synthesize a TOC PDF from the manifest.
+  if (filter === null) {
+    const tocTarget = join(OUTPUT_DIR, "safety-manual-contents.pdf");
+    const referenceTarget = join(OUTPUT_DIR, "safety-manual-reference.pdf");
+    const tocSection = sections.find((section) => Number(section.number) === 0);
+
+    if (tocSection) {
+      const tocSource = join(
+        sectionsDir,
+        `${tocSection.numberStr}-${tocSection.slug}.pdf`,
+      );
+      if (existsSync(tocSource)) {
+        await copyFile(tocSource, tocTarget);
+        const rel = tocTarget.replace(ROOT + "/", "");
+        console.log(`  ✓  ${rel}`);
+      }
+    } else {
+      const tocHtml = applyBrandTokens(buildContentsPdfHtml(sections));
+      await renderHtmlToPdf(
+        tocHtml,
+        tocTarget,
+        {},
+        "manuals/_tmp_safety_manual_contents.html",
+      );
+    }
+
+    const referenceHtml = applyBrandTokens(buildReferencePdfHtml(sections));
+    await renderHtmlToPdf(
+      referenceHtml,
+      referenceTarget,
+      {},
+      "manuals/_tmp_safety_manual_reference.html",
     );
   }
 }

@@ -12,6 +12,8 @@
 # Resulting R2 keys (served via /docs/** Workers proxy):
 #   docs/safety/safety-manual-complete.pdf
 #   docs/safety/safety-manual-digital.pdf  (if present)
+#   docs/safety/safety-manual-contents.pdf (if present)
+#   docs/safety/safety-manual-reference.pdf (if present)
 #   docs/safety/sections/00-table-of-contents.pdf
 #   docs/safety/sections/01-injury-free-workplace-plan.pdf
 #   … (all 44+ section PDFs)
@@ -41,7 +43,7 @@ fi
 TOTAL=0
 
 # ── 1. Complete + digital merged manuals ────────────────────────────────────
-for pdf_name in "safety-manual-complete.pdf" "safety-manual-digital.pdf"; do
+for pdf_name in "safety-manual-complete.pdf" "safety-manual-digital.pdf" "safety-manual-contents.pdf" "safety-manual-reference.pdf"; do
   pdf_path="$OUTPUT_DIR/$pdf_name"
   if [ -f "$pdf_path" ]; then
     KEY="$R2_PREFIX/$pdf_name"

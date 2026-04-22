@@ -28,6 +28,9 @@ const OUTPUT_DIR = join(ROOT, "documents/output");
 const SECTIONS = join(OUTPUT_DIR, "sections");
 const OUT_FILE = join(OUTPUT_DIR, "safety-manual-complete.pdf");
 const OUT_FILE_DIGITAL = join(OUTPUT_DIR, "safety-manual-digital.pdf");
+const PDF_METADATA_AUTHOR = "Matt Ramsey, Editor-in-Chief";
+const PDF_METADATA_CREATOR = "MH Construction Document Pipeline";
+const PDF_METADATA_SUBJECT = "Accident · Injury · Safety · Health Program";
 
 // ── CLI flags ─────────────────────────────────────────────────────────────
 const noTabs = process.argv.includes("--no-tabs");
@@ -94,9 +97,9 @@ async function merge({ includeTabs, outFile, title }) {
 
   // Set document metadata
   merged.setTitle(title);
-  merged.setSubject("Accident · Injury · Safety · Health Program");
-  merged.setAuthor("MH Construction, Inc.");
-  merged.setCreator("MH Construction Document Pipeline");
+  merged.setSubject(PDF_METADATA_SUBJECT);
+  merged.setAuthor(PDF_METADATA_AUTHOR);
+  merged.setCreator(PDF_METADATA_CREATOR);
   merged.setProducer("pdf-lib");
 
   /**

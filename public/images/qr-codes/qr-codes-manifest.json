@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T14:43:49.025Z",
+  "generatedAt": "2026-04-21T23:48:36.098Z",
   "baseUrl": "https://www.mhc-gc.com",
   "outputDirectory": "public/images/qr-codes",
   "variants": {
@@ -95,8 +95,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/projects",
       "description": "Our Projects",
-      "success": false,
-      "error": "ENOENT: no such file or directory, unlink '/workspaces/mh-website/public/images/qr-codes/temp-qr-projects-color.png'"
+      "success": true,
+      "error": null
     },
     {
       "name": "projects",
@@ -162,6 +162,96 @@
       "error": null
     },
     {
+      "name": "traho-overview",
+      "filename": "qr-traho-overview-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/about?ref=traho-rfq",
+      "description": "Traho RFQ - Company Overview",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "traho-overview",
+      "filename": "qr-traho-overview-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/about?ref=traho-rfq",
+      "description": "Traho RFQ - Company Overview",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "traho-projects",
+      "filename": "qr-traho-projects-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/projects?ref=traho-rfq",
+      "description": "Traho RFQ - Project Portfolio",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "traho-projects",
+      "filename": "qr-traho-projects-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/projects?ref=traho-rfq",
+      "description": "Traho RFQ - Project Portfolio",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "traho-services",
+      "filename": "qr-traho-services-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/services?ref=traho-rfq",
+      "description": "Traho RFQ - Service Lines",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "traho-services",
+      "filename": "qr-traho-services-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/services?ref=traho-rfq",
+      "description": "Traho RFQ - Service Lines",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "traho-safety",
+      "filename": "qr-traho-safety-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/safety?ref=traho-rfq",
+      "description": "Traho RFQ - Safety Program",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "traho-safety",
+      "filename": "qr-traho-safety-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/safety?ref=traho-rfq",
+      "description": "Traho RFQ - Safety Program",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "traho-contact",
+      "filename": "qr-traho-contact-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/contact?ref=traho-rfq",
+      "description": "Traho RFQ - Direct Contact",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "traho-contact",
+      "filename": "qr-traho-contact-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/contact?ref=traho-rfq",
+      "description": "Traho RFQ - Direct Contact",
+      "success": true,
+      "error": null
+    },
+    {
       "name": "booking",
       "filename": "qr-booking-color.png",
       "variant": "color",
@@ -178,24 +268,6 @@
       "description": "Schedule Consultation",
       "success": true,
       "error": null
-    },
-    {
-      "name": "projects",
-      "filename": "qr-projects-color.png",
-      "variant": "color",
-      "url": "https://www.mhc-gc.com/projects",
-      "description": "Projects Portfolio",
-      "success": true,
-      "error": null
-    },
-    {
-      "name": "projects",
-      "filename": "qr-projects-bw.png",
-      "variant": "bw",
-      "url": "https://www.mhc-gc.com/projects",
-      "description": "Projects Portfolio",
-      "success": false,
-      "error": "ENOENT: no such file or directory, unlink '/workspaces/mh-website/public/images/qr-codes/temp-qr-projects-bw.png'"
     },
     {
       "name": "allies",
@@ -216,24 +288,6 @@
       "error": null
     },
     {
-      "name": "trade-partners",
-      "filename": "qr-trade-partners-color.png",
-      "variant": "color",
-      "url": "https://www.mhc-gc.com/allies",
-      "description": "Trade Partners",
-      "success": true,
-      "error": null
-    },
-    {
-      "name": "trade-partners",
-      "filename": "qr-trade-partners-bw.png",
-      "variant": "bw",
-      "url": "https://www.mhc-gc.com/allies",
-      "description": "Trade Partners",
-      "success": true,
-      "error": null
-    },
-    {
       "name": "veterans",
       "filename": "qr-veterans-color.png",
       "variant": "color",
@@ -248,6 +302,366 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/veterans",
       "description": "Veteran-Owned Construction",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "faq",
+      "filename": "qr-faq-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/faq",
+      "description": "FAQ",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "faq",
+      "filename": "qr-faq-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/faq",
+      "description": "FAQ",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "testimonials",
+      "filename": "qr-testimonials-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/testimonials",
+      "description": "Testimonials",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "testimonials",
+      "filename": "qr-testimonials-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/testimonials",
+      "description": "Testimonials",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "public-sector",
+      "filename": "qr-public-sector-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/public-sector",
+      "description": "Public Sector Services",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "public-sector",
+      "filename": "qr-public-sector-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/public-sector",
+      "description": "Public Sector Services",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "resources",
+      "filename": "qr-resources-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/resources",
+      "description": "Resources",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "resources",
+      "filename": "qr-resources-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/resources",
+      "description": "Resources",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "safety-manual",
+      "filename": "qr-safety-manual-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/resources/safety-manual",
+      "description": "Safety Manual",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "safety-manual",
+      "filename": "qr-safety-manual-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/resources/safety-manual",
+      "description": "Safety Manual",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "safety-program",
+      "filename": "qr-safety-program-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/resources/safety-program",
+      "description": "Safety Program",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "safety-program",
+      "filename": "qr-safety-program-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/resources/safety-program",
+      "description": "Safety Program",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "safety-intake",
+      "filename": "qr-safety-intake-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/safety/intake",
+      "description": "Safety Intake Form",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "safety-intake",
+      "filename": "qr-safety-intake-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/safety/intake",
+      "description": "Safety Intake Form",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "hub",
+      "filename": "qr-hub-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/hub",
+      "description": "Employee Hub",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "hub",
+      "filename": "qr-hub-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/hub",
+      "description": "Employee Hub",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "employee-handbook",
+      "filename": "qr-employee-handbook-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/employee-handbook",
+      "description": "Employee Handbook",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "employee-handbook",
+      "filename": "qr-employee-handbook-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/employee-handbook",
+      "description": "Employee Handbook",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-richland",
+      "filename": "qr-location-richland-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/locations/richland",
+      "description": "Richland, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-richland",
+      "filename": "qr-location-richland-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/locations/richland",
+      "description": "Richland, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-kennewick",
+      "filename": "qr-location-kennewick-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/locations/kennewick",
+      "description": "Kennewick, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-kennewick",
+      "filename": "qr-location-kennewick-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/locations/kennewick",
+      "description": "Kennewick, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-pasco",
+      "filename": "qr-location-pasco-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/locations/pasco",
+      "description": "Pasco, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-pasco",
+      "filename": "qr-location-pasco-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/locations/pasco",
+      "description": "Pasco, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-spokane",
+      "filename": "qr-location-spokane-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/locations/spokane",
+      "description": "Spokane, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-spokane",
+      "filename": "qr-location-spokane-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/locations/spokane",
+      "description": "Spokane, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-yakima",
+      "filename": "qr-location-yakima-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/locations/yakima",
+      "description": "Yakima, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-yakima",
+      "filename": "qr-location-yakima-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/locations/yakima",
+      "description": "Yakima, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-walla-walla",
+      "filename": "qr-location-walla-walla-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/locations/walla-walla",
+      "description": "Walla Walla, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-walla-walla",
+      "filename": "qr-location-walla-walla-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/locations/walla-walla",
+      "description": "Walla Walla, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-west-richland",
+      "filename": "qr-location-west-richland-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/locations/west-richland",
+      "description": "West Richland, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-west-richland",
+      "filename": "qr-location-west-richland-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/locations/west-richland",
+      "description": "West Richland, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-omak",
+      "filename": "qr-location-omak-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/locations/omak",
+      "description": "Omak, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-omak",
+      "filename": "qr-location-omak-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/locations/omak",
+      "description": "Omak, WA",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-coeur-d-alene",
+      "filename": "qr-location-coeur-d-alene-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/locations/coeur-d-alene",
+      "description": "Coeur d'Alene, ID",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-coeur-d-alene",
+      "filename": "qr-location-coeur-d-alene-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/locations/coeur-d-alene",
+      "description": "Coeur d'Alene, ID",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-hermiston",
+      "filename": "qr-location-hermiston-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/locations/hermiston",
+      "description": "Hermiston, OR",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-hermiston",
+      "filename": "qr-location-hermiston-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/locations/hermiston",
+      "description": "Hermiston, OR",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-pendleton",
+      "filename": "qr-location-pendleton-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/locations/pendleton",
+      "description": "Pendleton, OR",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "location-pendleton",
+      "filename": "qr-location-pendleton-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/locations/pendleton",
+      "description": "Pendleton, OR",
       "success": true,
       "error": null
     },

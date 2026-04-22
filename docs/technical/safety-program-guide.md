@@ -1,8 +1,8 @@
 # MH Construction Safety Program Guide
 
 **Path:** `docs/technical/safety-program-guide.md`
-**Last Updated:** April 18, 2026
-**Version:** 1.2.0
+**Last Updated:** April 22, 2026
+**Version:** 1.3.0
 **Safety Program Revision:** Rev 3 — Effective 04/07/2026
 **Status:** ✅ Active
 
@@ -25,6 +25,19 @@ This guide documents:
 **Current Version:** Revision 3 | **Effective Date:** April 7, 2026
 **Total Sections:** 50 (00–49) | **Total Pages:** ~350 (formatted output)
 **Source Files:** Word (.docx) source library (MISH sections)
+
+### PDF Governance Update (April 22, 2026)
+
+- Safety PDF workflow is now governed by dedicated agents:
+  - `.github/agents/safety-pdf-editor.agent.md`
+  - `.github/agents/manual-structure-officer.agent.md`
+- Completion requires source-first edits, regeneration, and explicit PASS/FAIL checks for
+  structure, typography, and generated PDF artifact metadata.
+- Standardized author/creator metadata target:
+  - `Author: Matt Ramsey, Editor-in-Chief`
+  - `Creator: MH Construction Document Pipeline`
+- Standardized Safety Manual PDF title naming:
+  - `MH Construction Safety Manual — Cover|Spine|Digital`
 
 ### Canonical Naming
 
@@ -73,6 +86,8 @@ documents/content/safety-manual.json                ← Auto-generated manifest 
            ▼  npm run docs:generate + npm run docs:generate:forms
 documents/output/sections/                          ← 50 generated PDFs served to field staff
 documents/output/forms/                             ← Generated form PDFs
+documents/output/safety-manual-contents.pdf         ← Standalone table-of-contents PDF
+documents/output/safety-manual-reference.pdf        ← Standalone section reference guide PDF
            │
            ▼  npm run docs:merge + R2 publish
 documents/output/safety-manual-complete.pdf         ← Complete bonding-company manual
@@ -95,6 +110,8 @@ Every Safety revision must produce both of these outputs:
 
 1. **QR-enabled section PDFs** for field use, with each section resolving back to its digital section route.
 2. **Complete bonding manual PDF** for surety, insurer, and prequalification review.
+3. **Standalone table-of-contents PDF** (`safety-manual-contents.pdf`) for quick field access.
+4. **Standalone reference guide PDF** (`safety-manual-reference.pdf`) for section lookup and compliance cross-reference.
 
 ---
 
@@ -127,6 +144,8 @@ documents/
 │   ├── safety-manual-cover.pdf
 │   ├── safety-manual-spine.pdf
 │   ├── safety-manual-tabs.pdf
+│   ├── safety-manual-contents.pdf
+│   ├── safety-manual-reference.pdf
 │   ├── sections/          ← Generated section PDFs (served to /hub field staff)
 │   └── forms/             ← Generated form PDFs
 ├── scripts/
@@ -304,7 +323,7 @@ npm run type-check && npm run lint && npm run build
 | `node documents/scripts/generate.mjs --template cover`               | Cover page only                                                           |
 | `node documents/scripts/generate.mjs --template spine`               | Spine label only                                                          |
 | `node documents/scripts/generate.mjs --template tabs`                | All 50 tab dividers                                                       |
-| `node documents/scripts/generate.mjs --template sections`            | All 44 section PDFs                                                       |
+| `node documents/scripts/generate.mjs --template sections`            | All 50 section PDFs                                                       |
 | `node documents/scripts/generate.mjs --template section --section N` | Single section N                                                          |
 | `node documents/scripts/generate.mjs --template toolbox-talk`        | Toolbox talk form PDF (if `documents/forms/toolbox-talk.html` exists)     |
 

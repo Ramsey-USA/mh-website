@@ -101,6 +101,36 @@ const QR_CODES = [
     label: "www.mhc-gc.com/contact",
   },
   {
+    name: "traho-overview",
+    url: `${BASE_URL}/about?ref=traho-rfq`,
+    description: "Traho RFQ - Company Overview",
+    label: "TRAHO OVERVIEW",
+  },
+  {
+    name: "traho-projects",
+    url: `${BASE_URL}/projects?ref=traho-rfq`,
+    description: "Traho RFQ - Project Portfolio",
+    label: "TRAHO PROJECTS",
+  },
+  {
+    name: "traho-services",
+    url: `${BASE_URL}/services?ref=traho-rfq`,
+    description: "Traho RFQ - Service Lines",
+    label: "TRAHO SERVICES",
+  },
+  {
+    name: "traho-safety",
+    url: `${BASE_URL}/safety?ref=traho-rfq`,
+    description: "Traho RFQ - Safety Program",
+    label: "TRAHO SAFETY",
+  },
+  {
+    name: "traho-contact",
+    url: `${BASE_URL}/contact?ref=traho-rfq`,
+    description: "Traho RFQ - Direct Contact",
+    label: "TRAHO CONTACT",
+  },
+  {
     name: "booking",
     url: `${BASE_URL}/contact`,
     description: "Schedule Consultation",
@@ -109,21 +139,9 @@ const QR_CODES = [
 
   // Special pages
   {
-    name: "projects",
-    url: `${BASE_URL}/projects`,
-    description: "Projects Portfolio",
-    label: "www.mhc-gc.com/projects",
-  },
-  {
     name: "allies",
     url: `${BASE_URL}/allies`,
     description: "Allies",
-    label: "www.mhc-gc.com/allies",
-  },
-  {
-    name: "trade-partners",
-    url: `${BASE_URL}/allies`,
-    description: "Trade Partners",
     label: "www.mhc-gc.com/allies",
   },
   {
@@ -131,6 +149,128 @@ const QR_CODES = [
     url: `${BASE_URL}/veterans`,
     description: "Veteran-Owned Construction",
     label: "www.mhc-gc.com/veterans",
+  },
+  {
+    name: "faq",
+    url: `${BASE_URL}/faq`,
+    description: "FAQ",
+    label: "www.mhc-gc.com/faq",
+  },
+  {
+    name: "testimonials",
+    url: `${BASE_URL}/testimonials`,
+    description: "Testimonials",
+    label: "www.mhc-gc.com/testimonials",
+  },
+  {
+    name: "public-sector",
+    url: `${BASE_URL}/public-sector`,
+    description: "Public Sector Services",
+    label: "www.mhc-gc.com/public-sector",
+  },
+  {
+    name: "resources",
+    url: `${BASE_URL}/resources`,
+    description: "Resources",
+    label: "www.mhc-gc.com/resources",
+  },
+  {
+    name: "safety-manual",
+    url: `${BASE_URL}/resources/safety-manual`,
+    description: "Safety Manual",
+    label: "www.mhc-gc.com/resources/safety-manual",
+  },
+  {
+    name: "safety-program",
+    url: `${BASE_URL}/resources/safety-program`,
+    description: "Safety Program",
+    label: "www.mhc-gc.com/resources/safety-program",
+  },
+  {
+    name: "safety-intake",
+    url: `${BASE_URL}/safety/intake`,
+    description: "Safety Intake Form",
+    label: "www.mhc-gc.com/safety/intake",
+  },
+  {
+    name: "hub",
+    url: `${BASE_URL}/hub`,
+    description: "Employee Hub",
+    label: "www.mhc-gc.com/hub",
+  },
+  {
+    name: "employee-handbook",
+    url: `${BASE_URL}/employee-handbook`,
+    description: "Employee Handbook",
+    label: "www.mhc-gc.com/employee-handbook",
+  },
+
+  // Service area location pages
+  {
+    name: "location-richland",
+    url: `${BASE_URL}/locations/richland`,
+    description: "Richland, WA",
+    label: "RICHLAND, WA",
+  },
+  {
+    name: "location-kennewick",
+    url: `${BASE_URL}/locations/kennewick`,
+    description: "Kennewick, WA",
+    label: "KENNEWICK, WA",
+  },
+  {
+    name: "location-pasco",
+    url: `${BASE_URL}/locations/pasco`,
+    description: "Pasco, WA",
+    label: "PASCO, WA",
+  },
+  {
+    name: "location-spokane",
+    url: `${BASE_URL}/locations/spokane`,
+    description: "Spokane, WA",
+    label: "SPOKANE, WA",
+  },
+  {
+    name: "location-yakima",
+    url: `${BASE_URL}/locations/yakima`,
+    description: "Yakima, WA",
+    label: "YAKIMA, WA",
+  },
+  {
+    name: "location-walla-walla",
+    url: `${BASE_URL}/locations/walla-walla`,
+    description: "Walla Walla, WA",
+    label: "WALLA WALLA, WA",
+  },
+  {
+    name: "location-west-richland",
+    url: `${BASE_URL}/locations/west-richland`,
+    description: "West Richland, WA",
+    label: "WEST RICHLAND, WA",
+  },
+  {
+    name: "location-omak",
+    url: `${BASE_URL}/locations/omak`,
+    description: "Omak, WA",
+    label: "OMAK, WA",
+  },
+  {
+    name: "location-coeur-d-alene",
+    url: `${BASE_URL}/locations/coeur-d-alene`,
+    description: "Coeur d'Alene, ID",
+    label: "COEUR D'ALENE, ID",
+  },
+  {
+    name: "location-hermiston",
+    url: `${BASE_URL}/locations/hermiston`,
+    description: "Hermiston, OR",
+    label: "HERMISTON, OR",
+  },
+  {
+    name: "location-pendleton",
+    url: `${BASE_URL}/locations/pendleton`,
+    description: "Pendleton, OR",
+    label: "PENDLETON, OR",
   },
 
   // Contact methods

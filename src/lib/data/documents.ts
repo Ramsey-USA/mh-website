@@ -52,12 +52,20 @@ export interface DocumentEntry {
   pdfPath?: string;
   /** Whether per-section PDFs are available */
   hasSectionPdfs?: boolean;
+  /** Optional direct path to a standalone table-of-contents PDF */
+  contentsPdfPath?: string;
+  /** Optional direct path to a standalone reference guide PDF */
+  referencePdfPath?: string;
   sections?: DocumentSection[];
   tags: string[];
   /** URL to the document's QR code image for display on the website */
   qrCodeUrl?: string;
   /** R2 object key for the document PDF (relative to the docs/ prefix) */
   r2Key?: string;
+  /** R2 object key for the standalone table-of-contents PDF */
+  contentsR2Key?: string;
+  /** R2 object key for the standalone reference guide PDF */
+  referenceR2Key?: string;
 }
 
 // ── Manuals ───────────────────────────────────────────────────────────────────
@@ -79,6 +87,10 @@ export const manuals: DocumentEntry[] = [
     hasSectionPdfs: true,
     pdfPath: "/docs/safety/safety-manual-complete.pdf",
     r2Key: "docs/safety/safety-manual-complete.pdf",
+    contentsPdfPath: "/docs/safety/safety-manual-contents.pdf",
+    contentsR2Key: "docs/safety/safety-manual-contents.pdf",
+    referencePdfPath: "/docs/safety/safety-manual-reference.pdf",
+    referenceR2Key: "docs/safety/safety-manual-reference.pdf",
     tags: ["safety", "OSHA", "field", "required", "MISH", "AGC", "CSEA", "APP"],
     sections: [
       {

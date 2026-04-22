@@ -36,6 +36,8 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ]);
 
 export default function ResourcesPage() {
+  const safetyManual = manuals.find((doc) => doc.id === "safety-manual");
+
   return (
     <>
       <PageTrackingClient pageName="resources" />
@@ -135,6 +137,53 @@ export default function ResourcesPage() {
                 Safety &amp; Program Manuals
               </h2>
             </div>
+
+            {safetyManual?.contentsPdfPath && (
+              <div className="mb-5 flex flex-wrap items-center gap-3 rounded-xl border border-brand-primary/20 bg-brand-primary/5 px-4 py-3">
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                  Quick Access:
+                </span>
+                <DownloadGate>
+                  <a
+                    href={safetyManual.contentsPdfPath}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-brand-primary px-3 py-1.5 text-sm font-semibold text-white hover:bg-brand-primary-dark transition-colors"
+                  >
+                    <MaterialIcon icon="toc" size="sm" className="text-white" />
+                    Table of Contents PDF
+                  </a>
+                </DownloadGate>
+                {safetyManual.referencePdfPath && (
+                  <DownloadGate>
+                    <a
+                      href={safetyManual.referencePdfPath}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-brand-bronze px-3 py-1.5 text-sm font-semibold text-white hover:bg-brand-bronze-dark transition-colors"
+                    >
+                      <MaterialIcon
+                        icon="fact_check"
+                        size="sm"
+                        className="text-white"
+                      />
+                      Reference Guide PDF
+                    </a>
+                  </DownloadGate>
+                )}
+                <Link
+                  href="/safety"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-brand-primary text-sm font-semibold text-brand-primary px-3 py-1.5 hover:bg-brand-primary/10 transition-colors"
+                >
+                  <MaterialIcon
+                    icon="visibility"
+                    size="sm"
+                    className="text-brand-primary"
+                  />
+                  Browse Interactive Index
+                </Link>
+              </div>
+            )}
 
             <div className="grid gap-5">
               <StaggeredFadeIn>
