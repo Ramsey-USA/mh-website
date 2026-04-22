@@ -130,13 +130,6 @@ const QR_CODES = [
     description: "Traho RFQ - Direct Contact",
     label: "TRAHO CONTACT",
   },
-  {
-    name: "booking",
-    url: `${BASE_URL}/contact`,
-    description: "Schedule Consultation",
-    label: "www.mhc-gc.com/contact",
-  },
-
   // Special pages
   {
     name: "allies",
@@ -182,9 +175,15 @@ const QR_CODES = [
   },
   {
     name: "safety-program",
-    url: `${BASE_URL}/resources/safety-program`,
+    url: `${BASE_URL}/safety`,
     description: "Safety Program",
-    label: "www.mhc-gc.com/resources/safety-program",
+    label: "www.mhc-gc.com/safety",
+  },
+  {
+    name: "safety-incident-report",
+    url: `${BASE_URL}/safety/incident-report`,
+    description: "Safety Incident Report Form",
+    label: "www.mhc-gc.com/safety/incident-report",
   },
   {
     name: "safety-intake",
@@ -290,7 +289,7 @@ const QR_CODES = [
   // Social media (actual links from Footer.tsx)
   {
     name: "linkedin",
-    url: "https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all",
+    url: "https://www.linkedin.com/company/mh-construction-general-contractor/",
     description: "LinkedIn Profile",
     label: "LINKEDIN",
   },
@@ -416,9 +415,9 @@ const QR_CODES = [
   // Safety Program & Dashboard
   {
     name: "safety-dashboard",
-    url: `${BASE_URL}/dashboard`,
-    description: "Safety Program Dashboard",
-    label: "DASHBOARD",
+    url: `${BASE_URL}/safety/hub`,
+    description: "Safety Hub (Employee Operations)",
+    label: "SAFETY HUB",
   },
 ];
 
