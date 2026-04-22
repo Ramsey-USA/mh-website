@@ -5,6 +5,9 @@ const { execSync } = require("node:child_process");
 const fs = require("node:fs");
 
 const ALLOWED_EXT = /\.(ts|tsx|js|jsx|css|scss|md|mdx|json)$/i;
+const IMAGE_EXT = /\.(jpg|jpeg|png|webp|avif|gif)$/i;
+const IMAGE_KEBAB_FILENAME =
+  /^[a-z0-9]+(?:-[a-z0-9]+)*\.(jpg|jpeg|png|webp|avif|gif)$/;
 const EXCEPTIONS_FILE = ".github/branding-exceptions.json";
 
 const BANNED_PHRASES = [
@@ -77,6 +80,15 @@ const POLICY_FILE_PREFIXES = [
   ".github/branding-exceptions.json",
 ];
 
+const IMAGE_NAME_CHECK_IGNORED_PREFIXES = [
+  ".next/",
+  ".open-next/",
+  ".vercel/",
+  "node_modules/",
+  "coverage/",
+  "tmp/",
+];
+
 function run(cmd) {
   return execSync(cmd, {
     encoding: "utf8",
@@ -133,7 +145,32 @@ function getChangedFiles() {
     process.env.GITHUB_ACTIONS === "true"
       ? getCiChangedFiles()
       : getLocalChangedFiles();
-  return [...new Set(changed)].filter((file) => ALLOWED_EXT.test(file));
+  return [...new Set(changed)];
+}
+
+function isImageNameCheckIgnored(path) {
+  return IMAGE_NAME_CHECK_IGNORED_PREFIXES.some(
+    (prefix) => path === prefix || path.startsWith(prefix),
+  );
+}
+
+function detectImageFilenameViolation(path) {
+  if (!IMAGE_EXT.test(path) || isImageNameCheckIgnored(path)) {
+    return null;
+  }
+
+  const filename = path.split("/").pop() || "";
+  if (IMAGE_KEBAB_FILENAME.test(filename)) {
+    return null;
+  }
+
+  return {
+    file: path,
+    severity: "medium",
+    rule: "Image filename kebab-case",
+    detail:
+      "Uploaded/changed image filename must use lowercase kebab-case (example: team-group-photo-2025.webp).",
+  };
 }
 
 function getCompareRef() {
@@ -375,6 +412,15 @@ function reportAndExit(violations) {
   const violations = [];
 
   for (const file of changedFiles) {
+    const imageViolation = detectImageFilenameViolation(file);
+    if (imageViolation) {
+      violations.push(imageViolation);
+    }
+
+    if (!ALLOWED_EXT.test(file)) {
+      continue;
+    }
+
     const before = readFileFromRef(compareRef, file);
     const after = readFileFromFs(file);
 

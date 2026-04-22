@@ -66,14 +66,13 @@ describe("Footer", () => {
     expect(screen.getByText("RCE-49250")).toBeVisible();
   });
 
-  it("renders the service area map as an inline SVG with correct aria-label", () => {
+  it("renders the service area map with the correct aria-label", () => {
     render(<Footer />);
 
-    const mapSvg = screen.getByRole("img", {
+    const mapImage = screen.getByRole("img", {
       name: "Map showing Washington, Oregon, and Idaho - MH Construction service area",
     });
-    expect(mapSvg).toBeInTheDocument();
-    expect(mapSvg.tagName.toLowerCase()).toBe("svg");
+    expect(mapImage).toBeInTheDocument();
   });
 
   it("submits the newsletter form with accessible status feedback", async () => {

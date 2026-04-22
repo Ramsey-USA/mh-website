@@ -6,6 +6,10 @@ echo "🔍 Pre-commit: running quality checks..."
 echo "\n✨ Linting staged files..."
 npx lint-staged
 
+# Enforce kebab-case filenames for newly staged image uploads
+echo "\n🖼️  Validating image filenames..."
+bash scripts/validation/check-image-kebab-case.sh
+
 # TypeScript type-check
 echo "\n📘 Type checking..."
 npm run --silent type-check

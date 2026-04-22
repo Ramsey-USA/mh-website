@@ -1,6 +1,6 @@
 # Contributing to MH Construction Website
 
-**Last Updated:** April 18, 2026  
+**Last Updated:** April 22, 2026  
 **Status:** ✅ Active
 
 We welcome contributions to the MH Construction website. Start with [README.md](./README.md) for
@@ -57,6 +57,13 @@ test:     adding or updating tests
 chore:    dependency updates, config changes
 ```
 
+### Image Upload Naming (Enforced)
+
+- Newly added or renamed image files are validated at commit time.
+- Filenames must use lowercase kebab-case (for example: `team-group-photo-2025.webp`).
+- Invalid names are blocked by the pre-commit hook until files are renamed and restaged.
+- Uploaded `.jpg`/`.jpeg` files should be converted to `.webp` for site delivery, and redundant uploaded JPG/JPEG files should be removed once matching WebP replacements are in use.
+
 ---
 
 ## Pull Request Checklist
@@ -71,6 +78,7 @@ Before submitting a PR, confirm:
 - [ ] No `.env` secrets, `*.bak`, or generated output committed
 - [ ] Page-level changes pass the [Page Compliance Checklist](./docs/development/standards/page-compliance-checklist.md)
 - [ ] **Smoke test mocks updated** if you modified `COMPANY_INFO` or shared constants (see below)
+- [ ] Added/renamed image filenames use lowercase kebab-case and pass pre-commit checks
 
 ### ⚠️ Smoke Test Maintenance
 

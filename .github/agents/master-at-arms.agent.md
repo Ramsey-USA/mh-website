@@ -35,6 +35,7 @@ Do not require the user to memorize agent names.
 - Manual layout uniformity and WBS numbering enforcement -> manual-structure-officer
 - Spanish localization and locale toggle validation -> spanish-toggle-officer
 - UI pattern and visual standard enforcement -> design-quartermaster
+- Image/photo uploads, kebab-case filename normalization, and WebP cleanup -> photo-upload-naming-officer
 - Final PR readiness and risk summary -> release-command
 
 ## Mandatory References

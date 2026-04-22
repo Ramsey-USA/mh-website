@@ -246,10 +246,17 @@ git commit -m "Add media [skip ci]"
 2. **Video Length**: Under 2 minutes for best performance
 3. **Format Choice**:
    - Use PNG for logos/icons with transparency
-   - Use JPG for photos
-   - Use MP4 for videos (auto-converted to WebM)
-4. **Naming**: Use descriptive names: `hero-homepage.jpg` not `img1.jpg`
+
+- Use JPG/JPEG only as source captures when needed, then publish WebP for site delivery
+- Use MP4 for videos (auto-converted to WebM)
+
+4. **Naming**: Use lowercase kebab-case descriptive names: `hero-homepage.webp` not `img1.jpg`
 5. **Alt Text**: Always provide meaningful alt text for accessibility
+
+### Filename Enforcement
+
+- Pre-commit blocks added/renamed image files that are not lowercase kebab-case.
+- The Copilot branding gate also validates image filename format during agent-assisted edits.
 
 ## Monitoring
 

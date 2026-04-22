@@ -1,6 +1,12 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import {
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+  useDeferredValue,
+} from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -95,25 +101,29 @@ const ASSIGNEES = [
   { value: "jeremy", label: "Jeremy" },
 ];
 
+const USD_FORMATTER = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
+});
+
+const DATE_FORMATTER = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+});
+
 // ─── Helper Functions ─────────────────────────────────────────────────────────
 
 function formatCurrency(value: number | null): string {
   if (value === null) return "—";
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(value);
+  return USD_FORMATTER.format(value);
 }
 
 function formatDate(date: string | null): string {
   if (!date) return "—";
-  return new Date(date).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
+  return DATE_FORMATTER.format(new Date(date));
 }
 
 function formatRelativeDate(date: string): string {
@@ -509,6 +519,7 @@ export function LeadsTab({ token }: LeadsTabProps) {
   const [filterAssignee, setFilterAssignee] = useState<string>("");
   const [filterPriority, setFilterPriority] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState("");
+  const deferredSearchQuery = useDeferredValue(searchQuery);
 
   const fetchLeads = useCallback(async () => {
     setLoading(true);
@@ -538,8 +549,8 @@ export function LeadsTab({ token }: LeadsTabProps) {
   // ── Computed values ──────────────────────────────────────────────────────────
 
   const filteredLeads = useMemo(() => {
-    if (!searchQuery) return leads;
-    const q = searchQuery.toLowerCase();
+    if (!deferredSearchQuery) return leads;
+    const q = deferredSearchQuery.toLowerCase();
     return leads.filter(
       (lead) =>
         lead.contact_name.toLowerCase().includes(q) ||
@@ -547,7 +558,7 @@ export function LeadsTab({ token }: LeadsTabProps) {
         lead.company?.toLowerCase().includes(q) ||
         lead.project_location?.toLowerCase().includes(q),
     );
-  }, [leads, searchQuery]);
+  }, [deferredSearchQuery, leads]);
 
   const pipelineStats = useMemo(() => {
     const stats = {

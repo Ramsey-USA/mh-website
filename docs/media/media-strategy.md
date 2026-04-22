@@ -124,8 +124,10 @@ public/
 **Rules:**
 
 - All lowercase, hyphens only — no spaces, no underscores, no camelCase in filenames.
-- Always provide `.webp`; keep the original `.jpg`/`.png` only as a source archive.
+- Always provide `.webp`; use `.jpg`/`.jpeg` as temporary source files only.
+- Remove uploaded JPG/JPEG files after equivalent WebP files are generated and references are updated.
 - Videos: always provide both `.mp4` (H.264) and `.webm` (VP9) for browser compatibility.
+- Added or renamed image files are automatically validated for lowercase kebab-case naming during pre-commit.
 
 ---
 

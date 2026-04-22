@@ -1,6 +1,7 @@
 export const revalidate = 86400; // 24 h ISR
 
 import { PageTrackingClient } from "@/components/analytics";
+import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Button, IconContainer, GlowEffect } from "@/components/ui";
@@ -184,6 +185,13 @@ export default function TeamPage() {
         <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
           {/* Background - Ready for photo or video */}
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-brand-primary to-gray-900">
+            <Image
+              src="/images/team/mh-construction-team-group-2025.webp"
+              alt="MH Construction team group photo, 2025"
+              fill
+              className="object-cover opacity-35"
+              priority
+            />
             {/* Overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
           </div>

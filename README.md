@@ -631,6 +631,7 @@ npm run lint
 - Test locally with `npm run build`
 - Update documentation if needed
 - Follow commit message conventions
+- Ensure added/renamed image files use lowercase kebab-case names (enforced by pre-commit)
 
 ### Documentation Updates
 

@@ -3,7 +3,14 @@
  * Manages search and filtering logic for projects
  */
 
-import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
+import {
+  useCallback,
+  useDeferredValue,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { PortfolioService } from "@/lib/services/portfolio-service";
 import { useAnalytics } from "@/components/analytics/EnhancedAnalytics";
 
@@ -13,6 +20,10 @@ export function useProjectsSearch() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const deferredSearchQuery = useDeferredValue(searchQuery);
+  const normalizedDeferredSearchQuery = useMemo(
+    () => deferredSearchQuery.trim(),
+    [deferredSearchQuery],
+  );
   const analyticsRef = useRef({
     trackSearchPerformed,
     trackSearchFilterUsed,
@@ -29,7 +40,7 @@ export function useProjectsSearch() {
 
   // Initialize search from URL parameters
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
+    const urlParams = new URLSearchParams(globalThis.location.search);
     const searchParam = urlParams.get("search");
     const categoryParam = urlParams.get("category");
 
@@ -43,12 +54,11 @@ export function useProjectsSearch() {
 
   // Update URL when search changes
   useEffect(() => {
-    const timeoutId = window.setTimeout(() => {
-      const trimmedSearchQuery = searchQuery.trim();
+    const timeoutId = globalThis.setTimeout(() => {
       const urlParams = new URLSearchParams();
 
-      if (trimmedSearchQuery) {
-        urlParams.set("search", trimmedSearchQuery);
+      if (normalizedDeferredSearchQuery) {
+        urlParams.set("search", normalizedDeferredSearchQuery);
       }
       if (selectedCategory && selectedCategory !== "all") {
         urlParams.set("category", selectedCategory);
@@ -56,19 +66,19 @@ export function useProjectsSearch() {
 
       const nextQueryString = urlParams.toString();
       const nextUrl = nextQueryString
-        ? `${window.location.pathname}?${nextQueryString}`
-        : window.location.pathname;
-      const currentUrl = `${window.location.pathname}${window.location.search}`;
+        ? `${globalThis.location.pathname}?${nextQueryString}`
+        : globalThis.location.pathname;
+      const currentUrl = `${globalThis.location.pathname}${globalThis.location.search}`;
 
       if (nextUrl !== currentUrl) {
-        window.history.replaceState({}, "", nextUrl);
+        globalThis.history.replaceState({}, "", nextUrl);
       }
     }, 250);
 
     return () => {
-      window.clearTimeout(timeoutId);
+      globalThis.clearTimeout(timeoutId);
     };
-  }, [searchQuery, selectedCategory]);
+  }, [normalizedDeferredSearchQuery, selectedCategory]);
 
   // Get projects based on selected category and search query
   const projects = useMemo(() => {
@@ -80,13 +90,12 @@ export function useProjectsSearch() {
 
   // Track search analytics (after projects is defined)
   useEffect(() => {
-    let timeoutId: number | undefined;
-    const trimmedSearchQuery = deferredSearchQuery.trim();
+    let timeoutId: ReturnType<typeof globalThis.setTimeout> | undefined;
 
-    if (trimmedSearchQuery) {
-      timeoutId = window.setTimeout(() => {
+    if (normalizedDeferredSearchQuery) {
+      timeoutId = globalThis.setTimeout(() => {
         analyticsRef.current.trackSearchPerformed(
-          trimmedSearchQuery,
+          normalizedDeferredSearchQuery,
           "projects_page",
           projects.length,
         );
@@ -95,10 +104,10 @@ export function useProjectsSearch() {
 
     return () => {
       if (timeoutId !== undefined) {
-        clearTimeout(timeoutId);
+        globalThis.clearTimeout(timeoutId);
       }
     };
-  }, [deferredSearchQuery, projects.length]);
+  }, [normalizedDeferredSearchQuery, projects.length]);
 
   // Track category filter usage
   useEffect(() => {
@@ -106,20 +115,20 @@ export function useProjectsSearch() {
       analyticsRef.current.trackSearchFilterUsed(
         "category",
         selectedCategory,
-        deferredSearchQuery.trim(),
+        normalizedDeferredSearchQuery,
       );
     }
-  }, [deferredSearchQuery, selectedCategory]);
+  }, [normalizedDeferredSearchQuery, selectedCategory]);
 
   // Clear search function with analytics
-  const clearSearch = () => {
+  const clearSearch = useCallback(() => {
     analyticsRef.current.trackSearchClear(
       searchQuery,
       selectedCategory !== "all",
     );
     setSearchQuery("");
     setSelectedCategory("all");
-  };
+  }, [searchQuery, selectedCategory]);
 
   return {
     selectedCategory,

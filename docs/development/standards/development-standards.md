@@ -732,6 +732,7 @@ Before committing code, ensure:
   - [ ] Sections use `Section` and `SectionHeader` components
 - [ ] `npm run lint` passes with no errors
 - [ ] `npm run type-check` passes
+- [ ] Added or renamed image files use lowercase kebab-case filenames (pre-commit enforced)
 - [ ] Responsive design tested (mobile, tablet, desktop)
 - [ ] Animations respect `prefers-reduced-motion`
 - [ ] Dark mode tested and working
