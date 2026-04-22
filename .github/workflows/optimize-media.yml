@@ -109,6 +109,22 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
 
+      - name: Enforce 500 KB image size budget
+        run: |
+          echo "📏 Checking WebP file size budget (max 500 KB per file)..."
+          OVERSIZED=$(find public/images -name "*.webp" -size +500k 2>/dev/null)
+          if [ -n "$OVERSIZED" ]; then
+            echo "❌ The following WebP files exceed the 500 KB limit:"
+            echo "$OVERSIZED" | while read f; do
+              SIZE=$(du -sh "$f" | cut -f1)
+              echo "  $SIZE  $f"
+            done
+            echo ""
+            echo "Run 'npm run optimize:images -- --force' locally to re-pack these files."
+            exit 1
+          fi
+          echo "✅ All WebP files are within the 500 KB budget"
+
       - name: Generate optimization report
         if: steps.verify-changes.outputs.changes == 'true'
         run: |

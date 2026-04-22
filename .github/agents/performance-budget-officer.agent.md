@@ -16,6 +16,7 @@ Protect loading speed and interaction quality by enforcing practical performance
 
 ## Focus Areas
 
+- Image size budget: hard limit of 500 KB per WebP file in `public/images/`
 - Page payload growth from images, video, and third-party assets
 - Bundle growth from new dependencies and client-heavy modules
 - Render-path regressions that affect user-perceived speed
@@ -30,6 +31,7 @@ Protect loading speed and interaction quality by enforcing practical performance
 
 ## Required Checks
 
+- Image Size Budget: verify every WebP in `public/images/` is ≤ 500 KB. Run `find public/images -name "*.webp" -size +500k` to detect violations. Any file over the limit must be re-packed via `npm run optimize:images -- --force` before the PR is merged.
 - Payload Risk: identify large media and non-critical asset impact.
 - Bundle Risk: identify dependency or module changes that increase shipped JS.
 - CWV Risk: identify likely impacts to LCP, INP, and CLS.
@@ -38,6 +40,7 @@ Protect loading speed and interaction quality by enforcing practical performance
 ## Output Format
 
 - Performance Result: PASS or FAIL
+- Image Size Budget: PASS or FAIL (list any WebP > 500 KB with path and size)
 - Payload/Bundles at Risk:
 - CWV Risk:
 - Top Regressions:
