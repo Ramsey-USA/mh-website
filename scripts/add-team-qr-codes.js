@@ -16,13 +16,13 @@ const path = require("path");
 const TEAM_DATA_PATH = path.join(__dirname, "../src/lib/data/team-data.json");
 
 // QR code directory path (for reference)
-const QR_CODE_DIR = "/images/qr-codes";
+const QR_CODE_DIR = "/media/qr-codes/team";
 
 /**
  * Generate QR code path for a team member based on their slug
  */
 function getQRCodePath(slug) {
-  return `${QR_CODE_DIR}/qr-team-${slug}.png`;
+  return `${QR_CODE_DIR}/qr-team-${slug}-color.png`;
 }
 
 /**

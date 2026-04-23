@@ -195,7 +195,10 @@ function buildCoverTitle(title, brand) {
   if (!title) return `${brand.companyShort} Qualifications Package`;
 
   return title
-    .replace("MH Construction RFQ Response Draft - ", "Qualifications Package - ")
+    .replace(
+      "MH Construction RFQ Response Draft - ",
+      "Qualifications Package - ",
+    )
     .replace("RFQ Response Draft", "Qualifications Package");
 }
 
@@ -454,17 +457,23 @@ function resolveBrandAsset(relPath) {
 }
 
 function resolveQrCodeAsset(name) {
-  const pngPath = join(QR_DIR, `qr-${name}-color.png`);
-  if (existsSync(pngPath)) return resolveAssetPath(pngPath);
+  const folders = ["core", "rfq", "contact", "social", "safety", "team", ""];
 
-  const webpPath = join(QR_DIR, `qr-${name}-color.webp`);
-  if (existsSync(webpPath)) return resolveAssetPath(webpPath);
+  for (const folder of folders) {
+    const base = folder ? join(QR_DIR, folder) : QR_DIR;
 
-  const bwPngPath = join(QR_DIR, `qr-${name}-bw.png`);
-  if (existsSync(bwPngPath)) return resolveAssetPath(bwPngPath);
+    const pngPath = join(base, `qr-${name}-color.png`);
+    if (existsSync(pngPath)) return resolveAssetPath(pngPath);
 
-  const bwWebpPath = join(QR_DIR, `qr-${name}-bw.webp`);
-  if (existsSync(bwWebpPath)) return resolveAssetPath(bwWebpPath);
+    const webpPath = join(base, `qr-${name}-color.webp`);
+    if (existsSync(webpPath)) return resolveAssetPath(webpPath);
+
+    const bwPngPath = join(base, `qr-${name}-bw.png`);
+    if (existsSync(bwPngPath)) return resolveAssetPath(bwPngPath);
+
+    const bwWebpPath = join(base, `qr-${name}-bw.webp`);
+    if (existsSync(bwWebpPath)) return resolveAssetPath(bwWebpPath);
+  }
 
   return "";
 }

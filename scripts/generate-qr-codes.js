@@ -19,6 +19,7 @@ const BASE_URL = "https://www.mhc-gc.com";
 
 // Output directory
 const OUTPUT_DIR = path.join(__dirname, "../public/images/qr-codes");
+const TEAM_DATA_PATH = path.join(__dirname, "../src/lib/data/team-data.json");
 
 // Logo paths
 const LOGO_COLOR = path.join(__dirname, "../public/images/logo/mh-logo.png");
@@ -29,6 +30,14 @@ const HUNTER_GREEN = "#386851";
 const LEATHER_TAN = "#BD9264";
 const WHITE = "#FFFFFF";
 const BLACK = "#000000";
+
+const SOCIAL_QR_NAMES = new Set([
+  "linkedin",
+  "facebook",
+  "instagram",
+  "youtube",
+  "twitter",
+]);
 
 // QR Code configurations
 const QR_OPTIONS_COLOR = {
@@ -421,6 +430,73 @@ const QR_CODES = [
   },
 ];
 
+function getFolderForQR(name) {
+  if (name.startsWith("team-")) return "team";
+  if (SOCIAL_QR_NAMES.has(name)) return "social";
+  if (name.startsWith("traho-")) return "rfq";
+  if (
+    name.startsWith("safety-") ||
+    name === "hub" ||
+    name === "employee-handbook"
+  ) {
+    return "safety";
+  }
+  if (name === "phone" || name === "email" || name === "contact") {
+    return "contact";
+  }
+  return "core";
+}
+
+function loadTeamQRCodes() {
+  const fallbackTeamCodes = QR_CODES.filter((qr) =>
+    qr.name.startsWith("team-"),
+  );
+
+  try {
+    const teamDataRaw = fs.readFileSync(TEAM_DATA_PATH, "utf8");
+    const teamData = JSON.parse(teamDataRaw);
+
+    return teamData
+      .filter((member) => member?.active && member?.slug)
+      .map((member) => ({
+        name: `team-${member.slug}`,
+        url: `${BASE_URL}/team#${member.slug}`,
+        description: `${member.name} - ${member.role || "Team Member"}`,
+        label: String(member.name || "TEAM MEMBER").toUpperCase(),
+        folder: "team",
+      }));
+  } catch (error) {
+    console.warn(
+      `⚠ Could not load team data from ${TEAM_DATA_PATH}; using fallback team QR list.`,
+    );
+    return fallbackTeamCodes.map((qr) => ({ ...qr, folder: "team" }));
+  }
+}
+
+function buildFinalQRCodeList() {
+  const withoutLocations = QR_CODES.filter(
+    (qr) => qr.name !== "location" && !qr.name.startsWith("location-"),
+  );
+
+  // Replace static team entries with live team-data driven entries.
+  const withoutStaticTeams = withoutLocations.filter(
+    (qr) => !qr.name.startsWith("team-"),
+  );
+
+  const merged = [...withoutStaticTeams, ...loadTeamQRCodes()].map((qr) => ({
+    ...qr,
+    folder: qr.folder || getFolderForQR(qr.name),
+  }));
+
+  // De-dupe by name while preserving first occurrence.
+  const seen = new Set();
+  return merged.filter((qr) => {
+    if (seen.has(qr.name)) return false;
+    seen.add(qr.name);
+    return true;
+  });
+}
+
 /**
  * Ensure output directory exists
  */
@@ -551,10 +627,17 @@ async function createTextLabel(text, width, variant) {
  */
 async function generateQRCode(qrData, variant = "color") {
   const suffix = variant === "color" ? "-color" : "-bw";
+  const folder = qrData.folder || "core";
   const filename = `qr-${qrData.name}${suffix}.png`;
-  const filepath = path.join(OUTPUT_DIR, filename);
-  const tempFilepath = path.join(OUTPUT_DIR, `temp-${filename}`);
-  const tempColoredPath = path.join(OUTPUT_DIR, `temp-colored-${filename}`);
+  const relativePath = path.posix.join(folder, filename);
+  const targetDir = path.join(OUTPUT_DIR, folder);
+  const filepath = path.join(targetDir, filename);
+  const tempFilepath = path.join(targetDir, `temp-${filename}`);
+  const tempColoredPath = path.join(targetDir, `temp-colored-${filename}`);
+
+  if (!fs.existsSync(targetDir)) {
+    fs.mkdirSync(targetDir, { recursive: true });
+  }
 
   // Select appropriate logo and QR options based on variant
   const logoPath = variant === "color" ? LOGO_COLOR : LOGO_BW;
@@ -677,9 +760,16 @@ async function generateQRCode(qrData, variant = "color") {
     fs.unlinkSync(tempColoredPath);
 
     console.log(
-      `✓ Generated: ${filename} → ${qrData.description} (${variant})`,
+      `✓ Generated: ${relativePath} → ${qrData.description} (${variant})`,
     );
-    return { success: true, filename, variant, ...qrData };
+    return {
+      success: true,
+      filename,
+      relativePath,
+      folder,
+      variant,
+      ...qrData,
+    };
   } catch (error) {
     console.error(`✗ Failed: ${filename} - ${error.message}`);
     // Clean up temp files if they exist
@@ -692,6 +782,8 @@ async function generateQRCode(qrData, variant = "color") {
     return {
       success: false,
       filename,
+      relativePath,
+      folder,
       variant,
       error: error.message,
       ...qrData,
@@ -703,10 +795,13 @@ async function generateQRCode(qrData, variant = "color") {
  * Generate manifest file with all QR code information
  */
 function generateManifest(results) {
+  const folders = [...new Set(results.map((r) => r.folder).filter(Boolean))];
+
   const manifest = {
     generatedAt: new Date().toISOString(),
     baseUrl: BASE_URL,
     outputDirectory: "public/images/qr-codes",
+    folders,
     variants: {
       color: {
         description:
@@ -723,6 +818,8 @@ function generateManifest(results) {
     qrCodes: results.map((r) => ({
       name: r.name,
       filename: r.filename,
+      relativePath: r.relativePath || r.filename,
+      folder: r.folder || null,
       variant: r.variant,
       url: r.url,
       description: r.description,
@@ -754,6 +851,7 @@ Generated: ${new Date(manifest.generatedAt).toLocaleString()}
 - **Total QR Codes:** ${totalCount}
 - **Successfully Generated:** ${successCount}
 - **Location:** \`${manifest.outputDirectory}\`
+- **Folders:** ${manifest.folders.map((f) => `\`${f}\``).join(", ")}
 
 ## Available QR Codes
 
@@ -762,7 +860,7 @@ ${manifest.qrCodes
     const status = qr.success ? "✅" : "❌";
     return `### ${status} ${qr.description}
 - **Name:** \`${qr.name}\`
-- **File:** \`${qr.filename}\`
+- **File:** \`${qr.relativePath || qr.filename}\`
 - **URL:** ${qr.url}
 ${qr.error ? `- **Error:** ${qr.error}` : ""}
 `;
@@ -780,7 +878,7 @@ import { QRCode } from '@/components/ui/QRCode';
 <QRCode url="https://mhc-gc.com" size={200} />
 
 // Use pre-generated image
-<img src="/images/qr-codes/qr-homepage.png" alt="QR Code for Homepage" />
+<img src="/images/qr-codes/core/qr-homepage-color.png" alt="QR Code for Homepage" />
 \`\`\`
 
 ### Using in Marketing Materials
@@ -826,12 +924,14 @@ async function main() {
   // Ensure output directory exists
   ensureOutputDir();
 
+  const qrCodes = buildFinalQRCodeList();
+
   // Generate all QR codes (2 variants each)
   console.log("Generating QR codes...\n");
   const allTasks = [];
 
   // Generate two variants for each QR code
-  for (const qrCode of QR_CODES) {
+  for (const qrCode of qrCodes) {
     allTasks.push(generateQRCode(qrCode, "color"));
     allTasks.push(generateQRCode(qrCode, "bw"));
   }
@@ -845,7 +945,7 @@ async function main() {
   // Summary
   const successCount = results.filter((r) => r.success).length;
   const failCount = results.filter((r) => !r.success).length;
-  const uniqueQRCount = QR_CODES.length;
+  const uniqueQRCount = qrCodes.length;
 
   console.log("\n" + "=".repeat(50));
   console.log(`✅ Successfully generated: ${successCount} QR code files`);
@@ -871,11 +971,12 @@ async function main() {
     groupedResults[r.name].push(r);
   });
 
-  Object.keys(groupedResults)
+  Object.values(groupedResults)
     .slice(0, 5)
-    .forEach((name) => {
-      console.log(`   ├── qr-${name}-color.png`);
-      console.log(`   ├── qr-${name}-bw.png`);
+    .forEach((entries) => {
+      entries.forEach((entry) => {
+        console.log(`   ├── ${entry.relativePath || entry.filename}`);
+      });
     });
 
   if (Object.keys(groupedResults).length > 5) {

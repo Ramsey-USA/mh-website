@@ -56,7 +56,7 @@
       "passion": 95,
       "continuingEducation": 89
     },
-    "qrCode": "/images/qr-codes/qr-team-jeremy-thamert-color.png"
+    "qrCode": "/media/qr-codes/team/qr-team-jeremy-thamert-color.png"
   },
   {
     "name": "Mike Holstein",
@@ -115,7 +115,7 @@
       "passion": 92,
       "continuingEducation": 80
     },
-    "qrCode": "/images/qr-codes/qr-team-mike-holstein-color.png"
+    "qrCode": "/media/qr-codes/team/qr-team-mike-holstein-color.png"
   },
   {
     "name": "Arnold Garcia",
@@ -175,7 +175,7 @@
       "passion": 90,
       "continuingEducation": 86
     },
-    "qrCode": "/images/qr-codes/qr-team-arnold-garcia-color.png"
+    "qrCode": "/media/qr-codes/team/qr-team-arnold-garcia-color.png"
   },
   {
     "name": "Ben Woodall",
@@ -235,7 +235,7 @@
       "passion": 81,
       "continuingEducation": 78
     },
-    "qrCode": "/images/qr-codes/qr-team-ben-woodall-color.png"
+    "qrCode": "/media/qr-codes/team/qr-team-ben-woodall-color.png"
   },
   {
     "name": "Todd Schoeff",
@@ -295,7 +295,7 @@
       "passion": 86,
       "continuingEducation": 84
     },
-    "qrCode": "/images/qr-codes/qr-team-todd-schoeff-color.png"
+    "qrCode": "/media/qr-codes/team/qr-team-todd-schoeff-color.png"
   },
   {
     "name": "Steve McClary",
@@ -356,7 +356,7 @@
       "passion": 92,
       "continuingEducation": 84
     },
-    "qrCode": "/images/qr-codes/qr-team-steve-mcclary-color.png"
+    "qrCode": "/media/qr-codes/team/qr-team-steve-mcclary-color.png"
   },
   {
     "name": "Reagan Massey",
@@ -415,7 +415,7 @@
       "passion": 88,
       "continuingEducation": 86
     },
-    "qrCode": "/images/qr-codes/qr-team-reagan-massey-color.png"
+    "qrCode": "/media/qr-codes/team/qr-team-reagan-massey-color.png"
   },
   {
     "name": "Porter Cline",
@@ -474,7 +474,7 @@
       "passion": 82,
       "continuingEducation": 84
     },
-    "qrCode": "/images/qr-codes/qr-team-porter-cline-color.png"
+    "qrCode": "/media/qr-codes/team/qr-team-porter-cline-color.png"
   },
   {
     "name": "Brooks Morris",
@@ -534,7 +534,7 @@
       "passion": 90,
       "continuingEducation": 86
     },
-    "qrCode": "/images/qr-codes/qr-team-brooks-morris-color.png"
+    "qrCode": "/media/qr-codes/team/qr-team-brooks-morris-color.png"
   },
   {
     "name": "Brittney Holstein",
@@ -590,7 +590,7 @@
       "passion": 86,
       "continuingEducation": 72
     },
-    "qrCode": "/images/qr-codes/qr-team-brittney-holstein-color.png",
+    "qrCode": "/media/qr-codes/team/qr-team-brittney-holstein-color.png",
     "certifications": "Procore Certified"
   },
   {
@@ -650,7 +650,7 @@
       "passion": 88,
       "continuingEducation": 88
     },
-    "qrCode": "/images/qr-codes/qr-team-matt-ramsey-color.png"
+    "qrCode": "/media/qr-codes/team/qr-team-matt-ramsey-color.png"
   },
   {
     "name": "Jennifer Tene",
@@ -706,7 +706,7 @@
       "passion": 78,
       "continuingEducation": 70
     },
-    "qrCode": "/images/qr-codes/qr-team-jennifer-tene-color.png",
+    "qrCode": "/media/qr-codes/team/qr-team-jennifer-tene-color.png",
     "certifications": "Procore Certified"
   },
   {
@@ -767,7 +767,7 @@
       "passion": 78,
       "continuingEducation": 75
     },
-    "qrCode": "/images/qr-codes/qr-team-derek-parks-color.png"
+    "qrCode": "/media/qr-codes/team/qr-team-derek-parks-color.png"
   },
   {
     "name": "Lisa Kandle",
@@ -826,6 +826,6 @@
       "passion": 80,
       "continuingEducation": 73
     },
-    "qrCode": "/images/qr-codes/qr-team-lisa-kandle-color.png"
+    "qrCode": "/media/qr-codes/team/qr-team-lisa-kandle-color.png"
   }
 ]

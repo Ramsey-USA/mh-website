@@ -30,6 +30,7 @@
     "test:performance": "node scripts/test-basic-performance.js",
     "perf:validate": "node scripts/validation/performance-gate.js",
     "perf:gate": "node scripts/validation/performance-gate.js --strict",
+    "check:asset-budgets": "node scripts/validation/check-public-asset-budgets.js",
     "lighthouse:guide": "node scripts/lighthouse-guide.js",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

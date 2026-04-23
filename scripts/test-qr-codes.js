@@ -21,6 +21,29 @@ const jsQR = require("jsqr");
 const QR_DIR = path.join(__dirname, "../public/images/qr-codes");
 const MANIFEST_PATH = path.join(QR_DIR, "qr-codes-manifest.json");
 
+function listQrFilesRecursive(dir, baseDir = dir) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  const results = [];
+
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      results.push(...listQrFilesRecursive(fullPath, baseDir));
+      continue;
+    }
+
+    if (
+      entry.isFile() &&
+      entry.name.startsWith("qr-") &&
+      entry.name.endsWith(".png")
+    ) {
+      results.push(path.relative(baseDir, fullPath).replace(/\\/g, "/"));
+    }
+  }
+
+  return results;
+}
+
 // Color codes for output
 const GREEN = "\x1b[32m";
 const RED = "\x1b[31m";
@@ -109,7 +132,8 @@ async function verifyQRCodes() {
 
   for (const qrCode of manifest.qrCodes) {
     totalTests++;
-    const filePath = path.join(QR_DIR, qrCode.filename);
+    const relativePath = qrCode.relativePath || qrCode.filename;
+    const filePath = path.join(QR_DIR, relativePath);
     const testName = `${qrCode.name} (${qrCode.variant})`;
 
     process.stdout.write(`  Testing ${testName}... `);
@@ -118,7 +142,7 @@ async function verifyQRCodes() {
       // Check if file exists
       if (!fileExists(filePath)) {
         failed++;
-        errors.push(`${testName}: File not found - ${qrCode.filename}`);
+        errors.push(`${testName}: File not found - ${relativePath}`);
         console.log(`${RED}✗ FILE NOT FOUND${RESET}`);
         continue;
       }
@@ -167,11 +191,10 @@ async function verifyQRCodes() {
   // Check for orphan files (files not in manifest)
   console.log(`\n${BLUE}Checking for orphan files:${RESET}\n`);
 
-  const files = fs.readdirSync(QR_DIR);
-  const qrFiles = files.filter(
-    (f) => f.startsWith("qr-") && f.endsWith(".png"),
+  const qrFiles = listQrFilesRecursive(QR_DIR);
+  const manifestFiles = manifest.qrCodes.map(
+    (qr) => qr.relativePath || qr.filename,
   );
-  const manifestFiles = manifest.qrCodes.map((qr) => qr.filename);
   const orphans = qrFiles.filter((f) => !manifestFiles.includes(f));
 
   if (orphans.length > 0) {
