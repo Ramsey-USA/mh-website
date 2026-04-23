@@ -16,13 +16,13 @@
       "teamCollaborations": 25
     },
     "careerStats": {
-      "totalProjects": 85,
+      "totalProjects": 500,
       "yearsExperience": 35,
       "specialtyAreas": 4,
       "mentorships": 8
     },
     "awards": "Presidential Leadership Excellence",
-    "bio": "Jeremy brings more than 35 years of experience and leadership to the MH Construction team. Beginning his construction career while still in college, he has worked across nearly every aspect of the industry, from drafting plans to performing international commercial inspections. In 2003, Jeremy launched his first business and has since founded, operated, sold, and acquired multiple companies. His entrepreneurial spirit and business acumen have led him to mentor start-ups, incubate emerging ventures, and help others strategically position their companies for growth and success. A 15-year veteran of Army aviation, Jeremy purchased MH Construction in January 2025, bringing the company to Veteran-Owned status. He applies the precision, discipline, and attention to detail learned in the service to every project MH Construction undertakes. His leadership blends military focus with real-world construction expertise, ensuring excellence from concept to completion. With a clear vision to elevate MH Construction and a deep commitment to supporting employees, clients, and community partners, Jeremy leads with integrity and determination, guiding the company confidently into the future.",
+    "bio": "Jeremy brings more than 35 years of experience and leadership to the MH Construction team, with 500+ projects completed across commercial construction and operations. Beginning his construction career while still in college, he has worked across nearly every aspect of the industry, from drafting plans to performing international commercial inspections. In 2003, Jeremy launched his first business and has since founded, operated, sold, and acquired multiple companies. His entrepreneurial spirit and business acumen have led him to mentor start-ups, incubate emerging ventures, and help others strategically position their companies for growth and success. A 15-year veteran of Army aviation, Jeremy purchased MH Construction in January 2025, bringing the company to Veteran-Owned status. He applies the precision, discipline, and attention to detail learned in the service to every project MH Construction undertakes. His leadership blends military focus with real-world construction expertise, ensuring excellence from concept to completion. With a clear vision to elevate MH Construction and a deep commitment to supporting employees, clients, and community partners, Jeremy leads with integrity and determination, guiding the company confidently into the future.",
     "careerHighlights": [
       "Presidential oversight of strategic operations",
       "Safety management & organizational standards",
@@ -30,7 +30,7 @@
       "HR & people-first leadership philosophy"
     ],
     "funFact": "Jeremy focuses on the foundational pillars that make MH Construction a people-first organization.",
-    "certifications": "Leadership Development, Safety Management",
+    "certifications": "Leadership Development, Safety Management, Cert E, Procore Certified Admin",
     "hobbies": "Team Building, Strategy",
     "specialInterests": "People & Safety First",
     "specialties": [
@@ -89,7 +89,7 @@
       "Mentored next generation of leaders"
     ],
     "funFact": "Mike started the company with just a pickup truck and a toolbox, growing it into a regional construction leader.",
-    "certifications": "CCM, CPM",
+    "certifications": "CCM, CPM, Procore Certified",
     "hobbies": "Woodworking, Fishing",
     "specialInterests": "Mentoring Youth",
     "specialties": [
@@ -148,7 +148,7 @@
       "Built strategic partnerships"
     ],
     "funFact": "Arnold always wants to live life and approach projects with the following mindset: The name you are born with is nowhere near as important as the name you leave behind.",
-    "certifications": "CDL, State Certified Spanish/English Interpreter, Forklifts, Aerial Platforms/Scissor Lifts, CPR/First Aid, Powder Actuated Tools",
+    "certifications": "CDL, State Certified Spanish/English Interpreter, Forklifts, Aerial Platforms/Scissor Lifts, CPR/First Aid, Powder Actuated Tools, Cert E, Procore Certified Admin",
     "hobbies": "Baseball, Cooking",
     "specialInterests": "Client Relations",
     "specialties": [
@@ -208,7 +208,7 @@
       "Consistently delivers projects on-time and under budget"
     ],
     "funFact": "Building projects my children can see and remember their dad, long after I am gone.",
-    "certifications": "ADDA Certified Mechanical and Architectural Drafter, OSHA 30",
+    "certifications": "ADDA Certified Mechanical and Architectural Drafter, OSHA 30, Procore Certified",
     "hobbies": "Cycling, Budgeting",
     "specialInterests": "Cost Optimization",
     "specialties": [
@@ -268,7 +268,7 @@
       "Developed cost control protocols"
     ],
     "funFact": "Driven by innovation and craftsmanship, I take pride in shaping the industry while building a future my wife and kids can be proud of.",
-    "certifications": "CCE, ASPE",
+    "certifications": "CCE, ASPE, Procore Certified",
     "hobbies": "Golf, Analytics",
     "specialInterests": "Cost Engineering",
     "specialties": [
@@ -328,7 +328,7 @@
       "Perfect safety record over 5 years"
     ],
     "funFact": "Safe, on-time, on-budget delivery; ensuring code compliance and client satisfaction.",
-    "certifications": "CDL, Forklift Operation, Aerial/Scissor Lift Operation, Adult First Aid, Certified Locksmith",
+    "certifications": "CDL, Forklift Operation, Aerial/Scissor Lift Operation, Adult First Aid, Certified Locksmith, Procore Certified",
     "hobbies": "Safety Training, Hiking",
     "specialInterests": "Safety Innovation",
     "specialties": [
@@ -389,7 +389,7 @@
       "Maintained quality standards across all projects"
     ],
     "funFact": "Delivering high-quality projects that meet client expectations and bring lasting satisfaction.",
-    "certifications": "Forklift, Scissor Lift, Snake Lift, CPR",
+    "certifications": "Forklift, Scissor Lift, Snake Lift, CPR, Procore Certified",
     "hobbies": "Blueprints, Mentoring",
     "specialInterests": "Quality Control",
     "specialties": [
@@ -448,7 +448,7 @@
       "Hands-on leadership working alongside crews"
     ],
     "funFact": "Seeing a finished project come together while meeting deadlines and exceeding expectations with his crew.",
-    "certifications": "Forklift, CPR & First Aid",
+    "certifications": "Forklift, CPR & First Aid, Procore Certified",
     "hobbies": "Team Leadership, Problem-solving",
     "specialInterests": "Guiding teams through demanding phases",
     "specialties": [
@@ -507,7 +507,7 @@
       "Implemented accountability and measurable results frameworks"
     ],
     "funFact": "Driving financial clarity, operational excellence, and measurable results that improve the success rate for every organization I serve.",
-    "certifications": "Six Sigma Black Belt",
+    "certifications": "Six Sigma Master Black Belt, Six Sigma Black Belt, Procore Certified Admin",
     "hobbies": "Finance, Reading",
     "specialInterests": "Cost Analysis",
     "specialties": [
@@ -590,14 +590,15 @@
       "passion": 86,
       "continuingEducation": 72
     },
-    "qrCode": "/images/qr-codes/qr-team-brittney-holstein-color.png"
+    "qrCode": "/images/qr-codes/qr-team-brittney-holstein-color.png",
+    "certifications": "Procore Certified"
   },
   {
     "name": "Matt Ramsey",
-    "role": "Project Manager's Assistant / Marketing Manager / Safety Officer",
+    "role": "Digital Marketing Manager / Safety Officer",
     "department": "Special Operations",
     "cardNumber": 21,
-    "position": "Project Manager's Assistant / Marketing Manager / Safety Officer",
+    "position": "Digital Marketing Manager / Safety Officer",
     "nickname": "The Communications Officer",
     "yearsWithCompany": 1,
     "hometown": "Richland, WA",
@@ -615,7 +616,7 @@
       "mentorships": 15
     },
     "awards": "Two Navy Achievement Medals",
-    "bio": "Matthew Ramsey joined the MH Construction team in June 2025, bringing a diverse background in operations, project management, and leadership. Originally hired as a Project Engineer, Matthew quickly demonstrated his ability to bridge the gap between field operations and client communications, transitioning into the role of Digital Marketing Manager in October 2025, and creator of this website. A United States Navy veteran (2001–2007), Matthew served as an Engineman 2nd Class Petty Officer aboard the USS Theodore Roosevelt and with Logistic Support Unit One. His military service, which includes two Navy Achievement Medals, instilled a deep sense of discipline and integrity that aligns perfectly with MH Construction's philosophy of 'Building projects for the Client, NOT the Dollar.' Matthew holds an Associate of Applied Science in Business Management from Columbia Basin College and is currently pursuing his Bachelor of Applied Science in Operations Management at Arizona State University (Class of 2026). Prior to joining MH Construction, he gained extensive experience as a Project Manager in the restoration industry and as a Superintendent in residential production building. Outside of the office, Matthew is an avid outdoorsman who enjoys camping, fishing, and big game hunting. He is a Lifetime Member of the Rocky Mountain Elk Foundation. He resides in the Tri-Cities with his wife, Diane, and enjoys spending time with their children and grandchildren.",
+    "bio": "Matthew Ramsey joined the MH Construction team in June 2025, bringing a diverse background in operations, project management, and leadership. Originally hired as a Project Engineer, Matthew quickly demonstrated his ability to bridge the gap between field operations and client communications, transitioning into the role of Digital Marketing Manager and Safety Officer in October 2025. He is the creator and developer of the MH Construction website. A United States Navy veteran (2001–2007), Matthew served as an Engineman 2nd Class Petty Officer aboard the USS Theodore Roosevelt and with Logistic Support Unit One. His military service, which includes two Navy Achievement Medals, instilled a deep sense of discipline and integrity that aligns perfectly with MH Construction's philosophy of 'Building projects for the Client, NOT the Dollar.' Matthew holds an Associate of Applied Science in Business Management from Columbia Basin College and is currently pursuing his Bachelor of Applied Science in Operations Management at Arizona State University (Class of 2026). Prior to joining MH Construction, he gained extensive experience as a Project Manager in the restoration industry and as a Superintendent in residential production building. Outside of the office, Matthew is an avid outdoorsman who enjoys camping, fishing, and big game hunting. He is a Lifetime Member of the Rocky Mountain Elk Foundation. He resides in the Tri-Cities with his wife, Diane, and enjoys spending time with their children and grandchildren.",
     "careerHighlights": [
       "Developed AI estimator systems",
       "Led technology integration projects",
@@ -623,7 +624,7 @@
       "Promoted Veteran-Owned business status"
     ],
     "funFact": "Former gym owner and Master Personal Trainer, Matt brings the same dedication to fitness and leadership that he now applies to construction technology and project management.",
-    "certifications": "Global Accelerator Web Development & AI Design, OSHA 30, CPR, Google Ads, HubSpot",
+    "certifications": "Global Accelerator Web Development & AI Design, OSHA 30, CPR, Google Ads, HubSpot, Procore Certified",
     "hobbies": "Camping, Hunting, Fishing",
     "specialInterests": "Assisting Project Managers and Managing Digital Assets",
     "specialties": [
@@ -658,18 +659,18 @@
     "cardNumber": 14,
     "position": "Project Engineer / Admin Assistant",
     "nickname": "The Operations Officer",
-    "yearsWithCompany": 5,
+    "yearsWithCompany": 0.8,
     "hometown": "Washington",
     "education": "Business Administration",
     "currentYearStats": {
-      "projectsCompleted": 75,
+      "projectsCompleted": 3,
       "clientSatisfaction": 99,
       "safetyRecord": "N/A",
       "teamCollaborations": 60
     },
     "careerStats": {
-      "totalProjects": 320,
-      "yearsExperience": 5,
+      "totalProjects": 3,
+      "yearsExperience": 0.8,
       "specialtyAreas": 4,
       "mentorships": 8
     },
@@ -705,7 +706,8 @@
       "passion": 78,
       "continuingEducation": 70
     },
-    "qrCode": "/images/qr-codes/qr-team-jennifer-tene-color.png"
+    "qrCode": "/images/qr-codes/qr-team-jennifer-tene-color.png",
+    "certifications": "Procore Certified"
   },
   {
     "name": "Derek Parks",
@@ -738,7 +740,7 @@
       "Achieved consistent on-time project delivery"
     ],
     "funFact": "Building with the right team, ensuring jobs are completed to a high standard, and leaving behind tangible projects that his family can see and remember as part of his legacy.",
-    "certifications": "Forklift Operator, Scissor Lift Operator, Snake Lift Operator, CPR Certified",
+    "certifications": "Forklift Operator, Scissor Lift Operator, Snake Lift Operator, CPR Certified, Procore Certified",
     "hobbies": "Organization, Fishing",
     "specialInterests": "Workflow Optimization",
     "specialties": [
@@ -798,7 +800,7 @@
       "Supported successful project coordination"
     ],
     "funFact": "Lisa has developed a filing system so efficient that any document can be located within 30 seconds.",
-    "certifications": "Microsoft Office Specialist, Customer Service Excellence",
+    "certifications": "Microsoft Office Specialist, Customer Service Excellence, Procore Certified",
     "hobbies": "Reading, Crafting",
     "specialInterests": "Process Improvement",
     "specialties": [

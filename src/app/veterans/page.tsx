@@ -416,7 +416,8 @@ export default function VeteransPage() {
                           Matt Ramsey
                         </h3>
                         <p className="text-brand-secondary-text font-semibold text-lg mb-6 dark:text-brand-secondary-light">
-                          Digital Marketing Manager | Navy Veteran
+                          Digital Marketing Manager / Safety Officer | Navy
+                          Veteran
                         </p>
                         <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                           Navy veteran bringing military discipline to digital

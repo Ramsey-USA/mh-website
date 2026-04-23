@@ -187,8 +187,9 @@ The four-value foundation system, in hierarchical order:
 
 **Standard Language:**
 
-> "MH Construction is a dedicated supporter of the Build America, Buy America Act (BABAA). As an AGC
-> member, we stay current on BABAA guidance and compliance-forward practices for government projects."
+> "MH Construction is a dedicated supporter of the Build America, Buy America Act (BABAA), a federal
+> domestic-content requirement for certain federally funded infrastructure projects. As an AGC member,
+> we stay current on BABAA guidance and compliance-forward practices for government projects."
 
 **Usage:** Reference when discussing government or public sector work, federal project compliance, or
 veteran-owned distinctions on procurement-sensitive surfaces. Keep mentions factual and

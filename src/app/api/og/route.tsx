@@ -21,7 +21,7 @@ const BRAND_SECONDARY = "#91AA6F";
  * - type: 'page' | 'article' | 'project' (default: 'page')
  * - theme: 'light' | 'dark' (default: 'light')
  */
-export async function GET(request: Request) {
+export function GET(request: Request) {
   const { searchParams } = new URL(request.url);
 
   const title = searchParams.get("title") || "MH Construction";

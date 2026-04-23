@@ -1228,8 +1228,8 @@ export default function Footer() {
                 className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity duration-300"
                 aria-label={
                   isEs
-                    ? "Centro de recursos BABAA de la AGC (abre en una nueva pestaña)"
-                    : "AGC BABAA Resource Hub (opens in new tab)"
+                    ? "Centro de recursos BABAA de AGC, Ley Build America Buy America (abre en nueva pestaña)"
+                    : "AGC BABAA Resource Hub for the Build America Buy America Act (opens in new tab)"
                 }
               >
                 <MaterialIcon
@@ -1238,7 +1238,9 @@ export default function Footer() {
                   className="text-brand-secondary/70"
                 />
                 <span className="text-xs font-medium text-gray-400 dark:text-gray-500">
-                  {isEs ? "Partidario de BABAA" : "BABAA Supporter"}
+                  {isEs
+                    ? "Partidario de BABAA (Ley Build America, Buy America)"
+                    : "BABAA Supporter (Build America, Buy America Act)"}
                 </span>
               </a>
             </div>

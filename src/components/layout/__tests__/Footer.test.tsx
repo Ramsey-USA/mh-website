@@ -178,7 +178,9 @@ describe("Footer", () => {
     );
     expect(babaaLink).toHaveAttribute("target", "_blank");
     expect(babaaLink).toHaveAttribute("rel", "noopener noreferrer");
-    expect(screen.getByText("BABAA Supporter")).toBeInTheDocument();
+    expect(
+      screen.getByText("BABAA Supporter (Build America, Buy America Act)"),
+    ).toBeInTheDocument();
   });
 
   it("does not render the staff portal form", () => {

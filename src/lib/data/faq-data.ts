@@ -148,7 +148,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Do you work on government projects?",
         answer:
-          "Yes. We have extensive experience with government contracts and understand federal compliance requirements. As a Veteran-Owned firm and dedicated supporter of the Build America, Buy America Act (BABAA), our disciplined planning, careful documentation, and regulatory expertise make us well-suited for government facility projects.",
+          "Yes. We have extensive experience with government contracts and understand federal compliance requirements. We are a dedicated supporter of the Build America, Buy America Act (BABAA), which is a federal domestic-content requirement for certain federally funded infrastructure projects. Our disciplined planning, careful documentation, and regulatory expertise make us well-suited for government facility projects.",
         link: {
           text: "AGC BABAA Resource Hub →",
           href: "https://www.agc.org/babaa-resource-hub",
@@ -198,7 +198,7 @@ export const faqCategories: FAQCategory[] = [
         question:
           "Do you bid on government or public works projects in Washington State?",
         answer:
-          "Yes. We are experienced in government contracting and are fully capable of managing prevailing wage requirements, certified payroll, and the strict safety compliance (OSHA/WISHA) required for public works and federal projects. As an AGC member and BABAA supporter, we stay current on federal domestic-content requirements.",
+          "Yes. We are experienced in government contracting and are fully capable of managing prevailing wage requirements, certified payroll, and the strict safety compliance (OSHA/WISHA) required for public works and federal projects. We support the Build America, Buy America Act (BABAA), a federal domestic-content requirement for certain federally funded infrastructure projects, and stay current through AGC guidance.",
         link: {
           text: "AGC BABAA Resource Hub →",
           href: "https://www.agc.org/babaa-resource-hub",

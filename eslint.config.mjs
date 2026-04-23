@@ -1,13 +1,5 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
+import nextTypeScript from "eslint-config-next/typescript";
 
 /**
  * MH Construction - Modern ESLint Configuration
@@ -67,12 +59,17 @@ const eslintConfig = [
       "*.swp",
       "*.swo",
       ".DS_Store",
+
+      // Temporary and generation scripts (not production code)
+      "tmp/**",
+      "documents/scripts/**",
     ],
   },
 
   // === BASE CONFIGURATION ===
-  // Extend Next.js recommended configs using array spread (ESLint 9 compatible)
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  // Use Next.js native flat configs to avoid legacy compat issues in ESLint 9.
+  ...nextCoreWebVitals,
+  ...nextTypeScript,
 
   // === CUSTOM RULES ===
   {
@@ -80,6 +77,11 @@ const eslintConfig = [
       // === React & Next.js Rules ===
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
+      // Disabled: these Next 16 rules flag intentional React patterns
+      // (hydration guards, data-fetch-on-mount, media-query sync, useRef init)
+      "react-hooks/set-state-in-effect": "off",
+      "react-hooks/purity": "off",
+      "react-hooks/immutability": "off",
       "react/no-unescaped-entities": "off", // Allow typographic quotes
       "react/jsx-key": "error",
       "react/jsx-no-target-blank": "warn",

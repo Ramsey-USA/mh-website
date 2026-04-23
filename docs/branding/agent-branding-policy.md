@@ -24,7 +24,7 @@ and markdown content in the MH website repository.
 
 1. Preserve relationship-first, direct, professional tone.
 2. Preserve factual veteran-owned framing; avoid slogan-heavy or gimmick phrasing.
-3. Preserve factual BABAA distinction where relevant: MH Construction is a dedicated supporter of the Build America, Buy America Act (BABAA).
+3. Preserve factual BABAA distinction where relevant: MH Construction is a dedicated supporter of the Build America, Buy America Act (BABAA), and plain-language copy should explain that BABAA is a federal domestic-content requirement for certain federally funded infrastructure projects.
 4. Preserve trust and accreditation presence on trust-critical surfaces.
 5. Keep terminology consistent across page copy, navigation, metadata, and schema.
 6. Prefer plain-language SEO labels (`Home`, `About`, `Services`, `Projects`, `Contact`).

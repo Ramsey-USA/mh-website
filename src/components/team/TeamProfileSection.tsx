@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { SkillsRadarChart } from "./SkillsRadarChart";
+import { Modal } from "@/components/ui/modals/Modal";
 import { type VintageTeamMember } from "@/lib/data/vintage-team";
+import { buildCertificationShowcase } from "@/lib/safety/certification-showcase";
 import { useEffect, useState } from "react";
 function getSkillLevel(score: number): {
   level: string;
@@ -62,6 +64,169 @@ function getRoleIcon(role: string): string {
   if (role.toLowerCase().includes("vice")) return "badge";
   return "person";
 }
+
+function formatExperienceYears(
+  years: number,
+  mode: "long" | "short" = "long",
+): string {
+  if (years < 1) {
+    return mode === "short" ? "Under 1 yr" : "Under 1 year";
+  }
+
+  const wholeYears = Number.isInteger(years);
+  const displayValue = wholeYears ? years.toString() : years.toFixed(1);
+
+  if (mode === "short") {
+    return `${displayValue} ${years === 1 ? "yr" : "yrs"}`;
+  }
+
+  return `${displayValue} ${years === 1 ? "year" : "years"}`;
+}
+
+function formatProjectTotal(totalProjects: number): string {
+  if (totalProjects < 10) {
+    return totalProjects.toString();
+  }
+
+  return `${totalProjects}+`;
+}
+
+function getBioPreview(bio: string): string {
+  if (bio.length <= 220) {
+    return bio;
+  }
+
+  return `${bio.slice(0, 220).trimEnd()}...`;
+}
+
+type SkillKey = keyof VintageTeamMember["skills"];
+
+const SKILL_KEYS: SkillKey[] = [
+  "leadership",
+  "technical",
+  "communication",
+  "safety",
+  "problemSolving",
+  "teamwork",
+  "organization",
+  "innovation",
+  "passion",
+  "continuingEducation",
+];
+
+type SkillWeightProfile = Partial<Record<SkillKey, number>>;
+
+const ROLE_SKILL_WEIGHTS: Record<string, SkillWeightProfile> = {
+  executive: {
+    leadership: 1.2,
+    communication: 1.12,
+    problemSolving: 1.08,
+    organization: 1.1,
+    safety: 1.05,
+    technical: 0.96,
+  },
+  operations: {
+    safety: 1.2,
+    technical: 1.12,
+    teamwork: 1.1,
+    organization: 1.08,
+    problemSolving: 1.08,
+    innovation: 0.94,
+  },
+  estimator: {
+    technical: 1.2,
+    problemSolving: 1.12,
+    organization: 1.08,
+    innovation: 1.06,
+    communication: 0.98,
+    teamwork: 0.96,
+  },
+  financeAdmin: {
+    organization: 1.2,
+    communication: 1.1,
+    problemSolving: 1.08,
+    technical: 1.05,
+    safety: 0.9,
+    innovation: 0.95,
+  },
+  marketing: {
+    communication: 1.2,
+    innovation: 1.15,
+    technical: 1.08,
+    passion: 1.08,
+    safety: 0.95,
+    teamwork: 0.98,
+  },
+  hr: {
+    communication: 1.2,
+    leadership: 1.12,
+    teamwork: 1.1,
+    organization: 1.08,
+    passion: 1.06,
+    technical: 0.9,
+  },
+};
+
+function clampSkill(value: number): number {
+  return Math.max(45, Math.min(99, Math.round(value)));
+}
+
+function resolveRoleProfile(member: VintageTeamMember): SkillWeightProfile {
+  const role = member.role.toLowerCase();
+
+  if (
+    role.includes("owner") ||
+    role.includes("president") ||
+    role.includes("vice") ||
+    role.includes("founder")
+  ) {
+    return ROLE_SKILL_WEIGHTS["executive"] ?? {};
+  }
+
+  if (
+    role.includes("superintendent") ||
+    role.includes("field") ||
+    role.includes("safety")
+  ) {
+    return ROLE_SKILL_WEIGHTS["operations"] ?? {};
+  }
+
+  if (role.includes("estimator")) {
+    return ROLE_SKILL_WEIGHTS["estimator"] ?? {};
+  }
+
+  if (role.includes("finance") || role.includes("admin")) {
+    return ROLE_SKILL_WEIGHTS["financeAdmin"] ?? {};
+  }
+
+  if (role.includes("marketing")) {
+    return ROLE_SKILL_WEIGHTS["marketing"] ?? {};
+  }
+
+  if (role.includes("hr") || role.includes("human resources")) {
+    return ROLE_SKILL_WEIGHTS["hr"] ?? {};
+  }
+
+  return {};
+}
+
+function buildRoleCalibratedSkills(
+  member: VintageTeamMember,
+): VintageTeamMember["skills"] {
+  const weights = resolveRoleProfile(member);
+  const adjusted = { ...member.skills };
+
+  for (const key of SKILL_KEYS) {
+    const base = member.skills[key];
+    const weight = weights[key] ?? 1;
+    const stretched = 70 + (base - 70) * 1.18;
+    const roleOffset = (weight - 1) * 12;
+    adjusted[key] = clampSkill(stretched + roleOffset);
+  }
+
+  return adjusted;
+}
+
 function TeamAvatar({ member }: { member: VintageTeamMember }) {
   const [hasError, setHasError] = useState(false);
 
@@ -100,6 +265,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
   // Track dark mode for chart colors
   const [isDark, setIsDark] = useState(false);
   const [showPersonal, setShowPersonal] = useState(false);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
 
   useEffect(() => {
     // Check initial dark mode state
@@ -338,54 +504,59 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
   };
 
   const achievementBadges = getAchievementBadges();
+  const calibratedSkills = buildRoleCalibratedSkills(member);
 
   // Calculate top 3 skills for highlighting
   const getTopSkills = () => {
     const skillsArray = [
       {
         name: "Partnership Leadership",
-        value: member.skills.leadership,
+        value: calibratedSkills.leadership,
         key: "leadership",
       },
       {
         name: "Technical Excellence",
-        value: member.skills.technical,
+        value: calibratedSkills.technical,
         key: "technical",
       },
       {
         name: "Transparent Communication",
-        value: member.skills.communication,
+        value: calibratedSkills.communication,
         key: "communication",
       },
-      { name: "Safety Excellence", value: member.skills.safety, key: "safety" },
+      {
+        name: "Safety Excellence",
+        value: calibratedSkills.safety,
+        key: "safety",
+      },
       {
         name: "Strategic Thinking",
-        value: member.skills.problemSolving,
+        value: calibratedSkills.problemSolving,
         key: "problemSolving",
       },
       {
         name: "Partnership Unity",
-        value: member.skills.teamwork,
+        value: calibratedSkills.teamwork,
         key: "teamwork",
       },
       {
         name: "Thoroughness",
-        value: member.skills.organization,
+        value: calibratedSkills.organization,
         key: "organization",
       },
       {
         name: "Client-Focused Excellence",
-        value: member.skills.innovation,
+        value: calibratedSkills.innovation,
         key: "innovation",
       },
       {
         name: "Passionate Drive",
-        value: member.skills.passion,
+        value: calibratedSkills.passion,
         key: "passion",
       },
       {
         name: "Growth Mindset",
-        value: member.skills.continuingEducation,
+        value: calibratedSkills.continuingEducation,
         key: "continuingEducation",
       },
     ];
@@ -393,49 +564,71 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
   };
 
   const topSkills = getTopSkills();
+  const certificationShowcase = buildCertificationShowcase(
+    member.certifications,
+  );
+  const featuredCertifications = certificationShowcase.slice(0, 8);
+  const hiddenCertificationCount = Math.max(
+    0,
+    certificationShowcase.length - 8,
+  );
+  const educationTokens = member.education
+    ? member.education
+        .split(",")
+        .map((token) => token.trim())
+        .filter(Boolean)
+    : [];
 
   // Prepare radar chart data
   const radarData = [
     {
       skill: "Partnership\nLeadership",
-      value: member.skills.leadership,
+      value: calibratedSkills.leadership,
       fullMark: 100,
     },
     {
       skill: "Technical\nExcellence",
-      value: member.skills.technical,
+      value: calibratedSkills.technical,
       fullMark: 100,
     },
     {
       skill: "Transparent\nCommunication",
-      value: member.skills.communication,
+      value: calibratedSkills.communication,
       fullMark: 100,
     },
-    { skill: "Safety\nExcellence", value: member.skills.safety, fullMark: 100 },
+    {
+      skill: "Safety\nExcellence",
+      value: calibratedSkills.safety,
+      fullMark: 100,
+    },
     {
       skill: "Strategic\nThinking",
-      value: member.skills.problemSolving,
+      value: calibratedSkills.problemSolving,
       fullMark: 100,
     },
     {
       skill: "Partnership\nUnity",
-      value: member.skills.teamwork,
+      value: calibratedSkills.teamwork,
       fullMark: 100,
     },
-    { skill: "Thoroughness", value: member.skills.organization, fullMark: 100 },
+    {
+      skill: "Thoroughness",
+      value: calibratedSkills.organization,
+      fullMark: 100,
+    },
     {
       skill: "Client-Focused\nExcellence",
-      value: member.skills.innovation,
+      value: calibratedSkills.innovation,
       fullMark: 100,
     },
     {
       skill: "Passionate\nDrive",
-      value: member.skills.passion,
+      value: calibratedSkills.passion,
       fullMark: 100,
     },
     {
       skill: "Growth\nMindset",
-      value: member.skills.continuingEducation,
+      value: calibratedSkills.continuingEducation,
       fullMark: 100,
     },
   ];
@@ -446,12 +639,16 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
   return (
     <div
       id={member.slug}
-      className="bg-white dark:bg-gray-800 shadow-xl rounded-xl md:rounded-2xl overflow-hidden border-2 border-brand-primary/20 dark:border-brand-primary/30 hover:border-brand-primary/40 dark:hover:border-brand-primary/50 transition-all duration-300 scroll-mt-24"
+      className={`bg-white dark:bg-gray-800 shadow-xl rounded-xl md:rounded-2xl overflow-hidden border-2 border-brand-primary/20 dark:border-brand-primary/30 hover:border-brand-primary/40 dark:hover:border-brand-primary/50 transition-all duration-300 scroll-mt-24 ${
+        isReversed
+          ? "lg:border-r-4 lg:border-r-brand-secondary/60"
+          : "lg:border-l-4 lg:border-l-brand-secondary/60"
+      }`}
     >
       {" "}
       <div
         className={`grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 md:gap-8 p-4 sm:p-6 md:p-8 ${
-          isReversed ? "lg:flex-row-reverse" : ""
+          isReversed ? "lg:translate-x-1" : "lg:-translate-x-1"
         }`}
       >
         {/* Left Column: Photo, Bio, Highlights */}
@@ -498,7 +695,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                     className="text-brand-primary dark:text-brand-secondary"
                   />
                   <span className="text-gray-700 dark:text-gray-300 font-medium">
-                    {member.careerStats.yearsExperience} years
+                    {formatExperienceYears(member.careerStats.yearsExperience)}
                   </span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
@@ -508,14 +705,72 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                     className="text-brand-primary dark:text-brand-secondary"
                   />
                   <span className="text-gray-700 dark:text-gray-300 font-medium">
-                    {member.careerStats.totalProjects}+ projects
+                    {formatProjectTotal(member.careerStats.totalProjects)}{" "}
+                    projects
                   </span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Bio */}
+          {/* Credentials Snapshot */}
+          <div className="bg-gradient-to-br from-brand-secondary/10 to-brand-primary/10 dark:from-brand-secondary/20 dark:to-brand-primary/20 p-3 sm:p-4 rounded-lg border-2 border-brand-secondary/20 dark:border-brand-secondary/30 flex flex-col lg:min-h-[14rem]">
+            <h4 className="text-base sm:text-lg font-bold text-brand-secondary dark:text-brand-secondary-light mb-3 flex items-center gap-2 tracking-tight">
+              <MaterialIcon
+                icon="workspace_premium"
+                size="sm"
+                className="text-brand-secondary dark:text-brand-secondary-light"
+              />
+              Credentials & Education
+            </h4>
+
+            {educationTokens.length > 0 && (
+              <div className="mb-3">
+                <p className="text-xs uppercase tracking-wide text-gray-600 dark:text-gray-300 font-semibold mb-1.5">
+                  Education
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {educationTokens.map((token) => (
+                    <span
+                      key={`${member.slug}-${token}`}
+                      className="inline-flex items-center rounded-full border border-brand-secondary/30 bg-white/80 dark:bg-gray-900/70 px-2 py-0.5 text-xs font-semibold text-gray-800 dark:text-gray-100"
+                    >
+                      {token}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {featuredCertifications.length > 0 && (
+              <div>
+                <p className="text-xs uppercase tracking-wide text-gray-600 dark:text-gray-300 font-semibold mb-1.5">
+                  Certifications
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {featuredCertifications.map((certification) => (
+                    <span
+                      key={`${member.slug}-featured-${certification.label}`}
+                      className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-semibold ${
+                        certification.inferred
+                          ? "border-brand-secondary/40 bg-brand-secondary/10 text-brand-secondary"
+                          : "border-brand-primary/30 bg-brand-primary/10 text-brand-primary"
+                      }`}
+                    >
+                      {certification.label}
+                    </span>
+                  ))}
+                  {hiddenCertificationCount > 0 && (
+                    <span className="inline-flex items-center rounded-full border border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-900/70 px-2 py-0.5 text-xs font-semibold text-gray-700 dark:text-gray-200">
+                      +{hiddenCertificationCount} more
+                    </span>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Bio Snapshot */}
           <div>
             <h4 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-2 flex items-center gap-2 tracking-tight">
               <MaterialIcon
@@ -523,11 +778,19 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                 size="sm"
                 className="text-brand-primary dark:text-brand-secondary"
               />
-              About
+              Profile Snapshot
             </h4>
             <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed font-normal">
-              {member.bio}
+              {getBioPreview(member.bio)}
             </p>
+            <button
+              type="button"
+              onClick={() => setIsProfileModalOpen(true)}
+              className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary hover:text-brand-primary-dark dark:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors"
+            >
+              <MaterialIcon icon="open_in_new" size="sm" className="" />
+              View Full Profile
+            </button>
           </div>
 
           {/* Career Highlights */}
@@ -781,7 +1044,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                     Total Projects
                   </span>
                   <span className="font-bold text-gray-900 dark:text-white">
-                    {member.careerStats.totalProjects}+
+                    {formatProjectTotal(member.careerStats.totalProjects)}
                   </span>
                 </div>
                 <div className="flex justify-between">
@@ -789,7 +1052,10 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                     Experience
                   </span>
                   <span className="font-bold text-gray-900 dark:text-white">
-                    {member.careerStats.yearsExperience} yrs
+                    {formatExperienceYears(
+                      member.careerStats.yearsExperience,
+                      "short",
+                    )}
                   </span>
                 </div>
                 <div className="flex justify-between">
@@ -840,40 +1106,6 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                   </div>
                 </div>
               )}
-              {member.education && (
-                <div className="flex items-start gap-2">
-                  <MaterialIcon
-                    icon="school"
-                    size="sm"
-                    className="text-gray-500 dark:text-gray-300 flex-shrink-0 mt-0.5"
-                  />
-                  <div>
-                    <span className="text-gray-600 dark:text-gray-300 font-medium">
-                      Education:{" "}
-                    </span>
-                    <span className="text-gray-900 dark:text-white font-semibold">
-                      {member.education}
-                    </span>
-                  </div>
-                </div>
-              )}
-              {member.certifications && (
-                <div className="flex items-start gap-2">
-                  <MaterialIcon
-                    icon="verified"
-                    size="sm"
-                    className="text-gray-500 dark:text-gray-300 flex-shrink-0 mt-0.5"
-                  />
-                  <div>
-                    <span className="text-gray-600 dark:text-gray-300 font-medium">
-                      Certifications:{" "}
-                    </span>
-                    <span className="text-gray-900 dark:text-white font-semibold">
-                      {member.certifications}
-                    </span>
-                  </div>
-                </div>
-              )}
               {member.awards && (
                 <div className="flex items-start gap-2">
                   <MaterialIcon
@@ -902,7 +1134,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                     Years at MH:{" "}
                   </span>
                   <span className="text-gray-900 dark:text-white font-semibold">
-                    {member.yearsWithCompany}
+                    {formatExperienceYears(member.yearsWithCompany)}
                   </span>
                 </div>
               </div>
@@ -1001,6 +1233,42 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
           </div>
         </div>
       </div>
+      <Modal
+        isOpen={isProfileModalOpen}
+        onClose={() => setIsProfileModalOpen(false)}
+        title={`${member.name} - Full Profile`}
+        size="lg"
+        showVeteranBadge={false}
+        backdropAriaLabel={`Close full profile modal for ${member.name}`}
+      >
+        <div className="space-y-4">
+          <p className="text-sm sm:text-base leading-relaxed text-gray-700 dark:text-gray-200">
+            {member.bio}
+          </p>
+          {member.careerHighlights.length > 0 && (
+            <div>
+              <h4 className="text-sm font-bold text-brand-primary dark:text-brand-secondary mb-2">
+                Career Highlights
+              </h4>
+              <ul className="space-y-1.5">
+                {member.careerHighlights.map((highlight) => (
+                  <li
+                    key={`${member.slug}-modal-${highlight}`}
+                    className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-200"
+                  >
+                    <MaterialIcon
+                      icon="check_circle"
+                      size="sm"
+                      className="text-brand-secondary dark:text-brand-secondary-light mt-0.5"
+                    />
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </Modal>
     </div>
   );
 }

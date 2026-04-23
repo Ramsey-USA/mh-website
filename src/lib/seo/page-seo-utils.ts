@@ -427,7 +427,7 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
       jobTitle: "Owner & President",
       worksFor: { "@id": `${enhancedSEO.siteUrl}/#organization` },
       description:
-        "Owner & President of MH Construction, bringing 35+ years of construction expertise and 15 years of Army aviation service. Leads with integrity, discipline, and people-first philosophy.",
+        "Owner & President of MH Construction, bringing 35+ years of construction expertise, 500+ completed projects, and 15 years of Army aviation service. Leads with integrity, discipline, and people-first philosophy.",
       alumniOf: "U.S. Army Aviation",
       knowsAbout: [
         "Construction Management",

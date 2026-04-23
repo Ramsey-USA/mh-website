@@ -18,6 +18,7 @@
 
 import type { SeverityLevel } from "@sentry/browser";
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 type SentryModule = typeof import("@sentry/browser");
 
 let isInitialized = false;

@@ -154,7 +154,7 @@ function generateFallbackResponse(message: string): string {
     lower.includes("build america") ||
     lower.includes("buy america")
   ) {
-    return "MH Construction is Veteran-Owned Since January 2025 by Army veteran Jeremy Thamert, and as a Veteran-Owned firm we are a dedicated supporter of the Build America, Buy America Act (BABAA). As an AGC member, we stay current on BABAA requirements — learn more at agc.org/babaa-resource-hub. We're BBB Accredited with an A+ rating. We offer a Combat Veteran Discount and priority scheduling for all veterans. Bring your DD-214 or VA card to your consultation. Learn more at mhc-gc.com/veterans.";
+    return "MH Construction is Veteran-Owned Since January 2025 by Army veteran Jeremy Thamert, and we are a dedicated supporter of the Build America, Buy America Act (BABAA). BABAA is a federal domestic-content requirement for certain federally funded infrastructure projects, and as an AGC member we stay current on compliance guidance at agc.org/babaa-resource-hub. We're BBB Accredited with an A+ rating. We offer a Combat Veteran Discount and priority scheduling for all veterans. Bring your DD-214 or VA card to your consultation. Learn more at mhc-gc.com/veterans.";
   }
 
   // BBB / Better Business Bureau
@@ -216,7 +216,7 @@ function generateFallbackResponse(message: string): string {
     lower.includes("rating") ||
     lower.includes("review")
   ) {
-    return "MH Construction is BBB Accredited with an A+ rating, Veteran-Owned Since January 2025, and a dedicated supporter of the Build America, Buy America Act (BABAA). We are licensed in WA, OR, and ID and have completed 650+ successful projects with a 0.64 EMR safety rating. Check our Google reviews or BBB profile for client feedback.";
+    return "MH Construction is BBB Accredited with an A+ rating, Veteran-Owned Since January 2025, and a dedicated supporter of the Build America, Buy America Act (BABAA), a federal domestic-content requirement for certain federally funded infrastructure projects. We are licensed in WA, OR, and ID and have completed 650+ successful projects with a 0.64 EMR safety rating. Check our Google reviews or BBB profile for client feedback.";
   }
 
   // Default

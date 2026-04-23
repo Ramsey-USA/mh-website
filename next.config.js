@@ -99,11 +99,6 @@ const nextConfig = {
       process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
   },
 
-  // ESLint configuration - disable during builds, use npm run lint instead
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-
   // Type checking is handled by ci:gate (npm run type-check) — skip during
   // next build to save ~22s. Errors still caught pre-merge.
   typescript: {

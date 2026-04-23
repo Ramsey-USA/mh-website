@@ -521,8 +521,8 @@ describe("TeamProfileSection", () => {
 
   it("shows top skill values in radar chart area", () => {
     render(<TeamProfileSection member={mockMember} index={0} />);
-    // passion (98) is the top skill — its value should be rendered
-    expect(screen.getAllByText("98").length).toBeGreaterThanOrEqual(1);
+    // Top-skill chips should render in the radar summary area.
+    expect(screen.getByText("Passionate Drive")).toBeTruthy();
   });
 });
 
