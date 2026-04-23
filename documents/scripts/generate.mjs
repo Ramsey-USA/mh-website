@@ -489,6 +489,40 @@ async function generateSpine() {
   );
 }
 
+// ── Template: MISH Table of Contents ─────────────────────────────────────────
+/**
+ * Generate the high-fidelity MISH Program Table of Contents PDF from the
+ * static safety-manual-toc.html template.  All 50 MISH items and their
+ * operational cluster groupings are embedded in the template; only brand
+ * tokens are substituted at render time.
+ *
+ * Output: documents/output/safety-manual-toc.pdf
+ */
+async function generateToc() {
+  console.log("\n📋 Generating MISH Table of Contents…");
+  await ensureDir(OUTPUT_DIR);
+  const raw = await readFile(
+    join(DOCS_DIR, "manuals/safety-manual-toc.html"),
+    "utf-8",
+  );
+  const html = applyBrandTokens(raw);
+  const pdfPath = join(OUTPUT_DIR, "safety-manual-toc.pdf");
+  await renderHtmlToPdf(
+    html,
+    pdfPath,
+    {
+      margin: {
+        top: "0.42in",
+        right: "0.5in",
+        bottom: "0.42in",
+        left: "0.5in",
+      },
+    },
+    "manuals/_tmp_toc.html",
+  );
+  return pdfPath;
+}
+
 // ── Template: Tab Dividers ────────────────────────────────────────────────────
 async function generateTabs() {
   console.log("\n🗂  Generating tab dividers…");
@@ -822,13 +856,13 @@ async function generateSections(filter = null) {
         console.log(`  ✓  ${rel}`);
       }
     } else {
-      const tocHtml = applyBrandTokens(buildContentsPdfHtml(sections));
-      await renderHtmlToPdf(
-        tocHtml,
-        tocTarget,
-        {},
-        "manuals/_tmp_safety_manual_contents.html",
-      );
+      // Use the high-fidelity static TOC template; copy its output to tocTarget
+      const tocPdfPath = await generateToc();
+      if (existsSync(tocPdfPath)) {
+        await copyFile(tocPdfPath, tocTarget);
+        const rel = tocTarget.replace(ROOT + "/", "");
+        console.log(`  ✓  ${rel}`);
+      }
     }
 
     const referenceHtml = applyBrandTokens(buildReferencePdfHtml(sections));
@@ -1724,6 +1758,7 @@ async function main() {
         await generateCover();
         await generateSpine();
         await generateTabs();
+        await generateToc();
         await generateSections();
         break;
       case "cover":
@@ -1734,6 +1769,9 @@ async function main() {
         break;
       case "tabs":
         await generateTabs();
+        break;
+      case "toc":
+        await generateToc();
         break;
       case "sections":
         await generateSections();
