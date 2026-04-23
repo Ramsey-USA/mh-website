@@ -6,9 +6,14 @@ import userEvent from "@testing-library/user-event";
 import ChatWidgetLazy from "../ChatWidgetLazy";
 
 const mockUsePathname = jest.fn();
+const mockUseLocale = jest.fn();
 
 jest.mock("next/navigation", () => ({
   usePathname: () => mockUsePathname(),
+}));
+
+jest.mock("@/hooks/useLocale", () => ({
+  useLocale: () => mockUseLocale(),
 }));
 
 // ── Mocks ────────────────────────────────────────────────────────────────────
@@ -22,7 +27,6 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
     icon: string;
     ariaLabel?: string;
     className?: string;
-    size?: string;
   }) => (
     <span
       data-testid={`icon-${icon}`}
@@ -38,7 +42,7 @@ jest.mock("@/components/icons/MaterialIcon", () => ({
 Element.prototype.scrollIntoView = jest.fn();
 
 // Mock matchMedia (not available in jsdom)
-Object.defineProperty(window, "matchMedia", {
+Object.defineProperty(globalThis, "matchMedia", {
   writable: true,
   value: jest.fn().mockImplementation((query: string) => ({
     matches: false,
@@ -52,7 +56,7 @@ Object.defineProperty(window, "matchMedia", {
   })),
 });
 
-Object.defineProperty(window, "requestIdleCallback", {
+Object.defineProperty(globalThis, "requestIdleCallback", {
   writable: true,
   value: jest.fn().mockImplementation((callback: IdleRequestCallback) => {
     callback({
@@ -63,18 +67,19 @@ Object.defineProperty(window, "requestIdleCallback", {
   }),
 });
 
-Object.defineProperty(window, "cancelIdleCallback", {
+Object.defineProperty(globalThis, "cancelIdleCallback", {
   writable: true,
   value: jest.fn(),
 });
 
 // Mock fetch globally
 const mockFetch = jest.fn();
-global.fetch = mockFetch;
+globalThis.fetch = mockFetch;
 
 beforeEach(() => {
   mockFetch.mockReset();
   mockUsePathname.mockReturnValue("/");
+  mockUseLocale.mockReturnValue("en");
 });
 
 // ── Tests ────────────────────────────────────────────────────────────────────
@@ -175,6 +180,41 @@ describe("ChatWidgetLazy", () => {
           name: /open partnership guide chat/i,
         }),
       ).not.toBeInTheDocument();
+    });
+  });
+
+  it("uses Spanish local fallback when fetch fails", async () => {
+    const user = userEvent.setup();
+    mockUseLocale.mockReturnValue("es");
+    mockFetch.mockRejectedValueOnce(new Error("Network error"));
+
+    render(<ChatWidgetLazy />);
+
+    await waitFor(
+      () => {
+        expect(
+          screen.getByRole("button", {
+            name: /abrir chat de guía de alianzas/i,
+          }),
+        ).toBeInTheDocument();
+      },
+      { timeout: 3000 },
+    );
+
+    await user.click(
+      screen.getByRole("button", { name: /abrir chat de guía de alianzas/i }),
+    );
+
+    const input = screen.getByRole("textbox", {
+      name: /escriba su mensaje/i,
+    });
+    await user.type(input, "¿Qué servicios ofrecen?");
+    await user.click(screen.getByRole("button", { name: /enviar mensaje/i }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(/MH Construction ofrece construcción comercial/i),
+      ).toBeInTheDocument();
     });
   });
 });

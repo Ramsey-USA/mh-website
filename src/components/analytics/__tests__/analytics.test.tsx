@@ -45,7 +45,10 @@ beforeEach(() => {
 
 afterEach(() => {
   // Clean up gtag on window
-  Object.defineProperty(window, "gtag", { writable: true, value: undefined });
+  Object.defineProperty(window, "gtag", {
+    writable: true,
+    value: undefined,
+  });
 });
 
 // ─── useAnalytics ─────────────────────────────────────────────────────────────

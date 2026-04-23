@@ -108,7 +108,11 @@ describe("ChatWidget", () => {
         name: /partnership guide/i,
       }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/welcome/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "Welcome! I'm the MH Construction Partnership Guide. I can help you explore our services, connect you with the right Trade Partner, or point you to the best next step. What would you like to know?",
+      ),
+    ).toBeInTheDocument();
   });
 
   it("closes the chat panel when close button is clicked", async () => {
@@ -208,7 +212,27 @@ describe("ChatWidget", () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText(/having trouble connecting/i),
+        screen.getByText(/Hello\. I can help with MH Construction services/i),
+      ).toBeInTheDocument();
+    });
+  });
+
+  it("uses local knowledge fallback for simple service questions when fetch fails", async () => {
+    const user = userEvent.setup();
+    mockFetch.mockRejectedValueOnce(new Error("Network error"));
+
+    render(<ChatWidget />);
+    await user.click(
+      screen.getByRole("button", { name: /open partnership guide chat/i }),
+    );
+
+    const input = screen.getByRole("textbox", { name: /type your message/i });
+    await user.type(input, "What do you do?");
+    await user.click(screen.getByRole("button", { name: /send message/i }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(/MH Construction provides commercial construction/i),
       ).toBeInTheDocument();
     });
   });
@@ -339,12 +363,12 @@ describe("ChatWidget", () => {
     );
 
     const input = screen.getByRole("textbox", { name: /type your message/i });
-    await user.type(input, "Help");
+    await user.type(input, "What do you do?");
     await user.click(screen.getByRole("button", { name: /send message/i }));
 
     await waitFor(() => {
       expect(
-        screen.getByText(/I wasn't able to process that/i),
+        screen.getByText(/MH Construction provides commercial construction/i),
       ).toBeInTheDocument();
     });
   });
@@ -367,7 +391,7 @@ describe("ChatWidget", () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText(/having trouble connecting/i),
+        screen.getByText(/Hello\. I can help with MH Construction services/i),
       ).toBeInTheDocument();
     });
   });
@@ -598,7 +622,7 @@ describe("ChatWidget Integration Scenarios", () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText(/having trouble connecting/i),
+        screen.getByText(/Hello\. I can help with MH Construction services/i),
       ).toBeInTheDocument();
     });
 

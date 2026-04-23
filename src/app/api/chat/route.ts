@@ -14,7 +14,8 @@ import { withSecurity } from "@/middleware/security";
 import { rateLimit } from "@/lib/security/rate-limiter";
 import { logger } from "@/lib/utils/logger";
 import { captureServerException } from "@/lib/monitoring/sentry-server";
-import { buildSystemPrompt, ALLIES } from "@/lib/chatbot/knowledge-base";
+import { buildSystemPrompt } from "@/lib/chatbot/knowledge-base";
+import { getChatFallbackResponse } from "@/lib/chatbot/fallback";
 import { badRequest, internalServerError } from "@/lib/api/responses";
 
 export const dynamic = "force-dynamic";
@@ -40,7 +41,7 @@ interface ChatPayload {
 
 function sanitize(value: unknown, maxLen: number): string {
   if (typeof value !== "string") return "";
-  return value.replace(/[\x00-\x1F\x7F]/g, "").slice(0, maxLen);
+  return value.replaceAll(/[\x00-\x1F\x7F]/g, "").slice(0, maxLen);
 }
 
 function validatePayload(body: unknown): ChatPayload | null {
@@ -65,162 +66,6 @@ function validatePayload(body: unknown): ChatPayload | null {
   }
 
   return { message, history };
-}
-
-// ── Fallback (no Workers AI binding) ─────────────────────────────────────────
-
-function generateFallbackResponse(message: string): string {
-  const lower = message.toLowerCase();
-
-  // Ally / trade partner queries
-  for (const ally of ALLIES) {
-    const nameWords = ally.name.toLowerCase().split(/\s+/);
-    if (nameWords.some((w) => lower.includes(w) && w.length > 3)) {
-      const contact = [
-        ally.phone ? `phone: ${ally.phone}` : null,
-        ally.email ? `email: ${ally.email}` : null,
-        ally.website ? ally.website : null,
-      ]
-        .filter(Boolean)
-        .join(", ");
-      return `${ally.name} is our ${ally.role}. ${ally.description} You can reach them at ${contact}. Be sure to mention MH Construction when you contact them!`;
-    }
-  }
-
-  // Trade-specific queries
-  const tradeMap: Record<string, string> = {
-    electric: "Diamond Electric",
-    electrical: "Diamond Electric",
-    sign: "Mustang Signs",
-    signage: "Mustang Signs",
-    landscape: "Bagley Landscape Construction, Inc.",
-    landscaping: "Bagley Landscape Construction, Inc.",
-    glass: "McKinney Glass",
-    glazing: "McKinney Glass",
-    window: "McKinney Glass",
-    door: "Dupree Building Specialties",
-    fence: "D-Fence Fencing Company",
-    fencing: "D-Fence Fencing Company",
-    insulation: "Intermountain West Insulation (IWI)",
-    plumbing: "Viking Plumbing & Mechanical",
-    plumber: "Viking Plumbing & Mechanical",
-    cabinet: "Core Cabinet Production",
-    cabinetry: "Core Cabinet Production",
-  };
-
-  for (const [keyword, allyName] of Object.entries(tradeMap)) {
-    if (lower.includes(keyword)) {
-      const ally = ALLIES.find((a) => a.name === allyName);
-      if (ally) {
-        const contact = ally.phone
-          ? `at ${ally.phone}`
-          : ally.website
-            ? `at ${ally.website}`
-            : "";
-        return `For ${keyword} work, we partner with ${ally.name} — our ${ally.role}. ${ally.description} You can reach them ${contact}. Mention MH Construction when you contact them!`;
-      }
-    }
-  }
-
-  // Contact / consultation
-  if (
-    lower.includes("contact") ||
-    lower.includes("phone") ||
-    lower.includes("call") ||
-    lower.includes("email") ||
-    lower.includes("consult")
-  ) {
-    return "You can reach MH Construction at (509) 308-6489 or email office@mhc-gc.com. We offer free face-to-face consultations — visit mhc-gc.com/contact to get started. Our hours are Monday–Friday, 7:00 AM – 4:00 PM PST.";
-  }
-
-  // Pricing / estimate
-  if (
-    lower.includes("price") ||
-    lower.includes("cost") ||
-    lower.includes("estimate") ||
-    lower.includes("bid") ||
-    lower.includes("quote")
-  ) {
-    return "We practice open-book pricing with complete transparency — no hidden costs. Every project is unique, so we'd love to discuss your specific needs during a free consultation. Call us at (509) 308-6489 or visit mhc-gc.com/contact.";
-  }
-
-  // Veteran
-  if (
-    lower.includes("veteran") ||
-    lower.includes("military") ||
-    lower.includes("va ") ||
-    lower.includes("dd-214") ||
-    lower.includes("babaa") ||
-    lower.includes("build america") ||
-    lower.includes("buy america")
-  ) {
-    return "MH Construction is Veteran-Owned Since January 2025 by Army veteran Jeremy Thamert, and we are a dedicated supporter of the Build America, Buy America Act (BABAA). BABAA is a federal domestic-content requirement for certain federally funded infrastructure projects, and as an AGC member we stay current on compliance guidance at agc.org/babaa-resource-hub. We're BBB Accredited with an A+ rating. We offer a Combat Veteran Discount and priority scheduling for all veterans. Bring your DD-214 or VA card to your consultation. Learn more at mhc-gc.com/veterans.";
-  }
-
-  // BBB / Better Business Bureau
-  if (
-    lower.includes("bbb") ||
-    lower.includes("better business") ||
-    lower.includes("accredit")
-  ) {
-    return "MH Construction is BBB Accredited with an A+ rating since April 2026. This recognizes our commitment to trust, transparency, and ethical business practices. View our profile at bbb.org or call (509) 308-6489 to discuss your project.";
-  }
-
-  // Safety
-  if (
-    lower.includes("safety") ||
-    lower.includes("emr") ||
-    lower.includes("osha")
-  ) {
-    return "Safety is non-negotiable at MH Construction. We maintain a 0.64 EMR — 40% better than the industry average. We've earned multiple AGC-WA Top EMR Awards, OSHA VPP Star designation, and have 3+ consecutive years without time-loss injuries.";
-  }
-
-  // Services
-  if (
-    lower.includes("service") ||
-    lower.includes("what do you") ||
-    lower.includes("what can you") ||
-    lower.includes("what type")
-  ) {
-    return "MH Construction provides commercial construction, industrial projects, healthcare & medical facilities, public safety, education, civic/nonprofit, pre-engineered metal buildings (PEMB), government & public sector construction, design-build, tenant improvements, master planning, and more. Visit mhc-gc.com/services for the full list, or call (509) 308-6489 to discuss your project.";
-  }
-
-  // Location / service area
-  if (
-    lower.includes("where") ||
-    lower.includes("location") ||
-    lower.includes("area") ||
-    lower.includes("tri-cities") ||
-    lower.includes("pasco") ||
-    lower.includes("kennewick") ||
-    lower.includes("richland")
-  ) {
-    return "We're headquartered at 3111 N Capitol Ave, Pasco, WA 99301. Our Tri-Cities headquarters covers Pasco, Richland, and Kennewick. We are Tri-State licensed in Washington, Oregon, and Idaho, and serve projects throughout the Pacific Northwest including Yakima, Spokane, Walla Walla, Hermiston (OR), Pendleton (OR), Coeur d'Alene (ID), and Omak. We are also preparing for Montana expansion.";
-  }
-
-  // Allies / partners
-  if (
-    lower.includes("ally") ||
-    lower.includes("allies") ||
-    lower.includes("partner") ||
-    lower.includes("trade")
-  ) {
-    const names = ALLIES.map((a) => a.name).join(", ");
-    return `Our Allies are trusted Trade Partners we work alongside — THE ROI IS THE RELATIONSHIP. Our current Allies include: ${names}. Visit mhc-gc.com/allies to learn more about each partner.`;
-  }
-
-  // Trust / credibility / ratings
-  if (
-    lower.includes("trust") ||
-    lower.includes("credib") ||
-    lower.includes("rating") ||
-    lower.includes("review")
-  ) {
-    return "MH Construction is BBB Accredited with an A+ rating, Veteran-Owned Since January 2025, and a dedicated supporter of the Build America, Buy America Act (BABAA), a federal domestic-content requirement for certain federally funded infrastructure projects. We are licensed in WA, OR, and ID and have completed 650+ successful projects with a 0.64 EMR safety rating. Check our Google reviews or BBB profile for client feedback.";
-  }
-
-  // Default
-  return "Thanks for reaching out! I can help with information about MH Construction's services, our Trade Partner network (Allies), veteran benefits, BBB accreditation, safety record, and more. For project-specific questions, the best step is a free consultation — call (509) 308-6489 or visit mhc-gc.com/contact.";
 }
 
 // ── Cloudflare Workers AI interface ──────────────────────────────────────────
@@ -255,7 +100,7 @@ async function handler(request: NextRequest): Promise<Response> {
     // Try Cloudflare Workers AI first
     let aiResponse: string | null = null;
     try {
-      const { env } = await getCloudflareContext();
+      const { env } = getCloudflareContext();
       const ai = (env as Record<string, unknown>)["AI"] as
         | AiBinding
         | undefined;
@@ -287,7 +132,7 @@ async function handler(request: NextRequest): Promise<Response> {
       });
     }
 
-    const response = aiResponse ?? generateFallbackResponse(payload.message);
+    const response = aiResponse ?? getChatFallbackResponse(payload.message);
 
     return NextResponse.json({ response });
   } catch (error) {

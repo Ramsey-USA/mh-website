@@ -55,8 +55,8 @@ export function DeferredPerformanceEnhancements() {
     };
 
     const scheduleEnable = () => {
-      if ("requestIdleCallback" in window) {
-        idleId = window.requestIdleCallback(enable, { timeout: 1500 });
+      if ("requestIdleCallback" in globalThis) {
+        idleId = globalThis.requestIdleCallback(enable, { timeout: 1500 });
         return;
       }
 
@@ -73,12 +73,12 @@ export function DeferredPerformanceEnhancements() {
       cancelled = true;
       window.removeEventListener("load", scheduleEnable);
 
-      if (idleId !== undefined && "cancelIdleCallback" in window) {
-        window.cancelIdleCallback(idleId);
+      if (idleId !== undefined && "cancelIdleCallback" in globalThis) {
+        globalThis.cancelIdleCallback(idleId);
       }
 
       if (timeoutId !== undefined) {
-        window.clearTimeout(timeoutId);
+        globalThis.clearTimeout(timeoutId);
       }
     };
   }, []);

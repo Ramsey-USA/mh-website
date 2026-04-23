@@ -49,7 +49,7 @@ const MAX_STRING_LENGTH = 256;
 function sanitizeString(value: unknown, maxLen = MAX_STRING_LENGTH): string {
   if (typeof value !== "string") return "";
   // Strip control characters and limit length
-  return value.replace(/[\x00-\x1F\x7F]/g, "").slice(0, maxLen);
+  return value.replaceAll(/[\x00-\x1F\x7F]/g, "").slice(0, maxLen);
 }
 
 function validatePayload(body: unknown): CollectPayload | null {

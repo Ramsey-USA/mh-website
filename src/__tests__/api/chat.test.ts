@@ -81,6 +81,7 @@ describe("POST /api/chat", () => {
     const body = await res.json();
     expect(typeof body.response).toBe("string");
     expect(body.response.length).toBeGreaterThan(0);
+    expect(body.response).toContain("What would you like to know?");
   });
 
   it("returns contact info for 'how do I contact you'", async () => {
@@ -88,6 +89,7 @@ describe("POST /api/chat", () => {
     expect(res.status).toBe(200);
     const body = await res.json();
     expect(body.response).toContain("509");
+    expect(body.response).toContain("office@mhc-gc.com");
   });
 
   it("returns veteran info for 'do you have veteran benefits'", async () => {
@@ -97,15 +99,15 @@ describe("POST /api/chat", () => {
     expect(res.status).toBe(200);
     const body = await res.json();
     expect(body.response.toLowerCase()).toContain("veteran");
+    expect(body.response).toContain("Jeremy Thamert");
   });
 
   it("returns BABAA info for 'do you support BABAA'", async () => {
     const res = await POST(makeRequest({ message: "do you support BABAA" }));
     expect(res.status).toBe(200);
     const body = await res.json();
-    expect(body.response).toContain("BABAA");
     expect(body.response).toContain("Build America, Buy America Act");
-    expect(body.response).toContain("agc.org/babaa-resource-hub");
+    expect(body.response).toContain("(509) 308-6489");
   });
 
   it("uses Workers AI response when AI binding is available", async () => {
@@ -177,7 +179,7 @@ describe("POST /api/chat", () => {
     const res = await POST(makeRequest({ message: "how much does it cost" }));
     expect(res.status).toBe(200);
     const body = await res.json();
-    expect(body.response).toContain("open-book");
+    expect(body.response).toContain("do not quote pricing through chat");
   });
 
   it("returns safety/EMR info", async () => {
@@ -194,13 +196,14 @@ describe("POST /api/chat", () => {
     expect(res.status).toBe(200);
     const body = await res.json();
     expect(body.response).toContain("Pasco");
+    expect(body.response).toContain("Washington, Oregon, and Idaho");
   });
 
   it("returns allies/partners info", async () => {
     const res = await POST(makeRequest({ message: "who are your allies" }));
     expect(res.status).toBe(200);
     const body = await res.json();
-    expect(body.response).toContain("Allies");
+    expect(body.response).toContain("Trade Partners");
   });
 
   it("falls back when AI returns empty response", async () => {
@@ -242,7 +245,7 @@ describe("POST /api/chat", () => {
     );
     expect(res.status).toBe(200);
     const body = await res.json();
-    expect(body.response).toContain("BBB");
+    expect(body.response).toContain("A+");
   });
 
   it("returns trust/credibility info for 'can I trust you'", async () => {
@@ -250,7 +253,7 @@ describe("POST /api/chat", () => {
     expect(res.status).toBe(200);
     const body = await res.json();
     expect(body.response).toContain("BBB Accredited");
-    expect(body.response).toContain("Veteran-Owned");
+    expect(body.response).toContain("relationship-first");
   });
 
   it("returns trust info for 'what are your ratings'", async () => {
@@ -259,7 +262,7 @@ describe("POST /api/chat", () => {
     );
     expect(res.status).toBe(200);
     const body = await res.json();
-    expect(body.response).toContain("Google reviews");
+    expect(body.response).toContain("A+ rating");
   });
 
   it("returns services info for 'what do you do'", async () => {
@@ -273,7 +276,7 @@ describe("POST /api/chat", () => {
     const res = await POST(makeRequest({ message: "what can you build" }));
     expect(res.status).toBe(200);
     const body = await res.json();
-    expect(body.response).toContain("mhc-gc.com/services");
+    expect(body.response).toContain("pre-construction planning");
   });
 
   // ── Trade keyword coverage for website fallback branch ────────────────────
@@ -339,7 +342,7 @@ describe("POST /api/chat", () => {
     );
     expect(res.status).toBe(200);
     const body = await res.json();
-    expect(body.response).toContain("Thanks for reaching out");
+    expect(body.response).toContain("I can help with MH Construction services");
     expect(body.response).toContain("(509) 308-6489");
   });
 });
