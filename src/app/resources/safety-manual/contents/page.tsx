@@ -62,7 +62,11 @@ export default function SafetyManualContentsPage() {
 
   return (
     <>
-      <StructuredData data={generateBreadcrumbSchema(breadcrumbs, siteUrl)} />
+      <StructuredData
+        data={generateBreadcrumbSchema(
+          breadcrumbs.map((item) => ({ name: item.label, url: item.href })),
+        )}
+      />
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="bg-gradient-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-12 sm:px-6">

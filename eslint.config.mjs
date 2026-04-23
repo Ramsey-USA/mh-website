@@ -1,6 +1,9 @@
 import { FlatCompat } from "@eslint/eslintrc";
-import { fileURLToPath } from "url";
-import path from "path";
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
+import tsEslintPlugin from "@typescript-eslint/eslint-plugin";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -76,14 +79,32 @@ const eslintConfig = [
   },
 
   // === BASE CONFIGURATION ===
-  // Use FlatCompat to convert legacy eslint-config-next CJS configs for ESLint 9 flat config.
-  ...compat.extends("next/core-web-vitals"),
-  ...compat.extends("next/typescript"),
+  // Use legacy-compatible preset names because eslint-config-next currently
+  // references a plugin preset shape that conflicts with ESLint 9 schema checks.
+  ...compat.extends(
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@next/next/core-web-vitals-legacy",
+    "plugin:@typescript-eslint/recommended",
+  ),
 
   // === CUSTOM RULES ===
   {
+    plugins: {
+      "@typescript-eslint": tsEslintPlugin,
+      "react-hooks": reactHooksPlugin,
+      "jsx-a11y": jsxA11yPlugin,
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
     rules: {
       // === React & Next.js Rules ===
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-uses-react": "off",
+      "react/no-unknown-property": "off",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
       // Disabled: these Next 16 rules flag intentional React patterns
