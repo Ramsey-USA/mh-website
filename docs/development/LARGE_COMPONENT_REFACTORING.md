@@ -53,7 +53,7 @@ This guide provides step-by-step strategies for refactoring large components (10
 
 **Task:** Extract data structures into separate files
 
-#### Before:
+#### Before
 
 ```typescript
 // In CareersPageClient.tsx (inline data - 200+ lines)
@@ -74,7 +74,7 @@ const applicationTimeline = [
 ];
 ```
 
-#### After - Create `src/app/careers/data/positions.ts`:
+#### After - Create `src/app/careers/data/positions.ts`
 
 ```typescript
 /**
@@ -115,7 +115,7 @@ export const POSITIONS_ES = [
 export type Position = (typeof POSITIONS_EN)[number];
 ```
 
-#### Then use in component:
+#### Then use in component
 
 ```typescript
 import { POSITIONS_EN, POSITIONS_ES } from "./data/positions";
@@ -372,7 +372,7 @@ export function ApplicationTimeline({
 
 **Task:** Isolate complex state into custom hooks
 
-#### Before:
+#### Before
 
 ```typescript
 export function CareersPageClient() {
@@ -403,7 +403,7 @@ export function CareersPageClient() {
 }
 ```
 
-#### After - Create `src/app/careers/hooks/useApplicationForm.ts`:
+#### After - Create `src/app/careers/hooks/useApplicationForm.ts`
 
 ```typescript
 /**

@@ -449,7 +449,7 @@ export async function POST(request: Request) {
 
 ### 5.2 Accessibility Opportunities - ENHANCEMENT
 
-**Opportunity 1: Skip to Main Content Link**
+#### Opportunity 1: Skip to Main Content Link
 
 **Status:** ✅ Already implemented in [src/components/ui/accessibility/SkipLink.tsx](src/components/ui/accessibility/SkipLink.tsx)
 
@@ -539,7 +539,7 @@ export const metadata: Metadata = {
 
 ### 6.3 SEO Opportunities - ENHANCEMENT
 
-**Opportunity 1: Dynamic Open Graph Images**
+#### Opportunity 1: Dynamic Open Graph Images
 
 **Current State:** Static og: image
 
@@ -631,7 +631,7 @@ src/components/
 
 ### 7.3 Opportunities for NEW Reusable Components
 
-**Opportunity 1: Form Validation Component**
+#### Opportunity 1: Form Validation Component
 
 **Current State:** Form validation logic in individual pages
 
@@ -664,7 +664,7 @@ export function useFormValidation(schema: ZodSchema) {
 
 ---
 
-**Opportunity 2: Modal Wrapper Component**
+#### Opportunity 2: Modal Wrapper Component
 
 **Current State:** Modals inline in pages
 
@@ -698,7 +698,7 @@ export function ModalWrapper({
 
 ---
 
-**Opportunity 3: Hero Section Pattern**
+#### Opportunity 3: Hero Section Pattern
 
 **Current State:** Hero sections inline in pages
 
@@ -766,7 +766,7 @@ export function HeroSection({
 
 ### 8.2 Minor Documentation Gaps
 
-**Gap 1: API Route Documentation Index**
+#### Gap 1: API Route Documentation Index
 
 **Current State:** API routes documented inline, no central index
 
@@ -800,7 +800,7 @@ export function HeroSection({
 
 ---
 
-**Gap 2: Component Prop Documentation**
+#### Gap 2: Component Prop Documentation
 
 **Current State:** Some components lack JSDoc comments
 
@@ -834,7 +834,7 @@ export function ServiceCard({ service, isCompact = false }: ServiceCardProps) {
 
 ---
 
-**Gap 3: Deployment & CI/CD Documentation**
+#### Gap 3: Deployment & CI/CD Documentation
 
 **Current State:** Referenced but not fully documented
 

@@ -20,7 +20,7 @@ Main Contact:
 
 - Jeremy Thamert, President
 - Phone: 509-308-6489
-- Email: jeremy@mhc-gc.com
+- Email: <jeremy@mhc-gc.com>
 
 Office Address:
 
@@ -29,12 +29,12 @@ Office Address:
 License and Compliance:
 
 - L&I Number: MHCONCI907R7
-- WA License verification: https://secure.lni.wa.gov/verify/Detail.aspx?UBI=603069508&LIC=MHCONCI907R7&SAW=false
+- WA License verification: <https://secure.lni.wa.gov/verify/Detail.aspx?UBI=603069508&LIC=MHCONCI907R7&SAW=false>
 
 Company Standing and Affiliations:
 
 - BBB: A+ Accredited Business
-- Better Business Bureau profile: https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036/#sealclick
+- Better Business Bureau profile: <https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036/#sealclick>
 - Insurance partner: Travelers Insurance
 - Professional affiliations: AGC, ICC, NFPA
 - Chamber memberships: Pasco Chamber, Richland Chamber, Tri-City Regional Chamber
@@ -47,10 +47,10 @@ Key Personnel:
 
 Owner References:
 
-- Lutheran Community Services NW: Jesse Dunagan (PM), phone [TBD], office site https://lcsnw.org/office/tri-cities-kennewick, social reference https://www.facebook.com/lcsnwtricities/
-- Darigold Pasco: Jay Czerniak (PM, Miron Construction), phone [TBD], company news https://www.darigold.com/blog/darigold-opens-pasco-plant-the-largest-dairy-processing-facility-in-the-northwest/
-- Summer's Hub (Pasco and Kennewick): Chris Corbin (Owner), phone [TBD], Kennewick site https://thehubkennewick.com/, Pasco social reference https://www.facebook.com/p/Summers-Hub-of-Pasco-61578304691220/
-- Franklin County Morgue: Curtis McGary (Coroner), phone [TBD], project coverage https://www.tricitiesbusinessnews.com/articles/7202-franklin-county-coroners-office-morgue
+- Lutheran Community Services NW: Jesse Dunagan (PM), phone [TBD], office site <https://lcsnw.org/office/tri-cities-kennewick,> social reference <https://www.facebook.com/lcsnwtricities/>
+- Darigold Pasco: Jay Czerniak (PM, Miron Construction), phone [TBD], company news <https://www.darigold.com/blog/darigold-opens-pasco-plant-the-largest-dairy-processing-facility-in-the-northwest/>
+- Summer's Hub (Pasco and Kennewick): Chris Corbin (Owner), phone [TBD], Kennewick site <https://thehubkennewick.com/,> Pasco social reference <https://www.facebook.com/p/Summers-Hub-of-Pasco-61578304691220/>
+- Franklin County Morgue: Curtis McGary (Coroner), phone [TBD], project coverage <https://www.tricitiesbusinessnews.com/articles/7202-franklin-county-coroners-office-morgue>
 
 ## 2) Relevant Project Experience
 
@@ -64,11 +64,11 @@ Selected relevant experience:
 
 Public project links:
 
-- Summer's Hub Kennewick: https://thehubkennewick.com/
-- Summer's Hub of Pasco: https://www.facebook.com/p/Summers-Hub-of-Pasco-61578304691220/
-- Darigold Pasco Plant: https://www.darigold.com/blog/darigold-opens-pasco-plant-the-largest-dairy-processing-facility-in-the-northwest/
-- Franklin County Morgue: https://www.tricitiesbusinessnews.com/articles/7202-franklin-county-coroners-office-morgue
-- Lutheran Community Services NW: https://lcsnw.org/office/tri-cities-kennewick
+- Summer's Hub Kennewick: <https://thehubkennewick.com/>
+- Summer's Hub of Pasco: <https://www.facebook.com/p/Summers-Hub-of-Pasco-61578304691220/>
+- Darigold Pasco Plant: <https://www.darigold.com/blog/darigold-opens-pasco-plant-the-largest-dairy-processing-facility-in-the-northwest/>
+- Franklin County Morgue: <https://www.tricitiesbusinessnews.com/articles/7202-franklin-county-coroners-office-morgue>
+- Lutheran Community Services NW: <https://lcsnw.org/office/tri-cities-kennewick>
 
 Company depth:
 
@@ -175,17 +175,17 @@ Exhibit reference:
 
 Business and regulatory links:
 
-- WA Department of Labor & Industries license verification: https://secure.lni.wa.gov/verify/Detail.aspx?UBI=603069508&LIC=MHCONCI907R7&SAW=false
-- Better Business Bureau profile: https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036/#sealclick
+- WA Department of Labor & Industries license verification: <https://secure.lni.wa.gov/verify/Detail.aspx?UBI=603069508&LIC=MHCONCI907R7&SAW=false>
+- Better Business Bureau profile: <https://www.bbb.org/us/wa/pasco/profile/construction/mh-construction-inc-1296-1000191036/#sealclick>
 
 Project and reference links:
 
-- Summer's Hub Kennewick: https://thehubkennewick.com/
-- Summer's Hub of Pasco: https://www.facebook.com/p/Summers-Hub-of-Pasco-61578304691220/
-- Darigold Pasco Plant: https://www.darigold.com/blog/darigold-opens-pasco-plant-the-largest-dairy-processing-facility-in-the-northwest/
-- Franklin County Morgue: https://www.tricitiesbusinessnews.com/articles/7202-franklin-county-coroners-office-morgue
-- Lutheran Community Services NW Facebook: https://www.facebook.com/lcsnwtricities/
-- Lutheran Community Services NW office: https://lcsnw.org/office/tri-cities-kennewick
+- Summer's Hub Kennewick: <https://thehubkennewick.com/>
+- Summer's Hub of Pasco: <https://www.facebook.com/p/Summers-Hub-of-Pasco-61578304691220/>
+- Darigold Pasco Plant: <https://www.darigold.com/blog/darigold-opens-pasco-plant-the-largest-dairy-processing-facility-in-the-northwest/>
+- Franklin County Morgue: <https://www.tricitiesbusinessnews.com/articles/7202-franklin-county-coroners-office-morgue>
+- Lutheran Community Services NW Facebook: <https://www.facebook.com/lcsnwtricities/>
+- Lutheran Community Services NW office: <https://lcsnw.org/office/tri-cities-kennewick>
 
 Exhibit file status:
 
@@ -198,5 +198,5 @@ Exhibit file status:
 Jeremy Thamert
 President, MH Construction, Inc.
 509-308-6489
-jeremy@mhc-gc.com
+<jeremy@mhc-gc.com>
 3111 N. Capitol Ave, Pasco, WA 99301
