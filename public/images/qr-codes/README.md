@@ -1,13 +1,13 @@
 # QR Codes for MH Construction
 
-Generated: 4/23/2026, 7:18:13 PM
+Generated: 4/23/2026, 7:28:09 PM
 
 ## Summary
 
-- **Total QR Codes:** 218
-- **Successfully Generated:** 218
+- **Total QR Codes:** 196
+- **Successfully Generated:** 196
 - **Location:** `public/images/qr-codes`
-- **Folders:** `core`, `contact`, `rfq`, `safety`, `locations`, `social`, `safety-sections`, `team`
+- **Folders:** `core`, `contact`, `rfq`, `safety`, `social`, `safety-sections`, `team`
 
 ## Available QR Codes
 
@@ -310,138 +310,6 @@ Generated: 4/23/2026, 7:18:13 PM
 - **Name:** `employee-handbook`
 - **File:** `safety/qr-employee-handbook-bw.png`
 - **URL:** https://www.mhc-gc.com/employee-handbook
-
-### ✅ Richland, WA
-
-- **Name:** `location-richland`
-- **File:** `locations/qr-location-richland-color.png`
-- **URL:** https://www.mhc-gc.com/locations/richland
-
-### ✅ Richland, WA
-
-- **Name:** `location-richland`
-- **File:** `locations/qr-location-richland-bw.png`
-- **URL:** https://www.mhc-gc.com/locations/richland
-
-### ✅ Kennewick, WA
-
-- **Name:** `location-kennewick`
-- **File:** `locations/qr-location-kennewick-color.png`
-- **URL:** https://www.mhc-gc.com/locations/kennewick
-
-### ✅ Kennewick, WA
-
-- **Name:** `location-kennewick`
-- **File:** `locations/qr-location-kennewick-bw.png`
-- **URL:** https://www.mhc-gc.com/locations/kennewick
-
-### ✅ Pasco, WA
-
-- **Name:** `location-pasco`
-- **File:** `locations/qr-location-pasco-color.png`
-- **URL:** https://www.mhc-gc.com/locations/pasco
-
-### ✅ Pasco, WA
-
-- **Name:** `location-pasco`
-- **File:** `locations/qr-location-pasco-bw.png`
-- **URL:** https://www.mhc-gc.com/locations/pasco
-
-### ✅ Spokane, WA
-
-- **Name:** `location-spokane`
-- **File:** `locations/qr-location-spokane-color.png`
-- **URL:** https://www.mhc-gc.com/locations/spokane
-
-### ✅ Spokane, WA
-
-- **Name:** `location-spokane`
-- **File:** `locations/qr-location-spokane-bw.png`
-- **URL:** https://www.mhc-gc.com/locations/spokane
-
-### ✅ Yakima, WA
-
-- **Name:** `location-yakima`
-- **File:** `locations/qr-location-yakima-color.png`
-- **URL:** https://www.mhc-gc.com/locations/yakima
-
-### ✅ Yakima, WA
-
-- **Name:** `location-yakima`
-- **File:** `locations/qr-location-yakima-bw.png`
-- **URL:** https://www.mhc-gc.com/locations/yakima
-
-### ✅ Walla Walla, WA
-
-- **Name:** `location-walla-walla`
-- **File:** `locations/qr-location-walla-walla-color.png`
-- **URL:** https://www.mhc-gc.com/locations/walla-walla
-
-### ✅ Walla Walla, WA
-
-- **Name:** `location-walla-walla`
-- **File:** `locations/qr-location-walla-walla-bw.png`
-- **URL:** https://www.mhc-gc.com/locations/walla-walla
-
-### ✅ West Richland, WA
-
-- **Name:** `location-west-richland`
-- **File:** `locations/qr-location-west-richland-color.png`
-- **URL:** https://www.mhc-gc.com/locations/west-richland
-
-### ✅ West Richland, WA
-
-- **Name:** `location-west-richland`
-- **File:** `locations/qr-location-west-richland-bw.png`
-- **URL:** https://www.mhc-gc.com/locations/west-richland
-
-### ✅ Omak, WA
-
-- **Name:** `location-omak`
-- **File:** `locations/qr-location-omak-color.png`
-- **URL:** https://www.mhc-gc.com/locations/omak
-
-### ✅ Omak, WA
-
-- **Name:** `location-omak`
-- **File:** `locations/qr-location-omak-bw.png`
-- **URL:** https://www.mhc-gc.com/locations/omak
-
-### ✅ Coeur d'Alene, ID
-
-- **Name:** `location-coeur-d-alene`
-- **File:** `locations/qr-location-coeur-d-alene-color.png`
-- **URL:** https://www.mhc-gc.com/locations/coeur-d-alene
-
-### ✅ Coeur d'Alene, ID
-
-- **Name:** `location-coeur-d-alene`
-- **File:** `locations/qr-location-coeur-d-alene-bw.png`
-- **URL:** https://www.mhc-gc.com/locations/coeur-d-alene
-
-### ✅ Hermiston, OR
-
-- **Name:** `location-hermiston`
-- **File:** `locations/qr-location-hermiston-color.png`
-- **URL:** https://www.mhc-gc.com/locations/hermiston
-
-### ✅ Hermiston, OR
-
-- **Name:** `location-hermiston`
-- **File:** `locations/qr-location-hermiston-bw.png`
-- **URL:** https://www.mhc-gc.com/locations/hermiston
-
-### ✅ Pendleton, OR
-
-- **Name:** `location-pendleton`
-- **File:** `locations/qr-location-pendleton-color.png`
-- **URL:** https://www.mhc-gc.com/locations/pendleton
-
-### ✅ Pendleton, OR
-
-- **Name:** `location-pendleton`
-- **File:** `locations/qr-location-pendleton-bw.png`
-- **URL:** https://www.mhc-gc.com/locations/pendleton
 
 ### ✅ Call Us: (509) 308-6489
 

@@ -219,74 +219,6 @@ const QR_CODES = [
     label: "www.mhc-gc.com/employee-handbook",
   },
 
-  // Service area location pages
-  {
-    name: "location-richland",
-    url: `${BASE_URL}/locations/richland`,
-    description: "Richland, WA",
-    label: "RICHLAND, WA",
-  },
-  {
-    name: "location-kennewick",
-    url: `${BASE_URL}/locations/kennewick`,
-    description: "Kennewick, WA",
-    label: "KENNEWICK, WA",
-  },
-  {
-    name: "location-pasco",
-    url: `${BASE_URL}/locations/pasco`,
-    description: "Pasco, WA",
-    label: "PASCO, WA",
-  },
-  {
-    name: "location-spokane",
-    url: `${BASE_URL}/locations/spokane`,
-    description: "Spokane, WA",
-    label: "SPOKANE, WA",
-  },
-  {
-    name: "location-yakima",
-    url: `${BASE_URL}/locations/yakima`,
-    description: "Yakima, WA",
-    label: "YAKIMA, WA",
-  },
-  {
-    name: "location-walla-walla",
-    url: `${BASE_URL}/locations/walla-walla`,
-    description: "Walla Walla, WA",
-    label: "WALLA WALLA, WA",
-  },
-  {
-    name: "location-west-richland",
-    url: `${BASE_URL}/locations/west-richland`,
-    description: "West Richland, WA",
-    label: "WEST RICHLAND, WA",
-  },
-  {
-    name: "location-omak",
-    url: `${BASE_URL}/locations/omak`,
-    description: "Omak, WA",
-    label: "OMAK, WA",
-  },
-  {
-    name: "location-coeur-d-alene",
-    url: `${BASE_URL}/locations/coeur-d-alene`,
-    description: "Coeur d'Alene, ID",
-    label: "COEUR D'ALENE, ID",
-  },
-  {
-    name: "location-hermiston",
-    url: `${BASE_URL}/locations/hermiston`,
-    description: "Hermiston, OR",
-    label: "HERMISTON, OR",
-  },
-  {
-    name: "location-pendleton",
-    url: `${BASE_URL}/locations/pendleton`,
-    description: "Pendleton, OR",
-    label: "PENDLETON, OR",
-  },
-
   // Contact methods
   {
     name: "phone",
@@ -712,7 +644,6 @@ function getFolderForQR(name) {
   ) {
     return "contact";
   }
-  if (name.startsWith("location-")) return "locations";
   return "core";
 }
 
