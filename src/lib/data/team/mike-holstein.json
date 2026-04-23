@@ -1,0 +1,59 @@
+{
+  "name": "Mike Holstein",
+  "role": "Founder (Retired)",
+  "department": "The Upper Brass",
+  "cardNumber": 2,
+  "position": "Founder",
+  "nickname": "The Founder",
+  "yearsWithCompany": 30,
+  "hometown": "Pacific Northwest",
+  "education": "Construction Management",
+  "currentYearStats": {
+    "projectsCompleted": 12,
+    "clientSatisfaction": 99,
+    "safetyRecord": "PERFECT",
+    "teamCollaborations": 15
+  },
+  "careerStats": {
+    "totalProjects": 500,
+    "yearsExperience": 44,
+    "specialtyAreas": 8,
+    "mentorships": 25
+  },
+  "awards": "Lifetime Achievement Award, Regional Business Excellence Award",
+  "bio": "Mike Holstein founded MH Construction in 2010 and established its reputation for integrity, quality, and precision. His leadership and vision established the \"We Work With You\" partnership philosophy that defines MH Construction today.",
+  "careerHighlights": [
+    "Founded MH Construction in 2010",
+    "Established company core values",
+    "Built reputation for quality excellence",
+    "Mentored next generation of leaders"
+  ],
+  "funFact": "Mike started the company with just a pickup truck and a toolbox, growing it into a regional construction leader.",
+  "certifications": "CCM, CPM, Procore Certified",
+  "hobbies": "Woodworking, Fishing",
+  "specialInterests": "Mentoring Youth",
+  "specialties": [
+    "Company Foundations & Core Values Establishment",
+    "Quality Standards Development",
+    "Client Trust & Reputation Building",
+    "Mentorship & Succession Planning"
+  ],
+  "avatar": "/images/team/mike-holstein.jpg",
+  "veteranStatus": "Civilian Founder",
+  "active": true,
+  "slug": "mike-holstein",
+  "email": "office@mhc-gc.com",
+  "skills": {
+    "leadership": 95,
+    "technical": 85,
+    "communication": 98,
+    "safety": 95,
+    "problemSolving": 95,
+    "teamwork": 92,
+    "organization": 90,
+    "innovation": 85,
+    "passion": 92,
+    "continuingEducation": 80
+  },
+  "qrCode": "/media/qr-codes/team/qr-team-mike-holstein-color.png"
+}

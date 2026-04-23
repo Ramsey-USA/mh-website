@@ -1267,6 +1267,33 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
               </ul>
             </div>
           )}
+          {member.qrCode && (
+            <div className="flex flex-col items-center gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <h4 className="text-sm font-bold text-brand-primary dark:text-brand-secondary flex items-center gap-2">
+                <MaterialIcon
+                  icon="qr_code_2"
+                  size="sm"
+                  className="text-brand-primary dark:text-brand-secondary"
+                />
+                Digital Business Card
+              </h4>
+              <div className="relative w-40 h-40 border-2 border-brand-primary/20 dark:border-brand-primary/30 rounded-xl overflow-hidden shadow-md bg-white dark:bg-white">
+                <Image
+                  src={member.qrCode}
+                  alt={`QR code for ${member.name} — scan to connect`}
+                  fill
+                  className="object-contain p-2"
+                  sizes="160px"
+                />
+              </div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
+                Scan to connect with{" "}
+                <span className="font-semibold text-gray-700 dark:text-gray-200">
+                  {member.name.split(" ")[0]}
+                </span>
+              </p>
+            </div>
+          )}
         </div>
       </Modal>
     </div>

@@ -588,4 +588,4 @@ Current breakdown:
 
 **Last Updated:** April 21, 2026  
 **Maintained By:** MH Development Team  
-**Questions?** Contact: devops@mhc-gc.com
+**Questions?** Contact: <devops@mhc-gc.com>

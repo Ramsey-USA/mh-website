@@ -1,0 +1,60 @@
+{
+  "name": "Todd Schoeff",
+  "role": "Lead Estimator",
+  "department": "Special Operations",
+  "cardNumber": 7,
+  "position": "Lead Estimator",
+  "nickname": "The Intelligence Officer",
+  "yearsWithCompany": 20,
+  "hometown": "Washington State",
+  "education": "Construction Engineering",
+  "currentYearStats": {
+    "projectsCompleted": 85,
+    "clientSatisfaction": 98,
+    "safetyRecord": "PERFECT",
+    "teamCollaborations": 35
+  },
+  "careerStats": {
+    "totalProjects": 750,
+    "yearsExperience": 20,
+    "specialtyAreas": 6,
+    "mentorships": 20
+  },
+  "awards": "Estimating Excellence Award, 20-Year Service Recognition",
+  "bio": "Todd entered the construction industry through high voltage linework inspection, later moving into the low voltage field, where he developed leadership and technical expertise. His career evolved into estimating, where his attention to detail and analytical thinking drive accurate project planning. As Estimator, Todd manages the preconstruction process from reviewing plans/specs to developing cost estimates and coordinating bid packages. He works closely with PMs, Allies, and suppliers to ensure complete, competitive pricing.",
+  "careerHighlights": [
+    "Amazon Oyster & Pearl - Navigating COVID restrictions; expanded role to full Access Control installation",
+    "Northwest Energy Security Towers - Strict protocol coordination, minimal downtime during network integration",
+    "Achieved 98% estimating accuracy rate",
+    "Developed cost control protocols"
+  ],
+  "funFact": "Driven by innovation and craftsmanship, I take pride in shaping the industry while building a future my wife and kids can be proud of.",
+  "certifications": "CCE, ASPE, Procore Certified",
+  "hobbies": "Golf, Analytics",
+  "specialInterests": "Cost Engineering",
+  "specialties": [
+    "Attention to Detail",
+    "Client-Focused Communication",
+    "Analytical Thinking",
+    "Dependability",
+    "Risk Management"
+  ],
+  "avatar": "/images/team/todd-schoeff.webp",
+  "veteranStatus": "Civilian Professional",
+  "active": true,
+  "slug": "todd-schoeff",
+  "email": "todd@mhc-gc.com",
+  "skills": {
+    "leadership": 78,
+    "technical": 92,
+    "communication": 84,
+    "safety": 70,
+    "problemSolving": 86,
+    "teamwork": 80,
+    "organization": 88,
+    "innovation": 92,
+    "passion": 86,
+    "continuingEducation": 84
+  },
+  "qrCode": "/media/qr-codes/team/qr-team-todd-schoeff-color.png"
+}

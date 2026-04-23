@@ -1,0 +1,60 @@
+{
+  "name": "Derek Parks",
+  "role": "Superintendent",
+  "department": "Field Officers",
+  "cardNumber": 24,
+  "position": "Superintendent",
+  "nickname": "The Squad Leader",
+  "yearsWithCompany": 10,
+  "hometown": "Washington State",
+  "education": "Construction Technology",
+  "currentYearStats": {
+    "projectsCompleted": 28,
+    "clientSatisfaction": 96,
+    "safetyRecord": "EXCELLENT",
+    "teamCollaborations": 32
+  },
+  "careerStats": {
+    "totalProjects": 245,
+    "yearsExperience": 12,
+    "specialtyAreas": 5,
+    "mentorships": 14
+  },
+  "awards": "Project Organization Excellence Award, Team Leadership Recognition",
+  "bio": "Derek is a seasoned craftsman who has built a career grounded in precision and creativity with 25 years of hands-on experience. Beginning his journey in high-end custom retail fixtures and moving to luxury yacht builds, he honed his skill for detail and craftsmanship. Over time, his passion for quality construction and problem-solving led him to transition into the field of commercial construction. Bringing the same meticulous eye and dedication to large scale projects, he now specializes in managing builds from groundbreaking to turnkey, ensuring that every project reflects both superior quality and practical performance.",
+  "careerHighlights": [
+    "Darigold",
+    "High-end custom retail fixtures",
+    "Luxury yacht builds",
+    "Achieved consistent on-time project delivery"
+  ],
+  "funFact": "Building with the right team, ensuring jobs are completed to a high standard, and leaving behind tangible projects that his family can see and remember as part of his legacy.",
+  "certifications": "Forklift Operator, Scissor Lift Operator, Snake Lift Operator, CPR Certified, Procore Certified",
+  "hobbies": "Organization, Fishing",
+  "specialInterests": "Workflow Optimization",
+  "specialties": [
+    "Skilled Finish Craftsman",
+    "Works Well With Others",
+    "Strong Communicator",
+    "Leader and Mentor",
+    "Very Well Organized"
+  ],
+  "avatar": "/images/team/derek-parks.webp",
+  "veteranStatus": "Civilian Professional",
+  "active": true,
+  "slug": "derek-parks",
+  "email": "derek@mhc-gc.com",
+  "skills": {
+    "leadership": 75,
+    "technical": 84,
+    "communication": 76,
+    "safety": 88,
+    "problemSolving": 74,
+    "teamwork": 76,
+    "organization": 86,
+    "innovation": 68,
+    "passion": 78,
+    "continuingEducation": 75
+  },
+  "qrCode": "/media/qr-codes/team/qr-team-derek-parks-color.png"
+}

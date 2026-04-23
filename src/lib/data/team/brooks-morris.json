@@ -1,0 +1,60 @@
+{
+  "name": "Brooks Morris",
+  "role": "Finance and Operations Manager",
+  "department": "Logistics Command",
+  "cardNumber": 88,
+  "position": "Finance and Operations Manager",
+  "nickname": "The Finance Officer",
+  "yearsWithCompany": 10,
+  "hometown": "Washington",
+  "education": "Accounting & Finance",
+  "currentYearStats": {
+    "projectsCompleted": 60,
+    "clientSatisfaction": 99,
+    "safetyRecord": "N/A",
+    "teamCollaborations": 50
+  },
+  "careerStats": {
+    "totalProjects": 450,
+    "yearsExperience": 12,
+    "specialtyAreas": 4,
+    "mentorships": 12
+  },
+  "awards": "Financial Excellence Award, Transparency Leadership Recognition",
+  "bio": "Brooks is a results-driven Finance and Operations Manager with over a decade of experience enhancing financial performance and efficiency across manufacturing, service, and construction industries. A strategic, hands-on leader, he has led accounting teams through major transitions, streamlined systems, and recovered millions in unclaimed revenue. A Six Sigma Black Belt, Brooks blends financial expertise with operational insight to drive accountability, measurable results, and the highest standards of financial integrity and organizational excellence.",
+  "careerHighlights": [
+    "Led accounting teams through major transitions",
+    "Recovered millions in unclaimed revenue",
+    "Streamlined financial systems across multiple industries",
+    "Implemented accountability and measurable results frameworks"
+  ],
+  "funFact": "Driving financial clarity, operational excellence, and measurable results that improve the success rate for every organization I serve.",
+  "certifications": "Six Sigma Master Black Belt, Six Sigma Black Belt, Procore Certified Admin",
+  "hobbies": "Finance, Reading",
+  "specialInterests": "Cost Analysis",
+  "specialties": [
+    "Analytical Precision",
+    "Transparency",
+    "Collaborative Leadership",
+    "Financial System Optimization",
+    "Dependable Financial Insight"
+  ],
+  "avatar": "/images/team/brooks-morris.webp",
+  "veteranStatus": "Civilian Professional",
+  "active": true,
+  "slug": "brooks-morris",
+  "email": "brooks@mhc-gc.com",
+  "skills": {
+    "leadership": 82,
+    "technical": 94,
+    "communication": 88,
+    "safety": 58,
+    "problemSolving": 92,
+    "teamwork": 84,
+    "organization": 98,
+    "innovation": 88,
+    "passion": 90,
+    "continuingEducation": 86
+  },
+  "qrCode": "/media/qr-codes/team/qr-team-brooks-morris-color.png"
+}

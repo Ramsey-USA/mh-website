@@ -1,0 +1,57 @@
+{
+  "name": "Brittney Holstein",
+  "role": "HR Manager",
+  "department": "Logistics Command",
+  "cardNumber": 12,
+  "position": "HR Manager",
+  "nickname": "The Personnel Officer",
+  "yearsWithCompany": 8,
+  "hometown": "Tri-Cities, WA",
+  "education": "Human Resources",
+  "currentYearStats": {
+    "projectsCompleted": 45,
+    "clientSatisfaction": 98,
+    "safetyRecord": "N/A",
+    "teamCollaborations": 55
+  },
+  "careerStats": {
+    "totalProjects": 280,
+    "yearsExperience": 12,
+    "specialtyAreas": 5,
+    "mentorships": 20
+  },
+  "awards": "Team Building Excellence Award, HR Innovation Recognition",
+  "bio": "Brittney focuses on building a strong team culture that supports both employee growth and client service. She leads efforts to expand veteran hiring and support programs while maintaining high retention rates, reflecting MH Construction's commitment to honoring those who served and building a family-oriented workplace.",
+  "careerHighlights": [
+    "Developed veteran hiring initiatives",
+    "Achieved 95% employee retention rate",
+    "Led team development programs",
+    "Implemented comprehensive training systems"
+  ],
+  "funFact": "Brittney has personally interviewed and hired over 80% of the current MH Construction team members.",
+  "specialties": [
+    "Recruitment & Talent Acquisition",
+    "Employee Relations & Development",
+    "Team Development & Training",
+    "HR Compliance & Policy Management"
+  ],
+  "avatar": "/images/team/brittney-holstein.jpg",
+  "veteranStatus": "Civilian Professional",
+  "active": true,
+  "slug": "brittney-holstein",
+  "email": "brittney@mhc-gc.com",
+  "skills": {
+    "leadership": 82,
+    "technical": 74,
+    "communication": 88,
+    "safety": 60,
+    "problemSolving": 82,
+    "teamwork": 90,
+    "organization": 88,
+    "innovation": 78,
+    "passion": 86,
+    "continuingEducation": 72
+  },
+  "qrCode": "/media/qr-codes/team/qr-team-brittney-holstein-color.png",
+  "certifications": "Procore Certified"
+}

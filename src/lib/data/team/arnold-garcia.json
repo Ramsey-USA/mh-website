@@ -1,0 +1,60 @@
+{
+  "name": "Arnold Garcia",
+  "role": "Vice President",
+  "department": "The Upper Brass",
+  "cardNumber": 3,
+  "position": "Vice President",
+  "nickname": "The Executive Officer",
+  "yearsWithCompany": 15,
+  "hometown": "Washington State",
+  "education": "Business Operations",
+  "currentYearStats": {
+    "projectsCompleted": 38,
+    "clientSatisfaction": 97,
+    "safetyRecord": "EXCELLENT",
+    "teamCollaborations": 22
+  },
+  "careerStats": {
+    "totalProjects": 425,
+    "yearsExperience": 40,
+    "specialtyAreas": 6,
+    "mentorships": 18
+  },
+  "awards": "Excellence in Client Relations Award, Outstanding VP Achievement",
+  "bio": "Arnold began his career as a teen working summer vacations as a laborer for his uncle's construction company. Once he finished school, he built a lifelong career in the field. Following his marriage to Elizabeth, he moved to Seattle, advancing from Superintendent to Project Manager in commercial construction. Later, Arnold returned to Eastern Washington, became General Manager for his uncle's firm, and eventually purchased and ran the company successfully. Now Vice President at MH Construction, Arnold oversees all construction activities and staff. He takes an active role in mentoring and training the staff while sharing his wealth of knowledge, exemplifying the company's core values every day.",
+  "careerHighlights": [
+    "South Terminal Expansion Project at Sea-Tac International Airport",
+    "The Titan Data Center",
+    "The Vintage Apartments",
+    "Built strategic partnerships"
+  ],
+  "funFact": "Arnold always wants to live life and approach projects with the following mindset: The name you are born with is nowhere near as important as the name you leave behind.",
+  "certifications": "CDL, State Certified Spanish/English Interpreter, Forklifts, Aerial Platforms/Scissor Lifts, CPR/First Aid, Powder Actuated Tools, Cert E, Procore Certified Admin",
+  "hobbies": "Baseball, Cooking",
+  "specialInterests": "Client Relations",
+  "specialties": [
+    "Very Organized",
+    "Strong Negotiating Skills",
+    "Grounded Compassionate Leadership",
+    "Solid Construction Knowledge",
+    "Client-Focused Critical Thinking"
+  ],
+  "avatar": "/images/team/arnold-garcia.webp",
+  "veteranStatus": "Civilian Leadership",
+  "active": true,
+  "slug": "arnold-garcia",
+  "email": "arnold@mhc-gc.com",
+  "skills": {
+    "leadership": 92,
+    "technical": 90,
+    "communication": 90,
+    "safety": 82,
+    "problemSolving": 88,
+    "teamwork": 90,
+    "organization": 90,
+    "innovation": 86,
+    "passion": 90,
+    "continuingEducation": 86
+  },
+  "qrCode": "/media/qr-codes/team/qr-team-arnold-garcia-color.png"
+}

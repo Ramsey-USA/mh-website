@@ -1,5 +1,14 @@
-import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
-import nextTypeScript from "eslint-config-next/typescript";
+import { FlatCompat } from "@eslint/eslintrc";
+import { fileURLToPath } from "url";
+import path from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  resolvePluginsRelativeTo: __dirname,
+});
 
 /**
  * MH Construction - Modern ESLint Configuration
@@ -67,9 +76,9 @@ const eslintConfig = [
   },
 
   // === BASE CONFIGURATION ===
-  // Use Next.js native flat configs to avoid legacy compat issues in ESLint 9.
-  ...nextCoreWebVitals,
-  ...nextTypeScript,
+  // Use FlatCompat to convert legacy eslint-config-next CJS configs for ESLint 9 flat config.
+  ...compat.extends("next/core-web-vitals"),
+  ...compat.extends("next/typescript"),
 
   // === CUSTOM RULES ===
   {

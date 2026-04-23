@@ -15,7 +15,7 @@ No sample answers, no generic references, no assumptions.
 - Mandatory Walkthrough Date:
 - Submission Method (email/portal/other):
 - Submission Contact Name: Jeremy Thamert, President
-- Submission Contact Email: jeremy@mhc-gc.com
+- Submission Contact Email: <jeremy@mhc-gc.com>
 - Submission Contact Phone: 509-308-6489
 - Other admin notes: Reference RFQ number in response; shortlist to be created first week in May; shortlisted contractors invited to mandatory walkthrough with electrical subcontractor and then to bid.
 
@@ -25,7 +25,7 @@ No sample answers, no generic references, no assumptions.
 
 - Name: Jeremy Thamert, President
 - Phone: 509-308-6489
-- Email: jeremy@mhc-gc.com
+- Email: <jeremy@mhc-gc.com>
 
 ### B) Office Address
 

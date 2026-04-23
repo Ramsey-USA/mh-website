@@ -1,8 +1,23 @@
 // Enhanced team member data for modern professional profiles
 // Includes professional statistics, career highlights, skills, and comprehensive details
+//
+// To update a team member: edit their individual file in ./team/<slug>.json
+// To add a new team member: create ./team/<slug>.json and add an import below
 
-// Import team data from JSON file
-import teamDataJson from "./team-data.json";
+import jeremyThamert from "./team/jeremy-thamert.json";
+import mikeHolstein from "./team/mike-holstein.json";
+import arnoldGarcia from "./team/arnold-garcia.json";
+import benWoodall from "./team/ben-woodall.json";
+import toddSchoeff from "./team/todd-schoeff.json";
+import steveMcclary from "./team/steve-mcclary.json";
+import reaganMassey from "./team/reagan-massey.json";
+import porterCline from "./team/porter-cline.json";
+import brooksMorris from "./team/brooks-morris.json";
+import brittneyHolstein from "./team/brittney-holstein.json";
+import mattRamsey from "./team/matt-ramsey.json";
+import jenniferTene from "./team/jennifer-tene.json";
+import derekParks from "./team/derek-parks.json";
+import lisaKandle from "./team/lisa-kandle.json";
 
 export interface VintageTeamMember {
   // Core identification
@@ -70,6 +85,21 @@ export interface VintageTeamMember {
   email?: string; // Individual team member email (firstname@mhc-gc.com)
 }
 
-// Export team members from JSON data
-export const vintageTeamMembers: VintageTeamMember[] =
-  teamDataJson as VintageTeamMember[];
+// Assembled team roster — order determines display sequence on the team page.
+// To reorder members, rearrange the entries in this array.
+export const vintageTeamMembers: VintageTeamMember[] = [
+  jeremyThamert,
+  mikeHolstein,
+  arnoldGarcia,
+  benWoodall,
+  toddSchoeff,
+  steveMcclary,
+  reaganMassey,
+  porterCline,
+  brooksMorris,
+  brittneyHolstein,
+  mattRamsey,
+  jenniferTene,
+  derekParks,
+  lisaKandle,
+] as VintageTeamMember[];
