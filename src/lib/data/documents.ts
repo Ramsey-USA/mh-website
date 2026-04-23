@@ -107,6 +107,7 @@ export const manuals: DocumentEntry[] = [
     referencePdfPath: "/docs/safety/safety-manual-reference.pdf",
     referenceR2Key: "docs/safety/safety-manual-reference.pdf",
     tags: ["safety", "OSHA", "field", "required", "MISH", "AGC", "CSEA", "APP"],
+    qrCodeUrl: "/images/qr-codes/safety/qr-safety-manual-color.png",
     sections: [
       {
         number: "00",
@@ -116,6 +117,8 @@ export const manuals: DocumentEntry[] = [
         pages: 2,
         category: "Planning & Administration",
         priority: "reference",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-00-color.png",
       },
       {
         number: "01",
@@ -128,6 +131,8 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1926.20",
         pmbok: "Project Integration",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-01-color.png",
       },
       {
         number: "02",
@@ -139,6 +144,8 @@ export const manuals: DocumentEntry[] = [
         category: "Personnel & Policy",
         oshaRef: "29 CFR 1926.23",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-02-color.png",
       },
       {
         number: "03",
@@ -151,6 +158,8 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1926.20",
         pmbok: "Project Integration",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-03-color.png",
       },
       {
         number: "04",
@@ -163,6 +172,8 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1926.21",
         pmbok: "Resource Management",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-04-color.png",
       },
       {
         number: "05",
@@ -175,6 +186,8 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1926.20",
         pmbok: "Risk Management",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-05-color.png",
       },
       {
         number: "06",
@@ -187,6 +200,8 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1926.35",
         pmbok: "Risk Management",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-06-color.png",
       },
       {
         number: "07",
@@ -198,6 +213,8 @@ export const manuals: DocumentEntry[] = [
         category: "Planning & Administration",
         oshaRef: "29 CFR 1903.2",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-07-color.png",
       },
       {
         number: "08",
@@ -210,6 +227,8 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1904",
         pmbok: "Risk Management",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-08-color.png",
       },
       {
         number: "09",
@@ -222,6 +241,8 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1926.20",
         pmbok: "Quality Management",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-09-color.png",
       },
       {
         number: "10",
@@ -234,6 +255,8 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1926.95",
         pmbok: "Resource Management",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-10-color.png",
       },
       {
         number: "11",
@@ -246,6 +269,8 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1926.502",
         pmbok: "Risk Management",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-11-color.png",
       },
       {
         number: "12",
@@ -257,6 +282,8 @@ export const manuals: DocumentEntry[] = [
         category: "Physical Hazards",
         oshaRef: "29 CFR 1926.152",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-12-color.png",
       },
       {
         number: "13",
@@ -268,6 +295,8 @@ export const manuals: DocumentEntry[] = [
         category: "Physical Hazards",
         oshaRef: "29 CFR 1926.150",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-13-color.png",
       },
       {
         number: "14",
@@ -279,6 +308,8 @@ export const manuals: DocumentEntry[] = [
         category: "Equipment & Operations",
         oshaRef: "29 CFR 1926.350",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-14-color.png",
       },
       {
         number: "15",
@@ -290,6 +321,8 @@ export const manuals: DocumentEntry[] = [
         category: "Equipment & Operations",
         oshaRef: "29 CFR 1910.147",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-15-color.png",
       },
       {
         number: "16",
@@ -301,6 +334,8 @@ export const manuals: DocumentEntry[] = [
         category: "Physical Hazards",
         oshaRef: "29 CFR 1926.1200",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-16-color.png",
       },
       {
         number: "17",
@@ -312,6 +347,8 @@ export const manuals: DocumentEntry[] = [
         category: "Equipment & Operations",
         oshaRef: "29 CFR 1926.1053",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-17-color.png",
       },
       {
         number: "18",
@@ -323,6 +360,8 @@ export const manuals: DocumentEntry[] = [
         category: "Site Control & Environment",
         oshaRef: "29 CFR 1926.600",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-18-color.png",
       },
       {
         number: "19",
@@ -335,6 +374,8 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1926.20",
         pmbok: "Quality Management",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-19-color.png",
       },
       {
         number: "20",
@@ -346,6 +387,8 @@ export const manuals: DocumentEntry[] = [
         category: "Equipment & Operations",
         oshaRef: "29 CFR 1926.453",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-20-color.png",
       },
       {
         number: "21",
@@ -357,6 +400,8 @@ export const manuals: DocumentEntry[] = [
         category: "Equipment & Operations",
         oshaRef: "29 CFR 1926.1431",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-21-color.png",
       },
       {
         number: "22",
@@ -368,6 +413,8 @@ export const manuals: DocumentEntry[] = [
         category: "Equipment & Operations",
         oshaRef: "29 CFR 1926.451",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-22-color.png",
       },
       {
         number: "23",
@@ -380,6 +427,8 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1926.55",
         pmbok: "Resource Management",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-23-color.png",
       },
       {
         number: "24",
@@ -391,6 +440,8 @@ export const manuals: DocumentEntry[] = [
         category: "Health & Industrial Hygiene",
         oshaRef: "29 CFR 1926.59",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-24-color.png",
       },
       {
         number: "25",
@@ -402,6 +453,8 @@ export const manuals: DocumentEntry[] = [
         category: "Physical Hazards",
         oshaRef: "29 CFR 1926.51",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-25-color.png",
       },
       {
         number: "26",
@@ -414,6 +467,8 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1926.652",
         pmbok: "Risk Management",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-26-color.png",
       },
       {
         number: "27",
@@ -425,6 +480,8 @@ export const manuals: DocumentEntry[] = [
         category: "Equipment & Operations",
         oshaRef: "29 CFR 1926.20",
         priority: "reference",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-27-color.png",
       },
       {
         number: "28",
@@ -436,6 +493,8 @@ export const manuals: DocumentEntry[] = [
         category: "Site Control & Environment",
         oshaRef: "29 CFR 1926.25",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-28-color.png",
       },
       {
         number: "29",
@@ -447,6 +506,8 @@ export const manuals: DocumentEntry[] = [
         category: "Physical Hazards",
         oshaRef: "29 CFR 1926.400",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-29-color.png",
       },
       {
         number: "30",
@@ -458,6 +519,8 @@ export const manuals: DocumentEntry[] = [
         category: "Site Control & Environment",
         oshaRef: "29 CFR 1926.200",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-30-color.png",
       },
       {
         number: "31",
@@ -469,6 +532,8 @@ export const manuals: DocumentEntry[] = [
         category: "Health & Industrial Hygiene",
         oshaRef: "29 CFR 1926",
         priority: "reference",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-31-color.png",
       },
       {
         number: "32",
@@ -480,6 +545,8 @@ export const manuals: DocumentEntry[] = [
         category: "Health & Industrial Hygiene",
         oshaRef: "29 CFR 1926.103",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-32-color.png",
       },
       {
         number: "33",
@@ -491,6 +558,8 @@ export const manuals: DocumentEntry[] = [
         category: "Physical Hazards",
         oshaRef: "29 CFR 1926.502",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-33-color.png",
       },
       {
         number: "34",
@@ -502,6 +571,8 @@ export const manuals: DocumentEntry[] = [
         category: "Equipment & Operations",
         oshaRef: "29 CFR 1926.350",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-34-color.png",
       },
       {
         number: "35",
@@ -513,6 +584,8 @@ export const manuals: DocumentEntry[] = [
         category: "Equipment & Operations",
         oshaRef: "29 CFR 1926.251",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-35-color.png",
       },
       {
         number: "36",
@@ -524,6 +597,8 @@ export const manuals: DocumentEntry[] = [
         category: "Equipment & Operations",
         oshaRef: "29 CFR 1926.300",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-36-color.png",
       },
       {
         number: "37",
@@ -535,6 +610,8 @@ export const manuals: DocumentEntry[] = [
         category: "Equipment & Operations",
         oshaRef: "29 CFR 1926.701",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-37-color.png",
       },
       {
         number: "38",
@@ -546,6 +623,8 @@ export const manuals: DocumentEntry[] = [
         category: "Personnel & Policy",
         oshaRef: "49 CFR Part 382",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-38-color.png",
       },
       {
         number: "39",
@@ -558,6 +637,8 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1926.20",
         pmbok: "Procurement Management",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-39-color.png",
       },
       {
         number: "40",
@@ -569,6 +650,8 @@ export const manuals: DocumentEntry[] = [
         category: "Planning & Administration",
         oshaRef: "29 CFR 1926.25",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-40-color.png",
       },
       {
         number: "41",
@@ -581,6 +664,8 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1926.21",
         pmbok: "Resource Management",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-41-color.png",
       },
       {
         number: "42",
@@ -592,6 +677,8 @@ export const manuals: DocumentEntry[] = [
         category: "Equipment & Operations",
         oshaRef: "29 CFR 1910.178",
         priority: "field",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-42-color.png",
       },
       {
         number: "43",
@@ -603,6 +690,8 @@ export const manuals: DocumentEntry[] = [
         category: "Health & Industrial Hygiene",
         oshaRef: "29 CFR 1910.1030",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-43-color.png",
       },
       {
         number: "44",
@@ -614,6 +703,8 @@ export const manuals: DocumentEntry[] = [
         category: "Health & Industrial Hygiene",
         oshaRef: "29 CFR 1926.1153",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-44-color.png",
       },
       {
         number: "45",
@@ -625,6 +716,8 @@ export const manuals: DocumentEntry[] = [
         category: "Site Control & Environment",
         oshaRef: "29 CFR 1926.600",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-45-color.png",
       },
       {
         number: "46",
@@ -636,6 +729,8 @@ export const manuals: DocumentEntry[] = [
         category: "Site Control & Environment",
         oshaRef: "29 CFR 1926.600",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-46-color.png",
       },
       {
         number: "47",
@@ -646,6 +741,8 @@ export const manuals: DocumentEntry[] = [
         pages: 5,
         category: "Planning & Administration",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-47-color.png",
       },
       {
         number: "48",
@@ -658,6 +755,8 @@ export const manuals: DocumentEntry[] = [
         oshaRef: "29 CFR 1904",
         pmbok: "Risk Management",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-48-color.png",
       },
       {
         number: "49",
@@ -668,6 +767,8 @@ export const manuals: DocumentEntry[] = [
         pages: 6,
         category: "Personnel & Policy",
         priority: "required",
+        qrCodeUrl:
+          "/images/qr-codes/safety-sections/qr-safety-section-49-color.png",
       },
     ],
   },

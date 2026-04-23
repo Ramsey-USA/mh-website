@@ -10,7 +10,13 @@
     "MD041": false,
     "MD051": false,
   },
-  "globs": ["**/*.md", "!node_modules/**", "!.next/**", "!.open-next/**", "!.github/agents/**"],
+  "globs": [
+    "**/*.md",
+    "!node_modules/**",
+    "!.next/**",
+    "!.open-next/**",
+    "!.github/agents/**",
+  ],
   // Per-file overrides for exceptionally long documentation reports
   "overrides": [
     {

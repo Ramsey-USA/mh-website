@@ -183,6 +183,12 @@ const QR_CODES = [
     label: "www.mhc-gc.com/resources/safety-manual",
   },
   {
+    name: "accessibility",
+    url: `${BASE_URL}/accessibility`,
+    description: "Accessibility Statement",
+    label: "www.mhc-gc.com/accessibility",
+  },
+  {
     name: "safety-program",
     url: `${BASE_URL}/safety`,
     description: "Safety Program",
@@ -211,74 +217,6 @@ const QR_CODES = [
     url: `${BASE_URL}/employee-handbook`,
     description: "Employee Handbook",
     label: "www.mhc-gc.com/employee-handbook",
-  },
-
-  // Service area location pages
-  {
-    name: "location-richland",
-    url: `${BASE_URL}/locations/richland`,
-    description: "Richland, WA",
-    label: "RICHLAND, WA",
-  },
-  {
-    name: "location-kennewick",
-    url: `${BASE_URL}/locations/kennewick`,
-    description: "Kennewick, WA",
-    label: "KENNEWICK, WA",
-  },
-  {
-    name: "location-pasco",
-    url: `${BASE_URL}/locations/pasco`,
-    description: "Pasco, WA",
-    label: "PASCO, WA",
-  },
-  {
-    name: "location-spokane",
-    url: `${BASE_URL}/locations/spokane`,
-    description: "Spokane, WA",
-    label: "SPOKANE, WA",
-  },
-  {
-    name: "location-yakima",
-    url: `${BASE_URL}/locations/yakima`,
-    description: "Yakima, WA",
-    label: "YAKIMA, WA",
-  },
-  {
-    name: "location-walla-walla",
-    url: `${BASE_URL}/locations/walla-walla`,
-    description: "Walla Walla, WA",
-    label: "WALLA WALLA, WA",
-  },
-  {
-    name: "location-west-richland",
-    url: `${BASE_URL}/locations/west-richland`,
-    description: "West Richland, WA",
-    label: "WEST RICHLAND, WA",
-  },
-  {
-    name: "location-omak",
-    url: `${BASE_URL}/locations/omak`,
-    description: "Omak, WA",
-    label: "OMAK, WA",
-  },
-  {
-    name: "location-coeur-d-alene",
-    url: `${BASE_URL}/locations/coeur-d-alene`,
-    description: "Coeur d'Alene, ID",
-    label: "COEUR D'ALENE, ID",
-  },
-  {
-    name: "location-hermiston",
-    url: `${BASE_URL}/locations/hermiston`,
-    description: "Hermiston, OR",
-    label: "HERMISTON, OR",
-  },
-  {
-    name: "location-pendleton",
-    url: `${BASE_URL}/locations/pendleton`,
-    description: "Pendleton, OR",
-    label: "PENDLETON, OR",
   },
 
   // Contact methods
@@ -430,10 +368,267 @@ const QR_CODES = [
   },
 ];
 
+// Safety Manual Table of Contents — all 50 sections (00–49)
+// URL pattern: /resources/safety-manual/section/{slug}
+// Folder: safety-sections
+const SAFETY_MANUAL_SECTIONS = [
+  {
+    number: "00",
+    slug: "table-of-contents",
+    title: "Table of Contents",
+  },
+  {
+    number: "01",
+    slug: "injury-free-workplace-plan",
+    title: "Injury-Free Workplace Plan",
+  },
+  {
+    number: "02",
+    slug: "drug-free-workplace",
+    title: "Drug-Free Workplace",
+  },
+  {
+    number: "03",
+    slug: "program-policy-and-requirements",
+    title: "Program Policy and Requirements",
+  },
+  {
+    number: "04",
+    slug: "safety-and-health-orientation",
+    title: "Safety and Health Orientation",
+  },
+  {
+    number: "05",
+    slug: "pre-job-safety-planning",
+    title: "Pre-Job Safety Planning",
+  },
+  {
+    number: "06",
+    slug: "emergency-response",
+    title: "Emergency Response",
+  },
+  {
+    number: "07",
+    slug: "safety-bulletin-boards",
+    title: "Safety Bulletin Boards",
+  },
+  {
+    number: "08",
+    slug: "event-reporting",
+    title: "Event Reporting of Incidents, Accidents & Near Misses",
+  },
+  {
+    number: "09",
+    slug: "safety-health-meetings-inspections",
+    title: "Safety and Health Meetings / Inspections",
+  },
+  {
+    number: "10",
+    slug: "personal-protective-equipment",
+    title: "Personal Protective Equipment (PPE)",
+  },
+  {
+    number: "11",
+    slug: "fall-protection",
+    title: "Fall Protection",
+  },
+  {
+    number: "12",
+    slug: "flammable-combustible-liquids",
+    title: "Flammable and Combustible Liquids",
+  },
+  {
+    number: "13",
+    slug: "fire-prevention",
+    title: "Fire Prevention",
+  },
+  {
+    number: "14",
+    slug: "welding-cutting-heating",
+    title: "Welding, Cutting, and Heating Operations",
+  },
+  {
+    number: "15",
+    slug: "lockout-tagout",
+    title: "Lockout / Tagout (LOTO)",
+  },
+  {
+    number: "16",
+    slug: "confined-space-entry",
+    title: "Confined Space Entry",
+  },
+  {
+    number: "17",
+    slug: "use-and-care-of-ladders",
+    title: "Use and Care of Ladders",
+  },
+  {
+    number: "18",
+    slug: "motor-vehicle-safety",
+    title: "Motor Vehicle Safety Program",
+  },
+  {
+    number: "19",
+    slug: "equipment-maintenance-inspection",
+    title: "Equipment Maintenance and Inspection",
+  },
+  {
+    number: "20",
+    slug: "aerial-lifts-elevating-work-platforms",
+    title: "Aerial Lifts and Elevating Work Platforms",
+  },
+  {
+    number: "21",
+    slug: "crane-suspended-work-platforms",
+    title: "Crane-Suspended Work Platforms",
+  },
+  {
+    number: "22",
+    slug: "scaffolds",
+    title: "Use and Handling of Scaffolds",
+  },
+  {
+    number: "23",
+    slug: "industrial-hygiene",
+    title: "Industrial Hygiene Program",
+  },
+  {
+    number: "24",
+    slug: "hazard-communication",
+    title: "Contractor Hazard Communication Program",
+  },
+  {
+    number: "25",
+    slug: "heat-illness-prevention",
+    title: "Heat-Related Illness Prevention",
+  },
+  {
+    number: "26",
+    slug: "excavation-trenching-shoring",
+    title: "Excavation, Trenching, and Shoring",
+  },
+  {
+    number: "27",
+    slug: "equipment-modifications",
+    title: "Construction Equipment Modifications and Fabrications",
+  },
+  {
+    number: "28",
+    slug: "housekeeping",
+    title: "Housekeeping",
+  },
+  {
+    number: "29",
+    slug: "electrical-safety",
+    title: "Electrical Safety",
+  },
+  {
+    number: "30",
+    slug: "signs-signals-barricades",
+    title: "Signs, Signals, and Barricades",
+  },
+  {
+    number: "31",
+    slug: "miscellaneous-construction",
+    title: "Miscellaneous Construction Requirements",
+  },
+  {
+    number: "32",
+    slug: "respiratory-protection",
+    title: "Respiratory Protection",
+  },
+  {
+    number: "33",
+    slug: "floor-openings-open-surfaces",
+    title: "Floor Openings, Open-Sided Surfaces, and Ramps",
+  },
+  {
+    number: "34",
+    slug: "compressed-gas-air",
+    title: "Compressed Gas / Compressed Air",
+  },
+  {
+    number: "35",
+    slug: "rigging",
+    title: "Rigging",
+  },
+  {
+    number: "36",
+    slug: "hand-portable-power-tools",
+    title: "Hand and Portable Power Tools",
+  },
+  {
+    number: "37",
+    slug: "concrete-masonry",
+    title: "Concrete and Masonry Construction",
+  },
+  {
+    number: "38",
+    slug: "commercial-drivers-drug-alcohol",
+    title: "Commercial Drivers Drug and Alcohol Program",
+  },
+  {
+    number: "39",
+    slug: "subcontractor-management",
+    title: "Subcontractor Management Plan",
+  },
+  {
+    number: "40",
+    slug: "waste-management",
+    title: "Waste Management Plan",
+  },
+  {
+    number: "41",
+    slug: "short-service-employee",
+    title: "Short Service Employee Program",
+  },
+  {
+    number: "42",
+    slug: "forklift-truck-safety",
+    title: "Forklift / Truck Safety",
+  },
+  {
+    number: "43",
+    slug: "bloodborne-pathogens",
+    title: "Bloodborne Pathogens",
+  },
+  {
+    number: "44",
+    slug: "silica-exposure-control",
+    title: "Silica Exposure Control",
+  },
+  {
+    number: "45",
+    slug: "distracted-driving-mobile-device",
+    title: "Distracted Driving & Mobile Device Policy",
+  },
+  {
+    number: "46",
+    slug: "motor-vehicle-records",
+    title: "Motor Vehicle Records Program",
+  },
+  {
+    number: "47",
+    slug: "insurance-contractual-risk-transfer",
+    title: "Insurance Requirements & Contractual Risk Transfer",
+  },
+  {
+    number: "48",
+    slug: "incident-investigation-root-cause",
+    title: "Incident Investigation & Root Cause Analysis",
+  },
+  {
+    number: "49",
+    slug: "return-to-work",
+    title: "Return-to-Work Program",
+  },
+];
+
 function getFolderForQR(name) {
   if (name.startsWith("team-")) return "team";
   if (SOCIAL_QR_NAMES.has(name)) return "social";
   if (name.startsWith("traho-")) return "rfq";
+  if (name.startsWith("safety-section-")) return "safety-sections";
   if (
     name.startsWith("safety-") ||
     name === "hub" ||
@@ -441,7 +636,12 @@ function getFolderForQR(name) {
   ) {
     return "safety";
   }
-  if (name === "phone" || name === "email" || name === "contact") {
+  if (
+    name === "phone" ||
+    name === "email" ||
+    name === "contact" ||
+    name === "location"
+  ) {
     return "contact";
   }
   return "core";
@@ -474,16 +674,25 @@ function loadTeamQRCodes() {
 }
 
 function buildFinalQRCodeList() {
-  const withoutLocations = QR_CODES.filter(
-    (qr) => qr.name !== "location" && !qr.name.startsWith("location-"),
-  );
-
   // Replace static team entries with live team-data driven entries.
-  const withoutStaticTeams = withoutLocations.filter(
+  const withoutStaticTeams = QR_CODES.filter(
     (qr) => !qr.name.startsWith("team-"),
   );
 
-  const merged = [...withoutStaticTeams, ...loadTeamQRCodes()].map((qr) => ({
+  // Build safety manual section entries from SAFETY_MANUAL_SECTIONS
+  const safetySectionCodes = SAFETY_MANUAL_SECTIONS.map((s) => ({
+    name: `safety-section-${s.number}`,
+    url: `${BASE_URL}/resources/safety-manual/section/${s.slug}`,
+    description: `Safety Manual Section ${s.number}: ${s.title}`,
+    label: `MISH SECTION ${s.number}`,
+    folder: "safety-sections",
+  }));
+
+  const merged = [
+    ...withoutStaticTeams,
+    ...safetySectionCodes,
+    ...loadTeamQRCodes(),
+  ].map((qr) => ({
     ...qr,
     folder: qr.folder || getFolderForQR(qr.name),
   }));
