@@ -1,6 +1,6 @@
 # QR Codes for MH Construction
 
-Generated: 4/21/2026, 11:48:36 PM
+Generated: 4/22/2026, 10:59:34 PM
 
 ## Summary
 
@@ -154,18 +154,6 @@ Generated: 4/21/2026, 11:48:36 PM
 - **File:** `qr-traho-contact-bw.png`
 - **URL:** https://www.mhc-gc.com/contact?ref=traho-rfq
 
-### ✅ Schedule Consultation
-
-- **Name:** `booking`
-- **File:** `qr-booking-color.png`
-- **URL:** https://www.mhc-gc.com/contact
-
-### ✅ Schedule Consultation
-
-- **Name:** `booking`
-- **File:** `qr-booking-bw.png`
-- **URL:** https://www.mhc-gc.com/contact
-
 ### ✅ Allies
 
 - **Name:** `allies`
@@ -254,13 +242,25 @@ Generated: 4/21/2026, 11:48:36 PM
 
 - **Name:** `safety-program`
 - **File:** `qr-safety-program-color.png`
-- **URL:** https://www.mhc-gc.com/resources/safety-program
+- **URL:** https://www.mhc-gc.com/safety
 
 ### ✅ Safety Program
 
 - **Name:** `safety-program`
 - **File:** `qr-safety-program-bw.png`
-- **URL:** https://www.mhc-gc.com/resources/safety-program
+- **URL:** https://www.mhc-gc.com/safety
+
+### ✅ Safety Incident Report Form
+
+- **Name:** `safety-incident-report`
+- **File:** `qr-safety-incident-report-color.png`
+- **URL:** https://www.mhc-gc.com/safety/incident-report
+
+### ✅ Safety Incident Report Form
+
+- **Name:** `safety-incident-report`
+- **File:** `qr-safety-incident-report-bw.png`
+- **URL:** https://www.mhc-gc.com/safety/incident-report
 
 ### ✅ Safety Intake Form
 
@@ -458,13 +458,13 @@ Generated: 4/21/2026, 11:48:36 PM
 
 - **Name:** `linkedin`
 - **File:** `qr-linkedin-color.png`
-- **URL:** https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all
+- **URL:** https://www.linkedin.com/company/mh-construction-general-contractor/
 
 ### ✅ LinkedIn Profile
 
 - **Name:** `linkedin`
 - **File:** `qr-linkedin-bw.png`
-- **URL:** https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all
+- **URL:** https://www.linkedin.com/company/mh-construction-general-contractor/
 
 ### ✅ Facebook Page
 
@@ -694,17 +694,17 @@ Generated: 4/21/2026, 11:48:36 PM
 - **File:** `qr-team-jennifer-tene-bw.png`
 - **URL:** https://www.mhc-gc.com/team#jennifer-tene
 
-### ✅ Safety Program Dashboard
+### ✅ Safety Hub (Employee Operations)
 
 - **Name:** `safety-dashboard`
 - **File:** `qr-safety-dashboard-color.png`
-- **URL:** https://www.mhc-gc.com/dashboard
+- **URL:** https://www.mhc-gc.com/safety/hub
 
-### ✅ Safety Program Dashboard
+### ✅ Safety Hub (Employee Operations)
 
 - **Name:** `safety-dashboard`
 - **File:** `qr-safety-dashboard-bw.png`
-- **URL:** https://www.mhc-gc.com/dashboard
+- **URL:** https://www.mhc-gc.com/safety/hub
 
 ## Usage in React Components
 

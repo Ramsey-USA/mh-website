@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-21T23:48:36.098Z",
+  "generatedAt": "2026-04-22T22:59:34.125Z",
   "baseUrl": "https://www.mhc-gc.com",
   "outputDirectory": "public/images/qr-codes",
   "variants": {
@@ -252,24 +252,6 @@
       "error": null
     },
     {
-      "name": "booking",
-      "filename": "qr-booking-color.png",
-      "variant": "color",
-      "url": "https://www.mhc-gc.com/contact",
-      "description": "Schedule Consultation",
-      "success": true,
-      "error": null
-    },
-    {
-      "name": "booking",
-      "filename": "qr-booking-bw.png",
-      "variant": "bw",
-      "url": "https://www.mhc-gc.com/contact",
-      "description": "Schedule Consultation",
-      "success": true,
-      "error": null
-    },
-    {
       "name": "allies",
       "filename": "qr-allies-color.png",
       "variant": "color",
@@ -399,7 +381,7 @@
       "name": "safety-program",
       "filename": "qr-safety-program-color.png",
       "variant": "color",
-      "url": "https://www.mhc-gc.com/resources/safety-program",
+      "url": "https://www.mhc-gc.com/safety",
       "description": "Safety Program",
       "success": true,
       "error": null
@@ -408,8 +390,26 @@
       "name": "safety-program",
       "filename": "qr-safety-program-bw.png",
       "variant": "bw",
-      "url": "https://www.mhc-gc.com/resources/safety-program",
+      "url": "https://www.mhc-gc.com/safety",
       "description": "Safety Program",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "safety-incident-report",
+      "filename": "qr-safety-incident-report-color.png",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/safety/incident-report",
+      "description": "Safety Incident Report Form",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "safety-incident-report",
+      "filename": "qr-safety-incident-report-bw.png",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/safety/incident-report",
+      "description": "Safety Incident Report Form",
       "success": true,
       "error": null
     },
@@ -705,7 +705,7 @@
       "name": "linkedin",
       "filename": "qr-linkedin-color.png",
       "variant": "color",
-      "url": "https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all",
+      "url": "https://www.linkedin.com/company/mh-construction-general-contractor/",
       "description": "LinkedIn Profile",
       "success": true,
       "error": null
@@ -714,7 +714,7 @@
       "name": "linkedin",
       "filename": "qr-linkedin-bw.png",
       "variant": "bw",
-      "url": "https://www.linkedin.com/company/mh-construction-general-contractor/posts/?feedView=all",
+      "url": "https://www.linkedin.com/company/mh-construction-general-contractor/",
       "description": "LinkedIn Profile",
       "success": true,
       "error": null
@@ -1065,8 +1065,8 @@
       "name": "safety-dashboard",
       "filename": "qr-safety-dashboard-color.png",
       "variant": "color",
-      "url": "https://www.mhc-gc.com/dashboard",
-      "description": "Safety Program Dashboard",
+      "url": "https://www.mhc-gc.com/safety/hub",
+      "description": "Safety Hub (Employee Operations)",
       "success": true,
       "error": null
     },
@@ -1074,8 +1074,8 @@
       "name": "safety-dashboard",
       "filename": "qr-safety-dashboard-bw.png",
       "variant": "bw",
-      "url": "https://www.mhc-gc.com/dashboard",
-      "description": "Safety Program Dashboard",
+      "url": "https://www.mhc-gc.com/safety/hub",
+      "description": "Safety Hub (Employee Operations)",
       "success": true,
       "error": null
     }
