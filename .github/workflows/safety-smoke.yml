@@ -2,9 +2,9 @@ name: Safety Smoke Tests
 
 on:
   workflow_run:
-    workflows: [ "CI/CD Pipeline" ]
-    types: [ completed ]
-    branches: [ main ]
+    workflows: ["CI/CD Pipeline"]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
     inputs:
       base_url:
