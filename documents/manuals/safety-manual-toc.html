@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MISH Program Table of Contents</title>
+    <!--
+      Template tokens substituted at build time by generate.mjs:
+        {{BRAND_LOGO_COLOR}}        → base64 data-URI of logo-color.png
+        {{BRAND_COLOR_PRIMARY}}     → #386851 Hunter Green
+        {{BRAND_COLOR_SECONDARY}}   → #BD9264 Tan Leather
+        {{BRAND_COMPANY_NAME}}      → MH Construction, Inc.
+        {{BRAND_REVISION_NUMBER}}   → 3
+        {{BRAND_REVISION_DATE}}     → 04/07/2026
+        {{TOC_CLUSTERS_HTML}}       → generated dynamically from safety-manual.json
+                                      (see TOC_CLUSTERS / buildTocClustersHtml in generate.mjs)
+    -->
+    <style>
+      @import url("../styles/brand.css");
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      @page {
+        size: letter portrait;
+        margin: 0.42in 0.5in 0.42in 0.5in;
+      }
+
+      /* ── Base ───────────────────────────────────────────── */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        color: #000000;
+        /* Adobe Garamond Pro → Georgia fallback for body copy */
+        font-family:
+          "Adobe Garamond Pro", Garamond, Georgia, "Times New Roman", serif;
+        font-size: 9pt;
+        line-height: 1.35;
+      }
+
+      /* Use flex-column so the footer is always at the bottom of the page */
+      .toc-page {
+        display: flex;
+        flex-direction: column;
+        min-height: 10.16in; /* 11in − 2×0.42in margins */
+      }
+
+      /* ── Page Header ─────────────────────────────────────── */
+      .toc-header {
+        flex-shrink: 0;
+        text-align: center;
+        padding-bottom: 0.1in;
+        margin-bottom: 0.11in;
+        border-bottom: 2pt solid #386851;
+      }
+
+      .toc-logo {
+        height: 0.9in;
+        width: auto;
+        display: block;
+        margin: 0 auto 0.05in;
+      }
+
+      /* Veteran-Owned badge — mirrors cover-veteran pattern */
+      .toc-veteran-badge {
+        display: inline-block;
+        border: 0.75pt solid #386851;
+        border-radius: 2pt;
+        padding: 1.5pt 10pt;
+        /* Tactic Sans Bold → Helvetica Neue fallback for headings */
+        font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
+        font-size: 6pt;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #386851;
+        margin-bottom: 0.07in;
+      }
+
+      .toc-veteran-badge::before {
+        content: "★\00a0";
+        color: #bd9264;
+      }
+
+      .toc-veteran-badge::after {
+        content: "\00a0★";
+        color: #bd9264;
+      }
+
+      .toc-title {
+        font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
+        font-size: 16pt;
+        font-weight: 900;
+        color: #386851;
+        margin: 0.05in 0 0.02in;
+        letter-spacing: 0.01em;
+        line-height: 1.1;
+      }
+
+      .toc-subtitle {
+        font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
+        font-size: 7.5pt;
+        font-weight: 400;
+        color: #8a6b49;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      /* ── Body: dual-column grid ─────────────────────────── */
+      .toc-body {
+        flex: 1;
+        columns: 2;
+        column-gap: 0.28in;
+        column-fill: balance;
+        margin-top: 0.04in;
+      }
+
+      /* Each operational cluster stays together in one column */
+      .cluster {
+        break-inside: avoid;
+        margin-bottom: 0.08in;
+      }
+
+      /* Cluster heading — Tactic Sans Medium */
+      .cluster-head {
+        font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
+        font-size: 7pt;
+        font-weight: 500;
+        color: #386851;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin: 0 0 2pt;
+        padding: 2pt 0 2pt;
+        border-bottom: 0.75pt solid #386851;
+      }
+
+      /* MISH entry list */
+      .mish-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .mish-entry {
+        display: flex;
+        align-items: baseline;
+        gap: 4pt;
+        padding: 1pt 0;
+        /* Adobe Garamond Pro for legibility in high-stress environments */
+        font-family:
+          "Adobe Garamond Pro", Garamond, Georgia, "Times New Roman", serif;
+        font-size: 9pt;
+        line-height: 1.3;
+        color: #000000;
+      }
+
+      .mish-code {
+        flex-shrink: 0;
+        width: 0.72in;
+        font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
+        font-size: 7.5pt;
+        font-weight: 700;
+        color: #1e392c;
+      }
+
+      .mish-title {
+        flex: 1;
+        color: #000000;
+      }
+
+      /* Callout — Tan Leather highlight for critical safety protocols */
+      .mish-entry.callout {
+        background: #fff8f2;
+        border-left: 1.75pt solid #bd9264;
+        padding-left: 4pt;
+        margin-left: -4pt;
+        border-radius: 0 1pt 1pt 0;
+      }
+
+      .mish-entry.callout .mish-code {
+        color: #8a6b49;
+        font-weight: 900;
+      }
+
+      .mish-entry.callout .mish-title {
+        color: #000000;
+        font-weight: 700;
+      }
+
+      /* ── Footer ─────────────────────────────────────────── */
+      .toc-footer-row {
+        flex-shrink: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding-top: 0.06in;
+        border-top: 0.5pt solid #d9bd93;
+        margin-top: 0.06in;
+      }
+
+      .toc-footer-left {
+        font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
+        font-size: 6.5pt;
+        color: #8a6b49;
+      }
+
+      .toc-footer-right {
+        font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
+        font-size: 6.5pt;
+        font-weight: 700;
+        color: #8a6b49;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toc-page">
+      <!-- ── Header ─────────────────────────────────────────── -->
+      <header class="toc-header">
+        <img
+          class="toc-logo"
+          src="{{BRAND_LOGO_COLOR}}"
+          alt="MH Construction, Inc."
+        />
+        <div class="toc-veteran-badge">Veteran Owned</div>
+        <h1 class="toc-title">MISH Program Table of Contents</h1>
+        <p class="toc-subtitle">
+          MH Construction Industrial &amp; Safety Health Program
+        </p>
+      </header>
+
+      <!-- ── Dual-Column Body ───────────────────────────────── -->
+      <!-- Content is generated dynamically by generate.mjs buildTocClustersHtml(). -->
+      <!-- Cluster definitions and callout rules live in TOC_CLUSTERS / TOC_CALLOUT_ITEMS. -->
+      <main class="toc-body">{{TOC_CLUSTERS_HTML}}</main>
+
+      <!-- ── Footer ─────────────────────────────────────────── -->
+      <footer class="toc-footer-row">
+        <span class="toc-footer-left"
+          >{{BRAND_COMPANY_NAME}}&nbsp;&middot;&nbsp;(509)&nbsp;308-6489&nbsp;&middot;&nbsp;www.mhc-gc.com</span
+        >
+        <span class="toc-footer-right"
+          >Revision {{BRAND_REVISION_NUMBER}} ({{BRAND_REVISION_DATE}})</span
+        >
+      </footer>
+    </div>
+  </body>
+</html>

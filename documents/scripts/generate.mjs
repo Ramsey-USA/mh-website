@@ -269,6 +269,180 @@ function sectionToTier(sectionNumber) {
   };
 }
 
+// ── TOC Cluster & Callout Configuration ──────────────────────────────────────
+/**
+ * Operational cluster groupings for the MISH Program Table of Contents.
+ * Each entry maps a display name to an inclusive MISH number range [min, max].
+ *
+ * When safety-manual.json is updated (sections added or removed), generateToc()
+ * automatically reflects the changes: sections within a range appear only if
+ * they exist in the manifest; sections outside all defined ranges are collected
+ * into a catch-all "Additional Programs" cluster appended at the end.
+ *
+ * To reorganise clusters or rename a heading, update this array and re-run:
+ *   npm run docs:generate -- --template toc
+ */
+const TOC_CLUSTERS = [
+  { name: "Program Foundation", min: 1, max: 3 },
+  { name: "Field Onboarding & Communication", min: 4, max: 9 },
+  { name: "Safety Oversight & Industrial Hygiene", min: 10, max: 19 },
+  { name: "Fall & Access Safety", min: 20, max: 24 },
+  { name: "Excavation, Confined Spaces & Energy Control", min: 25, max: 27 },
+  { name: "Energy & Fire Hazards", min: 28, max: 32 },
+  { name: "Motor Vehicles & Heavy Equipment", min: 33, max: 41 },
+  { name: "Tools & Materials", min: 42, max: 45 },
+  { name: "Program Compliance & Continuity", min: 46, max: 50 },
+];
+
+/**
+ * MISH item numbers that receive a Tan Leather callout highlight (#BD9264).
+ * MISH 21 (Fall Protection) and MISH 48 (Emergency Response Plan) are
+ * designated critical safety protocols because fall hazards are the leading
+ * cause of construction fatalities (OSHA 1926.502) and emergency response
+ * readiness is a mandatory program element for all job sites.
+ * Add or remove numbers here to change which entries are highlighted.
+ */
+const TOC_CALLOUT_ITEMS = new Set([21, 48]);
+
+/**
+ * Fallback MISH title map.
+ * Used only when safety-manual.json has not yet been generated (i.e., the
+ * user has not run `npm run docs:extract`). Keys are section numbers (integer),
+ * values are plain-text display titles.
+ *
+ * Keep this list in sync with the Word source documents so that a standalone
+ * `--template toc` run still produces accurate output before extraction.
+ */
+const FALLBACK_MISH_TITLES = new Map([
+  [1, "Safety & Health Program Overview"],
+  [2, "Injury-Free Workplace Commitment"],
+  [3, "Safety Roles & Responsibilities"],
+  [4, "Safety & Health Orientation"],
+  [5, "Safety Bulletin Boards & Communication"],
+  [6, "Drug & Alcohol Policy & Testing"],
+  [7, "Drug & Alcohol Field Operations"],
+  [8, "Short-Service Employee Program"],
+  [9, "Pre-Job Safety Plan"],
+  [10, "Safety & Health Meetings & Inspections"],
+  [11, "Accident Reporting & Investigation"],
+  [12, "Personal Protective Equipment"],
+  [13, "HAZCOM Program"],
+  [14, "Industrial Hygiene Program"],
+  [15, "Heat Stress"],
+  [16, "Respiratory Protection"],
+  [17, "Silica Safety Program"],
+  [18, "Bloodborne Pathogens"],
+  [19, "Housekeeping"],
+  [20, "Signs, Signals & Barricades"],
+  [21, "Fall Protection"],
+  [22, "Scaffolding Use & Handling"],
+  [23, "Ladder Use & Care"],
+  [24, "Open Floors & Holes"],
+  [25, "Excavation, Trenching & Shoring"],
+  [26, "Confined Space Entry"],
+  [27, "Lockout & Tagout"],
+  [28, "Electrical Safety"],
+  [29, "Welding, Cutting & Heating"],
+  [30, "Flammable & Combustible Liquids"],
+  [31, "Fire Prevention"],
+  [32, "Compressed Gas & Air"],
+  [33, "Motor Vehicle Safety Program"],
+  [34, "Distracted Driving & Mobile Device Policy"],
+  [35, "Motor Vehicle Records Program"],
+  [36, "Equipment Maintenance & Inspection"],
+  [37, "Aerial Lifts & Elevated Work Platforms"],
+  [38, "Crane & Suspended Work Platforms"],
+  [39, "Rigging Procedures"],
+  [40, "Forklift & Power Industrial Truck Safety"],
+  [41, "Construction Equipment Modification & Fabrication"],
+  [42, "Hand & Power Tools"],
+  [43, "General Waste Management"],
+  [44, "Concrete & Masonry"],
+  [45, "Miscellaneous Safety Requirements"],
+  [46, "Subcontractor Management Plan"],
+  [47, "Insurance Requirements & Contractual Risk Transfer"],
+  [48, "Emergency Response Plan"],
+  [49, "Incident Investigation & Root-Cause Analysis"],
+  [50, "Return-to-Work Program"],
+]);
+
+/**
+ * Render one <li> entry for a single MISH section.
+ * Applies the .callout modifier for items in TOC_CALLOUT_ITEMS.
+ */
+function buildTocEntryHtml(num, title) {
+  const code = `MISH ${String(num).padStart(2, "0")}`;
+  const isCallout = TOC_CALLOUT_ITEMS.has(num);
+  const cls = isCallout ? "mish-entry callout" : "mish-entry";
+  return (
+    `<li class="${cls}">` +
+    `<span class="mish-code">${escapeHtml(code)}</span>` +
+    `<span class="mish-title">${escapeHtml(title)}</span>` +
+    `</li>`
+  );
+}
+
+/**
+ * Render one <div class="cluster"> block.
+ * Empty clusters (no live sections) are omitted.
+ */
+function buildClusterHtml(clusterName, nums, titleMap) {
+  if (nums.length === 0) return "";
+  const rows = nums.map((n) =>
+    buildTocEntryHtml(n, titleMap.get(n) || `Section ${n}`),
+  );
+  return (
+    `<div class="cluster">` +
+    `<h2 class="cluster-head">${escapeHtml(clusterName)}</h2>` +
+    `<ul class="mish-list">${rows.join("")}</ul>` +
+    `</div>`
+  );
+}
+
+/**
+ * Build the full {{TOC_CLUSTERS_HTML}} block from live section data.
+ *
+ * Algorithm:
+ *  1. Walk TOC_CLUSTERS in order; collect section numbers in each range that
+ *     are present in presentNums and render a cluster div.
+ *  2. Any section numbers not covered by any defined cluster range are
+ *     collected into a trailing "Additional Programs" cluster so that newly
+ *     added MISH items are never silently dropped from the TOC.
+ *
+ * @param {Map<number, string>} titleMap   MISH number → display title
+ * @param {Set<number>}  presentNums       Section numbers present in manifest
+ * @returns {string} HTML injected into {{TOC_CLUSTERS_HTML}}
+ */
+function buildTocClustersHtml(titleMap, presentNums) {
+  const parts = [];
+  const assignedNums = new Set();
+
+  for (const cluster of TOC_CLUSTERS) {
+    const nums = [];
+    for (let n = cluster.min; n <= cluster.max; n++) {
+      if (presentNums.has(n)) {
+        nums.push(n);
+        assignedNums.add(n);
+      }
+    }
+    const html = buildClusterHtml(cluster.name, nums, titleMap);
+    if (html) parts.push(html);
+  }
+
+  // Catch-all: sections outside every defined range (future additions)
+  const overflow = [...presentNums]
+    .filter((n) => !assignedNums.has(n))
+    .sort((a, b) => a - b);
+  const overflowHtml = buildClusterHtml(
+    "Additional Programs",
+    overflow,
+    titleMap,
+  );
+  if (overflowHtml) parts.push(overflowHtml);
+
+  return parts.join("\n");
+}
+
 // ── Puppeteer header / footer templates ────────────────────────────────────
 /**
  * Build the per-section running header HTML.
@@ -487,6 +661,86 @@ async function generateSpine() {
     { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
     "manuals/_tmp_spine.html",
   );
+}
+
+// ── Template: MISH Table of Contents ─────────────────────────────────────────
+/**
+ * Generate the high-fidelity MISH Program Table of Contents PDF.
+ *
+ * Section titles and the set of present MISH numbers are read from
+ * safety-manual.json (the manifest produced by `npm run docs:extract`).
+ * If the manifest is absent or unreadable the function falls back to
+ * FALLBACK_MISH_TITLES so a standalone `--template toc` run still works
+ * before extraction has been performed.
+ *
+ * Cluster groupings are defined in TOC_CLUSTERS (in generate.mjs).
+ * Sections added to or removed from the manifest are automatically reflected
+ * the next time this function runs — no manual edits to the template needed.
+ *
+ * Output: documents/output/safety-manual-toc.pdf
+ */
+async function generateToc() {
+  console.log("\n📋 Generating MISH Table of Contents…");
+  await ensureDir(OUTPUT_DIR);
+
+  // ── 1. Resolve section titles ───────────────────────────────────────────
+  let titleMap = new Map(FALLBACK_MISH_TITLES);
+  let presentNums = new Set(FALLBACK_MISH_TITLES.keys());
+
+  if (existsSync(MANIFEST)) {
+    try {
+      const { sections } = JSON.parse(await readFile(MANIFEST, "utf-8"));
+      // Rebuild from manifest — skip Section 00 (legacy TOC section)
+      const liveMap = new Map();
+      const liveNums = new Set();
+      for (const s of sections) {
+        const n = Number(s.number);
+        if (n > 0) {
+          liveMap.set(n, s.title || `Section ${n}`);
+          liveNums.add(n);
+        }
+      }
+      if (liveNums.size > 0) {
+        titleMap = liveMap;
+        presentNums = liveNums;
+        console.log(`  ℹ  Using manifest: ${liveNums.size} section(s) found`);
+      }
+    } catch {
+      console.warn(
+        "  ⚠  safety-manual.json unreadable — using fallback titles",
+      );
+    }
+  } else {
+    console.log("  ℹ  safety-manual.json not found — using fallback titles");
+  }
+
+  // ── 2. Build cluster HTML and inject into template ──────────────────────
+  const tocClustersHtml = buildTocClustersHtml(titleMap, presentNums);
+  const raw = await readFile(
+    join(DOCS_DIR, "manuals/safety-manual-toc.html"),
+    "utf-8",
+  );
+  const html = applyBrandTokens(raw).replace(
+    "{{TOC_CLUSTERS_HTML}}",
+    tocClustersHtml,
+  );
+
+  // ── 3. Render to PDF ────────────────────────────────────────────────────
+  const pdfPath = join(OUTPUT_DIR, "safety-manual-toc.pdf");
+  await renderHtmlToPdf(
+    html,
+    pdfPath,
+    {
+      margin: {
+        top: "0.42in",
+        right: "0.5in",
+        bottom: "0.42in",
+        left: "0.5in",
+      },
+    },
+    "manuals/_tmp_toc.html",
+  );
+  return pdfPath;
 }
 
 // ── Template: Tab Dividers ────────────────────────────────────────────────────
@@ -822,13 +1076,13 @@ async function generateSections(filter = null) {
         console.log(`  ✓  ${rel}`);
       }
     } else {
-      const tocHtml = applyBrandTokens(buildContentsPdfHtml(sections));
-      await renderHtmlToPdf(
-        tocHtml,
-        tocTarget,
-        {},
-        "manuals/_tmp_safety_manual_contents.html",
-      );
+      // Use the high-fidelity static TOC template; copy its output to tocTarget
+      const tocPdfPath = await generateToc();
+      if (existsSync(tocPdfPath)) {
+        await copyFile(tocPdfPath, tocTarget);
+        const rel = tocTarget.replace(ROOT + "/", "");
+        console.log(`  ✓  ${rel}`);
+      }
     }
 
     const referenceHtml = applyBrandTokens(buildReferencePdfHtml(sections));
@@ -1724,6 +1978,7 @@ async function main() {
         await generateCover();
         await generateSpine();
         await generateTabs();
+        await generateToc();
         await generateSections();
         break;
       case "cover":
@@ -1734,6 +1989,9 @@ async function main() {
         break;
       case "tabs":
         await generateTabs();
+        break;
+      case "toc":
+        await generateToc();
         break;
       case "sections":
         await generateSections();
