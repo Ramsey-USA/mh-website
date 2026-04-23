@@ -166,6 +166,12 @@
     "sharp": "^0.34.5",
     "tesseract.js": "^7.0.0"
   },
+  "pnpm": {
+    "overrides": {
+      "fast-xml-parser": "^5.7.0",
+      "uuid": "^14.0.0"
+    }
+  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix",
@@ -184,7 +190,8 @@
     "glob": ">=11.0.0",
     "picomatch": ">=4.0.4",
     "yaml": ">=2.8.3",
-    "fast-xml-parser": "^5.5.9",
+    "fast-xml-parser": "^5.7.0",
+    "uuid": "^14.0.0",
     "basic-ftp": ">=5.2.2"
   }
 }
