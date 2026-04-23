@@ -47,14 +47,6 @@ export function DeferredPerformanceEnhancements() {
     let cancelled = false;
     let timeoutId: ReturnType<typeof globalThis.setTimeout> | undefined;
     let idleId: number | undefined;
-    const requestIdleCallback =
-      typeof globalThis.requestIdleCallback === "function"
-        ? globalThis.requestIdleCallback.bind(globalThis)
-        : undefined;
-    const cancelIdleCallback =
-      typeof globalThis.cancelIdleCallback === "function"
-        ? globalThis.cancelIdleCallback.bind(globalThis)
-        : undefined;
 
     const enable = () => {
       if (!cancelled) {
@@ -63,30 +55,30 @@ export function DeferredPerformanceEnhancements() {
     };
 
     const scheduleEnable = () => {
-      if (requestIdleCallback) {
-        idleId = requestIdleCallback(enable, { timeout: 1500 });
+      if ("requestIdleCallback" in window) {
+        idleId = window.requestIdleCallback(enable, { timeout: 1500 });
         return;
       }
 
       timeoutId = globalThis.setTimeout(enable, 1500);
     };
 
-    if (globalThis.document?.readyState === "complete") {
+    if (document.readyState === "complete") {
       scheduleEnable();
     } else {
-      globalThis.addEventListener?.("load", scheduleEnable, { once: true });
+      window.addEventListener("load", scheduleEnable, { once: true });
     }
 
     return () => {
       cancelled = true;
-      globalThis.removeEventListener?.("load", scheduleEnable);
+      window.removeEventListener("load", scheduleEnable);
 
-      if (idleId !== undefined && cancelIdleCallback) {
-        cancelIdleCallback(idleId);
+      if (idleId !== undefined && "cancelIdleCallback" in window) {
+        window.cancelIdleCallback(idleId);
       }
 
       if (timeoutId !== undefined) {
-        globalThis.clearTimeout(timeoutId);
+        window.clearTimeout(timeoutId);
       }
     };
   }, []);
