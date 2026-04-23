@@ -1,10 +1,109 @@
 /**
  * Print Base Styles
  * @page rules, margins, page counters, running headers/footers.
- * Import AFTER brand.css in every document template.
+ * Brand variables are inlined below to avoid @import resolution issues in Puppeteer.
  */
 
-@import url("brand.css");
+/* ── Brand CSS variables (inlined to avoid @import resolution issues) ── */
+:root {
+  --color-primary: #386851;
+  --color-primary-light: #628f79;
+  --color-primary-dark: #1e392c;
+  --color-primary-darker: #12231b;
+  --color-secondary: #bd9264;
+  --color-secondary-text: #8a6b49;
+  --color-secondary-light: #d9bd93;
+  --color-secondary-dark: #8a6b49;
+  --color-bronze: #a87948;
+  --color-bronze-light: #cd9b6d;
+  --color-bronze-dark: #6b4e2e;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+  --color-danger-bg: #fef2f2;
+  --color-danger-border: #ef4444;
+  --color-danger-text: #991b1b;
+  --color-danger-icon: #dc2626;
+  --color-warning-bg: #fffbeb;
+  --color-warning-border: #f59e0b;
+  --color-warning-text: #92400e;
+  --color-warning-icon: #d97706;
+  --color-caution-bg: #fff7ed;
+  --color-caution-border: #ea580c;
+  --color-caution-text: #7c2d12;
+  --color-caution-icon: #c2410c;
+  --color-note-bg: #f0f7f4;
+  --color-note-border: #386851;
+  --color-note-text: #1e392c;
+  --color-note-icon: #386851;
+  --font-body: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+  --font-heading: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+  --type-print-running-head: 8pt;
+  --type-print-footer-small: 6.5pt;
+  --type-print-footer: 7pt;
+  --type-print-form-title: 16pt;
+  --type-print-form-title-compact: 14pt;
+  --type-print-form-title-dense: 13pt;
+  --type-print-meta: 7.5pt;
+  --type-print-meta-compact: 7pt;
+  --type-print-label: 7.5pt;
+  --type-print-label-small: 6.5pt;
+  --type-print-field: 9.5pt;
+  --type-print-table: 8.5pt;
+  --type-print-table-compact: 8pt;
+  --type-print-table-head: 8pt;
+  --type-print-table-head-compact: 7pt;
+  --type-print-note: 7.5pt;
+  --type-print-note-small: 7pt;
+  --type-print-signature: 7pt;
+  --type-print-summary: 12pt;
+  --type-print-manual-section-title: 18pt;
+  --type-print-qr-caption: 6.5pt;
+  --type-print-qr-body: 8pt;
+  --type-print-qr-title: 8.5pt;
+  --type-print-cover-meta: 9pt;
+  --type-print-cover-title: 44pt;
+  --type-print-cover-subtitle: 10.5pt;
+  --type-print-h1: 22pt;
+  --type-print-h2: 16pt;
+  --type-print-h3: 13pt;
+  --type-print-h4: 11pt;
+  --type-print-h5: 10pt;
+  --type-print-h6: 9pt;
+  --type-print-callout-icon: 14pt;
+  --type-print-callout-title: 9pt;
+  --type-print-callout-body: 9pt;
+  --type-print-doc-header-title: 11pt;
+  --type-print-toc-tier-head: 8pt;
+  --type-print-toc-tier-label: 8.5pt;
+  --type-print-toc-tier-desc: 7.5pt;
+  --type-print-tab-watermark: 72pt;
+  --type-print-tab-title: 22pt;
+  --type-print-emphasis-warning: 12pt;
+  --spacing-component-callout: 8pt 10pt;
+  --spacing-component-badge: 2pt 7pt;
+  --spacing-component-toc-tier: 3pt 4pt;
+  --spacing-component-toc-entry: 3pt 0;
+  --spacing-component-table-head-cell: 5pt 7pt;
+  --spacing-component-table-cell: 4pt 7pt;
+  --spacing-component-form-header: 7pt 10pt;
+  --spacing-component-form-badge: 2pt 8pt;
+  --spacing-component-signature-cell: 5pt 8pt;
+  --page-width: 8.5in;
+  --page-height: 11in;
+  --margin-top: 0.75in;
+  --margin-right: 0.75in;
+  --margin-bottom: 0.75in;
+  --margin-left: 1.25in;
+  --spacing-cover-top-pad: 0 0.5in;
+  --spacing-cover-hero-pad: 0.35in 0.6in;
+  --spacing-cover-logo-pad: 0.2in 0.3in;
+  --spacing-cover-badge-pad: 5pt 16pt;
+  --spacing-cover-qr-pad: 0.08in;
+  --spacing-cover-bottom-pad: 0 0.45in;
+}
 
 /* ── Page Setup ─────────────────────────────────────────── */
 @page {

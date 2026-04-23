@@ -19,8 +19,8 @@
  *   safety-manual-cover.pdf
  *   safety-manual-spine.pdf
  *   safety-manual-tabs.pdf
+ *   safety-manual-toc.pdf
  *   sections/
- *     00-table-of-contents.pdf
  *     01-injury-free-workplace-plan.pdf
  *     …
  *   forms/
@@ -30,13 +30,7 @@
 import puppeteer from "puppeteer";
 import QRCode from "qrcode";
 import { PDFDocument } from "pdf-lib";
-import {
-  readFile,
-  writeFile,
-  mkdir,
-  readdir,
-  copyFile,
-} from "node:fs/promises";
+import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
 import { readFileSync, existsSync, unlinkSync } from "node:fs";
 import { join, resolve, dirname, extname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -716,14 +710,19 @@ async function generateToc() {
 
   // ── 2. Build cluster HTML and inject into template ──────────────────────
   const tocClustersHtml = buildTocClustersHtml(titleMap, presentNums);
+  // QR code pointing to the public web TOC page (not the full manual)
+  const tocQrDataUrl = await buildQrDataUrl(BRAND.qrCodes.tableOfContents);
   const raw = await readFile(
     join(DOCS_DIR, "manuals/safety-manual-toc.html"),
     "utf-8",
   );
-  const html = applyBrandTokens(raw).replace(
-    "{{TOC_CLUSTERS_HTML}}",
-    tocClustersHtml,
-  );
+  // Use replaceAll with function form: the template has the placeholder in both
+  // the developer comment and the <main> body — .replace() would only hit the
+  // comment. Function form also prevents $ in the replacement being interpreted
+  // as a special pattern (e.g. $& would re-insert the match).
+  const html = applyBrandTokens(raw)
+    .replaceAll("{{TOC_CLUSTERS_HTML}}", () => tocClustersHtml)
+    .replace("{{QR_TOC_URL}}", tocQrDataUrl);
 
   // ── 3. Render to PDF ────────────────────────────────────────────────────
   const pdfPath = join(OUTPUT_DIR, "safety-manual-toc.pdf");
@@ -731,6 +730,7 @@ async function generateToc() {
     html,
     pdfPath,
     {
+      displayHeaderFooter: false,
       margin: {
         top: "0.42in",
         right: "0.5in",
@@ -1058,33 +1058,11 @@ async function generateSections(filter = null) {
     );
   }
 
-  // Keep a top-level TOC artifact for quick access without opening section folders.
-  // If legacy section 00 exists, copy it. Otherwise synthesize a TOC PDF from the manifest.
   if (filter === null) {
-    const tocTarget = join(OUTPUT_DIR, "safety-manual-contents.pdf");
+    // Generate the TOC from the static template
+    await generateToc();
+
     const referenceTarget = join(OUTPUT_DIR, "safety-manual-reference.pdf");
-    const tocSection = sections.find((section) => Number(section.number) === 0);
-
-    if (tocSection) {
-      const tocSource = join(
-        sectionsDir,
-        `${tocSection.numberStr}-${tocSection.slug}.pdf`,
-      );
-      if (existsSync(tocSource)) {
-        await copyFile(tocSource, tocTarget);
-        const rel = tocTarget.replace(ROOT + "/", "");
-        console.log(`  ✓  ${rel}`);
-      }
-    } else {
-      // Use the high-fidelity static TOC template; copy its output to tocTarget
-      const tocPdfPath = await generateToc();
-      if (existsSync(tocPdfPath)) {
-        await copyFile(tocPdfPath, tocTarget);
-        const rel = tocTarget.replace(ROOT + "/", "");
-        console.log(`  ✓  ${rel}`);
-      }
-    }
-
     const referenceHtml = applyBrandTokens(buildReferencePdfHtml(sections));
     await renderHtmlToPdf(
       referenceHtml,

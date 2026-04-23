@@ -183,6 +183,12 @@ const QR_CODES = [
     label: "www.mhc-gc.com/resources/safety-manual",
   },
   {
+    name: "safety-manual-contents",
+    url: `${BASE_URL}/resources/safety-manual/contents`,
+    description: "Safety Manual — Table of Contents (Public)",
+    label: "www.mhc-gc.com/resources/safety-manual/contents",
+  },
+  {
     name: "accessibility",
     url: `${BASE_URL}/accessibility`,
     description: "Accessibility Statement",

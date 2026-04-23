@@ -4,13 +4,13 @@
  * documents/scripts/merge.mjs
  *
  * Merges all individual safety manual PDFs into a single downloadable file.
- * Order: cover → tab dividers → sections 00–44.
+ * Order: cover → TOC → tab dividers → sections 01–50.
  *
  * Usage:
  *   npm run docs:merge                       # merge from documents/output/
  *   node documents/scripts/merge.mjs         # same
  *
- * Input:  documents/output/ (cover, tabs, sections/)
+ * Input:  documents/output/ (cover, toc, tabs, sections/)
  * Output: documents/output/safety-manual-complete.pdf
  *
  * Requires: pdf-lib (devDependency)
@@ -50,12 +50,17 @@ async function merge({ includeTabs, outFile, title }) {
 
   // ── Validate required inputs exist ──────────────────────────────────────
   const coverPath = join(OUTPUT_DIR, "safety-manual-cover.pdf");
+  const tocPath = join(OUTPUT_DIR, "safety-manual-toc.pdf");
   const tabsPath = join(OUTPUT_DIR, "safety-manual-tabs.pdf");
 
   if (!existsSync(coverPath)) {
     console.error(
       "❌  Cover PDF not found. Run `npm run docs:generate` first.",
     );
+    process.exit(1);
+  }
+  if (!existsSync(tocPath)) {
+    console.error("❌  TOC PDF not found. Run `npm run docs:generate` first.");
     process.exit(1);
   }
   if (includeTabs && !existsSync(tabsPath)) {
@@ -85,6 +90,7 @@ async function merge({ includeTabs, outFile, title }) {
   }
 
   console.log(`  Cover:    safety-manual-cover.pdf`);
+  console.log(`  TOC:      safety-manual-toc.pdf`);
   if (includeTabs) {
     console.log(`  Tabs:     safety-manual-tabs.pdf`);
   }
@@ -122,12 +128,15 @@ async function merge({ includeTabs, outFile, title }) {
   // 1. Cover page
   await appendPdf("Cover", coverPath);
 
-  // 2. Tab dividers (skip for digital/no-tabs variant)
+  // 2. Table of contents
+  await appendPdf("Table of Contents", tocPath);
+
+  // 3. Tab dividers (skip for digital/no-tabs variant)
   if (includeTabs) {
     await appendPdf("Tab Dividers", tabsPath);
   }
 
-  // 3. All section PDFs in order (00–44)
+  // 4. All section PDFs in order (01–50)
   for (const file of sectionFiles) {
     const num = file.split("-")[0];
     await appendPdf(`Section ${num}`, join(SECTIONS, file));
@@ -147,14 +156,14 @@ async function merge({ includeTabs, outFile, title }) {
 
 async function main() {
   if (noTabs) {
-    // Digital variant: cover + sections only (no tabs, no spine)
+    // Digital variant: cover + TOC + sections (no tabs, no spine)
     await merge({
       includeTabs: false,
       outFile: OUT_FILE_DIGITAL,
       title: "MH Construction Safety Manual — Digital",
     });
   } else {
-    // Default: complete binder version (cover + tabs + sections)
+    // Default: complete binder version (cover + TOC + tabs + sections)
     await merge({
       includeTabs: true,
       outFile: OUT_FILE,

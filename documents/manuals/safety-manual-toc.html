@@ -16,7 +16,22 @@
                                       (see TOC_CLUSTERS / buildTocClustersHtml in generate.mjs)
     -->
     <style>
-      @import url("../styles/brand.css");
+      /* ── Brand CSS variables (inlined to avoid @import resolution issues) ── */
+      :root {
+        --color-primary: #386851;
+        --color-primary-light: #628f79;
+        --color-primary-dark: #1e392c;
+        --color-primary-darker: #12231b;
+        --color-secondary: #bd9264;
+        --color-secondary-text: #8a6b49;
+        --color-secondary-light: #d9bd93;
+        --color-secondary-dark: #8a6b49;
+        --color-bronze: #a87948;
+        --color-bronze-light: #cd9b6d;
+        --color-bronze-dark: #6b4e2e;
+        --font-body: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+        --font-heading: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+      }
 
       *,
       *::before,
@@ -219,6 +234,56 @@
         color: #8a6b49;
         text-align: right;
       }
+
+      /* ── Footer veteran badge ──────────────────────────── */
+      .toc-footer-veteran {
+        flex-shrink: 0;
+        border: 0.75pt solid #386851;
+        border-radius: 2pt;
+        padding: 2pt 10pt;
+        font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
+        font-size: 6pt;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #386851;
+      }
+
+      .toc-footer-veteran::before {
+        content: "\2605\00a0";
+        color: #bd9264;
+      }
+
+      .toc-footer-veteran::after {
+        content: "\00a0\2605";
+        color: #bd9264;
+      }
+
+      /* ── Footer QR code (public TOC URL) ──────────────── */
+      .toc-footer-qr {
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5pt;
+      }
+
+      .toc-footer-qr img {
+        width: 0.44in;
+        height: 0.44in;
+        display: block;
+      }
+
+      .toc-footer-qr-label {
+        font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
+        font-size: 5.5pt;
+        font-weight: 700;
+        color: #8a6b49;
+        text-align: center;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
     </style>
   </head>
   <body>
@@ -230,7 +295,6 @@
           src="{{BRAND_LOGO_COLOR}}"
           alt="MH Construction, Inc."
         />
-        <div class="toc-veteran-badge">Veteran Owned</div>
         <h1 class="toc-title">MISH Program Table of Contents</h1>
         <p class="toc-subtitle">
           MH Construction Industrial &amp; Safety Health Program
@@ -247,6 +311,13 @@
         <span class="toc-footer-left"
           >{{BRAND_COMPANY_NAME}}&nbsp;&middot;&nbsp;(509)&nbsp;308-6489&nbsp;&middot;&nbsp;www.mhc-gc.com</span
         >
+        <!-- Veteran Owned badge — centered in footer -->
+        <div class="toc-footer-veteran">Veteran Owned</div>
+        <!-- QR code — scan to open the public table of contents page -->
+        <div class="toc-footer-qr">
+          <img src="{{QR_TOC_URL}}" alt="Scan for Table of Contents" />
+          <span class="toc-footer-qr-label">Scan for TOC</span>
+        </div>
         <span class="toc-footer-right"
           >Revision {{BRAND_REVISION_NUMBER}} ({{BRAND_REVISION_DATE}})</span
         >

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-23T19:28:09.472Z",
+  "generatedAt": "2026-04-23T21:17:01.071Z",
   "baseUrl": "https://www.mhc-gc.com",
   "outputDirectory": "public/images/qr-codes",
   "folders": [
@@ -459,6 +459,28 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual",
       "description": "Safety Manual",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "safety-manual-contents",
+      "filename": "qr-safety-manual-contents-color.png",
+      "relativePath": "safety/qr-safety-manual-contents-color.png",
+      "folder": "safety",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/resources/safety-manual/contents",
+      "description": "Safety Manual — Table of Contents (Public)",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "safety-manual-contents",
+      "filename": "qr-safety-manual-contents-bw.png",
+      "relativePath": "safety/qr-safety-manual-contents-bw.png",
+      "folder": "safety",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/resources/safety-manual/contents",
+      "description": "Safety Manual — Table of Contents (Public)",
       "success": true,
       "error": null
     },

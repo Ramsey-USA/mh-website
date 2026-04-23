@@ -23,6 +23,12 @@ Ensure every QR code image in `public/images/qr-codes/` is present on disk, enco
 - Image optimization: each PNG must be 512 × 512 px and ≤ 200 KB
 - No orphaned images (files on disk with no corresponding manifest entry)
 
+## Known Entries Requiring Generation
+
+- `safety/qr-safety-manual-contents-color.png` → `https://www.mhc-gc.com/resources/safety-manual/contents`
+- `safety/qr-safety-manual-contents-bw.png` → same URL
+- These are registered in `qr-codes-manifest.json` and `scripts/generate-qr-codes.js` but the PNG files have not yet been generated. Run `npm run qr:generate` to produce them.
+
 ## Guardrails
 
 - Never remove a QR entry without confirming its target route has been permanently retired.

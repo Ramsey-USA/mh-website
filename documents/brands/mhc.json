@@ -46,7 +46,8 @@
     "bbbSeal": "../assets/bbb/bbb-accredited-seal.png"
   },
   "qrCodes": {
-    "dashboard": "../assets/qr-safety-dashboard.png",
-    "digitalManual": "https://www.mhc-gc.com/docs/safety-manual-digital.pdf"
+    "dashboard": "https://www.mhc-gc.com/safety/hub",
+    "digitalManual": "https://www.mhc-gc.com/docs/safety-manual-digital.pdf",
+    "tableOfContents": "https://www.mhc-gc.com/resources/safety-manual/contents"
   }
 }

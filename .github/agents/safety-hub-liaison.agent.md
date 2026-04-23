@@ -21,6 +21,17 @@ Maintain safety and hub congruency with canonical routing and language standards
 - Cross-surface alignment between site, PWA, and docs
 - MISH revision/section model references where applicable
 
+## Route Architecture — Public vs. Restricted
+
+| Route | Access | Purpose |
+|---|---|---|
+| `/resources/safety-manual/contents` | **Public** (indexed) | Table of contents page — all 50 MISH sections listed by cluster; links to TOC PDF download; no auth required |
+| `/resources/safety-manual` | Public | Redirects to `/safety` |
+| `/safety` | Public | Safety program overview and credentials |
+| `/hub` | **Restricted** (`robots: noindex`) | Operations Hub — full manual access, employee resources |
+| `/docs/safety/safety-manual-complete.pdf` | Restricted | Full manual PDF — served via R2, auth-gated |
+| `/docs/safety/safety-manual-contents.pdf` | Public | TOC PDF — downloadable from the contents page |
+
 ## Guardrails
 
 - Preserve canonical routing intent and compatibility behavior.

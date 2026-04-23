@@ -22,6 +22,14 @@ Implement and verify safety PDF changes from source files, then regenerate outpu
 - Safety PDF publish scripts under scripts/
 - Safety document metadata used by resources and safety surfaces
 
+## TOC Template Notes
+
+- `safety-manual-toc.html` uses **inlined CSS** (no `@import`) — do not restore the `@import url("../styles/brand.css")` line; the brand variables are embedded directly in `<style>`.
+- The `{{TOC_CLUSTERS_HTML}}` placeholder appears twice in the template (comment block + `<main>`). The generator uses `.replaceAll(..., () => ...)` (function form) to catch both and prevent `$`-pattern misinterpretation. Do not revert to `.replace()`.
+- `renderHtmlToPdf` for the TOC must include `displayHeaderFooter: false` explicitly — Puppeteer newer versions default to `true`, which injects a spurious running header/footer over the page-designed header and footer.
+- The TOC footer carries three elements in order: company contact (left), `★ VETERAN OWNED ★` badge + QR code labeled "SCAN FOR TOC" (center), revision info (right). The QR encodes `BRAND.qrCodes.tableOfContents` → `https://www.mhc-gc.com/resources/safety-manual/contents`.
+- After regenerating `safety-manual-toc.pdf`, copy it to `safety-manual-contents.pdf` to keep both in sync.
+
 ## Guardrails
 
 - Do not edit binary PDF files directly; edit source templates/scripts and regenerate.
