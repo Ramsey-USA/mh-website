@@ -1,0 +1,59 @@
+{
+  "name": "Lisa Kandle",
+  "role": "Project Engineer / Marketing Agent",
+  "department": "Mission Commanders",
+  "cardNumber": 15,
+  "position": "Project Engineer / Marketing Agent",
+  "nickname": "The Logistics Officer",
+  "yearsWithCompany": 3,
+  "hometown": "Tri-Cities, WA",
+  "education": "Business Administration",
+  "currentYearStats": {
+    "projectsCompleted": 55,
+    "clientSatisfaction": 98,
+    "safetyRecord": "N/A",
+    "teamCollaborations": 45
+  },
+  "careerStats": {
+    "totalProjects": 180,
+    "yearsExperience": 3,
+    "specialtyAreas": 4,
+    "mentorships": 6
+  },
+  "awards": "Administrative Support Excellence Award, Efficiency Recognition",
+  "bio": "Lisa provides essential administrative support that keeps MH Construction operations running smoothly. Her attention to detail and proactive communication style supports both internal team coordination and client interactions, embodying the company's commitment to professional service excellence.",
+  "careerHighlights": [
+    "Streamlined administrative processes",
+    "Enhanced client communication systems",
+    "Improved document management efficiency",
+    "Supported successful project coordination"
+  ],
+  "funFact": "Lisa has developed a filing system so efficient that any document can be located within 30 seconds.",
+  "certifications": "Microsoft Office Specialist, Customer Service Excellence, Procore Certified",
+  "hobbies": "Reading, Crafting",
+  "specialInterests": "Process Improvement",
+  "specialties": [
+    "Administrative Support & Documentation",
+    "Client Communication & Relations",
+    "Office Organization & Efficiency",
+    "Multi-Department Coordination"
+  ],
+  "avatar": "/images/team/lisa.jpg",
+  "veteranStatus": "Civilian Professional",
+  "active": true,
+  "slug": "lisa-kandle",
+  "email": "lisa@mhc-gc.com",
+  "skills": {
+    "leadership": 74,
+    "technical": 76,
+    "communication": 86,
+    "safety": 55,
+    "problemSolving": 78,
+    "teamwork": 82,
+    "organization": 90,
+    "innovation": 76,
+    "passion": 80,
+    "continuingEducation": 73
+  },
+  "qrCode": "/media/qr-codes/team/qr-team-lisa-kandle-color.png"
+}

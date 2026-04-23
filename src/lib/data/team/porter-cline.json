@@ -1,0 +1,59 @@
+{
+  "name": "Porter Cline",
+  "role": "Superintendent",
+  "department": "Field Officers",
+  "cardNumber": 23,
+  "position": "Industrial Superintendent",
+  "nickname": "The Heavy Weapons Specialist",
+  "yearsWithCompany": 5,
+  "hometown": "Idaho",
+  "education": "Industrial Technology",
+  "currentYearStats": {
+    "projectsCompleted": 18,
+    "clientSatisfaction": 97,
+    "safetyRecord": "EXCELLENT",
+    "teamCollaborations": 25
+  },
+  "careerStats": {
+    "totalProjects": 95,
+    "yearsExperience": 9,
+    "specialtyAreas": 4,
+    "mentorships": 8
+  },
+  "awards": "Industrial Excellence Award, Heavy Equipment Mastery Recognition",
+  "bio": "Porter is a Superintendent with experience leading projects from foundation to finish. His career in construction began unexpectedly after a college injury shifted his focus toward building. He started a company with his brother before advancing through several other firms. Known for his adaptability, leadership, and problem-solving, Porter thrives on the ever-changing challenges of the field and enjoys working alongside his crews to get the job done. He takes pride in guiding teams through demanding phases, maintaining strong client relationships, and ensuring every project is completed to a high standard and on schedule.",
+  "careerHighlights": [
+    "Multi-Story Building - 2,500+ sq. ft.",
+    "Darigold",
+    "Custom Home - 5,000 sq. ft. home designed by an aeronautics engineer",
+    "Hands-on leadership working alongside crews"
+  ],
+  "funFact": "Seeing a finished project come together while meeting deadlines and exceeding expectations with his crew.",
+  "certifications": "Forklift, CPR & First Aid, Procore Certified",
+  "hobbies": "Team Leadership, Problem-solving",
+  "specialInterests": "Guiding teams through demanding phases",
+  "specialties": [
+    "Problem-Solving",
+    "Team Leadership",
+    "Clear Communication",
+    "Adaptability/Flexibility"
+  ],
+  "avatar": "/images/team/porter-cline.webp",
+  "veteranStatus": "Civilian Professional",
+  "active": true,
+  "slug": "porter-cline",
+  "email": "porter@mhc-gc.com",
+  "skills": {
+    "leadership": 82,
+    "technical": 87,
+    "communication": 80,
+    "safety": 88,
+    "problemSolving": 85,
+    "teamwork": 82,
+    "organization": 82,
+    "innovation": 78,
+    "passion": 82,
+    "continuingEducation": 84
+  },
+  "qrCode": "/media/qr-codes/team/qr-team-porter-cline-color.png"
+}

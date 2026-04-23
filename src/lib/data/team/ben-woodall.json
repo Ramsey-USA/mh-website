@@ -1,0 +1,60 @@
+{
+  "name": "Ben Woodall",
+  "role": "Project Manager",
+  "department": "Mission Commanders",
+  "cardNumber": 4,
+  "position": "Project Manager",
+  "nickname": "The Mission Planner",
+  "yearsWithCompany": 10,
+  "hometown": "Oregon",
+  "education": "Construction Management",
+  "currentYearStats": {
+    "projectsCompleted": 28,
+    "clientSatisfaction": 95,
+    "safetyRecord": "EXCELLENT",
+    "teamCollaborations": 24
+  },
+  "careerStats": {
+    "totalProjects": 220,
+    "yearsExperience": 15,
+    "specialtyAreas": 5,
+    "mentorships": 15
+  },
+  "awards": "Budget Excellence Award, Project Efficiency Recognition",
+  "bio": "Ben began his career as an estimator and design-build CAD drafter. Over the last 15 years he has grown into a project management role. Ben has substantial experience with taking projects from concept to completion through every phase in-between. Ben excels in seeing potential issues from all perspectives and finding creative solutions that work for all stakeholders involved. His experience, combined with a proactive approach, allows him to consistently deliver projects on-time and under budget.",
+  "careerHighlights": [
+    "Barhyte Specialty Foods Warehouse",
+    "Central Oregon Processing Pellet Mill",
+    "Inland Desert Nursery Cold Storage",
+    "Consistently delivers projects on-time and under budget"
+  ],
+  "funFact": "Building projects my children can see and remember their dad, long after I am gone.",
+  "certifications": "ADDA Certified Mechanical and Architectural Drafter, OSHA 30, Procore Certified",
+  "hobbies": "Cycling, Budgeting",
+  "specialInterests": "Cost Optimization",
+  "specialties": [
+    "Decision-Making",
+    "Conflict Resolution",
+    "Construction Knowledge",
+    "Time Management",
+    "Collaboration"
+  ],
+  "avatar": "/images/team/ben-woodall.webp",
+  "veteranStatus": "Civilian Professional",
+  "active": true,
+  "slug": "ben-woodall",
+  "email": "ben@mhc-gc.com",
+  "skills": {
+    "leadership": 76,
+    "technical": 82,
+    "communication": 82,
+    "safety": 86,
+    "problemSolving": 85,
+    "teamwork": 76,
+    "organization": 80,
+    "innovation": 74,
+    "passion": 81,
+    "continuingEducation": 78
+  },
+  "qrCode": "/media/qr-codes/team/qr-team-ben-woodall-color.png"
+}

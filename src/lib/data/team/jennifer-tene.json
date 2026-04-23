@@ -1,0 +1,57 @@
+{
+  "name": "Jennifer Tene",
+  "role": "Project Engineer / Admin Assistant",
+  "department": "Mission Commanders",
+  "cardNumber": 14,
+  "position": "Project Engineer / Admin Assistant",
+  "nickname": "The Operations Officer",
+  "yearsWithCompany": 0.8,
+  "hometown": "Washington",
+  "education": "Business Administration",
+  "currentYearStats": {
+    "projectsCompleted": 3,
+    "clientSatisfaction": 99,
+    "safetyRecord": "N/A",
+    "teamCollaborations": 60
+  },
+  "careerStats": {
+    "totalProjects": 3,
+    "yearsExperience": 0.8,
+    "specialtyAreas": 4,
+    "mentorships": 8
+  },
+  "awards": "Administrative Excellence Award, Communication Coordination Recognition",
+  "bio": "Jennifer serves as the central coordination point ensuring smooth communication across all departments. Her organized systems support efficient operations and maintain information flow throughout the company, embodying MH Construction's commitment to teamwork and seamless project coordination.",
+  "careerHighlights": [
+    "Streamlined inter-department communication",
+    "Implemented digital scheduling systems",
+    "Achieved 99% client satisfaction in coordination",
+    "Managed complex multi-project scheduling"
+  ],
+  "funFact": "Jennifer can coordinate schedules for up to 15 simultaneous projects without a single scheduling conflict.",
+  "specialties": [
+    "Office Administration & Coordination",
+    "Scheduling & Calendar Management",
+    "Team Support & Communication",
+    "Information Flow & Documentation"
+  ],
+  "avatar": "/images/team/jennifer-tene.jpg",
+  "veteranStatus": "Civilian Professional",
+  "active": true,
+  "slug": "jennifer-tene",
+  "email": "jennifer@mhc-gc.com",
+  "skills": {
+    "leadership": 72,
+    "technical": 74,
+    "communication": 84,
+    "safety": 52,
+    "problemSolving": 78,
+    "teamwork": 80,
+    "organization": 90,
+    "innovation": 72,
+    "passion": 78,
+    "continuingEducation": 70
+  },
+  "qrCode": "/media/qr-codes/team/qr-team-jennifer-tene-color.png",
+  "certifications": "Procore Certified"
+}
