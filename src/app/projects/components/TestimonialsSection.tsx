@@ -5,21 +5,28 @@
 
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import type { ProjectPortfolio } from "@/lib/types";
+import { getClientTestimonials } from "@/lib/data/testimonials";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
 
 interface TestimonialsSectionProps {
-  projects: ProjectPortfolio[];
+  projects?: ProjectPortfolio[];
 }
 
-export function TestimonialsSection({ projects }: TestimonialsSectionProps) {
+export function TestimonialsSection({
+  projects,
+}: Readonly<TestimonialsSectionProps>) {
   const testimonialsProjects = projects
-    .filter((p) => p.clientTestimonial)
-    .slice(0, 4);
+    ? projects.filter((p) => p.clientTestimonial).slice(0, 4)
+    : [];
 
-  if (testimonialsProjects.length === 0) {
+  const clientTestimonials = projects
+    ? []
+    : getClientTestimonials(true).slice(0, 6);
+
+  if (testimonialsProjects.length === 0 && clientTestimonials.length === 0) {
     return null;
   }
 
@@ -80,53 +87,109 @@ export function TestimonialsSection({ projects }: TestimonialsSectionProps) {
           </div>
 
           <div className="gap-6 lg:gap-8 grid md:grid-cols-2">
-            {testimonialsProjects.map((project, _index) => (
-              <div key={_index} className="group relative flex h-full">
-                {/* Animated Border Glow */}
-                <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
+            {projects
+              ? testimonialsProjects.map((item) => {
+                  const itemKey = item.id;
 
-                <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
-                  {/* Top Accent Bar */}
-                  <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+                  return (
+                    <div key={itemKey} className="group relative flex h-full">
+                      {/* Animated Border Glow */}
+                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                  <div className="p-6 flex flex-col flex-1">
-                    {/* Rating Stars */}
-                    <div
-                      className="flex flex-shrink-0 items-center mb-4"
-                      role="img"
-                      aria-label={`${project.clientTestimonial!.rating} star rating`}
-                    >
-                      {[...Array(project.clientTestimonial!.rating)].map(
-                        (_, i) => (
-                          <MaterialIcon
-                            key={i}
-                            icon="star"
-                            size="md"
-                            className="text-brand-secondary"
-                            ariaLabel=""
-                          />
-                        ),
-                      )}
+                      <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                        {/* Top Accent Bar */}
+                        <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                        <div className="p-6 flex flex-col flex-1">
+                          {/* Rating Stars */}
+                          <div
+                            className="flex flex-shrink-0 items-center mb-4"
+                            role="img"
+                            aria-label={`${item.clientTestimonial!.rating} star rating`}
+                          >
+                            {Array.from({
+                              length: item.clientTestimonial!.rating,
+                            }).map((_, i) => (
+                              <MaterialIcon
+                                key={`${itemKey}-star-${i}`}
+                                icon="star"
+                                size="md"
+                                className="text-brand-secondary"
+                                ariaLabel=""
+                              />
+                            ))}
+                          </div>
+
+                          {/* Testimonial Quote */}
+                          <blockquote className="flex-grow mb-4 text-gray-700 dark:text-gray-300 italic font-light leading-relaxed text-base">
+                            "{item.clientTestimonial!.quote}"
+                          </blockquote>
+
+                          {/* Client Information */}
+                          <div className="flex-shrink-0 pt-4 border-t border-gray-200 dark:border-gray-600">
+                            <p className="font-semibold text-gray-900 dark:text-white mb-1">
+                              {item.clientTestimonial!.clientName}
+                            </p>
+                            <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">
+                              {item.title}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                  );
+                })
+              : clientTestimonials.map((item) => {
+                  const itemKey = `client-${item.id}`;
 
-                    {/* Testimonial Quote */}
-                    <blockquote className="flex-grow mb-4 text-gray-700 dark:text-gray-300 italic font-light leading-relaxed text-base">
-                      "{project.clientTestimonial!.quote}"
-                    </blockquote>
+                  return (
+                    <div key={itemKey} className="group relative flex h-full">
+                      {/* Animated Border Glow */}
+                      <div className="absolute -inset-2 bg-gradient-to-br from-brand-secondary/40 to-bronze-700/40 rounded-2xl opacity-20 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:animate-pulse"></div>
 
-                    {/* Client Information */}
-                    <div className="flex-shrink-0 pt-4 border-t border-gray-200 dark:border-gray-600">
-                      <p className="font-semibold text-gray-900 dark:text-white mb-1">
-                        {project.clientTestimonial!.clientName}
-                      </p>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">
-                        {project.title}
-                      </p>
+                      <div className="relative bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col w-full">
+                        {/* Top Accent Bar */}
+                        <div className="h-2 bg-gradient-to-r from-brand-secondary via-bronze-700 to-bronze-800"></div>
+
+                        <div className="p-6 flex flex-col flex-1">
+                          {/* Rating Stars */}
+                          <div
+                            className="flex flex-shrink-0 items-center mb-4"
+                            role="img"
+                            aria-label={`${item.rating || 5} star rating`}
+                          >
+                            {Array.from({ length: item.rating || 5 }).map(
+                              (_, i) => (
+                                <MaterialIcon
+                                  key={`${itemKey}-star-${i}`}
+                                  icon="star"
+                                  size="md"
+                                  className="text-brand-secondary"
+                                  ariaLabel=""
+                                />
+                              ),
+                            )}
+                          </div>
+
+                          {/* Testimonial Quote */}
+                          <blockquote className="flex-grow mb-4 text-gray-700 dark:text-gray-300 italic font-light leading-relaxed text-base">
+                            "{item.quote}"
+                          </blockquote>
+
+                          {/* Client Information */}
+                          <div className="flex-shrink-0 pt-4 border-t border-gray-200 dark:border-gray-600">
+                            <p className="font-semibold text-gray-900 dark:text-white mb-1">
+                              {item.name}
+                            </p>
+                            <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">
+                              {item.company || item.project || "Client Partner"}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+                  );
+                })}
           </div>
         </div>
       </div>

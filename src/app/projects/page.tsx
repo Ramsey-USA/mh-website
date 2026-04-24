@@ -6,10 +6,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useMemo } from "react";
 import { usePageTracking } from "@/lib/analytics/hooks";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { PortfolioService } from "@/lib/services/portfolio-service";
 import { useProjectsSearch } from "./components/useProjectsSearch";
 
 // Critical above-the-fold components - load with SSR
@@ -118,9 +116,6 @@ export default function ProjectsPage() {
     clearSearch,
   } = useProjectsSearch();
 
-  // Get all projects for testimonials section
-  const allProjects = useMemo(() => PortfolioService.getAllProjects(), []);
-
   return (
     <>
       {/* SEO Meta Tags */}
@@ -173,7 +168,7 @@ export default function ProjectsPage() {
         <WhyChooseSection />
 
         {/* Testimonials Section */}
-        <TestimonialsSection projects={allProjects} />
+        <TestimonialsSection />
 
         {/* Partnership Process Section */}
         <PartnershipProcessSection />
