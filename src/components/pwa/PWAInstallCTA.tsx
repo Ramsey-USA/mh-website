@@ -23,14 +23,14 @@ interface PWAInstallCTAProps {
 export function PWAInstallCTA({
   variant = "card",
   className = "",
-}: PWAInstallCTAProps) {
+}: Readonly<PWAInstallCTAProps>) {
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
   const [isInstallable, setIsInstallable] = useState(false);
 
   useEffect(() => {
     // Check if already installed
-    if (window.matchMedia("(display-mode: standalone)").matches) {
+    if (globalThis.matchMedia("(display-mode: standalone)").matches) {
       return;
     }
 
@@ -41,10 +41,13 @@ export function PWAInstallCTA({
       setIsInstallable(true);
     };
 
-    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    globalThis.addEventListener(
+      "beforeinstallprompt",
+      handleBeforeInstallPrompt,
+    );
 
     return () => {
-      window.removeEventListener(
+      globalThis.removeEventListener(
         "beforeinstallprompt",
         handleBeforeInstallPrompt,
       );
@@ -62,9 +65,9 @@ export function PWAInstallCTA({
 
     if (outcome === "accepted") {
       // Track installation
-      if (typeof window !== "undefined" && "gtag" in window) {
+      if ("gtag" in globalThis) {
         const gtag = (
-          window as typeof window & {
+          globalThis as typeof globalThis & {
             gtag: (
               command: string,
               eventName: string,
@@ -235,7 +238,7 @@ export function PWAInstallCTA({
     return (
       <section
         className={`relative overflow-hidden bg-gradient-to-br from-gray-950 via-brand-primary-dark to-brand-primary py-8 sm:py-10 ${className}`}
-        aria-labelledby="homepage-offline-access-heading"
+        aria-labelledby="homepage-ops-hub-heading"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(217,189,147,0.18),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_30%)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -245,7 +248,7 @@ export function PWAInstallCTA({
                 <div className="flex-shrink-0">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/20 bg-white/12 shadow-lg sm:h-16 sm:w-16">
                     <MaterialIcon
-                      icon="install_mobile"
+                      icon="dashboard"
                       size="lg"
                       className="text-white"
                     />
@@ -253,46 +256,55 @@ export function PWAInstallCTA({
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-brand-secondary-light">
-                    Field Access
+                    Team Access
                   </p>
                   <h2
-                    id="homepage-offline-access-heading"
+                    id="homepage-ops-hub-heading"
                     className="text-2xl font-bold leading-tight text-white sm:text-3xl"
                   >
-                    Keep MH Construction available even when the signal drops.
+                    Install the app to access the Operations Hub.
                   </h2>
                   <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/85 sm:text-base">
-                    Add the site to your device for faster return visits,
-                    offline access to key pages, and a cleaner home-screen
-                    experience built to work well with our Cloudflare-powered
-                    deployment.
+                    The Operations Hub is the MH Construction staff portal —
+                    safety manual, field forms, toolbox talks, incident
+                    reporting, and the employee handbook. Free to install.
+                    Access requires your team passcode.
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2.5 text-xs font-semibold text-white/90 sm:text-sm">
                     <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5">
-                      Offline-ready core pages
+                      Safety manual &amp; field forms
                     </span>
                     <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5">
-                      Faster repeat visits
+                      Incident reporting
                     </span>
                     <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5">
-                      Cloudflare-optimized delivery
+                      Works offline on the job site
                     </span>
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-3 sm:min-w-[220px] sm:max-w-[240px]">
+              <div className="flex flex-col gap-3 sm:min-w-[220px] sm:max-w-[260px]">
                 <Button
                   variant="secondary"
                   size="lg"
                   className="w-full bg-brand-secondary text-gray-950 hover:bg-brand-secondary-light"
                   onClick={handleInstallClick}
                 >
-                  <MaterialIcon icon="download" size="lg" className="mr-2" />
-                  Save To Device
+                  <MaterialIcon
+                    icon="install_mobile"
+                    size="lg"
+                    className="mr-2"
+                  />
+                  Install the App
                 </Button>
                 <p className="text-center text-xs leading-relaxed text-white/70 sm:text-left">
-                  Available on supported mobile and desktop browsers when
-                  install criteria are met.
+                  Already installed?{" "}
+                  <a
+                    href="/hub"
+                    className="underline hover:text-white/90 transition-colors"
+                  >
+                    Open the Operations Hub
+                  </a>
                 </p>
               </div>
             </div>

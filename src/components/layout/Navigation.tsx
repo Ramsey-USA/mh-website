@@ -96,6 +96,12 @@ const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
       subLabel: "Force Protection",
       icon: "verified_user",
     },
+    {
+      href: "/hub",
+      label: "Team Hub",
+      subLabel: "Operations Hub",
+      icon: "dashboard",
+    },
   ],
   es: [
     { href: "/", label: "Inicio", subLabel: "Base central", icon: "home" },
@@ -177,6 +183,12 @@ const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
       subLabel: "Proteccion operativa",
       icon: "verified_user",
     },
+    {
+      href: "/hub",
+      label: "Hub del equipo",
+      subLabel: "Centro de operaciones",
+      icon: "dashboard",
+    },
   ],
 };
 
@@ -227,9 +239,38 @@ export function Navigation() {
   const isEs = locale === "es";
   const menuItems = globalMenuItemsByLocale[isEs ? "es" : "en"];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const closeMenuLabel = isEs ? "Cerrar menu" : "Close menu";
-  const openMenuLabel = isEs ? "Abrir menu" : "Open menu";
-  const menuToggleAriaLabel = isMenuOpen ? closeMenuLabel : openMenuLabel;
+  const navText = isEs
+    ? {
+        closeMenuLabel: "Cerrar menu",
+        openMenuLabel: "Abrir menu",
+        connectLabel: "Conéctate con nosotros",
+        facebookLabel: "Sigue a MH Construction en Facebook",
+        instagramLabel: "Ver MH Construction en Instagram",
+        twitterLabel: "Sigue a MH Construction en X (Twitter)",
+        youtubeLabel: "Ver MH Construction en YouTube",
+        linkedinLabel: "Conecta con MH Construction en LinkedIn",
+        privacyLabel: "Privacidad",
+        termsLabel: "Terminos",
+        accessibilityLabel: "Accesibilidad",
+        veteranBadge: "Empresa veterana • Licencia WA OR ID",
+      }
+    : {
+        closeMenuLabel: "Close menu",
+        openMenuLabel: "Open menu",
+        connectLabel: "Connect With Us",
+        facebookLabel: "Follow MH Construction on Facebook",
+        instagramLabel: "View MH Construction on Instagram",
+        twitterLabel: "Follow MH Construction on X (Twitter)",
+        youtubeLabel: "Watch MH Construction on YouTube",
+        linkedinLabel: "Connect with MH Construction on LinkedIn",
+        privacyLabel: "Privacy",
+        termsLabel: "Terms",
+        accessibilityLabel: "Accessibility",
+        veteranBadge: "Veteran-Owned • Licensed WA OR ID",
+      };
+  const menuToggleAriaLabel = isMenuOpen
+    ? navText.closeMenuLabel
+    : navText.openMenuLabel;
   const controlButtonClassName =
     "relative bg-brand-primary hover:bg-brand-primary-dark shadow-lg hover:shadow-xl p-2 xs:p-2.5 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-300 touch-manipulation border-2 border-brand-secondary hover:border-brand-secondary-light outline outline-2 outline-offset-2 outline-brand-secondary/50 hover:outline-brand-secondary min-w-[40px] min-h-[40px] xs:min-w-[44px] xs:min-h-[44px] sm:min-w-[48px] sm:min-h-[48px] flex items-center justify-center";
 
@@ -242,7 +283,7 @@ export function Navigation() {
           className="z-[60] fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-300 cursor-pointer"
           onClick={() => setIsMenuOpen(false)}
           onKeyDown={(e) => e.key === "Escape" && setIsMenuOpen(false)}
-          aria-label={closeMenuLabel}
+          aria-label={navText.closeMenuLabel}
         />
       )}
 
@@ -383,7 +424,7 @@ export function Navigation() {
             <div className="flex-shrink-0 pt-3 sm:pt-4 border-t border-gray-200 dark:border-gray-700">
               <div className="mb-2 sm:mb-3 text-center">
                 <h4 className="font-bold text-brand-secondary text-xs sm:text-sm uppercase tracking-wide">
-                  {isEs ? "Conéctate con nosotros" : "Connect With Us"}
+                  {navText.connectLabel}
                 </h4>
               </div>
               <div className="flex justify-center gap-2 sm:gap-2.5">
@@ -392,11 +433,7 @@ export function Navigation() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#1877F2] hover:via-[#42A5F5] hover:to-[#1565C0] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#1877F2] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#1877F2]/40"
-                  aria-label={
-                    isEs
-                      ? "Sigue a MH Construction en Facebook"
-                      : "Follow MH Construction on Facebook"
-                  }
+                  aria-label={navText.facebookLabel}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
@@ -410,11 +447,7 @@ export function Navigation() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#E4405F] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#E4405F]/40"
-                  aria-label={
-                    isEs
-                      ? "Ver MH Construction en Instagram"
-                      : "View MH Construction on Instagram"
-                  }
+                  aria-label={navText.instagramLabel}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
@@ -428,11 +461,7 @@ export function Navigation() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#000000] hover:via-[#1D9BF0] hover:to-[#000000] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#1D9BF0] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-black/40"
-                  aria-label={
-                    isEs
-                      ? "Sigue a MH Construction en X (Twitter)"
-                      : "Follow MH Construction on X (Twitter)"
-                  }
+                  aria-label={navText.twitterLabel}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
@@ -446,11 +475,7 @@ export function Navigation() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#FF0000] hover:via-[#FF4444] hover:to-[#CC0000] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#FF0000] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#FF0000]/40"
-                  aria-label={
-                    isEs
-                      ? "Ver MH Construction en YouTube"
-                      : "Watch MH Construction on YouTube"
-                  }
+                  aria-label={navText.youtubeLabel}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
@@ -464,11 +489,7 @@ export function Navigation() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 hover:from-[#0A66C2] hover:via-[#0E76A8] hover:to-[#004182] p-2 sm:p-2.5 border-2 border-gray-600 hover:border-[#0A66C2] rounded-lg hover:scale-110 transition-all duration-300 touch-manipulation shadow-md hover:shadow-[#0A66C2]/40"
-                  aria-label={
-                    isEs
-                      ? "Conecta con MH Construction en LinkedIn"
-                      : "Connect with MH Construction on LinkedIn"
-                  }
+                  aria-label={navText.linkedinLabel}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MaterialIcon
@@ -493,7 +514,7 @@ export function Navigation() {
                     style={{ fontSize: "12px" }}
                   />
                   <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-white transition-colors">
-                    {isEs ? "Privacidad" : "Privacy"}
+                    {navText.privacyLabel}
                   </span>
                 </Link>
                 <Link
@@ -508,7 +529,7 @@ export function Navigation() {
                     style={{ fontSize: "12px" }}
                   />
                   <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-white transition-colors">
-                    {isEs ? "Terminos" : "Terms"}
+                    {navText.termsLabel}
                   </span>
                 </Link>
                 <Link
@@ -523,7 +544,7 @@ export function Navigation() {
                     style={{ fontSize: "12px" }}
                   />
                   <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-white transition-colors">
-                    {isEs ? "Accesibilidad" : "Accessibility"}
+                    {navText.accessibilityLabel}
                   </span>
                 </Link>
               </div>
@@ -537,9 +558,7 @@ export function Navigation() {
                   style={{ fontSize: "14px" }}
                 />
                 <span className="text-[10px] font-medium">
-                  {isEs
-                    ? "Empresa veterana • Licencia WA OR ID"
-                    : "Veteran-Owned • Licensed WA OR ID"}
+                  {navText.veteranBadge}
                 </span>
               </div>
             </div>

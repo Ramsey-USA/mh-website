@@ -275,7 +275,7 @@ describe("ServiceWorkerRegistration (branch coverage)", () => {
   });
 
   it("runs controllerchange handler without throwing (http protocol)", async () => {
-    // window.location.protocol is "http:" from @jest-environment-options.
+    // globalThis.location.protocol is "http:" from @jest-environment-options.
     // reload() is not spy-able in JSDOM, but we verify the handler completes.
     const reg = makeMockRegistration({ waiting: null });
     setupServiceWorkerMock(reg, { controller: true });
@@ -300,7 +300,7 @@ describe("ServiceWorkerRegistration (branch coverage)", () => {
     const calls: number[] = [];
     // Patch reload so we can count — only works if location is not frozen.
     try {
-      Object.defineProperty(window.location, "reload", {
+      Object.defineProperty(globalThis.location, "reload", {
         configurable: true,
         writable: true,
         value: () => {

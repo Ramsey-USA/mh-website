@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { logger } from "@/lib/utils/logger";
 import { ServiceWorkerRegistration } from "./ServiceWorkerRegistration";
-import { PWAInstallPrompt } from "./PWAInstallPrompt";
 import { UpdateNotification } from "./UpdateNotification";
 import { shouldDeferComponent } from "@/lib/performance/mobile-optimizations";
 
@@ -68,7 +67,6 @@ export function PWAManager() {
         onInstalled={handleInstalled}
         onError={handleError}
       />
-      <PWAInstallPrompt />
       {showUpdateNotification && <UpdateNotification onUpdate={handleUpdate} />}
     </>
   );

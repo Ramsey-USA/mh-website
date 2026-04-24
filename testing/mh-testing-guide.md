@@ -72,7 +72,7 @@ src/
 │   ├── layout/__tests__/                         # Footer, LayoutComponents, Navigation
 │   ├── navigation/__tests__/                     # Breadcrumb, PageNavigation
 │   ├── performance/__tests__/
-│   ├── pwa/__tests__/                            # PWAInstallPrompt, ServiceWorkerRegistration (x2), pwa-manager
+│   ├── pwa/__tests__/                            # PWAInstallPrompt (retained), ServiceWorkerRegistration (x2), pwa-manager
 │   ├── seo/__tests__/                            # EnhancedSEO, SeoMeta
 │   ├── services/__tests__/                       # CoreServices, ServiceCard, ServicesHero, SpecialtyServiceCard, services-sections
 │   ├── team/__tests__/TeamProfileSection.test.tsx

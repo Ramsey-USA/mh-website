@@ -70,9 +70,7 @@ jest.mock("../ServiceWorkerRegistration", () => ({
   },
 }));
 
-jest.mock("../PWAInstallPrompt", () => ({
-  PWAInstallPrompt: () => <div data-testid="pwa-install-prompt" />,
-}));
+// PWAInstallPrompt is no longer mounted by PWAManager — popup was removed in favour of the banner.
 
 jest.mock("next/navigation", () => ({
   usePathname: jest.fn().mockReturnValue("/"),
@@ -97,7 +95,8 @@ describe("PWAManager", () => {
       render(<PWAManager />);
     });
     expect(screen.getByTestId("sw-registration")).toBeTruthy();
-    expect(screen.getByTestId("pwa-install-prompt")).toBeTruthy();
+    // PWAInstallPrompt (popup) was removed; banner is rendered on the page level instead
+    expect(screen.queryByTestId("pwa-install-prompt")).toBeNull();
   });
 
   it("renders null initially when shouldDeferComponent=true", () => {
@@ -254,7 +253,7 @@ describe("PWAInstallCTA", () => {
     });
 
     await act(async () => {
-      window.dispatchEvent(installEvent);
+      globalThis.dispatchEvent(installEvent);
     });
 
     // Now installable — should show install button
@@ -276,7 +275,7 @@ describe("PWAInstallCTA", () => {
     });
 
     await act(async () => {
-      window.dispatchEvent(installEvent);
+      globalThis.dispatchEvent(installEvent);
     });
 
     const installBtn = screen.queryByRole("button", { name: /install/i });
@@ -312,10 +311,12 @@ describe("PWAInstallCTA", () => {
     });
 
     await act(async () => {
-      window.dispatchEvent(installEvent);
+      globalThis.dispatchEvent(installEvent);
     });
 
-    expect(screen.getByText(/Save To Device/i)).toBeTruthy();
+    expect(
+      screen.getByRole("button", { name: /Install the App/i }),
+    ).toBeTruthy();
   });
 
   it("button variant: renders when installable", async () => {
@@ -332,7 +333,7 @@ describe("PWAInstallCTA", () => {
     });
 
     await act(async () => {
-      window.dispatchEvent(installEvent);
+      globalThis.dispatchEvent(installEvent);
     });
 
     expect(screen.getByText(/Install App/i)).toBeTruthy();
@@ -352,7 +353,7 @@ describe("PWAInstallCTA", () => {
     });
 
     await act(async () => {
-      window.dispatchEvent(installEvent);
+      globalThis.dispatchEvent(installEvent);
     });
 
     const btn = screen.getByText(/Install App/i);
@@ -373,8 +374,8 @@ describe("PWAInstallCTA", () => {
   });
 
   it("handles install with no gtag (no analytics tracking error)", async () => {
-    // Ensure window.gtag is not set
-    delete (window as unknown as Record<string, unknown>)["gtag"];
+    // Ensure globalThis.gtag is not set
+    delete (globalThis as unknown as Record<string, unknown>)["gtag"];
 
     await act(async () => {
       render(<PWAInstallCTA variant="card" />);
@@ -389,7 +390,7 @@ describe("PWAInstallCTA", () => {
     });
 
     await act(async () => {
-      window.dispatchEvent(installEvent);
+      globalThis.dispatchEvent(installEvent);
     });
 
     const installBtn = screen.getByRole("button", { name: /install/i });
@@ -402,7 +403,7 @@ describe("PWAInstallCTA", () => {
 
   it("handles install with gtag present and accepted outcome", async () => {
     const mockGtag = jest.fn();
-    (window as unknown as Record<string, unknown>)["gtag"] = mockGtag;
+    (globalThis as unknown as Record<string, unknown>)["gtag"] = mockGtag;
 
     await act(async () => {
       render(<PWAInstallCTA variant="card" />);
@@ -417,7 +418,7 @@ describe("PWAInstallCTA", () => {
     });
 
     await act(async () => {
-      window.dispatchEvent(installEvent);
+      globalThis.dispatchEvent(installEvent);
     });
 
     const installBtn = screen.getByRole("button", { name: /install/i });
@@ -432,7 +433,7 @@ describe("PWAInstallCTA", () => {
       expect.any(Object),
     );
 
-    delete (window as unknown as Record<string, unknown>)["gtag"];
+    delete (globalThis as unknown as Record<string, unknown>)["gtag"];
   });
 
   it("returns null for unknown variant", async () => {

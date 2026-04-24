@@ -109,18 +109,16 @@ describe("Navigation", () => {
     expect(screen.queryByLabelText("Close menu")).not.toBeInTheDocument();
   });
 
-  it("does not render a Staff Access link", async () => {
+  it("renders the Team Hub link pointing to /hub", async () => {
     const user = userEvent.setup();
 
     render(<Navigation />);
 
     await user.click(screen.getByRole("button", { name: /open menu/i }));
 
-    expect(
-      screen.queryByRole("link", {
-        name: /staff access/i,
-      }),
-    ).not.toBeInTheDocument();
+    const hubLink = screen.getByRole("link", { name: /team hub/i });
+    expect(hubLink).toBeInTheDocument();
+    expect(hubLink).toHaveAttribute("href", "/hub");
   });
 
   it("closes the menu after clicking each social media link", async () => {

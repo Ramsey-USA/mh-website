@@ -4,6 +4,7 @@ import path from "node:path";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import tsEslintPlugin from "@typescript-eslint/eslint-plugin";
+import nextPlugin from "@next/eslint-plugin-next";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -79,12 +80,12 @@ const eslintConfig = [
   },
 
   // === BASE CONFIGURATION ===
-  // Use legacy-compatible preset names because eslint-config-next currently
-  // references a plugin preset shape that conflicts with ESLint 9 schema checks.
+  // Use legacy-compatible preset names. Note: @next/next core-web-vitals
+  // preset is temporarily excluded because the current plugin config shape
+  // triggers ESLint 9 schema validation errors in FlatCompat.
   ...compat.extends(
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:@next/next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
   ),
 
@@ -92,6 +93,7 @@ const eslintConfig = [
   {
     plugins: {
       "@typescript-eslint": tsEslintPlugin,
+      "@next/next": nextPlugin,
       "react-hooks": reactHooksPlugin,
       "jsx-a11y": jsxA11yPlugin,
     },

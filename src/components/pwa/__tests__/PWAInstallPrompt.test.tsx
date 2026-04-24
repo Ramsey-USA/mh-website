@@ -6,7 +6,7 @@ import { PWAInstallPrompt } from "../PWAInstallPrompt";
 
 // Provide a matchMedia stub for jsdom (which doesn't implement it)
 beforeAll(() => {
-  Object.defineProperty(window, "matchMedia", {
+  Object.defineProperty(globalThis, "matchMedia", {
     writable: true,
     value: jest.fn().mockReturnValue({
       matches: false,
@@ -35,7 +35,7 @@ function fireBeforeInstallPrompt(
     userChoice: Promise.resolve({ outcome }),
   });
   act(() => {
-    window.dispatchEvent(event);
+    globalThis.dispatchEvent(event);
   });
   act(() => {
     jest.advanceTimersByTime(3000);
@@ -80,7 +80,7 @@ describe("PWAInstallPrompt — root path without beforeinstallprompt", () => {
 
   it("does not show prompt if already installed (standalone display mode)", () => {
     // Override matchMedia to return standalone = true
-    (window.matchMedia as jest.Mock).mockReturnValueOnce({
+    (globalThis.matchMedia as jest.Mock).mockReturnValueOnce({
       matches: true, // standalone mode
       addListener: jest.fn(),
       removeListener: jest.fn(),
@@ -135,7 +135,7 @@ describe("PWAInstallPrompt — appinstalled event", () => {
     expect(screen.getByText("Install MH Construction")).toBeInTheDocument();
 
     await act(async () => {
-      window.dispatchEvent(new Event("appinstalled"));
+      globalThis.dispatchEvent(new Event("appinstalled"));
     });
 
     expect(
@@ -145,7 +145,7 @@ describe("PWAInstallPrompt — appinstalled event", () => {
 
   it("calls gtag when it is available on install", async () => {
     const mockGtag = jest.fn();
-    Object.defineProperty(window, "gtag", {
+    Object.defineProperty(globalThis, "gtag", {
       writable: true,
       configurable: true,
       value: mockGtag,
@@ -155,7 +155,7 @@ describe("PWAInstallPrompt — appinstalled event", () => {
     fireBeforeInstallPrompt();
 
     await act(async () => {
-      window.dispatchEvent(new Event("appinstalled"));
+      globalThis.dispatchEvent(new Event("appinstalled"));
     });
 
     expect(mockGtag).toHaveBeenCalledWith(
@@ -165,7 +165,7 @@ describe("PWAInstallPrompt — appinstalled event", () => {
     );
 
     // Cleanup
-    Object.defineProperty(window, "gtag", {
+    Object.defineProperty(globalThis, "gtag", {
       writable: true,
       configurable: true,
       value: undefined,

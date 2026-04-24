@@ -23,7 +23,7 @@ export function PWAInstallPrompt() {
     }
 
     // Check if already installed
-    if (window.matchMedia("(display-mode: standalone)").matches) {
+    if (globalThis.matchMedia("(display-mode: standalone)").matches) {
       setIsInstalled(true);
       return;
     }
@@ -52,19 +52,16 @@ export function PWAInstallPrompt() {
       }, 3000);
     };
 
-    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-
-    // Listen for app installed event
-    window.addEventListener("appinstalled", () => {
+    const handleAppInstalled = () => {
       logger.info("[PWA] App installed successfully");
       setIsInstalled(true);
       setShowPrompt(false);
       setDeferredPrompt(null);
 
       // Track installation with Google Analytics if available
-      if (typeof window !== "undefined" && "gtag" in window) {
+      if ("gtag" in globalThis) {
         const gtag = (
-          window as typeof window & {
+          globalThis as typeof globalThis & {
             gtag: (
               command: string,
               eventName: string,
@@ -77,13 +74,22 @@ export function PWAInstallPrompt() {
           event_label: "PWA Installation",
         });
       }
-    });
+    };
+
+    globalThis.addEventListener(
+      "beforeinstallprompt",
+      handleBeforeInstallPrompt,
+    );
+
+    // Listen for app installed event
+    globalThis.addEventListener("appinstalled", handleAppInstalled);
 
     return () => {
-      window.removeEventListener(
+      globalThis.removeEventListener(
         "beforeinstallprompt",
         handleBeforeInstallPrompt,
       );
+      globalThis.removeEventListener("appinstalled", handleAppInstalled);
     };
   }, [pathname]);
 
