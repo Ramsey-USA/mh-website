@@ -68,6 +68,14 @@ const ADMIN_CARDS = [
     icon: "edit_note",
     badge: "Admin Only",
   },
+  {
+    title: "Review Profiles",
+    subtitle:
+      "Approve or reject team profile submissions before they appear on the public team page",
+    href: "/hub/profile/review",
+    icon: "rate_review",
+    badge: "Approver Only",
+  },
 ] as const;
 
 export default function HubPage() {

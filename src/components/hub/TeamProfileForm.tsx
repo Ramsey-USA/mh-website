@@ -27,6 +27,9 @@ interface ApiProfileResponse {
     profile: VintageTeamMember;
     hasOverride: boolean;
     lastUpdated: string | null;
+    submissionStatus: "pending_approval" | "approved" | "rejected" | null;
+    submittedAt: string | null;
+    rejectionReason: string | null;
   };
   message?: string;
 }
@@ -206,6 +209,12 @@ export function TeamProfileForm() {
   >("idle");
   const [saveMessage, setSaveMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  // Submission approval state
+  const [submissionStatus, setSubmissionStatus] = useState<
+    "pending_approval" | "approved" | "rejected" | null
+  >(null);
+  const [submittedAt, setSubmittedAt] = useState<string | null>(null);
+  const [rejectionReason, setRejectionReason] = useState<string | null>(null);
 
   // Bootstrap auth + load profile
   useEffect(() => {
@@ -257,6 +266,9 @@ export function TeamProfileForm() {
         if (profileData.success && profileData.data) {
           setProfile(profileData.data.profile);
           setForm(memberToFormState(profileData.data.profile));
+          setSubmissionStatus(profileData.data.submissionStatus ?? null);
+          setSubmittedAt(profileData.data.submittedAt ?? null);
+          setRejectionReason(profileData.data.rejectionReason ?? null);
         } else {
           setLoadError("Unexpected response from server.");
         }
@@ -287,13 +299,23 @@ export function TeamProfileForm() {
         body: JSON.stringify(payload),
       });
 
-      const data = await res.json() as { success: boolean; message?: string };
+      const data = await res.json() as {
+        success: boolean;
+        message?: string;
+        data?: { status?: "pending_approval" | "approved" | "rejected" };
+      };
 
       if (res.ok && data.success) {
         setSaveStatus("saved");
         setSaveMessage(
-          data.message ?? "Profile saved successfully.",
+          data.message ?? "Profile submitted successfully.",
         );
+        // Reflect new submission status from the server response
+        if (data.data?.status) {
+          setSubmissionStatus(data.data.status);
+          setSubmittedAt(new Date().toISOString());
+          if (data.data.status !== "rejected") setRejectionReason(null);
+        }
       } else {
         setSaveStatus("error");
         setSaveMessage(data.message ?? "Failed to save profile.");
@@ -395,6 +417,63 @@ export function TeamProfileForm() {
           )}
         </div>
       </div>
+
+      {/* Submission approval status banner */}
+      {submissionStatus && saveStatus === "idle" && (
+        <div
+          className={`rounded-lg border px-4 py-3 text-sm ${
+            submissionStatus === "approved"
+              ? "border-green-600 bg-green-900/30 text-green-300"
+              : submissionStatus === "rejected"
+                ? "border-red-600 bg-red-900/30 text-red-300"
+                : "border-yellow-600 bg-yellow-900/30 text-yellow-300"
+          }`}
+        >
+          <div className="flex items-start gap-2">
+            <MaterialIcon
+              icon={
+                submissionStatus === "approved"
+                  ? "check_circle"
+                  : submissionStatus === "rejected"
+                    ? "cancel"
+                    : "hourglass_empty"
+              }
+              size="sm"
+              className="mt-0.5 shrink-0"
+            />
+            <div>
+              {submissionStatus === "approved" && (
+                <p className="font-semibold">Profile approved and live!</p>
+              )}
+              {submissionStatus === "pending_approval" && (
+                <>
+                  <p className="font-semibold">Awaiting approval</p>
+                  <p className="text-xs opacity-80 mt-0.5">
+                    Your profile has been submitted and is pending review by
+                    Matt. It will appear on the team page once approved.
+                    {submittedAt && (
+                      <> Submitted {new Date(submittedAt).toLocaleDateString()}.</>
+                    )}
+                  </p>
+                </>
+              )}
+              {submissionStatus === "rejected" && (
+                <>
+                  <p className="font-semibold">Submission not approved</p>
+                  {rejectionReason && (
+                    <p className="text-xs opacity-80 mt-0.5">
+                      Reason: {rejectionReason}
+                    </p>
+                  )}
+                  <p className="text-xs opacity-80 mt-1">
+                    Please update your profile and resubmit.
+                  </p>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Save status banner */}
       {saveStatus !== "idle" && (
@@ -674,8 +753,8 @@ export function TeamProfileForm() {
             </>
           ) : (
             <>
-              <MaterialIcon icon="save" size="sm" />
-              Save Profile
+              <MaterialIcon icon="send" size="sm" />
+              {submissionStatus === "rejected" ? "Resubmit Profile" : "Submit for Review"}
             </>
           )}
         </button>

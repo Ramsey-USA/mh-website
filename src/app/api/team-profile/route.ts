@@ -2,8 +2,11 @@
  * Team Profile API
  *
  * GET  /api/team-profile  – Return the caller's current team profile
- *                           (static JSON merged with any DB override)
- * PUT  /api/team-profile  – Upsert the caller's profile override to D1
+ *                           (static JSON merged with any approved DB override)
+ *                           plus the submission status of any pending row.
+ * PUT  /api/team-profile  – Upsert the caller's profile override to D1.
+ *                           Saved as 'pending_approval'; Matt's own submissions
+ *                           are auto-approved.
  *
  * Protected: admin role only.
  * The admin's email is resolved to a team-member slug via ADMIN_EMAIL_TO_SLUG.
@@ -26,6 +29,7 @@ import type { JWTUser } from "@/lib/auth/jwt";
 import {
   vintageTeamMembers,
   ADMIN_EMAIL_TO_SLUG,
+  APPROVER_EMAIL,
   applyProfileOverride,
   type TeamProfileOverride,
   type VintageTeamMember,
@@ -53,6 +57,12 @@ interface TeamProfileRow {
   nickname: string | null;
   updated_at: string | null;
   updated_by: string | null;
+  // Approval workflow columns (added in migration 0016)
+  status: "pending_approval" | "approved" | "rejected" | null;
+  submitted_at: string | null;
+  reviewed_at: string | null;
+  reviewed_by: string | null;
+  rejection_reason: string | null;
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -97,6 +107,12 @@ function rowToOverride(row: TeamProfileRow): TeamProfileOverride {
   if (row.nickname != null) override.nickname = row.nickname;
   if (row.updated_at != null) override.updatedAt = row.updated_at;
   if (row.updated_by != null) override.updatedBy = row.updated_by;
+  if (row.status != null) override.status = row.status;
+  if (row.submitted_at != null) override.submittedAt = row.submitted_at;
+  if (row.reviewed_at != null) override.reviewedAt = row.reviewed_at;
+  if (row.reviewed_by != null) override.reviewedBy = row.reviewed_by;
+  if (row.rejection_reason != null)
+    override.rejectionReason = row.rejection_reason;
 
   return override;
 }
@@ -131,17 +147,16 @@ async function handleGet(
     return notFound("Team member not found");
   }
 
-  // Fetch DB overrides (non-fatal if DB unavailable)
-  let override: TeamProfileOverride | null = null;
+  // Fetch DB row (non-fatal if DB unavailable)
+  let row: TeamProfileRow | null = null;
   const DB = getD1Database();
   if (DB) {
     try {
       const db = createDbClient({ DB });
-      const row = await db.queryOne<TeamProfileRow>(
+      row = await db.queryOne<TeamProfileRow>(
         "SELECT * FROM team_profiles WHERE slug = ?",
         slug,
       );
-      if (row) override = rowToOverride(row);
     } catch (err) {
       logger.warn("team-profile GET: DB query failed, using static data", {
         err,
@@ -150,12 +165,19 @@ async function handleGet(
     }
   }
 
-  const merged = applyProfileOverride(staticMember, override);
+  // Only approved rows are merged into the public-facing profile
+  const approvedOverride =
+    row?.status === "approved" ? rowToOverride(row) : null;
+  const merged = applyProfileOverride(staticMember, approvedOverride);
 
   return createSuccessResponse({
     profile: merged,
-    hasOverride: override !== null,
-    lastUpdated: override?.updatedAt ?? null,
+    hasOverride: approvedOverride !== null,
+    lastUpdated: approvedOverride?.updatedAt ?? null,
+    // Submission status — lets the form show pending/rejected banners
+    submissionStatus: row?.status ?? null,
+    submittedAt: row?.submitted_at ?? null,
+    rejectionReason: row?.rejection_reason ?? null,
   });
 }
 
@@ -404,40 +426,53 @@ async function handlePut(
   try {
     const db = createDbClient({ DB });
     const now = new Date().toISOString();
+
+    // Matt auto-approves his own submissions; all others are pending review.
+    const isMatt =
+      user.email?.toLowerCase() === APPROVER_EMAIL.toLowerCase();
+    const status = isMatt ? "approved" : "pending_approval";
+
     const cols = [
       "slug",
       ...Object.keys(result.data),
+      "status",
+      "submitted_at",
       "updated_by",
       "updated_at",
     ];
     const vals: unknown[] = [
       slug,
       ...Object.values(result.data),
+      status,
+      now,
       user.uid,
       now,
     ];
     const placeholders = cols.map(() => "?").join(", ");
-    const updateClauses = Object.keys(result.data)
-      .map((c) => `${c} = excluded.${c}`)
-      .join(", ");
+    const updateClauses = [
+      ...Object.keys(result.data).map((c) => `${c} = excluded.${c}`),
+      "status = excluded.status",
+      "submitted_at = excluded.submitted_at",
+      "updated_by = excluded.updated_by",
+      "updated_at = excluded.updated_at",
+    ].join(", ");
 
     const sql = `
       INSERT INTO team_profiles (${cols.join(", ")})
       VALUES (${placeholders})
       ON CONFLICT(slug) DO UPDATE SET
-        ${updateClauses},
-        updated_by = excluded.updated_by,
-        updated_at = excluded.updated_at
+        ${updateClauses}
     `;
 
     await db.execute(sql, ...vals);
 
-    logger.info("Team profile updated", { slug, uid: user.uid });
+    logger.info("Team profile submitted", { slug, uid: user.uid, status });
 
-    return createSuccessResponse(
-      { slug },
-      "Profile saved. Changes will appear on the website within 1 hour.",
-    );
+    const message = isMatt
+      ? "Profile saved and published."
+      : "Profile submitted for review. It will appear on the team page once approved.";
+
+    return createSuccessResponse({ slug, status }, message);
   } catch (err) {
     logger.error("team-profile PUT: DB upsert failed", { err, slug });
     return internalServerError("Failed to save profile");

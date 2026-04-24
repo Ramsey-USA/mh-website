@@ -52,6 +52,12 @@ const mockDbRow = {
   nickname: "Digital Lead",
   updated_at: "2026-04-24T00:00:00.000Z",
   updated_by: "admin-matt",
+  // Approval workflow columns
+  status: "approved" as const,
+  submitted_at: "2026-04-24T00:00:00.000Z",
+  reviewed_at: "2026-04-24T01:00:00.000Z",
+  reviewed_by: "admin-matt",
+  rejection_reason: null,
 };
 
 // ── Mocks ─────────────────────────────────────────────────────────────────────
@@ -173,9 +179,10 @@ describe("GET /api/team-profile", () => {
     expect(body.data.profile.slug).toBe("matt-ramsey");
     expect(body.data.hasOverride).toBe(false);
     expect(body.data.lastUpdated).toBeNull();
+    expect(body.data.submissionStatus).toBeNull();
   });
 
-  it("returns merged profile when DB override exists", async () => {
+  it("returns merged profile when DB row is approved", async () => {
     mockQueryOne.mockResolvedValue(mockDbRow);
     const req = makeAuthedRequest("GET");
     const res = await GET(req);
@@ -186,6 +193,37 @@ describe("GET /api/team-profile", () => {
     expect(body.data.profile.slug).toBe("matt-ramsey");
     expect(body.data.hasOverride).toBe(true);
     expect(body.data.lastUpdated).toBe("2026-04-24T00:00:00.000Z");
+    expect(body.data.submissionStatus).toBe("approved");
+  });
+
+  it("does NOT merge profile when DB row is pending_approval", async () => {
+    mockQueryOne.mockResolvedValue({
+      ...mockDbRow,
+      status: "pending_approval",
+    });
+    const req = makeAuthedRequest("GET");
+    const res = await GET(req);
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    // Profile is static (not overridden) because row is pending
+    expect(body.data.hasOverride).toBe(false);
+    expect(body.data.submissionStatus).toBe("pending_approval");
+    expect(body.data.submittedAt).toBe("2026-04-24T00:00:00.000Z");
+  });
+
+  it("surfaces rejection reason when DB row is rejected", async () => {
+    mockQueryOne.mockResolvedValue({
+      ...mockDbRow,
+      status: "rejected",
+      rejection_reason: "Please update your bio.",
+    });
+    const req = makeAuthedRequest("GET");
+    const res = await GET(req);
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.data.hasOverride).toBe(false);
+    expect(body.data.submissionStatus).toBe("rejected");
+    expect(body.data.rejectionReason).toBe("Please update your bio.");
   });
 
   it("falls back to static data when DB is unavailable", async () => {
@@ -270,7 +308,7 @@ describe("PUT /api/team-profile", () => {
     expect(body.error).toMatch(/careerHighlights/i);
   });
 
-  it("saves valid profile update and returns 200", async () => {
+  it("auto-approves when submitter is Matt (the approver)", async () => {
     const req = makeAuthedRequest("PUT", {
       bio: "New bio text.",
       funFact: "I brew my own coffee.",
@@ -283,7 +321,22 @@ describe("PUT /api/team-profile", () => {
     const body = await res.json();
     expect(body.success).toBe(true);
     expect(body.data.slug).toBe("matt-ramsey");
+    expect(body.data.status).toBe("approved");
     expect(mockExecute).toHaveBeenCalledTimes(1);
+  });
+
+  it("saves as pending_approval for non-approver admin", async () => {
+    const req = makeAuthedRequest(
+      "PUT",
+      { bio: "Arnold's bio." },
+      { "X-Test-Email": "arnold@mhc-gc.com" },
+    );
+    const res = await PUT(req);
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.success).toBe(true);
+    expect(body.data.slug).toBe("arnold-garcia");
+    expect(body.data.status).toBe("pending_approval");
   });
 
   it("returns 503 when DB is unavailable", async () => {

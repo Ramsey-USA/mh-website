@@ -81,6 +81,7 @@ interface TeamProfileRow {
   hometown: string | null;
   education: string | null;
   nickname: string | null;
+  status: "pending_approval" | "approved" | "rejected" | null;
 }
 
 function safeParseJson<T>(value: string | null): T | undefined {
@@ -145,7 +146,9 @@ async function fetchProfileOverrides(): Promise<Map<string, TeamProfileOverride>
 
   try {
     const db = createDbClient({ DB });
-    const rows = await db.query<TeamProfileRow>("SELECT * FROM team_profiles");
+    const rows = await db.query<TeamProfileRow>(
+      "SELECT * FROM team_profiles WHERE status = 'approved'",
+    );
     for (const row of rows) {
       overrides.set(row.slug, rowToOverride(row));
     }

@@ -99,6 +99,13 @@ export const ADMIN_EMAIL_TO_SLUG: Readonly<Record<string, string>> = {
 };
 
 /**
+ * The email address of the person responsible for approving team profile
+ * submissions before they go live on the public team page.
+ * Matt's own submissions are auto-approved.
+ */
+export const APPROVER_EMAIL = "matt@mhc-gc.com";
+
+/**
  * Fields that a team member can update via the PWA questionnaire.
  * All fields are optional — only provided fields overwrite the static JSON.
  */
@@ -120,6 +127,12 @@ export interface TeamProfileOverride {
   nickname?: string;
   updatedAt?: string;
   updatedBy?: string;
+  /** Approval workflow status */
+  status?: "pending_approval" | "approved" | "rejected";
+  submittedAt?: string;
+  reviewedAt?: string;
+  reviewedBy?: string;
+  rejectionReason?: string;
 }
 
 /**
