@@ -674,14 +674,12 @@ import { PAGE_ICONS, SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
 
 ### Feature & Value Icons
 
-**Core Values:**
+**Core Values (Branding Standard):**
 
-- `shield` - Safety, protection, security
-- `workspace_premium` - Quality, premium service
-- `schedule` - Timeliness, on-schedule delivery
-- `account_balance` - Financial transparency, open-book pricing
-- `handshake` - Partnership approach
-- `military_tech` - Veteran ownership
+- `shield` - Honesty
+- `balance` - Integrity (scale)
+- `business_center` - Professionalism (suitcase)
+- `task_alt` - Thoroughness (checkmark)
 
 **Technology Features:**
 

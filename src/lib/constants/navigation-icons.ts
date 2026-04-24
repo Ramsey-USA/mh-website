@@ -135,6 +135,22 @@ export const SEMANTIC_ICONS = {
 } as const;
 
 /**
+ * Core Values icon standard used site-wide.
+ *
+ * Branding standard:
+ * - Honesty = shield
+ * - Integrity = balance (scale)
+ * - Professionalism = business_center (suitcase)
+ * - Thoroughness = task_alt (checkmark)
+ */
+export const CORE_VALUE_ICONS = {
+  honesty: "shield",
+  integrity: "balance",
+  professionalism: "business_center",
+  thoroughness: "task_alt",
+} as const;
+
+/**
  * Social Media Icons - Consistent icons for external platforms
  */
 export const SOCIAL_ICONS = {
@@ -158,3 +174,4 @@ export type PageIconKey = keyof typeof PAGE_ICONS;
 export type SemanticIconKey = keyof typeof SEMANTIC_ICONS;
 export type SocialIconKey = keyof typeof SOCIAL_ICONS;
 export type SectionIconKey = keyof typeof SECTION_ICONS;
+export type CoreValueIconKey = keyof typeof CORE_VALUE_ICONS;

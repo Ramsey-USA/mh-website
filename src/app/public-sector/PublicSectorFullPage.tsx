@@ -484,7 +484,7 @@ export default function PublicSectorFullPage() {
               "Comprehensive bonding capacity and insurance coverage meeting all federal requirements. Performance bonds, payment bonds, bid bonds, and professional liability insurance ensure complete financial protection for government projects. Our bonding relationships and insurance portfolio demonstrate financial stability and commitment to federal contracting excellence.",
             image: "/images/compliance/bonding.webp",
             iconBg: "bg-brand-secondary",
-            stats: "$5M+",
+            stats: "$8M+",
             statsLabel: "Bonding Capacity",
           },
           {

@@ -292,7 +292,7 @@ present. Full compliance achieved.
 
 1. ✅ **AlternatingShowcase** - Compliance Features (4 items implemented)
    - Prevailing Wage Compliance (DBRA)
-   - Bonding & Insurance Excellence ($5M+ capacity)
+   - Bonding & Insurance Excellence ($8M+ capacity)
    - Award-Winning Safety Programs (.64 EMR, OSHA VPP Star)
    - Veteran-Owned Commitment (Army veteran leadership)
 2. ✅ **ContentCard Grid** - Grant Support Services (3 services)

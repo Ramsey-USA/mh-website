@@ -12,26 +12,27 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { CORE_VALUE_ICONS } from "@/lib/constants/navigation-icons";
 import { type LocationData } from "@/lib/data/locations";
 
 const coreValues = [
   {
-    icon: "handshake",
+    icon: CORE_VALUE_ICONS.honesty,
     title: "Honesty",
     desc: "Transparent communication and pricing",
   },
   {
-    icon: "verified_user",
+    icon: CORE_VALUE_ICONS.integrity,
     title: "Integrity",
     desc: "Your word is your bond - so is ours",
   },
   {
-    icon: "engineering",
+    icon: CORE_VALUE_ICONS.professionalism,
     title: "Professionalism",
     desc: "Disciplined execution in every project",
   },
   {
-    icon: "task_alt",
+    icon: CORE_VALUE_ICONS.thoroughness,
     title: "Thoroughness",
     desc: "Attention to detail in every phase",
   },

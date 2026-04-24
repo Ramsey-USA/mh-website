@@ -5,13 +5,14 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { BrandedContentSection } from "@/components/templates";
 import Image from "next/image";
 import { useLocale } from "@/hooks/useLocale";
+import { CORE_VALUE_ICONS } from "@/lib/constants/navigation-icons";
 import en from "@/../messages/home/en.json";
 import es from "@/../messages/home/es.json";
 
 const coreValuesBase = [
   {
     value: "Honesty",
-    icon: "verified",
+    icon: CORE_VALUE_ICONS.honesty,
     tagline: "Clear Communication Every Time",
     description:
       "Full transparency—truthful assessments, open communication, honest intel. Upfront discussion of challenges and obstacles. Real-time updates on timeline or budget changes. Honest assessment when a project isn't the right fit. Complete cost breakdown before starting. Straight talk, no jargon.",
@@ -21,7 +22,7 @@ const coreValuesBase = [
   },
   {
     value: "Integrity",
-    icon: "shield",
+    icon: CORE_VALUE_ICONS.integrity,
     tagline: "Doing What's Right",
     description:
       "Strong ethics—doing what's right even when no one's watching. Using specified materials and methods without substitutions. Comprehensive warranties—we stand behind our work. Making decisions that benefit clients, not just our bottom line. Following through on commitments even when circumstances change. No shortcuts, period.",
@@ -31,7 +32,7 @@ const coreValuesBase = [
   },
   {
     value: "Professionalism",
-    icon: "business_center",
+    icon: CORE_VALUE_ICONS.professionalism,
     tagline: "Excellence in Action",
     description:
       "On time, prepared, and ready—zero excuses. Arriving on time and prepared. Clear communication in all interactions. Proper site management and organization. Treating your property with respect. Maintaining industry credentials and continuous improvement.",
@@ -41,7 +42,7 @@ const coreValuesBase = [
   },
   {
     value: "Thoroughness",
-    icon: "task_alt",
+    icon: CORE_VALUE_ICONS.thoroughness,
     tagline: "No Detail Left Behind",
     description:
       "Meticulous planning and execution—complete documentation, zero surprises. Detailed site analysis and planning. Precision measurements and calculations. Systematic quality checkpoints at every phase. Complete documentation with photo records. Comprehensive final review with detailed punch lists.",

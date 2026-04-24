@@ -47,4 +47,12 @@ describe("CoreValuesSection", () => {
       screen.getByAltText("Honesty - Clear Communication Every Time"),
     ).toBeInTheDocument();
   });
+
+  it("uses the MH core value icon standard", () => {
+    render(<CoreValuesSection />);
+    expect(screen.getAllByText("shield").length).toBeGreaterThan(0);
+    expect(screen.getByText("balance")).toBeInTheDocument();
+    expect(screen.getByText("business_center")).toBeInTheDocument();
+    expect(screen.getByText("task_alt")).toBeInTheDocument();
+  });
 });

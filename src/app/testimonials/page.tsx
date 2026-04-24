@@ -20,6 +20,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { CORE_VALUE_ICONS } from "@/lib/constants/navigation-icons";
 const TestimonialsSection = dynamic(() =>
   import("@/components/shared-sections/TestimonialsSection").then((m) => ({
     default: m.TestimonialsSection,
@@ -343,7 +344,7 @@ export default function TestimonialsPage() {
                         <div className="absolute -inset-2 bg-brand-primary/20 blur-lg rounded-lg"></div>
                         <div className="relative bg-brand-primary/10 p-3 rounded-lg">
                           <MaterialIcon
-                            icon="visibility"
+                            icon={CORE_VALUE_ICONS.honesty}
                             size="lg"
                             className="text-brand-primary"
                             ariaLabel="Honesty"
@@ -396,7 +397,7 @@ export default function TestimonialsPage() {
                         <div className="absolute -inset-2 bg-brand-primary/20 blur-lg rounded-lg"></div>
                         <div className="relative bg-brand-primary/10 p-3 rounded-lg">
                           <MaterialIcon
-                            icon="verified_user"
+                            icon={CORE_VALUE_ICONS.integrity}
                             size="lg"
                             className="text-brand-primary"
                             ariaLabel="Integrity"
@@ -449,7 +450,7 @@ export default function TestimonialsPage() {
                         <div className="absolute -inset-2 bg-brand-primary/20 blur-lg rounded-lg"></div>
                         <div className="relative bg-brand-primary/10 p-3 rounded-lg">
                           <MaterialIcon
-                            icon="workspace_premium"
+                            icon={CORE_VALUE_ICONS.professionalism}
                             size="lg"
                             className="text-brand-primary"
                             ariaLabel="Professionalism"
@@ -502,7 +503,7 @@ export default function TestimonialsPage() {
                         <div className="absolute -inset-2 bg-brand-primary/20 blur-lg rounded-lg"></div>
                         <div className="relative bg-brand-primary/10 p-3 rounded-lg">
                           <MaterialIcon
-                            icon="search"
+                            icon={CORE_VALUE_ICONS.thoroughness}
                             size="lg"
                             className="text-brand-primary"
                             ariaLabel="Thoroughness"
