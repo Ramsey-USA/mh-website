@@ -1,4 +1,4 @@
-export const revalidate = 86400; // 24 h ISR
+export const revalidate = 3600; // 1 h ISR — allows DB profile updates to surface within an hour
 
 import { PageTrackingClient } from "@/components/analytics";
 import Image from "next/image";
@@ -14,7 +14,9 @@ import { TeamProfileSection } from "@/components/team/TeamProfileSection";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import {
   vintageTeamMembers,
+  applyProfileOverride,
   type VintageTeamMember,
+  type TeamProfileOverride,
 } from "@/lib/data/vintage-team";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
@@ -25,6 +27,9 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+import { getD1Database } from "@/lib/db/env";
+import { createDbClient } from "@/lib/db/client";
+import { logger } from "@/lib/utils/logger";
 
 // Lazy load below-the-fold heavy components for better mobile performance
 const TestimonialGrid = dynamic(() =>
@@ -57,6 +62,98 @@ function groupByDepartment(members: VintageTeamMember[]) {
     },
     {} as Record<string, VintageTeamMember[]>,
   );
+}
+
+// DB row shape returned from team_profiles
+interface TeamProfileRow {
+  slug: string;
+  bio: string | null;
+  fun_fact: string | null;
+  certifications: string | null;
+  hobbies: string | null;
+  special_interests: string | null;
+  career_highlights: string | null;
+  specialties: string | null;
+  skills: string | null;
+  current_year_stats: string | null;
+  career_stats: string | null;
+  years_with_company: number | null;
+  hometown: string | null;
+  education: string | null;
+  nickname: string | null;
+}
+
+function safeParseJson<T>(value: string | null): T | undefined {
+  if (!value) return undefined;
+  try {
+    return JSON.parse(value) as T;
+  } catch {
+    return undefined;
+  }
+}
+
+function rowToOverride(row: TeamProfileRow): TeamProfileOverride {
+  const override: TeamProfileOverride = { slug: row.slug };
+
+  if (row.bio != null) override.bio = row.bio;
+  if (row.fun_fact != null) override.funFact = row.fun_fact;
+  if (row.certifications != null) override.certifications = row.certifications;
+  if (row.hobbies != null) override.hobbies = row.hobbies;
+  if (row.special_interests != null)
+    override.specialInterests = row.special_interests;
+  if (row.career_highlights != null) {
+    const parsed = safeParseJson<string[]>(row.career_highlights);
+    if (parsed !== undefined) override.careerHighlights = parsed;
+  }
+  if (row.specialties != null) {
+    const parsed = safeParseJson<string[]>(row.specialties);
+    if (parsed !== undefined) override.specialties = parsed;
+  }
+  if (row.skills != null) {
+    const parsed = safeParseJson<VintageTeamMember["skills"]>(row.skills);
+    if (parsed !== undefined) override.skills = parsed;
+  }
+  if (row.current_year_stats != null) {
+    const parsed = safeParseJson<VintageTeamMember["currentYearStats"]>(
+      row.current_year_stats,
+    );
+    if (parsed !== undefined) override.currentYearStats = parsed;
+  }
+  if (row.career_stats != null) {
+    const parsed = safeParseJson<VintageTeamMember["careerStats"]>(
+      row.career_stats,
+    );
+    if (parsed !== undefined) override.careerStats = parsed;
+  }
+  if (row.years_with_company != null)
+    override.yearsWithCompany = row.years_with_company;
+  if (row.hometown != null) override.hometown = row.hometown;
+  if (row.education != null) override.education = row.education;
+  if (row.nickname != null) override.nickname = row.nickname;
+
+  return override;
+}
+
+/**
+ * Fetch all team profile overrides from D1.
+ * Returns an empty map if the DB is unavailable (static data is used as fallback).
+ */
+async function fetchProfileOverrides(): Promise<Map<string, TeamProfileOverride>> {
+  const overrides = new Map<string, TeamProfileOverride>();
+  const DB = getD1Database();
+  if (!DB) return overrides;
+
+  try {
+    const db = createDbClient({ DB });
+    const rows = await db.query<TeamProfileRow>("SELECT * FROM team_profiles");
+    for (const row of rows) {
+      overrides.set(row.slug, rowToOverride(row));
+    }
+  } catch (err) {
+    logger.warn("team/page: failed to fetch profile overrides from D1", { err });
+  }
+
+  return overrides;
 }
 
 function getDepartmentHeadingParts(department: string) {
@@ -157,9 +254,17 @@ const faqSchema = {
   ],
 };
 
-export default function TeamPage() {
-  const membersByDepartment = groupByDepartment(vintageTeamMembers);
-  const founderTributeMember = vintageTeamMembers.find(
+export default async function TeamPage() {
+  // Fetch profile overrides from D1; gracefully falls back to static JSON if unavailable
+  const overrides = await fetchProfileOverrides();
+
+  // Merge overrides with static team members
+  const mergedMembers = vintageTeamMembers.map((member) =>
+    applyProfileOverride(member, overrides.get(member.slug) ?? null),
+  );
+
+  const membersByDepartment = groupByDepartment(mergedMembers);
+  const founderTributeMember = mergedMembers.find(
     (member) => member.slug === "mike-holstein",
   );
 

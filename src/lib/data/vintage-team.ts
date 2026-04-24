@@ -87,6 +87,84 @@ export interface VintageTeamMember {
   email?: string; // Individual team member email (firstname@mhc-gc.com)
 }
 
+/**
+ * Maps each admin email to the corresponding team member slug so the PWA
+ * questionnaire knows which profile to update when a specific admin is logged in.
+ */
+export const ADMIN_EMAIL_TO_SLUG: Readonly<Record<string, string>> = {
+  "matt@mhc-gc.com": "matt-ramsey",
+  "jeremy@mhc-gc.com": "jeremy-thamert",
+  "arnold@mhc-gc.com": "arnold-garcia",
+  "brittney@mhc-gc.com": "brittney-holstein",
+};
+
+/**
+ * Fields that a team member can update via the PWA questionnaire.
+ * All fields are optional — only provided fields overwrite the static JSON.
+ */
+export interface TeamProfileOverride {
+  slug: string;
+  bio?: string;
+  funFact?: string;
+  certifications?: string;
+  hobbies?: string;
+  specialInterests?: string;
+  careerHighlights?: string[];
+  specialties?: string[];
+  skills?: VintageTeamMember["skills"];
+  currentYearStats?: VintageTeamMember["currentYearStats"];
+  careerStats?: VintageTeamMember["careerStats"];
+  yearsWithCompany?: number;
+  hometown?: string;
+  education?: string;
+  nickname?: string;
+  updatedAt?: string;
+  updatedBy?: string;
+}
+
+/**
+ * Merge a DB override record onto a static team member object.
+ * Static values are used as defaults; override values win when present.
+ */
+export function applyProfileOverride(
+  member: VintageTeamMember,
+  override: TeamProfileOverride | null | undefined,
+): VintageTeamMember {
+  if (!override) return member;
+
+  return {
+    ...member,
+    ...(override.bio !== undefined && { bio: override.bio }),
+    ...(override.funFact !== undefined && { funFact: override.funFact }),
+    ...(override.certifications !== undefined && {
+      certifications: override.certifications,
+    }),
+    ...(override.hobbies !== undefined && { hobbies: override.hobbies }),
+    ...(override.specialInterests !== undefined && {
+      specialInterests: override.specialInterests,
+    }),
+    ...(override.careerHighlights !== undefined && {
+      careerHighlights: override.careerHighlights,
+    }),
+    ...(override.specialties !== undefined && {
+      specialties: override.specialties,
+    }),
+    ...(override.skills !== undefined && { skills: override.skills }),
+    ...(override.currentYearStats !== undefined && {
+      currentYearStats: override.currentYearStats,
+    }),
+    ...(override.careerStats !== undefined && {
+      careerStats: override.careerStats,
+    }),
+    ...(override.yearsWithCompany !== undefined && {
+      yearsWithCompany: override.yearsWithCompany,
+    }),
+    ...(override.hometown !== undefined && { hometown: override.hometown }),
+    ...(override.education !== undefined && { education: override.education }),
+    ...(override.nickname !== undefined && { nickname: override.nickname }),
+  };
+}
+
 // Assembled team roster — order determines display sequence on the team page.
 // To reorder members, rearrange the entries in this array.
 export const vintageTeamMembers: VintageTeamMember[] = [

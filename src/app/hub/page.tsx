@@ -59,6 +59,17 @@ const HUB_CARDS = [
   },
 ] as const;
 
+const ADMIN_CARDS = [
+  {
+    title: "My Team Profile",
+    subtitle:
+      "Update your professional bio, skills, and career highlights shown on the public team page",
+    href: "/hub/profile",
+    icon: "edit_note",
+    badge: "Admin Only",
+  },
+] as const;
+
 export default function HubPage() {
   const safetyManual = manuals.find((doc) => doc.id === "safety-manual");
   const sectionCount = safetyManual?.totalSections ?? 50;
@@ -134,6 +145,46 @@ export default function HubPage() {
                 </div>
               </Link>
             ))}
+          </div>
+
+          {/* Admin-only tools */}
+          <div className="mt-10">
+            <div className="mb-4 flex items-center gap-3">
+              <h2 className="text-xl font-black text-slate-900 dark:text-white">
+                Admin Tools
+              </h2>
+              <span className="rounded-full border border-brand-secondary/40 bg-brand-secondary/10 px-3 py-1 text-xs font-semibold text-brand-secondary">
+                Requires admin login
+              </span>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {ADMIN_CARDS.map((card) => (
+                <Link
+                  key={card.title}
+                  href={card.href}
+                  className="group rounded-2xl border border-brand-secondary/20 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-secondary/50 hover:shadow-lg dark:border-brand-secondary/20 dark:bg-gray-900"
+                >
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-secondary/10 text-brand-secondary transition-colors group-hover:bg-brand-secondary group-hover:text-white">
+                    <MaterialIcon icon={card.icon} size="md" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                    {card.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                    {card.subtitle}
+                  </p>
+                  <div className="mt-4 flex items-center justify-between">
+                    <span className="rounded-full border border-brand-secondary/30 bg-brand-secondary/10 px-2.5 py-1 text-xs font-semibold text-brand-secondary">
+                      {card.badge}
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-sm font-bold text-brand-secondary">
+                      Open
+                      <MaterialIcon icon="arrow_forward" size="sm" />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
