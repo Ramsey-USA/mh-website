@@ -37,6 +37,17 @@ jest.mock(
       width?: number;
       height?: number;
     }) {
+      const {
+        priority,
+        blurDataURL,
+        placeholder,
+        loader,
+        quality,
+        sizes,
+        unoptimized,
+        ...imgRest
+      } = rest as Record<string, unknown>;
+
       return (
         <img
           alt={alt}
@@ -47,7 +58,7 @@ jest.mock(
           data-fill={fill ? "true" : undefined}
           data-width={width}
           data-height={height}
-          {...rest}
+          {...imgRest}
         />
       );
     },

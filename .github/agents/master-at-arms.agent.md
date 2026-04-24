@@ -28,6 +28,7 @@ Do not require the user to memorize agent names.
 
 - Copy, tone, CTA rewrites -> brand-comms-captain
 - Credential/trust surfaces -> trust-sentinel
+- Contractor license numbers and verification-link consistency -> license-compliance-officer
 - SEO, metadata, nav labels, schema naming -> seo-signal-officer
 - Accessibility checks and remediation -> accessibility-watch-officer
 - Safety and hub routing congruency -> safety-hub-liaison

@@ -373,6 +373,7 @@ export function SemiquincentennialBanner() {
             aria-atomic="true"
             aria-label={`${timeLeft.days} days, ${timeLeft.hours} hours, ${timeLeft.minutes} minutes, ${timeLeft.seconds} seconds remaining`}
             className="flex items-center gap-1.5 sm:gap-2"
+            suppressHydrationWarning
           >
             {countdownUnits.map(({ value, label }, i) => (
               <div key={label} className="flex items-center gap-1.5 sm:gap-2">

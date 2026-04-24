@@ -21,7 +21,11 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     // === Library & Environment ===
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "target": "ES2020",
     // === Module Resolution (Next.js 15) ===
     "module": "esnext",
@@ -38,7 +42,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     // === React/JSX ===
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "jsxImportSource": "react",
     // === Next.js Specific ===
     "incremental": true,
@@ -49,7 +53,9 @@
     ],
     // === Path Mapping ===
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
   "include": [

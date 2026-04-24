@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:inspect": "cross-env NODE_OPTIONS=--inspect next dev",
     "dev:turbo": "next dev --turbo",
     "build": "npm run build:lowmem",
     "build:lowmem": "cross-env LOW_MEMORY_BUILD=true NODE_OPTIONS=--max-old-space-size=3072 opennextjs-cloudflare build",

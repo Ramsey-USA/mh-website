@@ -152,6 +152,27 @@ The four-value foundation system, in hierarchical order:
 - Oregon (OR)
 - Idaho (ID)
 
+### Canonical License Numbers
+
+- WA: MHCONCI907R7
+- OR: 194331
+- ID: RCE-49250
+
+### License Verification References
+
+- WA verify: https://secure.lni.wa.gov/verify/Detail.aspx?UBI=603069508&LIC=MHCONCI907R7&SAW=false
+- OR verify: https://egov.sos.state.or.us/br/pkg_web_name_srch_inq.show_detl?p_be_rsn=1514612&p_srce=BR_INQ&p_print=FALSE
+- ID verify: https://www.labor.idaho.gov/
+
+### Licensing Source of Truth
+
+Use this section as the canonical licensing reference for docs and agent workflows.
+
+- Canonical docs reference: docs/branding/brand-constants.md (this section)
+- Canonical footer implementation: src/components/layout/Footer.tsx
+- Canonical document-brand payload: documents/brands/mhc.json
+- Canonical footer regression tests: src/components/layout/**tests**/Footer.test.tsx
+
 ---
 
 ## Terminology Standards

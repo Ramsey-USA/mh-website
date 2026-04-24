@@ -181,7 +181,7 @@ Every interior page (non-cover) must have a running header implemented via `@top
 Every interior page must include the canonical footer line:
 
 ```
-MH Construction, Inc.  |  (509) 308-6489  ·  3111 N. Capitol Ave., Pasco, WA 99301  ·  www.mhc-gc.com  |  WA: MHCONCI907R7  ·  OR: 765043-99  ·  ID: RCE-49250
+MH Construction, Inc.  |  (509) 308-6489  ·  3111 N. Capitol Ave., Pasco, WA 99301  ·  www.mhc-gc.com  |  WA: MHCONCI907R7  ·  OR: 194331  ·  ID: RCE-49250
 ```
 
 Page number format: `Page X of Y`

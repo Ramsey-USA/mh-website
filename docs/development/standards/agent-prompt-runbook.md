@@ -14,14 +14,16 @@ Use this to keep layout consistency, trust markers, ownership wording, and WBS n
 
 ## Prompt Routing Matrix
 
-| Change Scope                                                             | Prompt                            | Agent                      | Decision Type   |
-| ------------------------------------------------------------------------ | --------------------------------- | -------------------------- | --------------- |
-| Forms/templates/generator edits (no manual-wide structure changes)       | `/Forms Rapid Triage Brief`       | `forms-logistics-officer`  | PR go/no-go     |
-| Manual print layout, numbering logic, section hierarchy, print CSS drift | `/Manual Structure Rapid Triage`  | `manual-structure-officer` | PR go/no-go     |
-| Locale wiring, language toggle, or translation-key edits                 | `/Spanish Toggle Rapid Triage`    | `spanish-toggle-officer`   | PR go/no-go     |
-| Full forms readiness before merge/release                                | `/Forms Readiness Brief`          | `forms-logistics-officer`  | Compliance gate |
-| Full manual structure/WBS readiness before merge/release                 | `/Manual Structure Brief`         | `manual-structure-officer` | Compliance gate |
-| Full English/Spanish toggle readiness before merge/release               | `/Spanish Toggle Readiness Brief` | `spanish-toggle-officer`   | Compliance gate |
+| Change Scope                                                             | Prompt                            | Agent                        | Decision Type   |
+| ------------------------------------------------------------------------ | --------------------------------- | ---------------------------- | --------------- |
+| Forms/templates/generator edits (no manual-wide structure changes)       | `/Forms Rapid Triage Brief`       | `forms-logistics-officer`    | PR go/no-go     |
+| Manual print layout, numbering logic, section hierarchy, print CSS drift | `/Manual Structure Rapid Triage`  | `manual-structure-officer`   | PR go/no-go     |
+| License values, verification links, or footer/license-doc consistency    | `/License Rapid Triage Brief`     | `license-compliance-officer` | PR go/no-go     |
+| Locale wiring, language toggle, or translation-key edits                 | `/Spanish Toggle Rapid Triage`    | `spanish-toggle-officer`     | PR go/no-go     |
+| Full forms readiness before merge/release                                | `/Forms Readiness Brief`          | `forms-logistics-officer`    | Compliance gate |
+| Full manual structure/WBS readiness before merge/release                 | `/Manual Structure Brief`         | `manual-structure-officer`   | Compliance gate |
+| Full licensing readiness before merge/release                            | `/License Readiness Brief`        | `license-compliance-officer` | Compliance gate |
+| Full English/Spanish toggle readiness before merge/release               | `/Spanish Toggle Readiness Brief` | `spanish-toggle-officer`     | Compliance gate |
 
 If scope is unclear, start with `master-at-arms`; it will route to the right specialist.
 
@@ -32,9 +34,10 @@ If scope is unclear, start with `master-at-arms`; it will route to the right spe
 1. Identify changed files.
 2. If changed files touch forms/template/generator paths, run `/Forms Rapid Triage Brief`.
 3. If changed files touch manual print structure or section numbering paths, run `/Manual Structure Rapid Triage`.
-4. If changed files touch locale wiring, language toggle controls, or translation keys, run `/Spanish Toggle Rapid Triage`.
-5. Treat `FAIL` as merge-blocking.
-6. Treat `PASS-WITH-RISK` as allowed only with explicit reviewer acknowledgment and tracked follow-up.
+4. If changed files touch license values, verification links, footer/license surfaces, or licensing docs/templates, run `/License Rapid Triage Brief`.
+5. If changed files touch locale wiring, language toggle controls, or translation keys, run `/Spanish Toggle Rapid Triage`.
+6. Treat `FAIL` as merge-blocking.
+7. Treat `PASS-WITH-RISK` as allowed only with explicit reviewer acknowledgment and tracked follow-up.
 
 ---
 
@@ -44,7 +47,8 @@ Run these before merging release-bound work:
 
 1. `/Forms Readiness Brief`
 2. `/Manual Structure Brief` (required when manual or print CSS/numbering is in scope)
-3. `/Spanish Toggle Readiness Brief` (required when locale, translation, or language-toggle behavior is in scope)
+3. `/License Readiness Brief` (required when license values/links or licensing docs/templates are in scope)
+4. `/Spanish Toggle Readiness Brief` (required when locale, translation, or language-toggle behavior is in scope)
 
 Release is ready only when required checks return `PASS`, or approved exceptions are documented with owner and expiration.
 
@@ -56,6 +60,7 @@ Do not merge/release if any required check reports `FAIL` for:
 
 - Ownership framing (missing canonical dated veteran-owned language)
 - Trust/accreditation preservation (removed/downgraded trust signals)
+- Licensing integrity (incorrect WA/OR/ID values, state-link mismatch, or stale legacy values)
 - Localization integrity (missing translation keys, fallback strings, or broken en/es toggle flow)
 - Token discipline (off-standard hardcoded visual drift)
 - Generator integrity (missing/optionalized render paths or silent skips)
@@ -70,6 +75,7 @@ Do not merge/release if any required check reports `FAIL` for:
 - `documents/styles/print-base.css`, `documents/styles/components.css` (manual structure impact): Manual prompt required
 - `documents/content/safety-manual.json` (section hierarchy/numbering): Manual prompt required
 - `documents/manuals/**`, `documents/cover` with structural changes: Manual prompt required
+- `src/components/layout/Footer.tsx`, `documents/brands/mhc.json`, `documents/scripts/extract*.mjs`, `docs/branding/brand-constants.md`: License prompt required
 - `messages/en.json`, `messages/es.json`, `src/lib/i18n/**`, `src/components/ui/LanguageToggle.tsx`: Spanish toggle prompt required
 
 ---

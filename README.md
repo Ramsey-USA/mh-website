@@ -141,6 +141,18 @@ All credential data is centralized in `src/lib/constants/company.ts` under `COMP
 are stored in `public/images/credentials/` as WebP files. Credentials are displayed in the Footer
 (all pages), Contact page, Allies page, and Public-Sector page.
 
+### Canonical Contractor Licenses
+
+- WA: MHCONCI907R7
+- OR: 194331
+- ID: RCE-49250
+
+### License Verification Links
+
+- Washington: https://secure.lni.wa.gov/verify/Detail.aspx?UBI=603069508&LIC=MHCONCI907R7&SAW=false
+- Oregon: https://egov.sos.state.or.us/br/pkg_web_name_srch_inq.show_detl?p_be_rsn=1514612&p_srce=BR_INQ&p_print=FALSE
+- Idaho: https://www.labor.idaho.gov/
+
 | Credential                       | Data Key                                 | Logo Path                                                                             | Link                                                                                  |
 | -------------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | **BBB Accredited A+**            | `COMPANY_INFO.bbb`                       | External BBB seal URLs (horizontal + vertical, light/dark variants)                   | `COMPANY_INFO.bbb.sealClickUrl`                                                       |
@@ -198,6 +210,7 @@ This project uses a military-themed agent squad in `.github/agents/`. **You do n
 | **Master at Arms**              | `master-at-arms.agent.md`              | Umbrella enforcement — routes all branding, copy, design, and compliance tasks automatically |
 | **Brand Comms Captain**         | `brand-comms-captain.agent.md`         | Copy tone, CTAs, vocabulary, relationship-first language                                     |
 | **Trust Sentinel**              | `trust-sentinel.agent.md`              | BBB, Chambers, Travelers, AGC credential surfaces — Footer, About, Contact, Allies           |
+| **License Compliance Officer**  | `license-compliance-officer.agent.md`  | WA/OR/ID license numbers, verification links, and cross-surface licensing consistency        |
 | **SEO Signal Officer**          | `seo-signal-officer.agent.md`          | Metadata, page titles, nav labels, schema naming                                             |
 | **Accessibility Watch Officer** | `accessibility-watch-officer.agent.md` | WCAG 2.1 AA — semantics, contrast, keyboard, focus                                           |
 | **Safety Hub Liaison**          | `safety-hub-liaison.agent.md`          | `/hub` canonical routing, safety language congruency                                         |
@@ -214,20 +227,21 @@ This project uses a military-themed agent squad in `.github/agents/`. **You do n
 
 Use this quick map when deciding which agent to invoke directly:
 
-| Task Type                                                 | Primary Agent                   | Invocation Pattern                                                     |
-| --------------------------------------------------------- | ------------------------------- | ---------------------------------------------------------------------- |
-| Brand/copy/design compliance across page changes          | **Master at Arms**              | `@master-at-arms review this page update for full compliance`          |
-| CTA wording, tone, and relationship-first messaging       | **Brand Comms Captain**         | `@brand-comms-captain refine CTA copy for relationship-first voice`    |
-| Trust badges, credentials, and accreditation surfaces     | **Trust Sentinel**              | `@trust-sentinel verify credential surfaces were preserved`            |
-| Metadata, nav labels, schema naming consistency           | **SEO Signal Officer**          | `@seo-signal-officer audit labels and schema naming`                   |
-| WCAG checks (semantics, contrast, keyboard/focus)         | **Accessibility Watch Officer** | `@accessibility-watch-officer validate accessibility before merge`     |
-| `/hub` routing and safety-language congruency             | **Safety Hub Liaison**          | `@safety-hub-liaison verify hub route and safety language alignment`   |
-| English/Spanish localization and language-toggle checks   | **Spanish Toggle Officer**      | `@spanish-toggle-officer validate full en/es toggle readiness`         |
-| Design system consistency and component pattern fidelity  | **Design Quartermaster**        | `@design-quartermaster align this UI to unified component standards`   |
-| Analytics coverage and event naming integrity (on-demand) | **Telemetry Recon Officer**     | `@telemetry-recon-officer validate tracking coverage and event schema` |
-| Payload/bundle/CWV regression review (on-demand)          | **Performance Budget Officer**  | `@performance-budget-officer check performance risk for this feature`  |
-| Docs and implementation drift checks (on-demand)          | **Documentation Drift Officer** | `@documentation-drift-officer reconcile docs with these code changes`  |
-| Final pre-merge gate with risk summary                    | **Release Command**             | `@release-command run final readiness checks for this PR`              |
+| Task Type                                                  | Primary Agent                   | Invocation Pattern                                                     |
+| ---------------------------------------------------------- | ------------------------------- | ---------------------------------------------------------------------- |
+| Brand/copy/design compliance across page changes           | **Master at Arms**              | `@master-at-arms review this page update for full compliance`          |
+| CTA wording, tone, and relationship-first messaging        | **Brand Comms Captain**         | `@brand-comms-captain refine CTA copy for relationship-first voice`    |
+| Trust badges, credentials, and accreditation surfaces      | **Trust Sentinel**              | `@trust-sentinel verify credential surfaces were preserved`            |
+| License numbers and verification-link integrity (WA/OR/ID) | **License Compliance Officer**  | `@license-compliance-officer verify licensing consistency and links`   |
+| Metadata, nav labels, schema naming consistency            | **SEO Signal Officer**          | `@seo-signal-officer audit labels and schema naming`                   |
+| WCAG checks (semantics, contrast, keyboard/focus)          | **Accessibility Watch Officer** | `@accessibility-watch-officer validate accessibility before merge`     |
+| `/hub` routing and safety-language congruency              | **Safety Hub Liaison**          | `@safety-hub-liaison verify hub route and safety language alignment`   |
+| English/Spanish localization and language-toggle checks    | **Spanish Toggle Officer**      | `@spanish-toggle-officer validate full en/es toggle readiness`         |
+| Design system consistency and component pattern fidelity   | **Design Quartermaster**        | `@design-quartermaster align this UI to unified component standards`   |
+| Analytics coverage and event naming integrity (on-demand)  | **Telemetry Recon Officer**     | `@telemetry-recon-officer validate tracking coverage and event schema` |
+| Payload/bundle/CWV regression review (on-demand)           | **Performance Budget Officer**  | `@performance-budget-officer check performance risk for this feature`  |
+| Docs and implementation drift checks (on-demand)           | **Documentation Drift Officer** | `@documentation-drift-officer reconcile docs with these code changes`  |
+| Final pre-merge gate with risk summary                     | **Release Command**             | `@release-command run final readiness checks for this PR`              |
 
 #### Specialist Report Contracts
 
@@ -241,14 +255,16 @@ When invoking on-demand specialists, expect a PASS/FAIL report with these fields
 
 Use these slash prompts for standardized compliance checks before merge or release:
 
-| Prompt                            | Agent                      | Typical Use                                                              |
-| --------------------------------- | -------------------------- | ------------------------------------------------------------------------ |
-| `/Forms Rapid Triage Brief`       | `forms-logistics-officer`  | Fast PR go/no-go for changed forms/template/generator files              |
-| `/Forms Readiness Brief`          | `forms-logistics-officer`  | Full forms readiness gate before merge/release                           |
-| `/Manual Structure Rapid Triage`  | `manual-structure-officer` | Fast PR go/no-go for manual layout and numbering changes                 |
-| `/Manual Structure Brief`         | `manual-structure-officer` | Full manual layout/WBS readiness gate before merge/release               |
-| `/Spanish Toggle Rapid Triage`    | `spanish-toggle-officer`   | Fast PR go/no-go for locale wiring, toggle UI, and translation key edits |
-| `/Spanish Toggle Readiness Brief` | `spanish-toggle-officer`   | Full en/es localization readiness gate before merge/release              |
+| Prompt                            | Agent                        | Typical Use                                                              |
+| --------------------------------- | ---------------------------- | ------------------------------------------------------------------------ |
+| `/Forms Rapid Triage Brief`       | `forms-logistics-officer`    | Fast PR go/no-go for changed forms/template/generator files              |
+| `/Forms Readiness Brief`          | `forms-logistics-officer`    | Full forms readiness gate before merge/release                           |
+| `/Manual Structure Rapid Triage`  | `manual-structure-officer`   | Fast PR go/no-go for manual layout and numbering changes                 |
+| `/Manual Structure Brief`         | `manual-structure-officer`   | Full manual layout/WBS readiness gate before merge/release               |
+| `/License Rapid Triage Brief`     | `license-compliance-officer` | Fast PR go/no-go for WA/OR/ID value and verification-link changes        |
+| `/License Readiness Brief`        | `license-compliance-officer` | Full licensing readiness gate before merge/release                       |
+| `/Spanish Toggle Rapid Triage`    | `spanish-toggle-officer`     | Fast PR go/no-go for locale wiring, toggle UI, and translation key edits |
+| `/Spanish Toggle Readiness Brief` | `spanish-toggle-officer`     | Full en/es localization readiness gate before merge/release              |
 
 ---
 

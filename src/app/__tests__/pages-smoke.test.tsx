@@ -28,6 +28,15 @@ jest.mock("next/image", () => ({
   ),
 }));
 
+jest.mock("@opennextjs/cloudflare", () => ({
+  __esModule: true,
+  getCloudflareContext: () => ({
+    env: {},
+    cf: {},
+    ctx: { waitUntil: () => undefined },
+  }),
+}));
+
 jest.mock("@/components/analytics", () => ({
   PageTrackingClient: () => null,
 }));

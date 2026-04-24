@@ -191,7 +191,7 @@ async function main() {
       website: "https://www.mhc-gc.com",
       licenses: {
         WA: "MHCONCI907R7",
-        OR: "765043-99",
+        OR: "194331",
         ID: "RCE-49250",
       },
       totalSections: sections.length,

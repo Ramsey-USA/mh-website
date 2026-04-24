@@ -62,8 +62,50 @@ describe("Footer", () => {
     render(<Footer />);
 
     expect(screen.getByText("MHCONCI907R7")).toBeVisible();
-    expect(screen.getByText("765043-99")).toBeVisible();
+    expect(screen.getByText("194331")).toBeVisible();
     expect(screen.getByText("RCE-49250")).toBeVisible();
+  });
+
+  it("keeps the Oregon license verification link intact", () => {
+    render(<Footer />);
+
+    const oregonLicenseLink = screen.getByRole("link", {
+      name: "Oregon License 194331 verification",
+    });
+    expect(oregonLicenseLink).toHaveAttribute(
+      "href",
+      "https://egov.sos.state.or.us/br/pkg_web_name_srch_inq.show_detl?p_be_rsn=1514612&p_srce=BR_INQ&p_print=FALSE",
+    );
+    expect(oregonLicenseLink).toHaveAttribute("target", "_blank");
+    expect(oregonLicenseLink).toHaveAttribute("rel", "noopener noreferrer");
+  });
+
+  it("keeps the Washington license verification link intact", () => {
+    render(<Footer />);
+
+    const washingtonLicenseLink = screen.getByRole("link", {
+      name: "Washington License MHCONCI907R7 verification",
+    });
+    expect(washingtonLicenseLink).toHaveAttribute(
+      "href",
+      "https://secure.lni.wa.gov/verify/Detail.aspx?UBI=603069508&LIC=MHCONCI907R7&SAW=false",
+    );
+    expect(washingtonLicenseLink).toHaveAttribute("target", "_blank");
+    expect(washingtonLicenseLink).toHaveAttribute("rel", "noopener noreferrer");
+  });
+
+  it("keeps the Idaho license verification link intact", () => {
+    render(<Footer />);
+
+    const idahoLicenseLink = screen.getByRole("link", {
+      name: "Idaho License RCE-49250 verification",
+    });
+    expect(idahoLicenseLink).toHaveAttribute(
+      "href",
+      "https://www.labor.idaho.gov/",
+    );
+    expect(idahoLicenseLink).toHaveAttribute("target", "_blank");
+    expect(idahoLicenseLink).toHaveAttribute("rel", "noopener noreferrer");
   });
 
   it("renders the service area map with the correct aria-label", () => {

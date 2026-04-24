@@ -25,10 +25,15 @@ jest.mock("next/navigation", () => ({
 // Mock Next.js Image component
 jest.mock("next/image", () => ({
   __esModule: true,
-  default: (props) => {
+  default: ({ fill, priority, ...props }) => {
     // eslint-disable-next-line jsx-a11y/alt-text, @next/next/no-img-element
     return <img {...props} />;
   },
+}));
+
+// Mock OpenNext Cloudflare runtime helpers for Jest (avoids ESM-only package parsing)
+jest.mock("@opennextjs/cloudflare", () => ({
+  getCloudflareContext: jest.fn(() => ({ env: {} })),
 }));
 
 // Mock environment variables

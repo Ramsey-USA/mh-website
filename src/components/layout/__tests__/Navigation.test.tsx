@@ -14,9 +14,10 @@ jest.mock("next/link", () => ({
 
 jest.mock("next/image", () => ({
   __esModule: true,
-  default: ({ alt, src, fill, priority, ...props }: any) => (
-    <img alt={alt} src={src} {...props} />
-  ),
+  default: ({ alt, src, ...props }: any) => {
+    const { fill, priority, ...imgProps } = props;
+    return <img alt={alt} src={src} {...imgProps} />;
+  },
 }));
 
 jest.mock("@/components/ui/layout/ThemeToggle", () => ({

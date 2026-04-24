@@ -7,9 +7,10 @@ import userEvent from "@testing-library/user-event";
 
 jest.mock("next/image", () => ({
   __esModule: true,
-  default: ({ alt, src, ...props }: any) => (
-    <img alt={alt} src={src} {...props} />
-  ),
+  default: ({ alt, src, ...props }: any) => {
+    const { fill, priority, ...imgProps } = props;
+    return <img alt={alt} src={src} {...imgProps} />;
+  },
 }));
 
 jest.mock("@/components/ui", () => ({

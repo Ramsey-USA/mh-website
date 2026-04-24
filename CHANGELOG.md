@@ -18,6 +18,13 @@ All notable changes to the MH Construction website are documented here.
 
 ## April 2026
 
+- **Apr 24:** Licensing alignment and regression coverage hardening — standardized Oregon
+  license references to `194331` across canonical source/docs/templates; preserved existing
+  Washington (`MHCONCI907R7`) and Idaho (`RCE-49250`) values; added focused footer link
+  integrity tests for WA/OR/ID verification URLs and security attributes (`target`/`rel`);
+  updated Jest image mocks to avoid forwarding Next.js-only props (`fill`, `priority`) onto
+  native `<img>` elements to remove non-boolean DOM warnings during tests
+
 - **Apr 22:** Safety PDF governance and artifact congruence hardening — created dedicated
   safety PDF editing agent (`.github/agents/safety-pdf-editor.agent.md`) for source-first PDF
   changes (templates/scripts only), regeneration, metadata validation, and congruence checks;

@@ -6,9 +6,10 @@ import { render, screen } from "@testing-library/react";
 
 jest.mock("next/image", () => ({
   __esModule: true,
-  default: ({ alt, src, ...props }: any) => (
-    <img alt={alt} src={src} {...props} />
-  ),
+  default: ({ alt, src, ...props }: any) => {
+    const { fill, priority, ...imgProps } = props;
+    return <img alt={alt} src={src} {...imgProps} />;
+  },
 }));
 
 jest.mock("next/link", () => ({
