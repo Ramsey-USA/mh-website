@@ -4,7 +4,7 @@
   "department": "Special Operations",
   "cardNumber": 7,
   "position": "Lead Estimator",
-  "nickname": "The Intelligence Officer",
+  "nickname": "Preconstruction Intelligence Lead",
   "yearsWithCompany": 20,
   "hometown": "Washington State",
   "education": "Construction Engineering",
@@ -21,23 +21,23 @@
     "mentorships": 20
   },
   "awards": "Estimating Excellence Award, 20-Year Service Recognition",
-  "bio": "Todd entered the construction industry through high voltage linework inspection, later moving into the low voltage field, where he developed leadership and technical expertise. His career evolved into estimating, where his attention to detail and analytical thinking drive accurate project planning. As Estimator, Todd manages the preconstruction process from reviewing plans/specs to developing cost estimates and coordinating bid packages. He works closely with PMs, Allies, and suppliers to ensure complete, competitive pricing.",
+  "bio": "Todd leads preconstruction intelligence through detailed estimate development, scope analysis, and bid coordination that improves downstream execution. His analytical approach helps teams plan with confidence, align early with partners, and protect client expectations before work begins.",
   "careerHighlights": [
-    "Amazon Oyster & Pearl - Navigating COVID restrictions; expanded role to full Access Control installation",
-    "Northwest Energy Security Towers - Strict protocol coordination, minimal downtime during network integration",
-    "Achieved 98% estimating accuracy rate",
-    "Developed cost control protocols"
+    "Leads preconstruction intelligence for accurate scopes and reliable estimates.",
+    "Coordinates bid packages and partner alignment before field mobilization.",
+    "Improves project confidence by identifying cost and scope risks early.",
+    "Supports downstream execution through disciplined front-end planning."
   ],
-  "funFact": "Driven by innovation and craftsmanship, I take pride in shaping the industry while building a future my wife and kids can be proud of.",
+  "funFact": "Todd is driven by front-end planning that protects field teams from downstream surprises.",
   "certifications": "CCE, ASPE, Procore Certified",
   "hobbies": "Golf, Analytics",
-  "specialInterests": "Cost Engineering",
+  "specialInterests": "Cost Engineering and Estimating Strategy",
   "specialties": [
-    "Attention to Detail",
-    "Client-Focused Communication",
-    "Analytical Thinking",
-    "Dependability",
-    "Risk Management"
+    "Estimating Strategy",
+    "Scope Analysis",
+    "Bid Coordination",
+    "Preconstruction Planning",
+    "Cost Risk Management"
   ],
   "avatar": "/images/team/todd-schoeff.webp",
   "veteranStatus": "Civilian Professional",
@@ -56,5 +56,5 @@
     "passion": 86,
     "continuingEducation": 84
   },
-  "qrCode": "/media/qr-codes/team/qr-team-todd-schoeff-color.png"
+  "qrCode": "/images/qr-codes/team/qr-team-todd-schoeff-color.png"
 }

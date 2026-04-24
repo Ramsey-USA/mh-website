@@ -4,7 +4,7 @@
   "department": "Mission Commanders",
   "cardNumber": 15,
   "position": "Project Engineer / Marketing Agent",
-  "nickname": "The Logistics Officer",
+  "nickname": "Logistics Coordinator",
   "yearsWithCompany": 3,
   "hometown": "Tri-Cities, WA",
   "education": "Business Administration",
@@ -21,22 +21,22 @@
     "mentorships": 6
   },
   "awards": "Administrative Support Excellence Award, Efficiency Recognition",
-  "bio": "Lisa provides essential administrative support that keeps MH Construction operations running smoothly. Her attention to detail and proactive communication style supports both internal team coordination and client interactions, embodying the company's commitment to professional service excellence.",
+  "bio": "Lisa supports project engineering and marketing operations with detail-oriented coordination that keeps communication clear and commitments visible. She helps translate internal progress into client-ready updates, reinforcing MH's relationship-first service standard across every touchpoint.",
   "careerHighlights": [
-    "Streamlined administrative processes",
-    "Enhanced client communication systems",
-    "Improved document management efficiency",
-    "Supported successful project coordination"
+    "Bridges project engineering details with clear client-facing communication.",
+    "Supports marketing and operations with dependable message consistency.",
+    "Keeps deliverables organized so teams stay aligned across active missions.",
+    "Strengthens trust through responsive coordination and accurate updates."
   ],
-  "funFact": "Lisa has developed a filing system so efficient that any document can be located within 30 seconds.",
+  "funFact": "Lisa can locate project documentation in seconds and keep communication flowing without delay.",
   "certifications": "Microsoft Office Specialist, Customer Service Excellence, Procore Certified",
   "hobbies": "Reading, Crafting",
-  "specialInterests": "Process Improvement",
+  "specialInterests": "Process Improvement and Client Communication",
   "specialties": [
-    "Administrative Support & Documentation",
-    "Client Communication & Relations",
-    "Office Organization & Efficiency",
-    "Multi-Department Coordination"
+    "Engineering Coordination",
+    "Marketing Support",
+    "Client Communications",
+    "Operational Tracking"
   ],
   "avatar": "/images/team/lisa.jpg",
   "veteranStatus": "Civilian Professional",
@@ -55,5 +55,5 @@
     "passion": 80,
     "continuingEducation": 73
   },
-  "qrCode": "/media/qr-codes/team/qr-team-lisa-kandle-color.png"
+  "qrCode": "/images/qr-codes/team/qr-team-lisa-kandle-color.png"
 }

@@ -4,7 +4,7 @@
   "department": "The Upper Brass",
   "cardNumber": 3,
   "position": "Vice President",
-  "nickname": "The Executive Officer",
+  "nickname": "Strategic Executive Officer",
   "yearsWithCompany": 15,
   "hometown": "Washington State",
   "education": "Business Operations",
@@ -21,23 +21,23 @@
     "mentorships": 18
   },
   "awards": "Excellence in Client Relations Award, Outstanding VP Achievement",
-  "bio": "Arnold began his career as a teen working summer vacations as a laborer for his uncle's construction company. Once he finished school, he built a lifelong career in the field. Following his marriage to Elizabeth, he moved to Seattle, advancing from Superintendent to Project Manager in commercial construction. Later, Arnold returned to Eastern Washington, became General Manager for his uncle's firm, and eventually purchased and ran the company successfully. Now Vice President at MH Construction, Arnold oversees all construction activities and staff. He takes an active role in mentoring and training the staff while sharing his wealth of knowledge, exemplifying the company's core values every day.",
+  "bio": "Arnold provides senior operational command across MH Construction, guiding teams from preconstruction through closeout with steady judgment and proven field expertise. His leadership style is practical and mentorship-driven, reinforcing a culture where safety, craftsmanship, and client relationships stay aligned from day one.",
   "careerHighlights": [
-    "South Terminal Expansion Project at Sea-Tac International Airport",
-    "The Titan Data Center",
-    "The Vintage Apartments",
-    "Built strategic partnerships"
+    "Directs operational execution across field teams and project leadership.",
+    "Provides senior mentorship that strengthens superintendent and PM performance.",
+    "Maintains safety, quality, and schedule discipline across active missions.",
+    "Reinforces relationship-first delivery with consistent client follow-through."
   ],
-  "funFact": "Arnold always wants to live life and approach projects with the following mindset: The name you are born with is nowhere near as important as the name you leave behind.",
-  "certifications": "CDL, State Certified Spanish/English Interpreter, Forklifts, Aerial Platforms/Scissor Lifts, CPR/First Aid, Powder Actuated Tools, Cert E, Procore Certified Admin",
+  "funFact": "Arnold believes the standard you leave behind matters more than the title you carry.",
+  "certifications": "CDL, State Certified Spanish/English Interpreter, Forklifts, Aerial Platforms/Scissor Lifts, CPR/First Aid, Powder Actuated Tools, Procore Certified Admin",
   "hobbies": "Baseball, Cooking",
-  "specialInterests": "Client Relations",
+  "specialInterests": "Client Relations and Team Mentorship",
   "specialties": [
-    "Very Organized",
-    "Strong Negotiating Skills",
-    "Grounded Compassionate Leadership",
-    "Solid Construction Knowledge",
-    "Client-Focused Critical Thinking"
+    "Operations Leadership",
+    "Field Mentorship",
+    "Construction Management",
+    "Schedule Discipline",
+    "Client Coordination"
   ],
   "avatar": "/images/team/arnold-garcia.webp",
   "veteranStatus": "Civilian Leadership",
@@ -56,5 +56,5 @@
     "passion": 90,
     "continuingEducation": 86
   },
-  "qrCode": "/media/qr-codes/team/qr-team-arnold-garcia-color.png"
+  "qrCode": "/images/qr-codes/team/qr-team-arnold-garcia-color.png"
 }

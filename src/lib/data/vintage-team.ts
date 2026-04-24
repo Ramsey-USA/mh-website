@@ -5,6 +5,8 @@
 // To add a new team member: create ./team/<slug>.json and add an import below
 
 import jeremyThamert from "./team/jeremy-thamert.json";
+import gator from "./team/gator.json";
+import kimThamert from "./team/kim-thamert.json";
 import mikeHolstein from "./team/mike-holstein.json";
 import arnoldGarcia from "./team/arnold-garcia.json";
 import benWoodall from "./team/ben-woodall.json";
@@ -89,6 +91,8 @@ export interface VintageTeamMember {
 // To reorder members, rearrange the entries in this array.
 export const vintageTeamMembers: VintageTeamMember[] = [
   jeremyThamert,
+  gator,
+  kimThamert,
   mikeHolstein,
   arnoldGarcia,
   benWoodall,

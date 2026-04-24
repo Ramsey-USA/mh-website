@@ -4,7 +4,7 @@
   "department": "Logistics Command",
   "cardNumber": 88,
   "position": "Finance and Operations Manager",
-  "nickname": "The Finance Officer",
+  "nickname": "Finance Operations Lead",
   "yearsWithCompany": 10,
   "hometown": "Washington",
   "education": "Accounting & Finance",
@@ -21,23 +21,23 @@
     "mentorships": 12
   },
   "awards": "Financial Excellence Award, Transparency Leadership Recognition",
-  "bio": "Brooks is a results-driven Finance and Operations Manager with over a decade of experience enhancing financial performance and efficiency across manufacturing, service, and construction industries. A strategic, hands-on leader, he has led accounting teams through major transitions, streamlined systems, and recovered millions in unclaimed revenue. A Six Sigma Black Belt, Brooks blends financial expertise with operational insight to drive accountability, measurable results, and the highest standards of financial integrity and organizational excellence.",
+  "bio": "Brooks leads finance and operations with data-backed discipline, translating complex numbers into clear decisions that improve performance and control risk. His systems mindset strengthens forecasting, accountability, and cross-functional execution so teams can deliver with confidence.",
   "careerHighlights": [
-    "Led accounting teams through major transitions",
-    "Recovered millions in unclaimed revenue",
-    "Streamlined financial systems across multiple industries",
-    "Implemented accountability and measurable results frameworks"
+    "Leads finance and operations with measurable, data-backed discipline.",
+    "Improves forecasting and controls to support confident leadership decisions.",
+    "Builds cross-functional accountability through process clarity and reporting.",
+    "Connects financial insight to operational execution in real time."
   ],
-  "funFact": "Driving financial clarity, operational excellence, and measurable results that improve the success rate for every organization I serve.",
+  "funFact": "Brooks enjoys turning complex financial data into decisions teams can act on immediately.",
   "certifications": "Six Sigma Master Black Belt, Six Sigma Black Belt, Procore Certified Admin",
   "hobbies": "Finance, Reading",
-  "specialInterests": "Cost Analysis",
+  "specialInterests": "Cost Analysis and Operational Accountability",
   "specialties": [
-    "Analytical Precision",
-    "Transparency",
-    "Collaborative Leadership",
-    "Financial System Optimization",
-    "Dependable Financial Insight"
+    "Financial Operations",
+    "Process Improvement",
+    "Forecasting and Controls",
+    "Cross-Functional Alignment",
+    "Performance Analytics"
   ],
   "avatar": "/images/team/brooks-morris.webp",
   "veteranStatus": "Civilian Professional",
@@ -56,5 +56,5 @@
     "passion": 90,
     "continuingEducation": 86
   },
-  "qrCode": "/media/qr-codes/team/qr-team-brooks-morris-color.png"
+  "qrCode": "/images/qr-codes/team/qr-team-brooks-morris-color.png"
 }

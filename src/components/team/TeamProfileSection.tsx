@@ -167,6 +167,30 @@ const ROLE_SKILL_WEIGHTS: Record<string, SkillWeightProfile> = {
   },
 };
 
+const TEAM_PROFILE_SECTION_THEME = {
+  credentials:
+    "bg-gradient-to-br from-brand-secondary/15 via-bronze-100/60 to-brand-secondary/10 dark:from-brand-secondary/25 dark:via-bronze-800/30 dark:to-brand-secondary/20 border-2 border-brand-secondary/30 dark:border-brand-secondary/40 shadow-sm",
+  bio: "bg-gradient-to-br from-brand-primary/10 to-brand-primary/5 dark:from-brand-primary/20 dark:to-brand-primary/10 border-2 border-brand-primary/25 dark:border-brand-primary/35 shadow-sm",
+  careerHighlights:
+    "bg-gradient-to-br from-bronze-50 to-brand-secondary/10 dark:from-bronze-900/25 dark:to-brand-secondary/15 border-2 border-bronze-200 dark:border-bronze-700 shadow-sm",
+  specialties:
+    "bg-gradient-to-br from-brand-primary/8 via-brand-primary/5 to-brand-secondary/8 dark:from-brand-primary/15 dark:via-brand-primary/10 dark:to-brand-secondary/12 border-2 border-brand-primary/25 dark:border-brand-primary/35 shadow-sm",
+  achievements:
+    "bg-gradient-to-br from-bronze-50/80 to-white dark:from-bronze-900/20 dark:to-gray-900/70 border-2 border-bronze-200 dark:border-bronze-700 shadow-sm",
+  skillsPanel:
+    "bg-gradient-to-br from-brand-primary/10 via-brand-primary/5 to-brand-secondary/8 dark:from-brand-primary/20 dark:via-brand-primary/10 dark:to-brand-secondary/12 border-2 border-brand-primary/20 dark:border-brand-primary/30",
+  currentStats:
+    "bg-gradient-to-br from-brand-primary/10 to-brand-primary/5 dark:from-brand-primary/20 dark:to-brand-primary/10 border-2 border-brand-primary/20 dark:border-brand-primary/30",
+  careerStats:
+    "bg-gradient-to-br from-brand-secondary/12 via-bronze-100/50 to-brand-secondary/8 dark:from-brand-secondary/20 dark:via-bronze-900/25 dark:to-brand-secondary/12 border-2 border-brand-secondary/25 dark:border-brand-secondary/35",
+  personalDetails:
+    "bg-gradient-to-br from-gray-50 to-brand-primary/6 dark:from-gray-900 dark:to-brand-primary/10 border-2 border-brand-primary/20 dark:border-brand-primary/30 shadow-sm",
+  personalInsights:
+    "bg-gradient-to-br from-brand-secondary/10 via-bronze-50 to-brand-primary/6 dark:from-brand-secondary/20 dark:via-bronze-900/20 dark:to-brand-primary/10 border-2 border-brand-secondary/20 dark:border-brand-secondary/30",
+  contactButton:
+    "inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary-light dark:hover:bg-brand-primary text-white px-6 py-3 rounded-lg border border-brand-secondary/40 dark:border-brand-secondary/50 font-bold text-sm shadow-md hover:shadow-lg transition-all duration-300",
+} as const;
+
 function clampSkill(value: number): number {
   return Math.max(45, Math.min(99, Math.round(value)));
 }
@@ -675,7 +699,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                 {member.name}
               </h3>
               {member.nickname && (
-                <p className="text-base sm:text-lg text-brand-secondary dark:text-brand-secondary-light italic mb-1 font-medium">
+                <p className="text-base sm:text-lg text-brand-secondary-dark dark:text-brand-secondary-light italic mb-1 font-medium">
                   &ldquo;{member.nickname}&rdquo;
                 </p>
               )}
@@ -714,7 +738,9 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
           </div>
 
           {/* Credentials Snapshot */}
-          <div className="bg-gradient-to-br from-brand-secondary/10 to-brand-primary/10 dark:from-brand-secondary/20 dark:to-brand-primary/20 p-3 sm:p-4 rounded-lg border-2 border-brand-secondary/20 dark:border-brand-secondary/30 flex flex-col lg:min-h-[14rem]">
+          <div
+            className={`${TEAM_PROFILE_SECTION_THEME.credentials} p-3 sm:p-4 rounded-lg flex flex-col lg:min-h-[14rem]`}
+          >
             <h4 className="text-base sm:text-lg font-bold text-brand-secondary dark:text-brand-secondary-light mb-3 flex items-center gap-2 tracking-tight">
               <MaterialIcon
                 icon="workspace_premium"
@@ -726,7 +752,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
 
             {educationTokens.length > 0 && (
               <div className="mb-3">
-                <p className="text-xs uppercase tracking-wide text-gray-600 dark:text-gray-300 font-semibold mb-1.5">
+                <p className="text-xs uppercase tracking-wide text-brand-secondary-text dark:text-gray-300 font-semibold mb-1.5">
                   Education
                 </p>
                 <div className="flex flex-wrap gap-1.5">
@@ -744,7 +770,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
 
             {featuredCertifications.length > 0 && (
               <div>
-                <p className="text-xs uppercase tracking-wide text-gray-600 dark:text-gray-300 font-semibold mb-1.5">
+                <p className="text-xs uppercase tracking-wide text-brand-secondary-text dark:text-gray-300 font-semibold mb-1.5">
                   Certifications
                 </p>
                 <div className="flex flex-wrap gap-1.5">
@@ -753,7 +779,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                       key={`${member.slug}-featured-${certification.label}`}
                       className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-semibold ${
                         certification.inferred
-                          ? "border-brand-secondary/40 bg-brand-secondary/10 text-brand-secondary"
+                          ? "border-brand-secondary/40 bg-brand-secondary/10 text-brand-secondary-dark dark:text-brand-secondary-light"
                           : "border-brand-primary/30 bg-brand-primary/10 text-brand-primary"
                       }`}
                     >
@@ -761,7 +787,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                     </span>
                   ))}
                   {hiddenCertificationCount > 0 && (
-                    <span className="inline-flex items-center rounded-full border border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-900/70 px-2 py-0.5 text-xs font-semibold text-gray-700 dark:text-gray-200">
+                    <span className="inline-flex items-center rounded-full border border-brand-primary/20 dark:border-brand-primary/40 bg-white/80 dark:bg-gray-900/70 px-2 py-0.5 text-xs font-semibold text-brand-primary dark:text-brand-secondary-light">
                       +{hiddenCertificationCount} more
                     </span>
                   )}
@@ -771,7 +797,9 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
           </div>
 
           {/* Bio Snapshot */}
-          <div>
+          <div
+            className={`${TEAM_PROFILE_SECTION_THEME.bio} p-3 sm:p-4 rounded-lg`}
+          >
             <h4 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-2 flex items-center gap-2 tracking-tight">
               <MaterialIcon
                 icon="info"
@@ -795,7 +823,9 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
 
           {/* Career Highlights */}
           {member.careerHighlights && member.careerHighlights.length > 0 && (
-            <div>
+            <div
+              className={`${TEAM_PROFILE_SECTION_THEME.careerHighlights} p-3 sm:p-4 rounded-lg`}
+            >
               <h4 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 flex items-center gap-2 tracking-tight">
                 <MaterialIcon
                   icon="stars"
@@ -826,7 +856,9 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
 
           {/* Specialties */}
           {member.specialties && member.specialties.length > 0 && (
-            <div>
+            <div
+              className={`${TEAM_PROFILE_SECTION_THEME.specialties} p-3 sm:p-4 rounded-lg`}
+            >
               <h4 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 flex items-center gap-2 tracking-tight">
                 <MaterialIcon
                   icon="psychology"
@@ -850,7 +882,9 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
 
           {/* Achievement Badges */}
           {achievementBadges.filter((b) => !b.special).length > 0 && (
-            <div>
+            <div
+              className={`${TEAM_PROFILE_SECTION_THEME.achievements} p-3 sm:p-4 rounded-lg`}
+            >
               <h4 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 flex items-center gap-2 tracking-tight">
                 <MaterialIcon
                   icon="emoji_events"
@@ -886,7 +920,9 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
           className={`space-y-4 sm:space-y-5 md:space-y-6 ${isReversed ? "lg:order-1" : "lg:order-2"}`}
         >
           {/* Radar Chart */}
-          <div className="bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 dark:from-brand-primary/10 dark:to-brand-secondary/10 p-4 sm:p-5 md:p-6 rounded-lg md:rounded-xl border-2 border-brand-primary/10 dark:border-brand-primary/20">
+          <div
+            className={`${TEAM_PROFILE_SECTION_THEME.skillsPanel} p-4 sm:p-5 md:p-6 rounded-lg md:rounded-xl`}
+          >
             <h4 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 sm:mb-4 text-center tracking-tight">
               Professional Skills Profile
             </h4>
@@ -952,7 +988,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                     ? "text-bronze-badge"
                     : idx === 1
                       ? "text-gray-400"
-                      : "text-brand-secondary";
+                      : "text-brand-secondary-dark dark:text-brand-secondary-light";
                 return (
                   <div
                     key={skill.key}
@@ -983,7 +1019,9 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
           {/* Performance Stats */}
           <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4">
             {/* 2025 Performance */}
-            <div className="bg-brand-primary/5 dark:bg-brand-primary/10 p-3 sm:p-4 rounded-lg border-2 border-brand-primary/10 dark:border-brand-primary/20">
+            <div
+              className={`${TEAM_PROFILE_SECTION_THEME.currentStats} p-3 sm:p-4 rounded-lg`}
+            >
               <h5 className="text-xs sm:text-sm font-bold text-brand-primary dark:text-brand-secondary mb-2 sm:mb-3 flex items-center gap-1 tracking-tight">
                 <MaterialIcon
                   icon="trending_up"
@@ -1029,7 +1067,9 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
             </div>
 
             {/* Career Totals */}
-            <div className="bg-brand-secondary/5 dark:bg-brand-secondary/10 p-3 sm:p-4 rounded-lg border-2 border-brand-secondary/10 dark:border-brand-secondary/20">
+            <div
+              className={`${TEAM_PROFILE_SECTION_THEME.careerStats} p-3 sm:p-4 rounded-lg`}
+            >
               <h5 className="text-xs sm:text-sm font-bold text-brand-secondary dark:text-brand-secondary-light mb-2 sm:mb-3 flex items-center gap-1 tracking-tight">
                 <MaterialIcon
                   icon="workspace_premium"
@@ -1079,7 +1119,9 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
           </div>
 
           {/* Additional Details */}
-          <div className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-4 rounded-lg border-2 border-gray-200 dark:border-gray-700 space-y-2 sm:space-y-3">
+          <div
+            className={`${TEAM_PROFILE_SECTION_THEME.personalDetails} p-3 sm:p-4 rounded-lg space-y-2 sm:space-y-3`}
+          >
             <h5 className="text-xs sm:text-sm font-bold text-brand-primary dark:text-brand-secondary flex items-center gap-1 tracking-tight">
               <MaterialIcon
                 icon="person"
@@ -1097,7 +1139,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                     className="text-gray-500 dark:text-gray-300 flex-shrink-0 mt-0.5"
                   />
                   <div>
-                    <span className="text-gray-600 dark:text-gray-300 font-medium">
+                    <span className="text-brand-secondary-text dark:text-gray-300 font-medium">
                       Hometown:{" "}
                     </span>
                     <span className="text-gray-900 dark:text-white font-semibold">
@@ -1114,7 +1156,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                     className="text-bronze-badge flex-shrink-0 mt-0.5"
                   />
                   <div>
-                    <span className="text-gray-600 dark:text-gray-300 font-medium">
+                    <span className="text-brand-secondary-text dark:text-gray-300 font-medium">
                       Awards:{" "}
                     </span>
                     <span className="text-gray-900 dark:text-white font-semibold">
@@ -1130,7 +1172,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                   className="text-gray-500 dark:text-gray-300 flex-shrink-0 mt-0.5"
                 />
                 <div>
-                  <span className="text-gray-600 dark:text-gray-300 font-medium">
+                  <span className="text-brand-secondary-text dark:text-gray-300 font-medium">
                     Years at MH:{" "}
                   </span>
                   <span className="text-gray-900 dark:text-white font-semibold">
@@ -1143,10 +1185,12 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
 
           {/* Personal Insights - Expandable */}
           {(member.funFact || member.hobbies || member.specialInterests) && (
-            <div className="bg-gradient-to-br from-brand-secondary/5 to-brand-primary/5 dark:from-brand-secondary/10 dark:to-brand-primary/10 p-3 sm:p-4 rounded-lg border-2 border-brand-secondary/10 dark:border-brand-secondary/20">
+            <div
+              className={`${TEAM_PROFILE_SECTION_THEME.personalInsights} p-3 sm:p-4 rounded-lg`}
+            >
               <button
                 onClick={() => setShowPersonal(!showPersonal)}
-                className="w-full flex items-center justify-between text-xs sm:text-sm font-bold text-brand-secondary dark:text-brand-secondary-light tracking-tight hover:text-brand-secondary-dark dark:hover:text-brand-secondary transition-colors"
+                className="w-full flex items-center justify-between text-xs sm:text-sm font-bold text-brand-secondary-dark dark:text-brand-secondary-light tracking-tight hover:text-brand-secondary dark:hover:text-brand-secondary transition-colors"
               >
                 <div className="flex items-center gap-1">
                   <MaterialIcon
@@ -1225,7 +1269,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
           <div className="flex justify-center">
             <a
               href={`mailto:${member.email || "office@mhc-gc.com"}?subject=Connect%20with%20${encodeURIComponent(member.name)}`}
-              className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary-light dark:hover:bg-brand-primary text-white px-6 py-3 rounded-lg font-bold text-sm shadow-md hover:shadow-lg transition-all duration-300"
+              className={TEAM_PROFILE_SECTION_THEME.contactButton}
             >
               <MaterialIcon icon="mail" size="sm" className="text-white" />
               Contact Team Member

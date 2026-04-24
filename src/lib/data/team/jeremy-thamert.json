@@ -4,7 +4,7 @@
   "department": "The Upper Brass",
   "cardNumber": 1,
   "position": "Owner & President",
-  "nickname": "The Commander",
+  "nickname": "Mission Commander",
   "yearsWithCompany": 4,
   "hometown": "Tri-Cities, WA",
   "education": "Business Management",
@@ -21,22 +21,22 @@
     "mentorships": 8
   },
   "awards": "Presidential Leadership Excellence",
-  "bio": "Jeremy brings more than 35 years of experience and leadership to the MH Construction team, with 500+ projects completed across commercial construction and operations. Beginning his construction career while still in college, he has worked across nearly every aspect of the industry, from drafting plans to performing international commercial inspections. In 2003, Jeremy launched his first business and has since founded, operated, sold, and acquired multiple companies. His entrepreneurial spirit and business acumen have led him to mentor start-ups, incubate emerging ventures, and help others strategically position their companies for growth and success. A 15-year veteran of Army aviation, Jeremy purchased MH Construction in January 2025, bringing the company to Veteran-Owned status. He applies the precision, discipline, and attention to detail learned in the service to every project MH Construction undertakes. His leadership blends military focus with real-world construction expertise, ensuring excellence from concept to completion. With a clear vision to elevate MH Construction and a deep commitment to supporting employees, clients, and community partners, Jeremy leads with integrity and determination, guiding the company confidently into the future.",
+  "bio": "Jeremy leads MH Construction with mission-level discipline, relationship-first leadership, and more than three decades of construction experience. A U.S. Army aviation veteran and seasoned operator, he aligns field execution, client communication, and long-term strategy so every project is delivered with accountability, precision, and trust.",
   "careerHighlights": [
-    "Presidential oversight of strategic operations",
-    "Safety management & organizational standards",
-    "Workforce development & team building initiatives",
-    "HR & people-first leadership philosophy"
+    "Leads company-wide mission alignment from client kickoff through final closeout.",
+    "Built and scaled multiple businesses with disciplined operational systems.",
+    "Guides strategic growth while protecting MH relationship-first standards.",
+    "Mentors leaders to strengthen accountability, communication, and execution."
   ],
-  "funFact": "Jeremy focuses on the foundational pillars that make MH Construction a people-first organization.",
-  "certifications": "Leadership Development, Safety Management, Cert E, Procore Certified Admin",
+  "funFact": "Jeremy is most energized when aligning people, safety, and execution around one clear mission.",
+  "certifications": "Leadership Development, Safety Management, Procore Certified Admin",
   "hobbies": "Team Building, Strategy",
-  "specialInterests": "People & Safety First",
+  "specialInterests": "People-First Leadership and Safety Culture",
   "specialties": [
-    "Safety Management & Organizational Standards",
-    "Marketing Strategy & Brand Development",
-    "Workforce Development & Team Building",
-    "Human Resources & People-First Leadership"
+    "Executive Leadership",
+    "Strategic Operations",
+    "Client Partnership",
+    "Veteran Leadership"
   ],
   "avatar": "/images/team/jeremy-thamert.webp",
   "veteranStatus": "Army Veteran",
@@ -44,16 +44,16 @@
   "slug": "jeremy-thamert",
   "email": "jeremy@mhc-gc.com",
   "skills": {
-    "leadership": 98,
-    "technical": 85,
-    "communication": 96,
-    "safety": 88,
-    "problemSolving": 94,
-    "teamwork": 93,
-    "organization": 94,
-    "innovation": 88,
-    "passion": 95,
-    "continuingEducation": 89
+    "leadership": 100,
+    "technical": 70,
+    "communication": 100,
+    "safety": 100,
+    "problemSolving": 100,
+    "teamwork": 100,
+    "organization": 100,
+    "innovation": 100,
+    "passion": 100,
+    "continuingEducation": 100
   },
-  "qrCode": "/media/qr-codes/team/qr-team-jeremy-thamert-color.png"
+  "qrCode": "/images/qr-codes/team/qr-team-jeremy-thamert-color.png"
 }

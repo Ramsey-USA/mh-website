@@ -4,7 +4,7 @@
   "department": "Field Officers",
   "cardNumber": 80,
   "position": "Superintendent",
-  "nickname": "The Tactical Advisor",
+  "nickname": "Site Strategy Advisor",
   "yearsWithCompany": 12,
   "hometown": "Pacific Northwest",
   "education": "Construction Management",
@@ -21,22 +21,22 @@
     "mentorships": 18
   },
   "awards": "Proactive Leadership Award, Quality Assurance Excellence",
-  "bio": "Reagan has grown from a residential framing position into Superintendent, where he oversees daily site operations, scheduling, material coordination, and Ally communication. Influenced early by his general contractor father, he built his career through hard work and hands-on experience. Reagan is known for his ability to read blueprints, broad field knowledge, and clear communication. He takes pride in delivering quality projects and ensuring client satisfaction while mentoring the next generation of builders.",
+  "bio": "Reagan oversees site execution with a builder's perspective shaped by real-world framing and superintendent experience. He keeps scheduling, material flow, and trade coordination synchronized while maintaining strong client communication and mentoring developing field talent.",
   "careerHighlights": [
-    "Columbia Crest - Managed foundation formwork",
-    "Mattawa Fire Station - Successfully completed project through COVID-19",
-    "Bruchi's & Baskin-Robbins - Oversaw full buildout from start to finish",
-    "Maintained quality standards across all projects"
+    "Oversees daily field operations with disciplined superintendent planning.",
+    "Synchronizes trades, materials, and sequencing to sustain project momentum.",
+    "Builds trust through clear jobsite communication with clients and crews.",
+    "Mentors emerging field talent to strengthen long-term team capability."
   ],
-  "funFact": "Delivering high-quality projects that meet client expectations and bring lasting satisfaction.",
+  "funFact": "Reagan is motivated by delivering quality work that earns repeat client trust.",
   "certifications": "Forklift, Scissor Lift, Snake Lift, CPR, Procore Certified",
   "hobbies": "Blueprints, Mentoring",
-  "specialInterests": "Quality Control",
+  "specialInterests": "Quality Control and Field Coordination",
   "specialties": [
-    "Skilled at Reading and Interpreting Construction Prints",
-    "Broad, Hands-On Construction Experience",
-    "Strong Communication",
-    "Hardworking and Dependable"
+    "Superintendent Operations",
+    "Trade Coordination",
+    "Material Planning",
+    "Client Communication"
   ],
   "avatar": "/images/team/reagan-massey.webp",
   "veteranStatus": "Civilian Professional",
@@ -55,5 +55,5 @@
     "passion": 88,
     "continuingEducation": 86
   },
-  "qrCode": "/media/qr-codes/team/qr-team-reagan-massey-color.png"
+  "qrCode": "/images/qr-codes/team/qr-team-reagan-massey-color.png"
 }

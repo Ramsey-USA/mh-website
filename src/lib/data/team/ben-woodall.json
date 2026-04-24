@@ -4,7 +4,7 @@
   "department": "Mission Commanders",
   "cardNumber": 4,
   "position": "Project Manager",
-  "nickname": "The Mission Planner",
+  "nickname": "Mission Planner",
   "yearsWithCompany": 10,
   "hometown": "Oregon",
   "education": "Construction Management",
@@ -21,23 +21,23 @@
     "mentorships": 15
   },
   "awards": "Budget Excellence Award, Project Efficiency Recognition",
-  "bio": "Ben began his career as an estimator and design-build CAD drafter. Over the last 15 years he has grown into a project management role. Ben has substantial experience with taking projects from concept to completion through every phase in-between. Ben excels in seeing potential issues from all perspectives and finding creative solutions that work for all stakeholders involved. His experience, combined with a proactive approach, allows him to consistently deliver projects on-time and under budget.",
+  "bio": "Ben leads projects with a full-lifecycle mindset, coordinating planning, budgeting, and execution to keep teams and clients aligned at every phase. His calm problem-solving approach helps prevent surprises in the field and supports reliable delivery on schedule and scope.",
   "careerHighlights": [
-    "Barhyte Specialty Foods Warehouse",
-    "Central Oregon Processing Pellet Mill",
-    "Inland Desert Nursery Cold Storage",
-    "Consistently delivers projects on-time and under budget"
+    "Leads projects from preconstruction planning through turnover execution.",
+    "Aligns budget, schedule, and scope to reduce downstream project risk.",
+    "Coordinates stakeholders early to prevent field-level friction and delays.",
+    "Delivers predictable outcomes through proactive issue management."
   ],
-  "funFact": "Building projects my children can see and remember their dad, long after I am gone.",
+  "funFact": "Ben takes pride in building projects his family can point to for years to come.",
   "certifications": "ADDA Certified Mechanical and Architectural Drafter, OSHA 30, Procore Certified",
   "hobbies": "Cycling, Budgeting",
-  "specialInterests": "Cost Optimization",
+  "specialInterests": "Cost Optimization and Preconstruction Planning",
   "specialties": [
-    "Decision-Making",
-    "Conflict Resolution",
-    "Construction Knowledge",
-    "Time Management",
-    "Collaboration"
+    "Project Management",
+    "Preconstruction Planning",
+    "Risk Mitigation",
+    "Stakeholder Alignment",
+    "Schedule Control"
   ],
   "avatar": "/images/team/ben-woodall.webp",
   "veteranStatus": "Civilian Professional",
@@ -56,5 +56,5 @@
     "passion": 81,
     "continuingEducation": 78
   },
-  "qrCode": "/media/qr-codes/team/qr-team-ben-woodall-color.png"
+  "qrCode": "/images/qr-codes/team/qr-team-ben-woodall-color.png"
 }

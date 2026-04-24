@@ -33,6 +33,8 @@ Keep documentation synchronized with implementation so onboarding and execution 
 - Reference Accuracy: verify changed routes, files, and commands are correctly documented.
 - Workflow Accuracy: verify setup, deployment, and operational steps still match implementation.
 - Cross-Doc Consistency: verify terminology and guidance are aligned across related docs.
+- Certification Policy Consistency: verify documentation and examples use real certification ladders only (no placeholder labels such as Cert A-E), and that inferred prerequisites are verifiable.
+- Team Profile Theme Consistency: verify team profile section color guidance matches `TEAM_PROFILE_SECTION_THEME` in `src/components/team/TeamProfileSection.tsx`.
 - Canonical Ownership: identify which document is source of truth when conflicts exist.
 
 ## Output Format

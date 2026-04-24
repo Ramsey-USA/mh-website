@@ -159,6 +159,9 @@ const faqSchema = {
 
 export default function TeamPage() {
   const membersByDepartment = groupByDepartment(vintageTeamMembers);
+  const founderTributeMember = vintageTeamMembers.find(
+    (member) => member.slug === "mike-holstein",
+  );
 
   // Define department order matching the Chain of Command structure
   const departmentOrder = [
@@ -319,15 +322,16 @@ export default function TeamPage() {
             {/* Team Members by Department - First Two Departments */}
             <div className="space-y-16 sm:space-y-24 md:space-y-32">
               {departmentOrder.slice(0, 2).map((department) => {
-                const members = membersByDepartment[department];
-                if (!members || members.length === 0) return null;
-
+                const members = (membersByDepartment[department] ?? []).filter(
+                  (member) => member.slug !== "mike-holstein",
+                );
                 const config = departmentConfig[department] ?? {
                   icon: "groups",
                   description: "",
                   id: "team",
                 };
                 const heading = getDepartmentHeadingParts(department);
+                const hasMembers = members.length > 0;
 
                 return (
                   <div
@@ -372,11 +376,23 @@ export default function TeamPage() {
 
                     {/* Team member profiles */}
                     <div className="space-y-8 sm:space-y-10 md:space-y-12">
-                      {members.map((member, index) => (
-                        <div key={member.slug} className="scroll-reveal">
-                          <TeamProfileSection member={member} index={index} />
+                      {hasMembers ? (
+                        members.map((member, index) => (
+                          <div key={member.slug} className="scroll-reveal">
+                            <TeamProfileSection member={member} index={index} />
+                          </div>
+                        ))
+                      ) : (
+                        <div className="scroll-reveal rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 bg-white/80 dark:bg-gray-800/80 p-6 sm:p-8 text-center shadow-sm">
+                          <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+                            Personnel roster update in progress.
+                          </p>
+                          <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300">
+                            This command section will populate as deployment
+                            assignments are finalized.
+                          </p>
                         </div>
-                      ))}
+                      )}
                     </div>
                   </div>
                 );
@@ -429,9 +445,8 @@ export default function TeamPage() {
                 </span>{" "}
                 and{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  service-earned values
+                  service-earned values.
                 </span>
-                .
               </p>
             </div>
 
@@ -450,15 +465,16 @@ export default function TeamPage() {
             {/* Remaining Team Members by Department */}
             <div className="space-y-16 sm:space-y-24 md:space-y-32">
               {departmentOrder.slice(2).map((department) => {
-                const members = membersByDepartment[department];
-                if (!members || members.length === 0) return null;
-
+                const members = (membersByDepartment[department] ?? []).filter(
+                  (member) => member.slug !== "mike-holstein",
+                );
                 const config = departmentConfig[department] ?? {
                   icon: "groups",
                   description: "",
                   id: "team",
                 };
                 const heading = getDepartmentHeadingParts(department);
+                const hasMembers = members.length > 0;
 
                 return (
                   <div
@@ -503,11 +519,23 @@ export default function TeamPage() {
 
                     {/* Team member profiles */}
                     <div className="space-y-8 sm:space-y-10 md:space-y-12">
-                      {members.map((member, index) => (
-                        <div key={member.slug} className="scroll-reveal">
-                          <TeamProfileSection member={member} index={index} />
+                      {hasMembers ? (
+                        members.map((member, index) => (
+                          <div key={member.slug} className="scroll-reveal">
+                            <TeamProfileSection member={member} index={index} />
+                          </div>
+                        ))
+                      ) : (
+                        <div className="scroll-reveal rounded-xl border-2 border-brand-primary/20 dark:border-brand-primary/30 bg-white/80 dark:bg-gray-800/80 p-6 sm:p-8 text-center shadow-sm">
+                          <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+                            Personnel roster update in progress.
+                          </p>
+                          <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300">
+                            This command section will populate as deployment
+                            assignments are finalized.
+                          </p>
                         </div>
-                      ))}
+                      )}
                     </div>
                   </div>
                 );
@@ -549,12 +577,11 @@ export default function TeamPage() {
 
                 {/* Description with colored keyword highlighting */}
                 <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
-                  &ldquo;
                   <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                    All for one, one for all
-                  </span>
-                  &rdquo; isn't just a motto—it's how we partner, grow, and
-                  succeed together. Our{" "}
+                    &ldquo;All for one, one for all&rdquo;
+                  </span>{" "}
+                  isn't just a motto—it's how we partner, grow, and succeed
+                  together. Our{" "}
                   <span className="font-bold text-gray-900 dark:text-white">
                     people-centered culture
                   </span>{" "}
@@ -913,12 +940,11 @@ export default function TeamPage() {
                     structured training programs, mentorship opportunities, and
                     clear advancement paths
                   </span>
-                  , your{" "}
+                  {", your "}
                   <span className="font-bold text-gray-900 dark:text-white">
                     career trajectory is limited only by your ambition and
-                    dedication
+                    dedication.
                   </span>
-                  .
                 </p>
               </div>
 
@@ -1323,6 +1349,127 @@ export default function TeamPage() {
             </div>
           </div>
         </section>
+
+        {founderTributeMember && (
+          <section
+            id="founder-tribute"
+            className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden"
+          >
+            <DiagonalStripePattern />
+            <BrandColorBlobs />
+
+            <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+              <div className="mb-12 sm:mb-14 md:mb-16 text-center">
+                <div className="flex items-center justify-center mb-8 gap-4">
+                  <div className="h-1 w-16 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-brand-secondary/30 to-bronze-700/30 blur-2xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-brand-secondary via-bronze-700 to-bronze-800 p-5 rounded-2xl shadow-2xl border-2 border-white/50 dark:border-gray-600">
+                      <MaterialIcon
+                        icon="foundation"
+                        size="2xl"
+                        className="text-white drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="h-1 w-16 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600 rounded-full"></div>
+                </div>
+
+                <h3 className="mb-6 sm:mb-8 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-relaxed tracking-tighter overflow-visible">
+                  <span className="block mb-3 sm:mb-4 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight overflow-visible py-1">
+                    Founder
+                  </span>
+                  <span className="block bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary bg-clip-text text-transparent font-black drop-shadow-sm overflow-visible py-2 pb-3 leading-normal">
+                    Tribute
+                  </span>
+                </h3>
+
+                <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
+                  Honoring the legacy and leadership foundation that launched MH
+                  Construction and shaped the partnership-first standards we
+                  carry forward today.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-bronze-50/90 via-white to-brand-secondary/10 dark:from-bronze-900/20 dark:via-gray-900 dark:to-brand-secondary/15 rounded-2xl border-2 border-bronze-200 dark:border-bronze-700 shadow-xl p-6 sm:p-8 md:p-10">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 items-start">
+                  <div className="lg:col-span-1">
+                    <div className="relative w-full max-w-sm mx-auto aspect-[4/5] rounded-xl overflow-hidden border-2 border-brand-secondary/30 dark:border-brand-secondary/40 shadow-lg bg-gray-100 dark:bg-gray-800">
+                      <Image
+                        src={
+                          founderTributeMember.avatar ??
+                          "/images/team/placeholder-team.webp"
+                        }
+                        alt={founderTributeMember.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 320px, 360px"
+                      />
+                    </div>
+                    <div className="mt-4 text-center">
+                      <h4 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white tracking-tight">
+                        {founderTributeMember.name}
+                      </h4>
+                      <p className="text-brand-secondary-dark dark:text-brand-secondary-light font-semibold text-lg sm:text-xl">
+                        Founder
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="lg:col-span-2 space-y-6">
+                    <div className="bg-white/80 dark:bg-gray-800/70 rounded-xl border border-brand-primary/20 dark:border-brand-primary/30 p-5 sm:p-6">
+                      <h5 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 flex items-center gap-2 tracking-tight">
+                        <MaterialIcon
+                          icon="military_tech"
+                          size="sm"
+                          className="text-brand-primary dark:text-brand-secondary"
+                        />
+                        Tribute Statement
+                      </h5>
+                      <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Mike Holstein founded MH Construction in 2010 and set
+                        the company&apos;s original standard for integrity,
+                        discipline, and client-first execution. His leadership
+                        established the cultural and operational foundation that
+                        continues to guide every mission today.
+                      </p>
+                    </div>
+
+                    <div className="bg-white/80 dark:bg-gray-800/70 rounded-xl border border-brand-secondary/25 dark:border-brand-secondary/35 p-5 sm:p-6">
+                      <h5 className="text-base sm:text-lg font-bold text-brand-primary dark:text-brand-secondary mb-3 flex items-center gap-2 tracking-tight">
+                        <MaterialIcon
+                          icon="stars"
+                          size="sm"
+                          className="text-brand-primary dark:text-brand-secondary"
+                        />
+                        Notable Projects & Legacy Milestones
+                      </h5>
+                      <ul className="space-y-2">
+                        {founderTributeMember.careerHighlights.map(
+                          (highlight) => (
+                            <li
+                              key={`founder-tribute-${highlight}`}
+                              className="flex items-start gap-3 text-gray-700 dark:text-gray-300"
+                            >
+                              <MaterialIcon
+                                icon="check_circle"
+                                size="sm"
+                                className="text-brand-secondary dark:text-brand-secondary-light flex-shrink-0 mt-0.5"
+                              />
+                              <span className="leading-relaxed font-normal">
+                                {highlight}
+                              </span>
+                            </li>
+                          ),
+                        )}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Next Steps Section - Standardized Final CTA */}
         <NextStepsSection />

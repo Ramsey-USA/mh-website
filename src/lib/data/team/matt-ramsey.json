@@ -4,7 +4,7 @@
   "department": "Special Operations",
   "cardNumber": 21,
   "position": "Digital Marketing Manager / Safety Officer",
-  "nickname": "The Communications Officer",
+  "nickname": "Communications and Safety Lead",
   "yearsWithCompany": 1,
   "hometown": "Richland, WA",
   "education": "BAS Operations Management (PM Minor), AAS Business Administration",
@@ -21,22 +21,22 @@
     "mentorships": 15
   },
   "awards": "Two Navy Achievement Medals",
-  "bio": "Matthew Ramsey joined the MH Construction team in June 2025, bringing a diverse background in operations, project management, and leadership. Originally hired as a Project Engineer, Matthew quickly demonstrated his ability to bridge the gap between field operations and client communications, transitioning into the role of Digital Marketing Manager and Safety Officer in October 2025. He is the creator and developer of the MH Construction website. A United States Navy veteran (2001–2007), Matthew served as an Engineman 2nd Class Petty Officer aboard the USS Theodore Roosevelt and with Logistic Support Unit One. His military service, which includes two Navy Achievement Medals, instilled a deep sense of discipline and integrity that aligns perfectly with MH Construction's philosophy of 'Building projects for the Client, NOT the Dollar.' Matthew holds an Associate of Applied Science in Business Management from Columbia Basin College and is currently pursuing his Bachelor of Applied Science in Operations Management at Arizona State University (Class of 2026). Prior to joining MH Construction, he gained extensive experience as a Project Manager in the restoration industry and as a Superintendent in residential production building. Outside of the office, Matthew is an avid outdoorsman who enjoys camping, fishing, and big game hunting. He is a Lifetime Member of the Rocky Mountain Elk Foundation. He resides in the Tri-Cities with his wife, Diane, and enjoys spending time with their children and grandchildren.",
+  "bio": "Matt integrates digital marketing and safety leadership to strengthen both client communication and internal execution standards. As a U.S. Navy veteran, he brings mission focus, operational structure, and service-minded accountability to brand strategy, compliance, and field support.",
   "careerHighlights": [
-    "Developed AI estimator systems",
-    "Led technology integration projects",
-    "Enhanced brand marketing strategies",
-    "Promoted Veteran-Owned business status"
+    "Integrates digital communication and safety systems to support execution.",
+    "Built and maintains MH web and messaging infrastructure for client trust.",
+    "Applies veteran discipline to compliance, process consistency, and follow-through.",
+    "Aligns marketing visibility with operational realities and field standards."
   ],
-  "funFact": "Former gym owner and Master Personal Trainer, Matt brings the same dedication to fitness and leadership that he now applies to construction technology and project management.",
+  "funFact": "Matt brings the same disciplined mindset from military service and coaching into digital and safety execution.",
   "certifications": "Global Accelerator Web Development & AI Design, OSHA 30, CPR, Google Ads, HubSpot, Procore Certified",
   "hobbies": "Camping, Hunting, Fishing",
-  "specialInterests": "Assisting Project Managers and Managing Digital Assets",
+  "specialInterests": "Project Support and Digital Asset Management",
   "specialties": [
-    "Marketing Coordination & Brand Management",
-    "Technology Advocacy & Innovation",
-    "Client Presentations & Proposals",
-    "AI Estimator Development & Promotion"
+    "Digital Strategy",
+    "Safety Leadership",
+    "Brand Communications",
+    "Operational Support"
   ],
   "avatar": "/images/team/matt-ramsey.jpg",
   "veteranStatus": "Navy Veteran",
@@ -55,5 +55,5 @@
     "passion": 88,
     "continuingEducation": 88
   },
-  "qrCode": "/media/qr-codes/team/qr-team-matt-ramsey-color.png"
+  "qrCode": "/images/qr-codes/team/qr-team-matt-ramsey-color.png"
 }

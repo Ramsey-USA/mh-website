@@ -13,27 +13,21 @@ describe("buildCertificationShowcase", () => {
     expect(buildCertificationShowcase()).toEqual([]);
   });
 
-  it("expands Cert C into Cert B and Cert A", () => {
-    const result = buildCertificationShowcase("Cert C");
-
-    expect(labels(result)).toEqual(["Cert C", "Cert A", "Cert B"]);
-    expect(result.find((item) => item.label === "Cert C")?.inferred).toBe(
-      false,
-    );
-    expect(result.find((item) => item.label === "Cert A")?.inferred).toBe(true);
-    expect(result.find((item) => item.label === "Cert B")?.inferred).toBe(true);
-  });
-
-  it("expands Cert E into Cert D/C/B/A", () => {
-    const result = buildCertificationShowcase("Cert E");
+  it("expands Six Sigma Black Belt into White/Yellow/Green", () => {
+    const result = buildCertificationShowcase("Six Sigma Black Belt");
 
     expect(labels(result)).toEqual([
-      "Cert E",
-      "Cert A",
-      "Cert B",
-      "Cert C",
-      "Cert D",
+      "Six Sigma Black Belt",
+      "Six Sigma White Belt",
+      "Six Sigma Yellow Belt",
+      "Six Sigma Green Belt",
     ]);
+    expect(
+      result.find((item) => item.label === "Six Sigma Black Belt")?.inferred,
+    ).toBe(false);
+    expect(
+      result.find((item) => item.label === "Six Sigma White Belt")?.inferred,
+    ).toBe(true);
   });
 
   it("expands OSHA 30 into OSHA 10", () => {

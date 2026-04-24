@@ -210,6 +210,20 @@ branding guidelines and are awarded based on objective, verifiable criteria.
 
 **Data Source**: `member.certifications` contains "Six Sigma"
 
+#### Certification Prerequisite Policy
+
+- Use real credential names only in `member.certifications`.
+- Do not use placeholder certification labels (for example, `Cert A-E`).
+- Precursor display should be inferred only when the progression is a recognized real-world pathway.
+
+**Approved inference examples**:
+
+- `Six Sigma Black Belt` implies prior belts (`White`, `Yellow`, `Green`)
+- `OSHA 30` implies `OSHA 10`
+- `Procore Certified Admin` implies `Procore Certified`, `Procore Certified Associate`, and `Procore Certified Project Manager`
+
+**Implementation note**: Inference logic is defined in `src/lib/safety/certification-showcase.ts` and must remain grounded in verifiable certification hierarchies.
+
 ---
 
 ### 7. Skills-Based Recognition

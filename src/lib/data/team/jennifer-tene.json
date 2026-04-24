@@ -4,7 +4,7 @@
   "department": "Mission Commanders",
   "cardNumber": 14,
   "position": "Project Engineer / Admin Assistant",
-  "nickname": "The Operations Officer",
+  "nickname": "Operations Coordinator",
   "yearsWithCompany": 0.8,
   "hometown": "Washington",
   "education": "Business Administration",
@@ -21,19 +21,19 @@
     "mentorships": 8
   },
   "awards": "Administrative Excellence Award, Communication Coordination Recognition",
-  "bio": "Jennifer serves as the central coordination point ensuring smooth communication across all departments. Her organized systems support efficient operations and maintain information flow throughout the company, embodying MH Construction's commitment to teamwork and seamless project coordination.",
+  "bio": "Jennifer drives day-to-day coordination between project engineering and administrative workflows, ensuring information moves clearly and decisions happen on time. Her structure-first approach supports reliable execution, smooth handoffs, and strong communication with both internal teams and clients.",
   "careerHighlights": [
-    "Streamlined inter-department communication",
-    "Implemented digital scheduling systems",
-    "Achieved 99% client satisfaction in coordination",
-    "Managed complex multi-project scheduling"
+    "Coordinates engineering and admin workflows to keep projects moving cleanly.",
+    "Maintains communication continuity across departments and client channels.",
+    "Improves handoff quality through organized documentation and tracking.",
+    "Supports mission execution with dependable follow-up and clarity."
   ],
-  "funFact": "Jennifer can coordinate schedules for up to 15 simultaneous projects without a single scheduling conflict.",
+  "funFact": "Jennifer thrives on coordinating moving parts so every team has what it needs on time.",
   "specialties": [
-    "Office Administration & Coordination",
-    "Scheduling & Calendar Management",
-    "Team Support & Communication",
-    "Information Flow & Documentation"
+    "Project Engineering Support",
+    "Administrative Coordination",
+    "Workflow Management",
+    "Documentation Control"
   ],
   "avatar": "/images/team/jennifer-tene.jpg",
   "veteranStatus": "Civilian Professional",
@@ -52,6 +52,7 @@
     "passion": 78,
     "continuingEducation": 70
   },
-  "qrCode": "/media/qr-codes/team/qr-team-jennifer-tene-color.png",
-  "certifications": "Procore Certified"
+  "qrCode": "/images/qr-codes/team/qr-team-jennifer-tene-color.png",
+  "certifications": "Procore Certified",
+  "specialInterests": "Cross-Team Coordination and Workflow Reliability"
 }

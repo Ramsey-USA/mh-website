@@ -4,7 +4,7 @@
   "department": "The Upper Brass",
   "cardNumber": 2,
   "position": "Founder",
-  "nickname": "The Founder",
+  "nickname": "Founding Standard",
   "yearsWithCompany": 30,
   "hometown": "Pacific Northwest",
   "education": "Construction Management",
@@ -21,22 +21,22 @@
     "mentorships": 25
   },
   "awards": "Lifetime Achievement Award, Regional Business Excellence Award",
-  "bio": "Mike Holstein founded MH Construction in 2010 and established its reputation for integrity, quality, and precision. His leadership and vision established the \"We Work With You\" partnership philosophy that defines MH Construction today.",
+  "bio": "Mike founded MH Construction and set the original operating standard for integrity, quality, and partnership-driven service. His legacy continues to shape how the company approaches every client relationship: listen first, execute with pride, and stand behind the work.",
   "careerHighlights": [
-    "Founded MH Construction in 2010",
-    "Established company core values",
-    "Built reputation for quality excellence",
-    "Mentored next generation of leaders"
+    "Founded MH Construction on integrity, quality, and partnership principles.",
+    "Established the original service model that shaped long-term client trust.",
+    "Built a practical leadership standard centered on accountability and pride.",
+    "Created a legacy that continues to guide mission-focused execution."
   ],
-  "funFact": "Mike started the company with just a pickup truck and a toolbox, growing it into a regional construction leader.",
+  "funFact": "Mike launched MH from a pickup and toolbox, proving that consistency builds legacy.",
   "certifications": "CCM, CPM, Procore Certified",
   "hobbies": "Woodworking, Fishing",
-  "specialInterests": "Mentoring Youth",
+  "specialInterests": "Mentoring Youth and Trades Development",
   "specialties": [
-    "Company Foundations & Core Values Establishment",
-    "Quality Standards Development",
-    "Client Trust & Reputation Building",
-    "Mentorship & Succession Planning"
+    "Foundational Leadership",
+    "Client Partnership",
+    "Quality Standards",
+    "Company Legacy"
   ],
   "avatar": "/images/team/mike-holstein.jpg",
   "veteranStatus": "Civilian Founder",
@@ -55,5 +55,5 @@
     "passion": 92,
     "continuingEducation": 80
   },
-  "qrCode": "/media/qr-codes/team/qr-team-mike-holstein-color.png"
+  "qrCode": "/images/qr-codes/team/qr-team-mike-holstein-color.png"
 }

@@ -259,6 +259,21 @@ Team members' 10 skills average to these realistic overall ratings:
 | Management          | 80-85%  | Project Managers, Superintendents                          |
 | Professional        | 75-80%  | Admin coordinators, HR, Project engineers                  |
 
+---
+
+## Founder Tribute Exception
+
+For the dedicated Founder tribute section on the Team page (`mike-holstein`),
+the profile presentation is intentionally narrative-first and does not render:
+
+- certification chips
+- radar chart visuals
+
+Instead, it emphasizes:
+
+- founder tribute statement
+- notable projects and legacy milestones
+
 **Note**: These are overall averages. Individual skills may be significantly higher or lower based on role specialization.
 
 ---

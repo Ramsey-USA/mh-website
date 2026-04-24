@@ -20,6 +20,17 @@ avatar images, QR codes, and the `VintageTeamMember` interface.
 | QR code images | `public/images/qr-codes/team/qr-team-<slug>-color.png` |
 | QR code proxy route | `src/app/media/[...path]/route.ts` |
 
+Founder tribute rendering rule:
+
+- `mike-holstein` is rendered in a dedicated end-of-page Founder tribute section on `src/app/team/page.tsx`
+- Do not include `mike-holstein` in department loops for "The Upper Brass"
+- Founder tribute presentation intentionally omits certification chips and radar chart visuals
+
+Color-role source of truth for team profile sections:
+
+- `TEAM_PROFILE_SECTION_THEME` in `src/components/team/TeamProfileSection.tsx`
+- Update role tokens in this constant first instead of hardcoding one-off class strings in each section
+
 ---
 
 ## Adding a New Team Member
@@ -174,6 +185,25 @@ and 95 are typical. Avoid extremes below 50 or above 97.
 
 ---
 
+## Certification Data Rules
+
+Use real certification names only. Do not use placeholder ladders such as
+`Cert A`, `Cert B`, `Cert C`, `Cert D`, or `Cert E` in team data.
+
+When a member has an advanced credential, store the highest verified
+credential and let showcase logic infer legitimate precursor credentials.
+
+Examples:
+
+- `Six Sigma Black Belt` can infer `Six Sigma White Belt`, `Six Sigma Yellow Belt`, and `Six Sigma Green Belt`
+- `OSHA 30` can infer `OSHA 10`
+- `Procore Certified Admin` can infer `Procore Certified`, `Procore Certified Associate`, and `Procore Certified Project Manager`
+
+Do not invent inferred ladders unless they map to recognized, real-world
+credential pathways.
+
+---
+
 ## Validation Checklist (before committing)
 
 - [ ] `slug` in the JSON matches the filename (without `.json`)
@@ -184,5 +214,7 @@ and 95 are typical. Avoid extremes below 50 or above 97.
   file exists at `public/images/qr-codes/team/<filename>`
 - [ ] `email` follows the pattern `firstname@mhc-gc.com`
 - [ ] Member appears in `vintageTeamMembers` array in `vintage-team.ts`
+- [ ] `certifications` contains only real credentials (no placeholder labels like `Cert A-E`)
+- [ ] Team profile section color changes are made through `TEAM_PROFILE_SECTION_THEME` in `TeamProfileSection.tsx`
 - [ ] Run `npm run type-check` — no TypeScript errors
 - [ ] Run `npm run lint` — no lint errors

@@ -4,7 +4,7 @@
   "department": "Field Officers",
   "cardNumber": 69,
   "position": "Senior Superintendent",
-  "nickname": "The Field Commander",
+  "nickname": "Senior Field Commander",
   "yearsWithCompany": 20,
   "hometown": "Washington",
   "education": "Construction Technology",
@@ -21,24 +21,24 @@
     "mentorships": 25
   },
   "awards": "Perfect Safety Record Award, Field Leadership Excellence",
-  "bio": "Steven began his career in construction as a teenager, starting on a residential crew clearing debris before moving up into a leadership position when they were short-handed. Over the years, he discovered his passion for construction outweighed his original pursuit of diesel and heavy equipment mechanics. Known for staying busy and constantly learning new trades, Steve has built a career on reliability and skill diversity. As Senior Superintendent, Steve oversees all on-site construction operations, ensuring projects are safe, efficient, and on-plan. He coordinates Ally teams, mentors newcomers, manages resources, and serves as a key liaison between clients and design teams.",
+  "bio": "Steve provides senior field command across active projects, setting the pace for safe, efficient, and quality-driven execution. His trade depth and mentorship mindset help crews solve problems quickly, protect standards, and maintain dependable project momentum.",
   "careerHighlights": [
-    "Kadlec Richland Campus - 10-story tower, NICU, outpatient facilities",
-    "Winery Tank Farm Expansion",
-    "Bruchi Restaurant Builds",
-    "Perfect safety record over 5 years"
+    "Provides senior field command across concurrent active projects.",
+    "Leads crews with safety-first standards and high execution tempo.",
+    "Transfers trade knowledge through mentorship and on-site coaching.",
+    "Protects quality outcomes by solving field issues before they escalate."
   ],
-  "funFact": "Safe, on-time, on-budget delivery; ensuring code compliance and client satisfaction.",
+  "funFact": "Steve takes pride in safe, code-compliant execution that keeps crews and clients confident.",
   "certifications": "CDL, Forklift Operation, Aerial/Scissor Lift Operation, Adult First Aid, Certified Locksmith, Procore Certified",
   "hobbies": "Safety Training, Hiking",
-  "specialInterests": "Safety Innovation",
+  "specialInterests": "Safety Innovation and Jobsite Mentorship",
   "specialties": [
-    "Problem Solving Under Pressure",
-    "Expansive Trade Knowledge",
-    "Mentorship",
-    "Patience",
-    "Dedication",
-    "Loyalty"
+    "Senior Superintendent Leadership",
+    "Field Safety",
+    "Trade Mentorship",
+    "Quality Control",
+    "Resource Coordination",
+    "Problem Resolution"
   ],
   "avatar": "/images/team/steve-mcclary.webp",
   "veteranStatus": "Civilian Professional",
@@ -57,5 +57,5 @@
     "passion": 92,
     "continuingEducation": 84
   },
-  "qrCode": "/media/qr-codes/team/qr-team-steve-mcclary-color.png"
+  "qrCode": "/images/qr-codes/team/qr-team-steve-mcclary-color.png"
 }

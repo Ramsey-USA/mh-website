@@ -44,8 +44,8 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  // Clean up gtag on window
-  Object.defineProperty(window, "gtag", {
+  // Clean up gtag after each test
+  Object.defineProperty(globalThis, "gtag", {
     writable: true,
     value: undefined,
   });
@@ -68,7 +68,10 @@ describe("useAnalytics", () => {
   });
 
   it("trackEvent calls gtag when available", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     const { result } = renderHook(() => useAnalytics());
     result.current.trackEvent("button_click", { label: "hero-cta", value: 1 });
     expect(mockGtag).toHaveBeenCalledWith(
@@ -88,7 +91,10 @@ describe("useAnalytics", () => {
   });
 
   it("trackEvent uses empty string label when no label provided", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     const { result } = renderHook(() => useAnalytics());
     result.current.trackEvent("no_label_event");
     expect(mockGtag).toHaveBeenCalledWith(
@@ -99,7 +105,10 @@ describe("useAnalytics", () => {
   });
 
   it("trackPageView calls gtag when available", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     const { result } = renderHook(() => useAnalytics());
     result.current.trackPageView("/about", "About Us");
     expect(mockGtag).toHaveBeenCalledWith(
@@ -110,7 +119,10 @@ describe("useAnalytics", () => {
   });
 
   it("trackPageView uses document.title when no title provided", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     document.title = "Test Page";
     const { result } = renderHook(() => useAnalytics());
     result.current.trackPageView("/test");
@@ -127,7 +139,10 @@ describe("useAnalytics", () => {
   });
 
   it("trackConversion calls gtag when available", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     const { result } = renderHook(() => useAnalytics());
     result.current.trackConversion("contact_form", 100);
     expect(mockGtag).toHaveBeenCalledWith(
@@ -142,7 +157,10 @@ describe("useAnalytics", () => {
   });
 
   it("trackConversion uses value=0 when not provided", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     const { result } = renderHook(() => useAnalytics());
     result.current.trackConversion("newsletter_signup");
     expect(mockGtag).toHaveBeenCalledWith(
@@ -158,7 +176,10 @@ describe("useAnalytics", () => {
   });
 
   it("trackFormSubmission calls trackEvent with correct params", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     const { result } = renderHook(() => useAnalytics());
     result.current.trackFormSubmission("consultation", "homepage");
     expect(mockGtag).toHaveBeenCalledWith(
@@ -172,7 +193,10 @@ describe("useAnalytics", () => {
   });
 
   it("trackSearchPerformed calls trackEvent with search params", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     const { result } = renderHook(() => useAnalytics());
     result.current.trackSearchPerformed("concrete", "projects", 12);
     expect(mockGtag).toHaveBeenCalledWith(
@@ -188,7 +212,10 @@ describe("useAnalytics", () => {
   });
 
   it("trackSearchPerformed accepts custom searchType", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     const { result } = renderHook(() => useAnalytics());
     result.current.trackSearchPerformed("q", "loc", 5, "advanced");
     expect(mockGtag).toHaveBeenCalledWith(
@@ -199,7 +226,10 @@ describe("useAnalytics", () => {
   });
 
   it("trackSearchFilterUsed calls trackEvent with filter params", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     const { result } = renderHook(() => useAnalytics());
     result.current.trackSearchFilterUsed("category", "commercial", "query");
     expect(mockGtag).toHaveBeenCalledWith(
@@ -213,7 +243,10 @@ describe("useAnalytics", () => {
   });
 
   it("trackSearchFilterUsed omits search_query when not provided", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     const { result } = renderHook(() => useAnalytics());
     result.current.trackSearchFilterUsed("type", "industrial");
     expect(mockGtag).toHaveBeenCalledWith(
@@ -224,7 +257,10 @@ describe("useAnalytics", () => {
   });
 
   it("trackSearchClear calls trackEvent with clear params", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     const { result } = renderHook(() => useAnalytics());
     result.current.trackSearchClear("kennewick", true);
     expect(mockGtag).toHaveBeenCalledWith(
@@ -247,7 +283,9 @@ describe("GoogleAnalytics", () => {
     const { container } = render(<GoogleAnalytics measurementId="G-TEST123" />);
     const scripts = container.querySelectorAll("script");
     expect(scripts.length).toBeGreaterThanOrEqual(1);
-    Array.from(scripts).find((s) => s.src?.includes("G-TEST123"));
+    expect(
+      Array.from(scripts).some((script) => script.src?.includes("G-TEST123")),
+    ).toBe(true);
     // Script src may not be set in jsdom — check the rendered container has content
     expect(container.innerHTML).toBeTruthy();
   });
@@ -255,7 +293,10 @@ describe("GoogleAnalytics", () => {
 
 describe("analytics object", () => {
   it("analytics.pageView calls gtag when available", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     Object.defineProperty(process.env, "NEXT_PUBLIC_GA_MEASUREMENT_ID", {
       value: "G-TEST",
       configurable: true,
@@ -273,7 +314,10 @@ describe("analytics object", () => {
   });
 
   it("analytics.event calls gtag when available", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     analytics.event("cta_click", { button: "contact" });
     expect(mockGtag).toHaveBeenCalledWith(
       "event",
@@ -287,7 +331,10 @@ describe("analytics object", () => {
   });
 
   it("analytics.contactForm calls analytics.event with correct params", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     analytics.contactForm("consultation", "commercial");
     expect(mockGtag).toHaveBeenCalledWith(
       "event",
@@ -301,7 +348,10 @@ describe("analytics object", () => {
   });
 
   it("analytics.contactForm works without inquiryType", () => {
-    Object.defineProperty(window, "gtag", { writable: true, value: mockGtag });
+    Object.defineProperty(globalThis, "gtag", {
+      writable: true,
+      value: mockGtag,
+    });
     analytics.contactForm("estimate");
     expect(mockGtag).toHaveBeenCalledWith(
       "event",

@@ -545,6 +545,23 @@ All page sections MUST follow this standardized background:
 
 **Philosophy:** Prefer 3-4 columns on large screens for better visual balance.
 
+### Team Profile Section Color Roles (Source of Truth)
+
+For the team profile surface, section-level color roles are centralized as tokenized class strings in:
+
+- `src/components/team/TeamProfileSection.tsx` → `TEAM_PROFILE_SECTION_THEME`
+
+Use this token map to maintain consistent MH role coloring across profile sections:
+
+- Trust/operations sections: green-forward (`brand-primary`)
+- Credentials/legacy sections: tan/bronze-forward (`brand-secondary`, `bronze-*`)
+- Recognition sections: bronze-neutral premium surfaces
+
+Implementation rule:
+
+- Prefer updating the role token map over editing individual section class strings inline.
+- Keep text contrast compliant by using `brand-secondary-text` / `brand-secondary-dark` for normal-size tan text.
+
 ---
 
 ## 🔘 **Button Standards**

@@ -1,0 +1,58 @@
+{
+  "name": "Kim Thamert",
+  "role": "XO - Executive Officer",
+  "department": "The Upper Brass",
+  "cardNumber": 27,
+  "position": "Executive Officer",
+  "nickname": "Executive Anchor",
+  "yearsWithCompany": 4,
+  "hometown": "Tri-Cities, WA",
+  "education": "Business Administration",
+  "currentYearStats": {
+    "projectsCompleted": 22,
+    "clientSatisfaction": 99,
+    "safetyRecord": "EXCELLENT",
+    "teamCollaborations": 34
+  },
+  "careerStats": {
+    "totalProjects": 140,
+    "yearsExperience": 10,
+    "specialtyAreas": 4,
+    "mentorships": 9
+  },
+  "awards": "Executive Support Excellence",
+  "bio": "Kim serves as MH Construction's executive anchor, supporting high-impact administrative and strategic decisions that keep leadership aligned and focused. In a targeted but influential role, she strengthens communication, decision quality, and organizational discipline so the team can execute with clarity and consistency.",
+  "careerHighlights": [
+    "Supports executive planning with clear administrative decision frameworks.",
+    "Improves leadership alignment through focused communication and follow-through.",
+    "Helps maintain cultural consistency during growth and operational change.",
+    "Strengthens mission readiness with disciplined organizational oversight."
+  ],
+  "funFact": "Kim is known for turning complex leadership conversations into practical next steps.",
+  "certifications": "Leadership Development, Administrative Operations",
+  "hobbies": "Family Time, Planning, Community Support",
+  "specialInterests": "Executive Alignment and Administrative Clarity",
+  "specialties": [
+    "Executive Coordination",
+    "Administrative Strategy",
+    "Leadership Alignment",
+    "Operational Clarity"
+  ],
+  "veteranStatus": "Civilian Leadership",
+  "active": true,
+  "slug": "kim-thamert",
+  "email": "office@mhc-gc.com",
+  "skills": {
+    "leadership": 88,
+    "technical": 68,
+    "communication": 94,
+    "safety": 80,
+    "problemSolving": 90,
+    "teamwork": 95,
+    "organization": 93,
+    "innovation": 84,
+    "passion": 92,
+    "continuingEducation": 86
+  },
+  "qrCode": "/images/qr-codes/team/qr-team-kim-thamert-color.png"
+}

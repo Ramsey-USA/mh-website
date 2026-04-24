@@ -4,7 +4,7 @@
   "department": "Logistics Command",
   "cardNumber": 12,
   "position": "HR Manager",
-  "nickname": "The Personnel Officer",
+  "nickname": "People Operations Lead",
   "yearsWithCompany": 8,
   "hometown": "Tri-Cities, WA",
   "education": "Human Resources",
@@ -21,19 +21,19 @@
     "mentorships": 20
   },
   "awards": "Team Building Excellence Award, HR Innovation Recognition",
-  "bio": "Brittney focuses on building a strong team culture that supports both employee growth and client service. She leads efforts to expand veteran hiring and support programs while maintaining high retention rates, reflecting MH Construction's commitment to honoring those who served and building a family-oriented workplace.",
+  "bio": "Brittney leads people operations with a culture-first approach that supports retention, growth, and accountability across the company. She champions veteran hiring and team development while ensuring HR systems stay aligned with MH's values and long-term mission readiness.",
   "careerHighlights": [
-    "Developed veteran hiring initiatives",
-    "Achieved 95% employee retention rate",
-    "Led team development programs",
-    "Implemented comprehensive training systems"
+    "Builds people systems that improve retention and team stability.",
+    "Advances veteran hiring initiatives aligned with MH core values.",
+    "Supports leadership with clear HR processes and culture accountability.",
+    "Strengthens workforce readiness through proactive personnel development."
   ],
-  "funFact": "Brittney has personally interviewed and hired over 80% of the current MH Construction team members.",
+  "funFact": "Brittney has helped shape the team culture by hiring and developing much of today's roster.",
   "specialties": [
-    "Recruitment & Talent Acquisition",
-    "Employee Relations & Development",
-    "Team Development & Training",
-    "HR Compliance & Policy Management"
+    "People Operations",
+    "Veteran Hiring",
+    "Culture Development",
+    "HR Systems"
   ],
   "avatar": "/images/team/brittney-holstein.jpg",
   "veteranStatus": "Civilian Professional",
@@ -52,6 +52,7 @@
     "passion": 86,
     "continuingEducation": 72
   },
-  "qrCode": "/media/qr-codes/team/qr-team-brittney-holstein-color.png",
-  "certifications": "Procore Certified"
+  "qrCode": "/images/qr-codes/team/qr-team-brittney-holstein-color.png",
+  "certifications": "Procore Certified",
+  "specialInterests": "Veteran Hiring and Workforce Development"
 }

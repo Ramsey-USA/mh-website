@@ -12,50 +12,6 @@ interface CertificationParameter {
 
 const SAFETY_CERT_PARAMETERS: CertificationParameter[] = [
   {
-    key: "CERT_A",
-    label: "Cert A",
-    patterns: [
-      /\b(cert|certification|level|class)\s*[-:]?\s*a\b/i,
-      /\ba\s*cert\b/i,
-    ],
-  },
-  {
-    key: "CERT_B",
-    label: "Cert B",
-    includes: ["CERT_A"],
-    patterns: [
-      /\b(cert|certification|level|class)\s*[-:]?\s*b\b/i,
-      /\bb\s*cert\b/i,
-    ],
-  },
-  {
-    key: "CERT_C",
-    label: "Cert C",
-    includes: ["CERT_A", "CERT_B"],
-    patterns: [
-      /\b(cert|certification|level|class)\s*[-:]?\s*c\b/i,
-      /\bc\s*cert\b/i,
-    ],
-  },
-  {
-    key: "CERT_D",
-    label: "Cert D",
-    includes: ["CERT_A", "CERT_B", "CERT_C"],
-    patterns: [
-      /\b(cert|certification|level|class)\s*[-:]?\s*d\b/i,
-      /\bd\s*cert\b/i,
-    ],
-  },
-  {
-    key: "CERT_E",
-    label: "Cert E",
-    includes: ["CERT_A", "CERT_B", "CERT_C", "CERT_D"],
-    patterns: [
-      /\b(cert|certification|level|class)\s*[-:]?\s*e\b/i,
-      /\be\s*cert\b/i,
-    ],
-  },
-  {
     key: "OSHA_10",
     label: "OSHA 10",
     patterns: [/\bosha\s*10\b/i],
