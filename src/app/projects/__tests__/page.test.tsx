@@ -152,13 +152,13 @@ describe("Projects page", () => {
     expect(grid).toHaveAttribute("data-count", "2");
   });
 
-  it("calls PortfolioService.getAllProjects", () => {
+  it("does not call PortfolioService.getAllProjects", () => {
     const { PortfolioService } = require("@/lib/services/portfolio-service");
     const { default: ProjectsPage } = require("../page") as {
       default: React.ComponentType;
     };
     render(<ProjectsPage />);
-    expect(PortfolioService.getAllProjects).toHaveBeenCalled();
+    expect(PortfolioService.getAllProjects).not.toHaveBeenCalled();
   });
 
   it("renders breadcrumb schema JSON-LD", () => {
