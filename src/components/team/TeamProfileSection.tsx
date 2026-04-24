@@ -191,6 +191,246 @@ const TEAM_PROFILE_SECTION_THEME = {
     "inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark dark:bg-brand-primary-light dark:hover:bg-brand-primary text-white px-6 py-3 rounded-lg border border-brand-secondary/40 dark:border-brand-secondary/50 font-bold text-sm shadow-md hover:shadow-lg transition-all duration-300",
 } as const;
 
+interface AchievementBadge {
+  icon: string;
+  label: string;
+  color: string;
+  textColor: string;
+  special?: boolean;
+  description?: string;
+}
+
+function pushVeteranBadges(
+  member: VintageTeamMember,
+  badges: AchievementBadge[],
+) {
+  if (member.veteranStatus?.toLowerCase().includes("navy")) {
+    badges.push({
+      icon: "military_tech",
+      label: "Navy Veteran",
+      color: "bg-bronze-badge dark:bg-bronze-badge",
+      textColor: "text-white",
+      special: true,
+      description: member.awards || "Honorable Service",
+    });
+  }
+
+  if (member.veteranStatus?.toLowerCase().includes("army")) {
+    badges.push({
+      icon: "military_tech",
+      label: "Army Veteran",
+      color: "bg-bronze-badge dark:bg-bronze-badge",
+      textColor: "text-white",
+      special: true,
+      description: "15 Years Aviation Service",
+    });
+  }
+}
+
+function pushEducationBadges(
+  member: VintageTeamMember,
+  badges: AchievementBadge[],
+) {
+  if (!member.education) {
+    return;
+  }
+
+  const edu = member.education.toLowerCase();
+  if (
+    edu.includes("bas") ||
+    edu.includes("bachelor") ||
+    edu.includes("b.s") ||
+    edu.includes("b.a")
+  ) {
+    badges.push({
+      icon: "school",
+      label: "Bachelor's Degree",
+      color: "bg-brand-primary dark:bg-brand-primary-light",
+      textColor: "text-white",
+      description: member.education,
+    });
+    return;
+  }
+
+  if (
+    edu.includes("master") ||
+    edu.includes("m.s") ||
+    edu.includes("m.a") ||
+    edu.includes("mba")
+  ) {
+    badges.push({
+      icon: "school",
+      label: "Master's Degree",
+      color: "bg-bronze-badge dark:bg-bronze-badge",
+      textColor: "text-white",
+      description: member.education,
+    });
+    return;
+  }
+
+  if (
+    edu.includes("management") ||
+    edu.includes("engineering") ||
+    edu.includes("technology") ||
+    edu.includes("administration") ||
+    edu.includes("operations") ||
+    edu.includes("aas")
+  ) {
+    badges.push({
+      icon: "school",
+      label: "College Graduate",
+      color: "bg-brand-secondary dark:bg-brand-secondary-light",
+      textColor: "text-white",
+      description: member.education,
+    });
+  }
+}
+
+function pushPerformanceBadges(
+  member: VintageTeamMember,
+  badges: AchievementBadge[],
+) {
+  if (member.role.toLowerCase().includes("founder")) {
+    badges.push({
+      icon: "foundation",
+      label: "Company Founder",
+      color: "bg-brand-secondary dark:bg-brand-secondary-light",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.currentYearStats.safetyRecord === "PERFECT") {
+    badges.push({
+      icon: "verified_user",
+      label: "Perfect Safety",
+      color: "bg-green-600 dark:bg-green-500",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.careerStats.yearsExperience >= 20) {
+    badges.push({
+      icon: "workspace_premium",
+      label: `${member.careerStats.yearsExperience}+ Years`,
+      color: "bg-brand-primary dark:bg-brand-primary-light",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.careerStats.totalProjects >= 500) {
+    badges.push({
+      icon: "star",
+      label: "Elite Performer",
+      color: "bg-brand-secondary dark:bg-brand-secondary-light",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.currentYearStats.clientSatisfaction >= 99) {
+    badges.push({
+      icon: "sentiment_very_satisfied",
+      label: "Client Champion",
+      color: "bg-brand-primary dark:bg-brand-primary-light",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.certifications?.includes("Six Sigma")) {
+    badges.push({
+      icon: "analytics",
+      label: "Six Sigma",
+      color: "bg-gray-700 dark:bg-gray-600",
+      textColor: "text-white",
+    });
+  }
+}
+
+function pushSkillBadges(
+  member: VintageTeamMember,
+  badges: AchievementBadge[],
+) {
+  if (member.skills.leadership >= 88) {
+    badges.push({
+      icon: "military_tech",
+      label: "Leadership Excellence",
+      color: "bg-brand-primary dark:bg-brand-primary-light",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.skills.technical >= 88) {
+    badges.push({
+      icon: "engineering",
+      label: "Technical Master",
+      color: "bg-gray-700 dark:bg-gray-600",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.skills.communication >= 88) {
+    badges.push({
+      icon: "forum",
+      label: "Communication Expert",
+      color: "bg-brand-secondary dark:bg-brand-secondary-light",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.skills.safety >= 88) {
+    badges.push({
+      icon: "shield",
+      label: "Safety Champion",
+      color: "bg-red-600 dark:bg-red-500",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.skills.problemSolving >= 88) {
+    badges.push({
+      icon: "psychology",
+      label: "Problem-Solving Pro",
+      color: "bg-green-600 dark:bg-green-500",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.skills.teamwork >= 88) {
+    badges.push({
+      icon: "groups",
+      label: "Team Builder",
+      color: "bg-brand-primary dark:bg-brand-primary-light",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.skills.organization >= 88) {
+    badges.push({
+      icon: "precision_manufacturing",
+      label: "Precision Expert",
+      color: "bg-gray-700 dark:bg-gray-600",
+      textColor: "text-white",
+    });
+  }
+
+  if (member.skills.innovation >= 88) {
+    badges.push({
+      icon: "lightbulb",
+      label: "Innovation Leader",
+      color: "bg-orange-600 dark:bg-orange-500",
+      textColor: "text-white",
+    });
+  }
+}
+
+function buildAchievementBadges(member: VintageTeamMember): AchievementBadge[] {
+  const badges: AchievementBadge[] = [];
+  pushVeteranBadges(member, badges);
+  pushEducationBadges(member, badges);
+  pushPerformanceBadges(member, badges);
+  pushSkillBadges(member, badges);
+  return badges;
+}
+
 function clampSkill(value: number): number {
   return Math.max(45, Math.min(99, Math.round(value)));
 }
@@ -251,7 +491,7 @@ function buildRoleCalibratedSkills(
   return adjusted;
 }
 
-function TeamAvatar({ member }: { member: VintageTeamMember }) {
+function TeamAvatar({ member }: Readonly<{ member: VintageTeamMember }>) {
   const [hasError, setHasError] = useState(false);
 
   if (!member.avatar || hasError) {
@@ -285,7 +525,10 @@ interface TeamProfileSectionProps {
   index: number;
 }
 
-export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
+export function TeamProfileSection({
+  member,
+  index,
+}: Readonly<TeamProfileSectionProps>) {
   // Track dark mode for chart colors
   const [isDark, setIsDark] = useState(false);
   const [showPersonal, setShowPersonal] = useState(false);
@@ -309,225 +552,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
     return () => observer.disconnect();
   }, []);
 
-  // Determine achievement badges based on actual accomplishments
-  const getAchievementBadges = () => {
-    const badges = [];
-
-    // Veteran Badges - Special Recognition (Bronze per brand guidelines)
-    if (member.veteranStatus?.toLowerCase().includes("navy")) {
-      badges.push({
-        icon: "military_tech",
-        label: "Navy Veteran",
-        color: "bg-bronze-badge dark:bg-bronze-badge",
-        textColor: "text-white",
-        special: true,
-        description: member.awards || "Honorable Service",
-      });
-    }
-    if (member.veteranStatus?.toLowerCase().includes("army")) {
-      badges.push({
-        icon: "military_tech",
-        label: "Army Veteran",
-        color: "bg-bronze-badge dark:bg-bronze-badge",
-        textColor: "text-white",
-        special: true,
-        description: "15 Years Aviation Service",
-      });
-    }
-
-    // Education Badges - College Graduates
-    if (member.education) {
-      const edu = member.education.toLowerCase();
-      if (
-        edu.includes("bas") ||
-        edu.includes("bachelor") ||
-        edu.includes("b.s") ||
-        edu.includes("b.a")
-      ) {
-        badges.push({
-          icon: "school",
-          label: "Bachelor's Degree",
-          color: "bg-brand-primary dark:bg-brand-primary-light",
-          textColor: "text-white",
-          description: member.education,
-        });
-      } else if (
-        edu.includes("master") ||
-        edu.includes("m.s") ||
-        edu.includes("m.a") ||
-        edu.includes("mba")
-      ) {
-        badges.push({
-          icon: "school",
-          label: "Master's Degree",
-          color: "bg-bronze-badge dark:bg-bronze-badge",
-          textColor: "text-white",
-          description: member.education,
-        });
-      } else if (
-        edu.includes("management") ||
-        edu.includes("engineering") ||
-        edu.includes("technology") ||
-        edu.includes("administration") ||
-        edu.includes("operations") ||
-        edu.includes("aas")
-      ) {
-        badges.push({
-          icon: "school",
-          label: "College Graduate",
-          color: "bg-brand-secondary dark:bg-brand-secondary-light",
-          textColor: "text-white",
-          description: member.education,
-        });
-      }
-    }
-
-    // Founder/Legacy (Secondary Brand Color)
-    if (member.role.toLowerCase().includes("founder")) {
-      badges.push({
-        icon: "foundation",
-        label: "Company Founder",
-        color: "bg-brand-secondary dark:bg-brand-secondary-light",
-        textColor: "text-white",
-      });
-    }
-
-    // Perfect Safety Record (Success Green)
-    if (member.currentYearStats.safetyRecord === "PERFECT") {
-      badges.push({
-        icon: "verified_user",
-        label: "Perfect Safety",
-        color: "bg-green-600 dark:bg-green-500",
-        textColor: "text-white",
-      });
-    }
-
-    // Senior Experience (20+ years) - Primary Brand Color
-    if (member.careerStats.yearsExperience >= 20) {
-      badges.push({
-        icon: "workspace_premium",
-        label: `${member.careerStats.yearsExperience}+ Years`,
-        color: "bg-brand-primary dark:bg-brand-primary-light",
-        textColor: "text-white",
-      });
-    }
-
-    // High Performance (500+ projects) - Brand Secondary
-    if (member.careerStats.totalProjects >= 500) {
-      badges.push({
-        icon: "star",
-        label: "Elite Performer",
-        color: "bg-brand-secondary dark:bg-brand-secondary-light",
-        textColor: "text-white",
-      });
-    }
-
-    // Client Satisfaction Excellence (99%) - Primary Brand
-    if (member.currentYearStats.clientSatisfaction >= 99) {
-      badges.push({
-        icon: "sentiment_very_satisfied",
-        label: "Client Champion",
-        color: "bg-brand-primary dark:bg-brand-primary-light",
-        textColor: "text-white",
-      });
-    }
-
-    // Six Sigma / Advanced Certifications - Neutral Gray
-    if (member.certifications?.includes("Six Sigma")) {
-      badges.push({
-        icon: "analytics",
-        label: "Six Sigma",
-        color: "bg-gray-700 dark:bg-gray-600",
-        textColor: "text-white",
-      });
-    }
-
-    // SKILL-BASED ACHIEVEMENT BADGES (88+ threshold for excellence)
-
-    // Leadership Excellence (88+ leadership score) - Primary Brand
-    if (member.skills.leadership >= 88) {
-      badges.push({
-        icon: "military_tech",
-        label: "Leadership Excellence",
-        color: "bg-brand-primary dark:bg-brand-primary-light",
-        textColor: "text-white",
-      });
-    }
-
-    // Technical Mastery (88+ technical score) - Neutral Gray
-    if (member.skills.technical >= 88) {
-      badges.push({
-        icon: "engineering",
-        label: "Technical Master",
-        color: "bg-gray-700 dark:bg-gray-600",
-        textColor: "text-white",
-      });
-    }
-
-    // Communication Expert (88+ communication score) - Brand Secondary
-    if (member.skills.communication >= 88) {
-      badges.push({
-        icon: "forum",
-        label: "Communication Expert",
-        color: "bg-brand-secondary dark:bg-brand-secondary-light",
-        textColor: "text-white",
-      });
-    }
-
-    // Safety Excellence (88+ safety score) - Error Red for Importance
-    if (member.skills.safety >= 88) {
-      badges.push({
-        icon: "shield",
-        label: "Safety Champion",
-        color: "bg-red-600 dark:bg-red-500",
-        textColor: "text-white",
-      });
-    }
-
-    // Problem-Solving Pro (88+ problem solving score) - Success Green
-    if (member.skills.problemSolving >= 88) {
-      badges.push({
-        icon: "psychology",
-        label: "Problem-Solving Pro",
-        color: "bg-green-600 dark:bg-green-500",
-        textColor: "text-white",
-      });
-    }
-
-    // Team Building Excellence (88+ teamwork score) - Primary Brand
-    if (member.skills.teamwork >= 88) {
-      badges.push({
-        icon: "groups",
-        label: "Team Builder",
-        color: "bg-brand-primary dark:bg-brand-primary-light",
-        textColor: "text-white",
-      });
-    }
-
-    // Precision Specialist (88+ organization/thoroughness) - Neutral Gray
-    if (member.skills.organization >= 88) {
-      badges.push({
-        icon: "precision_manufacturing",
-        label: "Precision Expert",
-        color: "bg-gray-700 dark:bg-gray-600",
-        textColor: "text-white",
-      });
-    }
-
-    // Innovation Leader (88+ innovation score) - Warning Orange
-    if (member.skills.innovation >= 88) {
-      badges.push({
-        icon: "lightbulb",
-        label: "Innovation Leader",
-        color: "bg-orange-600 dark:bg-orange-500",
-        textColor: "text-white",
-      });
-    }
-
-    return badges;
-  };
-
-  const achievementBadges = getAchievementBadges();
+  const achievementBadges = buildAchievementBadges(member);
   const calibratedSkills = buildRoleCalibratedSkills(member);
 
   // Calculate top 3 skills for highlighting
@@ -584,7 +609,8 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
         key: "continuingEducation",
       },
     ];
-    return skillsArray.sort((a, b) => b.value - a.value).slice(0, 3);
+    const sorted = skillsArray.toSorted((a, b) => b.value - a.value);
+    return sorted.slice(0, 3);
   };
 
   const topSkills = getTopSkills();
@@ -835,9 +861,9 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                 Career Highlights
               </h4>
               <ul className="space-y-2">
-                {member.careerHighlights.map((highlight, idx) => (
+                {member.careerHighlights.map((highlight) => (
                   <li
-                    key={idx}
+                    key={highlight}
                     className="flex items-start gap-3 text-gray-700 dark:text-gray-300"
                   >
                     <MaterialIcon
@@ -868,9 +894,9 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
                 Specialties
               </h4>
               <div className="flex flex-wrap gap-2">
-                {member.specialties.map((specialty, idx) => (
+                {member.specialties.map((specialty) => (
                   <span
-                    key={idx}
+                    key={specialty}
                     className="px-3 py-1.5 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary dark:text-brand-secondary text-sm rounded-full font-semibold border border-brand-primary/20 dark:border-brand-primary/30"
                   >
                     {specialty}
@@ -881,7 +907,7 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
           )}
 
           {/* Achievement Badges */}
-          {achievementBadges.filter((b) => !b.special).length > 0 && (
+          {achievementBadges.some((b) => !b.special) && (
             <div
               className={`${TEAM_PROFILE_SECTION_THEME.achievements} p-3 sm:p-4 rounded-lg`}
             >
@@ -896,9 +922,9 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
               <div className="flex flex-wrap gap-2">
                 {achievementBadges
                   .filter((b) => !b.special)
-                  .map((badge, idx) => (
+                  .map((badge) => (
                     <div
-                      key={idx}
+                      key={`${badge.icon}-${badge.label}`}
                       className={`${badge.color} ${badge.textColor} px-3 py-1.5 rounded-lg font-semibold text-sm flex items-center gap-2 shadow-md hover:shadow-lg transition-all duration-200`}
                       title={badge.description || badge.label}
                     >
@@ -932,8 +958,11 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
               <div className="flex flex-col items-center justify-center mb-3">
                 {achievementBadges
                   .filter((b) => b.special)
-                  .map((badge, idx) => (
-                    <div key={idx} className="flex flex-col items-center gap-2">
+                  .map((badge) => (
+                    <div
+                      key={`${badge.icon}-${badge.label}-special`}
+                      className="flex flex-col items-center gap-2"
+                    >
                       <div
                         className={`${badge.color} ${badge.textColor} px-4 py-2 rounded-lg font-bold text-sm flex items-center gap-2 shadow-xl ring-4 ring-bronze-badge/30 dark:ring-bronze-badge-light/30`}
                         title={badge.description || badge.label}
@@ -977,18 +1006,18 @@ export function TeamProfileSection({ member, index }: TeamProfileSectionProps) {
             <div className="mt-4 flex flex-wrap gap-2 justify-center">
               {topSkills.map((skill, idx) => {
                 const skillLevel = getSkillLevel(skill.value);
-                const medalIcon =
-                  idx === 0
-                    ? "workspace_premium"
-                    : idx === 1
-                      ? "verified"
-                      : "stars";
-                const medalColor =
-                  idx === 0
-                    ? "text-bronze-badge"
-                    : idx === 1
-                      ? "text-gray-400"
-                      : "text-brand-secondary-dark dark:text-brand-secondary-light";
+                const getMedalIcon = (index: number): string => {
+                  if (index === 0) return "workspace_premium";
+                  if (index === 1) return "verified";
+                  return "stars";
+                };
+                const getMedalColor = (index: number): string => {
+                  if (index === 0) return "text-bronze-badge";
+                  if (index === 1) return "text-gray-400";
+                  return "text-brand-secondary-dark dark:text-brand-secondary-light";
+                };
+                const medalIcon = getMedalIcon(idx);
+                const medalColor = getMedalColor(idx);
                 return (
                   <div
                     key={skill.key}
