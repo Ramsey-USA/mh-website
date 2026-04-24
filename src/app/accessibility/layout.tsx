@@ -103,9 +103,9 @@ export const metadata: Metadata = withGeoMetadata({
 
 export default function AccessibilityLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <>
       <StructuredData data={accessibilitySchemas} />

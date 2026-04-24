@@ -390,8 +390,9 @@ export default function PublicSectorFullPage() {
               <span className="font-bold text-gray-900 dark:text-white">
                 award-winning safety (.64 EMR)
               </span>
-              , and transparent open-book partnership throughout the application
-              and execution process—Building projects for the client,{" "}
+              {
+                ", and transparent open-book partnership throughout the application and execution process—Building projects for the client, "
+              }
               <span className="font-black italic text-bronze-600 dark:text-bronze-400">
                 NOT
               </span>{" "}
@@ -402,9 +403,9 @@ export default function PublicSectorFullPage() {
           <StaggeredFadeIn
             className={gridPresets.cards3("lg", "mx-auto max-w-7xl")}
           >
-            {grantSupportServices.map((service, index) => (
+            {grantSupportServices.map((service) => (
               <div
-                key={index}
+                key={service.title}
                 className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 overflow-hidden hover:-translate-y-1"
               >
                 {/* Animated border glow */}
@@ -440,8 +441,8 @@ export default function PublicSectorFullPage() {
                       What We Provide:
                     </p>
                     <ul className="space-y-3">
-                      {service.features.map((feature, fIndex) => (
-                        <li key={fIndex} className="flex items-start text-sm">
+                      {service.features.map((feature) => (
+                        <li key={feature} className="flex items-start text-sm">
                           <MaterialIcon
                             icon="check_circle"
                             className="flex-shrink-0 mt-0.5 mr-2 text-gray-500 dark:text-gray-400"
@@ -586,15 +587,16 @@ export default function PublicSectorFullPage() {
                   award-winning safety protocols (.64 EMR—40% better than
                   industry)
                 </span>
-                , mission-critical construction protocols, and Veteran-Owned
-                reliability since January 2025.
+                {
+                  ", mission-critical construction protocols, and Veteran-Owned reliability since January 2025."
+                }
               </p>
             </div>
 
             <StaggeredFadeIn className={gridPresets.cards3("md", "mb-12")}>
-              {hanfordCapabilities.map((capability, index) => (
+              {hanfordCapabilities.map((capability) => (
                 <div
-                  key={index}
+                  key={capability.title}
                   className="group relative bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-2xl border border-white/20 hover:border-transparent transition-all duration-300 overflow-hidden hover:-translate-y-1"
                 >
                   {/* Top accent bar */}
@@ -656,9 +658,9 @@ export default function PublicSectorFullPage() {
                         "Infrastructure tactical improvements",
                         "Safety system mission installations",
                         "Emergency rapid response construction",
-                      ].map((item, idx) => (
+                      ].map((item) => (
                         <div
-                          key={idx}
+                          key={item}
                           className="flex items-center text-gray-200"
                         >
                           <MaterialIcon
@@ -716,9 +718,8 @@ export default function PublicSectorFullPage() {
               across federal, state, and mission-critical construction contracts
               with{" "}
               <span className="font-bold text-gray-900 dark:text-white">
-                Veteran-Owned expertise and award-winning safety record
+                Veteran-Owned expertise and award-winning safety record.
               </span>
-              .
             </p>
           </div>
 
@@ -763,16 +764,15 @@ export default function PublicSectorFullPage() {
                 </span>{" "}
                 to federal contract success backed by{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
-                  Army veteran leadership and award-winning execution
+                  Army veteran leadership and award-winning execution.
                 </span>
-                .
               </p>
             </div>
 
             <div className="space-y-6">
-              {processSteps.map((process, index) => (
+              {processSteps.map((process) => (
                 <div
-                  key={index}
+                  key={process.step}
                   className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 overflow-hidden"
                 >
                   {/* Animated border glow */}
@@ -851,18 +851,17 @@ export default function PublicSectorFullPage() {
               </span>{" "}
               across diverse federal and government facility projects with{" "}
               <span className="font-bold text-gray-900 dark:text-white">
-                Veteran-Owned precision and 150+ years combined team experience
+                Veteran-Owned precision and 150+ years combined team experience.
               </span>
-              .
             </p>
           </div>
 
           <StaggeredFadeIn
             className={gridPresets.cards3("md", "mx-auto max-w-7xl")}
           >
-            {governmentProjects.map((project, index) => (
+            {governmentProjects.map((project) => (
               <div
-                key={index}
+                key={project.title}
                 className="group relative bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 overflow-hidden hover:-translate-y-1"
               >
                 {/* Animated border glow */}
@@ -890,9 +889,9 @@ export default function PublicSectorFullPage() {
                     {project.title}
                   </h3>
                   <ul className="space-y-2">
-                    {project.examples.map((example, eIdx) => (
+                    {project.examples.map((example) => (
                       <li
-                        key={eIdx}
+                        key={example}
                         className="flex items-center text-gray-700 dark:text-gray-300"
                       >
                         <MaterialIcon
@@ -950,16 +949,15 @@ export default function PublicSectorFullPage() {
                 and how we deliver with{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
                   award-winning safety, Veteran-Owned leadership, and
-                  transparent open-book partnership
+                  transparent open-book partnership.
                 </span>
-                .
               </p>
             </div>
 
             <div className="gap-6 grid md:grid-cols-2">
-              {successFactors.map((factor, index) => (
+              {successFactors.map((factor) => (
                 <div
-                  key={index}
+                  key={factor.title}
                   className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 overflow-hidden"
                 >
                   {/* Animated border glow */}
@@ -1050,8 +1048,9 @@ export default function PublicSectorFullPage() {
                 <span className="font-bold text-white">
                   clear planning and compliant delivery
                 </span>
-                . Contact our team to discuss your government construction
-                requirements and next steps.
+                {
+                  ". Contact our team to discuss your government construction requirements and next steps."
+                }
               </p>
             </div>
 

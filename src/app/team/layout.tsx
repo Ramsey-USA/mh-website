@@ -9,9 +9,9 @@ export const metadata: Metadata = metadataProps;
 
 export default function TeamLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <>
       {/* Enhanced Team Structured Data for SEO */}

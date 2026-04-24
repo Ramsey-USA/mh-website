@@ -527,7 +527,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/public-sector`,
     name: "Public Sector → Government | MH Construction",
     description:
-      "Veteran-owned Tri-State contractor for government & public sector construction. Federal compliance, grant support, bonding capacity. Pasco, WA.",
+      "Veteran-owned Tri-State contractor for government & public sector construction. Dedicated supporter of the Build America, Buy America Act (BABAA), grant support, and $8M+ bonding capacity. Pasco, WA.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -545,13 +545,16 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
     title:
       "Public Sector → Government | Veteran-Owned, Relationship-First Government Construction",
     description:
-      "Veteran-owned Tri-State contractor for government & public sector construction. Federal compliance, grant support, bonding capacity. Pasco, WA.",
+      "Veteran-owned Tri-State contractor for government & public sector construction. Dedicated supporter of the Build America, Buy America Act (BABAA), grant support, and $8M+ bonding capacity. Pasco, WA.",
     keywords: [
       "Public Sector Government construction missions",
       "mission-ready construction operations",
       "federal compliance-driven standards",
+      "Build America Buy America Act",
+      "BABAA construction support",
       "public sector construction",
       "government grant support",
+      "$8M bonding capacity",
       "construction subcontractor",
       "veteran-owned contractor",
       "Tri-State construction",

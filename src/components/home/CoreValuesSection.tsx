@@ -86,18 +86,18 @@ export function CoreValuesSection() {
                 <span className="font-bold text-brand-primary dark:text-brand-primary-light">
                   project and partnership
                 </span>
-                —focused on building projects for the{" "}
+                {"—focused on building projects for the "}
                 <span className="font-bold text-gray-900 dark:text-white">
                   client
                 </span>
-                ,{" "}
+                {", "}
                 <span className="font-black italic text-bronze-600 dark:text-bronze-400">
                   NOT
                 </span>{" "}
                 <span className="font-bold text-gray-900 dark:text-white">
                   the dollar
                 </span>
-                .
+                {"."}
               </>
             )}
           </>

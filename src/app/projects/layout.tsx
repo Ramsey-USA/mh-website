@@ -9,9 +9,9 @@ export const metadata: Metadata = metadataProps;
 
 export default function ProjectsLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <>
       {/* Enhanced Projects Structured Data for SEO */}

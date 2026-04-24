@@ -569,8 +569,8 @@ export default function TestimonialsPage() {
                     Licensed and insured across{" "}
                     <span className="font-bold text-brand-primary">
                       Washington, Oregon, and Idaho,
-                    </span>
-                    we bring a Veteran-Owned Since January 2025,
+                    </span>{" "}
+                    {"we bring a Veteran-Owned Since January 2025,"}
                     relationship-first approach to commercial and industrial
                     projects throughout the region.
                   </p>
@@ -657,7 +657,7 @@ export default function TestimonialsPage() {
                     From{" "}
                     <span className="font-bold text-brand-primary">
                       ground-up construction to tenant improvements,
-                    </span>
+                    </span>{" "}
                     we deliver proven results across diverse project types.
                   </p>
                   <div className="grid grid-cols-2 gap-3">

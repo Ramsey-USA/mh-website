@@ -1,7 +1,7 @@
 # SEO Quick Reference Card
 
 **Category:** Technical - SEO Quick Reference  
-**Last Updated:** April 17, 2026  
+**Last Updated:** April 24, 2026  
 **Status:** ✅ Active - Quick Action Card
 **Canonical Source:** [docs/technical/seo/seo-complete-guide.md](./docs/technical/seo/seo-complete-guide.md)
 **Consolidation Rule:** Keep this file as a short action card; place deep implementation details in the complete guide.
@@ -65,6 +65,7 @@ npm run build && node scripts/seo-audit.js
 - Title: keep 30-60 chars, format `[Page Name] | MH Construction`
 - Description: keep 120-160 chars with keyword + location + CTA
 - Keywords: target 3-15 relevant terms
+- Trust/credential references: keep licensing and accreditation claims factual, plain-language, and aligned with the canonical values in `docs/branding/brand-constants.md`
 - Keep sitemap entries aligned with active routes
 - Re-run `node scripts/seo-audit.js` after SEO-related changes
 

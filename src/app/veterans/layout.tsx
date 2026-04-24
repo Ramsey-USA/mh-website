@@ -9,9 +9,9 @@ export const metadata: Metadata = metadataProps;
 
 export default function VeteransLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <>
       {/* Enhanced Veterans Structured Data for SEO */}

@@ -660,7 +660,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
           <SectionContainer padding="compact">
             <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
               <h2 className="font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tighter">
-                Ready to Start Your
+                Ready to Start Your{" "}
                 <span className="block text-brand-secondary mt-2">
                   {location.city} Construction Project?
                 </span>

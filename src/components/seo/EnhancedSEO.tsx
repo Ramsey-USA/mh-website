@@ -414,7 +414,8 @@ export function generateServiceSchema(service: {
     "@type": "Service",
     "@id": `${enhancedSEO.siteUrl}/services/${service.name
       .toLowerCase()
-      .replace(/\s+/g, "-")}`,
+      .split(/\s+/)
+      .join("-")}`,
     name: service.name,
     description: service.description,
     category: service.category,
@@ -799,14 +800,17 @@ export function generateLocalBusinessSchema() {
 }
 
 // Component for adding structured data
-export function StructuredData({ data }: { data: object | object[] }) {
+type StructuredDataProps = Readonly<{ data: object | object[] }>;
+
+export function StructuredData({ data }: StructuredDataProps) {
   const schemaData = Array.isArray(data) ? data : [data];
 
   // Sanitize JSON data for security
-  const sanitizedData = JSON.stringify(schemaData).replace(
-    /<\/script/gi,
-    "<\\/script",
-  );
+  const sanitizedData = JSON.stringify(schemaData)
+    .split("</script")
+    .join(String.raw`<\/script`)
+    .split("</SCRIPT")
+    .join(String.raw`<\/SCRIPT`);
 
   return (
     <script

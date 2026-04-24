@@ -1,13 +1,14 @@
 # MH Construction Brand Constants
 
 **Category:** Branding - Single Source of Truth  
-**Last Updated:** April 15, 2026  
-**Version:** 1.0.0  
+**Last Updated:** April 24, 2026  
+**Version:** 1.2.0  
 **Status:** ✅ Official Reference
 
-> **Purpose:** This file is the canonical reference for all brand constants. When updating
-> any documentation, refer to these exact values. All other documents should link here
-> rather than redefining these values.
+> **Purpose:** This file is the canonical reference for all brand constants, including
+> company identity, messaging, contact details, contractor licensing, and verification
+> links. When updating any documentation, refer to these exact values. All other
+> documents should link here rather than redefining these values.
 
 ---
 
@@ -160,9 +161,9 @@ The four-value foundation system, in hierarchical order:
 
 ### License Verification References
 
-- WA verify: https://secure.lni.wa.gov/verify/Detail.aspx?UBI=603069508&LIC=MHCONCI907R7&SAW=false
-- OR verify: https://egov.sos.state.or.us/br/pkg_web_name_srch_inq.show_detl?p_be_rsn=1514612&p_srce=BR_INQ&p_print=FALSE
-- ID verify: https://www.labor.idaho.gov/
+- WA verify: [secure.lni.wa.gov](https://secure.lni.wa.gov/verify/Detail.aspx?UBI=603069508&LIC=MHCONCI907R7&SAW=false)
+- OR verify: [egov.sos.state.or.us](https://egov.sos.state.or.us/br/pkg_web_name_srch_inq.show_detl?p_be_rsn=1514612&p_srce=BR_INQ&p_print=FALSE)
+- ID verify: [labor.idaho.gov](https://www.labor.idaho.gov/)
 
 ### Licensing Source of Truth
 
@@ -171,7 +172,7 @@ Use this section as the canonical licensing reference for docs and agent workflo
 - Canonical docs reference: docs/branding/brand-constants.md (this section)
 - Canonical footer implementation: src/components/layout/Footer.tsx
 - Canonical document-brand payload: documents/brands/mhc.json
-- Canonical footer regression tests: src/components/layout/**tests**/Footer.test.tsx
+- Canonical footer regression tests: `src/components/layout/__tests__/Footer.test.tsx`
 
 ---
 
@@ -274,10 +275,9 @@ compliance-oriented — avoid hype language.
 
 ## Version History
 
-| Version | Date           | Changes                                           |
-| ------- | -------------- | ------------------------------------------------- |
-| 1.1.0   | April 21, 2026 | Added Associations & Affiliations / BABAA section |
-| 1.0.0   | April 15, 2026 | Initial brand constants document                  |
+- **1.2.0** — April 24, 2026: Added canonical license values, verification references, and licensing source-of-truth guidance
+- **1.1.0** — April 21, 2026: Added Associations & Affiliations / BABAA section
+- **1.0.0** — April 15, 2026: Initial brand constants document
 
 ---
 

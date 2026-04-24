@@ -9,9 +9,9 @@ export const metadata: Metadata = metadataProps;
 
 export default function GovernmentLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <>
       {/* Enhanced Public Sector Structured Data for SEO */}

@@ -9,9 +9,9 @@ export const metadata: Metadata = metadataProps;
 
 export default function ServicesLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <>
       {/* Enhanced Services Structured Data for SEO */}

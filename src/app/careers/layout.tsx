@@ -9,9 +9,9 @@ export const metadata: Metadata = metadataProps;
 
 export default function CareersLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <>
       {/* Enhanced Careers Structured Data for SEO */}
