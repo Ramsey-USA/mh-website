@@ -8,7 +8,7 @@
  * Protected: admin role + approver email check.
  */
 
-import { type NextRequest, NextResponse } from "next/server";
+import { type NextRequest, type NextResponse } from "next/server";
 import { requireRole } from "@/lib/auth/middleware";
 import { withSecurity } from "@/middleware/security";
 import { getD1Database } from "@/lib/db/env";

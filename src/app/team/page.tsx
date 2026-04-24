@@ -100,8 +100,7 @@ function rowToOverride(row: TeamProfileRow): TeamProfileOverride {
   if (row.fun_fact != null) override.funFact = row.fun_fact;
   if (row.certifications != null) override.certifications = row.certifications;
   if (row.hobbies != null) override.hobbies = row.hobbies;
-  if (row.special_interests != null)
-    override.specialInterests = row.special_interests;
+  if (row.special_interests != null) {override.specialInterests = row.special_interests;}
   if (row.career_highlights != null) {
     const parsed = safeParseJson<string[]>(row.career_highlights);
     if (parsed !== undefined) override.careerHighlights = parsed;
@@ -126,8 +125,7 @@ function rowToOverride(row: TeamProfileRow): TeamProfileOverride {
     );
     if (parsed !== undefined) override.careerStats = parsed;
   }
-  if (row.years_with_company != null)
-    override.yearsWithCompany = row.years_with_company;
+  if (row.years_with_company != null) {override.yearsWithCompany = row.years_with_company;}
   if (row.hometown != null) override.hometown = row.hometown;
   if (row.education != null) override.education = row.education;
   if (row.nickname != null) override.nickname = row.nickname;

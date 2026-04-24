@@ -166,8 +166,7 @@ function formStateToPayload(form: FormState): Record<string, unknown> {
   if (!isNaN(p)) cys["projectsCompleted"] = p;
   if (!isNaN(cs)) cys["clientSatisfaction"] = cs;
   if (!isNaN(tc)) cys["teamCollaborations"] = tc;
-  if (form.currentYearStats.safetyRecord.trim())
-    cys["safetyRecord"] = form.currentYearStats.safetyRecord.trim();
+  if (form.currentYearStats.safetyRecord.trim()) {cys["safetyRecord"] = form.currentYearStats.safetyRecord.trim();}
   if (Object.keys(cys).length > 0) payload["currentYearStats"] = cys;
 
   const cs2: Record<string, number> = {};

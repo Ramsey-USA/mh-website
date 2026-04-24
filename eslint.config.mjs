@@ -84,7 +84,7 @@ const eslintConfig = [
   ...compat.extends(
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:@next/next/core-web-vitals-legacy",
+    "plugin:@next/next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
   ),
 

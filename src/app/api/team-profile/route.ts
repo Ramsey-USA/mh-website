@@ -12,7 +12,7 @@
  * The admin's email is resolved to a team-member slug via ADMIN_EMAIL_TO_SLUG.
  */
 
-import { type NextRequest, NextResponse } from "next/server";
+import { type NextRequest, type NextResponse } from "next/server";
 import { requireRole } from "@/lib/auth/middleware";
 import { withSecurity } from "@/middleware/security";
 import { getD1Database } from "@/lib/db/env";
@@ -74,8 +74,7 @@ function rowToOverride(row: TeamProfileRow): TeamProfileOverride {
   if (row.fun_fact != null) override.funFact = row.fun_fact;
   if (row.certifications != null) override.certifications = row.certifications;
   if (row.hobbies != null) override.hobbies = row.hobbies;
-  if (row.special_interests != null)
-    override.specialInterests = row.special_interests;
+  if (row.special_interests != null) {override.specialInterests = row.special_interests;}
   if (row.career_highlights != null) {
     const parsed = safeParseJson<string[]>(row.career_highlights);
     if (parsed !== undefined) override.careerHighlights = parsed;
@@ -100,8 +99,7 @@ function rowToOverride(row: TeamProfileRow): TeamProfileOverride {
     );
     if (parsed !== undefined) override.careerStats = parsed;
   }
-  if (row.years_with_company != null)
-    override.yearsWithCompany = row.years_with_company;
+  if (row.years_with_company != null) {override.yearsWithCompany = row.years_with_company;}
   if (row.hometown != null) override.hometown = row.hometown;
   if (row.education != null) override.education = row.education;
   if (row.nickname != null) override.nickname = row.nickname;
@@ -111,8 +109,7 @@ function rowToOverride(row: TeamProfileRow): TeamProfileOverride {
   if (row.submitted_at != null) override.submittedAt = row.submitted_at;
   if (row.reviewed_at != null) override.reviewedAt = row.reviewed_at;
   if (row.reviewed_by != null) override.reviewedBy = row.reviewed_by;
-  if (row.rejection_reason != null)
-    override.rejectionReason = row.rejection_reason;
+  if (row.rejection_reason != null) {override.rejectionReason = row.rejection_reason;}
 
   return override;
 }
