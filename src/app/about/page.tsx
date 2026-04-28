@@ -141,14 +141,14 @@ export default function AboutPage() {
                 title="BBB Accredited Business - A+ Rating"
                 className="hover:opacity-80 transition-opacity"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {}
                 <img
                   src={COMPANY_INFO.bbb.sealHorizontal}
                   alt="BBB Accredited Business A+ Rating"
                   className="h-10 sm:h-12 w-auto dark:hidden"
                   loading="lazy"
                 />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {}
                 <img
                   src={COMPANY_INFO.bbb.sealHorizontalWhite}
                   alt="BBB Accredited Business A+ Rating"
@@ -165,7 +165,7 @@ export default function AboutPage() {
                 title="AGC of Washington Member"
                 className="hover:opacity-80 transition-opacity"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {}
                 <img
                   src="/images/logo/agc-member.webp"
                   alt="AGC of Washington Member"
@@ -182,14 +182,14 @@ export default function AboutPage() {
                 title="Travelers Insurance - Auto & Bonding Partner"
                 className="hover:opacity-80 transition-opacity"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {}
                 <img
                   src={COMPANY_INFO.travelers.logo}
                   alt="Travelers Insurance - Auto & Bonding Partner"
                   className="h-10 sm:h-12 w-auto dark:hidden"
                   loading="lazy"
                 />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {}
                 <img
                   src={COMPANY_INFO.travelers.logoWhite}
                   alt="Travelers Insurance - Auto & Bonding Partner"
@@ -206,14 +206,14 @@ export default function AboutPage() {
                 title="Pasco Chamber of Commerce Member"
                 className="hover:opacity-80 transition-opacity"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {}
                 <img
                   src={COMPANY_INFO.chambers.pasco.logo}
                   alt="Pasco Chamber of Commerce Member"
                   className="h-10 sm:h-12 w-auto dark:hidden"
                   loading="lazy"
                 />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {}
                 <img
                   src={COMPANY_INFO.chambers.pasco.logoWhite}
                   alt="Pasco Chamber of Commerce Member"
@@ -230,7 +230,7 @@ export default function AboutPage() {
                 title="Richland Chamber of Commerce Member"
                 className="hover:opacity-80 transition-opacity"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {}
                 <img
                   src={COMPANY_INFO.chambers.richland.logo}
                   alt="Richland Chamber of Commerce Member"
@@ -247,7 +247,7 @@ export default function AboutPage() {
                 title="Tri-City Regional Chamber of Commerce Member"
                 className="hover:opacity-80 transition-opacity"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {}
                 <img
                   src={COMPANY_INFO.chambers.triCityRegional.logo}
                   alt="Tri-City Regional Chamber of Commerce Member"

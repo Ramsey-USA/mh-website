@@ -581,14 +581,14 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                   className="hover:opacity-80 transition-opacity"
                   title="BBB Accredited Business - A+ Rating"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.bbb.sealHorizontal}
                     alt="BBB Accredited Business A+ Rating"
                     className="h-10 sm:h-12 w-auto dark:hidden"
                     loading="lazy"
                   />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.bbb.sealHorizontalWhite}
                     alt="BBB Accredited Business A+ Rating"
@@ -605,7 +605,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                   className="hover:opacity-80 transition-opacity"
                   title="AGC of Washington Member"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src="/images/logo/agc-member.webp"
                     alt="AGC of Washington Member"
@@ -622,14 +622,14 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                   className="hover:opacity-80 transition-opacity"
                   title="Travelers Insurance - Auto & Bonding Partner"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.travelers.logo}
                     alt="Travelers Insurance - Auto & Bonding Partner"
                     className="h-10 sm:h-12 w-auto dark:hidden"
                     loading="lazy"
                   />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.travelers.logoWhite}
                     alt="Travelers Insurance - Auto & Bonding Partner"

@@ -1193,7 +1193,7 @@ export default function TestimonialsPage() {
                   <div className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-transparent group-hover:border-brand-primary/30 transition-all duration-300 text-center h-full flex flex-col justify-center">
                     <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-primary rounded-t-xl"></div>
                     {/* Dark text seal for light mode */}
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {}
                     <img
                       src={COMPANY_INFO.bbb.sealVertical}
                       alt="MH Construction, Inc. BBB Business Review"
@@ -1203,7 +1203,7 @@ export default function TestimonialsPage() {
                       loading="lazy"
                     />
                     {/* White text seal for dark mode */}
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {}
                     <img
                       src={COMPANY_INFO.bbb.sealVerticalWhite}
                       alt="MH Construction, Inc. BBB Business Review"

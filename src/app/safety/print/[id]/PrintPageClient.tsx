@@ -625,7 +625,7 @@ export default function PrintPageClient() {
             </div>
             <div className="flex items-center gap-3">
               {/* BBB Seal */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              {}
               <img
                 src={COMPANY_INFO.bbb.sealHorizontal}
                 alt="BBB Accredited A+"

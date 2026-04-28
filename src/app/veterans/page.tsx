@@ -1261,14 +1261,14 @@ export default function VeteransPage() {
                   title="BBB Accredited Business - A+ Rating"
                   className="transition-transform hover:scale-105"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.bbb.sealHorizontal}
                     alt="BBB Accredited A+ Rating"
                     loading="lazy"
                     className="h-12 w-auto dark:hidden"
                   />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.bbb.sealHorizontalWhite}
                     alt="BBB Accredited A+ Rating"
@@ -1283,7 +1283,7 @@ export default function VeteransPage() {
                   title="AGC of Washington Member"
                   className="transition-transform hover:scale-105"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src="/images/logo/agc-member.webp"
                     alt="AGC of Washington Member"
@@ -1298,14 +1298,14 @@ export default function VeteransPage() {
                   title="Travelers Insurance - Auto & Bonding Partner"
                   className="transition-transform hover:scale-105"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.travelers.logo}
                     alt="Travelers Insurance - Auto & Bonding Partner"
                     loading="lazy"
                     className="h-10 w-auto dark:hidden"
                   />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.travelers.logoWhite}
                     alt="Travelers Insurance - Auto & Bonding Partner"
@@ -1320,14 +1320,14 @@ export default function VeteransPage() {
                   title="Pasco Chamber of Commerce Member"
                   className="transition-transform hover:scale-105"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.chambers.pasco.logo}
                     alt="Pasco Chamber of Commerce Member"
                     loading="lazy"
                     className="h-12 w-auto dark:hidden"
                   />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.chambers.pasco.logoWhite}
                     alt="Pasco Chamber of Commerce Member"
@@ -1342,7 +1342,7 @@ export default function VeteransPage() {
                   title="Richland Chamber of Commerce Member"
                   className="transition-transform hover:scale-105"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.chambers.richland.logo}
                     alt="Richland Chamber of Commerce Member"
@@ -1359,7 +1359,7 @@ export default function VeteransPage() {
                   title="Tri-City Regional Chamber of Commerce Member"
                   className="transition-transform hover:scale-105"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.chambers.triCityRegional.logo}
                     alt="Tri-City Regional Chamber of Commerce Member"
