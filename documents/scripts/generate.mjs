@@ -72,20 +72,22 @@ try {
   process.exit(1);
 }
 
-// ── Runtime revision overrides (from CLI args or git metadata) ───────────────
-const _today = () => {
-  const d = new Date();
-  return `${String(d.getMonth() + 1).padStart(2, "0")}/${String(d.getDate()).padStart(2, "0")}/${d.getFullYear()}`;
-};
-BRAND.revisionDate = revDateArg || BRAND.revisionDate || _today();
-BRAND.revisionNumber = revNumArg || BRAND.revisionNumber || "1";
+// ── Runtime revision enforcement (master-operator consistency requirement) ───
+const ENFORCED_REVISION_DATE = "04/07/2026";
+const ENFORCED_REVISION_NUMBER = "3";
+BRAND.revisionDate = ENFORCED_REVISION_DATE;
+BRAND.revisionNumber = ENFORCED_REVISION_NUMBER;
 
 // ── Logo base64 (used in Puppeteer header templates which need data URLs) ──────
 const _logoPath = join(DOCS_DIR, BRAND.logo.color.replace(/^\.\.\//, ""));
-let LOGO_COLOR_B64 = "";
+let LOGO_COLOR_DATA_URL = "";
 try {
   const _logoBuf = await readFile(_logoPath);
-  LOGO_COLOR_B64 = `data:image/png;base64,${_logoBuf.toString("base64")}`;
+  const _logoExt = extname(_logoPath).slice(1).toLowerCase();
+  const _logoImageExt = _logoExt === "jpg" ? "jpeg" : _logoExt;
+  const _logoMime =
+    _logoExt === "svg" ? "image/svg+xml" : `image/${_logoImageExt}`;
+  LOGO_COLOR_DATA_URL = `data:${_logoMime};base64,${_logoBuf.toString("base64")}`;
 } catch {
   /* logo file not found — header will render without image */
 }
@@ -100,14 +102,20 @@ try {
   /* AGC logo not found — footer will render without it */
 }
 
-// ── BBB Accredited Business seal base64 (used in Puppeteer footer template) ────
-const _bbbPath = join(DOCS_DIR, "assets/bbb/bbb-accredited-seal.png");
-let BBB_LOGO_B64 = "";
+// ── BBB Accredited Business seal data URL (SVG preferred, PNG fallback) ───────
+const _bbbSvgPath = join(DOCS_DIR, "assets/bbb/bbb-accredited-seal.svg");
+const _bbbPngPath = join(DOCS_DIR, "assets/bbb/bbb-accredited-seal.png");
+let BBB_LOGO_DATA_URL = "";
 try {
-  const _bbbBuf = await readFile(_bbbPath);
-  BBB_LOGO_B64 = `data:image/png;base64,${_bbbBuf.toString("base64")}`;
+  const _bbbSvgBuf = await readFile(_bbbSvgPath);
+  BBB_LOGO_DATA_URL = `data:image/svg+xml;base64,${_bbbSvgBuf.toString("base64")}`;
 } catch {
-  /* BBB logo not found — footer will render without it */
+  try {
+    const _bbbPngBuf = await readFile(_bbbPngPath);
+    BBB_LOGO_DATA_URL = `data:image/png;base64,${_bbbPngBuf.toString("base64")}`;
+  } catch {
+    /* BBB logo not found — footer/template tokens will use brand-config fallback */
+  }
 }
 
 // ── Travelers Insurance logo base64 (used in Puppeteer footer template) ────
@@ -184,19 +192,20 @@ function buildBrandTokens(brand) {
     "{{BRAND_COLOR_BRONZE_LIGHT}}": brand.colors.bronzeLight,
     "{{BRAND_COLOR_BRONZE_DARK}}": brand.colors.bronzeDark,
     "{{BRAND_LOGO_WHITE}}": resolvePath(brand.logo.white),
-    "{{BRAND_LOGO_COLOR}}": LOGO_COLOR_B64 || resolvePath(brand.logo.color),
+    "{{BRAND_LOGO_COLOR}}":
+      LOGO_COLOR_DATA_URL || resolvePath(brand.logo.color),
     "{{BRAND_LOGO_DARKBG}}": resolvePath(brand.logo.darkBg),
     "{{BRAND_AGC_HORIZONTAL}}": resolvePath(
       brand.partnerLogos?.agcHorizontal || "",
     ),
     "{{BRAND_AGC_STACKED}}": resolvePath(brand.partnerLogos?.agcStacked || ""),
     "{{BRAND_BBB_HORIZONTAL}}":
-      BBB_LOGO_B64 || resolvePath(brand.partnerLogos?.bbbHorizontal || ""),
+      BBB_LOGO_DATA_URL || resolvePath(brand.partnerLogos?.bbbHorizontal || ""),
     "{{BRAND_BBB_VERTICAL}}": resolvePath(
       brand.partnerLogos?.bbbVertical || "",
     ),
     "{{BRAND_BBB_SEAL}}":
-      BBB_LOGO_B64 || resolvePath(brand.partnerLogos?.bbbSeal || ""),
+      BBB_LOGO_DATA_URL || resolvePath(brand.partnerLogos?.bbbSeal || ""),
     "{{BRAND_QR_DASHBOARD}}": resolvePath(brand.qrCodes?.dashboard || ""),
   };
 }
@@ -465,15 +474,15 @@ function buildSectionHeaderHtml(sectionNum, sectionTitle, revNum, revDate) {
 
     // CENTER — single high-resolution MHC logo, centered in header block
     `<div style="flex:0 0 auto;display:flex;justify-content:center;align-items:center;padding:0 14pt;">`,
-    LOGO_COLOR_B64
-      ? `<img src="${LOGO_COLOR_B64}" style="height:40pt;width:auto;image-rendering:-webkit-optimize-contrast;" alt="MH Construction" />`
+    LOGO_COLOR_DATA_URL
+      ? `<img src="${LOGO_COLOR_DATA_URL}" style="height:40pt;width:auto;image-rendering:-webkit-optimize-contrast;" alt="MH Construction" />`
       : `<span style="font-size:13pt;font-weight:900;color:${BRAND_COLORS.primary};letter-spacing:0.04em;">MHC</span>`,
     `</div>`,
 
     // RIGHT — binder tab location + revision metadata
     `<div style="flex:1;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;">`,
     `<span style="font-size:7pt;font-weight:700;color:${BRAND_COLORS.secondary};line-height:1.2;letter-spacing:0.04em;">BINDER LOCATION: TAB ${tabRef}</span>`,
-    `<span style="font-size:7.5pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;line-height:1.3;">Rev. ${revNum}&nbsp;|&nbsp;${revDate}</span>`,
+    `<span style="font-size:7.5pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;line-height:1.3;">Rev. ${revNum} ${revDate}</span>`,
     `</div>`,
 
     `</div>`,
@@ -489,34 +498,34 @@ function buildSectionHeaderHtml(sectionNum, sectionTitle, revNum, revDate) {
 const SECTION_FOOTER_HTML = [
   // Outer container — matches cover-bottom layout (light variant)
   `<div style="width:100%;border-top:0.75pt solid ${BRAND_COLORS.secondary};`,
-  `padding:0 0.75in 0 1.25in;height:0.65in;display:flex;align-items:center;`,
+  `padding:0 0.75in 0 1.25in;height:0.65in;display:flex;align-items:baseline;`,
   `justify-content:space-between;gap:0.2in;font-family:'Helvetica Neue',Arial,sans-serif;`,
   `-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box;">`,
 
-  // LEFT — Company name + address + contact (Pasco, WA per brand standard)
-  `<div style="flex:0 0 2.6in;min-width:2.6in;color:${BRAND_COLORS.secondaryText};font-size:7pt;line-height:1.35;overflow:hidden;">`,
-  `<strong style="color:${BRAND_COLORS.primary};display:block;">${BRAND.companyName}</strong>`,
-  `<span style="color:${BRAND_COLORS.secondaryText};">${BRAND.addressCityStateZip}&nbsp;&nbsp;&middot;&nbsp;&nbsp;${BRAND.phone}&nbsp;&nbsp;&middot;&nbsp;&nbsp;${BRAND.website}</span>`,
+  // LEFT — Company/contact baseline (Pasco branding lock, left-justified)
+  `<div style="flex:1 1 auto;min-width:2.8in;color:${BRAND_COLORS.secondaryText};font-size:8pt;line-height:1;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">`,
+  `<span style="font-weight:700;color:${BRAND_COLORS.primary};">${BRAND.companyName}</span>&nbsp;&nbsp;`,
+  `<span style="color:${BRAND_COLORS.secondaryText};">${BRAND.addressCityStateZip}</span>&nbsp;&nbsp;&middot;&nbsp;&nbsp;${BRAND.phone}&nbsp;&nbsp;&middot;&nbsp;&nbsp;${BRAND.website}`,
   `</div>`,
 
-  // CENTER — WBS key (visual identity)
-  `<div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1pt;">`,
-  `<div style="font-size:6.2pt;line-height:1;text-transform:uppercase;letter-spacing:0.08em;color:${BRAND_COLORS.secondary};font-weight:800;">WBS Structure</div>`,
-  `<div style="font-size:6.3pt;line-height:1.15;color:${BRAND_COLORS.secondaryText};white-space:nowrap;"><span style="font-weight:700;color:${BRAND_COLORS.primary};">1.0</span> Program Area&nbsp;&nbsp;<span style="padding-left:6pt;"><span style="font-weight:700;color:${BRAND_COLORS.primary};">1.1</span> Topic</span>&nbsp;&nbsp;<span style="padding-left:6pt;"><span style="font-weight:700;color:${BRAND_COLORS.primary};">1.1.1</span> Req.</span></div>`,
+  // CENTER — WBS structure lockup on same baseline
+  `<div style="flex:0 0 auto;min-width:0;color:${BRAND_COLORS.secondaryText};font-size:7pt;line-height:1;white-space:nowrap;">`,
+  `<span style="font-size:7.2pt;font-weight:800;color:${BRAND_COLORS.secondary};letter-spacing:0.05em;text-transform:uppercase;">WBS Structure</span>&nbsp;&nbsp;`,
+  `<span><span style="font-weight:700;color:${BRAND_COLORS.primary};">1.0</span> Program Area&nbsp;&nbsp;<span style="font-weight:700;color:${BRAND_COLORS.primary};">1.1</span> Topic&nbsp;&nbsp;<span style="font-weight:700;color:${BRAND_COLORS.primary};">1.1.1</span> Req.</span>`,
   `</div>`,
 
   // RIGHT — Trust marks + page number (far-right anchor)
-  `<div style="flex:0 0 auto;display:flex;align-items:center;gap:0.07in;">`,
-  BBB_LOGO_B64
-    ? `<img src="${BBB_LOGO_B64}" style="height:0.25in;width:auto;display:block;flex-shrink:0;" alt="BBB Accredited A+" />`
+  `<div style="flex:0 0 auto;display:flex;align-items:baseline;gap:0.07in;">`,
+  BBB_LOGO_DATA_URL
+    ? `<img src="${BBB_LOGO_DATA_URL}" style="height:0.25in;width:auto;display:block;flex-shrink:0;align-self:center;" alt="BBB Accredited A+" />`
     : "",
   AGC_LOGO_B64
-    ? `<img src="${AGC_LOGO_B64}" style="height:0.25in;width:auto;display:block;flex-shrink:0;" alt="AGC Member" />`
+    ? `<img src="${AGC_LOGO_B64}" style="height:0.25in;width:auto;display:block;flex-shrink:0;align-self:center;" alt="AGC Member" />`
     : "",
   TRAVELERS_LOGO_B64
-    ? `<img src="${TRAVELERS_LOGO_B64}" style="height:0.19in;width:auto;display:block;flex-shrink:0;" alt="Travelers Insurance Partner" />`
+    ? `<img src="${TRAVELERS_LOGO_B64}" style="height:0.19in;width:auto;display:block;flex-shrink:0;align-self:center;" alt="Travelers Insurance Partner" />`
     : "",
-  `<span style="font-size:7.5pt;font-weight:700;color:${BRAND_COLORS.secondaryText};white-space:nowrap;margin-left:0.1in;border-left:0.5pt solid #ccc;padding-left:0.1in;">Pg.&nbsp;<span class=\"pageNumber\"></span>&nbsp;of&nbsp;<span class=\"totalPages\"></span></span>`,
+  `<span style="font-size:7.5pt;font-weight:700;color:${BRAND_COLORS.secondaryText};white-space:nowrap;margin-left:0.08in;border-left:0.5pt solid #ccc;padding-left:0.08in;line-height:1;align-self:center;">Pg.&nbsp;<span class='pageNumber'></span>&nbsp;of&nbsp;<span class='totalPages'></span></span>`,
   `</div>`,
 
   `</div>`,
@@ -586,26 +595,28 @@ async function getBrowser() {
 async function renderPdf(htmlPath, pdfPath, pageOpts = {}) {
   const browser = await getBrowser();
   const page = await browser.newPage();
+  try {
+    // Load the HTML file via file:// protocol so relative CSS paths resolve
+    await page.goto(pathToFileURL(htmlPath).toString(), {
+      waitUntil: "networkidle0",
+    });
 
-  // Load the HTML file via file:// protocol so relative CSS paths resolve
-  await page.goto(pathToFileURL(htmlPath).toString(), {
-    waitUntil: "networkidle0",
-  });
+    const defaultOpts = {
+      format: "Letter",
+      printBackground: true,
+      preferCSSPageSize: false,
+      margin: {
+        top: "0.75in",
+        right: "0.75in",
+        bottom: "0.75in",
+        left: "1.25in",
+      },
+    };
 
-  const defaultOpts = {
-    format: "Letter",
-    printBackground: true,
-    preferCSSPageSize: false,
-    margin: {
-      top: "0.75in",
-      right: "0.75in",
-      bottom: "0.75in",
-      left: "1.25in",
-    },
-  };
-
-  await page.pdf({ path: pdfPath, ...defaultOpts, ...pageOpts });
-  await page.close();
+    await page.pdf({ path: pdfPath, ...defaultOpts, ...pageOpts });
+  } finally {
+    await page.close().catch(() => {});
+  }
 
   // Normalize metadata so standalone PDFs match merged manual metadata fields.
   const pdfBytes = await readFile(pdfPath);
@@ -1285,6 +1296,41 @@ function cleanWordHtml(html) {
 
   let out = html;
 
+  // Normalize known legacy numbering references to the current program range.
+  out = out.replaceAll(/\bMISH\s*1-42\b/gi, "MISH 1-50");
+
+  // Remove legacy internal revision year labels from old approval rows.
+  out = out.replaceAll(/\bRevision\s*(?:2024|2025)\b/gi, "");
+
+  // Drop any leading approval/program metadata block before the first
+  // canonical section heading. Prefer 1.x, then fall back to any dotted heading.
+  out = out.replace(
+    /^[\s\S]*?(?=<(?:p|h[1-6])[^>]*>\s*1\.\d+(?:\.\d+)*\s+[A-Z])/i,
+    "",
+  );
+  out = out.replace(
+    /^[\s\S]*?(?=<(?:p|h[1-6])[^>]*>\s*\d+\.\d+(?:\.\d+)*\b)/i,
+    "",
+  );
+
+  // Some Word extractions place legacy approval metadata and the first
+  // canonical heading in the same paragraph. Keep only content from 1.x onward.
+  out = out.replaceAll(
+    /<p>[\s\S]*?\b(1\.\d+(?:\.\d+)*\s+[A-Z][\s\S]*?)<\/p>/gi,
+    (_match, keep) => `<p>${keep}</p>`,
+  );
+
+  // Remove legacy approval/signature cluster fragments that can remain inline
+  // in migrated sections (old "Revision 1 / Approved By / Effective Date").
+  out = out.replaceAll(
+    /Representative\s+Jeremy\s+Thamert[\s\S]*?Effective\s*Date\s*\d{1,2}\/\d{1,2}\/\d{4}/gi,
+    "",
+  );
+  out = out.replaceAll(
+    /Jeremy\s+Thamert[\s\S]*?Number\s+Mish\s+\d+[\s\S]*?Effective\s*Date\s*\d{1,2}\/\d{1,2}\/\d{4}/gi,
+    "",
+  );
+
   // Strip inline style attributes
   out = out.replaceAll(/\s+style="[^"]*"/gi, "");
 
@@ -1329,14 +1375,24 @@ function cleanWordHtml(html) {
 function textToHtml(text) {
   if (!text) return "<p><em>No content extracted. See source PDF.</em></p>";
 
-  // Strip everything from the start of the body up to the first structural
-  // WBS heading (e.g. "1.0 PURPOSE") or known keyword. This removes the
-  // per-section header metadata (chapter ref, CFR, doc revision rows, names)
-  // that is already rendered by the template's static revision-info-table.
-  const bodyTrimRx =
-    /(?=\b\d+\.\d+\s+[A-Z]|\b(?:PURPOSE|GENERAL|SCOPE|MISSION|PLAN\s+ELEMENTS)\b)/;
-  const trimIdx = text.search(bodyTrimRx);
-  if (trimIdx > 0) text = text.slice(trimIdx);
+  // Normalize known legacy numbering references to the current program range.
+  text = text.replaceAll(/\bMISH\s*1-42\b/gi, "MISH 1-50");
+
+  // Remove legacy internal revision year labels from old approval rows.
+  text = text.replaceAll(/\bRevision\s*(?:2024|2025)\b/gi, "");
+
+  // Strip everything from the start of the body up to the first canonical
+  // section heading. Prefer "1.x ..." to avoid retaining legacy approval rows
+  // that often include "3.0 April 2026 ..." before the true body.
+  const firstSectionIdx = text.search(/\b1\.\d+(?:\.\d+)*\s+[A-Z]/);
+  if (firstSectionIdx > 0) {
+    text = text.slice(firstSectionIdx);
+  } else {
+    const bodyTrimRx =
+      /(?=\b(?:PURPOSE|GENERAL|SCOPE|MISSION|PLAN\s+ELEMENTS)\b)/;
+    const trimIdx = text.search(bodyTrimRx);
+    if (trimIdx > 0) text = text.slice(trimIdx);
+  }
 
   // Source-PDF artifacts that should be stripped from every section body
   const STRIP = [
@@ -1681,6 +1737,37 @@ function injectSignatureLines(html) {
 }
 
 /**
+ * Section-specific reference corrections to enforce current 1-50 WBS mapping.
+ */
+function applySectionReferenceFixes(html, sectionNumber) {
+  let out = html;
+
+  if (sectionNumber === 4) {
+    out = out
+      .replaceAll(/Attachment\s+MISH\s*4-A/gi, "Attachment MISH 04-A")
+      .replaceAll(/FORM\s+4-A/gi, "FORM 04-A");
+  }
+
+  if (sectionNumber === 9) {
+    out = out.replaceAll(
+      /Fall\s+Protection([^<]{0,120}?)MISH\s*11/gi,
+      "Fall Protection$1MISH 21",
+    );
+    out = out.replaceAll(/MISH\s*11\s*\(\s*Fall\s*Protection\s*\)/gi, "MISH 21 (Fall Protection)");
+  }
+
+  if (sectionNumber === 10) {
+    out = out
+      .replaceAll(/\bMISH\s*9-A\b/gi, "MISH 10-A")
+      .replaceAll(/\bMISH\s*9-B\b/gi, "MISH 10-B")
+      .replaceAll(/\b9-A\b/g, "10-A")
+      .replaceAll(/\b9-B\b/g, "10-B");
+  }
+
+  return out;
+}
+
+/**
  * PRECISION OVERRIDE 3 — Signature Table Isolation (MISH 02)
  *
  * The Word-extracted body has four separate single-row <table> elements for
@@ -1985,6 +2072,7 @@ function injectPtpForm(html) {
  * Apply all section-specific post-processing rules based on section number.
  */
 function postProcessSectionHtml(html, sectionNumber) {
+  html = applySectionReferenceFixes(html, sectionNumber);
   if (sectionNumber === 1 || sectionNumber === 2 || sectionNumber === 38) {
     html = injectThreeHourCallout(html, sectionNumber);
   }
@@ -2003,6 +2091,14 @@ function postProcessSectionHtml(html, sectionNumber) {
   }
   if (sectionNumber === 5) {
     html = injectPtpForm(html);
+    html = injectSignatureLines(html);
+  }
+  if (
+    sectionNumber === 11 ||
+    sectionNumber === 13 ||
+    sectionNumber === 17 ||
+    sectionNumber === 21
+  ) {
     html = injectSignatureLines(html);
   }
   return html;

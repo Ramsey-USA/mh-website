@@ -72,7 +72,7 @@
       }
       .revision-info-table {
         width: 100%; /* spans the full text column */
-        table-layout: auto;
+        table-layout: fixed;
         border-collapse: collapse;
         font-size: var(--type-print-table);
       }
@@ -113,6 +113,16 @@
      */
       .section-body {
         margin-top: 4pt;
+      }
+
+      /* Keep checklist and inspection tables readable without cell overflow. */
+      .section-body table {
+        table-layout: fixed;
+      }
+      .section-body th,
+      .section-body td {
+        overflow-wrap: anywhere;
+        word-break: break-word;
       }
 
       /* Flush-left elements — anchored to 0.0" */
@@ -212,9 +222,9 @@
           <td class="rit-label">Document</td>
           <td class="rit-value">MISH {{SECTION_NUMBER}}</td>
           <td class="rit-label">&nbsp;&nbsp;Revision</td>
-          <td class="rit-value">{{BRAND_REVISION_NUMBER}}</td>
-          <td class="rit-label">&nbsp;&nbsp;Effective</td>
-          <td class="rit-value">{{BRAND_REVISION_DATE}}</td>
+          <td class="rit-value" colspan="3">
+            Rev. {{BRAND_REVISION_NUMBER}} {{BRAND_REVISION_DATE}}
+          </td>
         </tr>
         <tr>
           <td class="rit-label">Program</td>

@@ -148,7 +148,7 @@ async function fetchProfileOverrides(): Promise<
 
   // During production build there is no live CF request context; skip D1 lookup
   // and fall back to static team data to keep prerender deterministic.
-  if (process.env.NEXT_PHASE === "phase-production-build") return overrides;
+  if (process.env["NEXT_PHASE"] === "phase-production-build") return overrides;
 
   const DB = await getD1DatabaseAsync();
   if (!DB) return overrides;
