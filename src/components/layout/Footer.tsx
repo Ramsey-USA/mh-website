@@ -57,7 +57,7 @@ const navCol1Links: FooterNavItem[] = [
     href: "/contact",
     icon: "contact_phone",
     label: "Contact",
-    sub: "Rally Point",
+    sub: "Contact",
   },
   {
     href: "/services",
@@ -69,7 +69,7 @@ const navCol1Links: FooterNavItem[] = [
     href: "/projects",
     icon: "photo_library",
     label: "Projects",
-    sub: "Missions",
+    sub: "Portfolio",
   },
   {
     href: "/resources",
@@ -518,9 +518,9 @@ export default function Footer() {
 
     const translations: Record<string, { label: string; sub: string }> = {
       "/": { label: "Inicio", sub: "Base central" },
-      "/contact": { label: "Contacto", sub: "Punto de encuentro" },
+      "/contact": { label: "Contacto", sub: "Contacto" },
       "/services": { label: "Servicios", sub: "Operaciones" },
-      "/projects": { label: "Proyectos", sub: "Misiones" },
+      "/projects": { label: "Proyectos", sub: "Portafolio" },
       "/resources": { label: "Recursos", sub: "Inteligencia de campo" },
       "/safety": { label: "Seguridad", sub: "Proteccion operativa" },
       "/faq": { label: "Ayuda/Preguntas", sub: "Informe rapido" },
@@ -1037,7 +1037,7 @@ export default function Footer() {
               title="BBB Accredited Business - A+ Rating"
               className="group flex items-center justify-center rounded-lg border border-brand-secondary/40 bg-white/90 dark:bg-gray-800/90 p-3 transition-all duration-300 touch-manipulation hover:scale-105 hover:border-brand-secondary hover:shadow-lg"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              {}
               <img
                 src={COMPANY_INFO.bbb.sealHorizontal}
                 alt="MH Construction, Inc. BBB Business Review"
@@ -1046,7 +1046,7 @@ export default function Footer() {
                 className="h-12 w-auto object-contain dark:hidden"
                 loading="lazy"
               />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              {}
               <img
                 src={COMPANY_INFO.bbb.sealHorizontalWhite}
                 alt="MH Construction, Inc. BBB Business Review"

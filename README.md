@@ -185,6 +185,7 @@ are stored in `public/images/credentials/` as WebP files. Credentials are displa
 ### Designers & Branding
 
 - [Unified Component Standards](docs/branding/standards/unified-component-standards.md) - Complete design system v7.1.0
+- [Dual Terminology Standard](docs/branding/strategy/dual-terminology-standard.md) - **CANONICAL** dual-label and arrow-format terminology source of truth
 - [Color System](docs/branding/standards/color-system.md) - Brand colors (Hunter Green, Leather Tan)
 - [Brand Overview](docs/branding/strategy/brand-overview.md) - Brand identity & values
 - [Messaging Guide](docs/branding/strategy/messaging.md) - Core messaging v7.0.0

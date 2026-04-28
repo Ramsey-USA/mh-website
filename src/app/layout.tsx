@@ -43,8 +43,8 @@ export const metadata: Metadata = withGeoMetadata({
     "service-earned construction values",
     "Chain of Command construction approach",
     "Operations Services dual messaging",
-    "Mission Project dual terminology",
-    "Rally Point Contact construction",
+    "Projects portfolio terminology",
+    "Contact construction consultation",
     "Pacific Northwest builder",
     "general contractor",
     "general contractor Tri-State",
@@ -78,8 +78,8 @@ export const metadata: Metadata = withGeoMetadata({
     "Eastern Washington contractor",
     "Army Veteran-Owned Since January 2025 construction",
     "all-branch military construction",
-    "SITREP-level construction communication",
-    "battle-tested construction excellence",
+    "clear construction communication",
+    "proven construction excellence",
   ],
   authors: [
     {

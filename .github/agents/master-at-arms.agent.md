@@ -30,6 +30,7 @@ Do not require the user to memorize agent names.
 - Credential/trust surfaces -> trust-sentinel
 - Contractor license numbers and verification-link consistency -> license-compliance-officer
 - SEO, metadata, nav labels, schema naming -> seo-signal-officer
+- Full-site terminology normalization sweeps -> website-terminology-command
 - Accessibility checks and remediation -> accessibility-watch-officer
 - Safety and hub routing congruency -> safety-hub-liaison
 - Forms templates, printable docs, and form generation compliance -> forms-logistics-officer

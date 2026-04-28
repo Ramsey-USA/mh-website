@@ -67,6 +67,7 @@ Messaging, voice, and brand positioning guidelines.
 
 - **[Brand Overview](./strategy/brand-overview.md)** - Core brand identity
 - **[Messaging Guide](./strategy/messaging.md)** - Core messaging framework (v7.0.0)
+- **[Dual Terminology Standard](./strategy/dual-terminology-standard.md)** - Canonical dual-label and arrow-format naming rules
 - **[Universal Terminology](./strategy/universal-terminology-guide.md)** - Consistent word choices
 - **[Page-Specific Messaging](./strategy/page-specific-messaging-guide.md)** - Voice by page type
 

@@ -321,7 +321,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     {
       name: "Master Planning & Preconstruction",
       description:
-        "Comprehensive preconstruction planning, feasibility studies, and master planning with military-precision scope development",
+        "Comprehensive preconstruction planning, feasibility studies, and master planning with disciplined scope development",
       category: "Preconstruction Services",
     },
     {
@@ -339,7 +339,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     {
       name: "Government & Public Sector Construction",
       description:
-        "Mission-ready government construction with federal compliance standards and veteran-owned business advantages",
+        "Government construction with federal compliance standards and veteran-owned business advantages",
       category: "Government Services",
     },
     {
@@ -359,7 +359,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     "@type": "WebPage",
     "@id": `${servicesUrl}#webpage`,
     url: servicesUrl,
-    name: "Operations → Services | MH Construction",
+    name: "Services | MH Construction",
     description:
       "Commercial construction, master planning, tenant improvements, light industrial, and government projects across our Tri-State licensed footprint, with strong delivery in Yakima, Spokane, and Walla Walla.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
@@ -379,8 +379,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title:
-      "Operations → Services | The Battle Plan - Strategic Construction Excellence",
+    title: "Services | Commercial and Industrial Construction Services",
     description:
       "Commercial construction, master planning, tenant improvements, light industrial & government projects. Founded 2010, Veteran-Owned Since January 2025. Headquartered in the Tri-Cities (Pasco, Richland, Kennewick). Licensed WA, OR, ID. Transparent pricing.",
     keywords: [
@@ -1189,7 +1188,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
     "@type": "CollectionPage",
     "@id": `${projectsUrl}#webpage`,
     url: projectsUrl,
-    name: "Missions \u2192 Projects | MH Construction Portfolio",
+    name: "Projects | MH Construction Portfolio",
     description:
       "650+ completed commercial, industrial, light industrial, and government construction projects across our Tri-State licensed footprint, including Yakima, Spokane, and Walla Walla.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
@@ -1207,7 +1206,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title:
-      "Missions \u2192 Projects | Mission Success: 650+ Completed Projects",
+      "Portfolio → Projects | Completed Commercial and Industrial Construction Projects",
     description:
       "650+ completed commercial, industrial & government projects across our Tri-State licensed footprint, including Yakima, Spokane, and Walla Walla. Veteran-Owned Since January 2025. 70% referral rate. Licensed WA, OR, ID.",
     keywords: [
@@ -1250,7 +1249,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     "@type": "ContactPage",
     "@id": `${enhancedSEO.siteUrl}/contact#webpage`,
     url: `${enhancedSEO.siteUrl}/contact`,
-    name: "Rally Point → Contact | MH Construction",
+    name: "Contact | MH Construction",
     description:
       "Get a free consultation with MH Construction — founded 2010, Veteran-Owned Since January 2025. Tri-State licensed general contractor headquartered in the Tri-Cities (Pasco, WA). Serving WA, OR, ID throughout the Pacific Northwest. Call (509) 308-6489.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
@@ -1268,12 +1267,12 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title:
-      "Rally Point → Contact | Your Project. Our Expertise. Let's Connect.",
+      "Contact → Consultation | Your Project. Honest Guidance. Let's Connect.",
     description:
       "Get a free consultation with MH Construction — founded 2010, Veteran-Owned Since January 2025. Tri-State licensed general contractor headquartered in the Tri-Cities (Pasco, WA). Serving WA, OR, ID throughout the Pacific Northwest. Call (509) 308-6489.",
     keywords: [
-      "Rally Point Contact mission brief",
-      "SITREP-level clarity consultation",
+      "contact construction consultation",
+      "clear consultation process",
       "contact construction contractor Pasco WA",
       "veteran-owned construction contact",
       "Pacific Northwest construction company",

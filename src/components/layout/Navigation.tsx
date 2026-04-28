@@ -33,7 +33,7 @@ const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
     {
       href: "/projects",
       label: "Projects",
-      subLabel: "Missions",
+      subLabel: "Portfolio",
       icon: "photo_library",
     },
     {
@@ -57,7 +57,7 @@ const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
     {
       href: "/contact",
       label: "Contact",
-      subLabel: "Rally Point",
+      subLabel: "Contact",
       icon: "contact_phone",
     },
     {
@@ -120,7 +120,7 @@ const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
     {
       href: "/projects",
       label: "Proyectos",
-      subLabel: "Misiones",
+      subLabel: "Portafolio",
       icon: "photo_library",
     },
     {
@@ -144,7 +144,7 @@ const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
     {
       href: "/contact",
       label: "Contacto",
-      subLabel: "Punto de encuentro",
+      subLabel: "Contacto",
       icon: "contact_phone",
     },
     {

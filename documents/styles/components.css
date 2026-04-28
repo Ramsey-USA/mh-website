@@ -276,6 +276,43 @@
   color: #555;
   line-height: 1.4;
 }
+.qr-footer-wbs {
+  display: flex;
+  flex-direction: column;
+  gap: 2pt;
+}
+.qr-footer-wbs-head {
+  font-size: 6.8pt;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+.qr-footer-wbs-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 1pt;
+}
+.qr-footer-wbs-row {
+  font-size: 6.8pt;
+  line-height: 1.2;
+  color: #555;
+}
+.qr-footer-wbs-row.level-1 {
+  padding-left: 6pt;
+}
+.qr-footer-wbs-row.level-2 {
+  padding-left: 12pt;
+}
+.qr-footer-wbs-row.level-3 {
+  padding-left: 18pt;
+}
+.qr-footer-wbs-code {
+  font-size: 6.8pt;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-right: 3pt;
+}
 .qr-footer-url {
   font-size: 7pt;
   color: var(--color-primary);

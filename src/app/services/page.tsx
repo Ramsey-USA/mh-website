@@ -86,7 +86,7 @@ export default function ServicesPage() {
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb
-          items={[{ label: "Home", href: "/" }, { label: "The Battle Plan" }]}
+          items={[{ label: "Home", href: "/" }, { label: "Services" }]}
         />
 
         {/* Core Services Section - Primary discovery content */}
@@ -124,7 +124,7 @@ export default function ServicesPage() {
           <BrandColorBlobs />
 
           <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            {/* Section Header - Military Construction Standard */}
+            {/* Section Header - Partnership Excellence */}
             <div className="mb-16 sm:mb-20 text-center">
               {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
@@ -240,7 +240,7 @@ export default function ServicesPage() {
                             />
                           </div>
                           <span className="text-gray-700 dark:text-gray-300">
-                            Free expert consultation (comprehensive)
+                            Phased planning with scope and schedule alignment
                           </span>
                         </li>
                         <li className="flex items-start gap-3 hover:translate-x-1 transition-transform duration-200">
@@ -609,7 +609,7 @@ export default function ServicesPage() {
                   />
                 </IconContainer>
                 <h3 className="relative mb-4 font-bold text-2xl text-center text-gray-900 dark:text-white">
-                  See Our Victories
+                  See Our Projects
                 </h3>
                 <p className="relative mb-6 text-center text-gray-600 text-lg dark:text-gray-300 leading-relaxed">
                   Browse our completed projects and see the quality we deliver.
@@ -737,7 +737,7 @@ export default function ServicesPage() {
         {/* Portfolio Section - Simplified */}
         <section className="relative bg-white dark:bg-gray-900 py-12 sm:py-16 lg:py-20 xl:py-24 overflow-hidden">
           <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            {/* Section Header - Military Construction Standard */}
+            {/* Section Header - Portfolio Overview */}
             <div className="mb-16 sm:mb-20 text-center">
               {/* Icon with decorative lines */}
               <div className="flex items-center justify-center mb-8 gap-4">
@@ -812,14 +812,14 @@ export default function ServicesPage() {
                 title="BBB Accredited Business - A+ Rating"
                 className="transition-transform hover:scale-105"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {}
                 <img
                   src={COMPANY_INFO.bbb.sealHorizontal}
                   alt="BBB Accredited A+ Rating"
                   loading="lazy"
                   className="h-12 w-auto dark:hidden"
                 />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {}
                 <img
                   src={COMPANY_INFO.bbb.sealHorizontalWhite}
                   alt="BBB Accredited A+ Rating"
@@ -834,7 +834,7 @@ export default function ServicesPage() {
                 title="AGC of Washington Member"
                 className="transition-transform hover:scale-105"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {}
                 <img
                   src="/images/logo/agc-member.webp"
                   alt="AGC of Washington Member"
@@ -849,14 +849,14 @@ export default function ServicesPage() {
                 title="Travelers Insurance - Auto & Bonding Partner"
                 className="transition-transform hover:scale-105"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {}
                 <img
                   src={COMPANY_INFO.travelers.logo}
                   alt="Travelers Insurance - Auto & Bonding Partner"
                   loading="lazy"
                   className="h-10 w-auto dark:hidden"
                 />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {}
                 <img
                   src={COMPANY_INFO.travelers.logoWhite}
                   alt="Travelers Insurance - Auto & Bonding Partner"

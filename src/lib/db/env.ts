@@ -28,6 +28,22 @@ export function getD1Database(): D1Database | null {
 }
 
 /**
+ * Get Cloudflare D1 database binding using async context mode.
+ * Use this in static routes or when context resolution must be async-safe.
+ */
+export async function getD1DatabaseAsync(): Promise<D1Database | null> {
+  try {
+    const { env } = await getCloudflareContext({ async: true });
+    return (
+      ((env as Record<string, unknown>)["DB"] as D1Database | undefined) ?? null
+    );
+  } catch (error) {
+    logger.error("Error getting D1 database (async mode):", error);
+    return null;
+  }
+}
+
+/**
  * Get Cloudflare KV namespace binding
  */
 export function getKVNamespace(binding: string): unknown | null {

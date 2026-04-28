@@ -162,7 +162,7 @@ export const locations: Record<string, LocationData> = {
     militaryTitle: "Forward Operating Base → Kennewick",
     tagline: "Tactical Construction Excellence in Benton County",
     description:
-      "Professional Veteran-Owned construction services with service-earned values and all-branch veteran leadership. SITREP-level communication.",
+      "Professional Veteran-Owned construction services with service-earned values and all-branch veteran leadership. Clear, timely communication.",
     ...LOCATION_CONTACT,
     coordinates: {
       latitude: 46.2112,
@@ -187,7 +187,7 @@ export const locations: Record<string, LocationData> = {
         "Kennewick WA builder",
         "construction management Kennewick",
         "all-branch veteran leadership Kennewick",
-        "SITREP-level communication Kennewick",
+        "clear communication Kennewick",
       ],
       openGraphDescription:
         "Forward Operating Base → Kennewick: Tactical Construction Excellence. Professional Veteran-Owned construction services with service-earned values and all-branch veteran leadership. Dual-label approach. Commercial, industrial & government projects.",

@@ -27,7 +27,7 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
-import { getD1Database } from "@/lib/db/env";
+import { getD1DatabaseAsync } from "@/lib/db/env";
 import { createDbClient } from "@/lib/db/client";
 import { logger } from "@/lib/utils/logger";
 
@@ -100,7 +100,9 @@ function rowToOverride(row: TeamProfileRow): TeamProfileOverride {
   if (row.fun_fact != null) override.funFact = row.fun_fact;
   if (row.certifications != null) override.certifications = row.certifications;
   if (row.hobbies != null) override.hobbies = row.hobbies;
-  if (row.special_interests != null) {override.specialInterests = row.special_interests;}
+  if (row.special_interests != null) {
+    override.specialInterests = row.special_interests;
+  }
   if (row.career_highlights != null) {
     const parsed = safeParseJson<string[]>(row.career_highlights);
     if (parsed !== undefined) override.careerHighlights = parsed;
@@ -125,7 +127,9 @@ function rowToOverride(row: TeamProfileRow): TeamProfileOverride {
     );
     if (parsed !== undefined) override.careerStats = parsed;
   }
-  if (row.years_with_company != null) {override.yearsWithCompany = row.years_with_company;}
+  if (row.years_with_company != null) {
+    override.yearsWithCompany = row.years_with_company;
+  }
   if (row.hometown != null) override.hometown = row.hometown;
   if (row.education != null) override.education = row.education;
   if (row.nickname != null) override.nickname = row.nickname;
@@ -137,9 +141,16 @@ function rowToOverride(row: TeamProfileRow): TeamProfileOverride {
  * Fetch all team profile overrides from D1.
  * Returns an empty map if the DB is unavailable (static data is used as fallback).
  */
-async function fetchProfileOverrides(): Promise<Map<string, TeamProfileOverride>> {
+async function fetchProfileOverrides(): Promise<
+  Map<string, TeamProfileOverride>
+> {
   const overrides = new Map<string, TeamProfileOverride>();
-  const DB = getD1Database();
+
+  // During production build there is no live CF request context; skip D1 lookup
+  // and fall back to static team data to keep prerender deterministic.
+  if (process.env.NEXT_PHASE === "phase-production-build") return overrides;
+
+  const DB = await getD1DatabaseAsync();
   if (!DB) return overrides;
 
   try {
@@ -151,7 +162,9 @@ async function fetchProfileOverrides(): Promise<Map<string, TeamProfileOverride>
       overrides.set(row.slug, rowToOverride(row));
     }
   } catch (err) {
-    logger.warn("team/page: failed to fetch profile overrides from D1", { err });
+    logger.warn("team/page: failed to fetch profile overrides from D1", {
+      err,
+    });
   }
 
   return overrides;

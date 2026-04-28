@@ -137,7 +137,7 @@ export default function ProjectsPage() {
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb
-          items={[{ label: "Home", href: "/" }, { label: "Victories" }]}
+          items={[{ label: "Home", href: "/" }, { label: "Projects" }]}
         />
 
         {/* Filter & Search Section - Primary discovery entry */}

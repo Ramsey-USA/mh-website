@@ -23,15 +23,15 @@ describe("ServicesHero", () => {
     expect(container.querySelector("section")).toBeInTheDocument();
   });
 
-  it("renders The Battle Plan heading", () => {
+  it("renders construction services heading", () => {
     render(<ServicesHero />);
-    expect(screen.getByText("The Battle Plan")).toBeInTheDocument();
+    expect(screen.getByText("Construction Services")).toBeInTheDocument();
   });
 
   it("renders the strategic excellence heading", () => {
     render(<ServicesHero />);
     expect(
-      screen.getByText("Strategic Construction Excellence"),
+      screen.getByText("Your project deserves expert oversight"),
     ).toBeInTheDocument();
   });
 
@@ -43,7 +43,9 @@ describe("ServicesHero", () => {
   it("renders the mission statement", () => {
     render(<ServicesHero />);
     expect(
-      screen.getByText(/Building projects for the client/i),
+      screen.getByText(
+        /Commercial, industrial, and public-sector delivery across the Pacific Northwest/i,
+      ),
     ).toBeInTheDocument();
   });
 

@@ -466,7 +466,7 @@ function buildSectionHeaderHtml(sectionNum, sectionTitle, revNum, revDate) {
     // CENTER — single high-resolution MHC logo, centered in header block
     `<div style="flex:0 0 auto;display:flex;justify-content:center;align-items:center;padding:0 14pt;">`,
     LOGO_COLOR_B64
-      ? `<img src="${LOGO_COLOR_B64}" style="height:34pt;width:auto;" alt="MH Construction" />`
+      ? `<img src="${LOGO_COLOR_B64}" style="height:40pt;width:auto;image-rendering:-webkit-optimize-contrast;" alt="MH Construction" />`
       : `<span style="font-size:13pt;font-weight:900;color:${BRAND_COLORS.primary};letter-spacing:0.04em;">MHC</span>`,
     `</div>`,
 
@@ -485,7 +485,7 @@ function buildSectionHeaderHtml(sectionNum, sectionTitle, revNum, revDate) {
  * Uses Puppeteer's native <span class="pageNumber"> / <span class="totalPages"> injection.
  */
 // PRECISION OVERRIDE 4 — Universal footer per cover page match:
-// Left: Company + contact  |  Center: MHC-APP identifier + Veteran Owned + compliance  |  Right: Page
+// Left: compact company/contact line  |  Center: explicit WBS hierarchy + page counter  |  Right: trust marks
 const SECTION_FOOTER_HTML = [
   // Outer container — matches cover-bottom layout (light variant)
   `<div style="width:100%;border-top:0.75pt solid ${BRAND_COLORS.secondary};`,
@@ -493,27 +493,30 @@ const SECTION_FOOTER_HTML = [
   `justify-content:space-between;gap:0.2in;font-family:'Helvetica Neue',Arial,sans-serif;`,
   `-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box;">`,
 
-  // LEFT — Company contact (mirrors cover-bottom-left)
-  `<div style="flex:1;min-width:0;color:${BRAND_COLORS.secondaryText};font-size:8pt;line-height:1.65;">`,
-  `<strong style="color:${BRAND_COLORS.primary};">${BRAND.companyName}</strong>`,
-  `<span style="color:${BRAND_COLORS.secondaryText};margin:0 5pt;">|</span>${BRAND.phone}<br>`,
-  `${BRAND.addressStreet}, ${BRAND.addressCityStateZip}<br>`,
-  `${BRAND.website}</div>`,
+  // LEFT — Company name + address + contact (Pasco, WA per brand standard)
+  `<div style="flex:0 0 2.6in;min-width:2.6in;color:${BRAND_COLORS.secondaryText};font-size:7pt;line-height:1.35;overflow:hidden;">`,
+  `<strong style="color:${BRAND_COLORS.primary};display:block;">${BRAND.companyName}</strong>`,
+  `<span style="color:${BRAND_COLORS.secondaryText};">${BRAND.addressCityStateZip}&nbsp;&nbsp;&middot;&nbsp;&nbsp;${BRAND.phone}&nbsp;&nbsp;&middot;&nbsp;&nbsp;${BRAND.website}</span>`,
+  `</div>`,
 
-  // RIGHT — Licenses + BBB + AGC logos (mirrors cover-bottom-right)
-  `<div style="flex-shrink:0;display:flex;align-items:center;gap:0.12in;">`,
-  `<div style="text-align:right;font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;line-height:1.65;">`,
-  `${BRAND_LICENSES_INLINE.replaceAll("  ·  ", "&nbsp;&middot;&nbsp;")}<br>`,
-  `<span style="color:${BRAND_COLORS.secondary};font-weight:700;">Revision ${BRAND.revisionYear}</span></div>`,
+  // CENTER — WBS key (visual identity)
+  `<div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1pt;">`,
+  `<div style="font-size:6.2pt;line-height:1;text-transform:uppercase;letter-spacing:0.08em;color:${BRAND_COLORS.secondary};font-weight:800;">WBS Structure</div>`,
+  `<div style="font-size:6.3pt;line-height:1.15;color:${BRAND_COLORS.secondaryText};white-space:nowrap;"><span style="font-weight:700;color:${BRAND_COLORS.primary};">1.0</span> Program Area&nbsp;&nbsp;<span style="padding-left:6pt;"><span style="font-weight:700;color:${BRAND_COLORS.primary};">1.1</span> Topic</span>&nbsp;&nbsp;<span style="padding-left:6pt;"><span style="font-weight:700;color:${BRAND_COLORS.primary};">1.1.1</span> Req.</span></div>`,
+  `</div>`,
+
+  // RIGHT — Trust marks + page number (far-right anchor)
+  `<div style="flex:0 0 auto;display:flex;align-items:center;gap:0.07in;">`,
   BBB_LOGO_B64
-    ? `<img src="${BBB_LOGO_B64}" style="height:0.34in;width:auto;display:block;flex-shrink:0;" alt="BBB Accredited A+" />`
+    ? `<img src="${BBB_LOGO_B64}" style="height:0.25in;width:auto;display:block;flex-shrink:0;" alt="BBB Accredited A+" />`
     : "",
   AGC_LOGO_B64
-    ? `<img src="${AGC_LOGO_B64}" style="height:0.34in;width:auto;display:block;flex-shrink:0;" alt="AGC Member" />`
+    ? `<img src="${AGC_LOGO_B64}" style="height:0.25in;width:auto;display:block;flex-shrink:0;" alt="AGC Member" />`
     : "",
   TRAVELERS_LOGO_B64
-    ? `<img src="${TRAVELERS_LOGO_B64}" style="height:0.28in;width:auto;display:block;flex-shrink:0;" alt="Travelers Insurance Partner" />`
+    ? `<img src="${TRAVELERS_LOGO_B64}" style="height:0.19in;width:auto;display:block;flex-shrink:0;" alt="Travelers Insurance Partner" />`
     : "",
+  `<span style="font-size:7.5pt;font-weight:700;color:${BRAND_COLORS.secondaryText};white-space:nowrap;margin-left:0.1in;border-left:0.5pt solid #ccc;padding-left:0.1in;">Pg.&nbsp;<span class=\"pageNumber\"></span>&nbsp;of&nbsp;<span class=\"totalPages\"></span></span>`,
   `</div>`,
 
   `</div>`,
@@ -526,7 +529,7 @@ const SECTION_FOOTER_HTML = [
 function buildQrDataUrl(url) {
   return QRCode.toDataURL(url, {
     type: "image/png",
-    width: 180,
+    width: 300,
     margin: 1,
     color: {
       dark: BRAND.colors.primary,
@@ -1326,6 +1329,15 @@ function cleanWordHtml(html) {
 function textToHtml(text) {
   if (!text) return "<p><em>No content extracted. See source PDF.</em></p>";
 
+  // Strip everything from the start of the body up to the first structural
+  // WBS heading (e.g. "1.0 PURPOSE") or known keyword. This removes the
+  // per-section header metadata (chapter ref, CFR, doc revision rows, names)
+  // that is already rendered by the template's static revision-info-table.
+  const bodyTrimRx =
+    /(?=\b\d+\.\d+\s+[A-Z]|\b(?:PURPOSE|GENERAL|SCOPE|MISSION|PLAN\s+ELEMENTS)\b)/;
+  const trimIdx = text.search(bodyTrimRx);
+  if (trimIdx > 0) text = text.slice(trimIdx);
+
   // Source-PDF artifacts that should be stripped from every section body
   const STRIP = [
     /^MH CONSTRUCTION\s*$/i,
@@ -1346,9 +1358,46 @@ function textToHtml(text) {
     /^Document:\s*MISH/i,
     /^Section Summary\s*$/i,
     /^AGC Safety Standards Compliant\s*$/i,
+    // Approval block fragments (names, roles, metadata)
+    /^Jeremy Thamert\s*$/i,
+    /^Matt Ramsey\s*$/i,
+    /^President.*Safety Officer\s*$/i,
+    /^Travelers Risk Control Consultant\s*$/i,
+    /^AGC Representative\s*$/i,
+    /^Signature\s*\/\s*Date\s*$/i,
+    /^Name\s+Date\s*$/i,
+    /^Effective\s*Date\s*$/i,
+    /^Approved\s*By\s*$/i,
+    /^Page\s+\d+\s+of\s+\d+\s*$/i,
+    /^Mh Construction Industrial Safety And Health Program/i,
+    /^Number\s+Mish\s+/i,
+    /^Revision\s+\d+\s*$/i,
   ];
 
-  const lines = text.split("\n");
+  // Some extracted section bodies arrive as one long line. Reconstruct
+  // logical line breaks for WBS numbering and common bullet glyphs.
+  const normalized = text
+    // Strip long underscore sequences (form blank lines in source doc)
+    .replaceAll(/_{10,}/g, "")
+    // Bullet glyphs → newline + standard bullet
+    .replaceAll(/\s+([\u2022\u25AA\u25CF\u25E6\uF0B7])\s*/g, "\n\u2022 ")
+    // WBS dotted numbers: "1.0 HEADING", "2.1.3 Sub-item"
+    .replaceAll(/\s(?=\d+\.\d+(?:\.\d+)*\s+[A-Z\(])/g, "\n")
+    // Plain numbered list items: "1. Item" or "10. Item"
+    .replaceAll(/\s(?=\d{1,2}\.\s+[A-Z\(])/g, "\n")
+    // ALL-CAPS section headings followed by a period: "GENERAL. " "MISSION. "
+    .replaceAll(/\s(?=[A-Z]{2}[A-Z\s]*\.\s+[A-Z\(])/g, "\n")
+    // Split Training & Reference Resources section into individual lines
+    .replaceAll(/\s+(?=Training\s*&\s*Reference\s*Resources)/gi, "\n")
+    .replaceAll(
+      /\s+(?=Travelers\s+(?:Risk\s+Control|Training\s+Library):|OSHA\s+Reference:|AGC\s+Safety\s+Resources:|WISHA\s*\/)/gi,
+      "\n",
+    )
+    .replaceAll(/\s+(?=NOTE:\s+WISHA)/gi, "\n")
+    // Signature/header table artifacts on same line as content — strip them
+    .replaceAll(/\s*_{3,}\s*\/\s*Date\s*/g, "");
+
+  const lines = normalized.split("\n");
   const parts = [];
   let para = [];
 
@@ -1369,12 +1418,26 @@ function textToHtml(text) {
     // Dotted section number: "2.3", "2.3.1", "2.3.1.1" — flush-left heading
     const sectionNumberRegex = /^(\d+\.\d+(?:\.\d+)*)\s+(.+)$/;
     const numMatch = sectionNumberRegex.exec(line);
-    if (numMatch && line.length < 160) {
+    if (numMatch) {
       flush();
       parts.push(
         `<div class="sec-num-row">` +
           `<span class="sec-num">${escapeHtml(numMatch[1])}</span>` +
           `<span class="sec-num-text">${escapeHtml(numMatch[2].trim())}</span>` +
+          `</div>`,
+      );
+      continue;
+    }
+
+    // Plain numbered list item: "1. Item text…" or "10. Item text…"
+    const numberedListRegex = /^(\d{1,2})\.\s+(.+)$/;
+    const numListMatch = numberedListRegex.exec(line);
+    if (numListMatch) {
+      flush();
+      parts.push(
+        `<div class="sec-num-row">` +
+          `<span class="sec-num">${escapeHtml(numListMatch[1])}.</span>` +
+          `<span class="sec-num-text">${escapeHtml(numListMatch[2].trim())}</span>` +
           `</div>`,
       );
       continue;

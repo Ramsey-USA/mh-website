@@ -9,7 +9,7 @@ export const enhancedSEO = {
   defaultTitle:
     "Base HQ → Home | Building projects for the Client, NOT the Dollar | MH Construction",
   defaultDescription:
-    "Base HQ → Home: Your Tri-State Construction Command Center. BBB Accredited A+. Pasco, Richland & Tri-City Regional Chamber of Commerce member. Construction management services since 2010, Veteran-Owned Since January 2025, with dual-label approach (Military Operations → Construction Services). Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction. Service-earned values—Honesty, Integrity, Professionalism, Thoroughness—building trust through SITREP-level transparency and Chain of Command excellence throughout the Pacific Northwest.",
+    "Base HQ → Home: Your Tri-State Construction Command Center. BBB Accredited A+. Pasco, Richland & Tri-City Regional Chamber of Commerce member. Construction management services since 2010, Veteran-Owned Since January 2025, with dual-label approach (Military Operations → Construction Services). Specializing in commercial construction, master planning, preconstruction, tenant improvements, and light industrial construction. Service-earned values—Honesty, Integrity, Professionalism, Thoroughness—building trust through clear transparency and structured leadership throughout the Pacific Northwest.",
   siteUrl: COMPANY_INFO.urls.getSiteUrl(),
   twitterHandle: COMPANY_INFO.social.twitterHandle,
   defaultKeywords: [
@@ -20,10 +20,10 @@ export const enhancedSEO = {
     "Chain of Command construction approach",
     "military precision construction",
     "Operations Services dual messaging",
-    "Mission Project dual terminology",
-    "Rally Point Contact construction",
-    "SITREP-level construction communication",
-    "battle-tested construction excellence",
+    "Projects portfolio terminology",
+    "Contact construction consultation",
+    "clear construction communication",
+    "proven construction excellence",
     "all-branch veteran leadership",
     "150 years combined military-grade expertise",
     "general contractor",

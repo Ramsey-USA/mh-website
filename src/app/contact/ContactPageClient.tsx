@@ -58,7 +58,7 @@ const buildQuickContact = (isEs: boolean) => [
 const buildMainCTAs = (isEs: boolean) => [
   {
     icon: "map",
-    label: isEs ? "El Plan de Batalla" : "The Battle Plan",
+    label: isEs ? "Servicios" : "Services",
     description: isEs ? "Lo que construimos juntos" : "What we build together",
     link: "/services",
     variant: "primary" as const,
@@ -68,7 +68,7 @@ const buildMainCTAs = (isEs: boolean) => [
   },
   {
     icon: "emoji_events",
-    label: isEs ? "Victorias" : "Victories",
+    label: isEs ? "Proyectos" : "Projects",
     description: isEs ? "Ver proyectos completados" : "See completed projects",
     link: "/projects",
     variant: "primary" as const,
@@ -131,7 +131,7 @@ export default function ContactPageClient() {
                   icon="forum"
                   size="4xl"
                   className="text-white drop-shadow-lg"
-                  ariaLabel="Rally Point - Contact us"
+                  ariaLabel="Contact MH Construction"
                 />
               </div>
             </div>
@@ -140,9 +140,7 @@ export default function ContactPageClient() {
               className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight"
             >
               <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                {isEs
-                  ? "Punto de Encuentro → Contacto"
-                  : "Rally Point → Contact"}
+                {isEs ? "Contacto" : "Contact"}
               </span>
               <span className="block text-brand-secondary">
                 {isEs
@@ -152,7 +150,7 @@ export default function ContactPageClient() {
               <span className="block text-brand-primary">
                 {isEs
                   ? "Programe Su Consulta Gratuita"
-                  : "Schedule Your Free Mission Brief"}
+                  : "Schedule Your Free Consultation"}
               </span>
               <span className="block text-white/90">
                 {isEs
@@ -192,7 +190,7 @@ export default function ContactPageClient() {
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <FadeInWhenVisible>
-              {/* Section Header - Military Construction Standard */}
+              {/* Section Header - Contact Overview */}
               <div className="mb-16 sm:mb-20 text-center">
                 {/* Icon with decorative lines */}
                 <div className="flex items-center justify-center mb-8 gap-4">
@@ -317,14 +315,14 @@ export default function ContactPageClient() {
                   title="BBB Accredited Business - A+ Rating"
                   className="transition-transform hover:scale-105"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.bbb.sealHorizontal}
                     alt="BBB Accredited A+ Rating"
                     className="h-10 w-auto dark:hidden"
                     loading="lazy"
                   />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.bbb.sealHorizontalWhite}
                     alt="BBB Accredited A+ Rating"
@@ -339,7 +337,7 @@ export default function ContactPageClient() {
                   title="AGC of Washington Member"
                   className="transition-transform hover:scale-105"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src="/images/logo/agc-member.webp"
                     alt="AGC of Washington Member"
@@ -354,14 +352,14 @@ export default function ContactPageClient() {
                   title="Travelers Insurance - Auto & Bonding Partner"
                   className="transition-transform hover:scale-105"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.travelers.logo}
                     alt="Travelers Insurance - Auto & Bonding Partner"
                     className="h-8 w-auto dark:hidden"
                     loading="lazy"
                   />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.travelers.logoWhite}
                     alt="Travelers Insurance - Auto & Bonding Partner"
@@ -376,14 +374,14 @@ export default function ContactPageClient() {
                   title="Pasco Chamber of Commerce Member"
                   className="transition-transform hover:scale-105"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.chambers.pasco.logo}
                     alt="Pasco Chamber of Commerce Member"
                     className="h-10 w-auto dark:hidden"
                     loading="lazy"
                   />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.chambers.pasco.logoWhite}
                     alt="Pasco Chamber of Commerce Member"
@@ -398,7 +396,7 @@ export default function ContactPageClient() {
                   title="Richland Chamber of Commerce Member"
                   className="transition-transform hover:scale-105"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.chambers.richland.logo}
                     alt="Richland Chamber of Commerce Member"
@@ -415,7 +413,7 @@ export default function ContactPageClient() {
                   title="Tri-City Regional Chamber of Commerce Member"
                   className="transition-transform hover:scale-105"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={COMPANY_INFO.chambers.triCityRegional.logo}
                     alt="Tri-City Regional Chamber of Commerce Member"

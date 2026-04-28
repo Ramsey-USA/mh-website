@@ -25,17 +25,17 @@ export function ProjectsHero() {
               icon="emoji_events"
               size="4xl"
               className="text-white drop-shadow-lg"
-              ariaLabel="Victories - Completed projects"
+              ariaLabel="Projects - Completed projects"
             />
           </div>
         </div>
         <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white drop-shadow-2xl leading-tight tracking-tight">
           <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-            Missions → Projects
+            Portfolio → Projects
           </span>
-          <span className="block text-brand-secondary">Victories</span>
+          <span className="block text-brand-secondary">Completed Projects</span>
           <span className="block text-brand-primary">
-            650+ Missions Completed - Proven Results
+            650+ Projects Completed - Proven Results
           </span>
           <span className="block text-white/90">
             Building projects for the Client,{" "}

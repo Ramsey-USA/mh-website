@@ -57,7 +57,7 @@ export function ProjectsStatsSection() {
             {/* Description */}
             <p className="mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                650+ construction missions completed
+                650+ construction projects completed
               </span>
               —numbers that reflect our Veteran-Owned commitment to proven
               results and trusted partnerships across our Tri-State licensed

@@ -20,7 +20,7 @@ export function ServicesHero() {
               icon="map"
               size="4xl"
               className="text-white drop-shadow-lg"
-              ariaLabel="The Battle Plan - Construction services"
+              ariaLabel="Construction services and operations"
             />
           </div>
         </div>
@@ -28,14 +28,15 @@ export function ServicesHero() {
           <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
             Operations → Services
           </span>
-          <span className="block text-brand-secondary">The Battle Plan</span>
+          <span className="block text-brand-secondary">
+            Construction Services
+          </span>
           <span className="block text-brand-primary">
-            Strategic Construction Excellence
+            Your project deserves expert oversight
           </span>
           <span className="block text-white/90">
-            Building projects for the Client,{" "}
-            <span className="font-black italic text-bronze-300">NOT</span> the
-            Dollar
+            Commercial, industrial, and public-sector delivery across the
+            Pacific Northwest
           </span>
         </h1>
       </div>
