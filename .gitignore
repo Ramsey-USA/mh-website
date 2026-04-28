@@ -16,8 +16,8 @@
 # local env files
 # misc
 # next.js
-# package-lock.json
 # pnpm-lock.yaml
+package-lock.json
 # production
 # testing
 # typescript
@@ -45,6 +45,7 @@
 .next/cache/
 .open-next/
 .pnp.js
+.swc/
 .vercel
 .vscode/
 .wrangler/
