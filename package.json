@@ -175,7 +175,8 @@
   "pnpm": {
     "overrides": {
       "fast-xml-parser": "^5.7.0",
-      "uuid": "^14.0.0"
+      "uuid": "^14.0.0",
+      "postcss": ">=8.5.10"
     }
   },
   "lint-staged": {
@@ -198,6 +199,7 @@
     "yaml": ">=2.8.3",
     "fast-xml-parser": "^5.7.0",
     "uuid": "^14.0.0",
-    "basic-ftp": ">=5.2.2"
+    "basic-ftp": ">=5.2.2",
+    "postcss": ">=8.5.10"
   }
 }
