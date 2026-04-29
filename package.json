@@ -1,6 +1,6 @@
 {
   "name": "mh-website",
-  "version": "7.0.0",
+  "version": "7.1.0",
   "description": "Veteran-owned construction website for MH Construction - Building Projects for the Client, NOT the Dollar",
   "private": true,
   "scripts": {
