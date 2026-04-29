@@ -50,6 +50,9 @@ const nextConfig = {
   compress: true, // Enable gzip compression
   productionBrowserSourceMaps: false, // Disable source maps in production
 
+  // Transpile ESM-only packages so next/jest transforms them in tests
+  transpilePackages: ["jose"],
+
   // Target modern browsers to reduce polyfills
   // Matches browserslist: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
   // Note: swcMinify is enabled by default in Next.js 13+

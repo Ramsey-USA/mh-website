@@ -1,28 +1,24 @@
-import { FlatCompat } from "@eslint/eslintrc";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
+import reactPlugin from "eslint-plugin-react";
 import tsEslintPlugin from "@typescript-eslint/eslint-plugin";
+import tsEslintParser from "@typescript-eslint/parser";
 import nextPlugin from "@next/eslint-plugin-next";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  resolvePluginsRelativeTo: __dirname,
-});
-
 /**
  * MH Construction - Modern ESLint Configuration
  *
- * Modern flat config (ESLint 9+) optimized for Next.js 15 with TypeScript
+ * Native flat config (ESLint 10) optimized for Next.js 16 with TypeScript
  * Production-ready rules ensuring code quality and consistency
  *
  * @see docs/project/architecture.md
- * @version 2.1.0
- * @lastUpdated 2026-03-26
+ * @version 2.2.0
+ * @lastUpdated 2026-04-29
  */
 const eslintConfig = [
   // === IGNORE PATTERNS ===
@@ -76,20 +72,48 @@ const eslintConfig = [
       // Temporary and generation scripts (not production code)
       "tmp/**",
       "documents/scripts/**",
+
+      // GitHub tooling
+      ".github/**",
     ],
   },
 
-  // === BASE CONFIGURATION ===
-  // Use legacy-compatible preset names. Note: @next/next core-web-vitals
-  // preset is temporarily excluded because the current plugin config shape
-  // triggers ESLint 9 schema validation errors in FlatCompat.
-  ...compat.extends(
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:@typescript-eslint/recommended",
-  ),
+  // === REACT PLUGIN (registered, no recommended preset due to ESLint 10 API) ===
+  // eslint-plugin-react@7.x uses context.getFilename() which was removed in
+  // ESLint 10. We register the plugin and declare only the rules we actually
+  // use (avoiding any rule that triggers the broken version-detection code).
+  {
+    plugins: { react: reactPlugin },
+    settings: { react: { version: "detect" } },
+    rules: {
+      "react/jsx-uses-vars": "warn",
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off",
+    },
+    languageOptions: reactPlugin.configs.flat.recommended.languageOptions,
+  },
 
-  // === CUSTOM RULES ===
+  // === REACT HOOKS RECOMMENDED (flat config) ===
+  reactHooksPlugin.configs.flat.recommended,
+
+  // === TYPESCRIPT-ESLINT RECOMMENDED ===
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    languageOptions: {
+      parser: tsEslintParser,
+      parserOptions: {
+        project: path.join(__dirname, "tsconfig.json"),
+      },
+    },
+    plugins: {
+      "@typescript-eslint": tsEslintPlugin,
+    },
+    rules: {
+      ...tsEslintPlugin.configs.recommended.rules,
+    },
+  },
+
+  // === CUSTOM RULES - ALL FILES ===
   {
     plugins: {
       "@typescript-eslint": tsEslintPlugin,
@@ -122,7 +146,7 @@ const eslintConfig = [
       "react/no-danger": "off", // Allowed for JSON-LD structured data
       "react/prop-types": "off", // Using TypeScript instead
 
-      // === TypeScript Rules ===
+      // === TypeScript Rules (non-type-aware) ===
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/no-unused-vars": [
         "warn",
@@ -136,13 +160,6 @@ const eslintConfig = [
       "@typescript-eslint/no-unsafe-function-type": "warn",
       "@typescript-eslint/no-empty-function": "warn",
       "@typescript-eslint/no-inferrable-types": "warn",
-      "@typescript-eslint/consistent-type-imports": [
-        "warn",
-        {
-          prefer: "type-imports",
-          fixStyle: "inline-type-imports",
-        },
-      ],
 
       // === General Code Quality ===
       "no-console": ["warn", { allow: ["warn", "error", "info"] }],
@@ -212,6 +229,20 @@ const eslintConfig = [
       "jsx-a11y/aria-role": "error",
       "jsx-a11y/click-events-have-key-events": "warn",
       "jsx-a11y/no-static-element-interactions": "warn",
+    },
+  },
+
+  // === TYPESCRIPT-SPECIFIC RULES (type-aware) ===
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    rules: {
+      "@typescript-eslint/consistent-type-imports": [
+        "warn",
+        {
+          prefer: "type-imports",
+          fixStyle: "inline-type-imports",
+        },
+      ],
     },
   },
 ];
