@@ -1,27 +1,13 @@
 /**
- * Tests for lib/constants/dashboard-access.ts and navigation-icons.ts
+ * Tests for lib/constants/navigation-icons.ts
  */
 
-import { DASHBOARD_ACCESS_CODE } from "../dashboard-access";
 import {
   PAGE_ICONS,
   SEMANTIC_ICONS,
   SOCIAL_ICONS,
   SECTION_ICONS,
 } from "../navigation-icons";
-
-// ── dashboard-access ──────────────────────────────────────────────────────────
-
-describe("DASHBOARD_ACCESS_CODE", () => {
-  it("exports a non-empty string", () => {
-    expect(typeof DASHBOARD_ACCESS_CODE).toBe("string");
-    expect(DASHBOARD_ACCESS_CODE.length).toBeGreaterThan(0);
-  });
-
-  it("follows the expected format MHC-XXXX-WORD", () => {
-    expect(DASHBOARD_ACCESS_CODE).toMatch(/^MHC-\d+-[A-Z]+$/);
-  });
-});
 
 // ── navigation-icons ──────────────────────────────────────────────────────────
 

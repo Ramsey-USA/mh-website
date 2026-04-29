@@ -18,9 +18,6 @@ export { Tabs, TabsContent, TabsList, TabsTrigger } from "./base/tabs";
 export { Input, Textarea } from "./forms/Input";
 
 // Layout Components
-export { PageHero } from "./layout/PageHero";
-export { Section } from "./layout/Section";
-export type { SectionVariant, SectionPadding } from "./layout/Section";
 export { ThemeToggle } from "./layout/ThemeToggle";
 
 // Modal Components

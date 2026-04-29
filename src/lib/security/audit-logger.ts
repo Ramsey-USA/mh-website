@@ -530,6 +530,7 @@ export class AuditLogger {
   }
 
   private generateEventId(): string {
+    // substring(2, 11) yields 9 chars (end index is exclusive)
     return `audit_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`;
   }
 
