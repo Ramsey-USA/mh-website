@@ -34,6 +34,12 @@ const ROUTE_SECURITY_CONFIG: Record<
   },
 };
 
+// Sort by specificity (longest prefix first) once at module load so
+// getRouteConfig() doesn't re-sort on every middleware invocation.
+const SORTED_ROUTE_CONFIG = Object.entries(ROUTE_SECURITY_CONFIG).sort(
+  ([a], [b]) => b.length - a.length,
+);
+
 // Security paths that bypass normal processing
 const SECURITY_BYPASS_PATHS = [
   "/api/security/status",
@@ -324,12 +330,7 @@ function shouldBypassSecurity(pathname: string): boolean {
 }
 
 function getRouteConfig(pathname: string) {
-  // Sort by specificity (longest prefix first) to prevent "/" from
-  // matching before more specific routes like "/admin".
-  const sorted = Object.entries(ROUTE_SECURITY_CONFIG).sort(
-    ([a], [b]) => b.length - a.length,
-  );
-  for (const [route, config] of sorted) {
+  for (const [route, config] of SORTED_ROUTE_CONFIG) {
     if (pathname.startsWith(route)) {
       return config;
     }

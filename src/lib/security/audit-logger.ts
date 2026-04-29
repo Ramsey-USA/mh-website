@@ -530,7 +530,7 @@ export class AuditLogger {
   }
 
   private generateEventId(): string {
-    return `audit_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    return `audit_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`;
   }
 
   private maskSensitiveData(data?: string): string | undefined {

@@ -90,6 +90,8 @@ const nextConfig = {
       "node_modules/@next/bundle-analyzer/**/*",
       "node_modules/husky/**/*",
       "node_modules/@commitlint/**/*",
+      "node_modules/prettier/**/*",
+      "node_modules/@prettier/**/*",
       "node_modules/markdownlint-cli2/**/*",
       "node_modules/cspell/**/*",
     ],
