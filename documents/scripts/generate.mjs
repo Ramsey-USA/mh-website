@@ -214,7 +214,9 @@ const BRAND_TOKENS = buildBrandTokens(BRAND);
 const BRAND_LICENSES_INLINE = BRAND_TOKENS["{{BRAND_LICENSES_INLINE}}"];
 const BRAND_COLORS = {
   primary: BRAND.colors.primary,
+  primaryDark: BRAND.colors.primaryDark,
   secondary: BRAND.colors.secondary,
+  secondaryDark: BRAND.colors.secondaryDark,
   secondaryText: BRAND.colors.secondaryText,
 };
 
@@ -490,46 +492,49 @@ function buildSectionHeaderHtml(sectionNum, sectionTitle, revNum, revDate) {
 }
 
 /**
- * Standard footer HTML for all section PDFs.
- * Uses Puppeteer's native <span class="pageNumber"> / <span class="totalPages"> injection.
+ * Build the per-section footer HTML rendered by Puppeteer on EVERY printed page.
+ *
+ * UX REFRESH 2026 — three-tier hierarchy + thumb-zone QR FAB:
+ *   Tier 1: Page chip · Section locator · Revision        (primary, largest)
+ *   Tier 2: WBS structural context · Trust marks          (secondary)
+ *   Tier 3: Company / contact / license micro-line        (ambient, smallest)
+ *   Right column (spans tiers): QR FAB — thumb-accessible,
+ *                               same scan target on every page.
+ *
+ * Styles are inlined because Puppeteer's footer template runs in an isolated
+ * document context with no access to components.css.
  */
-// PRECISION OVERRIDE 4 — Universal footer per cover page match:
-// Left: compact company/contact line  |  Center: explicit WBS hierarchy + page counter  |  Right: trust marks
-const SECTION_FOOTER_HTML = [
-  // Outer container — matches cover-bottom layout (light variant)
-  `<div style="width:100%;border-top:0.75pt solid ${BRAND_COLORS.secondary};`,
-  `padding:0 0.75in 0 1.25in;height:0.65in;display:flex;align-items:baseline;`,
-  `justify-content:space-between;gap:0.2in;font-family:'Helvetica Neue',Arial,sans-serif;`,
-  `-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box;">`,
+function buildSectionFooterHtml(sectionNum, sectionTitle, qrDataUrl) {
+  // Minimal, breathable footer (section title lives in the page header):
+  //   [ Pg X / Y ]   © YYYY MH Construction, Inc. … (trademark)   Rev # · Date   [QR]
+  const year = new Date().getFullYear();
+  const trademark = `\u00a9 ${year} ${BRAND.companyName}. All rights reserved. \u201cMH Construction\u201d and the MH mark are trademarks of ${BRAND.companyName}.`;
 
-  // LEFT — Company/contact baseline (Pasco branding lock, left-justified)
-  `<div style="flex:1 1 auto;min-width:2.8in;color:${BRAND_COLORS.secondaryText};font-size:8pt;line-height:1;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">`,
-  `<span style="font-weight:700;color:${BRAND_COLORS.primary};">${BRAND.companyName}</span>&nbsp;&nbsp;`,
-  `<span style="color:${BRAND_COLORS.secondaryText};">${BRAND.addressCityStateZip}</span>&nbsp;&nbsp;&middot;&nbsp;&nbsp;${BRAND.phone}&nbsp;&nbsp;&middot;&nbsp;&nbsp;${BRAND.website}`,
-  `</div>`,
+  const qrMark = qrDataUrl
+    ? `<img src="${qrDataUrl}" alt="Scan MISH ${sectionNum}" style="flex:0 0 auto;width:0.42in;height:0.42in;display:block;border-radius:3pt;border:0.5pt solid ${BRAND_COLORS.secondary};" />`
+    : "";
 
-  // CENTER — WBS structure lockup on same baseline
-  `<div style="flex:0 0 auto;min-width:0;color:${BRAND_COLORS.secondaryText};font-size:7pt;line-height:1;white-space:nowrap;">`,
-  `<span style="font-size:7.2pt;font-weight:800;color:${BRAND_COLORS.secondary};letter-spacing:0.05em;text-transform:uppercase;">WBS Structure</span>&nbsp;&nbsp;`,
-  `<span><span style="font-weight:700;color:${BRAND_COLORS.primary};">1.0</span> Program Area&nbsp;&nbsp;<span style="font-weight:700;color:${BRAND_COLORS.primary};">1.1</span> Topic&nbsp;&nbsp;<span style="font-weight:700;color:${BRAND_COLORS.primary};">1.1.1</span> Req.</span>`,
-  `</div>`,
+  return [
+    `<div style="width:100%;font-family:'Helvetica Neue',Arial,sans-serif;`,
+    `padding:6pt 0.75in 0 1.25in;border-top:0.75pt solid ${BRAND_COLORS.secondary};`,
+    `box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;`,
+    `display:flex;align-items:center;gap:10pt;">`,
 
-  // RIGHT — Trust marks + page number (far-right anchor)
-  `<div style="flex:0 0 auto;display:flex;align-items:baseline;gap:0.07in;">`,
-  BBB_LOGO_DATA_URL
-    ? `<img src="${BBB_LOGO_DATA_URL}" style="height:0.25in;width:auto;display:block;flex-shrink:0;align-self:center;" alt="BBB Accredited A+" />`
-    : "",
-  AGC_LOGO_B64
-    ? `<img src="${AGC_LOGO_B64}" style="height:0.25in;width:auto;display:block;flex-shrink:0;align-self:center;" alt="AGC Member" />`
-    : "",
-  TRAVELERS_LOGO_B64
-    ? `<img src="${TRAVELERS_LOGO_B64}" style="height:0.19in;width:auto;display:block;flex-shrink:0;align-self:center;" alt="Travelers Insurance Partner" />`
-    : "",
-  `<span style="font-size:7.5pt;font-weight:700;color:${BRAND_COLORS.secondaryText};white-space:nowrap;margin-left:0.08in;border-left:0.5pt solid #ccc;padding-left:0.08in;line-height:1;align-self:center;">Pg.&nbsp;<span class='pageNumber'></span>&nbsp;of&nbsp;<span class='totalPages'></span></span>`,
-  `</div>`,
+    // Page chip
+    `<span style="flex:0 0 auto;background:${BRAND_COLORS.primary};color:#fff;padding:2pt 8pt;border-radius:9pt;font-size:8.5pt;font-weight:700;letter-spacing:0.03em;">Pg.&nbsp;<span class="pageNumber"></span>&nbsp;/&nbsp;<span class="totalPages"></span></span>`,
 
-  `</div>`,
-].join("");
+    // Trademark notice (truncates if needed)
+    `<span style="flex:1 1 auto;min-width:0;color:${BRAND_COLORS.secondaryText};font-size:7.5pt;letter-spacing:0.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${trademark}</span>`,
+
+    // Revision (subtle)
+    `<span style="flex:0 0 auto;color:${BRAND_COLORS.secondaryText};font-size:7.5pt;letter-spacing:0.02em;">Rev ${BRAND.revisionNumber} \u00b7 ${BRAND.revisionDate}</span>`,
+
+    // Small QR
+    qrMark,
+
+    `</div>`,
+  ].join("");
+}
 
 /**
  * Generate a QR code as a base64 PNG data URL for embedding in HTML.
@@ -1052,6 +1057,13 @@ async function generateSections(filter = null) {
       BRAND.revisionDate,
     );
 
+    // UX REFRESH 2026 — three-tier footer + thumb-zone QR FAB on every page
+    const footerHtml = buildSectionFooterHtml(
+      section.numberStr,
+      section.title,
+      qrDataUrl,
+    );
+
     const pdfName = `${section.numberStr}-${section.slug}.pdf`;
     const pdfPath = join(sectionsDir, pdfName);
     await renderHtmlToPdf(
@@ -1060,11 +1072,11 @@ async function generateSections(filter = null) {
       {
         displayHeaderFooter: true,
         headerTemplate: headerHtml,
-        footerTemplate: SECTION_FOOTER_HTML,
+        footerTemplate: footerHtml,
         margin: {
           top: "1.0in", // accommodates 0.65in header + 0.35in gap
           right: "0.75in",
-          bottom: "0.9in", // accommodates 0.65in footer + 0.25in gap
+          bottom: "0.75in", // single-line footer + small QR mark
           left: "1.25in",
         },
       },
@@ -1304,14 +1316,8 @@ function cleanWordHtml(html) {
 
   // Drop any leading approval/program metadata block before the first
   // canonical section heading. Prefer 1.x, then fall back to any dotted heading.
-  out = out.replace(
-    /^[\s\S]*?(?=<(?:p|h[1-6])[^>]*>\s*1\.\d+(?:\.\d+)*\s+[A-Z])/i,
-    "",
-  );
-  out = out.replace(
-    /^[\s\S]*?(?=<(?:p|h[1-6])[^>]*>\s*\d+\.\d+(?:\.\d+)*\b)/i,
-    "",
-  );
+  out = out.replace(/^[\s\S]*?(?=<\w+[^>]*>\s*1\.[\d.]+\s+[A-Z])/i, "");
+  out = out.replace(/^[\s\S]*?(?=<\w+[^>]*>\s*\d+\.[\d.]+\b)/i, "");
 
   // Some Word extractions place legacy approval metadata and the first
   // canonical heading in the same paragraph. Keep only content from 1.x onward.
@@ -1361,6 +1367,53 @@ function cleanWordHtml(html) {
   out = out.replaceAll(/<li(\s[^>]*)?>/gi, '<li class="sec-bullet">');
 
   return out.trim();
+}
+
+/**
+ * Classify a single trimmed line of section text and render it as HTML.
+ * Returns the rendered HTML string for structural lines (dotted section
+ * numbers, numbered list items, bullets, all-caps sub-headings), or `null`
+ * if the line should be treated as paragraph prose by the caller.
+ */
+function renderTextLine(line) {
+  // Dotted section number: "2.3", "2.3.1", "2.3.1.1" — flush-left heading
+  const numMatch = /^(\d+\.\d+(?:\.\d+)*)\s+(.+)$/.exec(line);
+  if (numMatch) {
+    return (
+      `<div class="sec-num-row">` +
+      `<span class="sec-num">${escapeHtml(numMatch[1])}</span>` +
+      `<span class="sec-num-text">${escapeHtml(numMatch[2].trim())}</span>` +
+      `</div>`
+    );
+  }
+
+  // Plain numbered list item: "1. Item text…" or "10. Item text…"
+  const numListMatch = /^(\d{1,2})\.\s+(.+)$/.exec(line);
+  if (numListMatch) {
+    return (
+      `<div class="sec-num-row">` +
+      `<span class="sec-num">${escapeHtml(numListMatch[1])}.</span>` +
+      `<span class="sec-num-text">${escapeHtml(numListMatch[2].trim())}</span>` +
+      `</div>`
+    );
+  }
+
+  // Bullet point (• character)
+  if (line.startsWith("\u2022")) {
+    return `<li class="sec-bullet">${escapeHtml(line.slice(1).trim())}</li>`;
+  }
+
+  // All-caps short line → sub-heading (skip bare numbers and strip lines)
+  if (
+    line.length < 90 &&
+    line === line.toUpperCase() &&
+    /[A-Z]{2}/.test(line) &&
+    !/^\d/.test(line)
+  ) {
+    return `<h4 class="sec-subhead">${escapeHtml(line)}</h4>`;
+  }
+
+  return null;
 }
 
 /**
@@ -1438,17 +1491,20 @@ function textToHtml(text) {
     // Bullet glyphs → newline + standard bullet
     .replaceAll(/\s+([\u2022\u25AA\u25CF\u25E6\uF0B7])\s*/g, "\n\u2022 ")
     // WBS dotted numbers: "1.0 HEADING", "2.1.3 Sub-item"
-    .replaceAll(/\s(?=\d+\.\d+(?:\.\d+)*\s+[A-Z\(])/g, "\n")
+    .replaceAll(/\s(?=\d+\.\d+(?:\.\d+)*\s+[A-Z(])/g, "\n")
     // Plain numbered list items: "1. Item" or "10. Item"
-    .replaceAll(/\s(?=\d{1,2}\.\s+[A-Z\(])/g, "\n")
+    .replaceAll(/\s(?=\d{1,2}\.\s+[A-Z(])/g, "\n")
     // ALL-CAPS section headings followed by a period: "GENERAL. " "MISSION. "
-    .replaceAll(/\s(?=[A-Z]{2}[A-Z\s]*\.\s+[A-Z\(])/g, "\n")
+    .replaceAll(/\s(?=[A-Z]{2}[A-Z\s]*\.\s+[A-Z(])/g, "\n")
     // Split Training & Reference Resources section into individual lines
     .replaceAll(/\s+(?=Training\s*&\s*Reference\s*Resources)/gi, "\n")
     .replaceAll(
-      /\s+(?=Travelers\s+(?:Risk\s+Control|Training\s+Library):|OSHA\s+Reference:|AGC\s+Safety\s+Resources:|WISHA\s*\/)/gi,
+      /\s+(?=Travelers\s+(?:Risk\s+Control|Training\s+Library):)/gi,
       "\n",
     )
+    .replaceAll(/\s+(?=OSHA\s+Reference:)/gi, "\n")
+    .replaceAll(/\s+(?=AGC\s+Safety\s+Resources:)/gi, "\n")
+    .replaceAll(/\s+(?=WISHA\s*\/)/gi, "\n")
     .replaceAll(/\s+(?=NOTE:\s+WISHA)/gi, "\n")
     // Signature/header table artifacts on same line as content — strip them
     .replaceAll(/\s*_{3,}\s*\/\s*Date\s*/g, "");
@@ -1471,52 +1527,10 @@ function textToHtml(text) {
     }
     if (STRIP.some((p) => p.test(line))) continue;
 
-    // Dotted section number: "2.3", "2.3.1", "2.3.1.1" — flush-left heading
-    const sectionNumberRegex = /^(\d+\.\d+(?:\.\d+)*)\s+(.+)$/;
-    const numMatch = sectionNumberRegex.exec(line);
-    if (numMatch) {
+    const rendered = renderTextLine(line);
+    if (rendered !== null) {
       flush();
-      parts.push(
-        `<div class="sec-num-row">` +
-          `<span class="sec-num">${escapeHtml(numMatch[1])}</span>` +
-          `<span class="sec-num-text">${escapeHtml(numMatch[2].trim())}</span>` +
-          `</div>`,
-      );
-      continue;
-    }
-
-    // Plain numbered list item: "1. Item text…" or "10. Item text…"
-    const numberedListRegex = /^(\d{1,2})\.\s+(.+)$/;
-    const numListMatch = numberedListRegex.exec(line);
-    if (numListMatch) {
-      flush();
-      parts.push(
-        `<div class="sec-num-row">` +
-          `<span class="sec-num">${escapeHtml(numListMatch[1])}.</span>` +
-          `<span class="sec-num-text">${escapeHtml(numListMatch[2].trim())}</span>` +
-          `</div>`,
-      );
-      continue;
-    }
-
-    // Bullet point (• character)
-    if (line.startsWith("\u2022")) {
-      flush();
-      parts.push(
-        `<li class="sec-bullet">${escapeHtml(line.slice(1).trim())}</li>`,
-      );
-      continue;
-    }
-
-    // All-caps short line → sub-heading (skip bare numbers and strip lines)
-    if (
-      line.length < 90 &&
-      line === line.toUpperCase() &&
-      /[A-Z]{2}/.test(line) &&
-      !/^\d/.test(line)
-    ) {
-      flush();
-      parts.push(`<h4 class="sec-subhead">${escapeHtml(line)}</h4>`);
+      parts.push(rendered);
       continue;
     }
 
@@ -1753,7 +1767,10 @@ function applySectionReferenceFixes(html, sectionNumber) {
       /Fall\s+Protection([^<]{0,120}?)MISH\s*11/gi,
       "Fall Protection$1MISH 21",
     );
-    out = out.replaceAll(/MISH\s*11\s*\(\s*Fall\s*Protection\s*\)/gi, "MISH 21 (Fall Protection)");
+    out = out.replaceAll(
+      /MISH\s*11\s*\(\s*Fall\s*Protection\s*\)/gi,
+      "MISH 21 (Fall Protection)",
+    );
   }
 
   if (sectionNumber === 10) {

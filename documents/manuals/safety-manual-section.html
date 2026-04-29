@@ -98,21 +98,17 @@
         border-bottom: none;
       }
 
-      /* ── Section body — flush-left numbers, hanging-indent body text ────── */
+      /* ── Section body — flush-left numbers, hanging-indent body text, looser leading for field readability ── */
       /*
-     * PRECISION FIX 1+2:
-     *   - sec-num-row, h4, sec-subhead → margin-left: 0  (absolute left anchor)
-     *   - p, blockquote, dt, dd       → margin-left: 0.5in (universal hanging indent)
-     * PRECISION FIX 3:
-     *   - ul/ol at top level          → margin-left: 0.75in (first-level bullets)
-     *   - nested ul/ol inside those   → additional 0.25in (reaches 1.0in sub-bullets)
-     * PRECISION FIX 4:
-     *   - table                       → box-sizing border-box; padding 0.5in a side
-     * PRECISION FIX 5:
-     *   - .section-info-row           → no extra margin; table fills full text column
+     * UX REFRESH 2026:
+     *   - Body line-height bumped to var(--leading-field) (1.6) for outdoor / harsh-light reading
+     *   - Paragraph spacing widened to 9pt for breathable scan rhythm
+     *   - Sub-topic heads styled as card-chips (see components.css .sec-subhead)
      */
       .section-body {
-        margin-top: 4pt;
+        margin-top: 6pt;
+        font-size: 10pt;
+        line-height: var(--leading-field);
       }
 
       /* Keep checklist and inspection tables readable without cell overflow. */
@@ -139,7 +135,7 @@
       /* Universal hanging indent — body text indented 0.5" from left anchor */
       .section-body p {
         margin-left: 0.5in;
-        margin-bottom: 7pt;
+        margin-bottom: 9pt;
       }
 
       /*
@@ -193,96 +189,222 @@
         box-sizing: border-box;
       }
 
+      /* ── Decorative section header card ─────────────────────────────────── */
+      /* Combines the section header (MISH ## + Title) with the document      */
+      /* metadata table inside one branded container.                          */
+      .section-header-card {
+        position: relative;
+        margin: 0 0 16pt;
+        padding: 14pt 16pt 12pt;
+        background: linear-gradient(180deg, #f6f3ec 0%, #ffffff 70%);
+        border: 0.75pt solid var(--color-secondary);
+        border-left: 4pt solid var(--color-primary);
+        border-radius: 6pt;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .section-header-card::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -0.5pt;
+        right: -0.5pt;
+        height: 3pt;
+        background: var(--color-primary);
+        border-radius: 6pt 6pt 0 0;
+      }
+
+      .shc-title-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12pt;
+        padding-bottom: 8pt;
+        margin-bottom: 9pt;
+        border-bottom: 0.5pt solid #e0d6c2;
+      }
+      .shc-title-block {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+      .shc-mish-chip {
+        display: inline-block;
+        background: var(--color-primary);
+        color: #ffffff;
+        font-size: 8.5pt;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 2pt 9pt;
+        border-radius: 9pt;
+        margin-bottom: 5pt;
+      }
+      .shc-title {
+        font-size: 18pt;
+        font-weight: 700;
+        color: var(--color-primary);
+        margin: 0;
+        line-height: 1.15;
+        letter-spacing: -0.005em;
+      }
+      .shc-rev-badge {
+        flex: 0 0 auto;
+        text-align: right;
+        font-family: var(--font-body);
+        background: #ffffff;
+        border: 0.5pt solid var(--color-secondary);
+        border-radius: 4pt;
+        padding: 5pt 9pt;
+        min-width: 1.2in;
+      }
+      .shc-rev-badge .shc-rev-label {
+        display: block;
+        font-size: 6.5pt;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--color-secondary-text);
+        margin-bottom: 1pt;
+      }
+      .shc-rev-badge .shc-rev-value {
+        display: block;
+        font-size: 9pt;
+        font-weight: 700;
+        color: var(--color-primary-dark);
+        line-height: 1.15;
+      }
+
+      /* 3-column metadata grid — Document / Program / Licenses */
+      .shc-meta-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 2fr 1.6fr;
+        gap: 10pt;
+      }
+      .shc-meta-cell {
+        display: flex;
+        flex-direction: column;
+        gap: 2pt;
+        padding-left: 8pt;
+        border-left: 1.5pt solid var(--color-secondary);
+      }
+      .shc-meta-cell:first-child {
+        padding-left: 0;
+        border-left: 0;
+      }
+      .shc-meta-label {
+        font-size: 6.8pt;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--color-secondary-text);
+      }
+      .shc-meta-value {
+        font-size: 9pt;
+        font-weight: 600;
+        color: #1f2937;
+        line-height: 1.3;
+      }
+      .shc-meta-value strong {
+        color: var(--color-primary-dark);
+      }
+
       /* Fix 5 layout handled above in .section-info-row block */
+
+      /* ── Page watermark ─────────────────────────────────────────────
+         Fixed-position MH logo that repeats on every printed page.
+         Chrome's print engine paints fixed elements once per page.
+         Kept very faint (6% opacity) so it never competes with text. */
+      .page-watermark {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 5.25in;
+        height: 5.25in;
+        margin: -2.625in 0 0 -2.625in;
+        background-image: url("{{BRAND_LOGO_COLOR}}");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        opacity: 0.06;
+        pointer-events: none;
+        z-index: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      /* Lift content above watermark in stacking context */
+      .section-header-card,
+      .section-body,
+      main,
+      article,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      ul,
+      ol,
+      table {
+        position: relative;
+        z-index: 1;
+      }
     </style>
   </head>
   <body>
-    <!-- ── MISH designator + section title — bold 18pt MHC Green ────────── -->
-    <div class="mish-designator">MISH {{SECTION_NUMBER}}</div>
-    <div class="mish-section-title">{{SECTION_TITLE}}</div>
+    <!-- Page watermark — repeats on every printed page (5.25" centered, 6% opacity) -->
+    <div class="page-watermark" aria-hidden="true"></div>
 
-    <!-- ── Revision info table + QR code ────────────────────────────────── -->
-    <!-- QR block comes first in DOM so it floats right correctly             -->
-    <div class="section-info-row">
-      <div class="qr-block qr-block-inline">
-        <img
-          src="{{QR_CODE_DATA_URL}}"
-          alt="QR — MISH {{SECTION_NUMBER}}"
-          class="qr-img"
-        />
-        <div class="qr-label">
-          <span class="qr-label-title">Digital Access</span>
-          <span class="qr-label-url"
-            >mhc-gc.com/resources/<br />safety-manual/section/{{SECTION_NUMBER}}</span
+    <!-- ── Decorative section header card ─────────────────────────────── -->
+    <!-- Wraps the MISH designator + title and the document metadata in a    -->
+    <!-- single branded container so the section opens with a polished       -->
+    <!-- identity panel. The thumb-zone QR FAB lives in the page footer.     -->
+    <section class="section-header-card" aria-label="Section identity">
+      <div class="shc-title-row">
+        <div class="shc-title-block">
+          <span class="shc-mish-chip">MISH&nbsp;{{SECTION_NUMBER}}</span>
+          <h1 class="shc-title">{{SECTION_TITLE}}</h1>
+        </div>
+        <div class="shc-rev-badge">
+          <span class="shc-rev-label">Revision</span>
+          <span class="shc-rev-value"
+            >Rev. {{BRAND_REVISION_NUMBER}}<br />{{BRAND_REVISION_DATE}}</span
           >
         </div>
       </div>
-      <table class="revision-info-table">
-        <tr>
-          <td class="rit-label">Document</td>
-          <td class="rit-value">MISH {{SECTION_NUMBER}}</td>
-          <td class="rit-label">&nbsp;&nbsp;Revision</td>
-          <td class="rit-value" colspan="3">
-            Rev. {{BRAND_REVISION_NUMBER}} {{BRAND_REVISION_DATE}}
-          </td>
-        </tr>
-        <tr>
-          <td class="rit-label">Program</td>
-          <td class="rit-value" colspan="5">
-            MH Construction Industrial Safety &amp; Health Program (MISH)
-          </td>
-        </tr>
-        <tr>
-          <td class="rit-label">Licenses</td>
-          <td class="rit-value" colspan="5">
-            WA: {{BRAND_LICENSE_WA}} &nbsp;&middot;&nbsp; OR:
-            {{BRAND_LICENSE_OR}} &nbsp;&middot;&nbsp; ID: {{BRAND_LICENSE_ID}}
-          </td>
-        </tr>
-      </table>
-    </div>
+      <div class="shc-meta-grid">
+        <div class="shc-meta-cell">
+          <span class="shc-meta-label">Document</span>
+          <span class="shc-meta-value"
+            ><strong>MISH {{SECTION_NUMBER}}</strong></span
+          >
+        </div>
+        <div class="shc-meta-cell">
+          <span class="shc-meta-label">Program</span>
+          <span class="shc-meta-value"
+            >MH Construction Industrial Safety &amp; Health Program
+            (<strong>MISH</strong>)</span
+          >
+        </div>
+        <div class="shc-meta-cell">
+          <span class="shc-meta-label">Licenses</span>
+          <span class="shc-meta-value"
+            ><strong>WA</strong> {{BRAND_LICENSE_WA}} &middot;
+            <strong>OR</strong> {{BRAND_LICENSE_OR}} &middot;
+            <strong>ID</strong> {{BRAND_LICENSE_ID}}</span
+          >
+        </div>
+      </div>
+    </section>
 
     <!-- ── Section body content (injected by generate.mjs) ─────────────── -->
     <div class="section-body">{{SECTION_BODY}}</div>
 
-    <!-- ── QR footer (bottom of last page) ─────────────────────────────── -->
-    <div class="qr-footer">
-      <div class="qr-footer-inner">
-        <img src="{{QR_CODE_DATA_URL}}" alt="QR code" class="qr-footer-img" />
-        <div class="qr-footer-text">
-          <span class="qr-footer-title"
-            >MISH {{SECTION_NUMBER}} &mdash; {{SECTION_TITLE}}</span
-          >
-          <span class="qr-footer-sub"
-            >Scan to view this section online, download the PDF, or access the
-            full MH Construction Safety Manual.</span
-          >
-          <div class="qr-footer-wbs" aria-label="MISH WBS structure">
-            <span class="qr-footer-wbs-head">WBS Structure</span>
-            <div class="qr-footer-wbs-tree">
-              <span class="qr-footer-wbs-row level-0"
-                ><span class="qr-footer-wbs-code">MISH {{SECTION_NUMBER}}</span>
-                Program Section</span
-              >
-              <span class="qr-footer-wbs-row level-1"
-                ><span class="qr-footer-wbs-code">1.0</span> Program Area</span
-              >
-              <span class="qr-footer-wbs-row level-2"
-                ><span class="qr-footer-wbs-code">1.1</span> Topic</span
-              >
-              <span class="qr-footer-wbs-row level-3"
-                ><span class="qr-footer-wbs-code">1.1.1</span> Requirement</span
-              >
-            </div>
-          </div>
-          <span class="qr-footer-url">{{SECTION_URL}}</span>
-        </div>
-        <img
-          src="{{BRAND_LOGO_COLOR}}"
-          alt="{{BRAND_COMPANY_SHORT}}"
-          class="qr-footer-logo"
-        />
-      </div>
-    </div>
+    <!-- The per-section bottom QR block has been retired.                   -->
+    <!-- A thumb-accessible QR FAB now appears on EVERY printed page via the -->
+    <!-- Puppeteer footer template in generate.mjs (buildSectionFooterHtml). -->
   </body>
 </html>

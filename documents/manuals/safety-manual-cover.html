@@ -127,258 +127,263 @@
         background: white;
         overflow: hidden;
       }
+      /* ────────────────────────────────────────────────────────────────
+         Executive Briefing Folder — flat, vector-centric, sharp.
+         No drop shadows, no gradients, no decorative flourishes.
+         Hunter Green (#1e392c / #386851) as authority,
+         Leather Tan (#bd9264 / #8a6b49) as accent only.
+         ──────────────────────────────────────────────────────────────── */
       .cover {
         width: 8.5in;
         height: 11in;
-        display: flex;
-        flex-direction: column;
         position: relative;
         overflow: hidden;
-        background: white;
+        background: #ffffff;
+        font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
       }
-      /* Green + tan border frame */
+      /* Single sharp green frame with thin inner tan accent */
       .cover::before {
         content: "";
         position: absolute;
-        inset: 0.05in;
-        border: 0.13in solid #1e392c;
-        z-index: 20;
+        inset: 0.32in;
+        border: 1.25pt solid #1e392c;
+        z-index: 5;
         pointer-events: none;
       }
       .cover::after {
         content: "";
         position: absolute;
-        inset: 0.18in;
-        border: 0.03in solid #d9bd93;
-        z-index: 20;
+        inset: 0.4in;
+        border: 0.5pt solid #bd9264;
+        z-index: 5;
         pointer-events: none;
       }
-      /* Left-edge bronze accent bar — hidden for ink-saving print */
       .cover-spine-accent {
         display: none;
       }
-      /* Top band */
-      .cover-top {
-        background: white;
-        height: 0.55in;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: var(--spacing-cover-top-pad);
-        padding-left: 0.28in;
-        padding-right: 0.28in;
-        flex-shrink: 0;
-      }
-      .cover-top-text {
+
+      /* Eyebrow — single uppercase identity line */
+      .cover-eyebrow {
+        position: absolute;
+        top: 0.62in;
+        left: 0.85in;
+        right: 0.85in;
+        text-align: center;
         color: #1e392c;
-        font-size: var(--type-print-footer);
-        font-weight: 600;
-        letter-spacing: 0.14em;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.3em;
         text-transform: uppercase;
+        z-index: 6;
       }
-      /* Hero */
+      .cover-eyebrow .sep {
+        color: #bd9264;
+        margin: 0 8pt;
+      }
+
+      /* Hero — Logo as primary anchor, MISH PROGRAM as authority title */
       .cover-hero {
-        flex: 1;
-        background: white;
-        padding-left: 0.28in;
-        padding-right: 0.28in;
+        position: absolute;
+        top: 1.45in;
+        left: 0;
+        right: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        padding: var(--spacing-cover-hero-pad);
-        position: relative;
-        overflow: hidden;
-      }
-      .cover-hero::before {
-        display: none;
-        pointer-events: none;
-      }
-      .cover-logo-wrap {
-        background: transparent;
-        padding: var(--spacing-cover-logo-pad);
-        border-radius: 4pt;
-        display: inline-block;
-        margin-bottom: 0.35in;
-        position: relative;
-        z-index: 1;
-        box-shadow: none;
+        z-index: 6;
       }
       .cover-logo {
-        height: 1.35in;
+        height: 1.85in;
         width: auto;
         display: block;
+        margin-bottom: 0.42in;
       }
-      .cover-rule {
-        width: 2.5in;
-        height: 2.5pt;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          #bd9264,
-          #a87948,
-          #bd9264,
-          transparent
-        );
-        border-radius: 2pt;
+      .cover-title-bar {
+        width: 1.05in;
+        height: 3pt;
+        background: #386851;
         margin-bottom: 0.18in;
-        position: relative;
-        z-index: 1;
-      }
-      .cover-document-label {
-        color: #1e392c;
-        font-size: var(--type-print-cover-meta);
-        font-weight: 700;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        margin-bottom: 0.08in;
-        position: relative;
-        z-index: 1;
       }
       .cover-title {
         color: #1e392c;
-        font-family: var(--font-heading);
-        font-size: var(--type-print-cover-title);
+        font-family: "Helvetica Neue", "Arial Black", Arial, sans-serif;
+        font-size: 56pt;
         font-weight: 900;
         text-align: center;
-        line-height: 0.92;
-        margin: 0 0 0.12in;
-        letter-spacing: -0.02em;
-        max-width: 5.6in;
-        text-shadow: none;
-        position: relative;
-        z-index: 1;
+        line-height: 0.9;
+        margin: 0 0 0.2in;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
       }
       .cover-subtitle {
+        color: #386851;
+        font-size: 12pt;
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin: 0 0 0.07in;
+      }
+      .cover-subtitle-secondary {
         color: #8a6b49;
-        font-size: var(--type-print-cover-subtitle);
+        font-size: 9.5pt;
         font-weight: 600;
         text-align: center;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        max-width: 6.2in;
-        line-height: 1.25;
-        margin-bottom: 0.28in;
-        position: relative;
-        z-index: 1;
-      }
-      .cover-rule-bottom {
-        width: 1.5in;
-        height: 1.5pt;
-        background: rgba(168, 121, 72, 0.5);
-        border-radius: 1pt;
-        margin-bottom: 0.22in;
-        position: relative;
-        z-index: 1;
-      }
-      .cover-veteran {
-        display: inline-flex;
-        align-items: center;
-        gap: 8pt;
-        background: transparent;
-        border: 1pt solid rgba(30, 57, 44, 0.5);
-        border-radius: 3pt;
-        padding: var(--spacing-cover-badge-pad);
-        color: #1e392c;
-        font-size: var(--type-print-table);
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        position: relative;
-        z-index: 1;
-      }
-      .cover-veteran::before {
-        content: "★";
-        color: #8a6b49;
-        font-size: var(--type-print-cover-meta);
-      }
-      .cover-veteran::after {
-        content: "★";
-        color: #8a6b49;
-        font-size: var(--type-print-cover-meta);
-      }
-      /* QR code block in hero */
-      .cover-qr-block {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 0.22in;
-        position: relative;
-        z-index: 1;
-      }
-      .cover-qr-wrap {
-        background: white;
-        padding: var(--spacing-cover-qr-pad);
-        border-radius: 4pt;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
-        display: inline-block;
-      }
-      .cover-qr-img {
-        width: 1.2in;
-        height: 1.2in;
-        display: block;
-      }
-      .cover-qr-label {
-        color: #8a6b49;
-        font-size: var(--type-print-footer);
-        font-weight: 600;
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        margin-top: 0.06in;
+        margin: 0;
       }
-      /* Bottom band */
-      .cover-bottom {
-        background: white;
-        padding-left: 0.28in;
-        padding-right: 0.28in;
-        height: 0.65in;
-        padding: var(--spacing-cover-bottom-pad);
+
+      /* 1-3-1 statement — single lede, three pillars, single revision */
+      .cover-statement {
+        position: absolute;
+        bottom: 2.95in;
+        left: 0.85in;
+        right: 0.85in;
+        text-align: center;
+        z-index: 6;
+      }
+      .cv-stmt-lede {
+        color: #1e392c;
+        font-size: 10pt;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        margin-bottom: 0.14in;
+      }
+      .cv-stmt-pillars {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 0.2in;
-        flex-shrink: 0;
+        justify-content: center;
+        gap: 0.32in;
+        margin-bottom: 0.14in;
       }
-      .cover-bottom-left {
+      .cv-stmt-pillar {
+        color: #386851;
+        font-size: 8.5pt;
+        font-weight: 800;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+      .cv-stmt-divider {
+        width: 4pt;
+        height: 4pt;
+        background: #bd9264;
+      }
+      .cv-stmt-foot {
+        color: #8a6b49;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      /* Digital Access Seal — lower-right quadrant, tan-bordered card */
+      .digital-seal {
+        position: absolute;
+        bottom: 1.2in;
+        right: 0.85in;
+        width: 1.7in;
+        background: #ffffff;
+        border: 1pt solid #bd9264;
+        padding: 7pt 8pt 8pt;
+        z-index: 7;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .digital-seal-header {
+        text-align: center;
+        font-size: 6.5pt;
+        font-weight: 800;
+        letter-spacing: 0.24em;
         color: #1e392c;
-        font-size: var(--type-print-table-compact);
+        text-transform: uppercase;
+        border-bottom: 0.5pt solid #d9bd93;
+        padding-bottom: 4pt;
+        margin-bottom: 6pt;
+      }
+      .digital-seal-qr {
+        display: block;
+        width: 1.3in;
+        height: 1.3in;
+        margin: 0 auto;
+      }
+      .digital-seal-cta {
+        display: block;
+        text-align: center;
+        font-size: 6.5pt;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        color: #8a6b49;
+        text-transform: uppercase;
+        margin-top: 6pt;
+      }
+
+      /* Bottom band — licensing + contact, reduced scale, highly legible */
+      .cover-bottom {
+        position: absolute;
+        bottom: 0.55in;
+        left: 0.85in;
+        right: 0.85in;
+        z-index: 6;
+        border-top: 0.5pt solid #d9bd93;
+        padding-top: 8pt;
+        display: flex;
+        align-items: flex-end;
+        gap: 0.22in;
+      }
+      .cv-bottom-col {
         flex: 1;
         min-width: 0;
-        line-height: 1.65;
       }
-      .cover-bottom-left .sep {
-        color: #8a6b49;
-        margin: 0 5pt;
+      .cv-bottom-col.center {
+        flex: 0 0 auto;
+        text-align: center;
       }
-      .cover-bottom-right {
-        display: flex;
-        align-items: center;
-        gap: 0.18in;
-        flex-shrink: 0;
-      }
-      .cover-licenses {
+      .cv-bottom-col.right {
         text-align: right;
-        font-size: var(--type-print-footer);
-        color: #8a6b49;
-        white-space: nowrap;
-        line-height: 1.65;
       }
-      .cover-licenses .rev {
+      .cv-bottom-label {
+        color: #8a6b49;
+        font-size: 6pt;
+        font-weight: 800;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        margin-bottom: 3pt;
+      }
+      .cv-bottom-text {
         color: #1e392c;
-        font-weight: 700;
+        font-size: 8pt;
+        font-weight: 500;
+        line-height: 1.42;
+        letter-spacing: 0.02em;
+      }
+      .cv-bottom-text strong {
+        font-weight: 800;
+      }
+      .cv-license-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4pt 12pt;
+        justify-content: flex-end;
+      }
+      .cv-license-item {
+        font-size: 8pt;
+        color: #1e392c;
+        letter-spacing: 0.04em;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .cv-license-item .lic-tag {
+        color: #8a6b49;
+        font-weight: 800;
+        margin-right: 4pt;
+        letter-spacing: 0.12em;
       }
       .cover-agc {
-        height: 0.38in;
+        height: 0.42in;
         width: auto;
         display: block;
-        flex-shrink: 0;
-      }
-      .cover-bbb {
-        height: 0.38in;
-        width: auto;
-        display: block;
-        flex-shrink: 0;
       }
     </style>
   </head>

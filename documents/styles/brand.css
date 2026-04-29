@@ -54,6 +54,29 @@
   --color-note-text: #1e392c;
   --color-note-icon: #386851;
 
+  /* ── Stop-Work Red ──────────────────────────────── */
+  /* Field-grade safety red — high contrast against Hunter Green + Leather Tan
+     without breaking the brand aesthetic. Reserved for STOP-WORK / CRITICAL. */
+  --color-stopwork: #b3261e;
+  --color-stopwork-dark: #7a1a14;
+  --color-stopwork-bg: #fff5f4;
+  --color-stopwork-border: #b3261e;
+  --color-stopwork-chip: #ffe6e3;
+
+  /* ── Field-Readability Leading ──────────────────── */
+  /* Increased line-height for outdoor / harsh-light readability */
+  --leading-field: 1.6;
+  --leading-field-loose: 1.7;
+  --leading-tight: 1.35;
+  --leading-card: 1.55;
+
+  /* ── Surface / Card Tokens ──────────────────────── */
+  --surface-card-bg: #ffffff;
+  --surface-card-border: #e7e2da;
+  --surface-card-shadow: 0 0 0 0.4pt #e7e2da;
+  --surface-card-accent: #bd9264;
+  --surface-card-radius: 4pt;
+
   /* ── Typography ─────────────────────────────────── */
   --font-body: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
   --font-heading: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;

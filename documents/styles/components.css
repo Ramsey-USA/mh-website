@@ -956,3 +956,296 @@
 .ptp-injured-table tr:nth-child(even) td {
   background: #f8f8f8;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FIELD-OPTIMIZED UX REFRESH (2026)
+   - Modular sub-topic cards    .sec-card
+   - 1-3-1 instructional flow   .sec-131
+   - Stop-Work red callout      .callout-stopwork
+   - Floating Action Button QR  .qr-fab (rendered into Puppeteer footer)
+   - Footer hierarchy           .pf-row, .pf-tier-1/2/3
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Modular Sub-Topic Card ─────────────────────────────────────────────── */
+/* Wraps a sub-topic block (subhead + supporting prose) on a discrete surface
+   to break dense walls of text into glanceable units for field use.       */
+.sec-card {
+  background: var(--surface-card-bg);
+  border: 0.5pt solid var(--surface-card-border);
+  border-left: 3pt solid var(--surface-card-accent);
+  border-radius: var(--surface-card-radius);
+  padding: 10pt 14pt 12pt;
+  margin: 12pt 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.sec-card > .sec-subhead:first-child,
+.sec-card > h4:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-bottom: 0.4pt solid var(--surface-card-border);
+  padding-bottom: 5pt;
+  margin-bottom: 8pt;
+}
+.sec-card p,
+.sec-card li {
+  line-height: var(--leading-card);
+}
+.sec-card > *:last-child {
+  margin-bottom: 0;
+}
+
+/* ── 1-3-1 Instructional Flow ───────────────────────────────────────────── */
+/* Lead (1)  — punchy active-voice command
+   Support (3) — three actionable points
+   Takeaway (1) — single bottom-line outcome                                */
+.sec-131 {
+  background: #fbfaf7;
+  border: 0.5pt solid var(--surface-card-border);
+  border-radius: var(--surface-card-radius);
+  padding: 10pt 14pt;
+  margin: 12pt 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.sec-131-lead {
+  font-size: 11pt;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  margin: 0 0 8pt;
+  padding-bottom: 6pt;
+  border-bottom: 0.4pt solid var(--surface-card-accent);
+}
+.sec-131-support {
+  list-style: none;
+  margin: 0 0 8pt;
+  padding: 0;
+  counter-reset: s131;
+}
+.sec-131-support > li {
+  position: relative;
+  margin: 0 0 6pt;
+  padding: 0 0 0 22pt;
+  line-height: var(--leading-card);
+  font-size: 9.5pt;
+  counter-increment: s131;
+}
+.sec-131-support > li::before {
+  content: counter(s131);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16pt;
+  height: 16pt;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 800;
+  font-size: 8pt;
+  text-align: center;
+  line-height: 16pt;
+}
+.sec-131-takeaway {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--color-bronze-dark);
+  margin: 0;
+  padding-top: 6pt;
+  border-top: 0.4pt dashed var(--surface-card-border);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.sec-131-takeaway::before {
+  content: "Bottom line: ";
+  color: var(--color-primary);
+}
+
+/* ── Stop-Work Red Callout ──────────────────────────────────────────────── */
+/* Reserved for CRITICAL / STOP-WORK conditions only. Red accent contrasts
+   the green/tan brand without dominating the page.                         */
+.callout-stopwork {
+  display: flex;
+  gap: 10pt;
+  align-items: flex-start;
+  background: var(--color-stopwork-bg);
+  border: 1pt solid var(--color-stopwork-border);
+  border-left: 5pt solid var(--color-stopwork);
+  border-radius: var(--surface-card-radius);
+  padding: 10pt 12pt;
+  margin: 12pt 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  color: var(--color-stopwork-dark);
+}
+.callout-stopwork .cs-chip {
+  flex-shrink: 0;
+  background: var(--color-stopwork);
+  color: #fff;
+  font-weight: 900;
+  font-size: 8pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4pt 7pt;
+  border-radius: 2pt;
+  line-height: 1;
+  margin-top: 1pt;
+}
+.callout-stopwork .cs-body {
+  flex: 1;
+  font-size: 9.5pt;
+  line-height: var(--leading-card);
+}
+.callout-stopwork .cs-title {
+  display: block;
+  font-weight: 800;
+  font-size: 10.5pt;
+  margin-bottom: 3pt;
+  color: var(--color-stopwork-dark);
+}
+
+/* ── Sub-Topic Card Auto-Surface (subhead-driven) ───────────────────────── */
+/* When DOM wrappers aren't present, give every sub-topic head a card chip
+   so dense extracted prose still gains modular structure.                  */
+.section-body .sec-subhead {
+  background: linear-gradient(
+    90deg,
+    rgba(189, 146, 100, 0.14) 0%,
+    rgba(189, 146, 100, 0) 60%
+  );
+  border-left: 3pt solid var(--color-secondary);
+  padding: 5pt 0 5pt 9pt;
+  margin: 14pt 0 8pt;
+  border-radius: 1pt;
+}
+
+/* ── Improved Section Body Leading (field-readable) ─────────────────────── */
+.section-body p,
+.section-body li,
+.section-body .sec-num-text {
+  line-height: var(--leading-field);
+}
+
+/* ── Floating Action Button QR (rendered in Puppeteer footer) ───────────── */
+/* Sits in the bottom-right page margin so a thumb naturally lands on it
+   when holding the manual. Card-style chip with brand outline.             */
+.qr-fab {
+  display: flex;
+  align-items: center;
+  gap: 5pt;
+  background: #ffffff;
+  border: 0.75pt solid var(--color-primary);
+  border-radius: 6pt;
+  padding: 3pt 5pt 3pt 3pt;
+  box-shadow: 0 0 0 0.4pt rgba(56, 104, 81, 0.15);
+  font-family: var(--font-body);
+}
+.qr-fab img {
+  width: 0.42in;
+  height: 0.42in;
+  display: block;
+  border-radius: 3pt;
+}
+.qr-fab .qr-fab-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 1pt;
+}
+.qr-fab .qr-fab-label {
+  font-size: 5.8pt;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+.qr-fab .qr-fab-hint {
+  font-size: 5.4pt;
+  color: var(--color-secondary-text);
+  letter-spacing: 0.02em;
+}
+
+/* ── Improved Page Footer Hierarchy ─────────────────────────────────────── */
+/* Three explicit visual tiers:
+   Tier 1 — Page locator + section locator (largest, primary)
+   Tier 2 — WBS structural context (secondary, supportive)
+   Tier 3 — Legal / contact micro line (smallest, ambient)                  */
+.pf-wrap {
+  width: 100%;
+  font-family: var(--font-body);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  box-sizing: border-box;
+  padding: 4pt 0.75in 0 1.25in;
+  border-top: 0.75pt solid var(--color-secondary);
+}
+.pf-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.2in;
+  width: 100%;
+}
+.pf-tier-1 {
+  font-size: 8.5pt;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 1.5pt;
+}
+.pf-tier-1 .pf-page {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 1.5pt 6pt;
+  border-radius: 8pt;
+  font-size: 7.5pt;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.pf-tier-1 .pf-section {
+  color: var(--color-primary-dark);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.pf-tier-1 .pf-rev {
+  color: var(--color-secondary-text);
+  font-weight: 600;
+  font-size: 7pt;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.pf-tier-2 {
+  font-size: 6.6pt;
+  color: var(--color-secondary-text);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1.5pt;
+}
+.pf-tier-2 .pf-wbs-label {
+  font-weight: 800;
+  color: var(--color-secondary-dark);
+}
+.pf-tier-2 .pf-wbs-code {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 2pt;
+}
+.pf-tier-2 .pf-trust {
+  display: inline-flex;
+  align-items: center;
+  gap: 4pt;
+}
+.pf-tier-2 .pf-trust img {
+  height: 0.18in;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+.pf-tier-3 {
+  font-size: 6pt;
+  color: #8a7355;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
