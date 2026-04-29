@@ -809,7 +809,7 @@ Both use the same Resend account with verified `mhc-gc.com` domain.
 ## Twilio (Communications)
 
 Twilio powers SMS notifications, local 509 phone numbers, and WhatsApp Business API
-integration for multi-channel customer communication.
+integration for multi-channel client partner communication.
 
 ### Configuration
 
@@ -1507,7 +1507,7 @@ Thank you for trusting MH Construction!
 
 #### Calendly/Cal.com (Scheduling)
 
-**Why:** Let customers book estimate appointments directly. Reduces phone tag.
+**Why:** Let client partners book estimate appointments directly. Reduces phone tag.
 
 **Recommendation:** Cal.com (open source, self-hostable on VPS if desired)
 

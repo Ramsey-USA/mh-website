@@ -74,7 +74,9 @@ export default function PrivacyPolicyPage() {
               We use the information we collect to:
             </p>
             <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-2">
-              <li>Respond to your inquiries and provide customer service</li>
+              <li>
+                Respond to your inquiries and provide client partner support
+              </li>
               <li>Process consultation requests and project proposals</li>
               <li>Evaluate employment applications</li>
               <li>

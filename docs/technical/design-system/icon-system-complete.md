@@ -533,16 +533,16 @@ style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
 
 **MH Construction uses a strict standard for people-related icons:**
 
-| Icon    | Material Icon | Visual       | Represents                        |
-| ------- | ------------- | ------------ | --------------------------------- |
-| Allies  | `handshake`   | Two hands    | Partners, vendors, subcontractors |
-| Clients | `group`       | Two people   | Customers, project owners         |
-| Team    | `groups`      | Three people | Our staff, crew, employees        |
+| Icon    | Material Icon | Visual       | Represents                               |
+| ------- | ------------- | ------------ | ---------------------------------------- |
+| Allies  | `handshake`   | Two hands    | Partners, trade partners, subcontractors |
+| Clients | `group`       | Two people   | Client partners, project owners          |
+| Team    | `groups`      | Three people | Our staff, crew, employees               |
 
 **Mental Model:**
 
 - 🤝 **Handshake** = Allies (partnerships, working together)
-- 👥 **Two People** = Clients (the customer relationship)
+- 👥 **Two People** = Clients (the client partner relationship)
 - 👥👤 **Three People** = Team (our internal crew)
 
 **Usage Examples:**
@@ -607,7 +607,7 @@ import { SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
 
 - `engineering` - Engineering expertise, core services
 - `verified` - Quality assurance, certifications
-- `handshake` - Allies, partners, vendors (see People Icon Standard above)
+- `handshake` - Allies, partners, trade partners (see People Icon Standard above)
 - `military_tech` - Veteran-owned status, military precision
 
 **Service Icons (Conceptual):**
@@ -625,26 +625,26 @@ import { SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
 
 **Standardized Page Icons:**
 
-| Page          | Icon                | Usage                       |
-| ------------- | ------------------- | --------------------------- |
-| Home          | `home`              | Homepage navigation         |
-| Contact       | `contact_phone`     | Contact page links          |
-| Services      | `build`             | Services page navigation    |
-| Projects      | `photo_library`     | Project portfolio links     |
-| Resources     | `folder_open`       | Resources/downloads page    |
-| Safety        | `verified_user`     | Safety information page     |
-| FAQ           | `help`              | FAQ/help page               |
-| About         | `military_tech`     | About page (veteran-owned)  |
-| Team          | `groups`            | Team/staff page (3 people)  |
-| Allies        | `handshake`         | Partner vendors (handshake) |
-| Public Sector | `account_balance`   | Government services page    |
-| Veterans      | `workspace_premium` | Veterans services page      |
-| Careers       | `work`              | Careers/jobs page           |
-| Testimonials  | `star`              | Customer reviews page       |
-| Privacy       | `shield`            | Privacy policy              |
-| Terms         | `gavel`             | Terms of service            |
-| Accessibility | `accessibility`     | Accessibility statement     |
-| Sitemap       | `account_tree`      | Site map page               |
+| Page          | Icon                | Usage                              |
+| ------------- | ------------------- | ---------------------------------- |
+| Home          | `home`              | Homepage navigation                |
+| Contact       | `contact_phone`     | Contact page links                 |
+| Services      | `build`             | Services page navigation           |
+| Projects      | `photo_library`     | Project portfolio links            |
+| Resources     | `folder_open`       | Resources/downloads page           |
+| Safety        | `verified_user`     | Safety information page            |
+| FAQ           | `help`              | FAQ/help page                      |
+| About         | `military_tech`     | About page (veteran-owned)         |
+| Team          | `groups`            | Team/staff page (3 people)         |
+| Allies        | `handshake`         | Partner trade partners (handshake) |
+| Public Sector | `account_balance`   | Government services page           |
+| Veterans      | `workspace_premium` | Veterans services page             |
+| Careers       | `work`              | Careers/jobs page                  |
+| Testimonials  | `star`              | Client partner reviews page        |
+| Privacy       | `shield`            | Privacy policy                     |
+| Terms         | `gavel`             | Terms of service                   |
+| Accessibility | `accessibility`     | Accessibility statement            |
+| Sitemap       | `account_tree`      | Site map page                      |
 
 **Usage Example:**
 

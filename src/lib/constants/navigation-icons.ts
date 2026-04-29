@@ -65,9 +65,9 @@ export const SEMANTIC_ICONS = {
   quality: "verified",
 
   // People Icons (STANDARDIZED)
-  partnership: "handshake", // Allies, partners, vendors
+  partnership: "handshake", // Allies, partners, trade partners
   allies: "handshake", // Alias for partnership
-  clients: "group", // Clients, customers (two people)
+  clients: "group", // Clients, client partners (two people)
   team: "groups", // Team, staff (three people)
   teamwork: "groups", // Alias for team
   forces: "groups", // Military-themed team reference

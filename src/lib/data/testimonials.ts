@@ -94,7 +94,7 @@ export const clientTestimonials: Testimonial[] = [
     project: "Commercial partnership projects",
     rating: 5,
     quote:
-      "We are grateful to be customers of MH Construction and are very satisfied with the quality and professionalism of their work. Their team's attention to detail, timely communication, and reliable results have exceeded our expectations. We look forward to continuing our partnership with MH Construction on future projects and highly recommend their services to others.",
+      "We are grateful to be client partners of MH Construction and are very satisfied with the quality and professionalism of their work. Their team's attention to detail, timely communication, and reliable results have exceeded our expectations. We look forward to continuing our partnership with MH Construction on future projects and highly recommend their services to others.",
     type: "client",
     category: "commercial",
     featured: true,

@@ -436,14 +436,14 @@ Always include veteran-owned and safety credentials when using government button
 
 - Collaborative relationship
 - Long-term trust
-- "Client" terminology (not "customer")
+- "Client Partner" terminology (preferred relationship-first phrasing)
 - Partnership-first philosophy
 
 ---
 
 ### Ally Partnership CTAs
 
-**Audience:** Allies (subcontractors, suppliers, vendors)  
+**Audience:** Allies (subcontractors, suppliers, trade partners)  
 **Icon:** `construction`  
 **Color:** Leather Tan (#BD9264)  
 **Variant:** `secondary`  
@@ -474,7 +474,7 @@ Always include veteran-owned and safety credentials when using government button
 
 - Professional business relationship
 - Mutual benefit & growth
-- "Ally" terminology for trade partners/vendors
+- "Ally" terminology for trade partners
 - Quality standards & approval process
 
 ---

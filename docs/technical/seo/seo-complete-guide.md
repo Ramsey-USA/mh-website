@@ -613,7 +613,7 @@ export default function YourPage() {
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-509-551-5511",
-    "contactType": "customer service",
+    "contactType": "client partner support",
     "areaServed": ["WA", "OR", "ID"],
     "availableLanguage": ["English"]
   }
