@@ -1,13 +1,13 @@
 /**
  * MH Construction - Jest Configuration
  *
- * Test configuration for Next.js 15 with TypeScript
+ * Test configuration for Next.js 16 with TypeScript
  * Unit and integration testing with coverage tracking
  *
  * @see https://nextjs.org/docs/app/building-your-application/testing/jest
  * @see testing/mh-testing-guide.md
- * @version 2.0.0
- * @lastUpdated 2026-03-26
+ * @version 2.1.0
+ * @lastUpdated 2026-04-29
  */
 
 const nextJest = require("next/jest");

@@ -47,7 +47,7 @@ Your planned upgrades are **fully compatible** with your Cloudflare Workers depl
 - Removed packages: None that would reduce bundle
 - Added packages: None that trigger large dependencies
 
-**TypeScript 6.0.3 → 5.9.3:**
+**TypeScript 5.9.3 → 6.0.3:**
 
 - TypeScript is dev-only (not bundled) ✅
 - No impact on Worker script size

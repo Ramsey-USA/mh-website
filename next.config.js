@@ -1,13 +1,13 @@
 /**
  * MH Construction - Next.js Configuration
  *
- * Optimized for Next.js 15 with Cloudflare Workers deployment (OpenNext adapter)
+ * Optimized for Next.js 16 with Cloudflare Workers deployment (OpenNext adapter)
  * Production-ready configuration with performance optimizations
  *
  * @see https://nextjs.org/docs/app/api-reference/next-config-js
  * @see docs/project/architecture.md
- * @version 2.1.0
- * @lastUpdated 2026-03-26
+ * @version 2.2.0
+ * @lastUpdated 2026-04-29
  */
 
 // Disable telemetry during CI/production builds
@@ -53,19 +53,20 @@ const nextConfig = {
   // Transpile ESM-only packages so next/jest transforms them in tests
   transpilePackages: ["jose"],
 
+  // Stable since Next.js 15 — tree-shake large packages at compile time
+  optimizePackageImports: [
+    "@radix-ui/react-slot",
+    "@radix-ui/react-tabs",
+    "@radix-ui/react-progress",
+    "recharts",
+  ],
+
   // Target modern browsers to reduce polyfills
   // Matches browserslist: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
-  // Note: swcMinify is enabled by default in Next.js 13+
 
   experimental: {
     // Reduce build worker pressure in constrained containers.
     webpackBuildWorker: !isLowMemoryBuild,
-    optimizePackageImports: [
-      "@radix-ui/react-slot",
-      "@radix-ui/react-tabs",
-      "@radix-ui/react-progress",
-      "recharts",
-    ],
     // CSS optimization - cssChunking defaults to true for better splitting
   },
 

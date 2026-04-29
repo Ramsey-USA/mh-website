@@ -115,6 +115,7 @@ const eslintConfig = [
 
   // === CUSTOM RULES - ALL FILES ===
   {
+    files: ["**/*.{js,jsx,ts,tsx,mjs,cjs}"],
     plugins: {
       "@typescript-eslint": tsEslintPlugin,
       "@next/next": nextPlugin,
