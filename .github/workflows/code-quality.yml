@@ -6,13 +6,16 @@ on:
   pull_request:
     branches: [main, develop]
 
+concurrency:
+  group: code-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
   quality-checks:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [22.x]
 
     steps:
       - name: Checkout code
@@ -23,10 +26,10 @@ jobs:
         with:
           version: 9
 
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: "22.x"
           cache: "pnpm"
 
       - name: Install dependencies
@@ -45,13 +48,23 @@ jobs:
         run: npx depcheck
           --ignores="@types/*,eslint-*,prettier,husky,@commitlint/*,postcss,autoprefixer,jest-environment-jsdom,chalk"
 
+      - name: Restore Next.js build cache
+        uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: nextjs-cache-${{ hashFiles('pnpm-lock.yaml') }}-${{ hashFiles('src/**') }}
+          restore-keys: |
+            nextjs-cache-${{ hashFiles('pnpm-lock.yaml') }}-
+            nextjs-cache-
+
       - name: Build project
         run: npm run build
 
       - name: Check bundle size
         run: |
           echo "Checking bundle size..."
-          npm run bundle:size || echo "Bundle size check complete"
+          npm run bundle:report
+          echo "Bundle size check complete"
 
   security-audit:
     runs-on: ubuntu-latest

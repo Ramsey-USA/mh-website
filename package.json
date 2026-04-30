@@ -37,6 +37,7 @@
     "format:check": "prettier --check .",
     "pages:dev": "npm run dev",
     "bundle:size": "npm run build && du -sh .next/static/chunks/*.js | sort -hr | head -10",
+    "bundle:report": "du -sh .next/static/chunks/*.js 2>/dev/null | sort -hr | head -10 || echo 'No chunks found'",
     "clean": "bash scripts/cleanup/cleanup.sh",
     "maintenance": "npm run clean",
     "lint:markdown": "markdownlint-cli2 --config .markdownlint-cli2.jsonc --ignore-path .markdownlintignore \"**/*.md\"",
