@@ -1,5 +1,5 @@
 {
-  "name": "fuzzy-space-robot",
+  "name": "mh-website",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {}
@@ -9,7 +9,6 @@
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "ms-vscode.vscode-typescript-next",
         "bradlc.vscode-tailwindcss",
         "csstools.postcss",
         "github.copilot",
@@ -20,8 +19,7 @@
         "streetsidesoftware.code-spell-checker",
         "davidanson.vscode-markdownlint",
         "redhat.vscode-yaml",
-        "deque-systems.vscode-axe-linter",
-        "sonarsource.sonarlint-vscode"
+        "deque-systems.vscode-axe-linter"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -32,11 +30,30 @@
         "js/ts.preferences.importModuleSpecifier": "relative",
         "files.associations": {
           "*.css": "tailwindcss"
-        }
+        },
+        "files.watcherExclude": {
+          "**/.git/objects/**": true,
+          "**/.git/subtree-cache/**": true,
+          "**/node_modules/**": true,
+          "**/.next/**": true,
+          "**/.wrangler/**": true,
+          "**/public/images/**": true,
+          "**/.pnpm-store/**": true
+        },
+        "search.exclude": {
+          "**/node_modules": true,
+          "**/.next": true,
+          "**/.wrangler": true,
+          "**/pnpm-lock.yaml": true,
+          "**/public/images": true,
+          "**/.pnpm-store": true
+        },
+        "typescript.tsserver.maxTsServerMemory": 3072,
+        "jest.autoRun": "off"
       }
     }
   },
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "corepack enable pnpm && pnpm install --frozen-lockfile",
   "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
   "forwardPorts": [3000],
   "portsAttributes": {
