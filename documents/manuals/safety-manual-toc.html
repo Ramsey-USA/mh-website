@@ -29,7 +29,7 @@
         --muted: #f6f8f7;
         /* MH brand fonts */
         --font-heading: "Abolition", "Helvetica Neue", Arial, sans-serif;
-        --font-body: "DIN 2014", "Helvetica Neue", Arial, sans-serif;
+        --font-body: "DIN 2014", "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
       }
 
       *,
@@ -149,7 +149,7 @@
       .toc-identity {
         margin: 0 0 0.05in;
         font-family: var(--font-body);
-        font-size: 6.4pt;
+        font-size: 7.2pt;
         font-weight: 700;
         letter-spacing: 0.11em;
         text-transform: uppercase;
@@ -292,28 +292,27 @@
         text-align: right;
       }
 
-      /* ── Footer veteran badge ──────────────────────────── */
-      .toc-footer-veteran {
+      /* ── Footer trust / accreditation logos — matches cover ──── */
+      .toc-footer-trust {
         flex-shrink: 0;
-        border: 0.75pt solid var(--brand-primary);
-        border-radius: 2pt;
-        padding: 2pt 10pt;
-        font-family: var(--font-heading);
-        font-size: 6pt;
-        font-weight: 700;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: var(--brand-primary);
+        display: flex;
+        align-items: flex-end;
+        gap: 8pt;
       }
 
-      .toc-footer-veteran::before {
-        content: "\2605\00a0";
-        color: var(--brand-secondary);
+      .toc-footer-logo-agc {
+        height: 0.3in;
+        width: auto;
       }
 
-      .toc-footer-veteran::after {
-        content: "\00a0\2605";
-        color: var(--brand-secondary);
+      .toc-footer-logo-bbb {
+        height: 0.34in;
+        width: auto;
+      }
+
+      .toc-footer-logo-vob {
+        height: 0.44in;
+        width: auto;
       }
 
       /* ── Footer QR code (public TOC URL) ──────────────── */
@@ -372,10 +371,26 @@
         <!-- ── Footer ─────────────────────────────────────────── -->
         <footer class="toc-footer-row">
           <span class="toc-footer-left"
-            >{{BRAND_COMPANY_NAME}}&nbsp;&middot;&nbsp;(509)&nbsp;308-6489&nbsp;&middot;&nbsp;www.mhc-gc.com</span
+            >{{BRAND_COMPANY_NAME}}&nbsp;&middot;&nbsp;{{BRAND_PHONE}}&nbsp;&middot;&nbsp;{{BRAND_WEBSITE}}</span
           >
-          <!-- Veteran Owned badge — centered in footer -->
-          <div class="toc-footer-veteran">Veteran Owned</div>
+          <!-- Accreditation and trust logos — matches cover footer -->
+          <div class="toc-footer-trust">
+            <img
+              class="toc-footer-logo-agc"
+              src="{{BRAND_AGC_HORIZONTAL}}"
+              alt="AGC membership"
+            />
+            <img
+              class="toc-footer-logo-bbb"
+              src="{{BRAND_BBB_SEAL}}"
+              alt="BBB accredited business"
+            />
+            <img
+              class="toc-footer-logo-vob"
+              src="{{BRAND_WA_VOB_LOGO}}"
+              alt="Washington certified veteran owned business"
+            />
+          </div>
           <!-- QR code — scan to open the public table of contents page -->
           <div class="toc-footer-qr">
             <img src="{{QR_TOC_URL}}" alt="Scan for Table of Contents" />
