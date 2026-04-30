@@ -208,25 +208,13 @@ export default function RootLayout({
           rel="dns-prefetch"
           href="https://o4511220420050944.ingest.us.sentry.io"
         />
+        {/* Preconnect to Adobe Fonts (Typekit) for brand fonts */}
+        <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://use.typekit.net" />
         {/* Preload self-hosted Material Icons font for optimal performance */}
         <link
           rel="preload"
           href="/fonts/MaterialIcons-Regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        {/* Preload MH brand fonts — Abolition (heading) and DIN 2014 (body) */}
-        <link
-          rel="preload"
-          href="/fonts/Abolition-Regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/DIN2014-Regular.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"

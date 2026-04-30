@@ -12,60 +12,10 @@
    MH BRAND FONTS
    Heading / Subheading: Abolition
    Body: DIN 2014
-   Fallbacks: current system-ui / Helvetica stack
+   Served via Adobe Fonts (Typekit) kit jqs8bjh
    ============================================ */
 
-/* Abolition — Display/Heading font */
-@font-face {
-  font-family: "Abolition";
-  src:
-    url("/fonts/Abolition-Regular.woff2") format("woff2"),
-    url("/fonts/Abolition-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* DIN 2014 — Body font */
-@font-face {
-  font-family: "DIN 2014";
-  src:
-    url("/fonts/DIN2014-Regular.woff2") format("woff2"),
-    url("/fonts/DIN2014-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "DIN 2014";
-  src:
-    url("/fonts/DIN2014-Demi.woff2") format("woff2"),
-    url("/fonts/DIN2014-Demi.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "DIN 2014";
-  src:
-    url("/fonts/DIN2014-Bold.woff2") format("woff2"),
-    url("/fonts/DIN2014-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "DIN 2014";
-  src:
-    url("/fonts/DIN2014-Light.woff2") format("woff2"),
-    url("/fonts/DIN2014-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
+@import url("https://use.typekit.net/jqs8bjh.css");
 
 /* Material Icons font setup */
 .material-icons {
