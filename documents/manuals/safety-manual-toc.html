@@ -62,7 +62,7 @@
         display: flex;
         flex-direction: column;
         min-height: 10.16in; /* 11in − 2×0.42in margins */
-        padding: 0.14in 0.2in 0.12in 0.34in;
+        padding: 0.14in 0.28in 0.12in 0.88in; /* left: ribbon (0.45in) + ribbon width (0.28in) + gap */
         background: var(--paper);
         overflow: hidden;
       }
@@ -70,25 +70,25 @@
       .toc-page::before {
         content: "";
         position: absolute;
-        inset: 0.04in;
-        border: 1.1pt solid var(--brand-primary-dark);
+        inset: 0.22in;
+        border: 1.2pt solid var(--brand-primary-dark);
         pointer-events: none;
       }
 
       .toc-page::after {
         content: "";
         position: absolute;
-        inset: 0.13in;
+        inset: 0.33in;
         border: 0.6pt solid var(--brand-secondary);
         pointer-events: none;
       }
 
       .toc-ribbon {
         position: absolute;
-        top: 0.25in;
-        bottom: 0.25in;
-        left: 0.18in;
-        width: 0.14in;
+        top: 0.45in;
+        bottom: 0.45in;
+        left: 0.45in;
+        width: 0.28in;
         background: linear-gradient(
           180deg,
           var(--brand-primary-dark) 0%,
@@ -229,6 +229,17 @@
         font-size: 7.5pt;
         font-weight: 700;
         color: var(--brand-primary-dark);
+      }
+
+      .mish-wbs {
+        flex-shrink: 0;
+        width: 0.62in;
+        font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
+        font-size: 6.5pt;
+        font-weight: 700;
+        color: var(--brand-secondary-text);
+        opacity: 0.8;
+        padding-right: 3pt;
       }
 
       .mish-title {

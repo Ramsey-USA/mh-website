@@ -340,10 +340,7 @@
 
       .page-frame {
         position: fixed;
-        top: 0.24in;
-        left: 0.2in;
-        right: 0.2in;
-        bottom: 0.2in;
+        inset: 0.22in;
         border: 1.2pt solid var(--brand-primary-dark);
         pointer-events: none;
         z-index: 0;
@@ -352,16 +349,16 @@
       .page-frame::after {
         content: "";
         position: absolute;
-        inset: 0.1in;
+        inset: 0.11in;
         border: 0.6pt solid var(--brand-secondary);
       }
 
       .left-ribbon {
         position: fixed;
-        top: 0.42in;
-        bottom: 0.38in;
-        left: 0.26in;
-        width: 0.14in;
+        top: 0.45in;
+        bottom: 0.45in;
+        left: 0.45in;
+        width: 0.28in;
         border-radius: 2pt;
         background: linear-gradient(
           180deg,
@@ -433,7 +430,7 @@
       </div>
       <div class="shc-title-row">
         <div class="shc-title-block">
-          <span class="shc-mish-chip">MISH&nbsp;{{SECTION_NUMBER}}</span>
+          <span class="shc-mish-chip">MISH&nbsp;{{SECTION_NUMBER}}&nbsp;&mdash;&nbsp;WBS&nbsp;{{SECTION_WBS}}</span>
           <h1 class="shc-title">{{SECTION_TITLE}}</h1>
         </div>
         <div class="shc-rev-badge">
@@ -448,6 +445,12 @@
           <span class="shc-meta-label">Document</span>
           <span class="shc-meta-value"
             ><strong>MISH {{SECTION_NUMBER}}</strong></span
+          >
+        </div>
+        <div class="shc-meta-cell">
+          <span class="shc-meta-label">WBS Reference</span>
+          <span class="shc-meta-value"
+            ><strong>WBS {{SECTION_WBS}}</strong></span
           >
         </div>
         <div class="shc-meta-cell">
