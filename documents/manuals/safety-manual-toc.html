@@ -27,6 +27,9 @@
         --ink: #12231b;
         --paper: #ffffff;
         --muted: #f6f8f7;
+        /* MH brand fonts */
+        --font-heading: "Abolition", "Helvetica Neue", Arial, sans-serif;
+        --font-body: "DIN 2014", "Helvetica Neue", Arial, sans-serif;
       }
 
       *,
@@ -50,7 +53,7 @@
         background: var(--paper);
         color: var(--ink);
         /* DIN 2014 → Helvetica Neue fallback for body copy */
-        font-family: "DIN 2014", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-body);
         font-size: 9pt;
         line-height: 1.35;
       }
@@ -124,7 +127,7 @@
         border-radius: 2pt;
         padding: 1.5pt 10pt;
         /* Abolition → Helvetica Neue fallback for headings */
-        font-family: "Abolition", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-heading);
         font-size: 6pt;
         font-weight: 700;
         letter-spacing: 0.16em;
@@ -145,7 +148,7 @@
 
       .toc-identity {
         margin: 0 0 0.05in;
-        font-family: "DIN 2014", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-body);
         font-size: 6.4pt;
         font-weight: 700;
         letter-spacing: 0.11em;
@@ -154,7 +157,7 @@
       }
 
       .toc-title {
-        font-family: "Abolition", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-heading);
         font-size: 16pt;
         font-weight: 900;
         color: var(--brand-primary-dark);
@@ -164,7 +167,7 @@
       }
 
       .toc-subtitle {
-        font-family: "Abolition", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-heading);
         font-size: 7.5pt;
         font-weight: 400;
         color: var(--brand-secondary-text);
@@ -190,7 +193,7 @@
 
       /* Cluster heading — Abolition Medium */
       .cluster-head {
-        font-family: "Abolition", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-heading);
         font-size: 7pt;
         font-weight: 500;
         color: var(--brand-primary);
@@ -214,7 +217,7 @@
         gap: 4pt;
         padding: 1pt 0;
         /* DIN 2014 for legibility in high-stress environments */
-        font-family: "DIN 2014", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-body);
         font-size: 9pt;
         line-height: 1.3;
         color: #000000;
@@ -223,7 +226,7 @@
       .mish-code {
         flex-shrink: 0;
         width: 0.72in;
-        font-family: "Abolition", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-heading);
         font-size: 7.5pt;
         font-weight: 700;
         color: var(--brand-primary-dark);
@@ -232,7 +235,7 @@
       .mish-wbs {
         flex-shrink: 0;
         width: 0.62in;
-        font-family: "Abolition", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-heading);
         font-size: 6.5pt;
         font-weight: 700;
         color: var(--brand-secondary-text);
@@ -276,13 +279,13 @@
       }
 
       .toc-footer-left {
-        font-family: "DIN 2014", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-body);
         font-size: 6.5pt;
         color: var(--brand-secondary-text);
       }
 
       .toc-footer-right {
-        font-family: "DIN 2014", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-body);
         font-size: 6.5pt;
         font-weight: 700;
         color: #8a6b49;
@@ -295,7 +298,7 @@
         border: 0.75pt solid var(--brand-primary);
         border-radius: 2pt;
         padding: 2pt 10pt;
-        font-family: "Abolition", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-heading);
         font-size: 6pt;
         font-weight: 700;
         letter-spacing: 0.16em;
@@ -329,7 +332,7 @@
       }
 
       .toc-footer-qr-label {
-        font-family: "DIN 2014", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-body);
         font-size: 5.5pt;
         font-weight: 700;
         color: var(--brand-secondary-text);
