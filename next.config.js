@@ -53,14 +53,6 @@ const nextConfig = {
   // Transpile ESM-only packages so next/jest transforms them in tests
   transpilePackages: ["jose"],
 
-  // Stable since Next.js 15 — tree-shake large packages at compile time
-  optimizePackageImports: [
-    "@radix-ui/react-slot",
-    "@radix-ui/react-tabs",
-    "@radix-ui/react-progress",
-    "recharts",
-  ],
-
   // Target modern browsers to reduce polyfills
   // Matches browserslist: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
 
@@ -68,6 +60,13 @@ const nextConfig = {
     // Reduce build worker pressure in constrained containers.
     webpackBuildWorker: !isLowMemoryBuild,
     // CSS optimization - cssChunking defaults to true for better splitting
+    // Tree-shake large packages at compile time (experimental in Next.js 16)
+    optimizePackageImports: [
+      "@radix-ui/react-slot",
+      "@radix-ui/react-tabs",
+      "@radix-ui/react-progress",
+      "recharts",
+    ],
   },
 
   // Exclude build-tool node_modules from the trace step (~20s savings)

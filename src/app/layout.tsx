@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import "./globals.css";
 import "../styles/material-icons.css";
 import { AppShell } from "@/components/layout/AppShell";
@@ -236,7 +237,9 @@ export default function RootLayout({
       </head>
       <body className="font-sans">
         <SentryInit />
-        <SentryTestButton />
+        <Suspense>
+          <SentryTestButton />
+        </Suspense>
         <SkipLink />
         <ScrollProgress />
         <DeferredPerformanceEnhancements />
