@@ -236,6 +236,25 @@ function sectionToTab(sectionNumber) {
 }
 
 /**
+ * Map a MISH section number to its WBS (Work Breakdown Structure) code.
+ * WBS 0.0         — Table of Contents
+ * WBS 1.1–1.3     — Tier 1: Admin Anchor        (MISH 01–03)
+ * WBS 2.1–2.6     — Tier 2: Field Cadence        (MISH 04–09)
+ * WBS 3.1–3.28    — Tier 3: Engineering          (MISH 10–37)
+ * WBS 4.1–4.7     — Tier 4: Specialized Risk     (MISH 38–44)
+ * WBS 5.1–5.6     — Tier 5: Program Compliance   (MISH 45–50)
+ */
+function sectionToWbs(sectionNumber) {
+  const n = Number(sectionNumber);
+  if (n === 0) return "0.0";
+  if (n <= 3) return `1.${n}`;
+  if (n <= 9) return `2.${n - 3}`;
+  if (n <= 37) return `3.${n - 9}`;
+  if (n <= 44) return `4.${n - 37}`;
+  return `5.${n - 44}`;
+}
+
+/**
  * Four-tier structural classification.
  * Tier 1 (Admin Anchor):      MISH 01–03  — Senior Management Ownership
  * Tier 2 (Field Cadence):     MISH 04–09  — Planning & Orientation
@@ -365,14 +384,17 @@ const FALLBACK_MISH_TITLES = new Map([
 /**
  * Render one <li> entry for a single MISH section.
  * Applies the .callout modifier for items in TOC_CALLOUT_ITEMS.
+ * Includes WBS code for structured binder navigation.
  */
 function buildTocEntryHtml(num, title) {
   const code = `MISH ${String(num).padStart(2, "0")}`;
+  const wbs = sectionToWbs(num);
   const isCallout = TOC_CALLOUT_ITEMS.has(num);
   const cls = isCallout ? "mish-entry callout" : "mish-entry";
   return (
     `<li class="${cls}">` +
     `<span class="mish-code">${escapeHtml(code)}</span>` +
+    `<span class="mish-wbs">WBS ${escapeHtml(wbs)}</span>` +
     `<span class="mish-title">${escapeHtml(title)}</span>` +
     `</li>`
   );
@@ -445,38 +467,77 @@ function buildTocClustersHtml(titleMap, presentNums) {
  * Puppeteer injects this into the physical top margin of EVERY printed page.
  * Logo must be a data URL since the header renders in an isolated context.
  *
- * Layout: LEFT (MISH + title) | CENTER (logo) | RIGHT (tab location + rev).
+ * Layout (4 zones, left → right):
+ *   ZONE 1  LEFT   — MISH number + WBS code + title
+ *   ZONE 2  CENTER — MHC logo
+ *   ZONE 3  RIGHT  — Page bubble (Pg X / Y) + binder tab reference + revision
+ *   ZONE 4  FAR R  — Section QR code (thumb-accessible scan target)
  */
-function buildSectionHeaderHtml(sectionNum, sectionTitle, revNum, revDate) {
+function buildSectionHeaderHtml(
+  sectionNum,
+  sectionTitle,
+  revNum,
+  revDate,
+  qrDataUrl,
+) {
   const titleShort =
-    sectionTitle.length > 40 ? sectionTitle.slice(0, 37) + "…" : sectionTitle;
+    sectionTitle.length > 38 ? sectionTitle.slice(0, 35) + "…" : sectionTitle;
   const tabRef = sectionToTab(sectionNum);
+  const wbsCode = sectionToWbs(sectionNum);
   const font = "'Helvetica Neue',Arial,sans-serif";
-  const pad = "padding:0 0.75in 0 1.25in";
+  const pad = "padding:0 0.55in 0 1.25in";
+
+  // Page bubble — Puppeteer replaces <span class="pageNumber"> / <span class="totalPages">
+  const pageBubble = [
+    `<span style="display:inline-flex;align-items:center;gap:3pt;`,
+    `background:${BRAND_COLORS.primary};color:#fff;padding:2pt 8pt;`,
+    `border-radius:9pt;font-size:8pt;font-weight:700;letter-spacing:0.03em;`,
+    `white-space:nowrap;margin-bottom:2pt;">`,
+    `Pg.\u00a0<span class="pageNumber"></span>\u00a0/\u00a0<span class="totalPages"></span>`,
+    `</span>`,
+  ].join("");
+
+  const qrMark = qrDataUrl
+    ? [
+        `<div style="display:flex;flex-direction:column;align-items:center;gap:2pt;`,
+        `flex:0 0 auto;padding-left:8pt;">`,
+        `<img src="${qrDataUrl}" alt="Scan MISH ${sectionNum}"`,
+        ` style="width:36pt;height:36pt;border-radius:2pt;`,
+        `border:0.5pt solid ${BRAND_COLORS.secondary};display:block;" />`,
+        `<span style="font-size:5pt;font-weight:700;color:${BRAND_COLORS.secondaryText};`,
+        `text-transform:uppercase;letter-spacing:0.06em;">MISH ${sectionNum}</span>`,
+        `</div>`,
+      ].join("")
+    : "";
+
   return [
     `<div style="width:100%;background:white;border-bottom:1.5pt solid ${BRAND_COLORS.secondary};`,
-    `${pad};height:0.65in;display:flex;align-items:center;`,
+    `${pad};height:0.75in;display:flex;align-items:center;`,
     `justify-content:space-between;font-family:${font};`,
-    `-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box;">`,
+    `-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box;gap:8pt;">`,
 
-    // LEFT — section designator + title
-    `<div style="flex:1;display:flex;flex-direction:column;justify-content:center;overflow:hidden;">`,
-    `<span style="font-size:10pt;font-weight:900;color:${BRAND_COLORS.primary};line-height:1;">MISH ${sectionNum}</span>`,
-    `<span style="font-size:8pt;font-weight:700;color:${BRAND_COLORS.primary};line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${titleShort}</span>`,
+    // ZONE 1 — MISH designator + WBS + title
+    `<div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;overflow:hidden;gap:1pt;">`,
+    `<span style="font-size:9pt;font-weight:900;color:${BRAND_COLORS.primary};line-height:1;">MISH\u00a0${sectionNum} &mdash; WBS\u00a0${wbsCode}</span>`,
+    `<span style="font-size:7.5pt;font-weight:700;color:${BRAND_COLORS.primary};line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${titleShort}</span>`,
     `</div>`,
 
-    // CENTER — single high-resolution MHC logo, centered in header block
-    `<div style="flex:0 0 auto;display:flex;justify-content:center;align-items:center;padding:0 14pt;">`,
+    // ZONE 2 — MHC logo centered
+    `<div style="flex:0 0 auto;display:flex;justify-content:center;align-items:center;padding:0 10pt;">`,
     LOGO_COLOR_DATA_URL
-      ? `<img src="${LOGO_COLOR_DATA_URL}" style="height:40pt;width:auto;image-rendering:-webkit-optimize-contrast;" alt="MH Construction" />`
-      : `<span style="font-size:13pt;font-weight:900;color:${BRAND_COLORS.primary};letter-spacing:0.04em;">MHC</span>`,
+      ? `<img src="${LOGO_COLOR_DATA_URL}" style="height:38pt;width:auto;image-rendering:-webkit-optimize-contrast;" alt="MH Construction" />`
+      : `<span style="font-size:12pt;font-weight:900;color:${BRAND_COLORS.primary};letter-spacing:0.04em;">MHC</span>`,
     `</div>`,
 
-    // RIGHT — binder tab location + revision metadata
-    `<div style="flex:1;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;">`,
-    `<span style="font-size:7pt;font-weight:700;color:${BRAND_COLORS.secondary};line-height:1.2;letter-spacing:0.04em;">BINDER LOCATION: TAB ${tabRef}</span>`,
-    `<span style="font-size:7.5pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;line-height:1.3;">Rev. ${revNum} ${revDate}</span>`,
+    // ZONE 3 — page bubble + tab location + revision
+    `<div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:1pt;">`,
+    pageBubble,
+    `<span style="font-size:6.5pt;font-weight:700;color:${BRAND_COLORS.secondary};line-height:1.2;letter-spacing:0.04em;">BINDER LOCATION: TAB\u00a0${tabRef}</span>`,
+    `<span style="font-size:6.5pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;line-height:1.3;">Rev.\u00a0${revNum}\u00a0${revDate}</span>`,
     `</div>`,
+
+    // ZONE 4 — section QR code
+    qrMark,
 
     `</div>`,
   ].join("");
@@ -754,18 +815,47 @@ async function generateToc() {
 }
 
 // ── Template: Tab Dividers ────────────────────────────────────────────────────
+/**
+ * Generate tab divider PDFs with per-section QR codes.
+ *
+ * Each tab page in safety-manual-tabs.html contains a {{QR_TAB_NN}} token
+ * (where NN is the zero-padded section number 00–44). This function generates
+ * a section-specific QR code for each token and injects it before rendering.
+ *
+ * Tab 00 QR → public MISH Table of Contents URL
+ * Tab 01–44 QR → individual section page URL
+ */
 async function generateTabs() {
   console.log("\n🗂  Generating tab dividers…");
   await ensureDir(OUTPUT_DIR);
-  const raw = await readFile(
+  let html = await readFile(
     join(DOCS_DIR, "manuals/safety-manual-tabs.html"),
     "utf-8",
   );
+
+  // ── Replace dashboard QR placeholder in footer (shared across all tabs) ──
   const dashboardQrDataUrl = await buildQrDataUrl(BRAND.qrCodes.dashboard);
-  // Tabs footer expects an image source, so generate a QR image from the dashboard URL.
-  const html = applyBrandTokens(
-    raw.replaceAll("{{BRAND_QR_DASHBOARD}}", dashboardQrDataUrl),
-  );
+  html = html.replaceAll("{{BRAND_QR_DASHBOARD}}", dashboardQrDataUrl);
+
+  // ── Generate and inject per-tab section QR codes ─────────────────────────
+  // Tabs 00–44 map to public section URLs; tab 00 = TOC landing page.
+  for (let n = 0; n <= 44; n++) {
+    const nn = String(n).padStart(2, "0");
+    const token = `{{QR_TAB_${nn}}}`;
+    if (!html.includes(token)) continue;
+
+    const sectionUrl =
+      n === 0
+        ? `${SITE_URL}/resources/safety-manual`
+        : `${SITE_URL}/resources/safety-manual/section/mish-${nn}`;
+
+    const qrDataUrl = await buildQrDataUrl(sectionUrl);
+    html = html.replaceAll(token, qrDataUrl);
+  }
+
+  // ── Apply remaining brand tokens ─────────────────────────────────────────
+  html = applyBrandTokens(html);
+
   const pdfPath = join(OUTPUT_DIR, "safety-manual-tabs.pdf");
   await renderHtmlToPdf(
     html,
@@ -1033,6 +1123,7 @@ async function generateSections(filter = null) {
     let html = applyBrandTokens(
       templateHtml
         .replaceAll("{{SECTION_NUMBER}}", section.numberStr)
+        .replaceAll("{{SECTION_WBS}}", sectionToWbs(section.number))
         .replaceAll("{{SECTION_TITLE}}", escapeHtml(section.title))
         .replaceAll("{{SECTION_BODY}}", sectionBody)
         .replaceAll("{{REVISION_YEAR}}", BRAND.revisionYear || "2026")
@@ -1050,6 +1141,7 @@ async function generateSections(filter = null) {
       section.title,
       BRAND.revisionNumber,
       BRAND.revisionDate,
+      qrDataUrl,
     );
 
     // UX REFRESH 2026 — three-tier footer + thumb-zone QR FAB on every page
@@ -1069,7 +1161,7 @@ async function generateSections(filter = null) {
         headerTemplate: headerHtml,
         footerTemplate: footerHtml,
         margin: {
-          top: "1.0in", // accommodates 0.65in header + 0.35in gap
+          top: "1.1in", // accommodates 0.75in header + 0.35in gap
           right: "0.75in",
           bottom: "0.75in", // single-line footer + small QR mark
           left: "1.25in",
@@ -1465,7 +1557,9 @@ function textToHtml(text) {
     // Approval block fragments (names, roles, metadata)
     /^Jeremy Thamert\s*$/i,
     /^Matt Ramsey\s*$/i,
+    /^President\s*(?:&|and)\s*Owner\s*$/i,
     /^President.*Safety Officer\s*$/i,
+    /^AGC Representative\s*(?:&|and)\s*Safety Officer\s*$/i,
     /^Travelers Risk Control Consultant\s*$/i,
     /^AGC Representative\s*$/i,
     /^Signature\s*\/\s*Date\s*$/i,

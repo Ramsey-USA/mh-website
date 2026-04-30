@@ -7,413 +7,410 @@
     <link rel="stylesheet" href="../styles/print-base.css" />
     <link rel="stylesheet" href="../styles/components.css" />
     <style>
-      :root {
-        --brand-primary: {{BRAND_COLOR_PRIMARY}};
-        --brand-primary-dark: {{BRAND_COLOR_PRIMARY_DARK}};
-        --brand-primary-darker: {{BRAND_COLOR_PRIMARY_DARKER}};
-        --brand-secondary: {{BRAND_COLOR_SECONDARY}};
-        --brand-secondary-light: {{BRAND_COLOR_SECONDARY_LIGHT}};
-        --brand-secondary-text: {{BRAND_COLOR_SECONDARY_TEXT}};
-        --ink: #12231b;
-        --paper: #ffffff;
-        --muted: #f6f8f7;
-      }
+       :root {
+         --brand-primary: {{BRAND_COLOR_PRIMARY}};
+         --brand-primary-dark: {{BRAND_COLOR_PRIMARY_DARK}};
+         --brand-primary-darker: {{BRAND_COLOR_PRIMARY_DARKER}};
+         --brand-secondary: {{BRAND_COLOR_SECONDARY}};
+         --brand-secondary-light: {{BRAND_COLOR_SECONDARY_LIGHT}};
+         --brand-secondary-text: {{BRAND_COLOR_SECONDARY_TEXT}};
+         --ink: #12231b;
+         --paper: #ffffff;
+         --muted: #f6f8f7;
+       }
 
-      /* ── Suppress @page running headers/footers ────────────────────────────
-       Header & footer are fully managed by Puppeteer displayHeaderFooter;
-       CSS @page margin-area rules are disabled to prevent double-rendering. */
-      @page {
-        margin: 1in 0.75in 0.9in 1.25in;
-        @top-left {
-          content: none;
-          border: none;
-          padding: 0;
-        }
-        @top-right {
-          content: none;
-          border: none;
-          padding: 0;
-        }
-        @bottom-left {
-          content: none;
-          border: none;
-          padding: 0;
-        }
-        @bottom-right {
-          content: none;
-          border: none;
-          padding: 0;
-        }
-      }
+       /* ── Suppress @page running headers/footers ────────────────────────────
+        Header & footer are fully managed by Puppeteer displayHeaderFooter;
+        CSS @page margin-area rules are disabled to prevent double-rendering. */
+       @page {
+         margin: 1in 0.75in 0.9in 1.25in;
+         @top-left {
+           content: none;
+           border: none;
+           padding: 0;
+         }
+         @top-right {
+           content: none;
+           border: none;
+           padding: 0;
+         }
+         @bottom-left {
+           content: none;
+           border: none;
+           padding: 0;
+         }
+         @bottom-right {
+           content: none;
+           border: none;
+           padding: 0;
+         }
+       }
 
-      /* ── MISH designator + section title — bold 18pt MHC Green ─────────── */
-      .mish-designator {
-        font-size: var(--type-print-manual-section-title);
-        font-weight: 900;
-        color: var(--brand-primary);
-        margin: 8pt 0 2pt;
-        line-height: 1.1;
-        letter-spacing: 0.04em;
-      }
-      .mish-section-title {
-        font-size: var(--type-print-manual-section-title);
-        font-weight: 700;
-        color: var(--brand-primary);
-        margin: 0 0 10pt;
-        line-height: 1.15;
-      }
+       /* ── MISH designator + section title — bold 18pt MHC Green ─────────── */
+       .mish-designator {
+         font-size: var(--type-print-manual-section-title);
+         font-weight: 900;
+         color: var(--brand-primary);
+         margin: 8pt 0 2pt;
+         line-height: 1.1;
+         letter-spacing: 0.04em;
+       }
+       .mish-section-title {
+         font-size: var(--type-print-manual-section-title);
+         font-weight: 700;
+         color: var(--brand-primary);
+         margin: 0 0 10pt;
+         line-height: 1.15;
+       }
 
-      /* ── Revision info + QR row ─────────────────────────────────────────── */
-      /*
-     * PRECISION FIX 5 — Full-text-column revision block
-     * QR floats right (must appear first in DOM order).
-     * Revision table is block-level and fills the full 6.5" text column.
-     * overflow: hidden on the container acts as a clearfix.
-     */
-      .section-info-row {
-        display: block;
-        overflow: hidden; /* clearfix for the floated QR block */
-        margin-bottom: 14pt;
-        padding-bottom: 10pt;
-        border-bottom: 1.5pt solid var(--brand-secondary);
-      }
-      .section-info-row .qr-block-inline {
-        float: right;
-        margin-left: 12pt;
-        margin-bottom: 4pt;
-      }
-      .revision-info-table {
-        width: 100%; /* spans the full text column */
-        table-layout: fixed;
-        border-collapse: collapse;
-        font-size: var(--type-print-table);
-      }
-      .revision-info-table .rit-label {
-        font-weight: 700;
-        color: var(--brand-primary-dark);
-        text-transform: uppercase;
-        font-size: var(--type-print-label);
-        letter-spacing: 0.04em;
-        padding: 3pt 10pt 3pt 0;
-        white-space: nowrap;
-        vertical-align: middle; /* ← sync with spec: all cells vertically centred */
-      }
-      .revision-info-table .rit-value {
-        color: #333;
-        padding: 3pt 0;
-        vertical-align: middle; /* ← sync with spec */
-      }
-      .revision-info-table tr {
-        border-bottom: 0.3pt dotted #ddd;
-      }
-      .revision-info-table tr:last-child {
-        border-bottom: none;
-      }
+       /* ── Revision info + QR row ─────────────────────────────────────────── */
+       /*
+      * PRECISION FIX 5 — Full-text-column revision block
+      * QR floats right (must appear first in DOM order).
+      * Revision table is block-level and fills the full 6.5" text column.
+      * overflow: hidden on the container acts as a clearfix.
+      */
+       .section-info-row {
+         display: block;
+         overflow: hidden; /* clearfix for the floated QR block */
+         margin-bottom: 14pt;
+         padding-bottom: 10pt;
+         border-bottom: 1.5pt solid var(--brand-secondary);
+       }
+       .section-info-row .qr-block-inline {
+         float: right;
+         margin-left: 12pt;
+         margin-bottom: 4pt;
+       }
+       .revision-info-table {
+         width: 100%; /* spans the full text column */
+         table-layout: fixed;
+         border-collapse: collapse;
+         font-size: var(--type-print-table);
+       }
+       .revision-info-table .rit-label {
+         font-weight: 700;
+         color: var(--brand-primary-dark);
+         text-transform: uppercase;
+         font-size: var(--type-print-label);
+         letter-spacing: 0.04em;
+         padding: 3pt 10pt 3pt 0;
+         white-space: nowrap;
+         vertical-align: middle; /* ← sync with spec: all cells vertically centred */
+       }
+       .revision-info-table .rit-value {
+         color: #333;
+         padding: 3pt 0;
+         vertical-align: middle; /* ← sync with spec */
+       }
+       .revision-info-table tr {
+         border-bottom: 0.3pt dotted #ddd;
+       }
+       .revision-info-table tr:last-child {
+         border-bottom: none;
+       }
 
-      /* ── Section body — flush-left numbers, hanging-indent body text, looser leading for field readability ── */
-      /*
-     * UX REFRESH 2026:
-     *   - Body line-height bumped to var(--leading-field) (1.6) for outdoor / harsh-light reading
-     *   - Paragraph spacing widened to 9pt for breathable scan rhythm
-     *   - Sub-topic heads styled as card-chips (see components.css .sec-subhead)
-     */
-      .section-body {
-        margin-top: 6pt;
-        font-size: 10pt;
-        line-height: var(--leading-field);
-      }
+       /* ── Section body — flush-left numbers, hanging-indent body text, looser leading for field readability ── */
+       /*
+      * UX REFRESH 2026:
+      *   - Body line-height bumped to var(--leading-field) (1.6) for outdoor / harsh-light reading
+      *   - Paragraph spacing widened to 9pt for breathable scan rhythm
+      *   - Sub-topic heads styled as card-chips (see components.css .sec-subhead)
+      */
+       .section-body {
+         margin-top: 6pt;
+         font-size: 10pt;
+         line-height: var(--leading-field);
+       }
 
-      /* Keep checklist and inspection tables readable without cell overflow. */
-      .section-body table {
-        table-layout: fixed;
-      }
-      .section-body th,
-      .section-body td {
-        overflow-wrap: anywhere;
-        word-break: break-word;
-      }
+       /* Keep checklist and inspection tables readable without cell overflow. */
+       .section-body table {
+         table-layout: fixed;
+       }
+       .section-body th,
+       .section-body td {
+         overflow-wrap: anywhere;
+         word-break: break-word;
+       }
 
-      /* Flush-left elements — anchored to 0.0" */
-      .section-body .sec-num-row,
-      .section-body .sec-subhead,
-      .section-body h4,
-      .section-body .form-standalone-header,
-      .section-body .form-badge-header,
-      .section-body .addendum-section,
-      .section-body .three-hour-rule-box {
-        margin-left: 0;
-      }
+       /* Flush-left elements — anchored to 0.0" */
+       .section-body .sec-num-row,
+       .section-body .sec-subhead,
+       .section-body h4,
+       .section-body .form-standalone-header,
+       .section-body .form-badge-header,
+       .section-body .addendum-section,
+       .section-body .three-hour-rule-box {
+         margin-left: 0;
+       }
 
-      /* Universal hanging indent — body text indented 0.5" from left anchor */
-      .section-body p {
-        margin-left: 0.5in;
-        margin-bottom: 9pt;
-      }
+       /* Universal hanging indent — body text indented 0.5" from left anchor */
+       .section-body p {
+         margin-left: 0.5in;
+         margin-bottom: 9pt;
+       }
 
-      /*
-     * PRECISION OVERRIDE 1+3 — Hanging Indent for Numbered Policy Paragraphs
-     * Paragraphs whose first child is a <strong> section number (1.0, 2.3.1, etc.)
-     * get text-indent: -0.5in so the number sits in the 0.0" gutter while all
-     * subsequent wrapped lines stay in the 0.5" content lane.
-     * Uses CSS :has() — supported by Chromium 105+ / Puppeteer.
-     */
-      .section-body p:has(> strong:first-child) {
-        text-indent: -0.5in;
-      }
+       /*
+      * PRECISION OVERRIDE 1+3 — Hanging Indent for Numbered Policy Paragraphs
+      * Paragraphs whose first child is a <strong> section number (1.0, 2.3.1, etc.)
+      * get text-indent: -0.5in so the number sits in the 0.0" gutter while all
+      * subsequent wrapped lines stay in the 0.5" content lane.
+      * Uses CSS :has() — supported by Chromium 105+ / Puppeteer.
+      */
+       .section-body p:has(> strong:first-child) {
+         text-indent: -0.5in;
+       }
 
-      /* First-level lists at 0.75"; component.css handles nested at +0.25" = 1.0" */
-      .section-body > .sec-list,
-      .section-body > ul,
-      .section-body > ol {
-        margin-left: 0.75in;
-        padding-left: 0;
-      }
+       /* First-level lists at 0.75"; component.css handles nested at +0.25" = 1.0" */
+       .section-body > .sec-list,
+       .section-body > ul,
+       .section-body > ol {
+         margin-left: 0.75in;
+         padding-left: 0;
+       }
 
-      /* Addendum note paragraphs follow body indent */
-      .section-body .addendum-note {
-        margin-left: 0.5in;
-      }
+       /* Addendum note paragraphs follow body indent */
+       .section-body .addendum-note {
+         margin-left: 0.5in;
+       }
 
-      /* PRECISION FIX 4 — Table gutter: 0.5" padding each side inside text block */
-      .section-body
-        table:not(.revision-info-table):not(.threshold-table):not(
-          .signature-table
-        ) {
-        margin-left: 0.5in;
-        margin-right: 0.5in;
-        width: calc(100% - 1in);
-        box-sizing: border-box;
-      }
+       /* PRECISION FIX 4 — Table gutter: 0.5" padding each side inside text block */
+       .section-body
+         table:not(.revision-info-table):not(.threshold-table):not(
+           .signature-table
+         ) {
+         margin-left: 0.5in;
+         margin-right: 0.5in;
+         width: calc(100% - 1in);
+         box-sizing: border-box;
+       }
 
-      /* Signature table: full content-lane width with 0.5in gutter (matches body text lane) */
-      .section-body .signature-table {
-        margin-left: 0.5in;
-        margin-right: 0.5in;
-        width: calc(100% - 1in);
-        box-sizing: border-box;
-      }
+       /* Signature table: full content-lane width with 0.5in gutter (matches body text lane) */
+       .section-body .signature-table {
+         margin-left: 0.5in;
+         margin-right: 0.5in;
+         width: calc(100% - 1in);
+         box-sizing: border-box;
+       }
 
-      /* Threshold table gets its own 0.5" gutter treatment */
-      .section-body .threshold-table {
-        margin-left: 0.5in;
-        margin-right: 0.5in;
-        width: calc(100% - 1in);
-        box-sizing: border-box;
-      }
+       /* Threshold table gets its own 0.5" gutter treatment */
+       .section-body .threshold-table {
+         margin-left: 0.5in;
+         margin-right: 0.5in;
+         width: calc(100% - 1in);
+         box-sizing: border-box;
+       }
 
-      /* ── Decorative section header card ─────────────────────────────────── */
-      /* Combines the section header (MISH ## + Title) with the document      */
-      /* metadata table inside one branded container.                          */
-      .section-header-card {
-        position: relative;
-        margin: 0 0 16pt;
-        padding: 14pt 16pt 12pt;
-        background: linear-gradient(180deg, var(--muted) 0%, var(--paper) 70%);
-        border: 0.75pt solid var(--brand-secondary);
-        border-left: 4pt solid var(--brand-primary);
-        border-radius: 6pt;
-        page-break-inside: avoid;
-        break-inside: avoid;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      .section-header-card::before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: -0.5pt;
-        right: -0.5pt;
-        height: 3pt;
-        background: var(--brand-primary);
-        border-radius: 6pt 6pt 0 0;
-      }
+       /* ── Decorative section header card ─────────────────────────────────── */
+       /* Combines the section header (MISH ## + Title) with the document      */
+       /* metadata table inside one branded container.                          */
+       .section-header-card {
+         position: relative;
+         margin: 0 0 16pt;
+         padding: 14pt 16pt 12pt;
+         background: linear-gradient(180deg, var(--muted) 0%, var(--paper) 70%);
+         border: 0.75pt solid var(--brand-secondary);
+         border-left: 4pt solid var(--brand-primary);
+         border-radius: 6pt;
+         page-break-inside: avoid;
+         break-inside: avoid;
+         -webkit-print-color-adjust: exact;
+         print-color-adjust: exact;
+       }
+       .section-header-card::before {
+         content: "";
+         display: block;
+         position: absolute;
+         top: 0;
+         left: -0.5pt;
+         right: -0.5pt;
+         height: 3pt;
+         background: var(--brand-primary);
+         border-radius: 6pt 6pt 0 0;
+       }
 
-      .section-identity {
-        margin: 0 0 8pt;
-        font-family: "Helvetica Neue", Arial, sans-serif;
-        font-size: 7pt;
-        font-weight: 700;
-        letter-spacing: 0.11em;
-        text-transform: uppercase;
-        color: var(--brand-primary-dark);
-      }
+       .section-identity {
+         margin: 0 0 8pt;
+         font-family: "Helvetica Neue", Arial, sans-serif;
+         font-size: 7pt;
+         font-weight: 700;
+         letter-spacing: 0.11em;
+         text-transform: uppercase;
+         color: var(--brand-primary-dark);
+       }
 
-      .section-identity .dot {
-        color: var(--brand-secondary);
-        margin: 0 6pt;
-      }
+       .section-identity .dot {
+         color: var(--brand-secondary);
+         margin: 0 6pt;
+       }
 
-      .shc-title-row {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 12pt;
-        padding-bottom: 8pt;
-        margin-bottom: 9pt;
-        border-bottom: 0.5pt solid #e0d6c2;
-      }
-      .shc-title-block {
-        flex: 1 1 auto;
-        min-width: 0;
-      }
-      .shc-mish-chip {
-        display: inline-block;
-        background: var(--brand-primary);
-        color: #ffffff;
-        font-size: 8.5pt;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        padding: 2pt 9pt;
-        border-radius: 9pt;
-        margin-bottom: 5pt;
-      }
-      .shc-title {
-        font-size: 18pt;
-        font-weight: 700;
-        color: var(--brand-primary-dark);
-        margin: 0;
-        line-height: 1.15;
-        letter-spacing: -0.005em;
-      }
-      .shc-rev-badge {
-        flex: 0 0 auto;
-        text-align: right;
-        font-family: var(--font-body);
-        background: #ffffff;
-        border: 0.5pt solid var(--brand-secondary);
-        border-radius: 4pt;
-        padding: 5pt 9pt;
-        min-width: 1.2in;
-      }
-      .shc-rev-badge .shc-rev-label {
-        display: block;
-        font-size: 6.5pt;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--brand-secondary-text);
-        margin-bottom: 1pt;
-      }
-      .shc-rev-badge .shc-rev-value {
-        display: block;
-        font-size: 9pt;
-        font-weight: 700;
-        color: var(--brand-primary-dark);
-        line-height: 1.15;
-      }
+       .shc-title-row {
+         display: flex;
+         align-items: flex-start;
+         justify-content: space-between;
+         gap: 12pt;
+         padding-bottom: 8pt;
+         margin-bottom: 9pt;
+         border-bottom: 0.5pt solid #e0d6c2;
+       }
+       .shc-title-block {
+         flex: 1 1 auto;
+         min-width: 0;
+       }
+       .shc-mish-chip {
+         display: inline-block;
+         background: var(--brand-primary);
+         color: #ffffff;
+         font-size: 8.5pt;
+         font-weight: 800;
+         letter-spacing: 0.08em;
+         text-transform: uppercase;
+         padding: 2pt 9pt;
+         border-radius: 9pt;
+         margin-bottom: 5pt;
+       }
+       .shc-title {
+         font-size: 18pt;
+         font-weight: 700;
+         color: var(--brand-primary-dark);
+         margin: 0;
+         line-height: 1.15;
+         letter-spacing: -0.005em;
+       }
+       .shc-rev-badge {
+         flex: 0 0 auto;
+         text-align: right;
+         font-family: var(--font-body);
+         background: #ffffff;
+         border: 0.5pt solid var(--brand-secondary);
+         border-radius: 4pt;
+         padding: 5pt 9pt;
+         min-width: 1.2in;
+       }
+       .shc-rev-badge .shc-rev-label {
+         display: block;
+         font-size: 6.5pt;
+         font-weight: 800;
+         letter-spacing: 0.1em;
+         text-transform: uppercase;
+         color: var(--brand-secondary-text);
+         margin-bottom: 1pt;
+       }
+       .shc-rev-badge .shc-rev-value {
+         display: block;
+         font-size: 9pt;
+         font-weight: 700;
+         color: var(--brand-primary-dark);
+         line-height: 1.15;
+       }
 
-      /* 3-column metadata grid — Document / Program / Licenses */
-      .shc-meta-grid {
-        display: grid;
-        grid-template-columns: 1.2fr 2fr 1.6fr;
-        gap: 10pt;
-      }
-      .shc-meta-cell {
-        display: flex;
-        flex-direction: column;
-        gap: 2pt;
-        padding-left: 8pt;
-        border-left: 1.5pt solid var(--brand-secondary);
-      }
-      .shc-meta-cell:first-child {
-        padding-left: 0;
-        border-left: 0;
-      }
-      .shc-meta-label {
-        font-size: 6.8pt;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--brand-secondary-text);
-      }
-      .shc-meta-value {
-        font-size: 9pt;
-        font-weight: 600;
-        color: #1f2937;
-        line-height: 1.3;
-      }
-      .shc-meta-value strong {
-        color: var(--brand-primary-dark);
-      }
+       /* 3-column metadata grid — Document / Program / Licenses */
+       .shc-meta-grid {
+         display: grid;
+         grid-template-columns: 1.2fr 2fr 1.6fr;
+         gap: 10pt;
+       }
+       .shc-meta-cell {
+         display: flex;
+         flex-direction: column;
+         gap: 2pt;
+         padding-left: 8pt;
+         border-left: 1.5pt solid var(--brand-secondary);
+       }
+       .shc-meta-cell:first-child {
+         padding-left: 0;
+         border-left: 0;
+       }
+       .shc-meta-label {
+         font-size: 6.8pt;
+         font-weight: 800;
+         letter-spacing: 0.1em;
+         text-transform: uppercase;
+         color: var(--brand-secondary-text);
+       }
+       .shc-meta-value {
+         font-size: 9pt;
+         font-weight: 600;
+         color: #1f2937;
+         line-height: 1.3;
+       }
+       .shc-meta-value strong {
+         color: var(--brand-primary-dark);
+       }
 
-      .page-frame {
-        position: fixed;
-        top: 0.24in;
-        left: 0.2in;
-        right: 0.2in;
-        bottom: 0.2in;
-        border: 1.2pt solid var(--brand-primary-dark);
-        pointer-events: none;
-        z-index: 0;
-      }
+       .page-frame {
+         position: fixed;
+         inset: 0.22in;
+         border: 1.2pt solid var(--brand-primary-dark);
+         pointer-events: none;
+         z-index: 0;
+       }
 
-      .page-frame::after {
-        content: "";
-        position: absolute;
-        inset: 0.1in;
-        border: 0.6pt solid var(--brand-secondary);
-      }
+       .page-frame::after {
+         content: "";
+         position: absolute;
+         inset: 0.11in;
+         border: 0.6pt solid var(--brand-secondary);
+       }
 
-      .left-ribbon {
-        position: fixed;
-        top: 0.42in;
-        bottom: 0.38in;
-        left: 0.26in;
-        width: 0.14in;
-        border-radius: 2pt;
-        background: linear-gradient(
-          180deg,
-          var(--brand-primary-dark) 0%,
-          var(--brand-primary) 68%,
-          var(--brand-secondary) 100%
-        );
-        pointer-events: none;
-        z-index: 0;
-      }
+       .left-ribbon {
+         position: fixed;
+         top: 0.45in;
+         bottom: 0.45in;
+         left: 0.45in;
+         width: 0.28in;
+         border-radius: 2pt;
+         background: linear-gradient(
+           180deg,
+           var(--brand-primary-dark) 0%,
+           var(--brand-primary) 68%,
+           var(--brand-secondary) 100%
+         );
+         pointer-events: none;
+         z-index: 0;
+       }
 
-      /* Fix 5 layout handled above in .section-info-row block */
+       /* Fix 5 layout handled above in .section-info-row block */
 
-      /* ── Page watermark ─────────────────────────────────────────────
-         Fixed-position MH logo that repeats on every printed page.
-         Chrome's print engine paints fixed elements once per page.
-         Kept very faint (6% opacity) so it never competes with text. */
-      .page-watermark {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        width: 5.25in;
-        height: 5.25in;
-        margin: -2.625in 0 0 -2.625in;
-        background-image: url("{{BRAND_LOGO_COLOR}}");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: contain;
-        opacity: 0.06;
-        pointer-events: none;
-        z-index: 0;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      /* Lift content above watermark in stacking context */
-      .section-header-card,
-      .section-body,
-      main,
-      article,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      p,
-      ul,
-      ol,
-      table {
-        position: relative;
-        z-index: 1;
-      }
+       /* ── Page watermark ─────────────────────────────────────────────
+          Fixed-position MH logo that repeats on every printed page.
+          Chrome's print engine paints fixed elements once per page.
+          Kept very faint (6% opacity) so it never competes with text. */
+       .page-watermark {
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         width: 5.25in;
+         height: 5.25in;
+         margin: -2.625in 0 0 -2.625in;
+         background-image: url("{{BRAND_LOGO_COLOR}}");
+         background-repeat: no-repeat;
+         background-position: center center;
+         background-size: contain;
+         opacity: 0.06;
+         pointer-events: none;
+         z-index: 0;
+         -webkit-print-color-adjust: exact;
+         print-color-adjust: exact;
+       }
+       /* Lift content above watermark in stacking context */
+       .section-header-card,
+       .section-body,
+       main,
+       article,
+       h1,
+       h2,
+       h3,
+       h4,
+       h5,
+       h6,
+       p,
+       ul,
+       ol,
+       table {
+         position: relative;
+         z-index: 1;
+       }
     </style>
   </head>
   <body>
@@ -429,11 +426,15 @@
     <!-- identity panel. The thumb-zone QR FAB lives in the page footer.     -->
     <section class="section-header-card" aria-label="Section identity">
       <div class="section-identity">
-        {{BRAND_COMPANY_SHORT}}<span class="dot">•</span>{{BRAND_ADDRESS_CITYSTATEZIP}}<span class="dot">•</span>{{BRAND_VETERAN}}
+        {{BRAND_COMPANY_SHORT}}<span class="dot">•</span
+        >{{BRAND_ADDRESS_CITYSTATEZIP}}<span class="dot">•</span
+        >{{BRAND_VETERAN}}
       </div>
       <div class="shc-title-row">
         <div class="shc-title-block">
-          <span class="shc-mish-chip">MISH&nbsp;{{SECTION_NUMBER}}</span>
+          <span class="shc-mish-chip"
+            >MISH&nbsp;{{SECTION_NUMBER}}&nbsp;&mdash;&nbsp;WBS&nbsp;{{SECTION_WBS}}</span
+          >
           <h1 class="shc-title">{{SECTION_TITLE}}</h1>
         </div>
         <div class="shc-rev-badge">
@@ -448,6 +449,12 @@
           <span class="shc-meta-label">Document</span>
           <span class="shc-meta-value"
             ><strong>MISH {{SECTION_NUMBER}}</strong></span
+          >
+        </div>
+        <div class="shc-meta-cell">
+          <span class="shc-meta-label">WBS Reference</span>
+          <span class="shc-meta-value"
+            ><strong>WBS {{SECTION_WBS}}</strong></span
           >
         </div>
         <div class="shc-meta-cell">
