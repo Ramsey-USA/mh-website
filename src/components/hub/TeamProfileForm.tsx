@@ -92,14 +92,11 @@ function memberToFormState(member: VintageTeamMember): FormState {
     education: member.education ?? "",
     nickname: member.nickname ?? "",
     yearsWithCompany: String(member.yearsWithCompany ?? ""),
-    careerHighlights: [
-      ...member.careerHighlights,
-      "", "", "", "", "",
-    ].slice(0, 5),
-    specialties: [
-      ...member.specialties,
-      "", "", "", "", "", "",
-    ].slice(0, 6),
+    careerHighlights: [...member.careerHighlights, "", "", "", "", ""].slice(
+      0,
+      5,
+    ),
+    specialties: [...member.specialties, "", "", "", "", "", ""].slice(0, 6),
     skills: {
       leadership: String(member.skills.leadership),
       technical: String(member.skills.technical),
@@ -166,7 +163,9 @@ function formStateToPayload(form: FormState): Record<string, unknown> {
   if (!isNaN(p)) cys["projectsCompleted"] = p;
   if (!isNaN(cs)) cys["clientSatisfaction"] = cs;
   if (!isNaN(tc)) cys["teamCollaborations"] = tc;
-  if (form.currentYearStats.safetyRecord.trim()) {cys["safetyRecord"] = form.currentYearStats.safetyRecord.trim();}
+  if (form.currentYearStats.safetyRecord.trim()) {
+    cys["safetyRecord"] = form.currentYearStats.safetyRecord.trim();
+  }
   if (Object.keys(cys).length > 0) payload["currentYearStats"] = cys;
 
   const cs2: Record<string, number> = {};
@@ -229,7 +228,7 @@ export function TeamProfileForm() {
           return;
         }
 
-        const refreshData = await refreshRes.json() as {
+        const refreshData = (await refreshRes.json()) as {
           accessToken?: string;
           user?: { name?: string; role?: string };
         };
@@ -261,7 +260,7 @@ export function TeamProfileForm() {
           return;
         }
 
-        const profileData = await profileRes.json() as ApiProfileResponse;
+        const profileData = (await profileRes.json()) as ApiProfileResponse;
         if (profileData.success && profileData.data) {
           setProfile(profileData.data.profile);
           setForm(memberToFormState(profileData.data.profile));
@@ -298,7 +297,7 @@ export function TeamProfileForm() {
         body: JSON.stringify(payload),
       });
 
-      const data = await res.json() as {
+      const data = (await res.json()) as {
         success: boolean;
         message?: string;
         data?: { status?: "pending_approval" | "approved" | "rejected" };
@@ -306,9 +305,7 @@ export function TeamProfileForm() {
 
       if (res.ok && data.success) {
         setSaveStatus("saved");
-        setSaveMessage(
-          data.message ?? "Profile submitted successfully.",
-        );
+        setSaveMessage(data.message ?? "Profile submitted successfully.");
         // Reflect new submission status from the server response
         if (data.data?.status) {
           setSubmissionStatus(data.data.status);
@@ -372,13 +369,13 @@ export function TeamProfileForm() {
     if (saveStatus !== "idle") setSaveStatus("idle");
   }
 
-  function setCYS(
-    key: keyof FormState["currentYearStats"],
-    value: string,
-  ) {
+  function setCYS(key: keyof FormState["currentYearStats"], value: string) {
     setForm((prev) =>
       prev
-        ? { ...prev, currentYearStats: { ...prev.currentYearStats, [key]: value } }
+        ? {
+            ...prev,
+            currentYearStats: { ...prev.currentYearStats, [key]: value },
+          }
         : prev,
     );
     if (saveStatus !== "idle") setSaveStatus("idle");
@@ -404,9 +401,7 @@ export function TeamProfileForm() {
             <MaterialIcon icon="badge" size="lg" />
           </div>
           <div>
-            <h2 className="text-lg font-black text-white">
-              {profile.name}
-            </h2>
+            <h2 className="text-lg font-black text-white">{profile.name}</h2>
             <p className="text-sm text-gray-400">{profile.role}</p>
           </div>
           {userName && (
@@ -451,7 +446,10 @@ export function TeamProfileForm() {
                     Your profile has been submitted and is pending review by
                     Matt. It will appear on the team page once approved.
                     {submittedAt && (
-                      <> Submitted {new Date(submittedAt).toLocaleDateString()}.</>
+                      <>
+                        {" "}
+                        Submitted {new Date(submittedAt).toLocaleDateString()}.
+                      </>
                     )}
                   </p>
                 </>
@@ -489,7 +487,9 @@ export function TeamProfileForm() {
             {saveStatus === "saving" && (
               <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
             )}
-            {saveStatus === "saved" && <MaterialIcon icon="check_circle" size="sm" />}
+            {saveStatus === "saved" && (
+              <MaterialIcon icon="check_circle" size="sm" />
+            )}
             {saveStatus === "error" && <MaterialIcon icon="error" size="sm" />}
             {saveMessage || (saveStatus === "saving" ? "Saving…" : "")}
           </div>
@@ -569,7 +569,9 @@ export function TeamProfileForm() {
             label={`Highlight ${i + 1}`}
             placeholder={`Career highlight ${i + 1}…`}
             value={highlight}
-            onChange={(e) => setArrayItem("careerHighlights", i, e.target.value)}
+            onChange={(e) =>
+              setArrayItem("careerHighlights", i, e.target.value)
+            }
             maxLength={200}
           />
         ))}
@@ -625,7 +627,8 @@ export function TeamProfileForm() {
       <div className="rounded-xl border border-gray-700 bg-gray-800/60 p-5 space-y-4">
         <SectionHeading icon="insights" label="Skill Ratings (0–100)" />
         <p className="text-xs text-gray-500">
-          Rate each skill from 0 to 100. These populate your profile radar chart.
+          Rate each skill from 0 to 100. These populate your profile radar
+          chart.
         </p>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {SKILL_FIELDS.map(({ key, label }) => (
@@ -753,7 +756,9 @@ export function TeamProfileForm() {
           ) : (
             <>
               <MaterialIcon icon="send" size="sm" />
-              {submissionStatus === "rejected" ? "Resubmit Profile" : "Submit for Review"}
+              {submissionStatus === "rejected"
+                ? "Resubmit Profile"
+                : "Submit for Review"}
             </>
           )}
         </button>

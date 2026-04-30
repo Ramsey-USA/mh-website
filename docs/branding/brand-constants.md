@@ -228,12 +228,12 @@ maximum credibility and procurement access across state, federal, and private/co
 When fully certified, this 4-tier stack creates an exceptionally powerful competitive position
 in the construction market.
 
-| Tier | Level               | Certification       | Certifying Body                                      | Status              |
-| ---- | ------------------- | ------------------- | ---------------------------------------------------- | ------------------- |
-| 1    | State               | WA DVA VOB          | Washington State Dept. of Veterans Affairs           | ✅ Certified (2026)  |
-| 2    | Federal             | SBA VetCert         | U.S. Small Business Administration                   | 🔄 Actively Pursuing |
-| 3    | Private / Corporate | NaVOBA              | National Veteran-Owned Business Association          | 🔄 Actively Pursuing |
-| 4    | Private / Corporate | NVBDC               | National Veteran Business Development Council        | 🔄 Actively Pursuing |
+| Tier | Level               | Certification | Certifying Body                               | Status               |
+| ---- | ------------------- | ------------- | --------------------------------------------- | -------------------- |
+| 1    | State               | WA DVA VOB    | Washington State Dept. of Veterans Affairs    | ✅ Certified (2026)  |
+| 2    | Federal             | SBA VetCert   | U.S. Small Business Administration            | 🔄 Actively Pursuing |
+| 3    | Private / Corporate | NaVOBA        | National Veteran-Owned Business Association   | 🔄 Actively Pursuing |
+| 4    | Private / Corporate | NVBDC         | National Veteran Business Development Council | 🔄 Actively Pursuing |
 
 > **Canonical implementation reference:** `COMPANY_INFO.veteranCertifications` in
 > `src/lib/constants/company.ts`. When a tier reaches "certified" status, add its

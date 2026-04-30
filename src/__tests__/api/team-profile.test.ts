@@ -97,8 +97,7 @@ jest.mock("@/lib/auth/middleware", () => ({
         if (!roles.includes(role)) {
           return NextResponse.json({ error: "Forbidden" }, { status: 403 });
         }
-        const email =
-          req.headers.get("X-Test-Email") ?? "matt@mhc-gc.com";
+        const email = req.headers.get("X-Test-Email") ?? "matt@mhc-gc.com";
         const user = { uid: "admin-matt", role, name: "Matt", email };
         return handler(req, user, ctx);
       };
@@ -246,15 +245,22 @@ describe("PUT /api/team-profile", () => {
   });
 
   it("returns 401 when no auth header is provided", async () => {
-    const req = makeRequest(BASE_URL, { method: "PUT", body: { bio: "Hello" } });
+    const req = makeRequest(BASE_URL, {
+      method: "PUT",
+      body: { bio: "Hello" },
+    });
     const res = await PUT(req);
     expect(res.status).toBe(401);
   });
 
   it("returns 404 when admin email has no team profile mapping", async () => {
-    const req = makeAuthedRequest("PUT", { bio: "Hello" }, {
-      "X-Test-Email": "nobody@mhc-gc.com",
-    });
+    const req = makeAuthedRequest(
+      "PUT",
+      { bio: "Hello" },
+      {
+        "X-Test-Email": "nobody@mhc-gc.com",
+      },
+    );
     const res = await PUT(req);
     expect(res.status).toBe(404);
   });

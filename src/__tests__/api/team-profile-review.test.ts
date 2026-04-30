@@ -76,8 +76,7 @@ jest.mock("@/lib/auth/middleware", () => ({
         if (!roles.includes(role)) {
           return NextResponse.json({ error: "Forbidden" }, { status: 403 });
         }
-        const email =
-          req.headers.get("X-Test-Email") ?? "matt@mhc-gc.com";
+        const email = req.headers.get("X-Test-Email") ?? "matt@mhc-gc.com";
         const user = { uid: "admin-matt", role, name: "Matt", email };
         return handler(req, user, ctx);
       };
@@ -100,10 +99,7 @@ jest.mock("@/lib/utils/logger", () => ({
 
 // ── Import route after mocks ───────────────────────────────────────────────────
 
-import {
-  GET,
-  POST,
-} from "@/app/api/team-profile/review/route";
+import { GET, POST } from "@/app/api/team-profile/review/route";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
