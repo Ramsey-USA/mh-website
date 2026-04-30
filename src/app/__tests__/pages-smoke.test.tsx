@@ -389,11 +389,12 @@ describe("Services page", () => {
 // ── Team page ─────────────────────────────────────────────────────────────────
 
 describe("Team page", () => {
-  it("renders without throwing", () => {
+  it("renders without throwing", async () => {
     const { default: TeamPage } = require("../team/page") as {
-      default: React.ComponentType;
+      default: () => Promise<React.ReactElement>;
     };
-    expect(() => render(<TeamPage />)).not.toThrow();
+    const page = await TeamPage();
+    expect(() => render(page)).not.toThrow();
   });
 });
 

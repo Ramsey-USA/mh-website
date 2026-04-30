@@ -162,6 +162,9 @@ describe("rateLimitPresets", () => {
 // cleanupLocalStore (lines 54-59) — triggered when Math.random() < 0.01
 // ---------------------------------------------------------------------------
 describe("rateLimit middleware — local store cleanup", () => {
+  beforeEach(() => jest.useFakeTimers());
+  afterEach(() => jest.useRealTimers());
+
   it("cleanupLocalStore removes expired entries when Math.random() < 0.01", async () => {
     const randomSpy = jest.spyOn(Math, "random");
 
@@ -173,8 +176,8 @@ describe("rateLimit middleware — local store cleanup", () => {
     const limited = rateLimit({ maxRequests: 100, windowMs: 1 })(handler);
     await limited(makeRequest("cleanup.seed", "/api/cleanup-test"));
 
-    // Wait for the entry's 1 ms window to expire
-    await new Promise((resolve) => setTimeout(resolve, 10));
+    // Advance the fake clock past the entry's 1 ms window — no real wait needed
+    jest.advanceTimersByTime(10);
 
     // Next call: Math.random < 0.01 triggers cleanupLocalStore()
     randomSpy.mockReturnValue(0.005);
