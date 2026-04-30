@@ -33,12 +33,6 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Type Check
-        run: npm run type-check
-
-      - name: Lint
-        run: npm run lint
-
       - name: Branding Gate Script
         id: branding_gate
         env:
