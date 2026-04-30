@@ -149,9 +149,9 @@ are stored in `public/images/credentials/` as WebP files. Credentials are displa
 
 ### License Verification Links
 
-- Washington: https://secure.lni.wa.gov/verify/Detail.aspx?UBI=603069508&LIC=MHCONCI907R7&SAW=false
-- Oregon: https://egov.sos.state.or.us/br/pkg_web_name_srch_inq.show_detl?p_be_rsn=1514612&p_srce=BR_INQ&p_print=FALSE
-- Idaho: https://www.labor.idaho.gov/
+- Washington: <https://secure.lni.wa.gov/verify/Detail.aspx?UBI=603069508&LIC=MHCONCI907R7&SAW=false>
+- Oregon: <https://egov.sos.state.or.us/br/pkg_web_name_srch_inq.show_detl?p_be_rsn=1514612&p_srce=BR_INQ&p_print=FALSE>
+- Idaho: <https://www.labor.idaho.gov/>
 
 | Credential                       | Data Key                                 | Logo Path                                                                             | Link                                                                                  |
 | -------------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
