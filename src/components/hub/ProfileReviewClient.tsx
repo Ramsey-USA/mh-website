@@ -457,7 +457,11 @@ export function ProfileReviewClient() {
       {/* Empty state */}
       {submissions.length === 0 && (
         <div className="rounded-xl border border-gray-700 bg-gray-800/30 p-12 text-center text-gray-500">
-          <MaterialIcon icon="check_circle" size="lg" className="mb-3 text-green-500" />
+          <MaterialIcon
+            icon="check_circle"
+            size="lg"
+            className="mb-3 text-green-500"
+          />
           <p className="text-base font-semibold text-gray-300">
             All caught up!
           </p>

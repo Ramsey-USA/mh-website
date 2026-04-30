@@ -23,10 +23,7 @@ import {
   serviceUnavailable,
 } from "@/lib/api/responses";
 import type { JWTUser } from "@/lib/auth/jwt";
-import {
-  vintageTeamMembers,
-  APPROVER_EMAIL,
-} from "@/lib/data/vintage-team";
+import { vintageTeamMembers, APPROVER_EMAIL } from "@/lib/data/vintage-team";
 
 export const dynamic = "force-dynamic";
 

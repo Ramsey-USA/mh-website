@@ -163,6 +163,14 @@ jest.mock("@/lib/constants/company", () => ({
       logo: "/images/travelers-logo.png",
       logoWhite: "/images/travelers-logo-white.png",
     },
+    waVob: {
+      programUrl: "https://example.com/wa-vob",
+      verifyUrl: "https://example.com/wa-vob-verify",
+      logo: "/images/logo/veteran-owned-business.jpg",
+      alt: "Washington State Veteran Owned Business",
+      title: "Verify WA VOB Certification",
+      certifiedYear: 2026,
+    },
   },
 }));
 

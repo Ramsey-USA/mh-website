@@ -284,12 +284,12 @@ This exception is approved because:
 
 ### Approved Colors (Veteran Owned Badge Container Only)
 
-| Role          | Color                       | Hex       | Tailwind Class |
-| ------------- | --------------------------- | --------- | -------------- |
-| Border Start  | U.S. Flag Red               | `#dc2626` | `red-600`      |
-| Border End    | U.S. Flag Blue              | `#1d4ed8` | `blue-700`     |
-| Inner BG (LM) | White                       | `#ffffff` | `white`        |
-| Inner BG (DM) | Dark Gray                   | `#1f2937` | `gray-800`     |
+| Role          | Color          | Hex       | Tailwind Class |
+| ------------- | -------------- | --------- | -------------- |
+| Border Start  | U.S. Flag Red  | `#dc2626` | `red-600`      |
+| Border End    | U.S. Flag Blue | `#1d4ed8` | `blue-700`     |
+| Inner BG (LM) | White          | `#ffffff` | `white`        |
+| Inner BG (DM) | Dark Gray      | `#1f2937` | `gray-800`     |
 
 ### Implementation
 

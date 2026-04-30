@@ -190,8 +190,7 @@ export const COMPANY_INFO = {
      * WA State DES Vendor Search — public verification page for our VOB cert.
      * Visitors can look up MH Construction to confirm the certification is active.
      */
-    verifyUrl:
-      "https://pr-webs-vendor.des.wa.gov/VendorSearch.aspx",
+    verifyUrl: "https://pr-webs-vendor.des.wa.gov/VendorSearch.aspx",
     /** Local badge image (non-transparent background — must be used inside WaVobBadge component) */
     logo: "/images/logo/veteran-owned-business.jpg",
     alt: "Washington State Veteran Owned Business — Certified by WA DVA",
@@ -227,7 +226,8 @@ export const COMPANY_INFO = {
       level: "state",
       name: "Washington State Veteran Owned Business",
       abbreviation: "WA VOB",
-      certifyingBody: "Washington State Department of Veterans Affairs (WA DVA)",
+      certifyingBody:
+        "Washington State Department of Veterans Affairs (WA DVA)",
       programUrl:
         "https://dva.wa.gov/veterans-service-members-and-their-families/veteran-owned-businesses",
       status: "certified",
@@ -261,8 +261,7 @@ export const COMPANY_INFO = {
       level: "private-corporate",
       name: "NaVOBA Veteran Owned Business Certification",
       abbreviation: "NaVOBA",
-      certifyingBody:
-        "National Veteran-Owned Business Association (NaVOBA)",
+      certifyingBody: "National Veteran-Owned Business Association (NaVOBA)",
       programUrl: "https://www.navoba.com/",
       status: "in-pursuit",
     },
@@ -278,8 +277,7 @@ export const COMPANY_INFO = {
       level: "private-corporate",
       name: "NVBDC Veteran Owned Business Certification",
       abbreviation: "NVBDC",
-      certifyingBody:
-        "National Veteran Business Development Council (NVBDC)",
+      certifyingBody: "National Veteran Business Development Council (NVBDC)",
       programUrl: "https://nvbdc.org/",
       status: "in-pursuit",
     },
