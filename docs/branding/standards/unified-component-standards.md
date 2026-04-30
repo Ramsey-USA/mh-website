@@ -137,13 +137,13 @@ font-family:
 
 **Font Files (self-hosted in `/public/fonts/`):**
 
-| File | Weight | Role |
-| ---- | ------ | ---- |
-| `Abolition-Regular.woff2` | 400 | Headings |
-| `DIN2014-Light.woff2` | 300 | Light body |
-| `DIN2014-Regular.woff2` | 400 | Body |
-| `DIN2014-Demi.woff2` | 600 | Semi-bold body |
-| `DIN2014-Bold.woff2` | 700 | Bold body |
+| File                      | Weight | Role           |
+| ------------------------- | ------ | -------------- |
+| `Abolition-Regular.woff2` | 400    | Headings       |
+| `DIN2014-Light.woff2`     | 300    | Light body     |
+| `DIN2014-Regular.woff2`   | 400    | Body           |
+| `DIN2014-Demi.woff2`      | 600    | Semi-bold body |
+| `DIN2014-Bold.woff2`      | 700    | Bold body      |
 
 ### Font Weights
 

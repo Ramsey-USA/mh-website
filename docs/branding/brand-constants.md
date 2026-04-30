@@ -127,10 +127,10 @@ The four-value foundation system, in hierarchical order:
 
 ### Font System
 
-| Role | Font Family | Fallback Stack |
-| ---- | ----------- | -------------- |
-| **Heading / Subheading** | Abolition | `ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif` |
-| **Body** | DIN 2014 | `ui-sans-serif, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif` |
+| Role                     | Font Family | Fallback Stack                                                                         |
+| ------------------------ | ----------- | -------------------------------------------------------------------------------------- |
+| **Heading / Subheading** | Abolition   | `ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif`         |
+| **Body**                 | DIN 2014    | `ui-sans-serif, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif` |
 
 ### Usage Rules
 
@@ -148,8 +148,8 @@ The four-value foundation system, in hierarchical order:
 ### Tailwind Utilities
 
 ```html
-font-heading → Abolition + fallbacks (headings)
-font-body / font-sans → DIN 2014 + fallbacks (body)
+font-heading → Abolition + fallbacks (headings) font-body / font-sans → DIN 2014
++ fallbacks (body)
 ```
 
 ---
