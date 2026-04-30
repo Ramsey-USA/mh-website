@@ -92,6 +92,9 @@ jobs:
       - name: Check public asset budgets
         run: npm run check:asset-budgets
 
+      - name: Check for unused dependencies
+        run: npx depcheck
+
   # Security Audit
   security-audit:
     name: Security Audit
@@ -155,3 +158,6 @@ jobs:
 
       - name: Build application
         run: npm run build
+
+      - name: Check bundle size
+        run: npm run bundle:report

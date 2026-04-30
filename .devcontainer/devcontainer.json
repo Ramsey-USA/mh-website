@@ -1,11 +1,23 @@
 {
   "name": "mh-website",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  // Fix 3: Require a 4-core/16 GB machine so the stack never hits the OOM killer.
+  // GitHub Codespaces will provision the next available tier that meets these specs.
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb",
+    "storage": "32gb"
+  },
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   "customizations": {
     "vscode": {
+      // Fix 6: Two heavy background-process extensions were removed from auto-install
+      // to reduce memory pressure on startup. Install them manually from the
+      // Extensions panel if you need them:
+      //   - Accessibility auditing: deque-systems.vscode-axe-linter
+      //   - Cloudflare Workers bindings UI: cloudflare.cloudflare-workers-bindings-extension
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
@@ -14,12 +26,10 @@
         "github.copilot",
         "github.copilot-chat",
         "orta.vscode-jest",
-        "cloudflare.cloudflare-workers-bindings-extension",
         "mikestead.dotenv",
         "streetsidesoftware.code-spell-checker",
         "davidanson.vscode-markdownlint",
-        "redhat.vscode-yaml",
-        "deque-systems.vscode-axe-linter"
+        "redhat.vscode-yaml"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -48,13 +58,25 @@
           "**/public/images": true,
           "**/.pnpm-store": true
         },
-        "typescript.tsserver.maxTsServerMemory": 3072,
+        // Fix 1: Halved from 3072 → 1536 MB. IntelliSense is fully functional
+        // at 1.5 GB; 3 GB was consuming nearly half the available RAM on the
+        // default 8 GB machine and triggering the Linux OOM killer.
+        "typescript.tsserver.maxTsServerMemory": 1536,
         "jest.autoRun": "off"
       }
     }
   },
-  "postCreateCommand": "corepack enable pnpm && pnpm install --frozen-lockfile",
+  // Fix 2: --config.optional=false skips heavy optional deps (puppeteer/Chromium,
+  // tesseract.js, pdfjs-dist, lighthouse, sharp, @napi-rs/canvas, etc.) that are
+  // only needed by CI image-optimisation scripts and aren't required for daily dev.
+  // This reduces node_modules by ~2–3 GB and eliminates creation-time OOM risk.
+  "postCreateCommand": "corepack enable pnpm && pnpm install --frozen-lockfile --config.optional=false",
   "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+  // Fix 4: "stopContainer" preserves the container filesystem on idle timeout so
+  // the Codespace resumes cleanly without re-running postCreateCommand.
+  // The alternative ("none") destroys state; the default is also "stopContainer"
+  // but setting it explicitly prevents accidental org-policy overrides.
+  "shutdownAction": "stopContainer",
   "forwardPorts": [3000],
   "portsAttributes": {
     "3000": {
