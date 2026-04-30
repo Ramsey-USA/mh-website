@@ -78,8 +78,10 @@
   --surface-card-radius: 4pt;
 
   /* ── Typography ─────────────────────────────────── */
-  --font-body: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
-  --font-heading: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+  --font-body: "DIN 2014", "Helvetica Neue", Arial, "Liberation Sans",
+    sans-serif;
+  --font-heading: "Abolition", "Helvetica Neue", Arial, "Liberation Sans",
+    sans-serif;
   --font-mono: "Courier New", Courier, monospace;
 
   /* ── Print Type Scale ───────────────────────────── */

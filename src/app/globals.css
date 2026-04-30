@@ -8,6 +8,65 @@
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
 
+/* ============================================
+   MH BRAND FONTS
+   Heading / Subheading: Abolition
+   Body: DIN 2014
+   Fallbacks: current system-ui / Helvetica stack
+   ============================================ */
+
+/* Abolition — Display/Heading font */
+@font-face {
+  font-family: "Abolition";
+  src:
+    url("/fonts/Abolition-Regular.woff2") format("woff2"),
+    url("/fonts/Abolition-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* DIN 2014 — Body font */
+@font-face {
+  font-family: "DIN 2014";
+  src:
+    url("/fonts/DIN2014-Regular.woff2") format("woff2"),
+    url("/fonts/DIN2014-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DIN 2014";
+  src:
+    url("/fonts/DIN2014-Demi.woff2") format("woff2"),
+    url("/fonts/DIN2014-Demi.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DIN 2014";
+  src:
+    url("/fonts/DIN2014-Bold.woff2") format("woff2"),
+    url("/fonts/DIN2014-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DIN 2014";
+  src:
+    url("/fonts/DIN2014-Light.woff2") format("woff2"),
+    url("/fonts/DIN2014-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Material Icons font setup */
 .material-icons {
   font-family: "Material Icons";
@@ -186,9 +245,19 @@ nav[aria-label="Navegacion de ruta"] {
   }
 
   body {
+    font-family: var(--font-body);
     @apply transition-colors duration-300;
     @apply bg-white text-gray-900;
     @apply dark:bg-gray-900 dark:text-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
   }
 
   /* Optimize rendering performance */

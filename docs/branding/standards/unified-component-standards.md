@@ -91,12 +91,33 @@ The gradient text in section headers, as implemented across all pages, is the co
 
 ## 📝 **Typography System**
 
-### Primary Typeface: System UI
+### MH Brand Typefaces
 
-**Font Family Stack:**
+**Heading / Subheading Font — Abolition:**
 
 ```css
 font-family:
+  "Abolition",
+  ui-sans-serif,
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  "Helvetica Neue",
+  Arial,
+  sans-serif;
+```
+
+- Display/condensed typeface — strong brand identity at large sizes
+- Used for: H1–H6 headings, subheadings, section titles, badges, tab labels
+- Tailwind utility: `font-heading`
+- CSS variable: `--font-heading`
+
+**Body Font — DIN 2014:**
+
+```css
+font-family:
+  "DIN 2014",
   ui-sans-serif,
   system-ui,
   -apple-system,
@@ -105,16 +126,24 @@ font-family:
   Roboto,
   "Helvetica Neue",
   Arial,
+  "Noto Sans",
   sans-serif;
 ```
 
-**Key Characteristics:**
+- Clean humanist sans-serif — high legibility at small and medium sizes
+- Used for: Body copy, paragraphs, captions, form labels, navigation items
+- Tailwind utility: `font-sans` / `font-body`
+- CSS variable: `--font-body`
 
-- Native OS font — zero loading overhead
-- High legibility at all sizes
-- Professional, modern aesthetic
-- Excellent accessibility
-- Wide language support
+**Font Files (self-hosted in `/public/fonts/`):**
+
+| File | Weight | Role |
+| ---- | ------ | ---- |
+| `Abolition-Regular.woff2` | 400 | Headings |
+| `DIN2014-Light.woff2` | 300 | Light body |
+| `DIN2014-Regular.woff2` | 400 | Body |
+| `DIN2014-Demi.woff2` | 600 | Semi-bold body |
+| `DIN2014-Bold.woff2` | 700 | Bold body |
 
 ### Font Weights
 

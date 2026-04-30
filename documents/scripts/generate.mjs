@@ -484,7 +484,7 @@ function buildSectionHeaderHtml(
     sectionTitle.length > 38 ? sectionTitle.slice(0, 35) + "…" : sectionTitle;
   const tabRef = sectionToTab(sectionNum);
   const wbsCode = sectionToWbs(sectionNum);
-  const font = "'Helvetica Neue',Arial,sans-serif";
+  const font = "'DIN 2014','Helvetica Neue',Arial,sans-serif";
   const pad = "padding:0 0.55in 0 1.25in";
 
   // Page bubble — Puppeteer replaces <span class="pageNumber"> / <span class="totalPages">
@@ -567,7 +567,7 @@ function buildSectionFooterHtml(sectionNum, sectionTitle, qrDataUrl) {
     : "";
 
   return [
-    `<div style="width:100%;font-family:'Helvetica Neue',Arial,sans-serif;`,
+    `<div style="width:100%;font-family:'DIN 2014','Helvetica Neue',Arial,sans-serif;`,
     `padding:6pt 0.75in 0 1.25in;border-top:0.75pt solid ${BRAND_COLORS.secondary};`,
     `box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;`,
     `display:flex;align-items:center;gap:10pt;">`,
@@ -891,7 +891,7 @@ function buildContentsPdfHtml(sections) {
     <style>
       @page { size: Letter; margin: 0.75in 0.75in 0.75in 1.0in; }
       body {
-        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        font-family: "DIN 2014", "Segoe UI", Arial, sans-serif;
         color: #1f2937;
         font-size: 11pt;
         line-height: 1.35;
@@ -907,6 +907,7 @@ function buildContentsPdfHtml(sections) {
         margin-bottom: 0.06in;
       }
       h1 {
+        font-family: "Abolition", "Segoe UI", Arial, sans-serif;
         font-size: 20pt;
         margin: 0;
         color: {{BRAND_COLOR_PRIMARY}};
@@ -987,7 +988,7 @@ function buildReferencePdfHtml(sections) {
     <style>
       @page { size: Letter; margin: 0.65in 0.5in 0.65in 0.5in; }
       body {
-        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        font-family: "DIN 2014", "Segoe UI", Arial, sans-serif;
         color: #1f2937;
         font-size: 9.5pt;
         line-height: 1.3;
@@ -1003,6 +1004,7 @@ function buildReferencePdfHtml(sections) {
         margin-bottom: 0.04in;
       }
       h1 {
+        font-family: "Abolition", "Segoe UI", Arial, sans-serif;
         font-size: 17pt;
         margin: 0;
         color: {{BRAND_COLOR_PRIMARY}};

@@ -60,6 +60,18 @@
   --spacing-24: 6rem;
   --spacing-32: 8rem;
 
+  /* ============================================
+     MH BRAND TYPOGRAPHY — Font Families
+     Heading / Subheading: Abolition
+     Body: DIN 2014
+     Fallbacks: system-ui / Helvetica stack
+     ============================================ */
+  --font-heading: "Abolition", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "DIN 2014", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif;
+
   /* Typography Scale */
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
