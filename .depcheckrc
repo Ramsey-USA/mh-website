@@ -13,7 +13,8 @@
     "@cspell/dict-es-es",
     "@tailwindcss/postcss",
     "cross-env",
-    "esbuild"
+    "esbuild",
+    "lint-staged"
   ],
   "specials": [
     "bin",
