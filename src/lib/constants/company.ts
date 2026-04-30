@@ -186,10 +186,16 @@ export const COMPANY_INFO = {
     /** Certification program page — Washington Department of Veterans Affairs */
     programUrl:
       "https://dva.wa.gov/veterans-service-members-and-their-families/veteran-owned-businesses",
+    /**
+     * WA State DES Vendor Search — public verification page for our VOB cert.
+     * Visitors can look up MH Construction to confirm the certification is active.
+     */
+    verifyUrl:
+      "https://pr-webs-vendor.des.wa.gov/VendorSearch.aspx",
     /** Local badge image (non-transparent background — must be used inside WaVobBadge component) */
     logo: "/images/logo/veteran-owned-business.jpg",
     alt: "Washington State Veteran Owned Business — Certified by WA DVA",
-    title: "Washington State Veteran Owned Business Certification",
+    title: "Verify MH Construction WA Veteran Owned Business Certification",
     certifiedYear: 2026,
   },
 

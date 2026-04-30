@@ -38,11 +38,11 @@ export function WaVobBadge({ size = "md", className = "" }: WaVobBadgeProps) {
   return (
     /* Gradient border wrapper — patriotic red→blue, soft rounded corners */
     <a
-      href={COMPANY_INFO.waVob.programUrl}
+      href={COMPANY_INFO.waVob.verifyUrl}
       target="_blank"
       rel="noopener noreferrer"
       title={COMPANY_INFO.waVob.title}
-      aria-label={COMPANY_INFO.waVob.alt}
+      aria-label={`${COMPANY_INFO.waVob.alt} — click to verify certification`}
       className={`group inline-block rounded-xl bg-gradient-to-br from-red-600 to-blue-700 p-[3px] transition-transform duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 ${className}`}
     >
       {/* Inner container — white bg on light mode, dark bg on dark mode, hides non-transparent logo bg */}
