@@ -1557,7 +1557,9 @@ function textToHtml(text) {
     // Approval block fragments (names, roles, metadata)
     /^Jeremy Thamert\s*$/i,
     /^Matt Ramsey\s*$/i,
+    /^President\s*(?:&|and)\s*Owner\s*$/i,
     /^President.*Safety Officer\s*$/i,
+    /^AGC Representative\s*(?:&|and)\s*Safety Officer\s*$/i,
     /^Travelers Risk Control Consultant\s*$/i,
     /^AGC Representative\s*$/i,
     /^Signature\s*\/\s*Date\s*$/i,
