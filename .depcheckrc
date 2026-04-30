@@ -1,0 +1,37 @@
+{
+  "ignores": [
+    "@types/*",
+    "eslint-*",
+    "@eslint/*",
+    "prettier",
+    "husky",
+    "@commitlint/*",
+    "postcss",
+    "autoprefixer",
+    "jest-environment-jsdom",
+    "chalk",
+    "@cspell/dict-es-es",
+    "@tailwindcss/postcss",
+    "cross-env",
+    "esbuild"
+  ],
+  "specials": [
+    "bin",
+    "babel",
+    "eslint",
+    "express",
+    "feross-standard",
+    "gatsby",
+    "gulp",
+    "istanbul",
+    "jest",
+    "karma",
+    "mocha",
+    "node-pre-gyp",
+    "nyc",
+    "prettier",
+    "ts-node",
+    "tslint",
+    "ttypescript"
+  ]
+}

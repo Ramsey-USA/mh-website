@@ -46,7 +46,6 @@ jobs:
 
       - name: Check for unused dependencies
         run: npx depcheck
-          --ignores="@types/*,eslint-*,prettier,husky,@commitlint/*,postcss,autoprefixer,jest-environment-jsdom,chalk"
 
       - name: Restore Next.js build cache
         uses: actions/cache@v4
