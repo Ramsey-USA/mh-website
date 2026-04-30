@@ -18,19 +18,15 @@
     <style>
       /* ── Brand CSS variables (inlined to avoid @import resolution issues) ── */
       :root {
-        --color-primary: #386851;
-        --color-primary-light: #628f79;
-        --color-primary-dark: #1e392c;
-        --color-primary-darker: #12231b;
-        --color-secondary: #bd9264;
-        --color-secondary-text: #8a6b49;
-        --color-secondary-light: #d9bd93;
-        --color-secondary-dark: #8a6b49;
-        --color-bronze: #a87948;
-        --color-bronze-light: #cd9b6d;
-        --color-bronze-dark: #6b4e2e;
-        --font-body: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
-        --font-heading: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+        --brand-primary: {{BRAND_COLOR_PRIMARY}};
+        --brand-primary-dark: {{BRAND_COLOR_PRIMARY_DARK}};
+        --brand-primary-darker: {{BRAND_COLOR_PRIMARY_DARKER}};
+        --brand-secondary: {{BRAND_COLOR_SECONDARY}};
+        --brand-secondary-light: {{BRAND_COLOR_SECONDARY_LIGHT}};
+        --brand-secondary-text: {{BRAND_COLOR_SECONDARY_TEXT}};
+        --ink: #12231b;
+        --paper: #ffffff;
+        --muted: #f6f8f7;
       }
 
       *,
@@ -51,8 +47,8 @@
       body {
         margin: 0;
         padding: 0;
-        background: #ffffff;
-        color: #000000;
+        background: var(--paper);
+        color: var(--ink);
         /* Adobe Garamond Pro → Georgia fallback for body copy */
         font-family:
           "Adobe Garamond Pro", Garamond, Georgia, "Times New Roman", serif;
@@ -62,9 +58,48 @@
 
       /* Use flex-column so the footer is always at the bottom of the page */
       .toc-page {
+        position: relative;
         display: flex;
         flex-direction: column;
         min-height: 10.16in; /* 11in − 2×0.42in margins */
+        padding: 0.14in 0.2in 0.12in 0.34in;
+        background: var(--paper);
+        overflow: hidden;
+      }
+
+      .toc-page::before {
+        content: "";
+        position: absolute;
+        inset: 0.04in;
+        border: 1.1pt solid var(--brand-primary-dark);
+        pointer-events: none;
+      }
+
+      .toc-page::after {
+        content: "";
+        position: absolute;
+        inset: 0.13in;
+        border: 0.6pt solid var(--brand-secondary);
+        pointer-events: none;
+      }
+
+      .toc-ribbon {
+        position: absolute;
+        top: 0.25in;
+        bottom: 0.25in;
+        left: 0.18in;
+        width: 0.14in;
+        background: linear-gradient(
+          180deg,
+          var(--brand-primary-dark) 0%,
+          var(--brand-primary) 70%,
+          var(--brand-secondary) 100%
+        );
+      }
+
+      .toc-content {
+        position: relative;
+        z-index: 1;
       }
 
       /* ── Page Header ─────────────────────────────────────── */
@@ -73,7 +108,7 @@
         text-align: center;
         padding-bottom: 0.1in;
         margin-bottom: 0.11in;
-        border-bottom: 2pt solid #386851;
+        border-bottom: 1.2pt solid var(--brand-primary);
       }
 
       .toc-logo {
@@ -86,7 +121,7 @@
       /* Veteran-Owned badge — mirrors cover-veteran pattern */
       .toc-veteran-badge {
         display: inline-block;
-        border: 0.75pt solid #386851;
+        border: 0.75pt solid var(--brand-primary);
         border-radius: 2pt;
         padding: 1.5pt 10pt;
         /* Tactic Sans Bold → Helvetica Neue fallback for headings */
@@ -95,25 +130,35 @@
         font-weight: 700;
         letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: #386851;
+        color: var(--brand-primary);
         margin-bottom: 0.07in;
       }
 
       .toc-veteran-badge::before {
         content: "★\00a0";
-        color: #bd9264;
+        color: var(--brand-secondary);
       }
 
       .toc-veteran-badge::after {
         content: "\00a0★";
-        color: #bd9264;
+        color: var(--brand-secondary);
+      }
+
+      .toc-identity {
+        margin: 0 0 0.05in;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 6.4pt;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: var(--brand-primary-dark);
       }
 
       .toc-title {
         font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
         font-size: 16pt;
         font-weight: 900;
-        color: #386851;
+        color: var(--brand-primary-dark);
         margin: 0.05in 0 0.02in;
         letter-spacing: 0.01em;
         line-height: 1.1;
@@ -123,7 +168,7 @@
         font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
         font-size: 7.5pt;
         font-weight: 400;
-        color: #8a6b49;
+        color: var(--brand-secondary-text);
         letter-spacing: 0.08em;
         text-transform: uppercase;
         margin: 0;
@@ -149,12 +194,12 @@
         font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
         font-size: 7pt;
         font-weight: 500;
-        color: #386851;
+        color: var(--brand-primary);
         text-transform: uppercase;
         letter-spacing: 0.1em;
         margin: 0 0 2pt;
         padding: 2pt 0 2pt;
-        border-bottom: 0.75pt solid #386851;
+        border-bottom: 0.75pt solid var(--brand-primary);
       }
 
       /* MISH entry list */
@@ -183,7 +228,7 @@
         font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
         font-size: 7.5pt;
         font-weight: 700;
-        color: #1e392c;
+        color: var(--brand-primary-dark);
       }
 
       .mish-title {
@@ -194,14 +239,14 @@
       /* Callout — Tan Leather highlight for critical safety protocols */
       .mish-entry.callout {
         background: #fff8f2;
-        border-left: 1.75pt solid #bd9264;
+        border-left: 1.75pt solid var(--brand-secondary);
         padding-left: 4pt;
         margin-left: -4pt;
         border-radius: 0 1pt 1pt 0;
       }
 
       .mish-entry.callout .mish-code {
-        color: #8a6b49;
+        color: var(--brand-secondary-text);
         font-weight: 900;
       }
 
@@ -217,14 +262,14 @@
         align-items: flex-end;
         justify-content: space-between;
         padding-top: 0.06in;
-        border-top: 0.5pt solid #d9bd93;
+        border-top: 0.5pt solid var(--brand-secondary-light);
         margin-top: 0.06in;
       }
 
       .toc-footer-left {
         font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
         font-size: 6.5pt;
-        color: #8a6b49;
+        color: var(--brand-secondary-text);
       }
 
       .toc-footer-right {
@@ -238,7 +283,7 @@
       /* ── Footer veteran badge ──────────────────────────── */
       .toc-footer-veteran {
         flex-shrink: 0;
-        border: 0.75pt solid #386851;
+        border: 0.75pt solid var(--brand-primary);
         border-radius: 2pt;
         padding: 2pt 10pt;
         font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
@@ -246,17 +291,17 @@
         font-weight: 700;
         letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: #386851;
+        color: var(--brand-primary);
       }
 
       .toc-footer-veteran::before {
         content: "\2605\00a0";
-        color: #bd9264;
+        color: var(--brand-secondary);
       }
 
       .toc-footer-veteran::after {
         content: "\00a0\2605";
-        color: #bd9264;
+        color: var(--brand-secondary);
       }
 
       /* ── Footer QR code (public TOC URL) ──────────────── */
@@ -278,7 +323,7 @@
         font-family: "Tactic Sans", "Helvetica Neue", Arial, sans-serif;
         font-size: 5.5pt;
         font-weight: 700;
-        color: #8a6b49;
+        color: var(--brand-secondary-text);
         text-align: center;
         letter-spacing: 0.04em;
         text-transform: uppercase;
@@ -288,8 +333,14 @@
   </head>
   <body>
     <div class="toc-page">
+      <div class="toc-ribbon" aria-hidden="true"></div>
+      <div class="toc-content">
       <!-- ── Header ─────────────────────────────────────────── -->
       <header class="toc-header">
+        <p class="toc-identity">
+          {{BRAND_COMPANY_SHORT}} · {{BRAND_ADDRESS_CITYSTATEZIP}} ·
+          {{BRAND_VETERAN}}
+        </p>
         <img
           class="toc-logo"
           src="{{BRAND_LOGO_COLOR}}"
@@ -322,6 +373,7 @@
           >Revision {{BRAND_REVISION_NUMBER}} ({{BRAND_REVISION_DATE}})</span
         >
       </footer>
+      </div>
     </div>
   </body>
 </html>

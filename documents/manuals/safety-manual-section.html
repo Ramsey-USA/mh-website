@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="../styles/print-base.css" />
     <link rel="stylesheet" href="../styles/components.css" />
     <style>
+      :root {
+        --brand-primary: {{BRAND_COLOR_PRIMARY}};
+        --brand-primary-dark: {{BRAND_COLOR_PRIMARY_DARK}};
+        --brand-primary-darker: {{BRAND_COLOR_PRIMARY_DARKER}};
+        --brand-secondary: {{BRAND_COLOR_SECONDARY}};
+        --brand-secondary-light: {{BRAND_COLOR_SECONDARY_LIGHT}};
+        --brand-secondary-text: {{BRAND_COLOR_SECONDARY_TEXT}};
+        --ink: #12231b;
+        --paper: #ffffff;
+        --muted: #f6f8f7;
+      }
+
       /* ── Suppress @page running headers/footers ────────────────────────────
        Header & footer are fully managed by Puppeteer displayHeaderFooter;
        CSS @page margin-area rules are disabled to prevent double-rendering. */
@@ -38,7 +50,7 @@
       .mish-designator {
         font-size: var(--type-print-manual-section-title);
         font-weight: 900;
-        color: var(--color-primary);
+        color: var(--brand-primary);
         margin: 8pt 0 2pt;
         line-height: 1.1;
         letter-spacing: 0.04em;
@@ -46,7 +58,7 @@
       .mish-section-title {
         font-size: var(--type-print-manual-section-title);
         font-weight: 700;
-        color: var(--color-primary);
+        color: var(--brand-primary);
         margin: 0 0 10pt;
         line-height: 1.15;
       }
@@ -63,7 +75,7 @@
         overflow: hidden; /* clearfix for the floated QR block */
         margin-bottom: 14pt;
         padding-bottom: 10pt;
-        border-bottom: 1.5pt solid #bd9264;
+        border-bottom: 1.5pt solid var(--brand-secondary);
       }
       .section-info-row .qr-block-inline {
         float: right;
@@ -78,7 +90,7 @@
       }
       .revision-info-table .rit-label {
         font-weight: 700;
-        color: var(--color-primary-dark);
+        color: var(--brand-primary-dark);
         text-transform: uppercase;
         font-size: var(--type-print-label);
         letter-spacing: 0.04em;
@@ -196,9 +208,9 @@
         position: relative;
         margin: 0 0 16pt;
         padding: 14pt 16pt 12pt;
-        background: linear-gradient(180deg, #f6f3ec 0%, #ffffff 70%);
-        border: 0.75pt solid var(--color-secondary);
-        border-left: 4pt solid var(--color-primary);
+        background: linear-gradient(180deg, var(--muted) 0%, var(--paper) 70%);
+        border: 0.75pt solid var(--brand-secondary);
+        border-left: 4pt solid var(--brand-primary);
         border-radius: 6pt;
         page-break-inside: avoid;
         break-inside: avoid;
@@ -213,8 +225,23 @@
         left: -0.5pt;
         right: -0.5pt;
         height: 3pt;
-        background: var(--color-primary);
+        background: var(--brand-primary);
         border-radius: 6pt 6pt 0 0;
+      }
+
+      .section-identity {
+        margin: 0 0 8pt;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 7pt;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: var(--brand-primary-dark);
+      }
+
+      .section-identity .dot {
+        color: var(--brand-secondary);
+        margin: 0 6pt;
       }
 
       .shc-title-row {
@@ -232,7 +259,7 @@
       }
       .shc-mish-chip {
         display: inline-block;
-        background: var(--color-primary);
+        background: var(--brand-primary);
         color: #ffffff;
         font-size: 8.5pt;
         font-weight: 800;
@@ -245,7 +272,7 @@
       .shc-title {
         font-size: 18pt;
         font-weight: 700;
-        color: var(--color-primary);
+        color: var(--brand-primary-dark);
         margin: 0;
         line-height: 1.15;
         letter-spacing: -0.005em;
@@ -255,7 +282,7 @@
         text-align: right;
         font-family: var(--font-body);
         background: #ffffff;
-        border: 0.5pt solid var(--color-secondary);
+        border: 0.5pt solid var(--brand-secondary);
         border-radius: 4pt;
         padding: 5pt 9pt;
         min-width: 1.2in;
@@ -266,14 +293,14 @@
         font-weight: 800;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: var(--color-secondary-text);
+        color: var(--brand-secondary-text);
         margin-bottom: 1pt;
       }
       .shc-rev-badge .shc-rev-value {
         display: block;
         font-size: 9pt;
         font-weight: 700;
-        color: var(--color-primary-dark);
+        color: var(--brand-primary-dark);
         line-height: 1.15;
       }
 
@@ -288,7 +315,7 @@
         flex-direction: column;
         gap: 2pt;
         padding-left: 8pt;
-        border-left: 1.5pt solid var(--color-secondary);
+        border-left: 1.5pt solid var(--brand-secondary);
       }
       .shc-meta-cell:first-child {
         padding-left: 0;
@@ -299,7 +326,7 @@
         font-weight: 800;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: var(--color-secondary-text);
+        color: var(--brand-secondary-text);
       }
       .shc-meta-value {
         font-size: 9pt;
@@ -308,7 +335,42 @@
         line-height: 1.3;
       }
       .shc-meta-value strong {
-        color: var(--color-primary-dark);
+        color: var(--brand-primary-dark);
+      }
+
+      .page-frame {
+        position: fixed;
+        top: 0.24in;
+        left: 0.2in;
+        right: 0.2in;
+        bottom: 0.2in;
+        border: 1.2pt solid var(--brand-primary-dark);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .page-frame::after {
+        content: "";
+        position: absolute;
+        inset: 0.1in;
+        border: 0.6pt solid var(--brand-secondary);
+      }
+
+      .left-ribbon {
+        position: fixed;
+        top: 0.42in;
+        bottom: 0.38in;
+        left: 0.26in;
+        width: 0.14in;
+        border-radius: 2pt;
+        background: linear-gradient(
+          180deg,
+          var(--brand-primary-dark) 0%,
+          var(--brand-primary) 68%,
+          var(--brand-secondary) 100%
+        );
+        pointer-events: none;
+        z-index: 0;
       }
 
       /* Fix 5 layout handled above in .section-info-row block */
@@ -355,6 +417,9 @@
     </style>
   </head>
   <body>
+    <div class="page-frame" aria-hidden="true"></div>
+    <div class="left-ribbon" aria-hidden="true"></div>
+
     <!-- Page watermark — repeats on every printed page (5.25" centered, 6% opacity) -->
     <div class="page-watermark" aria-hidden="true"></div>
 
@@ -363,6 +428,9 @@
     <!-- single branded container so the section opens with a polished       -->
     <!-- identity panel. The thumb-zone QR FAB lives in the page footer.     -->
     <section class="section-header-card" aria-label="Section identity">
+      <div class="section-identity">
+        {{BRAND_COMPANY_SHORT}}<span class="dot">•</span>{{BRAND_ADDRESS_CITYSTATEZIP}}<span class="dot">•</span>{{BRAND_VETERAN}}
+      </div>
       <div class="shc-title-row">
         <div class="shc-title-block">
           <span class="shc-mish-chip">MISH&nbsp;{{SECTION_NUMBER}}</span>

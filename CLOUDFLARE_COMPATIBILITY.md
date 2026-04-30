@@ -9,6 +9,8 @@
 
 Your planned upgrades are **fully compatible** with your Cloudflare Workers deployment. No breaking changes detected between your current Cloudflare setup and the target versions.
 
+Current deployed stack (post-upgrade): Next.js 16.2.4, @opennextjs/cloudflare 1.19.4, wrangler 4.86.0.
+
 ---
 
 ## 🔍 Compatibility Analysis
@@ -17,7 +19,7 @@ Your planned upgrades are **fully compatible** with your Cloudflare Workers depl
 
 | Component                  | Current | Target | Compatibility       | Risk |
 | -------------------------- | ------- | ------ | ------------------- | ---- |
-| **Next.js**                | 15.5.15 | 16.2.4 | ✅ Supported        | NONE |
+| **Next.js**                | 16.2.4  | 16.2.4 | ✅ Supported        | NONE |
 | **@opennextjs/cloudflare** | 1.19.1  | 1.19.4 | ✅ Supports ≥16.2.3 | NONE |
 | **wrangler**               | 4.83.0  | 4.86.0 | ✅ Requires ≥4.84.1 | NONE |
 
@@ -202,12 +204,12 @@ images: {
 
 ## PostCSS & Build Chain
 
-### Current
+### Pre-Upgrade Baseline
 
 ```json
 {
   "postcss": ">=8.5.10",
-  "tailwindcss": "3.4.19",
+  "tailwindcss": "3.4.19", // Historical pre-upgrade value
   "@tailwindcss/*": "^0.5.x"
 }
 ```

@@ -66,12 +66,12 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 - 5× StaggeredFadeIn
 - `DiagonalStripePattern` + `BrandColorBlobs` rendered **8× each** (every section has both)
 - `JobApplicationModal` loaded in bundle even when closed
-- `useSearchParams()` without Suspense boundary (Next.js 15 warning risk)
+- `useSearchParams()` without Suspense boundary (App Router warning risk)
 
 **Audit checklist:**
 
 - [x] Extract client boundary: create `src/app/careers/CareersPageClient.tsx` ("use client") containing only modal state, `useSearchParams`, and `usePageTracking` — keep route page as server component
-- [x] Wrap client component in `<Suspense fallback={null}>` (required by useSearchParams in Next.js 15)
+- [x] Wrap client component in `<Suspense fallback={null}>` (required when using `useSearchParams` in App Router)
 - [x] Lazy-load `JobApplicationModal`: `dynamic(() => import(...), { ssr: false })` — only fetches on first open
 - [x] Reduce `DiagonalStripePattern` + `BrandColorBlobs` to once per page at layout level, not per-section
 - [x] Replace section-level FadeInWhenVisible with `.scroll-reveal` CSS (aim: ≤6 FIW total)
@@ -243,7 +243,7 @@ For each page, check each item — mark `[x]` when resolved, `[ ]` when not yet 
 
 **Audit checklist:**
 
-- [x] Confirm `useSearchParams` is wrapped in `<Suspense>` (Next.js 15 requirement) — uses `window.location` in `useEffect`, no `useSearchParams` hook present
+- [x] Confirm `useSearchParams` is wrapped in `<Suspense>` (App Router requirement) — uses `window.location` in `useEffect`, no `useSearchParams` hook present
 - [x] No other action needed — dynamic imports are correctly structured
 - [x] Build passes: `npm run build:next`
 

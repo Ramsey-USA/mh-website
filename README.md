@@ -273,10 +273,10 @@ Use these slash prompts for standardized compliance checks before merge or relea
 
 ### Core Framework
 
-- **Next.js** 15.5.15 (App Router)
+- **Next.js** 16.2.4 (App Router)
 - **React** 19.x (^19.0.0)
-- **TypeScript** 5.9.2 (strict mode)
-- **Tailwind CSS** 3.4.19
+- **TypeScript** 6.0.3 (strict mode)
+- **Tailwind CSS** 4.2.4
 - **Node.js** 22+
 
 ### Deployment & Infrastructure
@@ -292,7 +292,7 @@ Use these slash prompts for standardized compliance checks before merge or relea
 ### Quality Control
 
 - **Pre-commit hooks:** Auto-run type-check and quality scans before each commit
-- **CI/CD pipeline:** Automated TypeScript, ESLint 9, tests, and build verification
+- **CI/CD pipeline:** Automated TypeScript, ESLint 10, tests, and build verification
 - **AI workflow:** Ask AI: _"Run quality check and fix issues"_ → instant fixes
 - **Manual commands:** `npm run type-check`, `npm run lint`, `npm run quality:check`
 

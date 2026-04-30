@@ -123,7 +123,7 @@ Tests service worker registration, caching layers, offline support, and installa
 
 ```bash
 npm run type-check       # TypeScript strict validation (zero errors)
-npm run lint             # ESLint 9 (zero warnings, zero errors)
+npm run lint             # ESLint 10 (zero warnings, zero errors)
 npm run quality:check    # Full quality scan
 ```
 

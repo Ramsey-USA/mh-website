@@ -591,9 +591,9 @@ export default function Home() {
 
 ```json
 {
-  "next": "^15.5.15",
+  "next": "16.2.4",
   "react": "^19.0.0",
-  "typescript": "^5.9.2"
+  "typescript": "^6.0.3"
 }
 ```
 

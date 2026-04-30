@@ -761,7 +761,11 @@ async function generateTabs() {
     join(DOCS_DIR, "manuals/safety-manual-tabs.html"),
     "utf-8",
   );
-  const html = applyBrandTokens(raw);
+  const dashboardQrDataUrl = await buildQrDataUrl(BRAND.qrCodes.dashboard);
+  // Tabs footer expects an image source, so generate a QR image from the dashboard URL.
+  const html = applyBrandTokens(
+    raw.replaceAll("{{BRAND_QR_DASHBOARD}}", dashboardQrDataUrl),
+  );
   const pdfPath = join(OUTPUT_DIR, "safety-manual-tabs.pdf");
   await renderHtmlToPdf(
     html,
