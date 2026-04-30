@@ -100,7 +100,6 @@
     "@radix-ui/react-progress": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
     "@radix-ui/react-tabs": "^1.1.13",
-    "@react-email/render": "^2.0.8",
     "@sentry/browser": "^10.50.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -177,6 +176,11 @@
       "fast-xml-parser": "^5.7.0",
       "uuid": "^14.0.0",
       "postcss": ">=8.5.10"
+    },
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@react-email/render"
+      ]
     }
   },
   "lint-staged": {
