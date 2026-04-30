@@ -13,10 +13,11 @@
   },
   "customizations": {
     "vscode": {
-      // Fix 6: Heavy background-process extensions moved to recommendations.
-      // They are still installable via the Extensions panel but won't auto-start
-      // on every Codespace and won't consume memory until explicitly enabled.
-      // See "recommendations" block below.
+      // Fix 6: Two heavy background-process extensions were removed from auto-install
+      // to reduce memory pressure on startup. Install them manually from the
+      // Extensions panel if you need them:
+      //   - Accessibility auditing: deque-systems.vscode-axe-linter
+      //   - Cloudflare Workers bindings UI: cloudflare.cloudflare-workers-bindings-extension
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
