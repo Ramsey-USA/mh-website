@@ -18,6 +18,27 @@ All notable changes to the MH Construction website are documented here.
 
 ## April 2026
 
+- **Apr 30 (b):** 4-Tier Veteran Owned Business certification framework documentation — added
+  `COMPANY_INFO.veteranCertifications` block to `src/lib/constants/company.ts` documenting all 4
+  tiers with statuses: WA DVA VOB ✅ Certified (Tier 1 / State), SBA VetCert 🔄 (Tier 2 / Federal),
+  NaVOBA 🔄 (Tier 3 / Private-Corporate), NVBDC 🔄 (Tier 4 / Private-Corporate); updated
+  `docs/branding/brand-constants.md` (v1.4.0) with 4-tier framework table and individual credential
+  entries for each in-pursuit certification including program URLs, significance, and on-certification
+  guidance; updated `docs/branding/strategy/brand-overview.md` (v7.1.0) Key Differentiators section
+  with 4-tier VOB program description and cross-reference; in-pursuit certifications are documented
+  only — no UI badges displayed until official confirmation received
+
+- **Apr 30 (a):** Washington State Veteran Owned Business (WA DVA) certification badge — added
+  `WaVobBadge` component (`src/components/ui/WaVobBadge.tsx`) with an approved patriotic
+  red-to-blue gradient border container to display the non-transparent WA DVA logo; registered
+  `waVob` entry in `COMPANY_INFO`; badge deployed to all 8 accreditation/affiliations surfaces
+  (About, Veterans, Services, Allies, Public Sector, Locations, Careers, Footer); updated
+  `docs/branding/brand-constants.md` (v1.3.0) with WA VOB credential entry, `docs/branding/standards/color-system.md`
+  (v7.1.0) with Veteran Owned Badge Exception section, `docs/branding/standards/unified-component-standards.md`
+  with WaVobBadge accreditation rule, `docs/branding/agent-branding-policy.md` (v1.1.0) with
+  approved color exception table, `.github/branding-exceptions.json` with formal exception record,
+  and `.github/instructions/mh-branding-guardrails.instructions.md` with scoped exception guidance
+
 - **Apr 29:** Dependency upgrades to v7.1.0 — updated 22 packages across all risk tiers;
   safe minor/patch updates: `@react-email/render` 2.0.7→2.0.8, `@sentry/browser` 10.49.0→10.50.0,
   `next-intl` 4.9.1→4.11.0, `markdownlint-cli2` 0.21.0→0.22.1, `wrangler` 4.83.0→4.86.0,

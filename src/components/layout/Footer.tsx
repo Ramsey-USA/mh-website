@@ -18,6 +18,7 @@ import {
   TrackedLocationLink,
 } from "@/components/analytics/TrackedContactLinks";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { WaVobBadge } from "@/components/ui/WaVobBadge";
 import { trackFormSubmit } from "@/lib/analytics/tracking";
 import { useLocale } from "@/hooks/useLocale";
 
@@ -1144,6 +1145,9 @@ export default function Footer() {
                 loading="lazy"
               />
             </a>
+
+            {/* Washington State Veteran Owned Business */}
+            <WaVobBadge size="sm" />
           </div>
 
           {/* Bottom Bar - Enhanced Design */}

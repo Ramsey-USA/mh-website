@@ -173,6 +173,117 @@ export const COMPANY_INFO = {
     /** AGC national BABAA resource hub — covers Build America, Buy America Act guidance */
     babaaResourceHub: "https://www.agc.org/babaa-resource-hub",
   },
+
+  /**
+   * Washington State Veteran Owned Business — display fields for WaVobBadge component.
+   *
+   * These fields (logo, alt, title) are the UI-specific surface needed by the
+   * WaVobBadge component and any accreditation section that renders the badge image.
+   * For strategy/status data (tier, level, certifyingBody, status), see
+   * COMPANY_INFO.veteranCertifications.waVob below.
+   */
+  waVob: {
+    /** Certification program page — Washington Department of Veterans Affairs */
+    programUrl:
+      "https://dva.wa.gov/veterans-service-members-and-their-families/veteran-owned-businesses",
+    /**
+     * WA State DES Vendor Search — public verification page for our VOB cert.
+     * Visitors can look up MH Construction to confirm the certification is active.
+     */
+    verifyUrl:
+      "https://pr-webs-vendor.des.wa.gov/VendorSearch.aspx",
+    /** Local badge image (non-transparent background — must be used inside WaVobBadge component) */
+    logo: "/images/logo/veteran-owned-business.jpg",
+    alt: "Washington State Veteran Owned Business — Certified by WA DVA",
+    title: "Verify MH Construction WA Veteran Owned Business Certification",
+    certifiedYear: 2026,
+  },
+
+  /**
+   * 4-Tier Veteran Owned Business Certification Program
+   *
+   * MH Construction pursues all four tiers to achieve maximum credibility
+   * and procurement access across state, federal, and private/corporate channels.
+   *
+   * Tier 1 — State:            WA DVA VOB            ✅ Certified (2026)
+   * Tier 2 — Federal:          SBA VetCert           🔄 Actively Pursuing
+   * Tier 3 — Private/Corp #1:  NaVOBA                🔄 Actively Pursuing
+   * Tier 4 — Private/Corp #2:  NVBDC                 🔄 Actively Pursuing
+   *
+   * When a tier reaches "certified" status, add its logo path here and create a
+   * badge component (following the WaVobBadge pattern) for accreditation sections.
+   */
+  veteranCertifications: {
+    /**
+     * Tier 1 — State-Level Certification
+     * Washington State Department of Veterans Affairs — Veteran Owned Business
+     * STATUS: ✅ CERTIFIED (2026)
+     * Rendered via WaVobBadge component (see src/components/ui/WaVobBadge.tsx).
+     * For UI display fields (logo path, alt text, badge title), see COMPANY_INFO.waVob above —
+     * that object is the display surface; this object is the strategy/status record.
+     */
+    waVob: {
+      tier: 1,
+      level: "state",
+      name: "Washington State Veteran Owned Business",
+      abbreviation: "WA VOB",
+      certifyingBody: "Washington State Department of Veterans Affairs (WA DVA)",
+      programUrl:
+        "https://dva.wa.gov/veterans-service-members-and-their-families/veteran-owned-businesses",
+      status: "certified",
+      certifiedYear: 2026,
+    },
+    /**
+     * Tier 2 — Federal Certification
+     * U.S. Small Business Administration — Veteran Small Business Certification
+     * STATUS: 🔄 ACTIVELY PURSUING
+     * SBA VetCert is the federal government's official VOB/SDVOSB certification
+     * required for VA and federal procurement set-asides.
+     */
+    sbaVetCert: {
+      tier: 2,
+      level: "federal",
+      name: "SBA Veteran Small Business Certification",
+      abbreviation: "SBA VetCert",
+      certifyingBody: "U.S. Small Business Administration (SBA)",
+      programUrl: "https://veterans.certify.sba.gov/",
+      status: "in-pursuit",
+    },
+    /**
+     * Tier 3 — Private/Corporate Certification #1
+     * National Veteran-Owned Business Association
+     * STATUS: 🔄 ACTIVELY PURSUING
+     * NaVOBA certification opens corporate supplier diversity pipelines
+     * and demonstrates commitment to veteran business recognition.
+     */
+    navoba: {
+      tier: 3,
+      level: "private-corporate",
+      name: "NaVOBA Veteran Owned Business Certification",
+      abbreviation: "NaVOBA",
+      certifyingBody:
+        "National Veteran-Owned Business Association (NaVOBA)",
+      programUrl: "https://www.navoba.com/",
+      status: "in-pursuit",
+    },
+    /**
+     * Tier 4 — Private/Corporate Certification #2
+     * National Veteran Business Development Council
+     * STATUS: 🔄 ACTIVELY PURSUING
+     * NVBDC is the nation's largest third-party certifier of veteran-owned
+     * businesses, providing access to major corporate supplier diversity programs.
+     */
+    nvbdc: {
+      tier: 4,
+      level: "private-corporate",
+      name: "NVBDC Veteran Owned Business Certification",
+      abbreviation: "NVBDC",
+      certifyingBody:
+        "National Veteran Business Development Council (NVBDC)",
+      programUrl: "https://nvbdc.org/",
+      status: "in-pursuit",
+    },
+  },
 } as const;
 
 /**

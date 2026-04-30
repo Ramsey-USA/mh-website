@@ -31,6 +31,7 @@ import {
   cultureValues,
 } from "@/lib/data/careers";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { WaVobBadge } from "@/components/ui/WaVobBadge";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { getCareersSEO } from "@/lib/seo/page-seo-utils";
 import { SimpleSkeleton } from "@/components/ui/SimpleSkeleton";
@@ -1462,18 +1463,8 @@ export default function CareersPageClient() {
                   />
                 </a>
 
-                {/* Veteran-Owned Badge */}
-                <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-primary/10 dark:bg-brand-primary/20">
-                  <MaterialIcon
-                    icon="military_tech"
-                    size="lg"
-                    className="text-brand-primary dark:text-brand-primary-light"
-                    ariaLabel="Veteran-Owned"
-                  />
-                  <span className="font-semibold text-gray-900 dark:text-white text-sm">
-                    Veteran-Owned Since January 2025
-                  </span>
-                </div>
+                {/* Washington State Veteran Owned Business */}
+                <WaVobBadge />
 
                 {/* Safety Award Badge */}
                 <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800">

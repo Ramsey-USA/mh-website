@@ -102,6 +102,12 @@ Our 4 Core Values create 6 measurable differences:
    domestic-content requirement for certain federally funded infrastructure projects. As an AGC
    member, this remains a compliance-forward distinction for government and public sector projects. See
    [AGC BABAA Resource Hub](https://www.agc.org/babaa-resource-hub).
+8. **4-Tier Veteran Owned Business Certification**: MH Construction is building the most
+   comprehensive VOB credential stack in the region — Tier 1 State (WA DVA VOB ✅ Certified),
+   Tier 2 Federal (SBA VetCert 🔄), Tier 3 Private/Corporate (NaVOBA 🔄), and Tier 4
+   Private/Corporate (NVBDC 🔄). When fully certified, this stack unlocks state, federal, and
+   Fortune 500 supplier diversity procurement channels simultaneously. See
+   [Brand Constants §4-Tier VOB Certification Program](../brand-constants.md).
 
 **The Connection**: Our 4 values (Honesty, Integrity, Professionalism, Thoroughness) aren't just principles—
 they create measurable outcomes clients can see and experience on every project.
@@ -330,8 +336,8 @@ See [Core Values](../../business/core-values.md) for complete details on our fou
 ---
 
 **Brand Authority**: MH Construction Leadership Team
-**Current Version**: 7.0.0 (April 15, 2026)
-**Last Major Update**: December 28, 2025 (v6.0.0 — Veteran-Owned Excellence Transformation)
+**Current Version**: 7.1.0 (April 30, 2026)
+**Last Major Update**: April 30, 2026 (v7.1.0 — 4-Tier VOB Certification Framework)
 **Next Review**: Quarterly brand compliance assessment
 
 **Version History**:

@@ -1,8 +1,8 @@
 # Agent Branding Policy (Master at Arms)
 
 **Category:** Branding - Agent Policy  
-**Last Updated:** April 20, 2026  
-**Version:** 1.0.0  
+**Last Updated:** April 30, 2026  
+**Version:** 1.1.0  
 **Status:** ✅ Active
 
 > **Purpose:** Fast, unambiguous policy for AI agents enforcing MH branding standards.
@@ -44,6 +44,18 @@ Never do:
 - Introduce militarized aliases in page or SEO labels unless explicitly approved.
 - Remove or downplay established trust/credential signals.
 - Use buzzword-heavy claims that conflict with relationship-first messaging.
+
+## Approved Color Exceptions
+
+The following are stakeholder-approved exceptions to the standard brand palette.
+Each exception is scoped to a specific component and recorded in `.github/branding-exceptions.json`.
+
+| Exception                                 | Component        | Colors                  | Approved  |
+| ----------------------------------------- | ---------------- | ----------------------- | --------- |
+| WA Veteran Owned Business badge container | `WaVobBadge.tsx` | `red-600` → `blue-700`  | 2026-04-30 |
+
+**Rule:** Approved exception colors are **component-scoped only** and must never be used outside
+their designated component. See [Color System §Veteran Owned Badge Exception](./standards/color-system.md#veteran-owned-badge-exception).
 
 ## Conflict Resolution
 
