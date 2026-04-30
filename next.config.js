@@ -89,6 +89,11 @@ const nextConfig = {
       "node_modules/@next/bundle-analyzer/**/*",
       "node_modules/husky/**/*",
       "node_modules/@commitlint/**/*",
+      // @react-email/render is NOT installed (see peerDependencyRules in
+      // package.json). This entry guards against future re-installation so the
+      // package + its prettier dependency (~10 MiB) are never traced into the
+      // Cloudflare Worker bundle.
+      "node_modules/@react-email/**/*",
       "node_modules/prettier/**/*",
       "node_modules/@prettier/**/*",
       "node_modules/markdownlint-cli2/**/*",
@@ -129,8 +134,12 @@ const nextConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
       "@": path.resolve(__dirname, "src"),
-      // resend v6 optionally requires @react-email/render which is not installed;
-      // stub it out so the edge bundler doesn't emit a module-not-found warning.
+      // resend v6 declares @react-email/render as an optional peer dependency.
+      // We do NOT install it (it is excluded from package.json `dependencies` and
+      // `pnpm.peerDependencyRules.ignoreMissing`) because it transitively depends
+      // on `prettier` (~10 MiB), which would balloon the Cloudflare Worker bundle.
+      // This alias is a defence-in-depth guard so the Next.js webpack build also
+      // treats the import as an empty module if it is somehow resolved.
       "@react-email/render": false,
     };
 
