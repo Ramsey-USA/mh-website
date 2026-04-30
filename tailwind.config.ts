@@ -138,6 +138,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
+          '"DIN 2014"',
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
@@ -152,6 +153,30 @@ const config: Config = {
           '"Segoe UI Emoji"',
           '"Segoe UI Symbol"',
           '"Noto Color Emoji"',
+        ],
+        heading: [
+          "Abolition",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"Segoe UI"',
+          '"Helvetica Neue"',
+          "Arial",
+          "sans-serif",
+        ],
+        body: [
+          '"DIN 2014"',
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"Segoe UI"',
+          "Roboto",
+          '"Helvetica Neue"',
+          "Arial",
+          '"Noto Sans"',
+          "sans-serif",
         ],
       },
       screens: {

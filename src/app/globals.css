@@ -8,6 +8,15 @@
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
 
+/* ============================================
+   MH BRAND FONTS
+   Heading / Subheading: Abolition
+   Body: DIN 2014
+   Served via Adobe Fonts (Typekit) kit jqs8bjh
+   ============================================ */
+
+@import url("https://use.typekit.net/jqs8bjh.css");
+
 /* Material Icons font setup */
 .material-icons {
   font-family: "Material Icons";
@@ -186,9 +195,19 @@ nav[aria-label="Navegacion de ruta"] {
   }
 
   body {
+    font-family: var(--font-body);
     @apply transition-colors duration-300;
     @apply bg-white text-gray-900;
     @apply dark:bg-gray-900 dark:text-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
   }
 
   /* Optimize rendering performance */

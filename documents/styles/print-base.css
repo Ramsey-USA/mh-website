@@ -51,8 +51,10 @@
   --surface-card-shadow: 0 0 0 0.4pt #e7e2da;
   --surface-card-accent: #bd9264;
   --surface-card-radius: 4pt;
-  --font-body: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
-  --font-heading: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+  --font-body:
+    "DIN 2014", "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+  --font-heading:
+    "Abolition", "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
   --font-mono: "Courier New", Courier, monospace;
   --type-print-running-head: 8pt;
   --type-print-footer-small: 6.5pt;

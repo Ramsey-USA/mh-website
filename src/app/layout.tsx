@@ -208,6 +208,13 @@ export default function RootLayout({
           rel="dns-prefetch"
           href="https://o4511220420050944.ingest.us.sentry.io"
         />
+        {/* Preconnect to Adobe Fonts (Typekit) for brand fonts */}
+        <link
+          rel="preconnect"
+          href="https://use.typekit.net"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://use.typekit.net" />
         {/* Preload self-hosted Material Icons font for optimal performance */}
         <link
           rel="preload"

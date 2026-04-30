@@ -123,6 +123,37 @@ The four-value foundation system, in hierarchical order:
 
 ---
 
+## Brand Typography
+
+### Font System
+
+| Role                     | Font Family | Fallback Stack                                                                         |
+| ------------------------ | ----------- | -------------------------------------------------------------------------------------- |
+| **Heading / Subheading** | Abolition   | `ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif`         |
+| **Body**                 | DIN 2014    | `ui-sans-serif, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif` |
+
+### Usage Rules
+
+- **Abolition** — used for all H1–H6 headings, subheadings, section titles, badge labels, and tab divider titles
+- **DIN 2014** — used for all body copy, paragraphs, captions, form labels, and navigation text
+- Fallbacks activate automatically if brand fonts are not yet installed
+
+### CSS Variables
+
+```css
+--font-heading: "Abolition", ui-sans-serif, system-ui, ...;
+--font-body: "DIN 2014", ui-sans-serif, system-ui, ...;
+```
+
+### Tailwind Utilities
+
+```html
+font-heading → Abolition + fallbacks (headings) font-body / font-sans → DIN 2014
++ fallbacks (body)
+```
+
+---
+
 ## Brand Colors
 
 | Name                        | Hex     | RGB                | Usage                           |
