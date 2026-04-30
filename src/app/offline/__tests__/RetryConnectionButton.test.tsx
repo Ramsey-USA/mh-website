@@ -8,6 +8,24 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { RetryConnectionButton } from "../RetryConnectionButton";
 
 describe("RetryConnectionButton", () => {
+  // jsdom does not implement navigation; suppress the expected console error
+  // so it doesn't pollute test output.
+  let navErrorSpy: jest.SpyInstance;
+  beforeEach(() => {
+    navErrorSpy = jest
+      .spyOn(console, "error")
+      .mockImplementation((...args: unknown[]) => {
+        if (
+          typeof args[0] === "string" &&
+          args[0].includes("Not implemented: navigation")
+        )
+          return;
+      });
+  });
+  afterEach(() => {
+    navErrorSpy.mockRestore();
+  });
+
   it("renders a button with 'Retry Connection' text", () => {
     render(<RetryConnectionButton />);
     expect(
@@ -21,8 +39,6 @@ describe("RetryConnectionButton", () => {
   });
 
   it("calls window.location.reload() when clicked (does not throw)", () => {
-    // window.location.reload is a no-op in jsdom so clicking is safe.
-    // The important thing is that clicking does not throw and the handler runs.
     render(<RetryConnectionButton />);
     expect(() => fireEvent.click(screen.getByRole("button"))).not.toThrow();
   });

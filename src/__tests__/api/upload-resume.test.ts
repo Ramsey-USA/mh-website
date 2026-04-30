@@ -50,6 +50,15 @@ jest.mock("@/middleware/security", () => ({
   withSecurity: (_handler: unknown) => _handler,
 }));
 
+jest.mock("@/lib/utils/logger", () => ({
+  logger: {
+    log: jest.fn(),
+    error: jest.fn(),
+    warn: jest.fn(),
+    info: jest.fn(),
+  },
+}));
+
 let POST: typeof import("@/app/api/upload/resume/route").POST;
 let GET: typeof import("@/app/api/upload/resume/route").GET;
 

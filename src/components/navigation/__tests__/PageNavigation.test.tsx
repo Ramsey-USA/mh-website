@@ -3,6 +3,26 @@ import userEvent from "@testing-library/user-event";
 import { PageNavigation } from "../PageNavigation";
 import type { NavigationItem } from "../navigationConfigs";
 
+// jsdom does not implement navigation for non-hash hrefs — it logs
+// "Not implemented: navigation (except hash changes)" asynchronously when an
+// <a href="/services"> is rendered and the browser timer fires.  Suppress that
+// known-harmless warning for this test file.
+let _navErrorSpy: jest.SpyInstance;
+beforeAll(() => {
+  _navErrorSpy = jest
+    .spyOn(console, "error")
+    .mockImplementation((...args: unknown[]) => {
+      if (
+        typeof args[0] === "string" &&
+        args[0].includes("Not implemented: navigation")
+      )
+        return;
+    });
+});
+afterAll(() => {
+  _navErrorSpy.mockRestore();
+});
+
 jest.mock("next/link", () => ({
   __esModule: true,
   default: ({

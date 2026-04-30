@@ -4,6 +4,15 @@ import { AdminSignInModal } from "../AdminSignInModal";
 
 const pushMock = jest.fn();
 
+jest.mock("@/lib/utils/logger", () => ({
+  logger: {
+    log: jest.fn(),
+    error: jest.fn(),
+    warn: jest.fn(),
+    info: jest.fn(),
+  },
+}));
+
 jest.mock("next/navigation", () => ({
   useRouter: () => ({
     push: pushMock,

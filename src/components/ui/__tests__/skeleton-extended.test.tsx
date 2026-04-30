@@ -55,15 +55,30 @@ describe("FormFieldSkeleton", () => {
 });
 
 // ─── TableRowSkeleton ─────────────────────────────────────────────────────────
+// TableRowSkeleton renders <tr>/<td> elements that must live inside a <table>.
+// Rendering them standalone causes React's "In HTML, <tr> cannot be a child of
+// <div>" warning, so we always wrap with a proper <table><tbody>.
 
 describe("TableRowSkeleton", () => {
   it("renders default rows=5 and cols=4", () => {
-    const { container } = render(<TableRowSkeleton />);
-    expect(container.firstChild).toBeTruthy();
+    const { container } = render(
+      <table>
+        <tbody>
+          <TableRowSkeleton />
+        </tbody>
+      </table>,
+    );
+    expect(container.querySelector("tr")).toBeTruthy();
   });
 
   it("renders custom rows and cols", () => {
-    const { container } = render(<TableRowSkeleton rows={2} columns={3} />);
+    const { container } = render(
+      <table>
+        <tbody>
+          <TableRowSkeleton rows={2} columns={3} />
+        </tbody>
+      </table>,
+    );
     const cells = container.querySelectorAll(".animate-pulse");
     // 2 rows × 3 cols = 6 cells
     expect(cells.length).toBeGreaterThanOrEqual(6);

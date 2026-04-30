@@ -192,9 +192,24 @@ jest.mock("@/lib/seo/breadcrumb-schema", () => ({
 }));
 
 describe("CareersPage application CTAs", () => {
+  // jsdom does not implement navigation; suppress the expected console error
+  // so mailto: assignments don't pollute test output.
+  let navErrorSpy: jest.SpyInstance;
   beforeEach(() => {
+    navErrorSpy = jest
+      .spyOn(console, "error")
+      .mockImplementation((...args: unknown[]) => {
+        if (
+          typeof args[0] === "string" &&
+          args[0].includes("Not implemented: navigation")
+        )
+          return;
+      });
     mockSearchParams = new URLSearchParams();
     replaceMock.mockClear();
+  });
+  afterEach(() => {
+    navErrorSpy.mockRestore();
   });
 
   it("opens the modal with veteran application context", async () => {
@@ -288,7 +303,7 @@ describe("CareersPage application CTAs", () => {
       .getAllByRole("button")
       .filter((btn) => btn.textContent?.includes("mark_email_read"));
 
-    // Just clicking should exercise the window.location.href assignment without throwing
+    // Clicking should exercise the window.location.href assignment without throwing
     await expect(user.click(emailButtons[0]!)).resolves.toBeUndefined();
   });
 });

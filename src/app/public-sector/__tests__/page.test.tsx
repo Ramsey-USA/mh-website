@@ -19,10 +19,12 @@ jest.mock("@/components/analytics", () => ({
 
 jest.mock("next/dynamic", () => {
   return jest.fn().mockImplementation((loader: () => Promise<unknown>) => {
-    // Return a component that calls loader for coverage, then renders null
-    const DynamicComponent = (props: Record<string, unknown>) => {
+    // Return a component that calls loader for coverage, then renders a placeholder.
+    // Props are NOT spread onto the DOM element — component-specific props like
+    // grantTypes would cause React "unknown prop" warnings on DOM elements.
+    const DynamicComponent = (_props: Record<string, unknown>) => {
       void loader();
-      return <div data-testid="dynamic-component" {...props} />;
+      return <div data-testid="dynamic-component" />;
     };
     DynamicComponent.displayName = "DynamicMock";
     return DynamicComponent;

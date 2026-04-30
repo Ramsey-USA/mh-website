@@ -28,6 +28,15 @@ jest.mock("@/lib/security/rate-limiter", () => ({
   rateLimit: () => (handler: unknown) => handler,
 }));
 
+jest.mock("@/lib/utils/logger", () => ({
+  logger: {
+    log: jest.fn(),
+    error: jest.fn(),
+    warn: jest.fn(),
+    info: jest.fn(),
+  },
+}));
+
 import { POST } from "@/app/api/analytics/collect/route";
 import {
   recordPageview,

@@ -38,6 +38,15 @@ jest.mock("@/middleware/security", () => ({
   withSecurity: (handler: unknown) => handler,
 }));
 
+jest.mock("@/lib/utils/logger", () => ({
+  logger: {
+    log: jest.fn(),
+    error: jest.fn(),
+    warn: jest.fn(),
+    info: jest.fn(),
+  },
+}));
+
 // Lazy import after mocks
 let POST: typeof import("@/app/api/newsletter/route").POST;
 let DELETE: typeof import("@/app/api/newsletter/route").DELETE;
