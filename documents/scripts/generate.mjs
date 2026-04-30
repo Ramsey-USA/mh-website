@@ -92,16 +92,6 @@ try {
   /* logo file not found — header will render without image */
 }
 
-// ── AGC partner logo base64 (used in Puppeteer footer template) ────────────
-const _agcPath = join(DOCS_DIR, "assets/nwagc-logo.png");
-let AGC_LOGO_B64 = "";
-try {
-  const _agcBuf = await readFile(_agcPath);
-  AGC_LOGO_B64 = `data:image/png;base64,${_agcBuf.toString("base64")}`;
-} catch {
-  /* AGC logo not found — footer will render without it */
-}
-
 // ── BBB Accredited Business seal data URL (SVG preferred, PNG fallback) ───────
 const _bbbSvgPath = join(DOCS_DIR, "assets/bbb/bbb-accredited-seal.svg");
 const _bbbPngPath = join(DOCS_DIR, "assets/bbb/bbb-accredited-seal.png");
@@ -206,6 +196,7 @@ function buildBrandTokens(brand) {
     ),
     "{{BRAND_BBB_SEAL}}":
       BBB_LOGO_DATA_URL || resolvePath(brand.partnerLogos?.bbbSeal || ""),
+    "{{BRAND_WA_VOB_LOGO}}": resolvePath(brand.certificationLogos?.waVob || ""),
     "{{BRAND_QR_DASHBOARD}}": resolvePath(brand.qrCodes?.dashboard || ""),
   };
 }

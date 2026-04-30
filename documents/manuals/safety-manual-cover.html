@@ -380,8 +380,25 @@
         margin-right: 4pt;
         letter-spacing: 0.12em;
       }
+      .cover-credential-logos {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: 10pt;
+        margin-top: 6pt;
+      }
       .cover-agc {
         height: 0.42in;
+        width: auto;
+        display: block;
+      }
+      .cover-bbb {
+        height: 0.44in;
+        width: auto;
+        display: block;
+      }
+      .cover-veteran-logo {
+        height: 0.58in;
         width: auto;
         display: block;
       }
@@ -442,16 +459,23 @@
             RCE-49250<br />
             <span class="rev">Revision 2026</span>
           </div>
-          <img
-            class="cover-agc"
-            src="{{BRAND_AGC_HORIZONTAL}}"
-            alt="AGC Member"
-          />
-          <img
-            class="cover-bbb"
-            src="{{BRAND_BBB_SEAL}}"
-            alt="BBB Accredited Business"
-          />
+          <div class="cover-credential-logos">
+            <img
+              class="cover-agc"
+              src="{{BRAND_AGC_HORIZONTAL}}"
+              alt="AGC Seal"
+            />
+            <img
+              class="cover-bbb"
+              src="{{BRAND_BBB_SEAL}}"
+              alt="BBB Accredited Business"
+            />
+            <img
+              class="cover-veteran-logo"
+              src="{{BRAND_WA_VOB_LOGO}}"
+              alt="Washington Certified Veteran Owned Business"
+            />
+          </div>
         </div>
       </div>
     </div>

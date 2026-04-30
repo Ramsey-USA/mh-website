@@ -34,7 +34,10 @@ const sizeMap: Record<WaVobBadgeSize, string> = {
  * Renders a clickable WA Veteran Owned Business badge with a patriotic
  * red-to-blue gradient border. Links to the WA DVA certification program page.
  */
-export function WaVobBadge({ size = "md", className = "" }: WaVobBadgeProps) {
+export function WaVobBadge({
+  size = "md",
+  className = "",
+}: Readonly<WaVobBadgeProps>) {
   return (
     /* Gradient border wrapper — patriotic red→blue, soft rounded corners */
     <a
@@ -43,10 +46,10 @@ export function WaVobBadge({ size = "md", className = "" }: WaVobBadgeProps) {
       rel="noopener noreferrer"
       title={COMPANY_INFO.waVob.title}
       aria-label={`${COMPANY_INFO.waVob.alt} — click to verify certification`}
-      className={`group inline-block rounded-xl bg-gradient-to-br from-red-600 to-blue-700 p-[3px] transition-transform duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 ${className}`}
+      className={`group inline-block rounded-xl bg-linear-to-br from-red-600 to-blue-700 p-0.75 transition-transform duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 ${className}`}
     >
       {/* Inner container — white bg on light mode, dark bg on dark mode, hides non-transparent logo bg */}
-      <div className="flex items-center justify-center rounded-[10px] bg-white dark:bg-gray-800 px-2 py-1">
+      <div className="flex items-center justify-center rounded-[10px] bg-white dark:bg-gray-800 overflow-hidden">
         <Image
           src={COMPANY_INFO.waVob.logo}
           alt={COMPANY_INFO.waVob.alt}

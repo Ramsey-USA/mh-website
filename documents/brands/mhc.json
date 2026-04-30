@@ -39,11 +39,14 @@
     "darkBg": "../assets/logo-dark-bg.png"
   },
   "partnerLogos": {
-    "agcHorizontal": "../assets/nwagc-logo.png",
+    "agcHorizontal": "../assets/AGC-seal-v1.webp",
     "agcStacked": "../assets/nwagc-logo-stacked.png",
     "bbbHorizontal": "../assets/bbb/bbb-logo-horizontal.png",
     "bbbVertical": "../assets/bbb/bbb-accredited-seal-vertical.png",
     "bbbSeal": "../assets/bbb/bbb-accredited-seal.png"
+  },
+  "certificationLogos": {
+    "waVob": "../../public/images/logo/veteran-owned-business.jpg"
   },
   "qrCodes": {
     "dashboard": "https://www.mhc-gc.com/safety/hub",
