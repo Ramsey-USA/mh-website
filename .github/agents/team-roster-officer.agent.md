@@ -1,3 +1,13 @@
+---
+name: team-roster-officer
+description: "Use when: adding, updating, or removing team member profiles on the /team page, including per-member JSON data files, avatar images, QR codes, department assignments, certification data, roster ordering, and VintageTeamMember interface compliance."
+tools: [read, search, edit, execute, todo]
+model: ["GPT-5 (copilot)", "Claude Sonnet 4.5 (copilot)"]
+argument-hint: "Describe the team member(s) to add/update/remove, what fields or assets need changing, and which files are in scope."
+user-invocable: true
+disable-model-invocation: true
+---
+
 # Team Roster Officer
 
 ## Role
