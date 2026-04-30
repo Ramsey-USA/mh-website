@@ -346,44 +346,44 @@
     <div class="toc-page">
       <div class="toc-ribbon" aria-hidden="true"></div>
       <div class="toc-content">
-      <!-- ── Header ─────────────────────────────────────────── -->
-      <header class="toc-header">
-        <p class="toc-identity">
-          {{BRAND_COMPANY_SHORT}} · {{BRAND_ADDRESS_CITYSTATEZIP}} ·
-          {{BRAND_VETERAN}}
-        </p>
-        <img
-          class="toc-logo"
-          src="{{BRAND_LOGO_COLOR}}"
-          alt="MH Construction, Inc."
-        />
-        <h1 class="toc-title">MISH Program Table of Contents</h1>
-        <p class="toc-subtitle">
-          MH Construction Industrial &amp; Safety Health Program
-        </p>
-      </header>
+        <!-- ── Header ─────────────────────────────────────────── -->
+        <header class="toc-header">
+          <p class="toc-identity">
+            {{BRAND_COMPANY_SHORT}} · {{BRAND_ADDRESS_CITYSTATEZIP}} ·
+            {{BRAND_VETERAN}}
+          </p>
+          <img
+            class="toc-logo"
+            src="{{BRAND_LOGO_COLOR}}"
+            alt="MH Construction, Inc."
+          />
+          <h1 class="toc-title">MISH Program Table of Contents</h1>
+          <p class="toc-subtitle">
+            MH Construction Industrial &amp; Safety Health Program
+          </p>
+        </header>
 
-      <!-- ── Dual-Column Body ───────────────────────────────── -->
-      <!-- Content is generated dynamically by generate.mjs buildTocClustersHtml(). -->
-      <!-- Cluster definitions and callout rules live in TOC_CLUSTERS / TOC_CALLOUT_ITEMS. -->
-      <main class="toc-body">{{TOC_CLUSTERS_HTML}}</main>
+        <!-- ── Dual-Column Body ───────────────────────────────── -->
+        <!-- Content is generated dynamically by generate.mjs buildTocClustersHtml(). -->
+        <!-- Cluster definitions and callout rules live in TOC_CLUSTERS / TOC_CALLOUT_ITEMS. -->
+        <main class="toc-body">{{TOC_CLUSTERS_HTML}}</main>
 
-      <!-- ── Footer ─────────────────────────────────────────── -->
-      <footer class="toc-footer-row">
-        <span class="toc-footer-left"
-          >{{BRAND_COMPANY_NAME}}&nbsp;&middot;&nbsp;(509)&nbsp;308-6489&nbsp;&middot;&nbsp;www.mhc-gc.com</span
-        >
-        <!-- Veteran Owned badge — centered in footer -->
-        <div class="toc-footer-veteran">Veteran Owned</div>
-        <!-- QR code — scan to open the public table of contents page -->
-        <div class="toc-footer-qr">
-          <img src="{{QR_TOC_URL}}" alt="Scan for Table of Contents" />
-          <span class="toc-footer-qr-label">Scan for TOC</span>
-        </div>
-        <span class="toc-footer-right"
-          >Revision {{BRAND_REVISION_NUMBER}} ({{BRAND_REVISION_DATE}})</span
-        >
-      </footer>
+        <!-- ── Footer ─────────────────────────────────────────── -->
+        <footer class="toc-footer-row">
+          <span class="toc-footer-left"
+            >{{BRAND_COMPANY_NAME}}&nbsp;&middot;&nbsp;(509)&nbsp;308-6489&nbsp;&middot;&nbsp;www.mhc-gc.com</span
+          >
+          <!-- Veteran Owned badge — centered in footer -->
+          <div class="toc-footer-veteran">Veteran Owned</div>
+          <!-- QR code — scan to open the public table of contents page -->
+          <div class="toc-footer-qr">
+            <img src="{{QR_TOC_URL}}" alt="Scan for Table of Contents" />
+            <span class="toc-footer-qr-label">Scan for TOC</span>
+          </div>
+          <span class="toc-footer-right"
+            >Revision {{BRAND_REVISION_NUMBER}} ({{BRAND_REVISION_DATE}})</span
+          >
+        </footer>
       </div>
     </div>
   </body>
