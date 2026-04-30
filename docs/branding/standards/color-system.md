@@ -1,8 +1,8 @@
 # MH Construction Color System
 
 **Category:** Branding - Standards  
-**Last Updated:** April 15, 2026  
-**Version:** 7.0.0  
+**Last Updated:** April 30, 2026  
+**Version:** 7.1.0  
 **Status:** ✅ Active
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
@@ -266,6 +266,48 @@ grayscale palette to convey authority, compliance, and institutional reliability
 
 - On commercial construction pages (use brand green/tan)
 - Without veteran-owned trust indicators nearby
+
+## Veteran Owned Badge Exception
+
+**Status:** ✅ Approved — April 30, 2026  
+**Scope:** `WaVobBadge` component only (`src/components/ui/WaVobBadge.tsx`)  
+**Exception Record:** `.github/branding-exceptions.json`
+
+The Washington State Veteran Owned Business (WA DVA) certification badge uses a **patriotic
+red-to-blue gradient border** that intentionally falls outside the standard MH brand palette.
+This exception is approved because:
+
+1. The WA DVA certification logo does not have a transparent background. A container is required.
+2. The red/blue patriotic color scheme is inseparable from the meaning and authenticity of the
+   Veteran Owned certification — using MH brand green would misrepresent the certification.
+3. The exception is strictly scoped to one reusable component and does not affect any other UI.
+
+### Approved Colors (Veteran Owned Badge Container Only)
+
+| Role          | Color                       | Hex       | Tailwind Class |
+| ------------- | --------------------------- | --------- | -------------- |
+| Border Start  | U.S. Flag Red               | `#dc2626` | `red-600`      |
+| Border End    | U.S. Flag Blue              | `#1d4ed8` | `blue-700`     |
+| Inner BG (LM) | White                       | `#ffffff` | `white`        |
+| Inner BG (DM) | Dark Gray                   | `#1f2937` | `gray-800`     |
+
+### Implementation
+
+Always use the `WaVobBadge` component — never inline the gradient border:
+
+```tsx
+// ✅ CORRECT — uses the approved reusable component
+import { WaVobBadge } from "@/components/ui/WaVobBadge";
+<WaVobBadge />           // medium (h-12) — for page sections
+<WaVobBadge size="sm" /> // small (h-10) — for footer row
+
+// ❌ INCORRECT — do not inline patriotic colors in other components
+<div className="bg-gradient-to-br from-red-600 to-blue-700">...</div>
+```
+
+**DO NOT** use `red-600` / `blue-700` gradients anywhere outside `WaVobBadge`.
+
+---
 
 ## Light Mode Color Palette
 

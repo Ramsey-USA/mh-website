@@ -2,6 +2,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { PageTrackingClient } from "@/components/analytics";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { WaVobBadge } from "@/components/ui/WaVobBadge";
 import { Button, IconContainer } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
@@ -864,16 +865,8 @@ export default function ServicesPage() {
                   className="h-10 w-auto hidden dark:block"
                 />
               </a>
-              <div className="flex items-center gap-2 px-4 py-2 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-full">
-                <MaterialIcon
-                  icon="military_tech"
-                  size="md"
-                  className="text-brand-primary"
-                />
-                <span className="text-base font-semibold text-brand-primary dark:text-brand-primary-light">
-                  Veteran-Owned
-                </span>
-              </div>
+              {/* Washington State Veteran Owned Business */}
+              <WaVobBadge />
               <div className="flex items-center gap-2 px-4 py-2 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-full">
                 <MaterialIcon
                   icon="verified_user"

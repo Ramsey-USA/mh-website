@@ -18,6 +18,17 @@ All notable changes to the MH Construction website are documented here.
 
 ## April 2026
 
+- **Apr 30:** Washington State Veteran Owned Business (WA DVA) certification badge — added
+  `WaVobBadge` component (`src/components/ui/WaVobBadge.tsx`) with an approved patriotic
+  red-to-blue gradient border container to display the non-transparent WA DVA logo; registered
+  `waVob` entry in `COMPANY_INFO`; badge deployed to all 8 accreditation/affiliations surfaces
+  (About, Veterans, Services, Allies, Public Sector, Locations, Careers, Footer); updated
+  `docs/branding/brand-constants.md` (v1.3.0) with WA VOB credential entry, `docs/branding/standards/color-system.md`
+  (v7.1.0) with Veteran Owned Badge Exception section, `docs/branding/standards/unified-component-standards.md`
+  with WaVobBadge accreditation rule, `docs/branding/agent-branding-policy.md` (v1.1.0) with
+  approved color exception table, `.github/branding-exceptions.json` with formal exception record,
+  and `.github/instructions/mh-branding-guardrails.instructions.md` with scoped exception guidance
+
 - **Apr 29:** Dependency upgrades to v7.1.0 — updated 22 packages across all risk tiers;
   safe minor/patch updates: `@react-email/render` 2.0.7→2.0.8, `@sentry/browser` 10.49.0→10.50.0,
   `next-intl` 4.9.1→4.11.0, `markdownlint-cli2` 0.21.0→0.22.1, `wrangler` 4.83.0→4.86.0,

@@ -173,6 +173,18 @@ export const COMPANY_INFO = {
     /** AGC national BABAA resource hub — covers Build America, Buy America Act guidance */
     babaaResourceHub: "https://www.agc.org/babaa-resource-hub",
   },
+
+  // Washington State Veteran Owned Business Certification (WA DVA)
+  waVob: {
+    /** Certification program page — Washington Department of Veterans Affairs */
+    programUrl:
+      "https://dva.wa.gov/veterans-service-members-and-their-families/veteran-owned-businesses",
+    /** Local badge image (non-transparent background — must be used inside WaVobBadge component) */
+    logo: "/images/logo/veteran-owned-business.jpg",
+    alt: "Washington State Veteran Owned Business — Certified by WA DVA",
+    title: "Washington State Veteran Owned Business Certification",
+    certifiedYear: 2026,
+  },
 } as const;
 
 /**

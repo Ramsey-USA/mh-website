@@ -1,8 +1,8 @@
 # MH Construction Brand Constants
 
 **Category:** Branding - Single Source of Truth  
-**Last Updated:** April 24, 2026  
-**Version:** 1.2.0  
+**Last Updated:** April 30, 2026  
+**Version:** 1.3.0  
 **Status:** ✅ Official Reference
 
 > **Purpose:** This file is the canonical reference for all brand constants, including
@@ -221,6 +221,20 @@ compliance-oriented — avoid hype language.
 
 ## Credentials
 
+### Washington State Veteran Owned Business (WA DVA)
+
+```markdown
+**WA VOB Certified:** Awarded 2026 — [Washington DVA Veteran Owned Business Program](https://dva.wa.gov/veterans-service-members-and-their-families/veteran-owned-businesses)
+```
+
+- **Certification Body:** Washington State Department of Veterans Affairs (DVA)
+- **Program:** Veteran Owned Business certification
+- **Badge Asset:** `/public/images/logo/veteran-owned-business.jpg`
+- **Display Rule:** The badge logo does not have a transparent background.
+  Always render it inside the `WaVobBadge` component (`src/components/ui/WaVobBadge.tsx`),
+  which wraps the image in a patriotic red-to-blue gradient border container.
+  This is an **approved color exception** — see [Color System §Veteran Owned Badge Exception](./standards/color-system.md).
+
 ### BBB Profile
 
 ```markdown
@@ -275,6 +289,7 @@ compliance-oriented — avoid hype language.
 
 ## Version History
 
+- **1.3.0** — April 30, 2026: Added WA Veteran Owned Business (WA DVA) certification to Credentials section; documented `WaVobBadge` display rule and approved color exception
 - **1.2.0** — April 24, 2026: Added canonical license values, verification references, and licensing source-of-truth guidance
 - **1.1.0** — April 21, 2026: Added Associations & Affiliations / BABAA section
 - **1.0.0** — April 15, 2026: Initial brand constants document

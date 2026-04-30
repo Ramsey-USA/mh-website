@@ -16,6 +16,7 @@ import {
 import { aboutTimelineSteps } from "@/lib/data/about-timeline";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { WaVobBadge } from "@/components/ui/WaVobBadge";
 // Below-fold: lazy-loaded to reduce initial JS
 const PartnershipPhilosophy = dynamic(() =>
   import("@/components/about").then((m) => ({
@@ -256,17 +257,8 @@ export default function AboutPage() {
                 />
               </a>
 
-              {/* Veteran-Owned Badge */}
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/10 dark:bg-brand-primary/20">
-                <MaterialIcon
-                  icon="military_tech"
-                  size="md"
-                  className="text-brand-primary"
-                />
-                <span className="text-sm font-semibold text-brand-primary dark:text-brand-primary-light">
-                  Veteran-Owned Since January 2025
-                </span>
-              </div>
+              {/* Washington State Veteran Owned Business */}
+              <WaVobBadge />
             </div>
           </div>
         </section>

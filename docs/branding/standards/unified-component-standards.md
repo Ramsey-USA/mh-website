@@ -82,9 +82,10 @@ The gradient text in section headers, as implemented across all pages, is the co
 #### 2) Accreditation Presence Is Required
 
 - Every production page must render the global footer accreditation row.
-- Accreditation row must include official partner/credential logos (for example: AGC, BBB, insurance, and chamber memberships) with valid outbound destinations.
+- Accreditation row must include official partner/credential logos (for example: AGC, BBB, insurance, chamber memberships, and WA VOB) with valid outbound destinations.
 - Do not remove or hide accreditations in redesigns, experiments, or A/B variants without stakeholder approval.
 - Accreditation visibility is a trust requirement and part of brand consistency.
+- **WA Veteran Owned Business badge:** Use the `WaVobBadge` component (`src/components/ui/WaVobBadge.tsx`) in every accreditation/affiliations section. Its red-to-blue gradient border is an **approved color exception** for Veteran Owned certification materials. See [Color System §Veteran Owned Badge Exception](./color-system.md#veteran-owned-badge-exception).
 
 ---
 

@@ -41,6 +41,9 @@ export {
   type AlternatingShowcaseItem,
 } from "./AlternatingShowcase";
 
+// Credential Badge Components
+export { WaVobBadge } from "./WaVobBadge";
+
 // Loading Components
 export {
   Skeleton,

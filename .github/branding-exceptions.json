@@ -9,6 +9,16 @@
       "ticket": "",
       "reason": "",
       "expiresOn": "2026-12-31"
+    },
+    {
+      "active": true,
+      "rule": "Off-brand visual pattern — non-MH palette colors",
+      "filePattern": "src/components/ui/WaVobBadge.tsx",
+      "detailPattern": "Patriotic red-to-blue gradient border (red-600 → blue-700) wrapping WA DVA Veteran Owned Business certification logo",
+      "approvedBy": "Jeremy Thamert / Matt Ramsey",
+      "ticket": "WA-VOB-2026",
+      "reason": "The WA DVA certification logo has a non-transparent background and requires a container. The patriotic red/blue color scheme is inseparable from the meaning and authenticity of the Veteran Owned certification. Exception is strictly scoped to WaVobBadge component only.",
+      "expiresOn": "2030-12-31"
     }
   ]
 }

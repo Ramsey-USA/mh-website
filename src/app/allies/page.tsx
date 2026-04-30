@@ -18,6 +18,7 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { WaVobBadge } from "@/components/ui/WaVobBadge";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.allies);
 
@@ -1050,18 +1051,8 @@ export default function AlliesPage() {
                 />
               </a>
 
-              {/* Veteran-Owned Badge */}
-              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-primary/10 dark:bg-brand-primary/20">
-                <MaterialIcon
-                  icon="military_tech"
-                  size="lg"
-                  className="text-brand-primary dark:text-brand-primary-light"
-                  ariaLabel="Veteran-Owned"
-                />
-                <span className="font-semibold text-gray-900 dark:text-white text-sm">
-                  Veteran-Owned Since January 2025
-                </span>
-              </div>
+              {/* Washington State Veteran Owned Business */}
+              <WaVobBadge />
             </div>
           </div>
         </section>
