@@ -1,7 +1,7 @@
 # MH Construction — Architecture Documentation
 
 **Category:** Project - Architecture  
-**Last Updated:** April 18, 2026  
+**Last Updated:** April 29, 2026  
 **Version:** 1.2.0  
 **Status:** ✅ Active
 
@@ -63,9 +63,9 @@
 
 ### Core Technologies
 
-- **Framework**: Next.js 15.5.15 (App Router)
-- **Language**: TypeScript 5.9.2
-- **Styling**: Tailwind CSS 3.4.19
+- **Framework**: Next.js 16.2.4 (App Router)
+- **Language**: TypeScript 6.0.3
+- **Styling**: Tailwind CSS 4.2.4
 - **Icons**: Google Material Icons (font-based)
 - **Animations**: CSS transitions + IntersectionObserver (native, no library dependency)
 - **Theme**: Dark/Light mode support

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import "./globals.css";
 import "../styles/material-icons.css";
 import { AppShell } from "@/components/layout/AppShell";
@@ -6,6 +7,7 @@ import FaviconLinks from "@/components/layout/FaviconLinks";
 import { ThemeProvider } from "@/contexts/theme-context";
 import { ErrorBoundary } from "@/components/error";
 import { SentryInit } from "@/components/monitoring/SentryInit";
+import { SentryTestButton } from "@/components/monitoring/SentryTestButton";
 import ChatWidgetLazy from "@/components/chatbot/ChatWidgetLazy";
 import { DeferredPerformanceEnhancements } from "@/components/performance/DeferredPerformanceEnhancements";
 import {
@@ -235,6 +237,9 @@ export default function RootLayout({
       </head>
       <body className="font-sans">
         <SentryInit />
+        <Suspense>
+          <SentryTestButton />
+        </Suspense>
         <SkipLink />
         <ScrollProgress />
         <DeferredPerformanceEnhancements />

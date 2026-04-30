@@ -1,6 +1,6 @@
 {
   "name": "mh-website",
-  "version": "7.0.0",
+  "version": "7.1.0",
   "description": "Veteran-owned construction website for MH Construction - Building Projects for the Client, NOT the Dollar",
   "private": true,
   "scripts": {
@@ -15,8 +15,8 @@
     "build:profile": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" next build",
     "build:analyze": "ANALYZE=true next build",
     "start": "next start",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "type-check": "tsc -p tsconfig.json --noEmit",
     "test": "jest",
     "test:watch": "jest --watch",

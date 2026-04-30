@@ -18,6 +18,17 @@ All notable changes to the MH Construction website are documented here.
 
 ## April 2026
 
+- **Apr 29:** Dependency upgrades to v7.1.0 — updated 22 packages across all risk tiers;
+  safe minor/patch updates: `@react-email/render` 2.0.7→2.0.8, `@sentry/browser` 10.49.0→10.50.0,
+  `next-intl` 4.9.1→4.11.0, `markdownlint-cli2` 0.21.0→0.22.1, `wrangler` 4.83.0→4.86.0,
+  `puppeteer` 24.41.0→24.42.0, `@commitlint/cli` 20.5.0→20.5.2, `@napi-rs/canvas` 0.1.99→0.1.100,
+  `@opennextjs/cloudflare` 1.19.1→1.19.4, `resend` 6.12.0→6.12.2, `pdfjs-dist` 5.6.205→5.7.284;
+  major upgrades: Next.js 15.5.15→16.2.4, TypeScript 5.9.3→6.0.3, Tailwind CSS 3.4.19→4.2.4,
+  ESLint 9.39.4→10.2.1, jose 5.10.0→6.2.3, cross-env 7.0.3→10.1.0; all tests pass, MH branding
+  standards maintained, security audit clean; baseline captured in
+  `docs/project/dependency-baseline-20260429.txt`, updated snapshot in
+  `docs/project/dependency-updated-20260429.txt`
+
 - **Apr 24:** Licensing alignment and regression coverage hardening — standardized Oregon
   license references to `194331` across canonical source/docs/templates; preserved existing
   Washington (`MHCONCI907R7`) and Idaho (`RCE-49250`) values; added focused footer link

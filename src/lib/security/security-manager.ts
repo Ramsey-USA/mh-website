@@ -7,6 +7,11 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { isValidEmail } from "@/lib/utils/validation";
 
+// Pre-compiled SQL injection pattern — one regex replaces 12 per-call compilations.
+// Uses alternation; EXEC(?:UTE)? matches both "EXEC" and "EXECUTE".
+const SQL_INJECTION_REGEX =
+  /SELECT|INSERT|UPDATE|DELETE|DROP|CREATE|ALTER|EXEC(?:UTE)?|UNION|SCRIPT|JAVASCRIPT/gi;
+
 // Security Configuration
 export interface SecurityConfig {
   rateLimit: {
@@ -524,28 +529,7 @@ class InputValidator {
    * Prevent SQL injection
    */
   private preventSQLInjection(input: string): string {
-    const sqlKeywords = [
-      "SELECT",
-      "INSERT",
-      "UPDATE",
-      "DELETE",
-      "DROP",
-      "CREATE",
-      "ALTER",
-      "EXEC",
-      "EXECUTE",
-      "UNION",
-      "SCRIPT",
-      "JAVASCRIPT",
-    ];
-
-    let sanitized = input;
-    sqlKeywords.forEach((keyword) => {
-      const regex = new RegExp(keyword, "gi");
-      sanitized = sanitized.replace(regex, "");
-    });
-
-    return sanitized;
+    return input.replace(SQL_INJECTION_REGEX, "");
   }
 }
 

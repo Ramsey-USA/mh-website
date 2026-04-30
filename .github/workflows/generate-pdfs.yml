@@ -38,12 +38,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      # ── 2. Node.js setup ─────────────────────────────────────────────────
+      # ── 2. pnpm + Node.js setup ──────────────────────────────────────────
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      # ── 3. Node.js setup ─────────────────────────────────────────────────
       - name: Setup Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v5
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: "npm"
+          cache: "pnpm"
 
       # ── 3. Chromium system dependencies (required by Puppeteer) ──────────
       - name: Install Chromium system dependencies
@@ -57,9 +63,9 @@ jobs:
             xdg-utils ca-certificates fonts-liberation libappindicator3-1 \
             libasound2 libpango-1.0-0 libpangocairo-1.0-0
 
-      # ── 4. Install npm dependencies ───────────────────────────────────────
+      # ── 4. Install pnpm dependencies ──────────────────────────────────────
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       # ── 5. Resolve commit revision metadata ──────────────────────────────
       - name: Resolve revision metadata from git log
