@@ -80,7 +80,7 @@
     "audit:images": "node scripts/optimization/audit-images.js",
     "check:image-sizes": "node scripts/optimization/check-sizes.js",
     "quality:check": "bash scripts/utilities/cleanup-check.sh",
-    "deps:check": "npx depcheck --ignores='@types/*,eslint-*,prettier,husky,@commitlint/*,postcss,autoprefixer,jest-environment-jsdom,@opennextjs/cloudflare,chalk'",
+    "deps:check": "npx depcheck --ignores='@types/*,eslint-*,@eslint/*,prettier,husky,@commitlint/*,postcss,autoprefixer,jest-environment-jsdom,@opennextjs/cloudflare,chalk,@cspell/dict-es-es,@tailwindcss/postcss,cross-env,esbuild,lint-staged'",
     "deps:update": "npm outdated",
     "deps:clean": "npm prune && npm dedupe",
     "prepare": "node -e \"if (process.env.CI) process.exit(0)\" && husky"
