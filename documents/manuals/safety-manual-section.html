@@ -25,7 +25,7 @@
         Header & footer are fully managed by Puppeteer displayHeaderFooter;
         CSS @page margin-area rules are disabled to prevent double-rendering. */
        @page {
-         margin: 1in 0.75in 0.9in 1.25in;
+         margin: 1.25in 0.75in 1.75in 1.25in;
          @top-left {
            content: none;
            border: none;
@@ -306,11 +306,11 @@
          line-height: 1.15;
        }
 
-       /* 3-column metadata grid — Document / Program / Licenses */
+       /* 3-column metadata grid — Document / MISH Reference / Program; Licenses spans full row */
        .shc-meta-grid {
          display: grid;
-         grid-template-columns: 1.2fr 2fr 1.6fr;
-         gap: 10pt;
+         grid-template-columns: 1fr 1fr 2fr;
+         gap: 10pt 14pt;
        }
        .shc-meta-cell {
          display: flex;
@@ -322,6 +322,18 @@
        .shc-meta-cell:first-child {
          padding-left: 0;
          border-left: 0;
+       }
+       /* Licenses cell occupies its own full-width row beneath the 3-column row */
+       .shc-meta-cell.shc-meta-licenses {
+         grid-column: 1 / -1;
+         padding-left: 0;
+         border-left: 0;
+         border-top: 0.5pt solid #e0d6c2;
+         padding-top: 6pt;
+         margin-top: 2pt;
+       }
+       .shc-meta-cell.shc-meta-licenses .shc-meta-value {
+         white-space: nowrap;
        }
        .shc-meta-label {
          font-size: 6.8pt;
@@ -340,26 +352,15 @@
          color: var(--brand-primary-dark);
        }
 
-       .page-frame {
-         position: fixed;
-         inset: 0.22in;
-         border: 1.2pt solid var(--brand-primary-dark);
-         pointer-events: none;
-         z-index: 0;
-       }
-
-       .page-frame::after {
-         content: "";
-         position: absolute;
-         inset: 0.11in;
-         border: 0.6pt solid var(--brand-secondary);
-       }
+       /* page-frame removed — Chrome print mode rendered ghost bottom borders
+          that could not be suppressed via CSS. Branding is preserved by the
+          left-ribbon, header chips, and gradient footer ribbon. */
 
        .left-ribbon {
          position: fixed;
-         top: 0.45in;
-         bottom: 0.45in;
-         left: 0.45in;
+         top: -0.65in;
+         bottom: -0.3in;
+         left: -0.8in;
          width: 0.28in;
          background: linear-gradient(
            180deg,
@@ -368,7 +369,7 @@
            var(--brand-secondary) 100%
          );
          pointer-events: none;
-         z-index: 0;
+         z-index: 10;
        }
 
        /* Fix 5 layout handled above in .section-info-row block */
@@ -415,7 +416,7 @@
     </style>
   </head>
   <body>
-    <div class="page-frame" aria-hidden="true"></div>
+
     <div class="left-ribbon" aria-hidden="true"></div>
 
     <!-- Page watermark — repeats on every printed page (5.25" centered, 6% opacity) -->
@@ -424,7 +425,7 @@
     <!-- ── Decorative section header card ─────────────────────────────── -->
     <!-- Wraps the MISH designator + title and the document metadata in a    -->
     <!-- single branded container so the section opens with a polished       -->
-    <!-- identity panel. The thumb-zone QR FAB lives in the page footer.     -->
+    <!-- identity panel. Section QR stays in the running header only.         -->
     <section class="section-header-card" aria-label="Section identity">
       <div class="section-identity">
         {{BRAND_COMPANY_SHORT}}<span class="dot">•</span
@@ -433,9 +434,6 @@
       </div>
       <div class="shc-title-row">
         <div class="shc-title-block">
-          <span class="shc-mish-chip"
-            >MISH&nbsp;{{SECTION_NUMBER}}&nbsp;&mdash;&nbsp;WBS&nbsp;{{SECTION_WBS}}</span
-          >
           <h1 class="shc-title">{{SECTION_TITLE}}</h1>
         </div>
         <div class="shc-rev-badge">
@@ -453,9 +451,9 @@
           >
         </div>
         <div class="shc-meta-cell">
-          <span class="shc-meta-label">WBS Reference</span>
+          <span class="shc-meta-label">MISH Reference</span>
           <span class="shc-meta-value"
-            ><strong>WBS {{SECTION_WBS}}</strong></span
+            ><strong>MISH {{SECTION_MISH_REF}}</strong></span
           >
         </div>
         <div class="shc-meta-cell">
@@ -465,7 +463,7 @@
             (<strong>MISH</strong>)</span
           >
         </div>
-        <div class="shc-meta-cell">
+        <div class="shc-meta-cell shc-meta-licenses">
           <span class="shc-meta-label">Licenses</span>
           <span class="shc-meta-value"
             ><strong>WA</strong> {{BRAND_LICENSE_WA}} &middot;

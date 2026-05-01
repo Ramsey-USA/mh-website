@@ -64,7 +64,7 @@
         display: flex;
         flex-direction: column;
         min-height: 10.16in; /* 11in − 2×0.42in margins */
-        padding: 0.14in 0.28in 0.12in 0.88in; /* left: ribbon (0.45in) + ribbon width (0.28in) + gap */
+        padding: 0.45in 0.48in 0.12in 0.88in; /* right gap mirrors left strip-to-content gap */
         background: var(--paper);
         overflow: hidden;
       }
@@ -108,8 +108,8 @@
       .toc-header {
         flex-shrink: 0;
         text-align: center;
-        padding-bottom: 0.1in;
-        margin-bottom: 0.11in;
+        padding-bottom: 0.08in;
+        margin-bottom: 0.08in;
         border-bottom: 1.2pt solid var(--brand-primary);
       }
 
@@ -120,40 +120,19 @@
         margin: 0 auto 0.05in;
       }
 
-      /* Veteran-Owned badge — mirrors cover-veteran pattern */
-      .toc-veteran-badge {
-        display: inline-block;
-        border: 0.75pt solid var(--brand-primary);
-        border-radius: 2pt;
-        padding: 1.5pt 10pt;
-        /* Abolition → Helvetica Neue fallback for headings */
-        font-family: var(--font-heading);
-        font-size: 6pt;
-        font-weight: 700;
-        letter-spacing: 0.16em;
+      /* Program chip — mirrors cover's MHC-APP chip */
+      .toc-program-chip {
+        width: fit-content;
+        margin: 0 auto 0.05in;
+        background: var(--muted);
+        border: 0.8pt solid var(--brand-secondary-light);
+        color: var(--brand-secondary-text);
         text-transform: uppercase;
-        color: var(--brand-primary);
-        margin-bottom: 0.07in;
-      }
-
-      .toc-veteran-badge::before {
-        content: "★\00a0";
-        color: var(--brand-secondary);
-      }
-
-      .toc-veteran-badge::after {
-        content: "\00a0★";
-        color: var(--brand-secondary);
-      }
-
-      .toc-identity {
-        margin: 0 0 0.05in;
+        letter-spacing: 0.18em;
         font-family: var(--font-body);
-        font-size: 7.2pt;
-        font-weight: 700;
-        letter-spacing: 0.11em;
-        text-transform: uppercase;
-        color: var(--brand-primary-dark);
+        font-size: 6.5pt;
+        font-weight: 800;
+        padding: 2pt 10pt;
       }
 
       .toc-title {
@@ -161,17 +140,18 @@
         font-size: 16pt;
         font-weight: 900;
         color: var(--brand-primary-dark);
-        margin: 0.05in 0 0.02in;
+        margin: 0.04in 0 0.02in;
         letter-spacing: 0.01em;
-        line-height: 1.1;
+        line-height: 1.05;
+        text-transform: uppercase;
       }
 
       .toc-subtitle {
-        font-family: var(--font-heading);
+        font-family: var(--font-body);
         font-size: 7.5pt;
-        font-weight: 400;
-        color: var(--brand-secondary-text);
-        letter-spacing: 0.08em;
+        font-weight: 700;
+        color: var(--brand-primary);
+        letter-spacing: 0.11em;
         text-transform: uppercase;
         margin: 0;
       }
@@ -188,7 +168,7 @@
       /* Each operational cluster stays together in one column */
       .cluster {
         break-inside: avoid;
-        margin-bottom: 0.08in;
+        margin-bottom: 0.05in;
       }
 
       /* Cluster heading — Abolition Medium */
@@ -214,18 +194,18 @@
       .mish-entry {
         display: flex;
         align-items: baseline;
-        gap: 4pt;
-        padding: 1pt 0;
+        gap: 6pt;
+        padding: 0.5pt 0;
         /* DIN 2014 for legibility in high-stress environments */
         font-family: var(--font-body);
         font-size: 9pt;
-        line-height: 1.3;
+        line-height: 1.25;
         color: #000000;
       }
 
       .mish-code {
         flex-shrink: 0;
-        width: 0.72in;
+        width: 0.8in;
         font-family: var(--font-heading);
         font-size: 7.5pt;
         font-weight: 700;
@@ -233,19 +213,16 @@
       }
 
       .mish-wbs {
-        flex-shrink: 0;
-        width: 0.62in;
-        font-family: var(--font-heading);
-        font-size: 6.5pt;
-        font-weight: 700;
-        color: var(--brand-secondary-text);
-        opacity: 0.8;
-        padding-right: 3pt;
+        display: none;
       }
 
       .mish-title {
         flex: 1;
         color: #000000;
+        font-size: 8.6pt;
+        line-height: 1.18;
+        text-wrap: pretty;
+        hyphens: auto;
       }
 
       /* Callout — Tan Leather highlight for critical safety protocols */
@@ -274,7 +251,7 @@
         align-items: flex-end;
         justify-content: space-between;
         padding-top: 0.06in;
-        border-top: 0.5pt solid var(--brand-secondary-light);
+        border-top: 0.7pt solid var(--brand-secondary-light);
         margin-top: 0.06in;
       }
 
@@ -282,14 +259,7 @@
         font-family: var(--font-body);
         font-size: 6.5pt;
         color: var(--brand-secondary-text);
-      }
-
-      .toc-footer-right {
-        font-family: var(--font-body);
-        font-size: 6.5pt;
-        font-weight: 700;
-        color: #8a6b49;
-        text-align: right;
+        white-space: nowrap;
       }
 
       /* ── Footer trust / accreditation logos — matches cover ──── */
@@ -301,21 +271,30 @@
       }
 
       .toc-footer-logo-agc {
-        height: 0.3in;
+        height: 0.32in;
         width: auto;
       }
 
       .toc-footer-logo-bbb {
-        height: 0.34in;
+        height: 0.36in;
         width: auto;
       }
 
       .toc-footer-logo-vob {
-        height: 0.44in;
+        height: 0.46in;
         width: auto;
       }
 
-      /* ── Footer QR code (public TOC URL) ──────────────── */
+      /* ── Footer QR + revision ──────────────────────────── */
+      .toc-footer-right {
+        font-family: var(--font-body);
+        font-size: 6.5pt;
+        font-weight: 700;
+        color: var(--brand-secondary-text);
+        text-align: right;
+        white-space: nowrap;
+      }
+
       .toc-footer-qr {
         flex-shrink: 0;
         display: flex;
@@ -348,16 +327,12 @@
       <div class="toc-content">
         <!-- ── Header ─────────────────────────────────────────── -->
         <header class="toc-header">
-          <p class="toc-identity">
-            {{BRAND_COMPANY_SHORT}} · {{BRAND_ADDRESS_CITYSTATEZIP}} ·
-            {{BRAND_VETERAN}}
-          </p>
           <img
             class="toc-logo"
             src="{{BRAND_LOGO_COLOR}}"
             alt="MH Construction, Inc."
           />
-          <h1 class="toc-title">MISH Program Table of Contents</h1>
+          <h1 class="toc-title">Table of Contents</h1>
           <p class="toc-subtitle">
             MH Construction Industrial &amp; Safety Health Program
           </p>
@@ -373,7 +348,7 @@
           <span class="toc-footer-left"
             >{{BRAND_COMPANY_NAME}}&nbsp;&middot;&nbsp;{{BRAND_PHONE}}&nbsp;&middot;&nbsp;{{BRAND_WEBSITE}}</span
           >
-          <!-- Accreditation and trust logos — matches cover footer -->
+          <!-- Accreditation and trust logos — mirrors cover footer -->
           <div class="toc-footer-trust">
             <img
               class="toc-footer-logo-agc"
@@ -397,7 +372,8 @@
             <span class="toc-footer-qr-label">Scan for TOC</span>
           </div>
           <span class="toc-footer-right"
-            >Revision {{BRAND_REVISION_NUMBER}} ({{BRAND_REVISION_DATE}})</span
+            >Rev
+            {{BRAND_REVISION_NUMBER}}&nbsp;&middot;&nbsp;{{BRAND_REVISION_DATE}}</span
           >
         </footer>
       </div>

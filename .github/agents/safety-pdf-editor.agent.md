@@ -6,7 +6,7 @@ model: ["GPT-5 (copilot)", "Claude Sonnet 4.5 (copilot)"]
 argument-hint: "Describe which safety PDF artifact to change (cover, spine, tabs, digital, contents, reference), what content/metadata to update, and whether to regenerate outputs."
 user-invocable: true
 disable-model-invocation: false
-handoffs: [manual-structure-officer]
+handoffs: [manual-development-standards-officer, manual-structure-officer]
 ---
 
 # Safety PDF Editor
@@ -22,6 +22,10 @@ Implement and verify safety PDF changes from source files, then regenerate outpu
 - Safety PDF publish scripts under scripts/
 - Safety document metadata used by resources and safety surfaces
 
+## Delegate to MDSO First
+
+For ANY edit that touches section content, reference tables, signature blocks, page margins, header/footer chrome, brand typography, or container widths — delegate to `manual-development-standards-officer` BEFORE applying changes. MDSO owns the canonical Manual Development Standards (MDS §1–§9) and the source-side conventions that prevent post-hoc audit failures. This editor's lane is artifact-level work (cover/spine/tabs/TOC/reference/metadata/publish scripts) where MDS clauses do not directly apply.
+
 ## TOC Template Notes
 
 - `safety-manual-toc.html` uses **inlined CSS** (no `@import`) — do not restore the `@import url("../styles/brand.css")` line; the brand variables are embedded directly in `<style>`.
@@ -30,29 +34,44 @@ Implement and verify safety PDF changes from source files, then regenerate outpu
 - The TOC footer carries three elements in order: company contact (left), `★ VETERAN OWNED ★` badge + QR code labeled "SCAN FOR TOC" (center), revision info (right). The QR encodes `BRAND.qrCodes.tableOfContents` → `https://www.mhc-gc.com/resources/safety-manual/contents`.
 - After regenerating `safety-manual-toc.pdf`, copy it to `safety-manual-contents.pdf` to keep both in sync.
 
+## Critical Gotchas (cross-cutting)
+
+- **@page silently overrides Puppeteer margins.** `documents/manuals/safety-manual-section.html` carries an `@page { margin: T R B L }` rule that wins over the `margin` block in `generate.mjs`. Symptom: rebuilt PDFs are byte-identical (`md5sum` unchanged) despite generator edits. ALWAYS update both files in lockstep when changing section page margins. Current canonical: `1.25in 0.75in 1.75in 1.25in`.
+- **Header/footer templates run in an isolated context.** `file://` URLs and external CSS do NOT load. Use `BRAND_TOKENS` base64 data URLs (e.g. `LOGO_COLOR_DATA_URL`, `BBB_LOGO_DATA_URL`, `BRAND_TOKENS["{{BRAND_AGC_HORIZONTAL}}"]`).
+- **Footer accreditation logos are mandatory** — AGC (22pt) → BBB (24pt) → VOB (28pt). Never remove or reorder on any artifact (cover, section footer, TOC, reference).
+- **Footer ribbon clearance budget** — section footer ribbon sits ~1.37in from page bottom; bottom page margin must remain ≥1.75in to keep body descenders off the ribbon. Verify via page 3 of `21-fall-protection.pdf` (historical bleed test case).
+- **Header logo height is 36pt** (canonical, +20% baseline) at the inline style on `<img src="${LOGO_COLOR_DATA_URL}">` in `buildSectionHeaderHtml()`.
+- **Puppeteer 30s timeouts** in this dev container are intermittent — simple retry usually works; do not switch `waitUntil` away from `"load"`.
+
 ## Guardrails
 
 - Do not edit binary PDF files directly; edit source templates/scripts and regenerate.
 - Keep MH branding, trust/accreditation references, and approved safety naming intact.
 - Preserve canonical safety routing and section mapping expectations.
 - Keep metadata congruent across related artifacts when requested.
+- Do not edit section content, tables, sig blocks, or page margins without first delegating to MDSO.
 
 ## Required Workflow
 
-1. Locate source of truth for the requested PDF artifact.
-2. Apply minimal source edits.
-3. Regenerate only required outputs first (cover/spine/tabs/sections/digital/contents/reference).
-4. Validate page size, page count expectations, title/author/creator metadata, and timestamps.
-5. Hand off to `manual-structure-officer` for a PASS/FAIL structural and typography audit.
-6. Report exact output files regenerated and verification results — including MSO verdict.
+1. Classify the request: section/table/margin/header/footer/branding work → hand off to `manual-development-standards-officer` first; artifact/metadata/publish work → continue here.
+2. Locate source of truth for the requested PDF artifact.
+3. Apply minimal source edits.
+4. Regenerate only required outputs first (cover/spine/tabs/sections/digital/contents/reference).
+5. Validate page size, page count expectations, title/author/creator metadata, and timestamps.
+6. After regeneration, run `md5sum` on the output (or rendered page PNG) and confirm the hash CHANGED. Identical hash ⇒ edit didn't apply (likely `@page` override or wrong source file).
+7. Hand off to `manual-structure-officer` for a PASS/FAIL structural and typography audit.
+8. Report exact output files regenerated and verification results — including MDSO and MSO verdicts when applicable.
 
 ## Output Format
 
 - Safety PDF Edit Result: PASS or FAIL
 - Source Files Updated:
 - PDFs Regenerated:
+- md5 Delta Confirmed: yes/no
 - Metadata Check:
 - Congruence Check:
+- MDSO Verdict (if section/standards work):
+- MSO Verdict:
 - Required Follow-ups:
 
 ## Completion Gate
@@ -60,5 +79,7 @@ Implement and verify safety PDF changes from source files, then regenerate outpu
 Do not mark complete without:
 
 1. A PASS or FAIL from this agent's own metadata/congruence check.
-2. A PASS or FAIL from `manual-structure-officer` covering structure, typography, and PDF artifact QA.
-   Both must PASS before the edit is considered complete.
+2. md5 delta confirming the rebuild actually applied the changes.
+3. A PASS from `manual-development-standards-officer` if any MDS clause was touched.
+4. A PASS or FAIL from `manual-structure-officer` covering structure, typography, and PDF artifact QA.
+   All applicable gates must PASS before the edit is considered complete.

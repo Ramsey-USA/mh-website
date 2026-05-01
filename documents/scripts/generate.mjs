@@ -236,15 +236,15 @@ function sectionToTab(sectionNumber) {
 }
 
 /**
- * Map a MISH section number to its WBS (Work Breakdown Structure) code.
- * WBS 0.0         — Table of Contents
- * WBS 1.1–1.3     — Tier 1: Admin Anchor        (MISH 01–03)
- * WBS 2.1–2.6     — Tier 2: Field Cadence        (MISH 04–09)
- * WBS 3.1–3.28    — Tier 3: Engineering          (MISH 10–37)
- * WBS 4.1–4.7     — Tier 4: Specialized Risk     (MISH 38–44)
- * WBS 5.1–5.6     — Tier 5: Program Compliance   (MISH 45–50)
+ * Map a MISH section number to its structural MISH reference code.
+ * MISH 0.0         — Table of Contents
+ * MISH 1.1–1.3     — Tier 1: Admin Anchor        (MISH 01–03)
+ * MISH 2.1–2.6     — Tier 2: Field Cadence       (MISH 04–09)
+ * MISH 3.1–3.28    — Tier 3: Engineering         (MISH 10–37)
+ * MISH 4.1–4.7     — Tier 4: Specialized Risk    (MISH 38–44)
+ * MISH 5.1–5.6     — Tier 5: Program Compliance  (MISH 45–50)
  */
-function sectionToWbs(sectionNumber) {
+function sectionToMishRef(sectionNumber) {
   const n = Number(sectionNumber);
   if (n === 0) return "0.0";
   if (n <= 3) return `1.${n}`;
@@ -384,17 +384,17 @@ const FALLBACK_MISH_TITLES = new Map([
 /**
  * Render one <li> entry for a single MISH section.
  * Applies the .callout modifier for items in TOC_CALLOUT_ITEMS.
- * Includes WBS code for structured binder navigation.
+ * Includes MISH structural reference for binder navigation.
  */
 function buildTocEntryHtml(num, title) {
   const code = `MISH ${String(num).padStart(2, "0")}`;
-  const wbs = sectionToWbs(num);
+  const mishRef = sectionToMishRef(num);
   const isCallout = TOC_CALLOUT_ITEMS.has(num);
   const cls = isCallout ? "mish-entry callout" : "mish-entry";
   return (
     `<li class="${cls}">` +
     `<span class="mish-code">${escapeHtml(code)}</span>` +
-    `<span class="mish-wbs">WBS ${escapeHtml(wbs)}</span>` +
+    `<span class="mish-wbs">MISH ${escapeHtml(mishRef)}</span>` +
     `<span class="mish-title">${escapeHtml(title)}</span>` +
     `</li>`
   );
@@ -468,7 +468,7 @@ function buildTocClustersHtml(titleMap, presentNums) {
  * Logo must be a data URL since the header renders in an isolated context.
  *
  * Layout (4 zones, left → right):
- *   ZONE 1  LEFT   — MISH number + WBS code + title
+ *   ZONE 1  LEFT   — MISH number + MISH reference + title
  *   ZONE 2  CENTER — MHC logo
  *   ZONE 3  RIGHT  — Page bubble (Pg X / Y) + binder tab reference + revision
  *   ZONE 4  FAR R  — Section QR code (thumb-accessible scan target)
@@ -483,7 +483,7 @@ function buildSectionHeaderHtml(
   const titleShort =
     sectionTitle.length > 38 ? sectionTitle.slice(0, 35) + "…" : sectionTitle;
   const tabRef = sectionToTab(sectionNum);
-  const wbsCode = sectionToWbs(sectionNum);
+  const mishRef = sectionToMishRef(sectionNum);
   const font = "'DIN 2014','Helvetica Neue',Arial,sans-serif";
   const pad = "padding:0 0.55in 0 1.25in";
 
@@ -512,25 +512,30 @@ function buildSectionHeaderHtml(
 
   return [
     `<div style="width:100%;background:white;border-bottom:1.5pt solid ${BRAND_COLORS.secondary};`,
-    `${pad};height:0.75in;display:flex;align-items:center;`,
-    `justify-content:space-between;font-family:${font};`,
+    `${pad};height:0.75in;display:flex;align-items:flex-start;position:relative;`,
+    `justify-content:space-between;font-family:${font};padding-top:6pt;`,
     `-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box;gap:8pt;overflow:hidden;">`,
 
-    // ZONE 1 — MISH designator + WBS + title
-    `<div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;overflow:hidden;gap:1pt;">`,
-    `<span style="font-size:9pt;font-weight:900;color:${BRAND_COLORS.primary};line-height:1;">MISH\u00a0${sectionNum} &mdash; WBS\u00a0${wbsCode}</span>`,
+    // ZONE 1 — MISH structural reference chip (matches body card chip) + title
+    `<div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden;gap:2pt;">`,
+    `<span style="display:inline-block;align-self:flex-start;background:${BRAND_COLORS.primary};color:#ffffff;`,
+    `font-size:7.5pt;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;`,
+    `padding:1.5pt 8pt;border-radius:9pt;line-height:1.1;white-space:nowrap;`,
+    `-webkit-print-color-adjust:exact;print-color-adjust:exact;">`,
+    `MISH\u00a0${sectionNum}\u00a0\u2014\u00a0MISH\u00a0${mishRef}`,
+    `</span>`,
     `<span style="font-size:7.5pt;font-weight:700;color:${BRAND_COLORS.primary};line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${titleShort}</span>`,
     `</div>`,
 
-    // ZONE 2 — MHC logo centered
-    `<div style="flex:0 0 auto;display:flex;justify-content:center;align-items:center;padding:0 10pt;">`,
+    // ZONE 2 — MHC logo truly centered via absolute positioning
+    `<div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;justify-content:center;align-items:center;pointer-events:none;">`,
     LOGO_COLOR_DATA_URL
-      ? `<img src="${LOGO_COLOR_DATA_URL}" style="height:30pt;max-width:120pt;width:auto;object-fit:contain;image-rendering:-webkit-optimize-contrast;" alt="MH Construction" />`
+      ? `<img src="${LOGO_COLOR_DATA_URL}" style="height:36pt;max-width:144pt;width:auto;object-fit:contain;image-rendering:-webkit-optimize-contrast;" alt="MH Construction" />`
       : `<span style="font-size:12pt;font-weight:900;color:${BRAND_COLORS.primary};letter-spacing:0.04em;">MHC</span>`,
     `</div>`,
 
     // ZONE 3 — page bubble + tab location + revision
-    `<div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:1pt;">`,
+    `<div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-start;gap:1pt;">`,
     pageBubble,
     `<span style="font-size:6.5pt;font-weight:700;color:${BRAND_COLORS.secondary};line-height:1.2;letter-spacing:0.04em;">BINDER LOCATION: TAB\u00a0${tabRef}</span>`,
     `<span style="font-size:6.5pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;line-height:1.3;">Rev.\u00a0${revNum}\u00a0${revDate}</span>`,
@@ -546,55 +551,77 @@ function buildSectionHeaderHtml(
 /**
  * Build the per-section footer HTML rendered by Puppeteer on EVERY printed page.
  *
- * UX REFRESH 2026 — three-tier hierarchy + thumb-zone QR FAB:
- *   Tier 1: Page chip · Section locator · Revision        (primary, largest)
- *   Tier 2: WBS structural context · Trust marks          (secondary)
- *   Tier 3: Company / contact / license micro-line        (ambient, smallest)
- *   Right column (spans tiers): QR FAB — thumb-accessible,
- *                               same scan target on every page.
+ * UX REFRESH 2026 — clean, cover-aligned footer hierarchy:
+ *   Tier 1: Page chip · trademark line · revision
+ *   Section QR remains in the header only.
  *
  * Styles are inlined because Puppeteer's footer template runs in an isolated
  * document context with no access to components.css.
  */
-function buildSectionFooterHtml(sectionNum, sectionTitle, qrDataUrl) {
-  // Minimal, breathable footer (section title lives in the page header):
-  //   [ Pg X / Y ]   © YYYY MH Construction, Inc. … (trademark)   Rev # · Date   [QR]
+function buildSectionFooterHtml() {
   const year = new Date().getFullYear();
-  const trademark = `\u00a9 ${year} ${BRAND.companyName}. All rights reserved. \u201cMH Construction\u201d and the MH mark are trademarks of ${BRAND.companyName}.`;
+  const font = `'DIN 2014','Helvetica Neue',Arial,sans-serif`;
+  const contactMeta = "Company Contact";
+  const trustMeta = "Accreditation and Trust";
+  const trademark = `\u00a9 ${year} ${BRAND.companyName}`;
+  // Use precomputed base64 data URLs from BRAND_TOKENS — file:// cannot load in
+  // Puppeteer's isolated header/footer context.
+  const agcLogo = BRAND_TOKENS["{{BRAND_AGC_HORIZONTAL}}"];
+  const bbbLogo = BBB_LOGO_DATA_URL || BRAND_TOKENS["{{BRAND_BBB_SEAL}}"];
+  const vobLogo = BRAND_TOKENS["{{BRAND_WA_VOB_LOGO}}"];
 
-  const qrMark = qrDataUrl
-    ? `<img src="${qrDataUrl}" alt="Scan MISH ${sectionNum}" style="flex:0 0 auto;width:0.42in;height:0.42in;display:block;border-radius:3pt;border:0.5pt solid ${BRAND_COLORS.secondary};" />`
-    : "";
+  // Cover-matching ribbon: same gradient + 0.22in height (proportional to a running footer)
+  const ribbonBar = [
+    `<div style="width:100%;height:0.22in;flex-shrink:0;`,
+    `background:linear-gradient(90deg,${BRAND_COLORS.primaryDark} 0%,${BRAND_COLORS.primary} 68%,${BRAND_COLORS.secondary} 100%);`,
+    `-webkit-print-color-adjust:exact;print-color-adjust:exact;"></div>`,
+  ].join("");
 
-  return [
-    `<div style="width:100%;height:100%;font-family:'DIN 2014','Helvetica Neue',Arial,sans-serif;`,
-    `box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;">`,
+  // Cover footer grid: Company Contact (left 57%) | Accreditation & Trust (right)
+  // Logo heights scaled from cover (AGC 0.38in→22pt, BBB 0.41in→24pt, VOB 0.55in→28pt)
+  const contentRow = [
+    `<div style="width:100%;display:grid;grid-template-columns:1.35fr 1fr;align-items:end;`,
+    `gap:10pt;padding:4pt 0.75in 5pt 1.25in;background:#ffffff;box-sizing:border-box;">`,
 
-    `<div style="height:100%;width:100%;display:flex;align-items:flex-end;gap:10pt;`,
-    `padding:0 0.75in 6pt 1.25in;border-top:0.75pt solid ${BRAND_COLORS.secondary};box-sizing:border-box;">`,
+    // LEFT — Company Contact
+    `<div style="min-width:0;font-family:${font};line-height:1.3;color:${BRAND_COLORS.primaryDark};">`,
+    `<div style="font-size:6pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;color:${BRAND_COLORS.secondaryText};margin-bottom:2pt;">${contactMeta}</div>`,
+    `<div style="font-size:7.5pt;font-weight:800;color:${BRAND_COLORS.primaryDark};white-space:nowrap;">${BRAND.companyName}</div>`,
+    `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.addressStreet}</div>`,
+    `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.addressCityStateZip}</div>`,
+    `<div style="font-size:7pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND.phone} \u00b7 ${BRAND.website}</div>`,
+    `<div style="font-size:6.5pt;color:${BRAND_COLORS.secondaryText};white-space:nowrap;">${BRAND_LICENSES_INLINE}</div>`,
+    `</div>`,
 
-    // Page chip
-    `<span style="flex:0 0 auto;background:${BRAND_COLORS.primary};color:#fff;padding:2pt 8pt;border-radius:9pt;font-size:8.5pt;font-weight:700;letter-spacing:0.03em;">Pg.&nbsp;<span class="pageNumber"></span>&nbsp;/&nbsp;<span class="totalPages"></span></span>`,
-
-    // Trademark notice (truncates if needed)
-    `<span style="flex:1 1 auto;min-width:0;color:${BRAND_COLORS.secondaryText};font-size:7.5pt;letter-spacing:0.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${trademark}</span>`,
-
-    // Revision (subtle)
-    `<span style="flex:0 0 auto;color:${BRAND_COLORS.secondaryText};font-size:7.5pt;letter-spacing:0.02em;">Rev ${BRAND.revisionNumber} \u00b7 ${BRAND.revisionDate}</span>`,
-
-    // Small QR
-    qrMark,
-
+    // CENTER-RIGHT — Accreditation & Trust (mirrors cover .trust block)
+    `<div style="min-width:0;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;gap:3pt;font-family:${font};">`,
+    `<div style="font-size:6pt;letter-spacing:0.13em;text-transform:uppercase;font-weight:800;color:${BRAND_COLORS.secondaryText};text-align:right;white-space:nowrap;">${trustMeta}</div>`,
+    `<div style="display:flex;align-items:flex-end;justify-content:flex-end;gap:9pt;">`,
+    agcLogo
+      ? `<img src="${agcLogo}" alt="AGC membership" style="height:22pt;width:auto;display:block;" />`
+      : `<span style="font-size:6pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">AGC</span>`,
+    bbbLogo
+      ? `<img src="${bbbLogo}" alt="BBB accredited business" style="height:24pt;width:auto;display:block;" />`
+      : `<span style="font-size:6pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">BBB</span>`,
+    vobLogo
+      ? `<img src="${vobLogo}" alt="Washington certified veteran owned business" style="height:28pt;width:auto;display:block;" />`
+      : `<span style="font-size:6pt;font-weight:700;color:${BRAND_COLORS.secondaryText};">VOB</span>`,
+    `</div>`,
     `</div>`,
 
     `</div>`,
   ].join("");
+
+  return [
+    `<div style="width:100%;height:100%;font-family:${font};`,
+    `box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;`,
+    `display:flex;flex-direction:column;justify-content:flex-end;">`,
+    ribbonBar,
+    contentRow,
+    `</div>`,
+  ].join("");
 }
 
-/**
- * Generate a QR code as a base64 PNG data URL for embedding in HTML.
- * Uses the brand primary color for the dark modules.
- */
 function buildQrDataUrl(url) {
   return QRCode.toDataURL(url, {
     type: "image/png",
@@ -629,7 +656,7 @@ async function renderHtmlToPdf(
   const tmpHtml = join(DOCS_DIR, tmpName);
   await writeFile(tmpHtml, html, "utf-8");
   await renderPdf(tmpHtml, pdfPath, pageOpts);
-  unlinkSync(tmpHtml);
+  if (!process.env.DEBUG_KEEP_HTML) unlinkSync(tmpHtml);
 }
 
 /**
@@ -653,29 +680,55 @@ async function getBrowser() {
  * @param {object} pageOpts  — Puppeteer PDF options override
  */
 async function renderPdf(htmlPath, pdfPath, pageOpts = {}) {
-  const browser = await getBrowser();
-  const page = await browser.newPage();
-  try {
-    // Load the HTML file via file:// protocol so relative CSS paths resolve
-    await page.goto(pathToFileURL(htmlPath).toString(), {
-      waitUntil: "networkidle0",
-    });
+  const defaultOpts = {
+    format: "Letter",
+    printBackground: true,
+    preferCSSPageSize: false,
+    margin: {
+      top: "0.75in",
+      right: "0.75in",
+      bottom: "0.75in",
+      left: "1.25in",
+    },
+  };
 
-    const defaultOpts = {
-      format: "Letter",
-      printBackground: true,
-      preferCSSPageSize: false,
-      margin: {
-        top: "0.75in",
-        right: "0.75in",
-        bottom: "0.75in",
-        left: "1.25in",
-      },
-    };
+  let lastErr;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const browser = await getBrowser();
+    const page = await browser.newPage();
+    try {
+      // Load the HTML file via file:// protocol so relative CSS paths resolve
+      await page.goto(pathToFileURL(htmlPath).toString(), {
+        waitUntil: "load",
+        timeout: 60000,
+      });
 
-    await page.pdf({ path: pdfPath, ...defaultOpts, ...pageOpts });
-  } finally {
-    await page.close().catch(() => {});
+      await page.pdf({ path: pdfPath, ...defaultOpts, ...pageOpts });
+      lastErr = undefined;
+      break;
+    } catch (err) {
+      lastErr = err;
+      const isRetryable =
+        attempt === 0 &&
+        err instanceof Error &&
+        (err.message.includes("Page.printToPDF") ||
+          err.message.includes("Printing failed"));
+
+      if (!isRetryable) {
+        throw err;
+      }
+
+      if (_browser) {
+        await _browser.close().catch(() => {});
+        _browser = undefined;
+      }
+    } finally {
+      await page.close().catch(() => {});
+    }
+  }
+
+  if (lastErr) {
+    throw lastErr;
   }
 
   // Normalize metadata so standalone PDFs match merged manual metadata fields.
@@ -1128,7 +1181,7 @@ async function generateSections(filter = null) {
     let html = applyBrandTokens(
       templateHtml
         .replaceAll("{{SECTION_NUMBER}}", section.numberStr)
-        .replaceAll("{{SECTION_WBS}}", sectionToWbs(section.number))
+        .replaceAll("{{SECTION_MISH_REF}}", sectionToMishRef(section.number))
         .replaceAll("{{SECTION_TITLE}}", escapeHtml(section.title))
         .replaceAll("{{SECTION_BODY}}", sectionBody)
         .replaceAll("{{REVISION_YEAR}}", BRAND.revisionYear || "2026")
@@ -1150,11 +1203,7 @@ async function generateSections(filter = null) {
     );
 
     // UX REFRESH 2026 — three-tier footer + thumb-zone QR FAB on every page
-    const footerHtml = buildSectionFooterHtml(
-      section.numberStr,
-      section.title,
-      qrDataUrl,
-    );
+    const footerHtml = buildSectionFooterHtml();
 
     const pdfName = `${section.numberStr}-${section.slug}.pdf`;
     const pdfPath = join(sectionsDir, pdfName);
@@ -1166,9 +1215,9 @@ async function generateSections(filter = null) {
         headerTemplate: headerHtml,
         footerTemplate: footerHtml,
         margin: {
-          top: "1.1in", // accommodates 0.75in header + 0.35in gap
+          top: "1.25in", // accommodates enlarged header logo + 0.35in gap
           right: "0.75in",
-          bottom: "0.75in", // single-line footer + small QR mark
+          bottom: "1.75in", // clears full footer + line-height buffer (must match @page rule in safety-manual-section.html)
           left: "1.25in",
         },
       },
@@ -1577,11 +1626,41 @@ function textToHtml(text) {
     /^Revision\s+\d+\s*$/i,
   ];
 
+  // Source-PDF signature blocks: extract long inline phrases that represent
+  // form sign-off rows and replace them with sentinel tokens. Tokens are
+  // post-rendered into branded .sig-container blocks below.
+  const SIG_BLOCK_PATTERNS = [
+    {
+      token: "@@SIG_ORIENTATION@@",
+      regex:
+        /Orientation Checklist Sign[-\s]?Off Sheet\s+NAME\s+Signature\s+DATE\s+Company\s+Ss\s*#\s*Last\s*4/gi,
+    },
+    {
+      token: "@@SIG_APPLICANT@@",
+      regex:
+        /Applicant Name\s*\(please print\)[\s\S]{0,80}?Today['\u2019]?s Date\s+Employer\s+M[hH]\s+Construction/gi,
+    },
+    {
+      token: "@@SIG_NAMESIGDATE@@",
+      // Standalone "Name Signature Date" sign-off line at end of a consent
+      // paragraph (drug & alcohol acknowledgements). May be preceded by a
+      // long underscore form-blank line, end of sentence, or line break.
+      // Lookbehind preserves the boundary character so prose isn't truncated.
+      regex: /(?<=[.\n_])[ \t_]*Name\s+Signature\s+Date(?=\s|$)/g,
+    },
+  ];
+  for (const { token, regex } of SIG_BLOCK_PATTERNS) {
+    text = text.replace(regex, `\n\n${token}\n\n`);
+  }
+
   // Some extracted section bodies arrive as one long line. Reconstruct
   // logical line breaks for WBS numbering and common bullet glyphs.
   const normalized = text
-    // Strip long underscore sequences (form blank lines in source doc)
-    .replaceAll(/_{10,}/g, "")
+    // Strip lines that consist entirely of underscores (form blank-fill rows from source PDFs)
+    // Must run before the per-char underscore strip so the whole line disappears cleanly.
+    .replaceAll(/^[ \t]*_{5,}[ \t]*$/gm, "")
+    // Strip any remaining inline underscore runs (e.g. "Name: ________")
+    .replaceAll(/_{5,}/g, "")
     // Bullet glyphs → newline + standard bullet
     .replaceAll(/\s+([\u2022\u25AA\u25CF\u25E6\uF0B7])\s*/g, "\n\u2022 ")
     // WBS dotted numbers: "1.0 HEADING", "2.1.3 Sub-item"
@@ -1638,8 +1717,669 @@ function textToHtml(text) {
     /(<li[\s\S]*?<\/li>\n?)+/g,
     (m) => `<ul class="sec-list">${m}</ul>`,
   );
+
+  // Replace signature sentinel tokens with branded sig-container blocks.
+  // The token may have been wrapped as <p> or as <h4 class="sec-subhead"> by
+  // renderTextLine() (since it's all-caps), so accept either wrapper.
+  const sigTokenRx = (token) =>
+    new RegExp(`<(?:p|h4[^>]*)>${token}</(?:p|h4)>`, "g");
+  html = html.replace(
+    sigTokenRx("@@SIG_ORIENTATION@@"),
+    buildSigContainer({
+      title: "Orientation Checklist — Sign-Off Sheet",
+      icon: "✍",
+      columns: ["Name", "Signature", "Date", "Company", "SS# (Last 4)"],
+      rows: 6,
+    }),
+  );
+  html = html.replace(
+    sigTokenRx("@@SIG_APPLICANT@@"),
+    buildSigContainer({
+      title: "Applicant Consent — Drug & Alcohol Testing",
+      icon: "✍",
+      columns: [
+        "Applicant Name (Print)",
+        "Applicant Signature",
+        "Witness Signature",
+        "SS#",
+        "Date",
+      ],
+      rows: 3,
+      footer: "Employer: MH Construction, Inc.",
+    }),
+  );
+  html = html.replace(
+    sigTokenRx("@@SIG_NAMESIGDATE@@"),
+    buildSigContainer({
+      title: "Acknowledgement — Sign & Date",
+      icon: "✍",
+      columns: ["Name", "Signature", "Date"],
+      rows: 3,
+    }),
+  );
   return html;
 }
+
+/**
+ * Build a branded signature container (matches binder-tab visual treatment).
+ * Renders a primary-green header bar with white text + a blank entry table.
+ */
+function buildSigContainer({ title, icon, columns, rows = 4, footer }) {
+  const head = columns
+    .map((c) => `<th scope="col">${escapeHtml(c)}</th>`)
+    .join("");
+  const blankRow = `<tr>${columns.map(() => "<td>&nbsp;</td>").join("")}</tr>`;
+  const body = Array(rows).fill(blankRow).join("");
+  const footHtml = footer
+    ? `<div class="sig-container-footer">${escapeHtml(footer)}</div>`
+    : "";
+  return [
+    `<div class="sig-container">`,
+    `<div class="sig-container-header">`,
+    `<span class="sig-container-icon" aria-hidden="true">${icon}</span>`,
+    `<span>${escapeHtml(title)}</span>`,
+    `</div>`,
+    `<table class="sig-container-table"><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`,
+    footHtml,
+    `</div>`,
+  ].join("");
+}
+
+/**
+ * Build a branded reference-data container (matches binder-tab visual style).
+ * Same green gradient header as .sig-container, but populated with reference
+ * data rows. Use for OSHA threshold tables, fall-protection trigger heights,
+ * heat-stress index, electrical approach boundaries, etc.
+ *
+ * @param {object} cfg
+ * @param {string}   cfg.title
+ * @param {string}   cfg.icon
+ * @param {string[]} cfg.columns
+ * @param {Array<Array<string>>} cfg.data   — array of row arrays
+ * @param {string=}  cfg.footer             — optional footnote (italic)
+ */
+function buildDataContainer({ title, icon, columns, data, footer }) {
+  const head = columns
+    .map((c) => `<th scope="col">${escapeHtml(c)}</th>`)
+    .join("");
+  const body = data
+    .map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`)
+    .join("");
+  const footHtml = footer
+    ? `<div class="data-container-footer">${footer}</div>`
+    : "";
+  return [
+    `<div class="data-container">`,
+    `<div class="data-container-header">`,
+    `<span class="data-container-icon" aria-hidden="true">${icon}</span>`,
+    `<span>${escapeHtml(title)}</span>`,
+    `</div>`,
+    `<table class="data-container-table"><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`,
+    footHtml,
+    `</div>`,
+  ].join("");
+}
+
+// ── Canonical reference data tables (anchored per-section) ───────────────────
+
+const REF_FALL_TRIGGER_HEIGHTS = buildDataContainer({
+  title: "Fall-Protection Trigger Heights — Quick Reference",
+  icon: "▲",
+  columns: ["Activity / Surface", "Trigger Height", "Standard"],
+  data: [
+    ["General Construction", "6 ft (1.8 m)", "29 CFR 1926.501"],
+    ["Steel Erection", "15 ft (4.6 m)", "29 CFR 1926.760"],
+    ["Scaffolding", "10 ft (3.0 m)", "29 CFR 1926.451"],
+    ["Residential Construction", "6 ft (1.8 m)", "29 CFR 1926.501(b)(13)"],
+    ["Stairways &amp; Ladders", "4 ft (1.2 m)", "29 CFR 1926.1052"],
+    ["Excavation Edge", "6 ft (1.8 m)", "29 CFR 1926.501(b)(7)"],
+    ["Hoist Areas", "Any height with opening", "29 CFR 1926.501(b)(3)"],
+  ],
+  footer:
+    "Always provide fall protection at the lower of the listed trigger or the level required by job-specific JHA.",
+});
+
+const REF_CONFINED_SPACE_ATMOSPHERE = buildDataContainer({
+  title: "Permit-Required Confined Space — Atmospheric Action Levels",
+  icon: "⚠",
+  columns: ["Hazard", "Acceptable Range", "Action Level"],
+  data: [
+    ["Oxygen (O₂)", "19.5% – 23.5%", "STOP &amp; ventilate / re-test"],
+    ["Lower Explosive Limit", "&lt; 10% LEL", "Evacuate; correct source"],
+    ["Carbon Monoxide (CO)", "&lt; 25 ppm", "Evacuate; ventilate"],
+    [
+      "Hydrogen Sulfide (H₂S)",
+      "&lt; 10 ppm (TWA)",
+      "Evacuate; SCBA required &gt; 10 ppm",
+    ],
+    [
+      "Other toxic / IDLH",
+      "&lt; PEL per SDS",
+      "Use respiratory PPE per SDS &amp; JHA",
+    ],
+  ],
+  footer:
+    "Calibrated 4-gas meter required prior to entry and continuously while occupied. Test bottom, middle, and top of space.",
+});
+
+const REF_HEAT_INDEX_TIERS = buildDataContainer({
+  title: "Heat-Index Action Tiers — On-Site Response",
+  icon: "☀",
+  columns: ["Heat Index", "Risk Tier", "Required Controls"],
+  data: [
+    [
+      "&lt; 91°F",
+      "Caution",
+      "Standard hydration; encourage water breaks every 60 min",
+    ],
+    [
+      "91 – 103°F",
+      "Extreme Caution",
+      "Hourly water breaks; shaded rest areas; buddy-check protocol",
+    ],
+    [
+      "103 – 115°F",
+      "Danger",
+      "Mandatory 15-min rest each hour in shade; supervisor monitoring; modified work pace",
+    ],
+    [
+      "&gt; 115°F",
+      "Extreme Danger",
+      "Stop non-essential work; re-schedule; emergency-response plan active",
+    ],
+  ],
+  footer:
+    "Heat Index = combined air temperature + relative humidity. Use NWS chart or InspectionApp; account for direct sun and PPE adjustments.",
+});
+
+const REF_ELECTRICAL_APPROACH = buildDataContainer({
+  title: "Electrical Approach Boundaries — Qualified vs. Unqualified",
+  icon: "⚡",
+  columns: [
+    "Voltage Range (Phase-to-Phase)",
+    "Limited Approach",
+    "Restricted Approach",
+  ],
+  data: [
+    ["50 V – 750 V", "3 ft 6 in", "1 ft 0 in"],
+    ["751 V – 15 kV", "5 ft 0 in", "2 ft 2 in"],
+    ["15.1 kV – 36 kV", "6 ft 0 in", "2 ft 7 in"],
+    ["36.1 kV – 46 kV", "8 ft 0 in", "2 ft 9 in"],
+    ["46.1 kV – 72.5 kV", "8 ft 0 in", "3 ft 3 in"],
+  ],
+  footer:
+    "Distances per NFPA 70E. Unqualified personnel must remain outside the Limited Approach boundary unless escorted by a qualified person.",
+});
+
+const REF_NOISE_EXPOSURE = buildDataContainer({
+  title: "Occupational Noise Exposure — Permissible Limits",
+  icon: "♪",
+  columns: ["Sound Level (dBA, slow)", "Max Daily Duration", "Required Action"],
+  data: [
+    ["80 dBA", "Unlimited", "Hearing-conservation awareness"],
+    [
+      "85 dBA",
+      "8 hours (Action Level)",
+      "Enroll in HCP; offer hearing protection &amp; annual audiogram",
+    ],
+    ["90 dBA", "8 hours (PEL)", "Hearing protection mandatory"],
+    [
+      "95 dBA",
+      "4 hours",
+      "Hearing protection mandatory; engineering controls evaluated",
+    ],
+    ["100 dBA", "2 hours", "Double hearing protection considered"],
+    ["105 dBA", "1 hour", "Double protection required"],
+    ["115 dBA", "15 minutes", "Maximum exposure ceiling"],
+  ],
+  footer:
+    "Per OSHA 29 CFR 1910.95 and WAC 296-817. Noise exposure averaged over an 8-hour TWA. Impact/impulse noise must not exceed 140 dB peak SPL.",
+});
+
+const REF_RESPIRATOR_APF = buildDataContainer({
+  title: "Assigned Protection Factors (APF) — Respirator Selection",
+  icon: "◉",
+  columns: ["Respirator Type", "APF", "Typical Use"],
+  data: [
+    [
+      "Filtering Facepiece / Half-Mask (Air-Purifying)",
+      "10",
+      "Nuisance dust, low-level particulate",
+    ],
+    [
+      "Full Facepiece (Air-Purifying)",
+      "50",
+      "Higher particulate / vapor concentrations",
+    ],
+    [
+      "Powered Air-Purifying Respirator (PAPR), Loose-Fitting Hood",
+      "25",
+      "Comfort use, general dust",
+    ],
+    [
+      "PAPR, Tight-Fitting Full Facepiece",
+      "1,000",
+      "High particulate, lead, silica abatement",
+    ],
+    [
+      "Supplied-Air Respirator, Demand Mode (Half-Mask)",
+      "10",
+      "Limited continuous-flow use",
+    ],
+    [
+      "Supplied-Air Respirator, Pressure-Demand (Full Facepiece)",
+      "1,000",
+      "Welding fume, abrasive blasting",
+    ],
+    [
+      "Self-Contained Breathing Apparatus (SCBA), Pressure-Demand",
+      "10,000",
+      "IDLH atmospheres, confined-space rescue",
+    ],
+  ],
+  footer:
+    "Per OSHA 29 CFR 1910.134(d)(3)(i)(A), Table 1. Maximum Use Concentration (MUC) = APF × PEL. Fit-testing required for all tight-fitting respirators.",
+});
+
+const REF_LADDER_DUTY_RATINGS = buildDataContainer({
+  title: "Ladder Duty Ratings — ANSI A14 / OSHA Selection",
+  icon: "‖",
+  columns: ["Class", "Duty Rating", "Capacity (lbs)", "Typical Use"],
+  data: [
+    [
+      "Type IAA",
+      "Special Duty",
+      "375",
+      "Heavy industrial, rugged construction",
+    ],
+    [
+      "Type IA",
+      "Extra Heavy Duty",
+      "300",
+      "Industrial, professional construction",
+    ],
+    ["Type I", "Heavy Duty", "250", "General industrial &amp; trade work"],
+    ["Type II", "Medium Duty", "225", "Light commercial, painting"],
+    [
+      "Type III",
+      "Light Duty",
+      "200",
+      "Household — NOT permitted on MH job-sites",
+    ],
+  ],
+  footer:
+    "Per ANSI A14.1/A14.2/A14.5. MH Construction job-sites require Type IA or better. Capacity includes worker, clothing, tools, and materials carried.",
+});
+
+const REF_FLAMMABLE_CLASSIFICATION = buildDataContainer({
+  title: "Flammable & Combustible Liquid Classification",
+  icon: "◆",
+  columns: ["Class", "Flash Point", "Boiling Point", "Examples"],
+  data: [
+    ["IA", "&lt; 73°F", "&lt; 100°F", "Diethyl ether, pentane"],
+    ["IB", "&lt; 73°F", "≥ 100°F", "Gasoline, acetone, toluene"],
+    ["IC", "73°F – &lt; 100°F", "—", "Mineral spirits, xylene"],
+    ["II", "100°F – &lt; 140°F", "—", "Diesel fuel, kerosene"],
+    ["IIIA", "140°F – &lt; 200°F", "—", "Heating oil, paint thinners"],
+    ["IIIB", "≥ 200°F", "—", "Lubricating oils, motor oil"],
+  ],
+  footer:
+    "Per NFPA 30 / OSHA 29 CFR 1910.106. Class I = Flammable; Class II/III = Combustible. Storage quantities and container types governed by class.",
+});
+
+const REF_AERIAL_LIFT_CLEARANCE = buildDataContainer({
+  title: "Minimum Clearance From Energized Power Lines — Aerial Work",
+  icon: "⚠",
+  columns: [
+    "Voltage Range (Phase-to-Phase)",
+    "Min. Clearance (Operating)",
+    "Min. Clearance (Transit)",
+  ],
+  data: [
+    ["0 – 50 kV", "10 ft", "4 ft"],
+    ["50 – 200 kV", "15 ft", "10 ft"],
+    ["200 – 350 kV", "20 ft", "15 ft"],
+    ["350 – 500 kV", "25 ft", "20 ft"],
+    ["500 – 750 kV", "35 ft", "25 ft"],
+    ["750 – 1000 kV", "45 ft", "35 ft"],
+  ],
+  footer:
+    "Per OSHA 29 CFR 1910.333(c)(3) Table S-5 and 1926.1408. If voltage is unknown, assume the highest possible class. Spotter required for all lifts within twice the listed clearance.",
+});
+
+const REF_SAFETY_SIGN_COLORS = buildDataContainer({
+  title: "Safety Sign & Tag Colors — ANSI Z535 / OSHA",
+  icon: "▣",
+  columns: ["Color", "Signal Word", "Use / Hazard Level"],
+  data: [
+    [
+      "Red",
+      "DANGER",
+      "Imminent hazard — will result in death or serious injury",
+    ],
+    [
+      "Orange",
+      "WARNING",
+      "Hazardous situation — could result in death or serious injury",
+    ],
+    [
+      "Yellow",
+      "CAUTION",
+      "Hazardous situation — could result in minor or moderate injury",
+    ],
+    [
+      "Green",
+      "SAFETY / FIRST AID",
+      "Safety equipment, emergency egress, first-aid station",
+    ],
+    [
+      "Blue",
+      "NOTICE",
+      "Information not directly hazard-related (policy, instruction)",
+    ],
+    [
+      "Fluorescent Orange / Red",
+      "BIOHAZARD",
+      "Biological hazard, contaminated PPE/waste",
+    ],
+  ],
+  footer:
+    "Per ANSI Z535.1 / Z535.2 and OSHA 29 CFR 1910.145. Letter height for Exit signs ≥ 6 in., principal stroke ≥ ¾ in.",
+});
+
+const REF_SCAFFOLD_DUTY_CLASSES = buildDataContainer({
+  title: "Scaffold Load-Duty Classifications",
+  icon: "▦",
+  columns: ["Duty Class", "Intended Load (per sq. ft.)", "Typical Use"],
+  data: [
+    [
+      "Light Duty",
+      "25 lbs / sq. ft.",
+      "Workers + light hand tools (painting, inspection)",
+    ],
+    [
+      "Medium Duty",
+      "50 lbs / sq. ft.",
+      "Workers + materials (plastering, masonry)",
+    ],
+    [
+      "Heavy Duty",
+      "75 lbs / sq. ft.",
+      "Workers + heavy materials (stone setting, brick)",
+    ],
+    [
+      "Special Duty",
+      "&gt; 75 lbs / sq. ft.",
+      "Engineered design required; PE-stamped drawings",
+    ],
+  ],
+  footer:
+    "Per OSHA 29 CFR 1926.451(a). Scaffolds and components shall support their own weight + 4× the maximum intended load without failure. Working planks must be scaffold-grade lumber.",
+});
+
+const REF_WELDING_FILTER_SHADES = buildDataContainer({
+  title: "Welding & Cutting — Minimum Filter Lens Shade",
+  icon: "◑",
+  columns: ["Operation", "Electrode / Plate Size", "Min. Shade Number"],
+  data: [
+    ["Shielded Metal Arc (SMAW)", "Up to 5/32 in. electrode", "10"],
+    ["Shielded Metal Arc (SMAW)", "5/32 – 1/4 in. electrode", "12"],
+    ["Gas Metal Arc / Flux-Cored (GMAW/FCAW)", "Up to 1/4 in.", "11"],
+    ["Gas Tungsten Arc (GTAW / TIG)", "Light-current work", "10"],
+    ["Carbon Arc Cutting / Air Arc", "Heavy", "14"],
+    ["Plasma Arc Cutting", "Light (≤ 300 A)", "9"],
+    ["Oxy-Fuel Cutting", "Light (plate &lt; 1 in.)", "3 – 4"],
+    ["Oxy-Fuel Cutting", "Heavy (plate &gt; 6 in.)", "5 – 6"],
+    ["Torch Brazing / Soldering", "—", "3 – 4"],
+  ],
+  footer:
+    "Per OSHA 29 CFR 1910.252(b)(2)(ii) Table Q-2 and ANSI Z49.1. Use next-darker shade if vision strain occurs. Auto-darkening lenses must meet ANSI Z87.1+.",
+});
+
+const REF_FIRE_EXTINGUISHER_CLASSES = buildDataContainer({
+  title: "Portable Fire Extinguisher Classes",
+  icon: "▲",
+  columns: ["Class", "Fuel Type", "Recommended Agent"],
+  data: [
+    [
+      "A",
+      "Ordinary combustibles — wood, paper, cloth, trash",
+      "Water, foam, dry chemical (ABC)",
+    ],
+    [
+      "B",
+      "Flammable liquids &amp; gases — gasoline, oil, propane",
+      "Foam, CO₂, dry chemical (BC or ABC)",
+    ],
+    [
+      "C",
+      "Energized electrical equipment",
+      "CO₂, dry chemical (BC or ABC) — non-conductive",
+    ],
+    [
+      "D",
+      "Combustible metals — magnesium, sodium, titanium",
+      "Specialty dry powder (Class D only)",
+    ],
+    [
+      "K",
+      "Cooking media — animal/vegetable oils &amp; fats",
+      "Wet chemical (potassium acetate)",
+    ],
+  ],
+  footer:
+    "Per NFPA 10 and OSHA 29 CFR 1910.157. Job-site extinguishers must be inspected monthly and serviced annually. MH standard: minimum 2A:10B:C rating per 3,000 sq. ft. of work area.",
+});
+
+const REF_DOT_DRUG_TEST_TYPES = buildDataContainer({
+  title: "DOT/FMCSA Controlled-Substance Test Categories — Commercial Drivers",
+  icon: "◉",
+  columns: ["Test Type", "When Required", "Driver Action Window"],
+  data: [
+    [
+      "Pre-Employment",
+      "Before performing any safety-sensitive function",
+      "Negative result on file before first dispatch",
+    ],
+    [
+      "Random",
+      "Unannounced, computer-selected throughout the year",
+      "Report to collection site immediately upon notice",
+    ],
+    [
+      "Post-Accident",
+      "Following any DOT-recordable accident",
+      "Alcohol within 8 hours; drugs within 32 hours",
+    ],
+    [
+      "Reasonable Suspicion",
+      "Trained supervisor observes signs of impairment",
+      "Test conducted as soon as possible after observation",
+    ],
+    [
+      "Return-to-Duty",
+      "After any policy violation, before resuming driving",
+      "Negative test required after SAP evaluation",
+    ],
+    [
+      "Follow-Up",
+      "Per Substance Abuse Professional (SAP) plan",
+      "Minimum 6 unannounced tests in first 12 months",
+    ],
+  ],
+  footer:
+    "Per 49 CFR Part 382 (FMCSA) and 49 CFR Part 40 (DOT). Refusal to test or failure to comply within the specified window is treated as a positive result.",
+});
+
+const REF_GHS_PICTOGRAMS = buildDataContainer({
+  title: "GHS Hazard Pictograms — SDS & Container Labels",
+  icon: "◆",
+  columns: ["Pictogram (Name)", "Hazard Class", "Examples"],
+  data: [
+    [
+      "Health Hazard",
+      "Carcinogen, mutagen, reproductive toxin, respiratory sensitizer",
+      "Crystalline silica, asbestos, formaldehyde",
+    ],
+    [
+      "Flame",
+      "Flammable, self-reactive, pyrophoric, self-heating",
+      "Gasoline, acetone, propane",
+    ],
+    [
+      "Exclamation Mark",
+      "Irritant (skin/eye), narcotic effect, respiratory tract irritant",
+      "Cleaning agents, paints, ammonia",
+    ],
+    [
+      "Gas Cylinder",
+      "Gases under pressure (compressed, liquefied, dissolved)",
+      "Oxygen, acetylene, nitrogen, propane cylinders",
+    ],
+    [
+      "Corrosion",
+      "Skin corrosion / burns, eye damage, corrosive to metals",
+      "Sulfuric acid, sodium hydroxide, muriatic acid",
+    ],
+    [
+      "Exploding Bomb",
+      "Explosives, self-reactives, organic peroxides",
+      "Blasting agents, ammonium nitrate",
+    ],
+    [
+      "Flame Over Circle",
+      "Oxidizers (solid, liquid, gas)",
+      "Hydrogen peroxide, nitric acid, oxygen",
+    ],
+    [
+      "Skull &amp; Crossbones",
+      "Acute toxicity (severe) — fatal or toxic",
+      "Hydrogen sulfide, methanol, lead compounds",
+    ],
+    [
+      "Environment (non-mandatory)",
+      "Aquatic toxicity",
+      "Pesticides, solvents, heavy metals",
+    ],
+  ],
+  footer:
+    "Per OSHA 29 CFR 1910.1200 (HCS 2012) aligned with UN GHS Rev. 7. All hazardous chemical containers must display the appropriate pictogram(s), signal word, and hazard statements.",
+});
+
+const REF_OSHA_SOIL_CLASSIFICATION = buildDataContainer({
+  title: "OSHA Soil Classification — Sloping & Benching Requirements",
+  icon: "▲",
+  columns: ["Soil Type", "Description", "Max Allowable Slope (H : V)"],
+  data: [
+    [
+      "Stable Rock",
+      "Natural solid mineral matter; remains intact while exposed",
+      "90° (vertical)",
+    ],
+    [
+      "Type A",
+      "Cohesive soils — clay, silty clay, sandy clay, hardpan (≥ 1.5 tsf)",
+      "0.75 : 1 (53° from horizontal)",
+    ],
+    [
+      "Type B",
+      "Cohesive (0.5 – 1.5 tsf), granular cohesionless, previously disturbed soils",
+      "1 : 1 (45° from horizontal)",
+    ],
+    [
+      "Type C",
+      "Granular soils (gravel, sand, loamy sand), submerged soil, soil with seeping water",
+      "1.5 : 1 (34° from horizontal)",
+    ],
+    [
+      "Layered (C-over-A/B)",
+      "Type C overlying stable soil",
+      "1.5 : 1 (use Type C for entire excavation)",
+    ],
+  ],
+  footer:
+    "Per OSHA 29 CFR 1926, Subpart P, Appendix B. Excavations ≥ 5 ft deep require a protective system unless made entirely in stable rock. Competent Person must classify soil daily.",
+});
+
+const REF_HAZARDOUS_ENERGY_TYPES = buildDataContainer({
+  title: "Hazardous Energy Sources — Lockout/Tagout Isolation",
+  icon: "⚡",
+  columns: ["Energy Type", "Examples", "Isolation / Verification"],
+  data: [
+    [
+      "Electrical",
+      "Live circuits, capacitors, batteries, control panels",
+      "Open disconnect; lock device; verify zero voltage with calibrated meter",
+    ],
+    [
+      "Mechanical",
+      "Rotating shafts, flywheels, conveyor drives, springs",
+      "Block / pin moving parts; release stored spring energy",
+    ],
+    [
+      "Hydraulic",
+      "Pressurized fluid lines, accumulators, presses",
+      "Bleed lines to atmosphere; lock isolation valves; verify 0 psi",
+    ],
+    [
+      "Pneumatic",
+      "Compressed air systems, pneumatic tools, accumulators",
+      "Close supply valve; bleed downstream; lock valve",
+    ],
+    [
+      "Chemical",
+      "Process lines, reactor vessels, piping with hazardous contents",
+      "Double block-and-bleed; line break permits; flush &amp; purge",
+    ],
+    [
+      "Thermal",
+      "Steam lines, hot surfaces, cryogenic systems",
+      "Allow cool-down or warm-up; verify safe touch temperature",
+    ],
+    [
+      "Gravitational",
+      "Suspended loads, raised platforms, elevators",
+      "Lower load; install mechanical blocks or cribbing",
+    ],
+  ],
+  footer:
+    "Per OSHA 29 CFR 1910.147 and 1926.417. ALL energy sources must be identified, isolated, locked, and verified BEFORE work begins. Each authorized worker applies their own lock.",
+});
+
+const REF_INCIDENT_RESPONSE_TIMELINE = buildDataContainer({
+  title: "Incident Response & Investigation Timeline",
+  icon: "◷",
+  columns: ["Phase", "Time Window", "Required Actions"],
+  data: [
+    [
+      "Immediate Response",
+      "0 – 4 hours",
+      "Secure scene; first aid / 911; notify Safety Officer &amp; PM; preserve evidence; D&amp;A test if required",
+    ],
+    [
+      "Initial Investigation",
+      "Within 24 hours",
+      "Photograph scene; interview witnesses separately; collect physical evidence; review training/inspection records",
+    ],
+    [
+      "Root-Cause Analysis",
+      "Within 72 hours",
+      "5-Why method to system / program level; complete MHC Incident Investigation Report (Form 49-A)",
+    ],
+    [
+      "Corrective Actions",
+      "Within 7 days",
+      "Assign owner &amp; deadline for each root cause; verify completion before close-out",
+    ],
+    [
+      "Lessons Learned",
+      "Next safety meeting",
+      "Communicate findings &amp; corrective actions to all affected crews; update JHA / training as needed",
+    ],
+  ],
+  footer:
+    "Per MISH 49 and OSHA 29 CFR 1926.20. Investigation is non-punitive — focus is on system failures, not blame. All incidents, near-misses, and property damage events require investigation.",
+});
 
 // ── Section-specific post-processing ─────────────────────────────────────────
 
@@ -2212,7 +2952,75 @@ function postProcessSectionHtml(html, sectionNumber) {
   ) {
     html = injectSignatureLines(html);
   }
+  // Canonical reference data tables — anchored after 1.0 PURPOSE row so the
+  // quick-reference card is visible in the first body screenful of the section.
+  if (sectionNumber === 7) {
+    html = injectAfterPurpose(html, REF_DOT_DRUG_TEST_TYPES);
+  }
+  if (sectionNumber === 12) {
+    html = injectAfterPurpose(html, REF_NOISE_EXPOSURE);
+  }
+  if (sectionNumber === 13) {
+    html = injectAfterPurpose(html, REF_GHS_PICTOGRAMS);
+  }
+  if (sectionNumber === 15) {
+    html = injectAfterPurpose(html, REF_HEAT_INDEX_TIERS);
+  }
+  if (sectionNumber === 16) {
+    html = injectAfterPurpose(html, REF_RESPIRATOR_APF);
+  }
+  if (sectionNumber === 20) {
+    html = injectAfterPurpose(html, REF_SAFETY_SIGN_COLORS);
+  }
+  if (sectionNumber === 21) {
+    html = injectAfterPurpose(html, REF_FALL_TRIGGER_HEIGHTS);
+  }
+  if (sectionNumber === 22) {
+    html = injectAfterPurpose(html, REF_SCAFFOLD_DUTY_CLASSES);
+  }
+  if (sectionNumber === 23) {
+    html = injectAfterPurpose(html, REF_LADDER_DUTY_RATINGS);
+  }
+  if (sectionNumber === 25) {
+    html = injectAfterPurpose(html, REF_OSHA_SOIL_CLASSIFICATION);
+  }
+  if (sectionNumber === 26) {
+    html = injectAfterPurpose(html, REF_CONFINED_SPACE_ATMOSPHERE);
+  }
+  if (sectionNumber === 27) {
+    html = injectAfterPurpose(html, REF_HAZARDOUS_ENERGY_TYPES);
+  }
+  if (sectionNumber === 28) {
+    html = injectAfterPurpose(html, REF_ELECTRICAL_APPROACH);
+  }
+  if (sectionNumber === 29) {
+    html = injectAfterPurpose(html, REF_WELDING_FILTER_SHADES);
+  }
+  if (sectionNumber === 30) {
+    html = injectAfterPurpose(html, REF_FLAMMABLE_CLASSIFICATION);
+  }
+  if (sectionNumber === 31) {
+    html = injectAfterPurpose(html, REF_FIRE_EXTINGUISHER_CLASSES);
+  }
+  if (sectionNumber === 37) {
+    html = injectAfterPurpose(html, REF_AERIAL_LIFT_CLEARANCE);
+  }
+  if (sectionNumber === 49) {
+    html = injectAfterPurpose(html, REF_INCIDENT_RESPONSE_TIMELINE);
+  }
   return html;
+}
+
+/**
+ * Insert a block of HTML immediately after the rendered "1.0 PURPOSE" row.
+ * Falls back to no-op if the anchor isn't found.
+ */
+function injectAfterPurpose(html, blockHtml) {
+  const purposeRowRx =
+    /(<div class="sec-num-row"><span class="sec-num">1\.0<\/span>[\s\S]*?<\/div>)/;
+  const m = purposeRowRx.exec(html);
+  if (!m) return html;
+  return html.replace(purposeRowRx, `${m[1]}\n${blockHtml}`);
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────────
