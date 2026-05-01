@@ -100,12 +100,17 @@ async function listDocxFilesRecursive(dirPath) {
   return files;
 }
 
-async function extractDocxText(filePath) {
+async function extractDocxHtml(filePath) {
   const mammoth = await import("mammoth");
-  const result = await mammoth.extractRawText({
+  const result = await mammoth.convertToHtml({
     buffer: readFileSync(filePath),
   });
-  return normalizeWhitespace(result.value || "");
+  // Preserve native tables/lists/paragraphs; strip surrounding whitespace runs.
+  return (result.value || "").replace(/\s+/g, " ").trim();
+}
+
+function htmlToPlainText(html) {
+  return normalizeWhitespace(html.replace(/<[^>]+>/g, " "));
 }
 
 async function main() {
@@ -140,7 +145,8 @@ async function main() {
     process.stdout.write(`  [${meta.numberStr}] ${meta.title.padEnd(55)} `);
 
     try {
-      const text = await extractDocxText(filePath);
+      const html = await extractDocxHtml(filePath);
+      const text = htmlToPlainText(html);
       const wordCount = text.split(/\s+/).filter(Boolean).length;
       const summary = buildSummary(text);
 
@@ -155,7 +161,7 @@ async function main() {
         pages: 0,
         wordCount,
         summary,
-        body: text,
+        body: html,
       });
 
       console.log(`✓  (${wordCount} words)`);

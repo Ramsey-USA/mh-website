@@ -48,6 +48,16 @@
   "certificationLogos": {
     "waVob": "../../public/images/logo/veteran-owned-business.jpg"
   },
+  "chamberLogos": {
+    "pasco": "../../public/images/credentials/Pasco-Chamber-logo-color-transparent.png",
+    "richland": "../../public/images/credentials/Richland-Chamber-logo-full-color.png",
+    "kennewick": "../../public/images/credentials/Kennewick-TriCity-Regional-Chamber-logo-horizontal.png"
+  },
+  "chamberLogos": {
+    "pasco": "../../public/images/credentials/Pasco-Chamber-logo-color-transparent.png",
+    "richland": "../../public/images/credentials/Richland-Chamber-logo-full-color.png",
+    "kennewick": "../../public/images/credentials/Kennewick-TriCity-Regional-Chamber-logo-horizontal.png"
+  },
   "qrCodes": {
     "dashboard": "https://www.mhc-gc.com/safety/hub",
     "digitalManual": "https://www.mhc-gc.com/docs/safety-manual-digital.pdf",

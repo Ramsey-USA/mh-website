@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MH Construction — Official Letterhead</title>
+    <style>
+      :root {
+        --brand-primary: {{BRAND_COLOR_PRIMARY}};
+        --brand-primary-dark: {{BRAND_COLOR_PRIMARY_DARK}};
+        --brand-primary-darker: {{BRAND_COLOR_PRIMARY_DARKER}};
+        --brand-primary-light: {{BRAND_COLOR_PRIMARY_LIGHT}};
+        --brand-secondary: {{BRAND_COLOR_SECONDARY}};
+        --brand-secondary-light: {{BRAND_COLOR_SECONDARY_LIGHT}};
+        --brand-secondary-text: {{BRAND_COLOR_SECONDARY_TEXT}};
+        --ink: #12231b;
+        --paper: #ffffff;
+        --muted: #f6f8f7;
+        --font-heading: "Abolition", "Helvetica Neue", Arial, sans-serif;
+        --font-body: "DIN 2014", "Helvetica Neue", Arial, "Liberation Sans",
+          sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      @page {
+        size: letter portrait;
+        margin: 0;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 8.5in;
+        height: 11in;
+        font-family: var(--font-body);
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      /* ── Sheet (single Letter page) ─────────────────────────── */
+      .sheet {
+        position: relative;
+        width: 8.5in;
+        height: 11in;
+        overflow: hidden;
+        background: var(--paper);
+      }
+
+      /* Outer + inner frame mirrors the cover’s double-rule treatment
+         so a printed letter sits visually inside the same brand system. */
+      .sheet::before {
+        content: "";
+        position: absolute;
+        inset: 0.22in;
+        border: 1.2pt solid var(--brand-primary-dark);
+        pointer-events: none;
+      }
+      .sheet::after {
+        content: "";
+        position: absolute;
+        inset: 0.33in;
+        border: 0.6pt solid var(--brand-secondary);
+        pointer-events: none;
+      }
+
+      /* Vertical hunter-green → tan ribbon on the binding edge,
+         identical proportions to safety-manual-cover.html. */
+      .left-ribbon {
+        position: absolute;
+        top: 0.45in;
+        bottom: 0.45in;
+        left: 0.45in;
+        width: 0.28in;
+        background: linear-gradient(
+          180deg,
+          var(--brand-primary-dark) 0%,
+          var(--brand-primary) 68%,
+          var(--brand-secondary) 100%
+        );
+      }
+
+      /* ── Header ─────────────────────────────────────────────── */
+      .identity {
+        position: absolute;
+        top: 0.62in;
+        left: 0.92in;
+        right: 0.9in;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 7.2pt;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: var(--brand-primary-dark);
+      }
+      .identity .dot {
+        color: var(--brand-secondary);
+        margin: 0 7pt;
+      }
+
+      .header {
+        position: absolute;
+        top: 0.95in;
+        left: 0.92in;
+        right: 0.9in;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 14pt;
+        border-bottom: 1.2pt solid var(--brand-primary-dark);
+      }
+      .header::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -3.5pt;
+        height: 0.6pt;
+        background: var(--brand-secondary);
+      }
+
+      .header .logo {
+        width: 1.82in;
+        height: auto;
+        display: block;
+      }
+
+      .header .qr-card {
+        display: flex;
+        align-items: center;
+        gap: 9pt;
+        border: 0.8pt solid var(--brand-secondary);
+        background: #fff;
+        padding: 7pt 10pt;
+      }
+      .header .qr-card img {
+        width: 0.78in;
+        height: 0.78in;
+        display: block;
+      }
+      .header .qr-card .qr-text {
+        text-align: left;
+        max-width: 1.55in;
+      }
+      .header .qr-card .qr-label {
+        font-size: 6.8pt;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--brand-secondary-text);
+        margin: 0 0 2pt;
+      }
+      .header .qr-card .qr-headline {
+        font-family: var(--font-heading);
+        font-size: 11pt;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--brand-primary-dark);
+        line-height: 1.05;
+      }
+      .header .qr-card .qr-url {
+        margin-top: 2pt;
+        font-size: 7.4pt;
+        color: var(--brand-primary-darker);
+        letter-spacing: 0.02em;
+      }
+
+      /* ── Body / form fields ────────────────────────────────── */
+      .body-area {
+        position: absolute;
+        top: 2.55in;
+        left: 1.15in;
+        right: 1.05in;
+        z-index: 1;
+        font-size: 9.5pt;
+        font-family: var(--font-body);
+        color: var(--ink);
+        overflow: visible;
+        min-height: 5.35in;
+        padding-bottom: 1.6in;
+      }
+
+      /* shared field label — watermark style so it fades when printed */
+      .field-label {
+        font-size: 6.4pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--brand-secondary-text);
+        opacity: 0.32;
+        margin-bottom: 2pt;
+        display: block;
+      }
+
+      /* single-line field — NO border (cell bottom border is the line) */
+      .field-line {
+        display: block;
+        width: 100%;
+        border: none;
+        background: transparent;
+        font-family: var(--font-body);
+        font-size: 9.5pt;
+        color: var(--ink);
+        padding: 1pt 2pt 2pt;
+        outline: none;
+      }
+
+      /* multiline text area — NO border (cell bottom is the line) */
+      .field-area {
+        display: block;
+        width: 100%;
+        border: none;
+        background: transparent;
+        font-family: var(--font-body);
+        font-size: 9.5pt;
+        color: var(--ink);
+        padding: 4pt 2pt;
+        outline: none;
+        line-height: 1.7;
+        white-space: pre-wrap;
+        word-break: break-word;
+        resize: none;
+      }
+
+      /* body field grows naturally as content is entered */
+      .field-group.body-field {
+        margin-bottom: 10pt;
+      }
+      .field-area[contenteditable="true"]:empty::before {
+        content: "Enter letter content...";
+        color: var(--brand-secondary-text);
+        opacity: 0.62;
+      }
+
+      /* row helpers */
+      .field-row {
+        display: flex;
+        gap: 14pt;
+        margin-bottom: 9pt;
+      }
+      .field-row .field-group {
+        flex: 1;
+      }
+      .field-group {
+        margin-bottom: 9pt;
+      }
+      .field-group:last-child {
+        margin-bottom: 0;
+      }
+
+      /* date sits top-right */
+      .date-row {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 11pt;
+      }
+      .date-row .field-group {
+        width: 2.1in;
+        margin-bottom: 0;
+      }
+
+      /* signature block */
+      .sig-block {
+        margin-top: 11pt;
+        display: flex;
+        gap: 18pt;
+        break-inside: avoid-page;
+        page-break-inside: avoid;
+      }
+      .sig-block .field-group {
+        flex: 2;
+        margin-bottom: 0;
+      }
+      .sig-block .field-group.narrow {
+        flex: 1;
+      }
+
+
+      /* ── Footer ─────────────────────────────────────────────── */
+      .footer {
+        position: absolute;
+        left: 0.92in;
+        right: 0.9in;
+        bottom: 0.62in;
+        padding-top: 9pt;
+        border-top: 1.2pt solid var(--brand-primary-dark);
+        display: grid;
+        grid-template-columns: 1.45fr 1fr;
+        gap: 0.25in;
+        align-items: end;
+        z-index: 2;
+      }
+      .footer::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 2.5pt;
+        height: 0.6pt;
+        background: var(--brand-secondary);
+      }
+
+      .footer .contact {
+        font-size: 7.8pt;
+        line-height: 1.45;
+        color: var(--brand-primary-darker);
+      }
+      .footer .contact .label {
+        color: var(--brand-secondary-text);
+        font-size: 6.6pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 3pt;
+      }
+      .footer .contact .name {
+        font-weight: 800;
+        color: var(--brand-primary-dark);
+        font-size: 8.2pt;
+      }
+      .footer .licenses {
+        margin-top: 4pt;
+        font-size: 7.2pt;
+        color: var(--brand-secondary-text);
+        font-weight: 700;
+      }
+
+      .footer .trust {
+        text-align: right;
+      }
+      .footer .trust .label {
+        color: var(--brand-secondary-text);
+        font-size: 6.6pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 5pt;
+      }
+      .footer .logos {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 9pt;
+      }
+      .footer .logos img {
+        display: block;
+        width: auto;
+      }
+      .logo-agc {
+        height: 0.36in;
+      }
+      .logo-bbb {
+        height: 0.39in;
+      }
+      .logo-vob {
+        height: 0.5in;
+      }
+      .footer .chambers {
+        margin-top: 6pt;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10pt;
+        padding-top: 6pt;
+        border-top: 0.4pt solid var(--brand-secondary-light);
+      }
+      .footer .chambers img {
+        display: block;
+        width: auto;
+        height: 0.3in;
+      }
+
+      .veteran-strip {
+        position: absolute;
+        left: 0.92in;
+        right: 0.9in;
+        bottom: 0.42in;
+        text-align: center;
+        font-size: 6.6pt;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: var(--brand-secondary-text);
+        z-index: 2;
+      }
+      .veteran-strip .sep {
+        color: var(--brand-secondary);
+        margin: 0 6pt;
+      }
+
+      /* ── Form table ─────────────────────────────────────────── */
+      /* Overrides body-area padding so the table controls all spacing */
+      .body-area {
+        padding-bottom: 0;
+        min-height: 0;
+      }
+      .form-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+      /* 6 equal columns × 1.05in = 6.30in total */
+      .form-table col { width: 1.05in; }
+      .form-table td {
+        padding: 0;
+        vertical-align: top;
+        overflow: visible;
+        border: none;
+      }
+      /* THE LINES — drawn by an inner div so we can inset gaps between fields */
+      .form-table td.field-cell {
+        position: relative;
+        padding: 0 6pt;
+      }
+      .form-table td.field-cell::after {
+        content: "";
+        position: absolute;
+        left: 6pt;
+        right: 6pt;
+        bottom: 0;
+        height: 0;
+        border-bottom: 0.8pt solid var(--brand-primary-dark);
+      }
+      .form-table td.spacer { padding: 0; }
+      .form-table .row-date,
+      .form-table .row-to,
+      .form-table .row-addr,
+      .form-table .row-from,
+      .form-table .row-subject { height: 0.42in; }
+      .form-table .row-body    { height: 3.10in; }
+      .form-table .row-body td.field-cell { vertical-align: top; padding-top: 6pt; }
+      .form-table .row-body .field-area { height: 2.98in; }
+      .form-table .row-sig { height: 0.60in; }
+      .form-table .field-label { margin-top: 4pt; margin-bottom: 1pt; }
+    </style>
+  </head>
+  <body>
+    <div class="sheet">
+      <div class="left-ribbon"></div>
+
+      <div class="identity">
+        <div>
+          {{BRAND_COMPANY_SHORT}}<span class="dot">•</span
+          >{{BRAND_ADDRESS_CITYSTATEZIP}}
+        </div>
+        <div>{{BRAND_VETERAN}}</div>
+      </div>
+
+      <header class="header">
+        <img
+          class="logo"
+          src="{{BRAND_LOGO_COLOR}}"
+          alt="MH Construction logo"
+        />
+        <div class="qr-card">
+          <img src="{{QR_WEBSITE}}" alt="QR code to {{BRAND_WEBSITE}}" />
+          <div class="qr-text">
+            <div class="qr-label">Scan to Visit</div>
+            <div class="qr-headline">MHC-GC.com</div>
+            <div class="qr-url">{{BRAND_WEBSITE}}</div>
+          </div>
+        </div>
+      </header>
+
+      <main class="body-area" aria-label="letter body">
+        <!--
+          Table layout: 6 cols × 1.05in = 6.30in
+          x origin = 1.15in from page left
+          Row heights: date/to/addr/subject=0.48in, body=2.42in, sig=0.72in
+          AcroForm coordinates derived directly from these values.
+        -->
+        <table class="form-table">
+          <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+          </colgroup>
+
+          <!-- Date — cols 5-6 (x=5.35in, w=2.10in) -->
+          <tr class="row-date">
+            <td colspan="4" class="spacer"></td>
+            <td colspan="2" class="field-cell">
+              <span class="field-label">Date</span>
+              <input class="field-line" type="text" />
+            </td>
+          </tr>
+
+          <!-- To Name / Company — each cols 1-3 and 4-6 -->
+          <tr class="row-to">
+            <td colspan="3" class="field-cell">
+              <span class="field-label">To — Name</span>
+              <input class="field-line" type="text" />
+            </td>
+            <td colspan="3" class="field-cell">
+              <span class="field-label">Company / Organization</span>
+              <input class="field-line" type="text" />
+            </td>
+          </tr>
+
+          <!-- Address / City-State-ZIP -->
+          <tr class="row-addr">
+            <td colspan="3" class="field-cell">
+              <span class="field-label">Address</span>
+              <input class="field-line" type="text" />
+            </td>
+            <td colspan="3" class="field-cell">
+              <span class="field-label">City, State, ZIP</span>
+              <input class="field-line" type="text" />
+            </td>
+          </tr>
+
+          <!-- From — full width -->
+          <tr class="row-from">
+            <td colspan="6" class="field-cell">
+              <span class="field-label">From</span>
+              <input class="field-line" type="text" />
+            </td>
+          </tr>
+
+          <!-- RE-Subject / Job-Bid# -->
+          <tr class="row-subject">
+            <td colspan="3" class="field-cell">
+              <span class="field-label">RE — Subject</span>
+              <input class="field-line" type="text" />
+            </td>
+            <td colspan="3" class="field-cell">
+              <span class="field-label">Job/Bid #</span>
+              <input class="field-line" type="text" />
+            </td>
+          </tr>
+
+          <!-- Body textarea -->
+          <tr class="row-body">
+            <td colspan="6" class="field-cell">
+              <textarea class="field-area" aria-label="Letter body"></textarea>
+            </td>
+          </tr>
+
+          <!-- Signature block — sig+name=2cols each, title+date=1col each -->
+          <tr class="row-sig">
+            <td colspan="2" class="field-cell">
+              <span class="field-label">Signature</span>
+              <input class="field-line" type="text" />
+            </td>
+            <td colspan="2" class="field-cell">
+              <span class="field-label">Printed Name</span>
+              <input class="field-line" type="text" />
+            </td>
+            <td colspan="1" class="field-cell">
+              <span class="field-label">Title</span>
+              <input class="field-line" type="text" />
+            </td>
+            <td colspan="1" class="field-cell">
+              <span class="field-label">Date Signed</span>
+              <input class="field-line" type="text" />
+            </td>
+          </tr>
+        </table>
+      </main>
+
+      <footer class="footer">
+        <div class="contact">
+          <div class="label">Company Contact</div>
+          <div class="name">{{BRAND_COMPANY_NAME}}</div>
+          {{BRAND_ADDRESS_STREET}}<br />
+          {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
+          {{BRAND_PHONE}} &middot; {{BRAND_WEBSITE}}
+          <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
+        </div>
+
+        <div class="trust">
+          <div class="label">Accreditation &amp; Trust</div>
+          <div class="logos">
+            <img
+              class="logo-agc"
+              src="{{BRAND_AGC_HORIZONTAL}}"
+              alt="AGC membership"
+            />
+            <img
+              class="logo-bbb"
+              src="{{BRAND_BBB_SEAL}}"
+              alt="BBB accredited business"
+            />
+            <img
+              class="logo-vob"
+              src="{{BRAND_WA_VOB_LOGO}}"
+              alt="Washington certified veteran-owned business"
+            />
+          </div>
+          <div class="chambers" aria-label="Chamber of Commerce memberships">
+            <img
+              src="{{BRAND_CHAMBER_PASCO}}"
+              alt="Pasco Chamber of Commerce member"
+            />
+            <img
+              src="{{BRAND_CHAMBER_KENNEWICK}}"
+              alt="Tri-City Regional Chamber of Commerce member"
+            />
+            <img
+              src="{{BRAND_CHAMBER_RICHLAND}}"
+              alt="Richland Chamber of Commerce member"
+            />
+          </div>
+        </div>
+      </footer>
+
+      <div class="veteran-strip">
+        Veteran-Owned <span class="sep">&#9733;</span> Mission-First
+        <span class="sep">&#9733;</span> Built on Honor, Integrity &amp; Trust
+      </div>
+    </div>
+  </body>
+</html>

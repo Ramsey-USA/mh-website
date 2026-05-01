@@ -58,6 +58,7 @@
     "docs:generate": "node documents/scripts/generate.mjs",
     "docs:generate:cover": "node documents/scripts/generate.mjs --template cover",
     "docs:generate:spine": "node documents/scripts/generate.mjs --template spine",
+    "docs:generate:letterhead": "node documents/scripts/generate.mjs --template letterhead",
     "docs:generate:tabs": "node documents/scripts/generate.mjs --template tabs",
     "docs:generate:sections": "node documents/scripts/generate.mjs --template sections",
     "docs:generate:forms": "node documents/scripts/generate.mjs --template forms",

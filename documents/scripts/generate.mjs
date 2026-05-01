@@ -9,6 +9,7 @@
  *   npm run docs:generate                          # generate all safety manual PDFs
  *   npm run docs:generate -- --template cover      # cover only
  *   npm run docs:generate -- --template spine      # spine only
+ *   npm run docs:generate -- --template letterhead # official letterhead
  *   npm run docs:generate -- --template tabs       # all tab dividers
  *   npm run docs:generate -- --template sections   # all 44 section PDFs
  *   npm run docs:generate -- --template section --section 11  # single section
@@ -29,7 +30,7 @@
 
 import puppeteer from "puppeteer";
 import QRCode from "qrcode";
-import { PDFDocument } from "pdf-lib";
+import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
 import { readFileSync, existsSync, unlinkSync } from "node:fs";
 import { join, resolve, dirname, extname } from "node:path";
@@ -197,6 +198,13 @@ function buildBrandTokens(brand) {
     "{{BRAND_BBB_SEAL}}":
       BBB_LOGO_DATA_URL || resolvePath(brand.partnerLogos?.bbbSeal || ""),
     "{{BRAND_WA_VOB_LOGO}}": resolvePath(brand.certificationLogos?.waVob || ""),
+    "{{BRAND_CHAMBER_PASCO}}": resolvePath(brand.chamberLogos?.pasco || ""),
+    "{{BRAND_CHAMBER_RICHLAND}}": resolvePath(
+      brand.chamberLogos?.richland || "",
+    ),
+    "{{BRAND_CHAMBER_KENNEWICK}}": resolvePath(
+      brand.chamberLogos?.kennewick || "",
+    ),
     "{{BRAND_QR_DASHBOARD}}": resolvePath(brand.qrCodes?.dashboard || ""),
   };
 }
@@ -660,6 +668,111 @@ async function renderHtmlToPdf(
 }
 
 /**
+ * Overlay AcroForm fields on the generated letterhead PDF so it is truly
+ * fillable in standard PDF viewers (Acrobat, Preview, browser PDF viewers).
+ */
+async function addFillableFieldsToLetterhead(pdfPath) {
+  const pdfBytes = await readFile(pdfPath);
+  const pdfDoc = await PDFDocument.load(pdfBytes);
+  const form = pdfDoc.getForm();
+  const page = pdfDoc.getPages()[0];
+  const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+
+  const pageHeight = page.getHeight();
+  const inch = (n) => n * 72;
+  const yFromTop = (topIn, heightIn) =>
+    pageHeight - inch(topIn) - inch(heightIn);
+
+  // Single-line fields: transparent overlay
+  const lineStyle = {
+    borderColor: rgb(1, 1, 1),
+    borderWidth: 0,
+    textColor: rgb(0.07, 0.14, 0.11),
+    font,
+  };
+  // Body textarea: fully transparent overlay too
+  const bodyStyle = {
+    borderColor: rgb(1, 1, 1),
+    borderWidth: 0,
+    textColor: rgb(0.07, 0.14, 0.11),
+    font,
+  };
+
+  // Keep single-line widgets slightly above the HTML bottom border so
+  // the visual underline comes from the template, not PDF annotations.
+  const singleLineInsetBottom = 0.055; // inches
+
+  const addField = (name, xIn, topIn, wIn, hIn, opts = {}) => {
+    const field = form.createTextField(name);
+    if (opts.multiline) field.enableMultiline();
+    const widgetH = opts.multiline
+      ? hIn
+      : Math.max(0.12, hIn - singleLineInsetBottom);
+    field.addToPage(page, {
+      ...(opts.multiline ? bodyStyle : lineStyle),
+      x: inch(xIn),
+      y: yFromTop(topIn, widgetH),
+      width: inch(wIn),
+      height: inch(widgetH),
+    });
+    return field;
+  };
+
+  // Table geometry — derived directly from HTML table layout:
+  //   body-area top: 2.55in from page top
+  //   left margin:   1.15in from page left
+  //   6 columns × 1.05in = 6.30in wide, zero cell padding
+  //   Row heights: date/to/addr/subject = 0.48in, body = 2.42in, sig = 0.72in
+  //   Label height offset (6.6pt + 2pt margin ≈ 0.12in) → field starts at row_top + 0.12
+  //   Sig field: label(0.12) + sig-space(0.07) = 0.19in offset
+
+  const bTop = 2.55; // body-area top (in)
+  const rH = 0.42; // standard row height
+  const bH = 3.10; // body row height
+  const fH = 0.24; // single-line field height
+  const lOff = 0.16; // label offset (label margin-top 4pt + label height ~8pt)
+  const sOff = 0.20; // sig offset
+
+  const rowDate = bTop;
+  const rowTo = bTop + rH;
+  const rowAddr = bTop + rH * 2;
+  const rowFrom = bTop + rH * 3;
+  const rowSubject = bTop + rH * 4;
+  const rowBody = bTop + rH * 5;
+  const rowSig = rowBody + bH;
+
+  // x positions: cols 1-3 = left half, cols 4-6 = right half, cols 5-6 = date
+  const colL = 1.15; // left half
+  const colR = 1.15 + 3 * 1.05; // right half  = 4.30
+  const colW2 = 3 * 1.05; // half width  = 3.15
+  const dateX = 1.15 + 4 * 1.05; // date x      = 5.35
+  // sig columns: 2+2+1+1 cols
+  const nameX = 1.15 + 2 * 1.05; // 3.25
+  const titleX = nameX + 2 * 1.05; // 5.35
+  const dsX = titleX + 1.05; // 6.40
+
+  addField("lh.date", dateX, rowDate + lOff, 2.1, fH);
+  addField("lh.toName", colL, rowTo + lOff, colW2, fH);
+  addField("lh.toOrg", colR, rowTo + lOff, colW2, fH);
+  addField("lh.toAddress", colL, rowAddr + lOff, colW2, fH);
+  addField("lh.toCityStateZip", colR, rowAddr + lOff, colW2, fH);
+  addField("lh.from", colL, rowFrom + lOff, 6.3, fH);
+  addField("lh.subject", colL, rowSubject + lOff, colW2, fH);
+  addField("lh.jobBid", colR, rowSubject + lOff, colW2, fH);
+  addField("lh.body", colL, rowBody + 0.04, 6.3, bH - 0.08, {
+    multiline: true,
+  });
+  addField("lh.signature", colL, rowSig + sOff, 2.1, fH);
+  addField("lh.printedName", nameX, rowSig + sOff, 2.1, fH);
+  addField("lh.title", titleX, rowSig + sOff, 1.05, fH);
+  addField("lh.dateSigned", dsX, rowSig + sOff, 1.05, fH);
+
+  form.updateFieldAppearances(font);
+  const outBytes = await pdfDoc.save();
+  await writeFile(pdfPath, outBytes);
+}
+
+/**
  * Launch (or reuse) a Puppeteer browser instance.
  */
 let _browser;
@@ -764,6 +877,34 @@ async function generateCover() {
     { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
     "manuals/_tmp_cover.html",
   );
+}
+
+// ── Template: Letterhead ─────────────────────────────────────────────────────
+/**
+ * Generate the official MH Construction letterhead PDF.
+ * Mirrors the cover’s frame/ribbon/footer chrome so printed correspondence
+ * lives inside the same brand system as the safety manual.
+ */
+async function generateLetterhead() {
+  console.log("\n✉️  Generating letterhead…");
+  await ensureDir(OUTPUT_DIR);
+  const raw = await readFile(
+    join(DOCS_DIR, "manuals/safety-manual-letterhead.html"),
+    "utf-8",
+  );
+  const websiteUrl = BRAND.website?.startsWith("http")
+    ? BRAND.website
+    : `https://${BRAND.website}`;
+  const qrWebsite = await buildQrDataUrl(websiteUrl);
+  const html = applyBrandTokens(raw).replace("{{QR_WEBSITE}}", qrWebsite);
+  const pdfPath = join(OUTPUT_DIR, "safety-manual-letterhead.pdf");
+  await renderHtmlToPdf(
+    html,
+    pdfPath,
+    { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
+    "manuals/_tmp_letterhead.html",
+  );
+  await addFillableFieldsToLetterhead(pdfPath);
 }
 
 // ── Template: Spine ───────────────────────────────────────────────────────────
@@ -1506,6 +1647,39 @@ function cleanWordHtml(html) {
 
   // Add sec-bullet class to list items
   out = out.replaceAll(/<li(\s[^>]*)?>/gi, '<li class="sec-bullet">');
+
+  // Tag native Word tables so the .sec-data-table CSS picks them up. Skip
+  // tables that already carry a known branded class so we don't double-style
+  // signature-table, threshold-table, revision-info-table, ptp-*, etc.
+  const BRANDED_TABLE_CLASSES = [
+    "signature-table",
+    "threshold-table",
+    "revision-info-table",
+    "sig-container-table",
+    "data-container-table",
+    "ptp-meta-table",
+    "ptp-hazards-table",
+    "ptp-injured-table",
+    "orientation-record-table",
+    "sec-data-table",
+  ];
+  out = out.replaceAll(/<table(\s[^>]*)?>/gi, (match, attrs = "") => {
+    const cls = /class="([^"]*)"/i.exec(attrs || "")?.[1] || "";
+    if (BRANDED_TABLE_CLASSES.some((b) => cls.split(/\s+/).includes(b))) {
+      return match;
+    }
+    // Mark first-row-header so the first row gets the green band when there
+    // is no explicit <thead>.
+    const newCls = cls
+      ? `${cls} sec-data-table first-row-header`
+      : "sec-data-table first-row-header";
+    const cleaned = (attrs || "").replace(/\s*class="[^"]*"/i, "");
+    return `<table${cleaned} class="${newCls}">`;
+  });
+
+  // Strip <colgroup>/<col> Word adds — they fight table-layout: fixed.
+  out = out.replaceAll(/<colgroup[\s\S]*?<\/colgroup>/gi, "");
+  out = out.replaceAll(/<col\s[^>]*\/?>/gi, "");
 
   return out.trim();
 }
@@ -2396,7 +2570,7 @@ const REF_INCIDENT_RESPONSE_TIMELINE = buildDataContainer({
  *            for DOT-regulated commercial driver testing.
  *
  * @param {string} html         — section body HTML
- * @param {number} sectionNumber — 1, 2, or 38
+ * @param {number} sectionNumber — 2 (Injury-Free), 6 (D&A Policy), or 7 (CDL D&A)
  */
 function injectThreeHourCallout(html, sectionNumber) {
   // ── Generic callout used for MISH 01, MISH 38 (and as MISH 02 last-resort fallback) ──
@@ -2411,11 +2585,11 @@ function injectThreeHourCallout(html, sectionNumber) {
     `</div></div>`,
   ].join("");
 
-  if (sectionNumber === 2) {
-    // PRECISION OVERRIDE 2 — Visual Field Triggers (MISH 02)
-    // The Word-extracted body contains raw <table> wrappers around each 3-HOUR RULE notice.
-    // Replace both tables with proper .three-hour-rule-box callout divs so the light-grey
-    // background + 2pt MHC Green border renders correctly and the bold-warning achieves 12pt.
+  if (sectionNumber === 6) {
+    // PRECISION OVERRIDE 2 — Visual Field Triggers (Drug & Alcohol Policy)
+    // Legacy Word body for the drug-program section may contain raw <table>
+    // wrappers around each 3-HOUR RULE notice.  Replace both tables with
+    // proper .three-hour-rule-box callout divs.
     let replaced = false;
 
     html = html.replaceAll(
@@ -2459,8 +2633,8 @@ function injectThreeHourCallout(html, sectionNumber) {
     if (result !== html) return result;
   }
 
-  if (sectionNumber === 38) {
-    // MISH 38 — Commercial Drivers Drug and Alcohol Program
+  if (sectionNumber === 7) {
+    // MISH 07 — Drug & Alcohol Field Operations (Commercial Drivers)
     // Anchor after the random testing paragraph or any testing-related paragraph
     let result = html.replace(
       /(<p>[^<]*random[^<]*test[^<]*<\/p>)/i,
@@ -2479,7 +2653,7 @@ function injectThreeHourCallout(html, sectionNumber) {
     return html.replace(/(<h4 class="sec-subhead">)/, `${callout}$1`);
   }
 
-  // MISH 01 (or MISH 02 final fallback): anchor after the Drug Free Workplace / testing paragraph
+  // MISH 02 (Injury-Free) final fallback: anchor after the Drug Free Workplace paragraph
   const result = html.replace(
     /(<p>[^<]*Drug Free Workplace[^<]*testing[^<]*<\/p>)/i,
     `$1${callout}`,
@@ -2924,10 +3098,15 @@ function injectPtpForm(html) {
  */
 function postProcessSectionHtml(html, sectionNumber) {
   html = applySectionReferenceFixes(html, sectionNumber);
-  if (sectionNumber === 1 || sectionNumber === 2 || sectionNumber === 38) {
+  // 3-Hour Rule callouts — drug & alcohol testing window:
+  //   • MISH 02 (Injury-Free Workplace) — forward reference
+  //   • MISH 06 (Drug & Alcohol Policy & Testing) — primary anchor
+  //   • MISH 07 (Drug & Alcohol Field Operations / CDL) — DOT enforcement
+  if (sectionNumber === 2 || sectionNumber === 6 || sectionNumber === 7) {
     html = injectThreeHourCallout(html, sectionNumber);
   }
-  if (sectionNumber === 2) {
+  // Drug-program tables/forms now live in MISH 06 (was MISH 02 in legacy v2).
+  if (sectionNumber === 6) {
     html = injectAddendumATable(html);
     html = injectFormPageBreaks(html);
     html = injectSignatureTables(html); // consolidate individual sig tables → unified bordered table
@@ -2940,7 +3119,8 @@ function postProcessSectionHtml(html, sectionNumber) {
     html = injectOrientationForm(html);
     html = injectSignatureLines(html);
   }
-  if (sectionNumber === 5) {
+  // Pre-Task Plan now lives in MISH 09 (Pre-Job Safety Plan); was MISH 05.
+  if (sectionNumber === 9) {
     html = injectPtpForm(html);
     html = injectSignatureLines(html);
   }
@@ -3013,14 +3193,29 @@ function postProcessSectionHtml(html, sectionNumber) {
 
 /**
  * Insert a block of HTML immediately after the rendered "1.0 PURPOSE" row.
- * Falls back to no-op if the anchor isn't found.
+ * Supports both renderings:
+ *   • Text-extracted bodies → <div class="sec-num-row"><span class="sec-num">1.0</span>…</div>
+ *   • Word HTML bodies      → <p><strong>1.0 </strong>PURPOSE</p>… (with following content)
+ * Falls back to no-op if no anchor is found.
  */
 function injectAfterPurpose(html, blockHtml) {
+  // Form 1 — text-rendered sec-num-row
   const purposeRowRx =
     /(<div class="sec-num-row"><span class="sec-num">1\.0<\/span>[\s\S]*?<\/div>)/;
-  const m = purposeRowRx.exec(html);
-  if (!m) return html;
-  return html.replace(purposeRowRx, `${m[1]}\n${blockHtml}`);
+  const m1 = purposeRowRx.exec(html);
+  if (m1) return html.replace(purposeRowRx, `${m1[1]}\n${blockHtml}`);
+
+  // Form 2 — Word HTML <p>...1.0...PURPOSE...</p>
+  const purposePRx =
+    /(<p>(?:<strong>)?\s*1\.0[\s\S]{0,40}?PURPOSE[\s\S]{0,200}?<\/p>)/i;
+  const m2 = purposePRx.exec(html);
+  if (m2) return html.replace(purposePRx, `${m2[1]}\n${blockHtml}`);
+
+  // Form 3 — last-resort: insert before the first sec-subhead
+  const subheadRx = /(<h4 class="sec-subhead">)/;
+  if (subheadRx.test(html)) return html.replace(subheadRx, `${blockHtml}$1`);
+
+  return html;
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────────
@@ -3033,6 +3228,7 @@ async function main() {
       case "all":
         await generateCover();
         await generateSpine();
+        await generateLetterhead();
         await generateTabs();
         await generateToc();
         await generateSections();
@@ -3042,6 +3238,9 @@ async function main() {
         break;
       case "spine":
         await generateSpine();
+        break;
+      case "letterhead":
+        await generateLetterhead();
         break;
       case "tabs":
         await generateTabs();

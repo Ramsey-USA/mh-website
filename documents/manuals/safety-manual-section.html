@@ -135,6 +135,48 @@
          word-break: break-word;
        }
 
+       /* ── Native tables recovered from Word source (.sec-data-table) ─────── */
+       /* Applied automatically by cleanWordHtml() to every <table> that does  */
+       /* not already carry a branded class (signature-table, threshold-table, */
+       /* revision-info-table, ptp-*, orientation-record-table, etc.).        */
+       .section-body .sec-data-table {
+         width: calc(100% - 1in);
+         margin: 8pt 0.5in 12pt;
+         border-collapse: collapse;
+         border: 0.75pt solid var(--brand-secondary, #2d5e3e);
+         font-size: var(--type-print-table, 9pt);
+         page-break-inside: auto;
+         break-inside: auto;
+       }
+       .section-body .sec-data-table thead th,
+       .section-body .sec-data-table tr:first-child th {
+         background: var(--brand-primary, #386851);
+         color: #ffffff;
+         font-weight: 700;
+         text-align: left;
+         padding: 4pt 6pt;
+         border: 0.5pt solid var(--brand-secondary, #2d5e3e);
+         -webkit-print-color-adjust: exact;
+         print-color-adjust: exact;
+       }
+       .section-body .sec-data-table td,
+       .section-body .sec-data-table th {
+         padding: 3pt 6pt;
+         border: 0.5pt solid #b9c4bd;
+         vertical-align: top;
+       }
+       .section-body .sec-data-table tbody tr:nth-child(even) td {
+         background: #f3f6f4;
+         -webkit-print-color-adjust: exact;
+         print-color-adjust: exact;
+       }
+       /* When a Word table has no <thead>, treat the first row as a header. */
+       .section-body .sec-data-table.first-row-header tr:first-child td {
+         background: var(--brand-primary, #386851);
+         color: #ffffff;
+         font-weight: 700;
+       }
+
        /* Flush-left elements — anchored to 0.0" */
        .section-body .sec-num-row,
        .section-body .sec-subhead,
