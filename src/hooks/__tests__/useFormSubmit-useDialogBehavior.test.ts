@@ -131,19 +131,23 @@ describe("useFormSubmit", () => {
 
     const { result } = renderHook(() => useFormSubmit());
 
-    // Start the first submission but don't await
+    // Kick off the first submission inside a properly-awaited act so React can
+    // flush the synchronous setIsSubmitting(true) state update.  The fetch stays
+    // in-flight because submit()'s own Promise is intentionally not awaited here.
     let firstPromiseResolved = false;
-    const firstSubmitPromise = act(async () => {
-      await result.current.submit("/api/test", null);
-      firstPromiseResolved = true;
-    });
-
-    // While first is in-flight, isSubmitting should eventually be true
-    // trigger a second submit synchronously while first await is pending
+    let firstSubmitPromise!: Promise<unknown>;
     await act(async () => {
-      // force state flush
+      firstSubmitPromise = result.current
+        .submit("/api/test", null)
+        .then((v) => {
+          firstPromiseResolved = true;
+          return v;
+        });
+      // Yield once so the synchronous setIsSubmitting(true) can propagate
+      await Promise.resolve();
     });
 
+    // While first is in-flight, isSubmitting should be true
     // Second submit while first is still pending
     let secondResult: unknown;
     if (result.current.isSubmitting) {
@@ -155,7 +159,9 @@ describe("useFormSubmit", () => {
 
     // Complete the first fetch
     resolveFetch({ ok: true, json: async () => ({}) });
-    await firstSubmitPromise;
+    await act(async () => {
+      await firstSubmitPromise;
+    });
     expect(firstPromiseResolved).toBe(true);
   });
 

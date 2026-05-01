@@ -6,6 +6,15 @@ jest.mock("@/lib/analytics/tracking", () => ({
   trackFormSubmit: jest.fn(),
 }));
 
+jest.mock("@/lib/utils/logger", () => ({
+  logger: {
+    log: jest.fn(),
+    error: jest.fn(),
+    warn: jest.fn(),
+    info: jest.fn(),
+  },
+}));
+
 describe("JobApplicationModal", () => {
   const originalFetch = global.fetch;
 

@@ -15,9 +15,28 @@ const testError = new Error("Critical failure") as Error & { digest?: string };
 const mockReset = jest.fn();
 
 describe("GlobalError page", () => {
+  // GlobalError is a Next.js root error boundary that renders <html><body>.
+  // jsdom wraps renders in a <div>, so React always warns about this nesting.
+  // Suppress the specific expected warning — it is not a bug in our code.
+  let errorSpy: jest.SpyInstance;
   beforeEach(() => {
     mockReset.mockClear();
     (require("@/lib/utils/logger").logger.error as jest.Mock).mockClear();
+    errorSpy = jest
+      .spyOn(console, "error")
+      .mockImplementation((...args: unknown[]) => {
+        const msg = typeof args[0] === "string" ? args[0] : "";
+        if (
+          msg.includes("cannot be a child of") ||
+          msg.includes("hydration error")
+        )
+          return;
+        // eslint-disable-next-line no-console
+        console.warn(...args);
+      });
+  });
+  afterEach(() => {
+    errorSpy.mockRestore();
   });
 
   it("renders the Application Error heading", () => {

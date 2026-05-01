@@ -23,6 +23,15 @@ jest.mock("@/lib/security/rate-limiter", () => ({
   rateLimitPresets: { api: {} },
 }));
 
+jest.mock("@/lib/utils/logger", () => ({
+  logger: {
+    log: jest.fn(),
+    error: jest.fn(),
+    warn: jest.fn(),
+    info: jest.fn(),
+  },
+}));
+
 let POST: typeof import("@/app/api/track-phone-call/route").POST;
 
 beforeAll(async () => {

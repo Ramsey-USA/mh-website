@@ -36,6 +36,7 @@ package-lock.json
 *.temp
 *.tmp
 *.tsbuildinfo
+.prettier-cache
 .DS_Store
 .cache/
 .env

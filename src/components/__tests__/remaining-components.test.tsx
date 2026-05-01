@@ -159,9 +159,10 @@ jest.mock("@/components/ui/cta", () => ({
 // SkillsRadarChart uses dynamic imports for Recharts — mock them
 jest.mock("next/dynamic", () => {
   const dynamic = (_fn: () => Promise<{ default: React.ComponentType }>) => {
-    // Return a simple placeholder
-    return function DynamicComponent(props: Record<string, unknown>) {
-      return <div data-dynamic="true" {...props} />;
+    // Return a simple placeholder that does NOT forward props to the DOM
+    // (recharts passes non-DOM props like dataKey/contentStyle that React warns about)
+    return function DynamicComponent(_props: Record<string, unknown>) {
+      return <div data-dynamic="true" />;
     };
   };
   return dynamic;
