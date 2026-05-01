@@ -502,7 +502,7 @@ function buildSectionHeaderHtml(
         `<div style="display:flex;flex-direction:column;align-items:center;gap:2pt;`,
         `flex:0 0 auto;padding-left:8pt;">`,
         `<img src="${qrDataUrl}" alt="Scan MISH ${sectionNum}"`,
-        ` style="width:36pt;height:36pt;border-radius:2pt;`,
+        ` style="width:32pt;height:32pt;border-radius:2pt;`,
         `border:0.5pt solid ${BRAND_COLORS.secondary};display:block;" />`,
         `<span style="font-size:5pt;font-weight:700;color:${BRAND_COLORS.secondaryText};`,
         `text-transform:uppercase;letter-spacing:0.06em;">MISH ${sectionNum}</span>`,
@@ -514,7 +514,7 @@ function buildSectionHeaderHtml(
     `<div style="width:100%;background:white;border-bottom:1.5pt solid ${BRAND_COLORS.secondary};`,
     `${pad};height:0.75in;display:flex;align-items:center;`,
     `justify-content:space-between;font-family:${font};`,
-    `-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box;gap:8pt;">`,
+    `-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box;gap:8pt;overflow:hidden;">`,
 
     // ZONE 1 — MISH designator + WBS + title
     `<div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;overflow:hidden;gap:1pt;">`,
@@ -525,7 +525,7 @@ function buildSectionHeaderHtml(
     // ZONE 2 — MHC logo centered
     `<div style="flex:0 0 auto;display:flex;justify-content:center;align-items:center;padding:0 10pt;">`,
     LOGO_COLOR_DATA_URL
-      ? `<img src="${LOGO_COLOR_DATA_URL}" style="height:38pt;width:auto;image-rendering:-webkit-optimize-contrast;" alt="MH Construction" />`
+      ? `<img src="${LOGO_COLOR_DATA_URL}" style="height:30pt;max-width:120pt;width:auto;object-fit:contain;image-rendering:-webkit-optimize-contrast;" alt="MH Construction" />`
       : `<span style="font-size:12pt;font-weight:900;color:${BRAND_COLORS.primary};letter-spacing:0.04em;">MHC</span>`,
     `</div>`,
 
@@ -567,10 +567,11 @@ function buildSectionFooterHtml(sectionNum, sectionTitle, qrDataUrl) {
     : "";
 
   return [
-    `<div style="width:100%;font-family:'DIN 2014','Helvetica Neue',Arial,sans-serif;`,
-    `padding:6pt 0.75in 0 1.25in;border-top:0.75pt solid ${BRAND_COLORS.secondary};`,
-    `box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;`,
-    `display:flex;align-items:center;gap:10pt;">`,
+    `<div style="width:100%;height:100%;font-family:'DIN 2014','Helvetica Neue',Arial,sans-serif;`,
+    `box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;">`,
+
+    `<div style="height:100%;width:100%;display:flex;align-items:flex-end;gap:10pt;`,
+    `padding:0 0.75in 6pt 1.25in;border-top:0.75pt solid ${BRAND_COLORS.secondary};box-sizing:border-box;">`,
 
     // Page chip
     `<span style="flex:0 0 auto;background:${BRAND_COLORS.primary};color:#fff;padding:2pt 8pt;border-radius:9pt;font-size:8.5pt;font-weight:700;letter-spacing:0.03em;">Pg.&nbsp;<span class="pageNumber"></span>&nbsp;/&nbsp;<span class="totalPages"></span></span>`,
@@ -583,6 +584,8 @@ function buildSectionFooterHtml(sectionNum, sectionTitle, qrDataUrl) {
 
     // Small QR
     qrMark,
+
+    `</div>`,
 
     `</div>`,
   ].join("");
