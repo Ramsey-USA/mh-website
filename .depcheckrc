@@ -9,6 +9,7 @@
     "postcss",
     "autoprefixer",
     "jest-environment-jsdom",
+    "@opennextjs/cloudflare",
     "chalk",
     "@cspell/dict-es-es",
     "@tailwindcss/postcss",
