@@ -213,7 +213,7 @@
   min-width: 1.45in;
   padding: 7pt 8pt;
   background: #2b4a3d;
-  border: 0.75pt solid #1e392c;
+  border: 0.75pt solid var(--color-primary-dark);
   border-radius: 2pt;
 }
 .qr-img {
@@ -580,7 +580,7 @@
 /* ── 3-Hour Rule Callout Box ────────────────────────────────────────────── */
 .three-hour-rule-box {
   background: #f2f2f2;
-  border: 2pt solid #386851; /* MHC Green — matches brand primary */
+  border: 2pt solid var(--color-primary);
   border-radius: 3pt;
   margin: 12pt 0;
   padding: 10pt 12pt;
@@ -602,7 +602,7 @@
 }
 .thr-icon {
   font-size: 16pt;
-  color: #cc0000;
+  color: var(--color-stopwork);
   line-height: 1;
 }
 .thr-warning {
@@ -610,7 +610,7 @@
     --type-print-emphasis-warning
   ); /* PRECISION OVERRIDE 2: Bold Warning — 12pt per spec */
   font-weight: 900;
-  color: #cc0000;
+  color: var(--color-stopwork);
   text-transform: uppercase;
   letter-spacing: 0.03em;
   margin: 0 0 6pt;
@@ -631,6 +631,8 @@
  */
 .addendum-section {
   margin-top: 14pt;
+  padding-left: 8pt;
+  border-left: 3pt solid var(--color-primary);
 }
 .addendum-note {
   font-size: 8pt;
@@ -690,7 +692,7 @@
   background: #fff0f0 !important;
 }
 .alert-cell {
-  color: #cc0000;
+  color: var(--color-stopwork);
   font-weight: 700;
 }
 
@@ -746,7 +748,7 @@
 .signature-table td.sig-label {
   font-weight: 700;
   font-size: var(--type-print-table-compact);
-  color: #1e392c;
+  color: var(--color-primary-dark);
   background-color: #f0f7f4;
   white-space: nowrap;
   width: 2in;
@@ -983,7 +985,7 @@
    1pt MHC Primary Dark border; signals zero-tolerance to bonding agents.
    ═══════════════════════════════════════════════════════════════════════════ */
 .zero-tolerance-box {
-  border: 1.5pt solid #1e392c;
+  border: 1.5pt solid var(--color-primary-dark);
   border-radius: 2pt;
   padding: 8pt 12pt;
   margin: 10pt 0;
@@ -997,16 +999,16 @@
   gap: 6pt;
   font-size: var(--type-print-callout-body);
   font-weight: 900;
-  color: #1e392c;
+  color: var(--color-primary-dark);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border-bottom: 0.75pt solid #386851;
+  border-bottom: 0.75pt solid var(--color-primary);
   padding-bottom: 5pt;
   margin-bottom: 7pt;
 }
 .zero-tolerance-icon {
   font-size: 12pt;
-  color: #cc0000;
+  color: var(--color-stopwork);
   line-height: 1;
 }
 .zero-tolerance-intro {
@@ -1028,7 +1030,7 @@
 .form04a-header {
   font-size: var(--type-print-form-title-compact);
   font-weight: 700;
-  color: #1e392c;
+  color: var(--color-primary-dark);
   text-align: center;
   margin: 0 0 10pt;
   padding: 0;
@@ -1041,12 +1043,12 @@
   table-layout: fixed;
 }
 .orientation-record-table th {
-  background: #1e392c;
+  background: var(--color-primary-dark);
   color: white;
   padding: var(--spacing-component-form-badge);
   font-size: var(--type-print-table);
   text-align: left;
-  border: 0.5pt solid #12231b;
+  border: 0.5pt solid var(--color-primary-darker);
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1060,7 +1062,7 @@
 .orientation-record-table td.cell-label {
   font-weight: 700;
   background: #f0f4f2;
-  color: #1e392c;
+  color: var(--color-primary-dark);
   white-space: nowrap;
 }
 .orientation-record-table td.cell-value {
@@ -1071,7 +1073,7 @@
    MISH 05 — Pre-Task Plan Form
    ═══════════════════════════════════════════════════════════════════════════ */
 .ptp-form {
-  border: 1.5pt solid #1e392c;
+  border: 1.5pt solid var(--color-primary-dark);
   border-radius: 2pt;
   overflow: hidden;
   margin: 10pt 0;
@@ -1080,7 +1082,7 @@
   font-size: 8.5pt;
 }
 .ptp-form-header {
-  background: #1e392c;
+  background: var(--color-primary-dark);
   color: white;
   padding: 5pt 10pt;
   font-size: 11pt;
@@ -1100,7 +1102,7 @@
 .ptp-meta-table td.ptp-label {
   font-weight: 700;
   background: #f0f4f2;
-  color: #1e392c;
+  color: var(--color-primary-dark);
   white-space: nowrap;
   width: 16%;
 }
@@ -1108,14 +1110,14 @@
   width: 34%;
 }
 .ptp-section-label {
-  background: #386851;
+  background: var(--color-primary);
   color: white;
   font-weight: 700;
   font-size: 7.5pt;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 3pt 8pt;
-  border-top: 0.5pt solid #1e392c;
+  border-top: 0.5pt solid var(--color-primary-dark);
 }
 .ptp-hazards-table {
   width: 100%;
@@ -1138,12 +1140,12 @@
   page-break-inside: auto;
 }
 .ptp-injured-table th {
-  background: #1e392c;
+  background: var(--color-primary-dark);
   color: white;
   padding: 4pt 6pt;
   font-size: 7.5pt;
   text-align: left;
-  border: 0.5pt solid #12231b;
+  border: 0.5pt solid var(--color-primary-darker);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }

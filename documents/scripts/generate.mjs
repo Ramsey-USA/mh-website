@@ -14,6 +14,7 @@
  *   npm run docs:generate -- --template sections   # all 44 section PDFs
  *   npm run docs:generate -- --template section --section 11  # single section
  *   npm run docs:generate -- --template toolbox-talk          # standalone form
+ *   npm run docs:generate -- --template form-covers           # all 47 form cover sheets
  *   node documents/scripts/generate.mjs --template cover
  *
  * Output directory: documents/output/
@@ -728,10 +729,10 @@ async function addFillableFieldsToLetterhead(pdfPath) {
 
   const bTop = 2.55; // body-area top (in)
   const rH = 0.42; // standard row height
-  const bH = 3.10; // body row height
+  const bH = 3.1; // body row height
   const fH = 0.24; // single-line field height
   const lOff = 0.16; // label offset (label margin-top 4pt + label height ~8pt)
-  const sOff = 0.20; // sig offset
+  const sOff = 0.2; // sig offset
 
   const rowDate = bTop;
   const rowTo = bTop + rH;
@@ -898,6 +899,10 @@ async function generateLetterhead() {
   const qrWebsite = await buildQrDataUrl(websiteUrl);
   const html = applyBrandTokens(raw).replace("{{QR_WEBSITE}}", qrWebsite);
   const pdfPath = join(OUTPUT_DIR, "safety-manual-letterhead.pdf");
+  // Page-1 chrome is absolutely positioned to the full Letter sheet, so
+  // PDF margins must be 0; CSS owns all spacing. If the body overflows,
+  // it paginates onto plain follow-on pages with the signature pushed
+  // to whatever page it lands on.
   await renderHtmlToPdf(
     html,
     pdfPath,
@@ -1426,6 +1431,90 @@ async function generateForms() {
 
   for (const formName of formNames) {
     await generateForm(formName);
+  }
+}
+
+// ── Template: Form Cover Sheets ───────────────────────────────────────────────
+/**
+ * Render one branded cover sheet PDF per form listed in
+ * `documents/forms/forms-manifest.json`. Cover sheets live in
+ * `documents/output/form-covers/` and carry the same chrome as
+ * `safety-manual-cover.html` (frame, ribbon, identity bar, accreditation
+ * footer, ★ VETERAN OWNED ★ tagline) plus a section-header-style
+ * Form-Identification-and-Control card. Source `.docx` files in
+ * `documents/forms/2026-MHC-Company-Forms-Library/` remain editable in
+ * Word and are bound behind their cover at print/collation time.
+ *
+ * Tokens consumed by `documents/manuals/form-cover.html`:
+ *   {{FORM_ID}}              e.g. "FORM 02-J"
+ *   {{FORM_TITLE}}           e.g. "Pre-Task Safety Plan"
+ *   {{FORM_CATEGORY_LABEL}}  e.g. "Safety & Incident"
+ *   {{FORM_REVISION}}        e.g. "2026-01"
+ *   {{FORM_EFFECTIVE_DATE}}  e.g. "April 2026"
+ *   {{FORM_MANUAL_SECTION}}  e.g. "MISH 09" or "—"
+ *   {{FORM_OWNER}}           e.g. "Safety Director"
+ */
+async function generateFormCovers() {
+  const manifestPath = join(DOCS_DIR, "forms/forms-manifest.json");
+  if (!existsSync(manifestPath)) {
+    console.log(
+      "ℹ️  No forms-manifest.json found at documents/forms/; skipping cover sheets.",
+    );
+    return;
+  }
+
+  const manifest = JSON.parse(await readFile(manifestPath, "utf-8"));
+  const forms = Array.isArray(manifest.forms) ? manifest.forms : [];
+  if (forms.length === 0) {
+    console.log("ℹ️  forms-manifest.json contains no forms.");
+    return;
+  }
+
+  const templatePath = join(DOCS_DIR, "manuals/form-cover.html");
+  if (!existsSync(templatePath)) {
+    console.error(`\n❌  Form cover template not found: ${templatePath}`);
+    process.exit(1);
+  }
+
+  const coversDir = join(OUTPUT_DIR, "form-covers");
+  await ensureDir(coversDir);
+  const tmpDir = join(DOCS_DIR, "manuals/_tmp_form_covers");
+  await ensureDir(tmpDir);
+
+  const rawTemplate = await readFile(templatePath, "utf-8");
+  const brandedTemplate = applyBrandTokens(rawTemplate);
+
+  console.log(`\n🪪  Generating ${forms.length} form cover sheet(s)…`);
+
+  for (const form of forms) {
+    const tokens = {
+      "{{FORM_ID}}": escapeHtml(form.id || "FORM"),
+      "{{FORM_TITLE}}": escapeHtml(form.title || "Untitled Form"),
+      "{{FORM_CATEGORY_LABEL}}": escapeHtml(
+        form.categoryLabel || form.category || "—",
+      ),
+      "{{FORM_REVISION}}": escapeHtml(form.revision || "—"),
+      "{{FORM_EFFECTIVE_DATE}}": escapeHtml(form.effectiveDate || "—"),
+      "{{FORM_MANUAL_SECTION}}": escapeHtml(form.manualSection || "—"),
+      "{{FORM_OWNER}}": escapeHtml(form.owner || "Safety Director"),
+    };
+    let html = brandedTemplate;
+    for (const [token, value] of Object.entries(tokens)) {
+      html = html.replaceAll(token, value);
+    }
+
+    const safeSlug = (form.slug || form.id || "form")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+    const pdfPath = join(coversDir, `${safeSlug}_cover.pdf`);
+    const tmpHtml = `manuals/_tmp_form_covers/${safeSlug}.html`;
+    await renderHtmlToPdf(
+      html,
+      pdfPath,
+      { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
+      tmpHtml,
+    );
   }
 }
 
@@ -3094,9 +3183,78 @@ function injectPtpForm(html) {
 }
 
 /**
+ * Strip the boilerplate metadata block that leaks into every section body
+ * from the master DOCX header table:
+ *   • Orphan revision-table fragment ("<p>3.0</p></td><td>April 2026…</table>")
+ *   • Inherited signature/approval table (President / Safety Officer / …)
+ *   • Flattened "Title / Number / Mish NN / Revision / Approved By / Name Date /
+ *     Effective Date / Page / 1 of N" stack
+ * The section-header-card on page 1 already shows this metadata, so the leaked
+ * copy is pure noise that visually breaks the first page of many sections.
+ *
+ * SAFETY: anchored on the unique leak signature `<p>3.0</p></td>` (orphan
+ * revision-table cell that ALWAYS precedes the leak). If the signature is not
+ * present, the regex no-ops — guaranteeing real body content is never stripped
+ * even if a future section legitimately contains a `<p>1 of N</p>` paragraph.
+ */
+function stripLeakedMetadata(html) {
+  return html.replace(/<p>\d+\.\d+<\/p><\/td>[\s\S]*?<p>1 of \d+<\/p>/, "");
+}
+
+/**
+ * Tag numbered paragraphs and sec-num-rows with depth-based classes so the
+ * print stylesheet can render `X.0` as a coloured section banner and indent
+ * each deeper level (`X.Y`, `X.Y.Z`, `X.Y.Z.W`) by an additional 0.5" lane.
+ *
+ * Classes added:
+ *   sec-h sec-h-0  →  top-level header (e.g. 1.0 PURPOSE)
+ *   sec-h sec-h-1  →  first sub (e.g. 5.1)
+ *   sec-h sec-h-2  →  second sub (e.g. 5.1.1)
+ *   sec-h sec-h-3  →  third sub  (e.g. 5.3.1.1)
+ */
+function tagNumberedParagraphs(html) {
+  const levelFor = (num) => {
+    const segs = num.split(".");
+    if (segs.length === 2 && segs[1] === "0") return 0;
+    return Math.min(segs.length - 1, 3);
+  };
+
+  // Form 1 — Word-HTML <p><strong>N[.N...] </strong>...
+  html = html.replace(
+    /<p>(\s*<strong>\s*(\d+(?:\.\d+)+)\s*<\/strong>)/g,
+    (_m, inner, num) => `<p class="sec-h sec-h-${levelFor(num)}">${inner}`,
+  );
+
+  // Form 2 — text-rendered <div class="sec-num-row"><span class="sec-num">N[.N...]</span>
+  html = html.replace(
+    /<div class="sec-num-row"><span class="sec-num">(\d+(?:\.\d+)+)<\/span>/g,
+    (_m, num) =>
+      `<div class="sec-num-row sec-h sec-h-${levelFor(num)}"><span class="sec-num">${num}</span>`,
+  );
+
+  // Form 3 — promoted subhead <h4 class="sec-subhead">N.N TITLE</h4>
+  // Convert level-0 (X.0) headings to a banner <p>; deeper levels get tagged
+  // in place so they pick up indent rules without losing their h4 semantics.
+  html = html.replace(
+    /<h4 class="sec-subhead">\s*(\d+(?:\.\d+)+)([\s\u00a0]+[^<]*)<\/h4>/g,
+    (_m, num, rest) => {
+      const lvl = levelFor(num);
+      const cleaned = rest.replace(/^[\s\u00a0]+/, " ");
+      if (lvl === 0) {
+        return `<p class="sec-h sec-h-0"><strong>${num} </strong>${cleaned.trimStart()}</p>`;
+      }
+      return `<h4 class="sec-subhead sec-h sec-h-${lvl}"><strong>${num}</strong>${cleaned}</h4>`;
+    },
+  );
+
+  return html;
+}
+
+/**
  * Apply all section-specific post-processing rules based on section number.
  */
 function postProcessSectionHtml(html, sectionNumber) {
+  html = stripLeakedMetadata(html);
   html = applySectionReferenceFixes(html, sectionNumber);
   // 3-Hour Rule callouts — drug & alcohol testing window:
   //   • MISH 02 (Injury-Free Workplace) — forward reference
@@ -3188,6 +3346,9 @@ function postProcessSectionHtml(html, sectionNumber) {
   if (sectionNumber === 49) {
     html = injectAfterPurpose(html, REF_INCIDENT_RESPONSE_TIMELINE);
   }
+  // Tag numbered paragraphs LAST so injection regexes (which match plain
+  // <p><strong>1.0…</strong>…</p>) still find their anchors first.
+  html = tagNumberedParagraphs(html);
   return html;
 }
 
@@ -3232,6 +3393,7 @@ async function main() {
         await generateTabs();
         await generateToc();
         await generateSections();
+        await generateFormCovers();
         break;
       case "cover":
         await generateCover();
@@ -3253,6 +3415,9 @@ async function main() {
         break;
       case "forms":
         await generateForms();
+        break;
+      case "form-covers":
+        await generateFormCovers();
         break;
       case "section":
         if (!sectionNo) {

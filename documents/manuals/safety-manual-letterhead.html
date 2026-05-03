@@ -39,45 +39,51 @@
         margin: 0;
         padding: 0;
         width: 8.5in;
-        height: 11in;
         font-family: var(--font-body);
         background: var(--paper);
         color: var(--ink);
       }
 
-      /* ── Sheet (single Letter page) ─────────────────────────── */
+      /* ── Sheet (page 1 chrome host; body may overflow to pages 2+) ─ */
       .sheet {
         position: relative;
         width: 8.5in;
-        height: 11in;
-        overflow: hidden;
+        min-height: 11in;
         background: var(--paper);
       }
 
       /* Outer + inner frame mirrors the cover’s double-rule treatment
-         so a printed letter sits visually inside the same brand system. */
+         so a printed letter sits visually inside the same brand system.
+         Page-1 only — follow-on pages render plain. */
       .sheet::before {
         content: "";
         position: absolute;
-        inset: 0.22in;
+        top: 0.22in;
+        left: 0.22in;
+        right: 0.22in;
+        height: 10.56in;
         border: 1.2pt solid var(--brand-primary-dark);
         pointer-events: none;
       }
       .sheet::after {
         content: "";
         position: absolute;
-        inset: 0.33in;
+        top: 0.33in;
+        left: 0.33in;
+        right: 0.33in;
+        height: 10.34in;
         border: 0.6pt solid var(--brand-secondary);
         pointer-events: none;
       }
 
       /* Vertical hunter-green → tan ribbon on the binding edge,
-         identical proportions to safety-manual-cover.html. */
+         identical proportions to safety-manual-cover.html.
+         Page-1 only. */
       .left-ribbon {
         position: absolute;
         top: 0.45in;
-        bottom: 0.45in;
         left: 0.45in;
+        height: 10.10in;
         width: 0.28in;
         background: linear-gradient(
           180deg,
@@ -87,7 +93,7 @@
         );
       }
 
-      /* ── Header ─────────────────────────────────────────────── */
+      /* ── Header (page-1 absolute) ────────────────────── */
       .identity {
         position: absolute;
         top: 0.62in;
@@ -176,18 +182,17 @@
       }
 
       /* ── Body / form fields ────────────────────────────────── */
+      /* Absolute on page 1 below the header; grows downward. If body
+         content exceeds the page, it overflows onto page 2+ (follow-on
+         pages render plain so the signature is never cut off). */
       .body-area {
         position: absolute;
         top: 2.55in;
         left: 1.15in;
         right: 1.05in;
         z-index: 1;
-        font-size: 9.5pt;
         font-family: var(--font-body);
         color: var(--ink);
-        overflow: visible;
-        min-height: 5.35in;
-        padding-bottom: 1.6in;
       }
 
       /* shared field label — watermark style so it fades when printed */
@@ -215,21 +220,24 @@
         outline: none;
       }
 
-      /* multiline text area — NO border (cell bottom is the line) */
+      /* multiline body — NO border (cell bottom is the line).
+         Implemented as a contenteditable <div> (not <textarea>) so it
+         grows with content instead of showing an internal scrollbar,
+         allowing the signature row to push to the next printed page. */
       .field-area {
         display: block;
         width: 100%;
         border: none;
         background: transparent;
         font-family: var(--font-body);
-        font-size: 9.5pt;
+        font-size: 12pt;
         color: var(--ink);
         padding: 4pt 2pt;
         outline: none;
-        line-height: 1.7;
+        line-height: 1.6;
         white-space: pre-wrap;
         word-break: break-word;
-        resize: none;
+        overflow: visible;
       }
 
       /* body field grows naturally as content is entered */
@@ -274,8 +282,9 @@
         margin-top: 11pt;
         display: flex;
         gap: 18pt;
-        break-inside: avoid-page;
+        break-inside: avoid;
         page-break-inside: avoid;
+        break-before: auto;
       }
       .sig-block .field-group {
         flex: 2;
@@ -286,7 +295,7 @@
       }
 
 
-      /* ── Footer ─────────────────────────────────────────────── */
+      /* ── Footer (page-1 absolute) ───────────────────── */
       .footer {
         position: absolute;
         left: 0.92in;
@@ -399,11 +408,6 @@
       }
 
       /* ── Form table ─────────────────────────────────────────── */
-      /* Overrides body-area padding so the table controls all spacing */
-      .body-area {
-        padding-bottom: 0;
-        min-height: 0;
-      }
       .form-table {
         width: 100%;
         border-collapse: collapse;
@@ -437,10 +441,18 @@
       .form-table .row-addr,
       .form-table .row-from,
       .form-table .row-subject { height: 0.42in; }
+      /* Body row: 3.10in is a MINIMUM — the contenteditable body grows
+         freely beyond this and paginates, pushing the sig row to the
+         next printed page. The AcroForm body widget remains anchored
+         to the original 3.10in rectangle on page 1. */
       .form-table .row-body    { height: 3.10in; }
       .form-table .row-body td.field-cell { vertical-align: top; padding-top: 6pt; }
-      .form-table .row-body .field-area { height: 2.98in; }
+      .form-table .row-body .field-area { min-height: 2.98in; }
       .form-table .row-sig { height: 0.60in; }
+      .form-table .row-sig td.field-cell {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
       .form-table .field-label { margin-top: 4pt; margin-bottom: 1pt; }
     </style>
   </head>
@@ -542,10 +554,17 @@
             </td>
           </tr>
 
-          <!-- Body textarea -->
+          <!-- Body — contenteditable div (auto-grows, no internal scroll;
+               long content paginates and pushes the sig row to page 2+). -->
           <tr class="row-body">
             <td colspan="6" class="field-cell">
-              <textarea class="field-area" aria-label="Letter body"></textarea>
+              <div
+                class="field-area"
+                role="textbox"
+                aria-multiline="true"
+                aria-label="Letter body"
+                contenteditable="true"
+              >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
             </td>
           </tr>
 

@@ -205,6 +205,138 @@
          text-indent: -0.5in;
        }
 
+       /* ──────────────────────────────────────────────────────────────────
+        * HIERARCHICAL SECTION NUMBERING (sec-h-0 … sec-h-3)
+        * Tagged in generate.mjs → tagNumberedParagraphs().
+        *   sec-h-0  →  X.0   coloured banner header (PURPOSE, DEFINITIONS…)
+        *   sec-h-1  →  X.Y   first sub, hanging indent at 0.5"
+        *   sec-h-2  →  X.Y.Z second sub, indented +0.5"
+        *   sec-h-3  →  X.Y.Z.W third sub, indented +1.0"
+        * Each level keeps the number in the gutter of its own indent lane via
+        * margin-left + text-indent: -0.5in.  Chrome print honours background
+        * gradients only with print-color-adjust: exact.
+        * ─────────────────────────────────────────────────────────────────*/
+       .section-body p.sec-h.sec-h-0 {
+         margin: 14pt 0 8pt;
+         margin-left: 0;
+         padding: 6pt 12pt 5pt;
+         text-indent: 0;
+         background: linear-gradient(
+           90deg,
+           var(--brand-primary),
+           var(--brand-primary-dark)
+         );
+         color: #ffffff;
+         font-family: var(--font-heading);
+         font-size: 13pt;
+         font-weight: 800;
+         letter-spacing: 0.05em;
+         text-transform: uppercase;
+         border-left: 4pt solid var(--brand-secondary);
+         border-radius: 3pt;
+         page-break-after: avoid;
+         break-after: avoid;
+         -webkit-print-color-adjust: exact;
+         print-color-adjust: exact;
+       }
+       .section-body p.sec-h.sec-h-0 > strong:first-child {
+         color: #ffffff;
+         margin-right: 8pt;
+         font-weight: 900;
+       }
+
+       .section-body p.sec-h.sec-h-1 {
+         margin-left: 0.5in;
+         text-indent: -0.5in;
+         margin-top: 8pt;
+       }
+       .section-body p.sec-h.sec-h-1 > strong:first-child {
+         color: var(--brand-primary-dark);
+         font-weight: 800;
+       }
+
+       .section-body p.sec-h.sec-h-2 {
+         margin-left: 1in;
+         text-indent: -0.5in;
+       }
+       .section-body p.sec-h.sec-h-2 > strong:first-child {
+         color: var(--brand-secondary);
+         font-weight: 700;
+       }
+
+       .section-body p.sec-h.sec-h-3 {
+         margin-left: 1.5in;
+         text-indent: -0.5in;
+       }
+       .section-body p.sec-h.sec-h-3 > strong:first-child {
+         color: var(--brand-secondary);
+         font-weight: 600;
+       }
+
+       /* sec-num-row variant (text-extracted bodies) */
+       .section-body .sec-num-row.sec-h-0 {
+         display: block;
+         margin: 14pt 0 8pt;
+         margin-left: 0;
+         padding: 6pt 12pt 5pt;
+         background: linear-gradient(
+           90deg,
+           var(--brand-primary),
+           var(--brand-primary-dark)
+         );
+         border-left: 4pt solid var(--brand-secondary);
+         border-radius: 3pt;
+         page-break-after: avoid;
+         break-after: avoid;
+         -webkit-print-color-adjust: exact;
+         print-color-adjust: exact;
+       }
+       .section-body .sec-num-row.sec-h-0 .sec-num,
+       .section-body .sec-num-row.sec-h-0 .sec-num-text {
+         color: #ffffff;
+         font-family: var(--font-heading);
+         font-size: 13pt;
+         font-weight: 800;
+         letter-spacing: 0.05em;
+         text-transform: uppercase;
+         min-width: 0;
+       }
+       .section-body .sec-num-row.sec-h-0 .sec-num {
+         margin-right: 8pt;
+       }
+       .section-body .sec-num-row.sec-h-1 {
+         margin-left: 0.5in;
+       }
+       .section-body .sec-num-row.sec-h-2 {
+         margin-left: 1in;
+       }
+       .section-body .sec-num-row.sec-h-3 {
+         margin-left: 1.5in;
+       }
+
+       /* h4.sec-subhead variant — promoted "X.Y" headings from text-PDF source */
+       .section-body h4.sec-subhead.sec-h.sec-h-1 {
+         margin-left: 0.5in;
+         text-indent: -0.5in;
+       }
+       .section-body h4.sec-subhead.sec-h.sec-h-2 {
+         margin-left: 1in;
+         text-indent: -0.5in;
+       }
+       .section-body h4.sec-subhead.sec-h.sec-h-3 {
+         margin-left: 1.5in;
+         text-indent: -0.5in;
+       }
+       .section-body h4.sec-subhead.sec-h > strong:first-child {
+         color: var(--brand-secondary);
+         font-weight: 700;
+         margin-right: 6pt;
+       }
+       .section-body h4.sec-subhead.sec-h.sec-h-1 > strong:first-child {
+         color: var(--brand-primary-dark);
+         font-weight: 800;
+       }
+
        /* First-level lists at 0.75"; component.css handles nested at +0.25" = 1.0" */
        .section-body > .sec-list,
        .section-body > ul,
@@ -458,7 +590,6 @@
     </style>
   </head>
   <body>
-
     <div class="left-ribbon" aria-hidden="true"></div>
 
     <!-- Page watermark — repeats on every printed page (5.25" centered, 6% opacity) -->

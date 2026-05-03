@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{FORM_ID}} — {{FORM_TITLE}} | Cover Sheet</title>
+    <style>
+      :root {
+        --brand-primary: {{BRAND_COLOR_PRIMARY}};
+        --brand-primary-dark: {{BRAND_COLOR_PRIMARY_DARK}};
+        --brand-primary-darker: {{BRAND_COLOR_PRIMARY_DARKER}};
+        --brand-primary-light: {{BRAND_COLOR_PRIMARY_LIGHT}};
+        --brand-secondary: {{BRAND_COLOR_SECONDARY}};
+        --brand-secondary-light: {{BRAND_COLOR_SECONDARY_LIGHT}};
+        --brand-secondary-text: {{BRAND_COLOR_SECONDARY_TEXT}};
+        --ink: #12231b;
+        --paper: #ffffff;
+        --muted: #f6f8f7;
+        --font-heading: "Abolition", "Helvetica Neue", Arial, sans-serif;
+        --font-body: "DIN 2014", "Helvetica Neue", Arial, "Liberation Sans",
+          sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      @page {
+        size: letter portrait;
+        margin: 0;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 8.5in;
+        height: 11in;
+        font-family: var(--font-body);
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      .cover {
+        position: relative;
+        width: 8.5in;
+        height: 11in;
+        overflow: hidden;
+        background: var(--paper);
+      }
+
+      /* Double-rule frame — mirrors safety-manual-cover.html */
+      .cover::before {
+        content: "";
+        position: absolute;
+        inset: 0.22in;
+        border: 1.2pt solid var(--brand-primary-dark);
+      }
+      .cover::after {
+        content: "";
+        position: absolute;
+        inset: 0.33in;
+        border: 0.6pt solid var(--brand-secondary);
+      }
+
+      /* Vertical hunter-green → tan ribbon on the binding edge */
+      .left-ribbon {
+        position: absolute;
+        top: 0.45in;
+        bottom: 0.45in;
+        left: 0.45in;
+        width: 0.28in;
+        background: linear-gradient(
+          180deg,
+          var(--brand-primary-dark) 0%,
+          var(--brand-primary) 68%,
+          var(--brand-secondary) 100%
+        );
+      }
+
+      /* Identity bar — same proportions as cover/letterhead */
+      .identity {
+        position: absolute;
+        top: 0.62in;
+        left: 0.92in;
+        right: 0.9in;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 7.2pt;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: var(--brand-primary-dark);
+      }
+      .identity .dot {
+        color: var(--brand-secondary);
+        margin: 0 7pt;
+      }
+
+      /* Hero block — logo + program chip + form title */
+      .hero {
+        position: absolute;
+        top: 1.05in;
+        left: 0.92in;
+        right: 0.9in;
+        padding-bottom: 14pt;
+        border-bottom: 1.2pt solid var(--brand-primary-dark);
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -3.5pt;
+        height: 0.6pt;
+        background: var(--brand-secondary);
+      }
+      .hero .logo {
+        width: 1.85in;
+        height: auto;
+        display: block;
+        margin-bottom: 14pt;
+      }
+      .hero .program-chip {
+        display: inline-block;
+        background: var(--brand-primary-dark);
+        color: #fff;
+        font-family: var(--font-heading);
+        font-size: 9.5pt;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 4pt 10pt;
+        border-radius: 1.5pt;
+        margin-bottom: 8pt;
+      }
+      .hero .program-chip-cat {
+        margin-left: 5pt;
+        background: var(--brand-secondary);
+        color: var(--brand-primary-darker);
+      }
+      .hero .form-title {
+        font-family: var(--font-heading);
+        font-size: 30pt;
+        font-weight: 900;
+        line-height: 1.04;
+        letter-spacing: 0.005em;
+        color: var(--brand-primary-dark);
+        margin: 6pt 0 4pt;
+        text-transform: uppercase;
+      }
+      .hero .form-subtitle {
+        font-size: 9.5pt;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--brand-secondary-text);
+        margin: 0;
+      }
+
+      /* Form metadata card — branded equivalent of .section-header-card */
+      .form-meta-card {
+        position: absolute;
+        top: 4.85in;
+        left: 0.92in;
+        right: 0.9in;
+        border: 1pt solid var(--brand-secondary);
+        background: var(--muted);
+        padding: 14pt 18pt 16pt;
+        page-break-inside: avoid;
+      }
+      .form-meta-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4pt;
+        background: var(--brand-primary);
+      }
+      .form-meta-card .meta-head {
+        font-size: 7.5pt;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--brand-secondary-text);
+        margin: 0 0 8pt;
+        padding-bottom: 6pt;
+        border-bottom: 0.5pt solid var(--brand-secondary-light);
+      }
+      .form-meta-card .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 22pt;
+        row-gap: 8pt;
+      }
+      .form-meta-card .meta-row {
+        display: flex;
+        flex-direction: column;
+        gap: 1pt;
+      }
+      .form-meta-card .meta-label {
+        font-size: 6.8pt;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--brand-secondary-text);
+      }
+      .form-meta-card .meta-value {
+        font-size: 11pt;
+        font-weight: 700;
+        color: var(--brand-primary-darker);
+        line-height: 1.25;
+      }
+      .form-meta-card .meta-value.large {
+        font-family: var(--font-heading);
+        font-size: 14pt;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--brand-primary-dark);
+      }
+
+      /* Field-use guidance panel — military-themed framing */
+      .field-use {
+        position: absolute;
+        top: 7.4in;
+        left: 0.92in;
+        right: 0.9in;
+        border-left: 4pt solid var(--brand-secondary);
+        padding: 8pt 14pt 8pt 14pt;
+      }
+      .field-use .fu-head {
+        font-family: var(--font-heading);
+        font-size: 11pt;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--brand-primary-dark);
+        margin: 0 0 6pt;
+      }
+      .field-use .fu-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: 9pt;
+        line-height: 1.45;
+        color: var(--ink);
+      }
+      .field-use .fu-list li {
+        padding-left: 14pt;
+        position: relative;
+        margin-bottom: 3pt;
+      }
+      .field-use .fu-list li::before {
+        content: "★";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: var(--brand-secondary);
+        font-size: 9pt;
+        line-height: 1.45;
+      }
+      .field-use .fu-list strong {
+        color: var(--brand-primary-dark);
+        font-weight: 800;
+      }
+
+      /* Footer — accreditation ribbon (AGC / BBB / VOB) + contact block */
+      .bottom {
+        position: absolute;
+        left: 0.92in;
+        right: 0.9in;
+        bottom: 0.62in;
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 18pt;
+        align-items: end;
+      }
+      .contact {
+        font-size: 8pt;
+        line-height: 1.42;
+        color: var(--brand-primary-darker);
+      }
+      .contact .meta {
+        color: var(--brand-secondary-text);
+        font-size: 7pt;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 4pt;
+      }
+      .contact .name {
+        font-size: 8.4pt;
+        font-weight: 800;
+        color: var(--brand-primary-dark);
+      }
+      .contact .licenses {
+        margin-top: 5pt;
+        font-size: 7.5pt;
+      }
+      .trust {
+        text-align: right;
+      }
+      .trust .meta {
+        color: var(--brand-secondary-text);
+        font-size: 7pt;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 5pt;
+      }
+      .logos {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 9pt;
+      }
+      .logos img {
+        display: block;
+        width: auto;
+      }
+      .logo-agc { height: 0.38in; }
+      .logo-bbb { height: 0.41in; }
+      .logo-vob { height: 0.55in; }
+    </style>
+  </head>
+  <body>
+    <div class="cover">
+      <div class="left-ribbon"></div>
+
+      <div class="identity">
+        <div>
+          {{BRAND_COMPANY_SHORT}}<span class="dot">•</span
+          >{{BRAND_ADDRESS_CITYSTATEZIP}}
+        </div>
+        <div>{{BRAND_VETERAN}}</div>
+      </div>
+
+      <section class="hero">
+        <img
+          class="logo"
+          src="{{BRAND_LOGO_COLOR}}"
+          alt="MH Construction logo"
+        />
+        <span class="program-chip">{{FORM_ID}}</span
+        ><span class="program-chip program-chip-cat"
+          >{{FORM_CATEGORY_LABEL}}</span
+        >
+        <h1 class="form-title">{{FORM_TITLE}}</h1>
+        <p class="form-subtitle">
+          MHC Industrial Safety and Health Program (MISH) — Forms Library
+        </p>
+      </section>
+
+      <aside class="form-meta-card" aria-label="form metadata">
+        <div class="meta-head">Form Identification & Control</div>
+        <div class="meta-grid">
+          <div class="meta-row">
+            <div class="meta-label">Form Number</div>
+            <div class="meta-value large">{{FORM_ID}}</div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-label">Category</div>
+            <div class="meta-value">{{FORM_CATEGORY_LABEL}}</div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-label">Revision</div>
+            <div class="meta-value">{{FORM_REVISION}}</div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-label">Effective Date</div>
+            <div class="meta-value">{{FORM_EFFECTIVE_DATE}}</div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-label">Owning Manual Section</div>
+            <div class="meta-value">{{FORM_MANUAL_SECTION}}</div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-label">Document Owner</div>
+            <div class="meta-value">{{FORM_OWNER}}</div>
+          </div>
+        </div>
+      </aside>
+
+      <aside class="field-use" aria-label="field-use briefing">
+        <div class="fu-head">Field-Use Briefing</div>
+        <ul class="fu-list">
+          <li>
+            <strong>Authority:</strong> Issued under MH Construction’s MISH
+            program; aligned with OSHA 29 CFR 1926 and WAC 296-155.
+          </li>
+          <li>
+            <strong>Use:</strong> Complete in the field at point of work; submit
+            per the routing on the form.
+          </li>
+          <li>
+            <strong>Retention:</strong> Forward original to {{FORM_OWNER}};
+            retain a project copy in the site safety binder.
+          </li>
+          <li>
+            <strong>Revision Control:</strong> Use only the latest revision
+            ({{FORM_REVISION}}). Discard superseded copies.
+          </li>
+        </ul>
+      </aside>
+
+      <footer class="bottom">
+        <div class="contact">
+          <div class="meta">Company Contact</div>
+          <div class="name">{{BRAND_COMPANY_NAME}}</div>
+          {{BRAND_ADDRESS_STREET}}<br />
+          {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
+          {{BRAND_PHONE}} · {{BRAND_WEBSITE}}
+          <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
+        </div>
+
+        <div class="trust">
+          <div class="meta">Accreditation and Trust</div>
+          <div class="logos">
+            <img
+              class="logo-agc"
+              src="{{BRAND_AGC_HORIZONTAL}}"
+              alt="AGC membership"
+            />
+            <img
+              class="logo-bbb"
+              src="{{BRAND_BBB_SEAL}}"
+              alt="BBB accredited business"
+            />
+            <img
+              class="logo-vob"
+              src="{{BRAND_WA_VOB_LOGO}}"
+              alt="Washington certified veteran owned business"
+            />
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
