@@ -1,0 +1,85 @@
+/* Print styles for the analytics dashboard.
+ *
+ * When the user prints (Cmd/Ctrl-P) or clicks the in-app print button,
+ * we render a clean monochrome report layout: white background, dark
+ * text, no fixed/sticky chrome, and stat cards converted to a flat,
+ * paper-friendly grid.
+ *
+ * Apply via `data-print-scope="dashboard"` on the dashboard root.
+ */
+
+@media print {
+  [data-print-scope="dashboard"] {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  [data-print-scope="dashboard"] *,
+  [data-print-scope="dashboard"] *::before,
+  [data-print-scope="dashboard"] *::after {
+    background: transparent !important;
+    color: #111111 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    border-color: #999999 !important;
+  }
+
+  [data-print-scope="dashboard"] [data-print-hide="true"],
+  [data-print-scope="dashboard"] header,
+  [data-print-scope="dashboard"] nav,
+  [data-print-scope="dashboard"] button {
+    display: none !important;
+  }
+
+  [data-print-scope="dashboard"] [data-print-only="true"] {
+    display: block !important;
+  }
+
+  [data-print-scope="dashboard"] main {
+    padding: 0 !important;
+    max-width: none !important;
+  }
+
+  [data-print-scope="dashboard"] h1,
+  [data-print-scope="dashboard"] h2,
+  [data-print-scope="dashboard"] h3 {
+    color: #111111 !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    page-break-after: avoid;
+  }
+
+  [data-print-scope="dashboard"] section,
+  [data-print-scope="dashboard"] [data-print-section="true"] {
+    page-break-inside: avoid;
+    border: 1px solid #cccccc !important;
+    border-radius: 4px !important;
+    padding: 12px !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Dashboard content uses many gradient backgrounds — neutralize. */
+  [data-print-scope="dashboard"] .bg-gradient-to-br,
+  [data-print-scope="dashboard"] .bg-gradient-to-r {
+    background: #ffffff !important;
+  }
+
+  [data-print-scope="dashboard"] .text-white,
+  [data-print-scope="dashboard"] .text-gray-300,
+  [data-print-scope="dashboard"] .text-gray-400,
+  [data-print-scope="dashboard"] .text-gray-600 {
+    color: #111111 !important;
+  }
+
+  /* Print page setup */
+  @page {
+    size: letter portrait;
+    margin: 0.5in;
+  }
+}
+
+[data-print-only="true"] {
+  display: none;
+}

@@ -1,156 +1,39 @@
 "use client";
 
-import {
-  useState,
-  useEffect,
-  useCallback,
-  useMemo,
-  useDeferredValue,
-} from "react";
+import { useState, useEffect, useMemo, useDeferredValue } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-interface Lead {
-  id: string;
-  source: string;
-  source_id: string | null;
-  contact_name: string;
-  email: string | null;
-  phone: string | null;
-  company: string | null;
-  project_type: string | null;
-  project_location: string | null;
-  project_description: string | null;
-  status: LeadStatus;
-  estimated_value: number | null;
-  probability: number;
-  priority: LeadPriority;
-  assigned_to: string | null;
-  follow_up_date: string | null;
-  last_contact_date: string | null;
-  notes: LeadNote[];
-  lost_reason: string | null;
-  created_at: string;
-  updated_at: string;
-  closed_at: string | null;
-  metadata: Record<string, unknown>;
-}
-
-interface LeadNote {
-  timestamp: string;
-  author: string;
-  content: string;
-}
-
-type LeadStatus =
-  | "new"
-  | "contacted"
-  | "estimate_sent"
-  | "negotiating"
-  | "won"
-  | "lost";
-type LeadPriority = "low" | "medium" | "high" | "urgent";
-
-// ─── Constants ────────────────────────────────────────────────────────────────
-
-const STATUS_LABELS: Record<LeadStatus, string> = {
-  new: "New",
-  contacted: "Contacted",
-  estimate_sent: "Estimate Sent",
-  negotiating: "Negotiating",
-  won: "Won",
-  lost: "Lost",
-};
-
-const STATUS_COLORS: Record<LeadStatus, string> = {
-  new: "bg-blue-900/50 text-blue-300 border-blue-600",
-  contacted: "bg-yellow-900/50 text-yellow-300 border-yellow-600",
-  estimate_sent: "bg-purple-900/50 text-purple-300 border-purple-600",
-  negotiating: "bg-orange-900/50 text-orange-300 border-orange-600",
-  won: "bg-green-900/50 text-green-300 border-green-600",
-  lost: "bg-red-900/50 text-red-400 border-red-700",
-};
-
-const PRIORITY_COLORS: Record<LeadPriority, string> = {
-  low: "text-gray-400",
-  medium: "text-yellow-400",
-  high: "text-orange-400",
-  urgent: "text-red-400",
-};
-
-const PRIORITY_ICONS: Record<LeadPriority, string> = {
-  low: "trending_down",
-  medium: "trending_flat",
-  high: "trending_up",
-  urgent: "priority_high",
-};
-
-const SOURCE_LABELS: Record<string, string> = {
-  contact_form: "Contact Form",
-  consultation: "Consultation",
-  phone_call: "Phone Call",
-  referral: "Referral",
-  walk_in: "Walk-in",
-};
-
-const ASSIGNEES = [
-  { value: "", label: "All" },
-  { value: "unassigned", label: "Unassigned" },
-  { value: "matt", label: "Matt" },
-  { value: "jeremy", label: "Jeremy" },
-];
-
-const USD_FORMATTER = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0,
-});
-
-const DATE_FORMATTER = new Intl.DateTimeFormat("en-US", {
-  month: "short",
-  day: "numeric",
-  year: "numeric",
-});
-
-// ─── Helper Functions ─────────────────────────────────────────────────────────
-
-function formatCurrency(value: number | null): string {
-  if (value === null) return "—";
-  return USD_FORMATTER.format(value);
-}
-
-function formatDate(date: string | null): string {
-  if (!date) return "—";
-  return DATE_FORMATTER.format(new Date(date));
-}
-
-function formatRelativeDate(date: string): string {
-  const now = new Date();
-  const d = new Date(date);
-  const diff = now.getTime() - d.getTime();
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-  if (days === 0) return "Today";
-  if (days === 1) return "Yesterday";
-  if (days < 7) return `${days} days ago`;
-  if (days < 30) return `${Math.floor(days / 7)} weeks ago`;
-  return formatDate(date);
-}
-
-function isOverdue(follow_up_date: string | null): boolean {
-  if (!follow_up_date) return false;
-  return new Date(follow_up_date) < new Date();
-}
+import { ExportCsvButton } from "@/components/dashboard/ExportCsvButton";
+import { useAdminTabData } from "@/hooks/useAdminTabData";
+import {
+  ASSIGNEES,
+  buildLeadsQuery,
+  computePipelineStats,
+  formatCurrency,
+  formatLeadDate,
+  formatRelativeDate,
+  getSourceLabel,
+  isOverdue,
+  LEADS_CSV_HEADERS,
+  leadsCsvRows,
+  overdueLeadsCount,
+  PRIORITY_COLORS,
+  PRIORITY_ICONS,
+  searchLeads,
+  STATUS_COLORS,
+  STATUS_LABELS,
+  totalPipelineValue,
+  weightedPipelineValue,
+  type Lead,
+  type LeadsResponse,
+} from "@/lib/dashboard/leads";
 
 // ─── Lead Detail Panel ────────────────────────────────────────────────────────
 
 interface LeadDetailProps {
-  lead: Lead;
-  token: string;
-  onUpdate: () => void;
-  onClose: () => void;
+  readonly lead: Lead;
+  readonly token: string;
+  readonly onUpdate: () => void;
+  readonly onClose: () => void;
 }
 
 function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
@@ -206,12 +89,15 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
       status: editValues.status,
       priority: editValues.priority,
       assigned_to: editValues.assigned_to || null,
-      probability: parseInt(editValues.probability, 10) || 50,
+      probability: Number.parseInt(editValues.probability, 10) || 50,
       follow_up_date: editValues.follow_up_date || null,
     };
 
     if (editValues.estimated_value) {
-      updates["estimated_value"] = parseInt(editValues.estimated_value, 10);
+      updates["estimated_value"] = Number.parseInt(
+        editValues.estimated_value,
+        10,
+      );
     }
 
     if (editValues.status === "lost" && editValues.lost_reason) {
@@ -227,7 +113,10 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
   const labelClass = "text-xs text-gray-400 font-semibold uppercase mb-1 block";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+    <div
+      data-print-hide="true"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
+    >
       <div className="bg-gray-800 border border-gray-700 rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700 sticky top-0 bg-gray-800 z-10">
@@ -237,12 +126,14 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
             </h3>
             <p className="text-sm text-gray-400">
               {lead.company && `${lead.company} • `}
-              {SOURCE_LABELS[lead.source] || lead.source}
+              {getSourceLabel(lead.source)}
             </p>
           </div>
           <button
+            type="button"
             onClick={onClose}
             className="text-gray-400 hover:text-white transition-colors p-2"
+            aria-label="Close lead detail"
           >
             <MaterialIcon icon="close" size="md" />
           </button>
@@ -312,8 +203,11 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
           {/* CRM Fields */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className={labelClass}>Status</label>
+              <label className={labelClass} htmlFor="lead-status">
+                Status
+              </label>
               <select
+                id="lead-status"
                 value={editValues.status}
                 onChange={(e) => handleFieldChange("status", e.target.value)}
                 className={selectClass}
@@ -326,8 +220,11 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
               </select>
             </div>
             <div>
-              <label className={labelClass}>Priority</label>
+              <label className={labelClass} htmlFor="lead-priority">
+                Priority
+              </label>
               <select
+                id="lead-priority"
                 value={editValues.priority}
                 onChange={(e) => handleFieldChange("priority", e.target.value)}
                 className={selectClass}
@@ -339,8 +236,11 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
               </select>
             </div>
             <div>
-              <label className={labelClass}>Assigned To</label>
+              <label className={labelClass} htmlFor="lead-assigned">
+                Assigned To
+              </label>
               <select
+                id="lead-assigned"
                 value={editValues.assigned_to}
                 onChange={(e) =>
                   handleFieldChange("assigned_to", e.target.value)
@@ -353,8 +253,11 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
               </select>
             </div>
             <div>
-              <label className={labelClass}>Follow-up Date</label>
+              <label className={labelClass} htmlFor="lead-followup">
+                Follow-up Date
+              </label>
               <input
+                id="lead-followup"
                 type="date"
                 value={editValues.follow_up_date}
                 onChange={(e) =>
@@ -364,8 +267,11 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
               />
             </div>
             <div>
-              <label className={labelClass}>Estimated Value ($)</label>
+              <label className={labelClass} htmlFor="lead-value">
+                Estimated Value ($)
+              </label>
               <input
+                id="lead-value"
                 type="number"
                 value={editValues.estimated_value}
                 onChange={(e) =>
@@ -376,8 +282,11 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
               />
             </div>
             <div>
-              <label className={labelClass}>Win Probability (%)</label>
+              <label className={labelClass} htmlFor="lead-prob">
+                Win Probability (%)
+              </label>
               <input
+                id="lead-prob"
                 type="number"
                 min="0"
                 max="100"
@@ -390,11 +299,13 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
             </div>
           </div>
 
-          {/* Lost Reason (only show when status is lost) */}
           {editValues.status === "lost" && (
             <div>
-              <label className={labelClass}>Lost Reason</label>
+              <label className={labelClass} htmlFor="lead-lost-reason">
+                Lost Reason
+              </label>
               <select
+                id="lead-lost-reason"
                 value={editValues.lost_reason}
                 onChange={(e) =>
                   handleFieldChange("lost_reason", e.target.value)
@@ -421,9 +332,9 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
               {lead.notes.length === 0 ? (
                 <p className="text-sm text-gray-500 italic">No notes yet</p>
               ) : (
-                [...lead.notes].reverse().map((note, i) => (
+                [...lead.notes].reverse().map((note) => (
                   <div
-                    key={i}
+                    key={`${note.timestamp}-${note.author}`}
                     className="bg-gray-700/40 rounded-lg p-3 text-sm"
                   >
                     <div className="flex justify-between text-xs text-gray-400 mb-1">
@@ -445,16 +356,17 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
                 onKeyDown={(e) => e.key === "Enter" && handleAddNote()}
               />
               <button
+                type="button"
                 onClick={handleAddNote}
                 disabled={!newNote.trim() || updating}
                 className="px-4 py-2 bg-brand-secondary text-white font-bold rounded-lg hover:bg-brand-secondary-dark disabled:opacity-50 transition-colors"
+                aria-label="Add note"
               >
                 <MaterialIcon icon="add" size="sm" />
               </button>
             </div>
           </div>
 
-          {/* Error */}
           {error && (
             <p className="text-sm text-red-400 flex items-center gap-1">
               <MaterialIcon icon="error_outline" size="sm" />
@@ -462,25 +374,25 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
             </p>
           )}
 
-          {/* Timestamps */}
           <div className="text-xs text-gray-500 pt-4 border-t border-gray-700 flex justify-between">
-            <span>Created: {formatDate(lead.created_at)}</span>
-            <span>Updated: {formatDate(lead.updated_at)}</span>
+            <span>Created: {formatLeadDate(lead.created_at)}</span>
+            <span>Updated: {formatLeadDate(lead.updated_at)}</span>
             {lead.closed_at && (
-              <span>Closed: {formatDate(lead.closed_at)}</span>
+              <span>Closed: {formatLeadDate(lead.closed_at)}</span>
             )}
           </div>
         </div>
 
-        {/* Footer */}
         <div className="flex justify-end gap-3 px-6 py-4 border-t border-gray-700 sticky bottom-0 bg-gray-800">
           <button
+            type="button"
             onClick={onClose}
             className="px-4 py-2 text-sm font-semibold text-gray-400 hover:text-white border border-gray-600 hover:border-gray-400 rounded-lg transition-colors"
           >
             Cancel
           </button>
           <button
+            type="button"
             onClick={handleSave}
             disabled={updating}
             className="px-6 py-2 text-sm font-black text-white bg-brand-primary hover:bg-brand-primary-dark disabled:opacity-60 rounded-lg transition-colors inline-flex items-center gap-2"
@@ -506,12 +418,18 @@ function LeadDetailPanel({ lead, token, onUpdate, onClose }: LeadDetailProps) {
 // ─── Main Leads Tab ───────────────────────────────────────────────────────────
 
 interface LeadsTabProps {
-  token: string;
+  readonly token: string;
 }
 
+const SKELETON_KEYS = [
+  "lead-skel-1",
+  "lead-skel-2",
+  "lead-skel-3",
+  "lead-skel-4",
+  "lead-skel-5",
+];
+
 export function LeadsTab({ token }: LeadsTabProps) {
-  const [leads, setLeads] = useState<Lead[]>([]);
-  const [loading, setLoading] = useState(true);
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
 
   // Filters
@@ -521,96 +439,41 @@ export function LeadsTab({ token }: LeadsTabProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const deferredSearchQuery = useDeferredValue(searchQuery);
 
-  const fetchLeads = useCallback(async () => {
-    setLoading(true);
-    try {
-      const params = new URLSearchParams();
-      if (filterStatus) params.set("status", filterStatus);
-      if (filterAssignee) params.set("assigned_to", filterAssignee);
-      if (filterPriority) params.set("priority", filterPriority);
+  const url = useMemo(
+    () =>
+      buildLeadsQuery({
+        status: filterStatus,
+        assigned_to: filterAssignee,
+        priority: filterPriority,
+      }),
+    [filterStatus, filterAssignee, filterPriority],
+  );
 
-      const res = await fetch(`/api/leads?${params.toString()}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+  const { data, status, isFetching, refetch } = useAdminTabData<LeadsResponse>(
+    token,
+    url,
+  );
 
-      if (res.ok) {
-        const json = await res.json();
-        setLeads(json.data as Lead[]);
-      }
-    } finally {
-      setLoading(false);
-    }
-  }, [token, filterStatus, filterAssignee, filterPriority]);
+  const leads: ReadonlyArray<Lead> = useMemo(() => data?.data ?? [], [data]);
+  const isLoading = status === "loading";
 
+  // Refresh selected lead reference if list reloads
   useEffect(() => {
-    void fetchLeads();
-  }, [fetchLeads]);
+    if (!selectedLead) return;
+    const fresh = leads.find((l) => l.id === selectedLead.id);
+    if (fresh && fresh !== selectedLead) setSelectedLead(fresh);
+  }, [leads, selectedLead]);
 
-  // ── Computed values ──────────────────────────────────────────────────────────
-
-  const filteredLeads = useMemo(() => {
-    if (!deferredSearchQuery) return leads;
-    const q = deferredSearchQuery.toLowerCase();
-    return leads.filter(
-      (lead) =>
-        lead.contact_name.toLowerCase().includes(q) ||
-        lead.email?.toLowerCase().includes(q) ||
-        lead.company?.toLowerCase().includes(q) ||
-        lead.project_location?.toLowerCase().includes(q),
-    );
-  }, [deferredSearchQuery, leads]);
-
-  const pipelineStats = useMemo(() => {
-    const stats = {
-      new: { count: 0, value: 0 },
-      contacted: { count: 0, value: 0 },
-      estimate_sent: { count: 0, value: 0 },
-      negotiating: { count: 0, value: 0 },
-      won: { count: 0, value: 0 },
-      lost: { count: 0, value: 0 },
-    };
-
-    leads.forEach((lead) => {
-      stats[lead.status].count++;
-      if (lead.estimated_value) {
-        stats[lead.status].value += lead.estimated_value;
-      }
-    });
-
-    return stats;
-  }, [leads]);
-
-  const overdueCount = useMemo(
-    () =>
-      leads.filter(
-        (l) =>
-          l.status !== "won" &&
-          l.status !== "lost" &&
-          isOverdue(l.follow_up_date),
-      ).length,
-    [leads],
+  const filteredLeads = useMemo(
+    () => searchLeads(leads, deferredSearchQuery),
+    [deferredSearchQuery, leads],
   );
 
-  const totalPipelineValue = useMemo(
-    () =>
-      leads
-        .filter((l) => l.status !== "won" && l.status !== "lost")
-        .reduce((sum, l) => sum + (l.estimated_value || 0), 0),
-    [leads],
-  );
-
-  const weightedPipelineValue = useMemo(
-    () =>
-      leads
-        .filter((l) => l.status !== "won" && l.status !== "lost")
-        .reduce(
-          (sum, l) => sum + ((l.estimated_value || 0) * l.probability) / 100,
-          0,
-        ),
-    [leads],
-  );
-
-  // ── UI ───────────────────────────────────────────────────────────────────────
+  const pipelineStats = useMemo(() => computePipelineStats(leads), [leads]);
+  const overdueCount = useMemo(() => overdueLeadsCount(leads), [leads]);
+  const pipelineValue = useMemo(() => totalPipelineValue(leads), [leads]);
+  const weightedValue = useMemo(() => weightedPipelineValue(leads), [leads]);
+  const csvRows = useMemo(() => leadsCsvRows(filteredLeads), [filteredLeads]);
 
   const selectClass =
     "px-3 py-2 bg-gray-700/60 border border-gray-600 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-secondary/50 cursor-pointer";
@@ -618,7 +481,10 @@ export function LeadsTab({ token }: LeadsTabProps) {
   return (
     <div className="space-y-6">
       {/* Pipeline Summary Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <section
+        data-print-section="true"
+        className="grid grid-cols-2 sm:grid-cols-4 gap-4"
+      >
         <div className="bg-gray-800/80 border border-gray-700 rounded-xl p-4">
           <div className="flex items-center gap-2 text-xs text-gray-400 uppercase font-semibold mb-1">
             <MaterialIcon
@@ -629,10 +495,10 @@ export function LeadsTab({ token }: LeadsTabProps) {
             Pipeline Value
           </div>
           <p className="text-2xl font-black text-white">
-            {formatCurrency(totalPipelineValue)}
+            {formatCurrency(pipelineValue)}
           </p>
           <p className="text-xs text-gray-500">
-            Weighted: {formatCurrency(weightedPipelineValue)}
+            Weighted: {formatCurrency(weightedValue)}
           </p>
         </div>
         <div className="bg-gray-800/80 border border-gray-700 rounded-xl p-4">
@@ -687,20 +553,22 @@ export function LeadsTab({ token }: LeadsTabProps) {
           </p>
           <p className="text-xs text-gray-500">Require attention</p>
         </div>
-      </div>
+      </section>
 
-      {/* Filters */}
-      <div className="flex flex-wrap gap-3 items-center">
+      {/* Filters + Actions */}
+      <div data-print-hide="true" className="flex flex-wrap gap-3 items-center">
         <div className="flex-1 min-w-[200px]">
           <input
-            type="text"
+            type="search"
             placeholder="Search leads..."
+            aria-label="Search leads"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full px-4 py-2 bg-gray-700/60 border border-gray-600 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
           />
         </div>
         <select
+          aria-label="Filter by status"
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value)}
           className={selectClass}
@@ -715,6 +583,7 @@ export function LeadsTab({ token }: LeadsTabProps) {
           <option value="lost">Lost</option>
         </select>
         <select
+          aria-label="Filter by assignee"
           value={filterAssignee}
           onChange={(e) => setFilterAssignee(e.target.value)}
           className={selectClass}
@@ -726,6 +595,7 @@ export function LeadsTab({ token }: LeadsTabProps) {
           ))}
         </select>
         <select
+          aria-label="Filter by priority"
           value={filterPriority}
           onChange={(e) => setFilterPriority(e.target.value)}
           className={selectClass}
@@ -736,30 +606,39 @@ export function LeadsTab({ token }: LeadsTabProps) {
           <option value="medium">Medium</option>
           <option value="low">Low</option>
         </select>
+        <ExportCsvButton
+          filename={`mh-leads-${new Date().toISOString().slice(0, 10)}.csv`}
+          headers={LEADS_CSV_HEADERS}
+          rows={csvRows}
+        />
         <button
-          onClick={() => fetchLeads()}
-          disabled={loading}
+          type="button"
+          onClick={() => void refetch()}
+          disabled={isFetching}
           className="px-4 py-2 bg-brand-secondary text-white font-bold rounded-lg hover:bg-brand-secondary-dark disabled:opacity-50 transition-colors inline-flex items-center gap-2"
         >
           <MaterialIcon
             icon="refresh"
             size="sm"
-            className={loading ? "animate-spin" : ""}
+            className={isFetching ? "animate-spin" : ""}
           />
           Refresh
         </button>
       </div>
 
       {/* Leads Table */}
-      <div className="bg-gray-800/80 border border-gray-700 rounded-xl overflow-hidden">
-        {loading && leads.length === 0 ? (
-          <div className="flex items-center justify-center py-12 text-gray-400">
-            <MaterialIcon
-              icon="hourglass_empty"
-              size="lg"
-              className="animate-spin mr-2"
-            />
-            Loading leads...
+      <section
+        data-print-section="true"
+        className="bg-gray-800/80 border border-gray-700 rounded-xl overflow-hidden"
+      >
+        {isLoading && leads.length === 0 ? (
+          <div className="p-4 space-y-2">
+            {SKELETON_KEYS.map((k) => (
+              <div
+                key={k}
+                className="h-12 bg-gray-700/40 rounded animate-pulse"
+              />
+            ))}
           </div>
         ) : filteredLeads.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-12 text-gray-400">
@@ -776,13 +655,27 @@ export function LeadsTab({ token }: LeadsTabProps) {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-700 text-left text-xs text-gray-400 uppercase">
-                  <th className="px-4 py-3 font-semibold">Lead</th>
-                  <th className="px-4 py-3 font-semibold">Project</th>
-                  <th className="px-4 py-3 font-semibold">Status</th>
-                  <th className="px-4 py-3 font-semibold">Value</th>
-                  <th className="px-4 py-3 font-semibold">Assigned</th>
-                  <th className="px-4 py-3 font-semibold">Follow-up</th>
-                  <th className="px-4 py-3 font-semibold">Source</th>
+                  <th scope="col" className="px-4 py-3 font-semibold">
+                    Lead
+                  </th>
+                  <th scope="col" className="px-4 py-3 font-semibold">
+                    Project
+                  </th>
+                  <th scope="col" className="px-4 py-3 font-semibold">
+                    Status
+                  </th>
+                  <th scope="col" className="px-4 py-3 font-semibold">
+                    Value
+                  </th>
+                  <th scope="col" className="px-4 py-3 font-semibold">
+                    Assigned
+                  </th>
+                  <th scope="col" className="px-4 py-3 font-semibold">
+                    Follow-up
+                  </th>
+                  <th scope="col" className="px-4 py-3 font-semibold">
+                    Source
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700/50">
@@ -846,7 +739,7 @@ export function LeadsTab({ token }: LeadsTabProps) {
                               : "text-white"
                           }
                         >
-                          {formatDate(lead.follow_up_date)}
+                          {formatLeadDate(lead.follow_up_date)}
                           {isOverdue(lead.follow_up_date) && (
                             <MaterialIcon
                               icon="warning"
@@ -861,7 +754,7 @@ export function LeadsTab({ token }: LeadsTabProps) {
                     </td>
                     <td className="px-4 py-3">
                       <span className="text-gray-400 text-xs">
-                        {SOURCE_LABELS[lead.source] || lead.source}
+                        {getSourceLabel(lead.source)}
                       </span>
                       <p className="text-xs text-gray-500">
                         {formatRelativeDate(lead.created_at)}
@@ -873,7 +766,7 @@ export function LeadsTab({ token }: LeadsTabProps) {
             </table>
           </div>
         )}
-      </div>
+      </section>
 
       {/* Lead Detail Modal */}
       {selectedLead && (
@@ -881,7 +774,7 @@ export function LeadsTab({ token }: LeadsTabProps) {
           lead={selectedLead}
           token={token}
           onUpdate={() => {
-            fetchLeads();
+            void refetch();
             setSelectedLead(null);
           }}
           onClose={() => setSelectedLead(null)}

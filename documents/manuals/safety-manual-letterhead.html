@@ -221,12 +221,16 @@
       }
 
       /* multiline body — NO border (cell bottom is the line).
-         Implemented as a contenteditable <div> (not <textarea>) so it
-         grows with content instead of showing an internal scrollbar,
-         allowing the signature row to push to the next printed page. */
+         Implemented as a <textarea> with `field-sizing: content`
+         (Chromium 123+) so it grows with content instead of showing
+         an internal scrollbar. A small JS fallback auto-resizes on
+         older engines. The signature row pushes to the next printed
+         page when the body grows past the page-1 area. */
       .field-area {
         display: block;
         width: 100%;
+        min-height: 1.6em;
+        height: auto;
         border: none;
         background: transparent;
         font-family: var(--font-body);
@@ -237,17 +241,37 @@
         line-height: 1.6;
         white-space: pre-wrap;
         word-break: break-word;
-        overflow: visible;
+        overflow: hidden; /* never show an inner scrollbar */
+        overflow-wrap: anywhere;
+        resize: none;
+        appearance: none;
+        -webkit-appearance: none;
+        field-sizing: content; /* native auto-grow in Chromium */
       }
 
       /* body field grows naturally as content is entered */
       .field-group.body-field {
         margin-bottom: 10pt;
       }
-      .field-area[contenteditable="true"]:empty::before {
-        content: "Enter letter content...";
+      .field-area::placeholder {
         color: var(--brand-secondary-text);
-        opacity: 0.62;
+        opacity: 0.55;
+        font-style: italic;
+      }
+
+      /* ── Focus states (screen only) — highlight the active line ─── */
+      .field-line::placeholder {
+        color: var(--brand-secondary-text);
+        opacity: 0.45;
+        font-style: italic;
+      }
+      .field-cell:focus-within::after {
+        border-bottom-color: var(--brand-secondary) !important;
+        border-bottom-width: 1.4pt !important;
+      }
+      .field-cell:focus-within .field-label {
+        opacity: 0.95;
+        color: var(--brand-primary-dark);
       }
 
       /* row helpers */
@@ -454,9 +478,126 @@
         page-break-inside: avoid;
       }
       .form-table .field-label { margin-top: 4pt; margin-bottom: 1pt; }
+
+      /* visually-hidden label for the body textarea (screen readers only) */
+      .sr-only {
+        position: absolute !important;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* ── Screen-only fill-in toolbar ──────────────────────────────
+         Hidden on print + when the page is rendered to PDF. Provides
+         quick Print / Email / Reset actions so a user can open this
+         file in a browser, fill it in, and either print to paper or
+         send it via email without any extra tooling. */
+      .lh-toolbar {
+        position: fixed;
+        top: 14px;
+        right: 14px;
+        z-index: 50;
+        display: flex;
+        gap: 8px;
+        padding: 8px 10px;
+        background: #ffffffea;
+        border: 1px solid var(--brand-secondary-light);
+        border-radius: 6px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        backdrop-filter: blur(6px);
+        font-family: var(--font-body);
+      }
+      .lh-toolbar button {
+        appearance: none;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 11pt;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        padding: 6px 12px;
+        border-radius: 4px;
+        border: 1px solid var(--brand-primary-dark);
+        background: var(--brand-primary-dark);
+        color: #fff;
+        transition: background 120ms ease, transform 120ms ease;
+      }
+      .lh-toolbar button:hover {
+        background: var(--brand-primary);
+      }
+      .lh-toolbar button:active {
+        transform: translateY(1px);
+      }
+      .lh-toolbar button.secondary {
+        background: #fff;
+        color: var(--brand-primary-dark);
+      }
+      .lh-toolbar button.secondary:hover {
+        background: var(--muted);
+      }
+      .lh-hint {
+        position: fixed;
+        left: 14px;
+        bottom: 14px;
+        z-index: 50;
+        max-width: 280px;
+        font-family: var(--font-body);
+        font-size: 9pt;
+        line-height: 1.4;
+        color: var(--brand-primary-darker);
+        background: #ffffffea;
+        border: 1px solid var(--brand-secondary-light);
+        border-radius: 6px;
+        padding: 8px 10px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+      }
+      .lh-hint strong {
+        color: var(--brand-primary-dark);
+      }
+
+      @media print {
+        .lh-toolbar,
+        .lh-hint { display: none !important; }
+      }
+      /* When generated to PDF the renderer adds ?print=1 (or we can
+         detect the lack of mouse) — hide UI chrome there too. */
+      html[data-mode="print"] .lh-toolbar,
+      html[data-mode="print"] .lh-hint {
+        display: none !important;
+      }
     </style>
   </head>
   <body>
+    <!-- Screen-only fill-in helpers (hidden on print + in generated PDF). -->
+    <div
+      class="lh-toolbar no-print"
+      role="toolbar"
+      aria-label="Letterhead actions"
+    >
+      <button type="button" id="lh-print" title="Print this letter (Ctrl+P)">
+        Print
+      </button>
+      <button type="button" id="lh-email" title="Open in your email client">
+        Email
+      </button>
+      <button
+        type="button"
+        id="lh-reset"
+        class="secondary"
+        title="Clear all fields"
+      >
+        Reset
+      </button>
+    </div>
+    <div class="lh-hint no-print" aria-hidden="true">
+      <strong>Tip:</strong> Tab between fields. The body grows as you type —
+      long letters automatically continue onto a second page when printed.
+    </div>
+
     <div class="sheet">
       <div class="left-ribbon"></div>
 
@@ -491,7 +632,7 @@
           Row heights: date/to/addr/subject=0.48in, body=2.42in, sig=0.72in
           AcroForm coordinates derived directly from these values.
         -->
-        <table class="form-table">
+        <table class="form-table" role="presentation">
           <colgroup>
             <col />
             <col />
@@ -505,52 +646,110 @@
           <tr class="row-date">
             <td colspan="4" class="spacer"></td>
             <td colspan="2" class="field-cell">
-              <span class="field-label">Date</span>
-              <input class="field-line" type="text" />
+              <label class="field-label" for="lh-date">Date</label>
+              <input
+                class="field-line"
+                type="text"
+                id="lh-date"
+                name="lh-date"
+                placeholder="Month DD, YYYY"
+                autocomplete="off"
+              />
             </td>
           </tr>
 
           <!-- To Name / Company — each cols 1-3 and 4-6 -->
           <tr class="row-to">
             <td colspan="3" class="field-cell">
-              <span class="field-label">To — Name</span>
-              <input class="field-line" type="text" />
+              <label class="field-label" for="lh-toName">To — Name</label>
+              <input
+                class="field-line"
+                type="text"
+                id="lh-toName"
+                name="lh-toName"
+                placeholder="Recipient full name"
+                autocomplete="name"
+              />
             </td>
             <td colspan="3" class="field-cell">
-              <span class="field-label">Company / Organization</span>
-              <input class="field-line" type="text" />
+              <label class="field-label" for="lh-toOrg"
+                >Company / Organization</label
+              >
+              <input
+                class="field-line"
+                type="text"
+                id="lh-toOrg"
+                name="lh-toOrg"
+                placeholder="Recipient company"
+                autocomplete="organization"
+              />
             </td>
           </tr>
 
           <!-- Address / City-State-ZIP -->
           <tr class="row-addr">
             <td colspan="3" class="field-cell">
-              <span class="field-label">Address</span>
-              <input class="field-line" type="text" />
+              <label class="field-label" for="lh-toAddress">Address</label>
+              <input
+                class="field-line"
+                type="text"
+                id="lh-toAddress"
+                name="lh-toAddress"
+                placeholder="Street address"
+                autocomplete="address-line1"
+              />
             </td>
             <td colspan="3" class="field-cell">
-              <span class="field-label">City, State, ZIP</span>
-              <input class="field-line" type="text" />
+              <label class="field-label" for="lh-toCSZ">City, State, ZIP</label>
+              <input
+                class="field-line"
+                type="text"
+                id="lh-toCSZ"
+                name="lh-toCSZ"
+                placeholder="City, ST 00000"
+                autocomplete="address-level2"
+              />
             </td>
           </tr>
 
           <!-- From — full width -->
           <tr class="row-from">
             <td colspan="6" class="field-cell">
-              <span class="field-label">From</span>
-              <input class="field-line" type="text" />
+              <label class="field-label" for="lh-from">From</label>
+              <input
+                class="field-line"
+                type="text"
+                id="lh-from"
+                name="lh-from"
+                placeholder="Your name &amp; title — MH Construction"
+                autocomplete="off"
+              />
             </td>
           </tr>
 
           <!-- RE-Subject / Job-Bid# -->
           <tr class="row-subject">
             <td colspan="3" class="field-cell">
-              <span class="field-label">RE — Subject</span>
-              <input class="field-line" type="text" />
+              <label class="field-label" for="lh-subject">RE — Subject</label>
+              <input
+                class="field-line"
+                type="text"
+                id="lh-subject"
+                name="lh-subject"
+                placeholder="Brief subject line"
+                autocomplete="off"
+              />
             </td>
             <td colspan="3" class="field-cell">
-              <span class="field-label">Job/Bid #</span>
-              <input class="field-line" type="text" />
+              <label class="field-label" for="lh-jobBid">Job/Bid #</label>
+              <input
+                class="field-line"
+                type="text"
+                id="lh-jobBid"
+                name="lh-jobBid"
+                placeholder="Optional reference number"
+                autocomplete="off"
+              />
             </td>
           </tr>
 
@@ -558,33 +757,65 @@
                long content paginates and pushes the sig row to page 2+). -->
           <tr class="row-body">
             <td colspan="6" class="field-cell">
-              <div
+              <label class="field-label sr-only" for="lh-body"
+                >Letter body</label
+              >
+              <textarea
+                id="lh-body"
+                name="lh-body"
                 class="field-area"
-                role="textbox"
-                aria-multiline="true"
-                aria-label="Letter body"
-                contenteditable="true"
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                rows="1"
+                placeholder="Type your letter here. The field will grow as you type — no scrolling, and long letters continue onto the next page when printed."
+              ></textarea>
             </td>
           </tr>
-
           <!-- Signature block — sig+name=2cols each, title+date=1col each -->
           <tr class="row-sig">
             <td colspan="2" class="field-cell">
-              <span class="field-label">Signature</span>
-              <input class="field-line" type="text" />
+              <label class="field-label" for="lh-signature">Signature</label>
+              <input
+                class="field-line"
+                type="text"
+                id="lh-signature"
+                name="lh-signature"
+                placeholder="Sign here (or print &amp; sign)"
+                autocomplete="off"
+              />
             </td>
             <td colspan="2" class="field-cell">
-              <span class="field-label">Printed Name</span>
-              <input class="field-line" type="text" />
+              <label class="field-label" for="lh-printedName"
+                >Printed Name</label
+              >
+              <input
+                class="field-line"
+                type="text"
+                id="lh-printedName"
+                name="lh-printedName"
+                placeholder="Your full name"
+                autocomplete="name"
+              />
             </td>
             <td colspan="1" class="field-cell">
-              <span class="field-label">Title</span>
-              <input class="field-line" type="text" />
+              <label class="field-label" for="lh-title">Title</label>
+              <input
+                class="field-line"
+                type="text"
+                id="lh-title"
+                name="lh-title"
+                placeholder="Your title"
+                autocomplete="organization-title"
+              />
             </td>
             <td colspan="1" class="field-cell">
-              <span class="field-label">Date Signed</span>
-              <input class="field-line" type="text" />
+              <label class="field-label" for="lh-dateSigned">Date Signed</label>
+              <input
+                class="field-line"
+                type="text"
+                id="lh-dateSigned"
+                name="lh-dateSigned"
+                placeholder="MM/DD/YYYY"
+                autocomplete="off"
+              />
             </td>
           </tr>
         </table>
@@ -641,5 +872,117 @@
         <span class="sep">&#9733;</span> Built on Honor, Integrity &amp; Trust
       </div>
     </div>
+
+    <script>
+      // Screen-only behavior. Hidden in print + when rendered to PDF
+      // via Puppeteer (page.pdf emulates print media, so the toolbar is
+      // suppressed automatically by the @media print rule).
+      (function () {
+        var doc = globalThis.document;
+        var body = doc.getElementById("lh-body");
+
+        function val(id) {
+          var el = doc.getElementById(id);
+          if (!el) return "";
+          var v = el.value == null ? el.textContent || "" : el.value;
+          return v.trim();
+        }
+
+        function buildSubject() {
+          var subject = val("lh-subject") || "Letter from MH Construction";
+          var jobBid = val("lh-jobBid");
+          return jobBid ? subject + " (Job/Bid #" + jobBid + ")" : subject;
+        }
+
+        function buildAddressBlock(lines) {
+          var to = val("lh-toName");
+          var org = val("lh-toOrg");
+          var addr = val("lh-toAddress");
+          var csz = val("lh-toCSZ");
+          if (!(to || org || addr || csz)) return;
+          if (to) lines.push(to);
+          if (org) lines.push(org);
+          if (addr) lines.push(addr);
+          if (csz) lines.push(csz);
+          lines.push("");
+        }
+
+        function buildSignatureBlock(lines) {
+          var from = val("lh-from");
+          var sig = val("lh-printedName");
+          var title = val("lh-title");
+          if (!(sig || from || title)) return;
+          lines.push("Sincerely,", "");
+          if (sig) lines.push(sig);
+          else if (from) lines.push(from);
+          if (title) lines.push(title);
+          lines.push("MH Construction");
+        }
+
+        function buildEmailBody() {
+          var lines = [];
+          var date = val("lh-date");
+          if (date) lines.push(date, "");
+          buildAddressBlock(lines);
+          var bodyText = body ? (body.value || "").trim() : "";
+          if (bodyText) lines.push(bodyText, "");
+          buildSignatureBlock(lines);
+          return lines.join("\n");
+        }
+
+        function clearAllFields() {
+          var nodes = doc.querySelectorAll(".field-line, #lh-body");
+          Array.prototype.forEach.call(nodes, function (el) {
+            el.value = "";
+          });
+          if (body && !supportsFieldSizing) autosize(body);
+          var first = doc.getElementById("lh-date");
+          if (first) first.focus();
+        }
+
+        var btnPrint = doc.getElementById("lh-print");
+        var btnEmail = doc.getElementById("lh-email");
+        var btnReset = doc.getElementById("lh-reset");
+
+        // Auto-resize fallback for browsers without CSS `field-sizing`.
+        function autosize(el) {
+          if (!el) return;
+          el.style.height = "auto";
+          el.style.height = el.scrollHeight + "px";
+        }
+        var supportsFieldSizing =
+          globalThis.CSS &&
+          globalThis.CSS.supports &&
+          globalThis.CSS.supports("field-sizing", "content");
+        if (body && !supportsFieldSizing) {
+          body.addEventListener("input", function () {
+            autosize(body);
+          });
+          autosize(body);
+        }
+
+        if (btnPrint) {
+          btnPrint.addEventListener("click", function () {
+            globalThis.print();
+          });
+        }
+        if (btnEmail) {
+          btnEmail.addEventListener("click", function () {
+            var url =
+              "mailto:?subject=" +
+              encodeURIComponent(buildSubject()) +
+              "&body=" +
+              encodeURIComponent(buildEmailBody());
+            globalThis.location.href = url;
+          });
+        }
+        if (btnReset) {
+          btnReset.addEventListener("click", function () {
+            if (!globalThis.confirm("Clear all fields?")) return;
+            clearAllFields();
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

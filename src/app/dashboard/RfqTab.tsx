@@ -2,139 +2,20 @@
 
 import { type ReactNode, useState, useCallback } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-interface EvaluationCriterion {
-  title: string;
-  weight: string;
-}
-
-interface ExhibitConfig {
-  id: string;
-  label: string;
-  description: string;
-  file: string;
-  enabled: boolean;
-}
-
-interface RfqConfig {
-  projectName: string;
-  issuingOrg: string;
-  rfqNumber: string;
-  dueDate: string;
-  submissionDate: string;
-  recipientName: string;
-  recipientTitle: string;
-  recipientEmail: string;
-  evaluationCriteria: EvaluationCriterion[];
-  sections: string[];
-  exhibits: Omit<ExhibitConfig, "enabled">[];
-  additionalNotes: string;
-}
-
-type WizardStep =
-  | "rfq-info"
-  | "eval-criteria"
-  | "sections"
-  | "exhibits"
-  | "review";
-
-// ─── Constants ────────────────────────────────────────────────────────────────
-
-const ALL_SECTIONS = [
-  {
-    id: "company-overview",
-    label: "Company Overview",
-    description: "Company history, ownership, service area, core capabilities",
-    required: true,
-  },
-  {
-    id: "scope",
-    label: "Understanding of Scope",
-    description: "Scope acknowledgment, consultation-first statement",
-    required: false,
-  },
-  {
-    id: "experience",
-    label: "Relevant Experience & Portfolio",
-    description: "Representative project types, references, portfolio link",
-    required: false,
-  },
-  {
-    id: "personnel",
-    label: "Key Personnel",
-    description: "Jeremy Thamert PM intro, team structure",
-    required: false,
-  },
-  {
-    id: "safety",
-    label: "Safety Program",
-    description: "MISH program overview, OSHA compliance, EMR, safety hub link",
-    required: false,
-  },
-  {
-    id: "accreditations",
-    label: "Accreditations & Certifications",
-    description: "BBB A+, AGC, Veteran-Owned, licenses, insurance",
-    required: false,
-  },
-  {
-    id: "consultation",
-    label: "Consultation Commitment",
-    description: "No-estimate pledge, next steps, slogan, contact CTA",
-    required: true,
-  },
-];
-
-const DEFAULT_EXHIBITS: ExhibitConfig[] = [
-  {
-    id: "A",
-    label: "Safety Program: Table of Contents",
-    description:
-      "MH Construction Industrial Safety and Health Program (MISH) — Table of Contents with all 50 sections",
-    file: "safety-manual-toc.pdf",
-    enabled: false,
-  },
-  {
-    id: "B",
-    label: "Site Compliance Photos",
-    description:
-      "Recent jobsite safety compliance documentation and site photos",
-    file: "site-compliance-photos.pdf",
-    enabled: false,
-  },
-  {
-    id: "C",
-    label: "Previous Project Photos",
-    description: "Representative photos from completed projects",
-    file: "project-photos.pdf",
-    enabled: false,
-  },
-  {
-    id: "D",
-    label: "Certificates & Licenses",
-    description:
-      "Copies of contractor licenses (WA/OR/ID), BBB certificate, insurance certificates",
-    file: "certificates-licenses.pdf",
-    enabled: false,
-  },
-  {
-    id: "E",
-    label: "Other Documentation",
-    description: "",
-    file: "",
-    enabled: false,
-  },
-];
-
-const STEPS: { id: WizardStep; label: string; icon: string }[] = [
-  { id: "rfq-info", label: "RFQ Info", icon: "assignment" },
-  { id: "eval-criteria", label: "Eval. Criteria", icon: "checklist" },
-  { id: "sections", label: "Sections", icon: "article" },
-  { id: "exhibits", label: "Exhibits", icon: "folder_open" },
-  { id: "review", label: "Review & Export", icon: "download" },
-];
+import {
+  ALL_SECTIONS,
+  DEFAULT_EXHIBITS,
+  STEPS,
+  buildRfqConfig,
+  isRfqInfoComplete,
+  rfqConfigFilename,
+  rfqConfigSlug,
+  requiredSectionIds,
+  type EvaluationCriterion,
+  type ExhibitConfig,
+  type RfqConfig,
+  type WizardStep,
+} from "@/lib/dashboard/rfq";
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
@@ -160,12 +41,13 @@ export function RfqTab({ token: _token }: { token: string }) {
   ]);
 
   // Step 3 — Sections
-  const [selectedSections, setSelectedSections] = useState<string[]>(
-    ALL_SECTIONS.filter((s) => s.required).map((s) => s.id),
-  );
+  const [selectedSections, setSelectedSections] =
+    useState<string[]>(requiredSectionIds());
 
   // Step 4 — Exhibits
-  const [exhibits, setExhibits] = useState<ExhibitConfig[]>(DEFAULT_EXHIBITS);
+  const [exhibits, setExhibits] = useState<ExhibitConfig[]>([
+    ...DEFAULT_EXHIBITS,
+  ]);
   const [exhibitNotes, setExhibitNotes] = useState("");
 
   // Step 5 — Review
@@ -216,8 +98,24 @@ export function RfqTab({ token: _token }: { token: string }) {
     [],
   );
 
-  const buildConfig = useCallback((): RfqConfig => {
-    return {
+  const buildConfig = useCallback(
+    (): RfqConfig =>
+      buildRfqConfig({
+        projectName,
+        issuingOrg,
+        rfqNumber,
+        dueDate,
+        submissionDate,
+        recipientName,
+        recipientTitle,
+        recipientEmail,
+        hasEvalCriteria,
+        evalCriteria,
+        selectedSections,
+        exhibits,
+        exhibitNotes,
+      }),
+    [
       projectName,
       issuingOrg,
       rfqNumber,
@@ -226,30 +124,13 @@ export function RfqTab({ token: _token }: { token: string }) {
       recipientName,
       recipientTitle,
       recipientEmail,
-      evaluationCriteria: hasEvalCriteria
-        ? evalCriteria.filter((c) => c.title.trim())
-        : [],
-      sections: selectedSections,
-      exhibits: exhibits
-        .filter((e) => e.enabled)
-        .map(({ enabled: _enabled, ...rest }) => rest),
-      additionalNotes: exhibitNotes,
-    };
-  }, [
-    projectName,
-    issuingOrg,
-    rfqNumber,
-    dueDate,
-    submissionDate,
-    recipientName,
-    recipientTitle,
-    recipientEmail,
-    hasEvalCriteria,
-    evalCriteria,
-    selectedSections,
-    exhibits,
-    exhibitNotes,
-  ]);
+      hasEvalCriteria,
+      evalCriteria,
+      selectedSections,
+      exhibits,
+      exhibitNotes,
+    ],
+  );
 
   const downloadConfig = useCallback(() => {
     const config = buildConfig();
@@ -257,12 +138,8 @@ export function RfqTab({ token: _token }: { token: string }) {
     const blob = new Blob([json], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    const slug = (config.projectName || config.rfqNumber || "rfq")
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "");
     a.href = url;
-    a.download = `rfq-params-${slug}.json`;
+    a.download = rfqConfigFilename(config);
     a.click();
     URL.revokeObjectURL(url);
     setExported(true);
@@ -274,11 +151,7 @@ export function RfqTab({ token: _token }: { token: string }) {
 
   const canProceed = (): boolean => {
     if (step === "rfq-info") {
-      return (
-        projectName.trim().length > 0 &&
-        issuingOrg.trim().length > 0 &&
-        rfqNumber.trim().length > 0
-      );
+      return isRfqInfoComplete({ projectName, issuingOrg, rfqNumber });
     }
     return true;
   };
@@ -298,9 +171,9 @@ export function RfqTab({ token: _token }: { token: string }) {
   // ── Render ────────────────────────────────────────────────────────────────────
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6" data-print-scope="dashboard-rfq">
       {/* Header */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4" data-print-section="true">
         <div className="bg-brand-primary/20 p-3 rounded-xl border border-brand-primary/40">
           <MaterialIcon
             icon="description"
@@ -319,11 +192,15 @@ export function RfqTab({ token: _token }: { token: string }) {
       </div>
 
       {/* Step progress bar */}
-      <div className="bg-gray-800/50 rounded-xl border border-gray-700 p-4">
+      <div
+        className="bg-gray-800/50 rounded-xl border border-gray-700 p-4"
+        data-print-hide="true"
+      >
         <div className="flex gap-1">
           {STEPS.map((s, idx) => (
             <button
               key={s.id}
+              type="button"
               onClick={() => setStep(s.id)}
               className={`flex-1 flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors ${
                 s.id === step
@@ -348,7 +225,10 @@ export function RfqTab({ token: _token }: { token: string }) {
       </div>
 
       {/* Step content */}
-      <div className="bg-gray-800/50 rounded-xl border border-gray-700 p-6">
+      <div
+        className="bg-gray-800/50 rounded-xl border border-gray-700 p-6"
+        data-print-section="true"
+      >
         {step === "rfq-info" && (
           <RfqInfoStep
             {...{
@@ -406,8 +286,9 @@ export function RfqTab({ token: _token }: { token: string }) {
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between">
+      <div className="flex justify-between" data-print-hide="true">
         <button
+          type="button"
           onClick={goBack}
           disabled={stepIndex === 0}
           className="flex items-center gap-2 px-5 py-2.5 bg-gray-700 hover:bg-gray-600 disabled:opacity-40 disabled:cursor-not-allowed rounded-lg text-white font-bold uppercase text-sm transition-colors"
@@ -417,6 +298,7 @@ export function RfqTab({ token: _token }: { token: string }) {
         </button>
         {stepIndex < STEPS.length - 1 ? (
           <button
+            type="button"
             onClick={goNext}
             disabled={!canProceed()}
             className="flex items-center gap-2 px-5 py-2.5 bg-brand-primary hover:bg-brand-primary/80 disabled:opacity-40 disabled:cursor-not-allowed rounded-lg text-white font-bold uppercase text-sm transition-colors"
@@ -426,6 +308,7 @@ export function RfqTab({ token: _token }: { token: string }) {
           </button>
         ) : (
           <button
+            type="button"
             onClick={downloadConfig}
             className="flex items-center gap-2 px-6 py-2.5 bg-green-700 hover:bg-green-600 rounded-lg text-white font-bold uppercase text-sm transition-colors"
           >
@@ -648,6 +531,7 @@ function EvalCriteriaStep({
                 className={`${inputClass} w-28`}
               />
               <button
+                type="button"
                 onClick={() => removeCriterion(idx)}
                 disabled={evalCriteria.length <= 1}
                 className="p-1.5 text-red-400 hover:text-red-300 disabled:opacity-30 disabled:cursor-not-allowed"
@@ -659,6 +543,7 @@ function EvalCriteriaStep({
           ))}
 
           <button
+            type="button"
             onClick={addCriterion}
             className="flex items-center gap-2 text-sm text-brand-secondary hover:text-brand-secondary/80 font-bold uppercase tracking-wider transition-colors"
           >
@@ -906,6 +791,7 @@ function ReviewStep({
   onDownload: () => void;
 }) {
   const enabledExhibits = config.exhibits;
+  const slug = rfqConfigSlug(config);
 
   return (
     <div className="space-y-6">
@@ -1003,15 +889,7 @@ function ReviewStep({
           <li>
             In your terminal from the repo root, run:
             <pre className="mt-1 bg-black/50 rounded p-2 text-xs text-green-300 overflow-x-auto">
-              {`npm run rfq:generate -- --config ./rfq-params-${(
-                config.projectName || "rfq"
-              )
-                .toLowerCase()
-                .replace(/[^a-z0-9]+/g, "-")
-                .replace(
-                  /^-|-$/g,
-                  "",
-                )}.json${enabledExhibits.length > 0 ? " --exhibits-dir ./exhibits/" : ""}`}
+              {`npm run rfq:generate -- --config ./rfq-params-${slug}.json${enabledExhibits.length > 0 ? " --exhibits-dir ./exhibits/" : ""}`}
             </pre>
           </li>
           <li>
@@ -1025,10 +903,7 @@ function ReviewStep({
                 •{" "}
                 <code className="bg-black/40 px-1 rounded text-xs">
                   rfq-
-                  {(config.projectName || "rfq")
-                    .toLowerCase()
-                    .replace(/[^a-z0-9]+/g, "-")
-                    .replace(/^-|-$/g, "")}
+                  {slug}
                   .pdf
                 </code>{" "}
                 — complete merged PDF package
@@ -1048,6 +923,7 @@ function ReviewStep({
       {/* Download button */}
       <div className="flex flex-col items-center gap-3">
         <button
+          type="button"
           onClick={onDownload}
           className="flex items-center gap-3 px-8 py-3.5 bg-green-700 hover:bg-green-600 rounded-xl text-white font-black uppercase tracking-wide text-base transition-colors shadow-lg"
         >

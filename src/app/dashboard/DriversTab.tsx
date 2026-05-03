@@ -1,80 +1,32 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useState } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   DashboardFormField,
   DashboardSelectField,
   DashboardTextareaField,
 } from "@/components/ui/forms/DashboardFormField";
-
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-interface AuthorizedDriver {
-  id: string;
-  employee_name: string;
-  email?: string;
-  phone?: string;
-  license_number: string;
-  license_state: string;
-  license_class?: string;
-  cdl_endorsements?: string;
-  license_expiration_date: string;
-  last_mvr_check_date?: string;
-  next_mvr_check_date?: string;
-  mvr_status: "clear" | "flagged" | "suspended" | "revoked" | "pending";
-  authorization_status: "authorized" | "suspended" | "revoked" | "pending";
-  authorized_by?: string;
-  authorization_date?: string;
-  consent_on_file: number;
-  notes?: string;
-  created_at: string;
-  updated_at: string;
-}
-
-interface AlertSummary {
-  expiring_count: number;
-  overdue_mvr_count: number;
-  pending_count: number;
-  missing_consent_count: number;
-}
-
-type FilterType = "all" | "authorized" | "pending" | "expiring" | "cdl";
-
-const AUTH_STATUS_COLORS: Record<string, string> = {
-  authorized: "bg-green-900/50 text-green-300 border-green-600",
-  pending: "bg-yellow-900/50 text-yellow-300 border-yellow-600",
-  suspended: "bg-orange-900/50 text-orange-300 border-orange-600",
-  revoked: "bg-red-900/50 text-red-400 border-red-700",
-};
-
-const MVR_STATUS_COLORS: Record<string, string> = {
-  clear: "bg-green-900/50 text-green-300 border-green-600",
-  pending: "bg-yellow-900/50 text-yellow-300 border-yellow-600",
-  flagged: "bg-orange-900/50 text-orange-300 border-orange-600",
-  suspended: "bg-red-900/50 text-red-400 border-red-700",
-  revoked: "bg-red-900/50 text-red-400 border-red-700",
-};
-
-// ─── Helper ───────────────────────────────────────────────────────────────────
-
-function daysUntil(dateStr: string): number {
-  const target = new Date(`${dateStr}T00:00:00`);
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  return Math.ceil(
-    (target.getTime() - today.getTime()) / (1000 * 60 * 60 * 24),
-  );
-}
-
-function formatDate(dateStr?: string): string {
-  if (!dateStr) return "—";
-  return new Date(`${dateStr}T00:00:00`).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-}
+import { ExportCsvButton } from "@/components/dashboard/ExportCsvButton";
+import { useAdminTabData } from "@/hooks/useAdminTabData";
+import { adminFetch } from "@/lib/admin-auth/api";
+import {
+  AUTH_STATUS_COLORS,
+  countActiveDrivers,
+  daysUntil,
+  DRIVERS_CSV_HEADERS,
+  driversCsvRows,
+  filterDrivers,
+  formatDriverDate,
+  hasActionableAlerts,
+  isCdlDriver,
+  MVR_STATUS_COLORS,
+  type AlertSummary,
+  type AuthorizedDriver,
+  type DriverAlertsResponse,
+  type DriverFilter,
+  type DriversResponse,
+} from "@/lib/dashboard/drivers";
 
 // ─── Driver Form ──────────────────────────────────────────────────────────────
 
@@ -384,67 +336,63 @@ function DriverForm({ token, driver, onSaved, onCancel }: DriverFormProps) {
 // ─── Main Drivers Tab ─────────────────────────────────────────────────────────
 
 interface DriversTabProps {
-  token: string;
+  readonly token: string;
 }
 
+const FILTER_OPTIONS: ReadonlyArray<{
+  readonly key: DriverFilter;
+  readonly label: string;
+  readonly icon: string;
+}> = [
+  { key: "all", label: "All Active", icon: "group" },
+  { key: "authorized", label: "Authorized", icon: "verified" },
+  { key: "pending", label: "Needs Review", icon: "pending" },
+  { key: "expiring", label: "Expiring Soon", icon: "schedule" },
+  { key: "cdl", label: "CDL Holders", icon: "local_shipping" },
+];
+
+const SKELETON_KEYS = [
+  "driver-skel-1",
+  "driver-skel-2",
+  "driver-skel-3",
+  "driver-skel-4",
+  "driver-skel-5",
+];
+
 export function DriversTab({ token }: DriversTabProps) {
-  const [drivers, setDrivers] = useState<AuthorizedDriver[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [alertSummary, setAlertSummary] = useState<AlertSummary | null>(null);
-  const [filter, setFilter] = useState<FilterType>("all");
+  const [filter, setFilter] = useState<DriverFilter>("all");
   const [showForm, setShowForm] = useState(false);
   const [editingDriver, setEditingDriver] = useState<AuthorizedDriver | null>(
     null,
   );
   const [revokingId, setRevokingId] = useState<string | null>(null);
 
-  const fetchDrivers = useCallback(async () => {
-    setLoading(true);
-    try {
-      const res = await fetch("/api/drivers", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (res.ok) {
-        const json = await res.json();
-        setDrivers(json.data as AuthorizedDriver[]);
-      }
-    } finally {
-      setLoading(false);
-    }
-  }, [token]);
+  const driversQuery = useAdminTabData<DriversResponse>(token, "/api/drivers");
+  const alertsQuery = useAdminTabData<DriverAlertsResponse>(
+    token,
+    "/api/drivers/alerts",
+  );
 
-  const fetchAlerts = useCallback(async () => {
-    try {
-      const res = await fetch("/api/drivers/alerts", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (res.ok) {
-        const json = await res.json();
-        setAlertSummary(json.data.summary as AlertSummary);
-      }
-    } catch {
-      // alerts are non-critical
-    }
-  }, [token]);
+  const drivers: ReadonlyArray<AuthorizedDriver> =
+    driversQuery.data?.data ?? [];
+  const alertSummary: AlertSummary | null =
+    alertsQuery.data?.data.summary ?? null;
+  const isLoading = driversQuery.status === "loading";
 
-  useEffect(() => {
-    fetchDrivers();
-    fetchAlerts();
-  }, [fetchDrivers, fetchAlerts]);
+  const refresh = useCallback(() => {
+    void driversQuery.refetch();
+    void alertsQuery.refetch();
+  }, [driversQuery, alertsQuery]);
 
   const handleRevoke = async (driver: AuthorizedDriver) => {
     // eslint-disable-next-line no-alert
     if (!confirm(`Revoke authorization for ${driver.employee_name}?`)) return;
     setRevokingId(driver.id);
     try {
-      const res = await fetch(`/api/drivers/${driver.id}`, {
+      const res = await adminFetch(token, `/api/drivers/${driver.id}`, {
         method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
       });
-      if (res.ok) {
-        fetchDrivers();
-        fetchAlerts();
-      }
+      if (res.ok) refresh();
     } finally {
       setRevokingId(null);
     }
@@ -458,94 +406,68 @@ export function DriversTab({ token }: DriversTabProps) {
   const handleFormSaved = () => {
     setShowForm(false);
     setEditingDriver(null);
-    fetchDrivers();
-    fetchAlerts();
+    refresh();
   };
 
-  // Filter logic
-  const filteredDrivers = drivers.filter((d) => {
-    switch (filter) {
-      case "authorized":
-        return d.authorization_status === "authorized";
-      case "pending":
-        return (
-          d.authorization_status === "pending" ||
-          d.authorization_status === "suspended"
-        );
-      case "expiring": {
-        const days = daysUntil(d.license_expiration_date);
-        return days <= 90 && d.authorization_status !== "revoked";
-      }
-      case "cdl":
-        return d.license_class && d.license_class.startsWith("CDL");
-      default:
-        return d.authorization_status !== "revoked";
-    }
-  });
-
-  const totalActive = drivers.filter(
-    (d) => d.authorization_status !== "revoked",
-  ).length;
+  const filteredDrivers = filterDrivers(drivers, filter);
+  const totalActive = countActiveDrivers(drivers);
+  const csvRows = driversCsvRows(filteredDrivers);
 
   return (
     <div className="space-y-6">
       {/* Alert Banner */}
-      {alertSummary &&
-        (alertSummary.expiring_count > 0 ||
-          alertSummary.overdue_mvr_count > 0 ||
-          alertSummary.missing_consent_count > 0) && (
-          <div className="bg-amber-900/30 backdrop-blur-sm border-2 border-amber-500/60 rounded-xl p-4">
-            <div className="flex items-start gap-3">
-              <MaterialIcon
-                icon="warning"
-                size="lg"
-                className="text-amber-400"
-              />
-              <div className="flex-1">
-                <h3 className="font-black text-amber-300 mb-2 uppercase tracking-wide text-sm">
-                  ACTION REQUIRED
-                </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
-                  {alertSummary.expiring_count > 0 && (
-                    <div className="text-amber-200">
-                      <span className="font-bold text-amber-100">
-                        {alertSummary.expiring_count}
-                      </span>{" "}
-                      license(s) expiring within 90 days
-                    </div>
-                  )}
-                  {alertSummary.overdue_mvr_count > 0 && (
-                    <div className="text-amber-200">
-                      <span className="font-bold text-amber-100">
-                        {alertSummary.overdue_mvr_count}
-                      </span>{" "}
-                      overdue MVR check(s)
-                    </div>
-                  )}
-                  {alertSummary.pending_count > 0 && (
-                    <div className="text-amber-200">
-                      <span className="font-bold text-amber-100">
-                        {alertSummary.pending_count}
-                      </span>{" "}
-                      pending authorization(s)
-                    </div>
-                  )}
-                  {alertSummary.missing_consent_count > 0 && (
-                    <div className="text-amber-200">
-                      <span className="font-bold text-amber-100">
-                        {alertSummary.missing_consent_count}
-                      </span>{" "}
-                      missing consent form(s)
-                    </div>
-                  )}
-                </div>
+      {hasActionableAlerts(alertSummary) && alertSummary && (
+        <section
+          data-print-section="true"
+          className="bg-amber-900/30 backdrop-blur-sm border-2 border-amber-500/60 rounded-xl p-4"
+        >
+          <div className="flex items-start gap-3">
+            <MaterialIcon icon="warning" size="lg" className="text-amber-400" />
+            <div className="flex-1">
+              <h3 className="font-black text-amber-300 mb-2 uppercase tracking-wide text-sm">
+                ACTION REQUIRED
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+                {alertSummary.expiring_count > 0 && (
+                  <div className="text-amber-200">
+                    <span className="font-bold text-amber-100">
+                      {alertSummary.expiring_count}
+                    </span>{" "}
+                    license(s) expiring within 90 days
+                  </div>
+                )}
+                {alertSummary.overdue_mvr_count > 0 && (
+                  <div className="text-amber-200">
+                    <span className="font-bold text-amber-100">
+                      {alertSummary.overdue_mvr_count}
+                    </span>{" "}
+                    overdue MVR check(s)
+                  </div>
+                )}
+                {alertSummary.pending_count > 0 && (
+                  <div className="text-amber-200">
+                    <span className="font-bold text-amber-100">
+                      {alertSummary.pending_count}
+                    </span>{" "}
+                    pending authorization(s)
+                  </div>
+                )}
+                {alertSummary.missing_consent_count > 0 && (
+                  <div className="text-amber-200">
+                    <span className="font-bold text-amber-100">
+                      {alertSummary.missing_consent_count}
+                    </span>{" "}
+                    missing consent form(s)
+                  </div>
+                )}
               </div>
             </div>
           </div>
-        )}
+        </section>
+      )}
 
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-3 flex-wrap">
         <div>
           <h2 className="text-2xl font-black text-white uppercase tracking-wide flex items-center gap-3">
             <MaterialIcon
@@ -559,16 +481,36 @@ export function DriversTab({ token }: DriversTabProps) {
             {totalActive} active driver{totalActive !== 1 ? "s" : ""} tracked
           </p>
         </div>
-        <button
-          onClick={() => {
-            setEditingDriver(null);
-            setShowForm(!showForm);
-          }}
-          className="px-4 py-2 text-sm font-black text-white bg-brand-primary hover:bg-brand-primary-dark rounded-lg transition-colors inline-flex items-center gap-2 uppercase"
-        >
-          <MaterialIcon icon={showForm ? "close" : "person_add"} size="sm" />
-          {showForm ? "Cancel" : "Add Driver"}
-        </button>
+        <div data-print-hide="true" className="flex items-center gap-2">
+          <ExportCsvButton
+            filename={`mh-drivers-${new Date().toISOString().slice(0, 10)}.csv`}
+            headers={DRIVERS_CSV_HEADERS}
+            rows={csvRows}
+          />
+          <button
+            type="button"
+            onClick={refresh}
+            disabled={driversQuery.isFetching}
+            className="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-3 py-2 text-sm font-black uppercase tracking-wide text-gray-200 hover:border-brand-secondary hover:text-white disabled:opacity-50 transition-colors"
+          >
+            <MaterialIcon
+              icon={driversQuery.isFetching ? "hourglass_empty" : "refresh"}
+              size="sm"
+            />
+            Refresh
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setEditingDriver(null);
+              setShowForm(!showForm);
+            }}
+            className="px-4 py-2 text-sm font-black text-white bg-brand-primary hover:bg-brand-primary-dark rounded-lg transition-colors inline-flex items-center gap-2 uppercase"
+          >
+            <MaterialIcon icon={showForm ? "close" : "person_add"} size="sm" />
+            {showForm ? "Cancel" : "Add Driver"}
+          </button>
+        </div>
       </div>
 
       {/* Form */}
@@ -585,18 +527,11 @@ export function DriversTab({ token }: DriversTabProps) {
       )}
 
       {/* Filters */}
-      <div className="flex gap-2 flex-wrap">
-        {(
-          [
-            { key: "all", label: "All Active", icon: "group" },
-            { key: "authorized", label: "Authorized", icon: "verified" },
-            { key: "pending", label: "Needs Review", icon: "pending" },
-            { key: "expiring", label: "Expiring Soon", icon: "schedule" },
-            { key: "cdl", label: "CDL Holders", icon: "local_shipping" },
-          ] as const
-        ).map(({ key, label, icon }) => (
+      <div data-print-hide="true" className="flex gap-2 flex-wrap">
+        {FILTER_OPTIONS.map(({ key, label, icon }) => (
           <button
             key={key}
+            type="button"
             onClick={() => setFilter(key)}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5 ${
               filter === key
@@ -611,192 +546,215 @@ export function DriversTab({ token }: DriversTabProps) {
       </div>
 
       {/* Driver Table */}
-      {loading ? (
-        <div className="flex items-center justify-center py-12">
-          <MaterialIcon
-            icon="hourglass_empty"
-            size="2xl"
-            className="text-brand-secondary animate-pulse"
-          />
-          <p className="text-brand-secondary font-bold uppercase tracking-wider ml-3">
-            Loading drivers...
-          </p>
-        </div>
-      ) : filteredDrivers.length === 0 ? (
-        <div className="bg-gray-800/60 border border-gray-700 rounded-xl p-8 text-center">
-          <MaterialIcon
-            icon="no_accounts"
-            size="3xl"
-            className="text-gray-600 mx-auto mb-3"
-          />
-          <p className="text-gray-400">No drivers match the current filter.</p>
-        </div>
-      ) : (
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-gray-700 text-left">
-                <th className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider">
-                  Driver
-                </th>
-                <th className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider">
-                  License
-                </th>
-                <th className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider">
-                  Expiration
-                </th>
-                <th className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider">
-                  MVR Status
-                </th>
-                <th className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider">
-                  Auth Status
-                </th>
-                <th className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider">
-                  Consent
-                </th>
-                <th className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredDrivers.map((driver) => {
-                const expirationDays = daysUntil(
-                  driver.license_expiration_date,
-                );
-                const isExpiringSoon =
-                  expirationDays <= 90 && expirationDays > 0;
-                const isExpired = expirationDays <= 0;
-                const isCdl = driver.license_class?.startsWith("CDL");
-
-                return (
-                  <tr
-                    key={driver.id}
-                    className="border-b border-gray-800 hover:bg-gray-800/40 transition-colors"
+      <section
+        data-print-section="true"
+        className="bg-gray-800/60 border border-gray-700 rounded-xl overflow-hidden"
+      >
+        {isLoading && drivers.length === 0 ? (
+          <div className="p-4 space-y-2">
+            {SKELETON_KEYS.map((k) => (
+              <div
+                key={k}
+                className="h-12 bg-gray-700/40 rounded animate-pulse"
+              />
+            ))}
+          </div>
+        ) : filteredDrivers.length === 0 ? (
+          <div className="p-8 text-center">
+            <MaterialIcon
+              icon="no_accounts"
+              size="3xl"
+              className="text-gray-600 mx-auto mb-3"
+            />
+            <p className="text-gray-400">
+              No drivers match the current filter.
+            </p>
+          </div>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-gray-700 text-left">
+                  <th
+                    scope="col"
+                    className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider"
                   >
-                    {/* Driver Name & Contact */}
-                    <td className="py-3 px-3">
-                      <div className="font-bold text-white">
-                        {driver.employee_name}
-                      </div>
-                      {driver.email && (
-                        <div className="text-xs text-gray-500">
-                          {driver.email}
-                        </div>
-                      )}
-                      {isCdl && (
-                        <span className="inline-block mt-1 px-1.5 py-0.5 text-[10px] font-bold uppercase bg-blue-900/50 text-blue-300 border border-blue-600 rounded">
-                          {driver.license_class}
-                          {driver.cdl_endorsements
-                            ? ` (${driver.cdl_endorsements})`
-                            : ""}
-                        </span>
-                      )}
-                    </td>
-
-                    {/* License */}
-                    <td className="py-3 px-3">
-                      <div className="text-gray-300 font-mono text-xs">
-                        {driver.license_number}
-                      </div>
-                      <div className="text-xs text-gray-500">
-                        {driver.license_state}
-                      </div>
-                    </td>
-
-                    {/* Expiration */}
-                    <td className="py-3 px-3">
-                      <div
-                        className={`text-sm ${isExpired ? "text-red-400 font-bold" : isExpiringSoon ? "text-amber-300" : "text-gray-300"}`}
-                      >
-                        {formatDate(driver.license_expiration_date)}
-                      </div>
-                      {isExpired ? (
-                        <div className="text-xs text-red-400 font-bold">
-                          EXPIRED
-                        </div>
-                      ) : isExpiringSoon ? (
-                        <div className="text-xs text-amber-400">
-                          {expirationDays} days left
-                        </div>
-                      ) : null}
-                    </td>
-
-                    {/* MVR Status */}
-                    <td className="py-3 px-3">
-                      <span
-                        className={`inline-block px-2 py-0.5 text-xs font-bold uppercase rounded border ${MVR_STATUS_COLORS[driver.mvr_status] || ""}`}
-                      >
-                        {driver.mvr_status}
-                      </span>
-                      {driver.next_mvr_check_date && (
-                        <div className="text-[10px] text-gray-500 mt-1">
-                          Next: {formatDate(driver.next_mvr_check_date)}
-                        </div>
-                      )}
-                    </td>
-
-                    {/* Auth Status */}
-                    <td className="py-3 px-3">
-                      <span
-                        className={`inline-block px-2 py-0.5 text-xs font-bold uppercase rounded border ${AUTH_STATUS_COLORS[driver.authorization_status] || ""}`}
-                      >
-                        {driver.authorization_status}
-                      </span>
-                      {driver.authorized_by && (
-                        <div className="text-[10px] text-gray-500 mt-1">
-                          by {driver.authorized_by}
-                        </div>
-                      )}
-                    </td>
-
-                    {/* Consent */}
-                    <td className="py-3 px-3 text-center">
-                      {driver.consent_on_file ? (
-                        <MaterialIcon
-                          icon="check_circle"
-                          size="sm"
-                          className="text-green-400"
-                        />
-                      ) : (
-                        <MaterialIcon
-                          icon="cancel"
-                          size="sm"
-                          className="text-red-400"
-                        />
-                      )}
-                    </td>
-
-                    {/* Actions */}
-                    <td className="py-3 px-3">
-                      <div className="flex gap-1">
-                        <button
-                          onClick={() => handleEdit(driver)}
-                          className="p-1.5 text-gray-400 hover:text-white hover:bg-gray-700 rounded-lg transition-colors"
-                          title="Edit"
-                        >
-                          <MaterialIcon icon="edit" size="sm" />
-                        </button>
-                        <button
-                          onClick={() => handleRevoke(driver)}
-                          disabled={
-                            revokingId === driver.id ||
-                            driver.authorization_status === "revoked"
-                          }
-                          className="p-1.5 text-gray-400 hover:text-red-400 hover:bg-red-900/30 rounded-lg transition-colors disabled:opacity-40"
-                          title="Revoke Authorization"
-                        >
-                          <MaterialIcon icon="block" size="sm" />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      )}
+                    Driver
+                  </th>
+                  <th
+                    scope="col"
+                    className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                  >
+                    License
+                  </th>
+                  <th
+                    scope="col"
+                    className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                  >
+                    Expiration
+                  </th>
+                  <th
+                    scope="col"
+                    className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                  >
+                    MVR Status
+                  </th>
+                  <th
+                    scope="col"
+                    className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                  >
+                    Auth Status
+                  </th>
+                  <th
+                    scope="col"
+                    className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                  >
+                    Consent
+                  </th>
+                  <th
+                    scope="col"
+                    data-print-hide="true"
+                    className="py-3 px-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                  >
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredDrivers.map((driver) => (
+                  <DriverRow
+                    key={driver.id}
+                    driver={driver}
+                    revoking={revokingId === driver.id}
+                    onEdit={handleEdit}
+                    onRevoke={handleRevoke}
+                  />
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </section>
     </div>
+  );
+}
+
+// ─── Driver Row ───────────────────────────────────────────────────────────────
+
+interface DriverRowProps {
+  readonly driver: AuthorizedDriver;
+  readonly revoking: boolean;
+  readonly onEdit: (driver: AuthorizedDriver) => void;
+  readonly onRevoke: (driver: AuthorizedDriver) => void;
+}
+
+function DriverRow({ driver, revoking, onEdit, onRevoke }: DriverRowProps) {
+  const expirationDays = daysUntil(driver.license_expiration_date);
+  const isExpiringSoon = expirationDays <= 90 && expirationDays > 0;
+  const isExpired = expirationDays <= 0;
+  const cdl = isCdlDriver(driver);
+
+  let expirationClass = "text-gray-300";
+  if (isExpired) expirationClass = "text-red-400 font-bold";
+  else if (isExpiringSoon) expirationClass = "text-amber-300";
+
+  return (
+    <tr className="border-b border-gray-800 hover:bg-gray-800/40 transition-colors">
+      <td className="py-3 px-3">
+        <div className="font-bold text-white">{driver.employee_name}</div>
+        {driver.email && (
+          <div className="text-xs text-gray-500">{driver.email}</div>
+        )}
+        {cdl && (
+          <span className="inline-block mt-1 px-1.5 py-0.5 text-[10px] font-bold uppercase bg-blue-900/50 text-blue-300 border border-blue-600 rounded">
+            {driver.license_class}
+            {driver.cdl_endorsements ? ` (${driver.cdl_endorsements})` : ""}
+          </span>
+        )}
+      </td>
+
+      <td className="py-3 px-3">
+        <div className="text-gray-300 font-mono text-xs">
+          {driver.license_number}
+        </div>
+        <div className="text-xs text-gray-500">{driver.license_state}</div>
+      </td>
+
+      <td className="py-3 px-3">
+        <div className={`text-sm ${expirationClass}`}>
+          {formatDriverDate(driver.license_expiration_date)}
+        </div>
+        {isExpired && (
+          <div className="text-xs text-red-400 font-bold">EXPIRED</div>
+        )}
+        {!isExpired && isExpiringSoon && (
+          <div className="text-xs text-amber-400">
+            {expirationDays} days left
+          </div>
+        )}
+      </td>
+
+      <td className="py-3 px-3">
+        <span
+          className={`inline-block px-2 py-0.5 text-xs font-bold uppercase rounded border ${MVR_STATUS_COLORS[driver.mvr_status] || ""}`}
+        >
+          {driver.mvr_status}
+        </span>
+        {driver.next_mvr_check_date && (
+          <div className="text-[10px] text-gray-500 mt-1">
+            Next: {formatDriverDate(driver.next_mvr_check_date)}
+          </div>
+        )}
+      </td>
+
+      <td className="py-3 px-3">
+        <span
+          className={`inline-block px-2 py-0.5 text-xs font-bold uppercase rounded border ${AUTH_STATUS_COLORS[driver.authorization_status] || ""}`}
+        >
+          {driver.authorization_status}
+        </span>
+        {driver.authorized_by && (
+          <div className="text-[10px] text-gray-500 mt-1">
+            by {driver.authorized_by}
+          </div>
+        )}
+      </td>
+
+      <td className="py-3 px-3 text-center">
+        {driver.consent_on_file ? (
+          <MaterialIcon
+            icon="check_circle"
+            size="sm"
+            className="text-green-400"
+          />
+        ) : (
+          <MaterialIcon icon="cancel" size="sm" className="text-red-400" />
+        )}
+      </td>
+
+      <td data-print-hide="true" className="py-3 px-3">
+        <div className="flex gap-1">
+          <button
+            type="button"
+            onClick={() => onEdit(driver)}
+            className="p-1.5 text-gray-400 hover:text-white hover:bg-gray-700 rounded-lg transition-colors"
+            title="Edit"
+            aria-label={`Edit ${driver.employee_name}`}
+          >
+            <MaterialIcon icon="edit" size="sm" />
+          </button>
+          <button
+            type="button"
+            onClick={() => onRevoke(driver)}
+            disabled={revoking || driver.authorization_status === "revoked"}
+            className="p-1.5 text-gray-400 hover:text-red-400 hover:bg-red-900/30 rounded-lg transition-colors disabled:opacity-40"
+            title="Revoke Authorization"
+            aria-label={`Revoke ${driver.employee_name}`}
+          >
+            <MaterialIcon icon="block" size="sm" />
+          </button>
+        </div>
+      </td>
+    </tr>
   );
 }

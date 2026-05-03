@@ -11,21 +11,9 @@ import {
   ALL_CLUSTER_SLUGS,
   SAFETY_MANUAL_CLUSTERS,
   getClusterBySlug,
+  sectionsForCluster,
 } from "@/lib/data/safety-manual-clusters";
-import { extractPreviewHtml } from "@/lib/data/safety-manual-preview";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
-import safetyManualJson from "../../../../../documents/content/safety-manual.json";
-
-type SafetyManualSection = {
-  number: number;
-  numberStr: string;
-  title: string;
-  slug: string;
-  body: string;
-};
-
-const RAW_SECTIONS = (safetyManualJson as { sections: SafetyManualSection[] })
-  .sections;
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 
@@ -79,9 +67,7 @@ export default async function SafetyManualClusterPage({
   const cluster = getClusterBySlug(clusterSlug);
   if (!cluster) notFound();
 
-  const sections = RAW_SECTIONS.filter(
-    (s) => s.number >= cluster.min && s.number <= cluster.max,
-  ).sort((a, b) => a.number - b.number);
+  const sections = sectionsForCluster(cluster.slug);
 
   const websiteSections = safetyManualEntry?.sections ?? [];
   const websiteByNumber = new Map(
@@ -236,7 +222,7 @@ export default async function SafetyManualClusterPage({
         {/* Section cards */}
         <div className="space-y-8">
           {sections.map((s) => {
-            const previewHtml = extractPreviewHtml(s.body);
+            const previewHtml = s.previewHtml;
             const meta = websiteByNumber.get(s.number);
             const oshaRef = meta?.oshaRef;
             return (

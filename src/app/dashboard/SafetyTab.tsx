@@ -1,9 +1,32 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { DashboardFormField } from "@/components/ui/forms/DashboardFormField";
+import { ExportCsvButton } from "@/components/dashboard/ExportCsvButton";
+import { useAdminTabData } from "@/hooks/useAdminTabData";
+import { adminFetch } from "@/lib/admin-auth/api";
+import {
+  buildSubmissionsQuery,
+  computePipelineCounts,
+  FORM_TYPE_LABELS,
+  formatFormType,
+  formatSafetyDate,
+  JOB_STATUS_COLORS,
+  outstandingJobs,
+  SAFETY_DOWNLOADS_CSV_HEADERS,
+  SAFETY_SUBMISSIONS_CSV_HEADERS,
+  safetyDownloadsCsvRows,
+  safetySubmissionsCsvRows,
+  STATUS_COLORS,
+  submissionsByFormType,
+  type DownloadLogResponse,
+  type Job,
+  type JobsResponse,
+  type JobStatus,
+  type SubmissionsResponse,
+} from "@/lib/dashboard/safety";
 
 const SafetyBarChart = dynamic(
   () => import("./SafetyBarChart").then((m) => ({ default: m.SafetyBarChart })),
@@ -15,68 +38,12 @@ const SafetyBarChart = dynamic(
   },
 );
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-interface Job {
-  id: string;
-  job_number: string;
-  job_name: string;
-  location: string | null;
-  pm_name: string | null;
-  super_name: string | null;
-  status: "active" | "closed" | "archived";
-  created_at: string;
-}
-
-interface Submission {
-  id: string;
-  job_id: string;
-  job_number: string;
-  job_name: string;
-  form_type: string;
-  submitted_by: string;
-  status: "submitted" | "reviewed" | "archived";
-  print_count: number;
-  created_at: string;
-}
-
-type JobStatus = "active" | "closed" | "archived";
-
-const FORM_TYPE_LABELS: Record<string, string> = {
-  "toolbox-talk": "Toolbox Talk",
-  jha: "JHA",
-  "site-safety-inspection": "Site Inspection",
-  "incident-report": "Incident Report",
-};
-
-const STATUS_COLORS: Record<string, string> = {
-  submitted: "bg-yellow-900/50 text-yellow-300 border-yellow-600",
-  reviewed: "bg-green-900/50 text-green-300 border-green-600",
-  archived: "bg-gray-700/50 text-gray-400 border-gray-600",
-};
-
-const JOB_STATUS_COLORS: Record<string, string> = {
-  active: "bg-green-900/50 text-green-300 border-green-600",
-  closed: "bg-gray-700/50 text-gray-400 border-gray-600",
-  archived: "bg-red-900/50 text-red-400 border-red-700",
-};
-
-interface DownloadLogEntry {
-  id: string;
-  section_key: string;
-  section_title: string;
-  download_type: string;
-  downloaded_by: string;
-  job_id: string | null;
-  downloaded_at: string;
-}
-
 // ─── New Job Form ─────────────────────────────────────────────────────────────
 
 interface NewJobFormProps {
-  token: string;
-  onCreated: () => void;
-  onCancel: () => void;
+  readonly token: string;
+  readonly onCreated: () => void;
+  readonly onCancel: () => void;
 }
 
 function NewJobForm({ token, onCreated, onCancel }: NewJobFormProps) {
@@ -219,174 +186,162 @@ function NewJobForm({ token, onCreated, onCancel }: NewJobFormProps) {
 // ─── Main Safety Tab ──────────────────────────────────────────────────────────
 
 interface SafetyTabProps {
-  token: string;
+  readonly token: string;
 }
 
+const JOB_TABLE_HEADERS = [
+  "Job #",
+  "Name",
+  "Location",
+  "PM",
+  "Super",
+  "Status",
+  "Actions",
+] as const;
+
+const SUBMISSION_TABLE_HEADERS = [
+  "Date",
+  "Job",
+  "Form Type",
+  "Submitted By",
+  "Prints",
+  "Status",
+  "Actions",
+] as const;
+
+const DOWNLOAD_TABLE_HEADERS = [
+  "Date",
+  "Section",
+  "Type",
+  "Downloaded By",
+  "Job",
+] as const;
+
+const PIPELINE_BADGES = [
+  {
+    key: "submitted",
+    label: "Awaiting Review",
+    color: "text-yellow-400 border-yellow-600 bg-yellow-900/30",
+  },
+  {
+    key: "reviewed",
+    label: "Reviewed",
+    color: "text-green-400 border-green-600 bg-green-900/30",
+  },
+  {
+    key: "archived",
+    label: "Archived",
+    color: "text-gray-400 border-gray-600 bg-gray-700/30",
+  },
+] as const;
+
 export function SafetyTab({ token }: SafetyTabProps) {
-  const [jobs, setJobs] = useState<Job[]>([]);
-  const [jobsLoading, setJobsLoading] = useState(true);
   const [showNewJobForm, setShowNewJobForm] = useState(false);
-
-  const [submissions, setSubmissions] = useState<Submission[]>([]);
-  const [subsLoading, setSubsLoading] = useState(true);
-  const [filterJobId, setFilterJobId] = useState<string>("");
-  const [filterFormType, setFilterFormType] = useState<string>("");
-  const [filterStatus, setFilterStatus] = useState<string>("");
+  const [filterJobId, setFilterJobId] = useState("");
+  const [filterFormType, setFilterFormType] = useState("");
+  const [filterStatus, setFilterStatus] = useState("");
   const [updatingId, setUpdatingId] = useState<string | null>(null);
-  const [downloadLog, setDownloadLog] = useState<DownloadLogEntry[]>([]);
-  const [downloadLogLoading, setDownloadLogLoading] = useState(false);
 
-  const fetchJobs = useCallback(async () => {
-    setJobsLoading(true);
-    try {
-      // Admin token can fetch all job statuses — use the all-statuses variant
-      const res = await fetch("/api/safety/jobs?all=1", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (res.ok) {
-        const json = await res.json();
-        setJobs(json.data as Job[]);
-      }
-    } finally {
-      setJobsLoading(false);
-    }
-  }, [token]);
+  const jobsQuery = useAdminTabData<JobsResponse>(
+    token,
+    "/api/safety/jobs?all=1",
+  );
 
-  const fetchSubmissions = useCallback(async () => {
-    setSubsLoading(true);
-    try {
-      const params = new URLSearchParams();
-      if (filterJobId) params.set("job_id", filterJobId);
-      if (filterFormType) params.set("form_type", filterFormType);
-      if (filterStatus) params.set("status", filterStatus);
-      const res = await fetch(`/api/safety/forms?${params.toString()}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (res.ok) {
-        const json = await res.json();
-        setSubmissions(json.data as Submission[]);
-      }
-    } finally {
-      setSubsLoading(false);
-    }
-  }, [token, filterJobId, filterFormType, filterStatus]);
+  const submissionsUrl = useMemo(
+    () =>
+      buildSubmissionsQuery({
+        job_id: filterJobId,
+        form_type: filterFormType,
+        status: filterStatus,
+      }),
+    [filterJobId, filterFormType, filterStatus],
+  );
 
-  useEffect(() => {
-    void fetchJobs();
-  }, [fetchJobs]);
+  const submissionsQuery = useAdminTabData<SubmissionsResponse>(
+    token,
+    submissionsUrl,
+  );
 
-  useEffect(() => {
-    void fetchSubmissions();
-  }, [fetchSubmissions]);
+  const downloadLogQuery = useAdminTabData<DownloadLogResponse>(
+    token,
+    "/api/safety/downloads",
+  );
 
-  const fetchDownloadLog = useCallback(async () => {
-    setDownloadLogLoading(true);
-    try {
-      const res = await fetch("/api/safety/downloads", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (res.ok) {
-        const json = await res.json();
-        setDownloadLog((json as { data: DownloadLogEntry[] }).data);
-      }
-    } finally {
-      setDownloadLogLoading(false);
-    }
-  }, [token]);
+  const jobs = jobsQuery.data?.data ?? [];
+  const submissions = submissionsQuery.data?.data ?? [];
+  const downloadLog = downloadLogQuery.data?.data ?? [];
 
-  useEffect(() => {
-    void fetchDownloadLog();
-  }, [fetchDownloadLog]);
-
-  // ── Computed values ──────────────────────────────────────────────────────────
+  const jobsLoading = jobsQuery.status === "loading";
+  const subsLoading = submissionsQuery.status === "loading";
+  const downloadLogLoading = downloadLogQuery.status === "loading";
 
   const pipelineCounts = useMemo(
-    () => ({
-      submitted: submissions.filter((s) => s.status === "submitted").length,
-      reviewed: submissions.filter((s) => s.status === "reviewed").length,
-      archived: submissions.filter((s) => s.status === "archived").length,
-    }),
+    () => computePipelineCounts(submissions),
     [submissions],
   );
-
-  const weekAgo = useMemo(
-    () => new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
-    [],
+  const outstanding = useMemo(
+    () => outstandingJobs(jobs, submissions),
+    [jobs, submissions],
   );
-
-  const recentToolboxJobIds = useMemo(
-    () =>
-      new Set(
-        submissions
-          .filter(
-            (s) =>
-              s.form_type === "toolbox-talk" &&
-              new Date(s.created_at) >= weekAgo,
-          )
-          .map((s) => s.job_id),
-      ),
-    [submissions, weekAgo],
-  );
-
-  const outstandingJobs = useMemo(
-    () =>
-      jobs.filter(
-        (j) => j.status === "active" && !recentToolboxJobIds.has(j.id),
-      ),
-    [jobs, recentToolboxJobIds],
-  );
-
   const chartData = useMemo(
-    () =>
-      Object.entries(FORM_TYPE_LABELS).map(([id, name]) => ({
-        name,
-        count: submissions.filter((s) => s.form_type === id).length,
-      })),
+    () => submissionsByFormType(submissions),
     [submissions],
   );
 
-  const patchJobStatus = async (jobId: string, status: JobStatus) => {
-    setUpdatingId(jobId);
-    try {
-      await fetch(`/api/safety/jobs/${encodeURIComponent(jobId)}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ status }),
-      });
-      await fetchJobs();
-    } finally {
-      setUpdatingId(null);
-    }
-  };
+  const submissionsCsv = useMemo(
+    () => safetySubmissionsCsvRows(submissions),
+    [submissions],
+  );
+  const downloadsCsv = useMemo(
+    () => safetyDownloadsCsvRows(downloadLog),
+    [downloadLog],
+  );
 
-  const patchSubmissionStatus = async (
-    subId: string,
-    status: "reviewed" | "archived",
-  ) => {
-    setUpdatingId(subId);
-    try {
-      await fetch(`/api/safety/forms/${encodeURIComponent(subId)}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ status }),
-      });
-      await fetchSubmissions();
-    } finally {
-      setUpdatingId(null);
-    }
-  };
+  const patchJobStatus = useCallback(
+    async (jobId: string, status: JobStatus) => {
+      setUpdatingId(jobId);
+      try {
+        await adminFetch(
+          token,
+          `/api/safety/jobs/${encodeURIComponent(jobId)}`,
+          {
+            method: "PATCH",
+            body: JSON.stringify({ status }),
+          },
+        );
+        await jobsQuery.refetch();
+      } finally {
+        setUpdatingId(null);
+      }
+    },
+    [token, jobsQuery],
+  );
+
+  const patchSubmissionStatus = useCallback(
+    async (subId: string, status: "reviewed" | "archived") => {
+      setUpdatingId(subId);
+      try {
+        await adminFetch(
+          token,
+          `/api/safety/forms/${encodeURIComponent(subId)}`,
+          {
+            method: "PATCH",
+            body: JSON.stringify({ status }),
+          },
+        );
+        await submissionsQuery.refetch();
+      } finally {
+        setUpdatingId(null);
+      }
+    },
+    [token, submissionsQuery],
+  );
 
   return (
     <div className="space-y-8">
       {/* Jobs section */}
-      <div>
-        <div className="flex items-center justify-between mb-4">
+      <section data-print-section="true">
+        <div className="flex items-center justify-between mb-4 gap-3 flex-wrap">
           <h2 className="text-2xl font-black text-white uppercase tracking-wide flex items-center gap-3">
             <MaterialIcon
               icon="work_outline"
@@ -395,13 +350,28 @@ export function SafetyTab({ token }: SafetyTabProps) {
             />
             ACTIVE JOBS
           </h2>
-          <button
-            onClick={() => setShowNewJobForm((v) => !v)}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-brand-primary hover:bg-brand-primary-dark text-white text-sm font-black rounded-lg transition-colors"
-          >
-            <MaterialIcon icon={showNewJobForm ? "close" : "add"} size="sm" />
-            {showNewJobForm ? "Cancel" : "New Job"}
-          </button>
+          <div data-print-hide="true" className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => void jobsQuery.refetch()}
+              disabled={jobsQuery.isFetching}
+              className="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-3 py-2 text-sm font-black uppercase tracking-wide text-gray-200 hover:border-brand-secondary hover:text-white disabled:opacity-50 transition-colors"
+            >
+              <MaterialIcon
+                icon={jobsQuery.isFetching ? "hourglass_empty" : "refresh"}
+                size="sm"
+              />
+              Refresh
+            </button>
+            <button
+              type="button"
+              onClick={() => setShowNewJobForm((v) => !v)}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-brand-primary hover:bg-brand-primary-dark text-white text-sm font-black rounded-lg transition-colors"
+            >
+              <MaterialIcon icon={showNewJobForm ? "close" : "add"} size="sm" />
+              {showNewJobForm ? "Cancel" : "New Job"}
+            </button>
+          </div>
         </div>
 
         {showNewJobForm && (
@@ -409,14 +379,14 @@ export function SafetyTab({ token }: SafetyTabProps) {
             token={token}
             onCreated={() => {
               setShowNewJobForm(false);
-              void fetchJobs();
+              void jobsQuery.refetch();
             }}
             onCancel={() => setShowNewJobForm(false)}
           />
         )}
 
         <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary overflow-hidden">
-          {jobsLoading ? (
+          {jobsLoading && jobs.length === 0 ? (
             <div className="py-12 text-center text-gray-500">
               <MaterialIcon
                 icon="hourglass_empty"
@@ -441,17 +411,10 @@ export function SafetyTab({ token }: SafetyTabProps) {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-gray-700 bg-gray-900/50">
-                    {[
-                      "Job #",
-                      "Name",
-                      "Location",
-                      "PM",
-                      "Super",
-                      "Status",
-                      "Actions",
-                    ].map((h) => (
+                    {JOB_TABLE_HEADERS.map((h) => (
                       <th
                         key={h}
+                        scope="col"
                         className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
                       >
                         {h}
@@ -461,84 +424,23 @@ export function SafetyTab({ token }: SafetyTabProps) {
                 </thead>
                 <tbody className="divide-y divide-gray-700/50">
                   {jobs.map((job) => (
-                    <tr
+                    <JobRow
                       key={job.id}
-                      className="hover:bg-gray-700/30 transition-colors"
-                    >
-                      <td className="px-4 py-3 font-mono text-brand-secondary font-bold">
-                        {job.job_number}
-                      </td>
-                      <td className="px-4 py-3 text-white font-semibold">
-                        {job.job_name}
-                      </td>
-                      <td className="px-4 py-3 text-gray-400">
-                        {job.location ?? "—"}
-                      </td>
-                      <td className="px-4 py-3 text-gray-400">
-                        {job.pm_name ?? "—"}
-                      </td>
-                      <td className="px-4 py-3 text-gray-400">
-                        {job.super_name ?? "—"}
-                      </td>
-                      <td className="px-4 py-3">
-                        <span
-                          className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold border uppercase ${JOB_STATUS_COLORS[job.status] ?? ""}`}
-                        >
-                          {job.status}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3">
-                        <div className="flex items-center gap-1">
-                          {job.status !== "closed" && (
-                            <button
-                              onClick={() =>
-                                void patchJobStatus(job.id, "closed")
-                              }
-                              disabled={updatingId === job.id}
-                              title="Close job"
-                              className="p-1.5 rounded-lg text-gray-400 hover:text-yellow-400 hover:bg-yellow-900/30 transition-colors disabled:opacity-40"
-                            >
-                              <MaterialIcon icon="check_circle" size="sm" />
-                            </button>
-                          )}
-                          {job.status !== "active" && (
-                            <button
-                              onClick={() =>
-                                void patchJobStatus(job.id, "active")
-                              }
-                              disabled={updatingId === job.id}
-                              title="Reactivate job"
-                              className="p-1.5 rounded-lg text-gray-400 hover:text-green-400 hover:bg-green-900/30 transition-colors disabled:opacity-40"
-                            >
-                              <MaterialIcon icon="play_circle" size="sm" />
-                            </button>
-                          )}
-                          {job.status !== "archived" && (
-                            <button
-                              onClick={() =>
-                                void patchJobStatus(job.id, "archived")
-                              }
-                              disabled={updatingId === job.id}
-                              title="Archive job"
-                              className="p-1.5 rounded-lg text-gray-400 hover:text-red-400 hover:bg-red-900/30 transition-colors disabled:opacity-40"
-                            >
-                              <MaterialIcon icon="archive" size="sm" />
-                            </button>
-                          )}
-                        </div>
-                      </td>
-                    </tr>
+                      job={job}
+                      updating={updatingId === job.id}
+                      onPatchStatus={patchJobStatus}
+                    />
                   ))}
                 </tbody>
               </table>
             </div>
           )}
         </div>
-      </div>
+      </section>
 
       {/* Outstanding jobs panel */}
-      {outstandingJobs.length > 0 && (
-        <div>
+      {outstanding.length > 0 && (
+        <section data-print-section="true">
           <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
             <MaterialIcon
               icon="warning_amber"
@@ -549,7 +451,7 @@ export function SafetyTab({ token }: SafetyTabProps) {
           </h2>
           <div className="bg-amber-900/20 border-2 border-amber-600/60 rounded-xl p-4">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {outstandingJobs.map((j) => (
+              {outstanding.map((j) => (
                 <div
                   key={j.id}
                   className="bg-gray-900/60 border border-amber-700/40 rounded-lg px-4 py-3"
@@ -569,44 +471,39 @@ export function SafetyTab({ token }: SafetyTabProps) {
               ))}
             </div>
           </div>
-        </div>
+        </section>
       )}
 
       {/* Submissions section */}
-      <div>
-        <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide flex items-center gap-3">
-          <MaterialIcon
-            icon="assignment"
-            size="lg"
-            className="text-brand-secondary"
-          />
-          FORM SUBMISSIONS
-        </h2>
+      <section data-print-section="true">
+        <div className="flex items-center justify-between mb-4 gap-3 flex-wrap">
+          <h2 className="text-2xl font-black text-white uppercase tracking-wide flex items-center gap-3">
+            <MaterialIcon
+              icon="assignment"
+              size="lg"
+              className="text-brand-secondary"
+            />
+            FORM SUBMISSIONS
+          </h2>
+          <div data-print-hide="true" className="flex items-center gap-2">
+            <ExportCsvButton
+              filename={`mh-safety-submissions-${new Date().toISOString().slice(0, 10)}.csv`}
+              headers={SAFETY_SUBMISSIONS_CSV_HEADERS}
+              rows={submissionsCsv}
+            />
+          </div>
+        </div>
 
         {/* Pipeline counts */}
         <div className="flex flex-wrap gap-3 mb-4">
-          {[
-            {
-              label: "Awaiting Review",
-              count: pipelineCounts.submitted,
-              color: "text-yellow-400 border-yellow-600 bg-yellow-900/30",
-            },
-            {
-              label: "Reviewed",
-              count: pipelineCounts.reviewed,
-              color: "text-green-400 border-green-600 bg-green-900/30",
-            },
-            {
-              label: "Archived",
-              count: pipelineCounts.archived,
-              color: "text-gray-400 border-gray-600 bg-gray-700/30",
-            },
-          ].map(({ label, count, color }) => (
+          {PIPELINE_BADGES.map(({ key, label, color }) => (
             <div
-              key={label}
+              key={key}
               className={`inline-flex items-center gap-2 px-4 py-2 border rounded-xl ${color}`}
             >
-              <span className="text-xl font-black leading-none">{count}</span>
+              <span className="text-xl font-black leading-none">
+                {pipelineCounts[key]}
+              </span>
               <span className="text-xs font-semibold uppercase tracking-wide">
                 {label}
               </span>
@@ -620,13 +517,14 @@ export function SafetyTab({ token }: SafetyTabProps) {
             <p className="text-xs font-black text-gray-400 uppercase tracking-wider mb-3">
               Submissions by Form Type
             </p>
-            <SafetyBarChart data={chartData} />
+            <SafetyBarChart data={[...chartData]} />
           </div>
         )}
 
         {/* Filter bar */}
-        <div className="flex flex-wrap gap-3 mb-4">
+        <div data-print-hide="true" className="flex flex-wrap gap-3 mb-4">
           <select
+            aria-label="Filter by job"
             value={filterJobId}
             onChange={(e) => setFilterJobId(e.target.value)}
             className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
@@ -640,6 +538,7 @@ export function SafetyTab({ token }: SafetyTabProps) {
           </select>
 
           <select
+            aria-label="Filter by form type"
             value={filterFormType}
             onChange={(e) => setFilterFormType(e.target.value)}
             className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
@@ -653,6 +552,7 @@ export function SafetyTab({ token }: SafetyTabProps) {
           </select>
 
           <select
+            aria-label="Filter by status"
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
             className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-secondary/50"
@@ -664,16 +564,21 @@ export function SafetyTab({ token }: SafetyTabProps) {
           </select>
 
           <button
-            onClick={() => void fetchSubmissions()}
-            className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg text-sm transition-colors inline-flex items-center gap-1.5"
+            type="button"
+            onClick={() => void submissionsQuery.refetch()}
+            disabled={submissionsQuery.isFetching}
+            className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg text-sm transition-colors inline-flex items-center gap-1.5 disabled:opacity-50"
           >
-            <MaterialIcon icon="refresh" size="sm" />
+            <MaterialIcon
+              icon={submissionsQuery.isFetching ? "hourglass_empty" : "refresh"}
+              size="sm"
+            />
             Refresh
           </button>
         </div>
 
         <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary overflow-hidden">
-          {subsLoading ? (
+          {subsLoading && submissions.length === 0 ? (
             <div className="py-12 text-center text-gray-500">
               <MaterialIcon
                 icon="hourglass_empty"
@@ -696,17 +601,10 @@ export function SafetyTab({ token }: SafetyTabProps) {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-gray-700 bg-gray-900/50">
-                    {[
-                      "Date",
-                      "Job",
-                      "Form Type",
-                      "Submitted By",
-                      "Prints",
-                      "Status",
-                      "Actions",
-                    ].map((h) => (
+                    {SUBMISSION_TABLE_HEADERS.map((h) => (
                       <th
                         key={h}
+                        scope="col"
                         className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
                       >
                         {h}
@@ -715,104 +613,24 @@ export function SafetyTab({ token }: SafetyTabProps) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-700/50">
-                  {submissions.map((sub) => {
-                    const date = new Date(sub.created_at).toLocaleDateString(
-                      "en-US",
-                      {
-                        month: "short",
-                        day: "numeric",
-                        year: "2-digit",
-                      },
-                    );
-                    return (
-                      <tr
-                        key={sub.id}
-                        className="hover:bg-gray-700/30 transition-colors"
-                      >
-                        <td className="px-4 py-3 text-gray-400 whitespace-nowrap">
-                          {date}
-                        </td>
-                        <td className="px-4 py-3">
-                          <div>
-                            <p className="text-brand-secondary font-mono font-bold text-xs">
-                              {sub.job_number}
-                            </p>
-                            <p className="text-gray-400 text-xs">
-                              {sub.job_name}
-                            </p>
-                          </div>
-                        </td>
-                        <td className="px-4 py-3 text-white font-semibold whitespace-nowrap">
-                          {FORM_TYPE_LABELS[sub.form_type] ?? sub.form_type}
-                        </td>
-                        <td className="px-4 py-3 text-gray-400">
-                          {sub.submitted_by}
-                        </td>
-                        <td className="px-4 py-3 text-center text-gray-400">
-                          {sub.print_count}
-                        </td>
-                        <td className="px-4 py-3">
-                          <span
-                            className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold border uppercase ${STATUS_COLORS[sub.status] ?? ""}`}
-                          >
-                            {sub.status}
-                          </span>
-                        </td>
-                        <td className="px-4 py-3">
-                          <div className="flex items-center gap-1">
-                            {/* View / Print */}
-                            <a
-                              href={`/safety/print/${encodeURIComponent(sub.id)}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              title="View &amp; Print"
-                              className="p-1.5 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-blue-900/30 transition-colors"
-                            >
-                              <MaterialIcon icon="open_in_new" size="sm" />
-                            </a>
-
-                            {/* Mark Reviewed */}
-                            {sub.status === "submitted" && (
-                              <button
-                                onClick={() =>
-                                  void patchSubmissionStatus(sub.id, "reviewed")
-                                }
-                                disabled={updatingId === sub.id}
-                                title="Mark Reviewed"
-                                className="p-1.5 rounded-lg text-gray-400 hover:text-green-400 hover:bg-green-900/30 transition-colors disabled:opacity-40"
-                              >
-                                <MaterialIcon icon="check_circle" size="sm" />
-                              </button>
-                            )}
-
-                            {/* Archive */}
-                            {sub.status !== "archived" && (
-                              <button
-                                onClick={() =>
-                                  void patchSubmissionStatus(sub.id, "archived")
-                                }
-                                disabled={updatingId === sub.id}
-                                title="Archive"
-                                className="p-1.5 rounded-lg text-gray-400 hover:text-red-400 hover:bg-red-900/30 transition-colors disabled:opacity-40"
-                              >
-                                <MaterialIcon icon="archive" size="sm" />
-                              </button>
-                            )}
-                          </div>
-                        </td>
-                      </tr>
-                    );
-                  })}
+                  {submissions.map((sub) => (
+                    <SubmissionRow
+                      key={sub.id}
+                      submission={sub}
+                      updating={updatingId === sub.id}
+                      onPatchStatus={patchSubmissionStatus}
+                    />
+                  ))}
                 </tbody>
               </table>
             </div>
           )}
         </div>
-      </div>
+      </section>
 
       {/* Download log section */}
-      <div>
-        <div className="flex items-center justify-between mb-4">
+      <section data-print-section="true">
+        <div className="flex items-center justify-between mb-4 gap-3 flex-wrap">
           <h2 className="text-2xl font-black text-white uppercase tracking-wide flex items-center gap-3">
             <MaterialIcon
               icon="download"
@@ -821,16 +639,30 @@ export function SafetyTab({ token }: SafetyTabProps) {
             />
             DOWNLOAD LOG
           </h2>
-          <button
-            onClick={() => void fetchDownloadLog()}
-            className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg text-sm transition-colors inline-flex items-center gap-1.5"
-          >
-            <MaterialIcon icon="refresh" size="sm" />
-            Refresh
-          </button>
+          <div data-print-hide="true" className="flex items-center gap-2">
+            <ExportCsvButton
+              filename={`mh-safety-downloads-${new Date().toISOString().slice(0, 10)}.csv`}
+              headers={SAFETY_DOWNLOADS_CSV_HEADERS}
+              rows={downloadsCsv}
+            />
+            <button
+              type="button"
+              onClick={() => void downloadLogQuery.refetch()}
+              disabled={downloadLogQuery.isFetching}
+              className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg text-sm transition-colors inline-flex items-center gap-1.5 disabled:opacity-50"
+            >
+              <MaterialIcon
+                icon={
+                  downloadLogQuery.isFetching ? "hourglass_empty" : "refresh"
+                }
+                size="sm"
+              />
+              Refresh
+            </button>
+          </div>
         </div>
         <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl border-2 border-brand-primary overflow-hidden">
-          {downloadLogLoading ? (
+          {downloadLogLoading && downloadLog.length === 0 ? (
             <div className="py-12 text-center text-gray-500">
               <MaterialIcon
                 icon="hourglass_empty"
@@ -853,16 +685,15 @@ export function SafetyTab({ token }: SafetyTabProps) {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-gray-700 bg-gray-900/50">
-                    {["Date", "Section", "Type", "Downloaded By", "Job"].map(
-                      (h) => (
-                        <th
-                          key={h}
-                          className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
-                        >
-                          {h}
-                        </th>
-                      ),
-                    )}
+                    {DOWNLOAD_TABLE_HEADERS.map((h) => (
+                      <th
+                        key={h}
+                        scope="col"
+                        className="text-left px-4 py-3 text-xs font-black text-gray-400 uppercase tracking-wider"
+                      >
+                        {h}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-700/50">
@@ -872,14 +703,7 @@ export function SafetyTab({ token }: SafetyTabProps) {
                       className="hover:bg-gray-700/30 transition-colors"
                     >
                       <td className="px-4 py-3 text-gray-400 whitespace-nowrap">
-                        {new Date(entry.downloaded_at).toLocaleDateString(
-                          "en-US",
-                          {
-                            month: "short",
-                            day: "numeric",
-                            year: "2-digit",
-                          },
-                        )}
+                        {formatSafetyDate(entry.downloaded_at)}
                       </td>
                       <td className="px-4 py-3">
                         <p className="text-white font-semibold text-xs">
@@ -911,7 +735,162 @@ export function SafetyTab({ token }: SafetyTabProps) {
             </div>
           )}
         </div>
-      </div>
+      </section>
     </div>
+  );
+}
+
+// ─── Job Row ──────────────────────────────────────────────────────────────────
+
+interface JobRowProps {
+  readonly job: Job;
+  readonly updating: boolean;
+  readonly onPatchStatus: (
+    jobId: string,
+    status: JobStatus,
+  ) => void | Promise<void>;
+}
+
+function JobRow({ job, updating, onPatchStatus }: JobRowProps) {
+  return (
+    <tr className="hover:bg-gray-700/30 transition-colors">
+      <td className="px-4 py-3 font-mono text-brand-secondary font-bold">
+        {job.job_number}
+      </td>
+      <td className="px-4 py-3 text-white font-semibold">{job.job_name}</td>
+      <td className="px-4 py-3 text-gray-400">{job.location ?? "—"}</td>
+      <td className="px-4 py-3 text-gray-400">{job.pm_name ?? "—"}</td>
+      <td className="px-4 py-3 text-gray-400">{job.super_name ?? "—"}</td>
+      <td className="px-4 py-3">
+        <span
+          className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold border uppercase ${JOB_STATUS_COLORS[job.status] ?? ""}`}
+        >
+          {job.status}
+        </span>
+      </td>
+      <td data-print-hide="true" className="px-4 py-3">
+        <div className="flex items-center gap-1">
+          {job.status !== "closed" && (
+            <button
+              type="button"
+              onClick={() => void onPatchStatus(job.id, "closed")}
+              disabled={updating}
+              title="Close job"
+              aria-label={`Close job ${job.job_number}`}
+              className="p-1.5 rounded-lg text-gray-400 hover:text-yellow-400 hover:bg-yellow-900/30 transition-colors disabled:opacity-40"
+            >
+              <MaterialIcon icon="check_circle" size="sm" />
+            </button>
+          )}
+          {job.status !== "active" && (
+            <button
+              type="button"
+              onClick={() => void onPatchStatus(job.id, "active")}
+              disabled={updating}
+              title="Reactivate job"
+              aria-label={`Reactivate job ${job.job_number}`}
+              className="p-1.5 rounded-lg text-gray-400 hover:text-green-400 hover:bg-green-900/30 transition-colors disabled:opacity-40"
+            >
+              <MaterialIcon icon="play_circle" size="sm" />
+            </button>
+          )}
+          {job.status !== "archived" && (
+            <button
+              type="button"
+              onClick={() => void onPatchStatus(job.id, "archived")}
+              disabled={updating}
+              title="Archive job"
+              aria-label={`Archive job ${job.job_number}`}
+              className="p-1.5 rounded-lg text-gray-400 hover:text-red-400 hover:bg-red-900/30 transition-colors disabled:opacity-40"
+            >
+              <MaterialIcon icon="archive" size="sm" />
+            </button>
+          )}
+        </div>
+      </td>
+    </tr>
+  );
+}
+
+// ─── Submission Row ───────────────────────────────────────────────────────────
+
+interface SubmissionRowProps {
+  readonly submission: import("@/lib/dashboard/safety").Submission;
+  readonly updating: boolean;
+  readonly onPatchStatus: (
+    subId: string,
+    status: "reviewed" | "archived",
+  ) => void | Promise<void>;
+}
+
+function SubmissionRow({
+  submission: sub,
+  updating,
+  onPatchStatus,
+}: SubmissionRowProps) {
+  return (
+    <tr className="hover:bg-gray-700/30 transition-colors">
+      <td className="px-4 py-3 text-gray-400 whitespace-nowrap">
+        {formatSafetyDate(sub.created_at)}
+      </td>
+      <td className="px-4 py-3">
+        <div>
+          <p className="text-brand-secondary font-mono font-bold text-xs">
+            {sub.job_number}
+          </p>
+          <p className="text-gray-400 text-xs">{sub.job_name}</p>
+        </div>
+      </td>
+      <td className="px-4 py-3 text-white font-semibold whitespace-nowrap">
+        {formatFormType(sub.form_type)}
+      </td>
+      <td className="px-4 py-3 text-gray-400">{sub.submitted_by}</td>
+      <td className="px-4 py-3 text-center text-gray-400">{sub.print_count}</td>
+      <td className="px-4 py-3">
+        <span
+          className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold border uppercase ${STATUS_COLORS[sub.status] ?? ""}`}
+        >
+          {sub.status}
+        </span>
+      </td>
+      <td data-print-hide="true" className="px-4 py-3">
+        <div className="flex items-center gap-1">
+          <a
+            href={`/safety/print/${encodeURIComponent(sub.id)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="View &amp; Print"
+            aria-label="View and print submission"
+            className="p-1.5 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-blue-900/30 transition-colors"
+          >
+            <MaterialIcon icon="open_in_new" size="sm" />
+          </a>
+          {sub.status === "submitted" && (
+            <button
+              type="button"
+              onClick={() => void onPatchStatus(sub.id, "reviewed")}
+              disabled={updating}
+              title="Mark Reviewed"
+              aria-label="Mark submission reviewed"
+              className="p-1.5 rounded-lg text-gray-400 hover:text-green-400 hover:bg-green-900/30 transition-colors disabled:opacity-40"
+            >
+              <MaterialIcon icon="check_circle" size="sm" />
+            </button>
+          )}
+          {sub.status !== "archived" && (
+            <button
+              type="button"
+              onClick={() => void onPatchStatus(sub.id, "archived")}
+              disabled={updating}
+              title="Archive"
+              aria-label="Archive submission"
+              className="p-1.5 rounded-lg text-gray-400 hover:text-red-400 hover:bg-red-900/30 transition-colors disabled:opacity-40"
+            >
+              <MaterialIcon icon="archive" size="sm" />
+            </button>
+          )}
+        </div>
+      </td>
+    </tr>
   );
 }

@@ -54,6 +54,8 @@
     "cspell:unknown": "bash scripts/utilities/list-cspell-unknown-words.sh",
     "docs:extract": "node documents/scripts/extract.mjs",
     "docs:extract-word": "node documents/scripts/extract-word.mjs",
+    "docs:build-public": "node documents/scripts/build-safety-manual-public.mjs",
+    "prebuild": "node documents/scripts/build-safety-manual-public.mjs",
     "docs:ocr": "node documents/scripts/ocr-pdf.mjs",
     "docs:generate": "node documents/scripts/generate.mjs",
     "docs:generate:cover": "node documents/scripts/generate.mjs --template cover",

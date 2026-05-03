@@ -1,202 +1,72 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-
-type AccessEventType =
-  | "login"
-  | "logout"
-  | "download"
-  | "form_view"
-  | "form_submit"
-  | "manual_view"
-  | "joining_view"
-  | "compliance_warning";
-
-interface AccessLogEntry {
-  id: string;
-  event_type: AccessEventType;
-  role: "admin" | "superintendent" | "worker" | "traveler" | string;
-  user_name: string;
-  resource_key: string | null;
-  resource_title: string | null;
-  job_id: string | null;
-  ip_address: string | null;
-  user_agent: string | null;
-  accessed_at: string;
-}
-
-interface AccessLogResponse {
-  success: boolean;
-  data: AccessLogEntry[];
-  total: number;
-}
+import { ExportCsvButton } from "@/components/dashboard/ExportCsvButton";
+import { useAdminTabData } from "@/hooks/useAdminTabData";
+import {
+  ACCESS_LOG_CSV_HEADERS,
+  accessLogCsvRows,
+  buildAccessLogQuery,
+  EVENT_LABELS,
+  formatAccessTimestamp,
+  formatEventLabel,
+  ROLE_BADGE_CLASSES,
+  summarizeUserAgent,
+  type AccessLogEntry,
+  type AccessLogResponse,
+} from "@/lib/dashboard/access-log";
 
 interface AccessLogTabProps {
-  token: string;
+  readonly token: string;
 }
 
-const EVENT_LABELS: Record<AccessEventType, string> = {
-  login: "Login",
-  logout: "Logout",
-  download: "Download",
-  form_view: "Form View",
-  form_submit: "Form Submit",
-  manual_view: "Manual View",
-  joining_view: "Joining View",
-  compliance_warning: "Compliance Warning",
-};
-
-const ROLE_BADGES: Record<string, string> = {
-  admin: "bg-brand-primary text-white",
-  superintendent: "bg-blue-600 text-white",
-  worker: "bg-green-600 text-white",
-  traveler: "bg-amber-500 text-white",
-};
-
-function formatTimestamp(value: string): string {
-  return new Date(value).toLocaleString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
-  });
-}
-
-function formatEventLabel(value: string): string {
-  if (value in EVENT_LABELS) {
-    return EVENT_LABELS[value as AccessEventType];
-  }
-
-  return value
-    .split("_")
-    .filter(Boolean)
-    .map((segment) => segment[0]?.toUpperCase() + segment.slice(1))
-    .join(" ");
-}
-
-function summarizeUserAgent(userAgent: string | null): string {
-  if (!userAgent) {
-    return "Unknown";
-  }
-
-  const browser = userAgent.includes("Edg/")
-    ? "Edge"
-    : userAgent.includes("Chrome/")
-      ? "Chrome"
-      : userAgent.includes("Firefox/")
-        ? "Firefox"
-        : userAgent.includes("Safari/") && !userAgent.includes("Chrome/")
-          ? "Safari"
-          : "Browser";
-
-  const os = userAgent.includes("Windows")
-    ? "Windows"
-    : userAgent.includes("Mac OS X")
-      ? "macOS"
-      : userAgent.includes("Android")
-        ? "Android"
-        : userAgent.includes("iPhone") || userAgent.includes("iPad")
-          ? "iOS"
-          : userAgent.includes("Linux")
-            ? "Linux"
-            : "Unknown OS";
-
-  return `${browser} / ${os}`;
-}
+const REFRESH_INTERVAL_MS = 30_000;
+const SKELETON_KEYS = [
+  "skeleton-1",
+  "skeleton-2",
+  "skeleton-3",
+  "skeleton-4",
+  "skeleton-5",
+];
 
 export function AccessLogTab({ token }: AccessLogTabProps) {
-  const [entries, setEntries] = useState<AccessLogEntry[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [refreshing, setRefreshing] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [total, setTotal] = useState(0);
   const [roleFilter, setRoleFilter] = useState("");
   const [eventTypeFilter, setEventTypeFilter] = useState("");
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
 
-  const queryString = useMemo(() => {
-    const params = new URLSearchParams();
-    if (roleFilter) {
-      params.set("role", roleFilter);
-    }
-    if (eventTypeFilter) {
-      params.set("event_type", eventTypeFilter);
-    }
-    if (fromDate) {
-      params.set("from_date", new Date(fromDate).toISOString());
-    }
-    if (toDate) {
-      params.set("to_date", new Date(`${toDate}T23:59:59.999Z`).toISOString());
-    }
-    params.set("limit", "250");
-    return params.toString();
+  const url = useMemo(() => {
+    const qs = buildAccessLogQuery({
+      role: roleFilter,
+      eventType: eventTypeFilter,
+      fromDate,
+      toDate,
+    });
+    return `/api/safety/access-log?${qs}`;
   }, [roleFilter, eventTypeFilter, fromDate, toDate]);
 
-  const fetchAccessLog = useCallback(
-    async (backgroundRefresh = false) => {
-      if (backgroundRefresh) {
-        setRefreshing(true);
-      } else {
-        setLoading(true);
-      }
-
-      setError(null);
-      try {
-        const response = await fetch(
-          `/api/safety/access-log${queryString ? `?${queryString}` : ""}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          },
-        );
-
-        const payload = (await response.json()) as
-          | AccessLogResponse
-          | { error?: string };
-
-        if (!response.ok || !("success" in payload)) {
-          const errPayload = payload as { error?: string };
-          throw new Error(errPayload.error ?? "Failed to load access log");
-        }
-
-        const okPayload = payload as AccessLogResponse;
-        setEntries(okPayload.data);
-        setTotal(okPayload.total);
-      } catch (fetchError) {
-        setError(
-          fetchError instanceof Error
-            ? fetchError.message
-            : "Failed to load access log",
-        );
-      } finally {
-        setLoading(false);
-        setRefreshing(false);
-      }
-    },
-    [queryString, token],
-  );
+  const { data, status, error, isFetching, refetch } =
+    useAdminTabData<AccessLogResponse>(token, url);
 
   useEffect(() => {
-    void fetchAccessLog();
-  }, [fetchAccessLog]);
+    if (!token) return;
+    const id = window.setInterval(() => void refetch(), REFRESH_INTERVAL_MS);
+    return () => window.clearInterval(id);
+  }, [token, refetch]);
 
-  useEffect(() => {
-    const intervalId = window.setInterval(() => {
-      void fetchAccessLog(true);
-    }, 30000);
+  const entries: ReadonlyArray<AccessLogEntry> = data?.data ?? [];
+  const total = data?.total ?? 0;
+  const isLoading = status === "loading";
 
-    return () => {
-      window.clearInterval(intervalId);
-    };
-  }, [fetchAccessLog]);
+  const csvRows = useMemo(() => accessLogCsvRows(entries), [entries]);
 
   return (
     <div className="space-y-6">
-      <div className="rounded-xl border border-gray-700 bg-gray-800/80 p-5">
+      <section
+        data-print-section="true"
+        className="rounded-xl border border-gray-700 bg-gray-800/80 p-5"
+      >
         <div className="flex items-center justify-between gap-4 flex-wrap mb-4">
           <div>
             <h2 className="text-2xl font-black text-white uppercase tracking-wide flex items-center gap-3">
@@ -212,19 +82,31 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
               compliance events.
             </p>
           </div>
-          <button
-            onClick={() => void fetchAccessLog(true)}
-            className="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-4 py-2 text-sm font-black uppercase tracking-wide text-gray-200 hover:border-brand-secondary hover:text-white transition-colors"
-          >
-            <MaterialIcon
-              icon={refreshing ? "hourglass_empty" : "refresh"}
-              size="sm"
+          <div data-print-hide="true" className="flex items-center gap-2">
+            <ExportCsvButton
+              filename={`mh-access-log-${new Date().toISOString().slice(0, 10)}.csv`}
+              headers={ACCESS_LOG_CSV_HEADERS}
+              rows={csvRows}
             />
-            Refresh
-          </button>
+            <button
+              type="button"
+              onClick={() => void refetch()}
+              disabled={isFetching}
+              className="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-4 py-2 text-sm font-black uppercase tracking-wide text-gray-200 hover:border-brand-secondary hover:text-white disabled:opacity-50 transition-colors"
+            >
+              <MaterialIcon
+                icon={isFetching ? "hourglass_empty" : "refresh"}
+                size="sm"
+              />
+              Refresh
+            </button>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
+        <div
+          data-print-hide="true"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3"
+        >
           <label className="text-xs font-semibold uppercase tracking-wider text-gray-400">
             Role
             <select
@@ -276,7 +158,7 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
             />
           </label>
         </div>
-      </div>
+      </section>
 
       {error ? (
         <div className="rounded-xl border border-red-700 bg-red-900/30 p-4 text-red-200">
@@ -292,11 +174,11 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
         </div>
       ) : null}
 
-      {loading ? (
+      {isLoading ? (
         <div className="space-y-3">
-          {Array.from({ length: 5 }).map((_, index) => (
+          {SKELETON_KEYS.map((key) => (
             <div
-              key={`access-log-skeleton-${index}`}
+              key={key}
               className="h-14 rounded-lg border border-gray-700 bg-gray-800/60 animate-pulse"
             />
           ))}
@@ -311,7 +193,10 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
           <p className="text-sm font-semibold">No access events yet</p>
         </div>
       ) : (
-        <div className="rounded-xl border border-gray-700 bg-gray-800/80 overflow-hidden">
+        <section
+          data-print-section="true"
+          className="rounded-xl border border-gray-700 bg-gray-800/80 overflow-hidden"
+        >
           <div className="px-4 py-3 border-b border-gray-700 text-xs uppercase tracking-wider text-gray-400 font-bold">
             {total} event{total === 1 ? "" : "s"}
           </div>
@@ -319,13 +204,27 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
             <table className="min-w-full text-sm">
               <thead className="bg-gray-900/80 text-gray-400 uppercase tracking-wider text-xs">
                 <tr>
-                  <th className="px-4 py-3 text-left">Time</th>
-                  <th className="px-4 py-3 text-left">Name</th>
-                  <th className="px-4 py-3 text-left">Role</th>
-                  <th className="px-4 py-3 text-left">Event</th>
-                  <th className="px-4 py-3 text-left">Resource</th>
-                  <th className="px-4 py-3 text-left">IP Address</th>
-                  <th className="px-4 py-3 text-left">Device / Browser</th>
+                  <th scope="col" className="px-4 py-3 text-left">
+                    Time
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left">
+                    Name
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left">
+                    Role
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left">
+                    Event
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left">
+                    Resource
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left">
+                    IP Address
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left">
+                    Device / Browser
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
@@ -335,14 +234,17 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
                     className="hover:bg-gray-700/30 transition-colors text-gray-200"
                   >
                     <td className="px-4 py-3 whitespace-nowrap">
-                      {formatTimestamp(entry.accessed_at)}
+                      {formatAccessTimestamp(entry.accessed_at)}
                     </td>
                     <td className="px-4 py-3 font-semibold">
                       {entry.user_name}
                     </td>
                     <td className="px-4 py-3">
                       <span
-                        className={`inline-flex rounded-full px-2.5 py-1 text-xs font-black uppercase tracking-wide ${ROLE_BADGES[entry.role] ?? "bg-gray-600 text-white"}`}
+                        className={`inline-flex rounded-full px-2.5 py-1 text-xs font-black uppercase tracking-wide ${
+                          ROLE_BADGE_CLASSES[entry.role] ??
+                          "bg-gray-600 text-white"
+                        }`}
                       >
                         {entry.role}
                       </span>
@@ -364,7 +266,7 @@ export function AccessLogTab({ token }: AccessLogTabProps) {
               </tbody>
             </table>
           </div>
-        </div>
+        </section>
       )}
     </div>
   );

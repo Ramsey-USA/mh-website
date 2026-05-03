@@ -1,8 +1,9 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { PageTrackingClient } from "@/components/analytics";
+import { HubCard } from "@/components/hub/HubCard";
 import { manuals } from "@/lib/data/documents";
+import { HUB_CARDS, ADMIN_CARDS } from "@/lib/hub/cards";
 
 export const metadata: Metadata = {
   title: "Operations Hub | MH Construction",
@@ -13,70 +14,6 @@ export const metadata: Metadata = {
     follow: false,
   },
 };
-
-const HUB_CARDS = [
-  {
-    title: "Safety Program",
-    subtitle: "Credentials, standards, and program overview",
-    href: "/safety",
-    icon: "shield",
-    badge: "Program",
-  },
-  {
-    title: "Incident Reporting",
-    subtitle: "Submit incident reports directly from the field",
-    href: "/safety/incident-report",
-    icon: "report",
-    badge: "Direct Entry",
-  },
-  {
-    title: "Employee Handbook",
-    subtitle: "Placeholder ready for document upload and PDF publishing",
-    href: "/employee-handbook",
-    icon: "menu_book",
-    badge: "Placeholder",
-  },
-  {
-    title: "Field Forms",
-    subtitle: "Toolbox talks, JHA, inspections, and safety forms",
-    href: "/resources",
-    icon: "description",
-    badge: "Role-Gated Downloads",
-  },
-  {
-    title: "Manuals and SOPs",
-    subtitle: "Safety manuals and operations documentation",
-    href: "/resources",
-    icon: "library_books",
-    badge: "Reference",
-  },
-  {
-    title: "Training and Toolbox Talks",
-    subtitle: "Training records and toolbox workflow materials",
-    href: "/resources",
-    icon: "school",
-    badge: "Field Ready",
-  },
-] as const;
-
-const ADMIN_CARDS = [
-  {
-    title: "My Team Profile",
-    subtitle:
-      "Update your professional bio, skills, and career highlights shown on the public team page",
-    href: "/hub/profile",
-    icon: "edit_note",
-    badge: "Admin Only",
-  },
-  {
-    title: "Review Profiles",
-    subtitle:
-      "Approve or reject team profile submissions before they appear on the public team page",
-    href: "/hub/profile/review",
-    icon: "rate_review",
-    badge: "Approver Only",
-  },
-] as const;
 
 export default function HubPage() {
   const safetyManual = manuals.find((doc) => doc.id === "safety-manual");
@@ -128,30 +65,7 @@ export default function HubPage() {
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {HUB_CARDS.map((card) => (
-              <Link
-                key={card.title}
-                href={card.href}
-                className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-primary/40 hover:shadow-lg dark:border-slate-700 dark:bg-gray-900"
-              >
-                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-primary/10 text-brand-primary transition-colors group-hover:bg-brand-primary group-hover:text-white">
-                  <MaterialIcon icon={card.icon} size="md" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                  {card.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                  {card.subtitle}
-                </p>
-                <div className="mt-4 flex items-center justify-between">
-                  <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-                    {card.badge}
-                  </span>
-                  <span className="inline-flex items-center gap-1 text-sm font-bold text-brand-primary">
-                    Open
-                    <MaterialIcon icon="arrow_forward" size="sm" />
-                  </span>
-                </div>
-              </Link>
+              <HubCard key={card.title} card={card} accent="primary" />
             ))}
           </div>
 
@@ -167,30 +81,7 @@ export default function HubPage() {
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {ADMIN_CARDS.map((card) => (
-                <Link
-                  key={card.title}
-                  href={card.href}
-                  className="group rounded-2xl border border-brand-secondary/20 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-secondary/50 hover:shadow-lg dark:border-brand-secondary/20 dark:bg-gray-900"
-                >
-                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-secondary/10 text-brand-secondary transition-colors group-hover:bg-brand-secondary group-hover:text-white">
-                    <MaterialIcon icon={card.icon} size="md" />
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                    {card.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                    {card.subtitle}
-                  </p>
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="rounded-full border border-brand-secondary/30 bg-brand-secondary/10 px-2.5 py-1 text-xs font-semibold text-brand-secondary">
-                      {card.badge}
-                    </span>
-                    <span className="inline-flex items-center gap-1 text-sm font-bold text-brand-secondary">
-                      Open
-                      <MaterialIcon icon="arrow_forward" size="sm" />
-                    </span>
-                  </div>
-                </Link>
+                <HubCard key={card.title} card={card} accent="secondary" />
               ))}
             </div>
           </div>

@@ -7,12 +7,18 @@
  * Lists pending submissions and allows approve / reject actions.
  * Only accessible to the admin with email matt@mhc-gc.com — the API
  * enforces this; the client also redirects if the user isn't an admin.
+ *
+ * Auth + fetch concerns are delegated to:
+ *   - `@/hooks/useHubAdminAuth`  — refresh + role check + redirect
+ *   - `@/lib/hub/api`            — `hubFetch` bearer wrapper
  */
 
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { DASHBOARD_SECTION_HEADER_CLASS } from "@/components/ui/forms/DashboardFormField";
+import { useHubAdminAuth } from "@/hooks/useHubAdminAuth";
+import { hubFetch } from "@/lib/hub/api";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -104,12 +110,8 @@ function SubmissionCard({
       setReview((r) => ({ ...r, action, status: "submitting", message: "" }));
 
       try {
-        const res = await fetch("/api/team-profile/review", {
+        const res = await hubFetch(token, "/api/team-profile/review", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
           body: JSON.stringify({
             slug: submission.slug,
             action,
@@ -151,17 +153,18 @@ function SubmissionCard({
   const isSubmitting = review.status === "submitting";
   const isDone = review.status === "done";
 
+  const borderClass =
+    review.action === "approve"
+      ? "border-green-600"
+      : review.action === "reject"
+        ? "border-red-600"
+        : "border-gray-700";
+
   return (
     <div
       className={`rounded-xl border bg-gray-800/60 p-5 space-y-4 transition-opacity ${
         isDone ? "opacity-50" : ""
-      } ${
-        review.action === "approve"
-          ? "border-green-600"
-          : review.action === "reject"
-            ? "border-red-600"
-            : "border-gray-700"
-      }`}
+      } ${borderClass}`}
     >
       {/* Card header */}
       <div className="flex items-center justify-between gap-3">
@@ -339,41 +342,21 @@ function SubmissionCard({
 
 export function ProfileReviewClient() {
   const router = useRouter();
-  const [token, setToken] = useState<string | null>(null);
+  const auth = useHubAdminAuth();
   const [submissions, setSubmissions] = useState<PendingSubmission[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function bootstrap() {
+    if (auth.status !== "authenticated") return;
+    let cancelled = false;
+
+    async function loadQueue(token: string) {
       try {
-        const refreshRes = await fetch("/api/auth/refresh", {
-          method: "POST",
-          credentials: "include",
-        });
+        const res = await hubFetch(token, "/api/team-profile/review");
+        if (cancelled) return;
 
-        if (!refreshRes.ok) {
-          router.push("/");
-          return;
-        }
-
-        const refreshData = (await refreshRes.json()) as {
-          accessToken?: string;
-          user?: { role?: string };
-        };
-
-        if (!refreshData.accessToken || refreshData.user?.role !== "admin") {
-          router.push("/");
-          return;
-        }
-
-        setToken(refreshData.accessToken);
-
-        const reviewRes = await fetch("/api/team-profile/review", {
-          headers: { Authorization: `Bearer ${refreshData.accessToken}` },
-        });
-
-        if (reviewRes.status === 403) {
+        if (res.status === 403) {
           setLoadError(
             "Access denied. Only the designated approver can access this page.",
           );
@@ -381,13 +364,13 @@ export function ProfileReviewClient() {
           return;
         }
 
-        if (!reviewRes.ok) {
+        if (!res.ok) {
           setLoadError("Failed to load submissions. Please try again.");
           setIsLoading(false);
           return;
         }
 
-        const data = (await reviewRes.json()) as {
+        const data = (await res.json()) as {
           success: boolean;
           data?: { submissions: PendingSubmission[] };
         };
@@ -396,20 +379,24 @@ export function ProfileReviewClient() {
           setSubmissions(data.data.submissions);
         }
       } catch {
+        if (cancelled) return;
         setLoadError("Network error. Please check your connection.");
       } finally {
-        setIsLoading(false);
+        if (!cancelled) setIsLoading(false);
       }
     }
 
-    void bootstrap();
-  }, [router]);
+    void loadQueue(auth.token);
+    return () => {
+      cancelled = true;
+    };
+  }, [auth]);
 
   const handleReviewed = useCallback((slug: string) => {
     setSubmissions((prev) => prev.filter((s) => s.slug !== slug));
   }, []);
 
-  if (isLoading) {
+  if (auth.status !== "authenticated" || isLoading) {
     return (
       <div className="flex items-center justify-center py-20">
         <div className="animate-spin h-8 w-8 border-4 border-brand-secondary border-t-transparent rounded-full" />
@@ -470,15 +457,14 @@ export function ProfileReviewClient() {
       )}
 
       {/* Submission cards */}
-      {token &&
-        submissions.map((s) => (
-          <SubmissionCard
-            key={s.slug}
-            submission={s}
-            token={token}
-            onReviewed={handleReviewed}
-          />
-        ))}
+      {submissions.map((s) => (
+        <SubmissionCard
+          key={s.slug}
+          submission={s}
+          token={auth.token}
+          onReviewed={handleReviewed}
+        />
+      ))}
     </div>
   );
 }
