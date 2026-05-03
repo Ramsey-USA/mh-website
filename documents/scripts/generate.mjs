@@ -41,6 +41,33 @@ const SITE_URL = "https://www.mhc-gc.com";
 const PDF_METADATA_AUTHOR = "Matt Ramsey, Editor-in-Chief";
 const PDF_METADATA_CREATOR = "MH Construction Document Pipeline";
 const PDF_METADATA_SUBJECT = "Accident · Injury · Safety · Health Program";
+
+// ── Cluster mapping — MIRROR of src/lib/data/safety-manual-clusters.ts ──────
+// Used to deep-link section/tab QRs to /resources/safety-manual/{cluster}#mish-NN
+const SAFETY_MANUAL_CLUSTERS = [
+  { slug: "program-foundation", min: 1, max: 3 },
+  { slug: "field-onboarding-and-communication", min: 4, max: 9 },
+  { slug: "safety-oversight-and-industrial-hygiene", min: 10, max: 19 },
+  { slug: "fall-and-access-safety", min: 20, max: 24 },
+  {
+    slug: "excavation-confined-spaces-and-energy-control",
+    min: 25,
+    max: 27,
+  },
+  { slug: "energy-and-fire-hazards", min: 28, max: 32 },
+  { slug: "motor-vehicles-and-heavy-equipment", min: 33, max: 41 },
+  { slug: "tools-and-materials", min: 42, max: 45 },
+  { slug: "program-compliance-and-continuity", min: 46, max: 50 },
+];
+
+function clusterUrlForSection(numeric) {
+  const cluster = SAFETY_MANUAL_CLUSTERS.find(
+    (c) => numeric >= c.min && numeric <= c.max,
+  );
+  if (!cluster) return null;
+  const anchor = String(numeric).padStart(2, "0");
+  return `${SITE_URL}/resources/safety-manual/${cluster.slug}#mish-${anchor}`;
+}
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
 const DOCS_DIR = join(ROOT, "documents");
@@ -568,11 +595,9 @@ function buildSectionHeaderHtml(
  * document context with no access to components.css.
  */
 function buildSectionFooterHtml() {
-  const year = new Date().getFullYear();
   const font = `'DIN 2014','Helvetica Neue',Arial,sans-serif`;
   const contactMeta = "Company Contact";
   const trustMeta = "Accreditation and Trust";
-  const trademark = `\u00a9 ${year} ${BRAND.companyName}`;
   // Use precomputed base64 data URLs from BRAND_TOKENS — file:// cannot load in
   // Puppeteer's isolated header/footer context.
   const agcLogo = BRAND_TOKENS["{{BRAND_AGC_HORIZONTAL}}"];
@@ -1046,10 +1071,13 @@ async function generateTabs() {
     const token = `{{QR_TAB_${nn}}}`;
     if (!html.includes(token)) continue;
 
+    // Tab 00 → standalone Table of Contents page.
+    // Tabs 01–44 → cluster page anchored to that section's MISH id.
     const sectionUrl =
       n === 0
-        ? `${SITE_URL}/resources/safety-manual`
-        : `${SITE_URL}/resources/safety-manual/section/mish-${nn}`;
+        ? `${SITE_URL}/resources/safety-manual/contents`
+        : clusterUrlForSection(n) ||
+          `${SITE_URL}/resources/safety-manual/contents`;
 
     const qrDataUrl = await buildQrDataUrl(sectionUrl);
     html = html.replaceAll(token, qrDataUrl);
@@ -1310,8 +1338,11 @@ async function generateSections(filter = null) {
   );
 
   for (const section of targets) {
-    // Generate branded QR code pointing to the section's web page
-    const sectionUrl = `${SITE_URL}/resources/safety-manual/section/${section.slug}`;
+    // Generate branded QR code pointing to the section's cluster anchor card
+    // so the printed PDF matches the website's deep-link layout.
+    const sectionUrl =
+      clusterUrlForSection(Number(section.number)) ||
+      `${SITE_URL}/resources/safety-manual/contents`;
     const qrDataUrl = await buildQrDataUrl(sectionUrl);
 
     let sectionBody;
@@ -1487,6 +1518,14 @@ async function generateFormCovers() {
   console.log(`\n🪪  Generating ${forms.length} form cover sheet(s)…`);
 
   for (const form of forms) {
+    // Build the form's website deep-link anchor + QR code so scanning the
+    // printed cover lands on the forms grouped index card.
+    const formId = String(form.id || "form")
+      .toLowerCase()
+      .replace(/^safety-form-/, "")
+      .replaceAll(/[^a-z0-9-]+/g, "-");
+    const formUrl = `${SITE_URL}/resources/safety-manual/forms#form-${formId}`;
+    const formQrDataUrl = await buildQrDataUrl(formUrl);
     const tokens = {
       "{{FORM_ID}}": escapeHtml(form.id || "FORM"),
       "{{FORM_TITLE}}": escapeHtml(form.title || "Untitled Form"),
@@ -1497,6 +1536,8 @@ async function generateFormCovers() {
       "{{FORM_EFFECTIVE_DATE}}": escapeHtml(form.effectiveDate || "—"),
       "{{FORM_MANUAL_SECTION}}": escapeHtml(form.manualSection || "—"),
       "{{FORM_OWNER}}": escapeHtml(form.owner || "Safety Director"),
+      "{{QR_FORM_PREVIEW}}": formQrDataUrl,
+      "{{FORM_URL}}": escapeHtml(formUrl),
     };
     let html = brandedTemplate;
     for (const [token, value] of Object.entries(tokens)) {
@@ -1505,8 +1546,8 @@ async function generateFormCovers() {
 
     const safeSlug = (form.slug || form.id || "form")
       .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
+      .replaceAll(/[^a-z0-9]+/g, "-")
+      .replaceAll(/^-+|-+$/g, "");
     const pdfPath = join(coversDir, `${safeSlug}_cover.pdf`);
     const tmpHtml = `manuals/_tmp_form_covers/${safeSlug}.html`;
     await renderHtmlToPdf(
@@ -1896,12 +1937,12 @@ function textToHtml(text) {
     {
       token: "@@SIG_ORIENTATION@@",
       regex:
-        /Orientation Checklist Sign[-\s]?Off Sheet\s+NAME\s+Signature\s+DATE\s+Company\s+Ss\s*#\s*Last\s*4/gi,
+        /Orientation Checklist Sign[-\s]?Off Sheet\s+NAME\s+Signature\s+DATE\s+Company\s+S\s*#\s*Last\s*4/gi,
     },
     {
       token: "@@SIG_APPLICANT@@",
       regex:
-        /Applicant Name\s*\(please print\)[\s\S]{0,80}?Today['\u2019]?s Date\s+Employer\s+M[hH]\s+Construction/gi,
+        /Applicant Name\s*\(please print\)[\s\S]{0,80}?Today['\u2019]?s Date\s+Employer\s+Mh\s+Construction/gi,
     },
     {
       token: "@@SIG_NAMESIGDATE@@",
@@ -2032,7 +2073,7 @@ function buildSigContainer({ title, icon, columns, rows = 4, footer }) {
     .map((c) => `<th scope="col">${escapeHtml(c)}</th>`)
     .join("");
   const blankRow = `<tr>${columns.map(() => "<td>&nbsp;</td>").join("")}</tr>`;
-  const body = Array(rows).fill(blankRow).join("");
+  const body = new Array(rows).fill(blankRow).join("");
   const footHtml = footer
     ? `<div class="sig-container-footer">${escapeHtml(footer)}</div>`
     : "";
@@ -2066,7 +2107,10 @@ function buildDataContainer({ title, icon, columns, data, footer }) {
     .map((c) => `<th scope="col">${escapeHtml(c)}</th>`)
     .join("");
   const body = data
-    .map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`)
+    .map((row) => {
+      const cells = row.map((cell) => `<td>${cell}</td>`).join("");
+      return `<tr>${cells}</tr>`;
+    })
     .join("");
   const footHtml = footer
     ? `<div class="data-container-footer">${footer}</div>`
@@ -3220,13 +3264,13 @@ function tagNumberedParagraphs(html) {
   };
 
   // Form 1 — Word-HTML <p><strong>N[.N...] </strong>...
-  html = html.replace(
+  html = html.replaceAll(
     /<p>(\s*<strong>\s*(\d+(?:\.\d+)+)\s*<\/strong>)/g,
     (_m, inner, num) => `<p class="sec-h sec-h-${levelFor(num)}">${inner}`,
   );
 
   // Form 2 — text-rendered <div class="sec-num-row"><span class="sec-num">N[.N...]</span>
-  html = html.replace(
+  html = html.replaceAll(
     /<div class="sec-num-row"><span class="sec-num">(\d+(?:\.\d+)+)<\/span>/g,
     (_m, num) =>
       `<div class="sec-num-row sec-h sec-h-${levelFor(num)}"><span class="sec-num">${num}</span>`,
@@ -3235,7 +3279,7 @@ function tagNumberedParagraphs(html) {
   // Form 3 — promoted subhead <h4 class="sec-subhead">N.N TITLE</h4>
   // Convert level-0 (X.0) headings to a banner <p>; deeper levels get tagged
   // in place so they pick up indent rules without losing their h4 semantics.
-  html = html.replace(
+  html = html.replaceAll(
     /<h4 class="sec-subhead">\s*(\d+(?:\.\d+)+)([\s\u00a0]+[^<]*)<\/h4>/g,
     (_m, num, rest) => {
       const lvl = levelFor(num);

@@ -78,10 +78,16 @@ jest.mock("@/lib/seo/breadcrumb-schema", () => ({
 }));
 
 const mockRedirect = jest.fn();
+const mockPermanentRedirect = jest.fn();
 
 jest.mock("next/navigation", () => ({
   useParams: () => ({ id: "submission-123" }),
   redirect: (...args: unknown[]) => mockRedirect(...args),
+  permanentRedirect: (path: string) => {
+    mockPermanentRedirect(path);
+    // next/navigation permanentRedirect throws internally; simulate that.
+    throw new Error(`NEXT_REDIRECT:${path}`);
+  },
 }));
 
 describe("Safety navigation contracts", () => {
@@ -103,7 +109,7 @@ describe("Safety navigation contracts", () => {
     expect(safetyManualLink).toHaveAttribute("href", "/safety");
   });
 
-  it("redirects safety manual section pages to /safety", async () => {
+  it("308-redirects safety manual section pages to their cluster anchor", async () => {
     const { default: SectionPage } =
       require("../resources/safety-manual/section/[slug]/page") as {
         default: (props: {
@@ -111,11 +117,34 @@ describe("Safety navigation contracts", () => {
         }) => Promise<void>;
       };
 
-    await SectionPage({
-      params: Promise.resolve({ slug: "table-of-contents" }),
-    });
+    await expect(
+      SectionPage({
+        params: Promise.resolve({ slug: "fall-protection" }),
+      }),
+    ).rejects.toThrow(/NEXT_REDIRECT/);
 
-    expect(mockRedirect).toHaveBeenCalledWith("/safety");
+    expect(mockPermanentRedirect).toHaveBeenCalledWith(
+      "/resources/safety-manual/fall-and-access-safety#mish-21",
+    );
+  });
+
+  it("308-redirects unknown section slugs to the Table of Contents", async () => {
+    const { default: SectionPage } =
+      require("../resources/safety-manual/section/[slug]/page") as {
+        default: (props: {
+          params: Promise<{ slug: string }>;
+        }) => Promise<void>;
+      };
+
+    await expect(
+      SectionPage({
+        params: Promise.resolve({ slug: "unknown-slug" }),
+      }),
+    ).rejects.toThrow(/NEXT_REDIRECT/);
+
+    expect(mockPermanentRedirect).toHaveBeenCalledWith(
+      "/resources/safety-manual/contents",
+    );
   });
 
   it("returns print page users to /safety", async () => {

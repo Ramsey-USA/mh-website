@@ -338,9 +338,17 @@ jest.mock("next/script", () => ({
 // Mock for useParams in client components
 const mockUseParams = jest.fn(() => ({ id: "test-123" }));
 const mockRedirect = jest.fn();
+const mockPermanentRedirect = jest.fn((url: string) => {
+  // Match Next.js behavior: throw a NEXT_REDIRECT-shaped error so callers see
+  // the same control flow as production while letting tests assert the target.
+  const err = new Error(`NEXT_REDIRECT: ${url}`);
+  (err as { digest?: string }).digest = `NEXT_REDIRECT;replace;${url};308;`;
+  throw err;
+});
 jest.mock("next/navigation", () => ({
   ...jest.requireActual("next/navigation"),
   redirect: (...args: unknown[]) => mockRedirect(...args),
+  permanentRedirect: (url: string) => mockPermanentRedirect(url),
   useParams: () => mockUseParams(),
   useRouter: () => ({
     push: jest.fn(),
@@ -562,17 +570,38 @@ describe("Careers Print page", () => {
 // ── Safety Manual Section page ────────────────────────────────────────────────
 
 describe("Safety Manual Section page", () => {
-  it("renders without throwing", async () => {
+  beforeEach(() => {
+    mockPermanentRedirect.mockClear();
+  });
+
+  it("308-redirects a known section to its cluster anchor", async () => {
     const { default: SectionPage } =
       require("../resources/safety-manual/section/[slug]/page") as {
         default: (props: {
           params: Promise<{ slug: string }>;
-        }) => Promise<React.ReactElement>;
+        }) => Promise<unknown>;
       };
-    const ui = await SectionPage({
-      params: Promise.resolve({ slug: "section-1" }),
-    });
-    expect(() => render(ui)).not.toThrow();
+    await expect(
+      SectionPage({ params: Promise.resolve({ slug: "section-1" }) }),
+    ).rejects.toThrow(/NEXT_REDIRECT/);
+    expect(mockPermanentRedirect).toHaveBeenCalledWith(
+      "/resources/safety-manual/program-foundation#mish-01",
+    );
+  });
+
+  it("308-redirects an unknown section slug to the contents page", async () => {
+    const { default: SectionPage } =
+      require("../resources/safety-manual/section/[slug]/page") as {
+        default: (props: {
+          params: Promise<{ slug: string }>;
+        }) => Promise<unknown>;
+      };
+    await expect(
+      SectionPage({ params: Promise.resolve({ slug: "does-not-exist" }) }),
+    ).rejects.toThrow(/NEXT_REDIRECT/);
+    expect(mockPermanentRedirect).toHaveBeenCalledWith(
+      "/resources/safety-manual/contents",
+    );
   });
 });
 
@@ -591,9 +620,18 @@ describe("Safety Print page", () => {
 // ── Safety Manual redirect page ───────────────────────────────────────────────
 
 describe("Safety Manual redirect page", () => {
-  it("calls redirect to /safety", () => {
-    // The page just redirects, so we verify it doesn't crash
-    // The redirect is tested in safety-navigation-contracts.test.tsx
-    expect(true).toBe(true);
+  beforeEach(() => {
+    mockRedirect.mockClear();
+  });
+
+  it("redirects to /resources/safety-manual/contents", () => {
+    const { default: SafetyManualPage } =
+      require("../resources/safety-manual/page") as {
+        default: () => unknown;
+      };
+    SafetyManualPage();
+    expect(mockRedirect).toHaveBeenCalledWith(
+      "/resources/safety-manual/contents",
+    );
   });
 });

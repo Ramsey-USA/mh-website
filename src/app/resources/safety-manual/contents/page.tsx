@@ -6,6 +6,10 @@ import { StructuredData } from "@/components/seo/SeoMeta";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { manuals } from "@/lib/data/documents";
+import {
+  SAFETY_MANUAL_CLUSTERS,
+  clusterForSection,
+} from "@/lib/data/safety-manual-clusters";
 
 const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 
@@ -36,18 +40,9 @@ const breadcrumbs = [
   { label: "Table of Contents", href: "/resources/safety-manual/contents" },
 ];
 
-// Cluster groupings mirroring TOC_CLUSTERS in generate.mjs
-const CLUSTERS = [
-  { name: "Program Foundation", min: 1, max: 3 },
-  { name: "Field Onboarding & Communication", min: 4, max: 9 },
-  { name: "Safety Oversight & Industrial Hygiene", min: 10, max: 19 },
-  { name: "Fall & Access Safety", min: 20, max: 24 },
-  { name: "Excavation, Confined Spaces & Energy Control", min: 25, max: 27 },
-  { name: "Energy & Fire Hazards", min: 28, max: 32 },
-  { name: "Motor Vehicles & Heavy Equipment", min: 33, max: 41 },
-  { name: "Tools & Materials", min: 42, max: 45 },
-  { name: "Program Compliance & Continuity", min: 46, max: 50 },
-];
+// Cluster groupings — single source of truth in
+// src/lib/data/safety-manual-clusters.ts.
+const CLUSTERS = SAFETY_MANUAL_CLUSTERS;
 
 // Callout items (critical safety — mirroring TOC_CALLOUT_ITEMS in generate.mjs)
 const CALLOUT_ITEMS = new Set([21, 48]);
@@ -69,11 +64,14 @@ export default function SafetyManualContentsPage() {
       />
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-12 sm:px-6">
+      <section className="bg-linear-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Breadcrumb items={breadcrumbs} className="mb-5 text-white/60" />
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
+              <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/80">
+                Field Manual <span aria-hidden>→</span> Safety Manual
+              </p>
               <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
                 <MaterialIcon
                   icon="menu_book"
@@ -90,10 +88,9 @@ export default function SafetyManualContentsPage() {
               </h1>
               <p className="mt-2 text-sm text-white/70">
                 Revision {revisionNumber} &middot; Effective {revisionDate}
-                &ensp;&bull;&ensp;
-                <span className="text-brand-secondary font-semibold">
-                  ★ Veteran Owned
-                </span>
+              </p>
+              <p className="mt-2 text-xs font-semibold text-brand-secondary">
+                Founded 2010, Veteran-Owned Since January 2025
               </p>
             </div>
             <div className="flex gap-3 flex-wrap">
@@ -128,7 +125,7 @@ export default function SafetyManualContentsPage() {
       {/* ── Auth notice ───────────────────────────────────────────── */}
       <div className="border-b border-amber-200 bg-amber-50 px-4 py-3 dark:border-amber-800/40 dark:bg-amber-900/20">
         <div className="mx-auto flex max-w-5xl items-center gap-3 text-sm text-amber-800 dark:text-amber-300">
-          <MaterialIcon icon="lock" size="sm" className="flex-shrink-0" />
+          <MaterialIcon icon="lock" size="sm" className="shrink-0" />
           <span>
             <strong>Full manual access is restricted.</strong> Credentialed
             parties (bonding agencies, insurers, AGC members) may request access
@@ -157,28 +154,40 @@ export default function SafetyManualContentsPage() {
                 key={cluster.name}
                 className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800"
               >
-                <h2 className="mb-3 border-b border-brand-primary/20 pb-2 text-xs font-bold uppercase tracking-wider text-brand-primary dark:text-brand-secondary">
+                <Link
+                  href={`/resources/safety-manual/${cluster.slug}`}
+                  className="mb-3 block border-b border-brand-primary/20 pb-2 text-xs font-bold uppercase tracking-wider text-brand-primary hover:text-brand-primary-dark dark:text-brand-secondary dark:hover:text-brand-secondary/80"
+                >
                   {cluster.name}
-                </h2>
+                </Link>
                 <ul className="space-y-1">
                   {nums.map((n) => {
                     const sec = sectionMap.get(n);
                     const isCallout = CALLOUT_ITEMS.has(n);
+                    const lookup = clusterForSection(n);
+                    const href = lookup
+                      ? lookup.href
+                      : `/resources/safety-manual/${cluster.slug}`;
                     return (
                       <li
                         key={n}
-                        className={`flex items-baseline gap-2 rounded px-1.5 py-0.5 text-sm ${
+                        className={`rounded ${
                           isCallout
                             ? "border-l-2 border-brand-secondary bg-brand-secondary/5 pl-2 font-semibold"
                             : ""
                         }`}
                       >
-                        <span className="w-14 flex-shrink-0 font-mono text-xs font-bold text-brand-primary dark:text-brand-secondary">
-                          MISH {String(n).padStart(2, "0")}
-                        </span>
-                        <span className="text-gray-700 dark:text-gray-300">
-                          {sec?.title ?? `Section ${n}`}
-                        </span>
+                        <Link
+                          href={href}
+                          className="flex items-baseline gap-2 px-1.5 py-0.5 text-sm hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10"
+                        >
+                          <span className="w-14 shrink-0 font-mono text-xs font-bold text-brand-primary dark:text-brand-secondary">
+                            MISH {String(n).padStart(2, "0")}
+                          </span>
+                          <span className="text-gray-700 dark:text-gray-300">
+                            {sec?.title ?? `Section ${n}`}
+                          </span>
+                        </Link>
                       </li>
                     );
                   })}

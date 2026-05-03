@@ -374,260 +374,59 @@ const QR_CODES = [
   },
 ];
 
-// Safety Manual Table of Contents — all 50 sections (00–49)
-// URL pattern: /resources/safety-manual/section/{slug}
-// Folder: safety-sections
-const SAFETY_MANUAL_SECTIONS = [
+// Safety Manual sections — loaded from canonical JSON so the QR pipeline,
+// the printed PDF pipeline, and the Next.js cluster pages always agree.
+const SAFETY_MANUAL_JSON = require("../documents/content/safety-manual.json");
+const SAFETY_MANUAL_SECTIONS = SAFETY_MANUAL_JSON.sections.map((s) => ({
+  number: s.numberStr,
+  slug: s.slug,
+  title: s.title,
+  numeric: s.number,
+}));
+
+// Cluster groupings — MIRROR of src/lib/data/safety-manual-clusters.ts.
+// Keep in sync; verified at runtime against the imported sections list.
+const SAFETY_MANUAL_CLUSTERS = [
+  { slug: "program-foundation", min: 1, max: 3 },
+  { slug: "field-onboarding-and-communication", min: 4, max: 9 },
+  { slug: "safety-oversight-and-industrial-hygiene", min: 10, max: 19 },
+  { slug: "fall-and-access-safety", min: 20, max: 24 },
   {
-    number: "00",
-    slug: "table-of-contents",
-    title: "Table of Contents",
+    slug: "excavation-confined-spaces-and-energy-control",
+    min: 25,
+    max: 27,
   },
-  {
-    number: "01",
-    slug: "injury-free-workplace-plan",
-    title: "Injury-Free Workplace Plan",
-  },
-  {
-    number: "02",
-    slug: "drug-free-workplace",
-    title: "Drug-Free Workplace",
-  },
-  {
-    number: "03",
-    slug: "program-policy-and-requirements",
-    title: "Program Policy and Requirements",
-  },
-  {
-    number: "04",
-    slug: "safety-and-health-orientation",
-    title: "Safety and Health Orientation",
-  },
-  {
-    number: "05",
-    slug: "pre-job-safety-planning",
-    title: "Pre-Job Safety Planning",
-  },
-  {
-    number: "06",
-    slug: "emergency-response",
-    title: "Emergency Response",
-  },
-  {
-    number: "07",
-    slug: "safety-bulletin-boards",
-    title: "Safety Bulletin Boards",
-  },
-  {
-    number: "08",
-    slug: "event-reporting",
-    title: "Event Reporting of Incidents, Accidents & Near Misses",
-  },
-  {
-    number: "09",
-    slug: "safety-health-meetings-inspections",
-    title: "Safety and Health Meetings / Inspections",
-  },
-  {
-    number: "10",
-    slug: "personal-protective-equipment",
-    title: "Personal Protective Equipment (PPE)",
-  },
-  {
-    number: "11",
-    slug: "fall-protection",
-    title: "Fall Protection",
-  },
-  {
-    number: "12",
-    slug: "flammable-combustible-liquids",
-    title: "Flammable and Combustible Liquids",
-  },
-  {
-    number: "13",
-    slug: "fire-prevention",
-    title: "Fire Prevention",
-  },
-  {
-    number: "14",
-    slug: "welding-cutting-heating",
-    title: "Welding, Cutting, and Heating Operations",
-  },
-  {
-    number: "15",
-    slug: "lockout-tagout",
-    title: "Lockout / Tagout (LOTO)",
-  },
-  {
-    number: "16",
-    slug: "confined-space-entry",
-    title: "Confined Space Entry",
-  },
-  {
-    number: "17",
-    slug: "use-and-care-of-ladders",
-    title: "Use and Care of Ladders",
-  },
-  {
-    number: "18",
-    slug: "motor-vehicle-safety",
-    title: "Motor Vehicle Safety Program",
-  },
-  {
-    number: "19",
-    slug: "equipment-maintenance-inspection",
-    title: "Equipment Maintenance and Inspection",
-  },
-  {
-    number: "20",
-    slug: "aerial-lifts-elevating-work-platforms",
-    title: "Aerial Lifts and Elevating Work Platforms",
-  },
-  {
-    number: "21",
-    slug: "crane-suspended-work-platforms",
-    title: "Crane-Suspended Work Platforms",
-  },
-  {
-    number: "22",
-    slug: "scaffolds",
-    title: "Use and Handling of Scaffolds",
-  },
-  {
-    number: "23",
-    slug: "industrial-hygiene",
-    title: "Industrial Hygiene Program",
-  },
-  {
-    number: "24",
-    slug: "hazard-communication",
-    title: "Contractor Hazard Communication Program",
-  },
-  {
-    number: "25",
-    slug: "heat-illness-prevention",
-    title: "Heat-Related Illness Prevention",
-  },
-  {
-    number: "26",
-    slug: "excavation-trenching-shoring",
-    title: "Excavation, Trenching, and Shoring",
-  },
-  {
-    number: "27",
-    slug: "equipment-modifications",
-    title: "Construction Equipment Modifications and Fabrications",
-  },
-  {
-    number: "28",
-    slug: "housekeeping",
-    title: "Housekeeping",
-  },
-  {
-    number: "29",
-    slug: "electrical-safety",
-    title: "Electrical Safety",
-  },
-  {
-    number: "30",
-    slug: "signs-signals-barricades",
-    title: "Signs, Signals, and Barricades",
-  },
-  {
-    number: "31",
-    slug: "miscellaneous-construction",
-    title: "Miscellaneous Construction Requirements",
-  },
-  {
-    number: "32",
-    slug: "respiratory-protection",
-    title: "Respiratory Protection",
-  },
-  {
-    number: "33",
-    slug: "floor-openings-open-surfaces",
-    title: "Floor Openings, Open-Sided Surfaces, and Ramps",
-  },
-  {
-    number: "34",
-    slug: "compressed-gas-air",
-    title: "Compressed Gas / Compressed Air",
-  },
-  {
-    number: "35",
-    slug: "rigging",
-    title: "Rigging",
-  },
-  {
-    number: "36",
-    slug: "hand-portable-power-tools",
-    title: "Hand and Portable Power Tools",
-  },
-  {
-    number: "37",
-    slug: "concrete-masonry",
-    title: "Concrete and Masonry Construction",
-  },
-  {
-    number: "38",
-    slug: "commercial-drivers-drug-alcohol",
-    title: "Commercial Drivers Drug and Alcohol Program",
-  },
-  {
-    number: "39",
-    slug: "subcontractor-management",
-    title: "Subcontractor Management Plan",
-  },
-  {
-    number: "40",
-    slug: "waste-management",
-    title: "Waste Management Plan",
-  },
-  {
-    number: "41",
-    slug: "short-service-employee",
-    title: "Short Service Employee Program",
-  },
-  {
-    number: "42",
-    slug: "forklift-truck-safety",
-    title: "Forklift / Truck Safety",
-  },
-  {
-    number: "43",
-    slug: "bloodborne-pathogens",
-    title: "Bloodborne Pathogens",
-  },
-  {
-    number: "44",
-    slug: "silica-exposure-control",
-    title: "Silica Exposure Control",
-  },
-  {
-    number: "45",
-    slug: "distracted-driving-mobile-device",
-    title: "Distracted Driving & Mobile Device Policy",
-  },
-  {
-    number: "46",
-    slug: "motor-vehicle-records",
-    title: "Motor Vehicle Records Program",
-  },
-  {
-    number: "47",
-    slug: "insurance-contractual-risk-transfer",
-    title: "Insurance Requirements & Contractual Risk Transfer",
-  },
-  {
-    number: "48",
-    slug: "incident-investigation-root-cause",
-    title: "Incident Investigation & Root Cause Analysis",
-  },
-  {
-    number: "49",
-    slug: "return-to-work",
-    title: "Return-to-Work Program",
-  },
+  { slug: "energy-and-fire-hazards", min: 28, max: 32 },
+  { slug: "motor-vehicles-and-heavy-equipment", min: 33, max: 41 },
+  { slug: "tools-and-materials", min: 42, max: 45 },
+  { slug: "program-compliance-and-continuity", min: 46, max: 50 },
+];
+
+function clusterHrefForSection(numeric) {
+  const cluster = SAFETY_MANUAL_CLUSTERS.find(
+    (c) => numeric >= c.min && numeric <= c.max,
+  );
+  if (!cluster) return null;
+  const anchor = String(numeric).padStart(2, "0");
+  return `${BASE_URL}/resources/safety-manual/${cluster.slug}#mish-${anchor}`;
+}
+
+// Safety Forms — keep in sync with `forms[]` in src/lib/data/documents.ts.
+// Each form QR deep-links to the grouped forms index page anchor.
+const SAFETY_MANUAL_FORMS = [
+  { id: "toolbox-talk", title: "Toolbox Talk (Blank)" },
+  { id: "jha", title: "JHA - Job Hazard Analysis" },
+  { id: "incident-report", title: "Incident / Accident Report" },
+  { id: "near-miss-report", title: "Near-Miss Report" },
+  { id: "daily-site-inspection", title: "Daily Site Safety Inspection" },
+  { id: "orientation-signoff", title: "Safety Orientation Sign-Off" },
+  { id: "training-record", title: "Employee Safety Training Record" },
+  { id: "pre-task-plan", title: "Pre-Task Safety Plan" },
+  { id: "equipment-checklist", title: "Equipment Inspection" },
+  { id: "signin-log", title: "Sign-In / Visitor Log" },
+  { id: "sub-prequal", title: "Subcontractor Pre-Qual" },
+  { id: "osha-300-cover", title: "OSHA 300 Log Cover Sheet" },
+  { id: "wa-li-roa-cover", title: "WA L&I ROA Cover Sheet" },
 ];
 
 function getFolderForQR(name) {
@@ -635,6 +434,7 @@ function getFolderForQR(name) {
   if (SOCIAL_QR_NAMES.has(name)) return "social";
   if (name.startsWith("traho-")) return "rfq";
   if (name.startsWith("safety-section-")) return "safety-sections";
+  if (name.startsWith("safety-form-")) return "safety-forms";
   if (
     name.startsWith("safety-") ||
     name === "hub" ||
@@ -685,18 +485,31 @@ function buildFinalQRCodeList() {
     (qr) => !qr.name.startsWith("team-"),
   );
 
-  // Build safety manual section entries from SAFETY_MANUAL_SECTIONS
-  const safetySectionCodes = SAFETY_MANUAL_SECTIONS.map((s) => ({
-    name: `safety-section-${s.number}`,
-    url: `${BASE_URL}/resources/safety-manual/section/${s.slug}`,
-    description: `Safety Manual Section ${s.number}: ${s.title}`,
-    label: `MISH SECTION ${s.number}`,
-    folder: "safety-sections",
+  // Build safety manual section entries — deep-link to cluster anchor.
+  const safetySectionCodes = SAFETY_MANUAL_SECTIONS.map((s) => {
+    const href = clusterHrefForSection(s.numeric);
+    return {
+      name: `safety-section-${s.number}`,
+      url: href || `${BASE_URL}/resources/safety-manual/contents`,
+      description: `Safety Manual Section ${s.number}: ${s.title}`,
+      label: `MISH ${s.number}`,
+      folder: "safety-sections",
+    };
+  });
+
+  // Build safety form entries — deep-link to forms grouped index anchor.
+  const safetyFormCodes = SAFETY_MANUAL_FORMS.map((f) => ({
+    name: `safety-form-${f.id}`,
+    url: `${BASE_URL}/resources/safety-manual/forms#form-${f.id}`,
+    description: `Safety Form: ${f.title}`,
+    label: `FORM ${f.id.toUpperCase()}`,
+    folder: "safety-forms",
   }));
 
   const merged = [
     ...withoutStaticTeams,
     ...safetySectionCodes,
+    ...safetyFormCodes,
     ...loadTeamQRCodes(),
   ].map((qr) => ({
     ...qr,
