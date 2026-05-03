@@ -67,6 +67,7 @@ docs/.naming-backup-*/
 documents/content/safety-manual.json
 documents/output/
 documents/_tmp_*
+documents/**/_tmp_*
 lighthouse-results/
 next-env.d.ts
 npm-debug.log*
