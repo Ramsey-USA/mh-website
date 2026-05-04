@@ -63,6 +63,11 @@ beforeEach(() => {
   mockExtractTokenFromHeader.mockImplementation(
     (header: string | null) => header?.replace("Bearer ", "") ?? null,
   );
+  // Audit logger methods are async; deferAudit() calls .catch() on the return
+  // value, so the mocks must resolve to a Promise (not return undefined).
+  mockLogSecurityViolation.mockResolvedValue(undefined);
+  mockLogEvent.mockResolvedValue(undefined);
+  mockLogDataAccess.mockResolvedValue(undefined);
 });
 
 function makeRequest(
