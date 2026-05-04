@@ -7,7 +7,15 @@ import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
-import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
+// FadeInWhenVisible is a client animation component. Dynamic import keeps its
+// JS out of the critical bundle since all its usage in this page is below fold.
+const FadeInWhenVisible = dynamic(
+  () =>
+    import("@/components/animations/FramerMotionComponents").then((m) => ({
+      default: m.FadeInWhenVisible,
+    })),
+  { ssr: true },
+);
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {

@@ -18,7 +18,15 @@ import {
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
+// StaggeredFadeIn is a client animation component. Dynamic import keeps its
+// JS out of the critical bundle; its use in this page is below the fold (~line 625).
+const StaggeredFadeIn = dynamic(
+  () =>
+    import("@/components/animations/FramerMotionComponents").then((m) => ({
+      default: m.StaggeredFadeIn,
+    })),
+  { ssr: true },
+);
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
