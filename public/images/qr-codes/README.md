@@ -1,11 +1,11 @@
 # QR Codes for MH Construction
 
-Generated: 5/3/2026, 2:40:28 AM
+Generated: 5/4/2026, 7:42:32 PM
 
 ## Summary
 
-- **Total QR Codes:** 224
-- **Successfully Generated:** 224
+- **Total QR Codes:** 228
+- **Successfully Generated:** 228
 - **Location:** `public/images/qr-codes`
 - **Folders:** `core`, `contact`, `rfq`, `safety`, `social`, `safety-sections`, `safety-forms`, `team`
 
@@ -1210,6 +1210,30 @@ Generated: 5/3/2026, 2:40:28 AM
 - **Name:** `team-mike-holstein`
 - **File:** `team/qr-team-mike-holstein-bw.png`
 - **URL:** https://www.mhc-gc.com/team#mike-holstein
+
+### ✅ Kim Thamert - XO - Executive Officer
+
+- **Name:** `team-kim-thamert`
+- **File:** `team/qr-team-kim-thamert-color.png`
+- **URL:** https://www.mhc-gc.com/team#kim-thamert
+
+### ✅ Kim Thamert - XO - Executive Officer
+
+- **Name:** `team-kim-thamert`
+- **File:** `team/qr-team-kim-thamert-bw.png`
+- **URL:** https://www.mhc-gc.com/team#kim-thamert
+
+### ✅ Gator - Chief Moral Officer
+
+- **Name:** `team-gator`
+- **File:** `team/qr-team-gator-color.png`
+- **URL:** https://www.mhc-gc.com/team#gator
+
+### ✅ Gator - Chief Moral Officer
+
+- **Name:** `team-gator`
+- **File:** `team/qr-team-gator-bw.png`
+- **URL:** https://www.mhc-gc.com/team#gator
 
 ### ✅ Todd Schoeff - VP of Field Operations
 

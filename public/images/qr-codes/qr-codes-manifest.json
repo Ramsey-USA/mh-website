@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-03T02:40:28.167Z",
+  "generatedAt": "2026-05-04T19:42:32.733Z",
   "baseUrl": "https://www.mhc-gc.com",
   "outputDirectory": "public/images/qr-codes",
   "folders": [
@@ -2242,6 +2242,50 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/team#mike-holstein",
       "description": "Mike Holstein - Founder",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-kim-thamert",
+      "filename": "qr-team-kim-thamert-color.png",
+      "relativePath": "team/qr-team-kim-thamert-color.png",
+      "folder": "team",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/team#kim-thamert",
+      "description": "Kim Thamert - XO - Executive Officer",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-kim-thamert",
+      "filename": "qr-team-kim-thamert-bw.png",
+      "relativePath": "team/qr-team-kim-thamert-bw.png",
+      "folder": "team",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/team#kim-thamert",
+      "description": "Kim Thamert - XO - Executive Officer",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-gator",
+      "filename": "qr-team-gator-color.png",
+      "relativePath": "team/qr-team-gator-color.png",
+      "folder": "team",
+      "variant": "color",
+      "url": "https://www.mhc-gc.com/team#gator",
+      "description": "Gator - Chief Moral Officer",
+      "success": true,
+      "error": null
+    },
+    {
+      "name": "team-gator",
+      "filename": "qr-team-gator-bw.png",
+      "relativePath": "team/qr-team-gator-bw.png",
+      "folder": "team",
+      "variant": "bw",
+      "url": "https://www.mhc-gc.com/team#gator",
+      "description": "Gator - Chief Moral Officer",
       "success": true,
       "error": null
     },

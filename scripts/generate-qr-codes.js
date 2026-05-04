@@ -293,6 +293,18 @@ const QR_CODES = [
     label: "MIKE HOLSTEIN",
   },
   {
+    name: "team-kim-thamert",
+    url: `${BASE_URL}/team#kim-thamert`,
+    description: "Kim Thamert - XO - Executive Officer",
+    label: "KIM THAMERT",
+  },
+  {
+    name: "team-gator",
+    url: `${BASE_URL}/team#gator`,
+    description: "Gator - Chief Moral Officer",
+    label: "GATOR",
+  },
+  {
     name: "team-todd-schoeff",
     url: `${BASE_URL}/team#todd-schoeff`,
     description: "Todd Schoeff - VP of Field Operations",
