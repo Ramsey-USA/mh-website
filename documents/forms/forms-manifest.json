@@ -134,19 +134,42 @@
                 "title": "Meeting Information",
                 "columns": 3,
                 "items": [
-                  { "name": "date", "label": "Date" },
-                  { "name": "projectNumber", "label": "Project / Job #" },
-                  { "name": "location", "label": "Location / Area" },
-                  { "name": "presenter", "label": "Presenter" },
-                  { "name": "startTime", "label": "Start Time" },
-                  { "name": "duration", "label": "Duration (min)" }
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Location / Area"
+                  },
+                  {
+                    "name": "presenter",
+                    "label": "Presenter"
+                  },
+                  {
+                    "name": "startTime",
+                    "label": "Start Time"
+                  },
+                  {
+                    "name": "duration",
+                    "label": "Duration (min)"
+                  }
                 ]
               },
               {
                 "type": "fieldGrid",
                 "title": "Topic",
                 "columns": 1,
-                "items": [{ "name": "topic", "label": "Toolbox Talk Topic" }]
+                "items": [
+                  {
+                    "name": "topic",
+                    "label": "Toolbox Talk Topic"
+                  }
+                ]
               },
               {
                 "type": "narrative",
@@ -159,10 +182,22 @@
                 "title": "Attendance Roster",
                 "name": "roster",
                 "columns": [
-                  { "header": "Print Name", "width": "35%" },
-                  { "header": "Trade / Role", "width": "25%" },
-                  { "header": "Company", "width": "20%" },
-                  { "header": "Signature", "width": "20%" }
+                  {
+                    "header": "Print Name",
+                    "width": "35%"
+                  },
+                  {
+                    "header": "Trade / Role",
+                    "width": "25%"
+                  },
+                  {
+                    "header": "Company",
+                    "width": "20%"
+                  },
+                  {
+                    "header": "Signature",
+                    "width": "20%"
+                  }
                 ],
                 "rows": 8
               }
@@ -178,10 +213,22 @@
                 "title": "Attendance Roster (continued)",
                 "name": "roster2",
                 "columns": [
-                  { "header": "Print Name", "width": "35%" },
-                  { "header": "Trade / Role", "width": "25%" },
-                  { "header": "Company", "width": "20%" },
-                  { "header": "Signature", "width": "20%" }
+                  {
+                    "header": "Print Name",
+                    "width": "35%"
+                  },
+                  {
+                    "header": "Trade / Role",
+                    "width": "25%"
+                  },
+                  {
+                    "header": "Company",
+                    "width": "20%"
+                  },
+                  {
+                    "header": "Signature",
+                    "width": "20%"
+                  }
                 ],
                 "rows": 12
               },
@@ -189,8 +236,14 @@
                 "type": "signatures",
                 "title": "Verification",
                 "blocks": [
-                  { "role": "Presenter", "name": "presenterSig" },
-                  { "role": "Site Supervisor", "name": "supSig" }
+                  {
+                    "role": "Presenter",
+                    "name": "presenterSig"
+                  },
+                  {
+                    "role": "Site Supervisor",
+                    "name": "supSig"
+                  }
                 ]
               }
             ]
@@ -225,12 +278,30 @@
                 "title": "Project & Task",
                 "columns": 3,
                 "items": [
-                  { "name": "date", "label": "Date" },
-                  { "name": "projectNumber", "label": "Project / Job #" },
-                  { "name": "location", "label": "Work Area" },
-                  { "name": "taskName", "label": "Task Name" },
-                  { "name": "crewLead", "label": "Crew Lead" },
-                  { "name": "crewSize", "label": "Crew Size" }
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Work Area"
+                  },
+                  {
+                    "name": "taskName",
+                    "label": "Task Name"
+                  },
+                  {
+                    "name": "crewLead",
+                    "label": "Crew Lead"
+                  },
+                  {
+                    "name": "crewSize",
+                    "label": "Crew Size"
+                  }
                 ]
               },
               {
@@ -245,14 +316,38 @@
                 "subtitle": "Check all that apply for this task",
                 "columns": 4,
                 "items": [
-                  { "name": "hardHat", "label": "Hard Hat" },
-                  { "name": "safetyGlasses", "label": "Safety Glasses" },
-                  { "name": "hearing", "label": "Hearing Protection" },
-                  { "name": "hiVis", "label": "Hi-Vis Vest" },
-                  { "name": "gloves", "label": "Cut/Chem Gloves" },
-                  { "name": "footwear", "label": "Safety Footwear" },
-                  { "name": "respirator", "label": "Respirator" },
-                  { "name": "fallPro", "label": "Fall Protection" }
+                  {
+                    "name": "hardHat",
+                    "label": "Hard Hat"
+                  },
+                  {
+                    "name": "safetyGlasses",
+                    "label": "Safety Glasses"
+                  },
+                  {
+                    "name": "hearing",
+                    "label": "Hearing Protection"
+                  },
+                  {
+                    "name": "hiVis",
+                    "label": "Hi-Vis Vest"
+                  },
+                  {
+                    "name": "gloves",
+                    "label": "Cut/Chem Gloves"
+                  },
+                  {
+                    "name": "footwear",
+                    "label": "Safety Footwear"
+                  },
+                  {
+                    "name": "respirator",
+                    "label": "Respirator"
+                  },
+                  {
+                    "name": "fallPro",
+                    "label": "Fall Protection"
+                  }
                 ]
               },
               {
@@ -260,10 +355,22 @@
                 "title": "Job Steps, Hazards & Controls",
                 "name": "steps",
                 "columns": [
-                  { "header": "#", "width": "6%" },
-                  { "header": "Job Step", "width": "30%" },
-                  { "header": "Potential Hazard", "width": "32%" },
-                  { "header": "Control / Mitigation", "width": "32%" }
+                  {
+                    "header": "#",
+                    "width": "6%"
+                  },
+                  {
+                    "header": "Job Step",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Potential Hazard",
+                    "width": "32%"
+                  },
+                  {
+                    "header": "Control / Mitigation",
+                    "width": "32%"
+                  }
                 ],
                 "rows": 6
               }
@@ -279,10 +386,22 @@
                 "title": "Job Steps, Hazards & Controls (continued)",
                 "name": "steps2",
                 "columns": [
-                  { "header": "#", "width": "6%" },
-                  { "header": "Job Step", "width": "30%" },
-                  { "header": "Potential Hazard", "width": "32%" },
-                  { "header": "Control / Mitigation", "width": "32%" }
+                  {
+                    "header": "#",
+                    "width": "6%"
+                  },
+                  {
+                    "header": "Job Step",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Potential Hazard",
+                    "width": "32%"
+                  },
+                  {
+                    "header": "Control / Mitigation",
+                    "width": "32%"
+                  }
                 ],
                 "rows": 8
               },
@@ -297,9 +416,19 @@
                 "title": "Crew Acknowledgment",
                 "refNote": "By signing, crew members acknowledge they have reviewed this JHA and understand the hazards and controls.",
                 "blocks": [
-                  { "role": "Crew Lead", "name": "leadSig" },
-                  { "role": "Site Supervisor", "name": "supSig" },
-                  { "role": "Safety Officer", "name": "soSig", "wide": true }
+                  {
+                    "role": "Crew Lead",
+                    "name": "leadSig"
+                  },
+                  {
+                    "role": "Site Supervisor",
+                    "name": "supSig"
+                  },
+                  {
+                    "role": "Safety Officer",
+                    "name": "soSig",
+                    "wide": true
+                  }
                 ]
               }
             ]
@@ -335,14 +464,38 @@
                 "subtitle": "Check all that apply",
                 "columns": 4,
                 "items": [
-                  { "name": "firstAid", "label": "First Aid Only" },
-                  { "name": "medical", "label": "Medical Treatment" },
-                  { "name": "lostTime", "label": "Lost Time Injury" },
-                  { "name": "nearMiss", "label": "Near Miss" },
-                  { "name": "propertyDamage", "label": "Property Damage" },
-                  { "name": "vehicleAcc", "label": "Vehicle Accident" },
-                  { "name": "envRelease", "label": "Environmental Release" },
-                  { "name": "fatality", "label": "Fatality" }
+                  {
+                    "name": "firstAid",
+                    "label": "First Aid Only"
+                  },
+                  {
+                    "name": "medical",
+                    "label": "Medical Treatment"
+                  },
+                  {
+                    "name": "lostTime",
+                    "label": "Lost Time Injury"
+                  },
+                  {
+                    "name": "nearMiss",
+                    "label": "Near Miss"
+                  },
+                  {
+                    "name": "propertyDamage",
+                    "label": "Property Damage"
+                  },
+                  {
+                    "name": "vehicleAcc",
+                    "label": "Vehicle Accident"
+                  },
+                  {
+                    "name": "envRelease",
+                    "label": "Environmental Release"
+                  },
+                  {
+                    "name": "fatality",
+                    "label": "Fatality"
+                  }
                 ]
               },
               {
@@ -350,12 +503,30 @@
                 "title": "Incident Details",
                 "columns": 3,
                 "items": [
-                  { "name": "date", "label": "Date of Incident" },
-                  { "name": "time", "label": "Time of Incident" },
-                  { "name": "projectName", "label": "Project Name / #" },
-                  { "name": "location", "label": "Location (Address / Area)" },
-                  { "name": "supervisor", "label": "Supervisor on Duty" },
-                  { "name": "reportedTo", "label": "Reported To" }
+                  {
+                    "name": "date",
+                    "label": "Date of Incident"
+                  },
+                  {
+                    "name": "time",
+                    "label": "Time of Incident"
+                  },
+                  {
+                    "name": "projectName",
+                    "label": "Project Name / #"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Location (Address / Area)"
+                  },
+                  {
+                    "name": "supervisor",
+                    "label": "Supervisor on Duty"
+                  },
+                  {
+                    "name": "reportedTo",
+                    "label": "Reported To"
+                  }
                 ]
               },
               {
@@ -363,12 +534,30 @@
                 "title": "Injured / Involved Party",
                 "columns": 3,
                 "items": [
-                  { "name": "fullName", "label": "Full Name" },
-                  { "name": "jobTitle", "label": "Job Title" },
-                  { "name": "dateOfHire", "label": "Date of Hire" },
-                  { "name": "yearsExp", "label": "Years of Experience" },
-                  { "name": "ppeUsed", "label": "PPE Being Used? (Y/N)" },
-                  { "name": "ppeType", "label": "PPE Type" }
+                  {
+                    "name": "fullName",
+                    "label": "Full Name"
+                  },
+                  {
+                    "name": "jobTitle",
+                    "label": "Job Title"
+                  },
+                  {
+                    "name": "dateOfHire",
+                    "label": "Date of Hire"
+                  },
+                  {
+                    "name": "yearsExp",
+                    "label": "Years of Experience"
+                  },
+                  {
+                    "name": "ppeUsed",
+                    "label": "PPE Being Used? (Y/N)"
+                  },
+                  {
+                    "name": "ppeType",
+                    "label": "PPE Type"
+                  }
                 ]
               },
               {
@@ -390,13 +579,22 @@
                 "title": "Injury / Damage Details",
                 "columns": 2,
                 "items": [
-                  { "name": "bodyPartInjured", "label": "Body Part Injured" },
-                  { "name": "natureOfInjury", "label": "Nature of Injury" },
+                  {
+                    "name": "bodyPartInjured",
+                    "label": "Body Part Injured"
+                  },
+                  {
+                    "name": "natureOfInjury",
+                    "label": "Nature of Injury"
+                  },
                   {
                     "name": "propertyDamaged",
                     "label": "Property / Equipment Damaged"
                   },
-                  { "name": "estCost", "label": "Estimated Cost of Damage" }
+                  {
+                    "name": "estCost",
+                    "label": "Estimated Cost of Damage"
+                  }
                 ]
               },
               {
@@ -404,12 +602,18 @@
                 "title": "Immediate Actions Taken",
                 "columns": 2,
                 "items": [
-                  { "name": "firstAidBy", "label": "First Aid Provided By" },
+                  {
+                    "name": "firstAidBy",
+                    "label": "First Aid Provided By"
+                  },
                   {
                     "name": "medTreatment",
                     "label": "Medical Treatment Required? (Y/N)"
                   },
-                  { "name": "hospitalName", "label": "Hospital / Clinic Name" },
+                  {
+                    "name": "hospitalName",
+                    "label": "Hospital / Clinic Name"
+                  },
                   {
                     "name": "authorities",
                     "label": "Authorities Notified (911 / Police / Fire)"
@@ -430,15 +634,30 @@
                 "subtitle": "Preliminary — check all that apply",
                 "columns": 4,
                 "items": [
-                  { "name": "rcUnsafeAct", "label": "Unsafe Act" },
-                  { "name": "rcUnsafeCond", "label": "Unsafe Condition" },
-                  { "name": "rcEquipFail", "label": "Equipment Failure" },
+                  {
+                    "name": "rcUnsafeAct",
+                    "label": "Unsafe Act"
+                  },
+                  {
+                    "name": "rcUnsafeCond",
+                    "label": "Unsafe Condition"
+                  },
+                  {
+                    "name": "rcEquipFail",
+                    "label": "Equipment Failure"
+                  },
                   {
                     "name": "rcProcNotFollowed",
                     "label": "Procedure Not Followed"
                   },
-                  { "name": "rcTraining", "label": "Training Deficiency" },
-                  { "name": "rcEnv", "label": "Environmental Factor" }
+                  {
+                    "name": "rcTraining",
+                    "label": "Training Deficiency"
+                  },
+                  {
+                    "name": "rcEnv",
+                    "label": "Environmental Factor"
+                  }
                 ]
               },
               {
@@ -446,10 +665,22 @@
                 "title": "Corrective Actions",
                 "name": "ca",
                 "columns": [
-                  { "header": "Action Item", "width": "42%" },
-                  { "header": "Responsible Party", "width": "24%" },
-                  { "header": "Due Date", "width": "17%" },
-                  { "header": "Completed Date", "width": "17%" }
+                  {
+                    "header": "Action Item",
+                    "width": "42%"
+                  },
+                  {
+                    "header": "Responsible Party",
+                    "width": "24%"
+                  },
+                  {
+                    "header": "Due Date",
+                    "width": "17%"
+                  },
+                  {
+                    "header": "Completed Date",
+                    "width": "17%"
+                  }
                 ],
                 "rows": 4
               },
@@ -458,10 +689,22 @@
                 "title": "Regulatory Reporting Requirements",
                 "name": "reg",
                 "columns": [
-                  { "header": "Requirement", "width": "38%" },
-                  { "header": "Threshold", "width": "32%" },
-                  { "header": "Deadline", "width": "18%" },
-                  { "header": "Done?", "width": "12%" }
+                  {
+                    "header": "Requirement",
+                    "width": "38%"
+                  },
+                  {
+                    "header": "Threshold",
+                    "width": "32%"
+                  },
+                  {
+                    "header": "Deadline",
+                    "width": "18%"
+                  },
+                  {
+                    "header": "Done?",
+                    "width": "12%"
+                  }
                 ],
                 "rows": [
                   {
@@ -518,8 +761,14 @@
                 "title": "Signatures & Authorization",
                 "refNote": "DocuSign Note: Each signature field below corresponds to a DocuSign recipient role. Assign roles before sending. Original signatures, when printed, must be retained with the incident file per <strong>WAC 296-27-031</strong>.",
                 "blocks": [
-                  { "role": "Supervisor", "name": "sup" },
-                  { "role": "Safety Officer — Matt Ramsey", "name": "so" },
+                  {
+                    "role": "Supervisor",
+                    "name": "sup"
+                  },
+                  {
+                    "role": "Safety Officer — Matt Ramsey",
+                    "name": "so"
+                  },
                   {
                     "role": "President — Jeremy Thamert",
                     "name": "pres",
@@ -560,14 +809,38 @@
                 "subtitle": "Check all that apply",
                 "columns": 4,
                 "items": [
-                  { "name": "struckBy", "label": "Struck By / Against" },
-                  { "name": "caughtIn", "label": "Caught In / Between" },
-                  { "name": "fall", "label": "Fall (Same / Lower Level)" },
-                  { "name": "electrical", "label": "Electrical" },
-                  { "name": "chemical", "label": "Chemical Exposure" },
-                  { "name": "fire", "label": "Fire / Explosion" },
-                  { "name": "vehicle", "label": "Vehicle / Equipment" },
-                  { "name": "other", "label": "Other" }
+                  {
+                    "name": "struckBy",
+                    "label": "Struck By / Against"
+                  },
+                  {
+                    "name": "caughtIn",
+                    "label": "Caught In / Between"
+                  },
+                  {
+                    "name": "fall",
+                    "label": "Fall (Same / Lower Level)"
+                  },
+                  {
+                    "name": "electrical",
+                    "label": "Electrical"
+                  },
+                  {
+                    "name": "chemical",
+                    "label": "Chemical Exposure"
+                  },
+                  {
+                    "name": "fire",
+                    "label": "Fire / Explosion"
+                  },
+                  {
+                    "name": "vehicle",
+                    "label": "Vehicle / Equipment"
+                  },
+                  {
+                    "name": "other",
+                    "label": "Other"
+                  }
                 ]
               },
               {
@@ -575,12 +848,30 @@
                 "title": "Event Details",
                 "columns": 3,
                 "items": [
-                  { "name": "date", "label": "Date of Event" },
-                  { "name": "time", "label": "Time of Event" },
-                  { "name": "projectName", "label": "Project Name / #" },
-                  { "name": "location", "label": "Location (Address / Area)" },
-                  { "name": "supervisor", "label": "Supervisor on Duty" },
-                  { "name": "weather", "label": "Weather / Conditions" }
+                  {
+                    "name": "date",
+                    "label": "Date of Event"
+                  },
+                  {
+                    "name": "time",
+                    "label": "Time of Event"
+                  },
+                  {
+                    "name": "projectName",
+                    "label": "Project Name / #"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Location (Address / Area)"
+                  },
+                  {
+                    "name": "supervisor",
+                    "label": "Supervisor on Duty"
+                  },
+                  {
+                    "name": "weather",
+                    "label": "Weather / Conditions"
+                  }
                 ]
               },
               {
@@ -592,8 +883,14 @@
                     "name": "reporterName",
                     "label": "Reporter Name (optional)"
                   },
-                  { "name": "reporterRole", "label": "Role / Trade" },
-                  { "name": "witnesses", "label": "Witnesses" }
+                  {
+                    "name": "reporterRole",
+                    "label": "Role / Trade"
+                  },
+                  {
+                    "name": "witnesses",
+                    "label": "Witnesses"
+                  }
                 ]
               },
               {
@@ -616,17 +913,38 @@
                 "subtitle": "Preliminary — check all that apply",
                 "columns": 4,
                 "items": [
-                  { "name": "cfUnsafeAct", "label": "Unsafe Act" },
-                  { "name": "cfUnsafeCond", "label": "Unsafe Condition" },
-                  { "name": "cfEquipFail", "label": "Equipment Failure" },
-                  { "name": "cfProcGap", "label": "Procedure Gap" },
-                  { "name": "cfTraining", "label": "Training Deficiency" },
+                  {
+                    "name": "cfUnsafeAct",
+                    "label": "Unsafe Act"
+                  },
+                  {
+                    "name": "cfUnsafeCond",
+                    "label": "Unsafe Condition"
+                  },
+                  {
+                    "name": "cfEquipFail",
+                    "label": "Equipment Failure"
+                  },
+                  {
+                    "name": "cfProcGap",
+                    "label": "Procedure Gap"
+                  },
+                  {
+                    "name": "cfTraining",
+                    "label": "Training Deficiency"
+                  },
                   {
                     "name": "cfCommunication",
                     "label": "Communication Breakdown"
                   },
-                  { "name": "cfEnv", "label": "Environmental Factor" },
-                  { "name": "cfHousekeeping", "label": "Housekeeping" }
+                  {
+                    "name": "cfEnv",
+                    "label": "Environmental Factor"
+                  },
+                  {
+                    "name": "cfHousekeeping",
+                    "label": "Housekeeping"
+                  }
                 ]
               },
               {
@@ -641,10 +959,22 @@
                 "title": "Corrective Actions",
                 "name": "ca",
                 "columns": [
-                  { "header": "Action Item", "width": "42%" },
-                  { "header": "Responsible Party", "width": "24%" },
-                  { "header": "Due Date", "width": "17%" },
-                  { "header": "Completed Date", "width": "17%" }
+                  {
+                    "header": "Action Item",
+                    "width": "42%"
+                  },
+                  {
+                    "header": "Responsible Party",
+                    "width": "24%"
+                  },
+                  {
+                    "header": "Due Date",
+                    "width": "17%"
+                  },
+                  {
+                    "header": "Completed Date",
+                    "width": "17%"
+                  }
                 ],
                 "rows": 4
               },
@@ -653,8 +983,14 @@
                 "title": "Lesson Learned / Toolbox Talk",
                 "columns": 2,
                 "items": [
-                  { "name": "toolboxDate", "label": "Toolbox Talk Date" },
-                  { "name": "toolboxLed", "label": "Led By" }
+                  {
+                    "name": "toolboxDate",
+                    "label": "Toolbox Talk Date"
+                  },
+                  {
+                    "name": "toolboxLed",
+                    "label": "Led By"
+                  }
                 ]
               },
               {
@@ -662,7 +998,10 @@
                 "title": "Signatures & Authorization",
                 "refNote": "Near-miss reports are reviewed by the Safety Director within 5 business days. Trends are shared anonymously in the next monthly safety meeting per <strong>WAC 296-27-031</strong>.",
                 "blocks": [
-                  { "role": "Supervisor", "name": "sup" },
+                  {
+                    "role": "Supervisor",
+                    "name": "sup"
+                  },
                   {
                     "role": "Safety Officer — Matt Ramsey",
                     "name": "so",
@@ -702,12 +1041,30 @@
                 "title": "Inspection Information",
                 "columns": 3,
                 "items": [
-                  { "name": "date", "label": "Date" },
-                  { "name": "projectNumber", "label": "Project / Job #" },
-                  { "name": "weather", "label": "Weather / Temp" },
-                  { "name": "inspector", "label": "Inspector" },
-                  { "name": "shift", "label": "Shift" },
-                  { "name": "crewCount", "label": "Crew On-Site" }
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "weather",
+                    "label": "Weather / Temp"
+                  },
+                  {
+                    "name": "inspector",
+                    "label": "Inspector"
+                  },
+                  {
+                    "name": "shift",
+                    "label": "Shift"
+                  },
+                  {
+                    "name": "crewCount",
+                    "label": "Crew On-Site"
+                  }
                 ]
               },
               {
@@ -720,14 +1077,26 @@
                     "name": "housekeeping",
                     "label": "Housekeeping / Clear Paths"
                   },
-                  { "name": "signage", "label": "Signage & Barricades" },
-                  { "name": "firstAid", "label": "First-Aid Stations Stocked" },
+                  {
+                    "name": "signage",
+                    "label": "Signage & Barricades"
+                  },
+                  {
+                    "name": "firstAid",
+                    "label": "First-Aid Stations Stocked"
+                  },
                   {
                     "name": "fireExt",
                     "label": "Fire Extinguishers Accessible"
                   },
-                  { "name": "ppeWorn", "label": "PPE Worn Correctly" },
-                  { "name": "trafficCtrl", "label": "Traffic Control" }
+                  {
+                    "name": "ppeWorn",
+                    "label": "PPE Worn Correctly"
+                  },
+                  {
+                    "name": "trafficCtrl",
+                    "label": "Traffic Control"
+                  }
                 ]
               },
               {
@@ -743,10 +1112,22 @@
                     "name": "guardsInPlace",
                     "label": "Guards / Shields In Place"
                   },
-                  { "name": "ladders", "label": "Ladders Inspected" },
-                  { "name": "scaffold", "label": "Scaffold Tagged Green" },
-                  { "name": "cordsHoses", "label": "Cords / Hoses Protected" },
-                  { "name": "gfci", "label": "GFCI in Use" }
+                  {
+                    "name": "ladders",
+                    "label": "Ladders Inspected"
+                  },
+                  {
+                    "name": "scaffold",
+                    "label": "Scaffold Tagged Green"
+                  },
+                  {
+                    "name": "cordsHoses",
+                    "label": "Cords / Hoses Protected"
+                  },
+                  {
+                    "name": "gfci",
+                    "label": "GFCI in Use"
+                  }
                 ]
               },
               {
@@ -762,10 +1143,22 @@
                     "name": "excavation",
                     "label": "Excavation Protections OK"
                   },
-                  { "name": "hotWork", "label": "Hot Work Permitted" },
-                  { "name": "confSpace", "label": "Confined Space Permitted" },
-                  { "name": "loto", "label": "LOTO Verified" },
-                  { "name": "crane", "label": "Crane / Rigging OK" }
+                  {
+                    "name": "hotWork",
+                    "label": "Hot Work Permitted"
+                  },
+                  {
+                    "name": "confSpace",
+                    "label": "Confined Space Permitted"
+                  },
+                  {
+                    "name": "loto",
+                    "label": "LOTO Verified"
+                  },
+                  {
+                    "name": "crane",
+                    "label": "Crane / Rigging OK"
+                  }
                 ]
               }
             ]
@@ -780,10 +1173,22 @@
                 "title": "Corrective Actions",
                 "name": "ca",
                 "columns": [
-                  { "header": "Item / Hazard", "width": "34%" },
-                  { "header": "Action Taken / Required", "width": "34%" },
-                  { "header": "Assigned To", "width": "18%" },
-                  { "header": "Target Date", "width": "14%" }
+                  {
+                    "header": "Item / Hazard",
+                    "width": "34%"
+                  },
+                  {
+                    "header": "Action Taken / Required",
+                    "width": "34%"
+                  },
+                  {
+                    "header": "Assigned To",
+                    "width": "18%"
+                  },
+                  {
+                    "header": "Target Date",
+                    "width": "14%"
+                  }
                 ],
                 "rows": 6
               },
@@ -797,8 +1202,15 @@
                 "type": "signatures",
                 "title": "Verification",
                 "blocks": [
-                  { "role": "Inspector", "name": "inspectorSig" },
-                  { "role": "Site Supervisor", "name": "supSig", "wide": true }
+                  {
+                    "role": "Inspector",
+                    "name": "inspectorSig"
+                  },
+                  {
+                    "role": "Site Supervisor",
+                    "name": "supSig",
+                    "wide": true
+                  }
                 ]
               }
             ]
@@ -833,12 +1245,30 @@
                 "title": "Orientation Information",
                 "columns": 3,
                 "items": [
-                  { "name": "date", "label": "Date" },
-                  { "name": "projectNumber", "label": "Project / Job #" },
-                  { "name": "orientator", "label": "Orientator" },
-                  { "name": "location", "label": "Location" },
-                  { "name": "duration", "label": "Duration (min)" },
-                  { "name": "language", "label": "Language" }
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "orientator",
+                    "label": "Orientator"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Location"
+                  },
+                  {
+                    "name": "duration",
+                    "label": "Duration (min)"
+                  },
+                  {
+                    "name": "language",
+                    "label": "Language"
+                  }
                 ]
               },
               {
@@ -847,15 +1277,42 @@
                 "subtitle": "Check all that apply",
                 "columns": 3,
                 "items": [
-                  { "name": "siteRules", "label": "Site Rules & Conduct" },
-                  { "name": "ppe", "label": "PPE Requirements" },
-                  { "name": "hazcom", "label": "HazCom / SDS Access" },
-                  { "name": "emergency", "label": "Emergency Procedures" },
-                  { "name": "evacuation", "label": "Evacuation Routes" },
-                  { "name": "firstAid", "label": "First Aid / Reporting" },
-                  { "name": "incidentReport", "label": "Incident Reporting" },
-                  { "name": "fallPro", "label": "Fall Protection" },
-                  { "name": "loto", "label": "Lockout / Tagout" }
+                  {
+                    "name": "siteRules",
+                    "label": "Site Rules & Conduct"
+                  },
+                  {
+                    "name": "ppe",
+                    "label": "PPE Requirements"
+                  },
+                  {
+                    "name": "hazcom",
+                    "label": "HazCom / SDS Access"
+                  },
+                  {
+                    "name": "emergency",
+                    "label": "Emergency Procedures"
+                  },
+                  {
+                    "name": "evacuation",
+                    "label": "Evacuation Routes"
+                  },
+                  {
+                    "name": "firstAid",
+                    "label": "First Aid / Reporting"
+                  },
+                  {
+                    "name": "incidentReport",
+                    "label": "Incident Reporting"
+                  },
+                  {
+                    "name": "fallPro",
+                    "label": "Fall Protection"
+                  },
+                  {
+                    "name": "loto",
+                    "label": "Lockout / Tagout"
+                  }
                 ]
               },
               {
@@ -869,10 +1326,22 @@
                 "title": "Attendee Acknowledgment",
                 "name": "attendees",
                 "columns": [
-                  { "header": "Print Name", "width": "30%" },
-                  { "header": "Company / Trade", "width": "25%" },
-                  { "header": "Signature", "width": "25%" },
-                  { "header": "Date", "width": "20%" }
+                  {
+                    "header": "Print Name",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Company / Trade",
+                    "width": "25%"
+                  },
+                  {
+                    "header": "Signature",
+                    "width": "25%"
+                  },
+                  {
+                    "header": "Date",
+                    "width": "20%"
+                  }
                 ],
                 "rows": 8
               }
@@ -888,10 +1357,22 @@
                 "title": "Attendee Acknowledgment (continued)",
                 "name": "attendees2",
                 "columns": [
-                  { "header": "Print Name", "width": "30%" },
-                  { "header": "Company / Trade", "width": "25%" },
-                  { "header": "Signature", "width": "25%" },
-                  { "header": "Date", "width": "20%" }
+                  {
+                    "header": "Print Name",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Company / Trade",
+                    "width": "25%"
+                  },
+                  {
+                    "header": "Signature",
+                    "width": "25%"
+                  },
+                  {
+                    "header": "Date",
+                    "width": "20%"
+                  }
                 ],
                 "rows": 12
               },
@@ -899,8 +1380,15 @@
                 "type": "signatures",
                 "title": "Verification",
                 "blocks": [
-                  { "role": "Orientator", "name": "orientatorSig" },
-                  { "role": "Site Supervisor", "name": "supSig", "wide": true }
+                  {
+                    "role": "Orientator",
+                    "name": "orientatorSig"
+                  },
+                  {
+                    "role": "Site Supervisor",
+                    "name": "supSig",
+                    "wide": true
+                  }
                 ]
               }
             ]
@@ -935,17 +1423,38 @@
                 "title": "Establishment Information",
                 "columns": 2,
                 "items": [
-                  { "name": "establishment", "label": "Establishment Name" },
-                  { "name": "calendarYear", "label": "Calendar Year" },
-                  { "name": "streetAddr", "label": "Street Address" },
-                  { "name": "cityStateZip", "label": "City / State / ZIP" },
-                  { "name": "naics", "label": "NAICS Code" },
-                  { "name": "siczip", "label": "SIC Code (if used)" },
+                  {
+                    "name": "establishment",
+                    "label": "Establishment Name"
+                  },
+                  {
+                    "name": "calendarYear",
+                    "label": "Calendar Year"
+                  },
+                  {
+                    "name": "streetAddr",
+                    "label": "Street Address"
+                  },
+                  {
+                    "name": "cityStateZip",
+                    "label": "City / State / ZIP"
+                  },
+                  {
+                    "name": "naics",
+                    "label": "NAICS Code"
+                  },
+                  {
+                    "name": "siczip",
+                    "label": "SIC Code (if used)"
+                  },
                   {
                     "name": "avgEmployees",
                     "label": "Annual Avg. # Employees"
                   },
-                  { "name": "hoursWorked", "label": "Total Hours Worked" }
+                  {
+                    "name": "hoursWorked",
+                    "label": "Total Hours Worked"
+                  }
                 ]
               },
               {
@@ -953,18 +1462,54 @@
                 "title": "Annual Summary Totals (Form 300A)",
                 "columns": 4,
                 "items": [
-                  { "name": "deaths", "label": "Deaths (G)" },
-                  { "name": "daysAway", "label": "Days Away (H)" },
-                  { "name": "jobTransfer", "label": "Job Transfer (I)" },
-                  { "name": "otherCases", "label": "Other Cases (J)" },
-                  { "name": "daysAwayDays", "label": "Days Away Days (K)" },
-                  { "name": "restrictDays", "label": "Restricted Days (L)" },
-                  { "name": "injuriesM1", "label": "Injuries (M1)" },
-                  { "name": "skinM2", "label": "Skin Disorders (M2)" },
-                  { "name": "respM3", "label": "Respiratory (M3)" },
-                  { "name": "poisonM4", "label": "Poisonings (M4)" },
-                  { "name": "hearingM5", "label": "Hearing Loss (M5)" },
-                  { "name": "otherM6", "label": "All Other (M6)" }
+                  {
+                    "name": "deaths",
+                    "label": "Deaths (G)"
+                  },
+                  {
+                    "name": "daysAway",
+                    "label": "Days Away (H)"
+                  },
+                  {
+                    "name": "jobTransfer",
+                    "label": "Job Transfer (I)"
+                  },
+                  {
+                    "name": "otherCases",
+                    "label": "Other Cases (J)"
+                  },
+                  {
+                    "name": "daysAwayDays",
+                    "label": "Days Away Days (K)"
+                  },
+                  {
+                    "name": "restrictDays",
+                    "label": "Restricted Days (L)"
+                  },
+                  {
+                    "name": "injuriesM1",
+                    "label": "Injuries (M1)"
+                  },
+                  {
+                    "name": "skinM2",
+                    "label": "Skin Disorders (M2)"
+                  },
+                  {
+                    "name": "respM3",
+                    "label": "Respiratory (M3)"
+                  },
+                  {
+                    "name": "poisonM4",
+                    "label": "Poisonings (M4)"
+                  },
+                  {
+                    "name": "hearingM5",
+                    "label": "Hearing Loss (M5)"
+                  },
+                  {
+                    "name": "otherM6",
+                    "label": "All Other (M6)"
+                  }
                 ]
               },
               {
@@ -972,15 +1517,30 @@
                 "title": "Packet Contents Verified",
                 "columns": 3,
                 "items": [
-                  { "name": "form300", "label": "Form 300 Log" },
-                  { "name": "form300a", "label": "Form 300A Summary" },
-                  { "name": "form301", "label": "Form 301 Incident Reports" },
-                  { "name": "posted", "label": "Summary Posted Feb 1–Apr 30" },
+                  {
+                    "name": "form300",
+                    "label": "Form 300 Log"
+                  },
+                  {
+                    "name": "form300a",
+                    "label": "Form 300A Summary"
+                  },
+                  {
+                    "name": "form301",
+                    "label": "Form 301 Incident Reports"
+                  },
+                  {
+                    "name": "posted",
+                    "label": "Summary Posted Feb 1–Apr 30"
+                  },
                   {
                     "name": "electronic",
                     "label": "Electronic Filing Submitted"
                   },
-                  { "name": "retention", "label": "5-Year Retention Filed" }
+                  {
+                    "name": "retention",
+                    "label": "5-Year Retention Filed"
+                  }
                 ]
               },
               {
@@ -988,7 +1548,10 @@
                 "title": "Certification",
                 "refNote": "By signing, the company executive certifies that the information is true, accurate, and complete (29 CFR 1904.32).",
                 "blocks": [
-                  { "role": "Safety Director", "name": "sdSig" },
+                  {
+                    "role": "Safety Director",
+                    "name": "sdSig"
+                  },
                   {
                     "role": "Company Executive",
                     "name": "execSig",
@@ -1028,14 +1591,38 @@
                 "title": "Claim Information",
                 "columns": 2,
                 "items": [
-                  { "name": "claimNumber", "label": "L&I Claim Number" },
-                  { "name": "dateOfInjury", "label": "Date of Injury" },
-                  { "name": "workerName", "label": "Worker Name" },
-                  { "name": "workerSSN", "label": "Worker SSN (last 4)" },
-                  { "name": "jobTitle", "label": "Job Title" },
-                  { "name": "projectNumber", "label": "Project / Job #" },
-                  { "name": "employer", "label": "Employer of Record" },
-                  { "name": "uboi", "label": "UBI / Account #" }
+                  {
+                    "name": "claimNumber",
+                    "label": "L&I Claim Number"
+                  },
+                  {
+                    "name": "dateOfInjury",
+                    "label": "Date of Injury"
+                  },
+                  {
+                    "name": "workerName",
+                    "label": "Worker Name"
+                  },
+                  {
+                    "name": "workerSSN",
+                    "label": "Worker SSN (last 4)"
+                  },
+                  {
+                    "name": "jobTitle",
+                    "label": "Job Title"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "employer",
+                    "label": "Employer of Record"
+                  },
+                  {
+                    "name": "uboi",
+                    "label": "UBI / Account #"
+                  }
                 ]
               },
               {
@@ -1069,15 +1656,25 @@
                     "name": "medicalAuth",
                     "label": "Medical Authorization Signed"
                   },
-                  { "name": "rtwForm", "label": "Return-to-Work Plan Attached" }
+                  {
+                    "name": "rtwForm",
+                    "label": "Return-to-Work Plan Attached"
+                  }
                 ]
               },
               {
                 "type": "signatures",
                 "title": "Submission",
                 "blocks": [
-                  { "role": "Safety Director", "name": "sdSig" },
-                  { "role": "HR Coordinator", "name": "hrSig", "wide": true }
+                  {
+                    "role": "Safety Director",
+                    "name": "sdSig"
+                  },
+                  {
+                    "role": "HR Coordinator",
+                    "name": "hrSig",
+                    "wide": true
+                  }
                 ]
               }
             ]
@@ -1112,12 +1709,30 @@
                 "title": "Employee Information",
                 "columns": 3,
                 "items": [
-                  { "name": "name", "label": "Employee Name" },
-                  { "name": "empId", "label": "Employee ID" },
-                  { "name": "hireDate", "label": "Hire Date" },
-                  { "name": "jobTitle", "label": "Job Title / Trade" },
-                  { "name": "supervisor", "label": "Supervisor" },
-                  { "name": "crew", "label": "Crew / Department" }
+                  {
+                    "name": "name",
+                    "label": "Employee Name"
+                  },
+                  {
+                    "name": "empId",
+                    "label": "Employee ID"
+                  },
+                  {
+                    "name": "hireDate",
+                    "label": "Hire Date"
+                  },
+                  {
+                    "name": "jobTitle",
+                    "label": "Job Title / Trade"
+                  },
+                  {
+                    "name": "supervisor",
+                    "label": "Supervisor"
+                  },
+                  {
+                    "name": "crew",
+                    "label": "Crew / Department"
+                  }
                 ]
               },
               {
@@ -1126,15 +1741,42 @@
                 "subtitle": "Check current/in-date certifications",
                 "columns": 3,
                 "items": [
-                  { "name": "osha10", "label": "OSHA 10" },
-                  { "name": "osha30", "label": "OSHA 30" },
-                  { "name": "firstAidCpr", "label": "First Aid / CPR" },
-                  { "name": "fallPro", "label": "Fall Protection" },
-                  { "name": "forklift", "label": "Forklift / PIT" },
-                  { "name": "confSpace", "label": "Confined Space" },
-                  { "name": "loto", "label": "LOTO" },
-                  { "name": "silica", "label": "Silica Awareness" },
-                  { "name": "hazcom", "label": "HazCom / GHS" }
+                  {
+                    "name": "osha10",
+                    "label": "OSHA 10"
+                  },
+                  {
+                    "name": "osha30",
+                    "label": "OSHA 30"
+                  },
+                  {
+                    "name": "firstAidCpr",
+                    "label": "First Aid / CPR"
+                  },
+                  {
+                    "name": "fallPro",
+                    "label": "Fall Protection"
+                  },
+                  {
+                    "name": "forklift",
+                    "label": "Forklift / PIT"
+                  },
+                  {
+                    "name": "confSpace",
+                    "label": "Confined Space"
+                  },
+                  {
+                    "name": "loto",
+                    "label": "LOTO"
+                  },
+                  {
+                    "name": "silica",
+                    "label": "Silica Awareness"
+                  },
+                  {
+                    "name": "hazcom",
+                    "label": "HazCom / GHS"
+                  }
                 ]
               },
               {
@@ -1142,11 +1784,26 @@
                 "title": "Training History",
                 "name": "history",
                 "columns": [
-                  { "header": "Date", "width": "14%" },
-                  { "header": "Course / Topic", "width": "32%" },
-                  { "header": "Hours", "width": "8%" },
-                  { "header": "Provider / Instructor", "width": "24%" },
-                  { "header": "Cert / Expires", "width": "22%" }
+                  {
+                    "header": "Date",
+                    "width": "14%"
+                  },
+                  {
+                    "header": "Course / Topic",
+                    "width": "32%"
+                  },
+                  {
+                    "header": "Hours",
+                    "width": "8%"
+                  },
+                  {
+                    "header": "Provider / Instructor",
+                    "width": "24%"
+                  },
+                  {
+                    "header": "Cert / Expires",
+                    "width": "22%"
+                  }
                 ],
                 "rows": 7
               }
@@ -1162,11 +1819,26 @@
                 "title": "Training History (continued)",
                 "name": "history2",
                 "columns": [
-                  { "header": "Date", "width": "14%" },
-                  { "header": "Course / Topic", "width": "32%" },
-                  { "header": "Hours", "width": "8%" },
-                  { "header": "Provider / Instructor", "width": "24%" },
-                  { "header": "Cert / Expires", "width": "22%" }
+                  {
+                    "header": "Date",
+                    "width": "14%"
+                  },
+                  {
+                    "header": "Course / Topic",
+                    "width": "32%"
+                  },
+                  {
+                    "header": "Hours",
+                    "width": "8%"
+                  },
+                  {
+                    "header": "Provider / Instructor",
+                    "width": "24%"
+                  },
+                  {
+                    "header": "Cert / Expires",
+                    "width": "22%"
+                  }
                 ],
                 "rows": 10
               },
@@ -1181,8 +1853,15 @@
                 "title": "Verification",
                 "refNote": "Employee signature acknowledges accuracy of training history.",
                 "blocks": [
-                  { "role": "Employee", "name": "empSig" },
-                  { "role": "Safety Director", "name": "sdSig", "wide": true }
+                  {
+                    "role": "Employee",
+                    "name": "empSig"
+                  },
+                  {
+                    "role": "Safety Director",
+                    "name": "sdSig",
+                    "wide": true
+                  }
                 ]
               }
             ]
@@ -1217,11 +1896,26 @@
                 "title": "Job Information",
                 "columns": 3,
                 "items": [
-                  { "name": "date", "label": "Date" },
-                  { "name": "projectName", "label": "Project Name / #" },
-                  { "name": "shift", "label": "Shift Start / End" },
-                  { "name": "taskDescription", "label": "Task Description" },
-                  { "name": "location", "label": "Work Location / Area" },
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "projectName",
+                    "label": "Project Name / #"
+                  },
+                  {
+                    "name": "shift",
+                    "label": "Shift Start / End"
+                  },
+                  {
+                    "name": "taskDescription",
+                    "label": "Task Description"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Work Location / Area"
+                  },
                   {
                     "name": "competentPerson",
                     "label": "Competent Person on Site"
@@ -1234,14 +1928,38 @@
                 "subtitle": "Check all that apply for this task",
                 "columns": 4,
                 "items": [
-                  { "name": "ppeHardHat", "label": "Hard Hat" },
-                  { "name": "ppeEyes", "label": "Safety Glasses / Goggles" },
-                  { "name": "ppeHiVis", "label": "Hi-Vis Vest" },
-                  { "name": "ppeGloves", "label": "Gloves (Type Below)" },
-                  { "name": "ppeBoots", "label": "Steel-Toe Boots" },
-                  { "name": "ppeHearing", "label": "Hearing Protection" },
-                  { "name": "ppeRespirator", "label": "Respirator" },
-                  { "name": "ppeFallArrest", "label": "Fall Arrest Harness" }
+                  {
+                    "name": "ppeHardHat",
+                    "label": "Hard Hat"
+                  },
+                  {
+                    "name": "ppeEyes",
+                    "label": "Safety Glasses / Goggles"
+                  },
+                  {
+                    "name": "ppeHiVis",
+                    "label": "Hi-Vis Vest"
+                  },
+                  {
+                    "name": "ppeGloves",
+                    "label": "Gloves (Type Below)"
+                  },
+                  {
+                    "name": "ppeBoots",
+                    "label": "Steel-Toe Boots"
+                  },
+                  {
+                    "name": "ppeHearing",
+                    "label": "Hearing Protection"
+                  },
+                  {
+                    "name": "ppeRespirator",
+                    "label": "Respirator"
+                  },
+                  {
+                    "name": "ppeFallArrest",
+                    "label": "Fall Arrest Harness"
+                  }
                 ]
               },
               {
@@ -1250,14 +1968,38 @@
                 "subtitle": "Check all that apply",
                 "columns": 4,
                 "items": [
-                  { "name": "hzFall", "label": "Fall > 6 ft" },
-                  { "name": "hzExcavation", "label": "Excavation / Trench" },
-                  { "name": "hzConfined", "label": "Confined Space" },
-                  { "name": "hzElectrical", "label": "Electrical / LOTO" },
-                  { "name": "hzHotWork", "label": "Hot Work" },
-                  { "name": "hzCrane", "label": "Crane / Rigging" },
-                  { "name": "hzChemical", "label": "Chemical / Silica" },
-                  { "name": "hzHeat", "label": "Heat / Cold Stress" }
+                  {
+                    "name": "hzFall",
+                    "label": "Fall > 6 ft"
+                  },
+                  {
+                    "name": "hzExcavation",
+                    "label": "Excavation / Trench"
+                  },
+                  {
+                    "name": "hzConfined",
+                    "label": "Confined Space"
+                  },
+                  {
+                    "name": "hzElectrical",
+                    "label": "Electrical / LOTO"
+                  },
+                  {
+                    "name": "hzHotWork",
+                    "label": "Hot Work"
+                  },
+                  {
+                    "name": "hzCrane",
+                    "label": "Crane / Rigging"
+                  },
+                  {
+                    "name": "hzChemical",
+                    "label": "Chemical / Silica"
+                  },
+                  {
+                    "name": "hzHeat",
+                    "label": "Heat / Cold Stress"
+                  }
                 ]
               },
               {
@@ -1279,9 +2021,18 @@
                 "title": "Job Hazard Analysis (JHA)",
                 "name": "jha",
                 "columns": [
-                  { "header": "Job Step", "width": "30%" },
-                  { "header": "Potential Hazard", "width": "30%" },
-                  { "header": "Control / Mitigation", "width": "40%" }
+                  {
+                    "header": "Job Step",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Potential Hazard",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Control / Mitigation",
+                    "width": "40%"
+                  }
                 ],
                 "rows": 6
               },
@@ -1290,9 +2041,18 @@
                 "title": "Emergency Information",
                 "columns": 2,
                 "items": [
-                  { "name": "musterPoint", "label": "Muster Point Location" },
-                  { "name": "nearestHospital", "label": "Nearest Hospital" },
-                  { "name": "firstAidLoc", "label": "First Aid Kit Location" },
+                  {
+                    "name": "musterPoint",
+                    "label": "Muster Point Location"
+                  },
+                  {
+                    "name": "nearestHospital",
+                    "label": "Nearest Hospital"
+                  },
+                  {
+                    "name": "firstAidLoc",
+                    "label": "First Aid Kit Location"
+                  },
                   {
                     "name": "emergencyContact",
                     "label": "Site Emergency Contact"
@@ -1305,10 +2065,22 @@
                 "subtitle": "All crew members acknowledge they have reviewed this PTSP and understand the hazards and controls.",
                 "name": "crew",
                 "columns": [
-                  { "header": "Print Name", "width": "35%" },
-                  { "header": "Trade / Role", "width": "25%" },
-                  { "header": "Signature", "width": "30%" },
-                  { "header": "Time", "width": "10%" }
+                  {
+                    "header": "Print Name",
+                    "width": "35%"
+                  },
+                  {
+                    "header": "Trade / Role",
+                    "width": "25%"
+                  },
+                  {
+                    "header": "Signature",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Time",
+                    "width": "10%"
+                  }
                 ],
                 "rows": 6
               },
@@ -1317,7 +2089,10 @@
                 "title": "Plan Approval",
                 "refNote": "This PTSP must be re-evaluated whenever conditions, scope, or crew changes. Retain with the daily site safety inspection per <strong>WAC 296-155-110</strong>.",
                 "blocks": [
-                  { "role": "Foreman / Lead", "name": "foreman" },
+                  {
+                    "role": "Foreman / Lead",
+                    "name": "foreman"
+                  },
                   {
                     "role": "Safety Officer — Matt Ramsey",
                     "name": "so",
@@ -1357,14 +2132,38 @@
                 "title": "Applicant Information",
                 "columns": 2,
                 "items": [
-                  { "name": "name", "label": "Full Legal Name" },
-                  { "name": "dob", "label": "Date of Birth" },
-                  { "name": "ssn", "label": "SSN (last 4)" },
-                  { "name": "phone", "label": "Phone" },
-                  { "name": "address", "label": "Street Address" },
-                  { "name": "cityStateZip", "label": "City / State / ZIP" },
-                  { "name": "position", "label": "Position Applied For" },
-                  { "name": "hireDate", "label": "Conditional Hire Date" }
+                  {
+                    "name": "name",
+                    "label": "Full Legal Name"
+                  },
+                  {
+                    "name": "dob",
+                    "label": "Date of Birth"
+                  },
+                  {
+                    "name": "ssn",
+                    "label": "SSN (last 4)"
+                  },
+                  {
+                    "name": "phone",
+                    "label": "Phone"
+                  },
+                  {
+                    "name": "address",
+                    "label": "Street Address"
+                  },
+                  {
+                    "name": "cityStateZip",
+                    "label": "City / State / ZIP"
+                  },
+                  {
+                    "name": "position",
+                    "label": "Position Applied For"
+                  },
+                  {
+                    "name": "hireDate",
+                    "label": "Conditional Hire Date"
+                  }
                 ]
               },
               {
@@ -1373,12 +2172,30 @@
                 "subtitle": "Check all required panels",
                 "columns": 3,
                 "items": [
-                  { "name": "panel5", "label": "5-Panel" },
-                  { "name": "panel10", "label": "10-Panel" },
-                  { "name": "thc", "label": "THC" },
-                  { "name": "alcohol", "label": "Alcohol (BAT)" },
-                  { "name": "dotCdl", "label": "DOT / CDL" },
-                  { "name": "observed", "label": "Observed Collection" }
+                  {
+                    "name": "panel5",
+                    "label": "5-Panel"
+                  },
+                  {
+                    "name": "panel10",
+                    "label": "10-Panel"
+                  },
+                  {
+                    "name": "thc",
+                    "label": "THC"
+                  },
+                  {
+                    "name": "alcohol",
+                    "label": "Alcohol (BAT)"
+                  },
+                  {
+                    "name": "dotCdl",
+                    "label": "DOT / CDL"
+                  },
+                  {
+                    "name": "observed",
+                    "label": "Observed Collection"
+                  }
                 ]
               },
               {
@@ -1386,12 +2203,29 @@
                 "title": "Collection Site",
                 "columns": 2,
                 "items": [
-                  { "name": "clinicName", "label": "Clinic / Lab Name" },
-                  { "name": "clinicAddr", "label": "Clinic Address" },
-                  { "name": "collectionDate", "label": "Collection Date" },
-                  { "name": "collectionTime", "label": "Collection Time" }
+                  {
+                    "name": "clinicName",
+                    "label": "Clinic / Lab Name"
+                  },
+                  {
+                    "name": "clinicAddr",
+                    "label": "Clinic Address"
+                  },
+                  {
+                    "name": "collectionDate",
+                    "label": "Collection Date"
+                  },
+                  {
+                    "name": "collectionTime",
+                    "label": "Collection Time"
+                  }
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "sections": [
               {
                 "type": "narrative",
                 "title": "Disclosure of Current Medications",
@@ -1404,8 +2238,15 @@
                 "title": "Consent & Authorization",
                 "refNote": "By signing, applicant consents to substance testing as a condition of employment and authorizes release of results to MH Construction HR.",
                 "blocks": [
-                  { "role": "Applicant", "name": "applicantSig" },
-                  { "role": "Witness (HR)", "name": "witnessSig", "wide": true }
+                  {
+                    "role": "Applicant",
+                    "name": "applicantSig"
+                  },
+                  {
+                    "role": "Witness (HR)",
+                    "name": "witnessSig",
+                    "wide": true
+                  }
                 ]
               }
             ]
@@ -1453,12 +2294,30 @@
                 "title": "Incident Information",
                 "columns": 2,
                 "items": [
-                  { "name": "incidentDate", "label": "Incident Date" },
-                  { "name": "incidentTime", "label": "Incident Time" },
-                  { "name": "projectNumber", "label": "Project / Job #" },
-                  { "name": "location", "label": "Incident Location" },
-                  { "name": "supervisor", "label": "Supervisor On-Scene" },
-                  { "name": "incidentRef", "label": "FORM 02-C Reference #" }
+                  {
+                    "name": "incidentDate",
+                    "label": "Incident Date"
+                  },
+                  {
+                    "name": "incidentTime",
+                    "label": "Incident Time"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Incident Location"
+                  },
+                  {
+                    "name": "supervisor",
+                    "label": "Supervisor On-Scene"
+                  },
+                  {
+                    "name": "incidentRef",
+                    "label": "FORM 02-C Reference #"
+                  }
                 ]
               },
               {
@@ -1467,7 +2326,10 @@
                 "subtitle": "Check all that apply",
                 "columns": 2,
                 "items": [
-                  { "name": "fatality", "label": "Fatality" },
+                  {
+                    "name": "fatality",
+                    "label": "Fatality"
+                  },
                   {
                     "name": "medAttention",
                     "label": "Medical Attention Beyond First Aid"
@@ -1495,21 +2357,50 @@
                 "title": "Employee Tested",
                 "columns": 2,
                 "items": [
-                  { "name": "empName", "label": "Employee Name" },
-                  { "name": "empId", "label": "Employee ID" },
-                  { "name": "jobTitle", "label": "Job Title" },
-                  { "name": "crew", "label": "Crew" }
+                  {
+                    "name": "empName",
+                    "label": "Employee Name"
+                  },
+                  {
+                    "name": "empId",
+                    "label": "Employee ID"
+                  },
+                  {
+                    "name": "jobTitle",
+                    "label": "Job Title"
+                  },
+                  {
+                    "name": "crew",
+                    "label": "Crew"
+                  }
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "sections": [
               {
                 "type": "fieldGrid",
                 "title": "Collection Site & Time",
                 "columns": 2,
                 "items": [
-                  { "name": "clinic", "label": "Clinic / Lab" },
-                  { "name": "clinicAddr", "label": "Clinic Address" },
-                  { "name": "collectionDate", "label": "Collection Date" },
-                  { "name": "collectionTime", "label": "Collection Time" }
+                  {
+                    "name": "clinic",
+                    "label": "Clinic / Lab"
+                  },
+                  {
+                    "name": "clinicAddr",
+                    "label": "Clinic Address"
+                  },
+                  {
+                    "name": "collectionDate",
+                    "label": "Collection Date"
+                  },
+                  {
+                    "name": "collectionTime",
+                    "label": "Collection Time"
+                  }
                 ]
               },
               {
@@ -1517,9 +2408,19 @@
                 "title": "Authorization",
                 "refNote": "By signing, the employee consents to post-accident testing per the MH Construction substance abuse policy. Refusal is grounds for termination per policy.",
                 "blocks": [
-                  { "role": "Employee", "name": "empSig" },
-                  { "role": "Site Supervisor", "name": "supSig" },
-                  { "role": "Safety Director", "name": "sdSig", "wide": true }
+                  {
+                    "role": "Employee",
+                    "name": "empSig"
+                  },
+                  {
+                    "role": "Site Supervisor",
+                    "name": "supSig"
+                  },
+                  {
+                    "role": "Safety Director",
+                    "name": "sdSig",
+                    "wide": true
+                  }
                 ]
               }
             ]
@@ -1554,14 +2455,38 @@
                 "title": "Observation Information",
                 "columns": 2,
                 "items": [
-                  { "name": "date", "label": "Date" },
-                  { "name": "time", "label": "Time" },
-                  { "name": "projectNumber", "label": "Project / Job #" },
-                  { "name": "location", "label": "Location" },
-                  { "name": "empName", "label": "Employee Name" },
-                  { "name": "empId", "label": "Employee ID" },
-                  { "name": "observer", "label": "Observing Supervisor" },
-                  { "name": "observerTitle", "label": "Title" }
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "time",
+                    "label": "Time"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Location"
+                  },
+                  {
+                    "name": "empName",
+                    "label": "Employee Name"
+                  },
+                  {
+                    "name": "empId",
+                    "label": "Employee ID"
+                  },
+                  {
+                    "name": "observer",
+                    "label": "Observing Supervisor"
+                  },
+                  {
+                    "name": "observerTitle",
+                    "label": "Title"
+                  }
                 ]
               },
               {
@@ -1577,10 +2502,22 @@
                     "name": "pupilsDilated",
                     "label": "Pupils Dilated / Pinpoint"
                   },
-                  { "name": "flushed", "label": "Flushed / Pale" },
-                  { "name": "sweating", "label": "Sweating Excessively" },
-                  { "name": "unkempt", "label": "Disheveled / Unkempt" },
-                  { "name": "tremors", "label": "Hand / Body Tremors" }
+                  {
+                    "name": "flushed",
+                    "label": "Flushed / Pale"
+                  },
+                  {
+                    "name": "sweating",
+                    "label": "Sweating Excessively"
+                  },
+                  {
+                    "name": "unkempt",
+                    "label": "Disheveled / Unkempt"
+                  },
+                  {
+                    "name": "tremors",
+                    "label": "Hand / Body Tremors"
+                  }
                 ]
               },
               {
@@ -1588,12 +2525,30 @@
                 "title": "Behavior & Speech",
                 "columns": 3,
                 "items": [
-                  { "name": "slurred", "label": "Slurred / Rapid Speech" },
-                  { "name": "incoherent", "label": "Incoherent" },
-                  { "name": "agitated", "label": "Agitated / Aggressive" },
-                  { "name": "euphoric", "label": "Euphoric / Lethargic" },
-                  { "name": "paranoid", "label": "Paranoid / Suspicious" },
-                  { "name": "disoriented", "label": "Disoriented / Confused" }
+                  {
+                    "name": "slurred",
+                    "label": "Slurred / Rapid Speech"
+                  },
+                  {
+                    "name": "incoherent",
+                    "label": "Incoherent"
+                  },
+                  {
+                    "name": "agitated",
+                    "label": "Agitated / Aggressive"
+                  },
+                  {
+                    "name": "euphoric",
+                    "label": "Euphoric / Lethargic"
+                  },
+                  {
+                    "name": "paranoid",
+                    "label": "Paranoid / Suspicious"
+                  },
+                  {
+                    "name": "disoriented",
+                    "label": "Disoriented / Confused"
+                  }
                 ]
               },
               {
@@ -1605,19 +2560,33 @@
                     "name": "unsteady",
                     "label": "Unsteady Walking / Standing"
                   },
-                  { "name": "poorBalance", "label": "Poor Balance" },
+                  {
+                    "name": "poorBalance",
+                    "label": "Poor Balance"
+                  },
                   {
                     "name": "droppingTools",
                     "label": "Fumbling / Dropping Tools"
                   },
-                  { "name": "slowReact", "label": "Slow Reaction Time" },
-                  { "name": "sleeping", "label": "Sleeping On Job" },
+                  {
+                    "name": "slowReact",
+                    "label": "Slow Reaction Time"
+                  },
+                  {
+                    "name": "sleeping",
+                    "label": "Sleeping On Job"
+                  },
                   {
                     "name": "odorAlcohol",
                     "label": "Odor of Alcohol / Cannabis"
                   }
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "sections": [
               {
                 "type": "narrative",
                 "title": "Specific Articulable Facts",
@@ -1630,9 +2599,19 @@
                 "title": "Verification",
                 "refNote": "Two trained supervisors should concur where practical.",
                 "blocks": [
-                  { "role": "Observing Supervisor", "name": "sup1Sig" },
-                  { "role": "Concurring Supervisor", "name": "sup2Sig" },
-                  { "role": "Safety Director", "name": "sdSig", "wide": true }
+                  {
+                    "role": "Observing Supervisor",
+                    "name": "sup1Sig"
+                  },
+                  {
+                    "role": "Concurring Supervisor",
+                    "name": "sup2Sig"
+                  },
+                  {
+                    "role": "Safety Director",
+                    "name": "sdSig",
+                    "wide": true
+                  }
                 ]
               }
             ]
@@ -1680,14 +2659,38 @@
                 "title": "Driver Information",
                 "columns": 2,
                 "items": [
-                  { "name": "name", "label": "Full Legal Name" },
-                  { "name": "dob", "label": "Date of Birth" },
-                  { "name": "licenseNumber", "label": "License Number" },
-                  { "name": "licenseState", "label": "Issuing State" },
-                  { "name": "licenseClass", "label": "Class" },
-                  { "name": "expiration", "label": "Expiration" },
-                  { "name": "empId", "label": "Employee ID" },
-                  { "name": "position", "label": "Position" }
+                  {
+                    "name": "name",
+                    "label": "Full Legal Name"
+                  },
+                  {
+                    "name": "dob",
+                    "label": "Date of Birth"
+                  },
+                  {
+                    "name": "licenseNumber",
+                    "label": "License Number"
+                  },
+                  {
+                    "name": "licenseState",
+                    "label": "Issuing State"
+                  },
+                  {
+                    "name": "licenseClass",
+                    "label": "Class"
+                  },
+                  {
+                    "name": "expiration",
+                    "label": "Expiration"
+                  },
+                  {
+                    "name": "empId",
+                    "label": "Employee ID"
+                  },
+                  {
+                    "name": "position",
+                    "label": "Position"
+                  }
                 ]
               },
               {
@@ -1695,12 +2698,30 @@
                 "title": "Vehicle Categories Authorized",
                 "columns": 3,
                 "items": [
-                  { "name": "lightTruck", "label": "Light Truck / Pickup" },
-                  { "name": "medTruck", "label": "Medium Truck" },
-                  { "name": "cdlClass", "label": "CDL Class A / B" },
-                  { "name": "trailer", "label": "Trailer Towing" },
-                  { "name": "forklift", "label": "Forklift / PIT" },
-                  { "name": "heavyEquip", "label": "Heavy Equipment" }
+                  {
+                    "name": "lightTruck",
+                    "label": "Light Truck / Pickup"
+                  },
+                  {
+                    "name": "medTruck",
+                    "label": "Medium Truck"
+                  },
+                  {
+                    "name": "cdlClass",
+                    "label": "CDL Class A / B"
+                  },
+                  {
+                    "name": "trailer",
+                    "label": "Trailer Towing"
+                  },
+                  {
+                    "name": "forklift",
+                    "label": "Forklift / PIT"
+                  },
+                  {
+                    "name": "heavyEquip",
+                    "label": "Heavy Equipment"
+                  }
                 ]
               },
               {
@@ -1708,10 +2729,22 @@
                 "title": "Required Endorsements / Certifications",
                 "columns": 3,
                 "items": [
-                  { "name": "medCert", "label": "DOT Medical Card" },
-                  { "name": "hazmat", "label": "Hazmat (H)" },
-                  { "name": "tanker", "label": "Tanker (N)" },
-                  { "name": "airBrakes", "label": "Air Brakes" },
+                  {
+                    "name": "medCert",
+                    "label": "DOT Medical Card"
+                  },
+                  {
+                    "name": "hazmat",
+                    "label": "Hazmat (H)"
+                  },
+                  {
+                    "name": "tanker",
+                    "label": "Tanker (N)"
+                  },
+                  {
+                    "name": "airBrakes",
+                    "label": "Air Brakes"
+                  },
                   {
                     "name": "defensiveDriving",
                     "label": "Defensive Driving Course"
@@ -1721,7 +2754,12 @@
                     "label": "Distracted Driving Ack (FORM 04-E)"
                   }
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "sections": [
               {
                 "type": "narrative",
                 "title": "Self-Disclosed Driving History (last 3 years)",
@@ -1734,8 +2772,15 @@
                 "title": "Authorization & Disclosure",
                 "refNote": "Driver authorizes MH Construction (and its agents) to obtain MVRs annually and acknowledges company driving policies.",
                 "blocks": [
-                  { "role": "Driver", "name": "driverSig" },
-                  { "role": "Fleet Manager", "name": "fmSig", "wide": true }
+                  {
+                    "role": "Driver",
+                    "name": "driverSig"
+                  },
+                  {
+                    "role": "Fleet Manager",
+                    "name": "fmSig",
+                    "wide": true
+                  }
                 ]
               }
             ]
@@ -1770,12 +2815,30 @@
                 "title": "Vehicle Information",
                 "columns": 3,
                 "items": [
-                  { "name": "date", "label": "Date" },
-                  { "name": "driver", "label": "Driver" },
-                  { "name": "projectNumber", "label": "Project / Job #" },
-                  { "name": "unitNumber", "label": "Unit / Asset #" },
-                  { "name": "plate", "label": "Plate / VIN (last 4)" },
-                  { "name": "odometer", "label": "Odometer" }
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "driver",
+                    "label": "Driver"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "unitNumber",
+                    "label": "Unit / Asset #"
+                  },
+                  {
+                    "name": "plate",
+                    "label": "Plate / VIN (last 4)"
+                  },
+                  {
+                    "name": "odometer",
+                    "label": "Odometer"
+                  }
                 ]
               },
               {
@@ -1784,15 +2847,42 @@
                 "subtitle": "Check items observed satisfactory",
                 "columns": 3,
                 "items": [
-                  { "name": "tires", "label": "Tires (tread / pressure)" },
-                  { "name": "wheels", "label": "Wheels / Lugs" },
-                  { "name": "lights", "label": "Headlights / Tail / Brake" },
-                  { "name": "signals", "label": "Turn Signals / Hazards" },
-                  { "name": "mirrors", "label": "Mirrors" },
-                  { "name": "glass", "label": "Windshield / Glass" },
-                  { "name": "wipers", "label": "Wipers / Washer" },
-                  { "name": "plates", "label": "License Plates Visible" },
-                  { "name": "bodyCondition", "label": "Body / No New Damage" }
+                  {
+                    "name": "tires",
+                    "label": "Tires (tread / pressure)"
+                  },
+                  {
+                    "name": "wheels",
+                    "label": "Wheels / Lugs"
+                  },
+                  {
+                    "name": "lights",
+                    "label": "Headlights / Tail / Brake"
+                  },
+                  {
+                    "name": "signals",
+                    "label": "Turn Signals / Hazards"
+                  },
+                  {
+                    "name": "mirrors",
+                    "label": "Mirrors"
+                  },
+                  {
+                    "name": "glass",
+                    "label": "Windshield / Glass"
+                  },
+                  {
+                    "name": "wipers",
+                    "label": "Wipers / Washer"
+                  },
+                  {
+                    "name": "plates",
+                    "label": "License Plates Visible"
+                  },
+                  {
+                    "name": "bodyCondition",
+                    "label": "Body / No New Damage"
+                  }
                 ]
               },
               {
@@ -1800,27 +2890,74 @@
                 "title": "Mechanical & Fluids",
                 "columns": 3,
                 "items": [
-                  { "name": "oil", "label": "Oil Level" },
-                  { "name": "coolant", "label": "Coolant" },
-                  { "name": "washerFluid", "label": "Washer Fluid" },
-                  { "name": "brakes", "label": "Brakes (Service & Park)" },
-                  { "name": "steering", "label": "Steering / Play" },
-                  { "name": "belts", "label": "Belts / Hoses" },
-                  { "name": "battery", "label": "Battery / Cables" },
-                  { "name": "airBrake", "label": "Air Brake System (CDL)" },
-                  { "name": "trailer", "label": "Trailer / Coupling" }
+                  {
+                    "name": "oil",
+                    "label": "Oil Level"
+                  },
+                  {
+                    "name": "coolant",
+                    "label": "Coolant"
+                  },
+                  {
+                    "name": "washerFluid",
+                    "label": "Washer Fluid"
+                  },
+                  {
+                    "name": "brakes",
+                    "label": "Brakes (Service & Park)"
+                  },
+                  {
+                    "name": "steering",
+                    "label": "Steering / Play"
+                  },
+                  {
+                    "name": "belts",
+                    "label": "Belts / Hoses"
+                  },
+                  {
+                    "name": "battery",
+                    "label": "Battery / Cables"
+                  },
+                  {
+                    "name": "airBrake",
+                    "label": "Air Brake System (CDL)"
+                  },
+                  {
+                    "name": "trailer",
+                    "label": "Trailer / Coupling"
+                  }
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "kind": "cont",
+            "sections": [
               {
                 "type": "checkGrid",
                 "title": "Cab & Safety Items",
                 "columns": 3,
                 "items": [
-                  { "name": "seatBelt", "label": "Seat Belt" },
-                  { "name": "horn", "label": "Horn" },
-                  { "name": "backup", "label": "Backup Alarm (if equipped)" },
-                  { "name": "firstAid", "label": "First-Aid Kit" },
-                  { "name": "fireExt", "label": "Fire Extinguisher" },
+                  {
+                    "name": "seatBelt",
+                    "label": "Seat Belt"
+                  },
+                  {
+                    "name": "horn",
+                    "label": "Horn"
+                  },
+                  {
+                    "name": "backup",
+                    "label": "Backup Alarm (if equipped)"
+                  },
+                  {
+                    "name": "firstAid",
+                    "label": "First-Aid Kit"
+                  },
+                  {
+                    "name": "fireExt",
+                    "label": "Fire Extinguisher"
+                  },
                   {
                     "name": "triangles",
                     "label": "Reflective Triangles / Flares"
@@ -1829,8 +2966,14 @@
                     "name": "registration",
                     "label": "Registration / Insurance Card"
                   },
-                  { "name": "mvrLog", "label": "Driver Log / DVIR" },
-                  { "name": "cargoSecure", "label": "Cargo Secured" }
+                  {
+                    "name": "mvrLog",
+                    "label": "Driver Log / DVIR"
+                  },
+                  {
+                    "name": "cargoSecure",
+                    "label": "Cargo Secured"
+                  }
                 ]
               },
               {
@@ -1843,7 +2986,10 @@
                 "type": "signatures",
                 "title": "Driver Certification",
                 "blocks": [
-                  { "role": "Driver", "name": "driverSig" },
+                  {
+                    "role": "Driver",
+                    "name": "driverSig"
+                  },
                   {
                     "role": "Fleet Manager (defects only)",
                     "name": "fmSig",
@@ -1884,14 +3030,38 @@
                 "subtitle": "Check all that apply",
                 "columns": 4,
                 "items": [
-                  { "name": "propOnly", "label": "Property Damage Only" },
-                  { "name": "injury", "label": "Personal Injury" },
-                  { "name": "fatality", "label": "Fatality" },
-                  { "name": "hitAndRun", "label": "Hit & Run" },
-                  { "name": "singleVeh", "label": "Single Vehicle" },
-                  { "name": "multiVeh", "label": "Multi Vehicle" },
-                  { "name": "backing", "label": "Backing" },
-                  { "name": "parked", "label": "Parked Vehicle" }
+                  {
+                    "name": "propOnly",
+                    "label": "Property Damage Only"
+                  },
+                  {
+                    "name": "injury",
+                    "label": "Personal Injury"
+                  },
+                  {
+                    "name": "fatality",
+                    "label": "Fatality"
+                  },
+                  {
+                    "name": "hitAndRun",
+                    "label": "Hit & Run"
+                  },
+                  {
+                    "name": "singleVeh",
+                    "label": "Single Vehicle"
+                  },
+                  {
+                    "name": "multiVeh",
+                    "label": "Multi Vehicle"
+                  },
+                  {
+                    "name": "backing",
+                    "label": "Backing"
+                  },
+                  {
+                    "name": "parked",
+                    "label": "Parked Vehicle"
+                  }
                 ]
               },
               {
@@ -1899,12 +3069,30 @@
                 "title": "Accident Details",
                 "columns": 3,
                 "items": [
-                  { "name": "date", "label": "Date of Accident" },
-                  { "name": "time", "label": "Time of Accident" },
-                  { "name": "location", "label": "Location (Street / City)" },
-                  { "name": "weather", "label": "Weather / Road Conditions" },
-                  { "name": "speedLimit", "label": "Posted Speed Limit" },
-                  { "name": "travelSpeed", "label": "Estimated Travel Speed" }
+                  {
+                    "name": "date",
+                    "label": "Date of Accident"
+                  },
+                  {
+                    "name": "time",
+                    "label": "Time of Accident"
+                  },
+                  {
+                    "name": "location",
+                    "label": "Location (Street / City)"
+                  },
+                  {
+                    "name": "weather",
+                    "label": "Weather / Road Conditions"
+                  },
+                  {
+                    "name": "speedLimit",
+                    "label": "Posted Speed Limit"
+                  },
+                  {
+                    "name": "travelSpeed",
+                    "label": "Estimated Travel Speed"
+                  }
                 ]
               },
               {
@@ -1912,12 +3100,30 @@
                 "title": "MH Driver & Vehicle",
                 "columns": 3,
                 "items": [
-                  { "name": "driverName", "label": "Driver Full Name" },
-                  { "name": "driverLicense", "label": "Driver License #" },
-                  { "name": "driverDob", "label": "Date of Birth" },
-                  { "name": "vehUnit", "label": "Vehicle Unit / Plate #" },
-                  { "name": "vehMake", "label": "Make / Model / Year" },
-                  { "name": "vehVin", "label": "VIN" }
+                  {
+                    "name": "driverName",
+                    "label": "Driver Full Name"
+                  },
+                  {
+                    "name": "driverLicense",
+                    "label": "Driver License #"
+                  },
+                  {
+                    "name": "driverDob",
+                    "label": "Date of Birth"
+                  },
+                  {
+                    "name": "vehUnit",
+                    "label": "Vehicle Unit / Plate #"
+                  },
+                  {
+                    "name": "vehMake",
+                    "label": "Make / Model / Year"
+                  },
+                  {
+                    "name": "vehVin",
+                    "label": "VIN"
+                  }
                 ]
               },
               {
@@ -1939,11 +3145,26 @@
                 "title": "Other Party / Vehicle",
                 "columns": 3,
                 "items": [
-                  { "name": "otherName", "label": "Driver Name" },
-                  { "name": "otherPhone", "label": "Phone" },
-                  { "name": "otherLicense", "label": "Driver License #" },
-                  { "name": "otherInsCo", "label": "Insurance Company" },
-                  { "name": "otherPolicy", "label": "Policy #" },
+                  {
+                    "name": "otherName",
+                    "label": "Driver Name"
+                  },
+                  {
+                    "name": "otherPhone",
+                    "label": "Phone"
+                  },
+                  {
+                    "name": "otherLicense",
+                    "label": "Driver License #"
+                  },
+                  {
+                    "name": "otherInsCo",
+                    "label": "Insurance Company"
+                  },
+                  {
+                    "name": "otherPolicy",
+                    "label": "Policy #"
+                  },
                   {
                     "name": "otherPlate",
                     "label": "Vehicle Plate / Make / Model"
@@ -1959,13 +3180,22 @@
                     "name": "policeAgency",
                     "label": "Police Agency Responding"
                   },
-                  { "name": "policeReportNo", "label": "Police Report #" },
-                  { "name": "officerName", "label": "Officer Name / Badge" },
+                  {
+                    "name": "policeReportNo",
+                    "label": "Police Report #"
+                  },
+                  {
+                    "name": "officerName",
+                    "label": "Officer Name / Badge"
+                  },
                   {
                     "name": "citationsIssued",
                     "label": "Citations Issued? (Y/N)"
                   },
-                  { "name": "travelersClaim", "label": "Travelers Claim #" },
+                  {
+                    "name": "travelersClaim",
+                    "label": "Travelers Claim #"
+                  },
                   {
                     "name": "travelersDate",
                     "label": "Date Reported to Travelers"
@@ -1977,9 +3207,18 @@
                 "title": "Witnesses",
                 "name": "witnesses",
                 "columns": [
-                  { "header": "Name", "width": "35%" },
-                  { "header": "Phone", "width": "22%" },
-                  { "header": "Address", "width": "43%" }
+                  {
+                    "header": "Name",
+                    "width": "35%"
+                  },
+                  {
+                    "header": "Phone",
+                    "width": "22%"
+                  },
+                  {
+                    "header": "Address",
+                    "width": "43%"
+                  }
                 ],
                 "rows": 3
               },
@@ -1989,9 +3228,18 @@
                 "subtitle": "Required per FORM 03-C — check all that apply",
                 "columns": 3,
                 "items": [
-                  { "name": "testDrug", "label": "Drug Test Ordered" },
-                  { "name": "testAlcohol", "label": "Alcohol Test Ordered" },
-                  { "name": "testCompleted", "label": "Test Completed" }
+                  {
+                    "name": "testDrug",
+                    "label": "Drug Test Ordered"
+                  },
+                  {
+                    "name": "testAlcohol",
+                    "label": "Alcohol Test Ordered"
+                  },
+                  {
+                    "name": "testCompleted",
+                    "label": "Test Completed"
+                  }
                 ]
               },
               {
@@ -2006,8 +3254,14 @@
                 "title": "Signatures & Authorization",
                 "refNote": "Attach photos, police report, and other-party insurance card to this form. Forward immediately to the Safety Director per <strong>WAC 296-27-031</strong>.",
                 "blocks": [
-                  { "role": "Driver", "name": "driver" },
-                  { "role": "Supervisor", "name": "sup" },
+                  {
+                    "role": "Driver",
+                    "name": "driver"
+                  },
+                  {
+                    "role": "Supervisor",
+                    "name": "sup"
+                  },
                   {
                     "role": "Safety Officer — Matt Ramsey",
                     "name": "so",
@@ -2047,12 +3301,30 @@
                 "title": "Equipment Information",
                 "columns": 3,
                 "items": [
-                  { "name": "date", "label": "Date" },
-                  { "name": "projectNumber", "label": "Project / Job #" },
-                  { "name": "operator", "label": "Operator" },
-                  { "name": "equipType", "label": "Equipment Type" },
-                  { "name": "unitNumber", "label": "Unit / Asset #" },
-                  { "name": "hourMeter", "label": "Hour Meter" }
+                  {
+                    "name": "date",
+                    "label": "Date"
+                  },
+                  {
+                    "name": "projectNumber",
+                    "label": "Project / Job #"
+                  },
+                  {
+                    "name": "operator",
+                    "label": "Operator"
+                  },
+                  {
+                    "name": "equipType",
+                    "label": "Equipment Type"
+                  },
+                  {
+                    "name": "unitNumber",
+                    "label": "Unit / Asset #"
+                  },
+                  {
+                    "name": "hourMeter",
+                    "label": "Hour Meter"
+                  }
                 ]
               },
               {
@@ -2061,15 +3333,42 @@
                 "subtitle": "Check items observed satisfactory",
                 "columns": 3,
                 "items": [
-                  { "name": "tires", "label": "Tires / Tracks" },
-                  { "name": "leaks", "label": "No Fluid Leaks" },
-                  { "name": "fluids", "label": "Fluid Levels OK" },
-                  { "name": "lights", "label": "Lights / Beacon" },
-                  { "name": "horn", "label": "Horn / Backup Alarm" },
-                  { "name": "mirrors", "label": "Mirrors / Visibility" },
-                  { "name": "glass", "label": "Glass / Windows" },
-                  { "name": "fireExt", "label": "Fire Extinguisher" },
-                  { "name": "firstAid", "label": "First-Aid Kit" }
+                  {
+                    "name": "tires",
+                    "label": "Tires / Tracks"
+                  },
+                  {
+                    "name": "leaks",
+                    "label": "No Fluid Leaks"
+                  },
+                  {
+                    "name": "fluids",
+                    "label": "Fluid Levels OK"
+                  },
+                  {
+                    "name": "lights",
+                    "label": "Lights / Beacon"
+                  },
+                  {
+                    "name": "horn",
+                    "label": "Horn / Backup Alarm"
+                  },
+                  {
+                    "name": "mirrors",
+                    "label": "Mirrors / Visibility"
+                  },
+                  {
+                    "name": "glass",
+                    "label": "Glass / Windows"
+                  },
+                  {
+                    "name": "fireExt",
+                    "label": "Fire Extinguisher"
+                  },
+                  {
+                    "name": "firstAid",
+                    "label": "First-Aid Kit"
+                  }
                 ]
               },
               {
@@ -2077,15 +3376,42 @@
                 "title": "Safety Systems",
                 "columns": 3,
                 "items": [
-                  { "name": "seatBelt", "label": "Seat Belt" },
-                  { "name": "rops", "label": "ROPS / FOPS Intact" },
-                  { "name": "guards", "label": "Guards In Place" },
-                  { "name": "controls", "label": "Controls Function" },
-                  { "name": "brakes", "label": "Service & Park Brake" },
-                  { "name": "steering", "label": "Steering" },
-                  { "name": "hydraulics", "label": "Hydraulics" },
-                  { "name": "attachments", "label": "Attachments Secure" },
-                  { "name": "decals", "label": "Safety Decals Legible" }
+                  {
+                    "name": "seatBelt",
+                    "label": "Seat Belt"
+                  },
+                  {
+                    "name": "rops",
+                    "label": "ROPS / FOPS Intact"
+                  },
+                  {
+                    "name": "guards",
+                    "label": "Guards In Place"
+                  },
+                  {
+                    "name": "controls",
+                    "label": "Controls Function"
+                  },
+                  {
+                    "name": "brakes",
+                    "label": "Service & Park Brake"
+                  },
+                  {
+                    "name": "steering",
+                    "label": "Steering"
+                  },
+                  {
+                    "name": "hydraulics",
+                    "label": "Hydraulics"
+                  },
+                  {
+                    "name": "attachments",
+                    "label": "Attachments Secure"
+                  },
+                  {
+                    "name": "decals",
+                    "label": "Safety Decals Legible"
+                  }
                 ]
               }
             ]
@@ -2107,10 +3433,22 @@
                 "title": "Corrective Actions",
                 "name": "ca",
                 "columns": [
-                  { "header": "Item", "width": "34%" },
-                  { "header": "Action Required", "width": "34%" },
-                  { "header": "Assigned To", "width": "18%" },
-                  { "header": "Target Date", "width": "14%" }
+                  {
+                    "header": "Item",
+                    "width": "34%"
+                  },
+                  {
+                    "header": "Action Required",
+                    "width": "34%"
+                  },
+                  {
+                    "header": "Assigned To",
+                    "width": "18%"
+                  },
+                  {
+                    "header": "Target Date",
+                    "width": "14%"
+                  }
                 ],
                 "rows": 5
               },
@@ -2133,8 +3471,15 @@
                 "type": "signatures",
                 "title": "Verification",
                 "blocks": [
-                  { "role": "Operator", "name": "operatorSig" },
-                  { "role": "Site Supervisor", "name": "supSig", "wide": true }
+                  {
+                    "role": "Operator",
+                    "name": "operatorSig"
+                  },
+                  {
+                    "role": "Site Supervisor",
+                    "name": "supSig",
+                    "wide": true
+                  }
                 ]
               }
             ]
@@ -2195,18 +3540,54 @@
                 "title": "Subcontractor Information",
                 "columns": 2,
                 "items": [
-                  { "name": "company", "label": "Company / DBA" },
-                  { "name": "feiNumber", "label": "FEIN / Tax ID" },
-                  { "name": "streetAddr", "label": "Street Address" },
-                  { "name": "cityStateZip", "label": "City / State / ZIP" },
-                  { "name": "contact", "label": "Primary Contact" },
-                  { "name": "contactPhone", "label": "Phone" },
-                  { "name": "contactEmail", "label": "Email" },
-                  { "name": "yearsBusiness", "label": "Years In Business" },
-                  { "name": "trade", "label": "Trade / Scope" },
-                  { "name": "licenseNumber", "label": "Contractor License #" },
-                  { "name": "licenseStates", "label": "Licensed States" },
-                  { "name": "avgEmployees", "label": "Avg. # Employees" }
+                  {
+                    "name": "company",
+                    "label": "Company / DBA"
+                  },
+                  {
+                    "name": "feiNumber",
+                    "label": "FEIN / Tax ID"
+                  },
+                  {
+                    "name": "streetAddr",
+                    "label": "Street Address"
+                  },
+                  {
+                    "name": "cityStateZip",
+                    "label": "City / State / ZIP"
+                  },
+                  {
+                    "name": "contact",
+                    "label": "Primary Contact"
+                  },
+                  {
+                    "name": "contactPhone",
+                    "label": "Phone"
+                  },
+                  {
+                    "name": "contactEmail",
+                    "label": "Email"
+                  },
+                  {
+                    "name": "yearsBusiness",
+                    "label": "Years In Business"
+                  },
+                  {
+                    "name": "trade",
+                    "label": "Trade / Scope"
+                  },
+                  {
+                    "name": "licenseNumber",
+                    "label": "Contractor License #"
+                  },
+                  {
+                    "name": "licenseStates",
+                    "label": "Licensed States"
+                  },
+                  {
+                    "name": "avgEmployees",
+                    "label": "Avg. # Employees"
+                  }
                 ]
               },
               {
@@ -2214,17 +3595,38 @@
                 "title": "Insurance & Bonding",
                 "columns": 2,
                 "items": [
-                  { "name": "glLimit", "label": "GL Per-Occurrence Limit" },
-                  { "name": "glAggregate", "label": "GL Aggregate Limit" },
-                  { "name": "autoLimit", "label": "Auto Liability Limit" },
-                  { "name": "umbrella", "label": "Umbrella / Excess Limit" },
-                  { "name": "wcCarrier", "label": "Workers' Comp Carrier" },
-                  { "name": "emr3yr", "label": "3-Year EMR" },
+                  {
+                    "name": "glLimit",
+                    "label": "GL Per-Occurrence Limit"
+                  },
+                  {
+                    "name": "glAggregate",
+                    "label": "GL Aggregate Limit"
+                  },
+                  {
+                    "name": "autoLimit",
+                    "label": "Auto Liability Limit"
+                  },
+                  {
+                    "name": "umbrella",
+                    "label": "Umbrella / Excess Limit"
+                  },
+                  {
+                    "name": "wcCarrier",
+                    "label": "Workers' Comp Carrier"
+                  },
+                  {
+                    "name": "emr3yr",
+                    "label": "3-Year EMR"
+                  },
                   {
                     "name": "bondingCap",
                     "label": "Bonding Capacity (Single)"
                   },
-                  { "name": "bondingAgg", "label": "Bonding Capacity (Agg.)" }
+                  {
+                    "name": "bondingAgg",
+                    "label": "Bonding Capacity (Agg.)"
+                  }
                 ]
               },
               {
@@ -2232,10 +3634,22 @@
                 "title": "Safety Performance (3-Year Average)",
                 "columns": 4,
                 "items": [
-                  { "name": "trir", "label": "TRIR" },
-                  { "name": "dart", "label": "DART Rate" },
-                  { "name": "lwd", "label": "LWD Rate" },
-                  { "name": "fatalities", "label": "Fatalities (3yr)" }
+                  {
+                    "name": "trir",
+                    "label": "TRIR"
+                  },
+                  {
+                    "name": "dart",
+                    "label": "DART Rate"
+                  },
+                  {
+                    "name": "lwd",
+                    "label": "LWD Rate"
+                  },
+                  {
+                    "name": "fatalities",
+                    "label": "Fatalities (3yr)"
+                  }
                 ]
               }
             ]
@@ -2255,15 +3669,30 @@
                     "name": "writtenProgram",
                     "label": "Written Safety Program"
                   },
-                  { "name": "newHireOrient", "label": "New-Hire Orientation" },
-                  { "name": "trainingPlan", "label": "Annual Training Plan" },
+                  {
+                    "name": "newHireOrient",
+                    "label": "New-Hire Orientation"
+                  },
+                  {
+                    "name": "trainingPlan",
+                    "label": "Annual Training Plan"
+                  },
                   {
                     "name": "toolboxTalks",
                     "label": "Documented Toolbox Talks"
                   },
-                  { "name": "jhaProgram", "label": "JHA / Pre-Task Program" },
-                  { "name": "drugFree", "label": "Drug-Free Workplace" },
-                  { "name": "isnAvetta", "label": "ISN / Avetta / Veriforce" },
+                  {
+                    "name": "jhaProgram",
+                    "label": "JHA / Pre-Task Program"
+                  },
+                  {
+                    "name": "drugFree",
+                    "label": "Drug-Free Workplace"
+                  },
+                  {
+                    "name": "isnAvetta",
+                    "label": "ISN / Avetta / Veriforce"
+                  },
                   {
                     "name": "oshaCitations",
                     "label": "No OSHA Serious Citations (3yr)"
@@ -2279,11 +3708,26 @@
                 "title": "Recent Project References",
                 "name": "refs",
                 "columns": [
-                  { "header": "Project", "width": "30%" },
-                  { "header": "Owner / GC", "width": "24%" },
-                  { "header": "Contract $", "width": "14%" },
-                  { "header": "Contact", "width": "20%" },
-                  { "header": "Year", "width": "12%" }
+                  {
+                    "header": "Project",
+                    "width": "30%"
+                  },
+                  {
+                    "header": "Owner / GC",
+                    "width": "24%"
+                  },
+                  {
+                    "header": "Contract $",
+                    "width": "14%"
+                  },
+                  {
+                    "header": "Contact",
+                    "width": "20%"
+                  },
+                  {
+                    "header": "Year",
+                    "width": "12%"
+                  }
                 ],
                 "rows": 4
               },
@@ -2298,8 +3742,15 @@
                 "title": "Authorized Officer Certification",
                 "refNote": "By signing, the authorized officer certifies the information is true, accurate, and complete.",
                 "blocks": [
-                  { "role": "Authorized Officer (Sub)", "name": "subSig" },
-                  { "role": "MH Procurement", "name": "mhSig", "wide": true }
+                  {
+                    "role": "Authorized Officer (Sub)",
+                    "name": "subSig"
+                  },
+                  {
+                    "role": "MH Procurement",
+                    "name": "mhSig",
+                    "wide": true
+                  }
                 ]
               }
             ]
