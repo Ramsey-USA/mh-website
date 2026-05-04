@@ -61,13 +61,25 @@ interface Rocket {
   colors: [string, string];
 }
 
+// Stable placeholder used for the very first render so the server-rendered
+// HTML always matches the client's first paint. The real countdown is
+// computed on mount inside an effect, avoiding React hydration error #418.
+const INITIAL_TIME_LEFT: TimeLeft = {
+  days: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
+  isPast: false,
+};
+
 export function SemiquincentennialBanner() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => getTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(INITIAL_TIME_LEFT);
   const animFrameRef = useRef<number | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Tick the countdown every second
+  // Compute the real countdown on mount (post-hydration), then tick every second
   useEffect(() => {
+    setTimeLeft(getTimeLeft());
     const id = setInterval(() => setTimeLeft(getTimeLeft()), 1_000);
     return () => clearInterval(id);
   }, []);

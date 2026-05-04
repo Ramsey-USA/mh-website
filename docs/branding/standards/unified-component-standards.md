@@ -93,11 +93,14 @@ The gradient text in section headers, as implemented across all pages, is the co
 
 ### MH Brand Typefaces
 
-**Heading / Subheading Font — Abolition:**
+Web brand fonts are loaded via the Adobe Fonts (Typekit) kit `jqs8bjh` (preconnected in the root layout, imported in `src/app/globals.css`).
+
+**Heading / Subheading Font — Mendl Sans Dusk:**
 
 ```css
 font-family:
-  "Abolition",
+  "mendl-sans-dusk",
+  "Mendl Sans Dusk",
   ui-sans-serif,
   system-ui,
   -apple-system,
@@ -108,10 +111,11 @@ font-family:
   sans-serif;
 ```
 
-- Display/condensed typeface — strong brand identity at large sizes
+- Display sans-serif — strong brand identity at large sizes
 - Used for: H1–H6 headings, subheadings, section titles, badges, tab labels
 - Tailwind utility: `font-heading`
 - CSS variable: `--font-heading`
+- Semantic `<h1>`–`<h6>` elements receive this face automatically via global CSS in `src/app/globals.css`
 
 **Body Font — DIN 2014:**
 
@@ -135,15 +139,7 @@ font-family:
 - Tailwind utility: `font-sans` / `font-body`
 - CSS variable: `--font-body`
 
-**Font Files (self-hosted in `/public/fonts/`):**
-
-| File                      | Weight | Role           |
-| ------------------------- | ------ | -------------- |
-| `Abolition-Regular.woff2` | 400    | Headings       |
-| `DIN2014-Light.woff2`     | 300    | Light body     |
-| `DIN2014-Regular.woff2`   | 400    | Body           |
-| `DIN2014-Demi.woff2`      | 600    | Semi-bold body |
-| `DIN2014-Bold.woff2`      | 700    | Bold body      |
+**Font Delivery (web):** Both faces are served by Adobe Fonts kit `jqs8bjh` (`https://use.typekit.net/jqs8bjh.css`). No `/public/fonts/` self-hosting is required for web. The print/PDF pipeline (`documents/`) loads its own fonts independently — see `documents/styles/brand.css`.
 
 ### Font Weights
 

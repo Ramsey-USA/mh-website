@@ -173,6 +173,25 @@ check_pattern "\\bwork FOR you\\b" "BANNED PHRASE: use collaborative 'work WITH 
 # ─── Emoji check (source files only) ─────────────────────────────────────────
 check_emoji_in_source "${SCAN_FILES[@]}"
 
+# ─── Typography guardrails ───────────────────────────────────────────────────
+# Forbid abandoned/off-brand font names in source and docs (allow under
+# docs/branding/ which carries historical examples, and inside print-pipeline
+# fallback stacks where "Abolition" is a transitional secondary fallback).
+check_pattern_typography() {
+  local files=()
+  for f in "${SCAN_FILES[@]}"; do
+    # Skip print pipeline (fonts intentionally list "Abolition" as a transitional fallback)
+    [[ "$f" == documents/* ]] && continue
+    # Skip the brand-lint script itself
+    [[ "$f" == scripts/brand-lint.sh ]] && continue
+    files+=("$f")
+  done
+  [[ ${#files[@]} -eq 0 ]] && return
+  check_pattern "\\bAbolition\\b" "OFF-BRAND FONT: 'Abolition' is no longer the web heading face — use Mendl Sans Dusk (or var(--font-heading))" "${files[@]}"
+  check_pattern "Tactic Sans|Garamond|Poppins|Roboto Condensed" "OFF-BRAND FONT: legacy typeface name — use Mendl Sans Dusk (heading) or DIN 2014 (body)" "${files[@]}"
+}
+check_pattern_typography
+
 if [[ $FAIL -eq 0 ]]; then
   echo "✅ Brand lint passed — no banned patterns found."
 fi

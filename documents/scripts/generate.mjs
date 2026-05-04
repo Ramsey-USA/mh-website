@@ -1823,7 +1823,7 @@ function buildContentsPdfHtml(sections) {
         margin-bottom: 0.06in;
       }
       h1 {
-        font-family: "Abolition", "Segoe UI", Arial, sans-serif;
+        font-family: "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Segoe UI", Arial, sans-serif;
         font-size: 20pt;
         margin: 0;
         color: {{BRAND_COLOR_PRIMARY}};
@@ -1920,7 +1920,7 @@ function buildReferencePdfHtml(sections) {
         margin-bottom: 0.04in;
       }
       h1 {
-        font-family: "Abolition", "Segoe UI", Arial, sans-serif;
+        font-family: "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Segoe UI", Arial, sans-serif;
         font-size: 17pt;
         margin: 0;
         color: {{BRAND_COLOR_PRIMARY}};

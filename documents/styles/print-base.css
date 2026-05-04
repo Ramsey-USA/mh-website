@@ -54,7 +54,8 @@
   --font-body:
     "DIN 2014", "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
   --font-heading:
-    "Abolition", "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+    "mendl-sans-dusk", "Mendl Sans Dusk", "Abolition", "Helvetica Neue", Arial,
+    "Liberation Sans", sans-serif;
   --font-mono: "Courier New", Courier, monospace;
   --type-print-running-head: 8pt;
   --type-print-footer-small: 6.5pt;

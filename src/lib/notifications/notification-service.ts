@@ -57,7 +57,7 @@ async function sendEmail(
         to: recipient,
         subject: subject,
         html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <div style="font-family: 'DIN 2014', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <h2 style="color: #386851;">MH Construction</h2>
             <div style="margin: 20px 0;">
               ${message}
