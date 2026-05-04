@@ -1,8 +1,18 @@
 import { PageTrackingClient } from "@/components/analytics";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { type VendorPlatform } from "@/components/allies/VendorPlatformLink";
-import { TradeGroupCarousel } from "@/components/allies/TradeGroupCarousel";
+
+// TradeGroupCarousel is a 347-line interactive client component used deep
+// below the fold (line ~800). Dynamic import keeps it out of the critical path.
+const TradeGroupCarousel = dynamic(
+  () =>
+    import("@/components/allies/TradeGroupCarousel").then((m) => ({
+      default: m.TradeGroupCarousel,
+    })),
+  { ssr: true },
+);
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
