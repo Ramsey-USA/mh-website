@@ -1,3 +1,43 @@
+# === Lock files ===
 pnpm-lock.yaml
-.github/agents/
+package-lock.json
+yarn.lock
+
+# === Dependencies ===
+node_modules/
+
+# === Build output ===
+.next/
+.open-next/
+.swc/
+.wrangler/
+.turbo/
+build/
+dist/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# === Caches ===
+.cache/
+.eslintcache
 .prettier-cache
+
+# === Coverage / test artifacts ===
+coverage/
+lighthouse-results/
+playwright-report/
+test-results/
+
+# === Generated documents / assets ===
+documents/output/
+documents/content/safety-manual.json
+public/docs/
+public/sw.js
+seo-audit-report.json
+
+# === Vendored agent/instruction prompts (preserve formatting) ===
+.github/agents/
+
+# === Misc binary ===
+eng.traineddata

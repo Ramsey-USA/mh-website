@@ -1,0 +1,24 @@
+# Media Documentation
+
+**Category:** Media - Overview  
+**Last Updated:** May 4, 2026
+
+## Overview
+
+Photo and video strategy guidance for the MH Construction website and supporting marketing surfaces.
+
+## Available Resources
+
+- **[Media Strategy](./media-strategy.md)** — Photo/video roadmap, capture priorities, and asset
+  governance.
+
+## Quick Links
+
+- [← Documentation Index](../index.md)
+- [← Back to Main README](../../README.md)
+- [Automatic Media Optimization](../technical/automatic-media-optimization.md)
+- [Branding Documentation](../branding/index.md)
+
+---
+
+**MH Construction** — Founded 2010, Veteran-Owned Since January 2025

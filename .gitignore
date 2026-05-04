@@ -1,84 +1,99 @@
-
-# Additional build artifacts
-# Backup directories (created by scripts)
-# IDE
-# OS
-# PDFs served from Cloudflare R2 — no longer committed to the repo
-# Package manager locks (consider excluding to prevent bloat)
-# Prevent backup files from being committed
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-# Temporary files
-# Test files in wrong locations
-# Test results and reports
-# Uncomment if you want to exclude lock files from version control
-# debug
-# dependencies
-# local env files
-# misc
-# next.js
-# pnpm-lock.yaml
-package-lock.json
-# production
-# testing
-# typescript
-# vercel
-# yarn.lock
+
+# === Dependencies ===
+/node_modules
+.pnp
+.pnp.js
+
+# === Build output (Next.js / OpenNext / Cloudflare) ===
+/.next/
+.next/cache/
+.open-next/
+.swc/
+.wrangler/
+/build
+build/
+/out/
+out/
+dist/
+next-env.d.ts
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# === Caches ===
+.cache/
+.eslintcache
+.prettier-cache
+.turbo/
+
+# === Testing & coverage ===
+/coverage
+coverage/
+*.lcov
+playwright-report/
+test-results/
+.lighthouseci/
+lighthouse-results/
+
+# === Generated reports / artifacts ===
+seo-audit-report.json
+scripts/output/
+backups/
+docs/.markdown-lint-backup-*/
+docs/.naming-backup-*/
+
+# === Documents pipeline (PDFs served from R2, generated locally) ===
+documents/output/
+documents/content/safety-manual.json
+documents/_tmp_*
+documents/**/_tmp_*
+public/docs/
+
+# === Test files in wrong locations ===
+/public/test-*.html
+test-*.html
+test-*.sh
+
+# === Local env files ===
+.env
+.env*.local
+
+# === Logs ===
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === Backup / temporary files ===
 *.backup
 *.backup.*
 *.bak
-*.lcov
-*.log
 *.old
 *.orig
-*.pem
 *.swo
 *.swp
 *.temp
 *.tmp
-*.tsbuildinfo
-.prettier-cache
-.DS_Store
-.cache/
-.env
-.env*.local
+
+# === Secrets / credentials ===
+*.pem
+
+# === IDE / editor ===
 .idea/
-.lighthouseci/
-.next/cache/
-.open-next/
-.pnp.js
-.swc/
-.vercel
 .vscode/
-.wrangler/
-/.next/
-/.pnp
-/build
-/coverage
-/node_modules
-/out/
-/public/test-*.html
+
+# === OS ===
+.DS_Store
 Thumbs.db
-backups/
-build/
-coverage/
-dist/
-docs/.markdown-lint-backup-*/
-docs/.naming-backup-*/
-documents/content/safety-manual.json
-documents/output/
-documents/_tmp_*
-documents/**/_tmp_*
-lighthouse-results/
-next-env.d.ts
-npm-debug.log*
-out/
-playwright-report/
-public/docs/
-scripts/output/
-seo-audit-report.json
-test-*.html
-test-*.sh
-test-results/
-yarn-debug.log*
-yarn-error.log*
+
+# === Deployment platforms ===
+.vercel
+
+# === Misc binary assets not tracked ===
 eng.traineddata
+
+# === Package manager locks (consider excluding to prevent bloat) ===
+# Uncomment if you want to exclude lock files from version control
+# pnpm-lock.yaml
+package-lock.json
+# yarn.lock

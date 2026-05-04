@@ -431,6 +431,78 @@
         margin: 0 6pt;
       }
 
+      /* ── Continuation page (page 2+) ──────────────────────────
+         Reuses sheet chrome (frames, ribbon, footer, veteran strip)
+         but swaps the page-1 identity/QR header for a slim "page 2 —
+         continued" band, and replaces the form table with one tall
+         body field that the recipient continues into. */
+      .sheet--cont {
+        page-break-before: always;
+        break-before: page;
+      }
+      .sheet--cont .cont-header {
+        position: absolute;
+        top: 0.62in;
+        left: 0.92in;
+        right: 0.9in;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding-bottom: 9pt;
+        border-bottom: 1.2pt solid var(--brand-primary-dark);
+        font-size: 7.6pt;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: var(--brand-primary-dark);
+      }
+      .sheet--cont .cont-header::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -3.5pt;
+        height: 0.6pt;
+        background: var(--brand-secondary);
+      }
+      .sheet--cont .cont-header .cont-mark {
+        font-family: var(--font-heading);
+        font-size: 11pt;
+        font-weight: 900;
+        letter-spacing: 0.05em;
+        color: var(--brand-primary-dark);
+      }
+      .sheet--cont .cont-header .cont-mark .dot {
+        color: var(--brand-secondary);
+        margin: 0 7pt;
+      }
+      .sheet--cont .cont-header .cont-page {
+        color: var(--brand-secondary-text);
+      }
+      .sheet--cont .cont-body {
+        position: absolute;
+        top: 1.10in;
+        left: 1.15in;
+        right: 1.05in;
+        bottom: 2.10in;
+        font-family: var(--font-body);
+        color: var(--ink);
+      }
+      .sheet--cont .cont-body .field-area {
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        font-family: var(--font-body);
+        font-size: 11pt;
+        line-height: 1.45;
+        color: var(--ink);
+        resize: none;
+        padding: 0;
+      }
+
       /* ── Form table ─────────────────────────────────────────── */
       .form-table {
         width: 100%;
@@ -465,18 +537,12 @@
       .form-table .row-addr,
       .form-table .row-from,
       .form-table .row-subject { height: 0.42in; }
-      /* Body row: 3.10in is a MINIMUM — the contenteditable body grows
-         freely beyond this and paginates, pushing the sig row to the
-         next printed page. The AcroForm body widget remains anchored
-         to the original 3.10in rectangle on page 1. */
-      .form-table .row-body    { height: 3.10in; }
+      /* Body row: fills the page from after the subject row down to the
+         footer area. Subject row ends at 2.55 + 5×0.42 = 4.65in from page
+         top; footer starts ~9.0in from page top → body height ≈ 4.35in. */
+      .form-table .row-body    { height: 4.35in; }
       .form-table .row-body td.field-cell { vertical-align: top; padding-top: 6pt; }
-      .form-table .row-body .field-area { min-height: 2.98in; }
-      .form-table .row-sig { height: 0.60in; }
-      .form-table .row-sig td.field-cell {
-        break-inside: avoid;
-        page-break-inside: avoid;
-      }
+      .form-table .row-body .field-area { min-height: 4.20in; }
       .form-table .field-label { margin-top: 4pt; margin-bottom: 1pt; }
 
       /* visually-hidden label for the body textarea (screen readers only) */
@@ -754,7 +820,7 @@
           </tr>
 
           <!-- Body — contenteditable div (auto-grows, no internal scroll;
-               long content paginates and pushes the sig row to page 2+). -->
+               long content paginates and continues onto the next page). -->
           <tr class="row-body">
             <td colspan="6" class="field-cell">
               <label class="field-label sr-only" for="lh-body"
@@ -769,56 +835,84 @@
               ></textarea>
             </td>
           </tr>
-          <!-- Signature block — sig+name=2cols each, title+date=1col each -->
-          <tr class="row-sig">
-            <td colspan="2" class="field-cell">
-              <label class="field-label" for="lh-signature">Signature</label>
-              <input
-                class="field-line"
-                type="text"
-                id="lh-signature"
-                name="lh-signature"
-                placeholder="Sign here (or print &amp; sign)"
-                autocomplete="off"
-              />
-            </td>
-            <td colspan="2" class="field-cell">
-              <label class="field-label" for="lh-printedName"
-                >Printed Name</label
-              >
-              <input
-                class="field-line"
-                type="text"
-                id="lh-printedName"
-                name="lh-printedName"
-                placeholder="Your full name"
-                autocomplete="name"
-              />
-            </td>
-            <td colspan="1" class="field-cell">
-              <label class="field-label" for="lh-title">Title</label>
-              <input
-                class="field-line"
-                type="text"
-                id="lh-title"
-                name="lh-title"
-                placeholder="Your title"
-                autocomplete="organization-title"
-              />
-            </td>
-            <td colspan="1" class="field-cell">
-              <label class="field-label" for="lh-dateSigned">Date Signed</label>
-              <input
-                class="field-line"
-                type="text"
-                id="lh-dateSigned"
-                name="lh-dateSigned"
-                placeholder="MM/DD/YYYY"
-                autocomplete="off"
-              />
-            </td>
-          </tr>
         </table>
+      </main>
+
+      <footer class="footer">
+        <div class="contact">
+          <div class="label">Company Contact</div>
+          <div class="name">{{BRAND_COMPANY_NAME}}</div>
+          {{BRAND_ADDRESS_STREET}}<br />
+          {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
+          {{BRAND_PHONE}} &middot; {{BRAND_WEBSITE}}
+          <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
+        </div>
+
+        <div class="trust">
+          <div class="label">Accreditation &amp; Trust</div>
+          <div class="logos">
+            <img
+              class="logo-agc"
+              src="{{BRAND_AGC_HORIZONTAL}}"
+              alt="AGC membership"
+            />
+            <img
+              class="logo-bbb"
+              src="{{BRAND_BBB_SEAL}}"
+              alt="BBB accredited business"
+            />
+            <img
+              class="logo-vob"
+              src="{{BRAND_WA_VOB_LOGO}}"
+              alt="Washington certified veteran-owned business"
+            />
+          </div>
+          <div class="chambers" aria-label="Chamber of Commerce memberships">
+            <img
+              src="{{BRAND_CHAMBER_PASCO}}"
+              alt="Pasco Chamber of Commerce member"
+            />
+            <img
+              src="{{BRAND_CHAMBER_KENNEWICK}}"
+              alt="Tri-City Regional Chamber of Commerce member"
+            />
+            <img
+              src="{{BRAND_CHAMBER_RICHLAND}}"
+              alt="Richland Chamber of Commerce member"
+            />
+          </div>
+        </div>
+      </footer>
+
+      <div class="veteran-strip">
+        Veteran-Owned <span class="sep">&#9733;</span> Mission-First
+        <span class="sep">&#9733;</span> Built on Honor, Integrity &amp; Trust
+      </div>
+    </div>
+
+    <!-- ── Continuation page (page 2) ──────────────────────────
+         Same brand chrome (frames, ribbon, footer, veteran strip) but
+         the page-1 identity/QR header is swapped for a slim continued
+         band, and the form table is replaced by one tall body field
+         the writer continues into when the page-1 body fills up. -->
+    <div class="sheet sheet--cont">
+      <div class="left-ribbon"></div>
+
+      <header class="cont-header">
+        <div class="cont-mark">
+          {{BRAND_COMPANY_SHORT}}<span class="dot">•</span>Letter (continued)
+        </div>
+        <div class="cont-page">Page 2</div>
+      </header>
+
+      <main class="cont-body" aria-label="letter body continued">
+        <textarea
+          id="lh-body2"
+          name="lh-body2"
+          class="field-area"
+          rows="1"
+          placeholder="Continue your letter here. This page mirrors page 1’s brand chrome so the letter remains on letterhead from start to finish."
+        ></textarea>
       </main>
 
       <footer class="footer">

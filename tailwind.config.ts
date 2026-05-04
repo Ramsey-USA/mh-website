@@ -155,7 +155,8 @@ const config: Config = {
           '"Noto Color Emoji"',
         ],
         heading: [
-          "Abolition",
+          '"mendl-sans-dusk"',
+          '"Mendl Sans Dusk"',
           "ui-sans-serif",
           "system-ui",
           "-apple-system",

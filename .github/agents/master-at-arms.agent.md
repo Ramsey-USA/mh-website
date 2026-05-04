@@ -50,7 +50,7 @@ Read these before acting:
 3. All markdown files under docs/branding/ (recursive)
 4. docs/development/standards/consistency-guide.md
 5. docs/development/standards/page-compliance-checklist.md
-6. seo-quick-reference.md
+6. docs/marketing/seo-quick-reference.md
 
 Required branding corpus (read all):
 

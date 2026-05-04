@@ -26,14 +26,16 @@ check_file "public/images/logo/mh-logo-dark-bg.webp"
 check_file "public/images/placeholder.webp"
 
 echo ""
-echo "📊 Size Comparison:"
-if [ -f "public/images/logo/mh-veteran-bg.png" ] && [ -f "public/images/logo/mh-veteran-bg.webp" ]; then
-  PNG_SIZE=$(stat -f%z "public/images/logo/mh-veteran-bg.png" 2>/dev/null || stat -c%s "public/images/logo/mh-veteran-bg.png")
-  WEBP_SIZE=$(stat -f%z "public/images/logo/mh-veteran-bg.webp" 2>/dev/null || stat -c%s "public/images/logo/mh-veteran-bg.webp")
-  SAVINGS=$((PNG_SIZE - WEBP_SIZE))
-  PERCENT=$((SAVINGS * 100 / PNG_SIZE))
-  echo "  • mh-veteran-bg: $((PNG_SIZE / 1024))KB → $((WEBP_SIZE / 1024))KB (${PERCENT}% reduction)"
-fi
+echo "📊 Optimized File Sizes:"
+for f in \
+  "public/images/logo/mh-veteran-bg.webp" \
+  "public/images/logo/mh-logo-dark-bg.webp" \
+  "public/images/placeholder.webp"; do
+  if [ -f "$f" ]; then
+    SIZE=$(stat -c%s "$f" 2>/dev/null || stat -f%z "$f")
+    echo "  • $(basename "$f"): $((SIZE / 1024))KB"
+  fi
+done
 
 echo ""
 echo "🔍 Code Reference Check:"

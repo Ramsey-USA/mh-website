@@ -48,7 +48,7 @@ homepage - same visual weight, spacing, animations, and polish.
 - **Styling buttons/CTAs?** → [Buttons & CTAs Complete Guide](docs/technical/design-system/buttons-ctas-complete-guide.md)
 - **Adding icons?** → [Icon System Complete](docs/technical/design-system/icon-system-complete.md)
 - **Optimizing images/videos?** → [Automatic Media Optimization](docs/technical/automatic-media-optimization.md)
-- **Adding SEO metadata?** → [SEO Complete Guide](docs/technical/seo/seo-complete-guide.md) + [SEO Quick Reference](seo-quick-reference.md)
+- **Adding SEO metadata?** → [SEO Complete Guide](docs/technical/seo/seo-complete-guide.md) + [SEO Quick Reference](docs/marketing/seo-quick-reference.md)
 - **Making page installable (PWA)?** → [PWA Quick Reference](docs/technical/pwa-quick-reference.md)
 - **Adding PWA-only sections/tabs?** → [`usePWA` hook](src/hooks/usePWA.ts) · [`PWAOnly` component](src/components/pwa/PWAOnly.tsx) · [PWA Quick Reference — PWA-First Development](docs/technical/pwa-quick-reference.md#pwa-first-development)
 - **Using reusable components?** → [BrandedContentSection Template](docs/development/components/template-components.md)
@@ -59,7 +59,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 
 ---
 
-## Project Status (April 18, 2026)
+## Project Status (May 4, 2026)
 
 ### Production-Ready Platform
 
@@ -77,7 +77,7 @@ That's it. Everything else is organized in `/docs/` by category (branding, techn
 | **Dark Mode**     | Complete  | Full theme support                                                         |
 | **PWA**           | PWA-first | Offline-ready, 5-layer caching, PWA-only sections via `usePWA` + `PWAOnly` |
 | **Analytics**     | Live      | 100% page coverage, dashboard active                                       |
-| **Documentation** | Optimized | 60 docs + 10 supporting guides, zero bloat                                 |
+| **Documentation** | Optimized | Indexed under [docs/index.md](docs/index.md), zero bloat                   |
 
 ### Recent Changes
 
@@ -192,8 +192,8 @@ are stored in `public/images/credentials/` as WebP files. Credentials are displa
 
 ### Marketing (Matt & Jeremy)
 
-- **[Analytics Guide for Matt & Jeremy](analytics-guide-for-matt-and-jeremy.md)** - PRIMARY guide for all marketing intelligence
-- [SEO Quick Reference](seo-quick-reference.md) - SEO optimization actions
+- **[Analytics Guide for Matt & Jeremy](docs/business/analytics-guide-for-matt-and-jeremy.md)** - PRIMARY guide for all marketing intelligence
+- [SEO Quick Reference](docs/marketing/seo-quick-reference.md) - SEO optimization actions
 - [GBP Post Templates](docs/marketing/gbp-post-templates.md) - Google Business Profile posts
 
 ### Content Writers
@@ -423,10 +423,10 @@ docs/
 └── technical/      # Technical implementation guides, SEO, patterns, integrations
 
 # Root-level guides
-analytics-guide-for-matt-and-jeremy.md  # PRIMARY marketing intelligence guide
-seo-quick-reference.md                  # Quick SEO actions
-contributing.md                         # Contribution guidelines
-testing/mh-testing-guide.md             # Testing overview and commands
+contributing.md                                    # Contribution guidelines
+testing/mh-testing-guide.md                        # Testing overview and commands
+docs/business/analytics-guide-for-matt-and-jeremy.md  # PRIMARY marketing intelligence guide
+docs/marketing/seo-quick-reference.md              # Quick SEO actions
 
 # Config guides
 config/config-directory-guide.md        # Config directory overview
@@ -443,7 +443,7 @@ scripts/mh-scripts-guide.md             # Scripts overview and direct-run helper
 - **Design System:**
   [Unified Component Standards](docs/branding/standards/unified-component-standards.md) v7.1.0
   (consolidated typography & components)
-- **Marketing:** [Analytics Guide for Matt & Jeremy](analytics-guide-for-matt-and-jeremy.md) | [SEO Quick Reference](seo-quick-reference.md)
+- **Marketing:** [Analytics Guide for Matt & Jeremy](docs/business/analytics-guide-for-matt-and-jeremy.md) | [SEO Quick Reference](docs/marketing/seo-quick-reference.md)
 
 ---
 
@@ -522,7 +522,7 @@ This keeps the admin entry point off the visible footer UI while preserving quic
 
 ### Documentation
 
-- **[Analytics Guide for Matt & Jeremy](analytics-guide-for-matt-and-jeremy.md)** - Complete guide
+- **[Analytics Guide for Matt & Jeremy](docs/business/analytics-guide-for-matt-and-jeremy.md)** - Complete guide
 - **[Analytics Tracking Guide](docs/technical/analytics-tracking-guide.md)** -
   Developer guide, quick reference cheatsheet, and dashboard access
 
@@ -557,7 +557,7 @@ relationship-first language, disciplined execution, and direct communication.
 
 ### SEO Documentation
 
-- **[SEO Quick Reference](seo-quick-reference.md)** - Quick actions
+- **[SEO Quick Reference](docs/marketing/seo-quick-reference.md)** - Quick actions
 - **[SEO Complete Guide](docs/technical/seo/seo-complete-guide.md)** - Full implementation
 - **[Browser Tab Titles](docs/technical/browser-tab-titles-inventory.md)** - Title inventory
 
@@ -700,5 +700,5 @@ Jeremy Thamert, continuing 16 years of construction excellence with renewed vete
 
 ---
 
-**Last Updated:** April 17, 2026  
-**Documentation Version:** 4.0 (README + CHANGELOG split)
+**Last Updated:** May 4, 2026  
+**Documentation Version:** 4.1 (docs index hierarchy added)

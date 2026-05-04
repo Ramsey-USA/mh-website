@@ -64,10 +64,31 @@ const customJestConfig = {
   testPathIgnorePatterns: [
     "/node_modules/",
     "/.next/",
+    "/.open-next/",
+    "/.wrangler/",
     "/backups/",
+    "/coverage/",
+    "/lighthouse-results/",
+    "/documents/output/",
+    "/public/docs/",
     // Shared test utilities — not test suites themselves
     "/__tests__/helpers/",
   ],
+
+  // Skip Haste map scans of large generated trees (faster startup)
+  modulePathIgnorePatterns: [
+    "<rootDir>/.next/",
+    "<rootDir>/.open-next/",
+    "<rootDir>/.wrangler/",
+    "<rootDir>/coverage/",
+    "<rootDir>/lighthouse-results/",
+    "<rootDir>/documents/output/",
+    "<rootDir>/public/docs/",
+    "<rootDir>/backups/",
+  ],
+
+  // Persistent transform cache (rebuilds skip ts->js for unchanged files)
+  cacheDirectory: "<rootDir>/node_modules/.cache/jest",
 
   // Coverage report formats
   coverageReporters: ["text", "lcov", "html", "json"],

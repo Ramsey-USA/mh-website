@@ -25,6 +25,11 @@ Keep MH forms and printable document surfaces compliant, consistent, and product
 
 For strict manual-wide structure enforcement (uniform print layout + WBS hierarchy), defer to `manual-structure-officer`.
 
+For FILLABLE PDF forms built from HTML templates + pdf-lib AcroForm
+overlays (the canonical letterhead pattern), defer to
+`form-development-officer`. This officer owns Word `.docx` form bodies,
+the forms-manifest, and brand cover sheets — not the AcroForm pipeline.
+
 ## Guardrails
 
 - Never allow bare Veteran-Owned phrasing where canonical dated ownership framing is required.

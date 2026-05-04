@@ -127,7 +127,7 @@ export default function SafetyManualFormsPage() {
                   Blank template
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {form.pdfPath && (
+                  {form.pdfPath ? (
                     <a
                       href={form.pdfPath}
                       target="_blank"
@@ -141,6 +141,14 @@ export default function SafetyManualFormsPage() {
                       />
                       Download PDF
                     </a>
+                  ) : (
+                    <span
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-gray-300 bg-gray-100 px-3 py-1.5 text-xs font-semibold text-gray-500 dark:border-gray-700 dark:bg-gray-900/50 dark:text-gray-400"
+                      title="Fillable PDF in production — available soon"
+                    >
+                      <MaterialIcon icon="hourglass_empty" size="sm" />
+                      Coming soon
+                    </span>
                   )}
                   <Link
                     href="/hub"

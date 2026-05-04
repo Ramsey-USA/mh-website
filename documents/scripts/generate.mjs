@@ -68,6 +68,39 @@ function clusterUrlForSection(numeric) {
   const anchor = String(numeric).padStart(2, "0");
   return `${SITE_URL}/resources/safety-manual/${cluster.slug}#mish-${anchor}`;
 }
+
+/**
+ * Resolve a manifest `manualSection` value to the canonical MISH section
+ * reference target(s). Accepts:
+ *   • null / "" / "—"           → []
+ *   • "MISH 15" / "15" / "MISH-15" → [{numeric:15, label:"MISH 15", url}]
+ *   • ["MISH 15", "MISH 16"]    → multiple targets, in declared order
+ * Invalid / out-of-range entries are silently dropped. Duplicates are deduped
+ * by section number while preserving first-seen order.
+ */
+function resolveMishSectionTargets(manualSection) {
+  if (manualSection == null) return [];
+  const raw = Array.isArray(manualSection) ? manualSection : [manualSection];
+  const seen = new Set();
+  const out = [];
+  for (const entry of raw) {
+    if (entry == null) continue;
+    const text = String(entry).trim();
+    if (!text || text === "—") continue;
+    const match = text.match(/(\d{1,2})/);
+    if (!match) continue;
+    const numeric = Number(match[1]);
+    if (!Number.isFinite(numeric) || numeric < 1 || numeric > 50) continue;
+    if (seen.has(numeric)) continue;
+    const url = clusterUrlForSection(numeric);
+    if (!url) continue;
+    seen.add(numeric);
+    const nn = String(numeric).padStart(2, "0");
+    out.push({ numeric, label: `MISH ${nn}`, url });
+  }
+  return out;
+}
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
 const DOCS_DIR = join(ROOT, "documents");
@@ -84,6 +117,7 @@ const getArg = (flag) => {
 };
 const template = getArg("--template") || "all";
 const sectionNo = getArg("--section");
+const formArg = getArg("--form"); // e.g. "form-02-c" or "FORM 02-C"
 const revDateArg = getArg("--rev-date"); // e.g. "04/07/2026"
 const revNumArg = getArg("--rev-number"); // e.g. "2"
 
@@ -694,6 +728,145 @@ async function renderHtmlToPdf(
 }
 
 /**
+ * Measure fillable-field rectangles directly from the HTML template so
+ * AcroForm widget placement is pixel-accurate without manual tuning.
+ *
+ * Markers in HTML:
+ *   - `<elem data-field="name" data-field-type="text|multiline">`
+ *       Element's bounding rect becomes the widget rect. For
+ *       single-line fields inside `.field-cell`, the convention is
+ *       to mark the inner `.field-line-stub` (which already sits
+ *       above the underline). For multi-line, mark the textarea
+ *       container (e.g. `.narrative-cell`).
+ *   - `<elem data-check="name">`
+ *       Element's bounding rect becomes the checkbox rect — typical
+ *       on the visible `.check-box` square.
+ *   - `<td data-cell="name">`
+ *       Table cell becomes a single-line text widget.
+ *
+ * The DOM is walked, every `.sheet` element is treated as one PDF
+ * page (in DOM order), and each field's rect is reported in inches
+ * relative to that sheet's top-left corner.
+ *
+ * Returns: { fields: [{ name, type, page, x, y, w, h }, ...] }
+ *   - page: 0-based PDF page index
+ *   - x, y, w, h: inches (y measured from top of page)
+ */
+async function extractFieldRectsFromHtml(html, tmpName = "_tmp_measure.html") {
+  const tmpHtml = join(DOCS_DIR, tmpName);
+  await writeFile(tmpHtml, html, "utf-8");
+  const browser = await getBrowser();
+  const page = await browser.newPage();
+  // Match Puppeteer Letter PDF default: 8.5×11in @ 96dpi = 816×1056 CSS px.
+  await page.setViewport({ width: 816, height: 1056, deviceScaleFactor: 1 });
+  try {
+    await page.goto(pathToFileURL(tmpHtml).toString(), {
+      waitUntil: "load",
+      timeout: 60000,
+    });
+    const fields = await page.evaluate(() => {
+      const PX_PER_IN = 96;
+      const sheets = Array.from(document.querySelectorAll(".sheet"));
+      const sheetRects = sheets.map((s) => s.getBoundingClientRect());
+      const out = [];
+
+      const sheetIndexFor = (el) => {
+        for (let i = 0; i < sheets.length; i++) {
+          if (sheets[i].contains(el)) return i;
+        }
+        return -1;
+      };
+
+      const pushRect = (el, name, type) => {
+        const idx = sheetIndexFor(el);
+        if (idx === -1) return;
+        const er = el.getBoundingClientRect();
+        const sr = sheetRects[idx];
+        out.push({
+          name,
+          type,
+          page: idx,
+          x: (er.left - sr.left) / PX_PER_IN,
+          y: (er.top - sr.top) / PX_PER_IN,
+          w: er.width / PX_PER_IN,
+          h: er.height / PX_PER_IN,
+        });
+      };
+
+      document.querySelectorAll("[data-field]").forEach((el) => {
+        const t = el.getAttribute("data-field-type") || "text";
+        pushRect(el, el.getAttribute("data-field"), t);
+      });
+      document.querySelectorAll("[data-check]").forEach((el) => {
+        pushRect(el, el.getAttribute("data-check"), "check");
+      });
+      document.querySelectorAll("[data-cell]").forEach((el) => {
+        pushRect(el, el.getAttribute("data-cell"), "text");
+      });
+      return out;
+    });
+    return fields;
+  } finally {
+    await page.close().catch(() => {});
+    if (!process.env.DEBUG_KEEP_HTML) unlinkSync(tmpHtml);
+  }
+}
+
+/**
+ * Overlay AcroForm fields onto a rendered PDF using rectangles
+ * measured from the source HTML by `extractFieldRectsFromHtml`.
+ * Widgets are transparent (border 0, white border color) so the
+ * visible chrome (underlines, table borders, check squares) comes
+ * from the template — not from the PDF annotation layer.
+ */
+async function applyMeasuredFieldsToPdf(pdfPath, fields) {
+  const pdfBytes = await readFile(pdfPath);
+  const pdfDoc = await PDFDocument.load(pdfBytes);
+  const form = pdfDoc.getForm();
+  const pages = pdfDoc.getPages();
+  const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+  const inch = (n) => n * 72;
+  const transparent = {
+    borderColor: rgb(1, 1, 1),
+    borderWidth: 0,
+  };
+  const textStyle = { ...transparent, textColor: rgb(0.07, 0.14, 0.11), font };
+
+  for (const f of fields) {
+    const page = pages[f.page];
+    if (!page) continue;
+    const ph = page.getHeight();
+    const x = inch(f.x);
+    const y = ph - inch(f.y) - inch(f.h);
+    const w = inch(f.w);
+    const h = inch(f.h);
+    if (f.type === "check") {
+      const cb = form.createCheckBox(f.name);
+      // Checkboxes render their own visible border so they appear
+      // consistently across PDF viewers without relying on the
+      // underlying HTML border (which may be obscured by the widget
+      // background fill in some renderers).
+      cb.addToPage(page, {
+        x,
+        y,
+        width: w,
+        height: h,
+        borderColor: rgb(0.07, 0.14, 0.11),
+        borderWidth: 0.7,
+      });
+    } else {
+      const tf = form.createTextField(f.name);
+      if (f.type === "multiline") tf.enableMultiline();
+      tf.addToPage(page, { ...textStyle, x, y, width: w, height: h });
+      tf.setFontSize(f.type === "multiline" ? 10 : 9);
+    }
+  }
+
+  form.updateFieldAppearances(font);
+  await writeFile(pdfPath, await pdfDoc.save());
+}
+
+/**
  * Overlay AcroForm fields on the generated letterhead PDF so it is truly
  * fillable in standard PDF viewers (Acrobat, Preview, browser PDF viewers).
  */
@@ -701,7 +874,9 @@ async function addFillableFieldsToLetterhead(pdfPath) {
   const pdfBytes = await readFile(pdfPath);
   const pdfDoc = await PDFDocument.load(pdfBytes);
   const form = pdfDoc.getForm();
-  const page = pdfDoc.getPages()[0];
+  const pages = pdfDoc.getPages();
+  const page = pages[0];
+  const page2 = pages[1]; // continuation page
   const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
 
   const pageHeight = page.getHeight();
@@ -729,18 +904,23 @@ async function addFillableFieldsToLetterhead(pdfPath) {
   const singleLineInsetBottom = 0.055; // inches
 
   const addField = (name, xIn, topIn, wIn, hIn, opts = {}) => {
+    const targetPage = opts.page || page;
     const field = form.createTextField(name);
     if (opts.multiline) field.enableMultiline();
     const widgetH = opts.multiline
       ? hIn
       : Math.max(0.12, hIn - singleLineInsetBottom);
-    field.addToPage(page, {
+    field.addToPage(targetPage, {
       ...(opts.multiline ? bodyStyle : lineStyle),
       x: inch(xIn),
       y: yFromTop(topIn, widgetH),
       width: inch(wIn),
       height: inch(widgetH),
     });
+    // Lock font size so fields don't auto-scale to fit the box (which
+    // otherwise renders body text huge until the field is filled).
+    // Must run AFTER addToPage so the /DA entry exists.
+    field.setFontSize(opts.fontSize ?? (opts.multiline ? 11 : 10));
     return field;
   };
 
@@ -748,16 +928,14 @@ async function addFillableFieldsToLetterhead(pdfPath) {
   //   body-area top: 2.55in from page top
   //   left margin:   1.15in from page left
   //   6 columns × 1.05in = 6.30in wide, zero cell padding
-  //   Row heights: date/to/addr/subject = 0.48in, body = 2.42in, sig = 0.72in
-  //   Label height offset (6.6pt + 2pt margin ≈ 0.12in) → field starts at row_top + 0.12
-  //   Sig field: label(0.12) + sig-space(0.07) = 0.19in offset
+  //   Row heights: date/to/addr/from/subject = 0.42in, body = 4.35in
+  //   Label height offset (6.6pt + 2pt margin ≈ 0.16in)
 
   const bTop = 2.55; // body-area top (in)
   const rH = 0.42; // standard row height
-  const bH = 3.1; // body row height
+  const bH = 4.35; // body row height (fills page down to footer)
   const fH = 0.24; // single-line field height
   const lOff = 0.16; // label offset (label margin-top 4pt + label height ~8pt)
-  const sOff = 0.2; // sig offset
 
   const rowDate = bTop;
   const rowTo = bTop + rH;
@@ -765,17 +943,12 @@ async function addFillableFieldsToLetterhead(pdfPath) {
   const rowFrom = bTop + rH * 3;
   const rowSubject = bTop + rH * 4;
   const rowBody = bTop + rH * 5;
-  const rowSig = rowBody + bH;
 
   // x positions: cols 1-3 = left half, cols 4-6 = right half, cols 5-6 = date
   const colL = 1.15; // left half
   const colR = 1.15 + 3 * 1.05; // right half  = 4.30
   const colW2 = 3 * 1.05; // half width  = 3.15
   const dateX = 1.15 + 4 * 1.05; // date x      = 5.35
-  // sig columns: 2+2+1+1 cols
-  const nameX = 1.15 + 2 * 1.05; // 3.25
-  const titleX = nameX + 2 * 1.05; // 5.35
-  const dsX = titleX + 1.05; // 6.40
 
   addField("lh.date", dateX, rowDate + lOff, 2.1, fH);
   addField("lh.toName", colL, rowTo + lOff, colW2, fH);
@@ -788,19 +961,532 @@ async function addFillableFieldsToLetterhead(pdfPath) {
   addField("lh.body", colL, rowBody + 0.04, 6.3, bH - 0.08, {
     multiline: true,
   });
-  addField("lh.signature", colL, rowSig + sOff, 2.1, fH);
-  addField("lh.printedName", nameX, rowSig + sOff, 2.1, fH);
-  addField("lh.title", titleX, rowSig + sOff, 1.05, fH);
-  addField("lh.dateSigned", dsX, rowSig + sOff, 1.05, fH);
+
+  // Continuation page body field — sized to the .cont-body region in
+  // safety-manual-letterhead.html (top: 1.10in, left: 1.15in,
+  // right: 1.05in (→ width 6.30in), bottom: 2.10in → height 7.80in).
+  if (page2) {
+    addField("lh.body2", 1.15, 1.1, 6.3, 7.8, {
+      multiline: true,
+      page: page2,
+    });
+  }
 
   form.updateFieldAppearances(font);
   const outBytes = await pdfDoc.save();
   await writeFile(pdfPath, outBytes);
 }
 
+// ── Schema-driven fillable form renderer ─────────────────────────────────────
 /**
- * Launch (or reuse) a Puppeteer browser instance.
+ * Schema spec for `forms.fillable` in `documents/forms/forms-manifest.json`:
+ *
+ *   "fillable": {
+ *     "namespace": "form02c",          // optional; default = lowercased,
+ *                                       // alphanumeric form id
+ *     "pages": [
+ *       {
+ *         "kind": "first",              // "first" (identity+header chrome)
+ *                                       // or "cont" (continuation header)
+ *         "title": "Incident / Accident Report (continued)",  // cont only
+ *         "pageLabel": "Page 2",        // cont only
+ *         "sections": [ … section objects … ]
+ *       },
+ *       …
+ *     ]
+ *   }
+ *
+ * Section types (all optional unless noted):
+ *
+ *   { type: "refNote", html: "…inline html allowed…" }
+ *
+ *   { type: "checkGrid", title, subtitle?, columns: 2|3|4|6,
+ *     items: [ { name, label }, … ] }
+ *
+ *   { type: "fieldGrid", title?, columns: 1|2|3|4|6,
+ *     items: [ { name, label, multiline?: bool }, … ] }
+ *
+ *   { type: "narrative", title?, subtitle?, name, height?: "1.55in" }
+ *
+ *   { type: "dataTable", title, name,                 // table cells = text
+ *     columns: [ { header, width? }, … ],             // header rendered
+ *     rows: number }                                  // empty fillable rows
+ *
+ *   { type: "regTable", title, name,                  // mixed prefill+check
+ *     columns: [ { header, width? }, … ],             // last col = check
+ *     rows: [ { cells: [str,str,…], check: "rN" } ] }
+ *
+ *   { type: "signatures", title?, refNote?,
+ *     blocks: [ { role, name, wide?: bool }, … ] }
+ *
+ * Field names emitted in HTML are `${namespace}.${name}` (or the literal
+ * `name` if it already contains a dot). The existing
+ * `extractFieldRectsFromHtml` + `applyMeasuredFieldsToPdf` pipeline picks
+ * them up unchanged.
  */
+
+function deriveFormNamespace(formEntry) {
+  if (formEntry?.fillable?.namespace) return formEntry.fillable.namespace;
+  const id = String(formEntry?.id || "form").toLowerCase();
+  return id.replaceAll(/[^a-z0-9]/g, "");
+}
+
+function fqName(ns, name) {
+  if (!name) return "";
+  return name.includes(".") ? name : `${ns}.${name}`;
+}
+
+function renderSection(section, ns) {
+  switch (section.type) {
+    case "refNote":
+      return `<div class="ref-note">${section.html || ""}</div>`;
+
+    case "checkGrid": {
+      const cols = section.columns || 4;
+      const band = renderBand(section);
+      const cells = (section.items || [])
+        .map(
+          (it) =>
+            `<div class="check-cell"><span class="check-box" data-check="${escapeAttr(fqName(ns, it.name))}"></span>${escapeHtml(it.label || "")}</div>`,
+        )
+        .join("");
+      return `${band}<div class="check-grid cols-${cols}">${cells}</div>`;
+    }
+
+    case "fieldGrid": {
+      const cols = section.columns || 2;
+      const band = section.title ? renderBand(section) : "";
+      const cells = (section.items || [])
+        .map((it) => {
+          const ftype = it.multiline ? ' data-field-type="multiline"' : "";
+          return `<div class="field-cell"><label class="field-label">${escapeHtml(it.label || "")}</label><div class="field-line-stub" data-field="${escapeAttr(fqName(ns, it.name))}"${ftype}></div></div>`;
+        })
+        .join("");
+      return `${band}<div class="field-grid cols-${cols}">${cells}</div>`;
+    }
+
+    case "narrative": {
+      const band = section.title ? renderBand(section) : "";
+      const height = section.height || "1.55in";
+      return `${band}<div class="narrative-cell" style="height:${height}" data-field="${escapeAttr(fqName(ns, section.name))}" data-field-type="multiline"></div>`;
+    }
+
+    case "dataTable": {
+      const band = renderBand(section);
+      const head =
+        `<thead><tr>` +
+        section.columns
+          .map(
+            (c) =>
+              `<th${c.width ? ` style="width:${c.width}"` : ""}>${escapeHtml(c.header || "")}</th>`,
+          )
+          .join("") +
+        `</tr></thead>`;
+      const rows = [];
+      const tableNs = fqName(ns, section.name);
+      for (let r = 1; r <= (section.rows || 1); r++) {
+        const tds = section.columns
+          .map(
+            (_c, ci) =>
+              `<td data-cell="${escapeAttr(`${tableNs}.r${r}.c${ci + 1}`)}"></td>`,
+          )
+          .join("");
+        rows.push(`<tr>${tds}</tr>`);
+      }
+      return `${band}<table class="data-table">${head}<tbody>${rows.join("")}</tbody></table>`;
+    }
+
+    case "regTable": {
+      const band = renderBand(section);
+      const head =
+        `<thead><tr>` +
+        section.columns
+          .map(
+            (c) =>
+              `<th${c.width ? ` style="width:${c.width}"` : ""}>${escapeHtml(c.header || "")}</th>`,
+          )
+          .join("") +
+        `</tr></thead>`;
+      const tableNs = fqName(ns, section.name);
+      const rows = (section.rows || [])
+        .map((row) => {
+          const prefill = (row.cells || [])
+            .map((v) => `<td class="tcell">${escapeHtml(v)}</td>`)
+            .join("");
+          const check = `<td class="tcheck" data-check="${escapeAttr(`${tableNs}.${row.check}`)}"></td>`;
+          return `<tr>${prefill}${check}</tr>`;
+        })
+        .join("");
+      return `${band}<table class="data-table">${head}<tbody>${rows}</tbody></table>`;
+    }
+
+    case "signatures": {
+      const band = section.title ? renderBand(section) : "";
+      const note = section.refNote
+        ? `<div class="ref-note">${section.refNote}</div>`
+        : "";
+      const cells = (section.blocks || [])
+        .map((b) => {
+          const sigName = fqName(ns, `${b.name}.sig`);
+          const printName = fqName(ns, `${b.name}.print`);
+          const dateName = fqName(ns, `${b.name}.date`);
+          const wide = b.wide ? " sig-wide" : "";
+          return `<div class="sig-cell${wide}">
+              <div class="sig-role">${escapeHtml(b.role || "")}</div>
+              <div class="sig-line" data-field="${escapeAttr(sigName)}"></div>
+              <div class="sig-meta">
+                <div class="field-cell"><label class="field-label">Print Name</label><div class="field-line-stub" data-field="${escapeAttr(printName)}"></div></div>
+                <div class="field-cell"><label class="field-label">Date</label><div class="field-line-stub" data-field="${escapeAttr(dateName)}"></div></div>
+              </div>
+            </div>`;
+        })
+        .join("");
+      return `${note}${band}<div class="sig-grid">${cells}</div>`;
+    }
+
+    default:
+      console.warn(`⚠️  Unknown section type: ${section.type}`);
+      return "";
+  }
+}
+
+function renderBand(section) {
+  if (!section.title) return "";
+  const sub = section.subtitle
+    ? ` <span class="sec-sub">${escapeHtml(section.subtitle)}</span>`
+    : "";
+  return `<div class="sec-band">${escapeHtml(section.title)}${sub}</div>`;
+}
+
+function escapeAttr(s) {
+  return String(s).replaceAll('"', "&quot;");
+}
+
+function renderSheet(page, idx, ns, formEntry) {
+  const sectionsHtml = (page.sections || [])
+    .map((s) => renderSection(s, ns))
+    .join("\n        ");
+
+  const footerHtml = `<footer class="footer">
+        <div class="contact">
+          <div class="label">Company Contact</div>
+          <div class="name">{{BRAND_COMPANY_NAME}}</div>
+          {{BRAND_ADDRESS_STREET}}<br />
+          {{BRAND_ADDRESS_CITYSTATEZIP}}<br />
+          {{BRAND_PHONE}} &middot; {{BRAND_WEBSITE}}
+          <div class="licenses">{{BRAND_LICENSES_INLINE}}</div>
+        </div>
+        <div class="trust">
+          <div class="label">Accreditation &amp; Trust</div>
+          <div class="logos">
+            <img class="logo-agc" src="{{BRAND_AGC_HORIZONTAL}}" alt="AGC membership" />
+            <img class="logo-bbb" src="{{BRAND_BBB_SEAL}}" alt="BBB accredited business" />
+            <img class="logo-vob" src="{{BRAND_WA_VOB_LOGO}}" alt="Washington certified veteran-owned business" />
+          </div>
+          <div class="chambers" aria-label="Chamber of Commerce memberships">
+            <img src="{{BRAND_CHAMBER_PASCO}}" alt="Pasco Chamber of Commerce member" />
+            <img src="{{BRAND_CHAMBER_KENNEWICK}}" alt="Tri-City Regional Chamber of Commerce member" />
+            <img src="{{BRAND_CHAMBER_RICHLAND}}" alt="Richland Chamber of Commerce member" />
+          </div>
+        </div>
+      </footer>
+      <div class="veteran-strip">
+        Veteran-Owned <span class="sep">&#9733;</span> Mission-First
+        <span class="sep">&#9733;</span> Built on Honor, Integrity &amp; Trust
+      </div>`;
+
+  if (idx === 0 || page.kind === "first") {
+    return `<div class="sheet">
+      <div class="left-ribbon"></div>
+      <div class="identity">
+        <div>{{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>{{BRAND_ADDRESS_CITYSTATEZIP}}</div>
+        <div>{{BRAND_VETERAN}}</div>
+      </div>
+      <header class="header">
+        <img class="logo" src="{{BRAND_LOGO_COLOR}}" alt="MH Construction logo" />
+        <div class="form-id-card">
+          <div class="form-id">${escapeHtml(formEntry.id || "")}</div>
+          <div class="form-title">${escapeHtml(formEntry.title || "")}</div>
+          <div class="form-meta">Rev ${escapeHtml(formEntry.revision || "—")} &nbsp;&middot;&nbsp; ${escapeHtml(formEntry.effectiveDate || "—")}</div>
+        </div>
+      </header>
+      <main class="body-area">
+        ${sectionsHtml}
+      </main>
+      ${footerHtml}
+    </div>`;
+  }
+
+  // Continuation page
+  const contTitle = page.title || `${formEntry.title || "Form"} (continued)`;
+  const pageLabel = page.pageLabel || `Page ${idx + 1}`;
+  return `<div class="sheet sheet--cont">
+      <div class="left-ribbon"></div>
+      <header class="cont-header">
+        <div class="cont-mark">${escapeHtml(formEntry.id || "")}<span class="dot">&#8226;</span>${escapeHtml(contTitle)}</div>
+        <div class="cont-page">${escapeHtml(pageLabel)}</div>
+      </header>
+      <main class="body-area">
+        ${sectionsHtml}
+      </main>
+      ${footerHtml}
+    </div>`;
+}
+
+/**
+ * Generate a fillable form PDF from a manifest entry whose `fillable`
+ * block defines the schema. Uses the shared chrome template
+ * `documents/manuals/form-fillable.html` and the canonical
+ * measurement-driven AcroForm overlay pipeline.
+ */
+async function generateFillableForm(formEntry) {
+  const slug = (formEntry.slug || formEntry.id || "form")
+    .toLowerCase()
+    .replaceAll(/[^a-z0-9]+/g, "-")
+    .replaceAll(/^-+|-+$/g, "");
+  console.log(`\n🚧 Generating fillable form: ${formEntry.id} → ${slug}.pdf`);
+
+  const templatePath = join(DOCS_DIR, "manuals/form-fillable.html");
+  const rawTemplate = await readFile(templatePath, "utf-8");
+
+  const ns = deriveFormNamespace(formEntry);
+  const pages = formEntry.fillable?.pages || [];
+  if (pages.length === 0) {
+    console.warn(`⚠️  ${formEntry.id} has no fillable.pages; skipping.`);
+    return;
+  }
+
+  const body = pages
+    .map((p, i) => renderSheet(p, i, ns, formEntry))
+    .join("\n    ");
+
+  let html = rawTemplate
+    .replaceAll("{{FORM_ID}}", escapeHtml(formEntry.id || ""))
+    .replaceAll("{{FORM_TITLE}}", escapeHtml(formEntry.title || ""))
+    .replace("{{FORM_BODY}}", body);
+  html = applyBrandTokens(html);
+
+  const fillableDir = join(OUTPUT_DIR, "form-fillables");
+  await ensureDir(fillableDir);
+  const pdfPath = join(fillableDir, `${slug}.pdf`);
+  const tmpHtml = `manuals/_tmp_fillable_${slug}.html`;
+
+  await renderHtmlToPdf(
+    html,
+    pdfPath,
+    { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
+    tmpHtml,
+  );
+
+  const fields = await extractFieldRectsFromHtml(
+    html,
+    `manuals/_tmp_fillable_${slug}_measure.html`,
+  );
+  await applyMeasuredFieldsToPdf(pdfPath, fields);
+  console.log(
+    `  ✓  ${pdfPath.replace(ROOT + "/", "")}  (${fields.length} fields)`,
+  );
+}
+
+async function loadFormsManifest() {
+  const manifestPath = join(DOCS_DIR, "forms/forms-manifest.json");
+  if (!existsSync(manifestPath)) {
+    throw new Error(`forms-manifest.json not found at ${manifestPath}`);
+  }
+  const manifest = JSON.parse(await readFile(manifestPath, "utf-8"));
+  return Array.isArray(manifest.forms) ? manifest.forms : [];
+}
+
+function findFormEntry(forms, key) {
+  if (!key) return null;
+  const norm = String(key).toLowerCase().trim();
+  return (
+    forms.find((f) => String(f.id || "").toLowerCase() === norm) ||
+    forms.find((f) => String(f.slug || "").toLowerCase() === norm) ||
+    forms.find((f) =>
+      String(f.slug || "")
+        .toLowerCase()
+        .startsWith(norm + "_"),
+    ) ||
+    forms.find(
+      (f) =>
+        String(f.id || "")
+          .toLowerCase()
+          .replaceAll(/[^a-z0-9]/g, "") === norm.replaceAll(/[^a-z0-9]/g, ""),
+    ) ||
+    null
+  );
+}
+
+async function generateFillableFormById(key) {
+  const forms = await loadFormsManifest();
+  const entry = findFormEntry(forms, key);
+  if (!entry) {
+    console.error(`❌  No form found in manifest for: ${key}`);
+    process.exit(1);
+  }
+  if (!entry.fillable?.pages?.length) {
+    console.error(
+      `❌  ${entry.id} has no \`fillable.pages\` schema in the manifest.`,
+    );
+    process.exit(1);
+  }
+  await generateFillableForm(entry);
+}
+
+async function generateAllFillableForms() {
+  const forms = await loadFormsManifest();
+  const fillable = forms.filter((f) => f.fillable?.pages?.length);
+  if (fillable.length === 0) {
+    console.log("ℹ️  No forms with `fillable` schema in the manifest.");
+    return;
+  }
+  console.log(`\n📝  Generating ${fillable.length} fillable form(s)…`);
+  for (const f of fillable) {
+    await generateFillableForm(f);
+  }
+}
+
+// ── Cover + Fillable bundle ──────────────────────────────────────────────────
+/**
+ * Build the deliverable form package (cover sheet + fillable body) for a
+ * single manifest entry. Regenerates the cover and the fillable PDF first
+ * so the package always reflects the current manifest, then merges them
+ * with pdf-lib (preserving AcroForm widgets via copyPages) into
+ * `documents/output/form-packages/{slug}.pdf`.
+ */
+async function generateFormPackage(formEntry) {
+  const slug = (formEntry.slug || formEntry.id || "form")
+    .toLowerCase()
+    .replaceAll(/[^a-z0-9]+/g, "-")
+    .replaceAll(/^-+|-+$/g, "");
+
+  console.log(`\n📦 Building form package: ${formEntry.id} → ${slug}.pdf`);
+
+  // 1. Ensure the cover exists (regenerate just this one for freshness).
+  await generateFormCoverFor(formEntry);
+
+  // 2. Ensure the fillable body exists.
+  if (!formEntry.fillable?.pages?.length) {
+    console.warn(
+      `⚠️  ${formEntry.id} has no fillable.pages; skipping package.`,
+    );
+    return;
+  }
+  await generateFillableForm(formEntry);
+
+  const coverPath = join(OUTPUT_DIR, "form-covers", `${slug}_cover.pdf`);
+  const fillablePath = join(OUTPUT_DIR, "form-fillables", `${slug}.pdf`);
+  if (!existsSync(coverPath)) {
+    console.error(`❌  Cover PDF missing: ${coverPath}`);
+    return;
+  }
+  if (!existsSync(fillablePath)) {
+    console.error(`❌  Fillable PDF missing: ${fillablePath}`);
+    return;
+  }
+
+  // 3. Merge: start from the fillable PDF (so its AcroForm catalog and
+  // field dictionaries are preserved), then insert cover pages at the
+  // front. pdf-lib's copyPages preserves widget annotations on copied
+  // pages, and because the destination IS the original fillable doc,
+  // the AcroForm root and field references stay intact.
+  const merged = await PDFDocument.load(await readFile(fillablePath));
+  const coverDoc = await PDFDocument.load(await readFile(coverPath));
+
+  const coverPages = await merged.copyPages(
+    coverDoc,
+    coverDoc.getPageIndices(),
+  );
+  // Insert in order at the front so the cover precedes the body.
+  coverPages.forEach((p, i) => merged.insertPage(i, p));
+
+  merged.setTitle(`${formEntry.id} — ${formEntry.title || ""}`.trim());
+  merged.setSubject(formEntry.categoryLabel || formEntry.category || "");
+  merged.setAuthor("MH Construction");
+  merged.setProducer("MH Construction Document Generator");
+
+  const packagesDir = join(OUTPUT_DIR, "form-packages");
+  await ensureDir(packagesDir);
+  const outPath = join(packagesDir, `${slug}.pdf`);
+  await writeFile(outPath, await merged.save());
+
+  const totalPages = merged.getPageCount();
+  console.log(`  ✓  ${outPath.replace(ROOT + "/", "")}  (${totalPages} pages)`);
+}
+
+async function generateFormPackageById(key) {
+  const forms = await loadFormsManifest();
+  const entry = findFormEntry(forms, key);
+  if (!entry) {
+    console.error(`❌  No form found in manifest for: ${key}`);
+    process.exit(1);
+  }
+  await generateFormPackage(entry);
+}
+
+async function generateAllFormPackages() {
+  const forms = await loadFormsManifest();
+  const eligible = forms.filter((f) => f.fillable?.pages?.length);
+  if (eligible.length === 0) {
+    console.log("ℹ️  No forms with `fillable` schema in the manifest.");
+    return;
+  }
+  console.log(`\n📦  Building ${eligible.length} form package(s)…`);
+  for (const f of eligible) {
+    await generateFormPackage(f);
+  }
+}
+
+// ── Publish form packages to public/ ─────────────────────────────────────────
+/**
+ * Copy generated `documents/output/form-packages/{slug}.pdf` files into
+ * `public/docs/safety/forms/` so the Next.js site can serve them at
+ * `/docs/safety/forms/{slug}.pdf`. Run after `form-packages` (or
+ * implicitly via `form-publish`).
+ */
+async function publishFormPackages() {
+  const packagesDir = join(OUTPUT_DIR, "form-packages");
+  if (!existsSync(packagesDir)) {
+    console.error(
+      `❌  No packages found at ${packagesDir}. Run --template form-packages first.`,
+    );
+    process.exit(1);
+  }
+  const publicDir = join(ROOT, "public/docs/safety/forms");
+  await ensureDir(publicDir);
+
+  const { readdir, copyFile } = await import("node:fs/promises");
+  const files = (await readdir(packagesDir)).filter((f) => f.endsWith(".pdf"));
+  if (files.length === 0) {
+    console.log("ℹ️  No package PDFs to publish.");
+    return;
+  }
+  console.log(`\n🚚  Publishing ${files.length} form package(s) to public/…`);
+  for (const f of files) {
+    const src = join(packagesDir, f);
+    const dst = join(publicDir, f);
+    await copyFile(src, dst);
+    console.log(`  ✓  ${dst.replace(ROOT + "/", "")}`);
+  }
+}
+
+
+// ── Template: FORM 02-C Incident / Accident Report ───────────────────────────
+/**
+ * Generate the fillable FORM 02-C Incident / Accident Report PDF.
+ * Follows the canonical fillable-form pattern documented in
+ * `.github/agents/form-development-officer.agent.md`:
+ *   Now a thin alias around the schema-driven renderer. The bespoke
+ *   form-02-c-incident-report.html template has been retired in favor
+ *   of the manifest schema (forms-manifest.json → fillable.pages) and
+ *   the shared form-fillable.html chrome template. Kept for any
+ *   external callers / docs that still reference the symbol.
+ */
+async function generateForm02C() {
+  await generateFillableFormById("FORM 02-C");
+}
+
 let _browser;
 async function getBrowser() {
   if (!_browser) {
@@ -1486,18 +2172,9 @@ async function generateForms() {
  *   {{FORM_OWNER}}           e.g. "Safety Director"
  */
 async function generateFormCovers() {
-  const manifestPath = join(DOCS_DIR, "forms/forms-manifest.json");
-  if (!existsSync(manifestPath)) {
-    console.log(
-      "ℹ️  No forms-manifest.json found at documents/forms/; skipping cover sheets.",
-    );
-    return;
-  }
-
-  const manifest = JSON.parse(await readFile(manifestPath, "utf-8"));
-  const forms = Array.isArray(manifest.forms) ? manifest.forms : [];
+  const forms = await loadFormsManifest().catch(() => []);
   if (forms.length === 0) {
-    console.log("ℹ️  forms-manifest.json contains no forms.");
+    console.log("ℹ️  No forms in manifest; skipping cover sheets.");
     return;
   }
 
@@ -1518,45 +2195,115 @@ async function generateFormCovers() {
   console.log(`\n🪪  Generating ${forms.length} form cover sheet(s)…`);
 
   for (const form of forms) {
-    // Build the form's website deep-link anchor + QR code so scanning the
-    // printed cover lands on the forms grouped index card.
-    const formId = String(form.id || "form")
-      .toLowerCase()
-      .replace(/^safety-form-/, "")
-      .replaceAll(/[^a-z0-9-]+/g, "-");
-    const formUrl = `${SITE_URL}/resources/safety-manual/forms#form-${formId}`;
-    const formQrDataUrl = await buildQrDataUrl(formUrl);
-    const tokens = {
-      "{{FORM_ID}}": escapeHtml(form.id || "FORM"),
-      "{{FORM_TITLE}}": escapeHtml(form.title || "Untitled Form"),
-      "{{FORM_CATEGORY_LABEL}}": escapeHtml(
-        form.categoryLabel || form.category || "—",
-      ),
-      "{{FORM_REVISION}}": escapeHtml(form.revision || "—"),
-      "{{FORM_EFFECTIVE_DATE}}": escapeHtml(form.effectiveDate || "—"),
-      "{{FORM_MANUAL_SECTION}}": escapeHtml(form.manualSection || "—"),
-      "{{FORM_OWNER}}": escapeHtml(form.owner || "Safety Director"),
-      "{{QR_FORM_PREVIEW}}": formQrDataUrl,
-      "{{FORM_URL}}": escapeHtml(formUrl),
-    };
-    let html = brandedTemplate;
-    for (const [token, value] of Object.entries(tokens)) {
-      html = html.replaceAll(token, value);
-    }
-
-    const safeSlug = (form.slug || form.id || "form")
-      .toLowerCase()
-      .replaceAll(/[^a-z0-9]+/g, "-")
-      .replaceAll(/^-+|-+$/g, "");
-    const pdfPath = join(coversDir, `${safeSlug}_cover.pdf`);
-    const tmpHtml = `manuals/_tmp_form_covers/${safeSlug}.html`;
-    await renderHtmlToPdf(
-      html,
-      pdfPath,
-      { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
-      tmpHtml,
-    );
+    await renderFormCover(form, brandedTemplate, coversDir);
   }
+}
+
+/**
+ * Render a single form cover PDF. Extracted so that
+ * `generateFormPackage()` can refresh just one cover without rebuilding
+ * all 47.
+ */
+async function renderFormCover(form, brandedTemplate, coversDir) {
+  // A form may be referenced by one OR MORE MISH sections. The cover prints
+  // one QR card per applicable section so a field user can scan straight
+  // into the policy that requires this form. When no sections are declared
+  // we render a single fallback QR pointing at the safety-manual TOC.
+  const mishTargets = resolveMishSectionTargets(form.manualSection);
+
+  const safeSlug = (form.slug || form.id || "form")
+    .toLowerCase()
+    .replaceAll(/[^a-z0-9]+/g, "-")
+    .replaceAll(/^-+|-+$/g, "");
+
+  const qrCards = [];
+  if (mishTargets.length === 0) {
+    const tocUrl = `${SITE_URL}/resources/safety-manual/contents`;
+    qrCards.push({
+      meta: "Reference",
+      label: "Manual TOC",
+      dataUrl: await buildQrDataUrl(tocUrl),
+      url: tocUrl,
+    });
+  } else {
+    const dataUrls = await Promise.all(
+      mishTargets.map((t) => buildQrDataUrl(t.url)),
+    );
+    mishTargets.forEach((t, i) => {
+      qrCards.push({
+        meta: "Reference",
+        label: t.label,
+        dataUrl: dataUrls[i],
+        url: t.url,
+      });
+    });
+  }
+
+  // Wrap into 2 columns once we have more than 4 cards so the strip stays
+  // inside the field-use panel and never crowds the bottom accreditation row.
+  const stripClass =
+    qrCards.length > 4 ? "qr-strip qr-strip--wrap" : "qr-strip";
+  const qrStripHtml = [
+    `<div class="${stripClass}" aria-label="reference QR codes">`,
+    ...qrCards.map(
+      (c) =>
+        `  <div class="qr-card">` +
+        `<div class="qr-meta">${escapeHtml(c.meta)}</div>` +
+        `<img class="qr-img" src="${c.dataUrl}" alt="QR code linking to ${escapeHtml(c.label)}" />` +
+        `<p class="qr-target">${escapeHtml(c.label)}</p>` +
+        `</div>`,
+    ),
+    `</div>`,
+  ].join("\n");
+
+  const sectionLabels =
+    mishTargets.length > 0
+      ? mishTargets.map((t) => t.label).join(" · ")
+      : form.manualSection || "—";
+
+  const tokens = {
+    "{{FORM_ID}}": escapeHtml(form.id || "FORM"),
+    "{{FORM_TITLE}}": escapeHtml(form.title || "Untitled Form"),
+    "{{FORM_CATEGORY_LABEL}}": escapeHtml(
+      form.categoryLabel || form.category || "—",
+    ),
+    "{{FORM_REVISION}}": escapeHtml(form.revision || "—"),
+    "{{FORM_EFFECTIVE_DATE}}": escapeHtml(form.effectiveDate || "—"),
+    "{{FORM_MANUAL_SECTION}}": escapeHtml(sectionLabels),
+    "{{FORM_OWNER}}": escapeHtml(form.owner || "Safety Director"),
+    "{{QR_STRIP_HTML}}": qrStripHtml,
+  };
+  let html = brandedTemplate;
+  for (const [token, value] of Object.entries(tokens)) {
+    html = html.replaceAll(token, value);
+  }
+
+  const pdfPath = join(coversDir, `${safeSlug}_cover.pdf`);
+  const tmpHtml = `manuals/_tmp_form_covers/${safeSlug}.html`;
+  await renderHtmlToPdf(
+    html,
+    pdfPath,
+    { margin: { top: 0, right: 0, bottom: 0, left: 0 } },
+    tmpHtml,
+  );
+  return pdfPath;
+}
+
+/**
+ * Convenience wrapper used by the package builder: renders one cover
+ * PDF for the given manifest entry, loading the template lazily.
+ */
+async function generateFormCoverFor(formEntry) {
+  const templatePath = join(DOCS_DIR, "manuals/form-cover.html");
+  if (!existsSync(templatePath)) {
+    throw new Error(`Form cover template not found: ${templatePath}`);
+  }
+  const coversDir = join(OUTPUT_DIR, "form-covers");
+  await ensureDir(coversDir);
+  await ensureDir(join(DOCS_DIR, "manuals/_tmp_form_covers"));
+  const rawTemplate = await readFile(templatePath, "utf-8");
+  const brandedTemplate = applyBrandTokens(rawTemplate);
+  return renderFormCover(formEntry, brandedTemplate, coversDir);
 }
 
 // ── Utilities ─────────────────────────────────────────────────────────────────
@@ -3447,6 +4194,40 @@ async function main() {
         break;
       case "letterhead":
         await generateLetterhead();
+        break;
+      case "form-02-c":
+      case "form02c":
+        await generateFillableFormById("FORM 02-C");
+        break;
+      case "form-fillable": {
+        if (!formArg) {
+          console.error(
+            "❌  --form <id|slug> required when --template form-fillable",
+          );
+          process.exit(1);
+        }
+        await generateFillableFormById(formArg);
+        break;
+      }
+      case "form-fillables":
+        await generateAllFillableForms();
+        break;
+      case "form-package": {
+        if (!formArg) {
+          console.error(
+            "❌  --form <id|slug> required when --template form-package",
+          );
+          process.exit(1);
+        }
+        await generateFormPackageById(formArg);
+        break;
+      }
+      case "form-packages":
+        await generateAllFormPackages();
+        break;
+      case "form-publish":
+        await generateAllFormPackages();
+        await publishFormPackages();
         break;
       case "tabs":
         await generateTabs();

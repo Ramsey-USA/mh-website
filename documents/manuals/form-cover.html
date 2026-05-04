@@ -229,11 +229,63 @@
       /* Field-use guidance panel — military-themed framing */
       .field-use {
         position: absolute;
-        top: 7.4in;
+        top: 7.05in;
         left: 0.92in;
         right: 0.9in;
+        bottom: 1.95in;
         border-left: 4pt solid var(--brand-secondary);
         padding: 8pt 14pt 8pt 14pt;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 14pt;
+        align-items: start;
+        overflow: hidden;
+      }
+      .field-use .fu-body {
+        min-width: 0;
+      }
+      /* QR scan strip — one card per applicable MISH section */
+      .qr-strip {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 0.78in;
+        column-gap: 4pt;
+        align-items: start;
+      }
+      .qr-strip.qr-strip--wrap {
+        grid-auto-flow: row;
+        grid-template-columns: repeat(2, 0.78in);
+        row-gap: 4pt;
+      }
+      .qr-card {
+        text-align: center;
+        border: 0.6pt solid var(--brand-secondary);
+        background: #fff;
+        padding: 3pt 3pt 2pt;
+        page-break-inside: avoid;
+      }
+      .qr-card .qr-meta {
+        font-size: 5.4pt;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--brand-secondary-text);
+        margin: 0 0 1pt;
+        line-height: 1.05;
+      }
+      .qr-card .qr-img {
+        display: block;
+        width: 0.6in;
+        height: 0.6in;
+        margin: 0 auto 1pt;
+      }
+      .qr-card .qr-target {
+        font-size: 6pt;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        color: var(--brand-primary-dark);
+        line-height: 1.1;
+        margin: 0;
       }
       .field-use .fu-head {
         font-family: var(--font-heading);
@@ -389,25 +441,28 @@
       </aside>
 
       <aside class="field-use" aria-label="field-use briefing">
-        <div class="fu-head">Field-Use Briefing</div>
-        <ul class="fu-list">
-          <li>
-            <strong>Authority:</strong> Issued under MH Construction’s MISH
-            program; aligned with OSHA 29 CFR 1926 and WAC 296-155.
-          </li>
-          <li>
-            <strong>Use:</strong> Complete in the field at point of work; submit
-            per the routing on the form.
-          </li>
-          <li>
-            <strong>Retention:</strong> Forward original to {{FORM_OWNER}};
-            retain a project copy in the site safety binder.
-          </li>
-          <li>
-            <strong>Revision Control:</strong> Use only the latest revision
-            ({{FORM_REVISION}}). Discard superseded copies.
-          </li>
-        </ul>
+        <div class="fu-body">
+          <div class="fu-head">Field-Use Briefing</div>
+          <ul class="fu-list">
+            <li>
+              <strong>Authority:</strong> Issued under MH Construction’s MISH
+              program; aligned with OSHA 29 CFR 1926 and WAC 296-155.
+            </li>
+            <li>
+              <strong>Use:</strong> Complete in the field at point of work;
+              submit per the routing on the form.
+            </li>
+            <li>
+              <strong>Retention:</strong> Forward original to {{FORM_OWNER}};
+              retain a project copy in the site safety binder.
+            </li>
+            <li>
+              <strong>Revision Control:</strong> Use only the latest revision
+              ({{FORM_REVISION}}). Discard superseded copies.
+            </li>
+          </ul>
+        </div>
+        {{QR_STRIP_HTML}}
       </aside>
 
       <footer class="bottom">
