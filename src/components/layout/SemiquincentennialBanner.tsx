@@ -74,11 +74,13 @@ const INITIAL_TIME_LEFT: TimeLeft = {
 
 export function SemiquincentennialBanner() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(INITIAL_TIME_LEFT);
+  const [mounted, setMounted] = useState(false);
   const animFrameRef = useRef<number | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   // Compute the real countdown on mount (post-hydration), then tick every second
   useEffect(() => {
+    setMounted(true);
     setTimeLeft(getTimeLeft());
     const id = setInterval(() => setTimeLeft(getTimeLeft()), 1_000);
     return () => clearInterval(id);
@@ -329,7 +331,7 @@ export function SemiquincentennialBanner() {
     }
   }, [timeLeft.isPast, launchFireworks]);
 
-  if (timeLeft.isPast) {
+  if (mounted && timeLeft.isPast) {
     return (
       <section
         aria-label="Happy 250th Birthday, America!"
@@ -398,7 +400,10 @@ export function SemiquincentennialBanner() {
                   </span>
                 )}
                 <div className="flex flex-col items-center w-10 sm:w-12">
-                  <span className="text-2xl sm:text-3xl font-bold tabular-nums leading-none text-white">
+                  <span
+                    className="text-2xl sm:text-3xl font-bold tabular-nums leading-none text-white"
+                    suppressHydrationWarning
+                  >
                     {String(value).padStart(2, "0")}
                   </span>
                   <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider text-[#BD9264] leading-none mt-0.5">
