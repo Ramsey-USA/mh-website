@@ -119,14 +119,23 @@ export function StaggeredFadeIn({
   staggerDelay = 0.1,
 }: StaggeredFadeInProps) {
   const [ref, inView] = useInView(0.1);
+  // Render visible until the observer effect has run so SSR/first paint never
+  // shows blank children if the IntersectionObserver doesn't fire (e.g.
+  // element already in viewport at mount).
+  const [observerReady, setObserverReady] = useState(false);
+
+  useEffect(() => {
+    setObserverReady(true);
+  }, []);
 
   return (
     <div ref={ref} className={className}>
       {children.map((child, index) => {
         const delay = index * staggerDelay;
+        const visible = !observerReady || inView;
         const style: CSSProperties = {
-          opacity: inView ? 1 : 0,
-          transform: inView ? "translateY(0)" : "translateY(20px)",
+          opacity: visible ? 1 : 0,
+          transform: visible ? "translateY(0)" : "translateY(20px)",
           transition: `opacity 0.6s cubic-bezier(0.25,0.25,0,1) ${delay}s, transform 0.6s cubic-bezier(0.25,0.25,0,1) ${delay}s`,
         };
         return (
