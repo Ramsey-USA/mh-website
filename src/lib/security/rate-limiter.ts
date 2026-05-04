@@ -169,10 +169,19 @@ export function rateLimit(config: RateLimitConfig) {
       request: NextRequest,
       context?: unknown,
     ): Promise<NextResponse> {
-      const identifier = getClientIdentifier(request, config);
-      const key = `${request.nextUrl.pathname}:${identifier}`;
-
-      const entry = await incrementCounter(key, windowMs);
+      // Outer guard: under no circumstances should a failure in the rate
+      // limiter itself (KV outage, malformed identifier, etc.) cause the
+      // wrapped handler to return a 5xx. Fail open — let the request
+      // through, log, and rely on Cloudflare-edge protections.
+      let entry: RateLimitEntry;
+      try {
+        const identifier = getClientIdentifier(request, config);
+        const key = `${request.nextUrl.pathname}:${identifier}`;
+        entry = await incrementCounter(key, windowMs);
+      } catch (err) {
+        logger.error("Rate limiter failed open:", err);
+        return handler(request, context);
+      }
 
       if (entry.count > maxRequests) {
         const now = Date.now();
@@ -194,12 +203,16 @@ export function rateLimit(config: RateLimitConfig) {
 
       const response = await handler(request, context);
 
-      response.headers.set("X-RateLimit-Limit", maxRequests.toString());
-      response.headers.set(
-        "X-RateLimit-Remaining",
-        Math.max(0, maxRequests - entry.count).toString(),
-      );
-      response.headers.set("X-RateLimit-Reset", entry.resetTime.toString());
+      try {
+        response.headers.set("X-RateLimit-Limit", maxRequests.toString());
+        response.headers.set(
+          "X-RateLimit-Remaining",
+          Math.max(0, maxRequests - entry.count).toString(),
+        );
+        response.headers.set("X-RateLimit-Reset", entry.resetTime.toString());
+      } catch {
+        // Header mutation can fail on opaque/streaming responses; ignore.
+      }
 
       return response;
     };

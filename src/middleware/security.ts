@@ -4,9 +4,31 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { securityManager } from "@/lib/security/security-manager";
 import { auditLogger, AuditEventType } from "@/lib/security/audit-logger";
 import { verifyToken, extractTokenFromHeader } from "@/lib/auth/jwt";
+
+/**
+ * Fire-and-forget audit logging.
+ *
+ * Audit writes are best-effort and must NEVER fail the parent request,
+ * count against its CPU-ms budget, or contribute to a 5xx. We hand the
+ * promise to ctx.waitUntil() when running on Cloudflare Workers, and
+ * silently swallow any rejection. Outside CF (local dev / tests) the
+ * promise is left detached with an attached catch.
+ */
+function deferAudit(promise: Promise<unknown>): void {
+  const safe = promise.catch(() => {
+    // Audit failures are non-fatal by design.
+  });
+  try {
+    const { ctx } = getCloudflareContext();
+    ctx.waitUntil(safe);
+  } catch {
+    // Not in a Cloudflare Workers context; the catch above keeps Node happy.
+  }
+}
 
 // Configuration for different routes.
 // requireAdmin: true  — request must carry a valid JWT with role "admin"
@@ -96,15 +118,17 @@ export async function securityMiddleware(
       const user = token ? await verifyToken(token) : null;
 
       if (!user || user.role !== "admin") {
-        await auditLogger.logSecurityViolation(
-          AuditEventType.ACCESS_DENIED,
-          ipAddress,
-          userAgent,
-          {
-            path: pathname,
-            method: request.method,
-            reason: "Admin authentication required",
-          },
+        deferAudit(
+          auditLogger.logSecurityViolation(
+            AuditEventType.ACCESS_DENIED,
+            ipAddress,
+            userAgent,
+            {
+              path: pathname,
+              method: request.method,
+              reason: "Admin authentication required",
+            },
+          ),
         );
         // Redirect browser requests to home; reject API-style requests
         if (request.headers.get("accept")?.includes("text/html")) {
@@ -121,16 +145,18 @@ export async function securityMiddleware(
     const securityResult = await securityManager.processRequest(request);
 
     if (!securityResult.allowed) {
-      // Log security violation
-      await auditLogger.logSecurityViolation(
-        AuditEventType.RATE_LIMIT_EXCEEDED,
-        ipAddress,
-        userAgent,
-        {
-          path: pathname,
-          method: request.method,
-          reason: "Rate limit exceeded",
-        },
+      // Log security violation (best-effort, non-blocking)
+      deferAudit(
+        auditLogger.logSecurityViolation(
+          AuditEventType.RATE_LIMIT_EXCEEDED,
+          ipAddress,
+          userAgent,
+          {
+            path: pathname,
+            method: request.method,
+            reason: "Rate limit exceeded",
+          },
+        ),
       );
 
       return securityResult.response!;
@@ -146,37 +172,41 @@ export async function securityMiddleware(
       securityResult.csrfToken,
     );
 
-    // Log successful request if configured
+    // Log successful request if configured (best-effort, non-blocking)
     if (routeConfig.logAll) {
-      await auditLogger.logEvent(AuditEventType.ACCESS_GRANTED, {
-        source: "middleware",
-        ipAddress,
-        userAgent,
-        outcome: "success",
-        details: {
-          path: pathname,
-          method: request.method,
+      deferAudit(
+        auditLogger.logEvent(AuditEventType.ACCESS_GRANTED, {
+          source: "middleware",
+          ipAddress,
           userAgent,
-        },
-        tags: ["access", "middleware"],
-      });
+          outcome: "success",
+          details: {
+            path: pathname,
+            method: request.method,
+            userAgent,
+          },
+          tags: ["access", "middleware"],
+        }),
+      );
     }
 
     return securedResponse;
   } catch (error) {
-    // Log error and continue with minimal security
-    await auditLogger.logEvent(AuditEventType.ERROR_OCCURRED, {
-      source: "middleware",
-      ipAddress,
-      userAgent,
-      outcome: "failure",
-      details: {
-        path: pathname,
-        method: request.method,
-        error: error instanceof Error ? error.message : "Unknown error",
-      },
-      tags: ["error", "middleware"],
-    });
+    // Log error and continue with minimal security (best-effort, non-blocking)
+    deferAudit(
+      auditLogger.logEvent(AuditEventType.ERROR_OCCURRED, {
+        source: "middleware",
+        ipAddress,
+        userAgent,
+        outcome: "failure",
+        details: {
+          path: pathname,
+          method: request.method,
+          error: error instanceof Error ? error.message : "Unknown error",
+        },
+        tags: ["error", "middleware"],
+      }),
+    );
 
     // Apply basic security headers even on error
     const response = NextResponse.next();

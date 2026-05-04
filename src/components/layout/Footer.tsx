@@ -266,6 +266,7 @@ function FooterNavLink({
   return (
     <Link
       href={href}
+      prefetch={false}
       className="group flex items-center space-x-2 text-base xs:text-lg text-gray-300 hover:text-brand-primary dark:text-gray-200 transition-all hover:translate-x-1 duration-300 touch-manipulation"
     >
       <MaterialIcon
