@@ -1169,6 +1169,7 @@ export default function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  prefetch={false}
                   className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-brand-primary/20 bg-gradient-to-r from-brand-primary/5 to-brand-secondary/5 hover:from-brand-primary/15 hover:to-brand-secondary/15 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
                 >
                   <MaterialIcon

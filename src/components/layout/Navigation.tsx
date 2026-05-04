@@ -395,6 +395,7 @@ export function Navigation() {
                     <Link
                       key={item.href}
                       href={item.href}
+                      prefetch={false}
                       className="group flex flex-col items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 px-1.5 sm:px-2 py-2 sm:py-2.5 rounded-lg font-medium text-gray-900 hover:text-brand-primary dark:hover:text-bronze-400 dark:text-gray-100 text-center transition-all duration-300 touch-manipulation min-h-[56px] sm:min-h-[60px]"
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -504,6 +505,7 @@ export function Navigation() {
               <div className="flex flex-wrap justify-center items-center gap-1.5 sm:gap-2 mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-200 dark:border-gray-700">
                 <Link
                   href="/privacy"
+                  prefetch={false}
                   className="group flex items-center gap-1 px-2 py-1 rounded-full border border-gray-300 dark:border-gray-600 bg-gradient-to-r from-gray-100 dark:from-gray-800 to-gray-50 dark:to-gray-700 hover:from-brand-primary/10 hover:to-brand-secondary/10 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -519,6 +521,7 @@ export function Navigation() {
                 </Link>
                 <Link
                   href="/terms"
+                  prefetch={false}
                   className="group flex items-center gap-1 px-2 py-1 rounded-full border border-gray-300 dark:border-gray-600 bg-gradient-to-r from-gray-100 dark:from-gray-800 to-gray-50 dark:to-gray-700 hover:from-brand-primary/10 hover:to-brand-secondary/10 hover:border-brand-primary/40 transition-all duration-300 hover:scale-105"
                   onClick={() => setIsMenuOpen(false)}
                 >
