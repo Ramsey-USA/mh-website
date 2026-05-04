@@ -10,8 +10,18 @@ import {
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { TeamProfileSection } from "@/components/team/TeamProfileSection";
 import ScrollReveal from "@/components/animations/ScrollReveal";
+
+// TeamProfileSection contains ~1 000 lines of client-side JS and dynamically
+// imports recharts. Making it dynamic with ssr:true keeps server-rendered HTML
+// but splits its JS so it loads after the critical above-fold content.
+const TeamProfileSection = dynamic(
+  () =>
+    import("@/components/team/TeamProfileSection").then((mod) => ({
+      default: mod.TeamProfileSection,
+    })),
+  { ssr: true },
+);
 import {
   vintageTeamMembers,
   applyProfileOverride,
