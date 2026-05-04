@@ -1,3 +1,13 @@
+/* ============================================
+   MH BRAND FONTS
+   Heading / Subheading: Abolition
+   Body: DIN 2014
+   Served via Adobe Fonts (Typekit) kit jqs8bjh
+   Must be declared FIRST so the @import url() rule
+   precedes all generated rules from Tailwind/etc.
+   ============================================ */
+@import url("https://use.typekit.net/jqs8bjh.css");
+
 /* Import CSS variables for cohesive design system */
 @import "../styles/variables.css";
 
@@ -7,15 +17,6 @@
 /* Tailwind CSS v4 — point to legacy JS config for theme/plugins */
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
-
-/* ============================================
-   MH BRAND FONTS
-   Heading / Subheading: Abolition
-   Body: DIN 2014
-   Served via Adobe Fonts (Typekit) kit jqs8bjh
-   ============================================ */
-
-@import url("https://use.typekit.net/jqs8bjh.css");
 
 /* Material Icons font setup */
 .material-icons {

@@ -122,6 +122,11 @@ const nextConfig = {
   // === SECURITY ===
   poweredByHeader: false,
 
+  // Allow Codespaces / devcontainer host preview origins to reach the HMR
+  // websocket without being blocked by Next.js cross-origin protection.
+  // Production builds ignore this field.
+  allowedDevOrigins: ["127.0.0.1", "localhost", "*.app.github.dev"],
+
   // === WEBPACK CUSTOMIZATION ===
   webpack: (config, { dev, isServer }) => {
     // Exclude backup directories from compilation
@@ -216,6 +221,9 @@ const nextConfig = {
     formats: ["image/webp"], // Pre-converted by CI; AVIF excluded (requires sharp)
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Allow the quality values used at <Image quality="..." /> call sites.
+    // Default is [75]; we use 20 (LQIP/blur) and 85 (high-fidelity logos).
+    qualities: [20, 75, 85],
     minimumCacheTTL: 2592000, // 30 days — safe because Next.js uses content-hash URLs
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
@@ -252,6 +260,13 @@ const nextConfig = {
 
   // === HEADERS ===
   async headers() {
+    // Long-lived immutable cache headers for build outputs are PRODUCTION ONLY.
+    // Applying them in dev breaks Next.js HMR / fast refresh because Turbopack
+    // serves chunks from /_next/static with content hashes that the browser
+    // would otherwise refuse to refetch. (Next.js logs a warning in dev.)
+    const isProd = process.env.NODE_ENV === "production";
+    const prodOnly = (entries) => (isProd ? entries : []);
+
     return [
       // Cache HTML pages at the edge while revalidating frequently.
       // Excludes API routes, static assets, and authenticated surfaces.
@@ -275,48 +290,51 @@ const nextConfig = {
           },
         ],
       },
-      // Cache static assets
-      {
-        source: "/:all*(svg|jpg|jpeg|png|webp|avif|gif)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      // Cache Next.js static files (CSS, JS bundles)
-      {
-        source: "/_next/static/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      // Cache Next.js build chunks (main.js, etc.)
-      {
-        source: "/:path*.js",
-        headers: [
-          {
-            key: "Cache-Control",
-            value:
-              "public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400",
-          },
-        ],
-      },
-      // Cache CSS files
-      {
-        source: "/:path*.css",
-        headers: [
-          {
-            key: "Cache-Control",
-            value:
-              "public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400",
-          },
-        ],
-      },
+      // Cache static assets (production only — dev keeps default no-cache so
+      // edited images refresh without a hard reload)
+      ...prodOnly([
+        {
+          source: "/:all*(svg|jpg|jpeg|png|webp|avif|gif)",
+          headers: [
+            {
+              key: "Cache-Control",
+              value: "public, max-age=31536000, immutable",
+            },
+          ],
+        },
+        // Cache Next.js static files (CSS, JS bundles)
+        {
+          source: "/_next/static/:path*",
+          headers: [
+            {
+              key: "Cache-Control",
+              value: "public, max-age=31536000, immutable",
+            },
+          ],
+        },
+        // Cache Next.js build chunks (main.js, etc.)
+        {
+          source: "/:path*.js",
+          headers: [
+            {
+              key: "Cache-Control",
+              value:
+                "public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400",
+            },
+          ],
+        },
+        // Cache CSS files
+        {
+          source: "/:path*.css",
+          headers: [
+            {
+              key: "Cache-Control",
+              value:
+                "public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400",
+            },
+          ],
+        },
+      ]),
       // Service worker must never be cached — browsers check for updates on
       // every navigation. A stale sw.js blocks PWA version updates for users.
       // This rule comes AFTER the broad /:path*.js rule so it takes precedence.
