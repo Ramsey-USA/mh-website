@@ -1047,6 +1047,7 @@ export default function Footer() {
                 height={50}
                 className="h-12 w-auto object-contain dark:hidden"
                 loading="lazy"
+                decoding="async"
               />
               {}
               <img
@@ -1056,6 +1057,7 @@ export default function Footer() {
                 height={50}
                 className="h-12 w-auto object-contain hidden dark:block"
                 loading="lazy"
+                decoding="async"
               />
             </a>
 

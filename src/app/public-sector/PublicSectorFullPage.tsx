@@ -13,7 +13,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { WaVobBadge } from "@/components/ui/WaVobBadge";
+import { AccreditationsLogoRow } from "@/components/shared-sections";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   generateBreadcrumbSchema,
@@ -1177,125 +1177,7 @@ export default function PublicSectorFullPage() {
           <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-8">
             Accredited & Certified for Federal Contracts
           </h3>
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-            {/* BBB Accredited A+ */}
-            {}
-            <a
-              href={COMPANY_INFO.bbb.sealClickUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80 transition-opacity"
-              title="BBB Accredited Business - A+ Rating"
-            >
-              <img
-                src={COMPANY_INFO.bbb.sealHorizontal}
-                alt="BBB Accredited Business A+ Rating"
-                className="h-10 sm:h-12 w-auto dark:hidden"
-                loading="lazy"
-              />
-              <img
-                src={COMPANY_INFO.bbb.sealHorizontalWhite}
-                alt="BBB Accredited Business A+ Rating"
-                className="h-10 sm:h-12 w-auto hidden dark:block"
-                loading="lazy"
-              />
-            </a>
-
-            {/* AGC Member */}
-            <a
-              href="https://www.agcwa.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80 transition-opacity"
-              title="AGC of Washington Member"
-            >
-              <img
-                src="/images/logo/agc-member.webp"
-                alt="AGC of Washington Member"
-                className="h-10 sm:h-12 w-auto"
-                loading="lazy"
-              />
-            </a>
-
-            {/* Travelers Insurance Partner */}
-            <a
-              href={COMPANY_INFO.travelers.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80 transition-opacity"
-              title="Travelers Insurance - Auto & Bonding Partner"
-            >
-              <img
-                src={COMPANY_INFO.travelers.logo}
-                alt="Travelers Insurance - Auto & Bonding Partner"
-                className="h-10 sm:h-12 w-auto dark:hidden"
-                loading="lazy"
-              />
-              <img
-                src={COMPANY_INFO.travelers.logoWhite}
-                alt="Travelers Insurance - Auto & Bonding Partner"
-                className="h-10 sm:h-12 w-auto hidden dark:block"
-                loading="lazy"
-              />
-            </a>
-
-            {/* Pasco Chamber of Commerce */}
-            <a
-              href={COMPANY_INFO.chambers.pasco.memberDirectoryUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80 transition-opacity"
-              title="Pasco Chamber of Commerce Member"
-            >
-              <img
-                src={COMPANY_INFO.chambers.pasco.logo}
-                alt="Pasco Chamber of Commerce Member"
-                className="h-10 sm:h-12 w-auto dark:hidden"
-                loading="lazy"
-              />
-              <img
-                src={COMPANY_INFO.chambers.pasco.logoWhite}
-                alt="Pasco Chamber of Commerce Member"
-                className="h-10 sm:h-12 w-auto hidden dark:block"
-                loading="lazy"
-              />
-            </a>
-
-            {/* Richland Chamber of Commerce */}
-            <a
-              href={COMPANY_INFO.chambers.richland.memberDirectoryUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80 transition-opacity"
-              title="Richland Chamber of Commerce Member"
-            >
-              <img
-                src={COMPANY_INFO.chambers.richland.logo}
-                alt="Richland Chamber of Commerce Member"
-                className="h-10 sm:h-12 w-auto"
-                loading="lazy"
-              />
-            </a>
-
-            {/* Tri-City Regional Chamber of Commerce */}
-            <a
-              href={COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80 transition-opacity"
-              title="Tri-City Regional Chamber of Commerce Member"
-            >
-              <img
-                src={COMPANY_INFO.chambers.triCityRegional.logo}
-                alt="Tri-City Regional Chamber of Commerce Member"
-                className="h-10 sm:h-12 w-auto"
-                loading="lazy"
-              />
-            </a>
-
-            {/* Washington State Veteran Owned Business */}
-            <WaVobBadge />
-
+          <AccreditationsLogoRow>
             {/* SDVOSB Badge */}
             <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700">
               <MaterialIcon
@@ -1309,7 +1191,7 @@ export default function PublicSectorFullPage() {
                 SDVOSB
               </span>
             </div>
-          </div>
+          </AccreditationsLogoRow>
         </div>
       </section>
       {/* Next Steps Section - Standardized Final CTA */}

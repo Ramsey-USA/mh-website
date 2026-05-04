@@ -31,7 +31,7 @@ import {
   cultureValues,
 } from "@/lib/data/careers";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { WaVobBadge } from "@/components/ui/WaVobBadge";
+import { AccreditationsLogoRow } from "@/components/shared-sections";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { getCareersSEO } from "@/lib/seo/page-seo-utils";
 import { SimpleSkeleton } from "@/components/ui/SimpleSkeleton";
@@ -1396,76 +1396,7 @@ export default function CareersPageClient() {
                 Our reputation for quality, safety, and integrity makes MH
                 Construction a great place to build your career
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-                {/* BBB Accredited A+ */}
-                {}
-                <a
-                  href={COMPANY_INFO.bbb.sealClickUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity"
-                  title="BBB Accredited Business - A+ Rating"
-                >
-                  {}
-                  <img
-                    src={COMPANY_INFO.bbb.sealHorizontal}
-                    alt="BBB Accredited Business A+ Rating"
-                    className="h-10 sm:h-12 w-auto dark:hidden"
-                    loading="lazy"
-                  />
-                  {}
-                  <img
-                    src={COMPANY_INFO.bbb.sealHorizontalWhite}
-                    alt="BBB Accredited Business A+ Rating"
-                    className="h-10 sm:h-12 w-auto hidden dark:block"
-                    loading="lazy"
-                  />
-                </a>
-
-                {/* AGC Member */}
-                <a
-                  href="https://www.agcwa.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity"
-                  title="AGC of Washington Member"
-                >
-                  {}
-                  <img
-                    src="/images/logo/agc-member.webp"
-                    alt="AGC of Washington Member"
-                    className="h-10 sm:h-12 w-auto"
-                    loading="lazy"
-                  />
-                </a>
-
-                {/* Travelers Insurance Partner */}
-                <a
-                  href={COMPANY_INFO.travelers.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity"
-                  title="Travelers Insurance - Auto & Bonding Partner"
-                >
-                  {}
-                  <img
-                    src={COMPANY_INFO.travelers.logo}
-                    alt="Travelers Insurance - Auto & Bonding Partner"
-                    className="h-10 sm:h-12 w-auto dark:hidden"
-                    loading="lazy"
-                  />
-                  {}
-                  <img
-                    src={COMPANY_INFO.travelers.logoWhite}
-                    alt="Travelers Insurance - Auto & Bonding Partner"
-                    className="h-10 sm:h-12 w-auto hidden dark:block"
-                    loading="lazy"
-                  />
-                </a>
-
-                {/* Washington State Veteran Owned Business */}
-                <WaVobBadge />
-
+              <AccreditationsLogoRow showChambers={false}>
                 {/* Safety Award Badge */}
                 <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800">
                   <MaterialIcon
@@ -1478,7 +1409,7 @@ export default function CareersPageClient() {
                     Award-Winning Safety
                   </span>
                 </div>
-              </div>
+              </AccreditationsLogoRow>
             </div>
           </div>
         </section>

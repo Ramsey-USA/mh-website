@@ -319,15 +319,21 @@ export default function ContactPageClient() {
                   <img
                     src={COMPANY_INFO.bbb.sealHorizontal}
                     alt="BBB Accredited A+ Rating"
+                    width={200}
+                    height={42}
                     className="h-10 w-auto dark:hidden"
                     loading="lazy"
+                    decoding="async"
                   />
                   {}
                   <img
                     src={COMPANY_INFO.bbb.sealHorizontalWhite}
                     alt="BBB Accredited A+ Rating"
+                    width={200}
+                    height={42}
                     className="h-10 w-auto hidden dark:block"
                     loading="lazy"
+                    decoding="async"
                   />
                 </a>
                 <a
@@ -341,8 +347,11 @@ export default function ContactPageClient() {
                   <img
                     src="/images/logo/agc-member.webp"
                     alt="AGC of Washington Member"
+                    width={405}
+                    height={427}
                     className="h-10 w-auto"
                     loading="lazy"
+                    decoding="async"
                   />
                 </a>
                 <a
@@ -356,15 +365,21 @@ export default function ContactPageClient() {
                   <img
                     src={COMPANY_INFO.travelers.logo}
                     alt="Travelers Insurance - Auto & Bonding Partner"
+                    width={600}
+                    height={122}
                     className="h-8 w-auto dark:hidden"
                     loading="lazy"
+                    decoding="async"
                   />
                   {}
                   <img
                     src={COMPANY_INFO.travelers.logoWhite}
                     alt="Travelers Insurance - Auto & Bonding Partner"
+                    width={600}
+                    height={122}
                     className="h-8 w-auto hidden dark:block"
                     loading="lazy"
+                    decoding="async"
                   />
                 </a>
                 <a
@@ -378,15 +393,21 @@ export default function ContactPageClient() {
                   <img
                     src={COMPANY_INFO.chambers.pasco.logo}
                     alt="Pasco Chamber of Commerce Member"
+                    width={510}
+                    height={231}
                     className="h-10 w-auto dark:hidden"
                     loading="lazy"
+                    decoding="async"
                   />
                   {}
                   <img
                     src={COMPANY_INFO.chambers.pasco.logoWhite}
                     alt="Pasco Chamber of Commerce Member"
+                    width={748}
+                    height={256}
                     className="h-10 w-auto hidden dark:block"
                     loading="lazy"
+                    decoding="async"
                   />
                 </a>
                 <a
@@ -400,8 +421,11 @@ export default function ContactPageClient() {
                   <img
                     src={COMPANY_INFO.chambers.richland.logo}
                     alt="Richland Chamber of Commerce Member"
+                    width={816}
+                    height={874}
                     className="h-10 w-auto"
                     loading="lazy"
+                    decoding="async"
                   />
                 </a>
                 <a
@@ -417,8 +441,11 @@ export default function ContactPageClient() {
                   <img
                     src={COMPANY_INFO.chambers.triCityRegional.logo}
                     alt="Tri-City Regional Chamber of Commerce Member"
+                    width={372}
+                    height={100}
                     className="h-10 w-auto"
                     loading="lazy"
+                    decoding="async"
                   />
                 </a>
                 <div className="flex items-center gap-2 px-3 py-1.5 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-full">
