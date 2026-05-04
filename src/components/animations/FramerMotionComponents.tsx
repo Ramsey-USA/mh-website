@@ -60,8 +60,13 @@ export function FadeInWhenVisible({
 }: FadeInWhenVisibleProps) {
   const [ref, inView] = useInView(animConfig.threshold);
   const [forceShow, setForceShow] = useState(false);
+  // Track whether the IntersectionObserver effect has had a chance to run.
+  // Until then, render content visible so SSR/hydration never shows a blank
+  // section if the observer fails to fire (e.g., element already in view).
+  const [observerReady, setObserverReady] = useState(false);
 
   useEffect(() => {
+    setObserverReady(true);
     const el = ref.current;
     if (!el) return;
     const check = () => {
@@ -80,8 +85,12 @@ export function FadeInWhenVisible({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (!animConfig.enableAnimations || forceShow) {
-    return <div className={className}>{children}</div>;
+  if (!animConfig.enableAnimations || forceShow || !observerReady) {
+    return (
+      <div ref={ref} className={className}>
+        {children}
+      </div>
+    );
   }
 
   const style: CSSProperties = {
