@@ -54,17 +54,29 @@
       "@/lib/db": ["../../packages/shared/src/lib/db"],
       "@/lib/db/*": ["../../packages/shared/src/lib/db/*"],
       "@/lib/auth/jwt": ["../../packages/shared/src/lib/auth/jwt"],
-      "@/lib/auth/middleware": ["../../packages/shared/src/lib/auth/middleware"],
+      "@/lib/auth/middleware": [
+        "../../packages/shared/src/lib/auth/middleware"
+      ],
       "@/lib/auth/*": ["../../packages/shared/src/lib/auth/*"],
       "@/lib/security": ["../../packages/shared/src/lib/security"],
       "@/lib/security/*": ["../../packages/shared/src/lib/security/*"],
       "@/lib/utils": ["../../packages/shared/src/lib/utils"],
       "@/lib/utils/*": ["../../packages/shared/src/lib/utils/*"],
-      "@/lib/constants/company": ["../../packages/shared/src/lib/constants/company"],
-      "@/lib/constants/limits": ["../../packages/shared/src/lib/constants/limits"],
-      "@/lib/constants/drivers": ["../../packages/shared/src/lib/constants/drivers"],
-      "@/lib/constants/navigation-icons": ["../../packages/shared/src/lib/constants/navigation-icons"],
-      "@/lib/constants/timing": ["../../packages/shared/src/lib/constants/timing"],
+      "@/lib/constants/company": [
+        "../../packages/shared/src/lib/constants/company"
+      ],
+      "@/lib/constants/limits": [
+        "../../packages/shared/src/lib/constants/limits"
+      ],
+      "@/lib/constants/drivers": [
+        "../../packages/shared/src/lib/constants/drivers"
+      ],
+      "@/lib/constants/navigation-icons": [
+        "../../packages/shared/src/lib/constants/navigation-icons"
+      ],
+      "@/lib/constants/timing": [
+        "../../packages/shared/src/lib/constants/timing"
+      ],
       "@/lib/constants": ["../../packages/shared/src/lib/constants"],
       "@/lib/constants/*": ["../../packages/shared/src/lib/constants/*"],
       "@/lib/types": ["../../packages/shared/src/lib/types"],
@@ -76,13 +88,19 @@
       "@/lib/email": ["../../packages/shared/src/lib/email"],
       "@/lib/email/*": ["../../packages/shared/src/lib/email/*"],
       "@/lib/notifications": ["../../packages/shared/src/lib/notifications"],
-      "@/lib/notifications/*": ["../../packages/shared/src/lib/notifications/*"],
+      "@/lib/notifications/*": [
+        "../../packages/shared/src/lib/notifications/*"
+      ],
       "@/lib/analytics": ["../../packages/shared/src/lib/analytics"],
       "@/lib/analytics/*": ["../../packages/shared/src/lib/analytics/*"],
       "@/lib/monitoring": ["../../packages/shared/src/lib/monitoring"],
       "@/lib/monitoring/*": ["../../packages/shared/src/lib/monitoring/*"],
-      "@/lib/safety/log-access-event": ["../../packages/shared/src/lib/safety/log-access-event"],
-      "@/lib/safety/certification-showcase": ["../../packages/shared/src/lib/safety/certification-showcase"],
+      "@/lib/safety/log-access-event": [
+        "../../packages/shared/src/lib/safety/log-access-event"
+      ],
+      "@/lib/safety/certification-showcase": [
+        "../../packages/shared/src/lib/safety/certification-showcase"
+      ],
       "@/lib/safety/*": ["../../packages/shared/src/lib/safety/*"],
       "@/*": ["./src/*"]
     }
@@ -94,12 +112,5 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules",
-    ".next",
-    "out",
-    "build",
-    "dist",
-    "coverage"
-  ]
+  "exclude": ["node_modules", ".next", "out", "build", "dist", "coverage"]
 }

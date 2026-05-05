@@ -19,6 +19,86 @@
       "ticket": "WA-VOB-2026",
       "reason": "The WA DVA certification logo has a non-transparent background and requires a container. The patriotic red/blue color scheme is inseparable from the meaning and authenticity of the Veteran Owned certification. Exception is strictly scoped to WaVobBadge component only.",
       "expiresOn": "2030-12-31"
+    },
+    {
+      "active": true,
+      "rule": "Image filename kebab-case",
+      "filePattern": "apps/website/public/images/credentials/*",
+      "detailPattern": "lowercase kebab-case",
+      "approvedBy": "Jeremy Thamert / Matt Ramsey",
+      "ticket": "MONOREPO-MIGRATION",
+      "reason": "Third-party chamber and accreditation logos use proper-noun capitalization (Kennewick TriCity Regional Chamber, Pasco Chamber, Richland Chamber). Renaming would break references to official organization assets. Pre-existing files migrated to monorepo path.",
+      "expiresOn": "2030-12-31"
+    },
+    {
+      "active": true,
+      "rule": "Image filename kebab-case",
+      "filePattern": "apps/website/public/images/logo/AGC-*",
+      "detailPattern": "lowercase kebab-case",
+      "approvedBy": "Jeremy Thamert / Matt Ramsey",
+      "ticket": "MONOREPO-MIGRATION",
+      "reason": "AGC (Associated General Contractors) is an acronym-based proper noun. The filename mirrors the official AGC branding. Pre-existing file migrated to monorepo path.",
+      "expiresOn": "2030-12-31"
+    },
+    {
+      "active": true,
+      "rule": "Image filename kebab-case",
+      "filePattern": "apps/website/public/images/vendors/*",
+      "detailPattern": "lowercase kebab-case",
+      "approvedBy": "Jeremy Thamert / Matt Ramsey",
+      "ticket": "MONOREPO-MIGRATION",
+      "reason": "Vendor logo files use underscore-separated names that were established before the kebab-case convention. Renaming would require updating all component references. Pre-existing files migrated to monorepo path.",
+      "expiresOn": "2030-12-31"
+    },
+    {
+      "active": true,
+      "rule": "Image filename kebab-case",
+      "filePattern": "apps/website/documents/assets/*",
+      "detailPattern": "lowercase kebab-case",
+      "approvedBy": "Jeremy Thamert / Matt Ramsey",
+      "ticket": "MONOREPO-MIGRATION",
+      "reason": "Document assets include AGC and Travelers Insurance logos which are proper-noun branded files. Pre-existing files migrated to monorepo path.",
+      "expiresOn": "2030-12-31"
+    },
+    {
+      "active": true,
+      "rule": "SEO/plain-language labels",
+      "filePattern": "apps/website/src/app/__tests__/safety-navigation-contracts.test.tsx",
+      "detailPattern": "No core plain-language labels detected",
+      "approvedBy": "Jeremy Thamert / Matt Ramsey",
+      "ticket": "MONOREPO-MIGRATION",
+      "reason": "Test file for safety navigation contracts. Plain-language navigation labels are not appropriate in unit test assertion files; their presence is validated by the tests themselves.",
+      "expiresOn": "2030-12-31"
+    },
+    {
+      "active": true,
+      "rule": "SEO/plain-language labels",
+      "filePattern": "apps/website/src/components/navigation/index.ts",
+      "detailPattern": "No core plain-language labels detected",
+      "approvedBy": "Jeremy Thamert / Matt Ramsey",
+      "ticket": "MONOREPO-MIGRATION",
+      "reason": "Barrel re-export file for navigation components. Navigation labels are defined in the referenced modules, not the barrel export.",
+      "expiresOn": "2030-12-31"
+    },
+    {
+      "active": true,
+      "rule": "SEO/plain-language labels",
+      "filePattern": "apps/website/src/types/navigation.ts",
+      "detailPattern": "No core plain-language labels detected",
+      "approvedBy": "Jeremy Thamert / Matt Ramsey",
+      "ticket": "MONOREPO-MIGRATION",
+      "reason": "TypeScript interface definitions for navigation types. Plain-language nav labels belong in runtime configs, not type definition files.",
+      "expiresOn": "2030-12-31"
+    },
+    {
+      "active": true,
+      "rule": "SEO/plain-language labels",
+      "filePattern": "packages/shared/src/lib/analytics/metadata.ts",
+      "detailPattern": "No core plain-language labels detected",
+      "approvedBy": "Jeremy Thamert / Matt Ramsey",
+      "ticket": "MONOREPO-MIGRATION",
+      "reason": "Analytics metadata collection module collects device/browser/session data. It is not a navigation or SEO label registry; plain-language labels are not applicable here.",
+      "expiresOn": "2030-12-31"
     }
   ]
 }

@@ -79,9 +79,19 @@ const nextConfig = {
     // automatically points at packages/shared regardless of which app is built.
     const sharedRoot = path.resolve(__dirname, "../../packages/shared/src/lib");
     const sharedLibs = [
-      "db", "auth", "security", "utils", "constants",
-      "types", "cloudflare", "api", "email", "notifications",
-      "analytics", "monitoring", "safety",
+      "db",
+      "auth",
+      "security",
+      "utils",
+      "constants",
+      "types",
+      "cloudflare",
+      "api",
+      "email",
+      "notifications",
+      "analytics",
+      "monitoring",
+      "safety",
     ];
 
     config.resolve.alias = {
@@ -89,7 +99,7 @@ const nextConfig = {
       "@": path.resolve(__dirname, "src"),
       // Shared lib: @/lib/<module> → packages/shared/src/lib/<module>
       ...Object.fromEntries(
-        sharedLibs.map((lib) => [`@/lib/${lib}`, path.join(sharedRoot, lib)])
+        sharedLibs.map((lib) => [`@/lib/${lib}`, path.join(sharedRoot, lib)]),
       ),
       "@react-email/render": false,
     };
