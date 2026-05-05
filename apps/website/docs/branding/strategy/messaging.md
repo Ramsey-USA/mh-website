@@ -14,7 +14,7 @@
 - **Traditional Business:** Handshakes matter, promises kept, relationships last
 - **Personal Consultation:** All CTAs direct to `/contact` for human interaction
 
-> **Note:** Booking, AI Estimator, and 3D Explorer pages have been removed. All CTAs now
+> **Note:** Booking, automated estimator, and 3D Explorer pages have been removed. All CTAs now
 > direct to `/contact` for personal communication focused on honest relationships and
 > transparent pricing.
 

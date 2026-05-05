@@ -38,7 +38,7 @@ const teamSpecialties = [
     icon: "verified",
     title: "Quality Assurance",
     description:
-      "Battle-tested standards ensuring first-time-right execution on every mission",
+      "Service-proven standards ensuring first-time-right execution on every mission",
   },
   {
     icon: "groups",

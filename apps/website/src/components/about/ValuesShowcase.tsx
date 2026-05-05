@@ -36,7 +36,7 @@ const valueCategories: ValueCategory[] = [
       "Long-term partnership beyond project completion",
       "True ROI—the return is the relationship",
       "Transparent communication at every project phase",
-      "Battle-tested standards ensuring first-time-right execution",
+      "Service-proven standards ensuring first-time-right execution",
       "70% referral rate demonstrates earned trust",
       "Service-earned commitment to your success",
     ],
@@ -161,7 +161,7 @@ export function ValuesShowcase() {
               service-earned values—integrity, transparency, and excellence
             </span>{" "}
             drive every project decision and partnership we build. These
-            battle-tested principles aren't just{" "}
+            service-proven principles aren't just{" "}
             <span className="font-bold text-gray-900 dark:text-white">
               words on a wall
             </span>

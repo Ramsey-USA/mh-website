@@ -22,7 +22,7 @@ accessibility.
 
 ### About
 
-**Title:** `Our Oath → About Us | Service-Earned Values, Battle-Tested Excellence | MH Construction`
+**Title:** `Our Oath → About Us | Service-Earned Values, Service-Proven Excellence | MH Construction`
 **Format:** Military term → Civilian term | Value proposition | Company
 **Location:** `/src/lib/seo/page-seo-utils.ts` (getAboutSEO)
 
@@ -187,7 +187,7 @@ All main content pages use the format:
 ### Key Descriptors
 
 - **Service-Earned Values**
-- **Battle-Tested Excellence**
+- **Service-Proven Excellence**
 - **Mission-Ready**
 - **Military Precision**
 - **Operational Excellence**

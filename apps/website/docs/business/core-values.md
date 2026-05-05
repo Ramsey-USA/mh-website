@@ -71,7 +71,7 @@ comes before our profit.
 ### Integrity in Practice
 
 - Using specified materials and methods without unauthorized substitutions
-- Standing behind our work with comprehensive warranties - battle-tested quality
+- Standing behind our work with comprehensive warranties - service-proven quality
 - Making decisions that benefit the client mission, not just our bottom line
 - Following through on commitments with deployment-level discipline
 - Never cutting corners, even when no one is watching - service-earned standards

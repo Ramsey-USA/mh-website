@@ -41,6 +41,9 @@ const eslintConfig = [
       "*.config.js",
       "*.config.mjs",
       "*.config.ts",
+      "**/*.config.js",
+      "**/*.config.mjs",
+      "**/*.config.ts",
       "postcss.config.js",
 
       // Test files
