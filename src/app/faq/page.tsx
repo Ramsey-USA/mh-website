@@ -1,5 +1,6 @@
 import { PageTrackingClient } from "@/components/analytics";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
@@ -9,7 +10,6 @@ import {
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
-import { NextStepsSection } from "@/components/shared-sections";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
@@ -21,6 +21,16 @@ import {
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
 import { faqCategories, type FAQQuestion } from "@/lib/data/faq-data";
+
+// NextStepsSection uses useLocale (client hook) and sits at the bottom of the
+// page. Dynamic import keeps its JS out of the page's critical bundle.
+const NextStepsSection = dynamic(
+  () =>
+    import("@/components/shared-sections").then((m) => ({
+      default: m.NextStepsSection,
+    })),
+  { ssr: true },
+);
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.faq);
 

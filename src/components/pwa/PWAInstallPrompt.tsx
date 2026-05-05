@@ -42,12 +42,15 @@ export function PWAInstallPrompt() {
     }
 
     // Listen for the beforeinstallprompt event
+    // Track the timeout so it can be canceled if the component unmounts before
+    // the 3-second delay fires (prevents a stale state update).
+    let showPromptTimerId: ReturnType<typeof setTimeout> | undefined;
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
 
       // Show prompt after a delay (better UX)
-      setTimeout(() => {
+      showPromptTimerId = setTimeout(() => {
         setShowPrompt(true);
       }, 3000);
     };
@@ -90,6 +93,9 @@ export function PWAInstallPrompt() {
         handleBeforeInstallPrompt,
       );
       globalThis.removeEventListener("appinstalled", handleAppInstalled);
+      if (showPromptTimerId !== undefined) {
+        clearTimeout(showPromptTimerId);
+      }
     };
   }, [pathname]);
 

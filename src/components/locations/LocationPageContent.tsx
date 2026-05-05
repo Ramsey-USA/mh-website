@@ -11,8 +11,7 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
-import { COMPANY_INFO } from "@/lib/constants/company";
-import { WaVobBadge } from "@/components/ui/WaVobBadge";
+import { AccreditationsLogoRow } from "@/components/shared-sections";
 import { CORE_VALUE_ICONS } from "@/lib/constants/navigation-icons";
 import { type LocationData } from "@/lib/data/locations";
 
@@ -573,75 +572,7 @@ export function LocationPageContent({ location }: Readonly<LocationPageProps>) {
                 Our credentials reflect our commitment to quality, ethics, and
                 safety
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-                {/* BBB Accredited A+ */}
-                <a
-                  href={COMPANY_INFO.bbb.sealClickUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity"
-                  title="BBB Accredited Business - A+ Rating"
-                >
-                  {}
-                  <img
-                    src={COMPANY_INFO.bbb.sealHorizontal}
-                    alt="BBB Accredited Business A+ Rating"
-                    className="h-10 sm:h-12 w-auto dark:hidden"
-                    loading="lazy"
-                  />
-                  {}
-                  <img
-                    src={COMPANY_INFO.bbb.sealHorizontalWhite}
-                    alt="BBB Accredited Business A+ Rating"
-                    className="h-10 sm:h-12 w-auto hidden dark:block"
-                    loading="lazy"
-                  />
-                </a>
-
-                {/* AGC Member */}
-                <a
-                  href="https://www.agcwa.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity"
-                  title="AGC of Washington Member"
-                >
-                  {}
-                  <img
-                    src="/images/logo/agc-member.webp"
-                    alt="AGC of Washington Member"
-                    className="h-10 sm:h-12 w-auto"
-                    loading="lazy"
-                  />
-                </a>
-
-                {/* Travelers Insurance Partner */}
-                <a
-                  href={COMPANY_INFO.travelers.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity"
-                  title="Travelers Insurance - Auto & Bonding Partner"
-                >
-                  {}
-                  <img
-                    src={COMPANY_INFO.travelers.logo}
-                    alt="Travelers Insurance - Auto & Bonding Partner"
-                    className="h-10 sm:h-12 w-auto dark:hidden"
-                    loading="lazy"
-                  />
-                  {}
-                  <img
-                    src={COMPANY_INFO.travelers.logoWhite}
-                    alt="Travelers Insurance - Auto & Bonding Partner"
-                    className="h-10 sm:h-12 w-auto hidden dark:block"
-                    loading="lazy"
-                  />
-                </a>
-
-                {/* Washington State Veteran Owned Business */}
-                <WaVobBadge />
-              </div>
+              <AccreditationsLogoRow showChambers={false} />
             </div>
           </SectionContainer>
         </section>

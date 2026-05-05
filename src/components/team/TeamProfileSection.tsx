@@ -6,7 +6,8 @@ import { SkillsRadarChart } from "./SkillsRadarChart";
 import { Modal } from "@/components/ui/modals/Modal";
 import { type VintageTeamMember } from "@/lib/data/vintage-team";
 import { buildCertificationShowcase } from "@/lib/safety/certification-showcase";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useTheme } from "@/contexts/theme-context";
 function getSkillLevel(score: number): {
   level: string;
   color: string;
@@ -529,28 +530,11 @@ export function TeamProfileSection({
   member,
   index,
 }: Readonly<TeamProfileSectionProps>) {
-  // Track dark mode for chart colors
-  const [isDark, setIsDark] = useState(false);
+  // Use ThemeContext instead of a MutationObserver on document.documentElement.
+  // The context already tracks isDarkMode reactively — no DOM watcher needed.
+  const { isDarkMode: isDark } = useTheme();
   const [showPersonal, setShowPersonal] = useState(false);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
-
-  useEffect(() => {
-    // Check initial dark mode state
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains("dark"));
-    };
-
-    checkDarkMode();
-
-    // Watch for dark mode changes
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   const achievementBadges = buildAchievementBadges(member);
   const calibratedSkills = buildRoleCalibratedSkills(member);

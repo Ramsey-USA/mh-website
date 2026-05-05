@@ -3,10 +3,10 @@
    Heading / Subheading: Mendl Sans Dusk
    Body: DIN 2014
    Served via Adobe Fonts (Typekit) kit jqs8bjh
-   Must be declared FIRST so the @import url() rule
-   precedes all generated rules from Tailwind/etc.
+   Loaded via <link rel="stylesheet"> in layout.tsx so the browser
+   fetches it in parallel with this file instead of sequentially
+   via a render-blocking @import chain.
    ============================================ */
-@import url("https://use.typekit.net/jqs8bjh.css");
 
 /* Import CSS variables for cohesive design system */
 @import "../styles/variables.css";
@@ -735,6 +735,18 @@ main {
 
 /* Scroll-triggered animations */
 @keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Alias used by .scroll-reveal CSS-only path (must match slideUp) */
+@keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(30px);

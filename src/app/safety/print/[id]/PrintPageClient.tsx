@@ -629,7 +629,11 @@ export default function PrintPageClient() {
               <img
                 src={COMPANY_INFO.bbb.sealHorizontal}
                 alt="BBB Accredited A+"
+                width={200}
+                height={42}
                 className="h-6 w-auto print:h-5"
+                loading="lazy"
+                decoding="async"
               />
               {/* AGC Logo */}
               <Image

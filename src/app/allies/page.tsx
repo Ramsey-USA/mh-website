@@ -1,14 +1,32 @@
 import { PageTrackingClient } from "@/components/analytics";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { type VendorPlatform } from "@/components/allies/VendorPlatformLink";
-import { TradeGroupCarousel } from "@/components/allies/TradeGroupCarousel";
+
+// TradeGroupCarousel is a 347-line interactive client component used deep
+// below the fold (line ~800). Dynamic import keeps it out of the critical path.
+const TradeGroupCarousel = dynamic(
+  () =>
+    import("@/components/allies/TradeGroupCarousel").then((m) => ({
+      default: m.TradeGroupCarousel,
+    })),
+  { ssr: true },
+);
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
-import { StaggeredFadeIn } from "@/components/animations/FramerMotionComponents";
+// StaggeredFadeIn is a client animation component. Dynamic import keeps its
+// JS out of the critical bundle; its use in this page is below the fold (~line 625).
+const StaggeredFadeIn = dynamic(
+  () =>
+    import("@/components/animations/FramerMotionComponents").then((m) => ({
+      default: m.StaggeredFadeIn,
+    })),
+  { ssr: true },
+);
 import { PageNavigation } from "@/components/navigation/PageNavigation";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
@@ -18,7 +36,7 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { WaVobBadge } from "@/components/ui/WaVobBadge";
+import { AccreditationsLogoRow } from "@/components/shared-sections";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.allies);
 
@@ -926,134 +944,7 @@ export default function AlliesPage() {
               Our accreditations reflect our commitment to quality, ethics, and
               safety
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-              {/* BBB Accredited A+ */}
-              {}
-              <a
-                href={COMPANY_INFO.bbb.sealClickUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
-                title="BBB Accredited Business - A+ Rating"
-              >
-                {}
-                <img
-                  src={COMPANY_INFO.bbb.sealHorizontal}
-                  alt="BBB Accredited Business A+ Rating"
-                  className="h-10 sm:h-12 w-auto dark:hidden"
-                  loading="lazy"
-                />
-                {}
-                <img
-                  src={COMPANY_INFO.bbb.sealHorizontalWhite}
-                  alt="BBB Accredited Business A+ Rating"
-                  className="h-10 sm:h-12 w-auto hidden dark:block"
-                  loading="lazy"
-                />
-              </a>
-
-              {/* AGC Member */}
-              <a
-                href="https://www.agcwa.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
-                title="AGC of Washington Member"
-              >
-                {}
-                <img
-                  src="/images/logo/agc-member.webp"
-                  alt="AGC of Washington Member"
-                  className="h-10 sm:h-12 w-auto"
-                  loading="lazy"
-                />
-              </a>
-
-              {/* Travelers Insurance Partner */}
-              <a
-                href={COMPANY_INFO.travelers.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
-                title="Travelers Insurance - Auto & Bonding Partner"
-              >
-                {}
-                <img
-                  src={COMPANY_INFO.travelers.logo}
-                  alt="Travelers Insurance - Auto & Bonding Partner"
-                  className="h-10 sm:h-12 w-auto dark:hidden"
-                  loading="lazy"
-                />
-                {}
-                <img
-                  src={COMPANY_INFO.travelers.logoWhite}
-                  alt="Travelers Insurance - Auto & Bonding Partner"
-                  className="h-10 sm:h-12 w-auto hidden dark:block"
-                  loading="lazy"
-                />
-              </a>
-
-              {/* Pasco Chamber of Commerce */}
-              <a
-                href={COMPANY_INFO.chambers.pasco.memberDirectoryUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
-                title="Pasco Chamber of Commerce Member"
-              >
-                {}
-                <img
-                  src={COMPANY_INFO.chambers.pasco.logo}
-                  alt="Pasco Chamber of Commerce Member"
-                  className="h-10 sm:h-12 w-auto dark:hidden"
-                  loading="lazy"
-                />
-                {}
-                <img
-                  src={COMPANY_INFO.chambers.pasco.logoWhite}
-                  alt="Pasco Chamber of Commerce Member"
-                  className="h-10 sm:h-12 w-auto hidden dark:block"
-                  loading="lazy"
-                />
-              </a>
-
-              {/* Richland Chamber of Commerce */}
-              <a
-                href={COMPANY_INFO.chambers.richland.memberDirectoryUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
-                title="Richland Chamber of Commerce Member"
-              >
-                {}
-                <img
-                  src={COMPANY_INFO.chambers.richland.logo}
-                  alt="Richland Chamber of Commerce Member"
-                  className="h-10 sm:h-12 w-auto"
-                  loading="lazy"
-                />
-              </a>
-
-              {/* Tri-City Regional Chamber of Commerce */}
-              <a
-                href={COMPANY_INFO.chambers.triCityRegional.memberDirectoryUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
-                title="Tri-City Regional Chamber of Commerce Member"
-              >
-                {}
-                <img
-                  src={COMPANY_INFO.chambers.triCityRegional.logo}
-                  alt="Tri-City Regional Chamber of Commerce Member"
-                  className="h-10 sm:h-12 w-auto"
-                  loading="lazy"
-                />
-              </a>
-
-              {/* Washington State Veteran Owned Business */}
-              <WaVobBadge />
-            </div>
+            <AccreditationsLogoRow />
           </div>
         </section>
       </div>

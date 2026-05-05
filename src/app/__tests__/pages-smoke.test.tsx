@@ -134,6 +134,7 @@ jest.mock("@/components/navigation/navigationConfigs", () => ({
 jest.mock("@/components/shared-sections", () => ({
   NextStepsSection: () => null,
   TestimonialsSection: () => null,
+  AccreditationsLogoRow: () => null,
 }));
 
 jest.mock("@/components/seo/SeoMeta", () => ({

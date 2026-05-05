@@ -5,23 +5,18 @@ import userEvent from "@testing-library/user-event";
 import { TeamProfileSection } from "../TeamProfileSection";
 import type { VintageTeamMember } from "@/lib/data/vintage-team";
 
-class MockMutationObserver {
-  static lastInstance: MockMutationObserver | null = null;
+// Control isDarkMode between tests.  The factory is evaluated lazily so
+// mutating mockIsDarkMode before rerender causes useTheme to return the
+// updated value on the next render cycle.
+let mockIsDarkMode = false;
 
-  private callback: MutationCallback;
-
-  observe = jest.fn();
-  disconnect = jest.fn();
-
-  constructor(callback: MutationCallback) {
-    this.callback = callback;
-    MockMutationObserver.lastInstance = this;
-  }
-
-  trigger() {
-    this.callback([] as MutationRecord[], this as unknown as MutationObserver);
-  }
-}
+jest.mock("@/contexts/theme-context", () => ({
+  useTheme: () => ({
+    isDarkMode: mockIsDarkMode,
+    theme: "light",
+    setTheme: jest.fn(),
+  }),
+}));
 
 jest.mock("next/image", () => ({
   __esModule: true,
@@ -105,13 +100,8 @@ const baseMember: VintageTeamMember = {
 
 describe("TeamProfileSection", () => {
   beforeEach(() => {
-    Object.defineProperty(window, "MutationObserver", {
-      writable: true,
-      configurable: true,
-      value: MockMutationObserver,
-    });
+    mockIsDarkMode = false;
     document.documentElement.className = "";
-    MockMutationObserver.lastInstance = null;
   });
 
   it("renders key profile details, badges, rankings, and personal insights", async () => {
@@ -157,14 +147,18 @@ describe("TeamProfileSection", () => {
   });
 
   it("updates chart theme for dark mode and falls back to an icon avatar on image error", () => {
-    render(<TeamProfileSection member={baseMember} index={0} />);
+    const { rerender } = render(
+      <TeamProfileSection member={baseMember} index={0} />,
+    );
 
     expect(screen.getByAltText("Alex Builder")).toBeInTheDocument();
 
+    // Simulate theme context switching to dark mode and re-render.
     act(() => {
+      mockIsDarkMode = true;
       document.documentElement.classList.add("dark");
-      MockMutationObserver.lastInstance?.trigger();
     });
+    rerender(<TeamProfileSection member={baseMember} index={0} />);
 
     expect(screen.getByText("Chart theme: dark")).toBeInTheDocument();
 

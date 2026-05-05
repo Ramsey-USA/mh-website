@@ -1,21 +1,29 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { PageTrackingClient } from "@/components/analytics";
-import { COMPANY_INFO } from "@/lib/constants/company";
-import { WaVobBadge } from "@/components/ui/WaVobBadge";
 import { Button, IconContainer } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
-import { FadeInWhenVisible } from "@/components/animations/FramerMotionComponents";
+// FadeInWhenVisible is a client animation component. Dynamic import keeps its
+// JS out of the critical bundle since all its usage in this page is below fold.
+const FadeInWhenVisible = dynamic(
+  () =>
+    import("@/components/animations/FramerMotionComponents").then((m) => ({
+      default: m.FadeInWhenVisible,
+    })),
+  { ssr: true },
+);
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+import { AccreditationsLogoRow } from "@/components/shared-sections";
+import { COMPANY_INFO } from "@/lib/constants/company";
 // Above-fold: static — hero needs to paint immediately for LCP
 import {
   ServicesHero,
@@ -805,68 +813,7 @@ export default function ServicesPage() {
             <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
               Accredited & Certified
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-              <a
-                href={COMPANY_INFO.bbb.sealClickUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="BBB Accredited Business - A+ Rating"
-                className="transition-transform hover:scale-105"
-              >
-                {}
-                <img
-                  src={COMPANY_INFO.bbb.sealHorizontal}
-                  alt="BBB Accredited A+ Rating"
-                  loading="lazy"
-                  className="h-12 w-auto dark:hidden"
-                />
-                {}
-                <img
-                  src={COMPANY_INFO.bbb.sealHorizontalWhite}
-                  alt="BBB Accredited A+ Rating"
-                  loading="lazy"
-                  className="h-12 w-auto hidden dark:block"
-                />
-              </a>
-              <a
-                href="https://www.agcwa.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="AGC of Washington Member"
-                className="transition-transform hover:scale-105"
-              >
-                {}
-                <img
-                  src="/images/logo/agc-member.webp"
-                  alt="AGC of Washington Member"
-                  loading="lazy"
-                  className="h-12 w-auto"
-                />
-              </a>
-              <a
-                href={COMPANY_INFO.travelers.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Travelers Insurance - Auto & Bonding Partner"
-                className="transition-transform hover:scale-105"
-              >
-                {}
-                <img
-                  src={COMPANY_INFO.travelers.logo}
-                  alt="Travelers Insurance - Auto & Bonding Partner"
-                  loading="lazy"
-                  className="h-10 w-auto dark:hidden"
-                />
-                {}
-                <img
-                  src={COMPANY_INFO.travelers.logoWhite}
-                  alt="Travelers Insurance - Auto & Bonding Partner"
-                  loading="lazy"
-                  className="h-10 w-auto hidden dark:block"
-                />
-              </a>
-              {/* Washington State Veteran Owned Business */}
-              <WaVobBadge />
+            <AccreditationsLogoRow showChambers={false}>
               <div className="flex items-center gap-2 px-4 py-2 bg-brand-primary/10 dark:bg-brand-primary/20 rounded-full">
                 <MaterialIcon
                   icon="verified_user"
@@ -877,7 +824,7 @@ export default function ServicesPage() {
                   WA · OR · ID Licensed
                 </span>
               </div>
-            </div>
+            </AccreditationsLogoRow>
           </div>
         </section>
 

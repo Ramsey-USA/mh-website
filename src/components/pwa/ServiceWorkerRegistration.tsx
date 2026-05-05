@@ -83,6 +83,9 @@ export function ServiceWorkerRegistration({
     }
 
     let refreshing = false;
+    // Tracked so we can cancel it in the effect cleanup and avoid multiple
+    // intervals accumulating if the component ever re-mounts.
+    let updateIntervalId: ReturnType<typeof setInterval> | undefined;
 
     const performRegistration = () => {
       // Register service worker
@@ -96,7 +99,7 @@ export function ServiceWorkerRegistration({
           requestRegisteredOfflineBundle(reg);
 
           // Check for updates every hour
-          setInterval(
+          updateIntervalId = setInterval(
             () => {
               reg.update();
             },
@@ -216,7 +219,9 @@ export function ServiceWorkerRegistration({
     });
 
     return () => {
-      // Cleanup if needed
+      if (updateIntervalId !== undefined) {
+        clearInterval(updateIntervalId);
+      }
     };
   }, [onUpdateAvailable, onInstalled, onError, registration]);
 

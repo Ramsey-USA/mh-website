@@ -78,11 +78,17 @@ export function SemiquincentennialBanner() {
   const animFrameRef = useRef<number | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Compute the real countdown on mount (post-hydration), then tick every second
+  // Compute the real countdown on mount (post-hydration), then tick every second.
+  // The interval is cleared as soon as isPast becomes true to avoid pointless
+  // re-renders after the celebration date has passed.
   useEffect(() => {
     setMounted(true);
     setTimeLeft(getTimeLeft());
-    const id = setInterval(() => setTimeLeft(getTimeLeft()), 1_000);
+    const id = setInterval(() => {
+      const t = getTimeLeft();
+      setTimeLeft(t);
+      if (t.isPast) clearInterval(id);
+    }, 1_000);
     return () => clearInterval(id);
   }, []);
 

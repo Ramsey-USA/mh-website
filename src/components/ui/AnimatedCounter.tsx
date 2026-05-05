@@ -61,6 +61,9 @@ export function AnimatedCounter({
   // Use ref instead of state to avoid an extra re-render when animation completes
   const hasAnimated = useRef(false);
   const ref = useRef<HTMLSpanElement>(null);
+  // Track the in-flight rAF so we can cancel it on unmount and avoid
+  // scheduling frames after the component has been removed from the tree.
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (hasAnimated.current) return;
@@ -87,17 +90,24 @@ export function AnimatedCounter({
         setCount(value * easeProgress);
 
         if (progress < 1) {
-          requestAnimationFrame(animate);
+          rafRef.current = requestAnimationFrame(animate);
+        } else {
+          rafRef.current = null;
         }
       };
 
-      requestAnimationFrame(animate);
+      rafRef.current = requestAnimationFrame(animate);
       hasAnimated.current = true;
     };
 
     if (animateOnMount) {
       animateValue();
-      return;
+      return () => {
+        if (rafRef.current !== null) {
+          cancelAnimationFrame(rafRef.current);
+          rafRef.current = null;
+        }
+      };
     }
 
     const observer = new IntersectionObserver(
@@ -116,6 +126,10 @@ export function AnimatedCounter({
 
     return () => {
       if (currentRef) observer.unobserve(currentRef);
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
     };
   }, [animateOnMount, value, duration]);
 

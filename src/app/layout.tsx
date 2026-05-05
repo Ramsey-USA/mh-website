@@ -215,6 +215,14 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link rel="dns-prefetch" href="https://use.typekit.net" />
+        {/* Load Adobe Fonts stylesheet as a <link> so the browser can fetch it
+            in parallel with globals.css, rather than as a render-blocking
+            @import discovered only after globals.css is fully downloaded. */}
+        <link
+          rel="stylesheet"
+          href="https://use.typekit.net/jqs8bjh.css"
+          crossOrigin="anonymous"
+        />
         {/* Preload self-hosted Material Icons font for optimal performance */}
         <link
           rel="preload"
