@@ -9,6 +9,7 @@
     "build": "pnpm --filter @mhc/website build",
     "build:dashboard": "pnpm --filter @mhc/dashboard build",
     "build:all": "pnpm --filter './apps/*' build",
+    "deploy": "pnpm --filter @mhc/website deploy",
     "lint": "pnpm --filter './apps/*' lint",
     "lint:fix": "pnpm --filter './apps/*' lint:fix",
     "type-check": "pnpm --filter './apps/*' type-check",
