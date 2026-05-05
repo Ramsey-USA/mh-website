@@ -32,6 +32,7 @@ import { readFile, writeFile } from "fs/promises";
 import { existsSync } from "fs";
 import { dirname, join, resolve } from "path";
 import { fileURLToPath } from "url";
+import sanitizeHtml from "sanitize-html";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
@@ -59,7 +60,31 @@ function wordCount(html) {
 
 function extractPreviewHtml(body, maxWords = 250) {
   if (!body || typeof body !== "string") return "";
-  const safe = body.replace(SCRIPT_OR_STYLE, "");
+  const safe = sanitizeHtml(body, {
+    allowedTags: [
+      "h1",
+      "h2",
+      "h3",
+      "h4",
+      "h5",
+      "h6",
+      "p",
+      "ul",
+      "ol",
+      "li",
+      "strong",
+      "em",
+      "b",
+      "i",
+      "a",
+      "br",
+    ],
+    allowedAttributes: {
+      a: ["href", "title"],
+    },
+    allowedSchemes: ["http", "https", "mailto"],
+    disallowedTagsMode: "discard",
+  });
 
   const matches = [];
   HEADING_TAG.lastIndex = 0;
