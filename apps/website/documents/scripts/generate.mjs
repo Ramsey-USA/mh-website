@@ -908,6 +908,9 @@ async function addFillableFieldsToLetterhead(pdfPath) {
     const targetPage = opts.page || page;
     const field = form.createTextField(name);
     if (opts.multiline) field.enableMultiline();
+    // Lock the field to its visible box: no scrolling, no auto-grow.
+    // Users typing past the bottom of lh.body must continue on lh.body2.
+    field.disableScrolling();
     const widgetH = opts.multiline
       ? hIn
       : Math.max(0.12, hIn - singleLineInsetBottom);
