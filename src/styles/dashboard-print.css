@@ -60,6 +60,16 @@
     margin-bottom: 12px !important;
   }
 
+  /* SSSP inline panel — show content, hide interactive controls */
+  [data-print-scope="dashboard"] [data-sssp-panel="true"] {
+    page-break-inside: avoid;
+    border: 1px solid #cccccc !important;
+    border-radius: 4px !important;
+    padding: 12px !important;
+    margin-top: 4px !important;
+    margin-bottom: 8px !important;
+  }
+
   /* Dashboard content uses many gradient backgrounds — neutralize. */
   [data-print-scope="dashboard"] .bg-gradient-to-br,
   [data-print-scope="dashboard"] .bg-gradient-to-r {

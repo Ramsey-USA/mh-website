@@ -17,16 +17,21 @@ import {
   outstandingJobs,
   SAFETY_DOWNLOADS_CSV_HEADERS,
   SAFETY_SUBMISSIONS_CSV_HEADERS,
+  SSSP_CSV_HEADERS,
   safetyDownloadsCsvRows,
   safetySubmissionsCsvRows,
+  ssspCsvRows,
   STATUS_COLORS,
   submissionsByFormType,
   type DownloadLogResponse,
   type Job,
   type JobsResponse,
   type JobStatus,
+  type SsspRecord,
   type SubmissionsResponse,
+  type Submission,
 } from "@/lib/dashboard/safety";
+import { SsspPanel } from "./SsspPanel";
 
 const SafetyBarChart = dynamic(
   () => import("./SafetyBarChart").then((m) => ({ default: m.SafetyBarChart })),
@@ -241,6 +246,9 @@ export function SafetyTab({ token }: SafetyTabProps) {
   const [filterFormType, setFilterFormType] = useState("");
   const [filterStatus, setFilterStatus] = useState("");
   const [updatingId, setUpdatingId] = useState<string | null>(null);
+  const [expandedSsspJobId, setExpandedSsspJobId] = useState<string | null>(
+    null,
+  );
 
   const jobsQuery = useAdminTabData<JobsResponse>(
     token,
@@ -295,6 +303,24 @@ export function SafetyTab({ token }: SafetyTabProps) {
   const downloadsCsv = useMemo(
     () => safetyDownloadsCsvRows(downloadLog),
     [downloadLog],
+  );
+
+  // SSSP records are fetched per-job in SsspPanel; we keep a lightweight
+  // aggregated list here just for the CSV export and the pipeline badge.
+  // The list is derived lazily so it doesn't add a network request at mount.
+  const [ssspRecords, setSsspRecords] = useState<ReadonlyArray<SsspRecord>>([]);
+  const ssspReadyCount = ssspRecords.filter((r) => r.status === "ready").length;
+  const ssspCsv = useMemo(() => ssspCsvRows(ssspRecords), [ssspRecords]);
+
+  const handleSsspPanelLoaded = useCallback(
+    (jobId: string, record: SsspRecord | null) => {
+      if (!record) return;
+      setSsspRecords((prev) => {
+        const filtered = prev.filter((r) => r.job_id !== jobId);
+        return [...filtered, record];
+      });
+    },
+    [],
   );
 
   const patchJobStatus = useCallback(
@@ -427,8 +453,16 @@ export function SafetyTab({ token }: SafetyTabProps) {
                     <JobRow
                       key={job.id}
                       job={job}
+                      token={token}
                       updating={updatingId === job.id}
                       onPatchStatus={patchJobStatus}
+                      ssspExpanded={expandedSsspJobId === job.id}
+                      onToggleSssp={() =>
+                        setExpandedSsspJobId((prev) =>
+                          prev === job.id ? null : job.id,
+                        )
+                      }
+                      onSsspLoaded={handleSsspPanelLoaded}
                     />
                   ))}
                 </tbody>
@@ -509,6 +543,17 @@ export function SafetyTab({ token }: SafetyTabProps) {
               </span>
             </div>
           ))}
+          {ssspReadyCount > 0 && (
+            <div className="inline-flex items-center gap-2 px-4 py-2 border rounded-xl text-yellow-400 border-yellow-600 bg-yellow-900/30">
+              <MaterialIcon icon="description" size="sm" />
+              <span className="text-xl font-black leading-none">
+                {ssspReadyCount}
+              </span>
+              <span className="text-xs font-semibold uppercase tracking-wide">
+                SSSP Ready
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Submissions by type chart */}
@@ -640,6 +685,13 @@ export function SafetyTab({ token }: SafetyTabProps) {
             DOWNLOAD LOG
           </h2>
           <div data-print-hide="true" className="flex items-center gap-2">
+            {ssspCsv.length > 0 && (
+              <ExportCsvButton
+                filename={`mh-sssp-audit-${new Date().toISOString().slice(0, 10)}.csv`}
+                headers={SSSP_CSV_HEADERS}
+                rows={ssspCsv}
+              />
+            )}
             <ExportCsvButton
               filename={`mh-safety-downloads-${new Date().toISOString().slice(0, 10)}.csv`}
               headers={SAFETY_DOWNLOADS_CSV_HEADERS}
@@ -744,78 +796,120 @@ export function SafetyTab({ token }: SafetyTabProps) {
 
 interface JobRowProps {
   readonly job: Job;
+  readonly token: string;
   readonly updating: boolean;
   readonly onPatchStatus: (
     jobId: string,
     status: JobStatus,
   ) => void | Promise<void>;
+  readonly ssspExpanded: boolean;
+  readonly onToggleSssp: () => void;
+  readonly onSsspLoaded: (jobId: string, record: SsspRecord | null) => void;
 }
 
-function JobRow({ job, updating, onPatchStatus }: JobRowProps) {
+function JobRow({
+  job,
+  token,
+  updating,
+  onPatchStatus,
+  ssspExpanded,
+  onToggleSssp,
+  onSsspLoaded: _onSsspLoaded,
+}: JobRowProps) {
   return (
-    <tr className="hover:bg-gray-700/30 transition-colors">
-      <td className="px-4 py-3 font-mono text-brand-secondary font-bold">
-        {job.job_number}
-      </td>
-      <td className="px-4 py-3 text-white font-semibold">{job.job_name}</td>
-      <td className="px-4 py-3 text-gray-400">{job.location ?? "—"}</td>
-      <td className="px-4 py-3 text-gray-400">{job.pm_name ?? "—"}</td>
-      <td className="px-4 py-3 text-gray-400">{job.super_name ?? "—"}</td>
-      <td className="px-4 py-3">
-        <span
-          className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold border uppercase ${JOB_STATUS_COLORS[job.status] ?? ""}`}
-        >
-          {job.status}
-        </span>
-      </td>
-      <td data-print-hide="true" className="px-4 py-3">
-        <div className="flex items-center gap-1">
-          {job.status !== "closed" && (
+    <>
+      <tr className="hover:bg-gray-700/30 transition-colors">
+        <td className="px-4 py-3 font-mono text-brand-secondary font-bold">
+          {job.job_number}
+        </td>
+        <td className="px-4 py-3 text-white font-semibold">{job.job_name}</td>
+        <td className="px-4 py-3 text-gray-400">{job.location ?? "—"}</td>
+        <td className="px-4 py-3 text-gray-400">{job.pm_name ?? "—"}</td>
+        <td className="px-4 py-3 text-gray-400">{job.super_name ?? "—"}</td>
+        <td className="px-4 py-3">
+          <span
+            className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold border uppercase ${JOB_STATUS_COLORS[job.status] ?? ""}`}
+          >
+            {job.status}
+          </span>
+        </td>
+        <td data-print-hide="true" className="px-4 py-3">
+          <div className="flex items-center gap-1">
             <button
               type="button"
-              onClick={() => void onPatchStatus(job.id, "closed")}
-              disabled={updating}
-              title="Close job"
-              aria-label={`Close job ${job.job_number}`}
-              className="p-1.5 rounded-lg text-gray-400 hover:text-yellow-400 hover:bg-yellow-900/30 transition-colors disabled:opacity-40"
+              onClick={onToggleSssp}
+              title={ssspExpanded ? "Close SSSP" : "Open SSSP"}
+              aria-label={`${ssspExpanded ? "Close" : "Open"} SSSP for ${job.job_number}`}
+              aria-expanded={ssspExpanded}
+              className={`p-1.5 rounded-lg transition-colors ${
+                ssspExpanded
+                  ? "text-brand-secondary bg-brand-primary/20"
+                  : "text-gray-400 hover:text-brand-secondary hover:bg-brand-primary/10"
+              }`}
             >
-              <MaterialIcon icon="check_circle" size="sm" />
+              <MaterialIcon icon="description" size="sm" />
             </button>
-          )}
-          {job.status !== "active" && (
-            <button
-              type="button"
-              onClick={() => void onPatchStatus(job.id, "active")}
-              disabled={updating}
-              title="Reactivate job"
-              aria-label={`Reactivate job ${job.job_number}`}
-              className="p-1.5 rounded-lg text-gray-400 hover:text-green-400 hover:bg-green-900/30 transition-colors disabled:opacity-40"
-            >
-              <MaterialIcon icon="play_circle" size="sm" />
-            </button>
-          )}
-          {job.status !== "archived" && (
-            <button
-              type="button"
-              onClick={() => void onPatchStatus(job.id, "archived")}
-              disabled={updating}
-              title="Archive job"
-              aria-label={`Archive job ${job.job_number}`}
-              className="p-1.5 rounded-lg text-gray-400 hover:text-red-400 hover:bg-red-900/30 transition-colors disabled:opacity-40"
-            >
-              <MaterialIcon icon="archive" size="sm" />
-            </button>
-          )}
-        </div>
-      </td>
-    </tr>
+            {job.status !== "closed" && (
+              <button
+                type="button"
+                onClick={() => void onPatchStatus(job.id, "closed")}
+                disabled={updating}
+                title="Close job"
+                aria-label={`Close job ${job.job_number}`}
+                className="p-1.5 rounded-lg text-gray-400 hover:text-yellow-400 hover:bg-yellow-900/30 transition-colors disabled:opacity-40"
+              >
+                <MaterialIcon icon="check_circle" size="sm" />
+              </button>
+            )}
+            {job.status !== "active" && (
+              <button
+                type="button"
+                onClick={() => void onPatchStatus(job.id, "active")}
+                disabled={updating}
+                title="Reactivate job"
+                aria-label={`Reactivate job ${job.job_number}`}
+                className="p-1.5 rounded-lg text-gray-400 hover:text-green-400 hover:bg-green-900/30 transition-colors disabled:opacity-40"
+              >
+                <MaterialIcon icon="play_circle" size="sm" />
+              </button>
+            )}
+            {job.status !== "archived" && (
+              <button
+                type="button"
+                onClick={() => void onPatchStatus(job.id, "archived")}
+                disabled={updating}
+                title="Archive job"
+                aria-label={`Archive job ${job.job_number}`}
+                className="p-1.5 rounded-lg text-gray-400 hover:text-red-400 hover:bg-red-900/30 transition-colors disabled:opacity-40"
+              >
+                <MaterialIcon icon="archive" size="sm" />
+              </button>
+            )}
+          </div>
+        </td>
+      </tr>
+      {ssspExpanded && (
+        <tr>
+          <td
+            colSpan={JOB_TABLE_HEADERS.length}
+            className="p-0 border-b border-gray-700/50"
+          >
+            <SsspPanel
+              token={token}
+              jobId={job.id}
+              jobNumber={job.job_number}
+            />
+          </td>
+        </tr>
+      )}
+    </>
   );
 }
 
 // ─── Submission Row ───────────────────────────────────────────────────────────
 
 interface SubmissionRowProps {
-  readonly submission: import("@/lib/dashboard/safety").Submission;
+  readonly submission: Submission;
   readonly updating: boolean;
   readonly onPatchStatus: (
     subId: string,

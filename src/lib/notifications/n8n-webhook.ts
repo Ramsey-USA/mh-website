@@ -13,7 +13,8 @@ export type FormType =
   | "newsletter"
   | "job-application"
   | "safety-form"
-  | "testimonial-publish";
+  | "testimonial-publish"
+  | "sssp-generate";
 
 export interface N8nWebhookPayload {
   type: FormType;

@@ -204,3 +204,73 @@ export function safetyDownloadsCsvRows(
     e.job_id ?? "",
   ]);
 }
+
+// ─── SSSP types and helpers ───────────────────────────────────────────────────
+
+export type SsspStatus = "draft" | "generating" | "ready" | "approved";
+
+export interface SsspRecord {
+  readonly id: string;
+  readonly job_id: string;
+  readonly status: SsspStatus;
+  readonly content: string | null;
+  readonly r2_key: string | null;
+  readonly generated_at: string | null;
+  readonly approved_by: string | null;
+  readonly approved_at: string | null;
+  readonly notes: string | null;
+  readonly created_at: string;
+  readonly updated_at: string;
+}
+
+export interface SsspSourceFile {
+  readonly id: string;
+  readonly job_id: string;
+  readonly sssp_id: string | null;
+  readonly original_filename: string;
+  readonly file_key: string;
+  readonly content_type: string;
+  readonly file_size: number;
+  readonly uploaded_by: string;
+  readonly uploaded_at: string;
+}
+
+export const SSSP_STATUS_LABELS: Readonly<Record<SsspStatus, string>> = {
+  draft: "Draft",
+  generating: "Generating…",
+  ready: "Ready for Review",
+  approved: "Approved",
+};
+
+export const SSSP_STATUS_COLORS: Readonly<Record<SsspStatus, string>> = {
+  draft: "bg-gray-700/50 text-gray-400 border-gray-600",
+  generating: "bg-blue-900/50 text-blue-300 border-blue-600",
+  ready: "bg-yellow-900/50 text-yellow-300 border-yellow-600",
+  approved: "bg-green-900/50 text-green-300 border-green-600",
+};
+
+export function formatSsspStatus(status: SsspStatus): string {
+  return SSSP_STATUS_LABELS[status] ?? status;
+}
+
+export const SSSP_CSV_HEADERS = [
+  "Job ID",
+  "Status",
+  "Generated At",
+  "Approved By",
+  "Approved At",
+  "Notes",
+] as const;
+
+export function ssspCsvRows(
+  records: ReadonlyArray<SsspRecord>,
+): ReadonlyArray<ReadonlyArray<string>> {
+  return records.map((r) => [
+    r.job_id,
+    formatSsspStatus(r.status),
+    r.generated_at ?? "",
+    r.approved_by ?? "",
+    r.approved_at ?? "",
+    r.notes ?? "",
+  ]);
+}

@@ -3,15 +3,19 @@ import {
   computePipelineCounts,
   formatFormType,
   formatSafetyDate,
+  formatSsspStatus,
   outstandingJobs,
   recentToolboxJobIds,
   SAFETY_DOWNLOADS_CSV_HEADERS,
   SAFETY_SUBMISSIONS_CSV_HEADERS,
   safetyDownloadsCsvRows,
   safetySubmissionsCsvRows,
+  SSSP_CSV_HEADERS,
+  ssspCsvRows,
   submissionsByFormType,
   type DownloadLogEntry,
   type Job,
+  type SsspRecord,
   type Submission,
 } from "../safety";
 
@@ -166,6 +170,49 @@ describe("safety helpers", () => {
       const rows = safetyDownloadsCsvRows([makeDownload()]);
       expect(rows[0]).toHaveLength(SAFETY_DOWNLOADS_CSV_HEADERS.length);
       expect(rows[0]).toContain("");
+    });
+  });
+
+  describe("SSSP helpers", () => {
+    function makeSssp(overrides: Partial<SsspRecord> = {}): SsspRecord {
+      return {
+        id: "sssp1",
+        job_id: "j1",
+        status: "draft",
+        content: null,
+        r2_key: null,
+        generated_at: null,
+        approved_by: null,
+        approved_at: null,
+        notes: null,
+        created_at: "2026-05-01T00:00:00Z",
+        updated_at: "2026-05-01T00:00:00Z",
+        ...overrides,
+      };
+    }
+
+    it("formatSsspStatus returns friendly labels", () => {
+      expect(formatSsspStatus("draft")).toBe("Draft");
+      expect(formatSsspStatus("generating")).toBe("Generating…");
+      expect(formatSsspStatus("ready")).toBe("Ready for Review");
+      expect(formatSsspStatus("approved")).toBe("Approved");
+    });
+
+    it("ssspCsvRows column count matches header", () => {
+      const rows = ssspCsvRows([
+        makeSssp({ status: "approved", approved_by: "Admin" }),
+      ]);
+      expect(rows[0]).toHaveLength(SSSP_CSV_HEADERS.length);
+    });
+
+    it("ssspCsvRows fills empty strings for null fields", () => {
+      const rows = ssspCsvRows([makeSssp()]);
+      expect(rows[0]).toContain("");
+      // generated_at column (index 2) is null → should be empty string
+      const row = rows[0];
+      if (row) {
+        expect(row[2]).toBe(""); // generated_at null
+      }
     });
   });
 });
