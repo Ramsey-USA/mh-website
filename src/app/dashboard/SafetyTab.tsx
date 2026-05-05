@@ -814,7 +814,7 @@ function JobRow({
   onPatchStatus,
   ssspExpanded,
   onToggleSssp,
-  onSsspLoaded: _onSsspLoaded,
+  onSsspLoaded,
 }: JobRowProps) {
   return (
     <>
@@ -898,6 +898,7 @@ function JobRow({
               token={token}
               jobId={job.id}
               jobNumber={job.job_number}
+              onLoaded={onSsspLoaded}
             />
           </td>
         </tr>

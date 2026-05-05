@@ -83,6 +83,8 @@ async function handlePOST(request: NextRequest, context?: unknown) {
     if (r2Bucket) {
       const fileKey = generateFileKey("sssp-output", `${ssspId}.md`, jobId);
       const encoder = new TextEncoder();
+      // TextEncoder always produces a Uint8Array backed by a plain ArrayBuffer
+      // (never SharedArrayBuffer), so the assertion is safe here.
       const buffer = encoder.encode(content).buffer as ArrayBuffer;
 
       const uploadResult = await r2Service.uploadFile(

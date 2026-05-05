@@ -18,6 +18,7 @@ interface SsspPanelProps {
   readonly token: string;
   readonly jobId: string;
   readonly jobNumber: string;
+  readonly onLoaded?: (jobId: string, record: SsspRecord | null) => void;
 }
 
 interface SsspData {
@@ -35,7 +36,12 @@ interface UploadItem {
 
 // ─── SsspPanel ────────────────────────────────────────────────────────────────
 
-export function SsspPanel({ token, jobId, jobNumber }: SsspPanelProps) {
+export function SsspPanel({
+  token,
+  jobId,
+  jobNumber,
+  onLoaded,
+}: SsspPanelProps) {
   const [data, setData] = useState<SsspData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -61,6 +67,7 @@ export function SsspPanel({ token, jobId, jobNumber }: SsspPanelProps) {
       if (json.data.sssp) {
         setNotes(json.data.sssp.notes ?? "");
       }
+      onLoaded?.(jobId, json.data.sssp ?? null);
       return json.data;
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to load SSSP");
@@ -68,7 +75,7 @@ export function SsspPanel({ token, jobId, jobNumber }: SsspPanelProps) {
     } finally {
       setLoading(false);
     }
-  }, [token, jobId]);
+  }, [token, jobId, onLoaded]);
 
   // Poll when status is 'generating'
   useEffect(() => {
@@ -356,17 +363,29 @@ export function SsspPanel({ token, jobId, jobNumber }: SsspPanelProps) {
                 AI is generating the SSSP… this may take a minute.
               </div>
             ) : (
-              <button
-                type="button"
-                onClick={() => void handleGenerate()}
-                disabled={sourceFiles.length === 0 || isGenerating}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-brand-primary hover:bg-brand-primary-dark disabled:opacity-50 text-white text-sm font-black rounded-lg transition-colors"
-              >
-                <MaterialIcon icon="auto_awesome" size="sm" />
-                {sssp && sssp.status !== "draft"
-                  ? "Regenerate SSSP"
-                  : "Generate SSSP"}
-              </button>
+              <>
+                <button
+                  type="button"
+                  onClick={() => void handleGenerate()}
+                  disabled={sourceFiles.length === 0 || isGenerating}
+                  title={
+                    sourceFiles.length === 0
+                      ? "Upload at least one project plan file before generating"
+                      : undefined
+                  }
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-brand-primary hover:bg-brand-primary-dark disabled:opacity-50 text-white text-sm font-black rounded-lg transition-colors"
+                >
+                  <MaterialIcon icon="auto_awesome" size="sm" />
+                  {sssp && sssp.status !== "draft"
+                    ? "Regenerate SSSP"
+                    : "Generate SSSP"}
+                </button>
+                {sourceFiles.length === 0 && (
+                  <p className="mt-1.5 text-xs text-gray-500">
+                    Upload at least one project plan file to enable generation.
+                  </p>
+                )}
+              </>
             )}
           </div>
 
